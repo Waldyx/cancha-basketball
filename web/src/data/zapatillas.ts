@@ -197,22 +197,9 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 160,
     links_compra: [
-      {
-        tienda: "amazon_es",
-        url: "https://www.amazon.es/s?k=under+armour+curry+12",
-        precio_actual: 149.99,
-        disponible: true,
-        tiene_afiliado: false,
-        ultima_verificacion: "2026-05-13",
-      },
-      {
-        tienda: "jd_sports_es",
-        url: "https://www.jdsports.es/search/curry-12/",
-        precio_actual: 160,
-        disponible: true,
-        tiene_afiliado: false,
-        ultima_verificacion: "2026-05-13",
-      },
+      { tienda: "ua_es", url: "https://www.underarmour.com/es-es/c/zapatillas-de-baloncesto/?q=curry+12", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+curry+12+baloncesto", precio_actual: 149.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search/?q=curry+12", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
     ],
   },
 
@@ -497,22 +484,9 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 60,
     links_compra: [
-      {
-        tienda: "amazon_es",
-        url: "https://www.amazon.es/s?k=adidas+cross+em+up+select",
-        precio_actual: 54.99,
-        disponible: true,
-        tiene_afiliado: false,
-        ultima_verificacion: "2026-05-13",
-      },
-      {
-        tienda: "decathlon",
-        url: "https://www.decathlon.es/es/search?Ntt=adidas+cross+em+up",
-        precio_actual: 60,
-        disponible: true,
-        tiene_afiliado: false,
-        ultima_verificacion: "2026-05-13",
-      },
+      { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=cross+em+up+select", precio_actual: 55, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+cross+em+up+select", precio_actual: 54.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "decathlon", url: "https://www.decathlon.es/es/search?Ntt=adidas+cross+em+up", precio_actual: 60, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
     ],
   },
 
@@ -1304,8 +1278,9 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 140,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+fresh+foam+bb+v3", precio_actual: 139, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
-      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search/new-balance-bb-v3", precio_actual: 144.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "nb_es", url: "https://www.newbalance.es/search?q=fresh+foam+bb+v3", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+fresh+foam+bb+v3+baloncesto", precio_actual: 139, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search/?q=new+balance+bb+v3", precio_actual: 144.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
     ],
   },
 
@@ -1363,8 +1338,9 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 160,
     links_compra: [
-      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search/harden-vol-9", precio_actual: 159.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+harden+vol+9", precio_actual: 169, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=harden+vol+9", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search/?q=harden+vol+9", precio_actual: 159.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+harden+vol+9+baloncesto", precio_actual: 169, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=harden+vol+9", precio_actual: 159.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
     ],
   },
@@ -1422,8 +1398,9 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 95,
     links_compra: [
-      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search/dame-certified", precio_actual: 94.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+certified", precio_actual: 92, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=dame+certified", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search/?q=dame+certified", precio_actual: 94.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+certified+baloncesto", precio_actual: 92, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
     ],
   },
 
@@ -1661,8 +1638,9 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search/dame-9", precio_actual: 119.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+9", precio_actual: 124, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=dame+9", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search/?q=dame+9", precio_actual: 119.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+9+baloncesto", precio_actual: 124, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=dame+9", precio_actual: 119.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
     ],
   },
@@ -1716,8 +1694,9 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 65,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+cross+em+up+speed", precio_actual: 60, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
-      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search/cross-em-up-speed", precio_actual: 69.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=cross+em+up+speed", precio_actual: 60, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+cross+em+up+speed+baloncesto", precio_actual: 60, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search/?q=cross+em+up+speed", precio_actual: 69.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
     ],
   },
 
@@ -2062,9 +2041,10 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 185,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+xxxvii", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=air+jordan+xxxvii", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=air+jordan+xxxvii", precio_actual: 125, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=air+jordan+37&vst=air+jordan+37", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+xxxvii+baloncesto", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=air+jordan+37", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=air+jordan+37", precio_actual: 125, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
   },
 
@@ -2121,7 +2101,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 190,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+lebron+21", precio_actual: 135, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=lebron+21&vst=lebron+21", precio_actual: 135, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+lebron+21+baloncesto", precio_actual: 135, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=nike+lebron+21", precio_actual: 145, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+lebron+21", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
@@ -2179,7 +2160,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+zoom+freak+4", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=zoom+freak+4&vst=zoom+freak+4", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+zoom+freak+4+baloncesto", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=nike+zoom+freak+4", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+zoom+freak+4", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
@@ -2237,6 +2219,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 65,
     links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=giannis+immortality+3&vst=giannis+immortality+3", precio_actual: 50, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+giannis+immortality+3", precio_actual: 50, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=nike+giannis+immortality+3", precio_actual: 55, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
@@ -2349,8 +2332,9 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+mb.03+basketball", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=puma+mb+03", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "puma_es", url: "https://eu.puma.com/es/es/buscar?q=mb+03+baloncesto", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+mb03+baloncesto", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=puma+mb.03", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
   },
 
@@ -2404,7 +2388,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 100,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+flow+breakthru+4", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "ua_es", url: "https://www.underarmour.com/es-es/c/zapatillas-de-baloncesto/?q=flow+breakthru+4", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+flow+breakthru+4+baloncesto", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=under+armour+flow+breakthru+4", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
   },
@@ -2460,8 +2445,9 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 140,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ae+1+basketball", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=adidas+ae+1", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=ae+1+baloncesto", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ae+1+baloncesto", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=adidas+ae+1+baloncesto", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=adidas+ae+1", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
   },
@@ -2516,7 +2502,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 95,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+two+wxy+v4", precio_actual: 72, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "nb_es", url: "https://www.newbalance.es/search?q=two+wxy+v4", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+two+wxy+v4+baloncesto", precio_actual: 72, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=new+balance+two+wxy+v4", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
   },
@@ -2572,7 +2559,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 125,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=jordan+luka+2", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=luka+2&vst=luka+2", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=jordan+luka+2+baloncesto", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=jordan+luka+2", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=jordan+luka+2", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
@@ -2629,7 +2617,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+pg+6+basketball", precio_actual: 65, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=pg+6&vst=pg+6", precio_actual: 65, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+pg+6+baloncesto", precio_actual: 65, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=nike+pg+6", precio_actual: 72, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
   },
@@ -2685,7 +2674,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 150,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+gt+jump+2+basketball", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=gt+jump+2&vst=gt+jump+2", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+air+zoom+gt+jump+2", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=nike+gt+jump+2", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+gt+jump+2", precio_actual: 105, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
@@ -2920,9 +2910,10 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 145,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ae+2+basketball", precio_actual: 135, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=ae+2+baloncesto", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ae+2+baloncesto", precio_actual: 135, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=adidas+ae+2", precio_actual: 145, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=adidas+ae+2", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=adidas+ae+2+baloncesto", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
   },
 
@@ -3072,7 +3063,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=converse+shai+001+basketball", precio_actual: 125, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=converse+shai+001&vst=converse+shai+001", precio_actual: 125, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=converse+shai+001+baloncesto", precio_actual: 125, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=converse+shai+001", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=converse+shai+001", precio_actual: 128, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
@@ -3370,10 +3362,10 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "reebok_es", url: "https://www.reebok.com/es-es/question-mid", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=reebok+question+mid", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "reebok_es", url: "https://www.reebok.es/buscar?q=question+mid", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=reebok+question+mid", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+question+mid", precio_actual: 118, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=reebok+question+mid", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+question+mid+baloncesto", precio_actual: 118, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
   },
 
@@ -3442,9 +3434,10 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "reebok_es", url: "https://www.reebok.com/es-es/answer-iv", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "reebok_es", url: "https://www.reebok.es/buscar?q=answer+iv", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=reebok+answer+iv", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=reebok+answer+iv", precio_actual: 105, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+answer+iv", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+answer+iv+baloncesto", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
   },
 
@@ -3511,9 +3504,9 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "reebok_es", url: "https://www.reebok.com/es-es/engine-a", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "reebok_es", url: "https://www.reebok.es/buscar?q=engine+a", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=reebok+engine+a", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+engine+a+basketball", precio_actual: 112, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+engine+a+baloncesto", precio_actual: 112, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
   },
 ];

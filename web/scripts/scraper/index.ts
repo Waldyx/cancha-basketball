@@ -25,7 +25,10 @@ import { sprinter_es } from "./stores/sprinter_es.js";
 import { basket_world } from "./stores/basket_world.js";
 import { aliexpress } from "./stores/aliexpress.js";
 import { puma_es } from "./stores/puma_es.js";
-import { reebok_es, kickscrew } from "./stores/generic.js";
+import { ua_es } from "./stores/ua_es.js";
+import { nb_es } from "./stores/nb_es.js";
+import { reebok_es } from "./stores/reebok_es.js";
+import { kickscrew } from "./stores/generic.js";
 
 // Importar datos del catálogo directamente (bypasando el merge)
 import { createRequire } from "module";
@@ -65,6 +68,8 @@ const SCRAPERS: Record<string, StoreScraper> = {
   basket_world,
   aliexpress,
   puma_es,
+  ua_es,
+  nb_es,
   reebok_es,
   kickscrew,
 };

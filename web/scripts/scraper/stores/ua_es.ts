@@ -1,20 +1,20 @@
 /**
- * Scraper para Nike España (nike.com/es)
- * Estrategia: JSON-LD → CSS selectores Nike → búsqueda en grid
- * Soporta páginas de producto (/t/...) y búsquedas (/w?q=...)
+ * Scraper para Under Armour España (underarmour.com/es-es)
+ * Estrategia: JSON-LD → CSS selectores UA → búsqueda con match
  */
 import type { Page } from "playwright";
 import type { StoreScraper, ShoeRef, ScrapeResult } from "../types.js";
 import { matchesShoe, parsePrice, today } from "../matcher.js";
 
-const BASE_URL = "https://www.nike.com";
+const BASE_URL = "https://www.underarmour.com";
 
 async function acceptCookies(page: Page): Promise<void> {
   const btns = [
-    'button[id*="accept"]',
+    '#onetrust-accept-btn-handler',
     'button:has-text("Aceptar todo")',
     'button:has-text("Accept All")',
-    '#onetrust-accept-btn-handler',
+    'button:has-text("Aceptar")',
+    '[data-testid="cookie-accept"]',
   ];
   for (const sel of btns) {
     const btn = page.locator(sel).first();
@@ -26,12 +26,12 @@ async function acceptCookies(page: Page): Promise<void> {
   }
 }
 
-export const nike_es: StoreScraper = {
-  tienda: "nike_es",
+export const ua_es: StoreScraper = {
+  tienda: "ua_es",
 
   async scrape(page: Page, url: string, shoe: ShoeRef): Promise<ScrapeResult> {
     const base: ScrapeResult = {
-      tienda: "nike_es",
+      tienda: "ua_es",
       url,
       precio_actual: 0,
       disponible: false,
@@ -41,37 +41,31 @@ export const nike_es: StoreScraper = {
     try {
       await page.goto(url, { waitUntil: "domcontentloaded", timeout: 25000 });
       await acceptCookies(page);
+      await page.waitForTimeout(1500);
 
-      // ── Detectar si es búsqueda ─────────────────────────────────────────
       const isSearch =
-        url.includes("/w?") ||
-        url.includes("/w/") ||
-        url.includes("?q=") ||
-        url.includes("vst=");
+        url.includes("/search") || url.includes("?q=") || url.includes("&q=");
 
       if (isSearch) {
-        // Esperar grid de productos Nike
+        // Esperar tarjetas
         await page.waitForSelector(
-          '[data-testid="product-card"], [class*="product-card__body"], .product-card',
-          { timeout: 12000 }
+          '[data-testid="product-card"], [class*="ProductCard"], [class*="product-card"]',
+          { timeout: 10000 }
         ).catch(() => {});
 
         const cards = await page.$$(
-          '[data-testid="product-card"], .product-card__body, [class*="ProductCard"]'
+          '[data-testid="product-card"], [class*="ProductCard"], li[class*="product"]'
         );
 
         for (const card of cards.slice(0, 8)) {
           const titleEl = await card.$(
-            '[data-testid="product-subtitle"], [class*="product-card__title"], ' +
-            '[class*="headline"], h3, h4, [class*="title"]'
+            '[data-testid="product-name"], [class*="ProductName"], h3, h4, [class*="name"]'
           );
           const title = (await titleEl?.textContent()) ?? "";
           if (!matchesShoe(title, shoe.marca, shoe.modelo)) continue;
 
-          // Nike muestra precio en .product-card__price o similar
           const priceEl = await card.$(
-            '[data-testid="product-price"], [class*="product-card__price"], ' +
-            '[class*="headline--5"], [class*="price"]'
+            '[data-testid="product-price"], [class*="Price"]:not([class*="original"]), [class*="price"]:not([class*="original"])'
           );
           const priceText = (await priceEl?.textContent()) ?? "";
           const price = parsePrice(priceText);
@@ -89,10 +83,8 @@ export const nike_es: StoreScraper = {
         return { ...base, disponible: false };
       }
 
-      // ── Página de producto directa ──────────────────────────────────────
-      await page.waitForTimeout(1000);
-
-      // 1. JSON-LD (más fiable, Nike lo usa en el head)
+      // Producto directo
+      // 1. JSON-LD
       const scripts = await page.$$eval(
         'script[type="application/ld+json"]',
         (els) => els.map((el) => el.textContent ?? "")
@@ -105,25 +97,22 @@ export const nike_es: StoreScraper = {
             if (item["@type"] !== "Product") continue;
             const offers = Array.isArray(item.offers) ? item.offers : [item.offers];
             for (const offer of offers) {
-              const p =
-                parseFloat(offer?.price ?? "") ||
-                parseFloat(offer?.lowPrice ?? "") ||
-                0;
+              const p = parseFloat(offer?.price ?? "") || 0;
               if (p > 0) return { ...base, precio_actual: p, disponible: true };
             }
           }
         } catch { /* noop */ }
       }
 
-      // 2. CSS selectores específicos de Nike PDP
+      // 2. CSS selectores UA específicos
       const priceSelectors = [
         '[data-testid="product-price"]',
-        '[class*="product-price"]',
         '[class*="ProductPrice"]',
-        '.product-price',
-        '[class*="headline--5"]',  // Nike usa headline para precio
-        '[class*="css-b9fpep"]',   // clase generada por Nike (puede cambiar)
+        '[class*="product-price"]:not([class*="original"])',
+        '[class*="finalPrice"]',
+        '[class*="sale-price"]',
         '[itemprop="price"]',
+        '[class*="Price"]:not([class*="original"]):not([class*="was"])',
       ];
       for (const sel of priceSelectors) {
         const el = page.locator(sel).first();

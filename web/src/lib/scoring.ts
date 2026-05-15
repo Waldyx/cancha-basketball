@@ -323,6 +323,8 @@ export const COMISIONES_TIENDA: Record<string, number> = {
   basket_world: 7,
   puma_es: 6,
   reebok_es: 6,
+  ua_es: 5,
+  nb_es: 5,
   nike_es: 5,
   adidas_es: 5,
   jd_sports_es: 5,
