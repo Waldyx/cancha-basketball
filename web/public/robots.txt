@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Páginas dinámicas que dependen de sessionStorage (vacías sin contexto)
+Disallow: /resultados
+Disallow: /comparar
+
+Sitemap: https://cancha.example/sitemap-index.xml

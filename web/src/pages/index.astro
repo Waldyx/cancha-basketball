@@ -1,0 +1,274 @@
+---
+import Base from "../layouts/Base.astro";
+import { zapatillas } from "../data/zapatillas";
+import { findMejorPrecio } from "../lib/scoring";
+
+// Top 3 por score global
+function scoreGlobal(z: (typeof zapatillas)[0]): number {
+  const vals = Object.values(z.puntuaciones);
+  return vals.reduce((a, b) => a + b, 0) / vals.length;
+}
+
+const top3 = [...zapatillas]
+  .sort((a, b) => scoreGlobal(b) - scoreGlobal(a))
+  .slice(0, 3);
+---
+
+<Base title="Cancha — Tu zapatilla de baloncesto, sin BS">
+  <main class="min-h-screen bg-zinc-950 text-white">
+    <!-- Franja superior gradient -->
+    <div class="h-1.5 bg-gradient-to-r from-orange-500 via-yellow-400 to-orange-500"></div>
+
+    <header class="px-6 py-5 border-b border-zinc-800">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <a href="/" class="text-2xl font-black tracking-tighter">
+          CANCHA<span class="text-orange-500">.</span>
+        </a>
+        <nav class="hidden sm:flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest">
+          <a href="/zapatillas" class="hover:text-orange-500 transition-colors">Catálogo</a>
+          <a href="/metodologia" class="hover:text-orange-500 transition-colors">Método</a>
+          <a href="/financiacion" class="hover:text-orange-500 transition-colors">$ Financiación</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="relative px-6 py-24 overflow-hidden">
+      <!-- Fondo: cancha street + grafiti -->
+      <div class="absolute inset-0 pointer-events-none select-none">
+        <img
+          src="/bg-court.svg"
+          alt=""
+          role="presentation"
+          class="w-full h-full object-cover opacity-100"
+          aria-hidden="true"
+        />
+        <!-- Gradiente oscuro encima para que el texto sea legible -->
+        <div class="absolute inset-0 bg-gradient-to-b from-zinc-950/40 via-zinc-950/20 to-zinc-950/65"></div>
+        <!-- Viñeta lateral suave -->
+        <div class="absolute inset-0 bg-gradient-to-r from-zinc-950/50 via-transparent to-zinc-950/50"></div>
+      </div>
+
+      <div class="relative max-w-4xl mx-auto text-center">
+        <p
+          class="inline-block px-4 py-1.5 mb-10 text-xs font-black uppercase tracking-widest text-zinc-950 bg-yellow-400 -rotate-2 shadow-[3px_3px_0_0_rgb(249,115,22)]"
+        >
+          ★ BETA · v0.1 EN CONSTRUCCIÓN
+        </p>
+
+        <h1
+          class="text-6xl md:text-8xl font-black tracking-tighter mb-8 leading-[0.85] uppercase"
+        >
+          Tu zapa<br />
+          <span class="text-orange-500 italic">perfecta</span><br />
+          está aquí
+        </h1>
+
+        <p class="text-lg md:text-xl text-zinc-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+          Cuéntanos cómo juegas. Te decimos las <span
+            class="text-orange-400 font-black">5 zapatillas</span
+          > que mejor encajan contigo y dónde están al mejor precio. <span
+            class="text-zinc-500 italic">Sin sesgo. Sin BS.</span
+          >
+        </p>
+
+        <a
+          href="/quiz"
+          class="inline-block px-10 py-5 bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black uppercase tracking-wider text-lg transition-all hover:-translate-y-1 hover:-translate-x-1 shadow-[6px_6px_0_0_rgb(250,204,21)] hover:shadow-[8px_8px_0_0_rgb(250,204,21)]"
+        >
+          → Empezar el quiz
+        </a>
+
+        <p class="mt-10 text-xs text-zinc-500 uppercase tracking-widest">
+          Gratis · Sin registro · 100% honestos
+        </p>
+      </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <section class="px-6 py-24 bg-zinc-900 border-t-4 border-orange-500">
+      <div class="max-w-5xl mx-auto">
+        <div class="flex items-center gap-4 mb-16">
+          <div class="h-1 flex-1 bg-orange-500"></div>
+          <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter">
+            Cómo<span class="text-orange-500">.</span>funciona
+          </h2>
+          <div class="h-1 flex-1 bg-orange-500"></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-10 md:gap-6">
+          <!-- Step 1 -->
+          <div
+            class="bg-zinc-950 border-2 border-zinc-800 hover:border-orange-500 transition-all p-8 relative"
+          >
+            <div
+              class="absolute -top-8 -left-2 text-8xl font-black text-orange-500 leading-none select-none"
+            >
+              01
+            </div>
+            <div class="mt-10">
+              <h3 class="text-2xl font-black uppercase mb-3 tracking-tight">
+                Tu juego
+              </h3>
+              <p class="text-zinc-400 text-sm leading-relaxed">
+                Posición, peso, estilo, presupuesto, dolencias. <span
+                  class="text-white font-bold">7 preguntas</span
+                > en menos de un minuto.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div
+            class="bg-zinc-950 border-2 border-zinc-800 hover:border-yellow-400 transition-all p-8 relative"
+          >
+            <div
+              class="absolute -top-8 -left-2 text-8xl font-black text-yellow-400 leading-none select-none"
+            >
+              02
+            </div>
+            <div class="mt-10">
+              <h3 class="text-2xl font-black uppercase mb-3 tracking-tight">
+                Tu match
+              </h3>
+              <p class="text-zinc-400 text-sm leading-relaxed">
+                Las <span class="text-white font-bold">5 zapas</span> con mayor compatibilidad
+                técnica, con explicación de por qué encajan contigo.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div
+            class="bg-zinc-950 border-2 border-zinc-800 hover:border-orange-500 transition-all p-8 relative"
+          >
+            <div
+              class="absolute -top-8 -left-2 text-8xl font-black text-orange-500 leading-none select-none"
+            >
+              03
+            </div>
+            <div class="mt-10">
+              <h3 class="text-2xl font-black uppercase mb-3 tracking-tight">
+                Tu precio
+              </h3>
+              <p class="text-zinc-400 text-sm leading-relaxed">
+                Comparador lado a lado y <span class="text-white font-bold"
+                  >mejor precio actual</span
+                > entre tiendas. Tú decides dónde comprar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOP 3 ZAPAS -->
+    <section class="px-6 py-20 bg-zinc-950 border-t border-zinc-800">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex items-center gap-4 mb-4">
+          <p class="text-xs font-black uppercase tracking-widest text-orange-500">★ Mejor valoradas</p>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-2 leading-tight">
+          El <span class="text-orange-500">top 3</span> de la base de datos
+        </h2>
+        <p class="text-zinc-400 mb-10 max-w-2xl">
+          Las zapatillas con mayor puntuación técnica agregada. Para una recomendación personalizada, usa el quiz.
+        </p>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-10">
+          {
+            top3.map((z, i) => {
+              const mejor = findMejorPrecio(z.links_compra);
+              const precio = mejor?.precio_actual ?? z.precio_msrp_eur;
+              const score = Math.round(scoreGlobal(z) * 10) / 10;
+              return (
+                <a
+                  href={`/zapatilla/${z.slug}`}
+                  class="group bg-zinc-900 border-2 border-zinc-800 hover:border-orange-500 transition-all flex flex-col"
+                >
+                  <div class="relative">
+                    <img
+                      src={z.imagen_principal}
+                      alt={`${z.marca} ${z.modelo}`}
+                      class="w-full aspect-[4/3] object-cover bg-zinc-800"
+                      loading="lazy"
+                      onerror="this.onerror=null;this.src='/placeholder-shoe.svg'"
+                    />
+                    <span class="absolute top-3 left-3 px-2 py-1 bg-zinc-950/90 border border-orange-500 text-orange-500 text-xs font-black uppercase tracking-widest">
+                      #{i + 1}
+                    </span>
+                    <span class="absolute top-3 right-3 px-2 py-1 bg-zinc-950/90 border border-zinc-700 text-sm font-black text-orange-500">
+                      {score}
+                    </span>
+                  </div>
+                  <div class="p-5 flex flex-col flex-1 gap-3">
+                    <div>
+                      <p class="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-1">{z.marca}</p>
+                      <h3 class="text-xl font-black uppercase tracking-tight leading-tight group-hover:text-orange-500 transition-colors">
+                        {z.modelo}
+                      </h3>
+                    </div>
+                    <div class="mt-auto pt-3 border-t border-zinc-800 flex items-center justify-between">
+                      <p class="text-2xl font-black text-orange-500">{precio}€</p>
+                      <span class="text-xs font-bold uppercase tracking-widest text-zinc-400 group-hover:text-orange-500 transition-colors">
+                        Ver →
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              );
+            })
+          }
+        </div>
+
+        <div class="text-center">
+          <a
+            href="/zapatillas"
+            class="inline-block px-8 py-4 border-2 border-zinc-700 hover:border-orange-500 font-black uppercase tracking-wider text-sm transition-colors"
+          >
+            Ver las {zapatillas.length} zapatillas →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANIFIESTO -->
+    <section class="px-6 py-20 bg-zinc-900 border-t border-zinc-800">
+      <div class="max-w-4xl mx-auto">
+        <p
+          class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
+        >
+          ★ Manifiesto
+        </p>
+        <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tight mb-6 leading-tight">
+          No te vendemos. <span class="text-zinc-500">Te ayudamos a elegir.</span>
+        </h3>
+        <p class="text-zinc-400 leading-relaxed text-base md:text-lg">
+          La mayoría de webs de zapatillas te empujan al modelo que más comisión
+          paga. Nosotros no. El ranking sale del quiz, no del cheque de la marca.
+          Si la zapa que mejor te va está en una tienda que no nos paga, la
+          mostramos arriba igualmente.
+          <a
+            href="/financiacion"
+            class="text-orange-500 hover:text-orange-400 font-bold underline decoration-2 underline-offset-4">Lee cómo nos financiamos →</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="px-6 py-10 bg-black border-t-4 border-orange-500">
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4"
+      >
+        <p class="text-2xl font-black tracking-tighter">
+          CANCHA<span class="text-orange-500">.</span>
+        </p>
+        <p class="text-xs text-zinc-500 uppercase tracking-widest text-center md:text-right">
+          Proyecto independiente · Sin sesgo de afiliado<br />
+          Hecho con <span class="text-orange-500">★</span> en español
+        </p>
+      </div>
+    </footer>
+  </main>
+</Base>

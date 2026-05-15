@@ -1,0 +1,75 @@
+name: 🔍 Actualizar precios
+
+on:
+  schedule:
+    # Cada 2 días a las 4:00 AM UTC (6:00 AM Madrid)
+    - cron: "0 4 */2 * *"
+  workflow_dispatch:
+    inputs:
+      tienda:
+        description: "Scrape solo esta tienda (ej: amazon_es). Vacío = todas."
+        required: false
+      zapa_id:
+        description: "Scrape solo esta zapatilla (ej: nike-lebron-22). Vacío = todas."
+        required: false
+
+jobs:
+  scrape:
+    name: Scrape precios
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: 📥 Checkout código
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🔧 Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          cache-dependency-path: web/package-lock.json
+
+      - name: 📦 Instalar dependencias
+        working-directory: web
+        run: npm ci
+
+      - name: 🎭 Instalar Playwright Chromium
+        working-directory: web
+        run: npx playwright install chromium --with-deps
+
+      - name: 🔍 Ejecutar scraper
+        working-directory: web
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.tienda }}" ]; then
+            ARGS="--tienda ${{ github.event.inputs.tienda }}"
+          fi
+          if [ -n "${{ github.event.inputs.zapa_id }}" ]; then
+            ARGS="$ARGS --id ${{ github.event.inputs.zapa_id }}"
+          fi
+          npx tsx scripts/scraper/index.ts $ARGS
+        env:
+          NODE_ENV: production
+
+      - name: 💾 Commit precios.json actualizado
+        working-directory: web
+        run: |
+          git config user.name "price-bot[bot]"
+          git config user.email "price-bot@users.noreply.github.com"
+          git add src/data/precios.json
+          if git diff --staged --quiet; then
+            echo "Sin cambios en precios.json — nada que commitear."
+          else
+            git commit -m "chore(precios): actualizar precios $(date -u +%Y-%m-%d)"
+            git push
+            echo "PRICES_UPDATED=true" >> $GITHUB_ENV
+          fi
+
+      - name: 🚀 Trigger Vercel deploy
+        if: env.PRICES_UPDATED == 'true'
+        run: |
+          curl -X POST "${{ secrets.VERCEL_DEPLOY_HOOK_URL }}"
+          echo "Deploy Vercel activado."
