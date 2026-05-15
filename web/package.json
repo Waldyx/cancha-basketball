@@ -14,6 +14,7 @@
     "test:watch": "vitest",
     "scrape": "tsx scripts/scraper/index.ts",
     "scrape:dry": "tsx scripts/scraper/index.ts --dry-run",
+    "scrape:commit": "tsx scripts/scraper/index.ts && git -C .. add web/src/data/precios.json && git -C .. diff --staged --quiet || git -C .. commit -m \"chore(precios): actualizar precios $(date -u +%Y-%m-%d)\" && git -C .. push",
     "scrape:tienda": "tsx scripts/scraper/index.ts --tienda",
     "scrape:zapa": "tsx scripts/scraper/index.ts --id"
   },

@@ -52,14 +52,17 @@ export type Tienda =
   | "nike_es"
   | "adidas_es"
   | "puma_es"
+  | "ua_es"
+  | "nb_es"
+  | "reebok_es"
   | "footlocker_es"
   | "jd_sports_es"
   | "zalando_es"
   | "sprinter_es"
-  | "reebok_es"
   | "basket_world"
   | "aliexpress"
-  | "kickscrew";
+  | "kickscrew"
+  | "idealo_es";
 
 export type FuenteReview =
   | "weartesters"

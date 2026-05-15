@@ -1,6 +1,17 @@
 {
-  "generated_at": "2026-05-15T19:55:41.681Z",
+  "generated_at": "2026-05-15T21:54:15.816Z",
   "shoes": {
+    "puma-mb-04": {
+      "links_compra": [
+        {
+          "tienda": "puma_es",
+          "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-mb-04-lo-team-unisex/312174?swatch=02",
+          "precio_actual": 70,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-15"
+        }
+      ]
+    },
     "puma-all-pro-nitro": {
       "links_compra": [
         {
@@ -9,19 +20,27 @@
           "precio_actual": 67,
           "disponible": true,
           "ultima_verificacion": "2026-05-15"
-        },
+        }
+      ]
+    },
+    "nike-precision-8": {
+      "links_compra": [
         {
-          "tienda": "amazon_es",
-          "url": "https://www.amazon.es/s?k=puma+all+pro+nitro+2+baloncesto",
-          "precio_actual": 125,
-          "disponible": false,
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/t/precision-8-low-zapatillas-de-baloncesto-l5giREmS/IH1104-006",
+          "precio_actual": 74.99,
+          "disponible": true,
           "ultima_verificacion": "2026-05-15"
-        },
+        }
+      ]
+    },
+    "nike-ja-2": {
+      "links_compra": [
         {
-          "tienda": "zalando_es",
-          "url": "https://www.zalando.es/buscar/?q=puma+all+pro+nitro+2",
-          "precio_actual": 130,
-          "disponible": false,
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/t/ja-morant-camiseta-nba-7pXxex8k/II7127-419",
+          "precio_actual": 49.99,
+          "disponible": true,
           "ultima_verificacion": "2026-05-15"
         }
       ]

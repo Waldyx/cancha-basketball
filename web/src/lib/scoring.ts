@@ -332,6 +332,7 @@ export const COMISIONES_TIENDA: Record<string, number> = {
   sprinter_es: 5,
   footlocker_es: 4,
   amazon_es: 4,
+  idealo_es: 4,
   decathlon: 3,
 };
 

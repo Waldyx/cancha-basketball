@@ -19,6 +19,9 @@ export const COMISIONES: Record<string, number> = {
   footlocker_es: 4,
   amazon_es: 4,
   decathlon: 3,
+  // Idealo es un agregador: la comisión real depende de la tienda subyacente.
+  // Usamos 4 como estimación conservadora (similar a Amazon/Footlocker).
+  idealo_es: 4,
 };
 
 export function getComision(tienda: string): number {
