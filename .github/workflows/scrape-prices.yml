@@ -72,7 +72,9 @@ jobs:
         if: env.PRICES_UPDATED == 'true'
         working-directory: web
         run: |
-          npx vercel --prod --token ${{ secrets.VERCEL_TOKEN }} \
-            --scope oswaldhs7-6948s-projects \
-            --yes
+          npx vercel --prod --yes
           echo "Deploy Vercel activado."
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
