@@ -1,4 +1,30 @@
 {
-  "generated_at": "2026-05-15T00:00:00Z",
-  "shoes": {}
+  "generated_at": "2026-05-15T19:55:41.681Z",
+  "shoes": {
+    "puma-all-pro-nitro": {
+      "links_compra": [
+        {
+          "tienda": "puma_es",
+          "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-all-pro-nitro-2-unisex/312839?swatch=02",
+          "precio_actual": 67,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-15"
+        },
+        {
+          "tienda": "amazon_es",
+          "url": "https://www.amazon.es/s?k=puma+all+pro+nitro+2+baloncesto",
+          "precio_actual": 125,
+          "disponible": false,
+          "ultima_verificacion": "2026-05-15"
+        },
+        {
+          "tienda": "zalando_es",
+          "url": "https://www.zalando.es/buscar/?q=puma+all+pro+nitro+2",
+          "precio_actual": 130,
+          "disponible": false,
+          "ultima_verificacion": "2026-05-15"
+        }
+      ]
+    }
+  }
 }

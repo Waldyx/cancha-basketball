@@ -24,7 +24,8 @@ import { jd_sports_es } from "./stores/jd_sports_es.js";
 import { sprinter_es } from "./stores/sprinter_es.js";
 import { basket_world } from "./stores/basket_world.js";
 import { aliexpress } from "./stores/aliexpress.js";
-import { puma_es, reebok_es, kickscrew } from "./stores/generic.js";
+import { puma_es } from "./stores/puma_es.js";
+import { reebok_es, kickscrew } from "./stores/generic.js";
 
 // Importar datos del catálogo directamente (bypasando el merge)
 import { createRequire } from "module";

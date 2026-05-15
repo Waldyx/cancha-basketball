@@ -4,6 +4,7 @@ import {
   calcularPesos,
   aplicarFiltrosDuros,
   findMejorPrecio,
+  COMISIONES_TIENDA,
 } from "./scoring";
 import { zapatillas } from "../data/zapatillas";
 import type { RespuestasQuiz } from "./types";
