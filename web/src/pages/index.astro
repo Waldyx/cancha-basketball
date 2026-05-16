@@ -3,15 +3,28 @@ import Base from "../layouts/Base.astro";
 import { zapatillas } from "../data/zapatillas";
 import { findMejorPrecio } from "../lib/scoring";
 
-// Top 3 por score global
+// Top 3 por score global — priorizando zapas con precio verificado en España
 function scoreGlobal(z: (typeof zapatillas)[0]): number {
   const vals = Object.values(z.puntuaciones);
   return vals.reduce((a, b) => a + b, 0) / vals.length;
 }
 
-const top3 = [...zapatillas]
-  .sort((a, b) => scoreGlobal(b) - scoreGlobal(a))
-  .slice(0, 3);
+// Separar zapas con precio en tienda española verificado vs solo editorial
+const conPrecioLive = zapatillas.filter((z) => {
+  const mejor = findMejorPrecio(z.links_compra);
+  return mejor !== undefined;
+});
+const sinPrecioLive = zapatillas.filter((z) => {
+  const mejor = findMejorPrecio(z.links_compra);
+  return mejor === undefined;
+});
+
+// Top 3: primero las que tienen precio verificado, luego el resto por score
+const ranked = [
+  ...conPrecioLive.sort((a, b) => scoreGlobal(b) - scoreGlobal(a)),
+  ...sinPrecioLive.sort((a, b) => scoreGlobal(b) - scoreGlobal(a)),
+];
+const top3 = ranked.slice(0, 3);
 ---
 
 <Base title="Cancha — Tu zapatilla de baloncesto, sin BS">
@@ -166,7 +179,7 @@ const top3 = [...zapatillas]
     <section class="px-6 py-20 bg-zinc-950 border-t border-zinc-800">
       <div class="max-w-6xl mx-auto">
         <div class="flex items-center gap-4 mb-4">
-          <p class="text-xs font-black uppercase tracking-widest text-orange-500">★ Mejor valoradas</p>
+          <p class="text-xs font-black uppercase tracking-widest text-orange-500">★ Precio verificado · Mejor valoradas</p>
         </div>
         <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-2 leading-tight">
           El <span class="text-orange-500">top 3</span> de la base de datos
