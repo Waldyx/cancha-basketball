@@ -3578,7 +3578,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     fuentes: [
       {
-        tipo: "ua-official",
+        tipo: "evaluacion-propia",
         url: "https://www.underarmour.es/es-es/p/calzado/curry-13/6007670.html",
       },
     ],
@@ -3601,7 +3601,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 7,
     año_lanzamiento: 2024,
     genero: "unisex",
-    signature_player: null,
+    signature_player: undefined,
     tecnologia_clave: ["EVA foam midsole", "herringbone outsole", "mesh upper"],
     predecesor_id: null,
     sucesor_id: null,
@@ -3623,7 +3623,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 7,
       ventilacion: 7,
     },
-    categoria_principal: "budget",
+    categoria_principal: "balanced",
     tags: ["budget", "entrada-gama", "outdoor-viable", "low-top"],
 
     ideal_para: {
@@ -3676,7 +3676,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 7,
     año_lanzamiento: 2025,
     genero: "unisex",
-    signature_player: null,
+    signature_player: undefined,
     tecnologia_clave: ["UA HOVR foam", "herringbone outsole", "mesh+TPU upper"],
     predecesor_id: null,
     sucesor_id: null,
@@ -3751,7 +3751,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 4,
     año_lanzamiento: 2025,
     genero: "unisex",
-    signature_player: null,
+    signature_player: undefined,
     tecnologia_clave: ["UA HOVR foam", "Flow-inspired outsole", "knit upper"],
     predecesor_id: null,
     sucesor_id: null,
@@ -3823,7 +3823,7 @@ const _rawZapatillas: Zapatilla[] = [
     slug: "ua-curry-3z-25",
     marca: "Under Armour",
     modelo: "Curry 3Z 25",
-    generacion: null,
+    generacion: 25,
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Stephen Curry",
@@ -3848,7 +3848,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 8,
       ventilacion: 7,
     },
-    categoria_principal: "budget",
+    categoria_principal: "balanced",
     tags: ["budget", "curry", "entrada-gama", "low-top", "outdoor-viable"],
 
     ideal_para: {
@@ -3929,7 +3929,7 @@ const _rawZapatillas: Zapatilla[] = [
     ideal_para: {
       posiciones: ["base", "escolta"],
       peso_jugador_kg: [65, 95],
-      estilos: ["equilibrado", "manejo", "tirador"],
+      estilos: ["equilibrado", "equilibrado", "tirador"],
     },
     no_recomendada_para: {
       posiciones: ["pivot"],
@@ -3998,13 +3998,13 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 5,
       ventilacion: 8,
     },
-    categoria_principal: "speed",
+    categoria_principal: "responsive",
     tags: ["low-top", "signature", "ligera", "rapida", "explosiva"],
 
     ideal_para: {
       posiciones: ["base", "escolta"],
       peso_jugador_kg: [60, 90],
-      estilos: ["rapido", "explosivo", "tirador"],
+      estilos: ["explosivo", "explosivo", "tirador"],
     },
     no_recomendada_para: {
       posiciones: ["pivot"],
@@ -4061,7 +4061,7 @@ const _rawZapatillas: Zapatilla[] = [
     horma: "estrecha",
     drop_mm: 10,
     tipo_cierre: "cordones",
-    material_superior: "flyknit",
+    material_superior: "mesh",
 
     puntuaciones: {
       traccion: 9,
@@ -4073,13 +4073,13 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 6,
       ventilacion: 8,
     },
-    categoria_principal: "speed",
+    categoria_principal: "responsive",
     tags: ["low-top", "retro", "ligera", "rapida", "explosiva", "clasica"],
 
     ideal_para: {
       posiciones: ["base", "escolta"],
       peso_jugador_kg: [55, 85],
-      estilos: ["rapido", "explosivo", "manejo", "tirador"],
+      estilos: ["explosivo", "explosivo", "equilibrado", "tirador"],
     },
     no_recomendada_para: {
       posiciones: ["pivot", "ala-pivot"],
@@ -4155,7 +4155,7 @@ const _rawZapatillas: Zapatilla[] = [
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
       peso_jugador_kg: [55, 90],
-      estilos: ["equilibrado", "rapido", "tirador"],
+      estilos: ["equilibrado", "explosivo", "tirador"],
     },
     no_recomendada_para: {
       posiciones: ["pivot"],
@@ -4299,17 +4299,17 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 7,
       ventilacion: 7,
     },
-    categoria_principal: "support",
-    tags: ["mid-top", "signature", "potente", "estable", "interior"],
+    categoria_principal: "cushion-focused",
+    tags: ["mid-top", "signature", "potente", "estable", "potente"],
 
     ideal_para: {
       posiciones: ["pivot", "ala-pivot", "alero"],
       peso_jugador_kg: [85, 130],
-      estilos: ["potente", "fisico", "interior"],
+      estilos: ["potente", "potente", "potente"],
     },
     no_recomendada_para: {
       posiciones: ["base"],
-      estilos: ["rapido"],
+      estilos: ["explosivo"],
     },
 
     resumen:
@@ -4380,7 +4380,7 @@ const _rawZapatillas: Zapatilla[] = [
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
       peso_jugador_kg: [60, 100],
-      estilos: ["equilibrado", "principiante", "recreativo"],
+      estilos: ["equilibrado", "equilibrado", "equilibrado"],
     },
     no_recomendada_para: {
       posiciones: ["pivot"],
@@ -4427,7 +4427,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 2,
     año_lanzamiento: 2025,
     genero: "unisex",
-    signature_player: null,
+    signature_player: undefined,
     tecnologia_clave: ["foam cushion", "rubber outsole multidireccional", "synthetic upper"],
     predecesor_id: null,
     sucesor_id: null,
@@ -4449,13 +4449,13 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 6,
       ventilacion: 7,
     },
-    categoria_principal: "speed",
+    categoria_principal: "responsive",
     tags: ["low-top", "accesible", "gama-media", "versatil", "agarre"],
 
     ideal_para: {
       posiciones: ["base", "escolta"],
       peso_jugador_kg: [60, 90],
-      estilos: ["rapido", "equilibrado", "manejo"],
+      estilos: ["explosivo", "equilibrado", "equilibrado"],
     },
     no_recomendada_para: {
       posiciones: ["pivot"],
@@ -4524,17 +4524,17 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 6,
       ventilacion: 7,
     },
-    categoria_principal: "support",
-    tags: ["mid-top", "signature", "estable", "interior", "versatil"],
+    categoria_principal: "cushion-focused",
+    tags: ["mid-top", "signature", "estable", "potente", "versatil"],
 
     ideal_para: {
       posiciones: ["alero", "ala-pivot", "pivot"],
       peso_jugador_kg: [65, 100],
-      estilos: ["equilibrado", "potente", "fisico"],
+      estilos: ["equilibrado", "potente", "potente"],
     },
     no_recomendada_para: {
       posiciones: ["base"],
-      estilos: ["rapido"],
+      estilos: ["explosivo"],
     },
 
     resumen:
