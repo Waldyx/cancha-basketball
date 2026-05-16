@@ -4565,6 +4565,83 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "puma_es", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-stewie-4-most-wanted-para-mujer/312744?search=true&swatch=01", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
+
+  // ───────────────────────────────────────────────
+  // 68. Jordan Zion 4 — potencia y cushion para interiores grandes
+  // ───────────────────────────────────────────────
+  {
+    id: "jordan-zion-4",
+    slug: "jordan-zion-4",
+    marca: "Jordan",
+    modelo: "Zion 4",
+    generacion: 4,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Zion Williamson",
+    tecnologia_clave: ["React foam midsole", "herringbone outsole", "reinforced upper"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 425,
+    altura: "mid",
+    horma: "ancha",
+    drop_mm: 11,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 9,
+      respuesta: 6,
+      soporte_lateral: 8,
+      estabilidad: 9,
+      peso_score: 3,
+      durabilidad_outdoor: 6,
+      ventilacion: 6,
+    },
+    categoria_principal: "cushion-focused",
+    tags: ["mid-top", "signature", "potente", "interior", "horma-ancha", "amortiguacion-maxima"],
+
+    ideal_para: {
+      posiciones: ["ala-pivot", "pivot"],
+      peso_jugador_kg: [90, 140],
+      estilos: ["potente"],
+    },
+    no_recomendada_para: {
+      posiciones: ["base", "escolta"],
+      estilos: ["explosivo"],
+    },
+
+    resumen:
+      "La Jordan Zion 4 está diseñada para jugadores corpulentos que necesitan máxima protección y estabilidad. Con React foam de alta densidad y una base reforzada, ofrece el cushion que necesita un jugador físico. La horma ancha es ideal para pies anchos. Precio muy competitivo en rebajas.",
+    pros: [
+      "React foam de alta densidad: máximo cushion para interiores pesados",
+      "Base ultra estable para jugadores de más de 90 kg",
+      "Horma ancha: ideal para pies anchos o juego físico",
+      "Excelente tracción herringbone",
+      "Precio rebajado (~85€) — una de las mejores opciones para pivots",
+    ],
+    contras: [
+      "Muy pesada (~425g) — no apta para jugadores de velocidad",
+      "Respuesta limitada comparada con opciones más reactivas",
+      "Ventilación justa para partidos largos",
+      "Estética polarizadora",
+    ],
+    veredicto:
+      "Si juegas de pivot o ala-pivot y pesas más de 90 kg, la Zion 4 es una de las mejores protecciones para rodillas y tobillos del mercado por ~85€. No es para correr, es para dominar la pintura. Horma ancha, React foam sólido y precio rebajado: difícil de superar para su perfil.",
+
+    imagen_principal:
+      "https://ballershoesdb.com/wp-content/uploads/JordanZion4-Cropped.jpg",
+    imagenes: [],
+
+    fuentes: [],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 149.99,
+    links_compra: [
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/jordan-zion-4-hombre-zapatillas/314109478504.html", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
 ];
 
 /**

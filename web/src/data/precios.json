@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T15:57:02.869Z",
+  "generated_at": "2026-05-16T16:29:33.934Z",
   "shoes": {
     "puma-mb-04": {
       "links_compra": [
@@ -16,8 +16,8 @@
       "links_compra": [
         {
           "tienda": "puma_es",
-          "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-all-pro-nitro-2-unisex/312839?swatch=03",
-          "precio_actual": 130,
+          "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-puma-x-pokemon-all-pro-nitro-2-pikachu-unisex/312843?search=true&amp;swatch=01",
+          "precio_actual": 140,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
         }
@@ -75,13 +75,6 @@
           "precio_actual": 124.99,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
-        },
-        {
-          "tienda": "footlocker_es",
-          "url": "https://www.footlocker.es/es/product/nike-ja-3-hombre-zapatillas/314104392304.html",
-          "precio_actual": 144.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-05-16"
         }
       ]
     },
@@ -122,7 +115,7 @@
       "links_compra": [
         {
           "tienda": "ua_es",
-          "url": "https://www.underarmour.es/es-es/p/calzado/ua_lockdown%C2%A07/3028512.html",
+          "url": "https://www.underarmour.es/es-es/TWFzdGVyUHJvZHVjdDozMDI4NTEy",
           "precio_actual": 75,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
@@ -133,7 +126,7 @@
       "links_compra": [
         {
           "tienda": "ua_es",
-          "url": "https://www.underarmour.es/es-es/p/calzado/ua_spawn_7%C2%A0mid/6000753.html",
+          "url": "https://www.underarmour.es/es-es/TWFzdGVyUHJvZHVjdDo2MDAwNzUz",
           "precio_actual": 120,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
@@ -144,7 +137,7 @@
       "links_compra": [
         {
           "tienda": "ua_es",
-          "url": "https://www.underarmour.es/es-es/p/calzado/ua_futr_x_4/3028831.html",
+          "url": "https://www.underarmour.es/es-es/TWFzdGVyUHJvZHVjdDozMDI4ODMx",
           "precio_actual": 120,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
@@ -188,7 +181,7 @@
       "links_compra": [
         {
           "tienda": "nike_es",
-          "url": "https://www.nike.com/es/t/luka-77-zapatillas-de-baloncesto-BERU1e7j/IF1610-500",
+          "url": "https://www.nike.com/es/t/luka-77-zapatillas-de-baloncesto-BERU1e7j/IF1610-001",
           "precio_actual": 99.99,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
@@ -199,7 +192,7 @@
       "links_compra": [
         {
           "tienda": "nike_es",
-          "url": "https://www.nike.com/es/t/book-2-rising-zapatillas-de-baloncesto-m5KwDWWn/IB6687-001",
+          "url": "https://www.nike.com/es/t/book-2-must-be-denim-zapatillas-de-baloncesto-m5KwDWWn/IB6687-900",
           "precio_actual": 149.99,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
@@ -221,7 +214,7 @@
       "links_compra": [
         {
           "tienda": "nike_es",
-          "url": "https://www.nike.com/es/t/sabrina-3-zapatillas-de-baloncesto-UrtEcG8G/HF2881-303",
+          "url": "https://www.nike.com/gb/t/sabrina-3-gamer-basketball-shoes-y3fn9pio/II3985-300",
           "precio_actual": 129.99,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
@@ -232,7 +225,7 @@
       "links_compra": [
         {
           "tienda": "nike_es",
-          "url": "https://www.nike.com/es/t/tatum-4-zapatillas-de-baloncesto-Bbr6tfuA/HQ4614-004",
+          "url": "https://www.nike.com/es/t/tatum-4-zapatillas-de-baloncesto-Bbr6tfuA/HQ4614-101",
           "precio_actual": 90.99,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
@@ -265,7 +258,7 @@
       "links_compra": [
         {
           "tienda": "nike_es",
-          "url": "https://www.nike.com/es/t/gt-cut-academy-2-zapatillas-de-baloncesto-KR3H9TWw/HV9774-002",
+          "url": "https://www.nike.com/es/t/gt-cut-academy-2-zapatillas-de-baloncesto-KR3H9TWw/HV9774-001",
           "precio_actual": 99.99,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
@@ -278,6 +271,50 @@
           "tienda": "puma_es",
           "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-stewie-4-most-wanted-para-mujer/312744?search=true&swatch=01",
           "precio_actual": 120,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "nike-kobe-8-protro": {
+      "links_compra": [
+        {
+          "tienda": "footlocker_es",
+          "url": "https://www.footlocker.es/es/product/nike-kobe-viii-protro-hombre-zapatillas/314109662404.html",
+          "precio_actual": 189.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "nb-fresh-foam-bb-v3": {
+      "links_compra": [
+        {
+          "tienda": "footlocker_es",
+          "url": "https://www.footlocker.es/es/product/new-balance-fresh-foam-bb-hombre-zapatillas/314109695404.html",
+          "precio_actual": 139.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "adidas-ae-2": {
+      "links_compra": [
+        {
+          "tienda": "footlocker_es",
+          "url": "https://www.footlocker.es/es/product/adidas-anthony-edwards-2-low-hombre-zapatillas/314102842904.html",
+          "precio_actual": 100,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "jordan-zion-4": {
+      "links_compra": [
+        {
+          "tienda": "footlocker_es",
+          "url": "https://www.footlocker.es/es/product/jordan-zion-4-hombre-zapatillas/314109478504.html",
+          "precio_actual": 85,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
         }
