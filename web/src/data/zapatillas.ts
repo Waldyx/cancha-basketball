@@ -4058,7 +4058,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     peso_real_g: 310,
     altura: "low",
-    horma: "ajustada",
+    horma: "estrecha",
     drop_mm: 10,
     tipo_cierre: "cordones",
     material_superior: "flyknit",
