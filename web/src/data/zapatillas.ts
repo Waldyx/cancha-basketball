@@ -3509,6 +3509,161 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+engine+a+baloncesto", precio_actual: 112, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
   },
+
+  // ───────────────────────────────────────────────
+  // 54. UA CURRY 13 — Signature premium, generación actual
+  // ───────────────────────────────────────────────
+  {
+    id: "ua-curry-13",
+    slug: "ua-curry-13",
+    marca: "Under Armour",
+    modelo: "Curry 13",
+    generacion: 13,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Stephen Curry",
+    tecnologia_clave: ["UA Flow 2.0", "Warp 3.0 upper", "TPU heel counter"],
+    predecesor_id: "ua-curry-12",
+    sucesor_id: null,
+
+    peso_real_g: 308,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "knit",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 7,
+      respuesta: 9,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 9,
+      durabilidad_outdoor: 4,
+      ventilacion: 8,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "ligera", "tope-de-gama", "curry"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [60, 90],
+      estilos: ["tirador", "explosivo", "equilibrado"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "La Curry 13 evoluciona la icónica línea Flow con el nuevo Warp 3.0 upper y mejoras en el soporte lateral. Mantiene el ADN de la línea: ultraligera, con court feel directo y respuesta máxima para tiradores. Disponible actualmente en Under Armour España.",
+    pros: [
+      "Continuación refinada de la fórmula Flow — ligera y reactiva",
+      "Warp 3.0 upper con mejor soporte lateral que la Curry 12",
+      "Peso mínimo (~308g) para su nivel de protección",
+      "Disponible en España a 140€",
+    ],
+    contras: [
+      "Suela Flow poco durable en asfalto",
+      "Cushion insuficiente para jugadores pesados o lesiones de tobillo",
+      "Horma estrecha en antepié — probar antes de comprar",
+    ],
+    veredicto:
+      "La mejor opción actual de UA para bases y escolteros que buscan respuesta máxima en pista cubierta. Si ya te gustó la Curry 12, la 13 es una mejora directa. Para asfalto o pesos > 90kg, busca otra cosa.",
+
+    imagen_principal:
+      "https://ballershoesdb.com/wp-content/uploads/Curry13-Cropped.jpg",
+    imagenes: [],
+
+    fuentes: [
+      {
+        tipo: "ua-official",
+        url: "https://www.underarmour.es/es-es/p/calzado/curry-13/6007670.html",
+      },
+    ],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 160,
+    links_compra: [
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/c/hombre/zapatillas/baloncesto/?q=curry+13", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // 55. UA LOCKDOWN 7 — Entrada de gama UA, muy asequible
+  // ───────────────────────────────────────────────
+  {
+    id: "ua-lockdown-7",
+    slug: "ua-lockdown-7",
+    marca: "Under Armour",
+    modelo: "Lockdown 7",
+    generacion: 7,
+    año_lanzamiento: 2024,
+    genero: "unisex",
+    signature_player: null,
+    tecnologia_clave: ["EVA foam midsole", "herringbone outsole", "mesh upper"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 340,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 7,
+      amortiguacion: 6,
+      respuesta: 6,
+      soporte_lateral: 6,
+      estabilidad: 7,
+      peso_score: 6,
+      durabilidad_outdoor: 7,
+      ventilacion: 7,
+    },
+    categoria_principal: "budget",
+    tags: ["budget", "entrada-gama", "outdoor-viable", "low-top"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [60, 85],
+      estilos: ["equilibrado", "tirador"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: ["potente", "explosivo"],
+    },
+
+    resumen:
+      "La opción más asequible de UA para baloncesto. EVA foam básico pero funcional, herringbone con buena tracción en pista y exterior. No compite con zapatillas premium en amortiguación o respuesta, pero cumple para uso casual y recreativo a un precio difícil de batir.",
+    pros: [
+      "Precio muy accesible (75€ aprox.)",
+      "Herringbone durable para outdoor e indoor",
+      "Upper mesh transpirable",
+      "Buen choice para principiantes o uso esporádico",
+    ],
+    contras: [
+      "EVA básico — menos cushion y respuesta que modelos premium",
+      "Soporte de tobillo limitado en cortes bruscos",
+      "Peso algo elevado para lo que ofrece",
+    ],
+    veredicto:
+      "Si tu presupuesto es ajustado o buscas una segunda zapatilla para entrenar outdoor sin arriesgar tus buenas zapatillas, la Lockdown 7 cumple. Para juego serio o frecuente, sube de gama.",
+
+    imagen_principal:
+      "https://ballershoesdb.com/wp-content/uploads/Lockdown-7-Cropped.jpg",
+    imagenes: [],
+
+    fuentes: [],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 75,
+    links_compra: [
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/c/hombre/zapatillas/baloncesto/?q=lockdown+7", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
 ];
 
 /**

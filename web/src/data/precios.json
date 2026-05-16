@@ -99,6 +99,17 @@
           "ultima_verificacion": "2026-05-16"
         }
       ]
+    },
+    "ua-curry-13": {
+      "links_compra": [
+        {
+          "tienda": "ua_es",
+          "url": "https://www.underarmour.es/es-es/p/calzado/curry-13/6007670.html",
+          "precio_actual": 140,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
     }
   }
 }
