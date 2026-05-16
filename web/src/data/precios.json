@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T10:52:21.829Z",
+  "generated_at": "2026-05-16T11:09:51.979Z",
   "shoes": {
     "puma-mb-04": {
       "links_compra": [
@@ -34,39 +34,6 @@
         }
       ]
     },
-    "nike-ja-2": {
-      "links_compra": [
-        {
-          "tienda": "nike_es",
-          "url": "https://www.nike.com/es/t/ja-morant-camiseta-nba-7pXxex8k/II7127-419",
-          "precio_actual": 49.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-05-15"
-        }
-      ]
-    },
-    "puma-mb05": {
-      "links_compra": [
-        {
-          "tienda": "puma_es",
-          "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-puma-x-fast--furious-mb-05-miami-unisex/314021?search=true&amp;swatch=01",
-          "precio_actual": 135,
-          "disponible": true,
-          "ultima_verificacion": "2026-05-16"
-        }
-      ]
-    },
-    "nike-lebron-22": {
-      "links_compra": [
-        {
-          "tienda": "nike_es",
-          "url": "https://www.nike.com/es/t/lebron-xxiii-lebronto-zapatillas-de-baloncesto-nino-a-WrxwvtWF/IV4800-602",
-          "precio_actual": 159.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-05-16"
-        }
-      ]
-    },
     "jordan-luka-5": {
       "links_compra": [
         {
@@ -89,17 +56,6 @@
         }
       ]
     },
-    "nike-lebron-21": {
-      "links_compra": [
-        {
-          "tienda": "nike_es",
-          "url": "https://www.nike.com/es/t/lebron-xxiii-shoe-bag-zapatillas-de-baloncesto-UL9ABsK7/IV5647-800",
-          "precio_actual": 199.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-05-16"
-        }
-      ]
-    },
     "nike-lebron-23": {
       "links_compra": [
         {
@@ -115,8 +71,19 @@
       "links_compra": [
         {
           "tienda": "nike_es",
-          "url": "https://www.nike.com/es/u/custom-nike-ja-3-by-you-10002205/4639822147",
-          "precio_actual": 149.99,
+          "url": "https://www.nike.com/es/t/ja-3-explorer-zapatillas-de-baloncesto-kNNBdaWB/IU7240-300",
+          "precio_actual": 124.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "puma-mb05": {
+      "links_compra": [
+        {
+          "tienda": "puma_es",
+          "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-mb-05-unisex/312780?swatch=01",
+          "precio_actual": 135,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
         }

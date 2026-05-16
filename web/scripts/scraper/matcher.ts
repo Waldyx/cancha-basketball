@@ -20,6 +20,8 @@ const BRAND_ALIASES: Record<string, string[]> = {
   "jordan": ["jordan", "air jordan"],
   "li-ning": ["li ning", "lining", "li-ning"],
   "anta": ["anta"],
+  "decathlon tarmak": ["tarmak", "decathlon"],
+  "decathlon": ["decathlon", "tarmak"],
 };
 
 /** Normaliza un string para comparación: quita puntos, guiones → espacio, minúsculas */

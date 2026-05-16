@@ -49,6 +49,43 @@ function modelToSlugCandidates(modelo: string): string[] {
   return [...candidates];
 }
 
+/**
+ * Comprueba que el slug aparece en la URL como un token completo,
+ * NO como prefijo de otro token más largo.
+ * Ej: "lebron-xxii" en "lebron-xxiii-..." → FALSE (xxii es prefijo de xxiii)
+ * Ej: "lebron-xxii" en "lebron-xxii-zapatillas-..." → TRUE
+ */
+function slugMatchesUrl(urlLower: string, slug: string): boolean {
+  const idx = urlLower.indexOf(slug);
+  if (idx === -1) return false;
+  const afterChar = urlLower[idx + slug.length];
+  // El char siguiente debe ser no-alfanumérico (-, /, ?, &, fin de string)
+  // Un char alfabético o dígito indica que el slug continúa (ej: xxii→xxiii)
+  return afterChar === undefined || !/[a-z0-9]/.test(afterChar);
+}
+
+/**
+ * Descarta URLs de productos no-calzado en Nike.es
+ * (camisetas, pantalones, calcetines, páginas custom-By-You, etc.)
+ */
+function isShoeUrl(urlLower: string): boolean {
+  const nonShoeKeywords = [
+    "-camiseta-", "-pantalon-", "-pantalón-", "-calcetines-",
+    "-sudadera-", "-chaqueta-", "-ropa-", "-accesorio-",
+    "-mochila-", "-bolsa-", "-gorra-", "-sombrero-",
+    "-nba-jersey", "-jersey-", "-shorts-",
+    "/u/custom-",  // By You custom pages
+  ];
+  if (nonShoeKeywords.some((kw) => urlLower.includes(kw))) return false;
+
+  // Opcional: requerir al menos uno de los indicadores de calzado
+  const shoeKeywords = ["-zapatillas-", "-shoe", "-basketball", "-sneaker", "/t/", "/p/"];
+  // Si no hay ningún keyword de calzado ni de no-calzado, aceptamos
+  // (podría ser una URL de colección o PDP sin keywords)
+  const hasShoeKw = shoeKeywords.some((kw) => urlLower.includes(kw));
+  return hasShoeKw || !nonShoeKeywords.some((kw) => urlLower.includes(kw));
+}
+
 // ─── HTTP fetch: __NEXT_DATA__ ───────────────────────────────────────────────
 
 interface NikeProduct {
@@ -103,8 +140,11 @@ async function priceFromNikeWeb(
         const pdpUrl: string = pdpRaw ?? "";
         const urlLower = pdpUrl.toLowerCase();
 
-        // Debe matchear al menos un candidato de slug
-        if (!slugCandidates.some((s) => urlLower.includes(s))) continue;
+        // Filtrar productos no-calzado (camisetas, custom pages, etc.)
+        if (!isShoeUrl(urlLower)) continue;
+
+        // Debe matchear al menos un candidato de slug (con word-boundary check)
+        if (!slugCandidates.some((s) => slugMatchesUrl(urlLower, s))) continue;
 
         const price =
           product.promotions?.[0]?.promotionPrice ??
@@ -210,8 +250,11 @@ export const nike_es: StoreScraper = {
           );
           const title = (await titleEl?.textContent()) ?? "";
 
-          // Match by URL slug OR by title
-          const slugOk = slugCandidates.some((s) => hrefLower.includes(s));
+          // Filtrar productos no-calzado (camisetas, custom pages, etc.)
+          if (!isShoeUrl(hrefLower)) continue;
+
+          // Match by URL slug (word-boundary) OR by title
+          const slugOk = slugCandidates.some((s) => slugMatchesUrl(hrefLower, s));
           const titleOk = matchesShoe(title, shoe.marca, shoe.modelo);
           if (!slugOk && !titleOk) continue;
 
