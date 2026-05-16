@@ -3889,6 +3889,307 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "ua_es", url: "https://www.underarmour.es/es-es/p/calzado/curry_3z_25/6000749.html", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
+
+  // ───────────────────────────────────────────────
+  // 59. Nike Luka 77 — Signature Luka, gama media Nike Brand
+  // ───────────────────────────────────────────────
+  {
+    id: "nike-luka-77",
+    slug: "nike-luka-77",
+    marca: "Nike",
+    modelo: "Luka 77",
+    generacion: 1,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Luka Dončić",
+    tecnologia_clave: ["React foam", "Zoom Air heel", "knit upper"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 355,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "knit",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 8,
+      respuesta: 7,
+      soporte_lateral: 7,
+      estabilidad: 7,
+      peso_score: 7,
+      durabilidad_outdoor: 5,
+      ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["low-top", "signature", "reactiva", "gama-media"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [65, 95],
+      estilos: ["equilibrado", "manejo", "tirador"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "La Nike Luka 77 es la primera zapatilla de Luka Dončić bajo Nike Brand (no Jordan Brand), el número 77 hace referencia a su dorsal en Eslovenia. React + Zoom Air en el talón, upper knit y outsole herringbone. Gama media con acabado premium y estética minimalista.",
+    pros: [
+      "Combinación React + Zoom Air ofrece buen cushion y algo de respuesta",
+      "Knit upper cómodo y transpirable desde el primer uso",
+      "Estética limpia, fácil de combinar",
+      "Precio competitivo para zapatilla signature",
+    ],
+    contras: [
+      "Menos soporte lateral que la Jordan Luka series",
+      "Outsole no tan durable en exterior como herringbone clásico",
+      "Primera generación — sin historial de durabilidad",
+    ],
+    veredicto:
+      "Para fans de Luka o jugadores de gama media que quieren un calzado equilibrado a buen precio. No alcanza el nivel técnico de la GT Cut 4 ni el cushion de la LeBron 23, pero a 99.99€ es una opción sólida.",
+
+    imagen_principal:
+      "https://ballershoesdb.com/wp-content/uploads/luka77-Cropped.jpg",
+    imagenes: [],
+
+    fuentes: [],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 100,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/luka-77-zapatillas-de-baloncesto-BERU1e7j/IF1610-500", precio_actual: 99.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // 60. Nike Book 2 — Devin Booker signature, equilibrada y elegante
+  // ───────────────────────────────────────────────
+  {
+    id: "nike-book-2",
+    slug: "nike-book-2",
+    marca: "Nike",
+    modelo: "Book 2",
+    generacion: 2,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Devin Booker",
+    tecnologia_clave: ["Zoom Air forefoot", "React midsole", "mesh upper"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 335,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 9,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 8,
+      respuesta: 8,
+      soporte_lateral: 8,
+      estabilidad: 7,
+      peso_score: 8,
+      durabilidad_outdoor: 5,
+      ventilacion: 8,
+    },
+    categoria_principal: "speed",
+    tags: ["low-top", "signature", "ligera", "rapida", "explosiva"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [60, 90],
+      estilos: ["rapido", "explosivo", "tirador"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "La Nike Book 2 es la segunda zapatilla signature de Devin Booker. Mejora significativa sobre la Book 1: Zoom Air en el antepié para respuesta en arranques, midsole React para cushion durante el juego, upper mesh ligero. Diseñada para jugadores rápidos y tiradores.",
+    pros: [
+      "Zoom Air en antepié: respuesta excelente en cambios de dirección",
+      "Ligera y cómoda desde el primer uso",
+      "Buen agarre con outsole multidireccional",
+      "Upper mesh transpirable",
+    ],
+    contras: [
+      "Menor amortiguación que zapatillas de gama alta con Zoom Air strobel",
+      "Soporte de tobillo básico en diseño low",
+      "Precio de 150€ exige comparar con opciones similares",
+    ],
+    veredicto:
+      "Una de las mejores opciones para bases y escoltas explosivos que priorizan velocidad y comodidad. La combinación React + Zoom Air en antepié la hace destacar en su rango de precio.",
+
+    imagen_principal:
+      "https://ballershoesdb.com/wp-content/uploads/NikeBook2-Cropped.jpg",
+    imagenes: [],
+
+    fuentes: [],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 150,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/book-2-rising-zapatillas-de-baloncesto-m5KwDWWn/IB6687-001", precio_actual: 149.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // 61. Nike Kobe 9 Low Protro — Retro icónico, bajo y preciso
+  // ───────────────────────────────────────────────
+  {
+    id: "nike-kobe-9-low-protro",
+    slug: "nike-kobe-9-low-protro",
+    marca: "Nike",
+    modelo: "Kobe 9 Low Protro",
+    generacion: 9,
+    año_lanzamiento: 2024,
+    genero: "unisex",
+    signature_player: "Kobe Bryant",
+    tecnologia_clave: ["Zoom Air", "Flyknit upper", "outsole herringbone"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 310,
+    altura: "low",
+    horma: "ajustada",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "flyknit",
+
+    puntuaciones: {
+      traccion: 9,
+      amortiguacion: 7,
+      respuesta: 9,
+      soporte_lateral: 7,
+      estabilidad: 7,
+      peso_score: 9,
+      durabilidad_outdoor: 6,
+      ventilacion: 8,
+    },
+    categoria_principal: "speed",
+    tags: ["low-top", "retro", "ligera", "rapida", "explosiva", "clasica"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [55, 85],
+      estilos: ["rapido", "explosivo", "manejo", "tirador"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot", "ala-pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "La Kobe 9 Low Protro es la versión moderna del clásico de 2014, una de las mejores zapatillas de Kobe. Flyknit upper ultraligero, Zoom Air en antepié, outsole herringbone de alto rendimiento. Ligera y precisa como pocas. Ideal para quienes buscan rendimiento puro y estética icónica.",
+    pros: [
+      "Flyknit upper extremadamente ligero y preciso",
+      "Outsole herringbone: agarre excepcional multidireccional",
+      "Zoom Air en antepié: respuesta táctil directa",
+      "Diseño icónico atemporal",
+    ],
+    contras: [
+      "Amortiguación mínima — no apta para jugadores pesados o exteriores",
+      "Horma ajustada: puede requerir media talla más",
+      "Precio elevado para un retro (180€)",
+      "Sin soporte de tobillo en diseño low",
+    ],
+    veredicto:
+      "Para jugadores que valoran la precisión y el feeling con la pista sobre el cushion. El Flyknit + herringbone hacen de la Kobe 9 Low Protro una de las zapatillas de baloncesto más técnicamente puras disponibles hoy. No para principiantes ni jugadores de exterior.",
+
+    imagen_principal:
+      "https://ballershoesdb.com/wp-content/uploads/2017/03/kobe9-Cropped.jpg",
+    imagenes: [],
+
+    fuentes: [],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 180,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/kobe-9-low-protro-zapatillas-de-baloncesto-a69NSpgE/IM6119-800", precio_actual: 179.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // 62. Nike Sabrina 3 — Ionescu signature, cushion y agarre
+  // ───────────────────────────────────────────────
+  {
+    id: "nike-sabrina-3",
+    slug: "nike-sabrina-3",
+    marca: "Nike",
+    modelo: "Sabrina 3",
+    generacion: 3,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Sabrina Ionescu",
+    tecnologia_clave: ["Zoom Air strobel", "React foam", "rubber outsole"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 330,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 9,
+      amortiguacion: 8,
+      respuesta: 8,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 8,
+      durabilidad_outdoor: 6,
+      ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["low-top", "signature", "cushion", "agarre", "versatil"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [55, 90],
+      estilos: ["equilibrado", "rapido", "tirador"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "La Nike Sabrina 3 es la evolución más completa de la línea Ionescu. Zoom Air strobel full-length para cushion reactivo en todo el pie, React foam para amortiguación duradera, outsole con excelente agarre. Una de las zapatillas más versátiles de Nike para baloncesto en 2025.",
+    pros: [
+      "Zoom Air strobel full-length: cushion reactivo en todo el pie",
+      "Outsole con patrón de herringbone modificado — agarre excelente",
+      "Estabilidad lateral buena para un low-top",
+      "Precio justo para las tecnologías incluidas",
+    ],
+    contras: [
+      "Estética más orientada al juego femenino — no a todos gusta",
+      "Cushion muy blando puede resultar impreciso para algunos",
+      "Sin versión mid para quienes prefieren soporte de tobillo",
+    ],
+    veredicto:
+      "Una zapatilla seria que no debe descartarse por ser femenina en origen. El Zoom Air strobel + React la convierten en una de las opciones más completas de Nike bajo los 130€. Recomendada para jugadores ágiles de cualquier género.",
+
+    imagen_principal:
+      "https://ballershoesdb.com/wp-content/uploads/NikeSabrina3-Cropped.jpg",
+    imagenes: [],
+
+    fuentes: [],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 130,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/sabrina-3-zapatillas-de-baloncesto-UrtEcG8G/HF2881-303", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
 ];
 
 /**

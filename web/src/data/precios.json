@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T15:54:32.124Z",
+  "generated_at": "2026-05-16T15:57:02.869Z",
   "shoes": {
     "puma-mb-04": {
       "links_compra": [
@@ -179,6 +179,50 @@
           "tienda": "nike_es",
           "url": "https://www.nike.com/es/t/kd18-international-blue-zapatillas-de-baloncesto-9zhUuyOK/IB6684-400",
           "precio_actual": 111.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "nike-luka-77": {
+      "links_compra": [
+        {
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/t/luka-77-zapatillas-de-baloncesto-BERU1e7j/IF1610-500",
+          "precio_actual": 99.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "nike-book-2": {
+      "links_compra": [
+        {
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/t/book-2-rising-zapatillas-de-baloncesto-m5KwDWWn/IB6687-001",
+          "precio_actual": 149.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "nike-kobe-9-low-protro": {
+      "links_compra": [
+        {
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/t/kobe-9-low-protro-zapatillas-de-baloncesto-a69NSpgE/IM6119-800",
+          "precio_actual": 179.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "nike-sabrina-3": {
+      "links_compra": [
+        {
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/t/sabrina-3-zapatillas-de-baloncesto-UrtEcG8G/HF2881-303",
+          "precio_actual": 129.99,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
         }
