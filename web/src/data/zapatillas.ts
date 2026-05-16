@@ -4642,6 +4642,160 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/jordan-zion-4-hombre-zapatillas/314109478504.html", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
+
+  // ───────────────────────────────────────────────
+  // 69. Adidas AE 3 — Anthony Edwards tercera edición, respuesta y agarre
+  // ───────────────────────────────────────────────
+  {
+    id: "adidas-ae-3",
+    slug: "adidas-ae-3",
+    marca: "Adidas",
+    modelo: "AE 3",
+    generacion: 3,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Anthony Edwards",
+    tecnologia_clave: ["Lightstrike Pro midsole", "herringbone outsole", "mesh upper"],
+    predecesor_id: "adidas-ae-2",
+    sucesor_id: null,
+
+    peso_real_g: 340,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 9,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 9,
+      amortiguacion: 7,
+      respuesta: 9,
+      soporte_lateral: 7,
+      estabilidad: 7,
+      peso_score: 8,
+      durabilidad_outdoor: 6,
+      ventilacion: 8,
+    },
+    categoria_principal: "responsive",
+    tags: ["low-top", "signature", "explosivo", "guards", "lightstrike-pro", "rapido"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [60, 95],
+      estilos: ["explosivo", "equilibrado"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "La Adidas AE 3 es la tercera zapatilla signature de Anthony Edwards y su mejor obra hasta ahora. Lightstrike Pro mejorado, outsole herringbone renovado con excelente tracción, y un upper ligero de mesh. Si buscas velocidad y primer paso explosivo en el rango de 130€, la AE 3 es una de las mejores opciones del mercado.",
+    pros: [
+      "Lightstrike Pro: respuesta entre las mejores de 2025",
+      "Outsole herringbone con tracción top en pistas cubiertas",
+      "Upper mesh ligero y bien ventilado",
+      "Relación calidad-precio excepcional a 130€",
+      "Perfil bajo para movilidad máxima en guards",
+    ],
+    contras: [
+      "No la ideal para jugadores de más de 95-100 kg",
+      "Low-top: no recomendada si tienes historial de esguinces",
+      "Durabilidad outdoor moderada",
+    ],
+    veredicto:
+      "La AE 3 es la evolución más lograda de la línea Anthony Edwards: más agarre, más respuesta y mejor fit que las versiones anteriores. A 130€ compite directamente con la Nike Ja 3 y la GT Cut 4. Si eres guard o escolta y priorizas la reactividad, es una de las compras más inteligentes del año.",
+
+    imagen_principal:
+      "https://images.footlocker.com/is/image/FLEU/314109779604?wid=500&hei=500",
+    imagenes: [],
+
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/adidas-ae-3-performance-review/" },
+    ],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 129.99,
+    links_compra: [
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/adidas-anthony-edwards-3-hombre-zapatillas/314109779604.html", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // 70. Jordan Luka 4 — Luka Doncic 4ª, versatilidad para guards/aleros
+  // ───────────────────────────────────────────────
+  {
+    id: "jordan-luka-4",
+    slug: "jordan-luka-4",
+    marca: "Jordan",
+    modelo: "Luka 4",
+    generacion: 4,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Luka Doncic",
+    tecnologia_clave: ["Zoom Air unit", "herringbone outsole", "knit upper"],
+    predecesor_id: "jordan-luka-3",
+    sucesor_id: null,
+
+    peso_real_g: 370,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "knit",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 8,
+      respuesta: 7,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 6,
+      durabilidad_outdoor: 6,
+      ventilacion: 7,
+    },
+    categoria_principal: "balanced",
+    tags: ["mid-top", "signature", "equilibrado", "versatil", "zoom-air"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [70, 105],
+      estilos: ["equilibrado", "tirador"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: [],
+    },
+
+    resumen:
+      "La Jordan Luka 4 continúa la tradición de la línea Doncic: Zoom Air para cushion reactivo, upper de knit para comodidad, y soporte lateral mid-top. Perfecta para guards y aleros que buscan un equilibrio entre amortiguación y respuesta. A 80€ en rebajas es una auténtica ganga.",
+    pros: [
+      "Zoom Air: cushion reactivo y responsive",
+      "Upper knit: comodidad y ajuste natural al pie",
+      "Mid-top: soporte de tobillo superior a low-tops",
+      "Perfil equilibrado: serve para múltiples posiciones",
+      "Precio rebajado (~80€) — excelente relación calidad-precio",
+    ],
+    contras: [
+      "Algo más pesada que las opciones speed",
+      "Upper knit puede desgastarse más rápido en uso outdoor",
+      "Respuesta no tan alta como Ja 3 o AE 3",
+    ],
+    veredicto:
+      "Si buscas una zapatilla mid-top bien equilibrada para guards y aleros con Zoom Air a 80€, la Luka 4 es difícil de superar en su rango de precio. La línea Doncic siempre ha ofrecido buen valor, y la 4ª edición no es excepción. Ideal para el jugador que busca confort y soporte sin sacrificar respuesta.",
+
+    imagen_principal:
+      "https://images.footlocker.com/is/image/FLEU/314109477704?wid=500&hei=500",
+    imagenes: [],
+
+    fuentes: [],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 139.99,
+    links_compra: [
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/jordan-luka-4-hombre-zapatillas/314109477704.html", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
 ];
 
 /**

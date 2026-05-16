@@ -330,6 +330,28 @@
           "ultima_verificacion": "2026-05-16"
         }
       ]
+    },
+    "adidas-ae-3": {
+      "links_compra": [
+        {
+          "tienda": "footlocker_es",
+          "url": "https://www.footlocker.es/es/product/adidas-anthony-edwards-3-hombre-zapatillas/314109779604.html",
+          "precio_actual": 129.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "jordan-luka-4": {
+      "links_compra": [
+        {
+          "tienda": "footlocker_es",
+          "url": "https://www.footlocker.es/es/product/jordan-luka-4-hombre-zapatillas/314109477704.html",
+          "precio_actual": 80,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
     }
   }
 }
