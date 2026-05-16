@@ -374,6 +374,28 @@
           "ultima_verificacion": "2026-05-16"
         }
       ]
+    },
+    "anta-kai-2": {
+      "links_compra": [
+        {
+          "tienda": "basket4ballers_es",
+          "url": "https://www.basket4ballers.com/es/1428-chaussures-anta-kai-2",
+          "precio_actual": 126.04,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "anta-kai-1-speed": {
+      "links_compra": [
+        {
+          "tienda": "basket4ballers_es",
+          "url": "https://www.basket4ballers.com/es/1122-chaussures-basketball-anta",
+          "precio_actual": 126.04,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
     }
   }
 }

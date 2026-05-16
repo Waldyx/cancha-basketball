@@ -331,6 +331,7 @@ export const COMISIONES_TIENDA: Record<string, number> = {
   zalando_es: 5,
   sprinter_es: 5,
   footlocker_es: 4,
+  basket4ballers_es: 4,
   amazon_es: 4,
   idealo_es: 4,
   decathlon: 3,
