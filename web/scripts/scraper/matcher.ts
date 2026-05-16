@@ -46,7 +46,8 @@ const STOP_WORDS = new Set([
 function significantWords(s: string): string[] {
   return normalize(s)
     .split(/\s+/)
-    .filter((w) => w.length > 1 && !STOP_WORDS.has(w));
+    // Keep words with length > 1, OR single-digit numbers (e.g. "4" in "Freak 4")
+    .filter((w) => (w.length > 1 || /^\d$/.test(w)) && !STOP_WORDS.has(w));
 }
 
 export function matchesShoe(
@@ -76,7 +77,16 @@ export function matchesShoe(
     const isNumber = /^\d+$/.test(w);
     if (isNumber) {
       // Número: debe aparecer como token separado (evita LeBron2 ~ LeBron22)
-      if (tWords.includes(w)) matched++;
+      // CRÍTICO: si el número del modelo NO está en el título pero hay OTRO número,
+      // forzamos fallo. Ej: "Zoom Freak 4" NO debe matchear "Zoom Freak 7".
+      if (tWords.includes(w)) {
+        matched++;
+      } else {
+        // Si el título tiene algún número de modelo diferente, es fallo seguro
+        const titleHasAnyNumber = tWords.some((tw) => /^\d+$/.test(tw));
+        if (titleHasAnyNumber) return false; // número distinto → no es el mismo modelo
+        // Si el título no tiene ningún número, contamos como pendiente (no penalizamos)
+      }
     } else {
       // Palabra: aparece como subcadena completa
       const re = new RegExp(`(^|\\s|-)${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(\\s|-|$)`, "i");

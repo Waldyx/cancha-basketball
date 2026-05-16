@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T11:27:16.725Z",
+  "generated_at": "2026-05-16T15:02:02.401Z",
   "shoes": {
     "puma-mb-04": {
       "links_compra": [
@@ -82,8 +82,19 @@
       "links_compra": [
         {
           "tienda": "puma_es",
-          "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-mb-05-unisex/312780?swatch=01",
+          "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-puma-x-fast--furious-mb-05-miami-unisex/314021?search=true&amp;swatch=01",
           "precio_actual": 135,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "converse-shai-001": {
+      "links_compra": [
+        {
+          "tienda": "footlocker_es",
+          "url": "https://www.footlocker.es/es/product/converse-shai-001-hombre-zapatillas/314109669904.html",
+          "precio_actual": 129.99,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
         }

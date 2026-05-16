@@ -165,7 +165,7 @@ export const ua_es: StoreScraper = {
           );
           const ariaLabel = (await titleEl?.getAttribute("aria-label")) ?? "";
           const title = ariaLabel.replace(/^Añadir rápidamente al carrito /, "") ||
-                        (await titleEl?.textContent()) ?? "";
+                        ((await titleEl?.textContent()) ?? "");
           // UA products don't always include brand name in title
           if (!matchesShoe(title, shoe.marca, shoe.modelo) &&
               !matchesShoe(`Under Armour ${title}`, shoe.marca, shoe.modelo)) continue;
