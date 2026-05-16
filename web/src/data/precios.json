@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-15T21:54:15.816Z",
+  "generated_at": "2026-05-16T10:52:21.829Z",
   "shoes": {
     "puma-mb-04": {
       "links_compra": [
@@ -8,7 +8,7 @@
           "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-mb-04-lo-team-unisex/312174?swatch=02",
           "precio_actual": 70,
           "disponible": true,
-          "ultima_verificacion": "2026-05-15"
+          "ultima_verificacion": "2026-05-16"
         }
       ]
     },
@@ -16,10 +16,10 @@
       "links_compra": [
         {
           "tienda": "puma_es",
-          "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-all-pro-nitro-2-unisex/312839?swatch=02",
-          "precio_actual": 67,
+          "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-puma-x-pokemon-all-pro-nitro-2-pikachu-unisex/312843?search=true&amp;swatch=01",
+          "precio_actual": 140,
           "disponible": true,
-          "ultima_verificacion": "2026-05-15"
+          "ultima_verificacion": "2026-05-16"
         }
       ]
     },
@@ -30,7 +30,7 @@
           "url": "https://www.nike.com/es/t/precision-8-low-zapatillas-de-baloncesto-l5giREmS/IH1104-006",
           "precio_actual": 74.99,
           "disponible": true,
-          "ultima_verificacion": "2026-05-15"
+          "ultima_verificacion": "2026-05-16"
         }
       ]
     },
@@ -42,6 +42,83 @@
           "precio_actual": 49.99,
           "disponible": true,
           "ultima_verificacion": "2026-05-15"
+        }
+      ]
+    },
+    "puma-mb05": {
+      "links_compra": [
+        {
+          "tienda": "puma_es",
+          "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-puma-x-fast--furious-mb-05-miami-unisex/314021?search=true&amp;swatch=01",
+          "precio_actual": 135,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "nike-lebron-22": {
+      "links_compra": [
+        {
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/t/lebron-xxiii-lebronto-zapatillas-de-baloncesto-nino-a-WrxwvtWF/IV4800-602",
+          "precio_actual": 159.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "jordan-luka-5": {
+      "links_compra": [
+        {
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/t/luka-5-zapatillas-de-baloncesto-VgheA11M/HV8082-002",
+          "precio_actual": 90.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "nike-lebron-witness-9": {
+      "links_compra": [
+        {
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/t/lebron-witness-9-zapatillas-de-baloncesto-EDmIL9g4/HQ8034-003",
+          "precio_actual": 109.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "nike-lebron-21": {
+      "links_compra": [
+        {
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/t/lebron-xxiii-shoe-bag-zapatillas-de-baloncesto-UL9ABsK7/IV5647-800",
+          "precio_actual": 199.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "nike-lebron-23": {
+      "links_compra": [
+        {
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/t/lebron-xxiii-motor-king-zapatillas-de-baloncesto-UL9ABsK7/IB9562-102",
+          "precio_actual": 199.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "nike-ja-3": {
+      "links_compra": [
+        {
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/u/custom-nike-ja-3-by-you-10002205/4639822147",
+          "precio_actual": 149.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
         }
       ]
     }

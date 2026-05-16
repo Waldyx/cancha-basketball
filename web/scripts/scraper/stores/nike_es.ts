@@ -1,10 +1,10 @@
 /**
  * Scraper para Nike España (nike.com/es)
  *
- * Estrategia en orden de preferencia:
- *  1. Nike API pública (sin browser, sin bot-detection) — más rápida y fiable
- *  2. Browser: página de producto con JSON-LD
- *  3. Browser: grid de búsqueda
+ * Estrategia:
+ *  1. HTTP fetch + __NEXT_DATA__ JSON embebido en la web de Nike (sin browser)
+ *     Matching por URL slug del producto (roman numeral aware)
+ *  2. Fallback: browser con CSS selectores del grid/PDP
  */
 import type { Page } from "playwright";
 import type { StoreScraper, ShoeRef, ScrapeResult } from "../types.js";
@@ -12,77 +12,115 @@ import { matchesShoe, parsePrice, today } from "../matcher.js";
 
 const BASE_URL = "https://www.nike.com";
 
-// ─── Nike API ────────────────────────────────────────────────────────────────
+// ─── Util: normalizar modelo a slug Nike ─────────────────────────────────────
 
-interface NikeApiResponse {
-  objects?: Array<{
-    productInfo?: Array<{
-      price?: {
-        fullPrice?: number;
-        currentPrice?: number;
-      };
-      product?: { title?: string };
-      publishedContent?: {
-        properties?: { title?: string; subtitle?: string };
-      };
-    }>;
-    publishedContent?: {
-      properties?: { title?: string; subtitle?: string };
-    };
-  }>;
+const ROMAN_TO_ARABIC: Record<string, string> = {
+  xxiv: "24", xxiii: "23", xxii: "22", xxi: "21", xx: "20",
+  xix: "19", xviii: "18", xvii: "17", xvi: "16", xv: "15",
+  xiv: "14", xiii: "13", xii: "12", xi: "11", x: "10",
+  ix: "9", viii: "8", vii: "7", vi: "6", v: "5",
+  iv: "4", iii: "3", ii: "2", i: "1",
+};
+
+function modelToSlugCandidates(modelo: string): string[] {
+  const base = modelo
+    .toLowerCase()
+    .replace(/[.·]/g, " ")
+    .replace(/[-–—]/g, "-")
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "")
+    .replace(/-+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
+  const candidates = new Set<string>([base]);
+
+  // Reemplazar números arábigos ↔ romanos (mismo modelo, distinta notación)
+  // NO incluir versión sin número — causaría GT Cut 3 → GT Cut 4
+  for (const [roman, arabic] of Object.entries(ROMAN_TO_ARABIC)) {
+    if (base.includes(`-${roman}`)) {
+      candidates.add(base.replace(`-${roman}`, `-${arabic}`));
+    }
+    if (base.endsWith(`-${arabic}`)) {
+      // Solo si el número es el sufijo del modelo (ej: lebron-23 → lebron-xxiii)
+      candidates.add(base.replace(new RegExp(`-${arabic}$`), `-${roman}`));
+    }
+  }
+
+  return [...candidates];
 }
 
-async function priceFromNikeApi(
+// ─── HTTP fetch: __NEXT_DATA__ ───────────────────────────────────────────────
+
+interface NikeProduct {
+  copy?: { title?: string; subTitle?: string };
+  pdpUrl?: { url?: string; path?: string } | string;
+  prices?: { currentPrice?: number; fullPrice?: number };
+  productType?: string;
+  promotions?: Array<{ promotionPrice?: number }>;
+}
+
+async function priceFromNikeWeb(
   shoe: ShoeRef
 ): Promise<{ price: number; url: string } | null> {
   try {
-    const query = encodeURIComponent(shoe.modelo);
-    const apiUrl =
-      `https://api.nike.com/product_feed/threads/v2/` +
-      `?filter=marketplace(ES)` +
-      `&filter=language(es)` +
-      `&filter=searchTerms(${query})` +
-      `&count=8`;
+    const q = encodeURIComponent(shoe.modelo);
+    const pageUrl = `${BASE_URL}/es/w?q=${q}&vst=${q}`;
 
-    const res = await fetch(apiUrl, {
+    const res = await fetch(pageUrl, {
       headers: {
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
           "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-        Accept: "application/json",
-        Origin: "https://www.nike.com",
-        Referer: "https://www.nike.com/es/",
+        Accept: "text/html,application/xhtml+xml",
+        "Accept-Language": "es-ES,es;q=0.9",
+        "Cache-Control": "no-cache",
       },
-      signal: AbortSignal.timeout(10000),
+      signal: AbortSignal.timeout(15000),
     });
 
     if (!res.ok) return null;
-    const data: NikeApiResponse = await res.json();
+    const html = await res.text();
 
-    for (const obj of data.objects ?? []) {
-      // Extraer título para matching
-      const title =
-        obj.publishedContent?.properties?.title ??
-        obj.productInfo?.[0]?.publishedContent?.properties?.title ??
-        obj.productInfo?.[0]?.product?.title ??
-        "";
+    const match = html.match(
+      /<script id="__NEXT_DATA__" type="application\/json">(.+?)<\/script>/s
+    );
+    if (!match) return null;
 
-      if (!matchesShoe(title, shoe.marca, shoe.modelo)) continue;
+    const data = JSON.parse(match[1]);
+    const groups: Array<{ products?: NikeProduct[] }> =
+      data.props?.pageProps?.initialState?.Wall?.productGroupings ?? [];
 
-      // Extraer precio — puede estar en cualquier productInfo
-      for (const pi of obj.productInfo ?? []) {
-        const price = pi.price?.currentPrice ?? pi.price?.fullPrice ?? 0;
+    if (groups.length === 0) return null;
+
+    const slugCandidates = modelToSlugCandidates(shoe.modelo);
+
+    for (const group of groups) {
+      for (const product of group.products ?? []) {
+        const pdpRaw =
+          typeof product.pdpUrl === "object"
+            ? (product.pdpUrl as any)?.url ?? (product.pdpUrl as any)?.path
+            : product.pdpUrl;
+        const pdpUrl: string = pdpRaw ?? "";
+        const urlLower = pdpUrl.toLowerCase();
+
+        // Debe matchear al menos un candidato de slug
+        if (!slugCandidates.some((s) => urlLower.includes(s))) continue;
+
+        const price =
+          product.promotions?.[0]?.promotionPrice ??
+          product.prices?.currentPrice ??
+          product.prices?.fullPrice ??
+          0;
+
         if (price > 20) {
-          // Construir URL de producto para España
-          const slug = (title as string)
-            .toLowerCase()
-            .replace(/[^a-z0-9]+/g, "-")
-            .replace(/(^-|-$)/g, "");
-          const productUrl = `${BASE_URL}/es/w?q=${encodeURIComponent(shoe.modelo)}`;
+          const productUrl = pdpUrl.startsWith("http")
+            ? pdpUrl
+            : `${BASE_URL}${pdpUrl}`;
           return { price, url: productUrl };
         }
       }
     }
+
     return null;
   } catch {
     return null;
@@ -122,13 +160,13 @@ export const nike_es: StoreScraper = {
       ultima_verificacion: today(),
     };
 
-    // ── 1. Intentar Nike API (sin browser) ──────────────────────────────────
-    const apiResult = await priceFromNikeApi(shoe);
-    if (apiResult) {
+    // ── 1. HTTP fetch + __NEXT_DATA__ (sin browser) ─────────────────────────
+    const webResult = await priceFromNikeWeb(shoe);
+    if (webResult) {
       return {
         ...base,
-        url: apiResult.url,
-        precio_actual: apiResult.price,
+        url: webResult.url,
+        precio_actual: webResult.price,
         disponible: true,
       };
     }
@@ -159,13 +197,23 @@ export const nike_es: StoreScraper = {
           '[data-testid="product-card"], .product-card__body, [class*="ProductCard"]'
         );
 
-        for (const card of cards.slice(0, 8)) {
+        const slugCandidates = modelToSlugCandidates(shoe.modelo);
+
+        for (const card of cards.slice(0, 12)) {
+          const linkEl = await card.$("a");
+          const href = (await linkEl?.getAttribute("href")) ?? "";
+          const hrefLower = href.toLowerCase();
+
           const titleEl = await card.$(
             '[data-testid="product-subtitle"], [class*="product-card__title"], ' +
               "[class*=\"headline\"], h3, h4, [class*=\"title\"]"
           );
           const title = (await titleEl?.textContent()) ?? "";
-          if (!matchesShoe(title, shoe.marca, shoe.modelo)) continue;
+
+          // Match by URL slug OR by title
+          const slugOk = slugCandidates.some((s) => hrefLower.includes(s));
+          const titleOk = matchesShoe(title, shoe.marca, shoe.modelo);
+          if (!slugOk && !titleOk) continue;
 
           const priceEl = await card.$(
             '[data-testid="product-price"], [class*="product-card__price"], ' +
@@ -175,8 +223,6 @@ export const nike_es: StoreScraper = {
           const price = parsePrice(priceText);
           if (!price) continue;
 
-          const linkEl = await card.$("a");
-          const href = await linkEl?.getAttribute("href");
           const productUrl = href
             ? href.startsWith("http")
               ? href

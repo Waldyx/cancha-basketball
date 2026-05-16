@@ -13,6 +13,56 @@ import { matchesShoe, parsePrice, today } from "../matcher.js";
 
 const BASE_URL = "https://eu.puma.com";
 
+// ─── HTTP fetch approach (sin browser) ───────────────────────────────────────
+
+/**
+ * Puma incrusta datos de producto en el HTML como:
+ * aria-label="Zapatillas X, Precio, €125"
+ * href="/es/es/pd/zapatillas-x/312797"
+ */
+async function priceFromPumaWeb(
+  shoe: ShoeRef
+): Promise<{ price: number; url: string } | null> {
+  try {
+    const q = encodeURIComponent(`${shoe.modelo} basketball`);
+    const searchUrl = `${BASE_URL}/es/es/search?q=${q}`;
+
+    const res = await fetch(searchUrl, {
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
+          "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+        Accept: "text/html,application/xhtml+xml",
+        "Accept-Language": "es-ES,es;q=0.9",
+      },
+      redirect: "follow",
+      signal: AbortSignal.timeout(15000),
+    });
+
+    if (!res.ok) return null;
+    const html = await res.text();
+
+    // Formato: aria-label="Nombre del producto, Precio, €125" href="/es/es/pd/..."
+    const linkRegex =
+      /aria-label="([^"]+?),\s*Precio,\s*€(\d+(?:[.,]\d{1,2})?)"\s+href="(\/es\/es\/pd\/[^"]+)"/gi;
+
+    let match: RegExpExecArray | null;
+    while ((match = linkRegex.exec(html)) !== null) {
+      const [, name, priceStr, path] = match;
+      if (!matchesShoe(name, shoe.marca, shoe.modelo)) continue;
+      const priceRaw = priceStr.replace(",", ".");
+      const price = parseFloat(priceRaw);
+      if (price > 20) {
+        return { price, url: `${BASE_URL}${path}` };
+      }
+    }
+
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 async function acceptCookies(page: Page): Promise<void> {
   const selectors = [
     'button[data-testid="cookie-accept"]',
@@ -179,6 +229,13 @@ export const puma_es: StoreScraper = {
     };
 
     try {
+      // ── 1. HTTP fetch (sin browser) ──────────────────────────────────────
+      const webResult = await priceFromPumaWeb(shoe);
+      if (webResult) {
+        return { ...base, url: webResult.url, precio_actual: webResult.price, disponible: true };
+      }
+
+      // ── 2. Fallback: browser ─────────────────────────────────────────────
       await page.goto(url, { waitUntil: "domcontentloaded", timeout: 25000 });
       await acceptCookies(page);
 
