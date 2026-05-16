@@ -3362,7 +3362,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "reebok_es", url: "https://www.reebok.es/buscar?q=question+mid", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "reebok_es", url: "https://www.reebok.es/buscar?q=question+mid", precio_actual: 130, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=reebok+question+mid", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=reebok+question+mid", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+question+mid+baloncesto", precio_actual: 118, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
@@ -3434,7 +3434,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "reebok_es", url: "https://www.reebok.es/buscar?q=answer+iv", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "reebok_es", url: "https://www.reebok.es/buscar?q=answer+iv", precio_actual: 120, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=reebok+answer+iv", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=reebok+answer+iv", precio_actual: 105, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+answer+iv+baloncesto", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
@@ -3504,7 +3504,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "reebok_es", url: "https://www.reebok.es/buscar?q=engine+a", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "reebok_es", url: "https://www.reebok.es/buscar?q=engine+a", precio_actual: 120, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=reebok+engine+a", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+engine+a+baloncesto", precio_actual: 112, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
@@ -3662,6 +3662,231 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 75,
     links_compra: [
       { tienda: "ua_es", url: "https://www.underarmour.es/es-es/c/hombre/zapatillas/baloncesto/?q=lockdown+7", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // 56. UA SPAWN 7 MID — Mid-range de performance UA
+  // ───────────────────────────────────────────────
+  {
+    id: "ua-spawn-7-mid",
+    slug: "ua-spawn-7-mid",
+    marca: "Under Armour",
+    modelo: "Spawn 7 Mid",
+    generacion: 7,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: null,
+    tecnologia_clave: ["UA HOVR foam", "herringbone outsole", "mesh+TPU upper"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 365,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 7,
+      respuesta: 7,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 6,
+      durabilidad_outdoor: 7,
+      ventilacion: 7,
+    },
+    categoria_principal: "balanced",
+    tags: ["mid-top", "soporte", "mid-range", "outdoor-viable"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [70, 100],
+      estilos: ["equilibrado", "potente"],
+    },
+    no_recomendada_para: {
+      posiciones: [],
+      estilos: ["explosivo"],
+    },
+
+    resumen:
+      "La Spawn 7 Mid de UA ofrece un buen equilibrio entre soporte y amortiguación. HOVR foam en mediasuela proporciona energía devuelta sin sacrificar cushion. Upper mid con buen soporte lateral para jugadores físicos. Una opción sólida de gama media disponible en UA España.",
+    pros: [
+      "HOVR foam con buena amortiguación y respuesta",
+      "Perfil mid con soporte lateral adecuado",
+      "Herringbone durable para indoor y outdoor",
+      "Precio justo en gama media (120€)",
+    ],
+    contras: [
+      "Peso algo elevado para su nivel",
+      "Menos reactiva que la Curry 13",
+      "No top-tier en ninguna categoría",
+    ],
+    veredicto:
+      "Para jugadores físicos de posición interior o aleros que necesitan soporte sin pagar precio premium. La Spawn 7 Mid cumple bien en pista cubierta y aguanta el exterior. Buena opción de gama media dentro del catálogo UA.",
+
+    imagen_principal:
+      "https://ballershoesdb.com/wp-content/uploads/Spawn7-Cropped.jpg",
+    imagenes: [],
+
+    fuentes: [],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 120,
+    links_compra: [
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/c/hombre/zapatillas/baloncesto/?q=spawn+7+mid", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // 57. UA FUTR X 4 — Upper-mid UA, reactiva y estable
+  // ───────────────────────────────────────────────
+  {
+    id: "ua-futr-x-4",
+    slug: "ua-futr-x-4",
+    marca: "Under Armour",
+    modelo: "FUTR X 4",
+    generacion: 4,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: null,
+    tecnologia_clave: ["UA HOVR foam", "Flow-inspired outsole", "knit upper"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 345,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "knit",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 8,
+      respuesta: 8,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 7,
+      durabilidad_outdoor: 5,
+      ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["mid-top", "reactiva", "versatil", "upper-mid"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [65, 95],
+      estilos: ["equilibrado", "explosivo", "tirador"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "La FUTR X 4 es la zapatilla más equilibrada del catálogo UA: HOVR foam con buena energía devuelta, outsole reactiva similar al Flow en rendimiento, knit upper transpirable y soporte lateral sólido. Disponible en UA España a 120€.",
+    pros: [
+      "Excelente equilibrio cushion-respuesta con HOVR",
+      "Knit upper cómodo y transpirable",
+      "Soporte lateral bueno para cambios de dirección",
+      "Versatilidad para distintos estilos de juego",
+    ],
+    contras: [
+      "Outsole menos durable en exterior que herringbone clásico",
+      "No tan ligera como la Curry 13",
+      "Relativa novedad — sin historial de durabilidad largo",
+    ],
+    veredicto:
+      "La mejor opción de UA para jugadores que quieren algo equilibrado sin decidirse entre la Curry (ultra-reactiva, poca protección) y la Spawn (más física). La FUTR X 4 funciona bien en todas las posiciones.",
+
+    imagen_principal:
+      "https://ballershoesdb.com/wp-content/uploads/futrx4-Cropped.jpg",
+    imagenes: [],
+
+    fuentes: [],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 120,
+    links_compra: [
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/c/hombre/zapatillas/baloncesto/?q=futr+x+4", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // 58. UA CURRY 3Z 25 — Curry budget, entrada de gama Curry
+  // ───────────────────────────────────────────────
+  {
+    id: "ua-curry-3z-25",
+    slug: "ua-curry-3z-25",
+    marca: "Under Armour",
+    modelo: "Curry 3Z 25",
+    generacion: null,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Stephen Curry",
+    tecnologia_clave: ["EVA foam midsole", "herringbone outsole", "mesh upper"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 350,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 7,
+      amortiguacion: 6,
+      respuesta: 6,
+      soporte_lateral: 6,
+      estabilidad: 7,
+      peso_score: 7,
+      durabilidad_outdoor: 8,
+      ventilacion: 7,
+    },
+    categoria_principal: "budget",
+    tags: ["budget", "curry", "entrada-gama", "low-top", "outdoor-viable"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [60, 85],
+      estilos: ["tirador", "equilibrado"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "La versión asequible de la línea Curry. EVA foam básico pero funcional, herringbone resistente para outdoor, y el respaldo del nombre Curry. Ideal para jugadores que quieren el look Curry sin el precio premium. Disponible en UA España a 85€.",
+    pros: [
+      "Precio muy asequible (85€) con el nombre Curry",
+      "Herringbone durable para outdoor e indoor",
+      "Buena opción para principiantes o uso recreativo",
+      "Ligera para su precio",
+    ],
+    contras: [
+      "Muy inferior a la Curry 12/13 en cushion y respuesta",
+      "EVA básico — no hay UA Flow ni HOVR",
+      "No tiene las tecnologías premium de la línea Curry",
+    ],
+    veredicto:
+      "Si quieres el sello Curry sin gastar 140€+, la Curry 3Z 25 es la respuesta. No es una zapatilla técnicamente avanzada, pero cumple para uso recreativo o pistas exteriores. Para juego serio, invierte en la Curry 13.",
+
+    imagen_principal:
+      "https://ballershoesdb.com/wp-content/uploads/Curry3Z25-Cropped.jpg",
+    imagenes: [],
+
+    fuentes: [],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 85,
+    links_compra: [
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/c/hombre/zapatillas/baloncesto/?q=curry+3z", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
 ];
