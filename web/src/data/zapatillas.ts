@@ -4190,6 +4190,81 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "nike_es", url: "https://www.nike.com/es/t/sabrina-3-zapatillas-de-baloncesto-UrtEcG8G/HF2881-303", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
+
+  // ───────────────────────────────────────────────
+  // 63. Jordan Tatum 4 — Tatum signature, cushion premium
+  // ───────────────────────────────────────────────
+  {
+    id: "jordan-tatum-4",
+    slug: "jordan-tatum-4",
+    marca: "Jordan",
+    modelo: "Tatum 4",
+    generacion: 4,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Jayson Tatum",
+    tecnologia_clave: ["Zoom Air strobel", "React midsole", "knit upper"],
+    predecesor_id: "jordan-tatum-3",
+    sucesor_id: null,
+
+    peso_real_g: 345,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "knit",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 8,
+      respuesta: 8,
+      soporte_lateral: 8,
+      estabilidad: 7,
+      peso_score: 8,
+      durabilidad_outdoor: 5,
+      ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["low-top", "signature", "cushion", "versatil", "reactiva"],
+
+    ideal_para: {
+      posiciones: ["alero", "escolta", "base"],
+      peso_jugador_kg: [65, 100],
+      estilos: ["equilibrado", "explosivo", "tirador"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "La Jordan Tatum 4 es la zapatilla signature más madura de Jayson Tatum. Zoom Air strobel para cushion reactivo en todo el pie, React foam para durabilidad, knit upper preciso. La combinación perfecta para aleros que necesitan un calzado versátil sin renunciar al cushion.",
+    pros: [
+      "Zoom Air strobel full-length — cushion reactivo en todo el pie",
+      "Knit upper: sujeción precisa sin puntos de presión",
+      "Buen soporte lateral para un low-top",
+      "Precio competitivo para su nivel tecnológico",
+    ],
+    contras: [
+      "Sin versión mid — solo disponible como low-top",
+      "Peso algo superior a otras opciones speed de Nike",
+      "Outsole puede desgastarse rápido en exterior",
+    ],
+    veredicto:
+      "Para aleros y escoltas que quieren un calzado con cushion serio sin el precio de la LeBron o la Kobe Protro. La Tatum 4 es una compra inteligente a 90.99€ — probablemente la mejor relación calidad-precio de la línea Jordan signature en 2025.",
+
+    imagen_principal:
+      "https://ballershoesdb.com/wp-content/uploads/Tatum4-Cropped.jpg",
+    imagenes: [],
+
+    fuentes: [],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 90,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/tatum-4-zapatillas-de-baloncesto-Bbr6tfuA/HQ4614-004", precio_actual: 90.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
 ];
 
 /**

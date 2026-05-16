@@ -227,6 +227,17 @@
           "ultima_verificacion": "2026-05-16"
         }
       ]
+    },
+    "jordan-tatum-4": {
+      "links_compra": [
+        {
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/t/tatum-4-zapatillas-de-baloncesto-Bbr6tfuA/HQ4614-004",
+          "precio_actual": 90.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
     }
   }
 }
