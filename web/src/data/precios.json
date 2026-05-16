@@ -319,6 +319,17 @@
           "ultima_verificacion": "2026-05-16"
         }
       ]
+    },
+    "adidas-harden-vol-9": {
+      "links_compra": [
+        {
+          "tienda": "footlocker_es",
+          "url": "https://www.footlocker.es/es/product/adidas-harden-volume-9-hombre-zapatillas/314100694604.html",
+          "precio_actual": 90,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
     }
   }
 }
