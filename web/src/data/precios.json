@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T15:10:33.343Z",
+  "generated_at": "2026-05-16T15:54:32.124Z",
   "shoes": {
     "puma-mb-04": {
       "links_compra": [
@@ -75,6 +75,13 @@
           "precio_actual": 124.99,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
+        },
+        {
+          "tienda": "footlocker_es",
+          "url": "https://www.footlocker.es/es/product/nike-ja-3-hombre-zapatillas/314104392304.html",
+          "precio_actual": 144.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
         }
       ]
     },
@@ -106,6 +113,72 @@
           "tienda": "ua_es",
           "url": "https://www.underarmour.es/es-es/p/calzado/curry-13/6007670.html",
           "precio_actual": 140,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "ua-lockdown-7": {
+      "links_compra": [
+        {
+          "tienda": "ua_es",
+          "url": "https://www.underarmour.es/es-es/p/calzado/ua_lockdown%C2%A07/3028512.html",
+          "precio_actual": 75,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "ua-spawn-7-mid": {
+      "links_compra": [
+        {
+          "tienda": "ua_es",
+          "url": "https://www.underarmour.es/es-es/p/calzado/ua_spawn_7%C2%A0mid/6000753.html",
+          "precio_actual": 120,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "ua-futr-x-4": {
+      "links_compra": [
+        {
+          "tienda": "ua_es",
+          "url": "https://www.underarmour.es/es-es/p/calzado/ua_futr_x_4/3028831.html",
+          "precio_actual": 120,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "ua-curry-3z-25": {
+      "links_compra": [
+        {
+          "tienda": "ua_es",
+          "url": "https://www.underarmour.es/es-es/p/calzado/curry_3z_25/6000749.html",
+          "precio_actual": 85,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "nike-gt-cut-4": {
+      "links_compra": [
+        {
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/t/gt-cut-4-zapatillas-de-baloncesto-0LyIJNiB/HV9922-400",
+          "precio_actual": 139.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "nike-kd-18": {
+      "links_compra": [
+        {
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/t/kd18-international-blue-zapatillas-de-baloncesto-9zhUuyOK/IB6684-400",
+          "precio_actual": 111.99,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
         }

@@ -3661,7 +3661,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 75,
     links_compra: [
-      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/c/hombre/zapatillas/baloncesto/?q=lockdown+7", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/p/calzado/ua_lockdown%C2%A07/3028512.html", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
 
@@ -3736,7 +3736,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/c/hombre/zapatillas/baloncesto/?q=spawn+7+mid", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/p/calzado/ua_spawn_7%C2%A0mid/6000753.html", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
 
@@ -3811,7 +3811,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/c/hombre/zapatillas/baloncesto/?q=futr+x+4", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/p/calzado/ua_futr_x_4/3028831.html", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
 
@@ -3886,7 +3886,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 85,
     links_compra: [
-      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/c/hombre/zapatillas/baloncesto/?q=curry+3z", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/p/calzado/curry_3z_25/6000749.html", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
 ];
