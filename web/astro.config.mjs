@@ -6,8 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  // Cambiar cuando tengamos dominio real (Fase 11)
-  site: 'https://cancha.example',
+  site: 'https://web-puce-chi-60.vercel.app',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()]

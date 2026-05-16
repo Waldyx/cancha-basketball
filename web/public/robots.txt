@@ -5,4 +5,4 @@ Allow: /
 Disallow: /resultados
 Disallow: /comparar
 
-Sitemap: https://cancha.example/sitemap-index.xml
+Sitemap: https://web-puce-chi-60.vercel.app/sitemap-index.xml
