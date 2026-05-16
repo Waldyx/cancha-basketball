@@ -238,6 +238,39 @@
           "ultima_verificacion": "2026-05-16"
         }
       ]
+    },
+    "nike-zoom-freak-7": {
+      "links_compra": [
+        {
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/t/giannis-freak-7-light-aqua-zapatillas-de-baloncesto-unI5zoUd/HF3450-402",
+          "precio_actual": 114.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "nike-giannis-immortality-5": {
+      "links_compra": [
+        {
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/t/giannis-immortality-5-zapatillas-de-baloncesto-5HW4SGTy/IM5130-700",
+          "precio_actual": 89.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "nike-gt-cut-academy-2": {
+      "links_compra": [
+        {
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/t/gt-cut-academy-2-zapatillas-de-baloncesto-KR3H9TWw/HV9774-002",
+          "precio_actual": 99.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
     }
   }
 }

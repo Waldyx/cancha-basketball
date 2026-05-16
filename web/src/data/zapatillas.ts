@@ -4265,6 +4265,231 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "nike_es", url: "https://www.nike.com/es/t/tatum-4-zapatillas-de-baloncesto-Bbr6tfuA/HQ4614-004", precio_actual: 90.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
+
+  // ───────────────────────────────────────────────
+  // 64. Nike Zoom Freak 7 — Giannis, potencia y estabilidad
+  // ───────────────────────────────────────────────
+  {
+    id: "nike-zoom-freak-7",
+    slug: "nike-zoom-freak-7",
+    marca: "Nike",
+    modelo: "Zoom Freak 7",
+    generacion: 7,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Giannis Antetokounmpo",
+    tecnologia_clave: ["Zoom Air pods", "foam midsole", "TPU shank"],
+    predecesor_id: "nike-zoom-freak-4",
+    sucesor_id: null,
+
+    peso_real_g: 390,
+    altura: "mid",
+    horma: "ancha",
+    drop_mm: 12,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 9,
+      amortiguacion: 8,
+      respuesta: 7,
+      soporte_lateral: 9,
+      estabilidad: 9,
+      peso_score: 5,
+      durabilidad_outdoor: 7,
+      ventilacion: 7,
+    },
+    categoria_principal: "support",
+    tags: ["mid-top", "signature", "potente", "estable", "interior"],
+
+    ideal_para: {
+      posiciones: ["pivot", "ala-pivot", "alero"],
+      peso_jugador_kg: [85, 130],
+      estilos: ["potente", "fisico", "interior"],
+    },
+    no_recomendada_para: {
+      posiciones: ["base"],
+      estilos: ["rapido"],
+    },
+
+    resumen:
+      "La Nike Zoom Freak 7 está diseñada para jugadores de físico potente, como el propio Giannis. Zoom Air pods estratégicamente situados, construcción mid-top para soporte de tobillo, horma ancha para pies grandes o anchos. La opción Nike para interiores y aleros físicos.",
+    pros: [
+      "Soporte lateral excepcional para interiores",
+      "Zoom Air pods dan respuesta en momentos clave",
+      "Horma ancha — ideal para pies anchos o grandes",
+      "Outsole durable, apto para exterior ocasional",
+    ],
+    contras: [
+      "Pesada — no apta para jugadores que priorizan velocidad",
+      "Amortiguación no tan plush como la LeBron 23",
+      "Precio elevado para zapatilla de posición interior",
+    ],
+    veredicto:
+      "La mejor opción Nike para pivots y aleros físicos que necesitan una zapatilla robusta. Si juegas como Giannis — potencia, cambios de dirección bruscos, juego en la pintura — la Freak 7 es la elección correcta.",
+
+    imagen_principal:
+      "https://ballershoesdb.com/wp-content/uploads/NikeGiannisFreak7-Cropped-1.jpg",
+    imagenes: [],
+
+    fuentes: [],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 115,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/giannis-freak-7-light-aqua-zapatillas-de-baloncesto-unI5zoUd/HF3450-402", precio_actual: 114.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // 65. Nike Giannis Immortality 5 — Gama media Giannis, accesible
+  // ───────────────────────────────────────────────
+  {
+    id: "nike-giannis-immortality-5",
+    slug: "nike-giannis-immortality-5",
+    marca: "Nike",
+    modelo: "Giannis Immortality 5",
+    generacion: 5,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Giannis Antetokounmpo",
+    tecnologia_clave: ["foam cushion", "rubber outsole", "mesh upper"],
+    predecesor_id: "nike-giannis-immortality-3",
+    sucesor_id: null,
+
+    peso_real_g: 360,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 7,
+      respuesta: 7,
+      soporte_lateral: 7,
+      estabilidad: 7,
+      peso_score: 7,
+      durabilidad_outdoor: 6,
+      ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["low-top", "signature", "accesible", "gama-baja"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [60, 100],
+      estilos: ["equilibrado", "principiante", "recreativo"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "La Giannis Immortality 5 es la línea de entrada al ecosistema de calzado de Giannis. Sin tecnología Zoom Air, pero con foam decente, outsole de buen agarre y upper mesh transpirable. Perfecta para jugadores recreativos, principiantes o quienes tienen presupuesto ajustado.",
+    pros: [
+      "Precio excelente para una zapatilla con licencia NBA",
+      "Outsole con buen agarre en pista cubierta",
+      "Ligera para el precio",
+      "Upper mesh transpirable",
+    ],
+    contras: [
+      "Sin Zoom Air — cushion básico",
+      "No apta para juego intensivo o jugadores pesados",
+      "Soporte lateral mínimo",
+    ],
+    veredicto:
+      "La mejor opción bajo 90€ con respaldo de una marca premium. Para juego recreativo, entrenos o como segunda zapatilla, la Immortality 5 es una opción sólida y asequible. Para juego competitivo, invierte en la Freak 7 o la Tatum 4.",
+
+    imagen_principal:
+      "https://ballershoesdb.com/wp-content/uploads/Immortality4-Cropped.jpg",
+    imagenes: [],
+
+    fuentes: [],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 90,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/giannis-immortality-5-zapatillas-de-baloncesto-5HW4SGTy/IM5130-700", precio_actual: 89.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // 66. Nike GT Cut Academy 2 — Gama media del GT Cut, versátil
+  // ───────────────────────────────────────────────
+  {
+    id: "nike-gt-cut-academy-2",
+    slug: "nike-gt-cut-academy-2",
+    marca: "Nike",
+    modelo: "GT Cut Academy 2",
+    generacion: 2,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: null,
+    tecnologia_clave: ["foam cushion", "rubber outsole multidireccional", "synthetic upper"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 340,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "synthetic",
+
+    puntuaciones: {
+      traccion: 9,
+      amortiguacion: 7,
+      respuesta: 7,
+      soporte_lateral: 7,
+      estabilidad: 7,
+      peso_score: 7,
+      durabilidad_outdoor: 6,
+      ventilacion: 7,
+    },
+    categoria_principal: "speed",
+    tags: ["low-top", "accesible", "gama-media", "versatil", "agarre"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [60, 90],
+      estilos: ["rapido", "equilibrado", "manejo"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "La GT Cut Academy 2 lleva el outsole herringbone multidireccional de la GT Cut 4 a un precio más accesible. Sin Zoom Air, pero con agarre excepcional gracias al patrón de outsole del GT Cut. Ideal para jugadores que priorizan el agarre y la agilidad sin pagar precio premium.",
+    pros: [
+      "Outsole inspirado en el GT Cut 4: agarre multidireccional sobresaliente",
+      "Precio muy competitivo (100€)",
+      "Perfil bajo y ligero para jugadores de velocidad",
+      "Buena durabilidad para el precio",
+    ],
+    contras: [
+      "Sin Zoom Air — cushion básico comparado con el GT Cut 4",
+      "Upper sintético menos transpirable que mesh",
+      "No tan reactiva como la versión premium",
+    ],
+    veredicto:
+      "Si quieres el agarre del GT Cut 4 sin el gasto, la GT Cut Academy 2 es la respuesta. Perfecta para jugadores de velocidad con presupuesto ajustado o para uso en entrenos intensivos. La relación calidad-precio es excepcional a 99.99€.",
+
+    imagen_principal:
+      "https://ballershoesdb.com/wp-content/uploads/GTCutAcademy2-Cropped.jpg",
+    imagenes: [],
+
+    fuentes: [],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 100,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/gt-cut-academy-2-zapatillas-de-baloncesto-KR3H9TWw/HV9774-002", precio_actual: 99.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
 ];
 
 /**
