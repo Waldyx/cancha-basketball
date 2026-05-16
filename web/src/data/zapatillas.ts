@@ -4490,6 +4490,81 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "nike_es", url: "https://www.nike.com/es/t/gt-cut-academy-2-zapatillas-de-baloncesto-KR3H9TWw/HV9774-002", precio_actual: 99.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
+
+  // ───────────────────────────────────────────────
+  // 67. Puma Stewie 4 — Breanna Stewart signature, versatil para interiores
+  // ───────────────────────────────────────────────
+  {
+    id: "puma-stewie-4",
+    slug: "puma-stewie-4",
+    marca: "Puma",
+    modelo: "Stewie 4",
+    generacion: 4,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Breanna Stewart",
+    tecnologia_clave: ["Nitrofoam midsole", "outsole herringbone", "synthetic upper"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 355,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "synthetic",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 8,
+      respuesta: 7,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 7,
+      durabilidad_outdoor: 6,
+      ventilacion: 7,
+    },
+    categoria_principal: "support",
+    tags: ["mid-top", "signature", "estable", "interior", "versatil"],
+
+    ideal_para: {
+      posiciones: ["alero", "ala-pivot", "pivot"],
+      peso_jugador_kg: [65, 100],
+      estilos: ["equilibrado", "potente", "fisico"],
+    },
+    no_recomendada_para: {
+      posiciones: ["base"],
+      estilos: ["rapido"],
+    },
+
+    resumen:
+      "La Puma Stewie 4 es la zapatilla signature de Breanna Stewart (MVP WNBA), ahora disponible para todos. Nitrofoam para cushion consistente, outsole herringbone para tracción en pista cubierta, y diseño mid-top para soporte de tobillo. Una opción mid-range sólida para jugadores físicos.",
+    pros: [
+      "Nitrofoam: cushion reactivo y duradero",
+      "Outsole herringbone con buen agarre en pista cubierta",
+      "Mid-top: soporte de tobillo decente",
+      "Precio competitivo a 120€ para zapatilla con Nitrofoam",
+    ],
+    contras: [
+      "No tan ligera como las opciones speed",
+      "Upper sintético menos transpirable que mesh",
+      "Estética predominantemente femenina en algunos colorways",
+    ],
+    veredicto:
+      "Una opción sólida y a menudo ignorada en el catálogo Puma. Si juegas en posiciones de interior y buscas Nitrofoam a un precio razonable, la Stewie 4 compite de tú a tú con la Freak 7 y la Curry 13. Merece más atención de la que recibe.",
+
+    imagen_principal:
+      "https://ballershoesdb.com/wp-content/uploads/stewie4-Cropped.jpg",
+    imagenes: [],
+
+    fuentes: [],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 120,
+    links_compra: [
+      { tienda: "puma_es", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-stewie-4-most-wanted-para-mujer/312744?search=true&swatch=01", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
 ];
 
 /**

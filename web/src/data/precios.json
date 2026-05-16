@@ -16,8 +16,8 @@
       "links_compra": [
         {
           "tienda": "puma_es",
-          "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-puma-x-pokemon-all-pro-nitro-2-pikachu-unisex/312843?search=true&amp;swatch=01",
-          "precio_actual": 140,
+          "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-all-pro-nitro-2-unisex/312839?swatch=03",
+          "precio_actual": 130,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
         }
@@ -267,6 +267,17 @@
           "tienda": "nike_es",
           "url": "https://www.nike.com/es/t/gt-cut-academy-2-zapatillas-de-baloncesto-KR3H9TWw/HV9774-002",
           "precio_actual": 99.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "puma-stewie-4": {
+      "links_compra": [
+        {
+          "tienda": "puma_es",
+          "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-stewie-4-most-wanted-para-mujer/312744?search=true&swatch=01",
+          "precio_actual": 120,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
         }
