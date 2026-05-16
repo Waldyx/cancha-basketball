@@ -352,6 +352,28 @@
           "ultima_verificacion": "2026-05-16"
         }
       ]
+    },
+    "nike-book-1": {
+      "links_compra": [
+        {
+          "tienda": "footlocker_es",
+          "url": "https://www.footlocker.es/es/product/nike-book-1-hombre-zapatillas/314109163304.html",
+          "precio_actual": 60,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
+    },
+    "adidas-harden-vol-10": {
+      "links_compra": [
+        {
+          "tienda": "footlocker_es",
+          "url": "https://www.footlocker.es/es/product/adidas-harden-volume-10-hombre-zapatillas/314109881004.html",
+          "precio_actual": 159.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-16"
+        }
+      ]
     }
   }
 }

@@ -4796,6 +4796,157 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/jordan-luka-4-hombre-zapatillas/314109477704.html", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
+
+  // ───────────────────────────────────────────────
+  // 71. Nike Book 1 — Devin Booker signature, shooter-oriented
+  // ───────────────────────────────────────────────
+  {
+    id: "nike-book-1",
+    slug: "nike-book-1",
+    marca: "Nike",
+    modelo: "Book 1",
+    generacion: 1,
+    año_lanzamiento: 2024,
+    genero: "unisex",
+    signature_player: "Devin Booker",
+    tecnologia_clave: ["Zoom Air forefoot", "herringbone outsole", "knit upper"],
+    predecesor_id: null,
+    sucesor_id: "nike-book-2",
+
+    peso_real_g: 345,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 9,
+    tipo_cierre: "cordones",
+    material_superior: "knit",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 7,
+      respuesta: 8,
+      soporte_lateral: 6,
+      estabilidad: 7,
+      peso_score: 8,
+      durabilidad_outdoor: 6,
+      ventilacion: 8,
+    },
+    categoria_principal: "responsive",
+    tags: ["low-top", "signature", "tirador", "guards", "zoom-air", "ligera"],
+
+    ideal_para: {
+      posiciones: ["escolta", "alero", "base"],
+      peso_jugador_kg: [60, 90],
+      estilos: ["tirador", "equilibrado"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "La Nike Book 1 es la primera zapatilla signature de Devin Booker, diseñada para el jugador de perímetro que necesita respuesta, agarre y ligereza. Zoom Air en el antepié, outsole herringbone y upper knit que abraza el pie. Actualmente disponible a 60€ — una oportunidad increíble para su nivel de rendimiento.",
+    pros: [
+      "Zoom Air en el antepié: respuesta notable para tiradores",
+      "Outsole herringbone con excelente agarre en pista cubierta",
+      "Upper knit cómodo y bien ventilado",
+      "Muy ligera para ser una low-top con Zoom",
+      "Precio rebajado a 60€ — mejor valor del catálogo Nike actualmente",
+    ],
+    contras: [
+      "Low-top: sin soporte de tobillo superior",
+      "No ideal para jugadores físicos de más de 90 kg",
+      "Amortiguación moderada (no es la prioridad en este modelo)",
+    ],
+    veredicto:
+      "A 60€ la Book 1 es probablemente la mejor compra del catálogo Nike ahora mismo para guards y escoltas. Zoom Air, tracción herringbone y comodidad de knit — todo lo que necesita un jugador de perímetro, a un precio que no tiene rival. El hecho de que sea la primera edición de Booker le da un punto de coleccionismo extra.",
+
+    imagen_principal:
+      "https://ballershoesdb.com/wp-content/uploads/NikeBook1-Cropped.jpg",
+    imagenes: [],
+
+    fuentes: [],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 110,
+    links_compra: [
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/nike-book-1-hombre-zapatillas/314109163304.html", precio_actual: 60, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // 72. Adidas Harden Vol 10 — James Harden, protección máxima para guards pesados
+  // ───────────────────────────────────────────────
+  {
+    id: "adidas-harden-vol-10",
+    slug: "adidas-harden-vol-10",
+    marca: "Adidas",
+    modelo: "Harden Vol 10",
+    generacion: 10,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "James Harden",
+    tecnologia_clave: ["Lightstrike Pro midsole", "herringbone outsole", "mesh upper"],
+    predecesor_id: "adidas-harden-vol-9",
+    sucesor_id: null,
+
+    peso_real_g: 390,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 8,
+      respuesta: 8,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 5,
+      durabilidad_outdoor: 6,
+      ventilacion: 7,
+    },
+    categoria_principal: "cushion-focused",
+    tags: ["mid-top", "signature", "equilibrado", "guards", "lightstrike-pro"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [75, 110],
+      estilos: ["equilibrado", "tirador"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: [],
+    },
+
+    resumen:
+      "La Adidas Harden Vol 10 es la décima iteración de la línea de James Harden, con Lightstrike Pro mejorado y un outsole herringbone que ofrece tracción sólida. Mid-top para soporte de tobillo. Diseñada para el guard de físico que necesita cushion y soporte sin perder respuesta. A 160€ compite en el segmento premium.",
+    pros: [
+      "Lightstrike Pro: una de las mejores mezclas cushion-respuesta del mercado",
+      "Mid-top con soporte lateral elevado",
+      "Outsole herringbone con buena tracción",
+      "Diseño equilibrado para el guard de físico",
+    ],
+    contras: [
+      "Precio premium (160€) para un modelo mid-range en prestaciones",
+      "Algo más pesada que la competencia directa",
+      "Estética que puede no gustar a todos",
+    ],
+    veredicto:
+      "La Harden 10 es la zapatilla definitiva para el guard que pesa entre 85-105 kg y busca Lightstrike Pro con soporte mid-top. Compite con la Luka 5 y la Curry 13 en el mismo rango. Si valoras el equilibrio entre cushion, respuesta y soporte lateral, la Harden 10 es una elección sólida a 160€.",
+
+    imagen_principal:
+      "https://ballershoesdb.com/wp-content/uploads/Harden10-Cropped.jpg",
+    imagenes: [],
+
+    fuentes: [],
+    ultima_actualizacion: "2026-05-16",
+
+    precio_msrp_eur: 159.99,
+    links_compra: [
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/adidas-harden-volume-10-hombre-zapatillas/314109881004.html", precio_actual: 159.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
 ];
 
 /**
