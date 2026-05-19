@@ -5,24 +5,22 @@
       <stop offset="100%" stop-color="#09090b"/>
     </radialGradient>
 
-    <!-- Fades para disolver los bordes de la cancha -->
     <linearGradient id="fadeL" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%"  stop-color="#09090b" stop-opacity="1"/>
+      <stop offset="0%"   stop-color="#09090b" stop-opacity="1"/>
       <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
     </linearGradient>
     <linearGradient id="fadeR" x1="100%" y1="0%" x2="0%" y2="0%">
-      <stop offset="0%"  stop-color="#09090b" stop-opacity="1"/>
+      <stop offset="0%"   stop-color="#09090b" stop-opacity="1"/>
       <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
     </linearGradient>
     <linearGradient id="fadeB" x1="0%" y1="100%" x2="0%" y2="0%">
-      <stop offset="0%"  stop-color="#09090b" stop-opacity="1"/>
+      <stop offset="0%"   stop-color="#09090b" stop-opacity="1"/>
+      <stop offset="60%"  stop-color="#09090b" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fadeT" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#09090b" stop-opacity="1"/>
       <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
     </linearGradient>
-
-    <!-- Clip para no dibujar fuera de la cancha -->
-    <clipPath id="courtClip">
-      <rect x="240" y="28" width="960" height="580"/>
-    </clipPath>
   </defs>
 
   <!-- Fondo -->
@@ -54,7 +52,7 @@
     ═══════════════════════════════════════════
   -->
 
-  <g clip-path="url(#courtClip)" fill="none" stroke="#f97316"
+  <g fill="none" stroke="#f97316"
      stroke-linecap="round" stroke-linejoin="round">
 
     <!-- Contorno de la media cancha -->
@@ -100,9 +98,10 @@
 
   </g>
 
-  <!-- Fades para disolver bordes -->
-  <rect x="240" y="0"  width="180" height="800" fill="url(#fadeL)"/>
-  <rect x="1020" y="0" width="180" height="800" fill="url(#fadeR)"/>
-  <rect x="0"   y="480" width="1440" height="320" fill="url(#fadeB)"/>
+  <!-- Fades amplios — sin cortes duros -->
+  <rect x="0"    y="0" width="480"  height="800" fill="url(#fadeL)"/>
+  <rect x="960"  y="0" width="480"  height="800" fill="url(#fadeR)"/>
+  <rect x="0"  y="400" width="1440" height="400" fill="url(#fadeB)"/>
+  <rect x="0"    y="0" width="1440" height="60"  fill="url(#fadeT)"/>
 
 </svg>
