@@ -1,213 +1,198 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <!-- Asphalt dot texture -->
-    <pattern id="asphalt" x="0" y="0" width="28" height="28" patternUnits="userSpaceOnUse">
-      <circle cx="4"  cy="4"  r="1.4" fill="#3f3f46" opacity="0.5"/>
-      <circle cx="18" cy="14" r="1.0" fill="#3f3f46" opacity="0.35"/>
-      <circle cx="9"  cy="22" r="0.8" fill="#3f3f46" opacity="0.25"/>
-      <circle cx="23" cy="24" r="1.2" fill="#3f3f46" opacity="0.3"/>
+    <!-- Diagonal stripe pattern — muy sutil -->
+    <pattern id="stripes" x="0" y="0" width="48" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="1" height="48" fill="#f97316" opacity="0.035"/>
     </pattern>
 
-    <!-- Diagonal stripe pattern -->
-    <pattern id="stripes" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
-      <rect width="1.5" height="40" fill="#f97316" opacity="0.04"/>
-    </pattern>
-
-    <!-- Glow filter for accents -->
+    <!-- Glow suave -->
     <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
 
-    <!-- Rough displacement -->
+    <!-- Rugosidad asfalto (grietas) -->
     <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
       <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise"/>
       <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/>
     </filter>
   </defs>
 
-  <!-- Asphalt base texture -->
-  <rect width="1440" height="800" fill="url(#asphalt)"/>
-  <!-- Diagonal stripe overlay -->
+  <!-- Fondo liso (sin puntos) + stripe overlay diagonal -->
+  <rect width="1440" height="800" fill="#09090b"/>
   <rect width="1440" height="800" fill="url(#stripes)"/>
 
   <!-- ═══════════════════════════════════════
-       HALF COURT LINES (overhead view)
+       MEDIA CANCHA — zona canasta arriba
+       Canasta en (720, 95) — solo la mitad atacante
+       Línea de fondo: y=50  |  Líneas laterales: x=100, x=1340
+       La cancha se "abre" hacia abajo sin cerrar (sin línea de medio campo)
   ════════════════════════════════════════ -->
   <g fill="none" stroke="#f97316" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Court outline -->
-    <rect x="80" y="40" width="1280" height="540" stroke-width="4" opacity="0.18"/>
-    <!-- Mid-court line -->
-    <line x1="80" y1="580" x2="1360" y2="580" stroke-width="3" opacity="0.18"/>
-    <!-- Mid-court centre circle -->
-    <circle cx="720" cy="580" r="95" stroke-width="3" opacity="0.16"/>
-    <!-- Backboard -->
-    <line x1="668" y1="52" x2="772" y2="52" stroke-width="5" opacity="0.28"/>
-    <!-- Basket / rim -->
-    <circle cx="720" cy="78" r="24" stroke-width="3.5" opacity="0.28"/>
-    <!-- Restricted area small arc -->
-    <path d="M 688 40 A 32 32 0 0 0 752 40" stroke-width="2.5" opacity="0.22"/>
-    <!-- Key / Paint -->
-    <rect x="615" y="40" width="210" height="240" stroke-width="3" opacity="0.18"/>
-    <!-- Free throw lane markers -->
-    <line x1="575" y1="40"  x2="575" y2="68"  stroke-width="2" opacity="0.15"/>
-    <line x1="865" y1="40"  x2="865" y2="68"  stroke-width="2" opacity="0.15"/>
-    <line x1="575" y1="120" x2="615" y2="120" stroke-width="2" opacity="0.15"/>
-    <line x1="825" y1="120" x2="865" y2="120" stroke-width="2" opacity="0.15"/>
-    <line x1="575" y1="180" x2="615" y2="180" stroke-width="2" opacity="0.15"/>
-    <line x1="825" y1="180" x2="865" y2="180" stroke-width="2" opacity="0.15"/>
-    <line x1="575" y1="240" x2="615" y2="240" stroke-width="2" opacity="0.15"/>
-    <line x1="825" y1="240" x2="865" y2="240" stroke-width="2" opacity="0.15"/>
-    <!-- Free throw circle -->
-    <circle cx="720" cy="280" r="82" stroke-width="3" opacity="0.18"/>
-    <!-- Three-point corner lines -->
-    <line x1="162" y1="40" x2="162" y2="290" stroke-width="3" opacity="0.18"/>
-    <line x1="1278" y1="40" x2="1278" y2="290" stroke-width="3" opacity="0.18"/>
-    <!-- Three-point arc -->
-    <path d="M 162 290 A 610 610 0 0 0 1278 290" stroke-width="3" opacity="0.18"/>
+
+    <!-- Línea de fondo (arriba) -->
+    <line x1="100" y1="50" x2="1340" y2="50" stroke-width="3.5" opacity="0.25"/>
+
+    <!-- Laterales — no cierran abajo, se difuminan -->
+    <line x1="100" y1="50" x2="100" y2="680" stroke-width="3" opacity="0.18"/>
+    <line x1="1340" y1="50" x2="1340" y2="680" stroke-width="3" opacity="0.18"/>
+
+    <!-- Tablero -->
+    <line x1="672" y1="58" x2="768" y2="58" stroke-width="5" opacity="0.32"/>
+
+    <!-- Aro / canasta -->
+    <circle cx="720" cy="90" r="22" stroke-width="3" opacity="0.32" filter="url(#glow)"/>
+
+    <!-- Arco restringido bajo la canasta -->
+    <path d="M 694 50 A 26 26 0 0 0 746 50" stroke-width="2.5" opacity="0.22"/>
+
+    <!-- Zona / pintura  (x: 590–850, y: 50–300) -->
+    <rect x="590" y="50" width="260" height="260" stroke-width="3" opacity="0.20"/>
+
+    <!-- Marcas de tiro libre -->
+    <line x1="548" y1="50"  x2="548" y2="75"  stroke-width="2" opacity="0.15"/>
+    <line x1="892" y1="50"  x2="892" y2="75"  stroke-width="2" opacity="0.15"/>
+    <line x1="548" y1="130" x2="590" y2="130" stroke-width="2" opacity="0.15"/>
+    <line x1="850" y1="130" x2="892" y2="130" stroke-width="2" opacity="0.15"/>
+    <line x1="548" y1="190" x2="590" y2="190" stroke-width="2" opacity="0.15"/>
+    <line x1="850" y1="190" x2="892" y2="190" stroke-width="2" opacity="0.15"/>
+    <line x1="548" y1="250" x2="590" y2="250" stroke-width="2" opacity="0.15"/>
+    <line x1="850" y1="250" x2="892" y2="250" stroke-width="2" opacity="0.15"/>
+
+    <!-- Círculo de tiro libre -->
+    <circle cx="720" cy="310" r="90" stroke-width="2.5" opacity="0.18"/>
+
+    <!-- ─── LÍNEA DE 3 ─── -->
+    <!-- Esquinas verticales: x=182 y x=1258, desde la línea de fondo hasta y=278 -->
+    <line x1="182" y1="50"  x2="182" y2="278" stroke-width="3" opacity="0.20"/>
+    <line x1="1258" y1="50" x2="1258" y2="278" stroke-width="3" opacity="0.20"/>
+
+    <!--
+      Arco de 3 centrado en la canasta (720, 90), radio ≈ 566
+      Extremos del arco: (182, 278) y (1258, 278)
+      Comprobación: sqrt((720-182)² + (90-278)²) = sqrt(538²+188²) = sqrt(289444+35344) = sqrt(324788) ≈ 570
+      → usamos rx=ry=570, sweep=0 (arco curva alejándose de canasta)
+      El punto más bajo del arco: y = 90 + 570 = 660  ✓ (dentro del SVG, sin cruzar nada)
+    -->
+    <path d="M 182 278 A 570 570 0 0 0 1258 278" stroke-width="3" opacity="0.20"/>
+
   </g>
 
-  <!-- Asphalt crack lines -->
-  <g stroke="#27272a" fill="none" stroke-width="1" opacity="0.5" filter="url(#rough)">
-    <path d="M 340 40 L 355 95 L 368 98 L 360 160"/>
-    <path d="M 950 200 L 960 255 L 948 300"/>
-    <path d="M 200 420 L 215 460 L 205 510"/>
-    <path d="M 1100 380 L 1090 440 L 1105 480 L 1095 530"/>
-    <path d="M 620 500 L 630 540 L 618 570"/>
+  <!-- Grietas de asfalto sutiles -->
+  <g stroke="#3f3f46" fill="none" stroke-width="1" opacity="0.4" filter="url(#rough)">
+    <path d="M 340 50 L 355 105 L 368 108 L 360 175"/>
+    <path d="M 950 220 L 960 275 L 948 310"/>
+    <path d="M 200 430 L 215 470 L 205 520"/>
+    <path d="M 1100 380 L 1090 440 L 1105 490 L 1095 540"/>
+    <path d="M 630 510 L 640 550 L 625 580"/>
   </g>
 
   <!-- ═══════════════════════════════════════
-       BASKETBALL — large, bottom-right
+       BALONES — 4 tamaños, distintas posiciones
   ════════════════════════════════════════ -->
+
+  <!-- Grande — abajo derecha -->
   <g fill="none" stroke="#f97316" stroke-linecap="round">
-    <circle cx="1290" cy="710" r="215" stroke-width="5" opacity="0.18"/>
-    <line x1="1075" y1="710" x2="1505" y2="710" stroke-width="3.5" opacity="0.15"/>
-    <line x1="1290" y1="495" x2="1290" y2="925" stroke-width="3.5" opacity="0.15"/>
-    <path d="M 1145 555 C 1180 610 1175 670 1168 725 C 1162 775 1175 825 1198 865"
-          stroke-width="3.5" opacity="0.15"/>
-    <path d="M 1435 558 C 1400 612 1402 672 1408 728 C 1414 778 1400 828 1378 865"
-          stroke-width="3.5" opacity="0.15"/>
+    <circle cx="1310" cy="720" r="200" stroke-width="4.5" opacity="0.17"/>
+    <line x1="1110" y1="720" x2="1510" y2="720" stroke-width="3.5" opacity="0.14"/>
+    <line x1="1310" y1="520" x2="1310" y2="920" stroke-width="3.5" opacity="0.14"/>
+    <path d="M 1162 572 C 1198 626 1192 688 1186 742 C 1180 793 1194 843 1218 882" stroke-width="3.5" opacity="0.14"/>
+    <path d="M 1458 575 C 1423 628 1425 690 1431 744 C 1437 795 1424 845 1402 883" stroke-width="3.5" opacity="0.14"/>
   </g>
 
-  <!-- ═══════════════════════════════════════
-       BASKETBALL — medium, bottom-left
-  ════════════════════════════════════════ -->
+  <!-- Mediano — abajo izquierda -->
   <g fill="none" stroke="#facc15" stroke-linecap="round">
-    <circle cx="155" cy="680" r="128" stroke-width="3" opacity="0.14"/>
-    <line x1="27" y1="680" x2="283" y2="680" stroke-width="2.5" opacity="0.12"/>
-    <line x1="155" y1="552" x2="155" y2="808" stroke-width="2.5" opacity="0.12"/>
-    <path d="M 80 618 C 102 652 100 690 96 730 C 93 756 101 782 118 806"
-          stroke-width="2.5" opacity="0.12"/>
-    <path d="M 228 622 C 206 655 205 694 208 732 C 210 758 203 783 187 806"
-          stroke-width="2.5" opacity="0.12"/>
+    <circle cx="140" cy="700" r="130" stroke-width="3" opacity="0.14"/>
+    <line x1="10" y1="700" x2="270" y2="700" stroke-width="2.5" opacity="0.11"/>
+    <line x1="140" y1="570" x2="140" y2="830" stroke-width="2.5" opacity="0.11"/>
+    <path d="M 64 635 C 87 668 84 706 80 745 C 77 771 86 798 103 822" stroke-width="2.5" opacity="0.11"/>
+    <path d="M 215 637 C 192 670 191 709 194 748 C 196 774 189 800 174 823" stroke-width="2.5" opacity="0.11"/>
   </g>
 
-  <!-- ═══════════════════════════════════════
-       BASKETBALL — small, top-right floating
-  ════════════════════════════════════════ -->
+  <!-- Pequeño — arriba derecha -->
   <g fill="none" stroke="#f97316" stroke-linecap="round">
-    <circle cx="1340" cy="120" r="72" stroke-width="2.5" opacity="0.14"/>
-    <line x1="1268" y1="120" x2="1412" y2="120" stroke-width="2" opacity="0.12"/>
-    <line x1="1340" y1="48" x2="1340" y2="192" stroke-width="2" opacity="0.12"/>
-    <path d="M 1295 70 C 1310 92 1308 118 1305 144 C 1303 162 1310 178 1320 192"
-          stroke-width="2" opacity="0.12"/>
-    <path d="M 1385 72 C 1370 94 1369 120 1372 146 C 1374 163 1368 179 1358 192"
-          stroke-width="2" opacity="0.12"/>
+    <circle cx="1355" cy="115" r="70" stroke-width="2.5" opacity="0.13"/>
+    <line x1="1285" y1="115" x2="1425" y2="115" stroke-width="2" opacity="0.10"/>
+    <line x1="1355" y1="45" x2="1355" y2="185" stroke-width="2" opacity="0.10"/>
+    <path d="M 1310 67 C 1325 89 1323 115 1320 140 C 1317 158 1325 175 1335 185" stroke-width="2" opacity="0.10"/>
+    <path d="M 1400 68 C 1384 90 1383 116 1386 142 C 1389 160 1382 176 1372 185" stroke-width="2" opacity="0.10"/>
   </g>
 
-  <!-- ═══════════════════════════════════════
-       BASKETBALL — tiny, top-left accent
-  ════════════════════════════════════════ -->
+  <!-- Mini — arriba izquierda -->
   <g fill="none" stroke="#facc15" stroke-linecap="round">
-    <circle cx="110" cy="130" r="48" stroke-width="2" opacity="0.11"/>
-    <line x1="62" y1="130" x2="158" y2="130" stroke-width="1.5" opacity="0.10"/>
-    <line x1="110" y1="82" x2="110" y2="178" stroke-width="1.5" opacity="0.10"/>
-    <path d="M 79 100 C 88 112 87 128 85 144 C 84 155 88 165 95 178" stroke-width="1.5" opacity="0.10"/>
-    <path d="M 141 102 C 132 113 131 130 133 146 C 134 157 130 167 123 178" stroke-width="1.5" opacity="0.10"/>
+    <circle cx="105" cy="140" r="52" stroke-width="2" opacity="0.11"/>
+    <line x1="53" y1="140" x2="157" y2="140" stroke-width="1.5" opacity="0.09"/>
+    <line x1="105" y1="88" x2="105" y2="192" stroke-width="1.5" opacity="0.09"/>
+    <path d="M 73 106 C 83 119 81 136 79 153 C 78 164 82 175 90 192" stroke-width="1.5" opacity="0.09"/>
+    <path d="M 138 107 C 128 121 127 138 129 154 C 131 166 127 176 119 192" stroke-width="1.5" opacity="0.09"/>
   </g>
 
   <!-- ═══════════════════════════════════════
-       MOTION LINES — speed / energy accents
+       LÍNEAS DE VELOCIDAD / energía
   ════════════════════════════════════════ -->
   <g stroke="#f97316" stroke-linecap="round" fill="none">
-    <!-- Left side speed burst -->
-    <line x1="30" y1="340" x2="145" y2="340" stroke-width="2.5" opacity="0.12"/>
-    <line x1="50" y1="355" x2="120" y2="355" stroke-width="1.5" opacity="0.08"/>
-    <line x1="25" y1="370" x2="110" y2="370" stroke-width="1" opacity="0.06"/>
-    <!-- Right side speed burst -->
-    <line x1="1295" y1="420" x2="1420" y2="420" stroke-width="2.5" opacity="0.10"/>
-    <line x1="1320" y1="435" x2="1415" y2="435" stroke-width="1.5" opacity="0.07"/>
-    <line x1="1300" y1="450" x2="1400" y2="450" stroke-width="1" opacity="0.05"/>
-    <!-- Top center motion arc -->
-    <path d="M 560 20 Q 720 -10 880 20" stroke-width="2" opacity="0.10"/>
-    <path d="M 600 28 Q 720 5 840 28" stroke-width="1.5" opacity="0.07"/>
+    <line x1="25"   y1="360" x2="92"   y2="360" stroke-width="2.5" opacity="0.10"/>
+    <line x1="42"   y1="374" x2="88"   y2="374" stroke-width="1.5" opacity="0.07"/>
+    <line x1="20"   y1="388" x2="75"   y2="388" stroke-width="1"   opacity="0.05"/>
+    <line x1="1350" y1="430" x2="1430" y2="430" stroke-width="2.5" opacity="0.10"/>
+    <line x1="1370" y1="445" x2="1428" y2="445" stroke-width="1.5" opacity="0.07"/>
+    <line x1="1355" y1="460" x2="1420" y2="460" stroke-width="1"   opacity="0.05"/>
   </g>
 
   <!-- ═══════════════════════════════════════
-       GRAFFITI / STREET TEXT ELEMENTS
+       TEXTO GRAFFITI
   ════════════════════════════════════════ -->
 
-  <!-- Giant "24" in background -->
-  <text x="540" y="790"
+  <!-- "24" gigante fondo -->
+  <text x="520" y="790"
         font-family="Impact, Arial Black, sans-serif"
         font-size="320" font-weight="900"
-        fill="#f97316" opacity="0.07"
+        fill="#f97316" opacity="0.06"
         style="letter-spacing: -20px">24</text>
 
-  <!-- "GAME" outline, rotated -->
-  <text x="720" y="175"
+  <!-- "GAME" inclinado -->
+  <text x="720" y="178"
         font-family="Impact, Arial Black, sans-serif"
-        font-size="105" font-weight="900"
-        fill="none" stroke="#facc15" stroke-width="2"
-        opacity="0.10"
+        font-size="100" font-weight="900"
+        fill="none" stroke="#facc15" stroke-width="1.8"
+        opacity="0.09"
         text-anchor="middle"
-        transform="rotate(-10, 870, 155)">GAME</text>
+        transform="rotate(-10, 720, 160)">GAME</text>
 
-  <!-- "HOOPS" bottom left -->
+  <!-- "HOOPS" abajo izquierda -->
   <text x="88" y="795"
         font-family="Impact, Arial Black, sans-serif"
-        font-size="78" font-weight="900"
+        font-size="74" font-weight="900"
         fill="none" stroke="#f97316" stroke-width="2"
-        opacity="0.11">HOOPS</text>
+        opacity="0.10">HOOPS</text>
 
-  <!-- "COURT" top right, vertical -->
-  <text x="1410" y="520"
+  <!-- "COURT" vertical derecha -->
+  <text x="1415" y="530"
         font-family="Impact, Arial Black, sans-serif"
-        font-size="52" font-weight="900"
+        font-size="50" font-weight="900"
         fill="none" stroke="#facc15" stroke-width="1.5"
-        opacity="0.09"
-        transform="rotate(90, 1410, 520)">COURT</text>
+        opacity="0.08"
+        transform="rotate(90, 1415, 530)">COURT</text>
 
-  <!-- Spray-paint accent clusters -->
+  <!-- Spray dots — esquinas -->
   <g fill="#f97316" opacity="0.07">
-    <circle cx="472" cy="42" r="6"/>
-    <circle cx="488" cy="55" r="3.5"/>
-    <circle cx="458" cy="58" r="2.5"/>
-    <circle cx="496" cy="44" r="5"/>
-    <circle cx="466" cy="70" r="2"/>
-    <circle cx="480" cy="36" r="2.5"/>
+    <circle cx="472" cy="42" r="6"/>   <circle cx="488" cy="55" r="3.5"/>
+    <circle cx="458" cy="58" r="2.5"/> <circle cx="496" cy="44" r="5"/>
+    <circle cx="466" cy="70" r="2"/>   <circle cx="480" cy="36" r="2.5"/>
   </g>
   <g fill="#facc15" opacity="0.07">
-    <circle cx="985"  cy="42" r="5.5"/>
-    <circle cx="1000" cy="54" r="3"/>
-    <circle cx="970"  cy="50" r="2"/>
-    <circle cx="1008" cy="40" r="4"/>
+    <circle cx="985"  cy="42" r="5.5"/> <circle cx="1000" cy="54" r="3"/>
+    <circle cx="970"  cy="50" r="2"/>   <circle cx="1008" cy="40" r="4"/>
     <circle cx="978"  cy="62" r="2.5"/>
   </g>
   <g fill="#f97316" opacity="0.06">
-    <circle cx="1355" cy="45" r="5"/>
-    <circle cx="1368" cy="60" r="3"/>
-    <circle cx="1342" cy="55" r="2"/>
-    <circle cx="1375" cy="46" r="4"/>
+    <circle cx="1355" cy="45" r="5"/> <circle cx="1368" cy="60" r="3"/>
+    <circle cx="1342" cy="55" r="2"/> <circle cx="1375" cy="46" r="4"/>
   </g>
-
-  <!-- Corner spray cluster top-left -->
   <g fill="#facc15" opacity="0.07">
-    <circle cx="68"  cy="42" r="4"/>
-    <circle cx="52"  cy="56" r="2.5"/>
-    <circle cx="80"  cy="60" r="2"/>
-    <circle cx="44"  cy="45" r="3.5"/>
-    <circle cx="72"  cy="74" r="2"/>
+    <circle cx="68" cy="42" r="4"/>   <circle cx="52" cy="56" r="2.5"/>
+    <circle cx="80" cy="60" r="2"/>   <circle cx="44" cy="45" r="3.5"/>
+    <circle cx="72" cy="74" r="2"/>
   </g>
 
 </svg>
