@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/oswal/Desktop/Basketball Shoe Tracker/web/**)",
+      "Bash(node -e \"const d=require\\('./src/data/precios.json'\\); const keys=Object.keys\\(d\\); console.log\\('Zapatillas con precios:', keys.length\\); const stores=new Set\\(\\); keys.forEach\\(k=>Object.keys\\(d[k]\\).forEach\\(s=>stores.add\\(s\\)\\)\\); console.log\\('Tiendas:', [...stores].join\\(', '\\)\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(sed 's/\\\\\"id\\\\\": //g')",
+      "Bash(node -e \"const p=require\\('./src/data/precios.json'\\); console.log\\(JSON.stringify\\(Object.keys\\(p.shoes||p\\), null, 0\\)\\)\")",
+      "Bash(awk '{print $2}')",
+      "WebFetch(domain:www.nike.com)",
+      "WebFetch(domain:www.footlocker.es)",
+      "WebFetch(domain:www.elcorteingles.es)",
+      "WebFetch(domain:www.runnea.com)",
+      "WebFetch(domain:www.basket4ballers.com)",
+      "WebFetch(domain:www.otrium.es)",
+      "WebFetch(domain:www.underarmour.es)",
+      "WebFetch(domain:11teamsports.es)"
+    ]
+  }
+}

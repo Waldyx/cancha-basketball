@@ -1,0 +1,399 @@
+---
+import Base from "../layouts/Base.astro";
+import { zapatillas } from "../data/zapatillas";
+import { findMejorPrecio } from "../lib/scoring";
+
+const LABELS_TIENDA: Record<string, string> = {
+  amazon_es: "Amazon",
+  decathlon: "Decathlon",
+  nike_es: "Nike",
+  adidas_es: "Adidas",
+  puma_es: "Puma",
+  ua_es: "Under Armour",
+  nb_es: "New Balance",
+  footlocker_es: "Foot Locker",
+  jd_sports_es: "JD Sports",
+  zalando_es: "Zalando",
+  sprinter_es: "Sprinter",
+  reebok_es: "Reebok",
+  basket_world: "Basket World",
+  aliexpress: "AliExpress",
+  kickscrew: "KicksCrew",
+  idealo: "Idealo",
+};
+
+// Score global: media de las 8 puntuaciones
+function scoreGlobal(z: (typeof zapatillas)[0]): number {
+  const vals = Object.values(z.puntuaciones);
+  return Math.round((vals.reduce((a, b) => a + b, 0) / vals.length) * 10) / 10;
+}
+
+// Ordenar por precio ascendente para mostrar las más baratas primero
+const ordenadas = [...zapatillas].sort(
+  (a, b) =>
+    (findMejorPrecio(a.links_compra)?.precio_actual ?? a.precio_msrp_eur) -
+    (findMejorPrecio(b.links_compra)?.precio_actual ?? b.precio_msrp_eur)
+);
+
+const marcas = [...new Set(zapatillas.map((z) => z.marca))].sort();
+---
+
+<Base
+  title="Catálogo · Cancha"
+  description="Catálogo completo de zapatillas de baloncesto con métricas, puntuaciones y mejor precio en cada tienda."
+>
+  <main class="min-h-screen bg-zinc-950 text-white">
+    <!-- Header -->
+    <header class="px-6 py-5 border-b border-zinc-800">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <a href="/" class="text-2xl font-black tracking-tighter">
+          CANCHA<span class="text-orange-500">.</span>
+        </a>
+        <a
+          href="/quiz"
+          class="text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-orange-500 transition-colors"
+        >
+          ↻ Hacer quiz
+        </a>
+      </div>
+    </header>
+
+    <!-- HERO catálogo -->
+    <section class="px-6 py-16">
+      <div class="max-w-6xl mx-auto">
+        <p
+          class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
+        >
+          ★ Catálogo
+        </p>
+        <h1
+          class="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-4 leading-[0.95]"
+        >
+          {zapatillas.length} <span class="text-orange-500">zapas</span>
+          analizadas
+        </h1>
+        <p class="text-zinc-400 max-w-2xl">
+          Todas las zapatillas de la base de datos con sus puntuaciones, precio
+          actual y veredicto. ¿No sabes cuál te encaja? <a
+            href="/quiz"
+            class="text-orange-500 hover:text-orange-400 underline decoration-2 underline-offset-4 font-bold"
+            >Haz el quiz</a
+          > y te recomendamos 5.
+        </p>
+
+        <!-- Filtros por marca + precio + búsqueda + ordenación -->
+        <div class="flex flex-col gap-4 mt-8">
+
+          <!-- Búsqueda por nombre -->
+          <div class="relative">
+            <span class="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500 text-sm select-none">🔍</span>
+            <input
+              id="catalogo-search"
+              type="text"
+              placeholder="Buscar zapatilla…"
+              autocomplete="off"
+              class="w-full sm:max-w-xs pl-9 pr-4 py-2 bg-zinc-900 border-2 border-zinc-800 focus:border-orange-500 text-white text-sm font-bold outline-none transition-colors placeholder-zinc-600"
+            />
+          </div>
+
+          <!-- Filtros marca -->
+          <div class="flex flex-wrap gap-2" role="group" aria-label="Filtrar por marca">
+            <button
+              data-filter-marca="all"
+              aria-pressed="true"
+              class="filter-btn px-3 py-1.5 border-2 border-orange-500 bg-orange-500/10 text-orange-500 text-xs font-bold uppercase tracking-widest transition-colors"
+              >Todas</button
+            >
+            {
+              marcas.map((m) => (
+                <button
+                  data-filter-marca={m}
+                  aria-pressed="false"
+                  class="filter-btn px-3 py-1.5 border-2 border-zinc-800 hover:border-orange-500 text-zinc-400 hover:text-orange-500 text-xs font-bold uppercase tracking-widest transition-colors"
+                >
+                  {m}
+                </button>
+              ))
+            }
+          </div>
+
+          <!-- Filtro por precio -->
+          <div class="flex items-center gap-2 flex-wrap" role="group" aria-label="Filtrar por precio">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Precio:</span>
+            {[
+              { key: "all", label: "Todos" },
+              { key: "budget", label: "< 80€" },
+              { key: "mid", label: "80–130€" },
+              { key: "premium", label: "> 130€" },
+            ].map((p) => (
+              <button
+                data-filter-precio={p.key}
+                aria-pressed={p.key === "all" ? "true" : "false"}
+                class={`precio-btn px-3 py-1.5 border-2 text-xs font-bold uppercase tracking-widest transition-colors ${p.key === "all" ? "border-orange-500 bg-orange-500/10 text-orange-500" : "border-zinc-800 hover:border-orange-500 text-zinc-400 hover:text-orange-500"}`}
+              >
+                {p.label}
+              </button>
+            ))}
+          </div>
+
+          <!-- Contador de resultados -->
+          <p id="catalogo-count" aria-live="polite" class="text-xs text-zinc-500 font-bold uppercase tracking-widest">
+            {zapatillas.length} zapas
+          </p>
+
+          <!-- Ordenación -->
+          <div class="flex items-center gap-3 flex-wrap" role="group" aria-label="Ordenar catálogo">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-600">Ordenar:</span>
+            <button
+              data-sort="precio-asc"
+              aria-pressed="true"
+              class="sort-btn sort-active px-3 py-1.5 border-2 border-orange-500 bg-orange-500/10 text-orange-500 text-xs font-bold uppercase tracking-widest transition-colors"
+            >↑ Precio</button>
+            <button
+              data-sort="precio-desc"
+              aria-pressed="false"
+              class="sort-btn px-3 py-1.5 border-2 border-zinc-800 hover:border-orange-500 text-zinc-400 hover:text-orange-500 text-xs font-bold uppercase tracking-widest transition-colors"
+            >↓ Precio</button>
+            <button
+              data-sort="score-desc"
+              aria-pressed="false"
+              class="sort-btn px-3 py-1.5 border-2 border-zinc-800 hover:border-orange-500 text-zinc-400 hover:text-orange-500 text-xs font-bold uppercase tracking-widest transition-colors"
+            >★ Puntuación</button>
+            <button
+              data-sort="nuevo"
+              aria-pressed="false"
+              class="sort-btn px-3 py-1.5 border-2 border-zinc-800 hover:border-orange-500 text-zinc-400 hover:text-orange-500 text-xs font-bold uppercase tracking-widest transition-colors"
+            >🆕 Nuevas</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Grid de zapatillas -->
+    <section class="px-6 pb-16">
+      <div class="max-w-6xl mx-auto">
+        <div
+          id="catalogo-grid"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {
+            ordenadas.map((z) => {
+              const mejor = findMejorPrecio(z.links_compra);
+              const precio = mejor?.precio_actual ?? z.precio_msrp_eur;
+              const tienda = mejor
+                ? LABELS_TIENDA[mejor.tienda] || mejor.tienda
+                : "";
+              const score = scoreGlobal(z);
+              const scoreColor =
+                score >= 8
+                  ? "text-orange-500"
+                  : score >= 6.5
+                    ? "text-yellow-400"
+                    : "text-zinc-400";
+              return (
+                <a
+                  href={`/zapatilla/${z.slug}`}
+                  data-marca={z.marca}
+                  data-precio={precio}
+                  data-score={score}
+                  data-año={z.año_lanzamiento}
+                  data-nombre={`${z.marca} ${z.modelo}`.toLowerCase()}
+                  class="catalogo-card group bg-zinc-900 border-2 border-zinc-800 hover:border-orange-500 transition-all flex flex-col"
+                >
+                  <div class="relative">
+                    <img
+                      src={z.imagen_principal}
+                      alt={`${z.marca} ${z.modelo}`}
+                      class="w-full aspect-[4/3] object-cover bg-zinc-800"
+                      loading="lazy"
+                      onerror="this.onerror=null;this.src='/placeholder-shoe.svg'"
+                    />
+                    <span class="absolute top-3 left-3 px-2 py-1 bg-zinc-950/90 border border-zinc-700 text-[10px] font-black uppercase tracking-widest text-zinc-300">
+                      {z.categoria_principal}
+                    </span>
+                    <span class={`absolute top-3 right-3 px-2 py-1 bg-zinc-950/90 border border-zinc-700 text-sm font-black ${scoreColor}`}>
+                      {score}
+                    </span>
+                  </div>
+                  <div class="p-5 flex flex-col flex-1 gap-3">
+                    <div>
+                      <p class="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-1">
+                        {z.marca}
+                      </p>
+                      <h2 class="text-xl font-black uppercase tracking-tight leading-tight group-hover:text-orange-500 transition-colors">
+                        {z.modelo}
+                      </h2>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2 mt-1">
+                      {z.tags.slice(0, 2).map((t) => (
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">
+                          #{t}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div class="mt-auto pt-4 border-t border-zinc-800 flex items-end justify-between gap-3">
+                      <div>
+                        <p class="text-2xl font-black text-orange-500">
+                          {precio}€
+                        </p>
+                        {tienda && (
+                          <p class="text-[10px] text-zinc-500 uppercase tracking-wider">
+                            en {tienda}
+                          </p>
+                        )}
+                      </div>
+                      <span class="text-xs font-bold uppercase tracking-widest text-zinc-400 group-hover:text-orange-500 transition-colors">
+                        Ver →
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              );
+            })
+          }
+        </div>
+
+        <div
+          id="catalogo-vacio"
+          class="hidden p-12 text-center bg-zinc-900 border-2 border-zinc-800"
+        >
+          <p class="text-zinc-400">Sin resultados con ese filtro.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="px-6 py-10 bg-black border-t-4 border-orange-500">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <a href="/" class="text-2xl font-black tracking-tighter">
+          CANCHA<span class="text-orange-500">.</span>
+        </a>
+        <nav class="flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest flex-wrap justify-center">
+          <a href="/quiz" class="hover:text-orange-500 transition-colors">Quiz</a>
+          <a href="/metodologia" class="hover:text-orange-500 transition-colors">Metodología</a>
+          <a href="/financiacion" class="hover:text-orange-500 transition-colors">Financiación</a>
+        </nav>
+        <p class="text-xs text-zinc-600 uppercase tracking-widest text-center">
+          Proyecto independiente · Sin sesgo de afiliado
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const $marcaBtns = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
+    const $precioBtns = document.querySelectorAll<HTMLButtonElement>(".precio-btn");
+    const $sortBtns = document.querySelectorAll<HTMLButtonElement>(".sort-btn");
+    const $search = document.getElementById("catalogo-search") as HTMLInputElement;
+    const $grid = document.getElementById("catalogo-grid")!;
+    const $vacio = document.getElementById("catalogo-vacio")!;
+    const $count = document.getElementById("catalogo-count")!;
+    const totalZapas = document.querySelectorAll<HTMLAnchorElement>(".catalogo-card").length;
+
+    let filtroMarca = "all";
+    let filtroPrecio = "all";
+    let sortActivo = "precio-asc";
+    let busqueda = "";
+
+    function setActive(btns: NodeListOf<HTMLButtonElement>, key: string, dataAttr: string) {
+      btns.forEach((b) => {
+        const isActive = (b.dataset as any)[dataAttr] === key;
+        b.classList.toggle("border-orange-500", isActive);
+        b.classList.toggle("bg-orange-500/10", isActive);
+        b.classList.toggle("text-orange-500", isActive);
+        b.classList.toggle("border-zinc-800", !isActive);
+        b.classList.toggle("text-zinc-400", !isActive);
+        b.setAttribute("aria-pressed", String(isActive));
+      });
+    }
+
+    function setActiveSort(sort: string) {
+      $sortBtns.forEach((b) => {
+        const isActive = b.dataset.sort === sort;
+        b.classList.toggle("border-orange-500", isActive);
+        b.classList.toggle("bg-orange-500/10", isActive);
+        b.classList.toggle("text-orange-500", isActive);
+        b.classList.toggle("border-zinc-800", !isActive);
+        b.classList.toggle("text-zinc-400", !isActive);
+        b.setAttribute("aria-pressed", String(isActive));
+      });
+    }
+
+    function matchPrecio(precio: number, filtro: string): boolean {
+      if (filtro === "all") return true;
+      if (filtro === "budget") return precio < 80;
+      if (filtro === "mid") return precio >= 80 && precio <= 130;
+      if (filtro === "premium") return precio > 130;
+      return true;
+    }
+
+    function aplicarFiltroYOrden() {
+      const cards = Array.from($grid.querySelectorAll<HTMLAnchorElement>(".catalogo-card"));
+
+      cards.forEach((card) => {
+        const marca = card.dataset.marca!;
+        const precio = parseFloat(card.dataset.precio!);
+        const nombre = card.dataset.nombre || "";
+        const showMarca = filtroMarca === "all" || marca === filtroMarca;
+        const showPrecio = matchPrecio(precio, filtroPrecio);
+        const showBusqueda = busqueda === "" || nombre.includes(busqueda.toLowerCase());
+        card.classList.toggle("hidden", !(showMarca && showPrecio && showBusqueda));
+      });
+
+      const visibles = cards.filter((c) => !c.classList.contains("hidden"));
+      visibles.sort((a, b) => {
+        const ap = parseFloat(a.dataset.precio!);
+        const bp = parseFloat(b.dataset.precio!);
+        const as_ = parseFloat(a.dataset.score!);
+        const bs_ = parseFloat(b.dataset.score!);
+        const ay = parseInt(a.dataset.año || "0");
+        const by_ = parseInt(b.dataset.año || "0");
+        if (sortActivo === "precio-asc") return ap - bp;
+        if (sortActivo === "precio-desc") return bp - ap;
+        if (sortActivo === "score-desc") return bs_ - as_;
+        if (sortActivo === "nuevo") return by_ - ay;
+        return 0;
+      });
+
+      const hidden = cards.filter((c) => c.classList.contains("hidden"));
+      [...visibles, ...hidden].forEach((c) => $grid.appendChild(c));
+
+      $vacio.classList.toggle("hidden", visibles.length > 0);
+      $count.textContent =
+        visibles.length === totalZapas
+          ? `${totalZapas} zapas`
+          : `${visibles.length} de ${totalZapas} zapas`;
+    }
+
+    $marcaBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filtroMarca = btn.dataset.filterMarca!;
+        setActive($marcaBtns, filtroMarca, "filterMarca");
+        aplicarFiltroYOrden();
+      });
+    });
+
+    $precioBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        filtroPrecio = btn.dataset.filterPrecio!;
+        setActive($precioBtns, filtroPrecio, "filterPrecio");
+        aplicarFiltroYOrden();
+      });
+    });
+
+    $sortBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        sortActivo = btn.dataset.sort!;
+        setActiveSort(sortActivo);
+        aplicarFiltroYOrden();
+      });
+    });
+
+    $search?.addEventListener("input", () => {
+      busqueda = $search.value.trim();
+      aplicarFiltroYOrden();
+    });
+  </script>
+</Base>

@@ -1,0 +1,642 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  title="Quiz · Cancha"
+  description="Responde 8 preguntas y te recomendamos las 5 zapatillas de baloncesto que mejor encajan contigo."
+>
+  <main class="min-h-screen bg-zinc-950 text-white flex flex-col">
+    <!-- Header -->
+    <header class="px-6 py-5 border-b border-zinc-800">
+      <div class="max-w-5xl mx-auto flex items-center justify-between">
+        <a href="/" class="text-2xl font-black tracking-tighter">
+          CANCHA<span class="text-orange-500">.</span>
+        </a>
+        <a
+          href="/"
+          class="text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-orange-500 transition-colors"
+        >
+          ✕ Salir
+        </a>
+      </div>
+    </header>
+
+    <!-- Progress bar -->
+    <div class="px-6 py-4 border-b border-zinc-800 bg-zinc-950 sticky top-0 z-10">
+      <div class="max-w-2xl mx-auto">
+        <div
+          class="flex items-center justify-between mb-2 text-xs font-bold uppercase tracking-widest"
+        >
+          <span id="quiz-step-label" class="text-orange-500">Pregunta 1 de 8</span>
+          <span id="quiz-step-percent" class="text-zinc-500">13%</span>
+        </div>
+        <div class="h-1.5 bg-zinc-800 overflow-hidden">
+          <div
+            id="quiz-progress"
+            class="h-full bg-orange-500 transition-all duration-300"
+            style="width: 13%;"
+          >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz steps -->
+    <section class="flex-1 px-6 py-12">
+      <div class="max-w-2xl mx-auto">
+        <!-- ─── STEP 1: Posición ─── -->
+        <div data-step="1" class="quiz-step">
+          <p
+            class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
+          >
+            ★ 01 / 08
+          </p>
+          <h2
+            class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
+          >
+            ¿En qué posición<br />juegas?
+          </h2>
+          <p class="text-zinc-400 mb-8">Elige la que mejor te describa.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <button class="quiz-option" data-field="posicion" data-value="base">
+              <span class="quiz-option-title">Base</span>
+              <span class="quiz-option-sub">Point Guard · #1</span>
+            </button>
+            <button
+              class="quiz-option"
+              data-field="posicion"
+              data-value="escolta"
+            >
+              <span class="quiz-option-title">Escolta</span>
+              <span class="quiz-option-sub">Shooting Guard · #2</span>
+            </button>
+            <button class="quiz-option" data-field="posicion" data-value="alero">
+              <span class="quiz-option-title">Alero</span>
+              <span class="quiz-option-sub">Small Forward · #3</span>
+            </button>
+            <button
+              class="quiz-option"
+              data-field="posicion"
+              data-value="ala-pivot"
+            >
+              <span class="quiz-option-title">Ala-pívot</span>
+              <span class="quiz-option-sub">Power Forward · #4</span>
+            </button>
+            <button
+              class="quiz-option sm:col-span-2"
+              data-field="posicion"
+              data-value="pivot"
+            >
+              <span class="quiz-option-title">Pívot</span>
+              <span class="quiz-option-sub">Center · #5</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ─── STEP 2: Peso ─── -->
+        <div data-step="2" class="quiz-step hidden">
+          <p
+            class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
+          >
+            ★ 02 / 08
+          </p>
+          <h2
+            class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
+          >
+            ¿Cuánto pesas?
+          </h2>
+          <p class="text-zinc-400 mb-8">
+            Influye en cuánta amortiguación y estabilidad necesitas.
+          </p>
+          <div class="grid grid-cols-2 gap-3">
+            <button class="quiz-option" data-field="peso" data-value="menos-70">
+              <span class="quiz-option-title">&lt; 70 kg</span>
+            </button>
+            <button class="quiz-option" data-field="peso" data-value="70-85">
+              <span class="quiz-option-title">70 – 85 kg</span>
+            </button>
+            <button class="quiz-option" data-field="peso" data-value="85-100">
+              <span class="quiz-option-title">85 – 100 kg</span>
+            </button>
+            <button class="quiz-option" data-field="peso" data-value="mas-100">
+              <span class="quiz-option-title">+ 100 kg</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ─── STEP 3: Estilo ─── -->
+        <div data-step="3" class="quiz-step hidden">
+          <p
+            class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
+          >
+            ★ 03 / 08
+          </p>
+          <h2
+            class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
+          >
+            ¿Cómo describirías<br />tu juego?
+          </h2>
+          <p class="text-zinc-400 mb-8">Sé honesto, no hay respuesta mala.</p>
+          <div class="grid grid-cols-1 gap-3">
+            <button
+              class="quiz-option"
+              data-field="estilo"
+              data-value="explosivo"
+            >
+              <span class="quiz-option-title">⚡ Explosivo</span>
+              <span class="quiz-option-sub"
+                >Cortes, primer paso, salto vertical</span
+              >
+            </button>
+            <button
+              class="quiz-option"
+              data-field="estilo"
+              data-value="equilibrado"
+            >
+              <span class="quiz-option-title">⚖️ Equilibrado</span>
+              <span class="quiz-option-sub">Mezclo todo según el partido</span>
+            </button>
+            <button class="quiz-option" data-field="estilo" data-value="potente">
+              <span class="quiz-option-title">💪 Potente</span>
+              <span class="quiz-option-sub"
+                >Juego de poste, contactos, físico</span
+              >
+            </button>
+            <button class="quiz-option" data-field="estilo" data-value="tirador">
+              <span class="quiz-option-title">🎯 Tirador</span>
+              <span class="quiz-option-sub"
+                >Tiro, movimiento sin balón, cortes laterales</span
+              >
+            </button>
+          </div>
+        </div>
+
+        <!-- ─── STEP 4: Cancha ─── -->
+        <div data-step="4" class="quiz-step hidden">
+          <p
+            class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
+          >
+            ★ 04 / 08
+          </p>
+          <h2
+            class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
+          >
+            ¿Dónde juegas<br />habitualmente?
+          </h2>
+          <p class="text-zinc-400 mb-8">
+            La superficie cambia mucho qué necesita tu zapatilla.
+          </p>
+          <div class="grid grid-cols-1 gap-3">
+            <button
+              class="quiz-option"
+              data-field="cancha"
+              data-value="interior"
+            >
+              <span class="quiz-option-title">🏟️ Pista cubierta</span>
+              <span class="quiz-option-sub">Parquet / pabellón</span>
+            </button>
+            <button
+              class="quiz-option"
+              data-field="cancha"
+              data-value="exterior"
+            >
+              <span class="quiz-option-title">☀️ Pista exterior</span>
+              <span class="quiz-option-sub">Asfalto, cemento, pista municipal</span>
+            </button>
+            <button class="quiz-option" data-field="cancha" data-value="mixto">
+              <span class="quiz-option-title">🔁 Mezclo ambos</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ─── STEP 5: Lesiones (multi) ─── -->
+        <div data-step="5" class="quiz-step hidden">
+          <p
+            class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
+          >
+            ★ 05 / 08
+          </p>
+          <h2
+            class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
+          >
+            ¿Alguna molestia<br />o lesión?
+          </h2>
+          <p class="text-zinc-400 mb-8">
+            Puedes marcar varias. Si tienes alguna duda, elige "Ninguna".
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <button
+              class="quiz-option"
+              data-field="lesiones"
+              data-value="rodillas"
+              data-multi="true"
+            >
+              <span class="quiz-option-title">🦵 Rodillas</span>
+            </button>
+            <button
+              class="quiz-option"
+              data-field="lesiones"
+              data-value="tobillos"
+              data-multi="true"
+            >
+              <span class="quiz-option-title">🦶 Tobillos</span>
+            </button>
+            <button
+              class="quiz-option"
+              data-field="lesiones"
+              data-value="fascia"
+              data-multi="true"
+            >
+              <span class="quiz-option-title">👣 Planta / fascia</span>
+            </button>
+            <button
+              class="quiz-option"
+              data-field="lesiones"
+              data-value="ninguna"
+              data-multi="true"
+              data-exclusive="true"
+            >
+              <span class="quiz-option-title">🚫 Ninguna</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ─── STEP 6: Prioridad ─── -->
+        <div data-step="6" class="quiz-step hidden">
+          <p
+            class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
+          >
+            ★ 06 / 08
+          </p>
+          <h2
+            class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
+          >
+            Si tuvieras que elegir<br />UNA cosa...
+          </h2>
+          <p class="text-zinc-400 mb-8">
+            La que más te importa por encima del resto.
+          </p>
+          <div class="grid grid-cols-1 gap-3">
+            <button
+              class="quiz-option"
+              data-field="prioridad"
+              data-value="proteccion"
+            >
+              <span class="quiz-option-title">🛡️ Máxima protección</span>
+              <span class="quiz-option-sub">Amortiguación al máximo</span>
+            </button>
+            <button
+              class="quiz-option"
+              data-field="prioridad"
+              data-value="reactividad"
+            >
+              <span class="quiz-option-title">⚡ Primer paso explosivo</span>
+              <span class="quiz-option-sub">Reactividad y court feel</span>
+            </button>
+            <button
+              class="quiz-option"
+              data-field="prioridad"
+              data-value="soporte-tobillo"
+            >
+              <span class="quiz-option-title">🧷 Soporte de tobillo</span>
+              <span class="quiz-option-sub">Bloqueo y contención</span>
+            </button>
+            <button
+              class="quiz-option"
+              data-field="prioridad"
+              data-value="durabilidad"
+            >
+              <span class="quiz-option-title">🪨 Durabilidad</span>
+              <span class="quiz-option-sub">Que duren mucho tiempo</span>
+            </button>
+            <button
+              class="quiz-option"
+              data-field="prioridad"
+              data-value="precio"
+            >
+              <span class="quiz-option-title">💰 Mejor precio</span>
+              <span class="quiz-option-sub">Relación calidad-precio</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ─── STEP 7: Presupuesto ─── -->
+        <div data-step="7" class="quiz-step hidden">
+          <p
+            class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
+          >
+            ★ 07 / 08
+          </p>
+          <h2
+            class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
+          >
+            ¿Cuál es tu<br />presupuesto?
+          </h2>
+          <p class="text-zinc-400 mb-8">Filtramos lo que no encaje contigo.</p>
+          <div class="grid grid-cols-1 gap-3">
+            <button class="quiz-option" data-field="presupuesto_max_eur" data-value="80">
+              <span class="quiz-option-title">&lt; 80 €</span>
+            </button>
+            <button class="quiz-option" data-field="presupuesto_max_eur" data-value="130">
+              <span class="quiz-option-title">80 – 130 €</span>
+            </button>
+            <button class="quiz-option" data-field="presupuesto_max_eur" data-value="180">
+              <span class="quiz-option-title">130 – 180 €</span>
+            </button>
+            <button class="quiz-option" data-field="presupuesto_max_eur" data-value="null">
+              <span class="quiz-option-title">🤷 Sin tope</span>
+              <span class="quiz-option-sub">Quiero la mejor para mí</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ─── STEP 8: Ancho de pie ─── -->
+        <div data-step="8" class="quiz-step hidden">
+          <p
+            class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
+          >
+            ★ 08 / 08
+          </p>
+          <h2
+            class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
+          >
+            ¿Cómo es el<br />ancho de tu pie?
+          </h2>
+          <p class="text-zinc-400 mb-8">
+            Influye en qué horma te va mejor. Si no lo sabes, elige "No sé".
+          </p>
+          <div class="grid grid-cols-1 gap-3">
+            <button class="quiz-option" data-field="ancho_pie" data-value="normal">
+              <span class="quiz-option-title">👟 Normal</span>
+              <span class="quiz-option-sub">Estándar, la mayoría de zapas te quedan bien</span>
+            </button>
+            <button class="quiz-option" data-field="ancho_pie" data-value="ancho">
+              <span class="quiz-option-title">🦶 Ancho</span>
+              <span class="quiz-option-sub">Necesito hormas amplias para estar cómodo</span>
+            </button>
+            <button class="quiz-option" data-field="ancho_pie" data-value="no-se">
+              <span class="quiz-option-title">🤷 No sé</span>
+              <span class="quiz-option-sub">Ignora este filtro</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex items-center justify-between gap-4 mt-12">
+          <button
+            id="quiz-back"
+            type="button"
+            class="px-6 py-3 text-zinc-500 hover:text-white font-bold uppercase tracking-widest text-sm transition-colors disabled:opacity-0 disabled:pointer-events-none"
+            disabled
+          >
+            ← Atrás
+          </button>
+          <button
+            id="quiz-next"
+            type="button"
+            class="px-8 py-4 bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black uppercase tracking-wider transition-all disabled:bg-zinc-800 disabled:text-zinc-600 disabled:cursor-not-allowed shadow-[4px_4px_0_0_rgb(250,204,21)] hover:shadow-[6px_6px_0_0_rgb(250,204,21)] disabled:shadow-none"
+            disabled
+          >
+            Continuar →
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style is:global>
+    @reference "../styles/global.css";
+
+    .quiz-option {
+      @apply text-left p-5 border-2 border-zinc-800 bg-zinc-900/50 hover:border-orange-500 hover:bg-zinc-900 transition-all cursor-pointer flex flex-col gap-1;
+    }
+    .quiz-option.is-selected {
+      @apply border-orange-500 bg-orange-500/10 shadow-[3px_3px_0_0_rgb(250,204,21)];
+    }
+    .quiz-option-title {
+      @apply font-black uppercase text-xl tracking-tight;
+    }
+    .quiz-option-sub {
+      @apply text-zinc-400 text-xs uppercase tracking-wider;
+    }
+  </style>
+
+  <script>
+    // ─────────────────────────────────────────────────────────
+    // Estado del quiz
+    // ─────────────────────────────────────────────────────────
+
+    type Estado = {
+      posicion: string | null;
+      peso: string | null;
+      estilo: string | null;
+      cancha: string | null;
+      lesiones: string[];
+      prioridad: string | null;
+      presupuesto_max_eur: number | null | undefined;
+      ancho_pie: string | null;
+    };
+
+    const STORAGE_KEY = "cancha-quiz-respuestas";
+    const TOTAL_STEPS = 8;
+    let currentStep = 1;
+    const state: Estado = {
+      posicion: null,
+      peso: null,
+      estilo: null,
+      cancha: null,
+      lesiones: [],
+      prioridad: null,
+      presupuesto_max_eur: undefined,
+      ancho_pie: null,
+    };
+
+    // ─────────────────────────────────────────────────────────
+    // DOM helpers
+    // ─────────────────────────────────────────────────────────
+
+    const $progress = document.getElementById("quiz-progress")!;
+    const $stepLabel = document.getElementById("quiz-step-label")!;
+    const $stepPercent = document.getElementById("quiz-step-percent")!;
+    const $back = document.getElementById("quiz-back") as HTMLButtonElement;
+    const $next = document.getElementById("quiz-next") as HTMLButtonElement;
+    const $steps = document.querySelectorAll<HTMLDivElement>(".quiz-step");
+    const $options = document.querySelectorAll<HTMLButtonElement>(".quiz-option");
+
+    // ─────────────────────────────────────────────────────────
+    // Renderizar paso visible
+    // ─────────────────────────────────────────────────────────
+
+    function showStep(step: number) {
+      $steps.forEach((el) => {
+        const num = parseInt(el.dataset.step!, 10);
+        el.classList.toggle("hidden", num !== step);
+      });
+
+      const pct = Math.round((step / TOTAL_STEPS) * 100);
+      $progress.style.width = `${pct}%`;
+      $stepLabel.textContent = `Pregunta ${step} de ${TOTAL_STEPS}`;
+      $stepPercent.textContent = `${pct}%`;
+
+      $back.disabled = step === 1;
+
+      if (step === TOTAL_STEPS) {
+        $next.textContent = "Ver mis 5 zapas →";
+      } else {
+        $next.textContent = "Continuar →";
+      }
+
+      updateNextButton();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // Validar si el paso actual está completo
+    // ─────────────────────────────────────────────────────────
+
+    function isStepComplete(step: number): boolean {
+      switch (step) {
+        case 1:
+          return state.posicion !== null;
+        case 2:
+          return state.peso !== null;
+        case 3:
+          return state.estilo !== null;
+        case 4:
+          return state.cancha !== null;
+        case 5:
+          // Lesiones: requiere al menos un click (incluye "ninguna" como marker)
+          return state.lesiones.length > 0;
+        case 6:
+          return state.prioridad !== null;
+        case 7:
+          return state.presupuesto_max_eur !== undefined;
+        case 8:
+          return state.ancho_pie !== null;
+        default:
+          return false;
+      }
+    }
+
+    function updateNextButton() {
+      $next.disabled = !isStepComplete(currentStep);
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // Refrescar visual de opciones según estado
+    // ─────────────────────────────────────────────────────────
+
+    function refreshSelections() {
+      $options.forEach((btn) => {
+        const field = btn.dataset.field!;
+        const value = btn.dataset.value!;
+        let selected = false;
+
+        if (field === "lesiones") {
+          selected = state.lesiones.includes(value);
+        } else if (field === "presupuesto_max_eur") {
+          if (value === "null") {
+            selected = state.presupuesto_max_eur === null;
+          } else {
+            selected = state.presupuesto_max_eur === parseInt(value, 10);
+          }
+        } else {
+          selected = state[field as keyof typeof state] === value;
+        }
+
+        btn.classList.toggle("is-selected", selected);
+      });
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // Click en opción
+    // ─────────────────────────────────────────────────────────
+
+    $options.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const field = btn.dataset.field!;
+        const value = btn.dataset.value!;
+        const isMulti = btn.dataset.multi === "true";
+        const isExclusive = btn.dataset.exclusive === "true";
+
+        if (field === "lesiones") {
+          if (isExclusive) {
+            // "Ninguna" → vaciar y poner solo este marker
+            if (state.lesiones.includes("ninguna")) {
+              state.lesiones = [];
+            } else {
+              state.lesiones = ["ninguna"];
+            }
+          } else {
+            // Lesión real: quitar "ninguna" si estaba, y toggle
+            state.lesiones = state.lesiones.filter((l) => l !== "ninguna");
+            if (state.lesiones.includes(value)) {
+              state.lesiones = state.lesiones.filter((l) => l !== value);
+            } else {
+              state.lesiones.push(value);
+            }
+          }
+        } else if (field === "presupuesto_max_eur") {
+          state.presupuesto_max_eur = value === "null" ? null : parseInt(value, 10);
+        } else {
+          (state as any)[field] = value;
+        }
+
+        refreshSelections();
+        updateNextButton();
+      });
+    });
+
+    // ─────────────────────────────────────────────────────────
+    // Navegación
+    // ─────────────────────────────────────────────────────────
+
+    $back.addEventListener("click", () => {
+      if (currentStep > 1) {
+        currentStep--;
+        showStep(currentStep);
+      }
+    });
+
+    $next.addEventListener("click", () => {
+      if (!isStepComplete(currentStep)) return;
+
+      if (currentStep < TOTAL_STEPS) {
+        currentStep++;
+        showStep(currentStep);
+      } else {
+        submit();
+      }
+    });
+
+    // ─────────────────────────────────────────────────────────
+    // Submit: limpia "ninguna" marker y guarda en sessionStorage
+    // ─────────────────────────────────────────────────────────
+
+    function submit() {
+      const respuestas = {
+        posicion: state.posicion,
+        peso: state.peso,
+        estilo: state.estilo,
+        cancha: state.cancha,
+        // Quitar el marker "ninguna" antes de guardar (motor espera Lesion[])
+        lesiones: state.lesiones.filter((l) => l !== "ninguna"),
+        prioridad: state.prioridad,
+        // undefined → null para evitar que JSON.stringify lo elimine silenciosamente
+        presupuesto_max_eur: state.presupuesto_max_eur ?? null,
+        // "no-se" → null para que el motor lo ignore
+        ancho_pie: state.ancho_pie === "no-se" ? null : state.ancho_pie,
+      };
+
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(respuestas));
+      window.location.href = "/resultados";
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // Init
+    // ─────────────────────────────────────────────────────────
+
+    showStep(1);
+  </script>
+</Base>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#18181b"/>
+  <rect x="1" y="1" width="398" height="298" stroke="#3f3f46" stroke-width="2"/>
+  <!-- Shoe silhouette -->
+  <path d="M80 190 Q90 170 120 160 L200 155 Q240 150 270 158 L320 165 Q340 170 340 185 L340 200 Q300 215 240 218 L120 218 Q90 218 80 205 Z" fill="#27272a" stroke="#3f3f46" stroke-width="1.5"/>
+  <path d="M80 190 Q85 175 100 168 L130 162" stroke="#52525b" stroke-width="2" stroke-linecap="round"/>
+  <path d="M200 155 Q210 145 230 142 Q250 140 270 148" stroke="#52525b" stroke-width="2" stroke-linecap="round"/>
+  <!-- Laces suggestion -->
+  <line x1="170" y1="157" x2="175" y2="195" stroke="#3f3f46" stroke-width="1.5"/>
+  <line x1="190" y1="156" x2="195" y2="196" stroke="#3f3f46" stroke-width="1.5"/>
+  <line x1="210" y1="155" x2="215" y2="196" stroke="#3f3f46" stroke-width="1.5"/>
+  <line x1="230" y1="155" x2="235" y2="197" stroke="#3f3f46" stroke-width="1.5"/>
+  <line x1="160" y1="170" x2="245" y2="170" stroke="#3f3f46" stroke-width="1.5"/>
+  <line x1="158" y1="182" x2="243" y2="183" stroke="#3f3f46" stroke-width="1.5"/>
+  <!-- Text -->
+  <text x="200" y="248" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#52525b" text-anchor="middle" letter-spacing="3">SIN IMAGEN</text>
+</svg>

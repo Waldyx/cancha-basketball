@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Páginas dinámicas que dependen de sessionStorage (vacías sin contexto)
+Disallow: /resultados
+Disallow: /comparar
+
+Sitemap: https://web-puce-chi-60.vercel.app/sitemap-index.xml

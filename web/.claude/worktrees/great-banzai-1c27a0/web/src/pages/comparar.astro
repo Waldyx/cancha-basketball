@@ -1,0 +1,471 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  title="Comparar zapatillas · Cancha"
+  description="Compara hasta 3 zapatillas de baloncesto lado a lado con todas sus métricas técnicas."
+>
+  <main class="min-h-screen bg-zinc-950 text-white">
+    <!-- Header -->
+    <header class="px-6 py-5 border-b border-zinc-800">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <a href="/" class="text-2xl font-black tracking-tighter">
+          CANCHA<span class="text-orange-500">.</span>
+        </a>
+        <a
+          href="/quiz"
+          class="text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-orange-500 transition-colors"
+        >
+          ↻ Rehacer quiz
+        </a>
+      </div>
+    </header>
+
+    <!-- Fallback sin JS -->
+    <noscript>
+      <div class="px-6 py-20 text-center max-w-2xl mx-auto">
+        <p class="text-orange-500 font-black uppercase tracking-widest text-xs mb-4">⚠ JavaScript requerido</p>
+        <p class="text-zinc-400 mb-6">El comparador necesita JavaScript para funcionar. Actívalo y recarga.</p>
+        <a href="/zapatillas" class="inline-block px-6 py-3 bg-orange-500 text-zinc-950 font-black uppercase tracking-wider">← Ver catálogo</a>
+      </div>
+    </noscript>
+
+    <!-- Estado: selector (sin params) -->
+    <section id="estado-selector" class="hidden px-6 py-12">
+      <div class="max-w-4xl mx-auto">
+        <p
+          class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
+        >
+          ★ Comparador
+        </p>
+        <h1
+          class="text-4xl md:text-5xl font-black tracking-tight uppercase mb-3"
+        >
+          Elige 2 o 3 zapatillas
+        </h1>
+        <p class="text-zinc-400 mb-8">
+          Las verás lado a lado con todas sus métricas, precios y veredictos.
+        </p>
+
+        <div id="selector-grid" class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
+        </div>
+
+        <div class="flex items-center justify-between gap-4">
+          <p id="selector-count" class="text-sm text-zinc-500">
+            0 seleccionadas
+          </p>
+          <button
+            id="selector-comparar"
+            type="button"
+            disabled
+            class="px-8 py-4 bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black uppercase tracking-wider transition-all disabled:bg-zinc-800 disabled:text-zinc-600 disabled:cursor-not-allowed shadow-[4px_4px_0_0_rgb(250,204,21)] disabled:shadow-none"
+          >
+            Comparar →
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estado: comparativa -->
+    <section id="estado-comparativa" class="hidden px-6 py-12">
+      <div class="max-w-7xl mx-auto">
+        <div class="mb-10">
+          <p
+            class="text-xs font-black uppercase tracking-widest text-orange-500 mb-3"
+          >
+            ★ Comparativa lado a lado
+          </p>
+          <h1
+            class="text-3xl md:text-5xl font-black tracking-tight uppercase mb-3 leading-tight"
+          >
+            <span id="comp-titulo"></span>
+          </h1>
+          <p class="text-zinc-400">
+            Mejor valor en cada métrica resaltado en
+            <span class="text-orange-500 font-black">naranja</span>.
+          </p>
+        </div>
+
+        <div class="overflow-x-auto -mx-6 px-6 pb-4">
+          <div
+            id="comp-tabla"
+            class="grid gap-4 min-w-fit"
+            data-cols="2"
+          >
+          </div>
+        </div>
+
+        <div class="mt-12 flex flex-wrap gap-4 justify-center">
+          <a
+            href="/comparar"
+            class="px-6 py-3 border-2 border-zinc-700 hover:border-orange-500 font-black uppercase tracking-wider text-sm transition-colors"
+          >
+            ↻ Nueva comparativa
+          </a>
+          <a
+            href="/quiz"
+            class="px-6 py-3 text-zinc-500 hover:text-white font-bold uppercase tracking-widest text-xs transition-colors self-center"
+          >
+            ¿No sabes cuál elegir? Haz el quiz
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estado: ids inválidos -->
+    <section id="estado-error" class="hidden px-6 py-20">
+      <div class="max-w-2xl mx-auto text-center">
+        <p
+          class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
+        >
+          ⚠ Zapatillas no encontradas
+        </p>
+        <h1
+          class="text-4xl md:text-5xl font-black tracking-tight uppercase mb-6"
+        >
+          Esos IDs no existen.
+        </h1>
+        <p class="text-zinc-400 mb-8">
+          Vuelve al selector y elige zapatillas válidas de la lista.
+        </p>
+        <a
+          href="/comparar"
+          class="inline-block px-8 py-4 bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black uppercase tracking-wider transition-all shadow-[4px_4px_0_0_rgb(250,204,21)]"
+        >
+          ← Volver al selector
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    import { zapatillas, getZapatillaBySlug } from "../data/zapatillas";
+    import { findMejorPrecio } from "../lib/scoring";
+    import type { Zapatilla, Puntuaciones } from "../lib/types";
+
+    const LABELS_TIENDA: Record<string, string> = {
+      amazon_es: "Amazon",
+      decathlon: "Decathlon",
+      nike_es: "Nike",
+      adidas_es: "Adidas",
+      puma_es: "Puma",
+      ua_es: "Under Armour",
+      nb_es: "New Balance",
+      footlocker_es: "Foot Locker",
+      jd_sports_es: "JD Sports",
+      zalando_es: "Zalando",
+      sprinter_es: "Sprinter",
+      reebok_es: "Reebok",
+      basket_world: "Basket World",
+      aliexpress: "AliExpress",
+      kickscrew: "KicksCrew",
+      idealo: "Idealo",
+    };
+
+    function escapeHtml(s: string | number): string {
+      const div = document.createElement("div");
+      div.textContent = String(s);
+      return div.innerHTML;
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // Modo SELECTOR: sin params, mostrar lista para elegir
+    // ─────────────────────────────────────────────────────────
+
+    function renderSelector() {
+      const $grid = document.getElementById("selector-grid")!;
+      const $count = document.getElementById("selector-count")!;
+      const $btn = document.getElementById(
+        "selector-comparar"
+      ) as HTMLButtonElement;
+
+      const seleccion = new Set<string>();
+
+      $grid.innerHTML = zapatillas
+        .map(
+          (z) => `
+            <button
+              type="button"
+              data-id="${escapeHtml(z.id)}"
+              class="selector-card text-left p-4 border-2 border-zinc-800 bg-zinc-900/50 hover:border-orange-500 transition-all cursor-pointer flex flex-col gap-1"
+            >
+              <span class="text-xs font-bold uppercase tracking-widest text-zinc-500">${escapeHtml(z.marca)}</span>
+              <span class="font-black uppercase text-lg leading-tight">${escapeHtml(z.modelo)}</span>
+              <span class="text-xs text-zinc-400 mt-1">${escapeHtml(z.precio_msrp_eur)}€</span>
+            </button>
+          `
+        )
+        .join("");
+
+      function refresh() {
+        $count.textContent = `${seleccion.size} seleccionada${seleccion.size === 1 ? "" : "s"} ${seleccion.size > 0 ? "(2-3 necesarias)" : ""}`;
+        $btn.disabled = seleccion.size < 2 || seleccion.size > 3;
+
+        $grid.querySelectorAll(".selector-card").forEach((el) => {
+          const id = el.getAttribute("data-id")!;
+          if (seleccion.has(id)) {
+            el.classList.add("border-orange-500", "bg-orange-500/10");
+            el.classList.remove("border-zinc-800");
+          } else {
+            el.classList.remove("border-orange-500", "bg-orange-500/10");
+            el.classList.add("border-zinc-800");
+          }
+        });
+      }
+
+      $grid.querySelectorAll<HTMLButtonElement>(".selector-card").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.dataset.id!;
+          if (seleccion.has(id)) {
+            seleccion.delete(id);
+          } else if (seleccion.size < 3) {
+            seleccion.add(id);
+          }
+          refresh();
+        });
+      });
+
+      $btn.addEventListener("click", () => {
+        if (seleccion.size < 2) return;
+        const ids = Array.from(seleccion).join(",");
+        window.location.href = `/comparar?ids=${ids}`;
+      });
+
+      document.getElementById("estado-selector")!.classList.remove("hidden");
+      refresh();
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // Modo COMPARATIVA: con params, mostrar tabla
+    // ─────────────────────────────────────────────────────────
+
+    type Atributo = keyof Puntuaciones;
+    const ATRIBUTOS: { key: Atributo; label: string; mayorMejor: boolean }[] = [
+      { key: "traccion", label: "Tracción", mayorMejor: true },
+      { key: "amortiguacion", label: "Amortiguación", mayorMejor: true },
+      { key: "respuesta", label: "Respuesta", mayorMejor: true },
+      { key: "soporte_lateral", label: "Soporte lateral", mayorMejor: true },
+      { key: "estabilidad", label: "Estabilidad", mayorMejor: true },
+      { key: "peso_score", label: "Ligereza", mayorMejor: true },
+      { key: "durabilidad_outdoor", label: "Durabilidad outdoor", mayorMejor: true },
+      { key: "ventilacion", label: "Ventilación", mayorMejor: true },
+    ];
+
+    function barra(valor: number): string {
+      const llenos = "▮".repeat(valor);
+      const vacios = "▯".repeat(10 - valor);
+      return `<span class="text-orange-500">${llenos}</span><span class="text-zinc-700">${vacios}</span>`;
+    }
+
+    function indicesGanadores<T>(
+      valores: T[],
+      mayorMejor: boolean = true
+    ): Set<number> {
+      const numericos = valores.map((v) => (typeof v === "number" ? v : NaN));
+      if (numericos.some((n) => isNaN(n))) return new Set();
+      const best = mayorMejor
+        ? Math.max(...numericos)
+        : Math.min(...numericos);
+      const ganadores = new Set<number>();
+      numericos.forEach((n, i) => {
+        if (n === best) ganadores.add(i);
+      });
+      return ganadores;
+    }
+
+    function renderFila(
+      label: string,
+      valores: (string | number)[],
+      opts: { ganadores?: Set<number>; html?: boolean } = {}
+    ): string {
+      const { ganadores, html } = opts;
+      const cells = valores
+        .map((v, i) => {
+          const isWinner = ganadores?.has(i);
+          const cls = isWinner
+            ? "text-orange-500 font-black"
+            : "text-zinc-200";
+          return `<div class="px-4 py-3 border-l border-zinc-800 ${cls} text-sm">${html ? v : escapeHtml(v)}</div>`;
+        })
+        .join("");
+
+      return `
+        <div class="grid border-b border-zinc-800" style="grid-template-columns: 160px repeat(${valores.length}, minmax(180px, 1fr));">
+          <div class="px-4 py-3 text-xs font-bold uppercase tracking-widest text-zinc-500 bg-zinc-900/50 flex items-center">${escapeHtml(label)}</div>
+          ${cells}
+        </div>
+      `;
+    }
+
+    function renderHeader(zapas: Zapatilla[]): string {
+      const cells = zapas
+        .map((z) => {
+          const mejor = findMejorPrecio(z.links_compra);
+          const precio = mejor?.precio_actual ?? z.precio_msrp_eur;
+          const tienda = mejor
+            ? LABELS_TIENDA[mejor.tienda] || mejor.tienda
+            : "";
+          const ctaHref = mejor?.url ?? "#";
+          const ctaLabel = mejor ? `Ver en ${tienda}` : "Ver detalles";
+          return `
+            <div class="border-l border-zinc-800 px-4 py-5 bg-zinc-900/30">
+              <a href="/zapatilla/${escapeHtml(z.slug)}">
+                <img
+                  src="${escapeHtml(z.imagen_principal)}"
+                  alt="${escapeHtml(z.marca + " " + z.modelo)}"
+                  class="w-full aspect-[4/3] object-cover bg-zinc-800 mb-4 hover:opacity-90 transition-opacity"
+                  loading="lazy"
+                  onerror="this.onerror=null;this.src='/placeholder-shoe.svg'"
+                />
+              </a>
+              <p class="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-1">${escapeHtml(z.marca)}</p>
+              <a href="/zapatilla/${escapeHtml(z.slug)}" class="hover:text-orange-500 transition-colors">
+                <h2 class="text-xl font-black uppercase leading-tight tracking-tight mb-3">${escapeHtml(z.modelo)}</h2>
+              </a>
+              <p class="text-2xl font-black text-orange-500 mb-3">${escapeHtml(precio)}€${tienda ? ` <span class="text-xs text-zinc-500 font-normal">en ${escapeHtml(tienda)}</span>` : ""}</p>
+              <div class="flex flex-wrap gap-2">
+                <a
+                  href="${escapeHtml(ctaHref)}"
+                  target="_blank"
+                  rel="noopener noreferrer sponsored"
+                  class="inline-block px-4 py-2 bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black uppercase tracking-wider text-xs transition-colors"
+                >${escapeHtml(ctaLabel)} →</a>
+                <a
+                  href="/zapatilla/${escapeHtml(z.slug)}"
+                  class="inline-block px-4 py-2 border-2 border-zinc-700 hover:border-orange-500 font-bold uppercase tracking-wider text-xs transition-colors"
+                >Ver ficha →</a>
+              </div>
+            </div>
+          `;
+        })
+        .join("");
+
+      return `
+        <div class="grid border border-zinc-800 bg-zinc-950" style="grid-template-columns: 160px repeat(${zapas.length}, minmax(180px, 1fr));">
+          <div class="px-4 py-5 bg-zinc-900/50"></div>
+          ${cells}
+        </div>
+      `;
+    }
+
+    function renderComparativa(zapas: Zapatilla[]) {
+      document.getElementById("estado-comparativa")!.classList.remove("hidden");
+
+      const tituloEls = zapas
+        .map((z) => `<span class="text-orange-500">${escapeHtml(z.modelo)}</span>`)
+        .join(" <span class='text-zinc-500'>vs</span> ");
+      document.getElementById("comp-titulo")!.innerHTML = tituloEls;
+
+      const $tabla = document.getElementById("comp-tabla")!;
+      $tabla.dataset.cols = String(zapas.length);
+
+      let html = "";
+      html += renderHeader(zapas);
+
+      // Sección: Identidad / físicas
+      html += `<div class="text-xs font-black uppercase tracking-widest text-orange-500 mt-6 mb-2">Datos físicos</div>`;
+      html += `<div class="border border-zinc-800">`;
+      html += renderFila(
+        "Año",
+        zapas.map((z) => z.año_lanzamiento)
+      );
+      html += renderFila(
+        "Peso (US 9)",
+        zapas.map((z) => `${z.peso_real_g} g`),
+        {
+          ganadores: indicesGanadores(
+            zapas.map((z) => z.peso_real_g),
+            false
+          ),
+        }
+      );
+      html += renderFila(
+        "Altura",
+        zapas.map((z) => z.altura)
+      );
+      html += renderFila(
+        "Horma",
+        zapas.map((z) => z.horma)
+      );
+      html += renderFila(
+        "Drop",
+        zapas.map((z) => `${z.drop_mm} mm`)
+      );
+      html += renderFila(
+        "Categoría",
+        zapas.map((z) => z.categoria_principal)
+      );
+      html += `</div>`;
+
+      // Sección: Puntuaciones
+      html += `<div class="text-xs font-black uppercase tracking-widest text-orange-500 mt-6 mb-2">Puntuaciones (1-10)</div>`;
+      html += `<div class="border border-zinc-800">`;
+      for (const attr of ATRIBUTOS) {
+        const valores = zapas.map((z) => z.puntuaciones[attr.key]);
+        const ganadores = indicesGanadores(valores, attr.mayorMejor);
+        const cells = valores.map(
+          (v) =>
+            `<div class="flex flex-col gap-1"><span class="font-mono text-lg leading-none">${v}</span><span class="font-mono text-[10px] tracking-tighter">${barra(v)}</span></div>`
+        );
+        html += renderFila(attr.label, cells, { ganadores, html: true });
+      }
+      html += `</div>`;
+
+      // Sección: Veredicto
+      html += `<div class="text-xs font-black uppercase tracking-widest text-orange-500 mt-6 mb-2">Veredicto</div>`;
+      html += `<div class="border border-zinc-800">`;
+      html += renderFila(
+        "Resumen",
+        zapas.map((z) => `<span class="text-xs leading-relaxed">${escapeHtml(z.resumen)}</span>`),
+        { html: true }
+      );
+      html += renderFila(
+        "Pros",
+        zapas.map(
+          (z) =>
+            `<ul class="text-xs space-y-1">${z.pros.map((p) => `<li class="flex gap-1.5"><span class="text-orange-500">+</span><span>${escapeHtml(p)}</span></li>`).join("")}</ul>`
+        ),
+        { html: true }
+      );
+      html += renderFila(
+        "Contras",
+        zapas.map(
+          (z) =>
+            `<ul class="text-xs space-y-1">${z.contras.map((c) => `<li class="flex gap-1.5"><span class="text-zinc-500">−</span><span>${escapeHtml(c)}</span></li>`).join("")}</ul>`
+        ),
+        { html: true }
+      );
+      html += `</div>`;
+
+      $tabla.innerHTML = html;
+    }
+
+    // ─────────────────────────────────────────────────────────
+    // Init: leer params, decidir modo
+    // ─────────────────────────────────────────────────────────
+
+    const params = new URLSearchParams(window.location.search);
+    const idsParam = params.get("ids");
+
+    if (!idsParam) {
+      renderSelector();
+    } else {
+      const ids = idsParam
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean)
+        .slice(0, 3);
+
+      const encontradas = ids
+        .map((id) => getZapatillaBySlug(id))
+        .filter((z): z is Zapatilla => z !== undefined);
+
+      if (encontradas.length < 2) {
+        document.getElementById("estado-error")!.classList.remove("hidden");
+      } else {
+        renderComparativa(encontradas);
+      }
+    }
+  </script>
+</Base>
