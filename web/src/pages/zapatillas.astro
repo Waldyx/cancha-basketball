@@ -39,8 +39,8 @@ const marcas = [...new Set(zapatillas.map((z) => z.marca))].sort();
 ---
 
 <Base
-  title="Catálogo de zapatillas de baloncesto | 90+ modelos analizados | CANCHA"
-  description="Catálogo de 85+ zapatillas de baloncesto analizadas. Filtra por marca, precio y categoría. Comparativa honesta con precio verificado en tiendas españolas."
+  title={`Catálogo de zapatillas de baloncesto | ${zapatillas.length}+ modelos analizados | CANCHA`}
+  description={`Catálogo de ${zapatillas.length}+ zapatillas de baloncesto analizadas. Filtra por marca, precio y categoría. Comparativa honesta con precio verificado en tiendas españolas.`}
   jsonLd={{
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
