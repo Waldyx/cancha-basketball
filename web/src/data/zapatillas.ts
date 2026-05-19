@@ -6577,7 +6577,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2024,
     genero: "unisex",
     tecnologia_clave: ["Bounce foam", "rubber outsole"],
-    predecesor_id: null,
+    predecesor_id: "adidas-ownthegame-2",
     sucesor_id: null,
     peso_real_g: 385,
     altura: "mid",
@@ -7150,7 +7150,7 @@ const _rawZapatillas: Zapatilla[] = [
     genero: "unisex",
     tecnologia_clave: ["FuelCell foam", "Fresh Foam X", "suction-cup traction", "torsional plate"],
     predecesor_id: "nb-two-wxy-v4",
-    sucesor_id: null,
+    sucesor_id: "nb-two-wxy-v6",
 
     peso_real_g: 390,
     altura: "low",
@@ -7798,6 +7798,354 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "ua_es", url: "https://www.underarmour.es/es-es/p/curry-11/3027359.html", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=curry+11", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+curry+11+baloncesto", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // ADIDAS HARDEN VOL 8 — Predecesor del Vol 9
+  // ───────────────────────────────────────────────
+  {
+    id: "adidas-harden-vol-8",
+    slug: "adidas-harden-vol-8",
+    marca: "Adidas",
+    modelo: "Harden Vol 8",
+    generacion: 8,
+    año_lanzamiento: 2022,
+    genero: "unisex",
+    signature_player: "James Harden",
+    tecnologia_clave: ["Lightstrike Pro", "herringbone", "malla tejida"],
+    predecesor_id: null,
+    sucesor_id: "adidas-harden-vol-9",
+
+    peso_real_g: 340,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 8,
+      respuesta: 7,
+      soporte_lateral: 7,
+      estabilidad: 7,
+      peso_score: 7,
+      durabilidad_outdoor: 7,
+      ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "guard", "escolta", "tirador", "lightstrike-pro"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [70, 100],
+      estilos: ["tirador", "equilibrado"],
+    },
+    no_recomendada_para: { posiciones: ["pivot", "ala-pivot"], estilos: ["potente"] },
+
+    resumen: "La Harden Vol 8 consolida el uso de Lightstrike Pro en la línea signature de Harden. Tracción herringbone multidireccional fiable y perfil bajo que favorece el juego de manejo de balón y tiro exterior.",
+    pros: [
+      "Lightstrike Pro: buena relación amortiguación-respuesta",
+      "Tracción herringbone multidireccional",
+      "Ligera para su categoría",
+      "Buena ventilación gracias a la malla tejida",
+    ],
+    contras: [
+      "Superada por la Vol 9 en todos los aspectos",
+      "Soporte lateral básico",
+      "Precio original elevado para lo que ofrece hoy",
+    ],
+    veredicto: "Una buena zapatilla de guard en su momento. Ahora se puede encontrar a buen precio de segunda mano o en outlets. Sólida si la encuentras rebajada.",
+
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/Adidas-Harden-Vol-8-Cropped-650x406.jpg",
+    imagenes: [],
+
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-05-20",
+
+    precio_msrp_eur: 160,
+    links_compra: [
+      { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=harden+vol+8", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-20" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+harden+vol+8+baloncesto", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-20" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // NEW BALANCE TWO WXY v6 — Top de gama NB 2024
+  // ───────────────────────────────────────────────
+  {
+    id: "nb-two-wxy-v6",
+    slug: "nb-two-wxy-v6",
+    marca: "New Balance",
+    modelo: "TWO WXY v6",
+    generacion: 6,
+    año_lanzamiento: 2024,
+    genero: "unisex",
+    tecnologia_clave: ["FuelCell", "herringbone", "goma translúcida"],
+    predecesor_id: "nb-two-wxy-v5",
+    sucesor_id: undefined,
+
+    peso_real_g: 350,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+
+    puntuaciones: {
+      traccion: 9,
+      amortiguacion: 8,
+      respuesta: 8,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 7,
+      durabilidad_outdoor: 8,
+      ventilacion: 7,
+    },
+    categoria_principal: "balanced",
+    tags: ["tope-de-gama", "guard", "escolta", "fuelcell", "moderna"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [65, 95],
+      estilos: ["explosivo", "equilibrado"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+
+    resumen: "La TWO WXY v6 es el tope de gama de New Balance para 2024. FuelCell reactivo combinado con una tracción herringbone en goma translúcida que ofrece un agarre excepcional en cancha interior. Una de las mejores opciones para guards que valoran el equilibrio total.",
+    pros: [
+      "FuelCell: amortiguación reactiva y ligera",
+      "Tracción herringbone translúcida muy fiable",
+      "Construcción premium con precio competitivo vs Nike/Adidas",
+      "Soporte lateral sólido para ser low",
+    ],
+    contras: [
+      "Disponibilidad limitada en España",
+      "No signature — menor presencia de marketing",
+      "Algo pesada para los más velocistas",
+    ],
+    veredicto: "La mejor apuesta de New Balance para guards en 2024. Si priorizas rendimiento sobre marketing, la TWO WXY v6 supera a muchas signatures en valor real.",
+
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/New-Balance-TWO-WXY-v6-Cropped-650x406.jpg",
+    imagenes: [],
+
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-05-20",
+
+    precio_msrp_eur: 200,
+    links_compra: [
+      { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar?q=two+wxy+v6", precio_actual: 185, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-20" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+two+wxy+v6+baloncesto", precio_actual: 180, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-20" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // JORDAN WHY NOT .6 — Russell Westbrook, mid
+  // ───────────────────────────────────────────────
+  {
+    id: "jordan-why-not-6",
+    slug: "jordan-why-not-6",
+    marca: "Jordan",
+    modelo: "Why Not .6",
+    generacion: 6,
+    año_lanzamiento: 2022,
+    genero: "unisex",
+    signature_player: "Russell Westbrook",
+    tecnologia_clave: ["Zoom Air Strobel", "herringbone", "mid-top"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 335,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 8,
+      respuesta: 8,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 7,
+      durabilidad_outdoor: 7,
+      ventilacion: 7,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "guard", "escolta", "explosivo", "mid-top"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [70, 100],
+      estilos: ["explosivo", "equilibrado"],
+      lesiones_compatibles: ["tobillos"],
+    },
+    no_recomendada_para: { posiciones: ["pivot", "ala-pivot"], estilos: ["potente"] },
+
+    resumen: "La Why Not .6 refleja el estilo de juego explosivo y sin frenos de Russell Westbrook. Zoom Air Strobel en todo el pie para máxima respuesta en cada zancada. El perfil mid ofrece soporte de tobillo extra sin perder agilidad.",
+    pros: [
+      "Zoom Air Strobel: respuesta inmediata",
+      "Tracción herringbone multidireccional fiable",
+      "Soporte de tobillo extra al ser mid",
+      "Cushion equilibrado para el juego explosivo",
+    ],
+    contras: [
+      "Firma de un jugador en declive — disponibilidad cayendo",
+      "Algo pesada para ser una 'explosiva'",
+      "No destaca en ninguna categoría de forma sobresaliente",
+    ],
+    veredicto: "Una zapatilla sólida para bases explosivos que quieran soporte de tobillo extra. Se puede encontrar a precio reducido dado que Westbrook ya no es el nombre que era.",
+
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/Jordan-Why-Not-6-Cropped-650x406.jpg",
+    imagenes: [],
+
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-05-20",
+
+    precio_msrp_eur: 110,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=why+not+6&vst=why+not+6", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-20" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=jordan+why+not+6+baloncesto", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-20" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // ADIDAS OWNTHEGAME 2.0 — Budget todo terreno
+  // ───────────────────────────────────────────────
+  {
+    id: "adidas-ownthegame-2",
+    slug: "adidas-ownthegame-2",
+    marca: "Adidas",
+    modelo: "Ownthegame 2.0",
+    generacion: 2,
+    año_lanzamiento: 2021,
+    genero: "unisex",
+    tecnologia_clave: ["Bounce", "herringbone", "goma duradera"],
+    predecesor_id: null,
+    sucesor_id: "adidas-ownthegame-3",
+
+    peso_real_g: 370,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 7,
+      amortiguacion: 6,
+      respuesta: 5,
+      soporte_lateral: 6,
+      estabilidad: 7,
+      peso_score: 5,
+      durabilidad_outdoor: 8,
+      ventilacion: 6,
+    },
+    categoria_principal: "balanced",
+    tags: ["budget", "entrenamiento", "todas-posiciones", "outdoor"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero", "ala-pivot", "pivot"],
+      peso_jugador_kg: [60, 110],
+      estilos: ["equilibrado"],
+    },
+    no_recomendada_para: { estilos: ["explosivo"] },
+
+    resumen: "La Ownthegame 2.0 de Adidas es la opción budget más accesible de la marca alemana. Cushion Bounce básico y suela herringbone duradera que la convierten en una buena zapatilla de entrenamiento o de iniciación al baloncesto.",
+    pros: [
+      "Precio muy accesible",
+      "Buena durabilidad para exterior",
+      "Tracción herringbone básica pero funcional",
+      "Disponible en muchas tallas y colores",
+    ],
+    contras: [
+      "Cushion Bounce básico — no para competición seria",
+      "Pesada para su nivel de prestaciones",
+      "Superada por la Ownthegame 3",
+    ],
+    veredicto: "Perfecta como primera zapatilla de baloncesto o para entrenamientos casuales. No esperes rendimiento de competición, pero para iniciarse o entrenar es más que suficiente.",
+
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/Adidas-Ownthegame-2-Cropped-650x406.jpg",
+    imagenes: [],
+
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-05-20",
+
+    precio_msrp_eur: 70,
+    links_compra: [
+      { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=ownthegame+2.0", precio_actual: 55, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-20" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ownthegame+2.0+baloncesto", precio_actual: 50, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-20" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // UNDER ARMOUR ASSERT 10 — Budget UA entrenamiento
+  // ───────────────────────────────────────────────
+  {
+    id: "ua-assert-10",
+    slug: "ua-assert-10",
+    marca: "Under Armour",
+    modelo: "Assert 10",
+    generacion: 10,
+    año_lanzamiento: 2023,
+    genero: "unisex",
+    tecnologia_clave: ["UA Charged Cushioning", "herringbone"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 340,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 6,
+      amortiguacion: 6,
+      respuesta: 5,
+      soporte_lateral: 6,
+      estabilidad: 6,
+      peso_score: 6,
+      durabilidad_outdoor: 7,
+      ventilacion: 7,
+    },
+    categoria_principal: "balanced",
+    tags: ["budget", "entrenamiento", "todas-posiciones"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero", "ala-pivot", "pivot"],
+      peso_jugador_kg: [60, 100],
+      estilos: ["equilibrado"],
+    },
+    no_recomendada_para: { estilos: ["explosivo", "potente"] },
+
+    resumen: "La UA Assert 10 es la propuesta budget de Under Armour para baloncesto recreativo y entrenamiento. UA Charged Cushioning básico con buena ventilación y tracción herringbone suficiente para cancha interior.",
+    pros: [
+      "Precio muy competitivo para marca UA",
+      "Buena ventilación para ser budget",
+      "Ligera para su rango de precio",
+      "Durabilidad aceptable en exterior",
+    ],
+    contras: [
+      "Cushion básico — no apta para competición",
+      "Tracción herringbone básico, no multidireccional",
+      "Pocas opciones de colores",
+    ],
+    veredicto: "La opción más económica de Under Armour para baloncesto. Ideal para entrenamientos o para quien empieza y no quiere invertir mucho. Sin pretensiones de rendimiento elite.",
+
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/UA-Assert-10-Cropped-650x406.jpg",
+    imagenes: [],
+
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-05-20",
+
+    precio_msrp_eur: 60,
+    links_compra: [
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/zapatillas-baloncesto/", precio_actual: 55, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-20" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+assert+10+baloncesto", precio_actual: 50, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-20" },
     ],
   },
 ];
