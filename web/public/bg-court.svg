@@ -1,89 +1,108 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice">
   <defs>
-    <!-- Spotlight radial en el centro — ayuda a que el texto destaque -->
-    <radialGradient id="spotlight" cx="50%" cy="45%" r="55%" fx="50%" fy="45%">
-      <stop offset="0%"   stop-color="#1c1c1e" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#09090b" stop-opacity="1"/>
+    <radialGradient id="spot" cx="50%" cy="42%" r="52%">
+      <stop offset="0%"   stop-color="#1a1a1d"/>
+      <stop offset="100%" stop-color="#09090b"/>
     </radialGradient>
 
-    <!-- Fade en los laterales para que las líneas se difuminen -->
-    <linearGradient id="fadeLeft" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%"   stop-color="#09090b" stop-opacity="1"/>
-      <stop offset="30%"  stop-color="#09090b" stop-opacity="0"/>
+    <!-- Fades para disolver los bordes de la cancha -->
+    <linearGradient id="fadeL" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"  stop-color="#09090b" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="fadeRight" x1="100%" y1="0%" x2="0%" y2="0%">
-      <stop offset="0%"   stop-color="#09090b" stop-opacity="1"/>
-      <stop offset="30%"  stop-color="#09090b" stop-opacity="0"/>
+    <linearGradient id="fadeR" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%"  stop-color="#09090b" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="fadeBottom" x1="0%" y1="100%" x2="0%" y2="0%">
-      <stop offset="0%"   stop-color="#09090b" stop-opacity="1"/>
-      <stop offset="40%"  stop-color="#09090b" stop-opacity="0"/>
+    <linearGradient id="fadeB" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%"  stop-color="#09090b" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
     </linearGradient>
+
+    <!-- Clip para no dibujar fuera de la cancha -->
+    <clipPath id="courtClip">
+      <rect x="240" y="28" width="960" height="580"/>
+    </clipPath>
   </defs>
 
-  <!-- Base -->
-  <rect width="1440" height="800" fill="url(#spotlight)"/>
+  <!-- Fondo -->
+  <rect width="1440" height="800" fill="url(#spot)"/>
 
-  <!-- ═══════════════════════════════════════
-       MEDIA CANCHA — vista cenital
-       Canasta: (720, 72)
-       Línea de fondo: y=40
-       Paint: x=570–870 · y=40–310
-       FT circle: cx=720 cy=310 r=105
-       3pt corners: x=185 y x=1255, de y=40 a y=285
-       3pt arco: radio=560, sweep=0 (alejándose de canasta)
-       Punto más bajo del arco: 72+560=632 ✓
-  ════════════════════════════════════════ -->
-  <g fill="none" stroke="#f97316" stroke-linecap="round" stroke-linejoin="round">
+  <!--
+    ═══════════════════════════════════════════
+    MEDIA CANCHA — proporciones NBA escaladas
+    Cancha: 50ft ancho × 47ft largo (media)
+    SVG court: x=240–1200 (960px=50ft) · y=28–608 (560px≈47ft·11.9px/ft)
+    Escala: ancho 19.2px/ft · alto 11.9px/ft
 
-    <!-- Línea de fondo -->
-    <line x1="115" y1="40" x2="1325" y2="40" stroke-width="2.5" opacity="0.20"/>
+    Canasta: 5.25ft desde línea de fondo → y=28+(5.25×11.9)=28+62=90
+    → basket en (720, 90)
 
-    <!-- Laterales (sin cerrar abajo) -->
-    <line x1="115" y1="40" x2="115" y2="660" stroke-width="2"   opacity="0.12"/>
-    <line x1="1325" y1="40" x2="1325" y2="660" stroke-width="2" opacity="0.12"/>
+    Paint: 12ft ancho × 19ft largo
+      → 230px × 226px → x=605–835 · y=28–254
+
+    FT line: y=254 · FT circle r=6ft×11.9=71px
+
+    3pt corners: 22ft horizontales desde centro → 422px → x=298 y x=1142
+    3pt corner lines: 14ft desde fondo → 167px → y=28 a y=195
+    3pt radio real: sqrt(422²+105²)=sqrt(178084+11025)=sqrt(189109)≈435px
+      → arco de (298,195) a (1142,195) r=435, sweep=0
+      → punto más bajo: 90+435=525 ✓ dentro de la cancha (608)
+
+    Línea de medio campo: y=608
+    Círculo central: (720,608) r=71px
+    ═══════════════════════════════════════════
+  -->
+
+  <g clip-path="url(#courtClip)" fill="none" stroke="#f97316"
+     stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Contorno de la media cancha -->
+    <rect x="240" y="28" width="960" height="580" stroke-width="2.5" opacity="0.18"/>
+
+    <!-- Línea de medio campo -->
+    <line x1="240" y1="608" x2="1200" y2="608" stroke-width="2" opacity="0.15"/>
+
+    <!-- Círculo central (medio campo) -->
+    <circle cx="720" cy="608" r="71" stroke-width="2" opacity="0.13"/>
 
     <!-- Tablero -->
-    <line x1="676" y1="47" x2="764" y2="47" stroke-width="4"   opacity="0.28"/>
+    <line x1="678" y1="34" x2="762" y2="34" stroke-width="4" opacity="0.28"/>
 
     <!-- Aro -->
-    <circle cx="720" cy="72" r="20" stroke-width="2.5" opacity="0.30"/>
+    <circle cx="720" cy="90" r="19" stroke-width="2.5" opacity="0.28"/>
 
-    <!-- Arco restringido -->
-    <path d="M 697 40 A 23 23 0 0 0 743 40" stroke-width="2" opacity="0.20"/>
+    <!-- Arco restringido bajo canasta -->
+    <path d="M 700 28 A 22 22 0 0 0 740 28" stroke-width="2" opacity="0.18"/>
 
-    <!-- Paint / Zona -->
-    <rect x="570" y="40" width="300" height="270" stroke-width="2.5" opacity="0.15"/>
+    <!-- Paint (zona) -->
+    <rect x="605" y="28" width="230" height="226" stroke-width="2" opacity="0.16"/>
 
-    <!-- Hash marks laterales de la zona -->
-    <line x1="530" y1="40"  x2="530" y2="62"  stroke-width="1.5" opacity="0.12"/>
-    <line x1="910" y1="40"  x2="910" y2="62"  stroke-width="1.5" opacity="0.12"/>
-    <line x1="530" y1="125" x2="570" y2="125" stroke-width="1.5" opacity="0.12"/>
-    <line x1="870" y1="125" x2="910" y2="125" stroke-width="1.5" opacity="0.12"/>
-    <line x1="530" y1="188" x2="570" y2="188" stroke-width="1.5" opacity="0.12"/>
-    <line x1="870" y1="188" x2="910" y2="188" stroke-width="1.5" opacity="0.12"/>
-    <line x1="530" y1="250" x2="570" y2="250" stroke-width="1.5" opacity="0.12"/>
-    <line x1="870" y1="250" x2="910" y2="250" stroke-width="1.5" opacity="0.12"/>
+    <!-- Hash marks -->
+    <line x1="565" y1="28"  x2="565" y2="48"  stroke-width="1.5" opacity="0.13"/>
+    <line x1="875" y1="28"  x2="875" y2="48"  stroke-width="1.5" opacity="0.13"/>
+    <line x1="565" y1="112" x2="605" y2="112" stroke-width="1.5" opacity="0.13"/>
+    <line x1="835" y1="112" x2="875" y2="112" stroke-width="1.5" opacity="0.13"/>
+    <line x1="565" y1="170" x2="605" y2="170" stroke-width="1.5" opacity="0.13"/>
+    <line x1="835" y1="170" x2="875" y2="170" stroke-width="1.5" opacity="0.13"/>
+    <line x1="565" y1="226" x2="605" y2="226" stroke-width="1.5" opacity="0.13"/>
+    <line x1="835" y1="226" x2="875" y2="226" stroke-width="1.5" opacity="0.13"/>
 
-    <!-- Semicírculo de tiro libre (solo la mitad inferior visible) -->
-    <circle cx="720" cy="310" r="105" stroke-width="2" opacity="0.13" stroke-dasharray="0 335 330 0"/>
+    <!-- Círculo de tiro libre (completo — la mitad superior tapa la paint line) -->
+    <circle cx="720" cy="254" r="71" stroke-width="2" opacity="0.13"/>
 
-    <!-- Líneas de esquina de la línea de 3 -->
-    <line x1="185"  y1="40" x2="185"  y2="285" stroke-width="2.5" opacity="0.17"/>
-    <line x1="1255" y1="40" x2="1255" y2="285" stroke-width="2.5" opacity="0.17"/>
+    <!-- Líneas de esquina de 3 -->
+    <line x1="298" y1="28"  x2="298" y2="195" stroke-width="2" opacity="0.16"/>
+    <line x1="1142" y1="28" x2="1142" y2="195" stroke-width="2" opacity="0.16"/>
 
-    <!-- Arco de 3 puntos
-         Centro=(720,72) r=560  extremos=(185,285) y (1255,285)
-         sweep=0 → curva hacia el centro de la pista -->
-    <path d="M 185 285 A 560 560 0 0 0 1255 285" stroke-width="2.5" opacity="0.17"/>
+    <!-- Arco de 3 puntos: r=435, centrado en canasta (720,90), sweep=0 -->
+    <path d="M 298 195 A 435 435 0 0 0 1142 195" stroke-width="2" opacity="0.16"/>
 
   </g>
 
-  <!-- Fade lateral izquierdo -->
-  <rect width="220" height="800" fill="url(#fadeLeft)"/>
-  <!-- Fade lateral derecho -->
-  <rect x="1220" width="220" height="800" fill="url(#fadeRight)"/>
-  <!-- Fade inferior -->
-  <rect y="500" width="1440" height="300" fill="url(#fadeBottom)"/>
+  <!-- Fades para disolver bordes -->
+  <rect x="240" y="0"  width="180" height="800" fill="url(#fadeL)"/>
+  <rect x="1020" y="0" width="180" height="800" fill="url(#fadeR)"/>
+  <rect x="0"   y="480" width="1440" height="320" fill="url(#fadeB)"/>
 
 </svg>
