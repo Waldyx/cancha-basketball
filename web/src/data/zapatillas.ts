@@ -372,8 +372,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si eres base o escolta técnico, buscas respuesta y tracción, y no tienes problemas de tobillo, es una de las mejores compras del año. Para tobillos delicados o juego potente, busca otra opción.",
 
-    imagen_principal:
-      "https://d3pnpe87i1fkwu.cloudfront.net/IMG/022644-anta-kai-1-8124b1102s-7_585x585.png",
+    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/024940-anta-kai-1-speed-8124d1120-3_585x585.png",
     imagenes: [],
 
     fuentes: [
@@ -907,7 +906,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Estética polarizante",
     ],
     veredicto: "El mejor performance por debajo de 180 € si lo encuentras. No es para pies anchos ni para pívots pesados.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/025133-li-ning-way-of-wade-all-city-13-abav001-10_585x585.png",
+    imagen_principal: "https://wowsole.com/wp-content/uploads/2025/03/wac13-white-gold.png",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/way-of-wade-all-city-13-review/" },
@@ -1090,7 +1089,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Tracción sufre en pista polvorienta",
     ],
     veredicto: "Para tiradores y wings que valoran estabilidad sobre velocidad. Klay-style: tirar con plataforma sólida.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/025191-anta-kt-10-8124d1101-10_585x585.png",
+    imagen_principal: "https://uk.anta.com/cdn/shop/files/ANTA-KT-10-Dallas-Media-1_2a325205-2301-4700-8a76-d4b427c4d9e6_600x600.jpg?v=1776753137",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/anta-kt-10-review/" },
@@ -1210,7 +1209,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Estética polariza",
     ],
     veredicto: "Para guards explosivos que quieren todo: ligereza, cushion y respuesta. El secreto mejor guardado del mercado.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/028097-li-ning-way-of-wade-12-abav013-25_585x585.png",
+    imagen_principal: "https://wowsole.com/wp-content/uploads/2025/10/Way-of-Wade-12-Announcement-1-500x500.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/way-of-wade-12-performance-review/" },
@@ -1864,7 +1863,7 @@ const _rawZapatillas: Zapatilla[] = [
       "No competitiva",
     ],
     veredicto: "Solo para iniciación o jugador muy casual con presupuesto extremo. Subiendo a 80 € ya hay mejores opciones.",
-    imagen_principal: "https://contents.mediadecathlon.com/p2279896/28e4a6c45e31da5bbb4d9a73e6d54c8d/p2279896.jpg?format=auto&quality=70&f=800x0",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/TarmakFast900Low1-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-13",
@@ -2382,7 +2381,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Soporte tobillo justo",
     ],
     veredicto: "Si juegas en exterior o cambias frecuentemente de pista, esta es tu zapatilla. Nada supera al Flow en tracción multisuperficie. A 70€ es una ganga.",
-    imagen_principal: "https://underarmour.scene7.com/is/image/Underarmour/3026641-001_DEFAULT?rp=standard-0pad|pdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on,on&bgc=f0f0f0&wid=566&hei=708",
+    imagen_principal: "https://cdn.sportshop.com/catalog/product/1500/1500/1/7/172611_1.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-15",
@@ -2745,8 +2744,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si eres pívot, pesas más de 90kg y el presupuesto no es problema, el LeBron 23 es el techo tecnológico del mercado. Si buscas velocidad, ni lo mires.",
 
-    imagen_principal:
-      "https://d3pnpe87i1fkwu.cloudfront.net/IMG/027292-nike-lebron-23-ih1513-001_585x585.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/lebron23-Cropped.jpg",
     imagenes: [],
 
     fuentes: [
@@ -3053,8 +3051,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Para el jugador que quiere un zapato de performance con estilo diferente. La SHAI 001 no bate a la AE 2 o Ja 3 en tech puro, pero ofrece un equilibrio único de rendimiento y diseño limpio.",
 
-    imagen_principal:
-      "https://d3pnpe87i1fkwu.cloudfront.net/IMG/026782-converse-shai-001-a18772c_585x585.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/converse-shai-001-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [
@@ -6933,6 +6930,364 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=precision+7&vst=precision+7", precio_actual: 65, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+precision+7+baloncesto", precio_actual: 55, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // NIKE JA 1 — Traction king del guard explosivo
+  // ───────────────────────────────────────────────
+  {
+    id: "nike-ja-1",
+    slug: "nike-ja-1",
+    marca: "Nike",
+    modelo: "Ja 1",
+    generacion: 1,
+    año_lanzamiento: 2023,
+    genero: "unisex",
+    signature_player: "Ja Morant",
+    tecnologia_clave: ["Cushlon foam", "React foam", "herringbone traction"],
+    predecesor_id: null,
+    sucesor_id: "nike-ja-2",
+
+    peso_real_g: 310,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 9,
+      amortiguacion: 7,
+      respuesta: 8,
+      soporte_lateral: 7,
+      estabilidad: 7,
+      peso_score: 8,
+      durabilidad_outdoor: 6,
+      ventilacion: 7,
+    },
+    categoria_principal: "traction-king",
+    tags: ["signature", "guard", "traction", "explosivo"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [60, 90],
+      estilos: ["explosivo", "equilibrado"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+
+    resumen: "La primera firma de Ja Morant destaca por una tracción de herringbone excepcional y un setup de amortiguación Cushlon+React que da respuesta sin sacrificar court feel. Ligera, baja y diseñada para guards rápidos.",
+    pros: [
+      "Tracción herringbone de primer nivel",
+      "Ligera para ser una signature (310g)",
+      "React en antepié da respuesta snappy",
+      "Precio asequible para signature Nike",
+    ],
+    contras: [
+      "Sin soporte de tobillo al ser low",
+      "Cushlon básico en talón, poco acolchado",
+      "Durabilidad outdoor limitada",
+    ],
+    veredicto: "Para guards explosivos que priorizan tracción y velocidad sobre protección. La Ja 2 la supera en tech, pero la Ja 1 sigue siendo una ganga a precio reducido.",
+
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeJa1Cropped-650x406.jpg",
+    imagenes: [],
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-ja-1/", fecha: "2023-04-01" },
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/nike-ja-1/", fecha: "2023-05-01" },
+    ],
+    ultima_actualizacion: "2026-05-19",
+    precio_msrp_eur: 110,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=ja+1&vst=ja+1", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=nike+ja+1", precio_actual: 89, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+ja+1+baloncesto", precio_actual: 79, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // ADIDAS TRAE YOUNG 3 — traction king del guard
+  // ───────────────────────────────────────────────
+  {
+    id: "adidas-trae-young-3",
+    slug: "adidas-trae-young-3",
+    marca: "Adidas",
+    modelo: "Trae Young 3",
+    generacion: 3,
+    año_lanzamiento: 2023,
+    genero: "unisex",
+    signature_player: "Trae Young",
+    tecnologia_clave: ["custom wedge foam", "dual-pattern traction", "Torsion System"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 280,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "knit",
+
+    puntuaciones: {
+      traccion: 9,
+      amortiguacion: 6,
+      respuesta: 9,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 9,
+      durabilidad_outdoor: 5,
+      ventilacion: 8,
+    },
+    categoria_principal: "traction-king",
+    tags: ["signature", "guard", "traction", "explosivo", "indoor"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [55, 85],
+      estilos: ["explosivo", "equilibrado"],
+    },
+    no_recomendada_para: { posiciones: ["pivot", "ala-pivot"], estilos: ["potente"] },
+
+    resumen: "Tercera generación de la firma de Trae Young. Tracción dual excepcional con foam wedge reactivo a ras del suelo. Ligera, rápida y con lockdown de primer nivel para guards ágiles.",
+    pros: [
+      "Tracción indoor excepcional (dual-pattern)",
+      "Muy reactiva y baja al suelo",
+      "Lockdown y estabilidad sobresalientes con placa Torsion",
+      "La más ligera de la serie",
+    ],
+    contras: [
+      "Poco cushion para jugadores pesados",
+      "Requiere período de rodaje",
+      "Tracción se degrada rápido en exterior",
+    ],
+    veredicto: "Para guards ágiles que viven en el perímetro y necesitan agarre y respuesta explosiva. La mejor Trae Young de la serie.",
+
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/Adidas-Trae-Young-3-Cropped-650x406.jpg",
+    imagenes: [],
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/adidas-trae-young-3-review/" },
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/adidas-trae-young-3/" },
+    ],
+    ultima_actualizacion: "2026-05-19",
+    precio_msrp_eur: 150,
+    links_compra: [
+      { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=trae+young+3", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=adidas+trae+young+3", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+trae+young+3+baloncesto", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // NEW BALANCE TWO WXY v5 — el más versátil de NB
+  // ───────────────────────────────────────────────
+  {
+    id: "nb-two-wxy-v5",
+    slug: "nb-two-wxy-v5",
+    marca: "New Balance",
+    modelo: "TWO WXY v5",
+    generacion: 5,
+    año_lanzamiento: 2024,
+    genero: "unisex",
+    tecnologia_clave: ["FuelCell foam", "Fresh Foam X", "suction-cup traction", "torsional plate"],
+    predecesor_id: "nb-two-wxy-v4",
+    sucesor_id: null,
+
+    peso_real_g: 390,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 9,
+      amortiguacion: 8,
+      respuesta: 8,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 6,
+      durabilidad_outdoor: 7,
+      ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["positionless", "moderna", "tope-de-gama", "indoor"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero", "ala-pivot"],
+      peso_jugador_kg: [65, 105],
+      estilos: ["equilibrado", "explosivo", "potente"],
+    },
+    no_recomendada_para: {},
+
+    resumen: "La quinta generación del TWO WXY combina FuelCell y Fresh Foam X en tándem con tracción suction-cup de primer nivel. El modelo más versátil del catálogo NB, apto para cualquier posición.",
+    pros: [
+      "Amortiguación dual FuelCell + Fresh Foam X muy completa",
+      "Tracción suction-cup excepcional en cualquier pista",
+      "Versátil para todas las posiciones",
+      "Placa torsional da estabilidad premium",
+    ],
+    contras: [
+      "Algo pesada (390g) para guards explosivos",
+      "Upper puede sentirse estrecho al inicio",
+    ],
+    veredicto: "La opción más equilibrada del catálogo NB. Sirve para cualquier posición y nivel, con tracción y cushion de primer nivel.",
+
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/two-wxy-v5-Cropped-650x406.jpg",
+    imagenes: [],
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/new-balance-two-wxy-v5/" },
+      { tipo: "runrepeat-lab", url: "https://runrepeat.com/new-balance-two-wxy-v5" },
+    ],
+    ultima_actualizacion: "2026-05-19",
+    precio_msrp_eur: 120,
+    links_compra: [
+      { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar?q=two+wxy+v5", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=new+balance+two+wxy+v5", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+two+wxy+v5+baloncesto", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // NIKE GT HUSTLE 3 — cushion máximo para pivots
+  // ───────────────────────────────────────────────
+  {
+    id: "nike-gt-hustle-3",
+    slug: "nike-gt-hustle-3",
+    marca: "Nike",
+    modelo: "GT Hustle 3",
+    generacion: 3,
+    año_lanzamiento: 2024,
+    genero: "unisex",
+    tecnologia_clave: ["double-stacked Air Zoom", "Flyknit", "gum rubber outsole"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 370,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 9,
+    tipo_cierre: "cordones",
+    material_superior: "knit",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 10,
+      respuesta: 9,
+      soporte_lateral: 6,
+      estabilidad: 6,
+      peso_score: 7,
+      durabilidad_outdoor: 5,
+      ventilacion: 8,
+    },
+    categoria_principal: "cushion-focused",
+    tags: ["tope-de-gama", "cushion", "moderna", "indoor", "pivot"],
+
+    ideal_para: {
+      posiciones: ["pivot", "ala-pivot", "alero"],
+      peso_jugador_kg: [85, 130],
+      estilos: ["potente", "equilibrado"],
+      lesiones_compatibles: ["rodillas"],
+    },
+    no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
+
+    resumen: "La GT Hustle 3 empuja la amortiguación al máximo con doble Air Zoom stacked. Victor Wembanyama la usa en la NBA. La opción definitiva para pivots que buscan protección de impactos con Flyknit ligero.",
+    pros: [
+      "Amortiguación Air Zoom doble stack excepcional",
+      "81.5% de retorno energético (top del mercado)",
+      "Flyknit ligero y muy transpirable",
+      "Ideal para rodillas castigadas",
+    ],
+    contras: [
+      "Soporte lateral limitado para movimientos laterales explosivos",
+      "Precio muy alto",
+      "No apta para exterior (gum rubber)",
+    ],
+    veredicto: "La mejor Nike para pivots que quieren máxima protección de impactos. Si juegas bajo el aro y tienes rodillas castigadas, esta es tu zapatilla.",
+
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/GTHustle3-Cropped-650x406.jpg",
+    imagenes: [],
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-zoom-gt-hustle-3-review/" },
+      { tipo: "runrepeat-lab", url: "https://runrepeat.com/nike-gt-hustle-3" },
+    ],
+    ultima_actualizacion: "2026-05-19",
+    precio_msrp_eur: 185,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=gt+hustle+3&vst=gt+hustle+3", precio_actual: 185, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+gt+hustle+3", precio_actual: 180, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+gt+hustle+3+baloncesto", precio_actual: 170, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // NEW BALANCE KAWHI 2 — evolución ligera de The Klaw
+  // ───────────────────────────────────────────────
+  {
+    id: "nb-kawhi-2",
+    slug: "nb-kawhi-2",
+    marca: "New Balance",
+    modelo: "Kawhi 2",
+    generacion: 2,
+    año_lanzamiento: 2024,
+    genero: "unisex",
+    signature_player: "Kawhi Leonard",
+    tecnologia_clave: ["FuelCell foam", "Fitweave Lite", "performance plate"],
+    predecesor_id: "nb-kawhi-1",
+    sucesor_id: null,
+
+    peso_real_g: 340,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+
+    puntuaciones: {
+      traccion: 9,
+      amortiguacion: 8,
+      respuesta: 8,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 7,
+      durabilidad_outdoor: 8,
+      ventilacion: 7,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "tope-de-gama", "moderna", "positionless"],
+
+    ideal_para: {
+      posiciones: ["alero", "ala-pivot", "escolta"],
+      peso_jugador_kg: [75, 110],
+      estilos: ["equilibrado", "potente"],
+      lesiones_compatibles: ["tobillos"],
+    },
+    no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
+
+    resumen: "Segunda signature de Kawhi Leonard con NB. Más ligera que la Kawhi 1 gracias al Fitweave Lite, mantiene la tracción mordaz y añade FuelCell full-length con placa de rendimiento para cortes más explosivos.",
+    pros: [
+      "Más ligera que la Kawhi 1 (340g vs 385g)",
+      "Tracción excepcional heredada de la primera",
+      "FuelCell full-length muy reactivo",
+      "Placa de rendimiento mejora los cortes laterales",
+    ],
+    contras: [
+      "Cushion ligeramente menos plush que la Kawhi 1",
+      "Horma algo estrecha al inicio",
+    ],
+    veredicto: "La evolución natural de la Kawhi 1. Más rápida y ligera sin sacrificar la tracción que hizo famosa a la primera. La mejor opción NB para aleros versátiles.",
+
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NB-Kawhi-2-Cropped-650x406.jpg",
+    imagenes: [],
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/new-balance-kawhi-2-review/" },
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/new-balance-kawhi-2/" },
+    ],
+    ultima_actualizacion: "2026-05-19",
+    precio_msrp_eur: 160,
+    links_compra: [
+      { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar?q=kawhi+2", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=new+balance+kawhi+2", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+kawhi+2+baloncesto", precio_actual: 145, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
     ],
   },
 ];

@@ -2,10 +2,11 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "cancha-dev",
+      "name": "astro-dev",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
-      "port": 4321
+      "port": 4321,
+      "cwd": "C:\\Users\\oswal\\Desktop\\AI\\Proyectos\\Basketball Shoe Tracker\\web"
     }
   ]
 }
