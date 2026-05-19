@@ -21,6 +21,8 @@ export type Prioridad =
 
 export type AnchoPie = "normal" | "ancho" | "no-se";
 
+export type Uso = "competicion" | "entrenamiento" | "ambos";
+
 // ─────────────────────────────────────────────────────────
 // Tipos del dominio: zapatillas
 // ─────────────────────────────────────────────────────────
@@ -203,6 +205,7 @@ export interface RespuestasQuiz {
   presupuesto_max_eur: number | null; // null = sin tope
   ancho_pie?: AnchoPie;
   perfil?: "hombre" | "mujer" | "junior";
+  uso?: Uso;
 }
 
 // ─────────────────────────────────────────────────────────

@@ -7443,6 +7443,105 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // ───────────────────────────────────────────────
+  // PUMA CLYDE ALL-PRO — NITRO versátil
+  // ───────────────────────────────────────────────
+  {
+    id: "puma-clyde-all-pro",
+    slug: "puma-clyde-all-pro",
+    marca: "Puma",
+    modelo: "Clyde All-Pro",
+    generacion: 1,
+    año_lanzamiento: 2022,
+    genero: "unisex",
+    signature_player: "Clyde Drexler",
+    tecnologia_clave: ["NITRO foam", "TPU shank", "herringbone"],
+    predecesor_id: null,
+    sucesor_id: "puma-clyde-all-pro-2",
+    peso_real_g: 317,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+    puntuaciones: {
+      traccion: 8, amortiguacion: 8, respuesta: 8,
+      soporte_lateral: 7, estabilidad: 7, peso_score: 8,
+      durabilidad_outdoor: 7, ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["versatil", "guard", "nitro", "buena-relacion-calidad-precio"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [60, 95],
+      estilos: ["explosivo", "equilibrado"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen: "La Clyde All-Pro es la apuesta de Puma para competir en gama alta con NITRO foam, su espuma de nitrógeno más reactiva. Ligera, versátil y con buena tracción herringbone — una sorpresa muy competitiva para guards y aleros.",
+    pros: ["NITRO foam: respuesta y amortiguación equilibradas", "Peso muy competitivo (317g)", "Tracción herringbone fiable en interior", "Horma estándar — encaja con la mayoría de pies"],
+    contras: ["Puma tiene menor presencia en España — difícil de encontrar", "Soporte de tobillo limitado al ser low", "Durabilidad outdoor no testeada extensivamente"],
+    veredicto: "Opción muy sólida y algo infravalorada por la poca presencia de Puma en baloncesto. Si la encuentras a buen precio, es una compra muy inteligente para guards y aleros.",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/Puma-Clyde-All-Pro-Cropped-650x406.jpg",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-05-19",
+    precio_msrp_eur: 130,
+    links_compra: [
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+clyde+all+pro+baloncesto", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=puma+clyde+all+pro", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
+  // NIKE LEBRON NXXT GEN — LeBron ligero y versátil
+  // ───────────────────────────────────────────────
+  {
+    id: "nike-lebron-nxxt-gen",
+    slug: "nike-lebron-nxxt-gen",
+    marca: "Nike",
+    modelo: "LeBron NXXT Gen",
+    generacion: 1,
+    año_lanzamiento: 2022,
+    genero: "unisex",
+    signature_player: "LeBron James",
+    tecnologia_clave: ["Air Max", "Zoom Air Strobel", "React"],
+    predecesor_id: "nike-lebron-20",
+    sucesor_id: "nike-lebron-nxxt-gen-ampd",
+    peso_real_g: 360,
+    altura: "low",
+    horma: "ancha",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 8, amortiguacion: 9, respuesta: 7,
+      soporte_lateral: 8, estabilidad: 8, peso_score: 6,
+      durabilidad_outdoor: 7, ventilacion: 7,
+    },
+    categoria_principal: "cushion-focused",
+    tags: ["signature", "versatil", "alero", "cushion", "lebron"],
+    ideal_para: {
+      posiciones: ["alero", "ala-pivot", "escolta"],
+      peso_jugador_kg: [80, 120],
+      estilos: ["potente", "equilibrado"],
+    },
+    no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
+    resumen: "El LeBron NXXT Gen es la apuesta de Nike por un LeBron más ligero y accesible. Combina Air Max en talón y Zoom Air Strobel en antepié con una construcción low que lo hace más versátil que sus predecesores. Menos monstruo, más polivalente.",
+    pros: ["Cushion premium en toda la longitud del pie", "Construcción low — más versátil que LeBrons anteriores", "Horma ancha cómoda para pies anchos", "Tracción fiable en pista cubierta"],
+    contras: ["Pesado para un low (360g)", "Respuesta no al nivel de la línea Curry o GT Cut", "Precio elevado para lo que ofrece frente a rivales"],
+    veredicto: "Buena opción para aleros y ala-pivots con pies anchos que quieren un LeBron sin renunciar a versatilidad. Si buscas máxima explosividad, mira otras opciones.",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/LeBron-NXXT-Gen-Cropped-650x406.jpg",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-05-19",
+    precio_msrp_eur: 200,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=lebron+nxxt+gen&vst=lebron+nxxt+gen", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=lebron+nxxt+gen", precio_actual: 170, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+lebron+nxxt+gen+baloncesto", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+    ],
+  },
+
+  // ───────────────────────────────────────────────
   // UNDER ARMOUR CURRY 11 — Flow ultraligero
   // ───────────────────────────────────────────────
   {

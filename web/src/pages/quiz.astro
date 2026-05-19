@@ -4,7 +4,7 @@ import Base from "../layouts/Base.astro";
 
 <Base
   title="Quiz: Encuentra tu zapatilla de baloncesto ideal | CANCHA"
-  description="Quiz gratuito: responde 9 preguntas y te recomendamos las 5 zapatillas de baloncesto más compatibles con tu juego. Sin registro. Sin BS."
+  description="Quiz gratuito: responde 10 preguntas y te recomendamos las 5 zapatillas de baloncesto más compatibles con tu juego. Sin registro. Sin BS."
 >
   <main class="min-h-screen text-white flex flex-col">
     <!-- Header -->
@@ -28,14 +28,14 @@ import Base from "../layouts/Base.astro";
         <div
           class="flex items-center justify-between mb-2 text-xs font-bold uppercase tracking-widest"
         >
-          <span id="quiz-step-label" class="text-orange-500">Pregunta 1 de 9</span>
-          <span id="quiz-step-percent" class="text-zinc-500">11%</span>
+          <span id="quiz-step-label" class="text-orange-500">Pregunta 1 de 10</span>
+          <span id="quiz-step-percent" class="text-zinc-500">10%</span>
         </div>
         <div class="h-1.5 bg-zinc-800 overflow-hidden">
           <div
             id="quiz-progress"
             class="h-full bg-orange-500 transition-all duration-300"
-            style="width: 11%;"
+            style="width: 10%;"
           >
           </div>
         </div>
@@ -50,7 +50,7 @@ import Base from "../layouts/Base.astro";
           <p
             class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
           >
-            ★ 01 / 09
+            ★ 01 / 10
           </p>
           <h2
             class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
@@ -76,7 +76,7 @@ import Base from "../layouts/Base.astro";
           <p
             class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
           >
-            ★ 02 / 09
+            ★ 02 / 10
           </p>
           <h2
             class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
@@ -125,7 +125,7 @@ import Base from "../layouts/Base.astro";
           <p
             class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
           >
-            ★ 03 / 09
+            ★ 03 / 10
           </p>
           <h2
             class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
@@ -156,7 +156,7 @@ import Base from "../layouts/Base.astro";
           <p
             class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
           >
-            ★ 04 / 09
+            ★ 04 / 10
           </p>
           <h2
             class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
@@ -203,7 +203,7 @@ import Base from "../layouts/Base.astro";
           <p
             class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
           >
-            ★ 05 / 09
+            ★ 05 / 10
           </p>
           <h2
             class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
@@ -241,7 +241,7 @@ import Base from "../layouts/Base.astro";
           <p
             class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
           >
-            ★ 06 / 09
+            ★ 06 / 10
           </p>
           <h2
             class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
@@ -293,7 +293,7 @@ import Base from "../layouts/Base.astro";
           <p
             class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
           >
-            ★ 07 / 09
+            ★ 07 / 10
           </p>
           <h2
             class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
@@ -352,7 +352,7 @@ import Base from "../layouts/Base.astro";
           <p
             class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
           >
-            ★ 08 / 09
+            ★ 08 / 10
           </p>
           <h2
             class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
@@ -383,7 +383,7 @@ import Base from "../layouts/Base.astro";
           <p
             class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
           >
-            ★ 09 / 09
+            ★ 09 / 10
           </p>
           <h2
             class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
@@ -405,6 +405,37 @@ import Base from "../layouts/Base.astro";
             <button class="quiz-option" data-field="ancho_pie" data-value="no-se">
               <span class="quiz-option-title">🤷 No sé</span>
               <span class="quiz-option-sub">Ignora este filtro</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ─── STEP 10: Uso ─── -->
+        <div data-step="10" class="quiz-step hidden">
+          <p
+            class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
+          >
+            ★ 10 / 10
+          </p>
+          <h2
+            class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
+          >
+            ¿Para qué vas<br />a usarlas?
+          </h2>
+          <p class="text-zinc-400 mb-8">
+            Influye en cuánta durabilidad y protección necesitas.
+          </p>
+          <div class="grid grid-cols-1 gap-3">
+            <button class="quiz-option" data-field="uso" data-value="competicion">
+              <span class="quiz-option-title">🏆 Competición</span>
+              <span class="quiz-option-sub">Partidos oficiales, ligas, torneos</span>
+            </button>
+            <button class="quiz-option" data-field="uso" data-value="entrenamiento">
+              <span class="quiz-option-title">💪 Entrenamiento</span>
+              <span class="quiz-option-sub">Sesiones diarias, gym, práctica</span>
+            </button>
+            <button class="quiz-option" data-field="uso" data-value="ambos">
+              <span class="quiz-option-title">🔁 Ambos</span>
+              <span class="quiz-option-sub">Entreno y compito con las mismas</span>
             </button>
           </div>
         </div>
@@ -473,10 +504,11 @@ import Base from "../layouts/Base.astro";
       prioridad: string | null;
       presupuesto_max_eur: number | null | undefined;
       ancho_pie: string | null;
+      uso: string | null;
     };
 
     const STORAGE_KEY = "cancha-quiz-respuestas";
-    const TOTAL_STEPS = 9;
+    const TOTAL_STEPS = 10;
     let currentStep = 1;
     const state: Estado = {
       perfil: null,
@@ -488,6 +520,7 @@ import Base from "../layouts/Base.astro";
       prioridad: null,
       presupuesto_max_eur: undefined,
       ancho_pie: null,
+      uso: null,
     };
 
     // ─────────────────────────────────────────────────────────
@@ -520,7 +553,7 @@ import Base from "../layouts/Base.astro";
       $back.disabled = step === 1;
 
       if (step === TOTAL_STEPS) {
-        $next.textContent = "Ver mis 5 zapas →";
+        $next.textContent = "Ver mis zapatillas →";
       } else {
         $next.textContent = "Continuar →";
       }
@@ -554,6 +587,8 @@ import Base from "../layouts/Base.astro";
           return state.presupuesto_max_eur !== undefined;
         case 9:
           return state.ancho_pie !== null;
+        case 10:
+          return state.uso !== null;
         default:
           return false;
       }
@@ -668,6 +703,7 @@ import Base from "../layouts/Base.astro";
         presupuesto_max_eur: state.presupuesto_max_eur ?? null,
         // "no-se" → null para que el motor lo ignore
         ancho_pie: state.ancho_pie === "no-se" ? null : state.ancho_pie,
+        uso: state.uso,
       };
 
       sessionStorage.setItem(STORAGE_KEY, JSON.stringify(respuestas));
