@@ -1,0 +1,107 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base
+  title="404 — Página no encontrada · Cancha"
+  description="Esta página no existe. Pero sí existen las zapatillas perfectas para ti."
+>
+  <main class="min-h-screen text-white flex flex-col">
+    <div class="h-1.5 bg-gradient-to-r from-orange-500 via-yellow-400 to-orange-500"></div>
+
+    <header class="px-6 py-5 border-b border-zinc-800/60 bg-[#0c0c0c]/80 backdrop-blur-sm sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <a href="/" class="text-2xl font-black tracking-tighter">
+          CANCHA<span class="text-orange-500">.</span>
+        </a>
+        <nav class="hidden sm:flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest">
+          <a href="/zapatillas" class="hover:text-orange-500 transition-colors">Catálogo</a>
+          <a href="/metodologia" class="hover:text-orange-500 transition-colors">Método</a>
+          <a href="/financiacion" class="hover:text-orange-500 transition-colors">$ Financiación</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="flex-1 flex items-center justify-center px-6 py-24">
+      <div class="max-w-2xl mx-auto text-center">
+        <p class="text-[120px] md:text-[180px] font-black leading-none text-zinc-800 select-none">
+          4<span class="text-orange-500">0</span>4
+        </p>
+        <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-4 -mt-4 leading-tight">
+          Página no encontrada
+        </h1>
+        <p class="text-zinc-400 mb-10 max-w-md mx-auto leading-relaxed">
+          Esta URL no existe. Pero sí existen las zapatillas perfectas para tu
+          juego — y las tenemos todas catalogadas.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/quiz"
+            class="inline-block px-8 py-4 bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black uppercase tracking-wider transition-all hover:-translate-y-1 shadow-[5px_5px_0_0_rgb(250,204,21)] hover:shadow-[7px_7px_0_0_rgb(250,204,21)]"
+          >
+            → Hacer el quiz
+          </a>
+          <a
+            href="/zapatillas"
+            class="inline-block px-8 py-4 border-2 border-zinc-700 hover:border-orange-500 font-black uppercase tracking-wider transition-colors"
+          >
+            Ver catálogo
+          </a>
+        </div>
+
+        <!-- Buscador -->
+        <form
+          action="/zapatillas"
+          method="get"
+          class="mt-10 flex gap-2 max-w-md mx-auto"
+        >
+          <input
+            type="search"
+            name="q"
+            placeholder="Buscar zapatilla..."
+            class="flex-1 px-4 py-3 bg-zinc-900 border-2 border-zinc-700 focus:border-orange-500 text-white text-sm font-bold placeholder-zinc-600 outline-none transition-colors"
+          />
+          <button
+            type="submit"
+            class="px-5 py-3 bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black uppercase tracking-wider text-sm transition-colors"
+          >
+            Buscar →
+          </button>
+        </form>
+
+        <!-- Zapatillas populares -->
+        <div class="mt-10">
+          <p class="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-4">
+            Zapatillas populares
+          </p>
+          <div class="flex flex-wrap gap-3 justify-center">
+            {[
+              { label: "Nike LeBron 22", slug: "nike-lebron-22" },
+              { label: "Anta KAI 1 Speed", slug: "anta-kai-1-speed" },
+              { label: "Nike GT Cut 3", slug: "nike-gt-cut-3" },
+              { label: "Adidas AE 1", slug: "adidas-ae-1" },
+              { label: "New Balance BB v3", slug: "new-balance-bb-v3" },
+            ].map(({ label, slug }) => (
+              <a
+                href={`/zapatilla/${slug}`}
+                class="px-4 py-2 border border-zinc-700 hover:border-orange-500 text-sm font-bold text-zinc-300 hover:text-orange-500 transition-colors"
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="px-6 py-10 bg-black border-t-4 border-orange-500">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-2xl font-black tracking-tighter">CANCHA<span class="text-orange-500">.</span></p>
+        <p class="text-xs text-zinc-500 uppercase tracking-widest text-center md:text-right">
+          Proyecto independiente · Sin sesgo de afiliado<br />
+          Hecho con <span class="text-orange-500">★</span> en español
+        </p>
+      </div>
+    </footer>
+  </main>
+</Base>

@@ -3,22 +3,23 @@ import Base from "../layouts/Base.astro";
 ---
 
 <Base
-  title="Comparar zapatillas · Cancha"
-  description="Compara hasta 3 zapatillas de baloncesto lado a lado con todas sus métricas técnicas."
+  title="Comparador de zapatillas de baloncesto | CANCHA"
+  description="Compara hasta 3 zapatillas de baloncesto lado a lado. Puntuaciones, precios en tiendas españolas y veredicto honesto."
 >
-  <main class="min-h-screen bg-zinc-950 text-white">
+  <main class="min-h-screen text-white">
     <!-- Header -->
-    <header class="px-6 py-5 border-b border-zinc-800">
+    <header class="px-6 py-5 border-b border-zinc-800/60 bg-[#0c0c0c]/80 backdrop-blur-sm sticky top-0 z-50">
       <div class="max-w-6xl mx-auto flex items-center justify-between">
         <a href="/" class="text-2xl font-black tracking-tighter">
           CANCHA<span class="text-orange-500">.</span>
         </a>
-        <a
-          href="/quiz"
-          class="text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-orange-500 transition-colors"
-        >
-          ↻ Rehacer quiz
-        </a>
+        <nav class="hidden sm:flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest">
+          <a href="/zapatillas" class="hover:text-orange-500 transition-colors">Catálogo</a>
+          <a href="/rankings" class="hover:text-orange-500 transition-colors">Rankings</a>
+          <a href="/metodologia" class="hover:text-orange-500 transition-colors">Método</a>
+          <a href="/financiacion" class="hover:text-orange-500 transition-colors">$ Financiación</a>
+          <a href="/faq" class="hover:text-orange-500 transition-colors">FAQ</a>
+        </nav>
       </div>
     </header>
 
@@ -48,7 +49,32 @@ import Base from "../layouts/Base.astro";
           Las verás lado a lado con todas sus métricas, precios y veredictos.
         </p>
 
-        <div id="selector-grid" class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
+        <!-- Búsqueda rápida en el selector -->
+        <div class="relative mb-5">
+          <span class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 text-sm select-none">🔍</span>
+          <input
+            id="selector-search"
+            type="text"
+            placeholder="Buscar zapatilla…"
+            autocomplete="off"
+            class="w-full sm:max-w-sm pl-10 pr-4 py-2.5 bg-zinc-900/80 border border-zinc-700 focus:border-orange-500 rounded-full text-white text-sm font-medium outline-none transition-colors placeholder-zinc-600"
+          />
+        </div>
+        <p class="text-xs text-zinc-600 mt-1 mb-5">Tip: escribe para filtrar por marca o modelo</p>
+
+        <div id="selector-grid" class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-4">
+        </div>
+
+        <div class="flex justify-center mb-6">
+          <button id="btn-limpiar" class="hidden text-xs text-zinc-500 hover:text-orange-400 underline transition-colors">
+            Limpiar selección
+          </button>
+        </div>
+
+        <div id="empty-state" class="text-center py-16 text-zinc-600">
+          <p class="text-4xl mb-3">⚡</p>
+          <p class="font-medium text-zinc-400">Selecciona dos zapatillas para comparar</p>
+          <p class="text-sm mt-1">Usa el buscador de arriba para encontrar modelos</p>
         </div>
 
         <div class="flex items-center justify-between gap-4">
@@ -109,6 +135,13 @@ import Base from "../layouts/Base.astro";
           >
             ¿No sabes cuál elegir? Haz el quiz
           </a>
+        </div>
+
+        <div class="flex justify-center mt-4">
+          <button id="btn-compartir-comp" class="flex items-center gap-2 text-sm text-zinc-400 hover:text-orange-400 transition-colors border border-zinc-700 hover:border-orange-500 rounded-lg px-4 py-2 mt-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
+            Compartir comparativa
+          </button>
         </div>
       </div>
     </section>
@@ -179,6 +212,8 @@ import Base from "../layouts/Base.astro";
       const $btn = document.getElementById(
         "selector-comparar"
       ) as HTMLButtonElement;
+      const $limpiar = document.getElementById("btn-limpiar") as HTMLButtonElement;
+      const $emptyState = document.getElementById("empty-state")!;
 
       const seleccion = new Set<string>();
 
@@ -190,9 +225,12 @@ import Base from "../layouts/Base.astro";
               data-id="${escapeHtml(z.id)}"
               class="selector-card text-left p-4 border-2 border-zinc-800 bg-zinc-900/50 hover:border-orange-500 transition-all cursor-pointer flex flex-col gap-1"
             >
-              <span class="text-xs font-bold uppercase tracking-widest text-zinc-500">${escapeHtml(z.marca)}</span>
-              <span class="font-black uppercase text-lg leading-tight">${escapeHtml(z.modelo)}</span>
-              <span class="text-xs text-zinc-400 mt-1">${escapeHtml(z.precio_msrp_eur)}€</span>
+              <div class="flex items-start justify-between gap-1">
+                <span class="selector-marca text-xs font-bold uppercase tracking-widest text-zinc-500">${escapeHtml(z.marca)}</span>
+                <span class="text-xs font-black text-orange-500/70 shrink-0">${String(Math.round((Object.values(z.puntuaciones).reduce((a, b) => a + b, 0) / 8) * 10) / 10)}</span>
+              </div>
+              <span class="selector-nombre font-black uppercase text-base leading-tight">${escapeHtml(z.modelo)}</span>
+              <span class="text-xs text-zinc-500 mt-1">${escapeHtml(z.precio_msrp_eur)}€</span>
             </button>
           `
         )
@@ -201,6 +239,15 @@ import Base from "../layouts/Base.astro";
       function refresh() {
         $count.textContent = `${seleccion.size} seleccionada${seleccion.size === 1 ? "" : "s"} ${seleccion.size > 0 ? "(2-3 necesarias)" : ""}`;
         $btn.disabled = seleccion.size < 2 || seleccion.size > 3;
+
+        // Show/hide limpiar button and empty state
+        if (seleccion.size > 0) {
+          $limpiar.classList.remove("hidden");
+          $emptyState.classList.add("hidden");
+        } else {
+          $limpiar.classList.add("hidden");
+          $emptyState.classList.remove("hidden");
+        }
 
         $grid.querySelectorAll(".selector-card").forEach((el) => {
           const id = el.getAttribute("data-id")!;
@@ -232,6 +279,22 @@ import Base from "../layouts/Base.astro";
         window.location.href = `/comparar?ids=${ids}`;
       });
 
+      $limpiar.addEventListener("click", () => {
+        seleccion.clear();
+        refresh();
+      });
+
+      // Búsqueda en selector
+      const $selectorSearch = document.getElementById("selector-search") as HTMLInputElement | null;
+      $selectorSearch?.addEventListener("input", () => {
+        const q = $selectorSearch.value.trim().toLowerCase();
+        $grid.querySelectorAll<HTMLButtonElement>(".selector-card").forEach((btn) => {
+          const nombre = (btn.querySelector(".selector-nombre")?.textContent || "").toLowerCase();
+          const marca = (btn.querySelector(".selector-marca")?.textContent || "").toLowerCase();
+          btn.classList.toggle("hidden", q !== "" && !nombre.includes(q) && !marca.includes(q));
+        });
+      });
+
       document.getElementById("estado-selector")!.classList.remove("hidden");
       refresh();
     }
@@ -252,10 +315,28 @@ import Base from "../layouts/Base.astro";
       { key: "ventilacion", label: "Ventilación", mayorMejor: true },
     ];
 
-    function barra(valor: number): string {
-      const llenos = "▮".repeat(valor);
-      const vacios = "▯".repeat(10 - valor);
-      return `<span class="text-orange-500">${llenos}</span><span class="text-zinc-700">${vacios}</span>`;
+    function scoreBarColor(score: number, scores: number[]): string {
+      const max = Math.max(...scores);
+      const min = Math.min(...scores);
+      if (max === min) return "#71717a"; // tie — zinc-500
+      if (score === max) return "#f97316"; // winner — orange-500
+      return "#52525b"; // loser — zinc-600
+    }
+
+    function scoreCell(valor: number, allValues: number[]): string {
+      const color = scoreBarColor(valor, allValues);
+      const widthPct = valor * 10;
+      return `
+        <div class="text-center">
+          <div class="flex items-baseline justify-center gap-0.5">
+            <span class="font-bold text-lg leading-none">${valor}</span>
+            <span class="text-zinc-500 text-xs">/10</span>
+          </div>
+          <div class="mt-1.5 h-1.5 rounded-full bg-zinc-800 w-16 mx-auto">
+            <div class="h-full rounded-full transition-all" style="width:${widthPct}%;background-color:${color}"></div>
+          </div>
+        </div>
+      `;
     }
 
     function indicesGanadores<T>(
@@ -314,7 +395,7 @@ import Base from "../layouts/Base.astro";
                 <img
                   src="${escapeHtml(z.imagen_principal)}"
                   alt="${escapeHtml(z.marca + " " + z.modelo)}"
-                  class="w-full aspect-[4/3] object-cover bg-zinc-800 mb-4 hover:opacity-90 transition-opacity"
+                  class="w-full aspect-[4/3] object-contain p-3 bg-gradient-to-b from-zinc-800 to-zinc-900 mb-4 hover:opacity-90 transition-opacity"
                   loading="lazy"
                   onerror="this.onerror=null;this.src='/placeholder-shoe.svg'"
                 />
@@ -404,10 +485,7 @@ import Base from "../layouts/Base.astro";
       for (const attr of ATRIBUTOS) {
         const valores = zapas.map((z) => z.puntuaciones[attr.key]);
         const ganadores = indicesGanadores(valores, attr.mayorMejor);
-        const cells = valores.map(
-          (v) =>
-            `<div class="flex flex-col gap-1"><span class="font-mono text-lg leading-none">${v}</span><span class="font-mono text-[10px] tracking-tighter">${barra(v)}</span></div>`
-        );
+        const cells = valores.map((v) => scoreCell(v, valores));
         html += renderFila(attr.label, cells, { ganadores, html: true });
       }
       html += `</div>`;
@@ -467,5 +545,16 @@ import Base from "../layouts/Base.astro";
         renderComparativa(encontradas);
       }
     }
+
+    document.getElementById("btn-compartir-comp")?.addEventListener("click", async () => {
+      const url = window.location.href;
+      if (navigator.share) {
+        await navigator.share({ title: "Comparativa CANCHA", text: "Mira esta comparativa de zapatillas", url });
+      } else {
+        await navigator.clipboard.writeText(url);
+        const btn = document.getElementById("btn-compartir-comp");
+        if (btn) { btn.textContent = "¡Copiado!"; setTimeout(() => btn.textContent = "Compartir comparativa", 2000); }
+      }
+    });
   </script>
 </Base>

@@ -62,6 +62,10 @@ export type Tienda =
   | "basket_world"
   | "aliexpress"
   | "kickscrew"
+  | "basket4ballers_es"
+  | "manelsanchez_es"
+  | "fuikaomar_es"
+  | "24segons_es"
   | "idealo_es";
 
 export type FuenteReview =
@@ -198,6 +202,7 @@ export interface RespuestasQuiz {
   prioridad: Prioridad;
   presupuesto_max_eur: number | null; // null = sin tope
   ancho_pie?: AnchoPie;
+  perfil?: "hombre" | "mujer" | "junior";
 }
 
 // ─────────────────────────────────────────────────────────

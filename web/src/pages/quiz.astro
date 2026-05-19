@@ -3,22 +3,22 @@ import Base from "../layouts/Base.astro";
 ---
 
 <Base
-  title="Quiz · Cancha"
-  description="Responde 8 preguntas y te recomendamos las 5 zapatillas de baloncesto que mejor encajan contigo."
+  title="Quiz: Encuentra tu zapatilla de baloncesto ideal | CANCHA"
+  description="Quiz gratuito: responde 9 preguntas y te recomendamos las 5 zapatillas de baloncesto más compatibles con tu juego. Sin registro. Sin BS."
 >
-  <main class="min-h-screen bg-zinc-950 text-white flex flex-col">
+  <main class="min-h-screen text-white flex flex-col">
     <!-- Header -->
-    <header class="px-6 py-5 border-b border-zinc-800">
-      <div class="max-w-5xl mx-auto flex items-center justify-between">
+    <header class="px-6 py-5 border-b border-zinc-800/60 bg-[#0c0c0c]/80 backdrop-blur-sm sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
         <a href="/" class="text-2xl font-black tracking-tighter">
           CANCHA<span class="text-orange-500">.</span>
         </a>
-        <a
-          href="/"
-          class="text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-orange-500 transition-colors"
-        >
-          ✕ Salir
-        </a>
+        <nav class="hidden sm:flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest">
+          <a href="/zapatillas" class="hover:text-orange-500 transition-colors">Catálogo</a>
+          <a href="/metodologia" class="hover:text-orange-500 transition-colors">Método</a>
+          <a href="/financiacion" class="hover:text-orange-500 transition-colors">$ Financiación</a>
+          <a href="/faq" class="hover:text-orange-500 transition-colors">FAQ</a>
+        </nav>
       </div>
     </header>
 
@@ -28,14 +28,14 @@ import Base from "../layouts/Base.astro";
         <div
           class="flex items-center justify-between mb-2 text-xs font-bold uppercase tracking-widest"
         >
-          <span id="quiz-step-label" class="text-orange-500">Pregunta 1 de 8</span>
-          <span id="quiz-step-percent" class="text-zinc-500">13%</span>
+          <span id="quiz-step-label" class="text-orange-500">Pregunta 1 de 9</span>
+          <span id="quiz-step-percent" class="text-zinc-500">11%</span>
         </div>
         <div class="h-1.5 bg-zinc-800 overflow-hidden">
           <div
             id="quiz-progress"
             class="h-full bg-orange-500 transition-all duration-300"
-            style="width: 13%;"
+            style="width: 11%;"
           >
           </div>
         </div>
@@ -45,12 +45,38 @@ import Base from "../layouts/Base.astro";
     <!-- Quiz steps -->
     <section class="flex-1 px-6 py-12">
       <div class="max-w-2xl mx-auto">
-        <!-- ─── STEP 1: Posición ─── -->
-        <div data-step="1" class="quiz-step">
+        <!-- ─── STEP 1: Perfil ─── -->
+        <div class="quiz-step" data-step="1">
           <p
             class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
           >
-            ★ 01 / 08
+            ★ 01 / 09
+          </p>
+          <h2
+            class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
+          >
+            ¿Para quién es?
+          </h2>
+          <p class="text-zinc-400 mb-8">Ajustaremos las recomendaciones según el perfil.</p>
+          <div class="grid grid-cols-3 gap-3">
+            <button class="quiz-option" data-field="perfil" data-value="hombre">
+              <span class="quiz-option-title">👨 Hombre</span>
+            </button>
+            <button class="quiz-option" data-field="perfil" data-value="mujer">
+              <span class="quiz-option-title">👩 Mujer</span>
+            </button>
+            <button class="quiz-option" data-field="perfil" data-value="junior">
+              <span class="quiz-option-title">🧒 Junior</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- ─── STEP 2: Posición ─── -->
+        <div data-step="2" class="quiz-step hidden">
+          <p
+            class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
+          >
+            ★ 02 / 09
           </p>
           <h2
             class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
@@ -94,12 +120,12 @@ import Base from "../layouts/Base.astro";
           </div>
         </div>
 
-        <!-- ─── STEP 2: Peso ─── -->
-        <div data-step="2" class="quiz-step hidden">
+        <!-- ─── STEP 3: Peso ─── -->
+        <div data-step="3" class="quiz-step hidden">
           <p
             class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
           >
-            ★ 02 / 08
+            ★ 03 / 09
           </p>
           <h2
             class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
@@ -125,12 +151,12 @@ import Base from "../layouts/Base.astro";
           </div>
         </div>
 
-        <!-- ─── STEP 3: Estilo ─── -->
-        <div data-step="3" class="quiz-step hidden">
+        <!-- ─── STEP 4: Estilo ─── -->
+        <div data-step="4" class="quiz-step hidden">
           <p
             class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
           >
-            ★ 03 / 08
+            ★ 04 / 09
           </p>
           <h2
             class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
@@ -172,12 +198,12 @@ import Base from "../layouts/Base.astro";
           </div>
         </div>
 
-        <!-- ─── STEP 4: Cancha ─── -->
-        <div data-step="4" class="quiz-step hidden">
+        <!-- ─── STEP 5: Cancha ─── -->
+        <div data-step="5" class="quiz-step hidden">
           <p
             class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
           >
-            ★ 04 / 08
+            ★ 05 / 09
           </p>
           <h2
             class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
@@ -210,12 +236,12 @@ import Base from "../layouts/Base.astro";
           </div>
         </div>
 
-        <!-- ─── STEP 5: Lesiones (multi) ─── -->
-        <div data-step="5" class="quiz-step hidden">
+        <!-- ─── STEP 6: Lesiones (multi) ─── -->
+        <div data-step="6" class="quiz-step hidden">
           <p
             class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
           >
-            ★ 05 / 08
+            ★ 06 / 09
           </p>
           <h2
             class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
@@ -262,12 +288,12 @@ import Base from "../layouts/Base.astro";
           </div>
         </div>
 
-        <!-- ─── STEP 6: Prioridad ─── -->
-        <div data-step="6" class="quiz-step hidden">
+        <!-- ─── STEP 7: Prioridad ─── -->
+        <div data-step="7" class="quiz-step hidden">
           <p
             class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
           >
-            ★ 06 / 08
+            ★ 07 / 09
           </p>
           <h2
             class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
@@ -321,12 +347,12 @@ import Base from "../layouts/Base.astro";
           </div>
         </div>
 
-        <!-- ─── STEP 7: Presupuesto ─── -->
-        <div data-step="7" class="quiz-step hidden">
+        <!-- ─── STEP 8: Presupuesto ─── -->
+        <div data-step="8" class="quiz-step hidden">
           <p
             class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
           >
-            ★ 07 / 08
+            ★ 08 / 09
           </p>
           <h2
             class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
@@ -349,14 +375,15 @@ import Base from "../layouts/Base.astro";
               <span class="quiz-option-sub">Quiero la mejor para mí</span>
             </button>
           </div>
+          <p class="text-xs text-zinc-500 mt-3">💡 La mayoría de nuestras recomendaciones están entre 80€ y 150€</p>
         </div>
 
-        <!-- ─── STEP 8: Ancho de pie ─── -->
-        <div data-step="8" class="quiz-step hidden">
+        <!-- ─── STEP 9: Ancho de pie ─── -->
+        <div data-step="9" class="quiz-step hidden">
           <p
             class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
           >
-            ★ 08 / 08
+            ★ 09 / 09
           </p>
           <h2
             class="text-4xl md:text-5xl font-black tracking-tight mb-3 leading-tight uppercase"
@@ -420,6 +447,15 @@ import Base from "../layouts/Base.astro";
     .quiz-option-sub {
       @apply text-zinc-400 text-xs uppercase tracking-wider;
     }
+
+    /* Animación de entrada para cada paso del quiz */
+    @keyframes quizSlideIn {
+      from { opacity: 0; transform: translateX(20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    .quiz-step:not(.hidden) {
+      animation: quizSlideIn 0.25s ease both;
+    }
   </style>
 
   <script>
@@ -428,6 +464,7 @@ import Base from "../layouts/Base.astro";
     // ─────────────────────────────────────────────────────────
 
     type Estado = {
+      perfil: string | null;
       posicion: string | null;
       peso: string | null;
       estilo: string | null;
@@ -439,9 +476,10 @@ import Base from "../layouts/Base.astro";
     };
 
     const STORAGE_KEY = "cancha-quiz-respuestas";
-    const TOTAL_STEPS = 8;
+    const TOTAL_STEPS = 9;
     let currentStep = 1;
     const state: Estado = {
+      perfil: null,
       posicion: null,
       peso: null,
       estilo: null,
@@ -498,21 +536,23 @@ import Base from "../layouts/Base.astro";
     function isStepComplete(step: number): boolean {
       switch (step) {
         case 1:
-          return state.posicion !== null;
+          return state.perfil !== null;
         case 2:
-          return state.peso !== null;
+          return state.posicion !== null;
         case 3:
-          return state.estilo !== null;
+          return state.peso !== null;
         case 4:
-          return state.cancha !== null;
+          return state.estilo !== null;
         case 5:
+          return state.cancha !== null;
+        case 6:
           // Lesiones: requiere al menos un click (incluye "ninguna" como marker)
           return state.lesiones.length > 0;
-        case 6:
-          return state.prioridad !== null;
         case 7:
-          return state.presupuesto_max_eur !== undefined;
+          return state.prioridad !== null;
         case 8:
+          return state.presupuesto_max_eur !== undefined;
+        case 9:
           return state.ancho_pie !== null;
         default:
           return false;
@@ -616,6 +656,7 @@ import Base from "../layouts/Base.astro";
 
     function submit() {
       const respuestas = {
+        perfil: state.perfil,
         posicion: state.posicion,
         peso: state.peso,
         estilo: state.estilo,

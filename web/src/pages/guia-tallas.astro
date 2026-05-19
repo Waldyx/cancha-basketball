@@ -1,0 +1,339 @@
+---
+import Base from "../layouts/Base.astro";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "Cómo elegir la talla correcta de zapatillas de baloncesto",
+  description:
+    "Guía completa para medir tu pie y encontrar la talla correcta de zapatillas de baloncesto según marca.",
+  step: [
+    {
+      "@type": "HowToStep",
+      name: "Mide tu pie",
+      text: "Coloca el pie sobre papel, traza el contorno y mide la distancia desde el talón hasta el dedo más largo.",
+    },
+    {
+      "@type": "HowToStep",
+      name: "Añade margen",
+      text: "Suma entre 0,5 y 1 cm a tu medida para asegurarte de que el pie tiene espacio para moverse.",
+    },
+    {
+      "@type": "HowToStep",
+      name: "Consulta la tabla de la marca",
+      text: "Cada marca tiene su propio horquillado. Nike suele ir estrecho, New Balance va ancho. Consulta las guías específicas.",
+    },
+    {
+      "@type": "HowToStep",
+      name: "Prueba a última hora del día",
+      text: "El pie se hincha a lo largo del día. Prueba las zapatillas por la tarde para asegurarte de que te quedan bien en su máximo volumen.",
+    },
+  ],
+};
+---
+
+<Base
+  title="Guía de tallas de zapatillas de baloncesto | CANCHA"
+  description="Tabla de conversión de tallas US, EU, UK y CM para zapatillas de baloncesto de hombre y mujer. Consejos por marca: Nike, Adidas, Jordan y más."
+  jsonLd={jsonLd}
+>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Inicio", item: "https://cancha.shoes/" },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Guía de tallas",
+          item: "https://cancha.shoes/guia-tallas",
+        },
+      ],
+    })}
+  />
+
+  <main class="min-h-screen text-white">
+    <!-- Sticky Header -->
+    <header
+      class="px-6 py-5 border-b border-zinc-800/60 bg-[#0c0c0c]/80 backdrop-blur-sm sticky top-0 z-50"
+    >
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <a href="/" class="text-2xl font-black tracking-tighter">
+          CANCHA<span class="text-orange-500">.</span>
+        </a>
+        <nav
+          class="hidden sm:flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest"
+        >
+          <a href="/zapatillas" class="hover:text-orange-500 transition-colors">Catálogo</a>
+          <a href="/rankings" class="hover:text-orange-500 transition-colors">Rankings</a>
+          <a href="/quiz" class="hover:text-orange-500 transition-colors">Quiz</a>
+          <a href="/faq" class="hover:text-orange-500 transition-colors">FAQ</a>
+          <a href="/metodologia" class="hover:text-orange-500 transition-colors">Metodología</a>
+          <a href="/financiacion" class="hover:text-orange-500 transition-colors">Financiación</a>
+        </nav>
+      </div>
+    </header>
+
+    <article class="px-6 py-16">
+      <div class="max-w-3xl mx-auto">
+
+        <!-- Hero -->
+        <p class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4">
+          ★ Tallas y medidas
+        </p>
+        <h1
+          class="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-6 leading-[0.95]"
+        >
+          Guía de tallas<br />
+          <span class="text-orange-500">zapatillas</span><br />
+          de baloncesto
+        </h1>
+        <p class="text-zinc-400 text-lg mb-12 leading-relaxed">
+          Tabla de conversión US → EU → UK → CM para hombre y mujer. Consejos por marca y cómo
+          medir tu pie correctamente.
+        </p>
+
+        <!-- TABLA HOMBRE -->
+        <section class="mb-14">
+          <h2 class="text-xl font-black uppercase tracking-tight mb-5 text-white">
+            Tabla de tallas — <span class="text-orange-500">Hombre</span>
+          </h2>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="bg-orange-500/10 border border-orange-500/30">
+                  <th class="px-4 py-3 text-left font-black uppercase tracking-widest text-orange-400 text-xs">US</th>
+                  <th class="px-4 py-3 text-left font-black uppercase tracking-widest text-orange-400 text-xs">EU</th>
+                  <th class="px-4 py-3 text-left font-black uppercase tracking-widest text-orange-400 text-xs">UK</th>
+                  <th class="px-4 py-3 text-left font-black uppercase tracking-widest text-orange-400 text-xs">CM</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ["6", "38.5", "5.5", "24.0"],
+                  ["6.5", "39", "6", "24.5"],
+                  ["7", "40", "6.5", "25.0"],
+                  ["7.5", "40.5", "7", "25.5"],
+                  ["8", "41", "7.5", "26.0"],
+                  ["8.5", "42", "8", "26.5"],
+                  ["9", "42.5", "8.5", "27.0"],
+                  ["9.5", "43", "9", "27.5"],
+                  ["10", "44", "9.5", "28.0"],
+                  ["10.5", "44.5", "10", "28.5"],
+                  ["11", "45", "10.5", "29.0"],
+                  ["11.5", "45.5", "11", "29.5"],
+                  ["12", "46", "11.5", "30.0"],
+                  ["13", "47.5", "12.5", "31.0"],
+                  ["14", "48.5", "13.5", "32.0"],
+                ].map(([us, eu, uk, cm], i) => (
+                  <tr class={`border border-zinc-800 ${i % 2 === 0 ? "bg-zinc-900" : "bg-zinc-900/40"} hover:bg-zinc-800/60 transition-colors`}>
+                    <td class="px-4 py-3 font-bold text-white">{us}</td>
+                    <td class="px-4 py-3 text-zinc-300">{eu}</td>
+                    <td class="px-4 py-3 text-zinc-300">{uk}</td>
+                    <td class="px-4 py-3 text-zinc-300">{cm}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- TABLA MUJER -->
+        <section class="mb-14">
+          <h2 class="text-xl font-black uppercase tracking-tight mb-5 text-white">
+            Tabla de tallas — <span class="text-orange-500">Mujer</span>
+          </h2>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm border-collapse">
+              <thead>
+                <tr class="bg-orange-500/10 border border-orange-500/30">
+                  <th class="px-4 py-3 text-left font-black uppercase tracking-widest text-orange-400 text-xs">US (W)</th>
+                  <th class="px-4 py-3 text-left font-black uppercase tracking-widest text-orange-400 text-xs">EU</th>
+                  <th class="px-4 py-3 text-left font-black uppercase tracking-widest text-orange-400 text-xs">UK</th>
+                  <th class="px-4 py-3 text-left font-black uppercase tracking-widest text-orange-400 text-xs">CM</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ["5", "35.5", "3", "22.0"],
+                  ["5.5", "36", "3.5", "22.5"],
+                  ["6", "36.5", "4", "23.0"],
+                  ["6.5", "37.5", "4.5", "23.5"],
+                  ["7", "38", "5", "24.0"],
+                  ["7.5", "38.5", "5.5", "24.5"],
+                  ["8", "39", "6", "25.0"],
+                  ["8.5", "40", "6.5", "25.5"],
+                  ["9", "40.5", "7", "26.0"],
+                  ["9.5", "41", "7.5", "26.5"],
+                  ["10", "42", "8", "27.0"],
+                  ["10.5", "42.5", "8.5", "27.5"],
+                  ["11", "43", "9", "28.0"],
+                ].map(([us, eu, uk, cm], i) => (
+                  <tr class={`border border-zinc-800 ${i % 2 === 0 ? "bg-zinc-900" : "bg-zinc-900/40"} hover:bg-zinc-800/60 transition-colors`}>
+                    <td class="px-4 py-3 font-bold text-white">{us}</td>
+                    <td class="px-4 py-3 text-zinc-300">{eu}</td>
+                    <td class="px-4 py-3 text-zinc-300">{uk}</td>
+                    <td class="px-4 py-3 text-zinc-300">{cm}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- CÓMO MEDIR -->
+        <section class="mb-14">
+          <h2 class="text-xl font-black uppercase tracking-tight mb-5 text-white">
+            Cómo medir tu pie <span class="text-orange-500">correctamente</span>
+          </h2>
+          <ol class="space-y-4">
+            {[
+              {
+                n: "01",
+                title: "Coloca el pie sobre papel",
+                text: "Pon una hoja de papel en el suelo y apoya el pie encima con el peso del cuerpo distribuido normalmente (de pie, no sentado).",
+              },
+              {
+                n: "02",
+                title: "Traza el contorno",
+                text: "Con un lápiz o bolígrafo, traza el contorno de todo el pie manteniéndolo perfectamente vertical.",
+              },
+              {
+                n: "03",
+                title: "Mide la longitud",
+                text: "Mide la distancia desde el punto más extremo del talón hasta la punta del dedo más largo. Esa es tu medida en cm.",
+              },
+              {
+                n: "04",
+                title: "Añade entre 0,5 y 1 cm",
+                text: "Las zapatillas de baloncesto necesitan algo de holgura para el movimiento del pie durante los cortes. Suma 0,5 cm para ajustado, 1 cm para más cómodo.",
+              },
+              {
+                n: "05",
+                title: "Mide por la tarde",
+                text: "El pie se hincha a lo largo del día. Mídelo por la tarde para evitar que las zapatillas queden apretadas cuando más lo necesitas.",
+              },
+            ].map(({ n, title, text }) => (
+              <li class="flex gap-4 bg-zinc-900 border border-zinc-800 px-5 py-4">
+                <span class="text-orange-500 font-black text-xs pt-1 shrink-0 tabular-nums">{n}.</span>
+                <div>
+                  <p class="font-bold text-sm mb-1">{title}</p>
+                  <p class="text-zinc-400 text-sm leading-relaxed">{text}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <!-- TALLAS POR MARCA -->
+        <section class="mb-14">
+          <h2 class="text-xl font-black uppercase tracking-tight mb-5 text-white">
+            Particularidades por <span class="text-orange-500">marca</span>
+          </h2>
+          <div class="space-y-3">
+            {[
+              {
+                marca: "Nike / Jordan",
+                horma: "Estrecha",
+                consejo:
+                  "Nike y Jordan suelen ir un poco estrechos, especialmente en el antepié. Si tienes pie ancho, sube medio número o busca modelos con horma ancha (como la serie LeBron).",
+                color: "text-orange-400",
+              },
+              {
+                marca: "Adidas",
+                horma: "Normal",
+                consejo:
+                  "Adidas tiene una horma bastante estándar. Los modelos con Primeknit (como la Harden o Dame) pueden sentirse algo más anchos gracias al tejido elástico.",
+                color: "text-green-400",
+              },
+              {
+                marca: "New Balance",
+                horma: "Ancha",
+                consejo:
+                  "New Balance es conocida por sus hormas anchas y tallas generosas. Si tienes pie ancho, NB suele ser tu mejor aliada sin necesidad de subir talla.",
+                color: "text-blue-400",
+              },
+              {
+                marca: "Under Armour",
+                horma: "Normal-estrecha",
+                consejo:
+                  "Depende del modelo. La línea Curry (especialmente la Flow) puede ir estrecha. Sube medio número si tienes pie ancho.",
+                color: "text-yellow-400",
+              },
+              {
+                marca: "Puma",
+                horma: "Normal",
+                consejo:
+                  "Puma tiene una horma estándar. La línea MB (LaMelo Ball) puede ir algo estrecha en los pies anchos.",
+                color: "text-purple-400",
+              },
+              {
+                marca: "Anta / Li-Ning",
+                horma: "Normal-estrecha",
+                consejo:
+                  "Las marcas chinas suelen ir un poco pequeñas en las tallas bajas. Sube entre 0,5 y 1 número si es tu primera compra de esa marca.",
+                color: "text-red-400",
+              },
+            ].map(({ marca, horma, consejo, color }) => (
+              <div class="bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition-colors px-5 py-4">
+                <div class="flex items-center gap-3 mb-2">
+                  <span class={`font-black text-sm ${color}`}>{marca}</span>
+                  <span class="text-[10px] font-bold uppercase tracking-widest bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded-full">{horma}</span>
+                </div>
+                <p class="text-zinc-400 text-sm leading-relaxed">{consejo}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <div class="mt-16 bg-zinc-900 border-2 border-zinc-800 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div class="flex-1">
+            <p class="font-black uppercase tracking-tight text-base mb-1">
+              ¿Ya sabes tu talla?
+            </p>
+            <p class="text-zinc-400 text-sm">
+              Usa el quiz para encontrar la zapatilla perfecta según tu posición, peso y estilo de
+              juego. Solo 60 segundos.
+            </p>
+          </div>
+          <a
+            href="/quiz"
+            class="bg-orange-500 hover:bg-orange-400 transition-colors text-black font-black text-xs uppercase tracking-widest px-5 py-3 shrink-0"
+          >
+            Hacer el quiz →
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="px-6 py-10 bg-black border-t-4 border-orange-500 mt-16">
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4"
+      >
+        <p class="text-2xl font-black tracking-tighter">
+          CANCHA<span class="text-orange-500">.</span>
+        </p>
+        <nav
+          class="flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest flex-wrap justify-center"
+        >
+          <a href="/zapatillas" class="hover:text-orange-500 transition-colors">Catálogo</a>
+          <a href="/rankings" class="hover:text-orange-500 transition-colors">Rankings</a>
+          <a href="/quiz" class="hover:text-orange-500 transition-colors">Quiz</a>
+          <a href="/metodologia" class="hover:text-orange-500 transition-colors">Metodología</a>
+          <a href="/financiacion" class="hover:text-orange-500 transition-colors">Financiación</a>
+          <a href="/faq" class="hover:text-orange-500 transition-colors">FAQ</a>
+          <a href="/guia-tallas" class="text-orange-500 transition-colors" aria-current="page">Guía de tallas</a>
+        </nav>
+        <p class="text-xs text-zinc-600 uppercase tracking-widest text-center">
+          Proyecto independiente · Sin sesgo de afiliado
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</Base>

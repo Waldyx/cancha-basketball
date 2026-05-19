@@ -4,5 +4,9 @@ Allow: /
 # Páginas dinámicas que dependen de sessionStorage (vacías sin contexto)
 Disallow: /resultados
 Disallow: /comparar
+Disallow: /quiz
+
+# Rankings indexable (Allow explícito por claridad)
+Allow: /rankings
 
 Sitemap: https://web-puce-chi-60.vercel.app/sitemap-index.xml

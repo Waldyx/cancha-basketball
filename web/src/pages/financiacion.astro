@@ -4,21 +4,20 @@ import Base from "../layouts/Base.astro";
 
 <Base
   title="Cómo nos financiamos · Cancha"
-  description="Transparencia total: cómo genera ingresos Cancha y por qué eso nunca afecta a las recomendaciones."
+  description="Cómo se financia Cancha: comisiones de afiliado sin que afecten nunca a las recomendaciones. Transparencia total con datos reales."
 >
-  <main class="min-h-screen bg-zinc-950 text-white">
+  <main class="min-h-screen text-white">
     <!-- Header -->
-    <header class="px-6 py-5 border-b border-zinc-800">
+    <header class="px-6 py-5 border-b border-zinc-800/60 bg-[#0c0c0c]/80 backdrop-blur-sm sticky top-0 z-50">
       <div class="max-w-6xl mx-auto flex items-center justify-between">
         <a href="/" class="text-2xl font-black tracking-tighter">
           CANCHA<span class="text-orange-500">.</span>
         </a>
-        <a
-          href="/metodologia"
-          class="text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-orange-500 transition-colors"
-        >
-          ← Metodología
-        </a>
+        <nav class="hidden sm:flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest">
+          <a href="/zapatillas" class="hover:text-orange-500 transition-colors">Catálogo</a>
+          <a href="/metodologia" class="hover:text-orange-500 transition-colors">Método</a>
+          <a href="/financiacion" class="hover:text-orange-500 transition-colors">$ Financiación</a>
+        </nav>
       </div>
     </header>
 
@@ -292,5 +291,18 @@ import Base from "../layouts/Base.astro";
         </section>
       </div>
     </article>
+
+    <footer class="px-6 py-10 bg-black border-t-4 border-orange-500 mt-16">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-2xl font-black tracking-tighter">CANCHA<span class="text-orange-500">.</span></p>
+        <nav class="flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest flex-wrap justify-center">
+          <a href="/zapatillas" class="hover:text-orange-500 transition-colors">Catálogo</a>
+          <a href="/quiz" class="hover:text-orange-500 transition-colors">Quiz</a>
+          <a href="/metodologia" class="hover:text-orange-500 transition-colors">Metodología</a>
+          <a href="/financiacion" class="hover:text-orange-500 transition-colors">Financiación</a>
+        </nav>
+        <p class="text-xs text-zinc-600 uppercase tracking-widest text-center">Proyecto independiente · Sin sesgo de afiliado</p>
+      </div>
+    </footer>
   </main>
 </Base>

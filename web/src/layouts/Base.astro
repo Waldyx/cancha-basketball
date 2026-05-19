@@ -15,7 +15,7 @@ interface Props {
 const {
   title,
   description = "Encuentra la zapatilla de baloncesto perfecta para tu juego. Quiz personalizado + comparador honesto de precios.",
-  ogImage = "/og-default.png",
+  ogImage = "/og-default.svg",
   ogType = "website",
   jsonLd,
 } = Astro.props;
@@ -50,6 +50,11 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Fuente -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Barlow+Condensed:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet" />
 
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

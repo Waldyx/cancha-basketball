@@ -37,6 +37,19 @@ const RANGO_PESO_KG: Record<RespuestasQuiz["peso"], [number, number]> = {
   "mas-100": [100, 130],
 };
 
+function ajustarRangoPeso(
+  rango: [number, number],
+  perfil?: string
+): [number, number] {
+  if (perfil === "mujer") {
+    return [Math.max(0, rango[0] - 15), Math.max(0, rango[1] - 15)];
+  }
+  if (perfil === "junior") {
+    return [30, 65];
+  }
+  return rango;
+}
+
 // ─────────────────────────────────────────────────────────
 // 1. Pesos del quiz → multiplicadores por atributo
 // ─────────────────────────────────────────────────────────
@@ -332,6 +345,9 @@ export const COMISIONES_TIENDA: Record<string, number> = {
   sprinter_es: 5,
   footlocker_es: 4,
   basket4ballers_es: 4,
+  manelsanchez_es: 4,
+  fuikaomar_es: 4,
+  "24segons_es": 4,
   amazon_es: 4,
   idealo_es: 4,
   decathlon: 3,
@@ -381,7 +397,7 @@ export function generarRazones(
   }
 
   // Match por peso
-  const [minP, maxP] = RANGO_PESO_KG[respuestas.peso];
+  const [minP, maxP] = ajustarRangoPeso(RANGO_PESO_KG[respuestas.peso], respuestas.perfil);
   const [idealMin, idealMax] = zapatilla.ideal_para.peso_jugador_kg;
   if (minP >= idealMin - 5 && maxP <= idealMax + 5) {
     razones.push(`Encaja en tu rango de peso (${idealMin}-${idealMax} kg).`);
