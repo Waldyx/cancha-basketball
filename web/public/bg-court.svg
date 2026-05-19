@@ -64,7 +64,7 @@
     <line x1="162" y1="40" x2="162" y2="290" stroke-width="3" opacity="0.18"/>
     <line x1="1278" y1="40" x2="1278" y2="290" stroke-width="3" opacity="0.18"/>
     <!-- Three-point arc -->
-    <path d="M 162 290 A 610 610 0 0 1 1278 290" stroke-width="3" opacity="0.18"/>
+    <path d="M 162 290 A 610 610 0 0 0 1278 290" stroke-width="3" opacity="0.18"/>
   </g>
 
   <!-- Asphalt crack lines -->
