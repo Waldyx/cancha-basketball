@@ -102,27 +102,197 @@ import "../styles/cancha-redesign.css";
           </div>
         </div>
 
-        {/*
-          STEPS 3-10 — copia los pasos 3 al 10 de tu quiz.astro original
-          y reemplaza el chrome de cada paso por este patrón:
+        {/* STEP 3 — Peso */}
+        <div class="quiz-step hidden" data-step="3">
+          <p class="cz-eyebrow">★ 03 / 10</p>
+          <h1 class="quiz-title">¿Cuál es tu peso aproximado?</h1>
+          <p class="quiz-sub">Lo necesitamos para ajustar el soporte.</p>
+          <div class="quiz-options cols-2">
+            <button class="quiz-opt" data-field="peso" data-value="menos-70">
+              <div class="qo-text"><span class="qo-title">Menos de 70kg</span><span class="qo-sub">Guardias, bases</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="peso" data-value="70-85">
+              <div class="qo-text"><span class="qo-title">70-85kg</span><span class="qo-sub">Escoltas, aleros</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="peso" data-value="85-100">
+              <div class="qo-text"><span class="qo-title">85-100kg</span><span class="qo-sub">Alas, pívots</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="peso" data-value="mas-100">
+              <div class="qo-text"><span class="qo-title">Más de 100kg</span><span class="qo-sub">Pívots potentes</span></div>
+              <span class="qo-check">→</span>
+            </button>
+          </div>
+        </div>
 
-            <div class="quiz-step hidden" data-step="N">
-              <p class="cz-eyebrow">★ NN / 10</p>
-              <h1 class="quiz-title">¿…?</h1>
-              <p class="quiz-sub">…</p>
-              <div class="quiz-options cols-2">
-                <button class="quiz-opt" data-field="…" data-value="…">
-                  <span class="qo-icon">…</span>   <!-- opcional -->
-                  <div class="qo-text">
-                    <span class="qo-title">…</span>
-                    <span class="qo-sub">…</span>  <!-- opcional -->
-                  </div>
-                  <span class="qo-check">→</span>
-                </button>
-                …
-              </div>
-            </div>
-        */}
+        {/* STEP 4 — Estilo */}
+        <div class="quiz-step hidden" data-step="4">
+          <p class="cz-eyebrow">★ 04 / 10</p>
+          <h1 class="quiz-title">¿Cómo describirías tu juego?</h1>
+          <p class="quiz-sub">Lo ideal sería que todo, pero elige tu fortaleza.</p>
+          <div class="quiz-options cols-2">
+            <button class="quiz-opt" data-field="estilo" data-value="explosivo">
+              <div class="qo-text"><span class="qo-title">Explosivo</span><span class="qo-sub">Salto, velocidad, transiciones</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="estilo" data-value="equilibrado">
+              <div class="qo-text"><span class="qo-title">Equilibrado</span><span class="qo-sub">Todo un poco, versatilidad</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="estilo" data-value="potente">
+              <div class="qo-text"><span class="qo-title">Potente</span><span class="qo-sub">Fuerza, defensa, rebotes</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="estilo" data-value="tirador">
+              <div class="qo-text"><span class="qo-title">Tirador</span><span class="qo-sub">Tiroteo exterior, spacing</span></div>
+              <span class="qo-check">→</span>
+            </button>
+          </div>
+        </div>
+
+        {/* STEP 5 — Cancha */}
+        <div class="quiz-step hidden" data-step="5">
+          <p class="cz-eyebrow">★ 05 / 10</p>
+          <h1 class="quiz-title">¿En qué cancha juegas principalmente?</h1>
+          <p class="quiz-sub">El suelo afecta a la tracción y desgaste.</p>
+          <div class="quiz-options cols-2">
+            <button class="quiz-opt" data-field="cancha" data-value="interior">
+              <div class="qo-text"><span class="qo-title">Interior (pala/madera)</span><span class="qo-sub">Piso liso, buena tracción</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="cancha" data-value="exterior">
+              <div class="qo-text"><span class="qo-title">Exterior (asfalto/cemento)</span><span class="qo-sub">Superficie dura, abrasiva</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="cancha" data-value="mixto">
+              <div class="qo-text"><span class="qo-title">Mixto (las dos)</span><span class="qo-sub">Adaptable a ambas superficies</span></div>
+              <span class="qo-check">→</span>
+            </button>
+          </div>
+        </div>
+
+        {/* STEP 6 — Lesiones */}
+        <div class="quiz-step hidden" data-step="6">
+          <p class="cz-eyebrow">★ 06 / 10</p>
+          <h1 class="quiz-title">¿Tienes lesiones previas a considerar?</h1>
+          <p class="quiz-sub">Multi-select: marca todas que apliquen.</p>
+          <div class="quiz-options cols-2">
+            <button class="quiz-opt" data-field="lesiones" data-value="rodillas">
+              <div class="qo-text"><span class="qo-title">Rodillas</span><span class="qo-sub">Soporte extra, estabilidad</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="lesiones" data-value="tobillos">
+              <div class="qo-text"><span class="qo-title">Tobillos</span><span class="qo-sub">Ancaje alto, soporte</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="lesiones" data-value="planta">
+              <div class="qo-text"><span class="qo-title">Planta del pie</span><span class="qo-sub">Fascitis, dolor arco</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="lesiones" data-value="ninguna">
+              <div class="qo-text"><span class="qo-title">Ninguna</span><span class="qo-sub">Juego libre, máximo rendimiento</span></div>
+              <span class="qo-check">→</span>
+            </button>
+          </div>
+        </div>
+
+        {/* STEP 7 — Prioridad */}
+        <div class="quiz-step hidden" data-step="7">
+          <p class="cz-eyebrow">★ 07 / 10</p>
+          <h1 class="quiz-title">¿Qué priorizas en una zapatilla?</h1>
+          <p class="quiz-sub">Elige tu #1. Lo demás vendrá después.</p>
+          <div class="quiz-options cols-2">
+            <button class="quiz-opt" data-field="prioridad" data-value="proteccion">
+              <div class="qo-text"><span class="qo-title">Protección</span><span class="qo-sub">Evitar lesiones, durabilidad</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="prioridad" data-value="reactividad">
+              <div class="qo-text"><span class="qo-title">Reactividad</span><span class="qo-sub">Cushion responsive, retorno</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="prioridad" data-value="soporte">
+              <div class="qo-text"><span class="qo-title">Soporte tobillo</span><span class="qo-sub">Estabilidad lateral, ancaje</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="prioridad" data-value="durabilidad">
+              <div class="qo-text"><span class="qo-title">Durabilidad</span><span class="qo-sub">Suela resistente, vida útil</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="prioridad" data-value="precio">
+              <div class="qo-text"><span class="qo-title">Precio</span><span class="qo-sub">Calidad/precio óptimo</span></div>
+              <span class="qo-check">→</span>
+            </button>
+          </div>
+        </div>
+
+        {/* STEP 8 — Presupuesto */}
+        <div class="quiz-step hidden" data-step="8">
+          <p class="cz-eyebrow">★ 08 / 10</p>
+          <h1 class="quiz-title">¿Cuál es tu presupuesto máximo?</h1>
+          <p class="quiz-sub">El precio influye en la elección final.</p>
+          <div class="quiz-options cols-2">
+            <button class="quiz-opt" data-field="presupuesto" data-value="80">
+              <div class="qo-text"><span class="qo-title">Hasta 80€</span><span class="qo-sub">Entry-level, opciones值</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="presupuesto" data-value="130">
+              <div class="qo-text"><span class="qo-title">Hasta 130€</span><span class="qo-sub">Mid-range, sweet spot</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="presupuesto" data-value="180">
+              <div class="qo-text"><span class="qo-title">Hasta 180€</span><span class="qo-sub">Premium, tecnologías</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="presupuesto" data-value="null">
+              <div class="qo-text"><span class="qo-title">Presupuesto abierto</span><span class="qo-sub">Lo mejor sin importar precio</span></div>
+              <span class="qo-check">→</span>
+            </button>
+          </div>
+        </div>
+
+        {/* STEP 9 — Ancho pie */}
+        <div class="quiz-step hidden" data-step="9">
+          <p class="cz-eyebrow">★ 09 / 10</p>
+          <h1 class="quiz-title">¿Cómo sería tu ancho de pie?</h1>
+          <p class="quiz-sub">Evita apretado que cause ampollas.</p>
+          <div class="quiz-options cols-2">
+            <button class="quiz-opt" data-field="ancho" data-value="normal">
+              <div class="qo-text"><span class="qo-title">Normal</span><span class="qo-sub">Estándar, ajuste cómodo</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="ancho" data-value="ancho">
+              <div class="qo-text"><span class="qo-title">Ancho</span><span class="qo-sub">Need wide fit, box toe</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="ancho" data-value="estrecho">
+              <div class="qo-text"><span class="qo-title">Estrecho</span><span class="qo-sub">Slim fit, narrow last</span></div>
+              <span class="qo-check">→</span>
+            </button>
+          </div>
+        </div>
+
+        {/* STEP 10 — Uso */}
+        <div class="quiz-step hidden" data-step="10">
+          <p class="cz-eyebrow">★ 10 / 10</p>
+          <h1 class="quiz-title">¿Para qué la usarás?</h1>
+          <p class="quiz-sub">El uso define la duración y calidad.</p>
+          <div class="quiz-options cols-2">
+            <button class="quiz-opt" data-field="uso" data-value="competicion">
+              <div class="qo-text"><span class="qo-title">Competición</span><span class="qo-sub">Serias, ligas, torneos</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="uso" data-value="entrenamiento">
+              <div class="qo-text"><span class="qo-title">Entrenamiento</span><span class="qo-sub">Gym, streetball, práctica</span></div>
+              <span class="qo-check">→</span>
+            </button>
+            <button class="quiz-opt" data-field="uso" data-value="ambos">
+              <div class="qo-text"><span class="qo-title">Ambos</span><span class="qo-sub">Competición y entrenamiento</span></div>
+              <span class="qo-check">→</span>
+            </button>
+          </div>
+        </div>
 
         <div class="quiz-nav">
           <button class="qn-btn ghost" id="back-btn" disabled>← Atrás</button>
@@ -141,20 +311,14 @@ import "../styles/cancha-redesign.css";
   </main>
 
   <script>
-    // ─── Reusa la lógica del quiz original (web/src/pages/quiz.astro) ───
-    // Solo necesita estos pequeños cambios para encajar con las clases nuevas:
-    //   .quiz-option           →  .quiz-opt
-    //   .quiz-option.is-selected →  .quiz-opt.is-selected
-    //   .quiz-option-title     →  .qo-title
-    //   .quiz-option-sub       →  .qo-sub
-    //   .hidden                →  igual
-    //
-    // Aquí abajo va una versión simplificada para los 2 primeros pasos.
-    // Reemplázala con tu lógica completa de 10 pasos.
+    // ─── Quiz de 10 pasos completo ───
+    // Todos los campos: perfil, posicion, peso, estilo, cancha, lesiones, prioridad, presupuesto, ancho, uso
+    // Lesiones permite multi-select
 
     const TOTAL = 10;
     let current = 1;
     const answers: Record<string, any> = { lesiones: [] };
+    const lesionFields = ["rodillas", "tobillos", "planta", "ninguna"];
 
     const $back = document.getElementById("back-btn") as HTMLButtonElement;
     const $next = document.getElementById("next-btn") as HTMLButtonElement;
@@ -200,8 +364,17 @@ import "../styles/cancha-redesign.css";
       btn.addEventListener("click", () => {
         const field = btn.dataset.field!;
         const value = btn.dataset.value!;
-        answers[field] = value;
-        document.querySelectorAll<HTMLButtonElement>(`[data-field="${field}"]`).forEach(b => b.classList.toggle("is-selected", b === btn));
+        // Multi-select para lesiones
+        if (lesionFields.includes(field)) {
+          answers[field] = lesionFields.filter(f => f !== value).map(f => ({ field, value: f }));
+          document.querySelectorAll<HTMLButtonElement>(`[data-field="${field}"]`).forEach(b => {
+            if (b !== btn) b.classList.toggle("is-selected", false);
+          });
+          btn.classList.toggle("is-selected", true);
+        } else {
+          answers[field] = value;
+          document.querySelectorAll<HTMLButtonElement>(`[data-field="${field}"]`).forEach(b => b.classList.toggle("is-selected", b === btn));
+        }
         refreshNext();
         if (current < TOTAL) {
           setTimeout(() => { current++; show(current); }, 280);
