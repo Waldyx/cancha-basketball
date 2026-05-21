@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-05-19
+> Última actualización: 2026-05-19 (sesión 2)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -78,27 +78,49 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 
 Nike, Jordan, Adidas, New Balance, Under Armour, Puma, Converse, Reebok, Li-Ning, Anta, Peak, Tarmak (Decathlon)
 
-### Últimas añadidas (esta sesión)
+### Últimas añadidas
 - Nike Ja 1, Adidas Trae Young 3, NB TWO WXY v5, Nike GT Hustle 3
 - NB Kawhi 2, Adidas Trae Young 4, Jordan Tatum 2, Jordan Zion 3
 - UA Curry 11, Puma Clyde All-Pro, Nike LeBron NXXT Gen
 - Jordan Luka 3, Nike GT Jump 3, Adidas Harden Vol 9
+- UA Flow Breakthru 5 (sesión 2)
 
 ---
 
 ## Flujo de trabajo con Mike (LLM local)
 
 **Mike** = qwen3.5:9b corriendo en OpenClaw Control (`http://127.0.0.1:18789`)
+
+### OpenRouter (sesión 2) — modelos cloud gratuitos
+Configurado en `~/.openclaw/openclaw.json` como proveedor `openrouter`.
+Base URL: `https://openrouter.ai/api/v1`
+Modelos disponibles en el dropdown de OpenClaw:
+- **DeepSeek R1 (Free)** — reasoning, 163k ctx
+- **DeepSeek V3 (Free)** — chat rápido, 163k ctx
+- **Gemini 2.0 Flash (Free)** — multimodal, 1M ctx
+- **Llama 4 Maverick (Free)** — multimodal, 1M ctx
 - Override: **max** (máximo thinking budget)
 - **Solo investiga y entrega datos** — nunca edita archivos
 - **Claude revisa y corrige** antes de implementar
 
-### Reglas de validación
+### Reglas de validación (para Claude al revisar datos de Mike)
 - Rechazar modelos inventados (Kyrie 9 no existe, AE 4 no tiene datos fiables)
-- Corregir años (Mike suele retrasar 1-2 años)
+- Corregir años (Mike suele retrasar 1-2 años — verificar con web)
 - Corregir altura (el Kobe 8 es LOW, no mid/high)
 - Corregir cushion (Harden Vol 9 usa Lightstrike Pro, no Bounce)
+- Verificar rangos de precio: budget $60-100 / mid $90-135 / premium $150-250
 - Verificar que el modelo exista realmente antes de añadirlo
+
+### Modelo de Mike (sesión 2+)
+- **Primario:** DeepSeek V4 Flash 284B (Free) via OpenRouter
+- **Fallback 1:** GPT-OSS 120B (Free) via OpenRouter
+- **Fallback 2:** qwen3.5:9b (local Ollama)
+- Config en: `~/.openclaw/openclaw.json` → `agents.defaults.model`
+
+### Prompt de apertura para Mike
+Guardado en: `~/.openclaw/workspace/basketball-shoe-store/MIKE_INIT.md`
+Usar este prompt al inicio de cada sesión nueva con Mike (reemplaza el "Hola Mike" antiguo).
+Incluye: reglas, rangos de precio, tecnologías reales por marca, formato de entrega.
 
 ### Formato que usa Mike
 ```
@@ -151,5 +173,10 @@ Secrets en GitHub: `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`
 
 - [ ] Imagen de Voltzy 500 mid (usa imagen incorrecta de Tarmak)
 - [ ] Motor de recomendación usar nuevo campo `uso` del quiz
-- [ ] Más zapas: Kyrie Flytrap 6, UA Breakthru 5, Adidas Exhibit B, KD 17, NB TWO WXY v6 (Mike investigando)
+- [ ] Más zapas: LeBron Witness 8, Ownthegame 2.0, Why Not .6, Precision 7, UA Assert 10 (Mike investigando)
 - [ ] Precios reales via scraper (actualmente son editoriales)
+
+---
+�ltimo push: 2026-05-21
+Design System implementado
+

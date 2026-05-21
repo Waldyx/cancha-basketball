@@ -535,7 +535,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Diseño conservador, sin innovación",
     ],
     veredicto: "Para aleros y forwards que priorizan amortiguación y tracción sobre velocidad. Si eres un base rápido, busca otra cosa.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/025738-nike-kd-18-ib3874-001_585x585.png",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40711/nike-kd-18-kevin-durant-lab-test-and-review-23703824-main.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-kd-18-review/" },
@@ -722,7 +722,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Disponibilidad limitada en Europa",
     ],
     veredicto: "La mejor opción indoor para guards rápidos. No la compres si juegas mayoritariamente en cemento.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/026011-nike-gt-cut-3-turbo-ib9632-001_585x585.png",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40285/nike-g-t-cut-3-lab-test-and-review-2-21609057-main.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-gt-cut-3-review/" },
@@ -846,7 +846,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Diseño genérico sin identidad",
     ],
     veredicto: "Para guards rápidos con presupuesto medio que quieren un performer eficiente. Si valoras estética o cushion, mira el Dame 9.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/024410-nike-ja-2-fd7328-500_585x585.png",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40624/nike-ja-2-main-picture-22690861-main.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-ja-2-good-but-boring/" },
@@ -1149,7 +1149,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Cushion no destaca en nada",
     ],
     veredicto: "Solo si encuentras buena oferta. A precio completo hay mejores. Para jugadores ground-based equilibrados.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/023909-jordan-luka-3-hq5054-107_585x585.png",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40440/jordan-luka-3-main-21807191-main.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/jordan-luka-3-review/" },
@@ -1268,7 +1268,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Respuesta limitada por la cantidad de foam",
     ],
     veredicto: "Para jugadores pesados que priorizan absorción sobre velocidad. Pívots y forwards la amarán; bases la odiarán.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/026647-new-balance-fresh-foam-bb-v3-bbfrsis3_585x585.png",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40826/new-balance-fresh-foam-bb-v-3-lab-test-and-review-24644417-main.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/new-balance-fresh-foam-bb-v3-review/" },
@@ -1328,7 +1328,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Estética polariza",
     ],
     veredicto: "Para guards y wings que valoran cushion y soporte sobre velocidad. Mejor opción Harden en años.",
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/HardenVol9-Cropped-650x406.jpg",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40675/adidas-harden-vol-9-main-22673476-main.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/adidas-harden-vol-9-review/" },
@@ -1568,7 +1568,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Respuesta limitada por foam soft",
     ],
     veredicto: "Para forwards y pívots medianos/pesados con presupuesto. Si eres guard rápido, esta no es.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/028585-nike-lebron-witness-9-hq8034-100_585x585.png",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/41015/nike-le-bron-witness-9-lab-test-and-review-24011343-main.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-lebron-9-performance-review/" },
@@ -1628,7 +1628,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Algo pesada",
     ],
     veredicto: "Top pick value: para todas las posiciones excepto pívots. Mejor opción budget-premium del año.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/024289-adidas-dame-9--ie3626_585x585.png",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40347/adidas-dame-9-main-22687931-main.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/adidas-dame-9-review/" },
@@ -2804,7 +2804,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si eres pívot, pesas más de 90kg y el presupuesto no es problema, el LeBron 23 es el techo tecnológico del mercado. Si buscas velocidad, ni lo mires.",
 
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/lebron23-Cropped.jpg",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/41003/nike-le-bron-23-lab-test-and-review-23697124-main.jpg",
     imagenes: [],
 
     fuentes: [
@@ -5049,7 +5049,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Muy equilibrada en todas las métricas", "Ligera para su cushion", "Cómoda desde el primer día"],
     contras: ["Durabilidad outdoor limitada", "Tracción puede perder agarre con polvo"],
     veredicto: "Una de las zapatillas más equilibradas del mercado. Ideal para aleros que quieren un poco de todo sin sacrificar nada.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/025134-nike-kd-17-fz1507-100_585x585.png",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40378/nike-kd-17-main-21793804-main.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-kd-17-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -5265,7 +5265,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Muy ligera", "Respuesta excelente", "Buena ventilación"],
     contras: ["Cushion modesto para jugadores pesados", "Soporte lateral básico"],
     veredicto: "Perfecta para bases tiradores que quieren velocidad y reactividad a buen precio.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/023501-adidas-dame-8-ie7187_585x585.png",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/37981/adidas-dame-8-21166019-main.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/adidas-dame-8-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -5533,7 +5533,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Cushion premium", "Muy buena estabilidad", "Icónico diseño Jordan"],
     contras: ["Algo pesada", "Durabilidad outdoor limitada", "Precio alto"],
     veredicto: "Para el jugador que quiere el look y el rendimiento Jordan en una posición versátil. Premium en todo.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/023601-jordan-xxxviii-dz3355-100_585x585.png",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40183/air-jordan-xxxviii-lab-test-and-review-21611711-main.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/air-jordan-xxxviii-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -5640,7 +5640,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Cushion NITRO Elite excepcional", "Soporte tobillo en high-top", "Estabilidad top para pívots"],
     contras: ["Pesada", "Precio alto", "No apta para juego rápido"],
     veredicto: "La mejor alternativa Puma para pívots y ala-pívots que quieren protección máxima. Compite con LeBron 22 en cushion.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/028101-puma-all-pro-nitro-2-309550-01_585x585.png",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40915/puma-all-pro-nitro-2-lab-test-and-review-23998576-main.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/puma-all-pro-nitro-2-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -5802,7 +5802,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Excelente precio para una signature", "Buena durabilidad outdoor", "Horma ancha cómoda"],
     contras: ["Muy pesada", "Cushion básico", "Sin tecnología premium"],
     veredicto: "La opción más asequible para jugadores de interior con pie ancho. La Freak budget que funciona.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/026502-nike-giannis-immortality-4-hf5480-001_585x585.png",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40500/nike-giannis-immortality-4-22136845-main.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6122,7 +6122,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Precio muy asequible para la marca LeBron", "Buen cushion para su precio", "Duradera"],
     contras: ["Pesada", "Sin tecnología premium", "Tracción básica"],
     veredicto: "Para el fan de LeBron con presupuesto ajustado. Cushion correcto a precio justo.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/024502-nike-lebron-witness-8-hf0736-001_585x585.png",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40223/nike-le-bron-witness-8-main-22697959-main.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6285,7 +6285,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Ultra ligera", "Tracción 360° excepcional", "Respuesta muy alta"],
     contras: ["Cushion modesto para jugadores pesados", "Poco soporte tobillo"],
     veredicto: "La zapatilla para bases explosivos (hombre o mujer) que quieren lo más rápido del mercado Nike.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/024601-nike-sabrina-1-fq3381-001_585x585.png",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/39777/nike-sabrina-1-21635856-main.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-sabrina-1-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -6447,7 +6447,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Estabilidad excepcional", "Horma ancha muy cómoda", "Cushion sólido"],
     contras: ["Pesada", "Respuesta baja para un alero ágil"],
     veredicto: "Para el jugador al estilo Luka: potente, técnico y que necesita una base sólida. Ahora a precios de outlet muy interesantes.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/022001-jordan-luka-1-dn1772-105_585x585.png",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/39037/jordan-luka-1-21236586-main.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/jordan-luka-1-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -6821,7 +6821,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Muy equilibrada", "Ahora a precios reducidos de outlet", "Cómoda para aleros versátiles"],
     contras: ["Durabilidad outdoor básica", "Superada por la KD 17 en todo"],
     veredicto: "Si la encuentras de oferta, es una excelente zapatilla para aleros. La predecesora directa de la KD 17.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/023101-nike-kd-16-dv2917-002_585x585.png",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40143/nike-kd-16-2-21573145-main.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6875,7 +6875,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Rapidísima y muy ligera", "Excelente respuesta Lightstrike Pro", "Muy transpirable"],
     contras: ["Durabilidad outdoor limitada", "Cushion modesto para jugadores pesados"],
     veredicto: "Para escoltas explosivos tipo Ant Edwards que necesitan velocidad pura.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/026701-adidas-ae-1-5-ig3736_585x585.png",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40491/adidas-anthony-edwards-1-low-22663445-main.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/adidas-ae-1-5-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -6982,7 +6982,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Precio de entrada Nike más bajo", "Durable para uso recreativo", "Disponible en cualquier tienda"],
     contras: ["Sin tecnología destacable", "Solo para uso recreativo o entrenamiento básico"],
     veredicto: "Para el jugador que quiere estrenar Nike sin gastar más de 65€. La puerta de entrada a la marca.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/023301-nike-precision-7-fn4322-002_585x585.png",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40382/nike-precision-7-21639047-main.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -7050,7 +7050,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "Para guards explosivos que priorizan tracción y velocidad sobre protección. La Ja 2 la supera en tech, pero la Ja 1 sigue siendo una ganga a precio reducido.",
 
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeJa1Cropped-650x406.jpg",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/39891/nike-ja-1-21212250-main.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-ja-1/", fecha: "2023-04-01" },
@@ -7122,7 +7122,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "Para guards ágiles que viven en el perímetro y necesitan agarre y respuesta explosiva. La mejor Trae Young de la serie.",
 
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/Adidas-Trae-Young-3-Cropped-650x406.jpg",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40148/adidas-trae-young-3-21161581-main.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/adidas-trae-young-3-review/" },
@@ -7192,7 +7192,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "La opción más equilibrada del catálogo NB. Sirve para cualquier posición y nivel, con tracción y cushion de primer nivel.",
 
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/two-wxy-v5-Cropped-650x406.jpg",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40522/new-balance-two-wxy-v-5-22133179-main.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/new-balance-two-wxy-v5/" },
@@ -7264,7 +7264,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "La mejor Nike para pivots que quieren máxima protección de impactos. Si juegas bajo el aro y tienes rodillas castigadas, esta es tu zapatilla.",
 
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/GTHustle3-Cropped-650x406.jpg",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40444/nike-g-t-hustle-3-main-21813306-main.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-zoom-gt-hustle-3-review/" },
@@ -7336,7 +7336,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "La evolución natural de la Kawhi 1. Más rápida y ligera sin sacrificar la tracción que hizo famosa a la primera. La mejor opción NB para aleros versátiles.",
 
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NB-Kawhi-2-Cropped-650x406.jpg",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40373/new-balance-kawhi-iv-main-21870344-main.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/new-balance-kawhi-2-review/" },
@@ -7439,7 +7439,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Amortiguación Zoom+React muy equilibrada", "Buena tracción herringbone", "Polivalente para todas las posiciones perimetrales", "Durabilidad outdoor decente"],
     contras: ["Superada por la Tatum 3 en tecnología", "Sin innovación destacada respecto a generaciones anteriores"],
     veredicto: "Una sólida signature para aleros que buscan equilibrio completo. Vale la pena buscarla a precio reducido frente a la Tatum 3.",
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/jordan-tatum-2-Cropped-650x406.jpg",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40352/jordan-tatum-2-21609076-main.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-19",
@@ -7490,7 +7490,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Amortiguación máxima para jugadores muy pesados", "Horma ancha ideal para pies anchos", "Tracción herringbone agresiva", "Build quality premium"],
     contras: ["Muy pesada (415g) — no apta para guards", "Cara para lo que ofrece técnicamente", "Superada ya por la Zion 4"],
     veredicto: "La opción definitiva para pivots y ala-pivots de más de 95kg. Si tu cuerpo pide amortiguación máxima, esta es la zapatilla.",
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/jordan-zion-3-Cropped-650x406.jpg",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40224/jordan-zion-3-main-21866150-main.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-19",
@@ -7589,7 +7589,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Cushion premium en toda la longitud del pie", "Construcción low — más versátil que LeBrons anteriores", "Horma ancha cómoda para pies anchos", "Tracción fiable en pista cubierta"],
     contras: ["Pesado para un low (360g)", "Respuesta no al nivel de la línea Curry o GT Cut", "Precio elevado para lo que ofrece frente a rivales"],
     veredicto: "Buena opción para aleros y ala-pivots con pies anchos que quieren un LeBron sin renunciar a versatilidad. Si buscas máxima explosividad, mira otras opciones.",
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/LeBron-NXXT-Gen-Cropped-650x406.jpg",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/39780/nike-lebron-nxxt-gen-21212253-main.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-19",
@@ -7598,56 +7598,6 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=lebron+nxxt+gen&vst=lebron+nxxt+gen", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=lebron+nxxt+gen", precio_actual: 170, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+lebron+nxxt+gen+baloncesto", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
-    ],
-  },
-
-  // ───────────────────────────────────────────────
-  // JORDAN LUKA 3 — Firma de Doncic, reactivo
-  // ───────────────────────────────────────────────
-  {
-    id: "jordan-luka-3",
-    slug: "jordan-luka-3",
-    marca: "Jordan",
-    modelo: "Luka 3",
-    generacion: 3,
-    año_lanzamiento: 2024,
-    genero: "unisex",
-    signature_player: "Luka Dončić",
-    tecnologia_clave: ["Zoom Air", "Zoom Strobel", "herringbone"],
-    predecesor_id: "jordan-luka-1",
-    sucesor_id: null,
-    peso_real_g: 290,
-    altura: "low",
-    horma: "normal",
-    drop_mm: 8,
-    tipo_cierre: "cordones",
-    material_superior: "mesh",
-    puntuaciones: {
-      traccion: 9, amortiguacion: 7, respuesta: 8,
-      soporte_lateral: 7, estabilidad: 7, peso_score: 8,
-      durabilidad_outdoor: 7, ventilacion: 8,
-    },
-    categoria_principal: "responsive",
-    tags: ["signature", "guard", "alero", "reactivo", "traccion"],
-    ideal_para: {
-      posiciones: ["base", "escolta", "alero"],
-      peso_jugador_kg: [65, 100],
-      estilos: ["equilibrado", "tirador", "explosivo"],
-    },
-    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
-    resumen: "La Luka 3 combina Zoom Air en talón y Zoom Strobel en antepié para dar una respuesta completa en cada paso. Diseñada para el juego de Doncic: cortes laterales, tiro y control del juego. Tracción herringbone muy agresiva.",
-    pros: ["Tracción herringbone de las mejores del mercado", "Doble unidad Zoom Air muy reactiva", "Ligera para el nivel de cushion que ofrece", "Horma estándar — encaja con la mayoría"],
-    contras: ["Soporte de tobillo limitado al ser low", "No apta para jugadores muy pesados", "Amortiguación no al nivel de la línea LeBron o Zion"],
-    veredicto: "Una de las mejores opciones para escoltas y aleros que priorizan tracción y reactividad. La firma de Doncic sorprende técnicamente.",
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/Jordan-Luka-3-Cropped-650x406.jpg",
-    imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-19",
-    precio_msrp_eur: 140,
-    links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=luka+3&vst=luka+3", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=jordan+luka+3", precio_actual: 135, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=jordan+luka+3+baloncesto", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
     ],
   },
 
@@ -7702,56 +7652,6 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // ───────────────────────────────────────────────
-  // ADIDAS HARDEN VOL 9 — Lightstrike Pro para escoltas
-  // ───────────────────────────────────────────────
-  {
-    id: "adidas-harden-vol-9",
-    slug: "adidas-harden-vol-9",
-    marca: "Adidas",
-    modelo: "Harden Vol 9",
-    generacion: 9,
-    año_lanzamiento: 2024,
-    genero: "unisex",
-    signature_player: "James Harden",
-    tecnologia_clave: ["Lightstrike Pro", "herringbone", "TPU heel counter"],
-    predecesor_id: null,
-    sucesor_id: null,
-    peso_real_g: 310,
-    altura: "low",
-    horma: "estrecha",
-    drop_mm: 8,
-    tipo_cierre: "cordones",
-    material_superior: "mesh",
-    puntuaciones: {
-      traccion: 8, amortiguacion: 8, respuesta: 8,
-      soporte_lateral: 7, estabilidad: 7, peso_score: 7,
-      durabilidad_outdoor: 7, ventilacion: 8,
-    },
-    categoria_principal: "balanced",
-    tags: ["signature", "guard", "escolta", "tirador", "lightstrike-pro"],
-    ideal_para: {
-      posiciones: ["escolta", "base", "alero"],
-      peso_jugador_kg: [70, 100],
-      estilos: ["tirador", "equilibrado", "explosivo"],
-    },
-    no_recomendada_para: { posiciones: ["pivot", "ala-pivot"], estilos: ["potente"] },
-    resumen: "La Harden Vol 9 lleva Lightstrike Pro — la espuma más reactiva de Adidas — a la firma de Harden. Equilibrio entre amortiguación y respuesta pensado para el juego de paso atrás y tiro exterior de Harden.",
-    pros: ["Lightstrike Pro: amortiguación y rebote excelentes", "Tracción herringbone fiable en interior", "Buena ventilación", "Precio competitivo en la gama alta de Adidas"],
-    contras: ["Horma estrecha — no apta para pies anchos", "Soporte de tobillo limitado al ser low", "Poco soporte lateral para jugadores muy explosivos"],
-    veredicto: "Sólida opción para escoltas y bases que buscan cushion reactivo con la firma de uno de los mejores scorers de la historia. El Lightstrike Pro marca la diferencia.",
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/Adidas-Harden-Vol-9-Cropped-650x406.jpg",
-    imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-19",
-    precio_msrp_eur: 170,
-    links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=harden+vol+9", precio_actual: 155, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=harden+vol+9", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+harden+vol+9+baloncesto", precio_actual: 145, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
-    ],
-  },
-
-  // ───────────────────────────────────────────────
   // UNDER ARMOUR CURRY 11 — Flow ultraligero
   // ───────────────────────────────────────────────
   {
@@ -7789,7 +7689,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["UA FLOW: amortiguación y tracción integradas", "Muy ligera para la tecnología que ofrece", "Respuesta excepcional al corte", "Continuación de la exitosa línea Curry"],
     contras: ["Horma estrecha — no apta para pies anchos", "Soporte de tobillo limitado al ser low", "Superada por la Curry 12"],
     veredicto: "Una de las mejores opciones para guards que buscan máxima respuesta con tecnología UA FLOW. Vale la pena encontrarla a precio rebajado.",
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/UA-Curry-11-Cropped-650x406.jpg",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40225/under-armour-curry-11-main-21810718-main.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-19",
@@ -7858,7 +7758,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "Una buena zapatilla de guard en su momento. Ahora se puede encontrar a buen precio de segunda mano o en outlets. Sólida si la encuentras rebajada.",
 
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/Adidas-Harden-Vol-8-Cropped-650x406.jpg",
+    imagen_principal: "https://cdn.runrepeat.com/storage/gallery/product_primary/40317/adidas-harden-volume-8-main-21831197-main.jpg",
     imagenes: [],
 
     fuentes: [{ tipo: "evaluacion-propia" }],
