@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+<<<<<<< HEAD
+/* START: CANCHA.ZAPA REDESIGN OVERRIDES (IMPORTANT) */
+/* IMPORT this entire file for the new design system tokens */
+@import url("ruta/a/cancha-redesign.css"); /* <-- AJUSTA ESTA RUTA REALMENTE */
+/* ── Tipografía global ── */
+=======
+>>>>>>> 28ae0b2fd70c41aaec2000ffc1fbf0398e0250a8
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+h1, h2, h3, h4, .font-black {
+  font-family: 'Barlow Condensed', 'Inter', system-ui, sans-serif;
+}
+
+/* ── Fondo base con calor muy sutil ── */
+body {
+  background-color: #0c0c0c;
+  /* Textura de grano muy sutil para romper el negro plano */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* ── Scrollbar sutil ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0c0c0c; }
+::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #f97316; }
+
+/* ── Animación de entrada para cards ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.catalogo-card {
+  animation: fadeInUp 0.35s ease both;
+}
+
+/* Desactivar animaciones para usuarios que lo prefieren */
+@media (prefers-reduced-motion: reduce) {
+  .catalogo-card,
+  .quiz-step:not(.hidden) {
+    animation: none !important;
+  }
+}
+.catalogo-card:nth-child(1)  { animation-delay: 0.00s }
+.catalogo-card:nth-child(2)  { animation-delay: 0.04s }
+.catalogo-card:nth-child(3)  { animation-delay: 0.08s }
+.catalogo-card:nth-child(4)  { animation-delay: 0.12s }
+.catalogo-card:nth-child(5)  { animation-delay: 0.16s }
+.catalogo-card:nth-child(6)  { animation-delay: 0.20s }
+.catalogo-card:nth-child(7)  { animation-delay: 0.24s }
+.catalogo-card:nth-child(8)  { animation-delay: 0.28s }
+.catalogo-card:nth-child(9)  { animation-delay: 0.32s }
+.catalogo-card:nth-child(10) { animation-delay: 0.36s }
+.catalogo-card:nth-child(11) { animation-delay: 0.40s }
+.catalogo-card:nth-child(12) { animation-delay: 0.44s }
+.catalogo-card:nth-child(13) { animation-delay: 0.48s }
+.catalogo-card:nth-child(14) { animation-delay: 0.50s }
+.catalogo-card:nth-child(15) { animation-delay: 0.50s }
+.catalogo-card:nth-child(n+16) { animation-delay: 0.50s }
