@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
-/* START: CANCHA.ZAPA REDESIGN OVERRIDES (IMPORTANT) */
-/* IMPORT this entire file for the new design system tokens */
-@import url("ruta/a/cancha-redesign.css"); /* <-- AJUSTA ESTA RUTA REALMENTE */
+@import url("ruta/a/cancha-redesign.css");
 
 /* ── Tipografía global ── */
 body {
