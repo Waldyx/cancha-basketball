@@ -1,107 +1,82 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice">
   <defs>
     <radialGradient id="spot" cx="50%" cy="42%" r="52%">
-      <stop offset="0%"   stop-color="#1a1a1d"/>
-      <stop offset="100%" stop-color="#09090b"/>
+      <stop offset="0%" stop-color="#1a1a1d"></stop>
+      <stop offset="100%" stop-color="#09090b"></stop>
     </radialGradient>
 
     <linearGradient id="fadeL" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%"   stop-color="#09090b" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#09090b" stop-opacity="1"></stop>
+      <stop offset="100%" stop-color="#09090b" stop-opacity="0"></stop>
     </linearGradient>
     <linearGradient id="fadeR" x1="100%" y1="0%" x2="0%" y2="0%">
-      <stop offset="0%"   stop-color="#09090b" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#09090b" stop-opacity="1"></stop>
+      <stop offset="100%" stop-color="#09090b" stop-opacity="0"></stop>
     </linearGradient>
     <linearGradient id="fadeB" x1="0%" y1="100%" x2="0%" y2="0%">
-      <stop offset="0%"   stop-color="#09090b" stop-opacity="1"/>
-      <stop offset="60%"  stop-color="#09090b" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#09090b" stop-opacity="1"></stop>
+      <stop offset="60%" stop-color="#09090b" stop-opacity="0"></stop>
     </linearGradient>
     <linearGradient id="fadeT" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%"   stop-color="#09090b" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#09090b" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#09090b" stop-opacity="1"></stop>
+      <stop offset="100%" stop-color="#09090b" stop-opacity="0"></stop>
     </linearGradient>
   </defs>
 
-  <!-- Fondo -->
-  <rect width="1440" height="800" fill="url(#spot)"/>
+  
+  <rect width="1440" height="800" fill="url(#spot)"></rect>
 
-  <!--
-    ═══════════════════════════════════════════
-    MEDIA CANCHA — proporciones NBA escaladas
-    Cancha: 50ft ancho × 47ft largo (media)
-    SVG court: x=240–1200 (960px=50ft) · y=28–608 (560px≈47ft·11.9px/ft)
-    Escala: ancho 19.2px/ft · alto 11.9px/ft
+  
 
-    Canasta: 5.25ft desde línea de fondo → y=28+(5.25×11.9)=28+62=90
-    → basket en (720, 90)
+  <g fill="none" stroke="#f97316" stroke-linecap="round" stroke-linejoin="round">
 
-    Paint: 12ft ancho × 19ft largo
-      → 230px × 226px → x=605–835 · y=28–254
+    
+    <rect x="240" y="28" width="960" height="580" stroke-width="2.5" opacity="0.18"></rect>
 
-    FT line: y=254 · FT circle r=6ft×11.9=71px
+    
+    <line x1="240" y1="608" x2="1200" y2="608" stroke-width="2" opacity="0.15"></line>
 
-    3pt corners: 22ft horizontales desde centro → 422px → x=298 y x=1142
-    3pt corner lines: 14ft desde fondo → 167px → y=28 a y=195
-    3pt radio real: sqrt(422²+105²)=sqrt(178084+11025)=sqrt(189109)≈435px
-      → arco de (298,195) a (1142,195) r=435, sweep=0
-      → punto más bajo: 90+435=525 ✓ dentro de la cancha (608)
+    
+    <circle cx="720" cy="608" r="71" stroke-width="2" opacity="0.13"></circle>
 
-    Línea de medio campo: y=608
-    Círculo central: (720,608) r=71px
-    ═══════════════════════════════════════════
-  -->
+    
+    <line x1="678" y1="34" x2="762" y2="34" stroke-width="4" opacity="0.28"></line>
 
-  <g fill="none" stroke="#f97316"
-     stroke-linecap="round" stroke-linejoin="round">
+    
+    <circle cx="720" cy="90" r="19" stroke-width="2.5" opacity="0.28"></circle>
 
-    <!-- Contorno de la media cancha -->
-    <rect x="240" y="28" width="960" height="580" stroke-width="2.5" opacity="0.18"/>
+    
+    <path d="M 700 28 A 22 22 0 0 0 740 28" stroke-width="2" opacity="0.18"></path>
 
-    <!-- Línea de medio campo -->
-    <line x1="240" y1="608" x2="1200" y2="608" stroke-width="2" opacity="0.15"/>
+    
+    <rect x="605" y="28" width="230" height="226" stroke-width="2" opacity="0.16"></rect>
 
-    <!-- Círculo central (medio campo) -->
-    <circle cx="720" cy="608" r="71" stroke-width="2" opacity="0.13"/>
+    
+    <line x1="565" y1="28" x2="565" y2="48" stroke-width="1.5" opacity="0.13"></line>
+    <line x1="875" y1="28" x2="875" y2="48" stroke-width="1.5" opacity="0.13"></line>
+    <line x1="565" y1="112" x2="605" y2="112" stroke-width="1.5" opacity="0.13"></line>
+    <line x1="835" y1="112" x2="875" y2="112" stroke-width="1.5" opacity="0.13"></line>
+    <line x1="565" y1="170" x2="605" y2="170" stroke-width="1.5" opacity="0.13"></line>
+    <line x1="835" y1="170" x2="875" y2="170" stroke-width="1.5" opacity="0.13"></line>
+    <line x1="565" y1="226" x2="605" y2="226" stroke-width="1.5" opacity="0.13"></line>
+    <line x1="835" y1="226" x2="875" y2="226" stroke-width="1.5" opacity="0.13"></line>
 
-    <!-- Tablero -->
-    <line x1="678" y1="34" x2="762" y2="34" stroke-width="4" opacity="0.28"/>
+    
+    <circle cx="720" cy="254" r="71" stroke-width="2" opacity="0.13"></circle>
 
-    <!-- Aro -->
-    <circle cx="720" cy="90" r="19" stroke-width="2.5" opacity="0.28"/>
+    
+    <line x1="298" y1="28" x2="298" y2="195" stroke-width="2" opacity="0.16"></line>
+    <line x1="1142" y1="28" x2="1142" y2="195" stroke-width="2" opacity="0.16"></line>
 
-    <!-- Arco restringido bajo canasta -->
-    <path d="M 700 28 A 22 22 0 0 0 740 28" stroke-width="2" opacity="0.18"/>
-
-    <!-- Paint (zona) -->
-    <rect x="605" y="28" width="230" height="226" stroke-width="2" opacity="0.16"/>
-
-    <!-- Hash marks -->
-    <line x1="565" y1="28"  x2="565" y2="48"  stroke-width="1.5" opacity="0.13"/>
-    <line x1="875" y1="28"  x2="875" y2="48"  stroke-width="1.5" opacity="0.13"/>
-    <line x1="565" y1="112" x2="605" y2="112" stroke-width="1.5" opacity="0.13"/>
-    <line x1="835" y1="112" x2="875" y2="112" stroke-width="1.5" opacity="0.13"/>
-    <line x1="565" y1="170" x2="605" y2="170" stroke-width="1.5" opacity="0.13"/>
-    <line x1="835" y1="170" x2="875" y2="170" stroke-width="1.5" opacity="0.13"/>
-    <line x1="565" y1="226" x2="605" y2="226" stroke-width="1.5" opacity="0.13"/>
-    <line x1="835" y1="226" x2="875" y2="226" stroke-width="1.5" opacity="0.13"/>
-
-    <!-- Círculo de tiro libre (completo — la mitad superior tapa la paint line) -->
-    <circle cx="720" cy="254" r="71" stroke-width="2" opacity="0.13"/>
-
-    <!-- Líneas de esquina de 3 -->
-    <line x1="298" y1="28"  x2="298" y2="195" stroke-width="2" opacity="0.16"/>
-    <line x1="1142" y1="28" x2="1142" y2="195" stroke-width="2" opacity="0.16"/>
-
-    <!-- Arco de 3 puntos: r=435, centrado en canasta (720,90), sweep=0 -->
-    <path d="M 298 195 A 435 435 0 0 0 1142 195" stroke-width="2" opacity="0.16"/>
+    
+    <path d="M 298 195 A 435 435 0 0 0 1142 195" stroke-width="2" opacity="0.16"></path>
 
   </g>
 
-  <!-- Fades amplios — sin cortes duros -->
-  <rect x="0"    y="0" width="480"  height="800" fill="url(#fadeL)"/>
-  <rect x="960"  y="0" width="480"  height="800" fill="url(#fadeR)"/>
-  <rect x="0"  y="400" width="1440" height="400" fill="url(#fadeB)"/>
-  <rect x="0"    y="0" width="1440" height="60"  fill="url(#fadeT)"/>
+  
+  <rect x="0" y="0" width="480" height="800" fill="url(#fadeL)"></rect>
+  <rect x="960" y="0" width="480" height="800" fill="url(#fadeR)"></rect>
+  <rect x="0" y="400" width="1440" height="400" fill="url(#fadeB)"></rect>
+  <rect x="0" y="0" width="1440" height="60" fill="url(#fadeT)"></rect>
 
 </svg>

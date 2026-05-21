@@ -1,5 +1,5 @@
 ﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" fill="none">
-  <rect width="200" height="150" fill="#1c1c1c"/>
-  <text x="100" y="80" text-anchor="middle" fill="#3f3f3f" font-size="14" font-family="system-ui">&#x1F3C0;</text>
+  <rect width="200" height="150" fill="#1c1c1c"></rect>
+  <text x="100" y="80" text-anchor="middle" fill="#3f3f3f" font-size="14" font-family="system-ui">🏀</text>
   <text x="100" y="100" text-anchor="middle" fill="#3f3f3f" font-size="10" font-family="system-ui">Sin imagen</text>
 </svg>

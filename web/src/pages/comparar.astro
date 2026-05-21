@@ -1,560 +1,226 @@
 ---
+// /comparar — comparador rediseñado
+// Drop-in replacement for web/src/pages/comparar.astro
+//
+// Lee las zapas a comparar desde la URL (?slugs=A,B,C). Si no hay,
+// usa 3 destacadas por defecto. Click en cualquier foto para cambiar.
+
 import Base from "../layouts/Base.astro";
+import "../styles/cancha-redesign.css";
+import { zapatillas } from "../data/zapatillas";
+
+const CAT_LABELS: Record<string, string> = {
+  "cushion-focused": "Cushion", "responsive": "Reactiva",
+  "balanced": "Equilibrada", "traction-king": "Tracción",
+};
+const CAT_ACCENT: Record<string, string> = {
+  "cushion-focused": "#38bdf8", "responsive": "#facc15",
+  "balanced": "#d4d4d8", "traction-king": "#fb923c",
+};
+const ATR_LABELS: Record<string, string> = {
+  traccion: "Tracción", amortiguacion: "Amortiguación",
+  respuesta: "Respuesta", soporte_lateral: "Soporte",
+  estabilidad: "Estabilidad", peso_score: "Ligereza",
+  durabilidad_outdoor: "Outdoor", ventilacion: "Ventilación",
+};
+
+const scoreOf = (z: typeof zapatillas[0]): number => {
+  const v = Object.values(z.puntuaciones);
+  return Math.round((v.reduce((a, b) => a + b, 0) / v.length) * 10) / 10;
+};
+
+// Read ?slugs= from URL
+const params = new URLSearchParams(Astro.url.search);
+const slugsParam = params.get("slugs");
+const requested = slugsParam ? slugsParam.split(",") : ["nike-lebron-22", "ua-curry-12", "nike-gt-cut-3"];
+const shoes = requested.map(s => zapatillas.find(z => z.slug === s)).filter(Boolean) as typeof zapatillas;
+
+// Winner per attribute (highest = best for all 8 attrs in this data model)
+const winnerFor = (key: keyof typeof zapatillas[0]["puntuaciones"]): number | null => {
+  if (shoes.length < 2) return null;
+  let bestIdx = 0;
+  for (let i = 1; i < shoes.length; i++) {
+    if (shoes[i].puntuaciones[key] > shoes[bestIdx].puntuaciones[key]) bestIdx = i;
+  }
+  return bestIdx;
+};
+const cheapestIdx = shoes.length >= 2
+  ? shoes.reduce((bi, z, i, arr) => z.precio_msrp_eur < arr[bi].precio_msrp_eur ? i : bi, 0)
+  : null;
+
+// Radar SVG helper (inline)
+const RADAR_KEYS = ["traccion", "amortiguacion", "respuesta", "soporte_lateral", "estabilidad", "peso_score", "durabilidad_outdoor", "ventilacion"] as const;
+const SIZE = 120;
+function radarPoints(z: typeof zapatillas[0]) {
+  return RADAR_KEYS.map((k, i) => {
+    const a = (i / RADAR_KEYS.length) * Math.PI * 2 - Math.PI / 2;
+    const v = z.puntuaciones[k];
+    const r = (v / 10) * (SIZE / 2 - 6);
+    return [SIZE/2 + Math.cos(a)*r, SIZE/2 + Math.sin(a)*r].join(",");
+  }).join(" ");
+}
+function ringPoints(f: number) {
+  return RADAR_KEYS.map((_, i) => {
+    const a = (i / RADAR_KEYS.length) * Math.PI * 2 - Math.PI / 2;
+    const r = f * (SIZE / 2 - 6);
+    return `${SIZE/2 + Math.cos(a)*r},${SIZE/2 + Math.sin(a)*r}`;
+  }).join(" ");
+}
 ---
 
-<Base
-  title="Comparador de zapatillas de baloncesto | CANCHA"
-  description="Compara hasta 3 zapatillas de baloncesto lado a lado. Puntuaciones, precios en tiendas españolas y veredicto honesto."
->
-  <main class="min-h-screen text-white">
-    <!-- Header -->
-    <header class="px-6 py-5 border-b border-zinc-800/60 bg-[#0c0c0c]/80 backdrop-blur-sm sticky top-0 z-50">
-      <div class="max-w-6xl mx-auto flex items-center justify-between">
-        <a href="/" class="text-2xl font-black tracking-tighter">
-          CANCHA<span class="text-orange-500">.</span>
-        </a>
-        <nav class="hidden sm:flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest">
-          <a href="/zapatillas" class="hover:text-orange-500 transition-colors">Catálogo</a>
-          <a href="/rankings" class="hover:text-orange-500 transition-colors">Rankings</a>
-          <a href="/metodologia" class="hover:text-orange-500 transition-colors">Método</a>
-          <a href="/financiacion" class="hover:text-orange-500 transition-colors">$ Financiación</a>
-          <a href="/faq" class="hover:text-orange-500 transition-colors">FAQ</a>
+<Base title="Comparar zapatillas de baloncesto cara a cara | CANCHA"
+      description="Compara hasta 3 zapatillas de baloncesto en 8 atributos, peso, drop, horma y precio. Vista lado a lado sin trampa.">
+  <main class="app">
+    <div class="cz-courtbg"><img src="/bg-court.svg" alt="" /><div></div></div>
+
+    <div class="cz-strip"></div>
+    <header class="cz-header">
+      <div class="shell cz-header-inner">
+        <a href="/" class="cz-logo">CANCHA<span class="dot">.</span>ZAPA</a>
+        <nav class="cz-nav">
+          <a href="/zapatillas">Catálogo</a>
+          <a href="/quiz">Quiz</a>
+          <a href="/rankings">Rankings</a>
         </nav>
       </div>
     </header>
 
-    <!-- Fallback sin JS -->
-    <noscript>
-      <div class="px-6 py-20 text-center max-w-2xl mx-auto">
-        <p class="text-orange-500 font-black uppercase tracking-widest text-xs mb-4">⚠ JavaScript requerido</p>
-        <p class="text-zinc-400 mb-6">El comparador necesita JavaScript para funcionar. Actívalo y recarga.</p>
-        <a href="/zapatillas" class="inline-block px-6 py-3 bg-orange-500 text-zinc-950 font-black uppercase tracking-wider">← Ver catálogo</a>
-      </div>
-    </noscript>
-
-    <!-- Estado: selector (sin params) -->
-    <section id="estado-selector" class="hidden px-6 py-12">
-      <div class="max-w-4xl mx-auto">
-        <p
-          class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
-        >
-          ★ Comparador
-        </p>
-        <h1
-          class="text-4xl md:text-5xl font-black tracking-tight uppercase mb-3"
-        >
-          Elige 2 o 3 zapatillas
-        </h1>
-        <p class="text-zinc-400 mb-8">
-          Las verás lado a lado con todas sus métricas, precios y veredictos.
-        </p>
-
-        <!-- Búsqueda rápida en el selector -->
-        <div class="relative mb-5">
-          <span class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 text-sm select-none">🔍</span>
-          <input
-            id="selector-search"
-            type="text"
-            placeholder="Buscar zapatilla…"
-            autocomplete="off"
-            class="w-full sm:max-w-sm pl-10 pr-4 py-2.5 bg-zinc-900/80 border border-zinc-700 focus:border-orange-500 rounded-full text-white text-sm font-medium outline-none transition-colors placeholder-zinc-600"
-          />
-        </div>
-        <p class="text-xs text-zinc-600 mt-1 mb-5">Tip: escribe para filtrar por marca o modelo</p>
-
-        <div id="selector-grid" class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-4">
-        </div>
-
-        <div class="flex justify-center mb-6">
-          <button id="btn-limpiar" class="hidden text-xs text-zinc-500 hover:text-orange-400 underline transition-colors">
-            Limpiar selección
-          </button>
-        </div>
-
-        <div id="empty-state" class="text-center py-16 text-zinc-600">
-          <p class="text-4xl mb-3">⚡</p>
-          <p class="font-medium text-zinc-400">Selecciona dos zapatillas para comparar</p>
-          <p class="text-sm mt-1">Usa el buscador de arriba para encontrar modelos</p>
-        </div>
-
-        <div class="flex items-center justify-between gap-4">
-          <p id="selector-count" class="text-sm text-zinc-500">
-            0 seleccionadas
-          </p>
-          <button
-            id="selector-comparar"
-            type="button"
-            disabled
-            class="px-8 py-4 bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black uppercase tracking-wider transition-all disabled:bg-zinc-800 disabled:text-zinc-600 disabled:cursor-not-allowed shadow-[4px_4px_0_0_rgb(250,204,21)] disabled:shadow-none"
-          >
-            Comparar →
-          </button>
-        </div>
+    <section class="cmp-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Comparador</p>
+        <h1 class="cmp-h1">Cara a cara<br/><span class="muted">sin trampa.</span></h1>
+        <p class="cmp-blurb">Hasta 3 zapas, 8 atributos, precio y veredicto editorial. Cambia cualquier slot clicando en el modelo.</p>
       </div>
     </section>
 
-    <!-- Estado: comparativa -->
-    <section id="estado-comparativa" class="hidden px-6 py-12">
-      <div class="max-w-7xl mx-auto">
-        <div class="mb-10">
-          <p
-            class="text-xs font-black uppercase tracking-widest text-orange-500 mb-3"
-          >
-            ★ Comparativa lado a lado
-          </p>
-          <h1
-            class="text-3xl md:text-5xl font-black tracking-tight uppercase mb-3 leading-tight"
-          >
-            <span id="comp-titulo"></span>
-          </h1>
-          <p class="text-zinc-400">
-            Mejor valor en cada métrica resaltado en
-            <span class="text-orange-500 font-black">naranja</span>.
-          </p>
-        </div>
-
-        <div class="overflow-x-auto -mx-6 px-6 pb-4">
-          <div
-            id="comp-tabla"
-            class="grid gap-4 min-w-fit"
-            data-cols="2"
-          >
+    <section class="cmp-grid-section">
+      <div class="shell">
+        <div class="cmp-grid">
+          {/* Labels column */}
+          <div class="cmp-col cmp-col-labels">
+            <div class="cmp-cell head">&nbsp;</div>
+            <div class="cmp-cell"><span class="cmp-lab">Marca · Modelo</span></div>
+            <div class="cmp-cell"><span class="cmp-lab">Categoría</span></div>
+            <div class="cmp-cell"><span class="cmp-lab">Score CANCHA</span></div>
+            <div class="cmp-cell radar"><span class="cmp-lab">Perfil técnico</span></div>
+            {Object.entries(ATR_LABELS).map(([k, l]) => (
+              <div class="cmp-cell"><span class="cmp-lab">{l}</span></div>
+            ))}
+            <div class="cmp-cell"><span class="cmp-lab">Peso real (US 9)</span></div>
+            <div class="cmp-cell"><span class="cmp-lab">Altura</span></div>
+            <div class="cmp-cell"><span class="cmp-lab">Drop</span></div>
+            <div class="cmp-cell"><span class="cmp-lab">Horma</span></div>
+            <div class="cmp-cell"><span class="cmp-lab">Ideal para</span></div>
+            <div class="cmp-cell price-row"><span class="cmp-lab">Precio MSRP</span></div>
+            <div class="cmp-cell">&nbsp;</div>
           </div>
-        </div>
 
-        <div class="mt-12 flex flex-wrap gap-4 justify-center">
-          <a
-            href="/comparar"
-            class="px-6 py-3 border-2 border-zinc-700 hover:border-orange-500 font-black uppercase tracking-wider text-sm transition-colors"
-          >
-            ↻ Nueva comparativa
-          </a>
-          <a
-            href="/quiz"
-            class="px-6 py-3 text-zinc-500 hover:text-white font-bold uppercase tracking-widest text-xs transition-colors self-center"
-          >
-            ¿No sabes cuál elegir? Haz el quiz
-          </a>
-        </div>
-
-        <div class="flex justify-center mt-4">
-          <button id="btn-compartir-comp" class="flex items-center gap-2 text-sm text-zinc-400 hover:text-orange-400 transition-colors border border-zinc-700 hover:border-orange-500 rounded-lg px-4 py-2 mt-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/></svg>
-            Compartir comparativa
-          </button>
+          {/* Shoe columns */}
+          {shoes.map((z, idx) => {
+            const cat = CAT_ACCENT[z.categoria_principal];
+            const sc = scoreOf(z);
+            return (
+              <div class="cmp-col" style={`--cat:${cat}`}>
+                <div class="cmp-cell head">
+                  <button class="cmp-photo" data-slot={idx}>
+                    <img src={z.imagen_principal} alt={z.modelo} onerror="this.style.display='none'" />
+                    <span class="cmp-photo-overlay">cambiar ↺</span>
+                  </button>
+                </div>
+                <div class="cmp-cell">
+                  <p class="cmp-marca">{z.marca}</p>
+                  <h3 class="cmp-modelo">{z.modelo}</h3>
+                </div>
+                <div class="cmp-cell"><span class="cmp-cat" style={`color:${cat}`}>{CAT_LABELS[z.categoria_principal]}</span></div>
+                <div class="cmp-cell"><span class="cmp-score-big">{sc}<small>/10</small></span></div>
+                <div class="cmp-cell radar">
+                  <div class="cmp-radar-wrap">
+                    <svg viewBox={`0 0 ${SIZE} ${SIZE}`} width={SIZE} height={SIZE} aria-hidden="true">
+                      {[0.33, 0.66, 1].map(f => (
+                        <polygon points={ringPoints(f)} fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+                      ))}
+                      <polygon points={radarPoints(z)} fill={cat} fill-opacity="0.18" stroke={cat} stroke-width="1.5" />
+                    </svg>
+                  </div>
+                </div>
+                {Object.entries(ATR_LABELS).map(([k]) => {
+                  const winner = winnerFor(k as keyof typeof z.puntuaciones);
+                  return (
+                    <div class={`cmp-cell metric ${winner === idx ? "winner" : ""}`}>
+                      <span class="cmp-val">{z.puntuaciones[k as keyof typeof z.puntuaciones]}<small>/10</small></span>
+                      {winner === idx && <span class="cmp-win-tag">Mejor</span>}
+                    </div>
+                  );
+                })}
+                <div class="cmp-cell"><span class="cmp-val">{z.peso_real_g}<small>g</small></span></div>
+                <div class="cmp-cell"><span class="cmp-val capz">{z.altura}</span></div>
+                <div class="cmp-cell"><span class="cmp-val">{z.drop_mm}<small>mm</small></span></div>
+                <div class="cmp-cell"><span class="cmp-val capz">{z.horma}</span></div>
+                <div class="cmp-cell ideal">{z.ideal_para.posiciones.join(", ")}</div>
+                <div class={`cmp-cell price-row ${cheapestIdx === idx && shoes.length > 1 ? "winner" : ""}`}>
+                  <span class="cmp-price">{z.precio_msrp_eur}€</span>
+                  {cheapestIdx === idx && shoes.length > 1 && <span class="cmp-win-tag">Más barata</span>}
+                </div>
+                <div class="cmp-cell">
+                  <a href={`/zapatilla/${z.slug}`} class="cmp-cta">Ver review →</a>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
 
-    <!-- Estado: ids inválidos -->
-    <section id="estado-error" class="hidden px-6 py-20">
-      <div class="max-w-2xl mx-auto text-center">
-        <p
-          class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
-        >
-          ⚠ Zapatillas no encontradas
+    <footer style="background:#000;border-top:4px solid #f97316;padding:32px 0;margin-top:40px">
+      <div class="shell" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center">
+        <div class="cz-logo">CANCHA<span class="dot">.</span>ZAPA</div>
+        <p style="font-size:10px;color:#52525b;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin:0">
+          Proyecto independiente · Sin sesgo de afiliado
         </p>
-        <h1
-          class="text-4xl md:text-5xl font-black tracking-tight uppercase mb-6"
-        >
-          Esos IDs no existen.
-        </h1>
-        <p class="text-zinc-400 mb-8">
-          Vuelve al selector y elige zapatillas válidas de la lista.
-        </p>
-        <a
-          href="/comparar"
-          class="inline-block px-8 py-4 bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black uppercase tracking-wider transition-all shadow-[4px_4px_0_0_rgb(250,204,21)]"
-        >
-          ← Volver al selector
-        </a>
       </div>
-    </section>
+    </footer>
   </main>
 
-  <script>
-    import { zapatillas, getZapatillaBySlug } from "../data/zapatillas";
-    import { findMejorPrecio } from "../lib/scoring";
-    import type { Zapatilla, Puntuaciones } from "../lib/types";
-
-    const LABELS_TIENDA: Record<string, string> = {
-      amazon_es: "Amazon",
-      decathlon: "Decathlon",
-      nike_es: "Nike",
-      adidas_es: "Adidas",
-      puma_es: "Puma",
-      ua_es: "Under Armour",
-      nb_es: "New Balance",
-      footlocker_es: "Foot Locker",
-      jd_sports_es: "JD Sports",
-      zalando_es: "Zalando",
-      sprinter_es: "Sprinter",
-      reebok_es: "Reebok",
-      basket_world: "Basket World",
-      aliexpress: "AliExpress",
-      kickscrew: "KicksCrew",
-      idealo: "Idealo",
-    };
-
-    function escapeHtml(s: string | number): string {
-      const div = document.createElement("div");
-      div.textContent = String(s);
-      return div.innerHTML;
-    }
-
-    // ─────────────────────────────────────────────────────────
-    // Modo SELECTOR: sin params, mostrar lista para elegir
-    // ─────────────────────────────────────────────────────────
-
-    function renderSelector() {
-      const $grid = document.getElementById("selector-grid")!;
-      const $count = document.getElementById("selector-count")!;
-      const $btn = document.getElementById(
-        "selector-comparar"
-      ) as HTMLButtonElement;
-      const $limpiar = document.getElementById("btn-limpiar") as HTMLButtonElement;
-      const $emptyState = document.getElementById("empty-state")!;
-
-      const seleccion = new Set<string>();
-
-      $grid.innerHTML = zapatillas
-        .map(
-          (z) => `
-            <button
-              type="button"
-              data-id="${escapeHtml(z.id)}"
-              class="selector-card text-left p-4 border-2 border-zinc-800 bg-zinc-900/50 hover:border-orange-500 transition-all cursor-pointer flex flex-col gap-1"
-            >
-              <div class="flex items-start justify-between gap-1">
-                <span class="selector-marca text-xs font-bold uppercase tracking-widest text-zinc-500">${escapeHtml(z.marca)}</span>
-                <span class="text-xs font-black text-orange-500/70 shrink-0">${String(Math.round((Object.values(z.puntuaciones).reduce((a, b) => a + b, 0) / 8) * 10) / 10)}</span>
-              </div>
-              <span class="selector-nombre font-black uppercase text-base leading-tight">${escapeHtml(z.modelo)}</span>
-              <span class="text-xs text-zinc-500 mt-1">${escapeHtml(z.precio_msrp_eur)}€</span>
-            </button>
-          `
-        )
-        .join("");
-
-      function refresh() {
-        $count.textContent = `${seleccion.size} seleccionada${seleccion.size === 1 ? "" : "s"} ${seleccion.size > 0 ? "(2-3 necesarias)" : ""}`;
-        $btn.disabled = seleccion.size < 2 || seleccion.size > 3;
-
-        // Show/hide limpiar button and empty state
-        if (seleccion.size > 0) {
-          $limpiar.classList.remove("hidden");
-          $emptyState.classList.add("hidden");
-        } else {
-          $limpiar.classList.add("hidden");
-          $emptyState.classList.remove("hidden");
-        }
-
-        $grid.querySelectorAll(".selector-card").forEach((el) => {
-          const id = el.getAttribute("data-id")!;
-          if (seleccion.has(id)) {
-            el.classList.add("border-orange-500", "bg-orange-500/10");
-            el.classList.remove("border-zinc-800");
-          } else {
-            el.classList.remove("border-orange-500", "bg-orange-500/10");
-            el.classList.add("border-zinc-800");
-          }
-        });
-      }
-
-      $grid.querySelectorAll<HTMLButtonElement>(".selector-card").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const id = btn.dataset.id!;
-          if (seleccion.has(id)) {
-            seleccion.delete(id);
-          } else if (seleccion.size < 3) {
-            seleccion.add(id);
-          }
-          refresh();
-        });
+  <script define:vars={{ zapatillas: zapatillas.map(z => ({ slug: z.slug, marca: z.marca, modelo: z.modelo, img: z.imagen_principal })), initialSlugs: requested }}>
+    // Slot picker — click on a photo to swap that slot.
+    let current = [...initialSlugs];
+    const photos = document.querySelectorAll(".cmp-photo");
+    photos.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const slot = parseInt(btn.dataset.slot);
+        showPicker(slot);
       });
-
-      $btn.addEventListener("click", () => {
-        if (seleccion.size < 2) return;
-        const ids = Array.from(seleccion).join(",");
-        window.location.href = `/comparar?ids=${ids}`;
-      });
-
-      $limpiar.addEventListener("click", () => {
-        seleccion.clear();
-        refresh();
-      });
-
-      // Búsqueda en selector
-      const $selectorSearch = document.getElementById("selector-search") as HTMLInputElement | null;
-      $selectorSearch?.addEventListener("input", () => {
-        const q = $selectorSearch.value.trim().toLowerCase();
-        $grid.querySelectorAll<HTMLButtonElement>(".selector-card").forEach((btn) => {
-          const nombre = (btn.querySelector(".selector-nombre")?.textContent || "").toLowerCase();
-          const marca = (btn.querySelector(".selector-marca")?.textContent || "").toLowerCase();
-          btn.classList.toggle("hidden", q !== "" && !nombre.includes(q) && !marca.includes(q));
-        });
-      });
-
-      document.getElementById("estado-selector")!.classList.remove("hidden");
-      refresh();
-    }
-
-    // ─────────────────────────────────────────────────────────
-    // Modo COMPARATIVA: con params, mostrar tabla
-    // ─────────────────────────────────────────────────────────
-
-    type Atributo = keyof Puntuaciones;
-    const ATRIBUTOS: { key: Atributo; label: string; mayorMejor: boolean }[] = [
-      { key: "traccion", label: "Tracción", mayorMejor: true },
-      { key: "amortiguacion", label: "Amortiguación", mayorMejor: true },
-      { key: "respuesta", label: "Respuesta", mayorMejor: true },
-      { key: "soporte_lateral", label: "Soporte lateral", mayorMejor: true },
-      { key: "estabilidad", label: "Estabilidad", mayorMejor: true },
-      { key: "peso_score", label: "Ligereza", mayorMejor: true },
-      { key: "durabilidad_outdoor", label: "Durabilidad outdoor", mayorMejor: true },
-      { key: "ventilacion", label: "Ventilación", mayorMejor: true },
-    ];
-
-    function scoreBarColor(score: number, scores: number[]): string {
-      const max = Math.max(...scores);
-      const min = Math.min(...scores);
-      if (max === min) return "#71717a"; // tie — zinc-500
-      if (score === max) return "#f97316"; // winner — orange-500
-      return "#52525b"; // loser — zinc-600
-    }
-
-    function scoreCell(valor: number, allValues: number[]): string {
-      const color = scoreBarColor(valor, allValues);
-      const widthPct = valor * 10;
-      return `
-        <div class="text-center">
-          <div class="flex items-baseline justify-center gap-0.5">
-            <span class="font-bold text-lg leading-none">${valor}</span>
-            <span class="text-zinc-500 text-xs">/10</span>
-          </div>
-          <div class="mt-1.5 h-1.5 rounded-full bg-zinc-800 w-16 mx-auto">
-            <div class="h-full rounded-full transition-all" style="width:${widthPct}%;background-color:${color}"></div>
-          </div>
-        </div>
-      `;
-    }
-
-    function indicesGanadores<T>(
-      valores: T[],
-      mayorMejor: boolean = true
-    ): Set<number> {
-      const numericos = valores.map((v) => (typeof v === "number" ? v : NaN));
-      if (numericos.some((n) => isNaN(n))) return new Set();
-      const best = mayorMejor
-        ? Math.max(...numericos)
-        : Math.min(...numericos);
-      const ganadores = new Set<number>();
-      numericos.forEach((n, i) => {
-        if (n === best) ganadores.add(i);
-      });
-      return ganadores;
-    }
-
-    function renderFila(
-      label: string,
-      valores: (string | number)[],
-      opts: { ganadores?: Set<number>; html?: boolean } = {}
-    ): string {
-      const { ganadores, html } = opts;
-      const cells = valores
-        .map((v, i) => {
-          const isWinner = ganadores?.has(i);
-          const cls = isWinner
-            ? "text-orange-500 font-black"
-            : "text-zinc-200";
-          return `<div class="px-4 py-3 border-l border-zinc-800 ${cls} text-sm">${html ? v : escapeHtml(v)}</div>`;
-        })
-        .join("");
-
-      return `
-        <div class="grid border-b border-zinc-800" style="grid-template-columns: 160px repeat(${valores.length}, minmax(180px, 1fr));">
-          <div class="px-4 py-3 text-xs font-bold uppercase tracking-widest text-zinc-500 bg-zinc-900/50 flex items-center">${escapeHtml(label)}</div>
-          ${cells}
-        </div>
-      `;
-    }
-
-    function renderHeader(zapas: Zapatilla[]): string {
-      const cells = zapas
-        .map((z) => {
-          const mejor = findMejorPrecio(z.links_compra);
-          const precio = mejor?.precio_actual ?? z.precio_msrp_eur;
-          const tienda = mejor
-            ? LABELS_TIENDA[mejor.tienda] || mejor.tienda
-            : "";
-          const ctaHref = mejor?.url ?? "#";
-          const ctaLabel = mejor ? `Ver en ${tienda}` : "Ver detalles";
-          return `
-            <div class="border-l border-zinc-800 px-4 py-5 bg-zinc-900/30">
-              <a href="/zapatilla/${escapeHtml(z.slug)}">
-                <img
-                  src="${escapeHtml(z.imagen_principal)}"
-                  alt="${escapeHtml(z.marca + " " + z.modelo)}"
-                  class="w-full aspect-[4/3] object-contain p-3 bg-gradient-to-b from-zinc-800 to-zinc-900 mb-4 hover:opacity-90 transition-opacity"
-                  loading="lazy"
-                  onerror="this.onerror=null;this.src='/placeholder-shoe.svg'"
-                />
-              </a>
-              <p class="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-1">${escapeHtml(z.marca)}</p>
-              <a href="/zapatilla/${escapeHtml(z.slug)}" class="hover:text-orange-500 transition-colors">
-                <h2 class="text-xl font-black uppercase leading-tight tracking-tight mb-3">${escapeHtml(z.modelo)}</h2>
-              </a>
-              <p class="text-2xl font-black text-orange-500 mb-3">${escapeHtml(precio)}€${tienda ? ` <span class="text-xs text-zinc-500 font-normal">en ${escapeHtml(tienda)}</span>` : ""}</p>
-              <div class="flex flex-wrap gap-2">
-                <a
-                  href="${escapeHtml(ctaHref)}"
-                  target="_blank"
-                  rel="noopener noreferrer sponsored"
-                  class="inline-block px-4 py-2 bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black uppercase tracking-wider text-xs transition-colors"
-                >${escapeHtml(ctaLabel)} →</a>
-                <a
-                  href="/zapatilla/${escapeHtml(z.slug)}"
-                  class="inline-block px-4 py-2 border-2 border-zinc-700 hover:border-orange-500 font-bold uppercase tracking-wider text-xs transition-colors"
-                >Ver ficha →</a>
-              </div>
-            </div>
-          `;
-        })
-        .join("");
-
-      return `
-        <div class="grid border border-zinc-800 bg-zinc-950" style="grid-template-columns: 160px repeat(${zapas.length}, minmax(180px, 1fr));">
-          <div class="px-4 py-5 bg-zinc-900/50"></div>
-          ${cells}
-        </div>
-      `;
-    }
-
-    function renderComparativa(zapas: Zapatilla[]) {
-      document.getElementById("estado-comparativa")!.classList.remove("hidden");
-
-      const tituloEls = zapas
-        .map((z) => `<span class="text-orange-500">${escapeHtml(z.modelo)}</span>`)
-        .join(" <span class='text-zinc-500'>vs</span> ");
-      document.getElementById("comp-titulo")!.innerHTML = tituloEls;
-
-      const $tabla = document.getElementById("comp-tabla")!;
-      $tabla.dataset.cols = String(zapas.length);
-
-      let html = "";
-      html += renderHeader(zapas);
-
-      // Sección: Identidad / físicas
-      html += `<div class="text-xs font-black uppercase tracking-widest text-orange-500 mt-6 mb-2">Datos físicos</div>`;
-      html += `<div class="border border-zinc-800">`;
-      html += renderFila(
-        "Año",
-        zapas.map((z) => z.año_lanzamiento)
-      );
-      html += renderFila(
-        "Peso (US 9)",
-        zapas.map((z) => `${z.peso_real_g} g`),
-        {
-          ganadores: indicesGanadores(
-            zapas.map((z) => z.peso_real_g),
-            false
-          ),
-        }
-      );
-      html += renderFila(
-        "Altura",
-        zapas.map((z) => z.altura)
-      );
-      html += renderFila(
-        "Horma",
-        zapas.map((z) => z.horma)
-      );
-      html += renderFila(
-        "Drop",
-        zapas.map((z) => `${z.drop_mm} mm`)
-      );
-      html += renderFila(
-        "Categoría",
-        zapas.map((z) => z.categoria_principal)
-      );
-      html += `</div>`;
-
-      // Sección: Puntuaciones
-      html += `<div class="text-xs font-black uppercase tracking-widest text-orange-500 mt-6 mb-2">Puntuaciones (1-10)</div>`;
-      html += `<div class="border border-zinc-800">`;
-      for (const attr of ATRIBUTOS) {
-        const valores = zapas.map((z) => z.puntuaciones[attr.key]);
-        const ganadores = indicesGanadores(valores, attr.mayorMejor);
-        const cells = valores.map((v) => scoreCell(v, valores));
-        html += renderFila(attr.label, cells, { ganadores, html: true });
-      }
-      html += `</div>`;
-
-      // Sección: Veredicto
-      html += `<div class="text-xs font-black uppercase tracking-widest text-orange-500 mt-6 mb-2">Veredicto</div>`;
-      html += `<div class="border border-zinc-800">`;
-      html += renderFila(
-        "Resumen",
-        zapas.map((z) => `<span class="text-xs leading-relaxed">${escapeHtml(z.resumen)}</span>`),
-        { html: true }
-      );
-      html += renderFila(
-        "Pros",
-        zapas.map(
-          (z) =>
-            `<ul class="text-xs space-y-1">${z.pros.map((p) => `<li class="flex gap-1.5"><span class="text-orange-500">+</span><span>${escapeHtml(p)}</span></li>`).join("")}</ul>`
-        ),
-        { html: true }
-      );
-      html += renderFila(
-        "Contras",
-        zapas.map(
-          (z) =>
-            `<ul class="text-xs space-y-1">${z.contras.map((c) => `<li class="flex gap-1.5"><span class="text-zinc-500">−</span><span>${escapeHtml(c)}</span></li>`).join("")}</ul>`
-        ),
-        { html: true }
-      );
-      html += `</div>`;
-
-      $tabla.innerHTML = html;
-    }
-
-    // ─────────────────────────────────────────────────────────
-    // Init: leer params, decidir modo
-    // ─────────────────────────────────────────────────────────
-
-    const params = new URLSearchParams(window.location.search);
-    const idsParam = params.get("ids");
-
-    if (!idsParam) {
-      renderSelector();
-    } else {
-      const ids = idsParam
-        .split(",")
-        .map((s) => s.trim())
-        .filter(Boolean)
-        .slice(0, 3);
-
-      const encontradas = ids
-        .map((id) => getZapatillaBySlug(id))
-        .filter((z): z is Zapatilla => z !== undefined);
-
-      if (encontradas.length < 2) {
-        document.getElementById("estado-error")!.classList.remove("hidden");
-      } else {
-        renderComparativa(encontradas);
-      }
-    }
-
-    document.getElementById("btn-compartir-comp")?.addEventListener("click", async () => {
-      const url = window.location.href;
-      if (navigator.share) {
-        await navigator.share({ title: "Comparativa CANCHA", text: "Mira esta comparativa de zapatillas", url });
-      } else {
-        await navigator.clipboard.writeText(url);
-        const btn = document.getElementById("btn-compartir-comp");
-        if (btn) { btn.textContent = "¡Copiado!"; setTimeout(() => btn.textContent = "Compartir comparativa", 2000); }
-      }
     });
+
+    function showPicker(slot) {
+      const overlay = document.createElement("div");
+      overlay.className = "cmp-picker";
+      const remaining = zapatillas.filter(z => !current.includes(z.slug));
+      overlay.innerHTML = `
+        <div class="cmp-picker-card" onclick="event.stopPropagation()">
+          <p class="cz-eyebrow">★ Cambiar zapa ${slot + 1}</p>
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:32px;text-transform:uppercase;letter-spacing:-0.03em;margin:6px 0 14px">Elige otra zapa</h3>
+          <div class="cmp-picker-grid">
+            ${remaining.map(z => `
+              <button class="cmp-pick-item" data-slug="${z.slug}">
+                <img src="${z.img}" alt="" onerror="this.style.display='none'">
+                <span class="cpi-name"><strong>${z.marca}</strong>${z.modelo}</span>
+              </button>
+            `).join("")}
+          </div>
+          <button class="cmp-pick-close">Cerrar</button>
+        </div>
+      `;
+      overlay.addEventListener("click", () => overlay.remove());
+      overlay.querySelector(".cmp-pick-close").addEventListener("click", () => overlay.remove());
+      overlay.querySelectorAll(".cmp-pick-item").forEach(item => {
+        item.addEventListener("click", () => {
+          current[slot] = item.dataset.slug;
+          // Reload with new slugs
+          location.search = `?slugs=${current.join(",")}`;
+        });
+      });
+      document.body.appendChild(overlay);
+    }
   </script>
 </Base>

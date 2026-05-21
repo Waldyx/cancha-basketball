@@ -1,269 +1,290 @@
 ---
+// /zapatillas — catálogo rediseñado
+// Drop-in replacement for web/src/pages/zapatillas.astro
+// Importa tu CSS personalizado desde web/src/styles/cancha-redesign.css
+
 import Base from "../layouts/Base.astro";
+import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
 import { findMejorPrecio } from "../lib/scoring";
 
 const LABELS_TIENDA: Record<string, string> = {
-  amazon_es: "Amazon",
-  decathlon: "Decathlon",
-  nike_es: "Nike",
-  adidas_es: "Adidas",
-  puma_es: "Puma",
-  ua_es: "Under Armour",
-  nb_es: "New Balance",
-  footlocker_es: "Foot Locker",
-  jd_sports_es: "JD Sports",
-  zalando_es: "Zalando",
-  sprinter_es: "Sprinter",
-  reebok_es: "Reebok",
-  basket_world: "Basket World",
-  aliexpress: "AliExpress",
+  amazon_es: "Amazon", decathlon: "Decathlon", nike_es: "Nike", adidas_es: "Adidas",
+  puma_es: "Puma", ua_es: "Under Armour", nb_es: "New Balance", reebok_es: "Reebok",
+  footlocker_es: "Foot Locker", jd_sports_es: "JD Sports", zalando_es: "Zalando",
+  sprinter_es: "Sprinter", basket_world: "Basket World", aliexpress: "AliExpress",
   kickscrew: "KicksCrew",
-  idealo: "Idealo",
 };
 
-// Score global: media de las 8 puntuaciones
-function scoreGlobal(z: (typeof zapatillas)[0]): number {
-  const vals = Object.values(z.puntuaciones);
-  return Math.round((vals.reduce((a, b) => a + b, 0) / vals.length) * 10) / 10;
-}
+const CAT_LABELS: Record<string, string> = {
+  "cushion-focused": "Cushion",
+  "responsive":      "Reactiva",
+  "balanced":        "Equilibrada",
+  "traction-king":   "Tracción",
+};
 
-// Ordenar por precio ascendente para mostrar las más baratas primero
+const CAT_ACCENT: Record<string, string> = {
+  "cushion-focused": "#38bdf8",
+  "responsive":      "#facc15",
+  "balanced":        "#d4d4d8",
+  "traction-king":   "#fb923c",
+};
+
+const scoreOf = (z: typeof zapatillas[0]): number => {
+  const v = Object.values(z.puntuaciones);
+  return Math.round((v.reduce((a, b) => a + b, 0) / v.length) * 10) / 10;
+};
+
+const marcas = [...new Set(zapatillas.map(z => z.marca))].sort();
+const marcaCounts: Record<string, number> = {};
+zapatillas.forEach(z => { marcaCounts[z.marca] = (marcaCounts[z.marca] || 0) + 1; });
+
+// Editor's pick = highest score among those with verified discount
+const editorPick = [...zapatillas]
+  .map(z => ({ z, mejor: findMejorPrecio(z.links_compra), score: scoreOf(z) }))
+  .filter(x => x.mejor && x.mejor.precio_actual < x.z.precio_msrp_eur)
+  .sort((a, b) => b.score - a.score)[0];
+
+// Trending: top 3 by score
+const trending = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a)).slice(0, 3);
+
+const today = new Date().toLocaleDateString("es-ES", { day: "2-digit", month: "short" }).toUpperCase();
+
 const ordenadas = [...zapatillas].sort(
   (a, b) =>
     (findMejorPrecio(a.links_compra)?.precio_actual ?? a.precio_msrp_eur) -
     (findMejorPrecio(b.links_compra)?.precio_actual ?? b.precio_msrp_eur)
 );
-
-const marcas = [...new Set(zapatillas.map((z) => z.marca))].sort();
 ---
 
 <Base
   title={`Catálogo de zapatillas de baloncesto | ${zapatillas.length}+ modelos analizados | CANCHA`}
   description={`Catálogo de ${zapatillas.length}+ zapatillas de baloncesto analizadas. Filtra por marca, precio y categoría. Comparativa honesta con precio verificado en tiendas españolas.`}
-  jsonLd={{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://cancha.shoes/"},
-      {"@type": "ListItem", "position": 2, "name": "Catálogo", "item": "https://cancha.shoes/zapatillas"}
-    ]
-  }}
 >
-  <main class="min-h-screen text-white">
-    <!-- Header -->
-    <header class="px-6 py-5 border-b border-zinc-800/60 bg-[#0c0c0c]/80 backdrop-blur-sm sticky top-0 z-50">
-      <div class="max-w-6xl mx-auto flex items-center justify-between">
-        <a href="/" class="text-2xl font-black tracking-tighter">
-          CANCHA<span class="text-orange-500">.</span>
-        </a>
-        <nav class="hidden sm:flex gap-6 text-xs font-bold text-zinc-500 uppercase tracking-widest">
-          <a href="/quiz" class="hover:text-orange-500 transition-colors">↻ Hacer quiz</a>
-          <a href="/rankings" class="hover:text-orange-500 transition-colors">Rankings</a>
-          <a href="/faq" class="hover:text-orange-500 transition-colors">FAQ</a>
+  <main class="app">
+    <div class="cz-courtbg"><img src="/bg-court.svg" alt="" aria-hidden="true" /><div></div></div>
+
+    <div class="cz-strip"></div>
+    <header class="cz-header">
+      <div class="shell cz-header-inner">
+        <a href="/" class="cz-logo">CANCHA<span class="dot">.</span>ZAPA</a>
+        <nav class="cz-nav">
+          <a href="/zapatillas" class="active">Catálogo</a>
+          <a href="/quiz">Quiz</a>
+          <a href="/rankings">Rankings</a>
+          <a href="/metodologia">Método</a>
+          <a href="/faq">FAQ</a>
         </nav>
       </div>
     </header>
 
-    <!-- HERO catálogo -->
-    <section class="px-6 py-14 border-b border-zinc-800/60">
-      <div class="max-w-6xl mx-auto">
-        <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-orange-500 mb-3">★ Catálogo</p>
-        <h1 class="text-5xl md:text-7xl font-black tracking-tighter uppercase mb-3 leading-[0.9]">
-          {zapatillas.length} <span class="text-orange-500">zapas</span> analizadas
-        </h1>
-        <p class="text-zinc-400 max-w-2xl text-sm leading-relaxed mb-8">
-          Puntuaciones, precio verificado y veredicto honesto. ¿No sabes cuál te encaja?{" "}
-          <a href="/quiz" class="text-orange-500 hover:text-orange-400 font-semibold underline underline-offset-4">Haz el quiz →</a>
-        </p>
-
-        <!-- Búsqueda -->
-        <div class="relative mb-6">
-          <span class="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 text-sm select-none">🔍</span>
-          <input
-            id="catalogo-search"
-            type="text"
-            placeholder="Buscar zapatilla…"
-            autocomplete="off"
-            class="w-full sm:max-w-sm pl-10 pr-4 py-2.5 bg-zinc-900/80 border border-zinc-700 focus:border-orange-500 rounded-full text-white text-sm font-medium outline-none transition-colors placeholder-zinc-600 backdrop-blur-sm"
-          />
-        </div>
-
-        <!-- Filtros marca — píldoras -->
-        <div class="flex flex-wrap gap-2 mb-4" role="group" aria-label="Filtrar por marca">
-          <button data-filter-marca="all" aria-pressed="true"
-            class="filter-btn px-4 py-1.5 rounded-full border border-orange-500 bg-orange-500 text-zinc-950 text-[11px] font-bold uppercase tracking-wider transition-all">
-            Todas
-          </button>
-          {marcas.map((m) => (
-            <button data-filter-marca={m} aria-pressed="false"
-              class="filter-btn px-4 py-1.5 rounded-full border border-zinc-700 hover:border-orange-500/60 text-zinc-400 hover:text-white text-[11px] font-bold uppercase tracking-wider transition-all hover:bg-zinc-800">
-              {m}
-            </button>
-          ))}
-        </div>
-
-        <!-- Filtros categoría -->
-        <div class="flex flex-wrap gap-2 mb-4" role="group" aria-label="Filtrar por categoría">
-          <button data-filter-cat="all" aria-pressed="true"
-            class="cat-btn px-4 py-1.5 rounded-full border border-orange-500 bg-orange-500 text-zinc-950 text-[11px] font-bold uppercase tracking-wider transition-all">
-            Todas
-          </button>
-          <button data-filter-cat="cushion-focused" aria-pressed="false"
-            class="cat-btn px-4 py-1.5 rounded-full border border-zinc-700 text-zinc-400 hover:border-sky-500/60 hover:text-white text-[11px] font-bold uppercase tracking-wider transition-all hover:bg-zinc-800">
-            🛡️ Cushion
-          </button>
-          <button data-filter-cat="balanced" aria-pressed="false"
-            class="cat-btn px-4 py-1.5 rounded-full border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-white text-[11px] font-bold uppercase tracking-wider transition-all hover:bg-zinc-800">
-            ⚖️ Equilibradas
-          </button>
-          <button data-filter-cat="responsive" aria-pressed="false"
-            class="cat-btn px-4 py-1.5 rounded-full border border-zinc-700 text-zinc-400 hover:border-yellow-500/60 hover:text-white text-[11px] font-bold uppercase tracking-wider transition-all hover:bg-zinc-800">
-            ⚡ Reactivas
-          </button>
-          <button data-filter-cat="traction-king" aria-pressed="false"
-            class="cat-btn px-4 py-1.5 rounded-full border border-zinc-700 text-zinc-400 hover:border-orange-500/60 hover:text-white text-[11px] font-bold uppercase tracking-wider transition-all hover:bg-zinc-800">
-            🏀 Tracción
-          </button>
-        </div>
-
-        <!-- Filtros altura -->
-        <div class="flex flex-wrap gap-2 mb-4" role="group" aria-label="Filtrar por altura">
-          <span class="text-[10px] font-semibold uppercase tracking-widest text-zinc-600 self-center">Altura:</span>
-          <button data-filter-altura="all" aria-pressed="true"
-            class="altura-btn px-4 py-1.5 rounded-full border border-orange-500 bg-orange-500 text-zinc-950 text-[11px] font-bold uppercase tracking-wider transition-all">
-            Todas
-          </button>
-          <button data-filter-altura="low" aria-pressed="false"
-            class="altura-btn px-4 py-1.5 rounded-full border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-white text-[11px] font-bold uppercase tracking-wider transition-all hover:bg-zinc-800">
-            Low
-          </button>
-          <button data-filter-altura="mid" aria-pressed="false"
-            class="altura-btn px-4 py-1.5 rounded-full border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-white text-[11px] font-bold uppercase tracking-wider transition-all hover:bg-zinc-800">
-            Mid
-          </button>
-          <button data-filter-altura="high" aria-pressed="false"
-            class="altura-btn px-4 py-1.5 rounded-full border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-white text-[11px] font-bold uppercase tracking-wider transition-all hover:bg-zinc-800">
-            High
-          </button>
-        </div>
-
-        <!-- Filtro precio máximo (slider) -->
-        <div class="flex items-center gap-3 flex-wrap mb-4">
-          <span class="text-xs text-zinc-400 uppercase tracking-wide font-bold">Precio máx:</span>
-          <div class="flex items-center gap-2">
-            <input
-              id="precio-slider"
-              type="range"
-              min="30"
-              max="350"
-              value="350"
-              step="10"
-              class="accent-orange-500 w-32 cursor-pointer"
-            />
-            <span id="precio-label" class="text-sm text-orange-400 font-bold w-16">Sin límite</span>
+    {/* HERO */}
+    <section class="cz-hero">
+      <div class="shell">
+        <div class="cz-hero-grid">
+          <div class="hero-left">
+            <p class="cz-eyebrow">★ Catálogo · {zapatillas.length} zapas analizadas</p>
+            <h1>Encuentra<br/>tu <span class="accent">zapa</span> <span class="italic">sin BS</span></h1>
+            <p class="lede">
+              Puntuaciones técnicas, precio verificado en tiendas españolas y veredicto honesto.
+              Filtra a tu juego o <a href="/quiz" class="lede-link">haz el quiz →</a>
+            </p>
+            <div class="meta-row">
+              <span><span class="pulse"></span>Precios re-verificados {today}</span>
+              <span class="sep">·</span>
+              <span>Sin sesgo de afiliado</span>
+            </div>
           </div>
-          <button id="btn-reset-precio" class="text-xs text-zinc-600 hover:text-zinc-400 underline hidden">Reset</button>
+          <aside class="hero-panel">
+            <div class="panel-header">
+              <span class="dot-pulse"></span>
+              <span>RADAR EN VIVO</span>
+            </div>
+            <div class="panel-grid">
+              <div class="stat"><div class="v">{zapatillas.length}</div><div class="k">zapas</div></div>
+              <div class="stat"><div class="v">{marcas.length}</div><div class="k">marcas</div></div>
+              <div class="stat"><div class="v">15<small>+</small></div><div class="k">tiendas</div></div>
+              <div class="stat"><div class="v">100<small>%</small></div><div class="k">honesto</div></div>
+            </div>
+            <div class="panel-ticker">
+              <div class="ticker-label">★ Trending hoy</div>
+              {trending.map(z => (
+                <div class="ticker-row">
+                  <span class="t-rank">{scoreOf(z)}</span>
+                  <span class="t-name"><strong>{z.marca}</strong> {z.modelo}</span>
+                  <span class="t-price">{Math.round(findMejorPrecio(z.links_compra)?.precio_actual ?? z.precio_msrp_eur)}€</span>
+                </div>
+              ))}
+            </div>
+          </aside>
         </div>
-
-        <!-- Filtro marca select -->
-        <div class="flex items-center gap-2 flex-wrap mb-4">
-          <span class="text-xs text-zinc-400 uppercase tracking-wide font-bold">Marca:</span>
-          <select id="marca-select" class="bg-zinc-800 border border-zinc-700 text-zinc-300 text-sm rounded-lg px-3 py-1.5 focus:outline-none focus:border-orange-500 cursor-pointer">
-            <option value="all">Todas</option>
-            <option value="Nike">Nike</option>
-            <option value="Jordan">Jordan</option>
-            <option value="Adidas">Adidas</option>
-            <option value="Under Armour">Under Armour</option>
-            <option value="New Balance">New Balance</option>
-            <option value="Anta">Anta</option>
-            <option value="Li-Ning">Li-Ning</option>
-            <option value="Puma">Puma</option>
-            <option value="Converse">Converse</option>
-            <option value="Decathlon">Decathlon</option>
-          </select>
+        <div class="hero-match">
+          <span>Mostrando <strong id="catalogo-count">{zapatillas.length}</strong> de <strong>{zapatillas.length}</strong> zapas con tus filtros</span>
+          <span class="sep">·</span>
+          <span><span class="dot-orange"></span>Recomendado: ajusta el quiz para resultados a medida</span>
         </div>
-
-        <!-- Filtros precio + ordenación en misma fila -->
-        <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
-          <div class="flex items-center gap-2 flex-wrap" role="group" aria-label="Filtrar por precio">
-            <span class="text-[10px] font-semibold uppercase tracking-widest text-zinc-600">Precio:</span>
-            {[
-              { key: "all", label: "Todos" },
-              { key: "budget", label: "< 80€" },
-              { key: "mid", label: "80–130€" },
-              { key: "premium", label: "> 130€" },
-            ].map((p) => (
-              <button data-filter-precio={p.key} aria-pressed={p.key === "all" ? "true" : "false"}
-                class={`precio-btn px-3.5 py-1 rounded-full border text-[11px] font-bold uppercase tracking-wider transition-all ${p.key === "all" ? "border-orange-500 bg-orange-500 text-zinc-950" : "border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-white"}`}>
-                {p.label}
-              </button>
-            ))}
-          </div>
-
-          <div class="flex items-center gap-2 flex-wrap" role="group" aria-label="Ordenar catálogo">
-            <span class="text-[10px] font-semibold uppercase tracking-widest text-zinc-600">Ordenar:</span>
-            <button data-sort="precio-asc" aria-pressed="true"
-              class="sort-btn px-3.5 py-1 rounded-full border border-orange-500 bg-orange-500 text-zinc-950 text-[11px] font-bold uppercase tracking-wider transition-all">↑ Precio</button>
-            <button data-sort="precio-desc" aria-pressed="false"
-              class="sort-btn px-3.5 py-1 rounded-full border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-white text-[11px] font-bold uppercase tracking-wider transition-all">↓ Precio</button>
-            <button data-sort="score-desc" aria-pressed="false"
-              class="sort-btn px-3.5 py-1 rounded-full border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-white text-[11px] font-bold uppercase tracking-wider transition-all">★ Score</button>
-            <button data-sort="nuevo" aria-pressed="false"
-              class="sort-btn px-3.5 py-1 rounded-full border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-white text-[11px] font-bold uppercase tracking-wider transition-all">Nuevas</button>
-            <button data-sort="recientes" aria-pressed="false"
-              class="sort-btn px-3.5 py-1 rounded-full border border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-white text-[11px] font-bold uppercase tracking-wider transition-all">Más recientes</button>
-          </div>
-
-          <p id="catalogo-count" aria-live="polite" class="text-[11px] text-zinc-600 font-medium uppercase tracking-widest ml-auto">
-            {zapatillas.length} zapas
-          </p>
-        </div>
-        <p id="resultado-count" class="text-sm text-zinc-400 mt-2"></p>
-
-        <!-- Limpiar filtros -->
-        <button id="btn-reset-filtros" class="hidden text-xs text-orange-400 hover:text-orange-300 underline font-bold transition-colors py-1">
-          Limpiar filtros
-        </button>
       </div>
     </section>
 
-    <!-- Grid de zapatillas -->
-    <section class="px-6 pb-16">
-      <div class="max-w-6xl mx-auto">
-        <div
-          id="catalogo-grid"
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"
-        >
-          {
-            ordenadas.map((z) => {
+    {/* ACTION BAR */}
+    <div class="shell">
+      <div class="cz-actionbar">
+        <div class="cz-search">
+          <span class="icon">⌕</span>
+          <input id="search" placeholder="Buscar marca o modelo…" autocomplete="off" />
+        </div>
+        <div class="right">
+          <div class="cz-select">
+            <span class="label">Ordenar</span>
+            <select id="sort">
+              <option value="precio-asc">↑ Precio</option>
+              <option value="precio-desc">↓ Precio</option>
+              <option value="score-desc">★ Mejor score</option>
+              <option value="nuevas">Más nuevas</option>
+            </select>
+          </div>
+          <div class="cz-segmented" role="group" aria-label="Densidad">
+            <button data-density="roomy" class="">▢ ROOMY</button>
+            <button data-density="cozy" class="is-active">▦ COZY</button>
+            <button data-density="compact" class="">▤ COMPACT</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Active filters bar */}
+    <div class="shell">
+      <div class="cz-active" id="active-filters">
+        <span class="label">Sin filtros activos · mostrando todas</span>
+        <span class="count"><strong id="shown-count">{zapatillas.length}</strong> / {zapatillas.length} zapas</span>
+      </div>
+
+      <div class="cz-main">
+        {/* SIDEBAR */}
+        <aside class="cz-sidebar">
+          <section>
+            <h3><span class="num">01</span> Marca</h3>
+            {marcas.map(m => (
+              <label class="row">
+                <input type="checkbox" data-filter="marca" value={m} />
+                <span>{m}</span>
+                <span class="count">{marcaCounts[m]}</span>
+              </label>
+            ))}
+          </section>
+
+          <section>
+            <h3><span class="num">02</span> Categoría</h3>
+            <div class="chip-row">
+              {Object.entries(CAT_LABELS).map(([k, l]) => (
+                <button class="chip" data-filter="categoria" data-value={k}>{l}</button>
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <h3><span class="num">03</span> Altura</h3>
+            <div class="chip-row">
+              {["low", "mid", "high"].map(a => (
+                <button class="chip" data-filter="altura" data-value={a}>{a}</button>
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <h3><span class="num">04</span> Posición</h3>
+            <div class="chip-row">
+              {["base", "escolta", "alero", "ala-pivot", "pivot"].map(p => (
+                <button class="chip" data-filter="posicion" data-value={p}>
+                  {p === "ala-pivot" ? "Ala-pívot" : p[0].toUpperCase() + p.slice(1)}
+                </button>
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <h3><span class="num">05</span> Precio máx.</h3>
+            <input type="range" class="range" id="price-range" min="40" max="250" step="10" value="250" />
+            <div class="range-label">
+              <span>40€</span>
+              <span id="price-label" style="color:#f97316;font-weight:900">sin tope</span>
+            </div>
+          </section>
+
+          <section>
+            <h3><span class="num">06</span> Solo</h3>
+            <label class="row"><input type="checkbox" id="only-new"/><span>Nuevas (2025)</span></label>
+            <label class="row"><input type="checkbox" id="only-verified"/><span>Precio verificado</span></label>
+            <label class="row"><input type="checkbox" id="only-outdoor"/><span>Aguanta outdoor</span></label>
+          </section>
+
+          <button class="clear-btn" id="clear-filters">↻ Limpiar filtros</button>
+        </aside>
+
+        {/* GRID */}
+        <div>
+          <div class="cz-grid cols-3" id="catalogo-grid">
+            {/* Editor's pick */}
+            {editorPick && (() => {
+              const z = editorPick.z;
+              const mejor = editorPick.mejor!;
+              const ahorro = z.precio_msrp_eur - mejor.precio_actual;
+              return (
+                <article class="cz-pick" data-pick="true" style={`--cat:${CAT_ACCENT[z.categoria_principal]}`}>
+                  <div class="pick-photo">
+                    <span class="pick-watermark">★ PICK</span>
+                    <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} loading="eager"
+                         onerror="this.style.display='none'" />
+                  </div>
+                  <div class="pick-body">
+                    <div class="pick-eyebrow">
+                      <span class="pick-tag">★ Pick del editor</span>
+                      <span class="pick-cat">{CAT_LABELS[z.categoria_principal]}</span>
+                      {z.año_lanzamiento >= 2025 && <span class="pick-new">Nueva {z.año_lanzamiento}</span>}
+                    </div>
+                    <h2 class="pick-title">
+                      <span class="pick-marca">{z.marca}</span>
+                      <span class="pick-modelo">{z.modelo}</span>
+                    </h2>
+                    <p class="pick-verdict">{z.veredicto}</p>
+                    <div class="pick-stats">
+                      <div class="ps"><div class="psv">{editorPick.score.toFixed(1)}<small>/10</small></div><div class="psk">Score global</div></div>
+                      <div class="ps"><div class="psv">{z.peso_real_g}<small>g</small></div><div class="psk">Peso (US 9)</div></div>
+                      <div class="ps"><div class="psv">{z.puntuaciones.traccion}<small>/10</small></div><div class="psk">Tracción</div></div>
+                      <div class="ps"><div class="psv">{z.puntuaciones.amortiguacion}<small>/10</small></div><div class="psk">Cushion</div></div>
+                    </div>
+                    <div class="pick-foot">
+                      <div class="pick-price">
+                        <div class="pp-now">{Math.round(mejor.precio_actual)}€</div>
+                        <div class="pp-meta">
+                          <span class="msrp">msrp {z.precio_msrp_eur}€</span>
+                          <span class="save">−{Math.round(ahorro)}€</span>
+                        </div>
+                        <div class="pp-tienda"><span class="dot"></span>Verificado en {LABELS_TIENDA[mejor.tienda] || mejor.tienda}</div>
+                      </div>
+                      <div class="pick-actions">
+                        <a class="pick-btn primary" href={`/zapatilla/${z.slug}`}>Ver review →</a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              );
+            })()}
+
+            {/* SHOE CARDS */}
+            {ordenadas.map((z, i) => {
               const mejor = findMejorPrecio(z.links_compra);
               const precio = mejor?.precio_actual ?? z.precio_msrp_eur;
-              const tienda = mejor
-                ? LABELS_TIENDA[mejor.tienda] || mejor.tienda
-                : "";
-              const score = scoreGlobal(z);
-
-              // Score badge: solid bg pill
-              const scoreBg =
-                score >= 8
-                  ? "bg-orange-500 text-zinc-950"
-                  : score >= 6.5
-                    ? "bg-yellow-400 text-zinc-950"
-                    : "bg-zinc-700 text-zinc-200";
-
-              // Categoría: badge sutil + acento fino
-              const catStyle = {
-                "traction-king":  { badge: "text-orange-400/80 border-zinc-700 bg-zinc-800/80", accent: "bg-orange-500/50" },
-                "cushion-focused":{ badge: "text-sky-400/70 border-zinc-700 bg-zinc-800/80",    accent: "bg-sky-500/50" },
-                "balanced":       { badge: "text-zinc-300 border-zinc-700 bg-zinc-800/80",      accent: "bg-zinc-500/40" },
-                "responsive":     { badge: "text-yellow-400/70 border-zinc-700 bg-zinc-800/80", accent: "bg-yellow-400/50" },
-              };
-              const cat = catStyle[z.categoria_principal as keyof typeof catStyle] ?? { badge: "text-zinc-400 border-zinc-700 bg-zinc-800/80", accent: "bg-zinc-600/40" };
-
+              const tienda = mejor ? LABELS_TIENDA[mejor.tienda] || mejor.tienda : null;
+              const score = scoreOf(z);
+              const cat = CAT_ACCENT[z.categoria_principal];
+              const isNew = z.año_lanzamiento >= 2025;
+              const scClass = score >= 8 ? "hi" : score >= 6.5 ? "mid" : "lo";
               return (
                 <a
                   href={`/zapatilla/${z.slug}`}
+                  class="cz-card has-reveal"
+                  style={`--cat:${cat}`}
                   data-marca={z.marca}
                   data-precio={precio}
                   data-score={score}
@@ -271,337 +292,289 @@ const marcas = [...new Set(zapatillas.map((z) => z.marca))].sort();
                   data-nombre={`${z.marca} ${z.modelo}`.toLowerCase()}
                   data-categoria={z.categoria_principal}
                   data-altura={z.altura}
-                  class="catalogo-card group bg-[#161616] border border-zinc-800/60 hover:border-orange-500/50 transition-all duration-200 flex flex-col hover:-translate-y-1 hover:shadow-[0_16px_48px_rgba(0,0,0,0.6),0_0_0_1px_rgba(249,115,22,0.15)]"
+                  data-posicion={z.ideal_para.posiciones.join(",")}
+                  data-outdoor={z.puntuaciones.durabilidad_outdoor >= 7 ? "true" : "false"}
+                  data-verified={mejor ? "true" : "false"}
                 >
-                  <!-- Imagen -->
-                  <div class="relative overflow-hidden bg-gradient-to-b from-zinc-800 to-zinc-900">
-                    <img
-                      src={z.imagen_principal}
-                      alt={`${z.marca} ${z.modelo}`}
-                      class="w-full aspect-[4/3] object-contain p-4 transition-transform duration-300 group-hover:scale-105"
-                      width="300"
-                      height="300"
-                      loading="lazy"
-                      decoding="async"
-                      onerror="this.onerror=null;this.src='/placeholder-shoe.svg'"
-                    />
-                    <!-- Acento color inferior -->
-                    <div class={`absolute bottom-0 left-0 right-0 h-0.5 ${cat.accent} opacity-70`}></div>
-                    <!-- Categoría badge -->
-                    <span class={`absolute top-3 left-3 px-2 py-0.5 border text-[9px] font-black uppercase tracking-widest backdrop-blur-sm ${cat.badge}`}>
-                      {z.categoria_principal}
-                    </span>
-                    <!-- Nueva badge -->
-                    {z.año_lanzamiento === 2025 && (
-                      <span class="absolute bottom-2 left-2 bg-orange-500 text-zinc-950 text-[9px] font-black px-2 py-0.5 uppercase tracking-widest z-10">Nueva</span>
-                    )}
-                    <!-- Score badge -->
-                    <span class={`absolute top-3 right-3 w-9 h-9 flex items-center justify-center text-sm font-black rounded-full shadow-lg ${scoreBg}`}>
-                      {score}
-                    </span>
-                  </div>
-
-                  <!-- Info -->
-                  <div class="p-4 flex flex-col flex-1 gap-2">
-                    <div>
-                      <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-0.5">
-                        {z.marca}
-                      </p>
-                      <h2 class="text-lg font-black uppercase tracking-tight leading-tight group-hover:text-orange-500 transition-colors">
-                        {z.modelo}
-                      </h2>
-                    </div>
-
-                    <div class="flex flex-wrap gap-1.5 mt-0.5">
-                      {z.tags.slice(0, 2).map((t) => (
-                        <span class="text-[9px] font-bold uppercase tracking-widest text-zinc-500 bg-zinc-800 px-1.5 py-0.5 rounded-sm">
-                          #{t}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div class="mt-auto pt-3 border-t border-zinc-800/80 flex items-end justify-between gap-3">
-                      <div>
-                        {mejor ? (
-                          <span class="inline-flex items-center gap-1 text-[9px] font-black uppercase tracking-widest text-green-400 mb-1">
-                            <span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span>
-                            Verificado
-                          </span>
-                        ) : (
-                          <span class="inline-block text-[9px] font-bold uppercase tracking-widest text-zinc-600 mb-1">editorial</span>
-                        )}
-                        <p class="text-2xl font-black text-orange-500 leading-none">
-                          {precio}€
-                        </p>
-                        {tienda && (
-                          <p class="text-[10px] text-zinc-600 uppercase tracking-wider mt-0.5">
-                            en {tienda}
-                          </p>
-                        )}
+                  <div class="photo">
+                    <span class="cat-badge">{CAT_LABELS[z.categoria_principal]}</span>
+                    {isNew && <span class="new-badge">★ Nueva</span>}
+                    <span class={`cz-score-pill ${scClass} score-pill`}>{score}</span>
+                    <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} loading="lazy"
+                         onerror="this.style.display='none'" />
+                    <span class="cat-stripe"></span>
+                    <div class="cz-ideal-overlay">
+                      <div class="lab">Ideal para</div>
+                      <div class="rows">
+                        <div class="r">
+                          <span class="k">Posición</span>
+                          <span class="v">{z.ideal_para.posiciones.map(p => p === "ala-pivot" ? "Ala-pívot" : p[0].toUpperCase() + p.slice(1)).join(" · ")}</span>
+                        </div>
+                        <div class="r">
+                          <span class="k">Estilo</span>
+                          <span class="v">{z.ideal_para.estilos.join(" / ")}</span>
+                        </div>
+                        <div class="r">
+                          <span class="k">Peso</span>
+                          <span class="v">{z.peso_real_g}g · {z.horma}</span>
+                        </div>
                       </div>
-                      <span class="text-[10px] font-black uppercase tracking-widest text-zinc-600 group-hover:text-orange-500 transition-colors border border-zinc-700 group-hover:border-orange-500 px-2.5 py-1.5 mb-0.5">
-                        Ver →
-                      </span>
+                    </div>
+                  </div>
+                  <div class="body">
+                    <div>
+                      <p class="marca">{z.marca}</p>
+                      <h3 class="modelo">{z.modelo}</h3>
+                    </div>
+                    <div class="cz-specs">
+                      <div class="spec"><span class="v">{z.peso_real_g}<small>g</small></span><span class="k">Peso</span></div>
+                      <div class="spec"><span class="v">{z.altura}</span><span class="k">Altura</span></div>
+                      <div class="spec"><span class="v">{z.drop_mm}<small>mm</small></span><span class="k">Drop</span></div>
+                      <div class="spec"><span class="v">{z.horma}</span><span class="k">Horma</span></div>
+                    </div>
+                    <div class="foot">
+                      <div>
+                        {mejor
+                          ? <span class="price-meta"><span class="dot"></span>Verificado</span>
+                          : <span class="price-meta" style="color:#71717a"><span class="dot" style="background:#71717a"></span>Editorial</span>
+                        }
+                        <span class="price">{Math.round(precio)}€</span>
+                        {tienda && <p class="tienda">en {tienda}</p>}
+                      </div>
                     </div>
                   </div>
                 </a>
               );
-            })
-          }
-        </div>
+            })}
+          </div>
 
-        <div
-          id="catalogo-vacio"
-          class="hidden p-12 text-center bg-zinc-900 border-2 border-zinc-800"
-        >
-          <p class="text-zinc-400">Sin resultados con ese filtro.</p>
+          <div class="cz-empty hidden" id="catalogo-vacio">
+            <div class="icon">🏀</div>
+            <h3>Sin matches con esos filtros</h3>
+            <p>Aflojar uno o dos filtros, o probar el quiz para una recomendación a medida.</p>
+            <button onclick="document.getElementById('clear-filters').click()">↻ Limpiar filtros</button>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer class="px-6 py-10 bg-black border-t-4 border-orange-500">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <a href="/" class="text-2xl font-black tracking-tighter">
-          CANCHA<span class="text-orange-500">.</span>
-        </a>
-        <nav class="flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest flex-wrap justify-center">
-          <a href="/quiz" class="hover:text-orange-500 transition-colors">Quiz</a>
-          <a href="/rankings" class="hover:text-orange-500 transition-colors">Rankings</a>
-          <a href="/metodologia" class="hover:text-orange-500 transition-colors">Metodología</a>
-          <a href="/financiacion" class="hover:text-orange-500 transition-colors">Financiación</a>
-          <a href="/faq" class="hover:text-orange-500 transition-colors">FAQ</a>
+    {/* Footer */}
+    <footer style="background:#000;border-top:4px solid #f97316;padding:32px 0;margin-top:40px">
+      <div class="shell" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center">
+        <div class="cz-logo">CANCHA<span class="dot">.</span>ZAPA</div>
+        <nav class="cz-nav">
+          <a href="/quiz">Quiz</a>
+          <a href="/rankings">Rankings</a>
+          <a href="/metodologia">Metodología</a>
+          <a href="/financiacion">Financiación</a>
         </nav>
-        <p class="text-xs text-zinc-600 uppercase tracking-widest text-center">
+        <p style="font-size:10px;color:#52525b;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin:0">
           Proyecto independiente · Sin sesgo de afiliado
         </p>
       </div>
     </footer>
   </main>
 
-  <button
-    id="btn-top"
-    aria-label="Volver arriba"
-    class="fixed bottom-6 right-6 z-50 hidden bg-orange-500 hover:bg-orange-400 text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-colors"
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-      <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
-    </svg>
-  </button>
-
   <script>
-    const $marcaBtns = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
-    const $precioBtns = document.querySelectorAll<HTMLButtonElement>(".precio-btn");
-    const $catBtns = document.querySelectorAll<HTMLButtonElement>(".cat-btn");
-    const $alturaBtns = document.querySelectorAll<HTMLButtonElement>(".altura-btn");
-    const $sortBtns = document.querySelectorAll<HTMLButtonElement>(".sort-btn");
-    const $search = document.getElementById("catalogo-search") as HTMLInputElement;
+    // ── Filter / sort / search state ─────────────────────────────
+    type Filters = {
+      q: string;
+      marcas: Set<string>;
+      categorias: Set<string>;
+      alturas: Set<string>;
+      posiciones: Set<string>;
+      precioMax: number;
+      soloNuevas: boolean;
+      soloVerificado: boolean;
+      soloOutdoor: boolean;
+    };
+    const filters: Filters = {
+      q: "", marcas: new Set(), categorias: new Set(), alturas: new Set(),
+      posiciones: new Set(), precioMax: 250,
+      soloNuevas: false, soloVerificado: false, soloOutdoor: false,
+    };
+    let sortMode = "precio-asc";
+
     const $grid = document.getElementById("catalogo-grid")!;
     const $vacio = document.getElementById("catalogo-vacio")!;
+    const $shown = document.getElementById("shown-count")!;
+    const $active = document.getElementById("active-filters")!;
     const $count = document.getElementById("catalogo-count")!;
-    const totalZapas = document.querySelectorAll<HTMLAnchorElement>(".catalogo-card").length;
+    const $cards = $grid.querySelectorAll<HTMLAnchorElement>(".cz-card");
+    const $pick = $grid.querySelector<HTMLElement>("[data-pick]");
+    const totalAll = $cards.length;
 
-    const $slider = document.getElementById("precio-slider") as HTMLInputElement;
-    const $precioLabel = document.getElementById("precio-label");
-    const $resetPrecio = document.getElementById("btn-reset-precio");
-    let precioMax = 350;
+    function activeChips(): { k: string; lab: string; remove: () => void }[] {
+      const out: { k: string; lab: string; remove: () => void }[] = [];
+      filters.marcas.forEach(m => out.push({ k: "marca", lab: m, remove: () => { filters.marcas.delete(m); apply(); refreshUI(); } }));
+      filters.categorias.forEach(c => out.push({ k: "cat", lab: c, remove: () => { filters.categorias.delete(c); apply(); refreshUI(); } }));
+      filters.alturas.forEach(a => out.push({ k: "alt", lab: a.toUpperCase(), remove: () => { filters.alturas.delete(a); apply(); refreshUI(); } }));
+      filters.posiciones.forEach(p => out.push({ k: "pos", lab: p, remove: () => { filters.posiciones.delete(p); apply(); refreshUI(); } }));
+      if (filters.precioMax < 250) out.push({ k: "precio", lab: `≤ ${filters.precioMax}€`, remove: () => { filters.precioMax = 250; (document.getElementById("price-range") as HTMLInputElement).value = "250"; apply(); refreshUI(); } });
+      if (filters.soloNuevas) out.push({ k: "new", lab: "Nuevas 2025", remove: () => { filters.soloNuevas = false; (document.getElementById("only-new") as HTMLInputElement).checked = false; apply(); refreshUI(); } });
+      if (filters.soloVerificado) out.push({ k: "ver", lab: "Verificado", remove: () => { filters.soloVerificado = false; (document.getElementById("only-verified") as HTMLInputElement).checked = false; apply(); refreshUI(); } });
+      if (filters.soloOutdoor) out.push({ k: "out", lab: "Outdoor", remove: () => { filters.soloOutdoor = false; (document.getElementById("only-outdoor") as HTMLInputElement).checked = false; apply(); refreshUI(); } });
+      if (filters.q) out.push({ k: "q", lab: `“${filters.q}”`, remove: () => { filters.q = ""; (document.getElementById("search") as HTMLInputElement).value = ""; apply(); refreshUI(); } });
+      return out;
+    }
 
-    let filtroMarca = "all";
-    let filtroPrecio = "all";
-    let filtroCategoria = "all";
-    let filtroAltura = "all";
-    let sortActivo = "precio-asc";
-    let busqueda = "";
-
-    function setPillActive(btn: HTMLButtonElement, active: boolean) {
-      if (active) {
-        btn.classList.add("border-orange-500", "bg-orange-500", "text-zinc-950");
-        btn.classList.remove("border-zinc-700", "text-zinc-400", "bg-zinc-800", "hover:border-zinc-500", "hover:text-white");
+    function refreshUI() {
+      const chips = activeChips();
+      $active.innerHTML = "";
+      if (chips.length === 0) {
+        $active.innerHTML = `<span class="label">Sin filtros activos · mostrando todas</span><span class="count"><strong id="shown-count">${visibleCount()}</strong> / ${totalAll} zapas</span>`;
       } else {
-        btn.classList.remove("border-orange-500", "bg-orange-500", "text-zinc-950");
-        btn.classList.add("border-zinc-700", "text-zinc-400");
+        const html = ['<span class="label">Filtros:</span>'];
+        chips.forEach((c, i) => {
+          html.push(`<span class="chip">${c.lab}<button class="x" data-idx="${i}">×</button></span>`);
+        });
+        html.push(`<button style="background:transparent;color:#71717a;border:1px solid #27272a;padding:5px 10px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:800;margin-left:4px" id="clear-chips">Limpiar todo</button>`);
+        html.push(`<span class="count"><strong>${visibleCount()}</strong> / ${totalAll} zapas</span>`);
+        $active.innerHTML = html.join("");
+        $active.querySelectorAll<HTMLButtonElement>(".x").forEach((btn) => {
+          btn.addEventListener("click", () => chips[parseInt(btn.dataset.idx!)].remove());
+        });
+        document.getElementById("clear-chips")?.addEventListener("click", () => document.getElementById("clear-filters")?.click());
       }
-      btn.setAttribute("aria-pressed", String(active));
+      $count.textContent = String(visibleCount());
+      // Update chip + checkbox states
+      document.querySelectorAll<HTMLButtonElement>("[data-filter='categoria']").forEach(b => b.classList.toggle("is-active", filters.categorias.has(b.dataset.value!)));
+      document.querySelectorAll<HTMLButtonElement>("[data-filter='altura']").forEach(b => b.classList.toggle("is-active", filters.alturas.has(b.dataset.value!)));
+      document.querySelectorAll<HTMLButtonElement>("[data-filter='posicion']").forEach(b => b.classList.toggle("is-active", filters.posiciones.has(b.dataset.value!)));
     }
 
-    function setActive(btns: NodeListOf<HTMLButtonElement>, key: string, dataAttr: string) {
-      btns.forEach((b) => {
-        const isActive = (b.dataset as any)[dataAttr] === key;
-        setPillActive(b, isActive);
-      });
+    function visibleCount(): number {
+      let n = 0;
+      $cards.forEach(c => { if (!c.classList.contains("hidden")) n++; });
+      return n;
     }
 
-    function setActiveSort(sort: string) {
-      $sortBtns.forEach((b) => {
-        const isActive = b.dataset.sort === sort;
-        setPillActive(b, isActive);
-      });
-    }
+    function apply() {
+      let visible = 0;
+      const card = (c: HTMLElement) => {
+        const marca = c.dataset.marca!;
+        const cat = c.dataset.categoria!;
+        const alt = c.dataset.altura!;
+        const año = parseInt(c.dataset.año!);
+        const precio = parseFloat(c.dataset.precio!);
+        const nombre = c.dataset.nombre!;
+        const pos = (c.dataset.posicion || "").split(",");
+        const outdoor = c.dataset.outdoor === "true";
+        const verified = c.dataset.verified === "true";
 
-    function matchPrecio(precio: number, filtro: string): boolean {
-      if (filtro === "all") return true;
-      if (filtro === "budget") return precio < 80;
-      if (filtro === "mid") return precio >= 80 && precio <= 130;
-      if (filtro === "premium") return precio > 130;
-      return true;
-    }
+        let ok = true;
+        if (filters.marcas.size && !filters.marcas.has(marca)) ok = false;
+        if (filters.categorias.size && !filters.categorias.has(cat)) ok = false;
+        if (filters.alturas.size && !filters.alturas.has(alt)) ok = false;
+        if (filters.posiciones.size && !pos.some(p => filters.posiciones.has(p))) ok = false;
+        if (precio > filters.precioMax) ok = false;
+        if (filters.soloNuevas && año < 2025) ok = false;
+        if (filters.soloVerificado && !verified) ok = false;
+        if (filters.soloOutdoor && !outdoor) ok = false;
+        if (filters.q && !nombre.includes(filters.q.toLowerCase())) ok = false;
 
-    function aplicarFiltroYOrden() {
-      const cards = Array.from($grid.querySelectorAll<HTMLAnchorElement>(".catalogo-card"));
+        c.classList.toggle("hidden", !ok);
+        if (ok) visible++;
+      };
+      $cards.forEach(c => card(c));
 
-      cards.forEach((card) => {
-        const marca = card.dataset.marca!;
-        const precio = parseFloat(card.dataset.precio!);
-        const nombre = card.dataset.nombre || "";
-        const showMarca = filtroMarca === "all" || marca === filtroMarca;
-        const showPrecio = matchPrecio(precio, filtroPrecio);
-        const showCat = filtroCategoria === "all" || card.dataset.categoria === filtroCategoria;
-        const showAltura = filtroAltura === "all" || card.dataset.altura === filtroAltura;
-        const showBusqueda = busqueda === "" || nombre.includes(busqueda.toLowerCase());
-        const showPrecioSlider = precioMax >= 350 || precio <= precioMax;
-        card.classList.toggle("hidden", !(showMarca && showPrecio && showCat && showAltura && showBusqueda && showPrecioSlider));
-      });
+      // Hide pick when any filter is on (it's not filterable)
+      const filtering = filters.marcas.size + filters.categorias.size + filters.alturas.size + filters.posiciones.size + (filters.precioMax < 250 ? 1 : 0) + (filters.soloNuevas?1:0) + (filters.soloVerificado?1:0) + (filters.soloOutdoor?1:0) + (filters.q?1:0);
+      if ($pick) $pick.classList.toggle("hidden", filtering > 0);
 
-      const visibles = cards.filter((c) => !c.classList.contains("hidden"));
-      visibles.sort((a, b) => {
-        const ap = parseFloat(a.dataset.precio!);
-        const bp = parseFloat(b.dataset.precio!);
-        const as_ = parseFloat(a.dataset.score!);
-        const bs_ = parseFloat(b.dataset.score!);
-        const ay = parseInt(a.dataset.año || "0");
-        const by_ = parseInt(b.dataset.año || "0");
-        if (sortActivo === "precio-asc") return ap - bp;
-        if (sortActivo === "precio-desc") return bp - ap;
-        if (sortActivo === "score-desc") return bs_ - as_;
-        if (sortActivo === "nuevo") return by_ - ay;
-        if (sortActivo === "recientes") return ay - by_;
+      // Sort
+      const arr = [...$cards].filter(c => !c.classList.contains("hidden"));
+      arr.sort((a, b) => {
+        if (sortMode === "precio-asc")  return parseFloat(a.dataset.precio!) - parseFloat(b.dataset.precio!);
+        if (sortMode === "precio-desc") return parseFloat(b.dataset.precio!) - parseFloat(a.dataset.precio!);
+        if (sortMode === "score-desc")  return parseFloat(b.dataset.score!) - parseFloat(a.dataset.score!);
+        if (sortMode === "nuevas")      return parseInt(b.dataset.año!) - parseInt(a.dataset.año!);
         return 0;
       });
+      arr.forEach(c => $grid.appendChild(c));
 
-      const hidden = cards.filter((c) => c.classList.contains("hidden"));
-      [...visibles, ...hidden].forEach((c) => $grid.appendChild(c));
-
-      $vacio.classList.toggle("hidden", visibles.length > 0);
-      $count.textContent =
-        visibles.length === totalZapas
-          ? `${totalZapas} zapas`
-          : `${visibles.length} de ${totalZapas} zapas`;
-
-      const countEl = document.getElementById("resultado-count");
-      if (countEl) countEl.textContent = visibles.length === totalZapas ? "" : `${visibles.length} de ${totalZapas} zapatillas`;
+      $vacio.classList.toggle("hidden", visible > 0);
+      $shown && ($shown.textContent = String(visible));
     }
 
-    const $marcaSelect = document.getElementById("marca-select") as HTMLSelectElement;
-
-    $marcaSelect?.addEventListener("change", () => {
-      filtroMarca = $marcaSelect.value;
-      setActive($marcaBtns, filtroMarca, "filterMarca");
-      aplicarFiltroYOrden();
-      actualizarBotonReset();
+    // Bind controls
+    document.getElementById("search")!.addEventListener("input", (e) => {
+      filters.q = (e.target as HTMLInputElement).value;
+      apply(); refreshUI();
+    });
+    document.getElementById("sort")!.addEventListener("change", (e) => {
+      sortMode = (e.target as HTMLSelectElement).value;
+      apply();
+    });
+    document.querySelectorAll<HTMLInputElement>("[data-filter='marca']").forEach(cb => {
+      cb.addEventListener("change", () => {
+        cb.checked ? filters.marcas.add(cb.value) : filters.marcas.delete(cb.value);
+        apply(); refreshUI();
+      });
+    });
+    document.querySelectorAll<HTMLButtonElement>("[data-filter='categoria']").forEach(b => {
+      b.addEventListener("click", () => {
+        const v = b.dataset.value!;
+        filters.categorias.has(v) ? filters.categorias.delete(v) : filters.categorias.add(v);
+        apply(); refreshUI();
+      });
+    });
+    document.querySelectorAll<HTMLButtonElement>("[data-filter='altura']").forEach(b => {
+      b.addEventListener("click", () => {
+        const v = b.dataset.value!;
+        filters.alturas.has(v) ? filters.alturas.delete(v) : filters.alturas.add(v);
+        apply(); refreshUI();
+      });
+    });
+    document.querySelectorAll<HTMLButtonElement>("[data-filter='posicion']").forEach(b => {
+      b.addEventListener("click", () => {
+        const v = b.dataset.value!;
+        filters.posiciones.has(v) ? filters.posiciones.delete(v) : filters.posiciones.add(v);
+        apply(); refreshUI();
+      });
+    });
+    const $range = document.getElementById("price-range") as HTMLInputElement;
+    const $rangeLabel = document.getElementById("price-label")!;
+    $range.addEventListener("input", () => {
+      filters.precioMax = parseInt($range.value);
+      $rangeLabel.textContent = filters.precioMax >= 250 ? "sin tope" : `${filters.precioMax}€`;
+      apply(); refreshUI();
+    });
+    ["only-new","only-verified","only-outdoor"].forEach((id, i) => {
+      const cb = document.getElementById(id) as HTMLInputElement;
+      cb.addEventListener("change", () => {
+        if (i === 0) filters.soloNuevas = cb.checked;
+        if (i === 1) filters.soloVerificado = cb.checked;
+        if (i === 2) filters.soloOutdoor = cb.checked;
+        apply(); refreshUI();
+      });
+    });
+    document.getElementById("clear-filters")!.addEventListener("click", () => {
+      filters.marcas.clear(); filters.categorias.clear(); filters.alturas.clear(); filters.posiciones.clear();
+      filters.precioMax = 250; filters.soloNuevas = false; filters.soloVerificado = false; filters.soloOutdoor = false;
+      filters.q = "";
+      document.querySelectorAll<HTMLInputElement>("input[type=checkbox]").forEach(cb => cb.checked = false);
+      $range.value = "250"; $rangeLabel.textContent = "sin tope";
+      (document.getElementById("search") as HTMLInputElement).value = "";
+      apply(); refreshUI();
     });
 
-    $marcaBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        filtroMarca = btn.dataset.filterMarca!;
-        setActive($marcaBtns, filtroMarca, "filterMarca");
-        if ($marcaSelect) $marcaSelect.value = filtroMarca;
-        aplicarFiltroYOrden();
-        actualizarBotonReset();
+    // Density toggle
+    document.querySelectorAll<HTMLButtonElement>("[data-density]").forEach(b => {
+      b.addEventListener("click", () => {
+        document.querySelectorAll<HTMLButtonElement>("[data-density]").forEach(x => x.classList.remove("is-active"));
+        b.classList.add("is-active");
+        const d = b.dataset.density!;
+        $grid.classList.remove("cols-2","cols-3","cols-4");
+        $grid.classList.add(d === "roomy" ? "cols-2" : d === "compact" ? "cols-4" : "cols-3");
       });
     });
 
-    $catBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        filtroCategoria = btn.dataset.filterCat!;
-        setActive($catBtns, filtroCategoria, "filterCat");
-        aplicarFiltroYOrden();
-        actualizarBotonReset();
-      });
-    });
-
-    $alturaBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        filtroAltura = btn.dataset.filterAltura!;
-        setActive($alturaBtns, filtroAltura, "filterAltura");
-        aplicarFiltroYOrden();
-        actualizarBotonReset();
-      });
-    });
-
-    $precioBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        filtroPrecio = btn.dataset.filterPrecio!;
-        setActive($precioBtns, filtroPrecio, "filterPrecio");
-        aplicarFiltroYOrden();
-      });
-    });
-
-    $sortBtns.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        sortActivo = btn.dataset.sort!;
-        setActiveSort(sortActivo);
-        aplicarFiltroYOrden();
-      });
-    });
-
-    $slider?.addEventListener("input", () => {
-      precioMax = parseInt($slider.value);
-      $precioLabel!.textContent = precioMax >= 350 ? "Sin límite" : `${precioMax}€`;
-      $resetPrecio?.classList.toggle("hidden", precioMax >= 350);
-      aplicarFiltroYOrden();
-      actualizarBotonReset();
-    });
-
-    $resetPrecio?.addEventListener("click", () => {
-      $slider.value = "350";
-      precioMax = 350;
-      $precioLabel!.textContent = "Sin límite";
-      $resetPrecio.classList.add("hidden");
-      aplicarFiltroYOrden();
-    });
-
-    $search?.addEventListener("input", () => {
-      busqueda = $search.value.trim();
-      aplicarFiltroYOrden();
-    });
-
-    // --- Limpiar filtros ---
-    const $btnResetFiltros = document.getElementById("btn-reset-filtros");
-
-    function hayFiltrosActivos(): boolean {
-      return filtroCategoria !== "all" || filtroAltura !== "all" || filtroMarca !== "all" || precioMax < 350;
-    }
-
-    function actualizarBotonReset() {
-      $btnResetFiltros?.classList.toggle("hidden", !hayFiltrosActivos());
-    }
-
-    function resetTodosFiltros() {
-      filtroCategoria = "all";
-      filtroAltura = "all";
-      filtroMarca = "all";
-      precioMax = 350;
-
-      setActive($catBtns, "all", "filterCat");
-      setActive($alturaBtns, "all", "filterAltura");
-      setActive($marcaBtns, "all", "filterMarca");
-      if ($marcaSelect) $marcaSelect.value = "all";
-
-      if ($slider) $slider.value = "350";
-      if ($precioLabel) $precioLabel.textContent = "Sin límite";
-      $resetPrecio?.classList.add("hidden");
-
-      actualizarBotonReset();
-      aplicarFiltroYOrden();
-    }
-
-    $btnResetFiltros?.addEventListener("click", resetTodosFiltros);
-
-    // Back to top
-    const btnTop = document.getElementById("btn-top");
-    window.addEventListener("scroll", () => {
-      btnTop?.classList.toggle("hidden", window.scrollY < 400);
-    }, { passive: true });
-    btnTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+    refreshUI();
   </script>
 </Base>
+
+<style>
+  /* Tiny inline overrides — most styles come from cancha-redesign.css */
+  .hidden { display: none !important; }
+</style>

@@ -1,398 +1,192 @@
 ---
+// /rankings — rankings rediseñado
+// Drop-in replacement for web/src/pages/rankings.astro
+
 import Base from "../layouts/Base.astro";
+import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
+import { findMejorPrecio } from "../lib/scoring";
 
-// Top 8 por amortiguación
-const topCushion = [...zapatillas]
-  .sort((a, b) => b.puntuaciones.amortiguacion - a.puntuaciones.amortiguacion)
-  .slice(0, 8);
-
-// Top 8 por respuesta / court feel
-const topResponsive = [...zapatillas]
-  .sort((a, b) => b.puntuaciones.respuesta - a.puntuaciones.respuesta)
-  .slice(0, 8);
-
-// Top 8 por durabilidad outdoor
-const topOutdoor = [...zapatillas]
-  .sort((a, b) => b.puntuaciones.durabilidad_outdoor - a.puntuaciones.durabilidad_outdoor)
-  .slice(0, 8);
-
-// Mejores sub-80€ (ordenadas por precio ascendente)
-const topBudget = [...zapatillas]
-  .filter((z) => z.precio_msrp_eur <= 80)
-  .sort((a, b) => a.precio_msrp_eur - b.precio_msrp_eur)
-  .slice(0, 8);
-
-// JSON-LD ItemList para top amortiguación
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  name: "Top zapatillas de baloncesto por amortiguación",
-  description:
-    "Las 8 zapatillas de baloncesto con mayor puntuación en amortiguación según Cancha.",
-  numberOfItems: topCushion.length,
-  itemListElement: topCushion.map((z, i) => ({
-    "@type": "ListItem",
-    position: i + 1,
-    name: `${z.marca} ${z.modelo}`,
-    url: `https://web-puce-chi-60.vercel.app/zapatilla/${z.slug}`,
-  })),
+const CAT_LABELS: Record<string, string> = {
+  "cushion-focused": "Cushion", "responsive": "Reactiva",
+  "balanced": "Equilibrada", "traction-king": "Tracción",
 };
+const CAT_ACCENT: Record<string, string> = {
+  "cushion-focused": "#38bdf8", "responsive": "#facc15",
+  "balanced": "#d4d4d8", "traction-king": "#fb923c",
+};
+
+const scoreOf = (z: typeof zapatillas[0]): number => {
+  const v = Object.values(z.puntuaciones);
+  return Math.round((v.reduce((a, b) => a + b, 0) / v.length) * 10) / 10;
+};
+
+// 7 ranking categories. The page renders all 7, hidden by JS toggle.
+const RANKINGS = [
+  { id: "global",    label: "Mejor global",    key: null,                    blurb: "Score medio más alto: las que hacen todo bien." },
+  { id: "traccion",  label: "Mejor tracción",  key: "traccion" as const,     blurb: "El grip que necesitas en pista exterior." },
+  { id: "cushion",   label: "Más cushion",     key: "amortiguacion" as const,blurb: "Para rodillas, tobillos y jugadores >85kg." },
+  { id: "respuesta", label: "Más reactivas",   key: "respuesta" as const,    blurb: "Court feel premium. Para guardias rápidos." },
+  { id: "outdoor",   label: "Outdoor",         key: "durabilidad_outdoor" as const, blurb: "Aguantan asfalto sin gastarse." },
+  { id: "ligera",    label: "Más ligeras",     key: "peso_score" as const,   blurb: "Menos de 350g. Vuelas." },
+];
+
+function sortBy(key: keyof typeof zapatillas[0]["puntuaciones"] | null) {
+  const arr = [...zapatillas];
+  if (key) return arr.sort((a, b) => b.puntuaciones[key] - a.puntuaciones[key]);
+  return arr.sort((a, b) => scoreOf(b) - scoreOf(a));
+}
 ---
 
-<Base
-  title="Rankings · Cancha"
-  description="Los mejores rankings de zapatillas de baloncesto: top amortiguación, respuesta, outdoor y las mejores opciones por menos de 80€."
->
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify(jsonLd)}
-  />
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://cancha.shoes/"},
-        {"@type": "ListItem", "position": 2, "name": "Rankings", "item": "https://cancha.shoes/rankings"}
-      ]
-    })}
-  />
+<Base title="Rankings · Las mejores zapatillas de baloncesto | CANCHA"
+      description="Top 10 zapatillas por categoría: cushion, tracción, reactividad, outdoor. Ordenado por puntuación técnica real.">
+  <main class="app">
+    <div class="cz-courtbg"><img src="/bg-court.svg" alt="" /><div></div></div>
 
-  <main class="min-h-screen text-white">
-    <!-- Header -->
-    <header
-      class="px-6 py-5 border-b border-zinc-800/60 bg-[#0c0c0c]/80 backdrop-blur-sm sticky top-0 z-50"
-    >
-      <div class="max-w-6xl mx-auto flex items-center justify-between">
-        <a href="/" class="text-2xl font-black tracking-tighter">
-          CANCHA<span class="text-orange-500">.</span>
-        </a>
-        <nav
-          class="hidden sm:flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest"
-        >
-          <a href="/zapatillas" class="hover:text-orange-500 transition-colors"
-            >Catálogo</a
-          >
-          <a href="/metodologia" class="hover:text-orange-500 transition-colors"
-            >Método</a
-          >
-          <a href="/financiacion" class="hover:text-orange-500 transition-colors"
-            >$ Financiación</a
-          >
-          <a href="/faq" class="hover:text-orange-500 transition-colors">FAQ</a>
+    <div class="cz-strip"></div>
+    <header class="cz-header">
+      <div class="shell cz-header-inner">
+        <a href="/" class="cz-logo">CANCHA<span class="dot">.</span>ZAPA</a>
+        <nav class="cz-nav">
+          <a href="/zapatillas">Catálogo</a>
+          <a href="/quiz">Quiz</a>
+          <a href="/rankings" class="active">Rankings</a>
+          <a href="/metodologia">Método</a>
         </nav>
       </div>
     </header>
 
-    <!-- Hero -->
-    <section class="px-6 pt-16 pb-10 border-b border-zinc-800/40">
-      <div class="max-w-6xl mx-auto">
-        <p class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4">
-          ★ Rankings
-        </p>
-        <h1
-          class="text-4xl md:text-6xl font-black tracking-tighter uppercase leading-[0.95] mb-4"
-        >
-          Las mejores<br />
-          <span class="text-orange-500">zapatillas</span><br />
-          por categoría
-        </h1>
-        <p class="text-zinc-400 text-lg max-w-xl leading-relaxed">
-          Rankings calculados a partir de puntuaciones objetivas. Sin opinión
-          de marca, sin afiliados que distorsionen el orden.
-        </p>
+    {/* Hero — title changes per active ranking */}
+    <section class="rk-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Rankings · Top 10</p>
+        <h1 class="rk-h1">Las mejores<br/><span class="rk-h1-cat" id="rk-title">mejor global</span></h1>
+        <p class="rk-blurb" id="rk-blurb">{RANKINGS[0].blurb}</p>
       </div>
     </section>
 
-    <!-- Rankings -->
-    <div class="px-6 py-16">
-      <div class="max-w-6xl mx-auto space-y-20">
-
-        <!-- 1. Top Amortiguación -->
-        <section>
-          <div class="flex items-baseline gap-3 mb-8">
-            <span class="text-3xl">🛡️</span>
-            <div>
-              <h2
-                class="text-2xl md:text-3xl font-black uppercase tracking-tighter"
-              >
-                Top <span class="text-orange-500">amortiguación</span>
-              </h2>
-              <p class="text-zinc-500 text-sm mt-1">
-                Máxima protección de impactos. Ideal para pivots y jugadores con problemas de rodillas.
-              </p>
-            </div>
-          </div>
-
-          <ol class="space-y-3">
-            {
-              topCushion.map((z, i) => (
-                <li class="group">
-                  <a
-                    href={`/zapatilla/${z.slug}`}
-                    class="flex items-center gap-4 bg-zinc-900 border border-zinc-800 hover:border-orange-500/50 transition-colors p-4"
-                  >
-                    <!-- Rank -->
-                    <span
-                      class={`text-2xl font-black tracking-tighter w-8 shrink-0 ${i === 0 ? "text-orange-500" : i === 1 ? "text-zinc-300" : i === 2 ? "text-yellow-600" : "text-zinc-600"}`}
-                    >
-                      {i + 1}
-                    </span>
-
-                    <!-- Imagen -->
-                    <img
-                      src={z.imagen_principal}
-                      alt={`${z.marca} ${z.modelo}`}
-                      width="48"
-                      height="48"
-                      class="w-12 h-12 object-contain shrink-0"
-                      loading="lazy"
-                    />
-
-                    <!-- Info -->
-                    <div class="flex-1 min-w-0">
-                      <p class="text-xs font-bold uppercase tracking-widest text-zinc-500">
-                        {z.marca}
-                      </p>
-                      <p class="font-black tracking-tight truncate">{z.modelo}</p>
-                    </div>
-
-                    <!-- Score badge -->
-                    <div class="shrink-0 text-right">
-                      <span class="inline-block bg-orange-500 text-black text-xs font-black px-2 py-1 tracking-widest">
-                        {z.puntuaciones.amortiguacion}/10
-                      </span>
-                    </div>
-
-                    <!-- CTA -->
-                    <span class="text-zinc-600 group-hover:text-orange-500 transition-colors font-black text-sm shrink-0">
-                      Ver →
-                    </span>
-                  </a>
-                </li>
-              ))
-            }
-          </ol>
-        </section>
-
-        <!-- 2. Top Respuesta -->
-        <section>
-          <div class="flex items-baseline gap-3 mb-8">
-            <span class="text-3xl">⚡</span>
-            <div>
-              <h2
-                class="text-2xl md:text-3xl font-black uppercase tracking-tighter"
-              >
-                Top <span class="text-orange-500">respuesta</span>
-              </h2>
-              <p class="text-zinc-500 text-sm mt-1">
-                Máximo court feel y reactividad. Para bases y escoltas explosivos.
-              </p>
-            </div>
-          </div>
-
-          <ol class="space-y-3">
-            {
-              topResponsive.map((z, i) => (
-                <li class="group">
-                  <a
-                    href={`/zapatilla/${z.slug}`}
-                    class="flex items-center gap-4 bg-zinc-900 border border-zinc-800 hover:border-orange-500/50 transition-colors p-4"
-                  >
-                    <span
-                      class={`text-2xl font-black tracking-tighter w-8 shrink-0 ${i === 0 ? "text-orange-500" : i === 1 ? "text-zinc-300" : i === 2 ? "text-yellow-600" : "text-zinc-600"}`}
-                    >
-                      {i + 1}
-                    </span>
-                    <img
-                      src={z.imagen_principal}
-                      alt={`${z.marca} ${z.modelo}`}
-                      width="48"
-                      height="48"
-                      class="w-12 h-12 object-contain shrink-0"
-                      loading="lazy"
-                    />
-                    <div class="flex-1 min-w-0">
-                      <p class="text-xs font-bold uppercase tracking-widest text-zinc-500">
-                        {z.marca}
-                      </p>
-                      <p class="font-black tracking-tight truncate">{z.modelo}</p>
-                    </div>
-                    <div class="shrink-0 text-right">
-                      <span class="inline-block bg-orange-500 text-black text-xs font-black px-2 py-1 tracking-widest">
-                        {z.puntuaciones.respuesta}/10
-                      </span>
-                    </div>
-                    <span class="text-zinc-600 group-hover:text-orange-500 transition-colors font-black text-sm shrink-0">
-                      Ver →
-                    </span>
-                  </a>
-                </li>
-              ))
-            }
-          </ol>
-        </section>
-
-        <!-- 3. Top Outdoor -->
-        <section>
-          <div class="flex items-baseline gap-3 mb-8">
-            <span class="text-3xl">🏀</span>
-            <div>
-              <h2
-                class="text-2xl md:text-3xl font-black uppercase tracking-tighter"
-              >
-                Top <span class="text-orange-500">outdoor</span>
-              </h2>
-              <p class="text-zinc-500 text-sm mt-1">
-                Mayor durabilidad en asfalto y pistas exteriores. Para los que juegan en la calle.
-              </p>
-            </div>
-          </div>
-
-          <ol class="space-y-3">
-            {
-              topOutdoor.map((z, i) => (
-                <li class="group">
-                  <a
-                    href={`/zapatilla/${z.slug}`}
-                    class="flex items-center gap-4 bg-zinc-900 border border-zinc-800 hover:border-orange-500/50 transition-colors p-4"
-                  >
-                    <span
-                      class={`text-2xl font-black tracking-tighter w-8 shrink-0 ${i === 0 ? "text-orange-500" : i === 1 ? "text-zinc-300" : i === 2 ? "text-yellow-600" : "text-zinc-600"}`}
-                    >
-                      {i + 1}
-                    </span>
-                    <img
-                      src={z.imagen_principal}
-                      alt={`${z.marca} ${z.modelo}`}
-                      width="48"
-                      height="48"
-                      class="w-12 h-12 object-contain shrink-0"
-                      loading="lazy"
-                    />
-                    <div class="flex-1 min-w-0">
-                      <p class="text-xs font-bold uppercase tracking-widest text-zinc-500">
-                        {z.marca}
-                      </p>
-                      <p class="font-black tracking-tight truncate">{z.modelo}</p>
-                    </div>
-                    <div class="shrink-0 text-right">
-                      <span class="inline-block bg-orange-500 text-black text-xs font-black px-2 py-1 tracking-widest">
-                        {z.puntuaciones.durabilidad_outdoor}/10
-                      </span>
-                    </div>
-                    <span class="text-zinc-600 group-hover:text-orange-500 transition-colors font-black text-sm shrink-0">
-                      Ver →
-                    </span>
-                  </a>
-                </li>
-              ))
-            }
-          </ol>
-        </section>
-
-        <!-- 4. Mejores sub-80€ -->
-        <section>
-          <div class="flex items-baseline gap-3 mb-8">
-            <span class="text-3xl">💰</span>
-            <div>
-              <h2
-                class="text-2xl md:text-3xl font-black uppercase tracking-tighter"
-              >
-                Mejores <span class="text-orange-500">sub-80€</span>
-              </h2>
-              <p class="text-zinc-500 text-sm mt-1">
-                {topBudget.length > 0
-                  ? `Las ${topBudget.length} opciones más asequibles del catálogo, ordenadas por precio.`
-                  : "De momento no hay zapatillas por debajo de 80€ en el catálogo."}
-              </p>
-            </div>
-          </div>
-
-          {topBudget.length > 0 ? (
-            <ol class="space-y-3">
-              {topBudget.map((z, i) => (
-                <li class="group">
-                  <a
-                    href={`/zapatilla/${z.slug}`}
-                    class="flex items-center gap-4 bg-zinc-900 border border-zinc-800 hover:border-orange-500/50 transition-colors p-4"
-                  >
-                    <span
-                      class={`text-2xl font-black tracking-tighter w-8 shrink-0 ${i === 0 ? "text-orange-500" : i === 1 ? "text-zinc-300" : i === 2 ? "text-yellow-600" : "text-zinc-600"}`}
-                    >
-                      {i + 1}
-                    </span>
-                    <img
-                      src={z.imagen_principal}
-                      alt={`${z.marca} ${z.modelo}`}
-                      width="48"
-                      height="48"
-                      class="w-12 h-12 object-contain shrink-0"
-                      loading="lazy"
-                    />
-                    <div class="flex-1 min-w-0">
-                      <p class="text-xs font-bold uppercase tracking-widest text-zinc-500">
-                        {z.marca}
-                      </p>
-                      <p class="font-black tracking-tight truncate">{z.modelo}</p>
-                    </div>
-                    <div class="shrink-0 text-right">
-                      <span class="inline-block bg-green-600 text-white text-xs font-black px-2 py-1 tracking-widest">
-                        {z.precio_msrp_eur}€
-                      </span>
-                    </div>
-                    <span class="text-zinc-600 group-hover:text-orange-500 transition-colors font-black text-sm shrink-0">
-                      Ver →
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ol>
-          ) : (
-            <div class="bg-zinc-900 border border-zinc-800 p-8 text-center">
-              <p class="text-zinc-500 text-sm">
-                El catálogo crece continuamente. Vuelve pronto.
-              </p>
-            </div>
-          )}
-        </section>
-
+    {/* Tabs */}
+    <nav class="rk-tabs">
+      <div class="shell rk-tabs-inner">
+        {RANKINGS.map((r, i) => (
+          <button class={`rk-tab ${i === 0 ? "is-active" : ""}`} data-rk={r.id}>{r.label}</button>
+        ))}
       </div>
-    </div>
+    </nav>
 
-    <!-- Footer -->
-    <footer class="px-6 py-10 bg-black border-t-4 border-orange-500 mt-16">
-      <div
-        class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4"
-      >
-        <p class="text-2xl font-black tracking-tighter">
-          CANCHA<span class="text-orange-500">.</span>
-        </p>
-        <nav
-          class="flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest flex-wrap justify-center"
-        >
-          <a href="/zapatillas" class="hover:text-orange-500 transition-colors"
-            >Catálogo</a
-          >
-          <a href="/quiz" class="hover:text-orange-500 transition-colors"
-            >Quiz</a
-          >
-          <a href="/metodologia" class="hover:text-orange-500 transition-colors"
-            >Metodología</a
-          >
-          <a href="/financiacion" class="hover:text-orange-500 transition-colors"
-            >Financiación</a
-          >
-          <a href="/faq" class="hover:text-orange-500 transition-colors">FAQ</a>
-        </nav>
-        <p
-          class="text-xs text-zinc-600 uppercase tracking-widest text-center"
-        >
+    {/* Rankings — one block per category, hidden except active */}
+    {RANKINGS.map((r, i) => {
+      const sorted = sortBy(r.key);
+      const [first, second, third, ...rest] = sorted.slice(0, 10);
+      return (
+        <div class={`rk-panel ${i === 0 ? "" : "hidden"}`} data-rk-panel={r.id} data-blurb={r.blurb} data-label={r.label}>
+          <section class="rk-podium">
+            <div class="shell">
+              <div class="rk-podium-grid">
+                {[second, first, third].map((z, idx) => {
+                  if (!z) return null;
+                  const rank = idx === 1 ? 1 : idx === 0 ? 2 : 3;
+                  const isFirst = rank === 1;
+                  const cat = CAT_ACCENT[z.categoria_principal];
+                  const sc = scoreOf(z);
+                  const metric = r.key ? z.puntuaciones[r.key] : sc;
+                  const mp = findMejorPrecio(z.links_compra);
+                  return (
+                    <article class={`rk-pod ${isFirst ? "primary" : ""}`} style={`--cat:${cat}`}>
+                      <div class="rk-pod-rank">
+                        <span class="rkpr-num">{rank}</span>
+                        {isFirst && <span class="rkpr-crown">★ Nº 1</span>}
+                      </div>
+                      <div class="rk-pod-photo">
+                        <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} onerror="this.style.display='none'" />
+                      </div>
+                      <div class="rk-pod-body">
+                        <p class="rk-pod-cat">{CAT_LABELS[z.categoria_principal]}</p>
+                        <p class="rk-pod-marca">{z.marca}</p>
+                        <h2 class="rk-pod-modelo">{z.modelo}</h2>
+                        <div class="rk-pod-metric">
+                          <span class="rkpm-num">{metric}<small>/10</small></span>
+                          <span class="rkpm-lab">{r.label.replace(/^(Mejor |Más )/,"")}</span>
+                        </div>
+                        <div class="rk-pod-foot">
+                          <span class="rk-pod-price">{Math.round(mp?.precio_actual ?? z.precio_msrp_eur)}€</span>
+                          <a href={`/zapatilla/${z.slug}`} class="rk-pod-cta">Ver →</a>
+                        </div>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </div>
+          </section>
+
+          <section class="rk-list">
+            <div class="shell">
+              <div class="rk-list-head">
+                <span>#</span>
+                <span>Zapatilla</span>
+                <span class="hide-sm">Categoría</span>
+                <span>{r.key ? r.label.replace(/^(Mejor |Más )/,"") : "Score"}</span>
+                <span>Precio</span>
+                <span></span>
+              </div>
+              {rest.map((z, i) => {
+                const cat = CAT_ACCENT[z.categoria_principal];
+                const sc = scoreOf(z);
+                const metric = r.key ? z.puntuaciones[r.key] : sc;
+                const mp = findMejorPrecio(z.links_compra);
+                return (
+                  <a href={`/zapatilla/${z.slug}`} class="rk-row" style={`--cat:${cat}`}>
+                    <span class="rk-row-rank">#{i + 4}</span>
+                    <span class="rk-row-shoe">
+                      <span class="rk-row-thumb">
+                        <img src={z.imagen_principal} alt="" onerror="this.style.display='none'" />
+                      </span>
+                      <span class="rk-row-name">
+                        <span class="rkrn-marca">{z.marca}</span>
+                        <span class="rkrn-modelo">{z.modelo}</span>
+                      </span>
+                    </span>
+                    <span class="rk-row-cat hide-sm" style={`color:${cat}`}>{CAT_LABELS[z.categoria_principal]}</span>
+                    <span class="rk-row-metric">{metric}<small>/10</small></span>
+                    <span class="rk-row-price">{Math.round(mp?.precio_actual ?? z.precio_msrp_eur)}€</span>
+                    <span class="rk-row-arrow">→</span>
+                  </a>
+                );
+              })}
+            </div>
+          </section>
+        </div>
+      );
+    })}
+
+    <footer style="background:#000;border-top:4px solid #f97316;padding:32px 0;margin-top:40px">
+      <div class="shell" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center">
+        <div class="cz-logo">CANCHA<span class="dot">.</span>ZAPA</div>
+        <p style="font-size:10px;color:#52525b;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin:0">
           Proyecto independiente · Sin sesgo de afiliado
         </p>
       </div>
     </footer>
   </main>
+
+  <script>
+    const $tabs = document.querySelectorAll<HTMLButtonElement>(".rk-tab");
+    const $panels = document.querySelectorAll<HTMLElement>("[data-rk-panel]");
+    const $title = document.getElementById("rk-title")!;
+    const $blurb = document.getElementById("rk-blurb")!;
+
+    $tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        const id = tab.dataset.rk!;
+        $tabs.forEach(t => t.classList.toggle("is-active", t === tab));
+        $panels.forEach(p => p.classList.toggle("hidden", p.dataset.rkPanel !== id));
+        const panel = document.querySelector<HTMLElement>(`[data-rk-panel="${id}"]`)!;
+        $title.textContent = panel.dataset.label!.toLowerCase();
+        $blurb.textContent = panel.dataset.blurb!;
+      });
+    });
+  </script>
+
+  <style>.hidden { display: none !important; }</style>
 </Base>
