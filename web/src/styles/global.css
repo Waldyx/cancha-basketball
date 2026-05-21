@@ -5,7 +5,6 @@
 @import url("ruta/a/cancha-redesign.css"); /* <-- AJUSTA ESTA RUTA REALMENTE */
 
 /* ── Tipografía global ── */
-
 body {
   font-family: 'Inter', system-ui, sans-serif;
 }
