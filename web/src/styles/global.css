@@ -1,9 +1,12 @@
 @import "tailwindcss";
 
+<<<<<<< HEAD
 /* START: CANCHA.ZAPA REDESIGN OVERRIDES (IMPORTANT) */
 /* IMPORT this entire file for the new design system tokens */
 @import url("ruta/a/cancha-redesign.css"); /* <-- AJUSTA ESTA RUTA REALMENTE */
 /* ── Tipografía global ── */
+=======
+>>>>>>> 28ae0b2fd70c41aaec2000ffc1fbf0398e0250a8
 body {
   font-family: 'Inter', system-ui, sans-serif;
 }
