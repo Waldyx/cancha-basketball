@@ -60,6 +60,7 @@ button { font-family: inherit; cursor: pointer; }
 .cz-logo {
   font-weight: 900; font-size: 22px; letter-spacing: -0.04em; color: #fff;
 }
+.cz-logo .logo { font-weight: 900; }
 .cz-logo .dot { color: #f97316; }
 .cz-nav {
   display: flex; gap: 26px; font-size: 11px; font-weight: 800;
@@ -67,6 +68,28 @@ button { font-family: inherit; cursor: pointer; }
 }
 .cz-nav a:hover { color: #f97316; }
 .cz-nav a.active { color: #fff; }
+@media (max-width: 700px) {
+  .cz-header-inner {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 0;
+  }
+  .cz-logo {
+    flex: 0 0 auto;
+    font-size: 20px;
+  }
+  .cz-nav {
+    order: 2;
+    width: 100%;
+    gap: 18px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .cz-nav::-webkit-scrollbar { display: none; }
+  .cz-nav a { flex: 0 0 auto; }
+}
 .cz-strip {
   height: 5px;
   background: linear-gradient(90deg, #f97316, #facc15, #f97316);

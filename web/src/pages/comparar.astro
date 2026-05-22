@@ -76,7 +76,7 @@ function ringPoints(f: number) {
     <div class="cz-strip"></div>
     <header class="cz-header">
       <div class="shell cz-header-inner">
-        <a href="/" class="cz-logo">CANCHA<span class="dot">.</span>ZAPA</a>
+        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
         <nav class="cz-nav">
           <a href="/zapatillas">Catálogo</a>
           <a href="/quiz">Quiz</a>
@@ -95,7 +95,7 @@ function ringPoints(f: number) {
 
     <section class="cmp-grid-section">
       <div class="shell">
-        <div class="cmp-grid">
+        <div class="cmp-grid" id="cmp-grid">
           {/* Labels column */}
           <div class="cmp-col cmp-col-labels">
             <div class="cmp-cell head">&nbsp;</div>
@@ -181,16 +181,122 @@ function ringPoints(f: number) {
     </footer>
   </main>
 
-  <script define:vars={{ zapatillas: zapatillas.map(z => ({ slug: z.slug, marca: z.marca, modelo: z.modelo, img: z.imagen_principal })), initialSlugs: requested }}>
+  <script define:vars={{ zapatillas, initialSlugs: requested, catLabels: CAT_LABELS, catAccents: CAT_ACCENT, atrLabels: ATR_LABELS, radarKeys: RADAR_KEYS }}>
     // Slot picker — click on a photo to swap that slot.
-    let current = [...initialSlugs];
-    const photos = document.querySelectorAll(".cmp-photo");
-    photos.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const slot = parseInt(btn.dataset.slot);
-        showPicker(slot);
+    const defaultSlugs = [...initialSlugs];
+    const grid = document.getElementById("cmp-grid");
+    let current = getSlugsFromUrl();
+
+    function getSlugsFromUrl() {
+      const params = new URLSearchParams(location.search);
+      const slugs = (params.get("slugs") || "").split(",").map(s => s.trim()).filter(Boolean);
+      const valid = slugs.filter(slug => zapatillas.some(z => z.slug === slug));
+      return valid.length ? valid.slice(0, 3) : defaultSlugs;
+    }
+
+    function bindPhotos() {
+      document.querySelectorAll(".cmp-photo").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const slot = parseInt(btn.dataset.slot);
+          showPicker(slot);
+        });
       });
-    });
+    }
+
+    function esc(value) {
+      return String(value ?? "").replace(/[&<>"']/g, ch => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+      }[ch]));
+    }
+
+    function scoreOf(z) {
+      const values = Object.values(z.puntuaciones);
+      return Math.round((values.reduce((a, b) => a + b, 0) / values.length) * 10) / 10;
+    }
+
+    function ringPoints(f) {
+      const size = 120;
+      return radarKeys.map((_, i) => {
+        const a = (i / radarKeys.length) * Math.PI * 2 - Math.PI / 2;
+        const r = f * (size / 2 - 6);
+        return `${size / 2 + Math.cos(a) * r},${size / 2 + Math.sin(a) * r}`;
+      }).join(" ");
+    }
+
+    function radarPoints(z) {
+      const size = 120;
+      return radarKeys.map((key, i) => {
+        const a = (i / radarKeys.length) * Math.PI * 2 - Math.PI / 2;
+        const r = (z.puntuaciones[key] / 10) * (size / 2 - 6);
+        return `${size / 2 + Math.cos(a) * r},${size / 2 + Math.sin(a) * r}`;
+      }).join(" ");
+    }
+
+    function selectedShoes() {
+      return current.map(slug => zapatillas.find(z => z.slug === slug)).filter(Boolean);
+    }
+
+    function winnerFor(shoes, key) {
+      if (shoes.length < 2) return null;
+      let bestIdx = 0;
+      for (let i = 1; i < shoes.length; i++) {
+        if (shoes[i].puntuaciones[key] > shoes[bestIdx].puntuaciones[key]) bestIdx = i;
+      }
+      return bestIdx;
+    }
+
+    function cheapestIdx(shoes) {
+      if (shoes.length < 2) return null;
+      return shoes.reduce((best, z, i) => z.precio_msrp_eur < shoes[best].precio_msrp_eur ? i : best, 0);
+    }
+
+    function renderCompare() {
+      const shoes = selectedShoes();
+      if (!grid || !shoes.length) return;
+      grid.querySelectorAll(".cmp-col:not(.cmp-col-labels)").forEach(col => col.remove());
+      const cheapest = cheapestIdx(shoes);
+      shoes.forEach((z, idx) => {
+        const cat = catAccents[z.categoria_principal] || "#f97316";
+        const col = document.createElement("div");
+        col.className = "cmp-col";
+        col.style.setProperty("--cat", cat);
+        col.innerHTML = `
+          <div class="cmp-cell head">
+            <button class="cmp-photo" data-slot="${idx}">
+              <img src="${esc(z.imagen_principal)}" alt="${esc(z.modelo)}" onerror="this.style.display='none'" />
+              <span class="cmp-photo-overlay">cambiar ↺</span>
+            </button>
+          </div>
+          <div class="cmp-cell"><p class="cmp-marca">${esc(z.marca)}</p><h3 class="cmp-modelo">${esc(z.modelo)}</h3></div>
+          <div class="cmp-cell"><span class="cmp-cat" style="color:${cat}">${esc(catLabels[z.categoria_principal] || z.categoria_principal)}</span></div>
+          <div class="cmp-cell"><span class="cmp-score-big">${scoreOf(z)}<small>/10</small></span></div>
+          <div class="cmp-cell radar">
+            <div class="cmp-radar-wrap">
+              <svg viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
+                ${[0.33, 0.66, 1].map(f => `<polygon points="${ringPoints(f)}" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1" />`).join("")}
+                <polygon points="${radarPoints(z)}" fill="${cat}" fill-opacity="0.18" stroke="${cat}" stroke-width="1.5" />
+              </svg>
+            </div>
+          </div>
+          ${Object.keys(atrLabels).map(k => {
+            const winner = winnerFor(shoes, k);
+            return `<div class="cmp-cell metric ${winner === idx ? "winner" : ""}"><span class="cmp-val">${z.puntuaciones[k]}<small>/10</small></span>${winner === idx ? '<span class="cmp-win-tag">Mejor</span>' : ''}</div>`;
+          }).join("")}
+          <div class="cmp-cell"><span class="cmp-val">${z.peso_real_g}<small>g</small></span></div>
+          <div class="cmp-cell"><span class="cmp-val capz">${esc(z.altura)}</span></div>
+          <div class="cmp-cell"><span class="cmp-val">${z.drop_mm}<small>mm</small></span></div>
+          <div class="cmp-cell"><span class="cmp-val capz">${esc(z.horma)}</span></div>
+          <div class="cmp-cell ideal">${z.ideal_para.posiciones.map(p => esc(p.replace(/-/g, " "))).join(", ")}</div>
+          <div class="cmp-cell price-row ${cheapest === idx && shoes.length > 1 ? "winner" : ""}"><span class="cmp-price">${z.precio_msrp_eur}€</span>${cheapest === idx && shoes.length > 1 ? '<span class="cmp-win-tag">Más barata</span>' : ''}</div>
+          <div class="cmp-cell"><a href="/zapatilla/${esc(z.slug)}" class="cmp-cta">Ver review →</a></div>
+        `;
+        grid.appendChild(col);
+      });
+      bindPhotos();
+    }
+
+    bindPhotos();
+    if (current.join(",") !== defaultSlugs.join(",")) renderCompare();
 
     function showPicker(slot) {
       const overlay = document.createElement("div");
@@ -203,7 +309,7 @@ function ringPoints(f: number) {
           <div class="cmp-picker-grid">
             ${remaining.map(z => `
               <button class="cmp-pick-item" data-slug="${z.slug}">
-                <img src="${z.img}" alt="" onerror="this.style.display='none'">
+                <img src="${z.imagen_principal}" alt="" onerror="this.style.display='none'">
                 <span class="cpi-name"><strong>${z.marca}</strong>${z.modelo}</span>
               </button>
             `).join("")}
@@ -216,8 +322,11 @@ function ringPoints(f: number) {
       overlay.querySelectorAll(".cmp-pick-item").forEach(item => {
         item.addEventListener("click", () => {
           current[slot] = item.dataset.slug;
-          // Reload with new slugs
-          location.search = `?slugs=${current.join(",")}`;
+          const params = new URLSearchParams(location.search);
+          params.set("slugs", current.filter(Boolean).join(","));
+          history.replaceState(null, "", `${location.pathname}?${params.toString()}`);
+          overlay.remove();
+          renderCompare();
         });
       });
       document.body.appendChild(overlay);

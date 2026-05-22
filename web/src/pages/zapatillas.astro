@@ -67,7 +67,7 @@ const ordenadas = [...zapatillas].sort(
     <div class="cz-strip"></div>
     <header class="cz-header">
       <div class="shell cz-header-inner">
-        <a href="/" class="cz-logo">CANCHA<span class="dot">.</span>ZAPA</a>
+        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
         <nav class="cz-nav">
           <a href="/zapatillas" class="active">Catálogo</a>
           <a href="/quiz">Quiz</a>
@@ -404,6 +404,38 @@ const ordenadas = [...zapatillas].sort(
     const $pick = $grid.querySelector<HTMLElement>("[data-pick]");
     const totalAll = $cards.length;
 
+    function initFiltersFromUrl() {
+      const params = new URLSearchParams(location.search);
+      const positions = params.getAll("posicion").flatMap(v => v.split(","));
+      positions.forEach(p => {
+        const value = p.trim();
+        if (value) filters.posiciones.add(value);
+      });
+
+      const court = params.get("cancha");
+      if (court === "exterior" || court === "outdoor") {
+        filters.soloOutdoor = true;
+        const outdoor = document.getElementById("only-outdoor") as HTMLInputElement | null;
+        if (outdoor) outdoor.checked = true;
+      }
+
+      const q = params.get("q");
+      if (q) {
+        filters.q = q.toLowerCase();
+        const search = document.getElementById("search") as HTMLInputElement | null;
+        if (search) search.value = q;
+      }
+
+      const marca = params.getAll("marca").flatMap(v => v.split(","));
+      marca.forEach(m => {
+        const value = m.trim();
+        if (value) filters.marcas.add(value);
+      });
+      document.querySelectorAll<HTMLInputElement>("[data-filter='marca']").forEach(cb => {
+        cb.checked = filters.marcas.has(cb.value);
+      });
+    }
+
     function activeChips(): { k: string; lab: string; remove: () => void }[] {
       const out: { k: string; lab: string; remove: () => void }[] = [];
       filters.marcas.forEach(m => out.push({ k: "marca", lab: m, remove: () => { filters.marcas.delete(m); apply(); refreshUI(); } }));
@@ -570,6 +602,8 @@ const ordenadas = [...zapatillas].sort(
       });
     });
 
+    initFiltersFromUrl();
+    apply();
     refreshUI();
   </script>
 </Base>

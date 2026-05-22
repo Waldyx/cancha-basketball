@@ -84,5 +84,24 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
     <div class="relative z-10">
       <slot />
     </div>
+    <script>
+      const hideBrokenImages = () => {
+        document.querySelectorAll("img").forEach((img) => {
+          const hide = () => {
+            if (img.closest(".cz-courtbg") || img.getAttribute("role") === "presentation") return;
+            img.style.display = "none";
+          };
+          img.addEventListener("error", hide, { once: true });
+          window.setTimeout(() => {
+            if (img.naturalWidth === 0) hide();
+          }, 1800);
+        });
+      };
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", hideBrokenImages, { once: true });
+      } else {
+        hideBrokenImages();
+      }
+    </script>
   </body>
 </html>

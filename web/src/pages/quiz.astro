@@ -20,7 +20,7 @@ import "../styles/cancha-redesign.css";
     <div class="cz-strip"></div>
     <header class="cz-header">
       <div class="shell cz-header-inner">
-        <a href="/" class="cz-logo">CANCHA<span class="dot">.</span>ZAPA</a>
+        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
         <nav class="cz-nav">
           <a href="/zapatillas">Catálogo</a>
           <a href="/rankings">Rankings</a>
@@ -318,7 +318,6 @@ import "../styles/cancha-redesign.css";
     const TOTAL = 10;
     let current = 1;
     const answers: Record<string, any> = { lesiones: [] };
-    const lesionFields = ["rodillas", "tobillos", "planta", "ninguna"];
 
     const $back = document.getElementById("back-btn") as HTMLButtonElement;
     const $next = document.getElementById("next-btn") as HTMLButtonElement;
@@ -328,10 +327,13 @@ import "../styles/cancha-redesign.css";
     const $fill = document.getElementById("step-fill") as HTMLElement;
     const $steps = document.querySelectorAll<HTMLElement>(".quiz-step");
     const $dots = document.querySelectorAll<HTMLElement>(".qp-dot");
+    let advanceTimer: number | undefined;
 
     function show(step: number, dir: 1 | -1 = 1) {
+      window.clearTimeout(advanceTimer);
+      current = Math.min(Math.max(step, 1), TOTAL);
       $steps.forEach(s => {
-        if (parseInt(s.dataset.step!) === step) {
+        if (parseInt(s.dataset.step!) === current) {
           s.classList.remove("hidden", "out-left", "out-right");
           s.classList.add("in");
         } else {
@@ -339,16 +341,16 @@ import "../styles/cancha-redesign.css";
           s.classList.remove("in", "out-left", "out-right");
         }
       });
-      $stepNum.textContent = String(step);
-      const pct = Math.round((step / TOTAL) * 100);
+      $stepNum.textContent = String(current);
+      const pct = Math.round((current / TOTAL) * 100);
       $stepPct.textContent = `${pct}%`;
       $fill.style.width = `${pct}%`;
       $dots.forEach((d, i) => {
         d.classList.remove("done", "current");
-        if (i + 1 < step) d.classList.add("done");
-        if (i + 1 === step) d.classList.add("current");
+        if (i + 1 < current) d.classList.add("done");
+        if (i + 1 === current) d.classList.add("current");
       });
-      $back.disabled = step === 1;
+      $back.disabled = current === 1;
       refreshNext();
     }
 
@@ -365,27 +367,48 @@ import "../styles/cancha-redesign.css";
         const field = btn.dataset.field!;
         const value = btn.dataset.value!;
         // Multi-select para lesiones
-        if (lesionFields.includes(field)) {
-          answers[field] = lesionFields.filter(f => f !== value).map(f => ({ field, value: f }));
-          document.querySelectorAll<HTMLButtonElement>(`[data-field="${field}"]`).forEach(b => {
-            if (b !== btn) b.classList.toggle("is-selected", false);
-          });
-          btn.classList.toggle("is-selected", true);
+        if (field === "lesiones") {
+          if (value === "ninguna") {
+            answers[field] = ["ninguna"];
+            document.querySelectorAll<HTMLButtonElement>(`[data-field="${field}"]`).forEach(b => {
+              b.classList.toggle("is-selected", b === btn);
+            });
+          } else {
+            const next = new Set((answers[field] || []).filter((v: string) => v !== "ninguna"));
+            next.has(value) ? next.delete(value) : next.add(value);
+            answers[field] = [...next];
+            document.querySelectorAll<HTMLButtonElement>(`[data-field="${field}"]`).forEach(b => {
+              const v = b.dataset.value!;
+              b.classList.toggle("is-selected", next.has(v));
+            });
+          }
         } else {
           answers[field] = value;
           document.querySelectorAll<HTMLButtonElement>(`[data-field="${field}"]`).forEach(b => b.classList.toggle("is-selected", b === btn));
         }
         refreshNext();
-        if (current < TOTAL) {
-          setTimeout(() => { current++; show(current); }, 280);
+        if (current < TOTAL && field !== "lesiones") {
+          const nextStep = current + 1;
+          advanceTimer = window.setTimeout(() => show(nextStep), 180);
         }
       });
     });
 
-    $back.addEventListener("click", () => { if (current > 1) { current--; show(current, -1); } });
+    $back.addEventListener("click", () => { if (current > 1) show(current - 1, -1); });
     $next.addEventListener("click", () => {
-      if (current < TOTAL) { current++; show(current); }
-      else { location.href = "/resultados?" + new URLSearchParams(answers).toString(); }
+      if ($next.disabled) return;
+      if (current < TOTAL) show(current + 1);
+      else {
+        const params = new URLSearchParams();
+        Object.entries(answers).forEach(([key, value]) => {
+          if (Array.isArray(value)) {
+            value.forEach(v => params.append(key, String(v)));
+          } else if (value !== undefined && value !== null) {
+            params.set(key, String(value));
+          }
+        });
+        location.href = "/resultados?" + params.toString();
+      }
     });
 
     show(1);
