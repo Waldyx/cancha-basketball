@@ -234,7 +234,7 @@ const ordenadas = [...zapatillas].sort(
                   <div class="pick-photo">
                     <span class="pick-watermark">★ PICK</span>
                     <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} loading="eager"
-                         onerror="this.style.display='none'" />
+                      onerror="this.onerror=null;this.src='/placeholder-shoe.svg';" />
                   </div>
                   <div class="pick-body">
                     <div class="pick-eyebrow">
@@ -301,7 +301,7 @@ const ordenadas = [...zapatillas].sort(
                     {isNew && <span class="new-badge">★ Nueva</span>}
                     <span class={`cz-score-pill ${scClass} score-pill`}>{score}</span>
                     <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} loading="lazy"
-                         onerror="this.style.display='none'" />
+                      onerror="this.onerror=null;this.src='/placeholder-shoe.svg';" />
                     <span class="cat-stripe"></span>
                     <div class="cz-ideal-overlay">
                       <div class="lab">Ideal para</div>
