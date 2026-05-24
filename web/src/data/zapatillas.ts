@@ -1996,7 +1996,7 @@ const _rawZapatillas: Zapatilla[] = [
   {
     id: "jordan-xxxvii",
     slug: "jordan-xxxvii",
-    marca: "Jordan Brand",
+    marca: "Jordan",
     modelo: "Air Jordan 37",
     generacion: 37,
     año_lanzamiento: 2022,
@@ -2573,7 +2573,7 @@ const _rawZapatillas: Zapatilla[] = [
   {
     id: "jordan-luka-2",
     slug: "jordan-luka-2",
-    marca: "Jordan Brand",
+    marca: "Jordan",
     modelo: "Luka 2",
     generacion: 2,
     año_lanzamiento: 2022,
@@ -7407,7 +7407,7 @@ const _rawZapatillas: Zapatilla[] = [
   {
     id: "jordan-tatum-2",
     slug: "jordan-tatum-2",
-    marca: "Jordan Brand",
+    marca: "Jordan",
     modelo: "Tatum 2",
     generacion: 2,
     año_lanzamiento: 2023,
@@ -7457,7 +7457,7 @@ const _rawZapatillas: Zapatilla[] = [
   {
     id: "jordan-zion-3",
     slug: "jordan-zion-3",
-    marca: "Jordan Brand",
+    marca: "Jordan",
     modelo: "Zion 3",
     generacion: 3,
     año_lanzamiento: 2023,
