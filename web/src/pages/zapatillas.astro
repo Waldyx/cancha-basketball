@@ -571,6 +571,23 @@ const ordenadas = [...zapatillas].sort(
       });
     });
 
+    // ── Leer URL params al cargar (desde páginas SEO long-tail) ──────
+    // Ejemplos: ?posicion=base  ?categoria=cushion-focused  ?marca=Nike
+    //           ?precio_max=80  ?cancha=exterior
+    (function initFromUrl() {
+      const sp = new URLSearchParams(window.location.search);
+      const pos = sp.get("posicion");
+      if (pos) { filters.posiciones.add(pos); document.querySelector<HTMLButtonElement>("[data-filter='posicion'][data-value='"+pos+"']")?.classList.add("is-active"); }
+      const cat = sp.get("categoria");
+      if (cat) { filters.categorias.add(cat); document.querySelector<HTMLButtonElement>("[data-filter='categoria'][data-value='"+cat+"']")?.classList.add("is-active"); }
+      const mrc = sp.get("marca");
+      if (mrc) { filters.marcas.add(mrc); const cb = document.querySelector<HTMLInputElement>("input[data-filter='marca'][value='"+mrc+"']"); if (cb) cb.checked = true; }
+      const pmax = sp.get("precio_max");
+      if (pmax) { const v = parseInt(pmax,10); if (!isNaN(v) && v < 250) { filters.precioMax = v; const rng = document.getElementById("price-range") as HTMLInputElement; const lbl = document.getElementById("price-label"); if(rng) rng.value=String(v); if(lbl) lbl.textContent=v+"€"; } }
+      const cancha = sp.get("cancha");
+      if (cancha === "exterior") { filters.soloOutdoor = true; const cb2 = document.getElementById("only-outdoor") as HTMLInputElement; if(cb2) cb2.checked=true; }
+      if (pos||cat||mrc||pmax||cancha) apply();
+    })();
     refreshUI();
   </script>
 </Base>
