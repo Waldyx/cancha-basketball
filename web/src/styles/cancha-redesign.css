@@ -27,7 +27,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .cz-courtbg::after {
   content: ""; position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(12,12,12,0.5), rgba(12,12,12,0.85));
+  background: rgba(12,12,12,0.55);
 }
 
 /* ── Typography ── */
