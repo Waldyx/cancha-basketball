@@ -66,13 +66,43 @@ const relacionadas = zapatillas
 const linksOrdenados = [...z.links_compra]
   .filter(l => l.disponible)
   .sort((a, b) => a.precio_actual - b.precio_actual);
+
+// JSON-LD Product schema
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": `${z.marca} ${z.modelo}`,
+  "brand": { "@type": "Brand", "name": z.marca },
+  "description": z.resumen,
+  "image": z.imagen_principal,
+  "url": `https://canchazapa.com/zapatilla/${z.slug}`,
+  "sku": z.slug,
+  ...(mejorPrecio ? {
+    "offers": {
+      "@type": "Offer",
+      "price": mejorPrecio.precio_actual,
+      "priceCurrency": "EUR",
+      "availability": "https://schema.org/InStock",
+      "url": mejorPrecio.url,
+      "priceValidUntil": `${new Date().getFullYear() + 1}-12-31`
+    }
+  } : {}),
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": score,
+    "bestRating": 10,
+    "worstRating": 1,
+    "ratingCount": z.fuentes.length || 1
+  }
+};
 ---
 
 <Base
-  title={`${z.marca} ${z.modelo} · Review y mejor precio`}
-  description={z.resumen.slice(0, 155)}
+  title={`${z.marca} ${z.modelo} (${z.año_lanzamiento}) · Análisis y mejor precio | CANCHA.ZAPA`}
+  description={`${z.marca} ${z.modelo}: análisis técnico honesto, puntuaciones en 8 atributos y mejor precio en tiendas españolas. ${z.resumen.slice(0, 80)}...`}
   ogType="article"
   ogImage={`/og/${z.slug}.svg`}
+  jsonLd={productJsonLd}
 >
   <main class="app">
 
