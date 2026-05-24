@@ -47,7 +47,7 @@ import "../styles/cancha-redesign.css";
       </div>
     </div>
 
-    <main class="quiz-main">
+    <section class="quiz-main">
       <div class="shell">
         {/* STEP 1 — Perfil */}
         <div class="quiz-step in" data-step="1">
@@ -187,7 +187,7 @@ import "../styles/cancha-redesign.css";
               <div class="qo-text"><span class="qo-title">Tobillos</span><span class="qo-sub">Ancaje alto, soporte</span></div>
               <span class="qo-check">→</span>
             </button>
-            <button class="quiz-opt" data-field="lesiones" data-value="planta">
+            <button class="quiz-opt" data-field="lesiones" data-value="fascia">
               <div class="qo-text"><span class="qo-title">Planta del pie</span><span class="qo-sub">Fascitis, dolor arco</span></div>
               <span class="qo-check">→</span>
             </button>
@@ -212,7 +212,7 @@ import "../styles/cancha-redesign.css";
               <div class="qo-text"><span class="qo-title">Reactividad</span><span class="qo-sub">Cushion responsive, retorno</span></div>
               <span class="qo-check">→</span>
             </button>
-            <button class="quiz-opt" data-field="prioridad" data-value="soporte">
+            <button class="quiz-opt" data-field="prioridad" data-value="soporte-tobillo">
               <div class="qo-text"><span class="qo-title">Soporte tobillo</span><span class="qo-sub">Estabilidad lateral, ancaje</span></div>
               <span class="qo-check">→</span>
             </button>
@@ -234,7 +234,7 @@ import "../styles/cancha-redesign.css";
           <p class="quiz-sub">El precio influye en la elección final.</p>
           <div class="quiz-options cols-2">
             <button class="quiz-opt" data-field="presupuesto" data-value="80">
-              <div class="qo-text"><span class="qo-title">Hasta 80€</span><span class="qo-sub">Entry-level, opciones值</span></div>
+              <div class="qo-text"><span class="qo-title">Hasta 80€</span><span class="qo-sub">Entry-level, buena relación calidad/precio</span></div>
               <span class="qo-check">→</span>
             </button>
             <button class="quiz-opt" data-field="presupuesto" data-value="130">
@@ -266,8 +266,8 @@ import "../styles/cancha-redesign.css";
               <div class="qo-text"><span class="qo-title">Ancho</span><span class="qo-sub">Need wide fit, box toe</span></div>
               <span class="qo-check">→</span>
             </button>
-            <button class="quiz-opt" data-field="ancho" data-value="estrecho">
-              <div class="qo-text"><span class="qo-title">Estrecho</span><span class="qo-sub">Slim fit, narrow last</span></div>
+            <button class="quiz-opt" data-field="ancho" data-value="no-se">
+              <div class="qo-text"><span class="qo-title">No lo sé</span><span class="qo-sub">Estándar, sin preferencia</span></div>
               <span class="qo-check">→</span>
             </button>
           </div>
@@ -300,7 +300,7 @@ import "../styles/cancha-redesign.css";
           <button class="qn-btn primary" id="next-btn" disabled>Siguiente →</button>
         </div>
       </div>
-    </main>
+    </section>
 
     <footer class="quiz-footer">
       <div class="shell quiz-footer-inner">
@@ -399,15 +399,23 @@ import "../styles/cancha-redesign.css";
       if ($next.disabled) return;
       if (current < TOTAL) show(current + 1);
       else {
-        const params = new URLSearchParams();
-        Object.entries(answers).forEach(([key, value]) => {
-          if (Array.isArray(value)) {
-            value.forEach(v => params.append(key, String(v)));
-          } else if (value !== undefined && value !== null) {
-            params.set(key, String(value));
-          }
-        });
-        location.href = "/resultados?" + params.toString();
+        // Mapear answers del quiz al formato RespuestasQuiz y guardar en sessionStorage
+        const respuestas = {
+          posicion:            answers.posicion,
+          peso:                answers.peso,
+          estilo:              answers.estilo,
+          cancha:              answers.cancha,
+          lesiones:            (answers.lesiones as string[]).filter((l: string) => l !== 'ninguna'),
+          prioridad:           answers.prioridad,
+          presupuesto_max_eur: (!answers.presupuesto || answers.presupuesto === 'null')
+                                 ? null
+                                 : parseInt(answers.presupuesto as string, 10),
+          ancho_pie:           answers.ancho,
+          perfil:              answers.perfil,
+          uso:                 answers.uso,
+        };
+        sessionStorage.setItem("cancha-quiz-respuestas", JSON.stringify(respuestas));
+        location.href = "/resultados";
       }
     });
 
