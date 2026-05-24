@@ -35,9 +35,11 @@ import "../styles/cancha-redesign.css";
         <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
         <nav class="cz-nav">
           <a href="/zapatillas">Catálogo</a>
+          <a href="/quiz" class="active">Quiz</a>
           <a href="/rankings">Rankings</a>
+          <a href="/metodologia">Método</a>
           <a href="/faq">FAQ</a>
-                  <a href="/mis-zapas">♥ Mis zapas</a>
+          <a href="/mis-zapas">♥ Mis zapas</a>
         </nav>
       </div>
     </header>
@@ -402,6 +404,11 @@ import "../styles/cancha-redesign.css";
             });
           }
           refreshNext();
+          // Auto-avance: 700ms tras la última selección (da tiempo a marcar varias)
+          window.clearTimeout(advanceTimer);
+          if ((answers.lesiones as string[]).length > 0) {
+            advanceTimer = window.setTimeout(() => show(current + 1), 700);
+          }
         } else {
           answers[field] = value;
           document.querySelectorAll<HTMLButtonElement>(`[data-field="${field}"]`).forEach(b =>
@@ -409,8 +416,28 @@ import "../styles/cancha-redesign.css";
           );
           refreshNext();
           if (current < TOTAL) {
-            const nextStep = current + 1;
-            advanceTimer = window.setTimeout(() => show(nextStep), 180);
+            // Pasos 1-9: avanzar al siguiente
+            advanceTimer = window.setTimeout(() => show(current + 1), 180);
+          } else {
+            // Paso 10 (último): enviar directamente
+            advanceTimer = window.setTimeout(() => {
+              const respuestas = {
+                posicion:            answers.posicion,
+                peso:                answers.peso,
+                estilo:              answers.estilo,
+                cancha:              answers.cancha,
+                lesiones:            (answers.lesiones as string[]).filter((l: string) => l !== "ninguna"),
+                prioridad:           answers.prioridad,
+                presupuesto_max_eur: (!answers.presupuesto || answers.presupuesto === "null")
+                                       ? null
+                                       : parseInt(answers.presupuesto as string, 10),
+                ancho_pie:           answers.ancho,
+                perfil:              answers.perfil,
+                uso:                 answers.uso,
+              };
+              sessionStorage.setItem("cancha-quiz-respuestas", JSON.stringify(respuestas));
+              location.href = "/resultados";
+            }, 400);
           }
         }
       });
