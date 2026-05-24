@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://web-puce-chi-60.vercel.app',
+  site: 'https://canchazapa.com',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()]

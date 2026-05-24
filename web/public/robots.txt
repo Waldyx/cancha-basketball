@@ -20,4 +20,4 @@ Disallow: /quiz
 Disallow: /og/
 
 # Sitemap (Astro lo genera en build con @astrojs/sitemap)
-Sitemap: https://web-puce-chi-60.vercel.app/sitemap-index.xml
+Sitemap: https://canchazapa.com/sitemap-index.xml
