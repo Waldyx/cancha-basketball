@@ -3,6 +3,9 @@
 // Adds: font preload, skip-to-content link, dynamic OG support, broken-img fallback.
 
 import "../styles/global.css";
+import CommandPalette from "../components/CommandPalette.astro";
+import CookieBanner from "../components/CookieBanner.astro";
+import Analytics from "../components/Analytics.astro";
 
 interface Props {
   title: string;
@@ -93,6 +96,9 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       )
     }
 
+    <!-- Analytics (Plausible — solo en producción, sin cookies) -->
+    <Analytics />
+
     <!-- Skip-link styles (accesibilidad) -->
     <style is:global>
       .skip-to-content {
@@ -136,6 +142,12 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
     <div id="main-content" class="relative z-10">
       <slot />
     </div>
+
+    <!-- Búsqueda global Cmd+K -->
+    <CommandPalette />
+
+    <!-- Cookie banner (EU compliance) -->
+    <CookieBanner />
 
     <script>
       const hideBrokenImages = () => {

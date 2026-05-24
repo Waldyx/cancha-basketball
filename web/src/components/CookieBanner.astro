@@ -1,0 +1,96 @@
+---
+// Componente: CookieBanner
+// Banner mínimo con dos botones. Sin terceros, sin trackers.
+// Se oculta tras "Aceptar" o "Rechazar" (guardado en localStorage).
+---
+
+<div id="cz-cookie" class="cz-cookie hidden" role="dialog" aria-label="Aviso de cookies">
+  <div class="cz-cookie-inner">
+    <div class="cz-cookie-text">
+      <p class="cz-eyebrow" style="font-size:10px;color:#f97316;margin:0 0 4px">★ Cookies</p>
+      <p>
+        Usamos cookies <strong>solo para enlaces de afiliado</strong> (sin tracking de personas).
+        Si compras a través de nuestros enlaces, nuestras tiendas afiliadas nos pueden atribuir la venta.
+        <a href="/financiacion">Cómo nos financiamos →</a>
+      </p>
+    </div>
+    <div class="cz-cookie-actions">
+      <button type="button" data-choice="reject" class="cz-cookie-btn ghost">Rechazar</button>
+      <button type="button" data-choice="accept" class="cz-cookie-btn primary">Aceptar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const STORAGE_KEY = "cz.cookies.v1";
+  const $banner = document.getElementById("cz-cookie");
+
+  if (!localStorage.getItem(STORAGE_KEY)) {
+    setTimeout(() => $banner?.classList.remove("hidden"), 800);
+  }
+
+  $banner?.querySelectorAll<HTMLButtonElement>("[data-choice]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const choice = btn.dataset.choice!;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        v: 1,
+        choice,
+        ts: Date.now(),
+      }));
+      $banner?.classList.add("hidden");
+
+      // Si rechaza, anonimizar Plausible (si está cargado)
+      if (choice === "reject" && (window as any).plausible) {
+        (window as any).plausible = () => {};
+      }
+    });
+  });
+</script>
+
+<style is:global>
+  .cz-cookie {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 80;
+    background: #0c0c0c;
+    border-top: 1px solid rgba(249,115,22,0.3);
+    box-shadow: 0 -8px 24px rgba(0,0,0,0.5);
+    transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .cz-cookie.hidden { transform: translateY(100%); pointer-events: none; }
+  .cz-cookie-inner {
+    max-width: 1180px; margin: 0 auto;
+    padding: 12px 20px;
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  }
+  .cz-cookie-text { flex: 1; min-width: 260px; }
+  .cz-cookie-text p:not(.cz-eyebrow) {
+    color: #a1a1aa; font-size: 13px; line-height: 1.5; margin: 0;
+  }
+  .cz-cookie-text strong { color: #fff; font-weight: 700; }
+  .cz-cookie-text a {
+    color: #f97316; font-weight: 700;
+    border-bottom: 1px solid #f97316;
+  }
+  .cz-cookie-actions {
+    display: flex; gap: 8px; flex-shrink: 0;
+  }
+  .cz-cookie-btn {
+    padding: 10px 16px; font-weight: 900;
+    text-transform: uppercase; letter-spacing: 0.14em; font-size: 11px;
+    border: none; cursor: pointer; transition: all 0.12s;
+  }
+  .cz-cookie-btn.primary {
+    background: #f97316; color: #0c0c0c;
+    box-shadow: 3px 3px 0 0 #facc15;
+  }
+  .cz-cookie-btn.primary:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 0 #facc15; }
+  .cz-cookie-btn.ghost {
+    background: transparent; color: #a1a1aa;
+    border: 1px solid #27272a;
+  }
+  .cz-cookie-btn.ghost:hover { color: #fff; border-color: #71717a; }
+  @media (max-width: 560px) {
+    .cz-cookie-inner { padding: 12px 14px; }
+    .cz-cookie-text p:not(.cz-eyebrow) { font-size: 12px; }
+    .cz-cookie-btn { padding: 8px 12px; font-size: 10px; }
+  }
+</style>

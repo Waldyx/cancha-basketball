@@ -1,0 +1,273 @@
+---
+// /mis-zapas — favoritos persistidos
+//
+// Lee de localStorage la clave "cz.favs" (set de slugs que el catálogo escribe).
+// Permite quitar favoritos, comparar 3 a la vez, exportar como JSON.
+
+import Base from "../layouts/Base.astro";
+import "../styles/cancha-redesign.css";
+import { zapatillas } from "../data/zapatillas";
+import { findMejorPrecio } from "../lib/scoring";
+
+const CAT_LABELS: Record<string, string> = {
+  "cushion-focused": "Cushion", "responsive": "Reactiva",
+  "balanced": "Equilibrada", "traction-king": "Tracción",
+};
+const CAT_ACCENT: Record<string, string> = {
+  "cushion-focused": "#38bdf8", "responsive": "#facc15",
+  "balanced": "#d4d4d8", "traction-king": "#fb923c",
+};
+
+// Render todas las cards y dejar que JS oculte las que no son favoritas
+const ordenadas = [...zapatillas].sort((a, b) => a.marca.localeCompare(b.marca));
+---
+
+<Base
+  title="Mis zapas guardadas · CANCHA.ZAPA"
+  description="Tus zapatillas de baloncesto favoritas, guardadas para volver a verlas."
+>
+  <main class="app">
+    <div class="cz-courtbg"><img src="/bg-court.svg" alt="" /><div></div></div>
+
+    <div class="cz-strip"></div>
+    <header class="cz-header">
+      <div class="shell cz-header-inner">
+        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
+        <nav class="cz-nav">
+          <a href="/zapatillas">Catálogo</a>
+          <a href="/quiz">Quiz</a>
+          <a href="/rankings">Rankings</a>
+          <a href="/mis-zapas" class="active" aria-current="page">Mis zapas</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="doc-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Tus favoritas</p>
+        <h1 class="doc-h1">
+          Mis<br/>
+          <span class="accent">zapas</span><br/>
+          guardadas
+        </h1>
+        <p class="doc-lede" id="mz-lede">
+          Las que has marcado con ♥ en el catálogo. Se guardan en este navegador —
+          no necesitas cuenta.
+        </p>
+      </div>
+    </section>
+
+    {/* Empty state */}
+    <section id="mz-empty" class="rs-empty hidden">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Sin favoritas todavía</p>
+        <h2 class="rs-empty-h1">
+          Aún no has<br/>
+          <span class="muted">guardado nada.</span>
+        </h2>
+        <p class="rs-empty-lede">
+          Cuando estés en una ficha o en el catálogo, pulsa el corazón ♡ para añadirla
+          aquí. También puedes empezar por el quiz.
+        </p>
+        <div class="err-cta">
+          <a href="/quiz" class="home-btn primary">→ Hacer el quiz</a>
+          <a href="/zapatillas" class="home-btn ghost">Ver catálogo</a>
+        </div>
+      </div>
+    </section>
+
+    {/* Toolbar — visible cuando hay favoritas */}
+    <div id="mz-toolbar" class="cz-actionbar shell hidden">
+      <span class="cz-eyebrow" style="margin-right:auto">
+        ★ <span id="mz-count">0</span> guardadas
+      </span>
+      <div class="right">
+        <button id="mz-compare" class="home-btn ghost" type="button" disabled>
+          ⇄ Comparar (selecciona 2–3)
+        </button>
+        <button id="mz-export" class="home-btn ghost" type="button">
+          ↓ Exportar JSON
+        </button>
+        <button id="mz-clear" class="home-btn ghost" type="button">
+          ✗ Borrar todas
+        </button>
+      </div>
+    </div>
+
+    {/* Grid de favoritas */}
+    <section class="shell" style="padding:24px 24px 60px">
+      <div class="cz-grid cols-3" id="mz-grid">
+        {ordenadas.map(z => {
+          const mejor = findMejorPrecio(z.links_compra);
+          const precio = mejor?.precio_actual ?? z.precio_msrp_eur;
+          const cat = CAT_ACCENT[z.categoria_principal];
+          const score = Math.round((Object.values(z.puntuaciones).reduce((a,b)=>a+b,0)/8)*10)/10;
+          const scClass = score >= 8 ? "hi" : score >= 6.5 ? "mid" : "lo";
+          return (
+            <article
+              class="cz-card hidden mz-card"
+              data-slug={z.slug}
+              style={`--cat:${cat}`}
+            >
+              <div class="photo">
+                <span class="cat-badge">{CAT_LABELS[z.categoria_principal]}</span>
+                <span class={`cz-score-pill ${scClass} score-pill`}>{score}</span>
+                <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} loading="lazy"
+                     onerror="this.style.display='none'" />
+                <span class="cat-stripe"></span>
+              </div>
+              <div class="body">
+                <div>
+                  <p class="marca">{z.marca}</p>
+                  <h3 class="modelo">{z.modelo}</h3>
+                </div>
+                <div class="cz-specs">
+                  <div class="spec"><span class="v">{z.peso_real_g}<small>g</small></span><span class="k">Peso</span></div>
+                  <div class="spec"><span class="v">{z.altura}</span><span class="k">Altura</span></div>
+                  <div class="spec"><span class="v">{z.drop_mm}<small>mm</small></span><span class="k">Drop</span></div>
+                  <div class="spec"><span class="v">{z.horma}</span><span class="k">Horma</span></div>
+                </div>
+                <div class="foot">
+                  <div>
+                    <span class="price-meta"><span class="dot"></span>Verificado</span>
+                    <span class="price">{Math.round(precio)}€</span>
+                  </div>
+                  <div class="actions">
+                    <label class="mz-check" title="Seleccionar para comparar">
+                      <input type="checkbox" class="mz-pick" data-slug={z.slug} />
+                      <span>⇄</span>
+                    </label>
+                    <button class="icon-btn mz-remove" data-slug={z.slug} title="Quitar de favoritas" type="button">
+                      ✗
+                    </button>
+                    <a class="icon-btn" href={`/zapatilla/${z.slug}`} title="Ver ficha">→</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+
+    <footer style="background:#000;border-top:4px solid #f97316;padding:32px 0;margin-top:40px">
+      <div class="shell" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center">
+        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
+        <p style="font-size:10px;color:#52525b;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin:0">
+          Proyecto independiente · Sin sesgo de afiliado
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const STORAGE_KEY = "cz.favs";
+
+    function loadFavs(): Set<string> {
+      try { return new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]")); }
+      catch { return new Set(); }
+    }
+    function saveFavs(favs: Set<string>) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify([...favs]));
+    }
+
+    let favs = loadFavs();
+    const picks: Set<string> = new Set();
+
+    const $empty = document.getElementById("mz-empty")!;
+    const $toolbar = document.getElementById("mz-toolbar")!;
+    const $count = document.getElementById("mz-count")!;
+    const $cards = document.querySelectorAll<HTMLElement>(".mz-card");
+    const $compare = document.getElementById("mz-compare") as HTMLButtonElement;
+
+    function render() {
+      let visible = 0;
+      $cards.forEach((c) => {
+        const slug = c.dataset.slug!;
+        const isFav = favs.has(slug);
+        c.classList.toggle("hidden", !isFav);
+        if (isFav) visible++;
+      });
+      $count.textContent = String(visible);
+      $empty.classList.toggle("hidden", visible > 0);
+      $toolbar.classList.toggle("hidden", visible === 0);
+    }
+
+    function updateCompareBtn() {
+      const n = picks.size;
+      $compare.disabled = n < 2 || n > 3;
+      if (n === 0) $compare.textContent = "⇄ Comparar (selecciona 2–3)";
+      else if (n === 1) $compare.textContent = `⇄ Selecciona 1 más (${n} elegida)`;
+      else $compare.textContent = `⇄ Comparar ${n} zapas →`;
+    }
+
+    document.querySelectorAll<HTMLInputElement>(".mz-pick").forEach((cb) => {
+      cb.addEventListener("change", () => {
+        const slug = cb.dataset.slug!;
+        if (cb.checked) {
+          if (picks.size >= 3) { cb.checked = false; return; }
+          picks.add(slug);
+        } else {
+          picks.delete(slug);
+        }
+        updateCompareBtn();
+      });
+    });
+
+    document.querySelectorAll<HTMLButtonElement>(".mz-remove").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const slug = btn.dataset.slug!;
+        favs.delete(slug);
+        picks.delete(slug);
+        saveFavs(favs);
+        render();
+        updateCompareBtn();
+      });
+    });
+
+    $compare.addEventListener("click", () => {
+      if (picks.size < 2) return;
+      const slugs = [...picks].join(",");
+      location.href = `/comparar?slugs=${slugs}`;
+    });
+
+    document.getElementById("mz-export")!.addEventListener("click", () => {
+      const data = JSON.stringify([...favs], null, 2);
+      const blob = new Blob([data], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `cancha-zapa-favoritas-${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    document.getElementById("mz-clear")!.addEventListener("click", () => {
+      if (!confirm("¿Borrar todas las favoritas? No se puede deshacer.")) return;
+      favs = new Set();
+      picks.clear();
+      saveFavs(favs);
+      render();
+      updateCompareBtn();
+    });
+
+    render();
+    updateCompareBtn();
+  </script>
+
+  <style>
+    .hidden { display: none !important; }
+    .mz-check {
+      width: 30px; height: 30px; border: 1px solid #27272a;
+      background: transparent; color: #71717a;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 13px; cursor: pointer; user-select: none;
+      transition: all 0.12s;
+    }
+    .mz-check input { display: none; }
+    .mz-check:has(input:checked) {
+      background: #f97316; color: #0c0c0c; border-color: #f97316;
+    }
+    .mz-card .mz-remove:hover { color: #ef4444; border-color: #ef4444; }
+  </style>
+</Base>

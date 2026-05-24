@@ -1,0 +1,194 @@
+---
+// Componente: PriceAlert
+// Bloque pequeño que va en /zapatilla/[slug]. Captura un email + umbral
+// de precio y lo envía a una Vercel Function (o servicio email tipo Resend).
+//
+// Sin backend = sin alertas. Por eso este componente es un MVP que solo
+// guarda en localStorage como reminder visual. Cuando montes el backend,
+// reemplaza el fetch del script con la llamada real.
+
+interface Props {
+  slug: string;
+  marca: string;
+  modelo: string;
+  precioActual: number;
+}
+
+const { slug, marca, modelo, precioActual } = Astro.props;
+const sugerido = Math.round(precioActual * 0.85); // -15% sugerido por defecto
+---
+
+<aside class="cz-pricealert" data-slug={slug}>
+  <div class="cz-pa-head">
+    <span class="cz-pa-bell" aria-hidden="true">◔</span>
+    <div>
+      <p class="cz-eyebrow" style="font-size:10px">★ Alerta de precio</p>
+      <h3 class="cz-pa-title">Avísame cuando baje</h3>
+    </div>
+  </div>
+
+  <form id={`pa-form-${slug}`} class="cz-pa-form" novalidate>
+    <div class="cz-pa-fields">
+      <label class="cz-pa-field">
+        <span>Tu email</span>
+        <input type="email" name="email" placeholder="tu@email.com" required />
+      </label>
+      <label class="cz-pa-field">
+        <span>Cuando baje de</span>
+        <div class="cz-pa-price">
+          <input type="number" name="umbral" min="20" max={precioActual} value={sugerido} required />
+          <span>€</span>
+        </div>
+      </label>
+    </div>
+    <button type="submit" class="cz-pa-btn">→ Suscribirme</button>
+    <p class="cz-pa-disclaimer">
+      Sin spam. Solo emails de bajadas reales. Puedes darte de baja con un click.
+    </p>
+  </form>
+
+  <div class="cz-pa-success hidden">
+    <p>✓ Suscrito a alertas de <strong>{marca} {modelo}</strong></p>
+    <p class="cz-pa-success-sub">Te avisaremos cuando baje del precio que indicaste.</p>
+    <button type="button" data-undo>Deshacer</button>
+  </div>
+</aside>
+
+<script define:vars={{ slug, marca, modelo }}>
+  const STORAGE_KEY = "cz.pricealerts";
+
+  function loadAlerts() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]"); }
+    catch { return []; }
+  }
+  function saveAlerts(arr) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+  }
+
+  const form = document.getElementById(`pa-form-${slug}`);
+  const wrap = form?.closest(".cz-pricealert");
+  const success = wrap?.querySelector(".cz-pa-success");
+
+  // Si ya hay alerta para esta zapa, mostrar success directo
+  const alerts = loadAlerts();
+  if (alerts.some(a => a.slug === slug)) {
+    form?.classList.add("hidden");
+    success?.classList.remove("hidden");
+  }
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const email = String(fd.get("email") || "");
+    const umbral = Number(fd.get("umbral") || 0);
+    if (!email.includes("@") || umbral < 20) return;
+
+    // Guardar localmente (MVP — sin backend)
+    const next = [...loadAlerts().filter(a => a.slug !== slug), { slug, email, umbral, ts: Date.now() }];
+    saveAlerts(next);
+
+    // Telemetría (Plausible si está cargado)
+    if (window.plausible) {
+      window.plausible("Price Alert Subscribed", { props: { slug, umbral: String(umbral) } });
+    }
+
+    // TODO · backend
+    // await fetch("/api/price-alert", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({ slug, email, umbral }),
+    // });
+
+    form.classList.add("hidden");
+    success?.classList.remove("hidden");
+  });
+
+  success?.querySelector("[data-undo]")?.addEventListener("click", () => {
+    saveAlerts(loadAlerts().filter(a => a.slug !== slug));
+    form?.classList.remove("hidden");
+    success?.classList.add("hidden");
+  });
+</script>
+
+<style is:global>
+  .cz-pricealert {
+    background: rgba(22,22,22,0.85); border: 1px solid rgba(249,115,22,0.3);
+    border-left: 4px solid #f97316;
+    padding: 18px 20px;
+    margin-top: 16px;
+  }
+  .cz-pa-head {
+    display: flex; gap: 12px; align-items: center; margin-bottom: 14px;
+  }
+  .cz-pa-bell {
+    width: 32px; height: 32px; flex-shrink: 0;
+    background: #f97316; color: #0c0c0c;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 18px; font-weight: 900;
+  }
+  .cz-pa-title {
+    font-family: "Barlow Condensed", sans-serif; font-weight: 900;
+    font-size: 22px; line-height: 1; text-transform: uppercase;
+    letter-spacing: -0.02em; color: #fff;
+    margin: 4px 0 0;
+  }
+  .cz-pa-fields {
+    display: grid; grid-template-columns: 2fr 1fr; gap: 8px;
+    margin-bottom: 10px;
+  }
+  @media (max-width: 480px) {
+    .cz-pa-fields { grid-template-columns: 1fr; }
+  }
+  .cz-pa-field {
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .cz-pa-field span {
+    font-size: 9px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.16em; color: #71717a;
+  }
+  .cz-pa-field input {
+    background: #0c0c0c; border: 1px solid #27272a;
+    padding: 10px 12px; color: #fff; font-size: 14px; font-weight: 600;
+    outline: none; transition: border-color 0.15s;
+    font-family: "Inter", system-ui, sans-serif;
+  }
+  .cz-pa-field input:focus { border-color: #f97316; }
+  .cz-pa-price {
+    display: flex; align-items: center; gap: 4px;
+    background: #0c0c0c; border: 1px solid #27272a;
+    padding: 0 12px;
+  }
+  .cz-pa-price input {
+    background: transparent; border: none; padding: 10px 0;
+    flex: 1; min-width: 0;
+  }
+  .cz-pa-price span {
+    font-family: "Barlow Condensed", sans-serif; font-weight: 900;
+    font-size: 18px; color: #f97316; padding-right: 4px;
+  }
+  .cz-pa-btn {
+    width: 100%; padding: 12px 16px;
+    background: #f97316; color: #0c0c0c; border: none;
+    font-weight: 900; text-transform: uppercase; letter-spacing: 0.14em;
+    font-size: 11px; cursor: pointer;
+    box-shadow: 3px 3px 0 0 #facc15;
+    transition: all 0.12s;
+  }
+  .cz-pa-btn:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 0 #facc15; }
+  .cz-pa-disclaimer {
+    font-size: 10px; color: #52525b; margin: 8px 0 0; line-height: 1.4;
+  }
+  .cz-pa-success {
+    padding: 6px 0;
+  }
+  .cz-pa-success p { margin: 4px 0; color: #4ade80; font-size: 14px; font-weight: 700; }
+  .cz-pa-success strong { color: #fff; }
+  .cz-pa-success-sub { color: #a1a1aa !important; font-weight: 400 !important; font-size: 12px !important; }
+  .cz-pa-success button[data-undo] {
+    background: transparent; border: 1px solid #27272a; color: #a1a1aa;
+    padding: 6px 10px; font-size: 10px; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 0.14em; cursor: pointer;
+    margin-top: 6px;
+  }
+  .cz-pa-success button[data-undo]:hover { color: #fff; border-color: #71717a; }
+</style>

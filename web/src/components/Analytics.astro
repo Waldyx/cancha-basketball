@@ -1,0 +1,44 @@
+---
+// Componente: Analytics (Plausible — privacy-first, sin cookies)
+//
+// Plausible: <1kb, sin cookies, GDPR-compliant.
+// Alternativa: Umami self-hosted (mismo formato de embed).
+//
+// IMPORTANTE: Pon tu dominio real cuando lo tengas (ahora "cancha.zapa").
+// Si quieres Umami, sustituye el src= y data-website-id.
+
+const isDev = import.meta.env.DEV;
+const domain = "cancha.zapa"; // ← cámbialo a tu dominio en producción
+---
+
+{!isDev && (
+  <>
+    {/* Plausible — gratis hasta 10k pageviews/mes, $9/mes después.
+        Sin cookies, sin localStorage. No requiere banner. */}
+    <script
+      defer
+      data-domain={domain}
+      src="https://plausible.io/js/script.js"
+    ></script>
+
+    {/* Custom event helper (window.plausible) para eventos como
+        "Quiz Completed", "Affiliate Click", etc. */}
+    <script is:inline>
+      {`window.plausible = window.plausible || function(){
+        (window.plausible.q = window.plausible.q || []).push(arguments);
+      }`}
+    </script>
+  </>
+)}
+
+<!--
+  CÓMO TRACKEAR EVENTOS PERSONALIZADOS:
+
+  En cualquier página puedes lanzar eventos custom:
+
+    window.plausible("Quiz Completed", { props: { posicion, estilo } });
+    window.plausible("Affiliate Click", { props: { tienda, zapa } });
+    window.plausible("Favorite Added", { props: { zapa } });
+
+  En el dashboard de Plausible verás conversion rate por evento.
+-->

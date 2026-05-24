@@ -6,6 +6,7 @@ import Base from "../../layouts/Base.astro";
 import "../../styles/cancha-redesign.css";
 import { zapatillas } from "../../data/zapatillas";
 import { findMejorPrecio } from "../../lib/scoring";
+import PriceAlert from "../../components/PriceAlert.astro";
 
 export async function getStaticPaths() {
   return zapatillas.map((z) => ({ params: { slug: z.slug }, props: { zapatilla: z } }));
@@ -315,6 +316,18 @@ const linksOrdenados = [...z.links_compra]
           </div>
         </div>
       </section>
+    )}
+
+    {/* ALERTA DE PRECIO */}
+    {linksOrdenados.length > 0 && (
+      <div class="shell" style="padding:0 24px 32px">
+        <PriceAlert
+          slug={z.slug}
+          marca={z.marca}
+          modelo={z.modelo}
+          precioActual={mejorPrecio?.precio_actual ?? z.precio_msrp_eur}
+        />
+      </div>
     )}
 
     {/* RELATED */}
