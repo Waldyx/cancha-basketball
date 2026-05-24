@@ -179,8 +179,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si eres tirador o base ligero, juegas casi exclusivamente en pista cubierta y priorizas respuesta sobre protecciÃ³n, es de las mejores opciones premium. Para asfalto o pesos altos, busca otra cosa.",
 
-    imagen_principal:
-      "https://d3pnpe87i1fkwu.cloudfront.net/IMG/024228-under-armour-curry-12-6000198-100_585x585.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/UACurry12-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [
@@ -782,7 +781,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Foam expuesto puede sufrir",
     ],
     veredicto: "Para wings versÃ¡tiles y guards que tiran mucho. La opciÃ³n Jordan mÃ¡s completa para uso indoor regular.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/024734-jordan-tatum-3-fz6598-001_585x585.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/JordanTatum3-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/jordan-tatum-3-review/" },
@@ -2153,7 +2152,7 @@ const _rawZapatillas: Zapatilla[] = [
       "No es la Freak mÃ¡s responsive",
     ],
     veredicto: "Para alas-pÃ­vot y pÃ­vots con presupuesto ajustado que necesitan amortiguaciÃ³n y soporte sin llegar a los â‚¬180 del LeBron.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/016971-nike-zoom-freak-4-do9680-500_585x585.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/Nike-Zoom-Freak-4-650x406.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-15",
@@ -2612,7 +2611,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Indoor only recomendado",
     ],
     veredicto: "Para el jugador versÃ¡til que quiere un Jordan signature con cushion real a un precio razonable. La Luka 5 es superior pero el Luka 2 sale ahora por 40-50â‚¬ menos.",
-    imagen_principal: "https://d3pnpe87i1fkwu.cloudfront.net/IMG/019149-jordan-luka-2-dx8733-001_585x585.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/JordanLuka2-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-15",
