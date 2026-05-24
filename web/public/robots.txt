@@ -1,12 +1,23 @@
 User-agent: *
 Allow: /
 
+# Rutas indexables (Allow explícito por claridad)
+Allow: /
+Allow: /zapatillas
+Allow: /zapatilla/
+Allow: /rankings
+Allow: /metodologia
+Allow: /financiacion
+Allow: /faq
+Allow: /guia-tallas
+
 # Páginas dinámicas que dependen de sessionStorage (vacías sin contexto)
 Disallow: /resultados
 Disallow: /comparar
 Disallow: /quiz
 
-# Rankings indexable (Allow explícito por claridad)
-Allow: /rankings
+# OG images dinámicas — no necesarias para indexación textual
+Disallow: /og/
 
+# Sitemap (Astro lo genera en build con @astrojs/sitemap)
 Sitemap: https://web-puce-chi-60.vercel.app/sitemap-index.xml

@@ -1,14 +1,51 @@
 ---
+// /financiacion — rediseñado coherente con el resto
 import "../styles/cancha-redesign.css";
 import Base from "../layouts/Base.astro";
+
+const tiendasAfiliado = [
+  { tienda: "Nike EU",       comision: "~7%",    cookie: "7 días" },
+  { tienda: "Adidas ES",     comision: "~8%",    cookie: "30 días" },
+  { tienda: "Puma ES",       comision: "~7%",    cookie: "30 días" },
+  { tienda: "Decathlon",     comision: "3–9%",   cookie: "30 días" },
+  { tienda: "JD Sports",     comision: "~5%",    cookie: "30 días" },
+  { tienda: "Zalando ES",    comision: "~4–6%",  cookie: "30 días" },
+  { tienda: "Foot Locker",   comision: "~2–5%",  cookie: "30 días" },
+  { tienda: "Sprinter ES",   comision: "~3–6%",  cookie: "30 días" },
+  { tienda: "Reebok ES",     comision: "~7%",    cookie: "30 días" },
+  { tienda: "Amazon ES",     comision: "3–4%",   cookie: "24 h" },
+];
+
+const tiendasSinAfiliado = [
+  { tienda: "Basket World" },
+  { tienda: "AliExpress" },
+  { tienda: "Nike SNKRS" },
+  { tienda: "Kickscrew" },
+];
+
+const principios = [
+  { titulo: "Fidelidad al usuario, no al afiliado",
+    body: "El scoring NUNCA se ajusta por comisión. Si la zapa que mejor encaja contigo paga menos, sale arriba igual." },
+  { titulo: "Mejor precio > mejor comisión",
+    body: "En el comparador, el orden es por precio bajo. No por cuánto nos paga la tienda." },
+  { titulo: "Tiendas sin afiliado, también",
+    body: "Basket World y AliExpress no tienen programa. Si tienen la mejor oferta, salen arriba con link normal. Tú ganas, nosotros nada por esa venta." },
+  { titulo: "Si una zapa es mala, lo decimos",
+    body: "Sin eufemismos. \"Cushion 4/10, no recomendada >80kg\" — directo." },
+  { titulo: "Transparencia editorial",
+    body: "En cada ficha listamos las fuentes y enlazamos al review original. Verifica si quieres." },
+  { titulo: "Patrocinios, etiquetados sin sesgo",
+    body: "Si una marca patrocina una review, irá marcada como \"Patrocinado\" muy visible. El score sigue las mismas reglas." },
+];
 ---
 
 <Base
-  title="Cómo nos financiamos · Cancha"
-  description="Cómo se financia Cancha: comisiones de afiliado sin que afecten nunca a las recomendaciones. Transparencia total con datos reales."
+  title="Cómo nos financiamos · CANCHA.ZAPA"
+  description="Cómo se financia CANCHA: comisiones de afiliado sin que afecten nunca a las recomendaciones. Transparencia total con datos reales."
 >
-  <main class="min-h-screen text-white">
-    <!-- Header -->
+  <main class="app">
+    <div class="cz-courtbg"><img src="/bg-court.svg" alt="" /><div></div></div>
+
     <div class="cz-strip"></div>
     <header class="cz-header">
       <div class="shell cz-header-inner">
@@ -17,292 +54,164 @@ import Base from "../layouts/Base.astro";
           <a href="/zapatillas">Catálogo</a>
           <a href="/quiz">Quiz</a>
           <a href="/rankings">Rankings</a>
-          <a href="/faq">FAQ</a>
+          <a href="/metodologia">Método</a>
+          <a href="/financiacion" class="active">$ Financiación</a>
         </nav>
       </div>
     </header>
 
-    <article class="px-6 py-16">
-      <div class="max-w-3xl mx-auto">
-        <p
-          class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
-        >
-          $ Financiación
-        </p>
-        <h1
-          class="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-6 leading-[0.95]"
-        >
-          Cómo<br />
-          <span class="text-orange-500">ganamos</span><br />
+    <section class="doc-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">$ Financiación</p>
+        <h1 class="doc-h1">
+          Cómo<br/>
+          <span class="accent">ganamos</span><br/>
           dinero
         </h1>
-        <p class="text-zinc-400 text-lg mb-12 leading-relaxed">
-          Página corta porque no hay misterio. Aquí va todo: el modelo, los
-          números, lo que prometemos y lo que asumimos.
+        <p class="doc-lede">
+          Página corta porque no hay misterio. Aquí va todo: el modelo, los números,
+          lo que prometemos y lo que asumimos.
         </p>
+      </div>
+    </section>
 
-        <!-- TL;DR destacado -->
-        <section
-          class="bg-zinc-900 border-l-4 border-orange-500 p-6 md:p-8 mb-12"
-        >
-          <p class="text-xs font-black uppercase tracking-widest text-orange-500 mb-3">
-            ★ TL;DR
-          </p>
-          <p class="text-xl md:text-2xl font-black uppercase tracking-tight leading-tight">
-            Cobramos comisión cuando compras a través de nuestros links de
-            afiliados. <span class="text-zinc-500">Nunca</span> influye en qué
-            te recomendamos.
-          </p>
-        </section>
+    <article class="doc-article">
+      <div class="shell shell-narrow">
 
-        <!-- Sección 1: El modelo -->
-        <section class="mb-12">
-          <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-4">
-            <span class="text-orange-500">01.</span> Afiliados, nada más
-          </h2>
-          <p class="text-zinc-300 mb-4 leading-relaxed">
-            Trabajamos con programas de afiliados de las tiendas donde se
-            venden las zapatillas. Cuando haces click en un botón "Ver en X" y
-            terminas comprando algo (no tiene que ser la zapa que enseñabas)
-            la tienda nos paga un pequeño porcentaje del precio.
+        {/* TL;DR */}
+        <div class="doc-tldr">
+          <p class="cz-eyebrow">★ TL;DR</p>
+          <p class="doc-tldr-body">
+            Cobramos comisión cuando compras a través de nuestros links de afiliados.
+            <span class="muted">Nunca</span> influye en qué te recomendamos.
           </p>
-          <p class="text-zinc-300 leading-relaxed">
-            Las tiendas con las que tenemos afiliados aparecen marcadas en
-            cada ficha. Las que NO tienen programa también las mostramos: si
-            tienen el mejor precio, las verás arriba igualmente. El usuario
-            gana siempre.
-          </p>
-        </section>
+        </div>
 
-        <!-- Sección 2: Las comisiones -->
-        <section class="mb-12">
-          <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-4">
-            <span class="text-orange-500">02.</span> Las comisiones reales
-          </h2>
-          <p class="text-zinc-300 mb-6 leading-relaxed">
-            Por curiosidad o por morbo, esto es lo que cobramos por venta en
-            calzado de baloncesto en cada programa:
-          </p>
-
-          <div class="border-2 border-zinc-800">
-            <div
-              class="grid grid-cols-3 gap-4 p-4 bg-zinc-900 text-xs font-bold uppercase tracking-widest text-zinc-500"
-            >
-              <p>Tienda</p>
-              <p>Comisión</p>
-              <p>Cookie</p>
-            </div>
-            <!-- Con programa de afiliados -->
-            <div class="grid grid-cols-3 gap-4 p-4 border-t border-zinc-800 text-sm">
-              <p class="font-bold">Nike EU</p>
-              <p class="text-orange-500 font-black">~7%</p>
-              <p class="text-zinc-400">7 días</p>
-            </div>
-            <div class="grid grid-cols-3 gap-4 p-4 border-t border-zinc-800 text-sm">
-              <p class="font-bold">Adidas ES</p>
-              <p class="text-orange-500 font-black">~8%</p>
-              <p class="text-zinc-400">30 días</p>
-            </div>
-            <div class="grid grid-cols-3 gap-4 p-4 border-t border-zinc-800 text-sm">
-              <p class="font-bold">Puma ES</p>
-              <p class="text-orange-500 font-black">~7%</p>
-              <p class="text-zinc-400">30 días</p>
-            </div>
-            <div class="grid grid-cols-3 gap-4 p-4 border-t border-zinc-800 text-sm">
-              <p class="font-bold">Decathlon</p>
-              <p class="text-orange-500 font-black">3-9%</p>
-              <p class="text-zinc-400">30 días</p>
-            </div>
-            <div class="grid grid-cols-3 gap-4 p-4 border-t border-zinc-800 text-sm">
-              <p class="font-bold">JD Sports</p>
-              <p class="text-orange-500 font-black">~5%</p>
-              <p class="text-zinc-400">30 días</p>
-            </div>
-            <div class="grid grid-cols-3 gap-4 p-4 border-t border-zinc-800 text-sm">
-              <p class="font-bold">Zalando ES</p>
-              <p class="text-orange-500 font-black">~4-6%</p>
-              <p class="text-zinc-400">30 días</p>
-            </div>
-            <div class="grid grid-cols-3 gap-4 p-4 border-t border-zinc-800 text-sm">
-              <p class="font-bold">Foot Locker</p>
-              <p class="text-orange-500 font-black">~2-5%</p>
-              <p class="text-zinc-400">30 días</p>
-            </div>
-            <div class="grid grid-cols-3 gap-4 p-4 border-t border-zinc-800 text-sm">
-              <p class="font-bold">Sprinter ES</p>
-              <p class="text-orange-500 font-black">~3-6%</p>
-              <p class="text-zinc-400">30 días</p>
-            </div>
-            <div class="grid grid-cols-3 gap-4 p-4 border-t border-zinc-800 text-sm">
-              <p class="font-bold">Reebok ES</p>
-              <p class="text-orange-500 font-black">~7%</p>
-              <p class="text-zinc-400">30 días</p>
-            </div>
-            <div class="grid grid-cols-3 gap-4 p-4 border-t border-zinc-800 text-sm">
-              <p class="font-bold">Amazon ES</p>
-              <p class="text-orange-500 font-black">3-4%</p>
-              <p class="text-zinc-400">24 horas</p>
-            </div>
-            <!-- Sin programa (los mostramos igual si tienen el mejor precio) -->
-            <div class="grid grid-cols-3 gap-4 p-4 border-t-2 border-zinc-700 text-sm bg-zinc-900/40">
-              <p class="text-xs font-black uppercase tracking-widest text-zinc-500 col-span-3 pt-1 pb-0">Sin programa de afiliados — los mostramos igual</p>
-            </div>
-            <div class="grid grid-cols-3 gap-4 p-4 border-t border-zinc-800 text-sm">
-              <p class="font-bold text-zinc-400">Basket World</p>
-              <p class="text-zinc-500 font-black">Sin programa</p>
-              <p class="text-zinc-500">—</p>
-            </div>
-            <div class="grid grid-cols-3 gap-4 p-4 border-t border-zinc-800 text-sm">
-              <p class="font-bold text-zinc-400">AliExpress</p>
-              <p class="text-zinc-500 font-black">Sin programa ES</p>
-              <p class="text-zinc-500">—</p>
-            </div>
-            <div class="grid grid-cols-3 gap-4 p-4 border-t border-zinc-800 text-sm">
-              <p class="font-bold text-zinc-400">Nike SNKRS</p>
-              <p class="text-zinc-500 font-black">Sin programa</p>
-              <p class="text-zinc-500">—</p>
-            </div>
-            <div class="grid grid-cols-3 gap-4 p-4 border-t border-zinc-800 text-sm">
-              <p class="font-bold text-zinc-400">Kickscrew</p>
-              <p class="text-zinc-500 font-black">Sin programa ES</p>
-              <p class="text-zinc-500">—</p>
-            </div>
+        {/* 01 — Modelo */}
+        <section class="doc-section">
+          <div class="doc-section-head">
+            <span class="doc-num">01</span>
+            <h2 class="doc-h2">Afiliados, nada más</h2>
           </div>
-          <p class="text-xs text-zinc-500 mt-4">
+          <p class="doc-body">
+            Trabajamos con programas de afiliados de las tiendas donde se venden las zapatillas.
+            Cuando haces click en un botón "Ver en X" y terminas comprando algo, la tienda nos paga
+            un pequeño porcentaje del precio.
+          </p>
+          <p class="doc-body" style="margin-top:14px">
+            Las tiendas con afiliados aparecen marcadas en cada ficha. Las que NO tienen programa
+            también las mostramos: si tienen el mejor precio, las verás arriba igualmente.
+            El usuario gana siempre.
+          </p>
+        </section>
+
+        {/* 02 — Comisiones */}
+        <section class="doc-section">
+          <div class="doc-section-head">
+            <span class="doc-num">02</span>
+            <h2 class="doc-h2">Las comisiones reales</h2>
+          </div>
+          <p class="doc-body">
+            Por curiosidad o por morbo, esto es lo que cobramos por venta en calzado de baloncesto:
+          </p>
+          <div class="doc-table-wrap">
+            <table class="doc-table">
+              <thead>
+                <tr>
+                  <th>Tienda</th>
+                  <th>Comisión</th>
+                  <th>Cookie</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tiendasAfiliado.map(t => (
+                  <tr>
+                    <td><strong>{t.tienda}</strong></td>
+                    <td class="acc">{t.comision}</td>
+                    <td class="muted">{t.cookie}</td>
+                  </tr>
+                ))}
+                <tr class="doc-table-divider">
+                  <td colspan="3">— Sin programa de afiliados, mostradas igualmente —</td>
+                </tr>
+                {tiendasSinAfiliado.map(t => (
+                  <tr class="doc-table-no-affil">
+                    <td><strong>{t.tienda}</strong></td>
+                    <td class="muted">Sin programa</td>
+                    <td class="muted">—</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="doc-body" style="font-size:13px;color:#71717a;margin-top:14px">
             Sobre una zapatilla de ~150€, una comisión típica del 5% son ~7,50€ para nosotros.
             Las tiendas sin programa las mostramos igualmente si tienen el mejor precio.
           </p>
         </section>
 
-        <!-- Sección 3: Los principios inquebrantables -->
-        <section class="mb-12">
-          <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-6">
-            <span class="text-orange-500">03.</span> Principios inquebrantables
-          </h2>
-          <p class="text-zinc-300 mb-6 leading-relaxed">
+        {/* 03 — Principios */}
+        <section class="doc-section">
+          <div class="doc-section-head">
+            <span class="doc-num">03</span>
+            <h2 class="doc-h2">Principios inquebrantables</h2>
+          </div>
+          <p class="doc-body">
             Estas 6 cosas no negociamos. Si en algún momento las rompemos,
             tienes derecho a echárnoslo en cara públicamente.
           </p>
-
-          <ol class="space-y-5">
-            <li class="bg-zinc-900 border border-zinc-800 p-5">
-              <p class="text-xs font-black uppercase tracking-widest text-orange-500 mb-2">
-                01 · Fidelidad al usuario, no al afiliado
-              </p>
-              <p class="text-zinc-300 text-sm leading-relaxed">
-                El scoring NUNCA se ajusta por comisión. Si la zapa que mejor
-                encaja contigo paga menos, sale arriba igual.
-              </p>
-            </li>
-            <li class="bg-zinc-900 border border-zinc-800 p-5">
-              <p class="text-xs font-black uppercase tracking-widest text-orange-500 mb-2">
-                02 · Mejor precio > mejor comisión
-              </p>
-              <p class="text-zinc-300 text-sm leading-relaxed">
-                En el comparador de precios el orden es por precio bajo. No
-                por cuánto nos paga la tienda.
-              </p>
-            </li>
-            <li class="bg-zinc-900 border border-zinc-800 p-5">
-              <p class="text-xs font-black uppercase tracking-widest text-orange-500 mb-2">
-                03 · Tiendas sin afiliado, también
-              </p>
-              <p class="text-zinc-300 text-sm leading-relaxed">
-                Basket World y AliExpress no tienen programa de afiliados. Si tienen
-                la mejor oferta, salen arriba con link normal. Tú ganas, nosotros nos
-                quedamos sin nada por esa venta. No pasa nada.
-              </p>
-            </li>
-            <li class="bg-zinc-900 border border-zinc-800 p-5">
-              <p class="text-xs font-black uppercase tracking-widest text-orange-500 mb-2">
-                04 · Si una zapa es mala, lo decimos
-              </p>
-              <p class="text-zinc-300 text-sm leading-relaxed">
-                Sin eufemismos. "Cushion 4/10, no la recomendamos si pesas
-                más de 80kg" — así de directo.
-              </p>
-            </li>
-            <li class="bg-zinc-900 border border-zinc-800 p-5">
-              <p class="text-xs font-black uppercase tracking-widest text-orange-500 mb-2">
-                05 · Transparencia editorial
-              </p>
-              <p class="text-zinc-300 text-sm leading-relaxed">
-                En cada ficha listamos las fuentes (WearTesters, HoopsGeek,
-                RunRepeat) y enlazamos al review original. Verifica si
-                quieres.
-              </p>
-            </li>
-            <li class="bg-zinc-900 border border-zinc-800 p-5">
-              <p class="text-xs font-black uppercase tracking-widest text-orange-500 mb-2">
-                06 · Patrocinios, etiquetados sin sesgo de score
-              </p>
-              <p class="text-zinc-300 text-sm leading-relaxed">
-                Si alguna marca paga por una review en el futuro, irá marcada
-                como "Patrocinado" de forma muy visible. El score se aplica
-                con los mismos criterios que a cualquier otra zapa.
-              </p>
-            </li>
+          <ol class="doc-principles">
+            {principios.map((p, i) => (
+              <li>
+                <p class="doc-principle-num">{String(i + 1).padStart(2, "0")}</p>
+                <div>
+                  <p class="doc-principle-title">{p.titulo}</p>
+                  <p class="doc-principle-body">{p.body}</p>
+                </div>
+              </li>
+            ))}
           </ol>
         </section>
 
-        <!-- Sección 4: El trade-off -->
-        <section class="mb-12">
-          <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-4">
-            <span class="text-orange-500">04.</span> El trade-off honesto
-          </h2>
-          <p class="text-zinc-300 leading-relaxed mb-4">
-            Sí, dejamos dinero corto plazo sobre la mesa. Ventas que podrían
-            ir a Nike (11% comisión teórica) se irán a Decathlon (3-9%) si
-            Decathlon encaja mejor con tu perfil. Es lo correcto y lo
-            asumimos.
+        {/* 04 — Trade-off */}
+        <section class="doc-section">
+          <div class="doc-section-head">
+            <span class="doc-num">04</span>
+            <h2 class="doc-h2">El trade-off honesto</h2>
+          </div>
+          <p class="doc-body">
+            Sí, dejamos dinero corto plazo sobre la mesa. Ventas que podrían ir a Nike (11% comisión teórica)
+            se irán a Decathlon (3–9%) si Decathlon encaja mejor con tu perfil. Es lo correcto y lo asumimos.
           </p>
-          <p class="text-zinc-300 leading-relaxed">
-            A cambio ganamos algo más valioso: tu confianza. Y la confianza,
-            con tiempo, paga mejor que cualquier sesgo. Modelo inspirado en
-            <a
-              href="https://www.nytimes.com/wirecutter/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-orange-500 hover:text-orange-400 font-bold underline decoration-2 underline-offset-4"
-              >Wirecutter</a
-            >
+          <p class="doc-body" style="margin-top:14px">
+            A cambio ganamos algo más valioso: tu confianza. Modelo inspirado en
+            <a href="https://www.nytimes.com/wirecutter/" target="_blank" rel="noopener noreferrer" class="doc-link">Wirecutter</a>
             y
-            <a
-              href="https://www.rtings.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-orange-500 hover:text-orange-400 font-bold underline decoration-2 underline-offset-4"
-              >RTINGS</a
-            >, que han demostrado que la honestidad escala mejor que el
-            clickbait.
+            <a href="https://www.rtings.com" target="_blank" rel="noopener noreferrer" class="doc-link">RTINGS</a>,
+            que han demostrado que la honestidad escala mejor que el clickbait.
           </p>
         </section>
 
-        <!-- CTA final -->
-        <section class="text-center pt-8 border-t border-zinc-800">
-          <p class="text-zinc-400 mb-6">
-            ¿Listo para usarlo?
-          </p>
-          <a
-            href="/quiz"
-            class="inline-block px-8 py-4 bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black uppercase tracking-wider transition-all shadow-[4px_4px_0_0_rgb(250,204,21)] hover:shadow-[6px_6px_0_0_rgb(250,204,21)]"
-          >
-            → Hacer el quiz
-          </a>
-        </section>
+        {/* CTA */}
+        <div class="doc-cta">
+          <p class="doc-cta-text">¿Listo para usarlo?</p>
+          <a href="/quiz" class="home-btn primary">→ Hacer el quiz</a>
+        </div>
       </div>
     </article>
 
-    <footer class="px-6 py-10 bg-black border-t-4 border-orange-500 mt-16">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <p class="text-2xl font-black tracking-tighter">CANCHA<span class="text-orange-500">.</span>ZAPA</p>
-        <nav class="flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest flex-wrap justify-center">
-          <a href="/zapatillas" class="hover:text-orange-500 transition-colors">Catálogo</a>
-          <a href="/quiz" class="hover:text-orange-500 transition-colors">Quiz</a>
-          <a href="/metodologia" class="hover:text-orange-500 transition-colors">Metodología</a>
-          <a href="/financiacion" class="hover:text-orange-500 transition-colors">Financiación</a>
+    <footer style="background:#000;border-top:4px solid #f97316;padding:32px 0;margin-top:40px">
+      <div class="shell" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center">
+        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
+        <nav class="cz-nav">
+          <a href="/zapatillas">Catálogo</a>
+          <a href="/quiz">Quiz</a>
+          <a href="/metodologia">Método</a>
+          <a href="/faq">FAQ</a>
         </nav>
-        <p class="text-xs text-zinc-600 uppercase tracking-widest text-center">Proyecto independiente · Sin sesgo de afiliado</p>
+        <p style="font-size:10px;color:#52525b;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin:0">
+          Proyecto independiente · Sin sesgo de afiliado
+        </p>
       </div>
     </footer>
   </main>

@@ -1,11 +1,5 @@
 ---
-// /quiz — quiz rediseñado
-// Drop-in replacement for web/src/pages/quiz.astro
-// NOTA: la lógica JS del quiz original (estado, navegación, persistencia
-// de respuestas) sigue funcionando. Lo que cambia aquí es la estructura
-// HTML + CSS y las micro-animaciones entre pasos. Si tu quiz.astro
-// original tenía lógica adicional, mantén el bloque <script> al final.
-
+// /quiz — quiz completo 10 pasos
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 ---
@@ -14,6 +8,24 @@ import "../styles/cancha-redesign.css";
   title="Quiz: Encuentra tu zapatilla de baloncesto ideal | CANCHA"
   description="Quiz gratuito: responde 10 preguntas y te recomendamos las 5 zapatillas más compatibles con tu juego. Sin registro. Sin BS."
 >
+  <noscript>
+    <div style="padding:60px 24px;text-align:center;max-width:560px;margin:0 auto">
+      <p style="font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.2em;color:#f97316;margin-bottom:14px">
+        ⚠ JavaScript requerido
+      </p>
+      <h1 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:48px;line-height:.9;letter-spacing:-.04em;text-transform:uppercase;color:#fff;margin:0 0 14px">
+        Activa JavaScript<br/>para usar el quiz
+      </h1>
+      <p style="color:#a1a1aa;font-size:15px;line-height:1.55;margin:0 0 24px">
+        El quiz necesita JavaScript para guardar tus respuestas. Mientras tanto, puedes
+        explorar el catálogo completo de zapatillas.
+      </p>
+      <a href="/zapatillas" style="display:inline-block;padding:14px 22px;background:#f97316;color:#0c0c0c;font-weight:900;text-transform:uppercase;letter-spacing:.14em;font-size:12px;box-shadow:5px 5px 0 0 #facc15;text-decoration:none">
+        → Ver catálogo
+      </a>
+    </div>
+  </noscript>
+
   <main class="quiz-app">
     <div class="cz-courtbg"><img src="/bg-court.svg" alt="" /><div></div></div>
 
@@ -113,11 +125,11 @@ import "../styles/cancha-redesign.css";
               <span class="qo-check">→</span>
             </button>
             <button class="quiz-opt" data-field="peso" data-value="70-85">
-              <div class="qo-text"><span class="qo-title">70-85kg</span><span class="qo-sub">Escoltas, aleros</span></div>
+              <div class="qo-text"><span class="qo-title">70–85kg</span><span class="qo-sub">Escoltas, aleros</span></div>
               <span class="qo-check">→</span>
             </button>
             <button class="quiz-opt" data-field="peso" data-value="85-100">
-              <div class="qo-text"><span class="qo-title">85-100kg</span><span class="qo-sub">Alas, pívots</span></div>
+              <div class="qo-text"><span class="qo-title">85–100kg</span><span class="qo-sub">Alas, pívots</span></div>
               <span class="qo-check">→</span>
             </button>
             <button class="quiz-opt" data-field="peso" data-value="mas-100">
@@ -173,11 +185,11 @@ import "../styles/cancha-redesign.css";
           </div>
         </div>
 
-        {/* STEP 6 — Lesiones */}
+        {/* STEP 6 — Lesiones (multi-select) */}
         <div class="quiz-step hidden" data-step="6">
           <p class="cz-eyebrow">★ 06 / 10</p>
           <h1 class="quiz-title">¿Tienes lesiones previas a considerar?</h1>
-          <p class="quiz-sub">Multi-select: marca todas que apliquen.</p>
+          <p class="quiz-sub">Multi-select: marca todas las que apliquen.</p>
           <div class="quiz-options cols-2">
             <button class="quiz-opt" data-field="lesiones" data-value="rodillas">
               <div class="qo-text"><span class="qo-title">Rodillas</span><span class="qo-sub">Soporte extra, estabilidad</span></div>
@@ -242,7 +254,7 @@ import "../styles/cancha-redesign.css";
               <span class="qo-check">→</span>
             </button>
             <button class="quiz-opt" data-field="presupuesto" data-value="180">
-              <div class="qo-text"><span class="qo-title">Hasta 180€</span><span class="qo-sub">Premium, tecnologías</span></div>
+              <div class="qo-text"><span class="qo-title">Hasta 180€</span><span class="qo-sub">Premium, tecnologías top</span></div>
               <span class="qo-check">→</span>
             </button>
             <button class="quiz-opt" data-field="presupuesto" data-value="null">
@@ -252,7 +264,7 @@ import "../styles/cancha-redesign.css";
           </div>
         </div>
 
-        {/* STEP 9 — Ancho pie */}
+        {/* STEP 9 — Ancho de pie */}
         <div class="quiz-step hidden" data-step="9">
           <p class="cz-eyebrow">★ 09 / 10</p>
           <h1 class="quiz-title">¿Cómo sería tu ancho de pie?</h1>
@@ -263,7 +275,7 @@ import "../styles/cancha-redesign.css";
               <span class="qo-check">→</span>
             </button>
             <button class="quiz-opt" data-field="ancho" data-value="ancho">
-              <div class="qo-text"><span class="qo-title">Ancho</span><span class="qo-sub">Need wide fit, box toe</span></div>
+              <div class="qo-text"><span class="qo-title">Ancho</span><span class="qo-sub">Wide fit, antepié amplio</span></div>
               <span class="qo-check">→</span>
             </button>
             <button class="quiz-opt" data-field="ancho" data-value="no-se">
@@ -277,10 +289,10 @@ import "../styles/cancha-redesign.css";
         <div class="quiz-step hidden" data-step="10">
           <p class="cz-eyebrow">★ 10 / 10</p>
           <h1 class="quiz-title">¿Para qué la usarás?</h1>
-          <p class="quiz-sub">El uso define la duración y calidad.</p>
+          <p class="quiz-sub">El uso define la durabilidad y el enfoque.</p>
           <div class="quiz-options cols-2">
             <button class="quiz-opt" data-field="uso" data-value="competicion">
-              <div class="qo-text"><span class="qo-title">Competición</span><span class="qo-sub">Serias, ligas, torneos</span></div>
+              <div class="qo-text"><span class="qo-title">Competición</span><span class="qo-sub">Ligas, torneos, partidos</span></div>
               <span class="qo-check">→</span>
             </button>
             <button class="quiz-opt" data-field="uso" data-value="entrenamiento">
@@ -312,8 +324,7 @@ import "../styles/cancha-redesign.css";
 
   <script>
     // ─── Quiz de 10 pasos completo ───
-    // Todos los campos: perfil, posicion, peso, estilo, cancha, lesiones, prioridad, presupuesto, ancho, uso
-    // Lesiones permite multi-select
+    // Lesiones es multi-select, el resto single-select con auto-avance.
 
     const TOTAL = 10;
     let current = 1;
@@ -329,7 +340,7 @@ import "../styles/cancha-redesign.css";
     const $dots = document.querySelectorAll<HTMLElement>(".qp-dot");
     let advanceTimer: number | undefined;
 
-    function show(step: number, dir: 1 | -1 = 1) {
+    function show(step: number, _dir: 1 | -1 = 1) {
       window.clearTimeout(advanceTimer);
       current = Math.min(Math.max(step, 1), TOTAL);
       $steps.forEach(s => {
@@ -357,57 +368,68 @@ import "../styles/cancha-redesign.css";
     function refreshNext() {
       const stepEl = document.querySelector<HTMLElement>(`.quiz-step[data-step="${current}"]`)!;
       const field = stepEl.querySelector<HTMLElement>("[data-field]")?.dataset.field;
-      const ok = field ? answers[field] !== undefined : false;
+      let ok = false;
+      if (field === "lesiones") {
+        ok = (answers.lesiones as string[]).length > 0;
+      } else {
+        ok = field ? answers[field] !== undefined : false;
+      }
       $next.disabled = !ok;
-      $hint.textContent = ok ? (current < TOTAL ? "Avanzando…" : "Listos. Ver tus matches.") : "Elige una opción para continuar";
+      $hint.textContent = ok
+        ? (current < TOTAL ? "Avanzando…" : "Listos. Ver tus matches.")
+        : "Elige una opción para continuar";
     }
 
     document.querySelectorAll<HTMLButtonElement>(".quiz-opt").forEach(btn => {
       btn.addEventListener("click", () => {
         const field = btn.dataset.field!;
         const value = btn.dataset.value!;
-        // Multi-select para lesiones
+
         if (field === "lesiones") {
+          // Multi-select: "ninguna" exclusivo
           if (value === "ninguna") {
-            answers[field] = ["ninguna"];
-            document.querySelectorAll<HTMLButtonElement>(`[data-field="${field}"]`).forEach(b => {
+            answers.lesiones = ["ninguna"];
+            document.querySelectorAll<HTMLButtonElement>(`[data-field="lesiones"]`).forEach(b => {
               b.classList.toggle("is-selected", b === btn);
             });
           } else {
-            const next = new Set((answers[field] || []).filter((v: string) => v !== "ninguna"));
-            next.has(value) ? next.delete(value) : next.add(value);
-            answers[field] = [...next];
-            document.querySelectorAll<HTMLButtonElement>(`[data-field="${field}"]`).forEach(b => {
-              const v = b.dataset.value!;
-              b.classList.toggle("is-selected", next.has(v));
+            const set = new Set<string>((answers.lesiones as string[]).filter((v: string) => v !== "ninguna"));
+            set.has(value) ? set.delete(value) : set.add(value);
+            answers.lesiones = [...set];
+            document.querySelectorAll<HTMLButtonElement>(`[data-field="lesiones"]`).forEach(b => {
+              b.classList.toggle("is-selected", set.has(b.dataset.value!));
             });
           }
+          refreshNext();
         } else {
           answers[field] = value;
-          document.querySelectorAll<HTMLButtonElement>(`[data-field="${field}"]`).forEach(b => b.classList.toggle("is-selected", b === btn));
-        }
-        refreshNext();
-        if (current < TOTAL && field !== "lesiones") {
-          const nextStep = current + 1;
-          advanceTimer = window.setTimeout(() => show(nextStep), 180);
+          document.querySelectorAll<HTMLButtonElement>(`[data-field="${field}"]`).forEach(b =>
+            b.classList.toggle("is-selected", b === btn)
+          );
+          refreshNext();
+          if (current < TOTAL) {
+            const nextStep = current + 1;
+            advanceTimer = window.setTimeout(() => show(nextStep), 180);
+          }
         }
       });
     });
 
     $back.addEventListener("click", () => { if (current > 1) show(current - 1, -1); });
+
     $next.addEventListener("click", () => {
       if ($next.disabled) return;
-      if (current < TOTAL) show(current + 1);
-      else {
-        // Mapear answers del quiz al formato RespuestasQuiz y guardar en sessionStorage
+      if (current < TOTAL) {
+        show(current + 1);
+      } else {
         const respuestas = {
           posicion:            answers.posicion,
           peso:                answers.peso,
           estilo:              answers.estilo,
           cancha:              answers.cancha,
-          lesiones:            (answers.lesiones as string[]).filter((l: string) => l !== 'ninguna'),
+          lesiones:            (answers.lesiones as string[]).filter((l: string) => l !== "ninguna"),
           prioridad:           answers.prioridad,
-          presupuesto_max_eur: (!answers.presupuesto || answers.presupuesto === 'null')
+          presupuesto_max_eur: (!answers.presupuesto || answers.presupuesto === "null")
                                  ? null
                                  : parseInt(answers.presupuesto as string, 10),
           ancho_pie:           answers.ancho,

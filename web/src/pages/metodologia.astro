@@ -1,14 +1,55 @@
 ---
+// /metodologia — rediseñado coherente con el resto
 import "../styles/cancha-redesign.css";
 import Base from "../layouts/Base.astro";
+
+const atributos = [
+  { lab: "Tracción",          desc: "Agarre de la suela en pista. Crucial para frenos y cambios de dirección." },
+  { lab: "Amortiguación",     desc: "Protección frente a impactos. Más cushion = menos castigo en rodillas." },
+  { lab: "Respuesta",         desc: "Court feel. Lo cerca que sientes el suelo, lo rápido que reaccionas." },
+  { lab: "Soporte lateral",   desc: "Contención del pie en cortes. Reduce riesgo de torceduras." },
+  { lab: "Estabilidad",       desc: "Base ancha, sin tambaleo. Importante si pesas mucho o juegas de poste." },
+  { lab: "Ligereza",          desc: "Inverso del peso. Más ligera = mejor para guardias rápidos." },
+  { lab: "Durabilidad outdoor", desc: "Resistencia en asfalto. Si juegas calle, prioritario." },
+  { lab: "Ventilación",       desc: "Transpiración del upper. Útil en verano o pies sudorosos." },
+];
+
+const fuentes = [
+  {
+    nombre: "WearTesters",
+    url: "https://weartesters.com",
+    desc: "Reviews editoriales en profundidad, escala A+ a F que convertimos a 1-10. La referencia más respetada.",
+    col: "#f97316",
+  },
+  {
+    nombre: "TheHoopsGeek",
+    url: "https://www.thehoopsgeek.com",
+    desc: "BBDD con scores 1-10 en 5 ejes, agregados de 2.000+ reviews independientes. Validación de consenso.",
+    col: "#facc15",
+  },
+  {
+    nombre: "RunRepeat Lab",
+    url: "https://runrepeat.com",
+    desc: "Lab tests reales: peso, tracción SATRA TM144, drop, flexibilidad. Datos objetivos para lo medible.",
+    col: "#fb923c",
+  },
+];
+
+const noHacemos = [
+  "Ajustar el ranking según qué tienda paga más comisión. Nunca.",
+  "Aceptar pago de marcas a cambio de subir su score.",
+  "Esconder los contras de una zapatilla para que parezca mejor.",
+  "Recomendar la más cara si la más barata encaja mejor en tu perfil.",
+];
 ---
 
 <Base
-  title="Metodología · Cancha"
+  title="Metodología · CANCHA.ZAPA"
   description="Cómo puntuamos cada zapatilla de baloncesto. Fuentes: WearTesters, TheHoopsGeek, RunRepeat. Fórmula abierta, sin sesgo de afiliado."
 >
-  <main class="min-h-screen text-white">
-    <!-- Header -->
+  <main class="app">
+    <div class="cz-courtbg"><img src="/bg-court.svg" alt="" /><div></div></div>
+
     <div class="cz-strip"></div>
     <header class="cz-header">
       <div class="shell cz-header-inner">
@@ -17,294 +58,140 @@ import Base from "../layouts/Base.astro";
           <a href="/zapatillas">Catálogo</a>
           <a href="/quiz">Quiz</a>
           <a href="/rankings">Rankings</a>
+          <a href="/metodologia" class="active">Método</a>
           <a href="/faq">FAQ</a>
         </nav>
       </div>
     </header>
 
-    <article class="px-6 py-16">
-      <div class="max-w-3xl mx-auto">
-        <p
-          class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
-        >
-          ★ Metodología
-        </p>
-        <h1
-          class="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-6 leading-[0.95]"
-        >
-          Cómo<br />
-          <span class="text-orange-500">puntuamos</span><br />
+    {/* HERO */}
+    <section class="doc-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Metodología</p>
+        <h1 class="doc-h1">
+          Cómo<br/>
+          <span class="accent">puntuamos</span><br/>
           cada zapa
         </h1>
-        <p class="text-zinc-400 text-lg mb-12 leading-relaxed">
-          Sin secretos. Esto es exactamente cómo decidimos qué zapatilla te
-          recomendamos. Si algo te chirría, díselo a nadie — verifica en las
-          fuentes y juzga tú.
+        <p class="doc-lede">
+          Sin secretos. Esto es exactamente cómo decidimos qué zapatilla te recomendamos.
+          Si algo te chirría, verifica en las fuentes y juzga tú.
         </p>
+      </div>
+    </section>
 
-        <!-- Sección 1: Los 8 atributos -->
-        <section class="mb-16">
-          <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-6">
-            <span class="text-orange-500">01.</span> Los 8 atributos
-          </h2>
-          <p class="text-zinc-300 mb-6 leading-relaxed">
-            Cada zapatilla se puntúa de 1 a 10 en 8 dimensiones técnicas. No
-            inventamos cosas: son las mismas dimensiones que evalúan
+    {/* SECCIONES */}
+    <article class="doc-article">
+      <div class="shell shell-narrow">
+
+        {/* 01 — Atributos */}
+        <section class="doc-section">
+          <div class="doc-section-head">
+            <span class="doc-num">01</span>
+            <h2 class="doc-h2">Los 8 atributos</h2>
+          </div>
+          <p class="doc-body">
+            Cada zapatilla se puntúa de 1 a 10 en 8 dimensiones técnicas.
+            No inventamos cosas: son las mismas dimensiones que evalúan
             WearTesters, TheHoopsGeek y RunRepeat.
           </p>
-
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div class="bg-zinc-900 border border-zinc-800 p-4">
-              <p class="text-xs font-bold uppercase tracking-widest text-orange-500 mb-1">
-                Tracción
-              </p>
-              <p class="text-zinc-400 text-sm">
-                Cuánto agarra la suela en la pista. Crucial para frenos y
-                cambios de dirección.
-              </p>
-            </div>
-            <div class="bg-zinc-900 border border-zinc-800 p-4">
-              <p class="text-xs font-bold uppercase tracking-widest text-orange-500 mb-1">
-                Amortiguación
-              </p>
-              <p class="text-zinc-400 text-sm">
-                Protección frente a impactos. Más cushion = menos castigo en
-                articulaciones.
-              </p>
-            </div>
-            <div class="bg-zinc-900 border border-zinc-800 p-4">
-              <p class="text-xs font-bold uppercase tracking-widest text-orange-500 mb-1">
-                Respuesta
-              </p>
-              <p class="text-zinc-400 text-sm">
-                Court feel. Lo cerca que sientes el suelo, lo rápido que
-                reaccionas en el primer paso.
-              </p>
-            </div>
-            <div class="bg-zinc-900 border border-zinc-800 p-4">
-              <p class="text-xs font-bold uppercase tracking-widest text-orange-500 mb-1">
-                Soporte lateral
-              </p>
-              <p class="text-zinc-400 text-sm">
-                Contención del pie en cortes laterales. Reduce riesgo de
-                torceduras.
-              </p>
-            </div>
-            <div class="bg-zinc-900 border border-zinc-800 p-4">
-              <p class="text-xs font-bold uppercase tracking-widest text-orange-500 mb-1">
-                Estabilidad
-              </p>
-              <p class="text-zinc-400 text-sm">
-                Base ancha, sin tambaleo. Importante si pesas mucho o juegas de
-                poste.
-              </p>
-            </div>
-            <div class="bg-zinc-900 border border-zinc-800 p-4">
-              <p class="text-xs font-bold uppercase tracking-widest text-orange-500 mb-1">
-                Ligereza
-              </p>
-              <p class="text-zinc-400 text-sm">
-                Inverso del peso medido. Más ligera = más score. Ideal para
-                guardias rápidos.
-              </p>
-            </div>
-            <div class="bg-zinc-900 border border-zinc-800 p-4">
-              <p class="text-xs font-bold uppercase tracking-widest text-orange-500 mb-1">
-                Durabilidad outdoor
-              </p>
-              <p class="text-zinc-400 text-sm">
-                Resistencia en asfalto y pista exterior. Si juegas calle,
-                prioritario.
-              </p>
-            </div>
-            <div class="bg-zinc-900 border border-zinc-800 p-4">
-              <p class="text-xs font-bold uppercase tracking-widest text-orange-500 mb-1">
-                Ventilación
-              </p>
-              <p class="text-zinc-400 text-sm">
-                Transpiración del upper. Útil en verano o si te sudan mucho los
-                pies.
-              </p>
-            </div>
+          <div class="doc-grid-2">
+            {atributos.map(a => (
+              <div class="doc-card">
+                <p class="doc-card-lab">{a.lab}</p>
+                <p class="doc-card-desc">{a.desc}</p>
+              </div>
+            ))}
           </div>
         </section>
 
-        <!-- Sección 2: De dónde sacamos los números -->
-        <section class="mb-16">
-          <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-6">
-            <span class="text-orange-500">02.</span> Las fuentes
-          </h2>
-          <p class="text-zinc-300 mb-6 leading-relaxed">
-            No probamos cada zapa nosotros. Sería deshonesto pretenderlo.
-            Combinamos 3 fuentes públicas reconocidas y declaramos en cada
-            ficha de qué fuente sale cada score:
-          </p>
-
-          <ul class="space-y-4">
-            <li class="bg-zinc-900 border-l-4 border-orange-500 p-5">
-              <p class="font-black uppercase tracking-tight text-lg mb-1">
-                <a
-                  href="https://weartesters.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="hover:text-orange-500 transition-colors"
-                >
-                  WearTesters
-                </a>
-                <span class="text-xs text-zinc-500 ml-2 font-normal">↗</span>
-              </p>
-              <p class="text-zinc-400 text-sm">
-                Reviews editoriales en profundidad, en escala cualitativa (A+ a
-                F) que convertimos a 1-10. La referencia más respetada en
-                performance basketball shoes.
-              </p>
-            </li>
-            <li class="bg-zinc-900 border-l-4 border-yellow-400 p-5">
-              <p class="font-black uppercase tracking-tight text-lg mb-1">
-                <a
-                  href="https://www.thehoopsgeek.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="hover:text-orange-500 transition-colors"
-                >
-                  TheHoopsGeek
-                </a>
-                <span class="text-xs text-zinc-500 ml-2 font-normal">↗</span>
-              </p>
-              <p class="text-zinc-400 text-sm">
-                Base de datos con scores 1-10 en 5 ejes, agregados de 2.000+
-                reviews independientes. Ideal para validar consenso.
-              </p>
-            </li>
-            <li class="bg-zinc-900 border-l-4 border-orange-500 p-5">
-              <p class="font-black uppercase tracking-tight text-lg mb-1">
-                <a
-                  href="https://runrepeat.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="hover:text-orange-500 transition-colors"
-                >
-                  RunRepeat Lab
-                </a>
-                <span class="text-xs text-zinc-500 ml-2 font-normal">↗</span>
-              </p>
-              <p class="text-zinc-400 text-sm">
-                Pruebas de laboratorio reales: peso medido, coeficiente de
-                tracción SATRA TM144, drop, flexibilidad. Datos objetivos para
-                lo que se puede medir objetivamente.
-              </p>
-            </li>
-          </ul>
-        </section>
-
-        <!-- Sección 3: La fórmula -->
-        <section class="mb-16">
-          <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-6">
-            <span class="text-orange-500">03.</span> La fórmula del match
-          </h2>
-          <p class="text-zinc-300 mb-6 leading-relaxed">
-            Cuando rellenas el quiz, cada respuesta modifica el peso de los
-            atributos. Por ejemplo, si dices "rodillas", la amortiguación pasa
-            a pesar más en el cálculo. Luego:
-          </p>
-
-          <div
-            class="bg-zinc-900 border-2 border-zinc-800 p-5 font-mono text-sm leading-relaxed mb-6 overflow-x-auto"
-          >
-            <p class="text-orange-500 mb-2">// Por cada zapatilla:</p>
-            <p class="text-zinc-300">
-              <span class="text-yellow-400">1.</span> Filtros duros (presupuesto, durabilidad outdoor,
-            </p>
-            <p class="text-zinc-300 pl-6">
-              cushion mínimo según lesiones, no low-top si tobillos).
-            </p>
-            <p class="text-zinc-300 mt-3">
-              <span class="text-yellow-400">2.</span> Score = Σ(puntuación × peso) / Σ(pesos)
-            </p>
-            <p class="text-zinc-300 mt-3">
-              <span class="text-yellow-400">3.</span> Match % = round(score × 10)
-            </p>
-            <p class="text-zinc-300 mt-3">
-              <span class="text-yellow-400">4.</span> Top 5 con regla de diversidad
-            </p>
-            <p class="text-zinc-300 pl-6">(máx 2 zapas de la misma marca).</p>
+        {/* 02 — Fuentes */}
+        <section class="doc-section">
+          <div class="doc-section-head">
+            <span class="doc-num">02</span>
+            <h2 class="doc-h2">Las fuentes</h2>
           </div>
-
-          <p class="text-zinc-400 text-sm leading-relaxed">
-            Eso es todo. No hay ML mágico, no hay IA opaca. Pura matemática
-            ponderada que tú puedes auditar. <a
-              href="https://github.com/"
-              class="text-orange-500 hover:text-orange-400 font-bold"
-              >El código del motor</a
-            > será open source cuando salgamos de beta.
+          <p class="doc-body">
+            No probamos cada zapa nosotros — sería deshonesto pretenderlo.
+            Combinamos 3 fuentes públicas reconocidas y declaramos en cada ficha
+            de qué fuente sale cada score.
           </p>
-        </section>
-
-        <!-- Sección 4: Lo que NO hacemos -->
-        <section class="mb-16">
-          <h2 class="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-6">
-            <span class="text-orange-500">04.</span> Lo que NO hacemos
-          </h2>
-          <ul class="space-y-3 text-zinc-300">
-            <li class="flex gap-3">
-              <span class="text-zinc-500 font-black">✗</span>
-              <span
-                >Ajustar el ranking según qué tienda paga más comisión. Nunca.</span
-              >
-            </li>
-            <li class="flex gap-3">
-              <span class="text-zinc-500 font-black">✗</span>
-              <span>Aceptar pago de marcas a cambio de subir su score.</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="text-zinc-500 font-black">✗</span>
-              <span>Esconder los contras de una zapatilla para que parezca mejor.</span>
-            </li>
-            <li class="flex gap-3">
-              <span class="text-zinc-500 font-black">✗</span>
-              <span
-                >Recomendar la zapa más cara si la más barata encaja mejor en
-                tu perfil.</span
-              >
-            </li>
+          <ul class="doc-sources">
+            {fuentes.map(f => (
+              <li class="doc-source" style={`--col:${f.col}`}>
+                <a href={f.url} target="_blank" rel="noopener noreferrer">
+                  <p class="doc-source-name">{f.nombre} <span class="doc-source-ext">↗</span></p>
+                  <p class="doc-source-desc">{f.desc}</p>
+                </a>
+              </li>
+            ))}
           </ul>
-          <p class="mt-6">
-            <a
-              href="/financiacion"
-              class="text-orange-500 hover:text-orange-400 font-black underline decoration-2 underline-offset-4"
-              >Mira cómo nos financiamos →</a
-            >
+        </section>
+
+        {/* 03 — Fórmula */}
+        <section class="doc-section">
+          <div class="doc-section-head">
+            <span class="doc-num">03</span>
+            <h2 class="doc-h2">La fórmula del match</h2>
+          </div>
+          <p class="doc-body">
+            Cuando rellenas el quiz, cada respuesta modifica el peso de los atributos.
+            Por ejemplo, si dices "rodillas", la amortiguación pasa a pesar más en el cálculo.
+          </p>
+          <div class="doc-code">
+            <p class="doc-code-comment">// Por cada zapatilla:</p>
+            <p><span class="doc-code-num">1.</span> Filtros duros (presupuesto, durabilidad outdoor, cushion mínimo según lesiones, no low-top si tobillos).</p>
+            <p><span class="doc-code-num">2.</span> Score = Σ(puntuación × peso) / Σ(pesos)</p>
+            <p><span class="doc-code-num">3.</span> Match % = round(score × 10)</p>
+            <p><span class="doc-code-num">4.</span> Top 5 con regla de diversidad (máx 2 zapas de la misma marca).</p>
+          </div>
+          <p class="doc-body" style="margin-top:14px">
+            Pura matemática ponderada que tú puedes auditar. No hay ML mágico, no hay IA opaca.
           </p>
         </section>
 
-        <!-- Disclaimer honesto -->
-        <section class="bg-zinc-900 border-2 border-zinc-800 p-6">
-          <p class="text-xs font-black uppercase tracking-widest text-yellow-400 mb-3">
-            ⚠ Lo que sí asumimos
+        {/* 04 — Lo que NO hacemos */}
+        <section class="doc-section">
+          <div class="doc-section-head">
+            <span class="doc-num">04</span>
+            <h2 class="doc-h2">Lo que NO hacemos</h2>
+          </div>
+          <ul class="doc-no-list">
+            {noHacemos.map(item => (
+              <li><span class="bull">✗</span>{item}</li>
+            ))}
+          </ul>
+          <p style="margin-top:24px">
+            <a href="/financiacion" class="doc-link">Mira cómo nos financiamos →</a>
           </p>
-          <p class="text-zinc-400 text-sm leading-relaxed">
+        </section>
+
+        {/* Disclaimer */}
+        <aside class="doc-disclaimer">
+          <p class="cz-eyebrow" style="color:#facc15">⚠ Lo que sí asumimos</p>
+          <p>
             Esto es un proyecto independiente hecho como hobby. Las puntuaciones
-            son nuestra mejor interpretación de las fuentes públicas — pueden
-            tener errores. Si encuentras algo raro, escríbenos. Y si pruebas una
-            zapa y discrepas con nuestro veredicto, también: la BD se mejora con
-            feedback real.
+            son nuestra mejor interpretación de las fuentes públicas — pueden tener errores.
+            Si encuentras algo raro, escríbenos. Y si pruebas una zapa y discrepas con
+            nuestro veredicto, también: la BD se mejora con feedback real.
           </p>
-        </section>
+        </aside>
       </div>
     </article>
 
-    <footer class="px-6 py-10 bg-black border-t-4 border-orange-500 mt-16">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <p class="text-2xl font-black tracking-tighter">CANCHA<span class="text-orange-500">.</span></p>
-        <nav class="flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest flex-wrap justify-center">
-          <a href="/zapatillas" class="hover:text-orange-500 transition-colors">Catálogo</a>
-          <a href="/rankings" class="hover:text-orange-500 transition-colors">Rankings</a>
-          <a href="/quiz" class="hover:text-orange-500 transition-colors">Quiz</a>
-          <a href="/metodologia" class="hover:text-orange-500 transition-colors">Metodología</a>
-          <a href="/financiacion" class="hover:text-orange-500 transition-colors">Financiación</a>
-          <a href="/faq" class="hover:text-orange-500 transition-colors">FAQ</a>
+    <footer style="background:#000;border-top:4px solid #f97316;padding:32px 0;margin-top:40px">
+      <div class="shell" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center">
+        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
+        <nav class="cz-nav">
+          <a href="/zapatillas">Catálogo</a>
+          <a href="/quiz">Quiz</a>
+          <a href="/rankings">Rankings</a>
+          <a href="/financiacion">Financiación</a>
+          <a href="/faq">FAQ</a>
         </nav>
-        <p class="text-xs text-zinc-600 uppercase tracking-widest text-center">Proyecto independiente · Sin sesgo de afiliado</p>
+        <p style="font-size:10px;color:#52525b;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin:0">
+          Proyecto independiente · Sin sesgo de afiliado
+        </p>
       </div>
     </footer>
   </main>

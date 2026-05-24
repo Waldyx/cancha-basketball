@@ -172,6 +172,27 @@ export function calcularPesos(
       break;
   }
 
+  // ─── NEW · Q10: Uso (competición / entrenamiento / ambos) ───
+  // Inferencia: competición = reactividad y ligereza; entrenamiento = aguante
+  // y cushion; ambos = aguante moderado. Pesos pequeños (≤ 0.3) para no
+  // sobrescribir prioridad/lesiones que ya pesan más.
+  switch (respuestas.uso) {
+    case "competicion":
+      pesos.respuesta   += 0.3;
+      pesos.peso_score  += 0.2;
+      pesos.traccion    += 0.2;
+      break;
+    case "entrenamiento":
+      pesos.durabilidad_outdoor += 0.3;
+      pesos.amortiguacion       += 0.2;
+      break;
+    case "ambos":
+      pesos.durabilidad_outdoor += 0.15;
+      pesos.amortiguacion       += 0.1;
+      break;
+    // undefined → no change
+  }
+
   return pesos;
 }
 
@@ -220,6 +241,19 @@ export function aplicarFiltrosDuros(
 
     // Ancho de pie: pie ancho no encaja en horma estrecha
     if (respuestas.ancho_pie === "ancho" && z.horma === "estrecha") {
+      return false;
+    }
+
+    // NEW · Uso competición pura: filtro suave — preferimos durabilidad ≥ 4
+    // (las muy frágiles para asfalto suelen serlo también para ligas amateurs
+    // donde se entrena en exterior). Mantenemos las que sí dan la talla.
+    if (
+      respuestas.uso === "competicion" &&
+      z.puntuaciones.durabilidad_outdoor < 4 &&
+      z.puntuaciones.respuesta < 7
+    ) {
+      // Solo descartamos las que NI durarían NI son reactivas — porque para
+      // pura competición la zapa debe destacar en al menos un eje.
       return false;
     }
 
@@ -464,6 +498,13 @@ export function generarRazones(
   // Ancho de pie
   if (respuestas.ancho_pie === "ancho" && zapatilla.horma === "ancha") {
     razones.push(`Horma ancha — perfecta para pies anchos.`);
+  }
+
+  // NEW · Razón por uso
+  if (respuestas.uso === "competicion" && p.respuesta >= 8 && p.peso_score >= 7) {
+    razones.push(`Ligera y reactiva — pensada para competir.`);
+  } else if (respuestas.uso === "entrenamiento" && p.durabilidad_outdoor >= 7) {
+    razones.push(`Durable ${p.durabilidad_outdoor}/10 — aguanta entrenamiento diario.`);
   }
 
   // Fallback: rellenar con los atributos más fuertes hasta tener ≥ 2 razones

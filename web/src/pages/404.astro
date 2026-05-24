@@ -1,12 +1,24 @@
 ---
+// /404 — Not Found, rediseñado
 import Base from "../layouts/Base.astro";
+import "../styles/cancha-redesign.css";
+
+const popular = [
+  { label: "Nike LeBron 22",     slug: "nike-lebron-22" },
+  { label: "Anta KAI 1 Speed",   slug: "anta-kai-1-speed" },
+  { label: "Nike GT Cut 3",      slug: "nike-gt-cut-3" },
+  { label: "Adidas AE 1",        slug: "adidas-ae-1" },
+  { label: "New Balance BB v3",  slug: "new-balance-bb-v3" },
+];
 ---
 
 <Base
-  title="404 — Página no encontrada · Cancha"
+  title="404 — Página no encontrada · CANCHA.ZAPA"
   description="Esta página no existe. Pero sí existen las zapatillas perfectas para ti."
 >
-  <main class="min-h-screen text-white flex flex-col">
+  <main class="app">
+    <div class="cz-courtbg"><img src="/bg-court.svg" alt="" /><div></div></div>
+
     <div class="cz-strip"></div>
     <header class="cz-header">
       <div class="shell cz-header-inner">
@@ -20,87 +32,47 @@ import Base from "../layouts/Base.astro";
       </div>
     </header>
 
-    <section class="flex-1 flex items-center justify-center px-6 py-24">
-      <div class="max-w-2xl mx-auto text-center">
-        <p class="text-[120px] md:text-[180px] font-black leading-none text-zinc-800 select-none">
-          4<span class="text-orange-500">0</span>4
-        </p>
-        <h1 class="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-4 -mt-4 leading-tight">
-          Página no encontrada
+    <section class="err-hero">
+      <div class="shell err-hero-inner">
+        <div class="err-num" aria-hidden="true">
+          4<span class="err-dot">0</span>4
+        </div>
+        <p class="cz-eyebrow">★ Sin matches con esa URL</p>
+        <h1 class="err-h1">
+          Página<br/>
+          <span class="muted">no encontrada</span>
         </h1>
-        <p class="text-zinc-400 mb-10 max-w-md mx-auto leading-relaxed">
-          Esta URL no existe. Pero sí existen las zapatillas perfectas para tu
-          juego — y las tenemos todas catalogadas.
+        <p class="err-lede">
+          Esta URL no existe. Pero sí existen las zapatillas perfectas para tu juego —
+          y las tenemos todas catalogadas.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a
-            href="/quiz"
-            class="inline-block px-8 py-4 bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black uppercase tracking-wider transition-all hover:-translate-y-1 shadow-[5px_5px_0_0_rgb(250,204,21)] hover:shadow-[7px_7px_0_0_rgb(250,204,21)]"
-          >
-            → Hacer el quiz
-          </a>
-          <a
-            href="/zapatillas"
-            class="inline-block px-8 py-4 border-2 border-zinc-700 hover:border-orange-500 font-black uppercase tracking-wider transition-colors"
-          >
-            Ver catálogo
-          </a>
+
+        <div class="err-cta">
+          <a href="/quiz" class="home-btn primary">→ Hacer el quiz</a>
+          <a href="/zapatillas" class="home-btn ghost">Ver catálogo</a>
         </div>
 
-        <!-- Buscador -->
-        <form
-          action="/zapatillas"
-          method="get"
-          class="mt-10 flex gap-2 max-w-md mx-auto"
-        >
-          <input
-            type="search"
-            name="q"
-            placeholder="Buscar zapatilla..."
-            class="flex-1 px-4 py-3 bg-zinc-900 border-2 border-zinc-700 focus:border-orange-500 text-white text-sm font-bold placeholder-zinc-600 outline-none transition-colors"
-          />
-          <button
-            type="submit"
-            class="px-5 py-3 bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black uppercase tracking-wider text-sm transition-colors"
-          >
-            Buscar →
-          </button>
+        <form action="/zapatillas" method="get" class="err-search">
+          <input type="search" name="q" placeholder="Buscar zapatilla…" />
+          <button type="submit">Buscar →</button>
         </form>
 
-        <!-- Zapatillas populares -->
-        <div class="mt-10">
-          <p class="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-4">
-            Zapatillas populares
-          </p>
-          <div class="flex flex-wrap gap-3 justify-center">
-            {[
-              { label: "Nike LeBron 22", slug: "nike-lebron-22" },
-              { label: "Anta KAI 1 Speed", slug: "anta-kai-1-speed" },
-              { label: "Nike GT Cut 3", slug: "nike-gt-cut-3" },
-              { label: "Adidas AE 1", slug: "adidas-ae-1" },
-              { label: "New Balance BB v3", slug: "new-balance-bb-v3" },
-            ].map(({ label, slug }) => (
-              <a
-                href={`/zapatilla/${slug}`}
-                class="px-4 py-2 border border-zinc-700 hover:border-orange-500 text-sm font-bold text-zinc-300 hover:text-orange-500 transition-colors"
-              >
-                {label}
-              </a>
+        <div class="err-popular">
+          <p class="cz-eyebrow" style="font-size:9px">★ Zapas populares</p>
+          <div class="err-popular-row">
+            {popular.map(p => (
+              <a href={`/zapatilla/${p.slug}`} class="err-pop-chip">{p.label}</a>
             ))}
           </div>
         </div>
       </div>
     </section>
 
-    <footer class="px-6 py-10 bg-black border-t-4 border-orange-500">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <p class="logo text-2xl font-black tracking-tighter">CANCHA</p>
-        <p class="logo flex items-center gap-1 text-2xl font-black tracking-tighter">
-          <span class="text-orange-500">ZAPA</span><span class="dot">.</span>
-        </p>
-        <p class="text-xs text-zinc-500 uppercase tracking-widest text-center md:text-right">
-          Proyecto independiente · Sin sesgo de afiliado<br />
-          Hecho con <span class="text-orange-500">★</span> en español
+    <footer style="background:#000;border-top:4px solid #f97316;padding:32px 0;margin-top:40px">
+      <div class="shell" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center">
+        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
+        <p style="font-size:10px;color:#52525b;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin:0">
+          Proyecto independiente · Sin sesgo de afiliado
         </p>
       </div>
     </footer>

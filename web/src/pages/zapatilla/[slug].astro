@@ -71,7 +71,7 @@ const linksOrdenados = [...z.links_compra]
   title={`${z.marca} ${z.modelo} · Review y mejor precio`}
   description={z.resumen.slice(0, 155)}
   ogType="article"
-  ogImage={z.imagen_principal}
+  ogImage={`/og/${z.slug}.svg`}
 >
   <main class="app">
     <div class="cz-courtbg"><img src="/bg-court.svg" alt="" aria-hidden="true" /><div></div></div>
@@ -79,7 +79,7 @@ const linksOrdenados = [...z.links_compra]
     <div class="cz-strip"></div>
     <header class="cz-header">
       <div class="shell cz-header-inner">
-        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
+        <a href="/" class="cz-logo">CANCHA<span class="dot">.</span>ZAPA</a>
         <nav class="cz-nav">
           <a href="/zapatillas" class="active">Catálogo</a>
           <a href="/quiz">Quiz</a>

@@ -67,7 +67,7 @@ const ordenadas = [...zapatillas].sort(
     <div class="cz-strip"></div>
     <header class="cz-header">
       <div class="shell cz-header-inner">
-        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
+        <a href="/" class="cz-logo">CANCHA<span class="dot">.</span>ZAPA</a>
         <nav class="cz-nav">
           <a href="/zapatillas" class="active">Catálogo</a>
           <a href="/quiz">Quiz</a>
@@ -234,7 +234,7 @@ const ordenadas = [...zapatillas].sort(
                   <div class="pick-photo">
                     <span class="pick-watermark">★ PICK</span>
                     <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} loading="eager"
-                      onerror="this.onerror=null;this.src='/placeholder-shoe.svg';" />
+                         onerror="this.style.display='none'" />
                   </div>
                   <div class="pick-body">
                     <div class="pick-eyebrow">
@@ -301,7 +301,7 @@ const ordenadas = [...zapatillas].sort(
                     {isNew && <span class="new-badge">★ Nueva</span>}
                     <span class={`cz-score-pill ${scClass} score-pill`}>{score}</span>
                     <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} loading="lazy"
-                      onerror="this.onerror=null;this.src='/placeholder-shoe.svg';" />
+                         onerror="this.style.display='none'" />
                     <span class="cat-stripe"></span>
                     <div class="cz-ideal-overlay">
                       <div class="lab">Ideal para</div>
@@ -403,38 +403,6 @@ const ordenadas = [...zapatillas].sort(
     const $cards = $grid.querySelectorAll<HTMLAnchorElement>(".cz-card");
     const $pick = $grid.querySelector<HTMLElement>("[data-pick]");
     const totalAll = $cards.length;
-
-    function initFiltersFromUrl() {
-      const params = new URLSearchParams(location.search);
-      const positions = params.getAll("posicion").flatMap(v => v.split(","));
-      positions.forEach(p => {
-        const value = p.trim();
-        if (value) filters.posiciones.add(value);
-      });
-
-      const court = params.get("cancha");
-      if (court === "exterior" || court === "outdoor") {
-        filters.soloOutdoor = true;
-        const outdoor = document.getElementById("only-outdoor") as HTMLInputElement | null;
-        if (outdoor) outdoor.checked = true;
-      }
-
-      const q = params.get("q");
-      if (q) {
-        filters.q = q.toLowerCase();
-        const search = document.getElementById("search") as HTMLInputElement | null;
-        if (search) search.value = q;
-      }
-
-      const marca = params.getAll("marca").flatMap(v => v.split(","));
-      marca.forEach(m => {
-        const value = m.trim();
-        if (value) filters.marcas.add(value);
-      });
-      document.querySelectorAll<HTMLInputElement>("[data-filter='marca']").forEach(cb => {
-        cb.checked = filters.marcas.has(cb.value);
-      });
-    }
 
     function activeChips(): { k: string; lab: string; remove: () => void }[] {
       const out: { k: string; lab: string; remove: () => void }[] = [];
@@ -602,8 +570,6 @@ const ordenadas = [...zapatillas].sort(
       });
     });
 
-    initFiltersFromUrl();
-    apply();
     refreshUI();
   </script>
 </Base>

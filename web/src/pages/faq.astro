@@ -1,38 +1,40 @@
 ---
+// /faq — rediseñado coherente con el resto
 import Base from "../layouts/Base.astro";
+import "../styles/cancha-redesign.css";
 
 const faqs = [
   {
     q: "¿Qué zapatillas de baloncesto son mejores para pívots?",
-    a: "Para pívots se recomiendan zapatillas con alta amortiguación (cushion score 8+), altura mid o high para soporte de tobillo, y buena estabilidad lateral. Opciones top: Nike LeBron 22, Nike LeBron Witness 9, New Balance Fresh Foam BB v3. Lo más importante es el cushion y el soporte lateral para los contactos en la pintura.",
+    a: "Para pívots se recomiendan zapatillas con alta amortiguación (cushion 8+), altura mid o high para soporte de tobillo, y buena estabilidad lateral. Opciones top: Nike LeBron 22, Nike LeBron Witness 9, New Balance Fresh Foam BB v3. Lo prioritario es el cushion y el soporte lateral para los contactos en la pintura.",
   },
   {
     q: "¿Cuál es la mejor zapatilla de baloncesto para exterior (outdoor)?",
-    a: "Para outdoor necesitas una suela de goma robusta con buena durabilidad. Busca un score de durabilidad outdoor de 7+. Las mejores opciones asequibles son: Adidas Cross Em Up Select, Nike Precision 8, Decathlon Tarmak Voltzy 500. Para outdoor premium: Nike KD 17, Jordan Luka 3.",
+    a: "Para outdoor necesitas una suela de goma robusta con score de durabilidad outdoor 7+. Asequibles: Adidas Cross Em Up Select, Nike Precision 8, Decathlon Tarmak Voltzy 500. Premium: Nike KD 17, Jordan Luka 3.",
   },
   {
     q: "¿Qué zapatillas de baloncesto son buenas para menos de 80€?",
-    a: "En el rango sub-80€ tienes excelentes opciones: Decathlon Tarmak Voltzy 500 (~€50), Adidas Ownthegame 2.0 (~€55), Nike Precision 8 (~€70), Adidas Cross Em Up Select (~€60), Puma MB.03 (~€75). No necesitas gastar más de 100€ para jugar bien.",
+    a: "Sub-80€ con excelentes opciones: Decathlon Tarmak Voltzy 500 (~€50), Adidas Ownthegame 2.0 (~€55), Nike Precision 8 (~€70), Adidas Cross Em Up Select (~€60), Puma MB.03 (~€75). No necesitas gastar más para jugar bien.",
   },
   {
     q: "¿Debo elegir zapatillas low, mid o high?",
-    a: "Depende de tu posición y si tienes problemas de tobillo. Low-top: para guards explosivos que priorizan velocidad (Anta KAI 1 Speed, Nike GT Cut 3). Mid-top: la opción más versátil para la mayoría de jugadores. High-top: para pívots o jugadores con historial de esguinces (Nike LeBron 22). Si has tenido lesiones de tobillo, evita las low-top.",
+    a: "Depende de tu posición y de si tienes problemas de tobillo. Low: guards explosivos que priorizan velocidad (Anta KAI 1 Speed, Nike GT Cut 3). Mid: la opción más versátil. High: pívots o jugadores con historial de esguinces (Nike LeBron 22). Con lesiones de tobillo previas, evita las low.",
   },
   {
     q: "¿Cuánto debo gastar en zapatillas de baloncesto?",
-    a: "No necesitas gastar una fortuna. Para juego recreativo: 50-80€. Para nivel federado amateur: 80-130€. Para jugadores exigentes: 130-200€. El precio no siempre correlaciona con el rendimiento — la Decathlon Voltzy 500 (€50) supera en outdoor a zapatillas de €150.",
+    a: "Recreativo: 50–80€. Federado amateur: 80–130€. Jugadores exigentes: 130–200€. El precio no siempre correlaciona con rendimiento — la Decathlon Voltzy 500 (€50) supera en outdoor a zapas de €150.",
   },
   {
-    q: "¿Cuál es la diferencia entre zapatillas indoor y outdoor?",
-    a: "Las zapatillas indoor tienen suelas de goma más blanda (mejor tracción en parqué, menos duradera en asfalto). Las outdoor tienen goma más gruesa y duradera pero pueden resbalar en interior. Las zapatillas \"todo terreno\" como la Nike Precision 8 funcionan bien en ambas superficies a menor coste.",
+    q: "¿Diferencia entre zapatillas indoor y outdoor?",
+    a: "Las indoor tienen suelas de goma más blanda (mejor tracción en parqué, menos durable en asfalto). Las outdoor llevan goma más gruesa pero pueden resbalar en interior. Las \"todo terreno\" como la Nike Precision 8 funcionan bien en ambas a menor coste.",
   },
   {
     q: "¿Las zapatillas de baloncesto sirven para el día a día?",
-    a: "Técnicamente sí, pero no es lo ideal. Las suelas de goma de las zapatillas indoor se desgastan rápido en asfalto, y perderás rendimiento en cancha. Si juegas regularmente, reserva tus zapatillas para el entrenamiento.",
+    a: "Técnicamente sí, pero no es lo ideal. Las suelas de goma indoor se desgastan rápido en asfalto, y perderás rendimiento en cancha. Si juegas regularmente, reserva tus zapas para el entrenamiento.",
   },
   {
-    q: "¿Qué zapatilla de baloncesto se adapta mejor a jugadores con lesiones de rodilla?",
-    a: "Para proteger las rodillas necesitas máxima amortiguación. Busca un score de amortiguación 8+: Nike LeBron 22 (Air Max + Zoom), Nike LeBron Witness 9, New Balance Fresh Foam BB v3. Evita zapatillas con cushion score menor de 6 si tienes problemas de rodilla.",
+    q: "¿Qué zapatilla protege mejor las rodillas?",
+    a: "Para proteger las rodillas necesitas máxima amortiguación. Score de cushion 8+: Nike LeBron 22 (Air Max + Zoom), Nike LeBron Witness 9, New Balance Fresh Foam BB v3. Evita cushion menor de 6 si tienes problemas de rodilla.",
   },
 ];
 
@@ -42,10 +44,7 @@ const jsonLd = {
   mainEntity: faqs.map(({ q, a }) => ({
     "@type": "Question",
     name: q,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: a,
-    },
+    acceptedAnswer: { "@type": "Answer", text: a },
   })),
 };
 ---
@@ -55,19 +54,9 @@ const jsonLd = {
   description="Resolvemos las dudas más comunes sobre cómo elegir zapatillas de baloncesto: presupuesto, posición, indoor vs outdoor y más."
   jsonLd={jsonLd}
 >
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://cancha.shoes/"},
-        {"@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://cancha.shoes/faq"}
-      ]
-    })}
-  />
+  <main class="app">
+    <div class="cz-courtbg"><img src="/bg-court.svg" alt="" /><div></div></div>
 
-  <main class="min-h-screen text-white">
     <div class="cz-strip"></div>
     <header class="cz-header">
       <div class="shell cz-header-inner">
@@ -76,125 +65,69 @@ const jsonLd = {
           <a href="/zapatillas">Catálogo</a>
           <a href="/quiz">Quiz</a>
           <a href="/rankings">Rankings</a>
-          <a href="/faq" aria-current="page">FAQ</a>
+          <a href="/faq" class="active" aria-current="page">FAQ</a>
         </nav>
       </div>
     </header>
 
-    <article class="px-6 py-16">
-      <div class="max-w-3xl mx-auto">
-        <!-- Hero -->
-        <p class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4">
-          ★ Preguntas frecuentes
-        </p>
-        <h1
-          class="text-4xl md:text-6xl font-black tracking-tighter uppercase mb-6 leading-[0.95]"
-        >
-          Todo lo que<br />
-          <span class="text-orange-500">necesitas</span><br />
+    <section class="doc-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Preguntas frecuentes</p>
+        <h1 class="doc-h1">
+          Todo lo que<br/>
+          <span class="accent">necesitas</span><br/>
           saber
         </h1>
-        <p class="text-zinc-400 text-lg mb-12 leading-relaxed">
+        <p class="doc-lede">
           Las dudas más habituales antes de comprar zapatillas de baloncesto.
           Sin rollos, respuestas directas.
         </p>
+      </div>
+    </section>
 
-        <!-- FAQ items -->
-        <div class="space-y-3">
-          {
-            faqs.map(({ q, a }, i) => (
-              <details class="group bg-zinc-900 border border-zinc-800 hover:border-zinc-700 transition-colors">
-                <summary class="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none select-none">
-                  <span class="flex items-start gap-3">
-                    <span class="text-orange-500 font-black text-xs pt-1 shrink-0 tabular-nums">
-                      {String(i + 1).padStart(2, "0")}.
-                    </span>
-                    <span class="font-bold text-sm sm:text-base leading-snug">
-                      {q}
-                    </span>
-                  </span>
-                  <span class="text-zinc-500 group-open:text-orange-500 transition-colors shrink-0 text-lg font-black leading-none">
-                    <span class="group-open:hidden">+</span>
-                    <span class="hidden group-open:inline">−</span>
-                  </span>
-                </summary>
-                <div class="px-5 pb-5 pt-1">
-                  <div class="border-t border-zinc-800 pt-4 pl-6">
-                    <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
-                      {a}
-                    </p>
-                  </div>
-                </div>
-              </details>
-            ))
-          }
+    <article class="doc-article">
+      <div class="shell shell-narrow">
+        <div class="faq-list">
+          {faqs.map(({ q, a }, i) => (
+            <details class="faq-item">
+              <summary>
+                <span class="faq-num">{String(i + 1).padStart(2, "0")}</span>
+                <span class="faq-q">{q}</span>
+                <span class="faq-toggle">
+                  <span class="plus">+</span>
+                  <span class="minus">−</span>
+                </span>
+              </summary>
+              <div class="faq-a">{a}</div>
+            </details>
+          ))}
         </div>
 
-        <!-- CTA -->
-        <div class="mt-16 bg-zinc-900 border-2 border-zinc-800 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-          <div class="flex-1">
-            <p class="font-black uppercase tracking-tight text-base mb-1">
-              ¿No encuentras tu respuesta?
-            </p>
-            <p class="text-zinc-400 text-sm">
-              Usa el quiz para encontrar tu zapatilla perfecta según tu perfil.
-              Tarda 60 segundos.
-            </p>
+        <aside class="doc-cta-box">
+          <div>
+            <p class="doc-cta-title">¿No encuentras tu respuesta?</p>
+            <p class="doc-cta-sub">Usa el quiz para encontrar tu zapatilla perfecta. 60 segundos.</p>
           </div>
-          <a
-            href="/quiz"
-            class="bg-orange-500 hover:bg-orange-400 transition-colors text-black font-black text-xs uppercase tracking-widest px-5 py-3 shrink-0"
-          >
-            Hacer el quiz →
-          </a>
-        </div>
+          <a href="/quiz" class="home-btn primary">Hacer el quiz →</a>
+        </aside>
       </div>
     </article>
 
-    <!-- Footer -->
-    <footer class="px-6 py-10 bg-black border-t-4 border-orange-500 mt-16">
-      <div
-        class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4"
-      >
-        <p class="text-2xl font-black tracking-tighter">
-          CANCHA<span class="text-orange-500">.</span>ZAPA
-        </p>
-        <nav
-          class="flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest flex-wrap justify-center"
-        >
-          <a href="/zapatillas" class="hover:text-orange-500 transition-colors"
-            >Catálogo</a
-          >
-          <a href="/rankings" class="hover:text-orange-500 transition-colors"
-            >Rankings</a
-          >
-          <a href="/quiz" class="hover:text-orange-500 transition-colors"
-            >Quiz</a
-          >
-          <a href="/metodologia" class="hover:text-orange-500 transition-colors"
-            >Metodología</a
-          >
-          <a href="/financiacion" class="hover:text-orange-500 transition-colors"
-            >Financiación</a
-          >
-          <a href="/faq" class="hover:text-orange-500 transition-colors">FAQ</a>
+    <footer style="background:#000;border-top:4px solid #f97316;padding:32px 0;margin-top:40px">
+      <div class="shell" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center">
+        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
+        <nav class="cz-nav">
+          <a href="/zapatillas">Catálogo</a>
+          <a href="/quiz">Quiz</a>
+          <a href="/metodologia">Método</a>
+          <a href="/guia-tallas">Tallas</a>
         </nav>
-        <p class="text-xs text-zinc-600 uppercase tracking-widest text-center">
+        <p style="font-size:10px;color:#52525b;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin:0">
           Proyecto independiente · Sin sesgo de afiliado
         </p>
       </div>
     </footer>
   </main>
 
-  <!-- FAQ JSON-LD Schema -->
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 </Base>
-
-<style>
-  details summary::-webkit-details-marker {
-    display: none;
-  }
-  details[open] {
-    border-color: rgb(63 63 70); /* zinc-700 */
-  }
-</style>

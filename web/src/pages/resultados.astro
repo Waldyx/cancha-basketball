@@ -1,14 +1,20 @@
 ---
+// /resultados — pantalla de resultados del quiz, rediseñada
+// Drop-in replacement for web/src/pages/resultados.astro
+//
+// La lógica de cliente (lee sessionStorage, llama a recomendar(), renderiza
+// 5 cards) se mantiene; solo cambia chrome + estética.
+
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 ---
 
 <Base
   title="Tus 5 zapatillas · CANCHA.ZAPA"
-  description="Las 5 zapatillas de baloncesto que mejor encajan con tu perfil. Resultado del quiz de CANCHA.ZAPA."
+  description="Las 5 zapatillas de baloncesto que mejor encajan con tu perfil."
 >
-  <main class="quiz-app">
-    <div class="cz-courtbg"><img src="/bg-court.svg" alt="" aria-hidden="true" /><div></div></div>
+  <main class="app">
+    <div class="cz-courtbg"><img src="/bg-court.svg" alt="" /><div></div></div>
 
     <div class="cz-strip"></div>
     <header class="cz-header">
@@ -18,137 +24,110 @@ import "../styles/cancha-redesign.css";
           <a href="/zapatillas">Catálogo</a>
           <a href="/quiz">Quiz</a>
           <a href="/rankings">Rankings</a>
-          <a href="/faq">FAQ</a>
+          <a href="/metodologia">Método</a>
         </nav>
       </div>
     </header>
 
-    <!-- Fallback sin JS -->
     <noscript>
-      <div class="px-6 py-20 text-center max-w-2xl mx-auto">
-        <p class="text-orange-500 font-black uppercase tracking-widest text-xs mb-4">⚠ JavaScript requerido</p>
-        <p class="text-zinc-400 mb-6">Esta página necesita JavaScript para mostrar tus resultados. Actívalo y recarga.</p>
-        <a href="/quiz" class="inline-block px-6 py-3 bg-orange-500 text-zinc-950 font-black uppercase tracking-wider">← Ir al quiz</a>
+      <div class="rs-noscript">
+        <p class="cz-eyebrow">⚠ JavaScript requerido</p>
+        <p>Esta página necesita JavaScript para mostrar tus resultados. Actívalo y recarga.</p>
+        <a href="/quiz" class="rs-btn primary">← Ir al quiz</a>
       </div>
     </noscript>
 
-    <!-- Estado: sin respuestas -->
-    <section id="estado-sin-respuestas" class="hidden" style="padding:80px 0">
-      <div class="shell" style="max-width:640px;text-align:center">
-        <p class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4">
-          ★ Primero el quiz
-        </p>
-        <h1 class="text-4xl md:text-5xl font-black tracking-tight uppercase mb-6">
-          Cuéntanos cómo juegas.
-        </h1>
-        <p class="text-zinc-400 mb-8">
-          Necesitamos saber tu perfil para recomendarte algo que valga la pena.
-          Son 10 preguntas, menos de un minuto. Sin registro. Sin BS.
-        </p>
-        <a
-          href="/quiz"
-          class="inline-block px-8 py-4 bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black uppercase tracking-wider transition-all shadow-[4px_4px_0_0_rgb(250,204,21)]"
-        >
-          → Empezar el quiz
-        </a>
-      </div>
-    </section>
-
-    <!-- Estado: con resultados -->
-    <section id="estado-resultados" class="hidden" style="padding:48px 0 80px">
+    {/* Estado: sin respuestas (no ha hecho el quiz) */}
+    <section id="estado-sin-respuestas" class="rs-empty hidden">
       <div class="shell">
-        <!-- Encabezado de resultados -->
-        <div class="mb-12">
-          <p
-            class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
-          >
-            ★ Tus resultados
-          </p>
-          <h1
-            class="text-4xl md:text-6xl font-black tracking-tight uppercase mb-6 leading-[0.95]"
-          >
-            Tus <span class="text-orange-500">5 zapas</span><br />ideales
-          </h1>
-          <p class="text-zinc-400 max-w-2xl">
-            Ordenadas por compatibilidad técnica con tu perfil. Las 5 son
-            buenas opciones — elige la que más te entre por la vista.
-          </p>
+        <p class="cz-eyebrow">★ Falta el quiz</p>
+        <h1 class="rs-empty-h1">
+          Primero el quiz,<br/>
+          <span class="muted">luego los resultados.</span>
+        </h1>
+        <p class="rs-empty-lede">
+          Necesitamos saber cómo juegas para recomendarte algo que valga la pena.
+          Son 10 preguntas, menos de un minuto.
+        </p>
+        <a href="/quiz" class="rs-btn primary">→ Empezar el quiz</a>
+      </div>
+    </section>
 
-          <!-- Resumen del perfil -->
-          <div
-            id="resumen-perfil"
-            class="flex flex-wrap gap-2 mt-6"
-          >
+    {/* Estado: con resultados */}
+    <section id="estado-resultados" class="hidden">
+      {/* HERO */}
+      <div class="rs-hero">
+        <div class="shell">
+          <div class="rs-hero-grid">
+            <div class="rs-hero-left">
+              <p class="cz-eyebrow">★ Tus resultados</p>
+              <h1 class="rs-h1">
+                Tus<br/>
+                <span class="accent">5 zapas</span>
+                <span class="italic">a medida</span>
+              </h1>
+              <p class="rs-lede">
+                Ordenadas por compatibilidad técnica con tu perfil.
+                Las 5 son buenas opciones — elige la que más te entre por la vista.
+              </p>
+            </div>
+
+            <aside class="rs-profile-panel">
+              <div class="panel-header">
+                <span class="dot-pulse"></span>
+                <span>TU PERFIL</span>
+              </div>
+              <div id="resumen-perfil" class="rs-chips"></div>
+              <div class="rs-profile-foot">
+                <a href="/quiz" class="rs-foot-link">↻ Rehacer quiz</a>
+                <span class="sep">·</span>
+                <a href="/metodologia" class="rs-foot-link">¿Cómo se calcula?</a>
+              </div>
+            </aside>
           </div>
         </div>
+      </div>
 
-        <!-- Cards de recomendaciones -->
-        <div id="recomendaciones" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        </div>
+      {/* Recomendaciones (5 cards) */}
+      <div class="rs-list-wrap">
+        <div class="shell">
+          <div id="recomendaciones" class="rs-list"></div>
 
-        <!-- Estado: sin resultados (filtros muy estrictos) -->
-        <div
-          id="estado-vacio"
-          class="hidden text-center py-20"
-        >
-          <p class="text-5xl mb-4">🤔</p>
-          <p class="text-xl font-bold text-white mb-2">Sin resultados exactos</p>
-          <p class="text-zinc-400 text-sm mb-6">Tus criterios son muy específicos. Prueba a relajar algún filtro.</p>
-          <a href="/quiz" class="bg-orange-500 hover:bg-orange-400 text-white font-bold px-6 py-3 rounded-lg inline-block transition-colors">Repetir quiz</a>
-        </div>
-
-        <!-- CTA: Ver todas las zapas -->
-        <div class="text-center mt-12 py-8 border-t border-zinc-800">
-          <p class="text-zinc-400 text-sm mb-4">¿No encuentras exactamente lo que buscas?</p>
-          <div class="flex gap-3 justify-center flex-wrap">
-            <a href="/zapatillas" class="bg-zinc-800 hover:bg-zinc-700 text-white font-bold px-5 py-2.5 rounded-lg text-sm transition-colors">
-              Ver catálogo completo
-            </a>
-            <a href="/comparar" class="border border-zinc-700 hover:border-orange-500 text-zinc-300 hover:text-orange-400 font-bold px-5 py-2.5 rounded-lg text-sm transition-colors">
-              Comparar zapas
-            </a>
-            <a href="/quiz" class="text-zinc-500 hover:text-zinc-300 font-bold px-5 py-2.5 rounded-lg text-sm transition-colors underline">
-              Repetir quiz
-            </a>
+          {/* Sin matches */}
+          <div id="estado-vacio" class="cz-empty hidden">
+            <div class="icon">🏀</div>
+            <h3>Sin matches con tu perfil</h3>
+            <p>Tus criterios son muy específicos. Prueba a relajar el presupuesto o las lesiones.</p>
+            <a href="/quiz"><button>↻ Rehacer quiz</button></a>
           </div>
         </div>
+      </div>
 
-        <!-- Footer de acciones -->
-        <div class="mt-16 flex flex-wrap gap-4 justify-center items-center">
-          <a
-            id="cta-comparar-top3"
-            href="#"
-            class="hidden px-6 py-3 bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black uppercase tracking-wider text-sm transition-all shadow-[4px_4px_0_0_rgb(250,204,21)]"
-          >
-            Comparar las 3 primeras →
+      {/* Acciones finales */}
+      <div class="rs-actions-bar">
+        <div class="shell rs-actions">
+          <a id="cta-comparar-top3" href="#" class="rs-btn primary hidden">
+            ⇄ Comparar las 3 primeras →
           </a>
-          <a
-            href="/quiz"
-            class="px-6 py-3 border-2 border-zinc-700 hover:border-orange-500 font-black uppercase tracking-wider text-sm transition-colors"
-          >
-            ↻ Rehacer quiz
-          </a>
-          <a
-            href="/metodologia"
-            class="px-6 py-3 text-zinc-500 hover:text-white font-bold uppercase tracking-widest text-xs transition-colors"
-          >
-            ¿Cómo calculamos esto?
-          </a>
-          <button
-            id="btn-compartir"
-            type="button"
-            class="px-6 py-3 border-2 border-zinc-700 hover:border-orange-500 font-black uppercase tracking-wider text-sm transition-colors"
-          >
-            🔗 Compartir
-          </button>
+          <a href="/quiz" class="rs-btn ghost">↻ Rehacer quiz</a>
+          <a href="/zapatillas" class="rs-btn ghost">Ver catálogo completo</a>
+          <button id="btn-compartir" type="button" class="rs-btn ghost">🔗 Compartir</button>
         </div>
       </div>
     </section>
 
-    <footer class="quiz-footer">
-      <div class="shell quiz-footer-inner">
-        <span>Proyecto independiente · Sin sesgo de afiliado</span>
-        <a href="/zapatillas" class="qf-skip">Ver catálogo completo →</a>
+    <footer style="background:#000;border-top:4px solid #f97316;padding:32px 0;margin-top:40px">
+      <div class="shell" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center">
+        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
+        <nav class="cz-nav">
+          <a href="/zapatillas">Catálogo</a>
+          <a href="/quiz">Quiz</a>
+          <a href="/rankings">Rankings</a>
+          <a href="/metodologia">Metodología</a>
+        </nav>
+        <p style="font-size:10px;color:#52525b;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin:0">
+          Proyecto independiente · Sin sesgo de afiliado
+        </p>
       </div>
     </footer>
   </main>
@@ -160,71 +139,42 @@ import "../styles/cancha-redesign.css";
 
     const STORAGE_KEY = "cancha-quiz-respuestas";
 
-    // ─────────────────────────────────────────────────────────
-    // Labels para mostrar las respuestas en chips
-    // ─────────────────────────────────────────────────────────
-
+    // ── Labels ─────────────────────────────────────────────────
     const LABELS_PERFIL: Record<string, string> = {
-      hombre: "👨 Hombre",
-      mujer: "👩 Mujer",
-      junior: "🧒 Junior",
+      hombre: "Hombre", mujer: "Mujer", junior: "Junior",
     };
     const LABELS_POSICION: Record<string, string> = {
-      base: "Base",
-      escolta: "Escolta",
-      alero: "Alero",
-      "ala-pivot": "Ala-pívot",
-      pivot: "Pívot",
+      base: "Base", escolta: "Escolta", alero: "Alero",
+      "ala-pivot": "Ala-pívot", pivot: "Pívot",
     };
     const LABELS_PESO: Record<string, string> = {
-      "menos-70": "< 70 kg",
-      "70-85": "70-85 kg",
-      "85-100": "85-100 kg",
-      "mas-100": "+100 kg",
+      "menos-70": "< 70 kg", "70-85": "70-85 kg",
+      "85-100": "85-100 kg", "mas-100": "+100 kg",
     };
     const LABELS_ESTILO: Record<string, string> = {
-      explosivo: "⚡ Explosivo",
-      equilibrado: "⚖️ Equilibrado",
-      potente: "💪 Potente",
-      tirador: "🎯 Tirador",
+      explosivo: "Explosivo", equilibrado: "Equilibrado",
+      potente: "Potente", tirador: "Tirador",
     };
     const LABELS_CANCHA: Record<string, string> = {
-      interior: "🏟️ Interior",
-      exterior: "☀️ Exterior",
-      mixto: "🔁 Mixto",
+      interior: "Interior", exterior: "Exterior", mixto: "Mixto",
     };
     const LABELS_LESION: Record<string, string> = {
-      rodillas: "🦵 Rodillas",
-      tobillos: "🦶 Tobillos",
-      fascia: "👣 Fascia",
+      rodillas: "Rodillas", tobillos: "Tobillos", fascia: "Fascia",
     };
     const LABELS_PRIORIDAD: Record<string, string> = {
-      proteccion: "🛡️ Protección",
-      reactividad: "⚡ Reactividad",
-      "soporte-tobillo": "🧷 Soporte tobillo",
-      durabilidad: "🪨 Durabilidad",
-      precio: "💰 Mejor precio",
+      proteccion: "Protección", reactividad: "Reactividad",
+      "soporte-tobillo": "Soporte tobillo", durabilidad: "Durabilidad",
+      precio: "Mejor precio",
     };
     const LABELS_TIENDA: Record<string, string> = {
-      amazon_es: "Amazon",
-      decathlon: "Decathlon",
-      nike_es: "Nike",
-      adidas_es: "Adidas",
-      puma_es: "Puma",
-      footlocker_es: "Foot Locker",
-      jd_sports_es: "JD Sports",
-      zalando_es: "Zalando",
-      sprinter_es: "Sprinter",
-      reebok_es: "Reebok",
-      basket_world: "Basket World",
-      aliexpress: "AliExpress",
-      kickscrew: "KicksCrew",
+      amazon_es: "Amazon", decathlon: "Decathlon", nike_es: "Nike",
+      adidas_es: "Adidas", puma_es: "Puma", footlocker_es: "Foot Locker",
+      jd_sports_es: "JD Sports", zalando_es: "Zalando", sprinter_es: "Sprinter",
+      reebok_es: "Reebok", basket_world: "Basket World", aliexpress: "AliExpress",
+      kickscrew: "KicksCrew", ua_es: "Under Armour", nb_es: "New Balance",
     };
 
-    // ─────────────────────────────────────────────────────────
-    // Helpers de render
-    // ─────────────────────────────────────────────────────────
-
+    // ── Helpers ────────────────────────────────────────────────
     function escapeHtml(s: string): string {
       const div = document.createElement("div");
       div.textContent = s;
@@ -232,134 +182,131 @@ import "../styles/cancha-redesign.css";
     }
 
     function renderResumen(r: RespuestasQuiz): string {
-      const chips: string[] = [];
-      if (r.perfil) chips.push(LABELS_PERFIL[r.perfil] ?? r.perfil);
-      chips.push(
-        LABELS_POSICION[r.posicion],
-        LABELS_PESO[r.peso],
-        LABELS_ESTILO[r.estilo],
-        LABELS_CANCHA[r.cancha],
-        LABELS_PRIORIDAD[r.prioridad],
-      );
+      const chips: { k: string; v: string }[] = [];
+      if (r.perfil) chips.push({ k: "Perfil",   v: LABELS_PERFIL[r.perfil] ?? r.perfil });
+      chips.push({ k: "Posición",  v: LABELS_POSICION[r.posicion] });
+      chips.push({ k: "Peso",      v: LABELS_PESO[r.peso] });
+      chips.push({ k: "Estilo",    v: LABELS_ESTILO[r.estilo] });
+      chips.push({ k: "Cancha",    v: LABELS_CANCHA[r.cancha] });
+      chips.push({ k: "Prioridad", v: LABELS_PRIORIDAD[r.prioridad] });
       if (r.lesiones.length > 0) {
-        chips.push(...r.lesiones.map((l) => LABELS_LESION[l]));
+        chips.push({ k: "Lesiones", v: r.lesiones.map(l => LABELS_LESION[l]).join(" · ") });
       }
-      if (r.presupuesto_max_eur !== null) {
-        chips.push(`≤ ${r.presupuesto_max_eur}€`);
-      } else {
-        chips.push("Sin tope");
-      }
-
+      chips.push({
+        k: "Presupuesto",
+        v: r.presupuesto_max_eur !== null ? `≤ ${r.presupuesto_max_eur}€` : "Sin tope",
+      });
       return chips
-        .filter(Boolean)
-        .map(
-          (c) =>
-            `<span class="inline-flex items-center px-3 py-1 bg-zinc-900 border border-zinc-800 text-xs font-bold uppercase tracking-wider text-zinc-300">${escapeHtml(c)}</span>`
-        )
+        .map(c => `<div class="rs-chip"><span class="k">${c.k}</span><span class="v">${escapeHtml(c.v)}</span></div>`)
         .join("");
     }
 
-    function colorMatchPct(pct: number): string {
-      if (pct >= 80) return "text-orange-500";
-      if (pct >= 65) return "text-yellow-400";
-      return "text-zinc-400";
+    function matchClass(pct: number): string {
+      if (pct >= 80) return "hi";
+      if (pct >= 65) return "mid";
+      return "lo";
     }
 
+    // ── Radar SVG ──────────────────────────────────────────────
+    const RADAR_KEYS = ["traccion", "amortiguacion", "respuesta", "soporte_lateral", "estabilidad", "peso_score", "durabilidad_outdoor", "ventilacion"];
+    function radarSvg(z: any, color = "#f97316"): string {
+      const SIZE = 80;
+      const center = SIZE / 2, R = SIZE / 2 - 4;
+      const pts = RADAR_KEYS.map((k, i) => {
+        const a = (i / RADAR_KEYS.length) * Math.PI * 2 - Math.PI / 2;
+        const r = (z.puntuaciones[k] / 10) * R;
+        return [center + Math.cos(a)*r, center + Math.sin(a)*r];
+      });
+      const path = pts.map(p => p.join(",")).join(" ");
+      const rings = [0.33, 0.66, 1].map(f =>
+        RADAR_KEYS.map((_, i) => {
+          const a = (i / RADAR_KEYS.length) * Math.PI * 2 - Math.PI / 2;
+          const r = f * R;
+          return `${center + Math.cos(a)*r},${center + Math.sin(a)*r}`;
+        }).join(" ")
+      );
+      return `
+        <svg viewBox="0 0 ${SIZE} ${SIZE}" width="${SIZE}" height="${SIZE}" aria-hidden="true">
+          ${rings.map(r => `<polygon points="${r}" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>`).join("")}
+          <polygon points="${path}" fill="${color}" fill-opacity="0.18" stroke="${color}" stroke-width="1.5" stroke-linejoin="round"/>
+        </svg>`;
+    }
+
+    // ── Card render ────────────────────────────────────────────
     function renderCard(rec: Recomendacion, rank: number): string {
       const z = rec.zapatilla;
-      const matchColor = colorMatchPct(rec.match_pct);
+      const matchCls = matchClass(rec.match_pct);
       const mejorPrecio = rec.mejor_precio;
       const precioActual = mejorPrecio?.precio_actual ?? z.precio_msrp_eur;
-      const tiendaNombre = mejorPrecio
-        ? LABELS_TIENDA[mejorPrecio.tienda] || mejorPrecio.tienda
-        : "";
+      const tiendaNombre = mejorPrecio ? LABELS_TIENDA[mejorPrecio.tienda] || mejorPrecio.tienda : "";
+      const ahorro = mejorPrecio && mejorPrecio.precio_actual < z.precio_msrp_eur
+        ? Math.round((1 - mejorPrecio.precio_actual / z.precio_msrp_eur) * 100) : 0;
 
       const razonesHtml = rec.razones
-        .map(
-          (r) =>
-            `<li class="flex gap-2 text-sm text-zinc-300"><span class="text-orange-500 font-black">✓</span><span>${escapeHtml(r)}</span></li>`
-        )
+        .slice(0, 3)
+        .map(r => `<li><span class="bull">✓</span><span>${escapeHtml(r)}</span></li>`)
         .join("");
 
       const fichaHref = `/zapatilla/${escapeHtml(z.slug)}`;
       const ctaHref = mejorPrecio?.url ?? fichaHref;
-      const ctaLabel = mejorPrecio
-        ? `Ver en ${tiendaNombre} →`
-        : `Ver ficha →`;
+      const ctaLabel = mejorPrecio ? `Ver en ${tiendaNombre} →` : `Ver ficha →`;
+      const isPrimary = rank === 1;
 
       return `
-        <article class="bg-zinc-900 border-2 border-zinc-800 hover:border-orange-500 transition-all flex flex-col">
-          <a href="${fichaHref}" class="relative block group">
-            <img
-              src="${escapeHtml(z.imagen_principal)}"
-              alt="${escapeHtml(z.marca + " " + z.modelo)}"
-              class="w-full aspect-[4/3] object-contain p-4 bg-gradient-to-b from-zinc-800 to-zinc-900"
-              loading="lazy"
-              onerror="this.onerror=null;this.src='/placeholder-shoe.svg'"
-            />
-            <span class="absolute top-3 left-3 px-3 py-1 bg-zinc-950 border border-orange-500 text-orange-500 text-xs font-black uppercase tracking-widest">
-              #${rank}
-            </span>
-            <span class="absolute top-3 right-3 flex flex-col items-center px-3 py-2 bg-yellow-400 text-zinc-950 font-black leading-none shadow-[3px_3px_0_0_#000]">
-              <span class="text-2xl">${rec.match_pct}%</span>
-              <span class="text-[10px] uppercase tracking-widest">match</span>
-            </span>
+        <article class="rs-card ${isPrimary ? "primary" : ""}">
+          <div class="rs-card-rank">
+            <span class="rsr-num">#${rank}</span>
+            ${isPrimary ? `<span class="rsr-crown">★ TU MATCH</span>` : ""}
+          </div>
+
+          <a href="${fichaHref}" class="rs-card-photo">
+            <img src="${escapeHtml(z.imagen_principal)}" alt="${escapeHtml(z.marca + " " + z.modelo)}"
+                 loading="lazy" onerror="this.style.display='none'" />
           </a>
 
-          <div class="p-5 flex flex-col flex-1 gap-4">
-            <a href="${fichaHref}" class="group">
-              <p class="text-xs font-bold uppercase tracking-widest text-zinc-500 mb-1">
-                ${escapeHtml(z.marca)}
-              </p>
-              <h2 class="text-2xl font-black uppercase tracking-tight leading-tight group-hover:text-orange-500 transition-colors">
-                ${escapeHtml(z.modelo)}
-              </h2>
-            </a>
-
-            <div>
-              <p class="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-2">Por qué te encaja</p>
-              <ul class="flex flex-col gap-2">
-                ${razonesHtml}
-              </ul>
+          <div class="rs-card-body">
+            <div class="rs-card-head">
+              <div>
+                <p class="rs-card-marca">${escapeHtml(z.marca)}</p>
+                <h2 class="rs-card-modelo"><a href="${fichaHref}">${escapeHtml(z.modelo)}</a></h2>
+              </div>
+              <div class="rs-card-match ${matchCls}">
+                <span class="rsm-num">${rec.match_pct}<small>%</small></span>
+                <span class="rsm-lab">match</span>
+              </div>
             </div>
 
-            <div class="mt-auto pt-4 border-t border-zinc-800 flex items-end justify-between gap-3">
-              <div>
-                <p class="text-xs font-bold uppercase tracking-widest text-zinc-500">
-                  Mejor precio
-                </p>
-                <p class="text-2xl font-black ${matchColor}">
-                  ${precioActual}€
-                </p>
-                ${tiendaNombre ? `<p class="text-xs text-zinc-500 uppercase tracking-wider">en ${escapeHtml(tiendaNombre)}</p>` : ""}
+            <div class="rs-card-radar">${radarSvg(z)}</div>
+
+            <div class="rs-card-reasons">
+              <p class="cz-eyebrow" style="font-size:9px">★ Por qué te encaja</p>
+              <ul>${razonesHtml}</ul>
+            </div>
+
+            <div class="rs-card-foot">
+              <div class="rs-card-price">
+                ${mejorPrecio
+                  ? `<span class="rs-verif"><span class="dot"></span>Verificado</span>`
+                  : `<span class="rs-edit">editorial</span>`}
+                <div class="rs-price-row">
+                  <span class="rs-price-now">${Math.round(precioActual)}€</span>
+                  ${ahorro > 0 ? `
+                    <span class="rs-price-msrp">msrp ${z.precio_msrp_eur}€</span>
+                    <span class="rs-price-save">−${ahorro}%</span>
+                  ` : ""}
+                </div>
+                ${tiendaNombre ? `<p class="rs-tienda">en ${escapeHtml(tiendaNombre)}</p>` : ""}
               </div>
-              <div class="flex flex-col gap-2 items-end">
-                ${mejorPrecio ? `
-                <a
-                  href="${escapeHtml(ctaHref)}"
-                  target="_blank"
-                  rel="noopener noreferrer sponsored"
-                  class="px-4 py-3 bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black uppercase tracking-wider text-xs transition-colors shadow-[3px_3px_0_0_rgb(250,204,21)] hover:shadow-[5px_5px_0_0_rgb(250,204,21)]"
-                >
-                  ${escapeHtml(ctaLabel)}
-                </a>
-                <a href="${fichaHref}" class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 hover:text-orange-500 transition-colors">
-                  Ver ficha →
-                </a>` : `
-                <a href="${fichaHref}" class="px-4 py-3 bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black uppercase tracking-wider text-xs transition-colors shadow-[3px_3px_0_0_rgb(250,204,21)] hover:shadow-[5px_5px_0_0_rgb(250,204,21)]">
-                  Ver ficha →
-                </a>`}
-              </div>
+              <a href="${escapeHtml(ctaHref)}"
+                 ${mejorPrecio ? 'target="_blank" rel="noopener noreferrer sponsored"' : ""}
+                 class="rs-cta">${escapeHtml(ctaLabel)}</a>
             </div>
           </div>
         </article>
       `;
     }
 
-    // ─────────────────────────────────────────────────────────
-    // Init
-    // ─────────────────────────────────────────────────────────
-
+    // ── Init ───────────────────────────────────────────────────
     const raw = sessionStorage.getItem(STORAGE_KEY);
 
     if (!raw) {
@@ -370,8 +317,7 @@ import "../styles/cancha-redesign.css";
         const recomendaciones = recomendar(respuestas, zapatillas, 5);
 
         document.getElementById("estado-resultados")!.classList.remove("hidden");
-        document.getElementById("resumen-perfil")!.innerHTML =
-          renderResumen(respuestas);
+        document.getElementById("resumen-perfil")!.innerHTML = renderResumen(respuestas);
 
         const $list = document.getElementById("recomendaciones")!;
         const $empty = document.getElementById("estado-vacio")!;
@@ -380,28 +326,18 @@ import "../styles/cancha-redesign.css";
           $list.classList.add("hidden");
           $empty.classList.remove("hidden");
         } else {
-          $list.innerHTML = recomendaciones
-            .map((rec, idx) => renderCard(rec, idx + 1))
-            .join("");
+          $list.innerHTML = recomendaciones.map((rec, idx) => renderCard(rec, idx + 1)).join("");
 
-          // CTA "Comparar las 3 primeras" si hay >= 2
           if (recomendaciones.length >= 2) {
-            const topIds = recomendaciones
-              .slice(0, 3)
-              .map((r) => r.zapatilla.slug)
-              .join(",");
-            const $cta = document.getElementById(
-              "cta-comparar-top3"
-            ) as HTMLAnchorElement;
-            $cta.href = `/comparar?ids=${topIds}`;
+            const topIds = recomendaciones.slice(0, 3).map(r => r.zapatilla.slug).join(",");
+            const $cta = document.getElementById("cta-comparar-top3") as HTMLAnchorElement;
+            $cta.href = `/comparar?slugs=${topIds}`;
             $cta.classList.remove("hidden");
           }
         }
       } catch (err) {
         console.error("Error parseando respuestas:", err);
-        document
-          .getElementById("estado-sin-respuestas")!
-          .classList.remove("hidden");
+        document.getElementById("estado-sin-respuestas")!.classList.remove("hidden");
       }
     }
 
@@ -411,7 +347,7 @@ import "../styles/cancha-redesign.css";
       $share.addEventListener("click", () => {
         const url = window.location.href;
         if (navigator.share) {
-          navigator.share({ title: "Mis 5 zapas · Cancha", url });
+          navigator.share({ title: "Mis 5 zapas · CANCHA.ZAPA", url });
         } else {
           navigator.clipboard.writeText(url).then(() => {
             $share.textContent = "✓ Enlace copiado";
@@ -421,4 +357,6 @@ import "../styles/cancha-redesign.css";
       });
     }
   </script>
+
+  <style>.hidden { display: none !important; }</style>
 </Base>

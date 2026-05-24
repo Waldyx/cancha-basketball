@@ -1,40 +1,56 @@
 ---
+// / — Home rediseñada
+// Drop-in replacement for web/src/pages/index.astro
+
 import Base from "../layouts/Base.astro";
+import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
 import { findMejorPrecio } from "../lib/scoring";
 
-// Zapas destacadas hardcoded
-const slugsDestacadas = ["nike-lebron-22", "anta-kai-1-speed", "jordan-luka-3"];
-const zapasDestacadas = slugsDestacadas
-  .map((s) => zapatillas.find((z) => z.slug === s))
-  .filter(Boolean) as (typeof zapatillas)[0][];
-
-// Top 3 por score global — priorizando zapas con precio verificado en España
-function scoreGlobal(z: (typeof zapatillas)[0]): number {
-  const vals = Object.values(z.puntuaciones);
-  return vals.reduce((a, b) => a + b, 0) / vals.length;
+function scoreOf(z: typeof zapatillas[0]): number {
+  const v = Object.values(z.puntuaciones);
+  return Math.round((v.reduce((a, b) => a + b, 0) / v.length) * 10) / 10;
 }
 
-// Separar zapas con precio en tienda española verificado vs solo editorial
-const conPrecioLive = zapatillas.filter((z) => {
-  const mejor = findMejorPrecio(z.links_compra);
-  return mejor !== undefined;
-});
-const sinPrecioLive = zapatillas.filter((z) => {
-  const mejor = findMejorPrecio(z.links_compra);
-  return mejor === undefined;
-});
+// EDITOR'S PICK — la nº1 con verified discount, fallback a la mejor score global
+const conDescuento = zapatillas
+  .map(z => {
+    const mp = findMejorPrecio(z.links_compra);
+    return { z, mp, score: scoreOf(z) };
+  })
+  .filter(x => x.mp && x.mp.precio_actual < x.z.precio_msrp_eur);
 
-// Top 3: primero las que tienen precio verificado, luego el resto por score
-const ranked = [
-  ...conPrecioLive.sort((a, b) => scoreGlobal(b) - scoreGlobal(a)),
-  ...sinPrecioLive.sort((a, b) => scoreGlobal(b) - scoreGlobal(a)),
-];
-const top3 = ranked.slice(0, 3);
+const editorPick = (conDescuento.length > 0
+  ? conDescuento.sort((a, b) => b.score - a.score)[0]
+  : { z: zapatillas[0], mp: findMejorPrecio(zapatillas[0].links_compra), score: scoreOf(zapatillas[0]) });
+
+// Top 3 — score con preferencia por precio verificado
+const conPrecio = zapatillas.filter(z => findMejorPrecio(z.links_compra)).sort((a, b) => scoreOf(b) - scoreOf(a));
+const sinPrecio = zapatillas.filter(z => !findMejorPrecio(z.links_compra)).sort((a, b) => scoreOf(b) - scoreOf(a));
+const top3 = [...conPrecio, ...sinPrecio].slice(0, 3);
+
+const marcas = [...new Set(zapatillas.map(z => z.marca))];
+
+const CAT_LABELS: Record<string, string> = {
+  "cushion-focused": "Cushion", "responsive": "Reactiva",
+  "balanced": "Equilibrada", "traction-king": "Tracción",
+};
+const CAT_ACCENT: Record<string, string> = {
+  "cushion-focused": "#38bdf8", "responsive": "#facc15",
+  "balanced": "#d4d4d8", "traction-king": "#fb923c",
+};
+
+const today = new Date().toLocaleDateString("es-ES", { day: "2-digit", month: "short" }).toUpperCase();
+
+const pickAhorro = editorPick.mp && editorPick.mp.precio_actual < editorPick.z.precio_msrp_eur
+  ? editorPick.z.precio_msrp_eur - editorPick.mp.precio_actual : 0;
 ---
 
-<Base title="CANCHA.ZAPA — Tu zapatilla de baloncesto, sin BS">
-  <main class="min-h-screen text-white">
+<Base title="CANCHA.ZAPA — Tu zapatilla de baloncesto, sin BS"
+      description="Quiz gratuito y comparador honesto de zapatillas de baloncesto. 5 recomendaciones a medida, precios verificados en tiendas españolas.">
+  <main class="app">
+    <div class="cz-courtbg"><img src="/bg-court.svg" alt="" /><div></div></div>
+
     <div class="cz-strip"></div>
     <header class="cz-header">
       <div class="shell cz-header-inner">
@@ -43,380 +59,255 @@ const top3 = ranked.slice(0, 3);
           <a href="/zapatillas">Catálogo</a>
           <a href="/quiz">Quiz</a>
           <a href="/rankings">Rankings</a>
+          <a href="/metodologia">Método</a>
           <a href="/faq">FAQ</a>
         </nav>
       </div>
     </header>
 
-    <!-- HERO -->
-    <section class="relative px-6 py-24 overflow-hidden">
-      <!-- Fondo: cancha street + grafiti -->
-      <div class="absolute inset-0 pointer-events-none select-none">
-        <img
-          src="/bg-court.svg"
-          alt=""
-          role="presentation"
-          class="w-full h-full object-cover opacity-100"
-          aria-hidden="true"
-        />
-        <!-- Gradiente suave — el SVG ya tiene su propio spotlight -->
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-zinc-950/70"></div>
+    {/* HERO */}
+    <section class="home-hero">
+      <div class="home-hero-bg" aria-hidden="true">
+        <img src="/bg-court.svg" alt="" />
       </div>
+      <div class="shell home-hero-inner">
+        <div class="home-hero-grid">
+          <div class="home-hero-left">
+            <span class="home-beta">★ BETA · v0.1 EN CONSTRUCCIÓN</span>
+            <h1 class="home-h1">
+              Tu zapa<br/>
+              <span class="accent italic">perfecta</span><br/>
+              está aquí
+            </h1>
+            <p class="home-lede">
+              Cuéntanos cómo juegas. Te decimos las <strong>5 zapatillas</strong> que mejor encajan contigo
+              y dónde están al mejor precio. <span class="muted italic">Sin sesgo. Sin BS.</span>
+            </p>
+            <div class="home-cta-row">
+              <a href="/quiz" class="home-btn primary">→ Empezar el quiz</a>
+              <a href="/zapatillas" class="home-btn ghost">Catálogo</a>
+              <a href="/comparar" class="home-btn ghost">Comparar zapas</a>
+            </div>
+            <p class="home-cta-foot">Gratis · sin registro · 100% honestos</p>
+          </div>
 
-      <div class="relative max-w-4xl mx-auto text-center">
-        <p
-          class="inline-block px-4 py-1.5 mb-10 text-xs font-black uppercase tracking-widest text-zinc-950 bg-yellow-400 -rotate-2 shadow-[3px_3px_0_0_rgb(249,115,22)]"
-        >
-          ★ BETA · v0.1 EN CONSTRUCCIÓN
-        </p>
-
-        <h1
-          class="text-6xl md:text-8xl font-black tracking-tighter mb-8 leading-[0.85] uppercase"
-        >
-          Tu zapa<br />
-          <span class="text-orange-500 italic">perfecta</span><br />
-          está aquí
-        </h1>
-
-        <p class="text-lg md:text-xl text-zinc-300 mb-12 max-w-2xl mx-auto leading-relaxed">
-          Cuéntanos cómo juegas. Te decimos las <span
-            class="text-orange-400 font-black">5 zapatillas</span
-          > que mejor encajan contigo y dónde están al mejor precio. <span
-            class="text-zinc-500 italic">Sin sesgo. Sin BS.</span
-          >
-        </p>
-
-        <div class="flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="/quiz"
-            class="inline-block px-10 py-5 bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black uppercase tracking-wider text-lg transition-all hover:-translate-y-1 hover:-translate-x-1 shadow-[6px_6px_0_0_rgb(250,204,21)] hover:shadow-[8px_8px_0_0_rgb(250,204,21)]"
-          >
-            → Empezar el quiz
-          </a>
-          <a
-            href="/zapatillas"
-            class="inline-block px-8 py-5 border-2 border-zinc-600 text-zinc-300 hover:border-orange-500 hover:text-orange-400 font-black uppercase tracking-wider text-lg transition-all"
-          >
-            Catálogo
-          </a>
-          <a
-            href="/comparar"
-            class="inline-block px-8 py-5 border border-zinc-600 text-zinc-300 hover:border-orange-500 hover:text-orange-400 font-black uppercase tracking-wider text-lg transition-all"
-          >
-            Comparar zapas
-          </a>
+          <aside class="home-hero-panel">
+            <div class="panel-header">
+              <span class="dot-pulse"></span>
+              <span>RADAR EN VIVO</span>
+            </div>
+            <div class="panel-grid">
+              <div class="stat"><div class="v">{zapatillas.length}</div><div class="k">zapas</div></div>
+              <div class="stat"><div class="v">{marcas.length}</div><div class="k">marcas</div></div>
+              <div class="stat"><div class="v">15<small>+</small></div><div class="k">tiendas</div></div>
+              <div class="stat"><div class="v">100<small>%</small></div><div class="k">honesto</div></div>
+            </div>
+            <div class="panel-ticker">
+              <div class="ticker-label">★ Trending hoy</div>
+              {top3.map(z => (
+                <div class="ticker-row">
+                  <span class="t-rank">{scoreOf(z)}</span>
+                  <span class="t-name"><strong>{z.marca}</strong> {z.modelo}</span>
+                  <span class="t-price">{Math.round(findMejorPrecio(z.links_compra)?.precio_actual ?? z.precio_msrp_eur)}€</span>
+                </div>
+              ))}
+            </div>
+          </aside>
         </div>
 
-        <p class="mt-10 text-xs text-zinc-500 uppercase tracking-widest">
-          Gratis · Sin registro · 100% honestos
-        </p>
-
-        <!-- Stats row -->
-        <div class="mt-14 flex flex-wrap justify-center gap-8 border-t border-zinc-800 pt-10">
-          <div class="text-center">
-            <p class="text-3xl font-black text-orange-500" data-count={zapatillas.length} data-suffix="+">{zapatillas.length}</p>
-            <p class="text-[11px] uppercase tracking-widest text-zinc-500 mt-0.5">zapatillas analizadas</p>
-          </div>
-          <div class="text-center">
-            <p class="text-3xl font-black text-orange-500" data-count={[...new Set(zapatillas.map(z => z.marca))].length}>{[...new Set(zapatillas.map(z => z.marca))].length}</p>
-            <p class="text-[11px] uppercase tracking-widest text-zinc-500 mt-0.5">marcas cubiertas</p>
-          </div>
-          <div class="text-center">
-            <p class="text-3xl font-black text-orange-500" data-count="15" data-suffix="+">15+</p>
-            <p class="text-[11px] uppercase tracking-widest text-zinc-500 mt-0.5">tiendas comparadas</p>
-          </div>
+        <div class="hero-match" style="margin-top:36px">
+          <span><span class="dot-orange"></span>Precios re-verificados {today}</span>
+          <span class="sep">·</span>
+          <span>Sin sesgo de afiliado</span>
+          <span class="sep">·</span>
+          <span>{zapatillas.length} zapatillas, una sin sentido</span>
         </div>
       </div>
     </section>
 
-    <!-- ZAPAS DESTACADAS -->
-    <section class="px-6 py-20 border-t border-zinc-800/50 bg-[#0f0f0f]">
-      <div class="max-w-6xl mx-auto">
-        <div class="flex items-center gap-4 mb-4">
-          <p class="text-xs font-black uppercase tracking-widest text-orange-500">★ Selección editorial</p>
+    {/* EDITOR'S PICK — full-width like the catalog */}
+    <section class="home-pick-section">
+      <div class="shell">
+        <article class="cz-pick" style={`--cat:${CAT_ACCENT[editorPick.z.categoria_principal]}`}>
+          <div class="pick-photo">
+            <span class="pick-watermark">★ PICK</span>
+            <img src={editorPick.z.imagen_principal} alt={`${editorPick.z.marca} ${editorPick.z.modelo}`}
+                 onerror="this.style.display='none'" />
+          </div>
+          <div class="pick-body">
+            <div class="pick-eyebrow">
+              <span class="pick-tag">★ Pick del editor</span>
+              <span class="pick-cat">{CAT_LABELS[editorPick.z.categoria_principal]}</span>
+              {editorPick.z.año_lanzamiento >= 2025 && <span class="pick-new">Nueva {editorPick.z.año_lanzamiento}</span>}
+            </div>
+            <h2 class="pick-title">
+              <span class="pick-marca">{editorPick.z.marca}</span>
+              <span class="pick-modelo">{editorPick.z.modelo}</span>
+            </h2>
+            <p class="pick-verdict">{editorPick.z.veredicto}</p>
+            <div class="pick-stats">
+              <div class="ps"><div class="psv">{editorPick.score.toFixed(1)}<small>/10</small></div><div class="psk">Score global</div></div>
+              <div class="ps"><div class="psv">{editorPick.z.peso_real_g}<small>g</small></div><div class="psk">Peso (US 9)</div></div>
+              <div class="ps"><div class="psv">{editorPick.z.puntuaciones.traccion}<small>/10</small></div><div class="psk">Tracción</div></div>
+              <div class="ps"><div class="psv">{editorPick.z.puntuaciones.amortiguacion}<small>/10</small></div><div class="psk">Cushion</div></div>
+            </div>
+            <div class="pick-foot">
+              <div class="pick-price">
+                <div class="pp-now">{Math.round(editorPick.mp?.precio_actual ?? editorPick.z.precio_msrp_eur)}€</div>
+                {pickAhorro > 0 && (
+                  <div class="pp-meta">
+                    <span class="msrp">msrp {editorPick.z.precio_msrp_eur}€</span>
+                    <span class="save">−{Math.round(pickAhorro)}€</span>
+                  </div>
+                )}
+                <div class="pp-tienda"><span class="dot"></span>{editorPick.mp ? "Verificado" : "Editorial"}</div>
+              </div>
+              <div class="pick-actions">
+                <a class="pick-btn primary" href={`/zapatilla/${editorPick.z.slug}`}>Ver review →</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    {/* CÓMO FUNCIONA */}
+    <section class="home-how">
+      <div class="shell">
+        <div class="home-section-head">
+          <span class="home-rule"></span>
+          <h2 class="home-h2">Cómo<span class="dot">.</span>funciona</h2>
+          <span class="home-rule"></span>
         </div>
-        <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-2 leading-tight">
-          Zapas <span class="text-orange-500">destacadas</span>
+
+        <div class="home-how-grid">
+          {[
+            { n: "01", lab: "Tu juego", body: "Posición, peso, estilo, presupuesto, dolencias. <strong>10 preguntas</strong> en menos de un minuto.", icon: "🏀", col: "#f97316" },
+            { n: "02", lab: "Tu match", body: "Las <strong>5 zapas</strong> con mayor compatibilidad técnica, con explicación de por qué encajan contigo.", icon: "⚡", col: "#facc15" },
+            { n: "03", lab: "Tu precio", body: "Comparador lado a lado y <strong>mejor precio actual</strong> entre tiendas. Tú decides dónde comprar.", icon: "€", col: "#f97316" },
+          ].map(s => (
+            <article class="home-how-card" style={`--col:${s.col}`}>
+              <div class="hhc-head">
+                <span class="hhc-glyph">{s.icon}</span>
+                <span class="hhc-num">{s.n}</span>
+              </div>
+              <h3 class="hhc-title">{s.lab}</h3>
+              <p class="hhc-body" set:html={s.body}></p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* SHORTCUTS por posición */}
+    <section class="home-shortcuts">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Por dónde quieres empezar</p>
+        <h2 class="home-h2-sm">Filtra por tu posición</h2>
+        <div class="home-shortcut-grid">
+          {[
+            { posicion: "base",     cat: "responsive",      label: "Base",     desc: "Reactivas, ligeras" },
+            { posicion: "alero",    cat: "balanced",        label: "Alero",    desc: "Equilibradas, versátiles" },
+            { posicion: "pivot",    cat: "cushion-focused", label: "Pívot",    desc: "Cushion + soporte" },
+            { posicion: "exterior", cat: "traction-king",   label: "Outdoor",  desc: "Durables, tracción" },
+          ].map(({ posicion, cat, label, desc }) => (
+            <a href={posicion === "exterior" ? "/zapatillas?cancha=exterior" : `/zapatillas?posicion=${posicion}`}
+               class="home-shortcut" style={`--cat:${CAT_ACCENT[cat]}`}>
+              <span class="hsc-cat">{CAT_LABELS[cat]}</span>
+              <span class="hsc-label">{label}</span>
+              <span class="hsc-desc">{desc}</span>
+              <span class="hsc-arrow">→</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* TOP 3 BBDD */}
+    <section class="home-top3">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Precio verificado · Mejor valoradas</p>
+        <h2 class="home-h2-sm">
+          El <span class="accent">top 3</span> de la base de datos
         </h2>
-        <p class="text-zinc-400 mb-10 max-w-2xl">
-          La más amortiguada y la mejor para guardas explosivos. Dos elecciones distintas, ambas sólidas.
+        <p class="home-sub">
+          Las zapatillas con mayor puntuación técnica agregada.
+          Para una recomendación personalizada, <a href="/quiz">usa el quiz →</a>
         </p>
 
-        <div class="grid md:grid-cols-3 gap-6">
-          {zapasDestacadas.map((z, i) => {
-            const badges = ["Mayor cushion", "Budget explosivo", "Nueva llegada"];
+        <div class="home-top3-grid">
+          {top3.map((z, i) => {
+            const mejor = findMejorPrecio(z.links_compra);
+            const precio = mejor?.precio_actual ?? z.precio_msrp_eur;
+            const score = scoreOf(z);
+            const cat = CAT_ACCENT[z.categoria_principal];
             return (
-              <a
-                href={`/zapatilla/${z.slug}`}
-                class="group bg-zinc-900 border border-zinc-800 hover:border-orange-500/70 transition-all duration-200 flex flex-col hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(249,115,22,0.15)] overflow-hidden"
-              >
-                <div class="relative overflow-hidden bg-gradient-to-b from-zinc-800 to-zinc-900">
-                  <img
-                    src={z.imagen_principal}
-                    alt={`${z.marca} ${z.modelo}`}
-                    class="w-full aspect-[4/3] object-contain p-4 transition-transform duration-300 group-hover:scale-105"
-                    loading="lazy"
-                    onerror="this.onerror=null;this.src='/placeholder-shoe.svg'"
-                  />
-                  <span class="absolute top-3 left-3 px-2.5 py-1 text-[10px] font-black uppercase tracking-widest bg-yellow-400 text-zinc-950">
-                    {badges[i]}
-                  </span>
+              <a href={`/zapatilla/${z.slug}`} class="home-t3-card" style={`--cat:${cat}`}>
+                <div class="ht3-photo">
+                  <span class="ht3-rank">#{i + 1}</span>
+                  <span class="ht3-score">{score}</span>
+                  <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} loading="lazy"
+                       onerror="this.style.display='none'" />
                 </div>
-                <div class="p-5 flex flex-col flex-1 gap-3">
-                  <div>
-                    <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-1">{z.marca}</p>
-                    <h3 class="text-lg font-black uppercase tracking-tight leading-tight group-hover:text-orange-500 transition-colors">
-                      {z.modelo}
-                    </h3>
-                  </div>
-                  <div class="mt-auto pt-3 border-t border-zinc-800 flex items-center justify-between">
-                    <p class="text-xl font-black text-orange-500 leading-none">{z.precio_msrp_eur}€</p>
-                    <span class="text-[10px] font-black uppercase tracking-widest text-zinc-600 group-hover:text-orange-500 border border-zinc-700 group-hover:border-orange-500 px-2.5 py-1.5 transition-colors">
-                      Ver →
-                    </span>
+                <div class="ht3-body">
+                  <p class="ht3-marca">{z.marca}</p>
+                  <h3 class="ht3-modelo">{z.modelo}</h3>
+                  <div class="ht3-foot">
+                    <span class="ht3-price">{Math.round(precio)}€</span>
+                    <span class="ht3-arrow">Ver →</span>
                   </div>
                 </div>
               </a>
             );
           })}
         </div>
-      </div>
-    </section>
 
-    <!-- POR POSICIÓN -->
-    <section class="px-4 py-12 max-w-5xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-2 text-center">Por posición</h2>
-      <p class="text-zinc-400 text-sm text-center mb-8">Encuentra la zapatilla ideal para tu juego</p>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        {[
-          { posicion: "base",     emoji: "⚡", label: "Base",    desc: "Reactivas y ligeras" },
-          { posicion: "alero",    emoji: "⚖️", label: "Alero",   desc: "Equilibradas y versátiles" },
-          { posicion: "pivot",    emoji: "🛡️", label: "Pívot",   desc: "Máximo soporte y cushion" },
-          { posicion: "exterior", emoji: "🏀", label: "Exterior", desc: "Durables y con tracción" },
-        ].map(({ posicion, emoji, label, desc }) => (
-          <a
-            href={posicion === "exterior" ? "/zapatillas?cancha=exterior" : `/zapatillas?posicion=${posicion}`}
-            class="bg-zinc-900 border border-zinc-800 hover:border-orange-500 p-5 text-center transition-all hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(249,115,22,0.12)] group"
-          >
-            <div class="text-3xl mb-2">{emoji}</div>
-            <div class="font-black uppercase tracking-tight text-white text-sm">{label}</div>
-            <div class="text-zinc-500 text-xs mt-1 group-hover:text-orange-400 transition-colors">{desc}</div>
-          </a>
-        ))}
-      </div>
-    </section>
-
-    <!-- CÓMO FUNCIONA -->
-    <section class="px-6 py-24 bg-[#141414] border-t-4 border-orange-500">
-      <div class="max-w-5xl mx-auto">
-        <div class="flex items-center gap-4 mb-16">
-          <div class="h-1 flex-1 bg-orange-500"></div>
-          <h2 class="text-4xl md:text-5xl font-black uppercase tracking-tighter">
-            Cómo<span class="text-orange-500">.</span>funciona
-          </h2>
-          <div class="h-1 flex-1 bg-orange-500"></div>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-6">
-          <!-- Step 1 -->
-          <div class="group bg-zinc-950 border border-zinc-800 hover:border-orange-500/60 transition-all duration-200 p-7 flex flex-col gap-5 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(249,115,22,0.10)]">
-            <div class="flex items-center gap-4">
-              <div class="w-8 h-8 rounded-full border-2 border-orange-500 flex items-center justify-center text-orange-500 font-black text-sm shrink-0">1</div>
-              <span class="w-12 h-12 flex items-center justify-center bg-orange-500/10 border border-orange-500/30 text-2xl shrink-0">🏀</span>
-              <span class="text-5xl font-black text-orange-500/30 leading-none select-none">01</span>
-            </div>
-            <div>
-              <h3 class="text-xl font-black uppercase mb-2 tracking-tight group-hover:text-orange-500 transition-colors">Tu juego</h3>
-              <p class="text-zinc-400 text-sm leading-relaxed">
-                Posición, peso, estilo, presupuesto, dolencias. <span class="text-white font-bold">10 preguntas</span> en menos de un minuto.
-              </p>
-            </div>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="group bg-zinc-950 border border-zinc-800 hover:border-yellow-500/60 transition-all duration-200 p-7 flex flex-col gap-5 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(234,179,8,0.10)]">
-            <div class="flex items-center gap-4">
-              <div class="w-8 h-8 rounded-full border-2 border-orange-500 flex items-center justify-center text-orange-500 font-black text-sm shrink-0">2</div>
-              <span class="w-12 h-12 flex items-center justify-center bg-yellow-500/10 border border-yellow-500/30 text-2xl shrink-0">⚡</span>
-              <span class="text-5xl font-black text-yellow-400/30 leading-none select-none">02</span>
-            </div>
-            <div>
-              <h3 class="text-xl font-black uppercase mb-2 tracking-tight group-hover:text-yellow-400 transition-colors">Tu match</h3>
-              <p class="text-zinc-400 text-sm leading-relaxed">
-                Las <span class="text-white font-bold">5 zapas</span> con mayor compatibilidad técnica, con explicación de por qué encajan contigo.
-              </p>
-            </div>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="group bg-zinc-950 border border-zinc-800 hover:border-orange-500/60 transition-all duration-200 p-7 flex flex-col gap-5 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(249,115,22,0.10)]">
-            <div class="flex items-center gap-4">
-              <div class="w-8 h-8 rounded-full border-2 border-orange-500 flex items-center justify-center text-orange-500 font-black text-sm shrink-0">3</div>
-              <span class="w-12 h-12 flex items-center justify-center bg-orange-500/10 border border-orange-500/30 text-2xl shrink-0">💸</span>
-              <span class="text-5xl font-black text-orange-500/30 leading-none select-none">03</span>
-            </div>
-            <div>
-              <h3 class="text-xl font-black uppercase mb-2 tracking-tight group-hover:text-orange-500 transition-colors">Tu precio</h3>
-              <p class="text-zinc-400 text-sm leading-relaxed">
-                Comparador lado a lado y <span class="text-white font-bold">mejor precio actual</span> entre tiendas. Tú decides dónde comprar.
-              </p>
-            </div>
-          </div>
+        <div class="home-top3-cta">
+          <a href="/zapatillas" class="home-btn ghost">Ver las {zapatillas.length} zapatillas →</a>
         </div>
       </div>
     </section>
 
-    <!-- TOP 3 ZAPAS -->
-    <section class="px-6 py-20 border-t border-zinc-800/50">
-      <div class="max-w-6xl mx-auto">
-        <div class="flex items-center gap-4 mb-4">
-          <p class="text-xs font-black uppercase tracking-widest text-orange-500">★ Precio verificado · Mejor valoradas</p>
-        </div>
-        <h2 class="text-3xl md:text-4xl font-black uppercase tracking-tighter mb-2 leading-tight">
-          El <span class="text-orange-500">top 3</span> de la base de datos
-        </h2>
-        <p class="text-zinc-400 mb-10 max-w-2xl">
-          Las zapatillas con mayor puntuación técnica agregada. Para una recomendación personalizada, usa el quiz.
-        </p>
-
-        <div class="grid md:grid-cols-3 gap-6 mb-10">
-          {
-            top3.map((z, i) => {
-              const mejor = findMejorPrecio(z.links_compra);
-              const precio = mejor?.precio_actual ?? z.precio_msrp_eur;
-              const score = Math.round(scoreGlobal(z) * 10) / 10;
-              return (
-                <a
-                  href={`/zapatilla/${z.slug}`}
-                  class="group bg-zinc-900 border-2 border-zinc-800 hover:border-orange-500 transition-all duration-200 flex flex-col hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(249,115,22,0.15)]"
-                >
-                  <div class="relative overflow-hidden bg-gradient-to-b from-zinc-800 to-zinc-900">
-                    <img
-                      src={z.imagen_principal}
-                      alt={`${z.marca} ${z.modelo}`}
-                      class="w-full aspect-[4/3] object-contain p-4 transition-transform duration-300 group-hover:scale-105"
-                      loading="lazy"
-                      onerror="this.onerror=null;this.src='/placeholder-shoe.svg'"
-                    />
-                    <span class="absolute top-3 left-3 w-8 h-8 flex items-center justify-center bg-orange-500 text-zinc-950 text-xs font-black">
-                      #{i + 1}
-                    </span>
-                    <span class="absolute top-3 right-3 w-9 h-9 flex items-center justify-center rounded-full bg-orange-500 text-zinc-950 text-sm font-black shadow-lg">
-                      {score}
-                    </span>
-                  </div>
-                  <div class="p-5 flex flex-col flex-1 gap-3">
-                    <div>
-                      <p class="text-[10px] font-bold uppercase tracking-widest text-zinc-500 mb-1">{z.marca}</p>
-                      <h3 class="text-lg font-black uppercase tracking-tight leading-tight group-hover:text-orange-500 transition-colors">
-                        {z.modelo}
-                      </h3>
-                    </div>
-                    <div class="mt-auto pt-3 border-t border-zinc-800 flex items-center justify-between">
-                      <p class="text-2xl font-black text-orange-500 leading-none">{precio}€</p>
-                      <span class="text-[10px] font-black uppercase tracking-widest text-zinc-600 group-hover:text-orange-500 border border-zinc-700 group-hover:border-orange-500 px-2.5 py-1.5 transition-colors">
-                        Ver →
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              );
-            })
-          }
-        </div>
-
-        <div class="text-center">
-          <a
-            href="/zapatillas"
-            class="inline-block px-8 py-4 border-2 border-zinc-700 hover:border-orange-500 font-black uppercase tracking-wider text-sm transition-colors"
-          >
-            Ver las {zapatillas.length} zapatillas →
-          </a>
+    {/* MANIFIESTO */}
+    <section class="home-manifest">
+      <div class="shell">
+        <div class="hm-card">
+          <p class="cz-eyebrow">★ Manifiesto</p>
+          <h3 class="hm-h3">
+            No te vendemos.
+            <span class="muted">Te ayudamos a elegir.</span>
+          </h3>
+          <p class="hm-body">
+            La mayoría de webs de zapatillas te empujan al modelo que más comisión paga.
+            Nosotros no. El ranking sale del quiz, no del cheque de la marca.
+            Si la zapa que mejor te va está en una tienda que no nos paga, la mostramos arriba igualmente.
+          </p>
+          <a href="/financiacion" class="hm-link">Lee cómo nos financiamos →</a>
         </div>
       </div>
     </section>
 
-    <!-- MANIFIESTO -->
-    <section class="px-6 py-20 bg-[#141414] border-t border-zinc-800/50">
-      <div class="max-w-4xl mx-auto">
-        <p
-          class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4"
-        >
-          ★ Manifiesto
-        </p>
-        <h3 class="text-3xl md:text-4xl font-black uppercase tracking-tight mb-6 leading-tight">
-          No te vendemos. <span class="text-zinc-500">Te ayudamos a elegir.</span>
-        </h3>
-        <p class="text-zinc-400 leading-relaxed text-base md:text-lg">
-          La mayoría de webs de zapatillas te empujan al modelo que más comisión
-          paga. Nosotros no. El ranking sale del quiz, no del cheque de la marca.
-          Si la zapa que mejor te va está en una tienda que no nos paga, la
-          mostramos arriba igualmente.
-          <a
-            href="/financiacion"
-            class="text-orange-500 hover:text-orange-400 font-bold underline decoration-2 underline-offset-4">Lee cómo nos financiamos →</a
-          >
-        </p>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="px-6 py-10 bg-black border-t-4 border-orange-500">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <div class="flex flex-col items-center md:items-start gap-1">
-          <a href="/" class="text-2xl font-black tracking-tighter">
-            <span class="logo">CANCHA</span><span class="text-orange-500">.</span><span class="logo">ZAPA</span>
-          </a>
-          <p class="text-[11px] text-zinc-500 tracking-wide uppercase">El radar de zapatillas de baloncesto para España</p>
+    <footer style="background:#000;border-top:4px solid #f97316;padding:32px 0;margin-top:40px">
+      <div class="shell" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center">
+        <div>
+          <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
+          <p style="font-size:10px;color:#52525b;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin:6px 0 0">
+            El radar de zapatillas de baloncesto para España
+          </p>
         </div>
-        <nav class="flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest flex-wrap justify-center">
-          <a href="/zapatillas" class="hover:text-orange-500 transition-colors">Catálogo</a>
-          <a href="/rankings" class="hover:text-orange-500 transition-colors">Rankings</a>
-          <a href="/quiz" class="hover:text-orange-500 transition-colors">Quiz</a>
-          <a href="/metodologia" class="hover:text-orange-500 transition-colors">Metodología</a>
-          <a href="/financiacion" class="hover:text-orange-500 transition-colors">Financiación</a>
-          <a href="/faq" class="hover:text-orange-500 transition-colors">FAQ</a>
+        <nav class="cz-nav">
+          <a href="/zapatillas">Catálogo</a>
+          <a href="/quiz">Quiz</a>
+          <a href="/rankings">Rankings</a>
+          <a href="/metodologia">Metodología</a>
+          <a href="/financiacion">Financiación</a>
+          <a href="/faq">FAQ</a>
         </nav>
-        <p class="text-xs text-zinc-500 uppercase tracking-widest text-center md:text-right">
-          Proyecto independiente · Sin sesgo de afiliado<br />
-          Hecho con <span class="text-orange-500">★</span> en español
+        <p style="font-size:10px;color:#52525b;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin:0;text-align:right">
+          Proyecto independiente · Sin sesgo de afiliado<br/>
+          Hecho con <span style="color:#f97316">★</span> en español
         </p>
       </div>
     </footer>
   </main>
 </Base>
-
-<script>
-  // Animated counters — respects prefers-reduced-motion
-  const counters = document.querySelectorAll<HTMLElement>("[data-count]");
-  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target as HTMLElement;
-        const target = parseInt(el.dataset.count ?? "0");
-        const suffix = el.dataset.suffix ?? "";
-
-        if (prefersReduced) {
-          el.textContent = target + suffix;
-          observer.unobserve(el);
-          return;
-        }
-
-        let current = 0;
-        const step = Math.ceil(target / 40);
-        const timer = setInterval(() => {
-          current = Math.min(current + step, target);
-          el.textContent = current + suffix;
-          if (current >= target) clearInterval(timer);
-        }, 30);
-        observer.unobserve(el);
-      });
-    },
-    { threshold: 0.3 }
-  );
-
-  counters.forEach((el) => observer.observe(el));
-</script>

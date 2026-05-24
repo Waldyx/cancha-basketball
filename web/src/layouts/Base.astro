@@ -1,4 +1,7 @@
 ---
+// Updated Base.astro — drop-in replacement for web/src/layouts/Base.astro
+// Adds: font preload, skip-to-content link, dynamic OG support, broken-img fallback.
+
 import "../styles/global.css";
 
 interface Props {
@@ -30,7 +33,7 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="theme-color" content="#0c0c0c" />
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -42,8 +45,10 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="es_ES" />
-    <meta property="og:site_name" content="Cancha" />
+    <meta property="og:site_name" content="CANCHA.ZAPA" />
 
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -51,10 +56,28 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
 
-    <!-- Fuente -->
+    <!-- Fonts: preconnect + preload de los archivos críticos para reducir FOUT -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Barlow+Condensed:ital,wght@0,700;0,900;1,700;1,900&display=swap" rel="stylesheet" />
+    <!-- Inter 900 (display weight) + Barlow Condensed 900 + Italic 900 -->
+    <link
+      rel="preload"
+      href="https://fonts.gstatic.com/s/inter/v18/UcCo3FwrK3iLTcvneQg7Ca725JhhKnNqk4j1ebLhAm8SrXTcv0L8.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="https://fonts.gstatic.com/s/barlowcondensed/v12/HTxxL3I-JCGChYJ8VI-L6OO_au7B6xPTBYNwSGSdsdg.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Barlow+Condensed:ital,wght@0,700;0,900;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -69,8 +92,35 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
         />
       )
     }
+
+    <!-- Skip-link styles (accesibilidad) -->
+    <style is:global>
+      .skip-to-content {
+        position: absolute;
+        top: -40px;
+        left: 8px;
+        z-index: 100;
+        padding: 8px 14px;
+        background: #f97316;
+        color: #0c0c0c;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        font-size: 12px;
+        text-decoration: none;
+        transition: top 0.15s;
+      }
+      .skip-to-content:focus {
+        top: 8px;
+        outline: 2px solid #facc15;
+        outline-offset: 2px;
+      }
+    </style>
   </head>
   <body class="bg-zinc-950 text-white antialiased">
+    <!-- Skip-to-content para usuarios de teclado / lectores de pantalla -->
+    <a href="#main-content" class="skip-to-content">Saltar al contenido</a>
+
     <!-- Cancha street de fondo (muy sutil en páginas interiores) -->
     <div class="fixed inset-0 pointer-events-none select-none z-0" aria-hidden="true">
       <img
@@ -81,9 +131,12 @@ const ogImageUrl = new URL(ogImage, Astro.site).toString();
       />
       <div class="absolute inset-0 bg-zinc-950/75"></div>
     </div>
-    <div class="relative z-10">
+
+    <!-- Main content target for skip link -->
+    <div id="main-content" class="relative z-10">
       <slot />
     </div>
+
     <script>
       const hideBrokenImages = () => {
         document.querySelectorAll("img").forEach((img) => {
