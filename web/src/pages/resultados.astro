@@ -1,22 +1,24 @@
 ---
 import Base from "../layouts/Base.astro";
+import "../styles/cancha-redesign.css";
 ---
 
 <Base
-  title="Tus 5 zapatillas · Cancha"
-  description="Las 5 zapatillas de baloncesto que mejor encajan con tu perfil."
+  title="Tus 5 zapatillas · CANCHA.ZAPA"
+  description="Las 5 zapatillas de baloncesto que mejor encajan con tu perfil. Resultado del quiz de CANCHA.ZAPA."
 >
-  <main class="min-h-screen text-white">
-    <!-- Header -->
-    <header class="px-6 py-5 border-b border-zinc-800/60 bg-[#0c0c0c]/80 backdrop-blur-sm sticky top-0 z-50">
-      <div class="max-w-6xl mx-auto flex items-center justify-between">
-        <a href="/" class="text-2xl font-black tracking-tighter">
-          <span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span>
-        </a>
-        <nav class="hidden sm:flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest">
-          <a href="/zapatillas" class="hover:text-orange-500 transition-colors">Catálogo</a>
-          <a href="/metodologia" class="hover:text-orange-500 transition-colors">Método</a>
-          <a href="/financiacion" class="hover:text-orange-500 transition-colors">$ Financiación</a>
+  <main class="quiz-app">
+    <div class="cz-courtbg"><img src="/bg-court.svg" alt="" aria-hidden="true" /><div></div></div>
+
+    <div class="cz-strip"></div>
+    <header class="cz-header">
+      <div class="shell cz-header-inner">
+        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
+        <nav class="cz-nav">
+          <a href="/zapatillas">Catálogo</a>
+          <a href="/quiz">Quiz</a>
+          <a href="/rankings">Rankings</a>
+          <a href="/faq">FAQ</a>
         </nav>
       </div>
     </header>
@@ -31,11 +33,8 @@ import Base from "../layouts/Base.astro";
     </noscript>
 
     <!-- Estado: sin respuestas -->
-    <section
-      id="estado-sin-respuestas"
-      class="hidden px-6 py-20"
-    >
-      <div class="max-w-2xl mx-auto text-center">
+    <section id="estado-sin-respuestas" class="hidden" style="padding:80px 0">
+      <div class="shell" style="max-width:640px;text-align:center">
         <p class="text-xs font-black uppercase tracking-widest text-orange-500 mb-4">
           ★ Primero el quiz
         </p>
@@ -56,8 +55,8 @@ import Base from "../layouts/Base.astro";
     </section>
 
     <!-- Estado: con resultados -->
-    <section id="estado-resultados" class="hidden px-6 py-16">
-      <div class="max-w-6xl mx-auto">
+    <section id="estado-resultados" class="hidden" style="padding:48px 0 80px">
+      <div class="shell">
         <!-- Encabezado de resultados -->
         <div class="mb-12">
           <p
@@ -146,21 +145,10 @@ import Base from "../layouts/Base.astro";
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="px-6 py-10 bg-black border-t-4 border-orange-500">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <a href="/" class="text-2xl font-black tracking-tighter">
-          <span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span>
-        </a>
-        <nav class="flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest flex-wrap justify-center">
-          <a href="/zapatillas" class="hover:text-orange-500 transition-colors">Catálogo</a>
-          <a href="/quiz" class="hover:text-orange-500 transition-colors">Quiz</a>
-          <a href="/metodologia" class="hover:text-orange-500 transition-colors">Metodología</a>
-          <a href="/financiacion" class="hover:text-orange-500 transition-colors">Financiación</a>
-        </nav>
-        <p class="text-xs text-zinc-600 uppercase tracking-widest text-center">
-          Proyecto independiente · Sin sesgo de afiliado
-        </p>
+    <footer class="quiz-footer">
+      <div class="shell quiz-footer-inner">
+        <span>Proyecto independiente · Sin sesgo de afiliado</span>
+        <a href="/zapatillas" class="qf-skip">Ver catálogo completo →</a>
       </div>
     </footer>
   </main>

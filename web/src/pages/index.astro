@@ -4,7 +4,7 @@ import { zapatillas } from "../data/zapatillas";
 import { findMejorPrecio } from "../lib/scoring";
 
 // Zapas destacadas hardcoded
-const slugsDestacadas = ["nike-lebron-22", "anta-kai-1-speed", "adidas-ae-4"];
+const slugsDestacadas = ["nike-lebron-22", "anta-kai-1-speed", "jordan-luka-3"];
 const zapasDestacadas = slugsDestacadas
   .map((s) => zapatillas.find((z) => z.slug === s))
   .filter(Boolean) as (typeof zapatillas)[0][];
@@ -153,7 +153,7 @@ const top3 = ranked.slice(0, 3);
             return (
               <a
                 href={`/zapatilla/${z.slug}`}
-                class="group bg-zinc-900 border border-zinc-800 hover:border-orange-500/70 transition-all duration-200 flex flex-col hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(249,115,22,0.15)] rounded-lg overflow-hidden"
+                class="group bg-zinc-900 border border-zinc-800 hover:border-orange-500/70 transition-all duration-200 flex flex-col hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(249,115,22,0.15)] overflow-hidden"
               >
                 <div class="relative overflow-hidden bg-gradient-to-b from-zinc-800 to-zinc-900">
                   <img
@@ -194,18 +194,18 @@ const top3 = ranked.slice(0, 3);
       <p class="text-zinc-400 text-sm text-center mb-8">Encuentra la zapatilla ideal para tu juego</p>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
         {[
-          { posicion: "base", emoji: "⚡", label: "Base", desc: "Reactivas y ligeras", color: "from-blue-900/40 to-blue-800/20" },
-          { posicion: "alero", emoji: "⚖️", label: "Alero", desc: "Equilibradas y versátiles", color: "from-green-900/40 to-green-800/20" },
-          { posicion: "pivot", emoji: "🛡️", label: "Pívot", desc: "Máximo soporte y cushion", color: "from-purple-900/40 to-purple-800/20" },
-          { posicion: "exterior", emoji: "🏀", label: "Exterior", desc: "Durables y con tracción", color: "from-orange-900/40 to-orange-800/20" },
-        ].map(({ posicion, emoji, label, desc, color }) => (
+          { posicion: "base",     emoji: "⚡", label: "Base",    desc: "Reactivas y ligeras" },
+          { posicion: "alero",    emoji: "⚖️", label: "Alero",   desc: "Equilibradas y versátiles" },
+          { posicion: "pivot",    emoji: "🛡️", label: "Pívot",   desc: "Máximo soporte y cushion" },
+          { posicion: "exterior", emoji: "🏀", label: "Exterior", desc: "Durables y con tracción" },
+        ].map(({ posicion, emoji, label, desc }) => (
           <a
             href={posicion === "exterior" ? "/zapatillas?cancha=exterior" : `/zapatillas?posicion=${posicion}`}
-            class={`bg-gradient-to-br ${color} border border-zinc-800 hover:border-zinc-600 rounded-xl p-5 text-center transition-all hover:-translate-y-0.5 group`}
+            class="bg-zinc-900 border border-zinc-800 hover:border-orange-500 p-5 text-center transition-all hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(249,115,22,0.12)] group"
           >
             <div class="text-3xl mb-2">{emoji}</div>
-            <div class="font-bold text-white text-sm">{label}</div>
-            <div class="text-zinc-500 text-xs mt-1 group-hover:text-zinc-400 transition-colors">{desc}</div>
+            <div class="font-black uppercase tracking-tight text-white text-sm">{label}</div>
+            <div class="text-zinc-500 text-xs mt-1 group-hover:text-orange-400 transition-colors">{desc}</div>
           </a>
         ))}
       </div>
@@ -293,7 +293,7 @@ const top3 = ranked.slice(0, 3);
               return (
                 <a
                   href={`/zapatilla/${z.slug}`}
-                  class="group bg-zinc-900 border border-zinc-800 hover:border-orange-500/70 transition-all duration-200 flex flex-col hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(249,115,22,0.15)]"
+                  class="group bg-zinc-900 border-2 border-zinc-800 hover:border-orange-500 transition-all duration-200 flex flex-col hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(249,115,22,0.15)]"
                 >
                   <div class="relative overflow-hidden bg-gradient-to-b from-zinc-800 to-zinc-900">
                     <img
@@ -369,11 +369,10 @@ const top3 = ranked.slice(0, 3);
     <footer class="px-6 py-10 bg-black border-t-4 border-orange-500">
       <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
         <div class="flex flex-col items-center md:items-start gap-1">
-          <p class="logo text-2xl font-black tracking-tighter">CANCHA</p>
-          <p class="logo flex items-center gap-1 text-2xl font-black tracking-tighter">
-            <span class="text-orange-500">ZAPA</span><span class="dot">.</span>
-          </p>
-          <p class="text-[11px] text-zinc-500 tracking-wide">El radar de zapatillas de baloncesto para España</p>
+          <a href="/" class="text-2xl font-black tracking-tighter">
+            <span class="logo">CANCHA</span><span class="text-orange-500">.</span><span class="logo">ZAPA</span>
+          </a>
+          <p class="text-[11px] text-zinc-500 tracking-wide uppercase">El radar de zapatillas de baloncesto para España</p>
         </div>
         <nav class="flex gap-6 text-xs font-bold text-zinc-400 uppercase tracking-widest flex-wrap justify-center">
           <a href="/zapatillas" class="hover:text-orange-500 transition-colors">Catálogo</a>
