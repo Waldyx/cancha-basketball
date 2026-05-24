@@ -1,0 +1,135 @@
+---
+import "../styles/cancha-redesign.css";
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Política de Privacidad — CANCHA.ZAPA"
+     description="Política de privacidad de canchazapa.com. Información sobre el tratamiento de datos, cookies y enlaces de afiliado.">
+
+  <div class="cz-strip"></div>
+  <header class="cz-header">
+    <div class="shell cz-header-inner">
+      <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
+      <nav class="cz-nav">
+        <a href="/rankings">Rankings</a>
+        <a href="/zapatillas">Catálogo</a>
+        <a href="/quiz">Quiz</a>
+        <a href="/metodologia">Método</a>
+        <a href="/faq">FAQ</a>
+        <a href="/mis-zapas">♥ Mis zapas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section style="padding:60px 0 80px">
+      <div class="shell" style="max-width:760px">
+
+        <p class="cz-eyebrow">Legal</p>
+        <h1 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(36px,6vw,64px);text-transform:uppercase;line-height:1;margin:8px 0 40px">
+          Política de<br/><span style="color:#f97316">Privacidad</span>
+        </h1>
+
+        <p style="color:#71717a;font-size:13px;margin-bottom:48px">Última actualización: mayo 2026</p>
+
+        <div class="doc-content" style="display:flex;flex-direction:column;gap:40px">
+
+          <section>
+            <h2>1. Responsable del tratamiento</h2>
+            <p>El responsable del sitio web <strong>canchazapa.com</strong> es Oswaldo Hernández Sanagustín, con domicilio en Barcelona, España. Contacto: <a href="mailto:oswaldhs7@gmail.com">oswaldhs7@gmail.com</a></p>
+          </section>
+
+          <section>
+            <h2>2. Datos que recogemos</h2>
+            <p>CANCHA.ZAPA no solicita registro ni recoge datos personales identificables de forma activa. Los únicos datos que se procesan son:</p>
+            <ul>
+              <li><strong>Datos de navegación anónimos</strong>: páginas visitadas, tiempo en el sitio y clics, recogidos por Plausible Analytics de forma agregada y sin cookies. No identifica usuarios individuales.</li>
+              <li><strong>Preferencias locales</strong>: las zapatillas que marcas como favoritas y tus respuestas al quiz se guardan exclusivamente en el almacenamiento local de tu navegador (<code>localStorage</code>). No se envían a ningún servidor.</li>
+              <li><strong>Alertas de precio</strong>: si introduces tu email para recibir alertas, se almacena localmente en tu navegador y no se comparte con terceros.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>3. Cookies</h2>
+            <p>CANCHA.ZAPA utiliza únicamente cookies técnicas estrictamente necesarias para el funcionamiento del sitio. No utilizamos cookies de seguimiento ni publicitarias propias.</p>
+            <p>Plausible Analytics, nuestro proveedor de analítica, <strong>no usa cookies</strong> y es compatible con GDPR sin necesidad de banner de consentimiento.</p>
+          </section>
+
+          <section>
+            <h2>4. Enlaces de afiliado</h2>
+            <p>Algunos enlaces a tiendas en canchazapa.com son enlaces de afiliado. Esto significa que si compras a través de ellos, podemos recibir una pequeña comisión sin coste adicional para ti.</p>
+            <p>Participamos en los siguientes programas de afiliados:</p>
+            <ul>
+              <li><strong>Amazon Afiliados (Amazon.es)</strong> — ID: canchazapa-21</li>
+              <li><strong>Awin</strong> — programas de Sprinter y Foot Locker España</li>
+            </ul>
+            <p>Las comisiones no influyen en nuestras puntuaciones ni recomendaciones. Nuestra metodología es independiente y está documentada en la <a href="/metodologia">página de metodología</a>.</p>
+          </section>
+
+          <section>
+            <h2>5. Proveedores de servicios</h2>
+            <ul>
+              <li><strong>Vercel</strong> (vercel.com) — alojamiento web. Puede registrar IPs en logs de servidor de forma temporal.</li>
+              <li><strong>Plausible Analytics</strong> (plausible.io) — analítica web sin cookies, alojada en la UE.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>6. Tus derechos</h2>
+            <p>Dado que no recogemos datos personales identificables, no hay datos que solicitar, rectificar ni eliminar. Si tienes alguna duda, puedes contactarnos en <a href="mailto:oswaldhs7@gmail.com">oswaldhs7@gmail.com</a>.</p>
+          </section>
+
+          <section>
+            <h2>7. Cambios en esta política</h2>
+            <p>Podemos actualizar esta política cuando sea necesario. La fecha de última actualización siempre aparece al inicio de esta página.</p>
+          </section>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="border-top:1px solid rgba(63,63,70,0.4);padding:32px 0">
+      <div class="shell" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+        <a href="/" class="cz-logo" style="font-size:14px"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
+        <div style="display:flex;gap:20px;font-size:12px;color:#52525b">
+          <a href="/metodologia" style="color:#52525b;text-decoration:none">Metodología</a>
+          <a href="/faq" style="color:#52525b;text-decoration:none">FAQ</a>
+          <a href="/privacidad" style="color:#f97316;text-decoration:none">Privacidad</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <style>
+    .doc-content h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: #fff;
+      margin: 0 0 12px;
+    }
+    .doc-content p, .doc-content li {
+      color: #a1a1aa;
+      line-height: 1.7;
+      margin: 0 0 12px;
+    }
+    .doc-content ul {
+      padding-left: 20px;
+    }
+    .doc-content a {
+      color: #f97316;
+    }
+    .doc-content code {
+      background: rgba(249,115,22,0.1);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 13px;
+      color: #f97316;
+    }
+  </style>
+
+</Base>
