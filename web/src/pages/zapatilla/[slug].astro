@@ -179,7 +179,7 @@ const linksOrdenados = [...z.links_compra]
                     Verificado · mejor precio en <strong>{LABELS_TIENDA[mejorPrecio.tienda] || mejorPrecio.tienda}</strong>
                   </div>
                 </div>
-                <a href={mejorPrecio.url} target="_blank" rel={mejorPrecio.tiene_afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"} class="dh-buy-btn">
+                <a href={mejorPrecio.url} target="_blank" rel={mejorPrecio.tiene_afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"} class="dh-buy-btn aff-btn" data-tienda={LABELS_TIENDA[mejorPrecio.tienda]||mejorPrecio.tienda} data-zapa={z.slug}>
                   Ver en {LABELS_TIENDA[mejorPrecio.tienda] || mejorPrecio.tienda} →
                 </a>
               </div>
@@ -277,6 +277,40 @@ const linksOrdenados = [...z.links_compra]
       </div>
     </section>
 
+    {/* AFILIADOS — 3 botones principales */}
+    {(() => {
+      const sprinter = z.links_compra.find(l => l.tienda === "sprinter_es" && l.disponible);
+      const footlocker = z.links_compra.find(l => l.tienda === "footlocker_es" && l.disponible);
+      const amazon = z.links_compra.find(l => l.tienda === "amazon_es" && l.disponible);
+      const tiendas = [
+        sprinter   && { label: "Sprinter",    url: sprinter.url,    precio: sprinter.precio_actual,    afiliado: sprinter.tiene_afiliado },
+        footlocker && { label: "Foot Locker", url: footlocker.url,  precio: footlocker.precio_actual,  afiliado: footlocker.tiene_afiliado },
+        amazon     && { label: "Amazon",      url: amazon.url,      precio: amazon.precio_actual,      afiliado: amazon.tiene_afiliado },
+      ].filter(Boolean);
+      if (!tiendas.length) return null;
+      return (
+        <section style="padding:40px 0;border-top:1px solid rgba(63,63,70,0.3)">
+          <div class="shell">
+            <p class="cz-eyebrow" style="margin-bottom:20px">★ Comprar ahora</p>
+            <div style="display:flex;flex-wrap:wrap;gap:12px">
+              {tiendas.map((t: any) => (
+                <a href={t.url} target="_blank"
+                   rel={t.afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"}
+                   class="aff-btn"
+                   data-tienda={t.label}
+                   data-zapa={z.slug}
+                   style="display:flex;align-items:center;gap:12px;padding:14px 24px;background:#18181b;border:1px solid rgba(249,115,22,0.4);color:#fff;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:16px;text-transform:uppercase;letter-spacing:.1em">
+                  <span>{t.label}</span>
+                  <span style="color:#f97316;font-size:18px">→</span>
+                  <span style="margin-left:auto;color:#f97316;font-weight:900">{t.precio}€</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      );
+    })()}
+
     {/* PRECIOS */}
     {linksOrdenados.length > 0 && (
       <section class="cz-detail-price-history" style="background:rgba(15,15,15,0.5)">
@@ -307,6 +341,7 @@ const linksOrdenados = [...z.links_compra]
                       {diffPct > 0 && <p style="font-size:10px;color:#4ade80;font-weight:900;letter-spacing:.06em;margin:2px 0 0">-{diffPct}% vs MSRP</p>}
                     </div>
                     <a href={link.url} target="_blank" rel={link.tiene_afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"}
+                       class="aff-btn" data-tienda={LABELS_TIENDA[link.tienda]||link.tienda} data-zapa={z.slug}
                        style="padding:10px 16px;background:#f97316;color:#0c0c0c;font-weight:900;text-transform:uppercase;letter-spacing:.14em;font-size:11px;box-shadow:3px 3px 0 0 #facc15">
                       Ver →
                     </a>
@@ -405,5 +440,15 @@ const linksOrdenados = [...z.links_compra]
     if (sb) {
       window.addEventListener("scroll", () => sb.classList.toggle("visible", window.scrollY > 700));
     }
+    // Affiliate click tracking (Plausible)
+    document.querySelectorAll(".aff-btn").forEach(el => {
+      el.addEventListener("click", () => {
+        const tienda = (el as HTMLElement).dataset.tienda || "";
+        const zapa = (el as HTMLElement).dataset.zapa || "";
+        if ((window as any).plausible) {
+          (window as any).plausible("Affiliate Click", { props: { tienda, zapa } });
+        }
+      });
+    });
   </script>
 </Base>
