@@ -1,0 +1,330 @@
+---
+// /[slug] — Páginas SEO long-tail (20 rutas estáticas)
+//
+// Renderiza una página completa según el slug, leyendo de lib/seoPages.ts.
+// Cada página: hero + top 5 + guía editorial + FAQ con schema + related links.
+//
+// Las 20 rutas se generan en build con getStaticPaths.
+
+import Base from "../layouts/Base.astro";
+import "../styles/cancha-redesign.css";
+import { zapatillas } from "../data/zapatillas";
+import { findMejorPrecio } from "../lib/scoring";
+import { SEO_PAGES, getSeoPage } from "../lib/seoPages";
+
+export async function getStaticPaths() {
+  return SEO_PAGES.map((p) => ({
+    params: { slug: p.slug },
+    props: { page: p },
+  }));
+}
+
+const { page } = Astro.props;
+
+const CAT_LABELS: Record<string, string> = {
+  "cushion-focused": "Cushion",
+  "responsive":      "Reactiva",
+  "balanced":        "Equilibrada",
+  "traction-king":   "Tracción",
+};
+const CAT_ACCENT: Record<string, string> = {
+  "cushion-focused": "#38bdf8",
+  "responsive":      "#facc15",
+  "balanced":        "#d4d4d8",
+  "traction-king":   "#fb923c",
+};
+
+// Top 5 según filtro + orden de esta página
+const matches = zapatillas.filter(page.filter).sort(page.sort);
+const top5 = matches.slice(0, 5);
+const totalMatches = matches.length;
+
+// FAQPage JSON-LD para Google rich results
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: page.faqs.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+};
+
+// BreadcrumbList JSON-LD
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: new URL("/", Astro.site).toString() },
+    { "@type": "ListItem", position: 2, name: "Guías", item: new URL("/zapatillas", Astro.site).toString() },
+    { "@type": "ListItem", position: 3, name: page.h1Pre + " " + page.h1Accent, item: new URL(`/${page.slug}`, Astro.site).toString() },
+  ],
+};
+
+// ItemList JSON-LD (las top 5)
+const itemListJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: top5.map((z, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    item: {
+      "@type": "Product",
+      name: `${z.marca} ${z.modelo}`,
+      image: z.imagen_principal,
+      url: new URL(`/zapatilla/${z.slug}`, Astro.site).toString(),
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "EUR",
+        price: findMejorPrecio(z.links_compra)?.precio_actual ?? z.precio_msrp_eur,
+      },
+    },
+  })),
+};
+
+const combinedJsonLd = [faqJsonLd, breadcrumbJsonLd, itemListJsonLd];
+
+const relatedPages = page.related
+  .map((s) => getSeoPage(s))
+  .filter((p): p is NonNullable<typeof p> => p !== undefined);
+---
+
+<Base
+  title={page.title}
+  description={page.description}
+  jsonLd={combinedJsonLd}
+>
+  <main class="app">
+    <div class="cz-courtbg"><img src="/bg-court.svg" alt="" /><div></div></div>
+
+    <div class="cz-strip"></div>
+    <header class="cz-header">
+      <div class="shell cz-header-inner">
+        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
+        <nav class="cz-nav">
+          <a href="/zapatillas">Catálogo</a>
+          <a href="/quiz">Quiz</a>
+          <a href="/rankings">Rankings</a>
+          <a href="/metodologia">Método</a>
+          <a href="/faq">FAQ</a>
+          <a href="/mis-zapas">♥ Mis zapas</a>
+        </nav>
+      </div>
+    </header>
+
+    {/* Breadcrumbs */}
+    <nav class="cz-breadcrumbs">
+      <div class="shell">
+        <a href="/">Inicio</a>
+        <span>/</span>
+        <a href="/zapatillas">Guías</a>
+        <span>/</span>
+        <span class="current">{page.h1Pre} {page.h1Accent}</span>
+      </div>
+    </nav>
+
+    {/* HERO */}
+    <section class="seo-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">{page.eyebrow}</p>
+        <h1 class="seo-h1">
+          {page.h1Pre}<br/>
+          <span class="accent">{page.h1Accent}</span>
+          {page.h1Post && <span class="muted">{page.h1Post}</span>}
+        </h1>
+        <p class="seo-lede">{page.lede}</p>
+        <div class="seo-meta">
+          <span><strong>{totalMatches}</strong> zapatillas analizadas</span>
+          <span class="sep">·</span>
+          <span>Precio verificado</span>
+          <span class="sep">·</span>
+          <span>Sin sesgo de afiliado</span>
+        </div>
+      </div>
+    </section>
+
+    {/* TOP 5 */}
+    <section class="seo-top5">
+      <div class="shell">
+        <div class="section-head">
+          <p class="cz-eyebrow">★ Top 5</p>
+          <h2>Las <span class="accent">5 mejores</span></h2>
+        </div>
+
+        {top5.length === 0 ? (
+          <div class="cz-empty">
+            <div class="icon">🏀</div>
+            <h3>Sin matches todavía</h3>
+            <p>No hay zapas en la base que cumplan los criterios de esta categoría.</p>
+            <a href="/zapatillas"><button>Ver catálogo completo</button></a>
+          </div>
+        ) : (
+          <div class="seo-top5-list">
+            {top5.map((z, i) => {
+              const mejor = findMejorPrecio(z.links_compra);
+              const precio = mejor?.precio_actual ?? z.precio_msrp_eur;
+              const score = Math.round((Object.values(z.puntuaciones).reduce((a,b)=>a+b,0)/8)*10)/10;
+              const cat = CAT_ACCENT[z.categoria_principal];
+              const ahorro = mejor && mejor.precio_actual < z.precio_msrp_eur
+                ? Math.round((1 - mejor.precio_actual / z.precio_msrp_eur) * 100) : 0;
+              const isFirst = i === 0;
+
+              return (
+                <article class={`seo-row ${isFirst ? "primary" : ""}`} style={`--cat:${cat}`}>
+                  <div class="seo-row-rank">
+                    <span class="srr-num">#{i + 1}</span>
+                    {isFirst && <span class="srr-crown">★ Nº 1</span>}
+                  </div>
+                  <a href={`/zapatilla/${z.slug}`} class="seo-row-photo">
+                    <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} loading={i < 2 ? "eager" : "lazy"}
+                         onerror="this.style.display='none'" />
+                  </a>
+                  <div class="seo-row-body">
+                    <div class="srb-head">
+                      <span class="srb-cat" style={`color:${cat}`}>{CAT_LABELS[z.categoria_principal]}</span>
+                      <span class="srb-marca">{z.marca}</span>
+                    </div>
+                    <h3 class="srb-modelo"><a href={`/zapatilla/${z.slug}`}>{z.modelo}</a></h3>
+                    <p class="srb-resumen">{z.resumen.length > 220 ? z.resumen.slice(0, 200) + "…" : z.resumen}</p>
+                    <div class="srb-specs">
+                      <div class="srbs"><span class="v">{score}<small>/10</small></span><span class="k">Score</span></div>
+                      <div class="srbs"><span class="v">{z.peso_real_g}<small>g</small></span><span class="k">Peso</span></div>
+                      <div class="srbs"><span class="v">{z.altura}</span><span class="k">Altura</span></div>
+                      <div class="srbs"><span class="v" style="text-transform:capitalize">{z.horma}</span><span class="k">Horma</span></div>
+                    </div>
+                  </div>
+                  <div class="seo-row-foot">
+                    <div class="srf-price">
+                      <span class="srf-now">{Math.round(precio)}€</span>
+                      {ahorro > 0 && (
+                        <div class="srf-meta">
+                          <span class="msrp">msrp {z.precio_msrp_eur}€</span>
+                          <span class="save">−{ahorro}%</span>
+                        </div>
+                      )}
+                      {mejor && (
+                        <div class="srf-verif"><span class="dot"></span>Verificado</div>
+                      )}
+                    </div>
+                    <a href={`/zapatilla/${z.slug}`} class="srf-cta">Ver review →</a>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        )}
+
+        {totalMatches > 5 && (
+          <div class="seo-see-all">
+            <a href={`/zapatillas${page.catalogQuery}`} class="home-btn ghost">
+              {page.catalogLabel} ({totalMatches}) →
+            </a>
+          </div>
+        )}
+      </div>
+    </section>
+
+    {/* GUÍA */}
+    <section class="seo-guide">
+      <div class="shell shell-narrow">
+        <div class="section-head">
+          <p class="cz-eyebrow">★ Cómo elegir</p>
+          <h2>{page.guideTitle}</h2>
+        </div>
+        <p class="seo-guide-intro">{page.guideIntro}</p>
+        <ul class="seo-guide-list">
+          {page.guidePoints.map((p, i) => (
+            <li>
+              <span class="sgl-num">{String(i + 1).padStart(2, "0")}</span>
+              <div>
+                <p class="sgl-title">{p.lab}</p>
+                <p class="sgl-body">{p.body}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    {/* FAQ */}
+    <section class="seo-faq">
+      <div class="shell shell-narrow">
+        <div class="section-head">
+          <p class="cz-eyebrow">★ Preguntas frecuentes</p>
+          <h2>FAQ específica</h2>
+        </div>
+        <div class="faq-list">
+          {page.faqs.map((f, i) => (
+            <details class="faq-item" open={i === 0}>
+              <summary>
+                <span class="faq-num">{String(i + 1).padStart(2, "0")}</span>
+                <span class="faq-q">{f.q}</span>
+                <span class="faq-toggle">
+                  <span class="plus">+</span>
+                  <span class="minus">−</span>
+                </span>
+              </summary>
+              <div class="faq-a">{f.a}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* RELATED */}
+    {relatedPages.length > 0 && (
+      <section class="seo-related">
+        <div class="shell">
+          <div class="section-head">
+            <p class="cz-eyebrow">★ Sigue leyendo</p>
+            <h2>Guías relacionadas</h2>
+          </div>
+          <div class="seo-related-grid">
+            {relatedPages.map((r) => (
+              <a href={`/${r.slug}`} class="seo-rel-card">
+                <p class="src-eyebrow">{r.eyebrow}</p>
+                <h3 class="src-title">{r.h1Pre} <span style="color:#f97316">{r.h1Accent}</span></h3>
+                <p class="src-lede">{r.lede.slice(0, 120)}…</p>
+                <span class="src-arrow">Leer →</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* CTA final */}
+    <section class="seo-cta-final">
+      <div class="shell">
+        <div class="hm-card" style="max-width:760px">
+          <p class="cz-eyebrow">★ ¿Quieres una recomendación a medida?</p>
+          <h3 class="hm-h3">
+            10 preguntas.
+            <span class="muted">5 zapas tuyas.</span>
+          </h3>
+          <p class="hm-body">
+            El top 5 de esta página es genérico. Si quieres una recomendación basada en tu posición,
+            peso, estilo, presupuesto y posibles lesiones, el quiz lo calcula en menos de un minuto.
+          </p>
+          <a href="/quiz" class="home-btn primary" style="margin-top:14px">→ Hacer el quiz</a>
+        </div>
+      </div>
+    </section>
+
+    <footer style="background:#000;border-top:4px solid #f97316;padding:32px 0;margin-top:40px">
+      <div class="shell" style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center">
+        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
+        <nav class="cz-nav">
+          <a href="/zapatillas">Catálogo</a>
+          <a href="/quiz">Quiz</a>
+          <a href="/rankings">Rankings</a>
+          <a href="/mis-zapas">Mis zapas</a>
+          <a href="/faq">FAQ</a>
+        </nav>
+        <p style="font-size:10px;color:#52525b;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin:0">
+          Proyecto independiente · Sin sesgo de afiliado
+        </p>
+      </div>
+    </footer>
+  </main>
+</Base>
