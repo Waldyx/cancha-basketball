@@ -5171,60 +5171,6 @@ const _rawZapatillas: Zapatilla[] = [
   // 77. NIKE PG 7 â€” Paul George, budget traction king
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
-    id: "nike-pg-7",
-    slug: "nike-pg-7",
-    marca: "Nike",
-    modelo: "PG 7",
-    generacion: 7,
-    año_lanzamiento: 2024,
-    genero: "unisex",
-    signature_player: "Paul George",
-    tecnologia_clave: ["Zoom Air", "multidirectional traction"],
-    predecesor_id: "nike-pg-6",
-    sucesor_id: null,
-    peso_real_g: 365,
-    altura: "low",
-    horma: "normal",
-    drop_mm: 9,
-    tipo_cierre: "cordones",
-    material_superior: "mesh+tpu",
-    puntuaciones: {
-      traccion: 9,
-      amortiguacion: 7,
-      respuesta: 7,
-      soporte_lateral: 7,
-      estabilidad: 7,
-      peso_score: 7,
-      durabilidad_outdoor: 8,
-      ventilacion: 7,
-    },
-    categoria_principal: "traction-king",
-    tags: ["signature", "value-premium"],
-    ideal_para: {
-      posiciones: ["escolta", "alero"],
-      peso_jugador_kg: [70, 95],
-      estilos: ["equilibrado", "tirador"],
-    },
-    no_recomendada_para: { posiciones: ["pivot"], estilos: [] },
-    resumen: "SÃ©ptima entrega de la lÃ­nea de Paul George. TracciÃ³n multidireccional excepcional con Zoom Air. Buena relaciÃ³n calidad-precio para escoltas y aleros.",
-    pros: ["TracciÃ³n de Ã©lite", "Buena durabilidad outdoor", "Precio razonable para signature"],
-    contras: ["Cushion solo correcto", "No destaca en ningÃºn parÃ¡metro individual"],
-    veredicto: "SÃ³lida y fiable. Para escoltas y aleros que necesitan agarre constante sin gastarse una fortuna.",
-    imagen_principal: "/placeholder-shoe.svg",
-    imagenes: [],
-    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-pg-7-performance-review/" }],
-    ultima_actualizacion: "2026-05-18",
-    precio_msrp_eur: 110,
-    links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=pg+7&vst=pg+7", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+pg+7", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-    ],
-  },
-
-  // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 78. ADIDAS DAME 8 â€” Damian Lillard, cushion responsive
-  // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  {
     id: "adidas-dame-8",
     slug: "adidas-dame-8",
     marca: "Adidas",
@@ -5869,10 +5815,10 @@ const _rawZapatillas: Zapatilla[] = [
   // 90. JORDAN SUPER/FLY 10 â€” legacy budget Jordan
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
-    id: "jordan-super-fly-10",
-    slug: "jordan-super-fly-10",
+    id: "jordan-super-fly-8",
+    slug: "jordan-super-fly-8",
     marca: "Jordan",
-    modelo: "Super/Fly 10",
+    modelo: "Super/Fly 8",
     generacion: 10,
     año_lanzamiento: 2024,
     genero: "unisex",
@@ -5907,7 +5853,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["VersÃ¡til y duradera", "Buen soporte lateral", "IcÃ³nico diseÃ±o Jordan"],
     contras: ["Cushion modesto", "Algo pesada"],
     veredicto: "La opciÃ³n Jordan equilibrada para aleros y ala-pÃ­vots con presupuesto medio.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/JordanSuperFly8-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
