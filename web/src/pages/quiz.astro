@@ -406,7 +406,7 @@ import "../styles/cancha-redesign.css";
           // Auto-avance: 700ms tras la última selección (da tiempo a marcar varias)
           window.clearTimeout(advanceTimer);
           if ((answers.lesiones as string[]).length > 0) {
-            advanceTimer = window.setTimeout(() => show(current + 1), 700);
+            advanceTimer = window.setTimeout(() => show(current + 1), 400);
           }
         } else {
           answers[field] = value;
