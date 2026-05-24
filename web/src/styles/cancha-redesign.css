@@ -66,7 +66,7 @@ button { font-family: inherit; cursor: pointer; }
   text-transform: uppercase; letter-spacing: 0.16em; color: #a1a1aa;
 }
 .cz-nav a:hover { color: #f97316; }
-.cz-nav a.active { color: #fff; }
+.cz-nav a.active { color: #f97316; }
 .cz-strip {
   height: 5px;
   background: linear-gradient(90deg, #f97316, #facc15, #f97316);
