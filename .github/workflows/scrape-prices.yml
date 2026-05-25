@@ -53,7 +53,7 @@ jobs:
           if [ -n "${{ github.event.inputs.zapa_id }}" ]; then
             ARGS="$ARGS --id ${{ github.event.inputs.zapa_id }}"
           fi
-          npx tsx scripts/scraper/index.ts $ARGS
+          npx tsx scripts/scraper/index.ts $ARGS --idealo
         env:
           NODE_ENV: production
 

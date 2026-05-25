@@ -15,7 +15,12 @@ export const amazon_es: StoreScraper = {
     };
 
     try {
-      await page.goto(url, { waitUntil: "domcontentloaded", timeout: 20000 });
+      // Quitar tag de afiliado para el scraping (evita tratamiento diferencial de Amazon)
+      const scrapeUrl = url.replace(/[?&]tag=[^&]+/, (m) =>
+        m.startsWith("?") ? "?" : ""
+      ).replace(/\?$/, "").replace(/&&/, "&");
+
+      await page.goto(scrapeUrl, { waitUntil: "domcontentloaded", timeout: 25000 });
 
       // Aceptar cookies si aparece el modal
       const cookieBtn = page.locator("#sp-cc-accept, #accept-button");
