@@ -173,8 +173,10 @@ const productJsonLd = {
             <div class="dh-photo-frame">
               <span class="dh-cat-badge">{CAT_LABELS[z.categoria_principal]}</span>
               {z.año_lanzamiento >= 2025 && <span class="dh-new-badge">★ Nueva {z.año_lanzamiento}</span>}
-              <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`}
-                   onerror="this.style.display='none'" />
+              {z.imagen_principal && !z.imagen_principal.includes('placeholder') && (
+                <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`}
+                     onerror="this.style.display='none'" />
+              )}
               <div class="dh-marca-watermark">{z.marca}</div>
             </div>
           </div>
