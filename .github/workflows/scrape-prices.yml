@@ -13,6 +13,9 @@ on:
         description: "Scrape solo esta zapatilla (ej: nike-lebron-22). Vacío = todas."
         required: false
 
+permissions:
+  contents: write
+
 jobs:
   scrape:
     name: Scrape precios
