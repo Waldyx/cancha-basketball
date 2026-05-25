@@ -72,7 +72,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si pesas mÃ¡s de 85kg, juegas de poste o ala-pÃ­vot potente y priorizas protecciÃ³n sobre velocidad, es la mejor opciÃ³n del mercado. Si eres un base rÃ¡pido, mantente lejos.",
 
-    imagen_principal: "/shoes/nike-lebron-22.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeLeBron22-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [
@@ -178,7 +178,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si eres tirador o base ligero, juegas casi exclusivamente en pista cubierta y priorizas respuesta sobre protecciÃ³n, es de las mejores opciones premium. Para asfalto o pesos altos, busca otra cosa.",
 
-    imagen_principal: "/shoes/ua-curry-12.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/UACurry12-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [
@@ -263,7 +263,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si eres base, escolta o alero, juegas mayormente indoor y quieres lo mejor por debajo de â‚¬130, es de las apuestas mÃ¡s seguras del aÃ±o. SÃ³lida en todo, sin debilidades graves.",
 
-    imagen_principal: "/shoes/nike-sabrina-2.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeSabrina2-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [
@@ -369,7 +369,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si eres base o escolta tÃ©cnico, buscas respuesta y tracciÃ³n, y no tienes problemas de tobillo, es una de las mejores compras del aÃ±o. Para tobillos delicados o juego potente, busca otra opciÃ³n.",
 
-    imagen_principal: "/shoes/anta-kai-2.png",
+    imagen_principal: "https://wowsole.com/wp-content/uploads/2024/10/ANTA-Kai-2-1.jpg",
     imagenes: [],
 
     fuentes: [
@@ -466,7 +466,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si tu presupuesto es bajo, juegas en exterior o pistas duras, y priorizas durabilidad sobre tecnologÃ­a, es la compra inteligente. Si vas a jugar mucho indoor y quieres rendimiento, sube de gama.",
 
-    imagen_principal: "/shoes/adidas-cross-em-up-select.jpeg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasCrossEmUpSelect-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [
@@ -533,7 +533,7 @@ const _rawZapatillas: Zapatilla[] = [
       "DiseÃ±o conservador, sin innovaciÃ³n",
     ],
     veredicto: "Para aleros y forwards que priorizan amortiguaciÃ³n y tracciÃ³n sobre velocidad. Si eres un base rÃ¡pido, busca otra cosa.",
-    imagen_principal: "/shoes/nike-kd-18.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeKD18-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-kd-18-review/" },
@@ -597,7 +597,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Rubber blando que se desgasta en outdoor",
     ],
     veredicto: "Para guards rÃ¡pidos y pies estrechos que aman la sensaciÃ³n del Kobe 8 original. No es para jugadores pesados ni outdoor intensivo.",
-    imagen_principal: "/shoes/nike-kobe-8-protro.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeKobe8Protro-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-kobe-8-system-re-review/" },
@@ -657,7 +657,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Algo pesada",
     ],
     veredicto: "Para jugadores ground-based equilibrados o tiradores potentes que priorizan cushion. No es para explosivos que necesitan estabilidad mÃ¡xima.",
-    imagen_principal: "/shoes/jordan-luka-5.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/JordanLuka5-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/jordan-luka-5-performance-review/" },
@@ -720,7 +720,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Disponibilidad limitada en Europa",
     ],
     veredicto: "La mejor opciÃ³n indoor para guards rÃ¡pidos. No la compres si juegas mayoritariamente en cemento.",
-    imagen_principal: "/shoes/nike-gt-cut-3.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeGTCut3-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-gt-cut-3-review/" },
@@ -780,7 +780,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Foam expuesto puede sufrir",
     ],
     veredicto: "Para wings versÃ¡tiles y guards que tiran mucho. La opciÃ³n Jordan mÃ¡s completa para uso indoor regular.",
-    imagen_principal: "/shoes/jordan-tatum-3.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/JordanTatum3-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/jordan-tatum-3-review/" },
@@ -844,7 +844,7 @@ const _rawZapatillas: Zapatilla[] = [
       "DiseÃ±o genÃ©rico sin identidad",
     ],
     veredicto: "Para guards rÃ¡pidos con presupuesto medio que quieren un performer eficiente. Si valoras estÃ©tica o cushion, mira el Dame 9.",
-    imagen_principal: "/shoes/nike-ja-2.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeJa2-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-ja-2-good-but-boring/" },
@@ -904,7 +904,7 @@ const _rawZapatillas: Zapatilla[] = [
       "EstÃ©tica polarizante",
     ],
     veredicto: "El mejor performance por debajo de 180 â‚¬ si lo encuentras. No es para pies anchos ni para pÃ­vots pesados.",
-    imagen_principal: "/shoes/lining-wow-allcity-13.png",
+    imagen_principal: "https://wowsole.com/wp-content/uploads/2024/10/LiNing-WoW-AllCity-13-1.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/way-of-wade-all-city-13-review/" },
@@ -966,7 +966,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Ya no es Kyrie signature (Anta tiene su lÃ­nea)",
     ],
     veredicto: "Para guards rÃ¡pidos que priorizan court feel. Si pesas mÃ¡s de 90 kg o saltas mucho, busca cushion mÃ¡s generoso.",
-    imagen_principal: "/shoes/nike-kyrie-low-5.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeKyrieLow5-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-kyrie-low-5-review/" },
@@ -1027,7 +1027,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Forefoot padding modesto",
     ],
     veredicto: "Si te gustan los Kyrie y quieres pagar la mitad, esta es tu zapa. Para guards y wings que necesitan agarre extremo.",
-    imagen_principal: "/shoes/anta-kai-2.png",
+    imagen_principal: "https://wowsole.com/wp-content/uploads/2024/10/ANTA-Kai-2-1.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/anta-kai-2-review/" },
@@ -1087,7 +1087,7 @@ const _rawZapatillas: Zapatilla[] = [
       "TracciÃ³n sufre en pista polvorienta",
     ],
     veredicto: "Para tiradores y wings que valoran estabilidad sobre velocidad. Klay-style: tirar con plataforma sÃ³lida.",
-    imagen_principal: "/shoes/anta-kt-10.jpg",
+    imagen_principal: "https://wowsole.com/wp-content/uploads/2023/09/ANTA-KT10-1.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/anta-kt-10-review/" },
@@ -1147,7 +1147,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Cushion no destaca en nada",
     ],
     veredicto: "Solo si encuentras buena oferta. A precio completo hay mejores. Para jugadores ground-based equilibrados.",
-    imagen_principal: "/shoes/jordan-luka-3.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/JordanLuka3-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/jordan-luka-3-review/" },
@@ -1207,7 +1207,7 @@ const _rawZapatillas: Zapatilla[] = [
       "EstÃ©tica polariza",
     ],
     veredicto: "Para guards explosivos que quieren todo: ligereza, cushion y respuesta. El secreto mejor guardado del mercado.",
-    imagen_principal: "/shoes/lining-wow-12.jpg",
+    imagen_principal: "https://wowsole.com/wp-content/uploads/2024/02/LiNing-WoW-12-1.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/way-of-wade-12-performance-review/" },
@@ -1266,7 +1266,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Respuesta limitada por la cantidad de foam",
     ],
     veredicto: "Para jugadores pesados que priorizan absorciÃ³n sobre velocidad. PÃ­vots y forwards la amarÃ¡n; bases la odiarÃ¡n.",
-    imagen_principal: "/shoes/nb-fresh-foam-bb-v3.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NewBalanceFreshFoamBBv3-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/new-balance-fresh-foam-bb-v3-review/" },
@@ -1326,7 +1326,7 @@ const _rawZapatillas: Zapatilla[] = [
       "EstÃ©tica polariza",
     ],
     veredicto: "Para guards y wings que valoran cushion y soporte sobre velocidad. Mejor opciÃ³n Harden en aÃ±os.",
-    imagen_principal: "/shoes/adidas-harden-vol-9.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasHardenVol9-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/adidas-harden-vol-9-review/" },
@@ -1386,7 +1386,7 @@ const _rawZapatillas: Zapatilla[] = [
       "DiseÃ±o minimalista que no enamora",
     ],
     veredicto: "La mejor opciÃ³n budget para guards que necesitan tracciÃ³n y soporte. Si pesas mÃ¡s de 90 kg, busca cushion mÃ¡s generoso.",
-    imagen_principal: "/shoes/adidas-dame-certified.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasDameCertified-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/adidas-dame-certified/" },
@@ -1446,7 +1446,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Pesada y bulky",
     ],
     veredicto: "Para guards y wings que aman la lÃ­nea MB y juegan indoor en pista limpia. Outdoor: olvÃ­dalo.",
-    imagen_principal: "/shoes/puma-mb-04.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/PumaMB04-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/puma-mb-04-low-review/" },
@@ -1505,7 +1505,7 @@ const _rawZapatillas: Zapatilla[] = [
       "No para impactos grandes",
     ],
     veredicto: "Ideal para inicio o jugador casual con presupuesto bajo. Si compites en serio, sube de gama.",
-    imagen_principal: "/shoes/nike-precision-8.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikePrecision8-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-precision-8-performance-review/" },
@@ -1566,7 +1566,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Respuesta limitada por foam soft",
     ],
     veredicto: "Para forwards y pÃ­vots medianos/pesados con presupuesto. Si eres guard rÃ¡pido, esta no es.",
-    imagen_principal: "/shoes/nike-lebron-witness-9.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeLeBronWitness9-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-lebron-9-performance-review/" },
@@ -1628,7 +1628,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Algo pesada",
     ],
     veredicto: "Top pick value: para todas las posiciones excepto pÃ­vots. Mejor opciÃ³n budget-premium del aÃ±o.",
-    imagen_principal: "/shoes/adidas-dame-9.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasDame9-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/adidas-dame-9-review/" },
@@ -1687,7 +1687,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Performance genÃ©rico",
     ],
     veredicto: "Para iniciaciÃ³n o uso casual. No es para competiciÃ³n seria. Si presupuesto sube de 70 â‚¬, mira el Dame Certified.",
-    imagen_principal: "/shoes/adidas-cross-em-up-speed.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasCrossEmUpSpeed-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-13",
@@ -1744,7 +1744,7 @@ const _rawZapatillas: Zapatilla[] = [
       "EstÃ©tica polariza",
     ],
     veredicto: "Para jugadores potentes que juegan principalmente outdoor o necesitan durabilidad sobre lujo. No es para guards rÃ¡pidos.",
-    imagen_principal: "/shoes/jordan-one-take-5.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/JordanOneTake5-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/jordan-one-take-5-review/" },
@@ -1806,7 +1806,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Solo disponible en Decathlon",
     ],
     veredicto: "Para guards con presupuesto justo que buscan zapa rÃ¡pida. La mejor relaciÃ³n calidad/precio low-top en tiendas fÃ­sicas en EspaÃ±a.",
-    imagen_principal: "/shoes/decathlon-tarmak-fast-900.jpg",
+    imagen_principal: "https://contents.mediadecathlon.com/p2344023/k$bfd5a33e23e4fdfbdc76f4fcf48826db/sq/zapatillas-baloncesto-tarmak-fast-900.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-13",
@@ -1919,7 +1919,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Signature de jugador minor",
     ],
     veredicto: "Para guards que buscan algo distinto y cÃ³modo a buen precio. Cult favorite si la encuentras.",
-    imagen_principal: "/shoes/peak-lou-williams-underground.jpg",
+    imagen_principal: "https://wowsole.com/wp-content/uploads/2024/04/Peak-Lou-Williams-Underground-1.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/peak-lou-williams-underground-2/" },
@@ -1977,7 +1977,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Disponibilidad limitada en Europa",
     ],
     veredicto: "Para jugadores con presupuesto justo que necesitan estabilidad y soporte outdoor. Una sorpresa por 100 â‚¬.",
-    imagen_principal: "/shoes/anta-shock-the-game-5.jpg",
+    imagen_principal: "https://wowsole.com/wp-content/uploads/2024/06/ANTA-Shock-The-Game-5-1.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/anta-shock-the-game-5-0-review/" },
@@ -2034,7 +2034,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Tallas se agotan rÃ¡pido en colorways populares",
     ],
     veredicto: "Para escoltas y aleros que quieren un Jordan con rendimiento real sin pagar precio de lanzamiento. Un clÃ¡sico moderno ahora asequible.",
-    imagen_principal: "/shoes/jordan-xxxvii.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/JordanXXXVII-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-15",
@@ -2094,7 +2094,7 @@ const _rawZapatillas: Zapatilla[] = [
       "VentilaciÃ³n mejorable",
     ],
     veredicto: "Si el LeBron 22 se sale de tu presupuesto, el 21 es prÃ¡cticamente el mismo zapato con diferente upper. Para pÃ­vots y alas pesados, el mejor ratio calidad-precio del mercado ahora mismo.",
-    imagen_principal: "/shoes/nike-lebron-21.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeLeBron21-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-15",
@@ -2153,7 +2153,7 @@ const _rawZapatillas: Zapatilla[] = [
       "No es la Freak mÃ¡s responsive",
     ],
     veredicto: "Para alas-pÃ­vot y pÃ­vots con presupuesto ajustado que necesitan amortiguaciÃ³n y soporte sin llegar a los â‚¬180 del LeBron.",
-    imagen_principal: "/shoes/nike-zoom-freak-4.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeZoomFreak4-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-15",
@@ -2212,7 +2212,7 @@ const _rawZapatillas: Zapatilla[] = [
       "No apta para corredores rÃ¡pidos",
     ],
     veredicto: "La opciÃ³n mÃ¡s econÃ³mica para un jugador grande que quiere una Nike fiable. No esperes maravillas, pero no te fallarÃ¡.",
-    imagen_principal: "/shoes/nike-giannis-immortality-3.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeGiannisImmortality3-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-15",
@@ -2268,7 +2268,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Poca presencia en tiendas fÃ­sicas espaÃ±olas",
     ],
     veredicto: "Para bases y escoltas explosivos que quieren respuesta elite sin pagar los precios de Nike/Adidas. Segunda iteraciÃ³n que mejora en todo a la gen 1.",
-    imagen_principal: "/shoes/puma-all-pro-nitro.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/PumaAllProNitro-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-15",
@@ -2325,7 +2325,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Outdoor no recomendado",
     ],
     veredicto: "Si el MB.04 se sale de presupuesto, el MB.03 es una alternativa sÃ³lida. Mismo concepto, algo menos de tecnologÃ­a, 40-50â‚¬ menos.",
-    imagen_principal: "/shoes/puma-mb03.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/PumaMB03-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-15",
@@ -2382,7 +2382,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Soporte tobillo justo",
     ],
     veredicto: "Si juegas en exterior o cambias frecuentemente de pista, esta es tu zapatilla. Nada supera al Flow en tracciÃ³n multisuperficie. A 70â‚¬ es una ganga.",
-    imagen_principal: "/shoes/ua-flow-breakthru-4.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/UAFlowBreakthru4-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-15",
@@ -2498,7 +2498,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Precio original alto aunque ahora baja",
     ],
     veredicto: "Para bases y escoltas que quieren lo mejor de Adidas en guards sin pagar el premium del lanzamiento. Uno de los mejores valores del mercado ahora mismo.",
-    imagen_principal: "/shoes/adidas-ae-1.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasAE1-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-15",
@@ -2555,7 +2555,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Outdoor limitado",
     ],
     veredicto: "El Toyota Camry del baloncesto: fiable, consistente, sin sorpresas. Para aleros y escoltas equilibrados que quieren una NB que simplemente funcione.",
-    imagen_principal: "/shoes/nb-two-wxy-v4.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NewBalanceTwoWXYv4-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-15",
@@ -2612,7 +2612,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Indoor only recomendado",
     ],
     veredicto: "Para el jugador versÃ¡til que quiere un Jordan signature con cushion real a un precio razonable. La Luka 5 es superior pero el Luka 2 sale ahora por 40-50â‚¬ menos.",
-    imagen_principal: "/shoes/jordan-luka-2.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/JordanLuka2-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-15",
@@ -2670,7 +2670,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Indoor principalmente",
     ],
     veredicto: "Para bases y escoltas que priorizan velocidad y court feel. Con la PG 6 a 65â‚¬, pocas zapatillas ofrecen mejor tracciÃ³n por ese precio.",
-    imagen_principal: "/shoes/nike-pg-6.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikePG6-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-15",
@@ -2727,7 +2727,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Precio todavÃ­a algo alto",
     ],
     veredicto: "El zapato de Nike pensado desde cero para el juego interior. Si eres pÃ­vot, saltas mucho y tienes historial de rodillas o tobillos, la GT Jump 2 ofrece la mejor protecciÃ³n del mercado Nike ahora mismo.",
-    imagen_principal: "/shoes/nike-gt-jump-2.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeGTJump2-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-15",
@@ -2804,7 +2804,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si eres pÃ­vot, pesas mÃ¡s de 90kg y el presupuesto no es problema, el LeBron 23 es el techo tecnolÃ³gico del mercado. Si buscas velocidad, ni lo mires.",
 
-    imagen_principal: "/shoes/nike-lebron-23.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeLeBron23-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [
@@ -2881,7 +2881,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Para bases explosivos que quieren el zapato mÃ¡s reactivo del mercado Nike en 2025. Si el Ja 2 te gustaba, el 3 es una evoluciÃ³n real.",
 
-    imagen_principal: "/shoes/nike-ja-3.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeJa3-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [
@@ -2957,7 +2957,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "El mejor zapato para guards de Adidas en 2025. Si ya te gustÃ³ el AE 1, el 2 es estrictamente mejor. Una de las mejores opciones explosivas del mercado ahora mismo.",
 
-    imagen_principal: "/shoes/adidas-ae-2.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasAE2-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [
@@ -3033,7 +3033,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Para fans de la lÃ­nea MB o guards que quieren la Ãºltima tecnologÃ­a Nitrofoam Puma. Una evoluciÃ³n sÃ³lida que compite con la Ja 3 y la AE 2 en el segmento guard reactivo.",
 
-    imagen_principal: "/shoes/puma-mb05.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/PumaMB05-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [
@@ -3184,7 +3184,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si la tracciÃ³n y la reactividad son tu prioridad absoluta y no tienes problemas de tobillos, la GT Cut 4 es el techo del mercado en 2025. La mejor de la historia de la lÃ­nea.",
 
-    imagen_principal: "/shoes/nike-gt-cut-4.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeGTCut4-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [
@@ -3258,7 +3258,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La joya escondida de 2026. Si no te importa importarla, la Gamma 2 ofrece el mejor rendimiento por euro del mercado. WearTesters no se equivoca: es el zapato del aÃ±o.",
 
-    imagen_principal: "/shoes/lining-gamma-2.jpg",
+    imagen_principal: "https://wowsole.com/wp-content/uploads/2024/03/LiNing-Gamma-2-1.jpg",
     imagenes: [],
 
     fuentes: [
@@ -3333,7 +3333,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Para escoltas tiradores al estilo Klay que quieren tracciÃ³n y estilo premium de marca china sin pagar marca occidental. La mejor KT de la historia y una de las mejores opciones del segmento 100-110â‚¬.",
 
-    imagen_principal: "/shoes/anta-kt-11.jpg",
+    imagen_principal: "https://wowsole.com/wp-content/uploads/2024/10/ANTA-KT11-1.jpg",
     imagenes: [],
 
     fuentes: [
@@ -3404,7 +3404,7 @@ const _rawZapatillas: Zapatilla[] = [
       "No apta para jugadores >90 kg que necesitan cushion",
     ],
     veredicto: "Si eres de los que valoran el legado y quieres algo que juega bien Y tiene historia, la Question Mid es Ãºnica. No es la mÃ¡s tÃ©cnica, pero la tracciÃ³n y el soporte siguen siendo sÃ³lidos. Para escoltas y bases que quieren estilo de leyenda.",
-    imagen_principal: "/shoes/reebok-question-mid.webp",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/ReebokQuestionMid-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/reebok-question-performance-review/" },
@@ -3477,7 +3477,7 @@ const _rawZapatillas: Zapatilla[] = [
       "No recomendada para jugadores pesados",
     ],
     veredicto: "Para el coleccionista que quiere jugar con historia en los pies. La Answer IV es el mejor zapato de rendimiento retro de Reebok â€” tÃ©cnicamente superior a la Question y con la historia de las Finales. A ~100â‚¬ en rebajas, una ganga cultural.",
-    imagen_principal: "/shoes/reebok-answer-iv.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/ReebokAnswerIV-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/reebok-answer-iv-4-retro-performance-review/" },
@@ -3623,7 +3623,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La mejor opciÃ³n actual de UA para bases y escolteros que buscan respuesta mÃ¡xima en pista cubierta. Si ya te gustÃ³ la Curry 12, la 13 es una mejora directa. Para asfalto o pesos > 90kg, busca otra cosa.",
 
-    imagen_principal: "/shoes/ua-curry-13.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/UACurry13-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [
@@ -3702,7 +3702,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si tu presupuesto es ajustado o buscas una segunda zapatilla para entrenar outdoor sin arriesgar tus buenas zapatillas, la Lockdown 7 cumple. Para juego serio o frecuente, sube de gama.",
 
-    imagen_principal: "/shoes/ua-lockdown-7.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/UALockdown7-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -3776,7 +3776,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Para jugadores fÃ­sicos de posiciÃ³n interior o aleros que necesitan soporte sin pagar precio premium. La Spawn 7 Mid cumple bien en pista cubierta y aguanta el exterior. Buena opciÃ³n de gama media dentro del catÃ¡logo UA.",
 
-    imagen_principal: "/shoes/ua-spawn-7-mid.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/UASpawn7Mid-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -3850,7 +3850,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La mejor opciÃ³n de UA para jugadores que quieren algo equilibrado sin decidirse entre la Curry (ultra-reactiva, poca protecciÃ³n) y la Spawn (mÃ¡s fÃ­sica). La FUTR X 4 funciona bien en todas las posiciones.",
 
-    imagen_principal: "/shoes/ua-futr-x-4.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/UAFutrX4-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -3924,7 +3924,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si quieres el sello Curry sin gastar 140â‚¬+, la Curry 3Z 25 es la respuesta. No es una zapatilla tÃ©cnicamente avanzada, pero cumple para uso recreativo o pistas exteriores. Para juego serio, invierte en la Curry 13.",
 
-    imagen_principal: "/shoes/ua-curry-3z-25.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/UACurry3z25-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -3998,7 +3998,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Para fans de Luka o jugadores de gama media que quieren un calzado equilibrado a buen precio. No alcanza el nivel tÃ©cnico de la GT Cut 4 ni el cushion de la LeBron 23, pero a 99.99â‚¬ es una opciÃ³n sÃ³lida.",
 
-    imagen_principal: "/shoes/nike-luka-77.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeLuka77-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4072,7 +4072,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Una de las mejores opciones para bases y escoltas explosivos que priorizan velocidad y comodidad. La combinaciÃ³n React + Zoom Air en antepiÃ© la hace destacar en su rango de precio.",
 
-    imagen_principal: "/shoes/nike-book-2.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeBook2-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4221,7 +4221,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Una zapatilla seria que no debe descartarse por ser femenina en origen. El Zoom Air strobel + React la convierten en una de las opciones mÃ¡s completas de Nike bajo los 130â‚¬. Recomendada para jugadores Ã¡giles de cualquier gÃ©nero.",
 
-    imagen_principal: "/shoes/nike-sabrina-3.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeSabrina3-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4295,7 +4295,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Para aleros y escoltas que quieren un calzado con cushion serio sin el precio de la LeBron o la Kobe Protro. La Tatum 4 es una compra inteligente a 90.99â‚¬ â€” probablemente la mejor relaciÃ³n calidad-precio de la lÃ­nea Jordan signature en 2025.",
 
-    imagen_principal: "/shoes/jordan-tatum-4.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/JordanTatum4-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4369,7 +4369,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La mejor opciÃ³n Nike para pivots y aleros fÃ­sicos que necesitan una zapatilla robusta. Si juegas como Giannis â€” potencia, cambios de direcciÃ³n bruscos, juego en la pintura â€” la Freak 7 es la elecciÃ³n correcta.",
 
-    imagen_principal: "/shoes/nike-zoom-freak-7.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeZoomFreak7-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4517,7 +4517,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si quieres el agarre del GT Cut 4 sin el gasto, la GT Cut Academy 2 es la respuesta. Perfecta para jugadores de velocidad con presupuesto ajustado o para uso en entrenos intensivos. La relaciÃ³n calidad-precio es excepcional a 99.99â‚¬.",
 
-    imagen_principal: "/shoes/nike-gt-cut-academy-2.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeGTCutAcademy2-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4591,7 +4591,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Una opciÃ³n sÃ³lida y a menudo ignorada en el catÃ¡logo Puma. Si juegas en posiciones de interior y buscas Nitrofoam a un precio razonable, la Stewie 4 compite de tÃº a tÃº con la Freak 7 y la Curry 13. Merece mÃ¡s atenciÃ³n de la que recibe.",
 
-    imagen_principal: "/shoes/puma-stewie-4.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/PumaStewie4-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4667,7 +4667,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si juegas de pivot o ala-pivot y pesas mÃ¡s de 90 kg, la Zion 4 es una de las mejores protecciones para rodillas y tobillos del mercado por ~85â‚¬. No es para correr, es para dominar la pintura. Horma ancha, React foam sÃ³lido y precio rebajado: difÃ­cil de superar para su perfil.",
 
-    imagen_principal: "/shoes/jordan-zion-4.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/JordanZion4-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4742,7 +4742,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La AE 3 es la evoluciÃ³n mÃ¡s lograda de la lÃ­nea Anthony Edwards: mÃ¡s agarre, mÃ¡s respuesta y mejor fit que las versiones anteriores. A 130â‚¬ compite directamente con la Nike Ja 3 y la GT Cut 4. Si eres guard o escolta y priorizas la reactividad, es una de las compras mÃ¡s inteligentes del aÃ±o.",
 
-    imagen_principal: "/shoes/adidas-ae-3.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasAE3-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [
@@ -4819,7 +4819,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si buscas una zapatilla mid-top bien equilibrada para guards y aleros con Zoom Air a 80â‚¬, la Luka 4 es difÃ­cil de superar en su rango de precio. La lÃ­nea Doncic siempre ha ofrecido buen valor, y la 4Âª ediciÃ³n no es excepciÃ³n. Ideal para el jugador que busca confort y soporte sin sacrificar respuesta.",
 
-    imagen_principal: "/shoes/jordan-luka-4.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/JordanLuka4-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4894,7 +4894,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "A 60â‚¬ la Book 1 es probablemente la mejor compra del catÃ¡logo Nike ahora mismo para guards y escoltas. Zoom Air, tracciÃ³n herringbone y comodidad de knit â€” todo lo que necesita un jugador de perÃ­metro, a un precio que no tiene rival. El hecho de que sea la primera ediciÃ³n de Booker le da un punto de coleccionismo extra.",
 
-    imagen_principal: "/shoes/nike-book-1.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeBook1-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4968,7 +4968,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La Harden 10 es la zapatilla definitiva para el guard que pesa entre 85-105 kg y busca Lightstrike Pro con soporte mid-top. Compite con la Luka 5 y la Curry 13 en el mismo rango. Si valoras el equilibrio entre cushion, respuesta y soporte lateral, la Harden 10 es una elecciÃ³n sÃ³lida a 160â‚¬.",
 
-    imagen_principal: "/shoes/adidas-harden-vol-10.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasHardenVol10-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -5024,7 +5024,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Muy equilibrada en todas las mÃ©tricas", "Ligera para su cushion", "CÃ³moda desde el primer dÃ­a"],
     contras: ["Durabilidad outdoor limitada", "TracciÃ³n puede perder agarre con polvo"],
     veredicto: "Una de las zapatillas mÃ¡s equilibradas del mercado. Ideal para aleros que quieren un poco de todo sin sacrificar nada.",
-    imagen_principal: "/shoes/nike-kd-17.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeKD17-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-kd-17-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -5078,7 +5078,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["TracciÃ³n de primer nivel", "Buena durabilidad outdoor", "Precio competitivo para signature"],
     contras: ["Algo pesada", "Cushion solo correcto, no destacado"],
     veredicto: "Para jugadores que priorizan el agarre y juegan tanto interior como exterior. Una de las mejores relaciones calidad-precio en signatures.",
-    imagen_principal: "/shoes/nike-don-issue-6.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeDonIssue6-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-don-issue-6-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -5132,7 +5132,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Extremadamente ligera", "Muy buena ventilaciÃ³n", "Respuesta excelente para bases explosivos"],
     contras: ["Poco soporte lateral para jugadores grandes", "Durabilidad outdoor mejorable"],
     veredicto: "La elecciÃ³n perfecta para bases ligeros que buscan velocidad y respuesta. No apta para jugadores potentes.",
-    imagen_principal: "/shoes/puma-scoot-zeros.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/PumaScootZeros-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/puma-scoot-zeros-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -5186,7 +5186,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Muy ligera", "Respuesta excelente", "Buena ventilaciÃ³n"],
     contras: ["Cushion modesto para jugadores pesados", "Soporte lateral bÃ¡sico"],
     veredicto: "Perfecta para bases tiradores que quieren velocidad y reactividad a buen precio.",
-    imagen_principal: "/shoes/adidas-dame-8.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasDame8-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/adidas-dame-8-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -5241,7 +5241,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Soporte lateral excepcional", "TracciÃ³n de primer nivel", "Estabilidad mÃ¡xima para jugadores pesados"],
     contras: ["Muy pesada", "Poco court feel", "No apta para juego explosivo"],
     veredicto: "La mejor opciÃ³n para pÃ­vots y ala-pÃ­vots potentes que necesitan estabilidad mÃ¡xima.",
-    imagen_principal: "/shoes/nike-zoom-freak-5.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeZoomFreak5-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-zoom-freak-5-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -5294,7 +5294,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Buen precio", "Muy transpirable", "TracciÃ³n sÃ³lida"],
     contras: ["Cushion bÃ¡sico", "No destaca en nada en concreto"],
     veredicto: "Buena opciÃ³n para jugadores con presupuesto ajustado que buscan una zapatilla equilibrada y transpirable.",
-    imagen_principal: "/shoes/adidas-exhibit-a.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasExhibitA-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -5400,7 +5400,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["TracciÃ³n 360Â° excepcional", "Buena respuesta", "Precio accesible"],
     contras: ["Estabilidad algo baja en comparaciÃ³n con otras Kyrie", "Cushion bÃ¡sico"],
     veredicto: "Para bases que necesitan cambios de direcciÃ³n rÃ¡pidos y agarre constante a buen precio.",
-    imagen_principal: "/shoes/nike-kyrie-infinity-2.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeKyrieInfinity2-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -5454,7 +5454,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Cushion premium", "Muy buena estabilidad", "IcÃ³nico diseÃ±o Jordan"],
     contras: ["Algo pesada", "Durabilidad outdoor limitada", "Precio alto"],
     veredicto: "Para el jugador que quiere el look y el rendimiento Jordan en una posiciÃ³n versÃ¡til. Premium en todo.",
-    imagen_principal: "/shoes/jordan-xxxviii.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/JordanXXXVIII-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/air-jordan-xxxviii-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -5507,7 +5507,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Excelente precio", "Buena durabilidad outdoor", "TracciÃ³n sÃ³lida"],
     contras: ["Cushion bÃ¡sico", "No destaca en respuesta", "Algo pesada"],
     veredicto: "La opciÃ³n mÃ¡s asequible y fiable de UA. Para jugadores con presupuesto ajustado que juegan en pistas mixtas.",
-    imagen_principal: "/shoes/ua-jet-23.webp",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/UAJet23-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -5561,7 +5561,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Cushion NITRO Elite excepcional", "Soporte tobillo en high-top", "Estabilidad top para pÃ­vots"],
     contras: ["Pesada", "Precio alto", "No apta para juego rÃ¡pido"],
     veredicto: "La mejor alternativa Puma para pÃ­vots y ala-pÃ­vots que quieren protecciÃ³n mÃ¡xima. Compite con LeBron 22 en cushion.",
-    imagen_principal: "/shoes/puma-all-pro-nitro-2.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/PumaAllProNitro2-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/puma-all-pro-nitro-2-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -5615,7 +5615,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Precio muy asequible", "Cushion Air Max suficiente", "Estabilidad correcta para su precio"],
     contras: ["Pesada", "Court feel nulo", "No apta para juego explosivo"],
     veredicto: "Para el jugador de interior que quiere cushion Nike sin gastar mÃ¡s de 80â‚¬. Simple y funcional.",
-    imagen_principal: "/shoes/nike-air-max-impact-5.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeAirMaxImpact5-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -5668,7 +5668,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["TracciÃ³n excelente", "RelaciÃ³n calidad-precio imbatible", "Ligera para su rendimiento"],
     contras: ["Durabilidad outdoor limitada", "DifÃ­cil de encontrar en tiendas fÃ­sicas espaÃ±olas"],
     veredicto: "La alternativa de presupuesto medio mÃ¡s sorprendente. Si no te importa comprar online, bate a zapatillas el doble de caras en tracciÃ³n.",
-    imagen_principal: "/shoes/lining-sonic-12.jpg",
+    imagen_principal: "https://wowsole.com/wp-content/uploads/2024/05/LiNing-Sonic-12-1.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -5723,7 +5723,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Excelente precio para una signature", "Buena durabilidad outdoor", "Horma ancha cÃ³moda"],
     contras: ["Muy pesada", "Cushion bÃ¡sico", "Sin tecnologÃ­a premium"],
     veredicto: "La opciÃ³n mÃ¡s asequible para jugadores de interior con pie ancho. La Freak budget que funciona.",
-    imagen_principal: "/shoes/nike-giannis-immortality-4.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeGiannisImmortality4-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -5776,7 +5776,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Buen cushion para el precio", "Muy transpirable", "Respuesta agradable"],
     contras: ["TracciÃ³n mejorable en superficies polvorientas", "Durabilidad outdoor justa"],
     veredicto: "Para el escolta tirador que hace mucho trabajo fuera del balÃ³n y necesita cushion y transpirabilidad.",
-    imagen_principal: "/shoes/nike-gt-run-2.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeGTRun2-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -5882,7 +5882,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Cushion y respuesta sorprendentes", "Ligera", "Precio muy competitivo"],
     contras: ["DifÃ­cil de encontrar en EspaÃ±a", "Soporte lateral bÃ¡sico"],
     veredicto: "Para el jugador aventurero que quiere descubrir marcas asiÃ¡ticas de calidad. Sorprende en todo por su precio.",
-    imagen_principal: "/shoes/peak-taichi-flash.jpg",
+    imagen_principal: "https://wowsole.com/wp-content/uploads/2024/05/Peak-TaiChi-Flash-1.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -5936,7 +5936,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Soporte lateral excepcional", "Mejor cushion que la Freak 5", "Durabilidad outdoor sÃ³lida"],
     contras: ["Muy pesada", "Cara para su propuesta"],
     veredicto: "Para pÃ­vots y ala-pÃ­vots potentes que quieren la mejor protecciÃ³n de Nike a precio alto.",
-    imagen_principal: "/shoes/nike-zoom-freak-6.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeZoomFreak6-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-zoom-freak-6-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -5989,7 +5989,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Precio muy asequible para junior", "Buena durabilidad outdoor", "TracciÃ³n sÃ³lida"],
     contras: ["Cushion bÃ¡sico", "No apta para adultos pesados"],
     veredicto: "La referencia budget para jugadores junior. Funcional, duradera y asequible.",
-    imagen_principal: "/shoes/adidas-cross-em-up-5.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasCrossEmUp5-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6043,7 +6043,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Precio muy asequible para la marca LeBron", "Buen cushion para su precio", "Duradera"],
     contras: ["Pesada", "Sin tecnologÃ­a premium", "TracciÃ³n bÃ¡sica"],
     veredicto: "Para el fan de LeBron con presupuesto ajustado. Cushion correcto a precio justo.",
-    imagen_principal: "/shoes/nike-lebron-witness-8.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeLeBronWitness8-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6099,7 +6099,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["TracciÃ³n excepcional", "Cushion premium con FuelCell", "Durabilidad outdoor excelente"],
     contras: ["Algo pesada para aleros Ã¡giles", "Precio alto para NB"],
     veredicto: "La primera y esperada signature de Kawhi no decepciona. Para aleros que quieren tracciÃ³n y cushion a partes iguales.",
-    imagen_principal: "/shoes/nb-kawhi-1.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NewBalanceKawhi1-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/new-balance-kawhi-1-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -6152,7 +6152,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Durabilidad outdoor lÃ­der en su precio", "TracciÃ³n constante en exterior", "Buena relaciÃ³n calidad-precio"],
     contras: ["No destaca en rendimiento indoor premium", "DifÃ­cil de encontrar en tiendas fÃ­sicas"],
     veredicto: "La zapatilla ideal para quien juega principalmente en pistas exteriores y quiere durabilidad mÃ¡xima a precio razonable.",
-    imagen_principal: "/shoes/anta-shock-wave-5.jpg",
+    imagen_principal: "https://wowsole.com/wp-content/uploads/2024/06/ANTA-Shock-Wave-5-1.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6206,7 +6206,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Ultra ligera", "TracciÃ³n 360Â° excepcional", "Respuesta muy alta"],
     contras: ["Cushion modesto para jugadores pesados", "Poco soporte tobillo"],
     veredicto: "La zapatilla para bases explosivos (hombre o mujer) que quieren lo mÃ¡s rÃ¡pido del mercado Nike.",
-    imagen_principal: "/shoes/nike-sabrina-1.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeSabrina1-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-sabrina-1-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -6260,7 +6260,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Precio muy asequible para una signature", "TracciÃ³n sÃ³lida", "CÃ³moda desde el primer uso"],
     contras: ["Cushion bÃ¡sico", "Estabilidad lateral limitada"],
     veredicto: "La opciÃ³n mÃ¡s econÃ³mica para el fan de Harden. Funcional y asequible para juego perimetral.",
-    imagen_principal: "/shoes/adidas-harden-stepback-4.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasHardenStepback4-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6313,7 +6313,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Precio muy asequible", "Buena tracciÃ³n", "Duradera en outdoor"],
     contras: ["Cushion bÃ¡sico", "Sin tecnologÃ­a premium"],
     veredicto: "El punto de entrada a las Kyrie. Para jugadores de base con presupuesto ajustado que valoran el agarre.",
-    imagen_principal: "/shoes/nike-kyrie-flytrap-6.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeKyrieFlytrap6-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6368,7 +6368,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Estabilidad excepcional", "Horma ancha muy cÃ³moda", "Cushion sÃ³lido"],
     contras: ["Pesada", "Respuesta baja para un alero Ã¡gil"],
     veredicto: "Para el jugador al estilo Luka: potente, tÃ©cnico y que necesita una base sÃ³lida. Ahora a precios de outlet muy interesantes.",
-    imagen_principal: "/shoes/jordan-luka-1.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/JordanLuka1-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/jordan-luka-1-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -6422,7 +6422,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["HOVR foam excelente para cushion", "Buen soporte lateral", "Precio competitivo vs Nike/Adidas"],
     contras: ["Algo pesada", "Court feel reducido"],
     veredicto: "La alternativa UA mÃ¡s equilibrada para aleros y ala-pÃ­vots. MÃ¡s barata que las grandes firmas con rendimiento similar.",
-    imagen_principal: "/shoes/ua-hovr-havoc-5.webp",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/UAHOVRHavoc5-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6475,7 +6475,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Zoom Air a buen precio", "Ligera para junior", "Buena tracciÃ³n"],
     contras: ["No apta para adultos pesados", "Cushion bÃ¡sico para uso intensivo"],
     veredicto: "La mejor opciÃ³n Nike para jugadores junior que quieren rendimiento real sin gastar mÃ¡s de 75â‚¬.",
-    imagen_principal: "/shoes/nike-air-zoom-crossover-2.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeAirZoomCrossover2-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6528,7 +6528,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Precio imbatible", "Durable para el precio", "Disponible en cualquier tienda"],
     contras: ["Sin tecnologÃ­a destacable", "Cushion y respuesta bÃ¡sicos", "No apta para competiciÃ³n seria"],
     veredicto: "Para el jugador recreativo o principiante que quiere estrenar marca Adidas sin gastar mÃ¡s de 55â‚¬.",
-    imagen_principal: "/shoes/adidas-ownthegame-3.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasOwnthegame3-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6581,7 +6581,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["TracciÃ³n de Ã©lite", "FuelCell reactivo", "Ahora muy asequible en outlet"],
     contras: ["Modelo antiguo (2019)", "DifÃ­cil de encontrar en tallas completas"],
     veredicto: "Si la encuentras en tu talla, es una de las mejores relaciones calidad-precio del mercado. TracciÃ³n imbatible.",
-    imagen_principal: "/shoes/nb-omn1s.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NewBalanceOMN1S-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/new-balance-omn1s-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -6635,7 +6635,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["NITRO foam a precio asequible", "Buen soporte tobillo mid", "TracciÃ³n consistente"],
     contras: ["No destaca en ningÃºn parÃ¡metro top", "Algo pesada"],
     veredicto: "Para jugadores con historial de torceduras que buscan soporte tobillo a precio medio sin gastar en tope de gama.",
-    imagen_principal: "/shoes/puma-playmaker-pro-mid.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/PumaPlaymakerProMid-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6688,7 +6688,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Rendimiento de Ã©lite a precio chino", "Ultra ligera con carbon plate", "TracciÃ³n y respuesta excepcionales"],
     contras: ["DifÃ­cil de encontrar en EspaÃ±a", "Durabilidad outdoor mejorable", "Tallas asiÃ¡ticas (suelen ser mÃ¡s pequeÃ±as)"],
     veredicto: "Para el jugador dispuesto a comprar online y descubrir lo mejor del mercado asiÃ¡tico. Rendimiento de gama alta a mitad de precio.",
-    imagen_principal: "/shoes/lining-yu-shuai-18.jpg",
+    imagen_principal: "https://wowsole.com/wp-content/uploads/2024/06/LiNing-YuShuai-18-1.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6742,7 +6742,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Muy equilibrada", "Ahora a precios reducidos de outlet", "CÃ³moda para aleros versÃ¡tiles"],
     contras: ["Durabilidad outdoor bÃ¡sica", "Superada por la KD 17 en todo"],
     veredicto: "Si la encuentras de oferta, es una excelente zapatilla para aleros. La predecesora directa de la KD 17.",
-    imagen_principal: "/shoes/nike-kd-16.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeKD16-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6796,7 +6796,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["RapidÃ­sima y muy ligera", "Excelente respuesta Lightstrike Pro", "Muy transpirable"],
     contras: ["Durabilidad outdoor limitada", "Cushion modesto para jugadores pesados"],
     veredicto: "Para escoltas explosivos tipo Ant Edwards que necesitan velocidad pura.",
-    imagen_principal: "/shoes/adidas-ae-1-5.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasAE15-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/adidas-ae-1-5-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -6850,7 +6850,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Soporte tobillo high-top excepcional", "Nike Zoom Air integrado", "DiseÃ±o icÃ³nico Ãºnico"],
     contras: ["Pesada", "VentilaciÃ³n escasa (leather upper)", "Precio elevado para Converse"],
     veredicto: "Para jugadores con problemas de tobillo que tambiÃ©n quieren el look mÃ¡s icÃ³nico del baloncesto con tecnologÃ­a moderna.",
-    imagen_principal: "/shoes/converse-all-star-pro-bb.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/ConverseAllStarProBB-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6903,7 +6903,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Precio de entrada Nike mÃ¡s bajo", "Durable para uso recreativo", "Disponible en cualquier tienda"],
     contras: ["Sin tecnologÃ­a destacable", "Solo para uso recreativo o entrenamiento bÃ¡sico"],
     veredicto: "Para el jugador que quiere estrenar Nike sin gastar mÃ¡s de 65â‚¬. La puerta de entrada a la marca.",
-    imagen_principal: "/shoes/nike-precision-7.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikePrecision7-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6971,7 +6971,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "Para guards explosivos que priorizan tracciÃ³n y velocidad sobre protecciÃ³n. La Ja 2 la supera en tech, pero la Ja 1 sigue siendo una ganga a precio reducido.",
 
-    imagen_principal: "/shoes/nike-ja-1.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeJa1-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-ja-1/", fecha: "2023-04-01" },
@@ -7043,7 +7043,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "Para guards Ã¡giles que viven en el perÃ­metro y necesitan agarre y respuesta explosiva. La mejor Trae Young de la serie.",
 
-    imagen_principal: "/shoes/adidas-trae-young-3.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasTraeYoung3-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/adidas-trae-young-3-review/" },
@@ -7113,7 +7113,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "La opciÃ³n mÃ¡s equilibrada del catÃ¡logo NB. Sirve para cualquier posiciÃ³n y nivel, con tracciÃ³n y cushion de primer nivel.",
 
-    imagen_principal: "/shoes/nb-two-wxy-v5.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NewBalanceTwoWXYv5-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/new-balance-two-wxy-v5/" },
@@ -7185,7 +7185,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "La mejor Nike para pivots que quieren mÃ¡xima protecciÃ³n de impactos. Si juegas bajo el aro y tienes rodillas castigadas, esta es tu zapatilla.",
 
-    imagen_principal: "/shoes/nike-gt-hustle-3.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeGTHustle3-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-zoom-gt-hustle-3-review/" },
@@ -7257,7 +7257,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "La evoluciÃ³n natural de la Kawhi 1. MÃ¡s rÃ¡pida y ligera sin sacrificar la tracciÃ³n que hizo famosa a la primera. La mejor opciÃ³n NB para aleros versÃ¡tiles.",
 
-    imagen_principal: "/shoes/nb-kawhi-2.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NewBalanceKawhi2-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/new-balance-kawhi-2-review/" },
@@ -7360,7 +7360,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["AmortiguaciÃ³n Zoom+React muy equilibrada", "Buena tracciÃ³n herringbone", "Polivalente para todas las posiciones perimetrales", "Durabilidad outdoor decente"],
     contras: ["Superada por la Tatum 3 en tecnologÃ­a", "Sin innovaciÃ³n destacada respecto a generaciones anteriores"],
     veredicto: "Una sÃ³lida signature para aleros que buscan equilibrio completo. Vale la pena buscarla a precio reducido frente a la Tatum 3.",
-    imagen_principal: "/shoes/jordan-tatum-2.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/JordanTatum2-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-19",
@@ -7411,7 +7411,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["AmortiguaciÃ³n mÃ¡xima para jugadores muy pesados", "Horma ancha ideal para pies anchos", "TracciÃ³n herringbone agresiva", "Build quality premium"],
     contras: ["Muy pesada (415g) â€” no apta para guards", "Cara para lo que ofrece tÃ©cnicamente", "Superada ya por la Zion 4"],
     veredicto: "La opciÃ³n definitiva para pivots y ala-pivots de mÃ¡s de 95kg. Si tu cuerpo pide amortiguaciÃ³n mÃ¡xima, esta es la zapatilla.",
-    imagen_principal: "/shoes/jordan-zion-3.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/JordanZion3-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-19",
@@ -7461,7 +7461,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["NITRO foam: respuesta y amortiguaciÃ³n equilibradas", "Peso muy competitivo (317g)", "TracciÃ³n herringbone fiable en interior", "Horma estÃ¡ndar â€” encaja con la mayorÃ­a de pies"],
     contras: ["Puma tiene menor presencia en EspaÃ±a â€” difÃ­cil de encontrar", "Soporte de tobillo limitado al ser low", "Durabilidad outdoor no testeada extensivamente"],
     veredicto: "OpciÃ³n muy sÃ³lida y algo infravalorada por la poca presencia de Puma en baloncesto. Si la encuentras a buen precio, es una compra muy inteligente para guards y aleros.",
-    imagen_principal: "/shoes/puma-clyde-all-pro.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/PumaClydeAllPro-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-19",
@@ -7510,7 +7510,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Cushion premium en toda la longitud del pie", "ConstrucciÃ³n low â€” mÃ¡s versÃ¡til que LeBrons anteriores", "Horma ancha cÃ³moda para pies anchos", "TracciÃ³n fiable en pista cubierta"],
     contras: ["Pesado para un low (360g)", "Respuesta no al nivel de la lÃ­nea Curry o GT Cut", "Precio elevado para lo que ofrece frente a rivales"],
     veredicto: "Buena opciÃ³n para aleros y ala-pivots con pies anchos que quieren un LeBron sin renunciar a versatilidad. Si buscas mÃ¡xima explosividad, mira otras opciones.",
-    imagen_principal: "/shoes/nike-lebron-nxxt-gen.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeLeBronNXXTGen-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-19",
@@ -7610,7 +7610,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["UA FLOW: amortiguaciÃ³n y tracciÃ³n integradas", "Muy ligera para la tecnologÃ­a que ofrece", "Respuesta excepcional al corte", "ContinuaciÃ³n de la exitosa lÃ­nea Curry"],
     contras: ["Horma estrecha â€” no apta para pies anchos", "Soporte de tobillo limitado al ser low", "Superada por la Curry 12"],
     veredicto: "Una de las mejores opciones para guards que buscan mÃ¡xima respuesta con tecnologÃ­a UA FLOW. Vale la pena encontrarla a precio rebajado.",
-    imagen_principal: "/shoes/ua-curry-11.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/UACurry11-Cropped-650x406.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-19",
@@ -7679,7 +7679,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "Una buena zapatilla de guard en su momento. Ahora se puede encontrar a buen precio de segunda mano o en outlets. SÃ³lida si la encuentras rebajada.",
 
-    imagen_principal: "/shoes/adidas-harden-vol-8.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasHardenVol8-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [{ tipo: "evaluacion-propia" }],
@@ -7819,7 +7819,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "Una zapatilla sÃ³lida para bases explosivos que quieran soporte de tobillo extra. Se puede encontrar a precio reducido dado que Westbrook ya no es el nombre que era.",
 
-    imagen_principal: "/shoes/jordan-why-not-6.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/JordanWhyNot6-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [{ tipo: "evaluacion-propia" }],
@@ -8276,7 +8276,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La mejor propuesta de Curry Brand en 2025 para bases explosivos. Si tu prioridad es un primer paso rápido, tracción fiable y lockdown excepcional, la D. Fox 2 compite directamente con la Nike Ja 3 y la AE 3. Para pies anchos o jugadores grandes, mejor mirar otra opción.",
 
-    imagen_principal: "https://weartesters.com/uploads/2025/08/Curry-Fox-2-on-foot-1024x576.png",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/UACurryFox2-Cropped-650x406.jpg",
     imagenes: [],
 
     fuentes: [

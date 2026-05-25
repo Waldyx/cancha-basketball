@@ -601,7 +601,91 @@ export const ARTICLES: Article[] = [
     `,
   },
 
-  // ── 7. GT Cut 4 vs Curry 13 vs Kai 2 ────────────────────────────────
+  // ── 7. Tobillo y esguinces ───────────────────────────────────────────
+  {
+    slug: "zapatillas-baloncesto-tobillo-esguince-2025",
+    title: "Zapatillas de baloncesto para tobillo débil o esguinces: guía 2025",
+    metaTitle: "Zapatillas baloncesto tobillo y esguinces 2025 | CANCHA.ZAPA",
+    description:
+      "Guía para elegir zapatillas de baloncesto si tienes tobillo débil o historial de esguinces. Low vs mid vs high, soporte lateral, top 4 modelos 2025.",
+    fecha: "2026-05-26",
+    fechaLabel: "26 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 5,
+    eyebrow: "★ Guía · Lesiones tobillo",
+    heroTitle: "Tobillo débil o esguinces",
+    heroSubtitle: "Qué zapatilla te protege de verdad",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["jordan-tatum-4", "nike-lebron-23", "jordan-40", "anta-kt-11"],
+    relatedSeoPages: ["zapatillas-baratas", "mejor-zapatilla-pivot"],
+    body: `
+<p class="art-intro">El esguince de tobillo es la lesión más frecuente en baloncesto. Cada cambio de dirección, cada aterrizaje, cada bloqueo es una oportunidad para torcerte. La zapatilla correcta no elimina el riesgo, pero lo reduce significativamente. Y la incorrecta — una low-top si tienes historial de esguinces — puede mandarte a la baja antes de acabar el primer partido.</p>
+
+<h2>Altura de caña: ¿low, mid o high?</h2>
+<p>Es la decisión más importante. No hay elección "correcta" universal — depende de tu historial:</p>
+<ul>
+  <li><strong>Low-top:</strong> máxima velocidad y agilidad, mínima protección lateral. Para bases sanos sin historial de tobillo. Ejemplos: Nike GT Cut 4, Adidas AE 3, UA Curry 13.</li>
+  <li><strong>Mid-top:</strong> el equilibrio. Cubre la parte baja del tobillo sin restringir el movimiento. La opción más versátil y la recomendada si tienes algún esguince en el historial pero no recurrente. Ejemplos: Nike LeBron 23, ANTA KT 11.</li>
+  <li><strong>High-top:</strong> máxima protección, especialmente con correas o collar acolchado. Para jugadores con esguinces recurrentes o que quieran la máxima seguridad. Ejemplos: Jordan Tatum 4, Air Jordan 40.</li>
+</ul>
+<p><strong>Regla simple:</strong> si has tenido más de un esguince de tobillo, no uses low-top en partidos. Mid o high siempre.</p>
+
+<h2>Otras características que importan</h2>
+<ul>
+  <li><strong>Soporte lateral ≥ 8:</strong> contención del pie en cortes. Revisa nuestro score en cada ficha.</li>
+  <li><strong>TPU heel counter:</strong> bloque rígido en el talón que evita rotaciones bruscas del pie.</li>
+  <li><strong>Correas internas:</strong> sistemas de ajuste que abrazan el tobillo. La Air Jordan 40 tiene 6 correas — el mejor sistema del mercado ahora mismo.</li>
+  <li><strong>Horma que sujeta:</strong> una zapatilla demasiado larga o ancha no sujeta bien. El pie se mueve dentro y aumenta el riesgo de torcedura.</li>
+</ul>
+
+<h2>Top 4 zapatillas para tobillo débil en 2025</h2>
+
+<h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — 150€</a></h3>
+<p>High-top con collar de espuma acolchado que envuelve el tobillo sin restringir el movimiento. Jayson Tatum tiene historial de problemas de tobillo y el calzado está diseñado con eso en mente. Soporte lateral 9/10, estabilidad sólida.</p>
+<ul>
+  <li>✅ High-top con el mejor collar del mercado en su precio</li>
+  <li>✅ Soporte lateral excepcional para un forward</li>
+  <li>❌ No es para guards puros — algo pesada para los primeros pasos</li>
+</ul>
+
+<h3><a href="/zapatilla/jordan-40">Air Jordan 40 — 199€</a></h3>
+<p>Las 6 correas internas que se activan con los cordones son el sistema de lockdown más avanzado disponible en baloncesto en 2025. Cada vez que atas, las correas abrazan el antepié y el tobillo. Especialmente útil para jugadores que necesitan máxima contención.</p>
+<ul>
+  <li>✅ 6 correas internas: el mejor lockdown del mercado</li>
+  <li>✅ Soporte lateral 9/10 pese a la blandura del ZoomX</li>
+  <li>❌ 199€ — la opción más cara. Solo si juegas mucho</li>
+  <li>❌ El ZoomX atrae polvo — en pistas sucias la tracción baja</li>
+</ul>
+
+<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — 179€</a></h3>
+<p>Mid-top robusto con upper Flyknit reforzado que da contención sin la rigidez de un high. LeBron James tiene el tobillo más famoso del baloncesto moderno y sus zapatillas lo reflejan. Para ala-pívots que quieren protección sin renunciar a la movilidad.</p>
+<ul>
+  <li>✅ Mid-top con excelente soporte lateral</li>
+  <li>✅ Max Air en talón: amortiguación que protege también los tobillos en aterrizajes</li>
+  <li>❌ Horma estrecha — incómoda si tienes pie ancho</li>
+</ul>
+
+<h3><a href="/zapatilla/anta-kt-11">ANTA KT 11 — ~80€</a></h3>
+<p>La opción económica más honesta para tobillo débil. Mid-top con refuerzo de nylon y espuma en el collar. No llega al nivel de las opciones premium, pero para recreativo 2-3 veces por semana da protección más que suficiente a la mitad del precio.</p>
+<ul>
+  <li>✅ 80€ — la mejor opción presupuesto para tobillo débil</li>
+  <li>✅ Mid-top con collar acolchado y soporte lateral decente</li>
+  <li>❌ Para uso muy intensivo (4+ partidos/semana), considera invertir más</li>
+</ul>
+
+<h2>Lo que NO hacer si tienes el tobillo débil</h2>
+<ul>
+  <li><strong>Usar low-top si tienes historial de esguinces</strong> — la velocidad no vale la lesión</li>
+  <li><strong>Comprarte una talla grande</strong> — el pie se mueve dentro y eso aumenta el riesgo</li>
+  <li><strong>No calentar el tobillo</strong> — los primeros 5 minutos son los de mayor riesgo; círculos de tobillo y bandas elásticas antes de saltar</li>
+  <li><strong>Jugar sin tobillera si tienes historial grave</strong> — la zapatilla ayuda, pero no sustituye al vendaje funcional</li>
+</ul>
+
+<p class="art-outro">El <a href="/quiz">quiz de CANCHA.ZAPA</a> pregunta directamente por lesiones de tobillo y filtra los modelos según esa variable. Si marcas "tobillos" en la pregunta de lesiones, los low-top sin soporte quedan automáticamente fuera de tus resultados.</p>
+    `,
+  },
+
+  // ── 8. GT Cut 4 vs Curry 13 vs Kai 2 ────────────────────────────────
   {
     slug: "gt-cut-4-vs-curry-13-vs-kai-2-explosivos-2025",
     title: "GT Cut 4 vs Curry 13 vs ANTA Kai 2: batalla de los explosivos en 2025",
