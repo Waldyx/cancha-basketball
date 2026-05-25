@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-16T16:29:33.934Z",
+  "generated_at": "2026-05-25T21:26:56.334Z",
   "shoes": {
     "puma-mb-04": {
       "links_compra": [
@@ -411,7 +411,7 @@
         {
           "tienda": "fuikaomar_es",
           "url": "https://www.fuikaomar.es/zapatillas-adidas-harden-vol-10-aquamarine.html",
-          "precio_actual": 149.90,
+          "precio_actual": 149.9,
           "disponible": true,
           "ultima_verificacion": "2026-05-17"
         },
@@ -429,7 +429,7 @@
         {
           "tienda": "fuikaomar_es",
           "url": "https://www.fuikaomar.es/zapatillas-anta-kai-2-moon.html",
-          "precio_actual": 109.90,
+          "precio_actual": 109.9,
           "disponible": true,
           "ultima_verificacion": "2026-05-17"
         },
@@ -447,7 +447,7 @@
         {
           "tienda": "fuikaomar_es",
           "url": "https://www.fuikaomar.es/zapatillas-anta-kai-1-team-black-blue.html",
-          "precio_actual": 79.90,
+          "precio_actual": 79.9,
           "disponible": true,
           "ultima_verificacion": "2026-05-17"
         },
@@ -467,7 +467,7 @@
           "url": "https://www.basket4ballers.com/es/1620-chaussures-nike-lebron-22",
           "precio_actual": 90.75,
           "disponible": true,
-          "ultima_verificacion": "2026-05-16"
+          "ultima_verificacion": "2026-05-25"
         }
       ]
     },
@@ -516,7 +516,7 @@
         {
           "tienda": "fuikaomar_es",
           "url": "https://www.fuikaomar.es/zapatillas-new-balance-two-wxy-v4-acero.html",
-          "precio_actual": 79.90,
+          "precio_actual": 79.9,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
         }
@@ -527,7 +527,7 @@
         {
           "tienda": "fuikaomar_es",
           "url": "https://www.fuikaomar.es/zapatillas-anta-kt10-low-graffiti.html",
-          "precio_actual": 139.90,
+          "precio_actual": 139.9,
           "disponible": true,
           "ultima_verificacion": "2026-05-16"
         }
@@ -659,7 +659,7 @@
         {
           "tienda": "fuikaomar_es",
           "url": "https://www.fuikaomar.es/zapatillas-adidas-don-issue-7-all-star.html",
-          "precio_actual": 109.90,
+          "precio_actual": 109.9,
           "disponible": true,
           "ultima_verificacion": "2026-05-17"
         }
