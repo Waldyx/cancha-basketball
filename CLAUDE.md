@@ -49,8 +49,12 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 - Footer global unificado en todas las páginas (FAQ | Metodología | Financiación | Privacidad)
 - Footers custom eliminados de todas las páginas internas
 - Jordan Brand → Jordan (unificado)
-- **Imágenes**: 126 zapas con imagen real, 0 placeholders
+- **Imágenes**: 130 zapas con imagen real (4 nuevas con URLs externas)
 - **AliExpress**: 13 zapas de marcas chinas (Anta, Li-Ning, Peak) con links a AliExpress
+- **Nuevas zapas 2025** (sesión 6): Nike KD 19, Air Jordan 40, Adidas Dame X, UA D. Fox 2
+- **Blog**: `/blog` con 3 artículos editoriales (guías, comparativas, análisis)
+- **SEO pages**: 25 páginas (añadidas: UA, Puma, Mujer, Junior, Mejores 2025)
+- **Quiz**: recency bonus 2025+, sort por precio cuando prioridad=precio, contador de matches en resultados
 
 ### 🟡 Pendiente
 - **Awin**: esperar aprobación → solicitar de golpe: Sprinter, Foot Locker, Zalando, JD Sports, Nike, Adidas, Puma, Decathlon
@@ -81,7 +85,7 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 | Página | Ruta | Estado |
 |--------|------|--------|
 | Home | `/` | ✅ |
-| Catálogo | `/zapatillas` | ✅ 126 modelos |
+| Catálogo | `/zapatillas` | ✅ 130 modelos |
 | Quiz | `/quiz` | ✅ 10 pasos |
 | Resultados | `/resultados` | ✅ |
 | Detalle zapatilla | `/zapatilla/[slug]` | ✅ + JSON-LD Product completo |
@@ -92,7 +96,8 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 | FAQ | `/faq` | ✅ |
 | Guía de tallas | `/guia-tallas` | ✅ |
 | Privacidad | `/privacidad` | ✅ |
-| SEO pages (20) | `/mejores-zapas-*` | ✅ |
+| SEO pages (25) | `/mejores-zapas-*`, `/zapatillas-*` | ✅ |
+| Blog | `/blog` + `/blog/[slug]` | ✅ 3 artículos |
 | 404 | `/404` | ✅ |
 
 ---
@@ -255,5 +260,5 @@ sk-or-v1-[REDACTED — ver ~/.openclaw/openclaw.json]
 
 ---
 
-Último push: 2026-05-25
+Último push: 2026-05-26 (sesión 6)
 Web live: canchazapa.com ✅
