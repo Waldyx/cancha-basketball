@@ -498,6 +498,8 @@ const _rawZapatillas: Zapatilla[] = [
     genero: "unisex",
     signature_player: "Kevin Durant",
     tecnologia_clave: ["Air Zoom forefoot", "Cushlon foam", "Air Strobel"],
+    predecesor_id: "nike-kd-17",
+    sucesor_id: "nike-kd-19",
     peso_real_g: 422,
     altura: "mid",
     horma: "estrecha",
@@ -1592,6 +1594,8 @@ const _rawZapatillas: Zapatilla[] = [
     genero: "unisex",
     signature_player: "Damian Lillard",
     tecnologia_clave: ["Full-length Lightstrike", "Integrated torsion system", "Thunderbolt traction"],
+    predecesor_id: "adidas-dame-8",
+    sucesor_id: "adidas-dame-x",
     peso_real_g: 395,
     altura: "mid",
     horma: "ancha",
@@ -7963,6 +7967,327 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "ua_es", url: "https://www.underarmour.es/es-es/zapatillas-baloncesto/", precio_actual: 55, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-20" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+assert+10+baloncesto&tag=canchazapa-21", precio_actual: 50, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-20" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // 131. NIKE KD 19 – Kevin Durant 19ª, Zoom Strobel + Cushlon 3.0, TPU dagger
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    id: "nike-kd-19",
+    slug: "nike-kd-19",
+    marca: "Nike",
+    modelo: "KD 19",
+    generacion: 19,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Kevin Durant",
+    tecnologia_clave: ["Zoom Strobel full-length", "Cushlon 3.0", "Midfoot TPU shank", "TPU dagger upper"],
+    predecesor_id: "nike-kd-18",
+    sucesor_id: null,
+
+    peso_real_g: 368,
+    altura: "low",
+    horma: "estrecha",
+    drop_mm: 6,
+    tipo_cierre: "cordones",
+    material_superior: "synthetic",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 8,
+      respuesta: 8,
+      soporte_lateral: 7,
+      estabilidad: 7,
+      peso_score: 7,
+      durabilidad_outdoor: 6,
+      ventilacion: 6,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "tope-de-gama", "moderna", "low-top", "guards", "2025"],
+
+    ideal_para: {
+      posiciones: ["escolta", "alero", "base"],
+      peso_jugador_kg: [70, 100],
+      estilos: ["explosivo", "equilibrado", "tirador"],
+      lesiones_compatibles: ["rodillas"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "La Nike KD 19 marca un giro radical en la línea de Kevin Durant: abandona el knit y apuesta por una estructura TPU tipo 'daga' inspirada en su apodo 'Slim Reaper'. El Zoom Strobel full-length paired con Cushlon 3.0 ofrece el mejor balance respuesta-amortiguación de la línea hasta la fecha. Más ligera y reactiva que la KD 18.",
+    pros: [
+      "Zoom Strobel full-length: bounce y respuesta top en 2025",
+      "Cushlon 3.0 absorbe impactos sin sacrificar court feel",
+      "Upper TPU estructurado: lockdown superior al knit",
+      "Más ligera que la KD 18 a pesar del upper sólido",
+      "Tracción herringbone sólida en pista interior",
+    ],
+    contras: [
+      "Horma estrecha: incómoda para pies anchos o normales",
+      "Upper TPU: menos transpirable que modelos de mesh o knit",
+      "Durabilidad outdoor moderada",
+      "Low-top: soporte de tobillo limitado",
+    ],
+    veredicto:
+      "La mejor KD en años. Si eres escolta o alero, tienes pie estrecho y priorizas respuesta y bounce, la KD 19 es una de las compras más inteligentes de 2025. Para pies anchos o si necesitas más tobillo, considera la KD 18 o la Air Jordan 40.",
+
+    imagen_principal: "https://media.about.nike.com/img/66b50559-aac9-4cb1-8552-33eb3b0de554/nike-kd19-1.jpg",
+    imagenes: [],
+
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-kd-19-performance-review/" },
+    ],
+    ultima_actualizacion: "2026-05-25",
+
+    precio_msrp_eur: 149.99,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kd+19&vst=kd+19", precio_actual: 149.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=kd+19", precio_actual: 154.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+kd+19+baloncesto&tag=canchazapa-21", precio_actual: 149.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-25" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // 132. AIR JORDAN 40 – ZoomX + Zoom Strobel: primera en la historia Nike
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    id: "jordan-40",
+    slug: "jordan-40",
+    marca: "Jordan",
+    modelo: "Air Jordan 40",
+    generacion: 40,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    tecnologia_clave: ["ZoomX foam full-length", "Zoom Strobel", "6 internal webbing straps", "40° herringbone traction"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 395,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 10,
+      respuesta: 9,
+      soporte_lateral: 8,
+      estabilidad: 7,
+      peso_score: 6,
+      durabilidad_outdoor: 6,
+      ventilacion: 7,
+    },
+    categoria_principal: "cushion-focused",
+    tags: ["tope-de-gama", "moderna", "2025", "zoomx", "mainline-jordan"],
+
+    ideal_para: {
+      posiciones: ["escolta", "alero", "ala-pivot"],
+      peso_jugador_kg: [75, 110],
+      estilos: ["equilibrado", "potente", "tirador"],
+      lesiones_compatibles: ["rodillas"],
+    },
+    no_recomendada_para: {
+      posiciones: ["base"],
+      estilos: ["explosivo"],
+    },
+
+    resumen:
+      "La Air Jordan 40 es un hito en la historia de Nike: primera zapatilla que combina ZoomX foam full-length (85% energy return, la misma tecnología del Vaporfly) con Zoom Strobel. El resultado es la amortiguación más avanzada que Jordan Brand ha puesto en una zapatilla de baloncesto. Seis correas internas de sujeción y patrón herringbone de 40° completan un paquete premium.",
+    pros: [
+      "ZoomX + Zoom Strobel: combinación de cushion más avanzada de Jordan Brand",
+      "85% energy return — el máximo en baloncesto",
+      "6 correas internas: lockdown y contención lateral excepcionales",
+      "Herringbone de 40° optimizado para arranques y frenadas",
+      "Materiales premium que justifican el precio",
+    ],
+    contras: [
+      "El ZoomX es imán de polvo: traction se degrada rápido sin limpiar",
+      "Ligera inestabilidad en el antepié bajo carga lateral intensa",
+      "Precio muy elevado (190€+)",
+      "Pesada para ser una zapatilla de guards",
+    ],
+    veredicto:
+      "La Air Jordan 40 es la zapatilla mainline de Jordan Brand más impresionante en años. Si buscas el máximo cushion posible en un modelo Jordan, aquí está. Ideal para aleros y forwards que priorizan amortiguación sobre velocidad. Para bases, el ZoomX es excesivo y el precio no justifica el rendimiento extra.",
+
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AirJordan40-Cropped-650x406.jpg",
+    imagenes: [],
+
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/air-jordan-40-performance-review/" },
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/air-jordan-40/" },
+    ],
+    ultima_actualizacion: "2026-05-25",
+
+    precio_msrp_eur: 199.99,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=air+jordan+40&vst=air+jordan+40", precio_actual: 199.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=jordan+40", precio_actual: 209.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+40+baloncesto&tag=canchazapa-21", precio_actual: 199.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-25" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // 133. ADIDAS DAME X – Damian Lillard 10ª, primer modelo signature <100€
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    id: "adidas-dame-x",
+    slug: "adidas-dame-x",
+    marca: "Adidas",
+    modelo: "Dame X",
+    generacion: 10,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Damian Lillard",
+    tecnologia_clave: ["Lightstrike midsole", "Stretch-woven upper", "Generative rubber outsole"],
+    predecesor_id: "adidas-dame-9",
+    sucesor_id: null,
+
+    peso_real_g: 330,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 7,
+      amortiguacion: 7,
+      respuesta: 7,
+      soporte_lateral: 7,
+      estabilidad: 7,
+      peso_score: 8,
+      durabilidad_outdoor: 6,
+      ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "budget", "low-top", "guards", "2025", "valor"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [60, 90],
+      estilos: ["explosivo", "equilibrado", "tirador"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "La Adidas Dame X es el décimo modelo signature de Damian Lillard y el primero de la historia de adidas Basketball en venderse por menos de 100€. Sin sacrificar rendimiento: Lightstrike sólido, upper stretch-woven ligero y suela generativa multidireccional. Una propuesta honesta y bien ejecutada para guards con presupuesto ajustado.",
+    pros: [
+      "Primer shoe signature adidas por debajo de 100€",
+      "Tracción multidireccional fiable en pista interior",
+      "Upper stretch-woven ligero y bien ventilado",
+      "Ligera y cómoda desde el primer día",
+      "Buena relación calidad-precio para guards y escoltas",
+    ],
+    contras: [
+      "Lightstrike básico (no Pro): respuesta inferior a la AE 3",
+      "Materiales de calidad más modesta que la Dame 9",
+      "Sin función de cushion alta: no apta para jugadores >95kg",
+      "Durabilidad outdoor limitada",
+    ],
+    veredicto:
+      "La Dame X es el punto de entrada perfecto al catálogo signature de adidas. A menos de 90€ ofrece más que muchos modelos genéricos de 80€. Si eres base, escolta o alero, juegas en pista interior y no quieres gastar más de 100€, es una de las mejores opciones del mercado 2025.",
+
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/DameX-Cropped-650x406.jpg",
+    imagenes: [],
+
+    fuentes: [
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/adidas-dame-x/" },
+    ],
+    ultima_actualizacion: "2026-05-25",
+
+    precio_msrp_eur: 94.99,
+    links_compra: [
+      { tienda: "adidas_es", url: "https://www.adidas.es/zapatillas-dame-x", precio_actual: 94.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=dame+x", precio_actual: 94.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+x+baloncesto&tag=canchazapa-21", precio_actual: 89.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-25" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // 134. UA D. FOX 2 (Curry Brand) – De'Aaron Fox 2ª, Charged + UA Flow
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    id: "ua-d-fox-2",
+    slug: "ua-d-fox-2",
+    marca: "Under Armour",
+    modelo: "D. Fox 2",
+    generacion: 2,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "De'Aaron Fox",
+    tecnologia_clave: ["Charged Cushioning", "UA Flow outsole", "Molded engineered strap", "External TPU heel counter"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 340,
+    altura: "low",
+    horma: "estrecha",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 7,
+      respuesta: 8,
+      soporte_lateral: 7,
+      estabilidad: 7,
+      peso_score: 8,
+      durabilidad_outdoor: 7,
+      ventilacion: 8,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "low-top", "guards", "curry-brand", "2025", "ua-flow"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [65, 95],
+      estilos: ["explosivo", "equilibrado"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot", "ala-pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "La UA D. Fox 2 es la segunda zapatilla signature de De'Aaron Fox bajo el paraguas de Curry Brand (Under Armour). Combina Charged Cushioning con la suela UA Flow sin pegamento, aportando una plataforma ligera, reactiva y con excelente durabilidad. El strap moldeado de ingeniería y el TPU heel counter exterior añaden lockdown sin penalizar el peso.",
+    pros: [
+      "UA Flow outsole: tracción firme y durabilidad superior al promedio",
+      "Charged Cushioning: responsive y confortable para guards",
+      "Strap moldeado: lockdown y contención lateral excelentes",
+      "Upper ligero y transpirable",
+      "Precio razonable para un signature shoe premium",
+    ],
+    contras: [
+      "Horma estrecha: no recomendada para pies anchos",
+      "Low-top: soporte de tobillo limitado",
+      "Cushion moderado: no ideal para jugadores >95kg",
+      "Disponibilidad limitada en España",
+    ],
+    veredicto:
+      "La mejor propuesta de Curry Brand en 2025 para bases explosivos. Si tu prioridad es un primer paso rápido, tracción fiable y lockdown excepcional, la D. Fox 2 compite directamente con la Nike Ja 3 y la AE 3. Para pies anchos o jugadores grandes, mejor mirar otra opción.",
+
+    imagen_principal: "https://weartesters.com/uploads/2025/08/Curry-Fox-2-on-foot-1024x576.png",
+    imagenes: [],
+
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/curry-fox-2-performance-review/" },
+    ],
+    ultima_actualizacion: "2026-05-25",
+
+    precio_msrp_eur: 119.99,
+    links_compra: [
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/c/zapatillas-baloncesto/", precio_actual: 119.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+d+fox+2+baloncesto&tag=canchazapa-21", precio_actual: 119.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-25" },
     ],
   },
 ];
