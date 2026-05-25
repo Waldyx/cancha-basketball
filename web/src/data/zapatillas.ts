@@ -388,10 +388,10 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       {
         tienda: "aliexpress",
-        url: "https://es.aliexpress.com/w/wholesale-anta-kai-1.html",
+        url: "https://s.click.aliexpress.com/e/_c3Ax5OIz",
         precio_actual: 99.99,
         disponible: true,
-        tiene_afiliado: false,
+        tiene_afiliado: true,
         ultima_verificacion: "2026-05-13",
       },
       {
@@ -911,7 +911,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 150,
     links_compra: [
-      { tienda: "aliexpress", url: "https://es.aliexpress.com/w/wholesale-way-of-wade-all-city-13.html", precio_actual: 145, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3UwfTVr", precio_actual: 145, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=way+of+wade+all+city+13&tag=canchazapa-21", precio_actual: 159, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
     ],
   },
@@ -1034,7 +1034,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 140,
     links_compra: [
-      { tienda: "aliexpress", url: "https://es.aliexpress.com/w/wholesale-anta-kai-2.html", precio_actual: 135, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c4kdfzDB", precio_actual: 135, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kai+2&tag=canchazapa-21", precio_actual: 149, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
     ],
   },
@@ -1094,7 +1094,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 160,
     links_compra: [
-      { tienda: "aliexpress", url: "https://es.aliexpress.com/w/wholesale-anta-kt-10.html", precio_actual: 155, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3S006Ff", precio_actual: 155, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kt+10&tag=canchazapa-21", precio_actual: 169, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
     ],
   },
@@ -1214,7 +1214,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 200,
     links_compra: [
-      { tienda: "aliexpress", url: "https://es.aliexpress.com/w/wholesale-way-of-wade-12.html", precio_actual: 190, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c4qQ0xx7", precio_actual: 190, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=way+of+wade+12&tag=canchazapa-21", precio_actual: 215, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
     ],
   },
@@ -1923,7 +1923,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "aliexpress", url: "https://es.aliexpress.com/w/wholesale-peak-lou-williams.html", precio_actual: 105, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c32FKd4H", precio_actual: 105, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=peak+lou+williams+underground&tag=canchazapa-21", precio_actual: 115, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
     ],
   },
@@ -1981,7 +1981,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 100,
     links_compra: [
-      { tienda: "aliexpress", url: "https://es.aliexpress.com/w/wholesale-anta-shock-the-game-5.html", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3G68WNT", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+shock+the+game+5&tag=canchazapa-21", precio_actual: 109, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
     ],
   },
@@ -3263,7 +3263,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "aliexpress", url: "https://es.aliexpress.com/w/wholesale-li-ning-gamma-2.html", precio_actual: 105, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3PkhD37", precio_actual: 105, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-15" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=li-ning+gamma+2+basketball&tag=canchazapa-21", precio_actual: 115, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-15" },
     ],
   },
@@ -3338,7 +3338,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "aliexpress", url: "https://es.aliexpress.com/w/wholesale-anta-kt-11.html", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3AJpADb", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-15" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kt+11+basketball&tag=canchazapa-21", precio_actual: 105, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-15" },
       { tienda: "basket_world", url: "https://www.basketworld.es/buscar?q=anta+kt+11", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
@@ -5670,7 +5670,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 100,
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.aliexpress.com/wholesale?SearchText=li+ning+sonic+12", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c39LpYQ5", precio_actual: 85, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
       { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=li+ning+sonic+12", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
     ],
   },
@@ -5884,7 +5884,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 90,
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.aliexpress.com/wholesale?SearchText=peak+taichi+flash+basketball", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c4tjkTxx", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
     ],
   },
 
@@ -6154,7 +6154,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 90,
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.aliexpress.com/wholesale?SearchText=anta+shock+wave+5+basketball", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3574IK9", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
       { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=anta+shock+wave+5", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
     ],
   },
@@ -6690,7 +6690,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.aliexpress.com/wholesale?SearchText=li+ning+yu+shuai+18+basketball", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c4ttOCV7", precio_actual: 100, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
       { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=li+ning+yu+shuai+18", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
     ],
   },
