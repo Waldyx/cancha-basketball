@@ -26,21 +26,29 @@ export const jd_sports_es: StoreScraper = {
         await page.waitForTimeout(800);
       }
 
-      await page.waitForSelector('[class*="product"], article, .c-product', {
-        timeout: 15000,
-      });
+      await page.waitForSelector(
+        '[class*="product"], article, .c-product, [data-e2e*="product"]',
+        { timeout: 15000 }
+      ).catch(() => {});
 
-      const cards = await page.$$('[class*="productCard"], .c-product-card, article');
+      // Esperar a que cargue JS (Cloudflare suele bloquear en este punto)
+      await page.waitForTimeout(2000);
 
-      for (const card of cards.slice(0, 8)) {
-        const titleEl = await card.$('h3, h4, [class*="name"], [class*="title"]');
+      const cards = await page.$$(
+        '[class*="productCard"], .c-product-card, article, [data-e2e="product-card"], li[class*="product"]'
+      );
+
+      for (const card of cards.slice(0, 10)) {
+        const titleEl = await card.$(
+          'h3, h4, [class*="name"], [class*="title"], [data-e2e="product-name"], p[class*="name"]'
+        );
         const title = (await titleEl?.textContent()) ?? "";
 
         if (!matchesShoe(title, shoe.marca, shoe.modelo)) continue;
 
-        // Precio en JD: clase "pri" o data-testid
+        // Precio en JD: clase "pri", data-testid o span con precio
         const priceEl = await card.$(
-          '.pri, [data-e2e="product-price"], [class*="price"]'
+          '.pri, [data-e2e="product-price"], [class*="price"]:not([class*="original"]):not([class*="was"]), span[class*="Price"]'
         );
         const priceText = (await priceEl?.textContent()) ?? "";
         const price = parsePrice(priceText);

@@ -27,19 +27,26 @@ export const basket_world: StoreScraper = {
       const isSearch = url.includes("buscar") || url.includes("search") || url.includes("?q=");
 
       if (isSearch) {
-        await page.waitForSelector('.product, .woocommerce-product-gallery, article', {
-          timeout: 10000,
-        });
+        await page.waitForSelector(
+          '.product, .woocommerce-product-gallery, article, [class*="product-card"], li[class*="product"]',
+          { timeout: 12000 }
+        ).catch(() => {});
 
-        const cards = await page.$$('.product, article.product');
+        const cards = await page.$$(
+          '.product, article.product, [class*="product-card"], li[class*="product-item"], .grid__item'
+        );
 
-        for (const card of cards.slice(0, 6)) {
-          const titleEl = await card.$('h2, h3, .woocommerce-loop-product__title');
+        for (const card of cards.slice(0, 8)) {
+          const titleEl = await card.$(
+            'h2, h3, h4, .woocommerce-loop-product__title, [class*="product-title"], [class*="card__title"]'
+          );
           const title = (await titleEl?.textContent()) ?? "";
 
           if (!matchesShoe(title, shoe.marca, shoe.modelo)) continue;
 
-          const priceEl = await card.$('.price, .woocommerce-Price-amount');
+          const priceEl = await card.$(
+            '.price, .woocommerce-Price-amount, [class*="price"]:not([class*="compare"]), [class*="Price"]'
+          );
           const priceText = (await priceEl?.textContent()) ?? "";
           const price = parsePrice(priceText);
           if (!price) continue;
