@@ -395,7 +395,213 @@ export const ARTICLES: Article[] = [
     `,
   },
 
-  // ── 5. GT Cut 4 vs Curry 13 vs Kai 2 ────────────────────────────────
+  // ── 5. Outdoor ───────────────────────────────────────────────────────
+  {
+    slug: "mejores-zapatillas-baloncesto-outdoor-2025",
+    title: "Mejores zapatillas de baloncesto para outdoor en 2025-2026",
+    metaTitle: "Mejores zapatillas de baloncesto outdoor 2025 | CANCHA.ZAPA",
+    description:
+      "Guía de zapatillas de baloncesto para exterior en 2025: qué modelos aguantan el asfalto, cuáles evitar (UA Flow se destruye) y comparativa de durabilidad outdoor.",
+    fecha: "2026-05-26",
+    fechaLabel: "26 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 5,
+    eyebrow: "★ Guía outdoor · Exterior 2025",
+    heroTitle: "Zapatillas outdoor 2025",
+    heroSubtitle: "Cuáles aguantan el asfalto y cuáles no",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-ja-3", "adidas-ae-3", "anta-kai-2", "nike-lebron-23", "ua-curry-13"],
+    relatedSeoPages: ["zapatillas-baloncesto-baratas", "mejor-zapatilla-base"],
+    body: `
+<p class="art-intro">El baloncesto al aire libre es el mayor enemigo de tus zapatillas de interior. El asfalto y el cemento destrozan suelas en cuestión de semanas. Lo que dura 2 temporadas en pabellón puede quedar inutilizable después de 10 partidos en la calle. Antes de comprar, tienes que saber qué buscar — y qué evitar.</p>
+
+<h2>Qué diferencia una zapatilla outdoor de una de interior</h2>
+<p>Las zapatillas de interior priorizan tracción delicada en parquet y suelas blandas para máximo court feel. En exterior, esas mismas características se vuelven un problema:</p>
+<ul>
+  <li><strong>Suela de goma gruesa:</strong> el caucho resistente aguanta la abrasión del asfalto. Sin él, la espuma se destruye en semanas.</li>
+  <li><strong>Patrón de tracción profundo:</strong> los tacos planos se lisan rápido. Necesitas cantos profundos que aguanten el desgaste.</li>
+  <li><strong>Upper reforzado:</strong> la malla fina se desgarra. Los tejidos más densos o sintéticos aguantan mejor los golpes y la suciedad.</li>
+</ul>
+
+<h2>Los 5 modelos más duraderos en exterior en 2025</h2>
+
+<h3><a href="/zapatilla/nike-ja-3">Nike Ja 3 — 135€</a></h3>
+<p>La Ja 3 tiene una de las suelas de goma más gruesas de Nike en 2025. El patrón multidireccional funciona bien tanto en parquet como en asfalto limpio, y el upper de malla densa resiste mejor que el mesh fino de otros modelos. La excepción positiva dentro de Nike para outdoor.</p>
+<ul>
+  <li>✅ Suela duradera — aguanta exterior sin degradarse rápido</li>
+  <li>✅ Tracción sólida en asfalto seco</li>
+  <li>❌ En asfalto muy húmedo la tracción baja bastante</li>
+</ul>
+
+<h3><a href="/zapatilla/adidas-ae-3">Adidas AE 3 — 130€</a></h3>
+<p>El herringbone de la AE 3 es uno de los patrones más resistentes al desgaste en asfalto. Los cantos son profundos y la goma es de dureza media-alta. Para jugadores que alternan interior y exterior, es la opción más equilibrada del mercado.</p>
+<ul>
+  <li>✅ Herringbone aguanta exterior mejor que la mayoría</li>
+  <li>✅ Upper robusto — resiste suciedad y golpes</li>
+  <li>❌ No está diseñada para exterior puro — en uso intensivo outdoor se nota el desgaste</li>
+</ul>
+
+<h3>Under Armour Curry 13 ❌ <strong>NO OUTDOOR</strong></h3>
+<p>La Curry 13 usa tecnología UA Flow — espuma sin capa de goma que contacta directamente con el suelo. Es perfecta para parquet porque maximiza el court feel. En asfalto, es un desastre: la espuma se desgasta en semanas y la tracción desaparece. <strong>Una sesión outdoor puede arruinar la suela.</strong> Úsala solo en pabellón.</p>
+
+<h3><a href="/zapatilla/anta-kai-2">ANTA Kai 2 — ~119€</a></h3>
+<p>La Kai 2 es la sorpresa. La marca china ha apostado por una goma de caucho gruesa y un patrón agresivo que aguanta el exterior mejor de lo esperado. Para su precio, es la mejor opción outdoor del mercado en 2025.</p>
+<ul>
+  <li>✅ Goma gruesa — la más duradera de las opciones económicas</li>
+  <li>✅ Tracción en asfalto muy competente</li>
+  <li>❌ Upper menos refinado que las opciones premium</li>
+</ul>
+
+<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — 179€</a></h3>
+<p>La LeBron tiene suela Max Air con caucho de alta densidad. Para outdoor moderado (2-3 sesiones al mes en asfalto), aguanta bien. Para uso intensivo exterior, el precio no se justifica — la Ja 3 o la AE 3 son más inteligentes.</p>
+<ul>
+  <li>✅ Suela Max Air robusta para jugadores pesados</li>
+  <li>❌ 179€ para outdoor es excesivo — existen mejores opciones por menos</li>
+</ul>
+
+<h2>Lo que debes evitar en outdoor</h2>
+<ul>
+  <li><strong>UA Flow (Curry 12, Curry 13):</strong> sin goma = destrucción garantizada en asfalto</li>
+  <li><strong>Suelas de espuma directa:</strong> cualquier zapatilla con "foam outsole" en las especificaciones</li>
+  <li><strong>Nike GT Cut 3/4:</strong> diseñadas para pista interior limpia, la suela no aguanta el asfalto</li>
+  <li><strong>New Balance con suelas ultra-delgadas:</strong> los modelos de foam directo tienen la misma debilidad que el UA Flow</li>
+</ul>
+
+<h2>Comparativa de durabilidad outdoor</h2>
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:14px">
+  <thead>
+    <tr style="border-bottom:2px solid #f97316">
+      <th style="padding:8px;text-align:left">Modelo</th>
+      <th style="padding:8px;text-align:center">Durabilidad outdoor</th>
+      <th style="padding:8px;text-align:center">Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>Nike Ja 3</strong></td>
+      <td style="padding:8px;text-align:center">⭐ 8/10</td>
+      <td style="padding:8px;text-align:center">135€</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>Adidas AE 3</strong></td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">130€</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>ANTA Kai 2</strong></td>
+      <td style="padding:8px;text-align:center">⭐ 8/10</td>
+      <td style="padding:8px;text-align:center">~119€</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>Nike LeBron 23</strong></td>
+      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">179€</td>
+    </tr>
+    <tr>
+      <td style="padding:8px"><strong>UA Curry 13</strong></td>
+      <td style="padding:8px;text-align:center">❌ 2/10</td>
+      <td style="padding:8px;text-align:center">140€</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p class="art-outro">¿Juegas tanto en interior como en exterior? El <a href="/quiz">quiz de CANCHA.ZAPA</a> pregunta por tu tipo de cancha y filtra automáticamente los modelos con suficiente durabilidad outdoor para tu uso. 10 preguntas, menos de un minuto.</p>
+    `,
+  },
+
+  // ── 6. Pie ancho ─────────────────────────────────────────────────────
+  {
+    slug: "zapatillas-baloncesto-pie-ancho-2025",
+    title: "Zapatillas de baloncesto para pie ancho: guía completa 2025",
+    metaTitle: "Zapatillas de baloncesto para pie ancho 2025 | CANCHA.ZAPA",
+    description:
+      "Guía para elegir zapatillas de baloncesto si tienes pie ancho. Qué marcas van estrechas, cuáles anchas, y el top 5 de modelos que mejor encajan en 2025.",
+    fecha: "2026-05-26",
+    fechaLabel: "26 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 5,
+    eyebrow: "★ Guía · Pie ancho 2025",
+    heroTitle: "Zapatillas para pie ancho",
+    heroSubtitle: "Las que realmente encajan — guía 2025",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-ja-3", "adidas-ae-3", "anta-kai-2", "ua-curry-13", "nike-lebron-23"],
+    relatedSeoPages: ["mejores-zapatillas-baloncesto-2025", "zapatillas-baloncesto-baratas"],
+    body: `
+<p class="art-intro">La mayoría de marcas diseñan sus zapatillas de baloncesto para un pie estándar o incluso estrecho. Si tienes pie ancho, el mercado juega en tu contra: compras un modelo que en la talla parece correcto, lo pisas en el primer partido, y al cuarto de hora el quinto dedo ya está ardiendo. Esta guía va directo al grano: qué marcas van anchas, cuáles evitar, y los 5 mejores modelos para pie ancho en 2025.</p>
+
+<h2>Cómo saber si tienes pie ancho</h2>
+<p>No necesitas ir al podólogo. Estas señales te lo dicen:</p>
+<ul>
+  <li>Los dedos presionan los laterales de la zapatilla desde el primer día</li>
+  <li>Rozaduras o ampollas en el quinto dedo (el meñique) después de pocas horas</li>
+  <li>Al ponerte la zapatilla, el antepié se siente comprimido aunque el talón esté bien asentado</li>
+  <li>Siempre tienes que subir media talla para tener espacio — señal de que la horma es estrecha, no de que necesitas una talla mayor</li>
+</ul>
+
+<h2>Marcas: quién va estrecho y quién va ancho</h2>
+<ul>
+  <li><strong>Nike →</strong> Estrecho como norma. Casi todos los modelos de performance van ajustados. Pocas excepciones.</li>
+  <li><strong>Adidas →</strong> Normal-ancho. Mejor opción general para pie medio-ancho.</li>
+  <li><strong>Under Armour →</strong> Normal. Suficiente para pie medio pero no para pie muy ancho.</li>
+  <li><strong>ANTA →</strong> Ancho. La marca que más espacio da en el antepié. La mejor para pies anchos.</li>
+  <li><strong>Li-Ning →</strong> Variable por modelo. Consultar por modelo.</li>
+</ul>
+
+<h2>Top 5 zapatillas para pie ancho en 2025</h2>
+
+<h3><a href="/zapatilla/anta-kai-2">ANTA Kai 2 — la mejor para pie muy ancho</a></h3>
+<p>La firma de Kyrie Irving con ANTA tiene la horma más generosa del mercado mainstream en 2025. El antepié es amplio, hay espacio para todos los dedos y el calce no aprieta. Para pie ancho o extra-ancho, es la recomendación clara.</p>
+<ul>
+  <li>✅ La horma más ancha entre las opciones de 2025</li>
+  <li>✅ Precio accesible (~119€)</li>
+  <li>❌ Respuesta no llega al nivel de la GT Cut 4 o Curry 13</li>
+</ul>
+
+<h3><a href="/zapatilla/nike-ja-3">Nike Ja 3 — la excepción en Nike</a></h3>
+<p>Ja Morant tiene pie ancho y su firma lo refleja. La Ja 3 es la zapatilla Nike de baloncesto con más espacio en el antepié de las actuales en producción. Si tienes pie ancho y quieres Nike, esta es la única opción segura.</p>
+<ul>
+  <li>✅ Horma ancha — rara en Nike</li>
+  <li>✅ Buen cushion ZoomX</li>
+  <li>❌ Más pesada que otros modelos low-top de guards</li>
+</ul>
+
+<h3><a href="/zapatilla/adidas-ae-3">Adidas AE 3 — equilibrio para pie normal-ancho</a></h3>
+<p>La AE 3 no es ancha como la Kai 2, pero tiene más espacio en el antepié que la mayoría de Nike. Para pie normal-ancho (no extra ancho), encaja sin problemas. Anthony Edwards tiene pie grande y eso ha influido en el diseño.</p>
+<ul>
+  <li>✅ Más espacio en antepié que la media del mercado</li>
+  <li>✅ Excelente tracción herringbone</li>
+  <li>❌ No suficiente para pie muy ancho o extra-ancho</li>
+</ul>
+
+<h3><a href="/zapatilla/ua-curry-13">Under Armour Curry 13 — normal, suficiente para medio-ancho</a></h3>
+<p>La Curry 13 tiene horma normal. No está pensada para pie ancho, pero tampoco va estrecha. Para jugadores con pie medio-ancho (no extra ancho), suele encajar sin problemas. Pruébatela antes de comprar si tienes pie muy ancho.</p>
+<ul>
+  <li>✅ Horma normal — no aprieta en pie medio</li>
+  <li>❌ No apta para pie muy ancho o extra-ancho</li>
+</ul>
+
+<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — ancha para ser Nike</a></h3>
+<p>LeBron James tiene pie grande y la LeBron line tradicionalmente va algo más ancha que la media Nike. No es la mejor para pie ancho, pero es más permisiva que otras líneas Nike. Mid-top con más volumen interior.</p>
+<ul>
+  <li>✅ Más espacio que otras Nike</li>
+  <li>❌ Sigue siendo estrecha comparada con ANTA o Adidas</li>
+  <li>❌ 179€ — cara para ser la quinta opción</li>
+</ul>
+
+<h2>Lo que debes evitar si tienes pie ancho</h2>
+<ul>
+  <li><strong>Nike GT Cut 4:</strong> extremadamente estrecha. Diseñada para pie estrecho-normal. Pie ancho = dolor desde el calentamiento.</li>
+  <li><strong>Nike KD 19:</strong> upper TPU ajustado — poco margen lateral. No recomendada para pie ancho.</li>
+  <li><strong>Jordan Brand en general:</strong> la línea retro Jordan va estrecha. Las performance (Jordan 40) van mejor pero siguen siendo justas para pie ancho.</li>
+</ul>
+
+<p class="art-outro">El <a href="/quiz">quiz de CANCHA.ZAPA</a> tiene una pregunta específica sobre el ancho de tu pie y filtra los modelos según esa variable. Si seleccionas "pie ancho", los modelos con horma estrecha quedan fuera del resultado automáticamente.</p>
+    `,
+  },
+
+  // ── 7. GT Cut 4 vs Curry 13 vs Kai 2 ────────────────────────────────
   {
     slug: "gt-cut-4-vs-curry-13-vs-kai-2-explosivos-2025",
     title: "GT Cut 4 vs Curry 13 vs ANTA Kai 2: batalla de los explosivos en 2025",
