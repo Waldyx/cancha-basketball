@@ -1,0 +1,334 @@
+---
+// /blog/[slug] — Artículo individual
+import Base from "../../layouts/Base.astro";
+import "../../styles/cancha-redesign.css";
+import { ARTICLES, getArticle } from "../../lib/articles";
+import { zapatillas } from "../../data/zapatillas";
+import { findMejorPrecio } from "../../lib/scoring";
+
+export async function getStaticPaths() {
+  return ARTICLES.map((a) => ({
+    params: { slug: a.slug },
+    props: { article: a },
+  }));
+}
+
+const { article } = Astro.props;
+
+// Related shoes data
+const relatedZapas = article.relatedShoes
+  .map((s) => zapatillas.find((z) => z.slug === s))
+  .filter(Boolean);
+
+// JSON-LD Article
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: article.title,
+  description: article.description,
+  author: {
+    "@type": "Organization",
+    name: article.author,
+    url: Astro.site?.toString(),
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "CANCHA.ZAPA",
+    url: Astro.site?.toString(),
+  },
+  datePublished: article.fecha,
+  dateModified: article.fecha,
+  mainEntityOfPage: new URL(`/blog/${article.slug}`, Astro.site).toString(),
+};
+
+// Breadcrumb JSON-LD
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: new URL("/", Astro.site).toString() },
+    { "@type": "ListItem", position: 2, name: "Blog", item: new URL("/blog", Astro.site).toString() },
+    { "@type": "ListItem", position: 3, name: article.title, item: new URL(`/blog/${article.slug}`, Astro.site).toString() },
+  ],
+};
+
+const CATEGORIA_COLOR: Record<string, string> = {
+  "Guías": "#f97316",
+  "Comparativas": "#facc15",
+  "Análisis": "#38bdf8",
+};
+---
+
+<Base title={article.metaTitle} description={article.description}>
+  <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
+
+  <div class="cz-strip"></div>
+  <header class="cz-header">
+    <div class="shell cz-header-inner">
+      <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
+      <nav class="cz-nav">
+        <a href="/rankings">Rankings</a>
+        <a href="/zapatillas">Catálogo</a>
+        <a href="/quiz">Quiz</a>
+        <a href="/mis-zapas">♥ Mis zapas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {/* Article Hero */}
+    <section class="art-hero">
+      <div class="shell">
+        <nav class="cz-breadcrumbs" aria-label="Ruta">
+          <a href="/">Inicio</a>
+          <span class="bc-sep">›</span>
+          <a href="/blog">Blog</a>
+          <span class="bc-sep">›</span>
+          <span>{article.categoria}</span>
+        </nav>
+
+        <div class="art-hero-meta">
+          <span
+            class="blog-cat"
+            style={`background:${CATEGORIA_COLOR[article.categoria] ?? "#f97316"};color:#000`}
+          >
+            {article.categoria}
+          </span>
+          <span class="art-read">{article.readMinutes} min de lectura</span>
+          <time class="art-date" datetime={article.fecha}>{article.fechaLabel}</time>
+        </div>
+
+        <h1 class="art-h1">{article.heroTitle}</h1>
+        <p class="art-subtitle">{article.heroSubtitle}</p>
+        <p class="art-author">Por {article.author}</p>
+      </div>
+    </section>
+
+    {/* Content */}
+    <div class="art-layout shell">
+      <article class="art-body" set:html={article.body} />
+
+      {/* Sidebar */}
+      <aside class="art-sidebar">
+        {/* Related shoes */}
+        {relatedZapas.length > 0 && (
+          <div class="art-widget">
+            <p class="art-widget-title">★ Zapatillas mencionadas</p>
+            <ul class="art-shoe-list">
+              {relatedZapas.map((z) => {
+                if (!z) return null;
+                const mejor = findMejorPrecio(z.links_compra);
+                return (
+                  <li class="art-shoe-item">
+                    <a href={`/zapatilla/${z.slug}`} class="art-shoe-link">
+                      <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} loading="lazy"
+                           onerror="this.style.display='none'" width="48" height="48"
+                           style="object-fit:contain;background:#0c0c0c;flex-shrink:0" />
+                      <div>
+                        <span class="art-shoe-name">{z.marca} {z.modelo}</span>
+                        <span class="art-shoe-price">
+                          {mejor ? `${mejor.precio_actual}€` : `${z.precio_msrp_eur}€`}
+                        </span>
+                      </div>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+
+        {/* Quiz CTA */}
+        <div class="art-widget art-quiz-cta">
+          <p class="art-widget-title">★ ¿Cuál es tu zapa?</p>
+          <p style="font-size:13px;color:#a1a1aa;margin:0 0 14px">10 preguntas, menos de 1 minuto. Te damos las 5 más compatibles con tu perfil.</p>
+          <a href="/quiz" class="rs-btn primary" style="width:100%;text-align:center;display:block">
+            → Hacer el quiz
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    {/* Bottom nav */}
+    <div class="art-bottom-nav shell">
+      <a href="/blog" class="rs-btn ghost">← Volver al blog</a>
+      <a href="/zapatillas" class="rs-btn ghost">Ver catálogo →</a>
+    </div>
+  </main>
+
+  <style>
+    .art-hero {
+      padding: 48px 0 40px;
+      border-bottom: 1px solid #27272a;
+    }
+    .art-hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 16px 0;
+    }
+    .blog-cat {
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      padding: 3px 8px;
+    }
+    .art-read, .art-date {
+      font-size: 11px;
+      color: #71717a;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .art-h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: .95;
+      letter-spacing: -.04em;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0 0 12px;
+    }
+    .art-subtitle {
+      font-size: 18px;
+      color: #a1a1aa;
+      margin: 0 0 12px;
+      max-width: 640px;
+      line-height: 1.5;
+    }
+    .art-author {
+      font-size: 12px;
+      color: #52525b;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      margin: 0;
+    }
+    .art-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 48px;
+      padding-top: 48px;
+      padding-bottom: 64px;
+    }
+    @media (max-width: 900px) {
+      .art-layout { grid-template-columns: 1fr; }
+      .art-sidebar { order: -1; }
+    }
+    /* Article body styles */
+    .art-body { max-width: 720px; }
+    .art-body :global(h2) {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 28px;
+      text-transform: uppercase;
+      letter-spacing: -.02em;
+      color: #fff;
+      margin: 40px 0 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #f97316;
+    }
+    .art-body :global(h3) {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: -.01em;
+      color: #e4e4e7;
+      margin: 28px 0 8px;
+    }
+    .art-body :global(p) {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #a1a1aa;
+      margin: 0 0 16px;
+    }
+    .art-body :global(.art-intro) {
+      font-size: 18px;
+      color: #d4d4d8;
+      line-height: 1.65;
+      border-left: 3px solid #f97316;
+      padding-left: 16px;
+      margin-bottom: 32px;
+    }
+    .art-body :global(.art-outro) {
+      font-size: 15px;
+      color: #d4d4d8;
+      background: #141414;
+      border: 1px solid #27272a;
+      padding: 16px 20px;
+      margin-top: 32px;
+      line-height: 1.6;
+    }
+    .art-body :global(ul), .art-body :global(ol) {
+      padding-left: 20px;
+      color: #a1a1aa;
+      line-height: 1.7;
+      margin: 0 0 16px;
+      font-size: 15px;
+    }
+    .art-body :global(li) { margin-bottom: 6px; }
+    .art-body :global(strong) { color: #e4e4e7; }
+    .art-body :global(a) { color: #f97316; }
+    .art-body :global(a:hover) { color: #facc15; }
+    .art-body :global(table) {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      margin: 16px 0 24px;
+      color: #a1a1aa;
+    }
+    .art-body :global(th) { color: #e4e4e7; }
+    /* Sidebar */
+    .art-widget {
+      background: #141414;
+      border: 1px solid #27272a;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .art-widget-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: #f97316;
+      margin: 0 0 14px;
+    }
+    .art-shoe-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+    .art-shoe-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .art-shoe-link:hover .art-shoe-name { color: #f97316; }
+    .art-shoe-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #e4e4e7;
+      display: block;
+      text-transform: uppercase;
+      font-family: 'Barlow Condensed', sans-serif;
+    }
+    .art-shoe-price {
+      font-size: 12px;
+      color: #f97316;
+      display: block;
+    }
+    .art-quiz-cta {
+      background: linear-gradient(135deg, #141414, #1a1a1a);
+      border-color: #f97316;
+    }
+    .art-bottom-nav {
+      display: flex;
+      gap: 12px;
+      padding-bottom: 64px;
+      border-top: 1px solid #27272a;
+      padding-top: 24px;
+    }
+  </style>
+</Base>

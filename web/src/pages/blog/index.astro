@@ -1,0 +1,196 @@
+---
+// /blog — Listado de artículos
+import Base from "../../layouts/Base.astro";
+import "../../styles/cancha-redesign.css";
+import { getAllArticles } from "../../lib/articles";
+
+const articles = getAllArticles();
+
+const CATEGORIA_COLOR: Record<string, string> = {
+  "Guías": "#f97316",
+  "Comparativas": "#facc15",
+  "Análisis": "#38bdf8",
+};
+---
+
+<Base
+  title="Blog de zapatillas de baloncesto 2025-2026 | CANCHA.ZAPA"
+  description="Guías, comparativas y análisis de zapatillas de baloncesto en español. Sin publicidad disfrazada. Solo información técnica honesta."
+>
+  <div class="cz-strip"></div>
+  <header class="cz-header">
+    <div class="shell cz-header-inner">
+      <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
+      <nav class="cz-nav">
+        <a href="/rankings">Rankings</a>
+        <a href="/zapatillas">Catálogo</a>
+        <a href="/quiz">Quiz</a>
+        <a href="/mis-zapas">♥ Mis zapas</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {/* Hero */}
+    <section class="blog-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Blog editorial</p>
+        <h1 class="blog-hero-h1">
+          Guías,<br/>
+          <span style="color:#f97316">análisis</span><br/>
+          y comparativas
+        </h1>
+        <p class="blog-hero-lede">
+          Artículos técnicos sobre zapatillas de baloncesto. Sin publicidad disfrazada. Sin afiliados influyendo en el contenido editorial.
+        </p>
+      </div>
+    </section>
+
+    {/* Articles grid */}
+    <section class="blog-list-section">
+      <div class="shell">
+        <div class="blog-grid">
+          {articles.map((art) => (
+            <article class="blog-card">
+              <div class="blog-card-header">
+                <span
+                  class="blog-cat"
+                  style={`background:${CATEGORIA_COLOR[art.categoria] ?? "#f97316"};color:#000`}
+                >
+                  {art.categoria}
+                </span>
+                <span class="blog-read">{art.readMinutes} min</span>
+              </div>
+              <h2 class="blog-card-title">
+                <a href={`/blog/${art.slug}`}>{art.title}</a>
+              </h2>
+              <p class="blog-card-desc">{art.description}</p>
+              <div class="blog-card-foot">
+                <span class="blog-date">{art.fechaLabel}</span>
+                <a href={`/blog/${art.slug}`} class="blog-cta">Leer artículo →</a>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <div class="blog-bottom-cta">
+          <p>¿Buscas directamente tu zapatilla ideal?</p>
+          <a href="/quiz" class="rs-btn primary">→ Hacer el quiz (1 min)</a>
+          <a href="/zapatillas" class="rs-btn ghost" style="margin-left:12px">Ver catálogo completo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <style>
+    .blog-hero {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid #27272a;
+    }
+    .blog-hero-h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: clamp(52px, 8vw, 96px);
+      line-height: .9;
+      letter-spacing: -.04em;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 12px 0 20px;
+    }
+    .blog-hero-lede {
+      color: #a1a1aa;
+      font-size: 16px;
+      max-width: 560px;
+      line-height: 1.6;
+    }
+    .blog-list-section {
+      padding: 56px 0 80px;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 56px;
+    }
+    .blog-card {
+      background: #141414;
+      border: 1px solid #27272a;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color .15s;
+    }
+    .blog-card:hover { border-color: #f97316; }
+    .blog-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .blog-cat {
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      padding: 3px 8px;
+    }
+    .blog-read {
+      font-size: 11px;
+      color: #71717a;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .blog-card-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 900;
+      font-size: 22px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      letter-spacing: -.02em;
+      margin: 0;
+    }
+    .blog-card-title a { color: #fff; text-decoration: none; }
+    .blog-card-title a:hover { color: #f97316; }
+    .blog-card-desc {
+      color: #a1a1aa;
+      font-size: 14px;
+      line-height: 1.55;
+      flex: 1;
+      margin: 0;
+    }
+    .blog-card-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      border-top: 1px solid #27272a;
+    }
+    .blog-date {
+      font-size: 11px;
+      color: #71717a;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .blog-cta {
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: #f97316;
+      text-decoration: none;
+    }
+    .blog-cta:hover { color: #facc15; }
+    .blog-bottom-cta {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid #27272a;
+      color: #a1a1aa;
+      font-size: 16px;
+    }
+    .blog-bottom-cta p { margin: 0 0 16px; }
+    @media (max-width: 640px) {
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</Base>
