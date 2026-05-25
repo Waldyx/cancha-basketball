@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-05-25 (sesión 5)
+> Última actualización: 2026-05-26 (sesión 7)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -29,7 +29,7 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 
 ---
 
-## Estado actual (sesión 5)
+## Estado actual (sesión 7)
 
 ### ✅ Completado
 - Web live en `canchazapa.com` con SSL
@@ -38,7 +38,7 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 - Plausible Analytics configurado (dominio: `canchazapa.com`)
 - Amazon Afiliados activo — **ID: `canchazapa-21`**, 73 links actualizados con tag
 - Awin solicitado (pendiente aprobación)
-- AliExpress Portals solicitado (pendiente aprobación, 1h-2 días)
+- AliExpress Portals ✅ activo — 13 links con tracking `default`
 - Política de privacidad en `/privacidad`
 - SEO mejorado: títulos, descriptions, JSON-LD Product en fichas
 - JSON-LD Product: añadidos `shippingDetails` y `hasMerchantReturnPolicy` (fix GSC warnings)
@@ -49,11 +49,14 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 - Footer global unificado en todas las páginas (FAQ | Metodología | Financiación | Privacidad)
 - Footers custom eliminados de todas las páginas internas
 - Jordan Brand → Jordan (unificado)
-- **Imágenes**: 130 zapas con imagen real (4 nuevas con URLs externas)
+- **Imágenes**: ✅ 112 URLs `/shoes/` locales reemplazadas por URLs reales (ballershoesdb.com, wowsole.com) — `fix-images.js`
+- **Encoding**: ✅ 1204 secuencias doble-encoding (Ã¡→á, â€"→—, etc.) corregidas — `fix-encoding.js`
 - **AliExpress**: 13 zapas de marcas chinas (Anta, Li-Ning, Peak) con links a AliExpress
 - **Nuevas zapas 2025** (sesión 6): Nike KD 19, Air Jordan 40, Adidas Dame X, UA D. Fox 2
-- **Blog**: `/blog` con 5 artículos editoriales (guías, comparativas, análisis)
+- **Nuevas zapas 2025** (sesión 7): Nike Kobe 9 High Protro, Jordan Super Fly 10, Puma MB.06, Adidas Pro Vision → **catálogo: 138 modelos**
+- **Blog**: `/blog` con **8 artículos** editoriales (guías, comparativas, análisis) — 5 generados con Mike/OpenRouter
 - **SEO pages**: 25 páginas (añadidas: UA, Puma, Mujer, Junior, Mejores 2025)
+- **FAQ**: ampliada de 8 → **20 preguntas** (posiciones, outdoor, presupuesto, tallas, durabilidad, tobillo, Amazon, mujer/hombre, etc.)
 - **Quiz**: recency bonus 2025+, sort por precio cuando prioridad=precio, contador de matches en resultados
 
 ### 🟡 Pendiente
@@ -67,7 +70,7 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 ## Arquitectura de datos
 
 ### Archivo principal: `web/src/data/zapatillas.ts`
-- Array `_rawZapatillas` con ~126 zapas
+- Array `_rawZapatillas` con **138 zapas** (sesión 7)
 - Función `mergePricesIntoShoes()` fusiona precios del scraper
 - Exporta `zapatillas`, `getZapatillaBySlug()`, `getAllZapatillas()`
 - Campo afiliados: `links_compra[].tiene_afiliado` — `true` para Amazon (activo), `false` para el resto (pendiente)
@@ -85,7 +88,7 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 | Página | Ruta | Estado |
 |--------|------|--------|
 | Home | `/` | ✅ |
-| Catálogo | `/zapatillas` | ✅ 130 modelos |
+| Catálogo | `/zapatillas` | ✅ 138 modelos |
 | Quiz | `/quiz` | ✅ 10 pasos |
 | Resultados | `/resultados` | ✅ |
 | Detalle zapatilla | `/zapatilla/[slug]` | ✅ + JSON-LD Product completo |
@@ -97,7 +100,7 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 | Guía de tallas | `/guia-tallas` | ✅ |
 | Privacidad | `/privacidad` | ✅ |
 | SEO pages (25) | `/mejores-zapas-*`, `/zapatillas-*` | ✅ |
-| Blog | `/blog` + `/blog/[slug]` | ✅ 3 artículos |
+| Blog | `/blog` + `/blog/[slug]` | ✅ 8 artículos |
 | 404 | `/404` | ✅ |
 
 ---
@@ -191,10 +194,11 @@ FAQ | Metodología | Financiación | Privacidad
 - `https://d3pnpe87i1fkwu.cloudfront.net/` — algunas Nike
 
 ### Estado
-- ✅ 126 zapas con imagen real
-- ✅ 0 placeholders
+- ✅ 138 zapas con imagen real
+- ✅ 0 rutas `/shoes/` locales — todas reemplazadas por URLs externas reales
 - `jordan-super-fly-10` → corregido a `jordan-super-fly-8`
 - `nike-pg-7` → eliminado (modelo no existe)
+- Script `fix-images.js` en raíz del repo para futuras correcciones masivas de imágenes
 
 ---
 
@@ -208,7 +212,7 @@ FAQ | Metodología | Financiación | Privacidad
 ### Títulos optimizados
 - Fichas: `Nike LeBron 22 (2024) · Análisis y mejor precio | CANCHA.ZAPA`
 - Rankings: `Top 10 Mejores Zapatillas de Baloncesto 2026 | Rankings CANCHA.ZAPA`
-- Catálogo: `Catálogo de zapatillas de baloncesto | 126 modelos analizados`
+- Catálogo: `Catálogo de zapatillas de baloncesto | 138 modelos analizados`
 
 ---
 
@@ -263,9 +267,38 @@ sk-or-v1-[REDACTED — ver ~/.openclaw/openclaw.json]
 Último push: 2026-05-26 (sesión 7)
 Web live: canchazapa.com ✅
 
-## Blog artículos (5)
+## Blog artículos (8)
 1. Cómo elegir zapatillas de baloncesto (Guía)
 2. AE 3 vs Ja 3 — guards 2025 (Comparativa)
 3. Air Jordan 40 análisis (Análisis)
-4. Mejores zapatillas para pívots 2025-2026 (Guía) — generado con Mike/OpenRouter
-5. GT Cut 4 vs Curry 13 vs ANTA Kai 2 — explosivos (Comparativa) — generado con Mike/OpenRouter
+4. Mejores zapatillas para pívots 2025-2026 (Guía) — con Mike/OpenRouter
+5. Mejores zapatillas outdoor 2025 (Guía) — con Mike/OpenRouter
+6. Zapatillas pie ancho 2025 (Guía) — con Mike/OpenRouter
+7. Zapatillas para tobillo/esguince 2025 (Guía) — con Mike/OpenRouter
+8. GT Cut 4 vs Curry 13 vs ANTA Kai 2 — explosivos (Comparativa) — con Mike/OpenRouter
+
+## Nuevas zapas sesión 7
+- `nike-kobe-9-high-protro` — Kobe signature, high-top, Zoom Air, 199€
+- `jordan-super-fly-10` — pívots, high-top, Zoom Air Strobel, 159€
+- `puma-mb-06` — LaMelo Ball, Nitro foam, low-top, 139€
+- `adidas-pro-vision` — budget mid-top, Cloudfoam, outdoor, 74€
+
+## Scripts de mantenimiento
+- `fix-images.js` — reemplaza rutas `/shoes/` locales por URLs externas reales
+- `fix-encoding.js` — corrige doble-encoding UTF-8/Latin-1 en zapatillas.ts
+
+## Calling Mike (OpenRouter) desde PowerShell
+```powershell
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$bytes = [System.Text.Encoding]::UTF8.GetBytes($bodyJson)
+$req = [System.Net.WebRequest]::Create("https://openrouter.ai/api/v1/chat/completions")
+$req.Method = "POST"; $req.ContentType = "application/json; charset=utf-8"
+$req.Headers.Add("Authorization", "Bearer $apiKey")
+$req.ContentLength = $bytes.Length
+$stream = $req.GetRequestStream(); $stream.Write($bytes,0,$bytes.Length); $stream.Close()
+$resp = $req.GetResponse()
+$reader = New-Object System.IO.StreamReader($resp.GetResponseStream(), [System.Text.Encoding]::UTF8)
+$result = $reader.ReadToEnd() | ConvertFrom-Json
+$result.choices[0].message.content
+```
+Modelo: `openai/gpt-oss-120b:free` | API key: ver `~/.openclaw/openclaw.json`
