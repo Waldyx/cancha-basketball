@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-05-24 (sesión 4)
+> Última actualización: 2026-05-25 (sesión 5)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -29,48 +29,49 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 
 ---
 
-## Estado actual (sesión 4)
+## Estado actual (sesión 5)
 
 ### ✅ Completado
 - Web live en `canchazapa.com` con SSL
 - Dominio registrado en GoDaddy, DNS apuntando a Vercel
 - Google Search Console verificado + sitemap enviado
 - Plausible Analytics configurado (dominio: `canchazapa.com`)
-- Amazon Afiliados activo — **ID: `canchazapa-21`**
-- Awin solicitado (pendiente aprobación por email)
+- Amazon Afiliados activo — **ID: `canchazapa-21`**, 73 links actualizados con tag
+- Awin solicitado (pendiente aprobación)
+- AliExpress Portals solicitado (pendiente aprobación, 1h-2 días)
 - Política de privacidad en `/privacidad`
 - SEO mejorado: títulos, descriptions, JSON-LD Product en fichas
+- JSON-LD Product: añadidos `shippingDetails` y `hasMerchantReturnPolicy` (fix GSC warnings)
 - Breadcrumbs visuales en fichas de zapatilla
-- Sección "Comprar ahora" con 3 botones (Sprinter, Foot Locker, Amazon) en fichas
+- Sección "Comprar ahora" con botones (Sprinter, Foot Locker, Amazon) en fichas
 - Plausible tracking en clicks de afiliado ("Affiliate Click")
-- Nav: Rankings primero en todas las páginas
-- Enlace activo del nav en naranja en todas las páginas
+- Nav simplificado: solo Rankings | Catálogo | Quiz | ♥ Mis zapas
+- Footer global unificado en todas las páginas (FAQ | Metodología | Financiación | Privacidad)
+- Footers custom eliminados de todas las páginas internas
 - Jordan Brand → Jordan (unificado)
-- Filtro "Nuevas (2026)" actualizado
+- **Imágenes**: 126 zapas con imagen real, 0 placeholders
+- **AliExpress**: 13 zapas de marcas chinas (Anta, Li-Ning, Peak) con links a AliExpress
 
 ### 🟡 Pendiente
-- **Awin**: esperar email de aprobación → solicitar Sprinter y Foot Locker
-- **Links Amazon**: añadir `tag=canchazapa-21` a los links de amazon_es en `zapatillas.ts`
-  - Formato: `https://www.amazon.es/s?k=nike+lebron+22&tag=canchazapa-21`
-- **Imágenes rotas**: 28 zapas siguen con `/placeholder-shoe.svg` (ballershoesdb no las tiene)
+- **Awin**: esperar aprobación → solicitar de golpe: Sprinter, Foot Locker, Zalando, JD Sports, Nike, Adidas, Puma, Decathlon
+- **AliExpress Portals**: esperar aprobación (1h-2 días) → obtener tracking ID → actualizar 13 links con tag de afiliado
 - **Precios reales**: precios son editoriales, no scrapeados
-- **Sitemap Google**: re-verificar en 24-48h (DNS estaba propagando)
-- **Plausible**: verificar en 24h que trackea visitas correctamente
+- **Plausible**: verificar que trackea visitas correctamente
 
 ---
 
 ## Arquitectura de datos
 
 ### Archivo principal: `web/src/data/zapatillas.ts`
-- Array `_rawZapatillas` con ~124 zapas
+- Array `_rawZapatillas` con ~126 zapas
 - Función `mergePricesIntoShoes()` fusiona precios del scraper
 - Exporta `zapatillas`, `getZapatillaBySlug()`, `getAllZapatillas()`
-- Campo afiliados: `links_compra[].tiene_afiliado` — cambiar a `true` + URL de afiliado cuando tengas los links
+- Campo afiliados: `links_compra[].tiene_afiliado` — `true` para Amazon (activo), `false` para el resto (pendiente)
 
 ### Tipos: `web/src/lib/types.ts`
 - `Zapatilla` — entidad principal
 - `LinkCompra` — tienda, url, precio_actual, disponible, tiene_afiliado, ultima_verificacion
-- `Tienda` — incluye: `sprinter_es`, `footlocker_es`, `amazon_es`, etc.
+- `Tienda` — incluye: `sprinter_es`, `footlocker_es`, `amazon_es`, `aliexpress`, etc.
 - `RespuestasQuiz` — respuestas del quiz (10 preguntas)
 
 ---
@@ -80,10 +81,10 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 | Página | Ruta | Estado |
 |--------|------|--------|
 | Home | `/` | ✅ |
-| Catálogo | `/zapatillas` | ✅ 124 modelos |
+| Catálogo | `/zapatillas` | ✅ 126 modelos |
 | Quiz | `/quiz` | ✅ 10 pasos |
 | Resultados | `/resultados` | ✅ |
-| Detalle zapatilla | `/zapatilla/[slug]` | ✅ + JSON-LD Product |
+| Detalle zapatilla | `/zapatilla/[slug]` | ✅ + JSON-LD Product completo |
 | Comparador | `/comparar` | ✅ |
 | Rankings | `/rankings` | ✅ |
 | Metodología | `/metodologia` | ✅ |
@@ -98,30 +99,40 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 
 ## Afiliados
 
-### Amazon
+### Amazon ✅ ACTIVO
 - **ID**: `canchazapa-21`
 - **Panel**: https://afiliados.amazon.es
 - **Formato link**: `https://www.amazon.es/s?k=MODELO&tag=canchazapa-21`
 - **Cobro**: depósito directo en Banco Santander, mínimo 25€
-- **Estado**: ✅ activo, pendiente añadir links en zapatillas.ts
+- **Estado**: ✅ 73 links actualizados con tag, `tiene_afiliado: true`
 
-### Awin (Sprinter + Foot Locker)
+### Awin ⏳ PENDIENTE APROBACIÓN
 - **Panel**: https://ui.awin.com
-- **Estado**: ⏳ pendiente aprobación por email
-- Una vez aprobado: ir a Awin → buscar Sprinter → Join Program → generar deeplinks
+- **Estado**: solicitado, esperando email
+- **Cuando aprueben — solicitar TODOS estos programas de golpe**:
+  - Sprinter ES
+  - Foot Locker ES
+  - Zalando ES (~4-6%, 30 días)
+  - JD Sports ES (~5%, 30 días)
+  - Nike.com ES (~7%, 30 días)
+  - Adidas.es (~8%, 30 días)
+  - Puma ES (~7%, 30 días)
+  - Decathlon ES (~3-9%, 30 días)
+- Si no hay respuesta en unos días, escribir a: global-approvals@awin.com
 
-### Cómo añadir links de afiliado en zapatillas.ts
-```typescript
-// En links_compra de cada zapatilla:
-{
-  tienda: "amazon_es",
-  url: "https://www.amazon.es/s?k=nike+gt+cut+4&tag=canchazapa-21",  // ← añadir &tag=
-  precio_actual: 130,
-  disponible: true,
-  tiene_afiliado: true,  // ← cambiar a true
-  ultima_verificacion: "2026-05-24",
-}
-```
+### AliExpress Portals ⏳ PENDIENTE APROBACIÓN
+- **Panel**: https://portals.aliexpress.com
+- **Estado**: solicitado 2026-05-25, revisión en 1h-2 días hábiles
+- **Contacto si falla**: affiliates@service.alibaba.com
+- **Comisión**: ~4-9%, cookie 3 días
+- **Uso**: SOLO para marcas chinas (Anta, Li-Ning, Peak, Way of Wade)
+- **Cuando aprueben**: obtener tracking ID (`mm_XXXXXXX`) → actualizar 13 links con tag → `tiene_afiliado: true`
+- **Zapas con AliExpress** (13): anta-kai-1-speed, lining-wow-allcity-13, anta-kai-2, anta-kt-10, lining-wow-12, peak-lou-williams-underground, anta-shock-the-game-5, lining-gamma-2, anta-kt-11, lining-sonic-12, peak-taichi-flash, anta-shock-wave-5, lining-yu-shuai-18
+
+### Tiendas sin programa de afiliados (no añadir)
+- El Corte Inglés — sin programa público
+- Basket World — sin programa
+- AliExpress — SÍ usar pero SOLO para marcas chinas (originales)
 
 ---
 
@@ -155,45 +166,44 @@ Importado en `web/src/styles/global.css` → disponible en TODAS las páginas.
 
 ### Nav orden (todas las páginas)
 ```
-Rankings | Catálogo | Quiz | Método | FAQ | ♥ Mis zapas
+Rankings | Catálogo | Quiz | ♥ Mis zapas
+```
+
+### Footer global (Base.astro)
+```
+FAQ | Metodología | Financiación | Privacidad
 ```
 
 ---
 
 ## Imágenes
 
-### Fuente principal
-`https://ballershoesdb.com/wp-content/uploads/[NombreModelo]-Cropped-650x406.jpg`
+### Fuentes usadas
+- `https://ballershoesdb.com/wp-content/uploads/` — fuente principal
+- `https://weartesters.com/wp-content/uploads/` — fallback
+- `https://wowsole.com/wp-content/uploads/` — Li-Ning y otros
+- `https://cdn.runrepeat.com/` — fuente secundaria
+- `https://d3pnpe87i1fkwu.cloudfront.net/` — algunas Nike
 
 ### Estado
-- ~96 zapas tienen imagen real
-- 28 zapas con `/placeholder-shoe.svg` (no encontradas en ballershoesdb)
-- Placeholder: SVG oscuro con 🏀 y "Sin imagen"
-
-### Zapas sin imagen (28)
-```
-nike-lebron-22, nike-sabrina-2, anta-kai-1-speed, nike-kd-18,
-jordan-luka-3, nike-kyrie-low-5, jordan-one-take-5, nike-zoom-freak-6,
-puma-mb03, adidas-ae-1, nb-two-wxy-v4, nike-pg-6, nike-pg-7,
-nike-don-issue-6, puma-scoot-zeros-3, nike-kyrie-infinity-2, ua-jet-23,
-nike-air-max-impact-5, li-ning-sonic-12, nike-gt-run-2, nike-gt-jump-2,
-nike-kyrie-flytrap-6, ua-hovr-havoc-5, nike-air-zoom-crossover-2,
-li-ning-yu-shuai-18, converse-all-star-pro-bb, nb-kawhi-1, anta-shock-wave-5
-```
+- ✅ 126 zapas con imagen real
+- ✅ 0 placeholders
+- `jordan-super-fly-10` → corregido a `jordan-super-fly-8`
+- `nike-pg-7` → eliminado (modelo no existe)
 
 ---
 
 ## SEO
 
 ### JSON-LD por tipo de página
-- **Fichas zapatilla**: Product (precio, rating, oferta)
+- **Fichas zapatilla**: Product completo (precio, rating, shippingDetails, hasMerchantReturnPolicy)
 - **SEO pages**: FAQPage + BreadcrumbList + ItemList
 - **Todas**: BreadcrumbList visual (`cz-breadcrumbs`)
 
 ### Títulos optimizados
 - Fichas: `Nike LeBron 22 (2024) · Análisis y mejor precio | CANCHA.ZAPA`
 - Rankings: `Top 10 Mejores Zapatillas de Baloncesto 2026 | Rankings CANCHA.ZAPA`
-- Catálogo: `Catálogo de zapatillas de baloncesto | 124 modelos analizados`
+- Catálogo: `Catálogo de zapatillas de baloncesto | 126 modelos analizados`
 
 ---
 
@@ -245,5 +255,5 @@ sk-or-v1-[REDACTED — ver ~/.openclaw/openclaw.json]
 
 ---
 
-Último push: 2026-05-24
+Último push: 2026-05-25
 Web live: canchazapa.com ✅
