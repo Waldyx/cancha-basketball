@@ -54,7 +54,7 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 
 ### 🟡 Pendiente
 - **Awin**: esperar aprobación → solicitar de golpe: Sprinter, Foot Locker, Zalando, JD Sports, Nike, Adidas, Puma, Decathlon
-- **AliExpress Portals**: esperar aprobación (1h-2 días) → obtener tracking ID → actualizar 13 links con tag de afiliado
+- **AliExpress Portals**: ✅ completado — 13 links activos con tracking `default`
 - **Precios reales**: precios son editoriales, no scrapeados
 - **Plausible**: verificar que trackea visitas correctamente
 
@@ -120,13 +120,13 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
   - Decathlon ES (~3-9%, 30 días)
 - Si no hay respuesta en unos días, escribir a: global-approvals@awin.com
 
-### AliExpress Portals ⏳ PENDIENTE APROBACIÓN
+### AliExpress Portals ✅ ACTIVO
 - **Panel**: https://portals.aliexpress.com
-- **Estado**: solicitado 2026-05-25, revisión en 1h-2 días hábiles
-- **Contacto si falla**: affiliates@service.alibaba.com
+- **Tracking ID**: `default`
+- **Estado**: ✅ aprobado 2026-05-25, 13 links actualizados con `tiene_afiliado: true`
 - **Comisión**: ~4-9%, cookie 3 días
 - **Uso**: SOLO para marcas chinas (Anta, Li-Ning, Peak, Way of Wade)
-- **Cuando aprueben**: obtener tracking ID (`mm_XXXXXXX`) → actualizar 13 links con tag → `tiene_afiliado: true`
+- **Formato link**: `https://s.click.aliexpress.com/e/_XXXXX`
 - **Zapas con AliExpress** (13): anta-kai-1-speed, lining-wow-allcity-13, anta-kai-2, anta-kt-10, lining-wow-12, peak-lou-williams-underground, anta-shock-the-game-5, lining-gamma-2, anta-kt-11, lining-sonic-12, peak-taichi-flash, anta-shock-wave-5, lining-yu-shuai-18
 
 ### Tiendas sin programa de afiliados (no añadir)
