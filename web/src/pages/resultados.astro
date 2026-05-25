@@ -252,8 +252,12 @@ import "../styles/cancha-redesign.css";
           <div class="rs-card-body">
             <div class="rs-card-head">
               <div>
-                <p class="rs-card-marca">${escapeHtml(z.marca)}</p>
+                <p class="rs-card-marca">
+                  ${escapeHtml(z.marca)}
+                  ${z.año_lanzamiento >= 2025 ? `<span style="margin-left:6px;font-size:9px;font-weight:900;background:#f97316;color:#000;padding:2px 5px;letter-spacing:.06em">${z.año_lanzamiento}</span>` : ""}
+                </p>
                 <h2 class="rs-card-modelo"><a href="${fichaHref}">${escapeHtml(z.modelo)}</a></h2>
+                ${z.signature_player ? `<p style="font-size:11px;color:#71717a;margin:2px 0 0;text-transform:uppercase;letter-spacing:.08em">${escapeHtml(z.signature_player)}</p>` : ""}
               </div>
               <div class="rs-card-match ${matchCls}">
                 <span class="rsm-num">${rec.match_pct}<small>%</small></span>
@@ -300,9 +304,16 @@ import "../styles/cancha-redesign.css";
       try {
         const respuestas = JSON.parse(raw) as RespuestasQuiz;
         const recomendaciones = recomendar(respuestas, zapatillas, 5);
+        const totalMatches = recomendaciones.length;
 
         document.getElementById("estado-resultados")!.classList.remove("hidden");
         document.getElementById("resumen-perfil")!.innerHTML = renderResumen(respuestas);
+
+        // Mostrar contador de matches en el subtítulo
+        const $lede = document.querySelector(".rs-lede");
+        if ($lede && totalMatches > 0) {
+          $lede.textContent = `${totalMatches} zapatillas seleccionadas de ${zapatillas.length} del catálogo. Ordenadas por compatibilidad técnica con tu perfil.`;
+        }
 
         const $list = document.getElementById("recomendaciones")!;
         const $empty = document.getElementById("estado-vacio")!;

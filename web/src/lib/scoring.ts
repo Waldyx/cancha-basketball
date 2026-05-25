@@ -319,6 +319,14 @@ export function calcularFitFactor(
     factor -= 0.2;
   }
 
+  // ── Bonus de modernidad (2025-2026): suavemente favorece modelos actuales ──
+  // Solo +5% para zapas del año actual / temporada actual. No cambia el ranking
+  // salvo en empates muy cerrados — mantiene la coherencia editorial.
+  const currentYear = new Date().getFullYear();
+  if (zapatilla.año_lanzamiento >= currentYear - 1) {
+    factor += 0.05;
+  }
+
   return Math.max(0.3, factor); // Nunca menos de 0.3 (queremos que aparezcan, no que desaparezcan)
 }
 
@@ -553,8 +561,18 @@ export function recomendar(
     };
   });
 
-  // Paso 4: ordenar por match desc
-  recomendaciones.sort((a, b) => b.match_pct - a.match_pct);
+  // Paso 4: ordenar por match desc.
+  // Si la prioridad es "precio", entre zapas con mismo match_pct (±2 puntos)
+  // desempatamos por precio más bajo para surfacear el mejor valor.
+  recomendaciones.sort((a, b) => {
+    const diff = b.match_pct - a.match_pct;
+    if (respuestas.prioridad === "precio" && Math.abs(diff) <= 2) {
+      const precioA = a.mejor_precio?.precio_actual ?? a.zapatilla.precio_msrp_eur;
+      const precioB = b.mejor_precio?.precio_actual ?? b.zapatilla.precio_msrp_eur;
+      return precioA - precioB; // menor precio gana
+    }
+    return diff;
+  });
 
   // Paso 5: regla de diversidad y top N
   return aplicarDiversidad(recomendaciones, topN);
