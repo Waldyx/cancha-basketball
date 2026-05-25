@@ -2,8 +2,8 @@ name: 🔍 Actualizar precios
 
 on:
   schedule:
-    # Cada 2 días a las 4:00 AM UTC (6:00 AM Madrid)
-    - cron: "0 4 */2 * *"
+    # Cada día a las 4:00 AM UTC (6:00 AM Madrid)
+    - cron: "0 4 * * *"
   workflow_dispatch:
     inputs:
       tienda:
@@ -17,7 +17,7 @@ jobs:
   scrape:
     name: Scrape precios
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
 
     steps:
       - name: 📥 Checkout código
