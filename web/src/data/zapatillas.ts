@@ -178,7 +178,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si eres tirador o base ligero, juegas casi exclusivamente en pista cubierta y priorizas respuesta sobre protecciÃ³n, es de las mejores opciones premium. Para asfalto o pesos altos, busca otra cosa.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/ua-curry-12.jpg",
     imagenes: [],
 
     fuentes: [
@@ -778,7 +778,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Foam expuesto puede sufrir",
     ],
     veredicto: "Para wings versÃ¡tiles y guards que tiran mucho. La opciÃ³n Jordan mÃ¡s completa para uso indoor regular.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/jordan-tatum-3.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/jordan-tatum-3-review/" },
@@ -1025,7 +1025,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Forefoot padding modesto",
     ],
     veredicto: "Si te gustan los Kyrie y quieres pagar la mitad, esta es tu zapa. Para guards y wings que necesitan agarre extremo.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/anta-kai-2.png",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/anta-kai-2-review/" },
@@ -1802,7 +1802,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Solo disponible en Decathlon",
     ],
     veredicto: "Para guards con presupuesto justo que buscan zapa rÃ¡pida. La mejor relaciÃ³n calidad/precio low-top en tiendas fÃ­sicas en EspaÃ±a.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/decathlon-tarmak-fast-900.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-13",
@@ -1915,7 +1915,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Signature de jugador minor",
     ],
     veredicto: "Para guards que buscan algo distinto y cÃ³modo a buen precio. Cult favorite si la encuentras.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/peak-lou-williams-underground.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/peak-lou-williams-underground-2/" },
@@ -1973,7 +1973,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Disponibilidad limitada en Europa",
     ],
     veredicto: "Para jugadores con presupuesto justo que necesitan estabilidad y soporte outdoor. Una sorpresa por 100 â‚¬.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/anta-shock-the-game-5.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/anta-shock-the-game-5-0-review/" },
@@ -2149,7 +2149,7 @@ const _rawZapatillas: Zapatilla[] = [
       "No es la Freak mÃ¡s responsive",
     ],
     veredicto: "Para alas-pÃ­vot y pÃ­vots con presupuesto ajustado que necesitan amortiguaciÃ³n y soporte sin llegar a los â‚¬180 del LeBron.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-zoom-freak-4.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-15",
@@ -2608,7 +2608,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Indoor only recomendado",
     ],
     veredicto: "Para el jugador versÃ¡til que quiere un Jordan signature con cushion real a un precio razonable. La Luka 5 es superior pero el Luka 2 sale ahora por 40-50â‚¬ menos.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/jordan-luka-2.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-15",
@@ -3619,7 +3619,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La mejor opciÃ³n actual de UA para bases y escolteros que buscan respuesta mÃ¡xima en pista cubierta. Si ya te gustÃ³ la Curry 12, la 13 es una mejora directa. Para asfalto o pesos > 90kg, busca otra cosa.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/ua-curry-13.jpg",
     imagenes: [],
 
     fuentes: [
@@ -3698,7 +3698,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si tu presupuesto es ajustado o buscas una segunda zapatilla para entrenar outdoor sin arriesgar tus buenas zapatillas, la Lockdown 7 cumple. Para juego serio o frecuente, sube de gama.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/ua-lockdown-7.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -3772,7 +3772,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Para jugadores fÃ­sicos de posiciÃ³n interior o aleros que necesitan soporte sin pagar precio premium. La Spawn 7 Mid cumple bien en pista cubierta y aguanta el exterior. Buena opciÃ³n de gama media dentro del catÃ¡logo UA.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/ua-spawn-7-mid.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -3846,7 +3846,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La mejor opciÃ³n de UA para jugadores que quieren algo equilibrado sin decidirse entre la Curry (ultra-reactiva, poca protecciÃ³n) y la Spawn (mÃ¡s fÃ­sica). La FUTR X 4 funciona bien en todas las posiciones.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/ua-futr-x-4.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -3920,7 +3920,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si quieres el sello Curry sin gastar 140â‚¬+, la Curry 3Z 25 es la respuesta. No es una zapatilla tÃ©cnicamente avanzada, pero cumple para uso recreativo o pistas exteriores. Para juego serio, invierte en la Curry 13.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/ua-curry-3z-25.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -3994,7 +3994,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Para fans de Luka o jugadores de gama media que quieren un calzado equilibrado a buen precio. No alcanza el nivel tÃ©cnico de la GT Cut 4 ni el cushion de la LeBron 23, pero a 99.99â‚¬ es una opciÃ³n sÃ³lida.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-luka-77.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4068,7 +4068,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Una de las mejores opciones para bases y escoltas explosivos que priorizan velocidad y comodidad. La combinaciÃ³n React + Zoom Air en antepiÃ© la hace destacar en su rango de precio.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-book-2.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4217,7 +4217,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Una zapatilla seria que no debe descartarse por ser femenina en origen. El Zoom Air strobel + React la convierten en una de las opciones mÃ¡s completas de Nike bajo los 130â‚¬. Recomendada para jugadores Ã¡giles de cualquier gÃ©nero.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-sabrina-3.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4291,7 +4291,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Para aleros y escoltas que quieren un calzado con cushion serio sin el precio de la LeBron o la Kobe Protro. La Tatum 4 es una compra inteligente a 90.99â‚¬ â€” probablemente la mejor relaciÃ³n calidad-precio de la lÃ­nea Jordan signature en 2025.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/jordan-tatum-4.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4365,7 +4365,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La mejor opciÃ³n Nike para pivots y aleros fÃ­sicos que necesitan una zapatilla robusta. Si juegas como Giannis â€” potencia, cambios de direcciÃ³n bruscos, juego en la pintura â€” la Freak 7 es la elecciÃ³n correcta.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-zoom-freak-7.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4513,7 +4513,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si quieres el agarre del GT Cut 4 sin el gasto, la GT Cut Academy 2 es la respuesta. Perfecta para jugadores de velocidad con presupuesto ajustado o para uso en entrenos intensivos. La relaciÃ³n calidad-precio es excepcional a 99.99â‚¬.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-gt-cut-academy-2.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4587,7 +4587,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Una opciÃ³n sÃ³lida y a menudo ignorada en el catÃ¡logo Puma. Si juegas en posiciones de interior y buscas Nitrofoam a un precio razonable, la Stewie 4 compite de tÃº a tÃº con la Freak 7 y la Curry 13. Merece mÃ¡s atenciÃ³n de la que recibe.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/puma-stewie-4.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4663,7 +4663,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si juegas de pivot o ala-pivot y pesas mÃ¡s de 90 kg, la Zion 4 es una de las mejores protecciones para rodillas y tobillos del mercado por ~85â‚¬. No es para correr, es para dominar la pintura. Horma ancha, React foam sÃ³lido y precio rebajado: difÃ­cil de superar para su perfil.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/jordan-zion-4.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4890,7 +4890,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "A 60â‚¬ la Book 1 es probablemente la mejor compra del catÃ¡logo Nike ahora mismo para guards y escoltas. Zoom Air, tracciÃ³n herringbone y comodidad de knit â€” todo lo que necesita un jugador de perÃ­metro, a un precio que no tiene rival. El hecho de que sea la primera ediciÃ³n de Booker le da un punto de coleccionismo extra.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-book-1.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4964,7 +4964,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La Harden 10 es la zapatilla definitiva para el guard que pesa entre 85-105 kg y busca Lightstrike Pro con soporte mid-top. Compite con la Luka 5 y la Curry 13 en el mismo rango. Si valoras el equilibrio entre cushion, respuesta y soporte lateral, la Harden 10 es una elecciÃ³n sÃ³lida a 160â‚¬.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/adidas-harden-vol-10.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -5074,7 +5074,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["TracciÃ³n de primer nivel", "Buena durabilidad outdoor", "Precio competitivo para signature"],
     contras: ["Algo pesada", "Cushion solo correcto, no destacado"],
     veredicto: "Para jugadores que priorizan el agarre y juegan tanto interior como exterior. Una de las mejores relaciones calidad-precio en signatures.",
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/Adidas-D.O.N.-Issue-6-650x406.jpg",
+    imagen_principal: "/shoes/nike-don-issue-6.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-don-issue-6-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -5128,7 +5128,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Extremadamente ligera", "Muy buena ventilaciÃ³n", "Respuesta excelente para bases explosivos"],
     contras: ["Poco soporte lateral para jugadores grandes", "Durabilidad outdoor mejorable"],
     veredicto: "La elecciÃ³n perfecta para bases ligeros que buscan velocidad y respuesta. No apta para jugadores potentes.",
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/PumaScootZeros-Cropped-650x406.jpg",
+    imagen_principal: "/shoes/puma-scoot-zeros.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/puma-scoot-zeros-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -5237,7 +5237,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Soporte lateral excepcional", "TracciÃ³n de primer nivel", "Estabilidad mÃ¡xima para jugadores pesados"],
     contras: ["Muy pesada", "Poco court feel", "No apta para juego explosivo"],
     veredicto: "La mejor opciÃ³n para pÃ­vots y ala-pÃ­vots potentes que necesitan estabilidad mÃ¡xima.",
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/Nike-Zoom-Freak-5-650x406.jpg",
+    imagen_principal: "/shoes/nike-zoom-freak-5.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-zoom-freak-5-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -5290,7 +5290,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Buen precio", "Muy transpirable", "TracciÃ³n sÃ³lida"],
     contras: ["Cushion bÃ¡sico", "No destaca en nada en concreto"],
     veredicto: "Buena opciÃ³n para jugadores con presupuesto ajustado que buscan una zapatilla equilibrada y transpirable.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/adidas-exhibit-a.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -5396,7 +5396,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["TracciÃ³n 360Â° excepcional", "Buena respuesta", "Precio accesible"],
     contras: ["Estabilidad algo baja en comparaciÃ³n con otras Kyrie", "Cushion bÃ¡sico"],
     veredicto: "Para bases que necesitan cambios de direcciÃ³n rÃ¡pidos y agarre constante a buen precio.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-kyrie-infinity-2.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -5611,7 +5611,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Precio muy asequible", "Cushion Air Max suficiente", "Estabilidad correcta para su precio"],
     contras: ["Pesada", "Court feel nulo", "No apta para juego explosivo"],
     veredicto: "Para el jugador de interior que quiere cushion Nike sin gastar mÃ¡s de 80â‚¬. Simple y funcional.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-air-max-impact-5.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -5772,7 +5772,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Buen cushion para el precio", "Muy transpirable", "Respuesta agradable"],
     contras: ["TracciÃ³n mejorable en superficies polvorientas", "Durabilidad outdoor justa"],
     veredicto: "Para el escolta tirador que hace mucho trabajo fuera del balÃ³n y necesita cushion y transpirabilidad.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-gt-run-2.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -5878,7 +5878,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Cushion y respuesta sorprendentes", "Ligera", "Precio muy competitivo"],
     contras: ["DifÃ­cil de encontrar en EspaÃ±a", "Soporte lateral bÃ¡sico"],
     veredicto: "Para el jugador aventurero que quiere descubrir marcas asiÃ¡ticas de calidad. Sorprende en todo por su precio.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/peak-taichi-flash.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -5932,7 +5932,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Soporte lateral excepcional", "Mejor cushion que la Freak 5", "Durabilidad outdoor sÃ³lida"],
     contras: ["Muy pesada", "Cara para su propuesta"],
     veredicto: "Para pÃ­vots y ala-pÃ­vots potentes que quieren la mejor protecciÃ³n de Nike a precio alto.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-zoom-freak-6.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-zoom-freak-6-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -6095,7 +6095,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["TracciÃ³n excepcional", "Cushion premium con FuelCell", "Durabilidad outdoor excelente"],
     contras: ["Algo pesada para aleros Ã¡giles", "Precio alto para NB"],
     veredicto: "La primera y esperada signature de Kawhi no decepciona. Para aleros que quieren tracciÃ³n y cushion a partes iguales.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nb-kawhi-1.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/new-balance-kawhi-1-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -6148,7 +6148,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Durabilidad outdoor lÃ­der en su precio", "TracciÃ³n constante en exterior", "Buena relaciÃ³n calidad-precio"],
     contras: ["No destaca en rendimiento indoor premium", "DifÃ­cil de encontrar en tiendas fÃ­sicas"],
     veredicto: "La zapatilla ideal para quien juega principalmente en pistas exteriores y quiere durabilidad mÃ¡xima a precio razonable.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/anta-shock-wave-5.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6256,7 +6256,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Precio muy asequible para una signature", "TracciÃ³n sÃ³lida", "CÃ³moda desde el primer uso"],
     contras: ["Cushion bÃ¡sico", "Estabilidad lateral limitada"],
     veredicto: "La opciÃ³n mÃ¡s econÃ³mica para el fan de Harden. Funcional y asequible para juego perimetral.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/adidas-harden-stepback-4.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6309,7 +6309,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Precio muy asequible", "Buena tracciÃ³n", "Duradera en outdoor"],
     contras: ["Cushion bÃ¡sico", "Sin tecnologÃ­a premium"],
     veredicto: "El punto de entrada a las Kyrie. Para jugadores de base con presupuesto ajustado que valoran el agarre.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-kyrie-flytrap-6.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -6577,7 +6577,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["TracciÃ³n de Ã©lite", "FuelCell reactivo", "Ahora muy asequible en outlet"],
     contras: ["Modelo antiguo (2019)", "DifÃ­cil de encontrar en tallas completas"],
     veredicto: "Si la encuentras en tu talla, es una de las mejores relaciones calidad-precio del mercado. TracciÃ³n imbatible.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nb-omn1s.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/new-balance-omn1s-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -6846,7 +6846,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Soporte tobillo high-top excepcional", "Nike Zoom Air integrado", "DiseÃ±o icÃ³nico Ãºnico"],
     contras: ["Pesada", "VentilaciÃ³n escasa (leather upper)", "Precio elevado para Converse"],
     veredicto: "Para jugadores con problemas de tobillo que tambiÃ©n quieren el look mÃ¡s icÃ³nico del baloncesto con tecnologÃ­a moderna.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/converse-all-star-pro-bb.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -7457,7 +7457,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["NITRO foam: respuesta y amortiguaciÃ³n equilibradas", "Peso muy competitivo (317g)", "TracciÃ³n herringbone fiable en interior", "Horma estÃ¡ndar â€” encaja con la mayorÃ­a de pies"],
     contras: ["Puma tiene menor presencia en EspaÃ±a â€” difÃ­cil de encontrar", "Soporte de tobillo limitado al ser low", "Durabilidad outdoor no testeada extensivamente"],
     veredicto: "OpciÃ³n muy sÃ³lida y algo infravalorada por la poca presencia de Puma en baloncesto. Si la encuentras a buen precio, es una compra muy inteligente para guards y aleros.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/puma-clyde-all-pro.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-19",
@@ -7815,7 +7815,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "Una zapatilla sÃ³lida para bases explosivos que quieran soporte de tobillo extra. Se puede encontrar a precio reducido dado que Westbrook ya no es el nombre que era.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/jordan-why-not-6.jpg",
     imagenes: [],
 
     fuentes: [{ tipo: "evaluacion-propia" }],
