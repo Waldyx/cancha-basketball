@@ -67,6 +67,7 @@ jobs:
             echo "Sin cambios en precios.json — nada que commitear."
           else
             git commit -m "chore(precios): actualizar precios $(date -u +%Y-%m-%d)"
+            git pull --rebase
             git push
             echo "PRICES_UPDATED=true" >> $GITHUB_ENV
           fi
