@@ -52,7 +52,7 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 - **Imágenes**: 130 zapas con imagen real (4 nuevas con URLs externas)
 - **AliExpress**: 13 zapas de marcas chinas (Anta, Li-Ning, Peak) con links a AliExpress
 - **Nuevas zapas 2025** (sesión 6): Nike KD 19, Air Jordan 40, Adidas Dame X, UA D. Fox 2
-- **Blog**: `/blog` con 3 artículos editoriales (guías, comparativas, análisis)
+- **Blog**: `/blog` con 5 artículos editoriales (guías, comparativas, análisis)
 - **SEO pages**: 25 páginas (añadidas: UA, Puma, Mujer, Junior, Mejores 2025)
 - **Quiz**: recency bonus 2025+, sort por precio cuando prioridad=precio, contador de matches en resultados
 
@@ -260,5 +260,12 @@ sk-or-v1-[REDACTED — ver ~/.openclaw/openclaw.json]
 
 ---
 
-Último push: 2026-05-26 (sesión 6)
+Último push: 2026-05-26 (sesión 7)
 Web live: canchazapa.com ✅
+
+## Blog artículos (5)
+1. Cómo elegir zapatillas de baloncesto (Guía)
+2. AE 3 vs Ja 3 — guards 2025 (Comparativa)
+3. Air Jordan 40 análisis (Análisis)
+4. Mejores zapatillas para pívots 2025-2026 (Guía) — generado con Mike/OpenRouter
+5. GT Cut 4 vs Curry 13 vs ANTA Kai 2 — explosivos (Comparativa) — generado con Mike/OpenRouter

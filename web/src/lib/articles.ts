@@ -260,6 +260,239 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">¿No estás seguro si la Jordan 40 es para ti? <a href="/quiz">Haz el quiz</a> — en función de tu posición, peso y presupuesto te diremos si es tu match o si hay algo más adecuado.</p>
     `,
   },
+
+  // ── 4. Mejores zapatillas para pívots ────────────────────────────────
+  {
+    slug: "mejores-zapatillas-pivots-2025",
+    title: "Mejores zapatillas de baloncesto para pívots en 2025-2026",
+    metaTitle: "Mejores zapatillas para pívots 2025-2026 | CANCHA.ZAPA",
+    description:
+      "Análisis técnico de las mejores zapatillas para pívots en 2025: LeBron 23, KD 19, Jordan 40 y ANTA KT 11. Amortiguación, soporte y estabilidad para el juego interior.",
+    fecha: "2026-05-26",
+    fechaLabel: "26 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Guía por posición · Pívots",
+    heroTitle: "Mejores zapas para pívots",
+    heroSubtitle: "2025-2026 · Amortiguación, soporte y estabilidad",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-lebron-23", "nike-kd-19", "jordan-40", "anta-kt-11"],
+    relatedSeoPages: ["mejor-zapatilla-pivot", "zapatillas-cushion", "zapatillas-baloncesto-premium"],
+    body: `
+<p class="art-intro">El pívot es la posición más exigente para una zapatilla. Cada rebote supone cientos de kilos de impacto. Cada bloqueo implica fricción lateral máxima. Y todo eso repetido durante 40 minutos. La zapatilla adecuada marca la diferencia entre aguantar el partido entero o coger el banquillo con las rodillas quemadas.</p>
+
+<h2>Qué necesita un pívot de su zapatilla</h2>
+
+<p>Antes de hablar de modelos, los filtros que importan:</p>
+<ul>
+  <li><strong>Amortiguación ≥ 8:</strong> Absorción de impactos en aterrizajes. Para jugadores de más de 90kg, prioridad máxima.</li>
+  <li><strong>Soporte lateral ≥ 8:</strong> Contención del pie en giros y cargas bajo el aro.</li>
+  <li><strong>Caña mid o high:</strong> Protección del tobillo en contactos físicos constantes.</li>
+  <li><strong>Estabilidad ≥ 7:</strong> Base sólida para pujar sin tambaleo.</li>
+  <li><strong>Tracción en interior ≥ 8:</strong> El asfalto no es tu cancha. La tracción en parquet es lo que cuenta.</li>
+</ul>
+
+<p>El peso de la zapatilla importa menos que en otras posiciones. Un pívot no sprint de media cancha cada 20 segundos — puede asumir 380-420g si eso se traduce en mejor protección.</p>
+
+<h2>Los 4 modelos que recomendamos en 2025</h2>
+
+<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — 179€</a></h3>
+<p><strong>Para qué perfil:</strong> Pívots y ala-pívots de 85-110kg que necesitan la máxima amortiguación posible sin perder tracción.</p>
+<ul>
+  <li>✅ Max Air en talón + React en toda la entresuela: el combo de cushion más potente de Nike en baloncesto.</li>
+  <li>✅ Suela de caucho multidireccional: agarre excepcional en parquet limpio y sucio.</li>
+  <li>✅ Upper Flyknit reforzado: soporte lateral sólido sin rigidez excesiva.</li>
+  <li>❌ 395g — la más pesada del grupo. Se nota en las ayudas defensivas lentas.</li>
+  <li>❌ La horma estrecha de Nike no encaja bien en pies anchos.</li>
+</ul>
+
+<h3><a href="/zapatilla/nike-kd-19">Nike KD 19 — 149€</a></h3>
+<p><strong>Para qué perfil:</strong> Ala-pívots más dinámicos, 80-100kg, que no quieren sacrificar velocidad por cushion.</p>
+<ul>
+  <li>✅ Zoom Strobel + Cushlon 3.0: cushion reactivo, no solo absorbente. Bounce real.</li>
+  <li>✅ Upper TPU con dagger-cage: soporte lateral sin peso extra.</li>
+  <li>✅ 30€ más barata que la LeBron 23 con rendimiento casi equivalente.</li>
+  <li>❌ La amortiguación no llega al nivel Max Air para aterrizajes muy duros.</li>
+  <li>❌ Horma algo estrecha en el antepié.</li>
+</ul>
+
+<h3><a href="/zapatilla/jordan-40">Air Jordan 40 — 199€</a></h3>
+<p><strong>Para qué perfil:</strong> Ala-pívots que priorizan el bounce sobre todo y pueden invertir en la opción premium.</p>
+<ul>
+  <li>✅ ZoomX + Zoom Strobel: la combinación de espuma más avanzada que Jordan Brand ha puesto en baloncesto. Devuelve el 85% de la energía.</li>
+  <li>✅ 6 correas internas de contención: soporte lateral excepcional a pesar de la blandura del ZoomX.</li>
+  <li>✅ Herringbone 40°: muy buena tracción en pista limpia.</li>
+  <li>❌ 199€ — la más cara del grupo. Solo tiene sentido si juegas 3+ veces por semana.</li>
+  <li>❌ El ZoomX atrae el polvo. En pistas sucias, la tracción baja notablemente.</li>
+  <li>❌ 395g — tan pesada como la LeBron.</li>
+</ul>
+
+<h3><a href="/zapatilla/anta-kt-11">ANTA KT 11 — ~80€ (AliExpress)</a></h3>
+<p><strong>Para qué perfil:</strong> Jugadores de recreativo o junior con presupuesto ajustado que no quieren sacrificar todo el soporte.</p>
+<ul>
+  <li>✅ 80€ — la mitad que la KD 19 con soporte más que aceptable para recreativo.</li>
+  <li>✅ Tecnología A-Flashfoam: ligera y con cushion decente para su precio.</li>
+  <li>✅ Upper malla reforzada con soporte lateral suficiente para partidos casuales.</li>
+  <li>❌ La amortiguación no está al nivel de las opciones premium. Dos partidos a la semana: bien. Cuatro: las rodillas lo notarán.</li>
+  <li>❌ Durabilidad inferior a largo plazo.</li>
+</ul>
+
+<h2>Comparativa rápida</h2>
+
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:14px">
+  <thead>
+    <tr style="border-bottom:2px solid #f97316">
+      <th style="padding:8px;text-align:left">Modelo</th>
+      <th style="padding:8px;text-align:center">Amortiguación</th>
+      <th style="padding:8px;text-align:center">Soporte</th>
+      <th style="padding:8px;text-align:center">Tracción</th>
+      <th style="padding:8px;text-align:center">Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>Nike LeBron 23</strong></td>
+      <td style="padding:8px;text-align:center">⭐ 10/10</td>
+      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+      <td style="padding:8px;text-align:center">179€</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>Nike KD 19</strong></td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">149€</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>Air Jordan 40</strong></td>
+      <td style="padding:8px;text-align:center">⭐ 10/10</td>
+      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">199€</td>
+    </tr>
+    <tr>
+      <td style="padding:8px"><strong>ANTA KT 11</strong></td>
+      <td style="padding:8px;text-align:center">6/10</td>
+      <td style="padding:8px;text-align:center">6/10</td>
+      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">~80€</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>¿Cuál elegir?</h2>
+<ul>
+  <li><strong>Si pesas más de 95kg y juegas 3+ veces/semana:</strong> Nike LeBron 23. El cushion Max Air es insustituible.</li>
+  <li><strong>Si eres ala-pívot dinámico y buscas el mejor equilibrio precio/rendimiento:</strong> Nike KD 19 a 149€.</li>
+  <li><strong>Si priorizas el bounce y puedes gastar 200€:</strong> Air Jordan 40. Es la más avanzada tecnológicamente.</li>
+  <li><strong>Si eres junior o juegas recreativo con presupuesto ajustado:</strong> ANTA KT 11. 80€ con soporte honesto.</li>
+</ul>
+
+<p class="art-outro">¿Sigues sin decidirte? El <a href="/quiz">quiz de CANCHA.ZAPA</a> cruza tu peso, posición, historial de lesiones y presupuesto para darte los 5 modelos más compatibles contigo. Menos de un minuto.</p>
+    `,
+  },
+
+  // ── 5. GT Cut 4 vs Curry 13 vs Kai 2 ────────────────────────────────
+  {
+    slug: "gt-cut-4-vs-curry-13-vs-kai-2-explosivos-2025",
+    title: "GT Cut 4 vs Curry 13 vs ANTA Kai 2: batalla de los explosivos en 2025",
+    metaTitle: "Nike GT Cut 4 vs UA Curry 13 vs ANTA Kai 2 comparativa 2025 | CANCHA.ZAPA",
+    description:
+      "Comparativa técnica entre las tres zapatillas más reactivas de 2025: GT Cut 4, Curry 13 y ANTA Kai 2. Tracción, respuesta, precio y para qué tipo de base/escolta.",
+    fecha: "2026-05-26",
+    fechaLabel: "26 mayo 2026",
+    categoria: "Comparativas",
+    readMinutes: 5,
+    eyebrow: "★ Comparativa · Zapatillas reactivas 2025",
+    heroTitle: "GT Cut 4 vs Curry 13 vs Kai 2",
+    heroSubtitle: "¿Cuál reacciona más rápido?",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-gt-cut-4", "ua-curry-13", "anta-kai-2", "adidas-ae-3"],
+    relatedSeoPages: ["zapatillas-reactivas", "mejor-zapatilla-base", "mejor-zapatilla-escolta"],
+    body: `
+<p class="art-intro">Si priorizas el primer paso explosivo sobre cualquier otra cosa, el mercado de 2025 tiene tres candidatos claros: la Nike GT Cut 4, la Under Armour Curry 13 y la ANTA Kai 2 de Kyrie Irving. Las tres son low-top, las tres tienen court feel excepcional — y las tres difieren significativamente en precio y en a qué tipo de jugador favorecen más.</p>
+
+<h2>Resumen en números</h2>
+
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:14px">
+  <thead>
+    <tr style="border-bottom:2px solid #f97316">
+      <th style="padding:8px;text-align:left">Atributo</th>
+      <th style="padding:8px;text-align:center">GT Cut 4</th>
+      <th style="padding:8px;text-align:center">Curry 13</th>
+      <th style="padding:8px;text-align:center">Kai 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Tracción</td>
+      <td style="padding:8px;text-align:center">⭐ 10/10</td>
+      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Respuesta</td>
+      <td style="padding:8px;text-align:center">⭐ 10/10</td>
+      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">9/10</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Amortiguación</td>
+      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">⭐ 8/10</td>
+      <td style="padding:8px;text-align:center">7/10</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Horma</td>
+      <td style="padding:8px;text-align:center">Estrecha</td>
+      <td style="padding:8px;text-align:center">Normal</td>
+      <td style="padding:8px;text-align:center">⭐ Ancha</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Peso</td>
+      <td style="padding:8px;text-align:center">⭐ 310g</td>
+      <td style="padding:8px;text-align:center">345g</td>
+      <td style="padding:8px;text-align:center">330g</td>
+    </tr>
+    <tr>
+      <td style="padding:8px">Precio</td>
+      <td style="padding:8px;text-align:center">150€</td>
+      <td style="padding:8px;text-align:center">140€</td>
+      <td style="padding:8px;text-align:center">⭐ 119€</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Nike GT Cut 4: la más explosiva del mercado</h2>
+<p>La GT Cut 4 tiene el Zoom Air más reactivo que Nike fabrica actualmente en baloncesto. Combinado con una suela de goma dura de patrón multidireccional, el resultado es la zapatilla con mejor court feel de 2025 — y posiblemente de los últimos 5 años.</p>
+<p><strong>El problema:</strong> la horma es muy estrecha. Si tienes pie ancho o dedos largos, la presión en el antepié puede ser un problema real después de 30 minutos. Pruébatela antes de comprar o sube media talla.</p>
+<p><strong>Para quién:</strong> Base o escolta con pie normal o estrecho que juega en interior limpio y prioriza el primer paso sobre cualquier otra cosa.</p>
+
+<h2>Under Armour Curry 13: el mejor equilibrio</h2>
+<p>La Curry 13 tiene UA Flow foam en toda la entresuela — una espuma sin goma en la suela que contacta directamente con el suelo. Eso le da un court feel único: sientes el parquet más que en ninguna otra zapatilla, pero con algo más de cushion que la GT Cut 4.</p>
+<p><strong>El problema:</strong> sin goma en la suela, la durabilidad en exterior es prácticamente nula. Una sesión en asfalto y la suela queda destruida. Son zapatillas exclusivamente de interior.</p>
+<p><strong>Para quién:</strong> Guards de 70-85kg que juegan siempre en pabellón, valoran la sensación de suelo y quieren algo más de cushion que la GT Cut. Horma normal, segura para la mayoría de pies.</p>
+
+<h2>ANTA Kai 2: la sorpresa del año</h2>
+<p>Kyrie Irving fichó por ANTA después de salir de Nike, y la Kai 2 es su segunda zapatilla con la marca china. A 119€, ofrece un rendimiento que avergüenza a zapatillas de 150€. La tracción es sólida, la respuesta es rápida gracias a la espuma A-Flashfoam 2.0, y la horma ancha la hace la más accesible para pies normales y anchos.</p>
+<p><strong>El problema:</strong> la respuesta no llega al nivel de la GT Cut 4 o la Curry 13. La diferencia no es enorme, pero existe. Si buscas el máximo rendimiento sin importar el precio, las otras dos ganan.</p>
+<p><strong>Para quién:</strong> Bases y escoltas con cualquier tipo de pie que buscan máxima relación calidad-precio. También la mejor opción si tu pie es ancho.</p>
+
+<h2>Veredicto final</h2>
+<ul>
+  <li><strong>Mejor court feel absoluto → <a href="/zapatilla/nike-gt-cut-4">GT Cut 4</a></strong> — si tu pie encaja y juegas siempre en interior.</li>
+  <li><strong>Mejor equilibrio rendimiento-versatilidad → <a href="/zapatilla/ua-curry-13">Curry 13</a></strong> — para guards que valoran el cushion extra.</li>
+  <li><strong>Mejor relación calidad-precio y pie ancho → <a href="/zapatilla/anta-kai-2">Kai 2</a></strong> — 30€ menos que la Curry 13 con un 90% del rendimiento.</li>
+</ul>
+
+<p class="art-outro">¿No tienes claro cuál de las tres encaja con tu perfil específico? <a href="/comparar?slugs=nike-gt-cut-4,ua-curry-13,anta-kai-2">Compáralas aquí con todos los atributos</a> o <a href="/quiz">haz el quiz</a> para obtener tu recomendación personalizada.</p>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
