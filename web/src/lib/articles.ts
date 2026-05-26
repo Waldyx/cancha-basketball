@@ -951,6 +951,102 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">Las marcas chinas ya no son la segunda opción para quien no puede permitirse Nike. En 2025 son una alternativa real y en muchos casos superior para el jugador amateur español. ¿Quieres ver cómo comparan con modelos de Nike y Adidas de su mismo rango? <a href="/comparar?slugs=anta-kai-2,adidas-ae-3,nike-gt-cut-4">Usa el comparador</a> y juzga tú mismo.</p>
     `,
   },
+
+  // ── 10. Retro ────────────────────────────────────────────────────────
+  {
+    slug: "mejores-zapatillas-baloncesto-retro-para-jugar-2025",
+    title: "Las mejores zapatillas retro para jugar de verdad (2025) | CANCHA.ZAPA",
+    metaTitle: "Mejores zapatillas retro de baloncesto para jugar | CANCHA.ZAPA",
+    description: "Guía honesta de las mejores zapatillas retro de baloncesto para jugar: Air Jordan, Kobe Protro, Reebok Question, Nike Air Force 1. Puntuaciones reales, no nostalgia.",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 8,
+    eyebrow: "🏅 Guía retro · CANCHA.ZAPA",
+    heroTitle: "Las mejores zapatillas retro para jugar",
+    heroSubtitle: "Ranking honesto 2025 · Puntuaciones reales, no solo nostalgia",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["air-jordan-12", "air-jordan-14", "nike-kobe-5-protro", "reebok-question-mid", "nike-air-force-1"],
+    relatedSeoPages: ["mejores-zapatillas-baloncesto-2025", "zapatillas-baratas"],
+    body: `
+<p class="art-intro">Las zapatillas retro de baloncesto tienen un problema: se venden con nostalgia pero se evalúan con specs de 1990. En CANCHA.ZAPA las puntuamos igual que cualquier otra zapatilla. El resultado es honesto y a veces sorprendente: algunas aguantan mejor de lo que piensas.</p>
+
+<h2>Primero lo importante: qué significa "retro jugable"</h2>
+<p>No todas las retros son iguales. Hay una diferencia enorme entre:</p>
+<ul>
+  <li><strong>Retros que puedes jugar:</strong> Kobe Protros, Air Jordan 11/12/14, Reebok Question. Tecnología actualizada (Zoom Air real, outsoles nuevas) en cuerpos clásicos.</li>
+  <li><strong>Retros que SON históricas:</strong> Air Force 1, Chuck Taylor, Converse Weapon, Puma Clyde. Puedes jugar con ellas pero son básicamente museísticas. No las recomendamos para alto rendimiento.</li>
+</ul>
+<p>Esta guía te dice cuáles son cuáles y por qué.</p>
+
+<h2>Tier 1 — Retros que realmente puedes jugar</h2>
+
+<h3>🥇 Nike Kobe 5 Protro / Kobe 6 Protro — Las mejores retros jugables</h3>
+<p>Las Kobe Protros son el mejor argumento de que "retro" no significa "inferior". Nike ha actualizado las outsoles, aplicado Zoom Air moderno y mantenido el perfil bajo y reactivo que hacía a las originales tan especiales. Las Kobe 5 y 6 Protro consiguen scores de 6.6-6.7/10 — dentro del rango de zapas modernas de rango medio.</p>
+<ul>
+  <li><strong>Para quién:</strong> Bases y escoltas explosivos que quieren rendimiento real + historia.</li>
+  <li><strong>Vs alternativa moderna equivalente:</strong> Nike Ja 2 (~130€) — similar rendimiento, sin el legado.</li>
+  <li><strong>Precio actual:</strong> 175-200€ en retros recientes.</li>
+</ul>
+
+<h3>🥈 Air Jordan 12 Retro — La mejor Jordan retro para jugar</h3>
+<p>La Jordan del Flu Game (1997). Zoom Air completo, herringbone tracción, estructura de cuero sólida. Consigue 6.1/10 — la mejor puntuación de la saga Jordan clásica. La penaliza el peso (440g) pero si juegas sin velocidad explosiva, ofrece una experiencia sorprendentemente moderna.</p>
+<ul>
+  <li><strong>Para quién:</strong> Aleros y ala-pívots que juegan equilibrado. No para bases.</li>
+  <li><strong>Historia incluida:</strong> El partido donde Jordan jugó con fiebre de 39° y ganó el anillo.</li>
+  <li><strong>Precio actual:</strong> 220-250€ en retros recientes.</li>
+</ul>
+
+<h3>🥉 Air Jordan 14 Retro — La mejor low-top Jordan histórica</h3>
+<p>El "Last Shot" de 1998 — el tiro que le dio el sexto anillo a MJ. Zoom Air real, peso contenido para ser un retro (415g) y el perfil más limpio de toda la saga. Empata con la Jordan 12 en 6.1/10 pero ofrece más movilidad al ser low-top.</p>
+<ul>
+  <li><strong>Ojo:</strong> Low-top significa menos soporte de tobillo. No recomendada si tienes historial de esguinces.</li>
+  <li><strong>Historia incluida:</strong> La última imagen icónica de MJ en Bulls.</li>
+</ul>
+
+<h2>Tier 2 — Retros icónicas con rendimiento decente</h2>
+
+<h3>Reebok Question Mid / Answer IV — Los zapatos de Iverson</h3>
+<p>Allen Iverson cruzó a MJ con la Question Mid y ganó con la Answer IV en las Finales 2001 contra los Lakers. Ambas consiguen scores entre 6.2-6.4/10 — mejor de lo esperado para 1996-2001. Tracción de cuero pegajosa y soporte lateral sólido. Limitadas en cushion pero jugables para estilos pausados.</p>
+
+<h3>Nike Air Penny 2 — El zapato de Penny Hardaway</h3>
+<p>La primera gran rival de Jordan en los 90s. Foamposite parcial, Zoom Air, perfil mid. 5.7/10 — más baja que las Kobe Protro pero aceptable si no buscas velocidad explosiva. Diseño casi futurista para ser de 1996.</p>
+
+<h3>Air Jordan 11 — La más elegante</h3>
+<p>La Jordan con lacado de patente negro. Un score de 5.4/10 refleja su Zoom Air básico y peso elevado, pero es la Jordan retro que más se viste fuera de la cancha con credibilidad. Para el coleccionista que también quiere jugar casualmente.</p>
+
+<h2>Tier 3 — Solo para jugar casual o colección</h2>
+
+<h3>Nike Air Force 1 — Madre de todo</h3>
+<p>La primera Nike Air de la historia (1982). 5.5/10 pero su tecnología Air es básica y pesa 460g. Resistente, tracción sólida, soporte lateral excelente — pero no para correr. Para jugadores potentes que quieren el icono fundacional.</p>
+
+<h3>Air Jordan 1/3/4/6/7/8 — La saga completa</h3>
+<p>Scores entre 3.8 y 5.8/10. Las mejores de este grupo son la Jordan 8 (correas, tracción buena) y la Jordan 6 (la del primer anillo). Las Jordan 1, 2 y 3 son para colección — no tienen tecnología de amortiguación real para el juego moderno.</p>
+
+<h3>Reebok Shaq Attaq — El dinosaurio</h3>
+<p>La zapatilla de Shaquille O'Neal de 1992. Un honesto 4.4/10: pesa 570g, sin tecnología real, pero el pump Reebok y el perfil high-top tienen su gracia. Para el que quiere saber cómo jugaba el pivot más dominante de la historia.</p>
+
+<h2>Las que NO recomendamos para jugar</h2>
+<ul>
+  <li><strong>Converse Chuck Taylor (1917):</strong> 3.5/10. La abuela de todas las zapatillas de baloncesto. Suela plana, cero cushion. Para la foto y la historia, no para cancha.</li>
+  <li><strong>Puma Clyde (1973):</strong> 4.6/10. Suede bonito, goma plana. La primera signature de la historia es también la más limitada.</li>
+  <li><strong>Nike Air Foamposite One (1997):</strong> 4.6/10. Aspecto brutal, ventilación 1/10. En verano es un horno. Solo para exterior y bajas temperaturas.</li>
+</ul>
+
+<h2>Preguntas frecuentes sobre retros</h2>
+
+<h3>¿Se pueden jugar las Jordan retro de verdad?</h3>
+<p>Depende de la Jordan. Las 11, 12 y 14 sí — tienen Zoom Air actualizado y outsoles que aguantan. Las Jordan 1, 2 y 3 son básicamente colección: cuero duro, cushion mínimo y tracción que se deteriora rápido. Para jugar con una Jordan clásica, elige la 12 o la 14.</p>
+
+<h3>¿Vale la pena pagar 200€+ por un retro cuando hay opciones modernas mejores?</h3>
+<p>Desde el punto de vista puramente técnico, no. Una Nike Ja 3 a 130€ supera en casi todos los atributos a cualquier retro por encima de 200€. Las retros se compran por historia y cultura, no solo por rendimiento.</p>
+
+<h3>¿Cuál es la mejor zapatilla retro para un jugador amateur que quiere jugar y lucir?</h3>
+<p>La Kobe 5 o 6 Protro si priorizas rendimiento, o la Air Jordan 12 si priorizas historia. Las dos tienen ese equilibrio entre cancha y cultura.</p>
+
+<p class="art-outro">¿Quieres ver el catálogo completo de retros con sus puntuaciones? <a href="/zapatillas">Filtra por "Retro"</a> en el catálogo — o usa el chip "🏅 Retro" en el sidebar para ver todas las zapatillas históricas con sus scores reales.</p>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────

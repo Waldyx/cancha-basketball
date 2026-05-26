@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-05-26 (sesión 8)
+> Última actualización: 2026-05-27 (sesión 9)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -31,7 +31,19 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 
 ## Estado actual (sesión 8)
 
-### ✅ Completado
+### ✅ Completado (sesión 9)
+- **30 zapatillas retro** con badge 🏅, filtro chip, disclaimer y scores reales
+  - Jordans: 1, 2, 3, 4, 5, 6, 7, 8, 11, 12, 13, 14
+  - Nike: Kobe 4/5/6 Protro, Air Penny 1/2, Air More Uptempo, Zoom Generation, Air Force 1
+  - Reebok: Shaq Attaq, Pump Omni Lite, Question Mid, Answer IV, Engine A
+  - Converse: Chuck Taylor, Weapon
+  - Adidas: Forum 84 · Puma: Clyde · Nike: Foamposite One
+- **Chips de colección** en sidebar catálogo: Outdoor / Más ligeras / 🏅 Retro
+- **Blog artículo 10**: "Mejores zapatillas retro para jugar 2025"
+- **SEO page**: `/zapatillas-baloncesto-retro` — 29 retros, FAQs, guide
+- **214 páginas** en producción (sesión 8: 212)
+
+### ✅ Completado (sesiones anteriores)
 - Web live en `canchazapa.com` con SSL
 - Dominio registrado en GoDaddy, DNS apuntando a Vercel
 - Google Search Console verificado + sitemap enviado
@@ -68,12 +80,15 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
   - ~15 zapas usan `/placeholder-shoe.svg` (modelos sin imagen conocida)
 
 ### 🟡 Pendiente
-- **Awin**: esperar aprobaciones pendientes → El Corte Inglés (EPC €13.99, prioritario), Foot Locker, JD Sports, adidas, Sprinter, Zalando, Reebok
-- **Imágenes faltantes**: jordan-super-fly-10, nike-kd-19, puma-mb-06 (no lanzada hasta Q3 2026)
-- **Recordatorio diario**: recordatorio automático configurado para actualizar precios Amazon ES y JD Sports manualmente (scrapers fallan por bot detection)
-- **Precios reales**: precios son editoriales, no scrapeados
+- **Awin**: esperar aprobaciones → El Corte Inglés (EPC €13.99, prioritario), Foot Locker, JD Sports, adidas, Sprinter, Zalando, Reebok
 - **StockX Impact Radius**: pendiente aplicar
 - **Puma EU CJ Affiliate**: pendiente aprobación
+- **Precios reales**: precios son editoriales, no scrapeados
+- **Recordatorio diario**: configurado para Amazon ES y JD Sports manual
+- **Imágenes placeholder** (19 zapas):
+  - No lanzadas aún: jordan-super-fly-10, nike-kd-19, puma-mb-06 (Q3 2026)
+  - Retros sin imagen en ballershoesdb: converse-weapon, nike-air-penny-1, adidas-forum-84, reebok-pump-omni-lite
+  - Modernas: ua-flow-breakthru-5, converse-shai-001, nike-giannis-immortality-5, adidas-exhibit-b, jordan-super-fly-8, adidas-trae-young-4, nike-gt-jump-3, nb-two-wxy-v6, adidas-ownthegame-2, ua-assert-10, nike-kobe-9-low-protro, decathlon-tarmak-voltzy-500
 
 ---
 
@@ -283,15 +298,20 @@ sk-or-v1-[REDACTED — ver ~/.openclaw/openclaw.json]
 Último push: 2026-05-26 (sesión 8)
 Web live: canchazapa.com ✅
 
-## Blog artículos (8)
+## Blog artículos (10)
 1. Cómo elegir zapatillas de baloncesto (Guía)
 2. AE 3 vs Ja 3 — guards 2025 (Comparativa)
 3. Air Jordan 40 análisis (Análisis)
-4. Mejores zapatillas para pívots 2025-2026 (Guía) — con Mike/OpenRouter
-5. Mejores zapatillas outdoor 2025 (Guía) — con Mike/OpenRouter
-6. Zapatillas pie ancho 2025 (Guía) — con Mike/OpenRouter
-7. Zapatillas para tobillo/esguince 2025 (Guía) — con Mike/OpenRouter
-8. GT Cut 4 vs Curry 13 vs ANTA Kai 2 — explosivos (Comparativa) — con Mike/OpenRouter
+4. Mejores zapatillas para pívots 2025-2026 (Guía)
+5. Mejores zapatillas outdoor 2025 (Guía)
+6. Zapatillas pie ancho 2025 (Guía)
+7. Zapatillas para tobillo/esguince 2025 (Guía)
+8. GT Cut 4 vs Curry 13 vs ANTA Kai 2 — explosivos (Comparativa)
+9. Mejores zapatillas baratas 2025 (Guía)
+10. Mejores zapatillas retro para jugar 2025 (Guía) ← sesión 9
+
+## SEO pages (26)
+- Todas las anteriores + `/zapatillas-baloncesto-retro` ← sesión 9
 
 ## Nuevas zapas sesión 7
 - `nike-kobe-9-high-protro` — Kobe signature, high-top, Zoom Air, 199€

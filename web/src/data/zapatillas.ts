@@ -3552,7 +3552,7 @@ const _rawZapatillas: Zapatilla[] = [
       "No tan explosiva como la AE 2 o GT Cut 4",
     ],
     veredicto: "Para el jugador que quiere algo diferente y equilibrado. La Engine A no lidera en ninguna categoría concreta pero es sólida en todo â€” y el rubber grueso la hace viable para exterior. Un regreso de Reebok que merece ser tomado en serio.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/reebok-engine-a.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/reebok-engine-a/" },
