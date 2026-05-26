@@ -5,7 +5,7 @@
 import Base from "../../layouts/Base.astro";
 import "../../styles/cancha-redesign.css";
 import { zapatillas } from "../../data/zapatillas";
-import { findMejorPrecio } from "../../lib/scoring";
+import { findMejorPrecio, COMISIONES_TIENDA } from "../../lib/scoring";
 import PriceAlert from "../../components/PriceAlert.astro";
 
 export async function getStaticPaths() {
@@ -63,9 +63,15 @@ const relacionadas = zapatillas
   .sort((a, b) => Object.values(b.puntuaciones).reduce((s, v) => s + v, 0) - Object.values(a.puntuaciones).reduce((s, v) => s + v, 0))
   .slice(0, 3);
 
+const PRECIO_TIE = 0.5;
 const linksOrdenados = [...z.links_compra]
   .filter(l => l.disponible)
-  .sort((a, b) => a.precio_actual - b.precio_actual);
+  .sort((a, b) => {
+    const diff = a.precio_actual - b.precio_actual;
+    if (Math.abs(diff) > PRECIO_TIE) return diff; // precio claramente distinto
+    // Empate (±0,50€) → priorizar mayor comisión
+    return (COMISIONES_TIENDA[b.tienda] ?? 0) - (COMISIONES_TIENDA[a.tienda] ?? 0);
+  });
 
 // Helper: cuánto hace que se verificó este precio
 function verifiedAgo(fecha: string | undefined): { label: string; color: string; fresh: boolean } {

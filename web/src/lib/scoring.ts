@@ -373,10 +373,13 @@ export function aplicarDiversidad(
  * Se usa para desempatar cuando dos tiendas tienen el mismo precio (±0,50 €).
  */
 export const COMISIONES_TIENDA: Record<string, number> = {
-  aliexpress: 8,
-  kickscrew: 7,
-  basket_world: 7,
-  puma_es: 6,
+  // Tasas reales aproximadas (mayo 2026)
+  aliexpress: 7,        // AliExpress Portals ~4-9%, media ~7%
+  decathlon: 6,         // Awin Decathlon ES ~3-9%, media ~6%
+  snipes_eu: 5,         // Awin Snipes EU ~4.5-6%, media ~5%
+  kickscrew: 5,
+  basket_world: 5,
+  puma_es: 6,           // Puma EU CJ ~4.5-6%
   reebok_es: 6,
   ua_es: 5,
   nb_es: 5,
@@ -390,9 +393,8 @@ export const COMISIONES_TIENDA: Record<string, number> = {
   manelsanchez_es: 4,
   fuikaomar_es: 4,
   "24segons_es": 4,
-  amazon_es: 4,
-  idealo_es: 4,
-  decathlon: 3,
+  amazon_es: 3,         // Amazon ES zapas deportivas ~3%
+  idealo_es: 0,         // Sin afiliado directo
 };
 
 /** Umbral en EUR por debajo del cual dos precios se consideran "empate". */
