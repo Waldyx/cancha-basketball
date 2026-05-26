@@ -8594,13 +8594,13 @@ const _rawZapatillas: Zapatilla[] = [
     slug: "jordan-xxxix",
     marca: "Jordan",
     modelo: "XXXIX",
-    año_lanzamiento: 2025,
+    año_lanzamiento: 2024,
     genero: "unisex",
-    tecnologia_clave: ["Zoom Air", "React foam", "Herringbone traction"],
+    tecnologia_clave: ["Full-length ZoomX foam", "Full-length Air Zoom", "Herringbone traction"],
     predecesor_id: "jordan-xxxviii",
     sucesor_id: null,
 
-    peso_real_g: 340,
+    peso_real_g: 335,
     altura: "mid",
     horma: "normal",
     drop_mm: 8,
@@ -8609,8 +8609,8 @@ const _rawZapatillas: Zapatilla[] = [
 
     puntuaciones: {
       traccion: 9,
-      amortiguacion: 8,
-      respuesta: 8,
+      amortiguacion: 9,
+      respuesta: 9,
       soporte_lateral: 7,
       estabilidad: 7,
       peso_score: 7,
@@ -8618,11 +8618,11 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["2025", "jordan", "mid-top", "zoom-air", "react", "signature"],
+    tags: ["2024", "jordan", "mid-top", "zoomx", "air-zoom", "signature", "paolo-banchero"],
 
     ideal_para: {
       posiciones: ["escolta", "alero", "ala-pivot"],
-      peso_jugador_kg: [70, 100],
+      peso_jugador_kg: [70, 105],
       estilos: ["equilibrado", "explosivo"],
     },
     no_recomendada_para: {
@@ -8631,99 +8631,34 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Air Jordan 39 es la última firma de Jordan Brand para 2025, combinando una unidad Zoom Air en el antepié con espuma React en el talón para una amortiguación reactiva y ligera. Su parte superior de malla reforzada ofrece soporte y ventilación óptimos para escoltas y aleros que buscan versatilidad. La suela herringbone clásica mantiene la tracción excepcional de la línea XXXIX.",
+      "La Air Jordan XXXIX es la primera zapatilla de baloncesto con ZoomX de longitud completa + Air Zoom de longitud completa combinados — un hito en cushioning de Jordan Brand. Debutada por Paolo Banchero en los playoffs 2024, ofrece un nivel de amortiguación sin precedentes en la línea Jordan sin sacrificar respuesta. La suela herringbone mantiene la tracción excelente de la línea.",
     pros: [
-      "Zoom Air + React — combinación reactiva para todo tipo de jugadores",
-      "Tracción herringbone de alto nivel en interior",
-      "Ligera para ser una mid-top",
-      "Diseño premium con materiales de primera",
+      "ZoomX full-length + Air Zoom full-length — el mejor cushion de la historia de Jordan Brand",
+      "Tracción herringbone elite en interior",
+      "Diseño premium — una de las mejor acabadas de 2024",
+      "Versátil para escoltas, aleros y ala-pívots",
     ],
     contras: [
-      "Precio elevado (210€)",
-      "No la mejor opción para outdoor — suela suave",
-      "No recomendada para pívots que necesitan más amortiguación",
+      "Precio muy elevado (200€+)",
+      "No apta para outdoor — suela suave ZoomX se desgasta rápido",
+      "No la mejor para pívots con mucho impacto",
     ],
     veredicto:
-      "La Air Jordan 39 consolida la línea performance de Jordan Brand en 2025. Si eres escolta o alero y buscas una zapatilla versátil con tecnología de primer nivel, es una de las mejores opciones del mercado. El precio es alto pero justificado por la tecnología.",
+      "La XXXIX es la cúspide de la tecnología Jordan en 2024. Si buscas el máximo cushion en una zapatilla Jordan sin renunciar a la tracción herringbone clásica, es la opción. Compite directamente con el LeBron 22 en amortiguación.",
 
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AirJordan39-Cropped-650x406.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/Air-Jordan-XXXIX-650x406.jpg",
     imagenes: [],
-    fuentes: [],
+    fuentes: ["https://about.nike.com/en/newsroom/releases/air-jordan-39-official-images", "https://ballershoesdb.com/shoes/air-jordan-39/"],
     ultima_actualizacion: "2026-05-26",
-    precio_msrp_eur: 210,
+    precio_msrp_eur: 200,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Air+Jordan+39+baloncesto&tag=canchazapa-21", precio_actual: 210, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-26" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=air+jordan+39", precio_actual: 210, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-26" },
     ],
   },
 
-  {
-    id: "adidas-ae-4",
-    slug: "adidas-ae-4",
-    marca: "Adidas",
-    modelo: "AE 4",
-    año_lanzamiento: 2025,
-    genero: "unisex",
-    tecnologia_clave: ["Lightstrike Pro", "Continental rubber", "Midsole wrap"],
-    predecesor_id: "adidas-ae-3",
-    sucesor_id: null,
 
-    peso_real_g: 315,
-    altura: "low",
-    horma: "normal",
-    drop_mm: 7,
-    tipo_cierre: "cordones",
-    material_superior: "knit",
 
-    puntuaciones: {
-      traccion: 9,
-      amortiguacion: 7,
-      respuesta: 9,
-      soporte_lateral: 6,
-      estabilidad: 7,
-      peso_score: 9,
-      durabilidad_outdoor: 7,
-      ventilacion: 9,
-    },
-    categoria_principal: "speed",
-    tags: ["2025", "adidas", "low-top", "lightstrike-pro", "continental", "guards", "anthony-edwards"],
-
-    ideal_para: {
-      posiciones: ["base", "escolta", "alero"],
-      peso_jugador_kg: [60, 90],
-      estilos: ["explosivo", "equilibrado"],
-    },
-    no_recomendada_para: {
-      posiciones: ["pivot"],
-      estilos: ["potente"],
-    },
-
-    resumen:
-      "La Adidas AE 4 es la cuarta firma de Anthony Edwards y la evolución natural de la exitosa AE 3. Con Lightstrike Pro mejorado y suela Continental, ofrece una tracción de primer nivel y una respuesta ultrarrápida para guards explosivos. Su diseño low-top y horma ajustada la hacen perfecta para jugadores que priorizan velocidad y court feel.",
-    pros: [
-      "Lightstrike Pro — la mejor espuma de Adidas en 2025",
-      "Suela Continental — tracción excepcional en interior",
-      "Ultraligera — entre las más ligeras del mercado",
-      "Respuesta reactiva para primer paso explosivo",
-    ],
-    contras: [
-      "Low-top — no apta para jugadores con historial de esguinces",
-      "Cushion moderado — no ideal para pívots o jugadores pesados",
-      "Precio premium (190€)",
-    ],
-    veredicto:
-      "Si la AE 3 ya era excelente, la AE 4 la supera en respuesta y ligereza manteniendo la tracción de referencia. Es la zapatilla ideal para bases y escoltas que quieren lo mejor de Adidas en 2025. Compite directamente con la Nike GT Cut 4.",
-
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasAE4-Cropped-650x406.jpg",
-    imagenes: [],
-    fuentes: [],
-    ultima_actualizacion: "2026-05-26",
-    precio_msrp_eur: 190,
-    links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Adidas+AE+4+Anthony+Edwards+baloncesto&tag=canchazapa-21", precio_actual: 190, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-26" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=adidas+ae+4", precio_actual: 190, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-26" },
-    ],
-  },
 
   {
     id: "puma-stewie-3",
@@ -8732,7 +8667,7 @@ const _rawZapatillas: Zapatilla[] = [
     modelo: "Stewie 3",
     año_lanzamiento: 2024,
     genero: "mujer",
-    tecnologia_clave: ["ProFoam", "Rubber outsole", "Herringbone traction"],
+    tecnologia_clave: ["Nitrofoam", "ProFoam+", "TPU shank plate", "Herringbone outsole"],
     predecesor_id: null,
     sucesor_id: null,
 
@@ -8741,7 +8676,7 @@ const _rawZapatillas: Zapatilla[] = [
     horma: "normal",
     drop_mm: 6,
     tipo_cierre: "cordones",
-    material_superior: "mesh",
+    material_superior: "woven mesh",
 
     puntuaciones: {
       traccion: 8,
@@ -8754,7 +8689,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "speed",
-    tags: ["2024", "puma", "low-top", "mujer", "breanna-stewart", "guards", "ligera"],
+    tags: ["2024", "puma", "low-top", "mujer", "breanna-stewart", "guards", "ligera", "nitrofoam"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -8767,165 +8702,29 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Puma Stewie 3 es la tercera firma de Breanna Stewart, diseñada para jugadoras explosivas y de ritmo rápido. ProFoam proporciona una amortiguación equilibrada mientras que la suela herringbone ofrece un agarre sólido en interior. La horma femenina adaptada y el peso ultra bajo la hacen perfecta para bases y escoltas que priorizan velocidad.",
+      "La Puma Stewie 3 es la tercera firma de Breanna Stewart (dos veces campeona WNBA). Combina Nitrofoam en el antepié con ProFoam+ en el talón y una placa de TPU para estabilidad torsional. Su upper de malla tejida es más transpirable que generaciones anteriores. Diseñada específicamente para la anatomía del pie femenino — no es un modelo masculino recoloreado.",
     pros: [
+      "Nitrofoam + ProFoam+ — la mejor combinación de Puma en una firma",
+      "Horma femenina real — superior al ajuste de modelos unisex",
       "Ultraligera (300g) — entre las más ligeras del mercado",
-      "Horma femenina específica — mejor ajuste para pie de mujer",
       "Tracción herringbone sólida en interior",
-      "Precio razonable para ser una firma",
     ],
     contras: [
-      "ProFoam básico — sin la respuesta del Nitro",
-      "No recomendada para jugadoras de alta envergadura",
+      "Cushion limitado para posiciones interiores",
       "Low-top — poca protección de tobillo",
+      "Disponibilidad en España más limitada que Nike o Adidas",
     ],
     veredicto:
-      "La Stewie 3 es la mejor opción de Puma para jugadoras de baloncesto en 2024-2025. Si eres base o escolta y buscas una zapatilla ligera con horma femenina real, es una de las pocas opciones del mercado específicamente diseñadas para la anatomía del pie femenino.",
+      "La Stewie 3 es una de las pocas zapatillas de baloncesto con diseño femenino real. Si juegas de base o escolta y quieres tecnología de primer nivel a 120€, es una de las mejores opciones del mercado en 2024-2025.",
 
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/PumaStewie3-Cropped-650x406.jpg",
+    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/Stewie3-Cropped.jpg",
     imagenes: [],
-    fuentes: [],
+    fuentes: ["https://weartesters.com/puma-stewie-3-review/", "https://ballershoesdb.com/shoes/puma-stewie-3/"],
     ultima_actualizacion: "2026-05-26",
-    precio_msrp_eur: 175,
+    precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Puma+Stewie+3+baloncesto+mujer&tag=canchazapa-21", precio_actual: 175, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-26" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=puma+stewie+3", precio_actual: 175, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-26" },
-    ],
-  },
-
-  {
-    id: "anta-kt-12",
-    slug: "anta-kt-12",
-    marca: "ANTA",
-    modelo: "KT 12",
-    año_lanzamiento: 2025,
-    genero: "unisex",
-    tecnologia_clave: ["BoostX foam", "Carbon fiber plate", "Rubber outsole"],
-    predecesor_id: "anta-kt-11",
-    sucesor_id: null,
-
-    peso_real_g: 340,
-    altura: "mid",
-    horma: "ancho",
-    drop_mm: 9,
-    tipo_cierre: "cordones",
-    material_superior: "mesh",
-
-    puntuaciones: {
-      traccion: 8,
-      amortiguacion: 8,
-      respuesta: 7,
-      soporte_lateral: 8,
-      estabilidad: 9,
-      peso_score: 7,
-      durabilidad_outdoor: 9,
-      ventilacion: 7,
-    },
-    categoria_principal: "balanced",
-    tags: ["2025", "anta", "mid-top", "klay-thompson", "boostx", "carbono", "pie-ancho"],
-
-    ideal_para: {
-      posiciones: ["alero", "ala-pivot", "pivot"],
-      peso_jugador_kg: [75, 115],
-      estilos: ["potente", "equilibrado"],
-    },
-    no_recomendada_para: {
-      posiciones: ["base"],
-      estilos: ["explosivo"],
-    },
-
-    resumen:
-      "La ANTA KT 12 es la 12ª firma de Klay Thompson y la más ambiciosa hasta la fecha. La tecnología BoostX combinada con una placa de fibra de carbono ofrece un rebote y estabilidad excepcionales para interiores y exteriores. La construcción robusta y la horma ancha la hacen perfecta para aleros y pívots con pie ancho. Relación calidad-precio imbatible frente a Nike o Adidas.",
-    pros: [
-      "BoostX + carbono — tecnología premium a precio de mid-range",
-      "Durabilidad outdoor 9/10 — la más durable de su rango",
-      "Horma ancha — ideal para pie ancho o jugadores corpulentos",
-      "Excelente estabilidad lateral para interiores",
-    ],
-    contras: [
-      "Disponibilidad limitada en España — buscar en Amazon o AliExpress",
-      "No apta para bases que buscan ligereza y velocidad",
-      "BoostX menos reactivo que el Lightstrike Pro o Zoom",
-    ],
-    veredicto:
-      "La KT 12 es una de las mejores zapatillas chinas de 2025. Si eres alero o ala-pivot con pie ancho y quieres tecnología premium sin pagar precios Nike, esta es tu zapatilla. La disponibilidad en España puede ser un problema — Amazon suele tener stock.",
-
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/ANTAKT12-Cropped-650x406.jpg",
-    imagenes: [],
-    fuentes: [],
-    ultima_actualizacion: "2026-05-26",
-    precio_msrp_eur: 160,
-    links_compra: [
-      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_ANTAKT12", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-26" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=ANTA+KT+12+baloncesto&tag=canchazapa-21", precio_actual: 165, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-26" },
-    ],
-  },
-
-  {
-    id: "nb-two-wxy-v7",
-    slug: "nb-two-wxy-v7",
-    marca: "New Balance",
-    modelo: "TWO WXY v7",
-    año_lanzamiento: 2024,
-    genero: "unisex",
-    tecnologia_clave: ["FreshFoam X", "Herringbone rubber", "TPU support"],
-    predecesor_id: "nb-two-wxy-v6",
-    sucesor_id: null,
-
-    peso_real_g: 330,
-    altura: "mid",
-    horma: "normal",
-    drop_mm: 8,
-    tipo_cierre: "cordones",
-    material_superior: "mesh",
-
-    puntuaciones: {
-      traccion: 9,
-      amortiguacion: 7,
-      respuesta: 8,
-      soporte_lateral: 7,
-      estabilidad: 7,
-      peso_score: 7,
-      durabilidad_outdoor: 7,
-      ventilacion: 8,
-    },
-    categoria_principal: "balanced",
-    tags: ["2024", "new-balance", "mid-top", "freshfoam-x", "versatil"],
-
-    ideal_para: {
-      posiciones: ["base", "escolta", "alero", "ala-pivot"],
-      peso_jugador_kg: [65, 100],
-      estilos: ["equilibrado", "explosivo"],
-    },
-    no_recomendada_para: {
-      posiciones: ["pivot"],
-      estilos: [],
-    },
-
-    resumen:
-      "La New Balance TWO WXY v7 refina la fórmula de su predecesora con una nueva versión mejorada de FreshFoam X que ofrece mayor rebote y una suela de goma herringbone con adherencia excepcional. El soporte medio con refuerzos de TPU en el lateral la hace versátil para múltiples posiciones. Una de las mejores opciones de New Balance para 2024.",
-    pros: [
-      "FreshFoam X — la espuma más avanzada de New Balance",
-      "Tracción herringbone de alto nivel en interior",
-      "Versatilidad — funciona para casi todas las posiciones",
-      "Build quality excepcional de New Balance",
-    ],
-    contras: [
-      "Precio alto (185€) para una marca menos conocida en baloncesto",
-      "No la mejor para pívots — falta amortiguación para jugadores muy pesados",
-      "Disponibilidad limitada en España",
-    ],
-    veredicto:
-      "La TWO WXY v7 es la prueba de que New Balance sabe hacer baloncesto. Si buscas una alternativa de calidad a Nike y Adidas con excelente tracción y build quality premium, esta es tu zapatilla. El precio es alto pero justificado.",
-
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NewBalanceTWO_WXYv7-Cropped-650x406.jpg",
-    imagenes: [],
-    fuentes: [],
-    ultima_actualizacion: "2026-05-26",
-    precio_msrp_eur: 185,
-    links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=New+Balance+TWO+WXY+v7+baloncesto&tag=canchazapa-21", precio_actual: 185, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-26" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=new+balance+two+wxy+v7", precio_actual: 185, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-26" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Puma+Stewie+3+baloncesto&tag=canchazapa-21", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-26" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=puma+stewie+3", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-26" },
     ],
   },
 
