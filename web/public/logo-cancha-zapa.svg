@@ -1,50 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <!-- Fondo negro -->
-  <rect width="400" height="400" fill="#09090b"/>
+  <rect width="400" height="400" rx="40" fill="#09090b"/>
+  <!-- Borde naranja -->
+  <rect width="400" height="400" rx="40" fill="none" stroke="#f97316" stroke-width="14"/>
 
-  <!-- Líneas de cancha sutiles -->
-  <rect x="30" y="30" width="340" height="340" fill="none" stroke="#1a1a1e" stroke-width="2"/>
-  <line x1="200" y1="30" x2="200" y2="370" stroke="#1a1a1e" stroke-width="1.5"/>
-  <circle cx="200" cy="200" r="60" fill="none" stroke="#1a1a1e" stroke-width="1.5"/>
+  <!-- CZ grande centrado -->
+  <text x="200" y="220" font-family="'Barlow Condensed',Arial Narrow,sans-serif" font-weight="900" font-size="200" fill="#ffffff" text-anchor="middle" letter-spacing="-8">CZ</text>
 
-  <!-- Línea naranja decorativa -->
-  <rect x="0" y="6" width="400" height="5" fill="#f97316"/>
+  <!-- Punto naranja -->
+  <circle cx="200" cy="300" r="18" fill="#f97316"/>
 
-  <!-- CANCHA -->
-  <text
-    x="200"
-    y="185"
-    font-family="'Barlow Condensed', Arial Narrow, sans-serif"
-    font-weight="900"
-    font-size="88"
-    fill="#ffffff"
-    text-anchor="middle"
-    letter-spacing="-2"
-    text-transform="uppercase"
-  >CANCHA</text>
-
-  <!-- Punto naranja + ZAPA en la misma línea -->
-  <text
-    x="178"
-    y="260"
-    font-family="'Barlow Condensed', Arial Narrow, sans-serif"
-    font-weight="900"
-    font-size="88"
-    fill="#f97316"
-    text-anchor="middle"
-    letter-spacing="-2"
-  >.</text>
-  <text
-    x="272"
-    y="260"
-    font-family="'Barlow Condensed', Arial Narrow, sans-serif"
-    font-weight="900"
-    font-size="88"
-    fill="#ffffff"
-    text-anchor="middle"
-    letter-spacing="-2"
-  >ZAPA</text>
-
-  <!-- Línea naranja inferior -->
-  <rect x="0" y="389" width="400" height="5" fill="#f97316"/>
+  <!-- CANCHA.ZAPA pequeño debajo -->
+  <text x="200" y="360" font-family="'Barlow Condensed',Arial Narrow,sans-serif" font-weight="700" font-size="36" fill="#52525b" text-anchor="middle" letter-spacing="8">CANCHA.ZAPA</text>
 </svg>
