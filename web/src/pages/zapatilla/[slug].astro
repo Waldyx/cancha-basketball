@@ -182,6 +182,16 @@ const productJsonLd = {
       </div>
     </nav>
 
+    {/* RETRO BANNER */}
+    {z.es_retro && (
+      <div style="background:#1c1007;border-bottom:1px solid #b45309;padding:10px 0">
+        <div class="shell" style="display:flex;align-items:center;gap:12px;font-size:13px;color:#fde68a">
+          <span style="font-size:20px">🏅</span>
+          <span><strong>Zapatilla histórica</strong> — Las puntuaciones reflejan rendimiento técnico con tecnología de su época, no valor de colección. No aparece en el quiz de recomendación.</span>
+        </div>
+      </div>
+    )}
+
     {/* HERO */}
     <section class="cz-detail-hero" style={`--cat:${cat}`}>
       <div class="shell">
@@ -190,7 +200,10 @@ const productJsonLd = {
           <div class="dh-photo">
             <div class="dh-photo-frame">
               <span class="dh-cat-badge">{CAT_LABELS[z.categoria_principal]}</span>
-              {z.año_lanzamiento >= 2025 && <span class="dh-new-badge">★ Nueva {z.año_lanzamiento}</span>}
+              {z.es_retro
+                ? <span class="dh-new-badge" style="background:#b45309;color:#fef3c7">🏅 Retro · {z.año_lanzamiento}</span>
+                : z.año_lanzamiento >= 2025 && <span class="dh-new-badge">★ Nueva {z.año_lanzamiento}</span>
+              }
               {z.imagen_principal && !z.imagen_principal.includes('placeholder') && (
                 <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`}
                      onerror="this.style.display='none'" />

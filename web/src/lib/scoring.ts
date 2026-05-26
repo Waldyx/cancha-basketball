@@ -205,6 +205,9 @@ export function aplicarFiltrosDuros(
   respuestas: RespuestasQuiz
 ): Zapatilla[] {
   return zapatillas.filter((z) => {
+    // Excluir zapatillas retro/históricas del quiz
+    if (z.es_retro) return false;
+
     // Presupuesto: si tiene tope, el precio mínimo disponible debe encajar
     // Usamos != null (loose) para cubrir tanto null como undefined
     if (respuestas.presupuesto_max_eur != null) {

@@ -187,6 +187,10 @@ export interface Zapatilla {
   /** Fecha ISO (YYYY-MM-DD). */
   ultima_actualizacion: string;
 
+  // Retro / histórica
+  /** Si true: excluida del quiz, badge "Retro" en catálogo. */
+  es_retro?: boolean;
+
   // Precios
   precio_msrp_eur: number;
   links_compra: LinkCompra[];

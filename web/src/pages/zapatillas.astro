@@ -214,6 +214,7 @@ const ordenadas = [...zapatillas].sort(
             <label class="row"><input type="checkbox" id="only-new"/><span>Nuevas (2026)</span></label>
             <label class="row"><input type="checkbox" id="only-verified"/><span>Precio verificado</span></label>
             <label class="row"><input type="checkbox" id="only-outdoor"/><span>Aguanta outdoor</span></label>
+            <label class="row"><input type="checkbox" id="only-retro"/><span>🏅 Solo retros</span></label>
           </section>
 
           <button class="clear-btn" id="clear-filters">↻ Limpiar filtros</button>
@@ -295,10 +296,14 @@ const ordenadas = [...zapatillas].sort(
                   data-posicion={z.ideal_para.posiciones.join(",")}
                   data-outdoor={z.puntuaciones.durabilidad_outdoor >= 7 ? "true" : "false"}
                   data-verified={mejor ? "true" : "false"}
+                  data-retro={z.es_retro ? "true" : "false"}
                 >
                   <div class="photo">
                     <span class="cat-badge">{CAT_LABELS[z.categoria_principal]}</span>
-                    {isNew && <span class="new-badge">★ Nueva</span>}
+                    {z.es_retro
+                      ? <span class="new-badge" style="background:#b45309;color:#fef3c7">🏅 Retro</span>
+                      : isNew && <span class="new-badge">★ Nueva</span>
+                    }
                     <span class={`cz-score-pill ${scClass} score-pill`}>{score}</span>
                     {z.imagen_principal && !z.imagen_principal.includes('placeholder') && (
                       <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} loading="lazy"
@@ -376,11 +381,12 @@ const ordenadas = [...zapatillas].sort(
       soloNuevas: boolean;
       soloVerificado: boolean;
       soloOutdoor: boolean;
+      soloRetro: boolean;
     };
     const filters: Filters = {
       q: "", marcas: new Set(), categorias: new Set(), alturas: new Set(),
       posiciones: new Set(), precioMax: 250,
-      soloNuevas: false, soloVerificado: false, soloOutdoor: false,
+      soloNuevas: false, soloVerificado: false, soloOutdoor: false, soloRetro: false,
     };
     let sortMode = "precio-asc";
 
@@ -403,6 +409,7 @@ const ordenadas = [...zapatillas].sort(
       if (filters.soloNuevas) out.push({ k: "new", lab: "Nuevas 2025", remove: () => { filters.soloNuevas = false; (document.getElementById("only-new") as HTMLInputElement).checked = false; apply(); refreshUI(); } });
       if (filters.soloVerificado) out.push({ k: "ver", lab: "Verificado", remove: () => { filters.soloVerificado = false; (document.getElementById("only-verified") as HTMLInputElement).checked = false; apply(); refreshUI(); } });
       if (filters.soloOutdoor) out.push({ k: "out", lab: "Outdoor", remove: () => { filters.soloOutdoor = false; (document.getElementById("only-outdoor") as HTMLInputElement).checked = false; apply(); refreshUI(); } });
+      if (filters.soloRetro) out.push({ k: "retro", lab: "🏅 Retros", remove: () => { filters.soloRetro = false; (document.getElementById("only-retro") as HTMLInputElement).checked = false; apply(); refreshUI(); } });
       if (filters.q) out.push({ k: "q", lab: `“${filters.q}”`, remove: () => { filters.q = ""; (document.getElementById("search") as HTMLInputElement).value = ""; apply(); refreshUI(); } });
       return out;
     }
@@ -450,6 +457,7 @@ const ordenadas = [...zapatillas].sort(
         const pos = (c.dataset.posicion || "").split(",");
         const outdoor = c.dataset.outdoor === "true";
         const verified = c.dataset.verified === "true";
+        const retro = c.dataset.retro === "true";
 
         let ok = true;
         if (filters.marcas.size && !filters.marcas.has(marca)) ok = false;
@@ -460,6 +468,7 @@ const ordenadas = [...zapatillas].sort(
         if (filters.soloNuevas && año < 2025) ok = false;
         if (filters.soloVerificado && !verified) ok = false;
         if (filters.soloOutdoor && !outdoor) ok = false;
+        if (filters.soloRetro && !retro) ok = false;
         if (filters.q && !nombre.includes(filters.q.toLowerCase())) ok = false;
 
         c.classList.toggle("hidden", !ok);
@@ -468,7 +477,7 @@ const ordenadas = [...zapatillas].sort(
       $cards.forEach(c => card(c));
 
       // Hide pick when any filter is on (it's not filterable)
-      const filtering = filters.marcas.size + filters.categorias.size + filters.alturas.size + filters.posiciones.size + (filters.precioMax < 250 ? 1 : 0) + (filters.soloNuevas?1:0) + (filters.soloVerificado?1:0) + (filters.soloOutdoor?1:0) + (filters.q?1:0);
+      const filtering = filters.marcas.size + filters.categorias.size + filters.alturas.size + filters.posiciones.size + (filters.precioMax < 250 ? 1 : 0) + (filters.soloNuevas?1:0) + (filters.soloVerificado?1:0) + (filters.soloOutdoor?1:0) + (filters.soloRetro?1:0) + (filters.q?1:0);
       if ($pick) $pick.classList.toggle("hidden", filtering > 0);
 
       // Sort
@@ -529,18 +538,19 @@ const ordenadas = [...zapatillas].sort(
       $rangeLabel.textContent = filters.precioMax >= 250 ? "sin tope" : `${filters.precioMax}€`;
       apply(); refreshUI();
     });
-    ["only-new","only-verified","only-outdoor"].forEach((id, i) => {
+    ["only-new","only-verified","only-outdoor","only-retro"].forEach((id, i) => {
       const cb = document.getElementById(id) as HTMLInputElement;
       cb.addEventListener("change", () => {
         if (i === 0) filters.soloNuevas = cb.checked;
         if (i === 1) filters.soloVerificado = cb.checked;
         if (i === 2) filters.soloOutdoor = cb.checked;
+        if (i === 3) filters.soloRetro = cb.checked;
         apply(); refreshUI();
       });
     });
     document.getElementById("clear-filters")!.addEventListener("click", () => {
       filters.marcas.clear(); filters.categorias.clear(); filters.alturas.clear(); filters.posiciones.clear();
-      filters.precioMax = 250; filters.soloNuevas = false; filters.soloVerificado = false; filters.soloOutdoor = false;
+      filters.precioMax = 250; filters.soloNuevas = false; filters.soloVerificado = false; filters.soloOutdoor = false; filters.soloRetro = false;
       filters.q = "";
       document.querySelectorAll<HTMLInputElement>("input[type=checkbox]").forEach(cb => cb.checked = false);
       $range.value = "250"; $rangeLabel.textContent = "sin tope";
