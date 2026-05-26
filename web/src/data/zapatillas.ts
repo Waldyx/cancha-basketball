@@ -369,7 +369,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si eres base o escolta técnico, buscas respuesta y tracción, y no tienes problemas de tobillo, es una de las mejores compras del año. Para tobillos delicados o juego potente, busca otra opción.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/anta-kai-1-speed.jpg",
     imagenes: [],
 
     fuentes: [
@@ -8280,7 +8280,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La mejor propuesta de Curry Brand en 2025 para bases explosivos. Si tu prioridad es un primer paso rápido, tracción fiable y lockdown excepcional, la D. Fox 2 compite directamente con la Nike Ja 3 y la AE 3. Para pies anchos o jugadores grandes, mejor mirar otra opción.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/ua-d-fox-2.jpg",
     imagenes: [],
 
     fuentes: [
@@ -8358,7 +8358,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La mejor Kobe Protro para jugadores que necesitan protección de tobillo. Aleros y ala-pívots con historial de esguinces encontrarán aquí un equilibrio excepcional entre estética retro y rendimiento moderno.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-kobe-9-high-protro.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-kobe-9-high-protro-performance-review/" },
@@ -8582,7 +8582,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La opción de Adidas para quien busca una zapatilla fiable por debajo de 80€ con buena durabilidad outdoor. No es para alto rendimiento — para eso mira la AE 3 o Dame X. Pero para recreativo casual en interior y exterior, cumple bien.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/adidas-pro-vision.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-26",
