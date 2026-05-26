@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-05-26 (sesión 7)
+> Última actualización: 2026-05-26 (sesión 8)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -29,7 +29,7 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 
 ---
 
-## Estado actual (sesión 7)
+## Estado actual (sesión 8)
 
 ### ✅ Completado
 - Web live en `canchazapa.com` con SSL
@@ -37,7 +37,6 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 - Google Search Console verificado + sitemap enviado
 - Plausible Analytics configurado (dominio: `canchazapa.com`)
 - Amazon Afiliados activo — **ID: `canchazapa-21`**, 73 links actualizados con tag
-- Awin solicitado (pendiente aprobación)
 - AliExpress Portals ✅ activo — 13 links con tracking `default`
 - Política de privacidad en `/privacidad`
 - SEO mejorado: títulos, descriptions, JSON-LD Product en fichas
@@ -45,25 +44,36 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 - Breadcrumbs visuales en fichas de zapatilla
 - Sección "Comprar ahora" con botones (Sprinter, Foot Locker, Amazon) en fichas
 - Plausible tracking en clicks de afiliado ("Affiliate Click")
-- Nav simplificado: solo Rankings | Catálogo | Quiz | ♥ Mis zapas
+- Nav reordenado: **Quiz | Rankings | Catálogo | ♥ Mis zapas** (quiz primero)
 - Footer global unificado en todas las páginas (FAQ | Metodología | Financiación | Privacidad)
-- Footers custom eliminados de todas las páginas internas
 - Jordan Brand → Jordan (unificado)
-- **Imágenes**: ✅ 112 URLs `/shoes/` locales reemplazadas por URLs reales (ballershoesdb.com, wowsole.com) — `fix-images.js`
-- **Encoding**: ✅ 1204 secuencias doble-encoding (Ã¡→á, â€"→—, etc.) corregidas — `fix-encoding.js`
-- **AliExpress**: 13 zapas de marcas chinas (Anta, Li-Ning, Peak) con links a AliExpress
-- **Nuevas zapas 2025** (sesión 6): Nike KD 19, Air Jordan 40, Adidas Dame X, UA D. Fox 2
-- **Nuevas zapas 2025** (sesión 7): Nike Kobe 9 High Protro, Jordan Super Fly 10, Puma MB.06, Adidas Pro Vision → **catálogo: 138 modelos**
-- **Blog**: `/blog` con **8 artículos** editoriales (guías, comparativas, análisis) — 5 generados con Mike/OpenRouter
+- **Encoding**: ✅ 1204 secuencias doble-encoding (Ã¡→á, â€"→—, etc.) corregidas
+- **AliExpress**: 13 zapas de marcas chinas (Anta, Li-Ning, Peak) con links
+- **Blog**: `/blog` con **8 artículos** editoriales — 5 generados con Mike/OpenRouter
 - **SEO pages**: 25 páginas (añadidas: UA, Puma, Mujer, Junior, Mejores 2025)
-- **FAQ**: ampliada de 8 → **20 preguntas** (posiciones, outdoor, presupuesto, tallas, durabilidad, tobillo, Amazon, mujer/hombre, etc.)
-- **Quiz**: recency bonus 2025+, sort por precio cuando prioridad=precio, contador de matches en resultados
+- **FAQ**: ampliada de 8 → 20 preguntas
+- **Quiz**: recency bonus 2025+, sort por precio cuando prioridad=precio
+- **Vercel Root Directory**: arreglado a `web` (era `./`, causaba todos los deploy failures)
+- **Logo CANCHA.ZAPA**: creado `/public/logo-cancha-zapa.svg` (400×400, para Awin profile)
+- **Favicon**: rediseñado `/public/favicon.svg` (CZ minimalista, legible a 16px)
+- **Awin Publisher ID 2908587**: ✅ cuenta activa, varios programas aprobados:
+  - ✅ **Decathlon ES** (aid: 105405, ~6%)
+  - ✅ **Snipes EU** (aid: 122628, ~5%)
+  - ⏳ Pendientes: El Corte Inglés, Foot Locker, JD Sports, adidas, Sprinter, Zalando, Reebok
+- **Afiliado ordering**: tiendas ordenadas por comisión cuando precio igual (±€0.50)
+- **COMISIONES_TIENDA** actualizado en `scoring.ts` con rates 2026
+- **Imágenes**: ✅ 120/138 zapas con imagen local en `/public/shoes/`
+  - ballershoesdb bloqueaba hotlinking → imágenes descargadas localmente
+  - 3 zapas con placeholder (puma-mb-06 no lanzada, jordan-super-fly-10, nike-kd-19)
+  - ~15 zapas usan `/placeholder-shoe.svg` (modelos sin imagen conocida)
 
 ### 🟡 Pendiente
-- **Awin**: esperar aprobación → solicitar de golpe: Sprinter, Foot Locker, Zalando, JD Sports, Nike, Adidas, Puma, Decathlon
-- **AliExpress Portals**: ✅ completado — 13 links activos con tracking `default`
+- **Awin**: esperar aprobaciones pendientes → El Corte Inglés (EPC €13.99, prioritario), Foot Locker, JD Sports, adidas, Sprinter, Zalando, Reebok
+- **Imágenes faltantes**: jordan-super-fly-10, nike-kd-19, puma-mb-06 (no lanzada hasta Q3 2026)
+- **Recordatorio diario**: recordatorio automático configurado para actualizar precios Amazon ES y JD Sports manualmente (scrapers fallan por bot detection)
 - **Precios reales**: precios son editoriales, no scrapeados
-- **Plausible**: verificar que trackea visitas correctamente
+- **StockX Impact Radius**: pendiente aplicar
+- **Puma EU CJ Affiliate**: pendiente aprobación
 
 ---
 
@@ -114,19 +124,20 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 - **Cobro**: depósito directo en Banco Santander, mínimo 25€
 - **Estado**: ✅ 73 links actualizados con tag, `tiene_afiliado: true`
 
-### Awin ⏳ PENDIENTE APROBACIÓN
+### Awin ✅ ACTIVO — Publisher ID: 2908587
 - **Panel**: https://ui.awin.com
-- **Estado**: solicitado, esperando email
-- **Cuando aprueben — solicitar TODOS estos programas de golpe**:
-  - Sprinter ES
-  - Foot Locker ES
-  - Zalando ES (~4-6%, 30 días)
-  - JD Sports ES (~5%, 30 días)
-  - Nike.com ES (~7%, 30 días)
-  - Adidas.es (~8%, 30 días)
-  - Puma ES (~7%, 30 días)
-  - Decathlon ES (~3-9%, 30 días)
-- Si no hay respuesta en unos días, escribir a: global-approvals@awin.com
+- **Programas aprobados**:
+  - ✅ **Decathlon ES** — aid: 105405, ~6%, formato Awin
+  - ✅ **Snipes EU** — aid: 122628, ~5%, formato Awin
+- **Programas pendientes** (ya solicitados):
+  - ⏳ El Corte Inglés (EPC €13.99 — prioritario)
+  - ⏳ Foot Locker ES
+  - ⏳ JD Sports ES (~5%)
+  - ⏳ adidas ES (~8%)
+  - ⏳ Sprinter ES
+  - ⏳ Zalando ES (~4-6%)
+  - ⏳ Reebok ES (~6%)
+- **Formato link Awin**: `https://www.awin1.com/cread.php?awinmid=AIDID&awinaffid=2908587&ued=URL_ENCODED_URL`
 
 ### AliExpress Portals ✅ ACTIVO
 - **Panel**: https://portals.aliexpress.com
@@ -174,7 +185,7 @@ Importado en `web/src/styles/global.css` → disponible en TODAS las páginas.
 
 ### Nav orden (todas las páginas)
 ```
-Rankings | Catálogo | Quiz | ♥ Mis zapas
+Quiz | Rankings | Catálogo | ♥ Mis zapas
 ```
 
 ### Footer global (Base.astro)
@@ -194,11 +205,16 @@ FAQ | Metodología | Financiación | Privacidad
 - `https://d3pnpe87i1fkwu.cloudfront.net/` — algunas Nike
 
 ### Estado
-- ✅ 138 zapas con imagen real
-- ✅ 0 rutas `/shoes/` locales — todas reemplazadas por URLs externas reales
-- `jordan-super-fly-10` → corregido a `jordan-super-fly-8`
-- `nike-pg-7` → eliminado (modelo no existe)
-- Script `fix-images.js` en raíz del repo para futuras correcciones masivas de imágenes
+- ✅ 120/138 zapas con imagen local `/shoes/{slug}.ext`
+- ⚠️ ballershoesdb.com bloquea hotlinking desde canchazapa.com (403) → imágenes descargadas localmente
+- ❌ 3 zapas con placeholder (no tienen imagen): `puma-mb-06` (no lanzada), `jordan-super-fly-10`, `nike-kd-19`
+- ~15 zapas con `/placeholder-shoe.svg` (sin imagen conocida)
+- Script `update-images.js` en raíz del repo para migrar URLs externas → locales
+
+### Cómo añadir imagen nueva
+1. Buscar imagen en ballershoesdb.com o weartesters.com (sin Referer header)
+2. Descargar a `web/public/shoes/{slug}.jpg`
+3. Actualizar `imagen_principal` en `zapatillas.ts` a `/shoes/{slug}.jpg`
 
 ---
 
@@ -264,7 +280,7 @@ sk-or-v1-[REDACTED — ver ~/.openclaw/openclaw.json]
 
 ---
 
-Último push: 2026-05-26 (sesión 7)
+Último push: 2026-05-26 (sesión 8)
 Web live: canchazapa.com ✅
 
 ## Blog artículos (8)
@@ -284,8 +300,17 @@ Web live: canchazapa.com ✅
 - `adidas-pro-vision` — budget mid-top, Cloudfoam, outdoor, 74€
 
 ## Scripts de mantenimiento
-- `fix-images.js` — reemplaza rutas `/shoes/` locales por URLs externas reales
+- `update-images.js` — migra URLs externas de `imagen_principal` a rutas `/shoes/` locales (usar cuando se añadan imágenes nuevas a `web/public/shoes/`)
 - `fix-encoding.js` — corrige doble-encoding UTF-8/Latin-1 en zapatillas.ts
+
+## Tiendas y comisiones (COMISIONES_TIENDA en scoring.ts)
+```
+aliexpress: 7%    decathlon: 6%    snipes_eu: 5%    puma_es: 6%
+reebok_es: 6%     ua_es/nb_es/nike_es/adidas_es/jd_sports_es/zalando_es/sprinter_es: 5%
+basket_world/kickscrew: 5%    footlocker_es/basket4ballers_es/manelsanchez_es/fuikaomar_es: 4%
+amazon_es: 3%     idealo_es: 0%
+```
+Ordenación: precio primero, desempate por comisión dentro de ±€0.50
 
 ## Calling Mike (OpenRouter) desde PowerShell
 ```powershell
