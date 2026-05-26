@@ -68,7 +68,8 @@ export type Tienda =
   | "manelsanchez_es"
   | "fuikaomar_es"
   | "24segons_es"
-  | "idealo_es";
+  | "idealo_es"
+  | "snipes_eu";
 
 export type FuenteReview =
   | "weartesters"
