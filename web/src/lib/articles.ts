@@ -17,6 +17,7 @@ export interface Article {
   heroTitle: string;
   heroSubtitle: string;
   body: string; // HTML seguro (sin XSS, contenido editorial nuestro)
+  imagen?: string; // URL imagen hero para OG y card
   // Para JSON-LD Article
   author: string;
   // SEO internal links sugeridos
@@ -781,6 +782,173 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <p class="art-outro">¿No tienes claro cuál de las tres encaja con tu perfil específico? <a href="/comparar?slugs=nike-gt-cut-4,ua-curry-13,anta-kai-2">Compáralas aquí con todos los atributos</a> o <a href="/quiz">haz el quiz</a> para obtener tu recomendación personalizada.</p>
+    `,
+  },
+
+  // ── 9. Guía baratas ──────────────────────────────────────────────────
+  {
+    slug: "mejores-zapatillas-baloncesto-baratas-2025",
+    title: "Mejores zapatillas de baloncesto baratas de 2025: las 8 mejores opciones por menos de 80€",
+    metaTitle: "Mejores zapatillas de baloncesto baratas 2025 (menos de 80€) | CANCHA.ZAPA",
+    description: "Descubre las 8 zapatillas de baloncesto con mejor relación calidad-precio de 2025, todas por menos de 80 €.",
+    fecha: "2025-05-20",
+    fechaLabel: "20 mayo 2025",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Guía editorial · CANCHA.ZAPA",
+    heroTitle: "Mejores zapatillas de baloncesto baratas",
+    heroSubtitle: "Las 8 mejores opciones por menos de 80€ en 2025",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-precision-8", "adidas-cross-em-up-select", "decathlon-tarmak-voltzy-500", "adidas-ownthegame-3", "ua-lockdown-7"],
+    relatedSeoPages: ["zapatillas-baratas", "zapatillas-junior"],
+    imagen: "https://ballershoesdb.com/wp-content/uploads/NikePrecision8-Cropped-650x406.jpg",
+    body: `
+<p class="art-intro">Encontrar una zapatilla de baloncesto que combine buen rendimiento, estilo y un precio asequible no es fácil, pero en 2025 el mercado español ofrece varias opciones por debajo de los 80 €. Aquí tienes un análisis de las ocho mejores alternativas para que puedas jugar sin vaciar tu cartera.</p>
+
+<h2>1. Nike Precision 8 — ~75 €</h2>
+<p>La <strong>Nike Precision 8</strong> sigue la línea de la popular Precision 7, pero con una construcción más ligera y una suela de goma de alta tracción. Su parte superior de malla transpirable mantiene los pies frescos durante todo el partido. La opción más versátil del rango: válida para interior y exterior sin sacrificar demasiado.</p>
+<ul>
+  <li>Tracción excelente en ambas superficies</li>
+  <li>Amortiguación básica pero funcional</li>
+  <li>Disponible en todas las tallas en Amazon ES</li>
+</ul>
+
+<h2>2. Adidas Cross-Em Up Select — ~60 €</h2>
+<p>Pensada para jugadores que buscan velocidad y control. El refuerzo de TPU en el talón aporta estabilidad sin añadir peso. La suela de goma Continental ofrece una tracción sorprendente para su precio.</p>
+<ul>
+  <li>Suela Continental — tracción de gama alta a precio bajo</li>
+  <li>Ligera y reactiva — ideal para guards</li>
+  <li>Una de las mejores opciones sub-65€ del mercado</li>
+</ul>
+
+<h2>3. Decathlon Tarmak Voltzy 500 — ~50 €</h2>
+<p>Decathlon ha mejorado su línea Tarmak con la Voltzy 500, que incorpora una entresuela de espuma EVA de densidad media y una malla reforzada. La sorpresa del año en términos de relación calidad-precio — supera en durabilidad outdoor a modelos que cuestan tres veces más.</p>
+<ul>
+  <li>Relación calidad-precio imbatible</li>
+  <li>Durabilidad outdoor destacable para su rango</li>
+  <li>Disponible en tiendas Decathlon con posibilidad de probar antes</li>
+</ul>
+
+<h2>4. Adidas OwnTheGame 3 — ~70 €</h2>
+<p>La tercera generación de la OwnTheGame mantiene la estética urbana-deportiva y añade una entresuela mejorada con mayor retorno de energía. Una de las zapas más cómodas de este rango para partidos largos.</p>
+<ul>
+  <li>Comodidad excepcional para uso prolongado</li>
+  <li>Diseño moderno que funciona dentro y fuera de la pista</li>
+  <li>Build quality típico de Adidas</li>
+</ul>
+
+<h2>5. Under Armour Lockdown 7 — ~65 €</h2>
+<p>Con una parte superior de malla y refuerzos sintéticos, la <strong>Lockdown 7</strong> ofrece una sensación de segunda piel y buen soporte lateral. La suela de goma con patrón multidireccional aguanta bien en parqué.</p>
+<ul>
+  <li>Gran estabilidad lateral para su rango de precio</li>
+  <li>Ajuste ceñido — ideal para pies normales o estrechos</li>
+  <li>La opción UA más accesible con buen rendimiento</li>
+</ul>
+
+<h2>6. Puma Playmaker Pro Mid — ~75 €</h2>
+<p>La Playmaker Pro Mid ofrece altura mid-top con soporte de tobillo y entresuela ProFoam. Buena opción para jugadores que necesitan protección extra sin disparar el presupuesto.</p>
+<ul>
+  <li>Mid-top — más soporte de tobillo que las low</li>
+  <li>ProFoam con cushion decente para el rango</li>
+  <li>Buena para jugadores con historial leve de esguinces</li>
+</ul>
+
+<h2>7. Nike Air Zoom Crossover 2 — ~75 €</h2>
+<p>Versión de entrada de la línea Zoom, con una cámara de aire básica en el antepié. Ofrece un paso por encima de la Precision 8 en amortiguación a un precio similar.</p>
+<ul>
+  <li>Zoom Air básico — notablemente mejor que espuma EVA estándar</li>
+  <li>Tracción sólida en interior</li>
+  <li>Buena horma — sirve para pie normal y ancho</li>
+</ul>
+
+<h2>8. Reebok Answer IV — ~70 €</h2>
+<p>Reebok revive el clásico de Allen Iverson con materiales modernizados. La suela de goma ofrece tracción y durabilidad, y el diseño retro es uno de los más llamativos de este rango.</p>
+<ul>
+  <li>Diseño icónico — el más estético de la lista</li>
+  <li>Tracción clásica herringbone — funciona bien en interior</li>
+  <li>Una zapatilla con historia real detrás</li>
+</ul>
+
+<h3>¿Cómo elegir la mejor opción para ti?</h3>
+<p>Al buscar zapatillas baratas, ten en cuenta tres factores: <strong>tracción</strong> (lo que más afecta al rendimiento), <strong>altura</strong> (low si juegas rápido, mid si tienes dudas con el tobillo) y <strong>disponibilidad</strong> (Decathlon es la única que puedes probar en tienda física antes de comprar).</p>
+
+<p>Si juegas en exterior: <a href="/zapatilla/decathlon-tarmak-voltzy-500">Tarmak Voltzy 500</a> o <a href="/zapatilla/nike-precision-8">Nike Precision 8</a>. Si juegas solo en interior: <a href="/zapatilla/adidas-cross-em-up-select">Cross-Em Up Select</a>. Si tienes problemas de tobillo: <a href="/zapatilla/puma-playmaker-pro-mid">Playmaker Pro Mid</a>.</p>
+
+<p class="art-outro">En 2025 no necesitas gastar más de 80€ para jugar bien. La Adidas Cross-Em Up Select, la Nike Precision 8 y la Tarmak Voltzy 500 cubren la mayoría de perfiles. ¿No sabes cuál es la tuya? <a href="/quiz">Haz el quiz en 60 segundos</a> y te damos la recomendación exacta para tu juego.</p>
+    `,
+  },
+
+  // ── 10. Comparativa marcas chinas ────────────────────────────────────
+  {
+    slug: "anta-lining-peak-zapatillas-chinas-baloncesto-2025",
+    title: "ANTA, Li-Ning y Peak en 2025: ¿merecen la pena las zapatillas chinas de baloncesto?",
+    metaTitle: "ANTA vs Li-Ning vs Peak: ¿merecen la pena las zapatillas chinas? 2025 | CANCHA.ZAPA",
+    description: "Analizamos si las zapatillas de baloncesto chinas de ANTA, Li-Ning y Peak ofrecen calidad y rendimiento real en 2025.",
+    fecha: "2025-06-01",
+    fechaLabel: "1 junio 2025",
+    categoria: "Comparativas",
+    readMinutes: 7,
+    eyebrow: "★ Comparativa · CANCHA.ZAPA",
+    heroTitle: "ANTA, Li-Ning y Peak en 2025",
+    heroSubtitle: "¿Merecen la pena las zapatillas chinas de baloncesto?",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["anta-kai-2", "anta-kt-11", "lining-wow-allcity-13", "lining-sonic-12", "peak-taichi-flash"],
+    relatedSeoPages: ["zapatillas-baratas", "zapatillas-premium"],
+    imagen: "https://wowsole.com/wp-content/uploads/2024/01/ANTA-Kai-2-01.jpg",
+    body: `
+<p class="art-intro">En los últimos años, ANTA, Li-Ning y Peak han pasado de ser marcas desconocidas en España a tener presencia real en las pistas. En 2025, estas marcas chinas ofrecen tecnología propia, colaboraciones con estrellas de la NBA y precios hasta un 40% más bajos que Nike o Adidas. ¿Pero merecen realmente la pena? Lo analizamos sin filtros.</p>
+
+<h2>ANTA — la más consolidada</h2>
+<p>ANTA es patrocinadora oficial de la NBA en China y tiene acuerdos de firma con Klay Thompson y Kyrie Irving. Su inversión en I+D ha crecido año tras año, y sus últimos modelos compiten de verdad con la gama media-alta de Nike y Adidas.</p>
+
+<h3>Modelos clave 2025</h3>
+<ul>
+  <li><strong><a href="/zapatilla/anta-kai-2">ANTA Kai 2</a> (~119 €)</strong>: la firma de Kyrie Irving con tecnología BoostX y tracción multidireccional. Rendimiento de 150€ a menor precio. La sorpresa del año.</li>
+  <li><strong><a href="/zapatilla/anta-kt-11">ANTA KT-11</a> (~95 €)</strong>: la firma de Klay Thompson, más asequible. Buena amortiguación y durabilidad outdoor sólida.</li>
+</ul>
+
+<h3>Veredicto ANTA</h3>
+<p>Si solo puedes probar una marca china, empieza por ANTA. La <a href="/zapatilla/anta-kai-2">Kai 2</a> es genuinamente una de las mejores zapatillas de 2025 por debajo de 130€, independientemente del origen.</p>
+
+<h2>Li-Ning — la más innovadora</h2>
+<p>Li-Ning, fundada por el legendario gimnasta olímpico del mismo nombre, ha apostado por la innovación radical. Tienen acuerdo con Jimmy Butler y desarrollan tecnologías propias que en algunos parámetros superan a Nike Zoom.</p>
+
+<h3>Modelos clave 2025</h3>
+<ul>
+  <li><strong><a href="/zapatilla/lining-wow-allcity-13">Li-Ning WOW AllCity 13</a> (~100 €)</strong>: Cloud Foam de alta densidad con suela de goma de tracción excepcional. Una de las mejor valoradas por los análisis independientes.</li>
+  <li><strong><a href="/zapatilla/lining-sonic-12">Li-Ning Sonic 12</a> (~85 €)</strong>: la opción de velocidad — ultraligera, reactiva y con tracción de primer nivel.</li>
+</ul>
+
+<h3>Veredicto Li-Ning</h3>
+<p>Li-Ning es para jugadores con criterio que no necesitan el logo de Nike para sentirse bien en pista. Si buscas tecnología real a precios honestos, es la marca más interesante del lote.</p>
+
+<h2>Peak — la más accesible</h2>
+<p>Peak se ha centrado en crear calzado ligero y funcional para el jugador amateur. Sin colaboraciones de superestrellas, pero con una propuesta técnica sólida a precios muy competitivos.</p>
+
+<h3>Modelos clave 2025</h3>
+<ul>
+  <li><strong><a href="/zapatilla/peak-taichi-flash">Peak Taichi Flash</a> (~90 €)</strong>: entresuela de espuma reactiva "Flash Foam" y suela de goma con tracción multidireccional. Notable ligereza para ser una zapatilla de baloncesto.</li>
+</ul>
+
+<h3>Veredicto Peak</h3>
+<p>Peak es la mejor opción si quieres probar una marca china por primera vez sin arriesgar mucho presupuesto. No es la más avanzada, pero cumple bien en casi todos los parámetros.</p>
+
+<h2>¿Dónde comprar en España?</h2>
+<p>Este es el talón de Aquiles de las marcas chinas: la disponibilidad. En España, tus mejores opciones son:</p>
+<ul>
+  <li><strong>Amazon ES</strong>: stock variable, pero suele tener los modelos más populares con envío Prime.</li>
+  <li><strong>AliExpress</strong>: más variedad, precio más bajo, pero plazos de entrega de 2-4 semanas. CANCHA.ZAPA enlaza directamente a tiendas oficiales para evitar réplicas.</li>
+</ul>
+
+<h2>Comparativa rápida</h2>
+<p>Si tienes que elegir una sola y no sabes por dónde empezar:</p>
+<ul>
+  <li><strong>Mejor rendimiento global bajo 130€ → <a href="/zapatilla/anta-kai-2">ANTA Kai 2</a></strong></li>
+  <li><strong>Mejor tracción y tecnología → <a href="/zapatilla/lining-wow-allcity-13">Li-Ning WOW AllCity 13</a></strong></li>
+  <li><strong>Mejor precio entrada → <a href="/zapatilla/anta-kt-11">ANTA KT-11</a></strong></li>
+</ul>
+
+<p class="art-outro">Las marcas chinas ya no son la segunda opción para quien no puede permitirse Nike. En 2025 son una alternativa real y en muchos casos superior para el jugador amateur español. ¿Quieres ver cómo comparan con modelos de Nike y Adidas de su mismo rango? <a href="/comparar?slugs=anta-kai-2,adidas-ae-3,nike-gt-cut-4">Usa el comparador</a> y juzga tú mismo.</p>
     `,
   },
 ];

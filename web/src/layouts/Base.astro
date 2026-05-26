@@ -27,7 +27,8 @@ const {
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
-const ogImageUrl = new URL(ogImage, Astro.site).toString();
+// Si ogImage es una URL absoluta (https://...), úsala directamente; si no, resuelve contra el site
+const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro.site).toString();
 ---
 
 <!doctype html>

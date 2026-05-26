@@ -59,7 +59,7 @@ const CATEGORIA_COLOR: Record<string, string> = {
 };
 ---
 
-<Base title={article.metaTitle} description={article.description}>
+<Base title={article.metaTitle} description={article.description} ogImage={article.imagen} ogType="article">
   <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
 
