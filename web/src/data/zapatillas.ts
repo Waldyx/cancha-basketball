@@ -3405,6 +3405,7 @@ const _rawZapatillas: Zapatilla[] = [
       "No apta para jugadores >90 kg que necesitan cushion",
     ],
     veredicto: "Si eres de los que valoran el legado y quieres algo que juega bien Y tiene historia, la Question Mid es única. No es la más técnica, pero la tracción y el soporte siguen siendo sólidos. Para escoltas y bases que quieren estilo de leyenda.",
+    es_retro: true,
     imagen_principal: "/shoes/reebok-question-mid.webp",
     imagenes: [],
     fuentes: [
@@ -3479,6 +3480,7 @@ const _rawZapatillas: Zapatilla[] = [
       "No recomendada para jugadores pesados",
     ],
     veredicto: "Para el coleccionista que quiere jugar con historia en los pies. La Answer IV es el mejor zapato de rendimiento retro de Reebok â€” técnicamente superior a la Question y con la historia de las Finales. A ~100â‚¬ en rebajas, una ganga cultural.",
+    es_retro: true,
     imagen_principal: "/shoes/reebok-answer-iv.jpg",
     imagenes: [],
     fuentes: [
