@@ -369,7 +369,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si eres base o escolta técnico, buscas respuesta y tracción, y no tienes problemas de tobillo, es una de las mejores compras del año. Para tobillos delicados o juego potente, busca otra opción.",
 
-    imagen_principal: "https://wowsole.com/wp-content/uploads/2024/10/ANTA-Kai-2-1.jpg",
+    imagen_principal: "/placeholder-shoe.svg",
     imagenes: [],
 
     fuentes: [
@@ -8039,7 +8039,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La mejor KD en años. Si eres escolta o alero, tienes pie estrecho y priorizas respuesta y bounce, la KD 19 es una de las compras más inteligentes de 2025. Para pies anchos o si necesitas más tobillo, considera la KD 18 o la Air Jordan 40.",
 
-    imagen_principal: "https://media.about.nike.com/img/66b50559-aac9-4cb1-8552-33eb3b0de554/nike-kd19-1.jpg",
+    imagen_principal: "/placeholder-shoe.svg",
     imagenes: [],
 
     fuentes: [
@@ -8280,7 +8280,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La mejor propuesta de Curry Brand en 2025 para bases explosivos. Si tu prioridad es un primer paso rápido, tracción fiable y lockdown excepcional, la D. Fox 2 compite directamente con la Nike Ja 3 y la AE 3. Para pies anchos o jugadores grandes, mejor mirar otra opción.",
 
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/UACurryFox2-Cropped-650x406.jpg",
+    imagen_principal: "/placeholder-shoe.svg",
     imagenes: [],
 
     fuentes: [
@@ -8358,7 +8358,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La mejor Kobe Protro para jugadores que necesitan protección de tobillo. Aleros y ala-pívots con historial de esguinces encontrarán aquí un equilibrio excepcional entre estética retro y rendimiento moderno.",
 
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/NikeKobe9HighProtro-Cropped-650x406.jpg",
+    imagen_principal: "/placeholder-shoe.svg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-kobe-9-high-protro-performance-review/" },
@@ -8437,7 +8437,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La opción de Jordan Brand para el juego interior en 2025. Si eres pívot o ala-pívot de más de 90kg y priorizas estabilidad y soporte tobillo sobre velocidad, la Super Fly 10 compite directamente con la LeBron 23.",
 
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/JordanSuperFly10-Cropped-650x406.jpg",
+    imagen_principal: "/placeholder-shoe.svg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-26",
@@ -8511,7 +8511,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La mejor MB de la línea hasta la fecha. Para guards de hasta 90kg que quieren una zapatilla reactiva, llamativa y con buena ventilación, la MB.06 es una alternativa sólida a la AE 3 y la Ja 3 en 2025.",
 
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/PumaMB06-Cropped-650x406.jpg",
+    imagen_principal: "/placeholder-shoe.svg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-26",
@@ -8582,7 +8582,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La opción de Adidas para quien busca una zapatilla fiable por debajo de 80€ con buena durabilidad outdoor. No es para alto rendimiento — para eso mira la AE 3 o Dame X. Pero para recreativo casual en interior y exterior, cumple bien.",
 
-    imagen_principal: "https://ballershoesdb.com/wp-content/uploads/AdidasProVision-Cropped-650x406.jpg",
+    imagen_principal: "/placeholder-shoe.svg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-26",
