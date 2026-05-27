@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-05-27 (sesión 11)
+> Última actualización: 2026-05-27 (sesión 12)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -29,13 +29,24 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 
 ---
 
-## Estado actual (sesión 11)
+## Estado actual (sesión 12)
+
+### ✅ Completado (sesión 12)
+- **Fix bug CI**: blog/[slug].astro — Blog nav link añadido (estaba solo en breadcrumb, no en cz-nav)
+- **Blog sidebar**: widget "Artículos relacionados" (misma categoría, ≤3) en sidebar de cada artículo
+- **Shoe→blog linking**: sección "Artículos sobre esta zapatilla" en fichas de zapatilla → mejora enlazado interno
+- **SEO page→blog**: sección "Del blog" en SEO landing pages (basada en relatedSeoPages de articles)
+- **Blog index JSON-LD**: BreadcrumbList + ItemList para Google
+- **3 artículos Análisis**: AE 3, Curry 13, Jordan Tatum 4 → **19 artículos total**
+- **2 nuevas SEO pages**: Converse, Reebok → **32 SEO pages total**
+- **Fix bug Puma duplicate**: eliminada segunda entrada marca("Puma") que generaba slug duplicado (error de build)
+- **Fix URL New Balance**: slug generaba espacio → corregido a `mejores-zapatillas-new-balance`
+- **blog/index.astro active**: añadido class="active" al link Blog en su propia página
 
 ### ✅ Completado (sesión 11)
 - **CI fix**: eliminado paso "Deploy a Vercel" roto en `scrape-prices.yml` (error: cannot retrieve Project Settings). El git push ya activa Vercel automáticamente → 0 errores en próxima ejecución
 - **Encoding fix**: corregidos **177 em-dashes** (`â€"` → `—`) y **62 euro signs** (`â‚¬` → `€`) en `zapatillas.ts` — textos de resumen/veredicto/pros/contras ahora muestran correctamente
-- **Blog artículo 13**: "Nike GT Cut 4: análisis completo" (Análisis) → 14 artículos total
-- **Blog artículo 14**: "Mejores zapatillas de baloncesto para niños y jóvenes 2025" (Guías) → 14 artículos total
+- **Blog artículos 13-15**: GT Cut 4 análisis + niños 2025 + Tatum 4 vs AE 3 → 16 artículos
 - **Nav: Blog añadido** a la navegación principal de las **16 páginas** del sitio
 - **3 nuevas SEO pages**: Anta, Li-Ning, New Balance → **31 SEO pages total**
 - **FAQ**: +4 preguntas (Anta KAI 2, New Balance, niños/jóvenes, GT Cut 4 principiantes) → **27 total**
@@ -318,10 +329,10 @@ sk-or-v1-[REDACTED — ver ~/.openclaw/openclaw.json]
 
 ---
 
-Último push: 2026-05-27 (sesión 10)
+Último push: 2026-05-27 (sesión 12)
 Web live: canchazapa.com ✅
 
-## Blog artículos (12)
+## Blog artículos (19)
 1. Cómo elegir zapatillas de baloncesto (Guía)
 2. AE 3 vs Ja 3 — guards 2025 (Comparativa)
 3. Air Jordan 40 análisis (Análisis)
@@ -331,13 +342,25 @@ Web live: canchazapa.com ✅
 7. Zapatillas para tobillo/esguince 2025 (Guía)
 8. GT Cut 4 vs Curry 13 vs ANTA Kai 2 — explosivos (Comparativa)
 9. Mejores zapatillas baratas 2025 (Guía)
-10. Mejores zapatillas retro para jugar 2025 (Guía) ← sesión 9
-11. Puma MB.04 vs MB.05 (Comparativa) ← sesión 10
-12. Zapatillas baloncesto pie plano 2026 (Guías) ← sesión 10
+10. Mejores zapatillas retro para jugar 2025 (Guía)
+11. Puma MB.04 vs MB.05 (Comparativa)
+12. Zapatillas baloncesto pie plano 2026 (Guías)
+13. Jordan Tatum 4 vs AE 3 — aleros 2025 (Comparativa)
+14. Nike GT Cut 4 análisis (Análisis)
+15. Zapatillas niños y jóvenes 2025 (Guía)
+16. Zapatillas baloncesto pie plano 2026 (Guía)
+17. Adidas AE 3 análisis completo (Análisis)
+18. Under Armour Curry 13 análisis (Análisis)
+19. Jordan Tatum 4 análisis (Análisis)
 
-## SEO pages (27)
-- Todas las anteriores + `/zapatillas-baloncesto-retro` ← sesión 9
-- `/mejores-zapatillas-puma` ← sesión 10
+## SEO pages (32)
+Posición (5): base, escolta, alero, ala-pivot, pivot
+Cancha (2): outdoor, indoor
+Categoría (4): cushion, reactivas, equilibradas, traccion
+Presupuesto (3): baratas, 130€, premium
+Lesión (3): rodillas, tobillos, pie-ancho
+Marca (9): Nike, Jordan, Adidas, Puma, Anta, Li-Ning, New Balance, Converse, Reebok
+Manual (6): Under Armour, mujer, junior, retro, talla-grande, mejores-2025
 
 ## Nuevas zapas sesión 7
 - `nike-kobe-9-high-protro` — Kobe signature, high-top, Zoom Air, 199€
