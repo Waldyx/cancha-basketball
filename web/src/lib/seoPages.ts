@@ -851,6 +851,66 @@ export const SEO_PAGES: SeoPage[] = [
     ],
   }),
 
+  // ── MARCA: Anta ───────────────────────────────────────────────────
+  marca("Anta", {
+    title: "Mejores zapatillas de baloncesto Anta 2026 | CANCHA.ZAPA",
+    description: "Las 5 mejores Anta de baloncesto: KAI 2, KAI 1 Speed, KT 11, Shock Game. Kyrie Irving y Klay Thompson endorsan a Anta. Análisis técnico honesto.",
+    eyebrow: "★ Por marca · Anta",
+    lede: "Anta tiene a Kyrie Irving (línea KAI) y Klay Thompson (línea KT). En 2025, la KAI 2 es la zapatilla china con mejor relación calidad-precio del mercado europeo.",
+    intro: "Anta es la marca deportiva número 1 en China y ha conquistado el baloncesto internacional con endorsements de peso: Kyrie Irving abandonó Nike para firmar con Anta, y Klay Thompson lleva la línea KT desde 2014. El resultado es tecnología competitiva a precios más asequibles que Nike/Adidas.",
+    points: [
+      { lab: "KAI 2 = la sorpresa del año", body: "La KAI 2 de Kyrie Irving ofrece tracción y respuesta de 150€ a solo 119€. A-Flashfoam 2.0 y herringbone multidireccional. La mejor relación calidad-precio de 2025." },
+      { lab: "KT 10/11 = para tiradores", body: "La línea KT de Klay Thompson prioriza estabilidad lateral y cushion sólido. Perfecta para tiradores de posición media que necesitan soporte en plant-and-shoot." },
+      { lab: "Shock Game = segmento medio", body: "Para jugadores sin patrocinado favorito que buscan una Anta genérica de calidad. Precio más bajo, tecnología mid-range pero sólida." },
+      { lab: "Talla y horma generosa", body: "Anta tiende a horma más ancha que Nike. Para pies anchos, es una ventaja real. Comprueba siempre las guías de talla — suelen correr entre normal y ligeramente grande." },
+    ],
+    faqs: [
+      { q: "¿Son buenas las zapatillas Anta para baloncesto?", a: "Sí, especialmente para el precio. La KAI 2 compite técnicamente con la Nike AE 3 a 30€ menos. La marca invierte en tecnología real, no solo en marketing." },
+      { q: "¿Merece la pena la Anta KAI 2 de Kyrie Irving?", a: "Sí. Tracción 8/10, respuesta 9/10, horma ancha, 119€. Para bases o escoltas con pie normal o ancho que buscan rendimiento sin gastar 150€+, es la mejor compra de 2025." },
+      { q: "¿Dónde comprar Anta en España?", a: "Amazon ES es la principal fuente de Anta en España, con vendedores oficiales y devolución fácil. AliExpress tiene más colorways pero tarda más. Pocas tiendas físicas en España tienen stock." },
+    ],
+  }),
+
+  // ── MARCA: Li-Ning ─────────────────────────────────────────────────
+  marca("Li-Ning", {
+    title: "Mejores zapatillas de baloncesto Li-Ning 2026 | CANCHA.ZAPA",
+    description: "Las 5 mejores Li-Ning de baloncesto: WoW AllCity 13, Gamma 2, Sonic 12. Jimmy Butler, Wade y más. Tecnología china de vanguardia.",
+    eyebrow: "★ Por marca · Li-Ning",
+    lede: "Li-Ning es el competidor más ambicioso de Nike en baloncesto. Con Jimmy Butler (WoW), la marca china produce tecnología de primer nivel que todavía vuela bajo el radar en Europa.",
+    intro: "Li-Ning fundó la marca en 1989, pero su salto al baloncesto de élite llegó con la línea WoW (Way of Wade) de Dwyane Wade. Hoy tienen a Jimmy Butler como endorser principal. Su tecnología de espuma BOOM es competitiva con ZoomX de Nike, y el precio es entre un 10% y 30% más bajo.",
+    points: [
+      { lab: "WoW AllCity 13 = premium", body: "La línea WoW es la flagship de Li-Ning. Materiales premium, BOOM foam reactivo, tracción agresiva. Comparable a la Jordan 40 en cushion y a la GT Cut en tracción." },
+      { lab: "Gamma 2 = relación calidad-precio", body: "La Gamma 2 ofrece el 85% del rendimiento de la WoW a menor precio. Buena para jugadores que quieren experimentar Li-Ning sin el desembolso de las WoW." },
+      { lab: "Sonic 12 = guards de primer paso", body: "La línea Sonic prioriza velocidad y respuesta. Para bases y escoltas que no necesitan mucho cushion pero sí explosividad." },
+      { lab: "Talla: mide con cuidado", body: "Li-Ning tiende a tallar algo más pequeño que las marcas occidentales. Comprueba siempre la guía de tallas y, si tienes dudas, sube media talla." },
+    ],
+    faqs: [
+      { q: "¿Es buena Li-Ning para baloncesto?", a: "Sí, y está subestimada en Europa. La WoW AllCity 13 compite con las mejores Adidas y Nike en el mismo rango de precio. La marca invierte en I+D real: BOOM foam, suelas multidireccionales propias." },
+      { q: "¿Qué tecnología usa Li-Ning en sus zapatillas?", a: "BOOM foam (espuma ultra-ligera y reactiva), CLOUD foam (cushion suave para jugadores pesados), li-ning ARC (placa de carbono en modelos premium). Todo I+D propio, no licenciado." },
+      { q: "¿Dónde comprar Li-Ning en España?", a: "Amazon ES es la opción más cómoda con devolución garantizada. Li-Ning no tiene tiendas físicas en España. AliExpress tiene el catálogo completo pero los plazos de entrega son más largos (2-4 semanas)." },
+    ],
+  }),
+
+  // ── MARCA: New Balance ─────────────────────────────────────────────
+  marca("New Balance", {
+    title: "Mejores zapatillas de baloncesto New Balance 2026 | CANCHA.ZAPA",
+    description: "Las 5 mejores New Balance de baloncesto: Fresh Foam BB v3, Two WXY v6, Kawhi 2. Technología FuelCell y Fresh Foam en la cancha.",
+    eyebrow: "★ Por marca · New Balance",
+    lede: "New Balance volvió al baloncesto con Kawhi Leonard y Jamal Murray. Su Fresh Foam BB v3 es la mejor zapatilla de cushion para pívots en 2025 a precio razonable.",
+    intro: "New Balance abandonó el baloncesto en los 90 y volvió con fuerza en 2018 firmando a Kawhi Leonard. Desde entonces, la marca ha lanzado la línea Two WXY (guards), la línea Kawhi (aleros/pívots) y la OMN1S (legacy de Kawhi). Tecnología FuelCell y Fresh Foam son sus propuestas de espuma.",
+    points: [
+      { lab: "Fresh Foam BB v3 = cushion pívots", body: "La Fresh Foam BB v3 tiene el stack de cushion más alto de NB. Para pívots y jugadores pesados que necesitan máxima protección. Score de amortiguación 9/10." },
+      { lab: "Two WXY v5/v6 = guards", body: "La línea Two WXY (WXY = \"why not?\") es para guards: ligera, reactiva, buen soporte de tobillo. FuelCell foam responsivo." },
+      { lab: "Kawhi = aleros/3D", body: "Las líneas Kawhi (1, 2) están diseñadas para el juego versátil de Leonard: potencia, control, cortes. Horma media, ideal para aleros de todo tipo." },
+      { lab: "Horma inglesa = cómoda", body: "NB tiene fama de horma cómoda. Su D (normal) y EE (ancha) ofrecen opciones para pies más anchos que no encajan en Nike o Adidas." },
+    ],
+    faqs: [
+      { q: "¿New Balance es buena para baloncesto?", a: "Sí, aunque subestimada. La Fresh Foam BB v3 es la mejor zapatilla de cushion para pívots de su rango de precio. La Two WXY v6 compite con la Ja 3 y la AE 3 para guards." },
+      { q: "¿Merece la pena la New Balance Fresh Foam BB v3?", a: "Para pívots con rodillas sensibles o jugadores de más de 90kg: sí. El stack de cushion es de los más generosos del mercado y el precio (~130€) es competitivo frente a Nike LeBron o Jordan Tatum." },
+      { q: "¿Dónde comprar New Balance de baloncesto en España?", a: "Amazon ES y NewBalance.es tienen el catálogo completo. Foot Locker ES también tiene algo de stock. Evita comprar en webs de terceros no verificados." },
+    ],
+  }),
+
   // ── TALLA GRANDE ──────────────────────────────────────────────────
   {
     slug: "zapatillas-baloncesto-talla-grande",
