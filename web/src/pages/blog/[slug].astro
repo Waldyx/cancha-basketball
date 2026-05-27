@@ -20,6 +20,11 @@ const relatedZapas = article.relatedShoes
   .map((s) => zapatillas.find((z) => z.slug === s))
   .filter(Boolean);
 
+// Related articles (same category, exclude current)
+const relatedArticles = ARTICLES
+  .filter((a) => a.slug !== article.slug && a.categoria === article.categoria)
+  .slice(0, 3);
+
 // JSON-LD Article
 const articleJsonLd = {
   "@context": "https://schema.org",
@@ -148,6 +153,24 @@ const CATEGORIA_COLOR: Record<string, string> = {
             → Hacer el quiz
           </a>
         </div>
+
+        {/* Related articles */}
+        {relatedArticles.length > 0 && (
+          <div class="art-widget">
+            <p class="art-widget-title">★ Artículos relacionados</p>
+            <ul class="art-related-list">
+              {relatedArticles.map((a) => (
+                <li class="art-related-item">
+                  <a href={`/blog/${a.slug}`} class="art-related-link">
+                    <span class="art-related-cat">{a.categoria}</span>
+                    <span class="art-related-title">{a.title}</span>
+                    <span class="art-related-time">{a.readMinutes} min</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </aside>
     </div>
 
@@ -323,6 +346,36 @@ const CATEGORIA_COLOR: Record<string, string> = {
     .art-quiz-cta {
       background: linear-gradient(135deg, #141414, #1a1a1a);
       border-color: #f97316;
+    }
+    .art-related-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+    .art-related-link {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      text-decoration: none;
+      padding: 8px 10px;
+      border: 1px solid transparent;
+      transition: border-color .15s;
+    }
+    .art-related-link:hover { border-color: #f97316; }
+    .art-related-cat {
+      font-size: 9px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: #f97316;
+    }
+    .art-related-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: #e4e4e7;
+      font-family: 'Barlow Condensed', sans-serif;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    .art-related-time {
+      font-size: 10px;
+      color: #52525b;
     }
     .art-bottom-nav {
       display: flex;

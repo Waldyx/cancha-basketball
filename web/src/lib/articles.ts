@@ -1509,6 +1509,179 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">Si tienes pie plano y dudas sobre qué zapatilla específica elegir para tu perfil, <a href="/quiz">usa el quiz</a> — en 10 preguntas te damos las 5 más compatibles con tu peso, posición y tipo de juego.</p>
     `,
   },
+
+  // ── 17. Adidas AE 3 análisis ─────────────────────────────────────────
+  {
+    slug: "adidas-ae-3-analisis-2025",
+    title: "Adidas AE 3 análisis completo: la mejor zapatilla de baloncesto de 2025",
+    metaTitle: "Adidas AE 3 análisis 2025: tracción, cushion, precio | CANCHA.ZAPA",
+    description:
+      "Análisis técnico completo de las Adidas AE 3 (Anthony Edwards): tracción, amortiguación, ajuste y comparativa con GT Cut 4 y Curry 13. ¿Vale la pena a 130€?",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Análisis",
+    readMinutes: 6,
+    eyebrow: "★ Análisis técnico · Adidas AE 3",
+    heroTitle: "Adidas AE 3 análisis",
+    heroSubtitle: "La zapatilla de Anthony Edwards — ¿realmente la mejor del mercado?",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["adidas-ae-3", "nike-gt-cut-4", "ua-curry-13", "anta-kai-2", "jordan-tatum-4"],
+    relatedSeoPages: ["zapatillas-traccion", "zapatillas-reactivas", "mejor-zapatilla-base"],
+    body: `
+<p class="art-intro">La Adidas AE 3 lleva varios meses en el tope de nuestros rankings. Tracción 9/10, respuesta excepcional, horma versátil. Pero ¿por qué exactamente? Este análisis desmonta la zapatilla atributo por atributo para que entiendas qué la hace tan buena y si encaja con tu perfil.</p>
+
+<h2>Contexto: Anthony Edwards y la línea AE</h2>
+<p>Anthony Edwards firmó con Adidas en 2023 y la AE 3 es el tercer modelo de su línea signature. Edwards es un escolta explosivo, potente y con un primer paso brutal — su zapatilla refleja exactamente eso: tracción y respuesta por encima de todo. Adidas metió Lightstrike Pro en el modelo, la misma tecnología de las zapatillas de élite de atletismo.</p>
+<p>La AE 3 se lanzó a <strong>~130€</strong>, un precio razonable para la tecnología que incluye. Es un escalón por debajo del precio aspiracional de Jordan y Nike (150-180€) con rendimiento comparable o superior en la mayoría de atributos.</p>
+
+<h2>Tracción: la mejor del mercado en indoor</h2>
+<p>El patrón herringbone de la AE 3 es uno de los mejores que hemos probado en pabellón en 2025. La goma agarra en todas las direcciones — cambios de dirección laterales, arranques, paradas — sin un solo deslizamiento. En polvo de la cancha funciona bien; en suelo muy sucio (pabellones mal barridos) necesitas limpiar con regularidad, como cualquier zapatilla indoor.</p>
+<ul>
+  <li><strong>Indoor:</strong> excepcional (9/10)</li>
+  <li><strong>Outdoor:</strong> no recomendable — la goma se desgasta rápido en asfalto</li>
+  <li><strong>Patrón:</strong> herringbone full-length con variaciones en talón y antepié</li>
+</ul>
+
+<h2>Amortiguación: reactiva, no máxima</h2>
+<p>La AE 3 lleva <strong>Lightstrike Pro</strong> en el antepié y una capa de Lightstrike base en el talón. El resultado es un cushion reactivo y devolutivo — sientes el suelo pero con protección suficiente. No es la zapatilla de máxima amortiguación del mercado (ese papel lo juegan LeBron 22 o Fresh Foam BB v3), pero tampoco es minimal. Score: 7.5/10.</p>
+<p>Para jugadores de 60-85 kg que no buscan cushion de pívot, es más que suficiente. Para jugadores de 90+ kg o con rodillas sensibles, considera alternativas con más stack de cushion.</p>
+
+<h2>Respuesta y court feel</h2>
+<p>Aquí la AE 3 destaca especialmente. El Lightstrike Pro devuelve energía de forma eficiente — cuando aceleras, la midsole "empuja" en lugar de absorber pasivamente. Es la característica que más aprecia Edwards (cuyo juego se basa en primeros pasos) y que más notable resulta en cancha.</p>
+<p>El court feel es excelente para una zapatilla con cushion de este nivel. No es tan "al suelo" como la GT Cut 4, pero tampoco parece que estás sobre un cojín.</p>
+
+<h2>Ajuste y horma</h2>
+<p>La AE 3 tiene una horma <strong>media-ancha</strong>, más generosa que la GT Cut 4 (estrecha) y más estrecha que la LeBron 22 (ancha). Para la mayoría de pies normales a ligeramente anchos, encaja perfectamente en talla habitual. Algunos usuarios con pie muy ancho suben media talla.</p>
+<p>El upper en flyknit estructurado ofrece un ajuste ceñido pero sin puntos de presión. El collar de tobillo está bien acolchado. No hay historial de rozaduras en el talón en la AE 3, un problema que sí afecta a algunos usuarios de la GT Cut 4.</p>
+
+<h2>Soporte y estabilidad</h2>
+<p>La AE 3 ofrece soporte lateral sólido (7.5/10) para un zapato low-top. El counter de talón es rígido y el midfoot shank controla el torsional. Para guards y escoltas que hacen muchos cortes, el soporte es más que suficiente. No es el zapato para un pívot de 100 kg que necesita máxima estabilidad — ahí manda el LeBron 22 o la Jordan Tatum 4.</p>
+
+<h2>Peso</h2>
+<p>La AE 3 pesa aproximadamente <strong>350g</strong> en talla 44 (US 10), que es ligera para su categoría. No llega a la ligereza extrema de la GT Cut 4 (~305g), pero la diferencia no es apreciable en cancha. Para un jugador amateur, el peso no es un factor diferencial en este rango.</p>
+
+<h2>Comparativa directa</h2>
+<table style="border-collapse:collapse;width:100%;font-size:13px;margin:16px 0">
+  <thead>
+    <tr style="border-bottom:2px solid #f97316">
+      <th style="padding:8px;text-align:left;color:#fff">Atributo</th>
+      <th style="padding:8px;text-align:center;color:#f97316">AE 3</th>
+      <th style="padding:8px;text-align:center;color:#e4e4e7">GT Cut 4</th>
+      <th style="padding:8px;text-align:center;color:#e4e4e7">Curry 13</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px;color:#a1a1aa">Tracción</td>
+      <td style="padding:8px;text-align:center;color:#4ade80">9/10</td>
+      <td style="padding:8px;text-align:center;color:#4ade80">10/10</td>
+      <td style="padding:8px;text-align:center;color:#4ade80">8/10</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px;color:#a1a1aa">Cushion</td>
+      <td style="padding:8px;text-align:center;color:#facc15">7.5/10</td>
+      <td style="padding:8px;text-align:center;color:#facc15">6/10</td>
+      <td style="padding:8px;text-align:center;color:#facc15">8/10</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px;color:#a1a1aa">Respuesta</td>
+      <td style="padding:8px;text-align:center;color:#4ade80">9/10</td>
+      <td style="padding:8px;text-align:center;color:#4ade80">9/10</td>
+      <td style="padding:8px;text-align:center;color:#4ade80">8/10</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px;color:#a1a1aa">Soporte lateral</td>
+      <td style="padding:8px;text-align:center;color:#facc15">7.5/10</td>
+      <td style="padding:8px;text-align:center;color:#facc15">7/10</td>
+      <td style="padding:8px;text-align:center;color:#4ade80">8/10</td>
+    </tr>
+    <tr>
+      <td style="padding:8px;color:#a1a1aa">Precio</td>
+      <td style="padding:8px;text-align:center;color:#e4e4e7">~130€</td>
+      <td style="padding:8px;text-align:center;color:#e4e4e7">~165€</td>
+      <td style="padding:8px;text-align:center;color:#e4e4e7">~150€</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>¿Para quién es la AE 3?</h2>
+<p>La AE 3 es el zapato más versátil de la gama premium de 2025. Funciona para:</p>
+<ul>
+  <li><strong>Guards (1-2):</strong> tracción y respuesta ideales para un juego explosivo</li>
+  <li><strong>Escoltas (2-3):</strong> polivalencia y horma que encaja en pies medios</li>
+  <li><strong>Aleros (3):</strong> suficiente cushion y estabilidad para posiciones mixtas</li>
+</ul>
+<p>No es ideal para:</p>
+<ul>
+  <li>Pívots que necesitan máxima amortiguación (90 kg+)</li>
+  <li>Jugadores outdoor — usa la Precision 8 o KD 17 para asfalto</li>
+  <li>Pies muy anchos — considera la ANTA KAI 2 o la LeBron 22</li>
+</ul>
+
+<h2>¿Dónde comprar?</h2>
+<p>La AE 3 está disponible en Amazon ES (vendedor oficial Adidas), Adidas.es y JD Sports. Amazon suele ser el más barato con devolución en 30 días — ideal si no has probado la horma antes. Algunas colorways limitadas solo están en Adidas.es. Para pies anchos, recomendamos probar primero en tienda si tienes Foot Locker cerca.</p>
+
+<p class="art-outro">La Adidas AE 3 es nuestra zapatilla más recomendada de 2025 para jugadores entre 60-85 kg sin necesidades especiales de cushion máximo. Si tienes dudas sobre si encaja con tu perfil específico, <a href="/quiz">el quiz te da las 5 más compatibles en menos de un minuto</a>.</p>
+    `,
+  },
+
+  // ── 18. UA Curry 13 análisis ─────────────────────────────────────────
+  {
+    slug: "ua-curry-13-analisis-2025",
+    title: "Under Armour Curry 13 análisis: ¿merece los 150€?",
+    metaTitle: "UA Curry 13 análisis 2025: tracción, cushion y ajuste | CANCHA.ZAPA",
+    description:
+      "Análisis técnico de las Under Armour Curry 13 (Stephen Curry): tecnología UA Flow, cushion, tracción y comparativa con AE 3 y GT Cut 4. ¿Vale la pena?",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Análisis",
+    readMinutes: 5,
+    eyebrow: "★ Análisis técnico · Under Armour Curry 13",
+    heroTitle: "Under Armour Curry 13",
+    heroSubtitle: "El zapato de Stephen Curry — análisis técnico honesto 2025",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["ua-curry-13", "adidas-ae-3", "nike-gt-cut-4", "anta-kai-2", "jordan-tatum-4"],
+    relatedSeoPages: ["zapatillas-reactivas", "mejor-zapatilla-base", "zapatillas-traccion"],
+    body: `
+<p class="art-intro">Stephen Curry es el mejor tirador de la historia de la NBA y Under Armour lleva desde 2013 construyendo zapatillas alrededor de su estilo de juego: velocidad sin balón, cambios de dirección sin perder equilibrio, y un primer paso que descoloca defensas. La Curry 13 lleva esa filosofía al límite. ¿Pero a 150€ vale la pena frente a la AE 3 a 130€?</p>
+
+<h2>Tecnología: UA Flow y Warp</h2>
+<p>La Curry 13 usa dos tecnologías clave:</p>
+<ul>
+  <li><strong>UA Flow midsole:</strong> espuma sin goma exterior en el antepié. Esto significa que la midsole contacta directamente con el suelo — más court feel, más respuesta, menos peso. El inconveniente: más desgaste en outdoor y en pistas muy abrasivas.</li>
+  <li><strong>UA Warp:</strong> sistema de correas internas en el upper que distribuyen la tensión del lacado de forma más uniforme que los ojales tradicionales. El resultado es un ajuste más personalizado y una sujeción superior en los cortes.</li>
+</ul>
+<p>La combinación de Flow + Warp hace que la Curry 13 tenga un feel único en cancha: muy pegada al suelo, muy responsiva, pero con buena protección en el antepié.</p>
+
+<h2>Tracción: consistente pero no excepcional</h2>
+<p>La tracción de la Curry 13 es buena (8/10) pero no llega a la excelencia de la GT Cut 4 o la AE 3 en superficies perfectas. El patrón multidireccional funciona bien en pabellones limpios. En pistas con polvo o ligeramente húmedas, la Curry 13 aguanta mejor que la media gracias al compuesto de goma de UA.</p>
+<p>El UA Flow sin goma en el antepié es más deslizante en surfaces no ideales que un patrón herringbone clásico. Si tu pabellón no se barre bien, considera la AE 3 o la GT Cut 4 como alternativas más fiables.</p>
+
+<h2>Cushion y protección</h2>
+<p>La midsole ofrece un cushion <strong>8/10</strong> — generosa para una zapatilla tan reactiva. No es el nivel de stack de la LeBron 22, pero protege bien para el juego de Curry: aterrizajes controlados de un guard de 86 kg que rara vez domina la pintura. Para pívots o jugadores de 90 kg+, puede quedarse corta en sesiones largas.</p>
+<p>Dato importante: la Curry 13 tiene un drop bajo (4mm), que da un feel más natural pero puede suponer un período de adaptación si vienes de zapatillas con drop alto (8-10mm). En 2-3 sesiones el cuerpo se adapta.</p>
+
+<h2>Soporte y estabilidad: el punto fuerte</h2>
+<p>Aquí la Curry 13 destaca claramente sobre sus rivales directos. El sistema Warp distribuye las fuerzas de los cortes de forma más uniforme, y la geometría del talón con el counter rígido ofrece una estabilidad lateral excepcional para un zapato low-top (8/10). Ideal para jugadores con historial leve de esguinces que no quieren renunciar a la libertad de movimiento del low-top.</p>
+<p>Si compararas la Curry 13 con la AE 3 en estabilidad lateral, la Curry gana claramente. Si la comparas con un mid-top como la Tatum 4, la Tatum gana. Para la mayoría de guards con tobillos razonablemente estables, la Curry 13 ofrece más que suficiente.</p>
+
+<h2>Peso y comfort</h2>
+<p>La Curry 13 pesa <strong>~330g</strong> en talla 44, ligeramente menos que la AE 3 (~350g). El comfort general es alto desde el primer uso — el sistema Warp evita los puntos de presión comunes en zapatos con upper rígido. La lengüeta acolchada y el collar de tobillo bien acabado se notan desde el día uno.</p>
+
+<h2>AE 3 vs Curry 13: ¿cuál elegir?</h2>
+<p>Son los dos mejores zapatos de guard de 2025 y la elección depende de tu perfil:</p>
+<ul>
+  <li><strong>Elige la AE 3 si:</strong> priorizas la tracción, juegas en pabellones con polvo, tienes pie medio-ancho, o tu presupuesto es 130€</li>
+  <li><strong>Elige la Curry 13 si:</strong> priorizas estabilidad lateral y court feel, juegas en pabellones limpios, quieres el mejor ajuste customizable, o tienes historial leve de esguinces</li>
+  <li><strong>Si tienes 90 kg+:</strong> ninguna de las dos es tu primera opción — considera la LeBron 22, Jordan Tatum 4 o Fresh Foam BB v3</li>
+</ul>
+
+<h2>¿Dónde comprar la Curry 13?</h2>
+<p>La Curry 13 está disponible en Amazon ES (vendedor oficial UA), UA.com/es y JD Sports. El precio habitual es 150€, aunque algunas colorways o modelos del año anterior se encuentran entre 100-120€ en Amazon con descuento. Las versiones especiales "Splash Zone" o ediciones limitadas suben de precio.</p>
+
+<p class="art-outro">La Curry 13 es una zapatilla premium que justifica su precio para guards que buscan estabilidad y court feel por encima de cushion máximo. Si tienes dudas sobre si encaja con tu perfil, <a href="/quiz">el quiz de CANCHA.ZAPA te da las 5 más compatibles en 60 segundos</a>.</p>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────

@@ -7,6 +7,7 @@ import "../../styles/cancha-redesign.css";
 import { zapatillas } from "../../data/zapatillas";
 import { findMejorPrecio, COMISIONES_TIENDA } from "../../lib/scoring";
 import PriceAlert from "../../components/PriceAlert.astro";
+import { ARTICLES } from "../../lib/articles";
 
 export async function getStaticPaths() {
   return zapatillas.map((z) => ({ params: { slug: z.slug }, props: { zapatilla: z } }));
@@ -62,6 +63,11 @@ const relacionadas = zapatillas
   .filter(o => o.slug !== z.slug && o.categoria_principal === z.categoria_principal)
   .sort((a, b) => Object.values(b.puntuaciones).reduce((s, v) => s + v, 0) - Object.values(a.puntuaciones).reduce((s, v) => s + v, 0))
   .slice(0, 3);
+
+// Blog articles mentioning this shoe
+const articulosRelacionados = ARTICLES
+  .filter((a) => a.relatedShoes.includes(z.slug))
+  .slice(0, 4);
 
 const PRECIO_TIE = 0.5;
 const linksOrdenados = [...z.links_compra]
@@ -496,6 +502,25 @@ const productJsonLd = {
       </section>
     )}
 
+    {/* Blog articles mentioning this shoe */}
+    {articulosRelacionados.length > 0 && (
+      <section style="padding:40px 0;border-top:1px solid #27272a">
+        <div class="shell">
+          <p class="cz-eyebrow" style="margin-bottom:16px">★ Del blog</p>
+          <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;text-transform:uppercase;letter-spacing:-.02em;color:#fff;margin:0 0 20px">Artículos sobre esta zapatilla</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px">
+            {articulosRelacionados.map((art) => (
+              <a href={`/blog/${art.slug}`} style="display:block;background:#141414;border:1px solid #27272a;padding:16px;text-decoration:none;transition:border-color .15s" class="art-ref-card">
+                <span style="display:block;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:#f97316;margin-bottom:6px">{art.categoria}</span>
+                <span style="display:block;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:-.01em;color:#e4e4e7;line-height:1.2;margin-bottom:6px">{art.title}</span>
+                <span style="display:block;font-size:11px;color:#52525b">{art.readMinutes} min de lectura</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
     {/* Sticky buy bar */}
     {mejorPrecio && (
       <div class="sticky-buy" id="sticky-buy">
@@ -519,6 +544,9 @@ const productJsonLd = {
     )}
   </main>
 
+  <style>
+    .art-ref-card:hover { border-color: #f97316 !important; }
+  </style>
   <script>
     const sb = document.getElementById("sticky-buy");
     if (sb) {
