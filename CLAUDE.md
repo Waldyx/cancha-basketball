@@ -332,7 +332,7 @@ sk-or-v1-[REDACTED — ver ~/.openclaw/openclaw.json]
 Último push: 2026-05-27 (sesión 12)
 Web live: canchazapa.com ✅
 
-## Blog artículos (19)
+## Blog artículos (20)
 1. Cómo elegir zapatillas de baloncesto (Guía)
 2. AE 3 vs Ja 3 — guards 2025 (Comparativa)
 3. Air Jordan 40 análisis (Análisis)
@@ -344,21 +344,22 @@ Web live: canchazapa.com ✅
 9. Mejores zapatillas baratas 2025 (Guía)
 10. Mejores zapatillas retro para jugar 2025 (Guía)
 11. Puma MB.04 vs MB.05 (Comparativa)
-12. Zapatillas baloncesto pie plano 2026 (Guías)
+12. Zapatillas baloncesto pie plano 2026 (Guía)
 13. Jordan Tatum 4 vs AE 3 — aleros 2025 (Comparativa)
 14. Nike GT Cut 4 análisis (Análisis)
 15. Zapatillas niños y jóvenes 2025 (Guía)
-16. Zapatillas baloncesto pie plano 2026 (Guía)
+16. Anta/Li-Ning/Peak — marcas chinas 2025 (Comparativa)  ← sesión anterior
 17. Adidas AE 3 análisis completo (Análisis)
 18. Under Armour Curry 13 análisis (Análisis)
 19. Jordan Tatum 4 análisis (Análisis)
+20. Nike LeBron 22 análisis (Análisis)
 
-## SEO pages (32)
+## SEO pages (33)
 Posición (5): base, escolta, alero, ala-pivot, pivot
 Cancha (2): outdoor, indoor
 Categoría (4): cushion, reactivas, equilibradas, traccion
 Presupuesto (3): baratas, 130€, premium
-Lesión (3): rodillas, tobillos, pie-ancho
+Lesión (4): rodillas, tobillos, pie-ancho, pie-plano ← nueva sesión 12
 Marca (9): Nike, Jordan, Adidas, Puma, Anta, Li-Ning, New Balance, Converse, Reebok
 Manual (6): Under Armour, mujer, junior, retro, talla-grande, mejores-2025
 
