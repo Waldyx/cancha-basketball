@@ -1682,6 +1682,121 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">La Curry 13 es una zapatilla premium que justifica su precio para guards que buscan estabilidad y court feel por encima de cushion máximo. Si tienes dudas sobre si encaja con tu perfil, <a href="/quiz">el quiz de CANCHA.ZAPA te da las 5 más compatibles en 60 segundos</a>.</p>
     `,
   },
+
+  // ── 19. Jordan Tatum 4 análisis ──────────────────────────────────────
+  {
+    slug: "jordan-tatum-4-analisis-2025",
+    title: "Jordan Tatum 4 análisis: la zapatilla más versátil de 2025",
+    metaTitle: "Jordan Tatum 4 análisis 2025: cushion, tracción, precio | CANCHA.ZAPA",
+    description:
+      "Análisis técnico completo de las Jordan Tatum 4 (Jayson Tatum): cushion, soporte lateral, ajuste y comparativa con AE 3, Curry 13 y GT Cut 4. ¿La zapatilla más versátil del mercado?",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Análisis",
+    readMinutes: 6,
+    eyebrow: "★ Análisis técnico · Jordan Tatum 4",
+    heroTitle: "Jordan Tatum 4 análisis",
+    heroSubtitle: "La zapatilla de Jayson Tatum — ¿la más versátil de 2025?",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["jordan-tatum-4", "adidas-ae-3", "ua-curry-13", "nike-gt-cut-4", "nike-lebron-23"],
+    relatedSeoPages: ["zapatillas-cushion", "zapatillas-equilibradas", "mejor-zapatilla-alero"],
+    body: `
+<p class="art-intro">Jayson Tatum es el alero completo de la era moderna: anota, rebota, defiende y corre la pista entera. Su zapatilla tiene que hacer lo mismo. La Jordan Tatum 4 es nuestra zapatilla más equilibrada de 2025 — no es la mejor en ningún atributo individual, pero no falla en ninguno. Para la mayoría de jugadores amateurs, eso es exactamente lo que necesitan.</p>
+
+<h2>Contexto: Jayson Tatum y la línea Tatum</h2>
+<p>Jayson Tatum (Boston Celtics, All-Star, campeón NBA 2024) es el prototipo del alero moderno. Su juego combina explosividad, finesse y versatilidad defensiva. La línea Tatum nació en 2022 y la Tatum 4 es la evolución más madura: más cushion, mejor soporte, construcción más premium.</p>
+<p>El precio MSRP es ~140-150€, situándola en el segmento premium-accessible — por encima de la AE 3 (130€) pero por debajo de la LeBron 22 (180€) o la Nike GT Cut 4 (165€).</p>
+
+<h2>Tecnología: Zoom Air + React</h2>
+<p>La Jordan Tatum 4 usa una combinación de:</p>
+<ul>
+  <li><strong>Zoom Air en el antepié:</strong> proporciona respuesta rápida y court feel. La misma unidad que ves en muchas zapas Nike de performance.</li>
+  <li><strong>React foam en el talón:</strong> mayor stack de cushion, más suave y protector para aterrizajes desde el poste o rebotes.</li>
+</ul>
+<p>La combinación Zoom + React es la más versátil de Nike — más cushion que solo Zoom (como la GT Cut 4) y más respuesta que solo React (como la LeBron 22). Para un alero que hace de todo, es el compromiso perfecto.</p>
+
+<h2>Cushion: uno de los mejores del mercado en su segmento</h2>
+<p>Con un score de amortiguación <strong>8.5/10</strong>, la Tatum 4 protege bien en todas las situaciones. En aterrizajes desde el aro, contactos en la pintura y partidos de 40+ minutos, el nivel de cushion es más que suficiente para jugadores hasta 95 kg. Para pívots de 100 kg+, el LeBron 22 o la Fresh Foam BB v3 tienen aún más stack.</p>
+<p>El cushion no sacrifica el court feel gracias al Zoom en el antepié. Otros zapatos con tanto cushion (LeBron 22, Witness) se sienten "esponjosos" — la Tatum 4 mantiene conexión con el suelo.</p>
+
+<h2>Tracción</h2>
+<p>El patrón multidireccional de la Tatum 4 es sólido (8/10) aunque no excepcional. En pabellones limpios, agarra en todas las direcciones sin problema. En suelo con polvo, necesitas limpiar la suela con regularidad. No llega al nivel de la AE 3 o la GT Cut 4 en tracción pura, pero tampoco decepciona.</p>
+
+<h2>Soporte lateral y estabilidad: el punto diferencial</h2>
+<p>Aquí la Tatum 4 destaca sobre sus rivales más explosivos (AE 3, GT Cut 4, Curry 13). La construcción high-top ofrece soporte real de tobillo — no solo estético. El collar acolchado está diseñado para contener el tobillo en los cortes laterales sin restringir el movimiento vertical.</p>
+<p>Para jugadores con historial de esguinces leves o que simplemente quieren más seguridad en los cortes, la Tatum 4 ofrece el mejor soporte lateral de la gama sin llegar al extremo restrictivo de los LeBron 22 más altos. Score: <strong>9/10</strong>.</p>
+
+<h2>Ajuste y horma</h2>
+<p>La Tatum 4 tiene horma <strong>media</strong>, ligeramente más estrecha que la LeBron 22 pero más generosa que la GT Cut 4 o la Kyrie. Para la mayoría de pies normales, encaja perfectamente en talla habitual. Los que tienen pie ancho pueden necesitar media talla más — en talla habitual el antepié puede quedar justo.</p>
+<p>El upper construido en materiales sintéticos de alta densidad es sólido pero transpira menos que el flyknit de la AE 3. Para sesiones largas o pabellones calurosos, la ventilación es un punto débil.</p>
+
+<h2>Peso: el único punto negativo</h2>
+<p>La Tatum 4 pesa aproximadamente <strong>390g</strong> en talla 44 — más que la AE 3 (350g), la Curry 13 (330g) o la GT Cut 4 (305g). Para una zapatilla de alero versátil, ese peso se nota en sesiones largas. No es un dealbreaker para jugadores de posición 3-4, pero si eres un base que necesita máxima agilidad, el peso es un factor.</p>
+
+<h2>¿Para quién es la Jordan Tatum 4?</h2>
+<p>La Tatum 4 es perfecta para:</p>
+<ul>
+  <li><strong>Aleros (posición 3):</strong> el usuario principal. Equilibrio ideal entre cushion, soporte y versatilidad para un juego de todo el campo.</li>
+  <li><strong>Ala-pívots (posición 4):</strong> suficiente cushion y soporte para las posiciones interiores sin el peso extremo de un zapato de pívot.</li>
+  <li><strong>Escoltas versátiles (posición 2):</strong> si juegas una gran parte del tiempo en posiciones mixtas y no eres un guard puro explosivo, la Tatum 4 es excelente.</li>
+  <li><strong>Jugadores con historial de esguinces:</strong> el soporte high-top es uno de los mejores del mercado para prevención de lesiones sin renunciar a rendimiento.</li>
+</ul>
+<p>No es ideal para:</p>
+<ul>
+  <li>Bases explosivos que necesitan ligereza máxima — usa la GT Cut 4 o la Curry 13</li>
+  <li>Pívots puros de 100 kg+ — el LeBron 22 o la Fresh Foam BB v3 tienen más cushion</li>
+  <li>Jugadores outdoor — su suela no está optimizada para asfalto</li>
+</ul>
+
+<h2>Comparativa rápida</h2>
+<table style="border-collapse:collapse;width:100%;font-size:13px;margin:16px 0">
+  <thead>
+    <tr style="border-bottom:2px solid #f97316">
+      <th style="padding:8px;text-align:left;color:#fff">Atributo</th>
+      <th style="padding:8px;text-align:center;color:#f97316">Tatum 4</th>
+      <th style="padding:8px;text-align:center;color:#e4e4e7">AE 3</th>
+      <th style="padding:8px;text-align:center;color:#e4e4e7">Curry 13</th>
+      <th style="padding:8px;text-align:center;color:#e4e4e7">GT Cut 4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px;color:#a1a1aa">Cushion</td>
+      <td style="padding:8px;text-align:center;color:#4ade80">8.5/10</td>
+      <td style="padding:8px;text-align:center;color:#facc15">7.5/10</td>
+      <td style="padding:8px;text-align:center;color:#facc15">8/10</td>
+      <td style="padding:8px;text-align:center;color:#fb923c">6/10</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px;color:#a1a1aa">Soporte lateral</td>
+      <td style="padding:8px;text-align:center;color:#4ade80">9/10</td>
+      <td style="padding:8px;text-align:center;color:#facc15">7.5/10</td>
+      <td style="padding:8px;text-align:center;color:#4ade80">8/10</td>
+      <td style="padding:8px;text-align:center;color:#facc15">7/10</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px;color:#a1a1aa">Tracción</td>
+      <td style="padding:8px;text-align:center;color:#facc15">8/10</td>
+      <td style="padding:8px;text-align:center;color:#4ade80">9/10</td>
+      <td style="padding:8px;text-align:center;color:#facc15">8/10</td>
+      <td style="padding:8px;text-align:center;color:#4ade80">10/10</td>
+    </tr>
+    <tr>
+      <td style="padding:8px;color:#a1a1aa">Peso</td>
+      <td style="padding:8px;text-align:center;color:#fb923c">390g</td>
+      <td style="padding:8px;text-align:center;color:#4ade80">350g</td>
+      <td style="padding:8px;text-align:center;color:#4ade80">330g</td>
+      <td style="padding:8px;text-align:center;color:#4ade80">305g</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>¿Dónde comprar?</h2>
+<p>La Jordan Tatum 4 está disponible en Amazon ES (vendedor oficial Nike/Jordan), JD Sports, Foot Locker ES y Nike.es. Recomendamos Amazon por la política de devolución en 30 días — útil si vas a probar la horma por primera vez. Algunas colorways limitadas (los "PE" o ediciones especiales de Boston Celtics) solo están disponibles en Nike SNKRS o stockistas selectivos.</p>
+
+<p class="art-outro">La Jordan Tatum 4 es nuestra recomendación número uno para aleros y jugadores versátiles que no quieren comprometerse entre cushion, soporte y respuesta. Si quieres ver si encaja exactamente con tu perfil, <a href="/quiz">el quiz te da las 5 más compatibles en menos de un minuto</a>.</p>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
