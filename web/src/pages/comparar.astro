@@ -174,7 +174,7 @@ function ringPoints(f: number) {
 
   </main>
 
-  <script define:vars={{ zapatillas: zapatillas.map(z => ({ slug: z.slug, marca: z.marca, modelo: z.modelo, img: z.imagen_principal })), initialSlugs: requested }}>
+  <script define:vars={{ zapatillas: zapatillas.map(z => ({ slug: z.slug, marca: z.marca, modelo: z.modelo, img: z.imagen_principal, es_retro: z.es_retro ?? false })), initialSlugs: requested }}>
     // Slot picker — click on a photo to swap that slot.
     let current = [...initialSlugs];
     const photos = document.querySelectorAll(".cmp-photo");
@@ -185,34 +185,59 @@ function ringPoints(f: number) {
       });
     });
 
+    function buildItems(slot, retroOnly) {
+      const remaining = zapatillas.filter(z => !current.includes(z.slug) && (!retroOnly || z.es_retro));
+      return remaining.map(z => `
+        <button class="cmp-pick-item" data-slug="${z.slug}">
+          <img src="${z.img}" alt="" onerror="this.style.display='none'">
+          <span class="cpi-name"><strong>${z.marca}</strong> ${z.modelo}${z.es_retro ? ' <span style="color:#fbbf24">🏅</span>' : ''}</span>
+        </button>
+      `).join("") || `<p style="color:#71717a;grid-column:1/-1;padding:20px;text-align:center">Sin resultados con este filtro.</p>`;
+    }
+
+    function attachItemListeners(overlay, slot) {
+      overlay.querySelectorAll(".cmp-pick-item").forEach(item => {
+        item.addEventListener("click", () => {
+          current[slot] = item.dataset.slug;
+          location.search = `?slugs=${current.join(",")}`;
+        });
+      });
+    }
+
     function showPicker(slot) {
       const overlay = document.createElement("div");
       overlay.className = "cmp-picker";
-      const remaining = zapatillas.filter(z => !current.includes(z.slug));
+      let retroOnly = false;
       overlay.innerHTML = `
         <div class="cmp-picker-card" onclick="event.stopPropagation()">
           <p class="cz-eyebrow">★ Cambiar zapa ${slot + 1}</p>
-          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:32px;text-transform:uppercase;letter-spacing:-0.03em;margin:6px 0 14px">Elige otra zapa</h3>
-          <div class="cmp-picker-grid">
-            ${remaining.map(z => `
-              <button class="cmp-pick-item" data-slug="${z.slug}">
-                <img src="${z.img}" alt="" onerror="this.style.display='none'">
-                <span class="cpi-name"><strong>${z.marca}</strong>${z.modelo}</span>
-              </button>
-            `).join("")}
+          <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:32px;text-transform:uppercase;letter-spacing:-0.03em;margin:6px 0 10px">Elige otra zapa</h3>
+          <div style="margin-bottom:12px">
+            <button id="cmp-retro-chip" style="padding:5px 12px;border:1px solid #3f3f46;background:transparent;color:#71717a;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer;transition:all .15s" type="button">🏅 Solo retro</button>
+          </div>
+          <div class="cmp-picker-grid" id="cmp-picker-items">
+            ${buildItems(slot, false)}
           </div>
           <button class="cmp-pick-close">Cerrar</button>
         </div>
       `;
       overlay.addEventListener("click", () => overlay.remove());
       overlay.querySelector(".cmp-pick-close").addEventListener("click", () => overlay.remove());
-      overlay.querySelectorAll(".cmp-pick-item").forEach(item => {
-        item.addEventListener("click", () => {
-          current[slot] = item.dataset.slug;
-          // Reload with new slugs
-          location.search = `?slugs=${current.join(",")}`;
-        });
+      attachItemListeners(overlay, slot);
+
+      // Retro chip toggle
+      const chip = overlay.querySelector("#cmp-retro-chip");
+      const grid = overlay.querySelector("#cmp-picker-items");
+      chip.addEventListener("click", (e) => {
+        e.stopPropagation();
+        retroOnly = !retroOnly;
+        chip.style.color = retroOnly ? "#fbbf24" : "#71717a";
+        chip.style.borderColor = retroOnly ? "#fbbf24" : "#3f3f46";
+        chip.style.background = retroOnly ? "rgba(251,191,36,0.08)" : "transparent";
+        grid.innerHTML = buildItems(slot, retroOnly);
+        attachItemListeners(overlay, slot);
       });
+
       document.body.appendChild(overlay);
     }
   </script>

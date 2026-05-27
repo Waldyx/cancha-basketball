@@ -567,37 +567,71 @@ const productJsonLd = {
     if (sb) {
       window.addEventListener("scroll", () => sb.classList.toggle("visible", window.scrollY > 700));
     }
-    // Favoritos
-    const FAV_KEY = "cz.favs";
-    function loadFavs(): Set<string> {
-      try { return new Set(JSON.parse(localStorage.getItem(FAV_KEY) || "[]")); }
+    // Favoritos — 3 estados: none → quiero → tengo → none
+    const QUIERO_KEY = "cz.quiero";
+    const TENGO_KEY  = "cz.tengo";
+    const LEGACY_KEY = "cz.favs";
+    function loadSet(key: string): Set<string> {
+      try { return new Set(JSON.parse(localStorage.getItem(key) || "[]")); }
       catch { return new Set(); }
     }
-    function saveFavs(s: Set<string>) {
-      localStorage.setItem(FAV_KEY, JSON.stringify([...s]));
+    function saveSet(key: string, s: Set<string>) {
+      localStorage.setItem(key, JSON.stringify([...s]));
+    }
+    // Migración one-time desde cz.favs → cz.quiero
+    (function migrate() {
+      const leg = localStorage.getItem(LEGACY_KEY);
+      if (!leg) return;
+      try {
+        const old: string[] = JSON.parse(leg);
+        const q = loadSet(QUIERO_KEY);
+        old.forEach(s => q.add(s));
+        saveSet(QUIERO_KEY, q);
+        localStorage.removeItem(LEGACY_KEY);
+      } catch { localStorage.removeItem(LEGACY_KEY); }
+    })();
+    function getFavState(slug: string): "none" | "quiero" | "tengo" {
+      if (loadSet(TENGO_KEY).has(slug)) return "tengo";
+      if (loadSet(QUIERO_KEY).has(slug)) return "quiero";
+      return "none";
     }
     function updateFavBtn(slug: string) {
-      const favs = loadFavs();
       const btn = document.getElementById("fav-btn") as HTMLElement | null;
       const icon = document.getElementById("fav-icon");
       if (!btn || !icon) return;
-      const isFav = favs.has(slug);
-      icon.textContent = isFav ? "♥" : "♡";
-      btn.title = isFav ? "Quitar de Mis Zapas" : "Guardar en Mis Zapas";
-      btn.classList.toggle("is-fav", isFav);
+      const state = getFavState(slug);
+      btn.classList.remove("is-fav", "is-quiero", "is-tengo");
+      if (state === "tengo") {
+        icon.textContent = "✓";
+        btn.title = "La tengo · pulsa para quitar";
+        btn.classList.add("is-tengo");
+      } else if (state === "quiero") {
+        icon.textContent = "♥";
+        btn.title = "La quiero · pulsa para marcar como tengo";
+        btn.classList.add("is-quiero");
+      } else {
+        icon.textContent = "♡";
+        btn.title = "Añadir a Mis Zapas";
+      }
     }
     const favBtn = document.getElementById("fav-btn");
     if (favBtn) {
       const slug = (favBtn as HTMLElement).dataset.slug || "";
       updateFavBtn(slug);
       favBtn.addEventListener("click", () => {
-        const favs = loadFavs();
-        if (favs.has(slug)) { favs.delete(slug); } else { favs.add(slug); }
-        saveFavs(favs);
-        updateFavBtn(slug);
-        if ((window as any).plausible && !loadFavs().has(slug) === false) {
-          (window as any).plausible("Favorite Added", { props: { zapa: slug } });
+        const state = getFavState(slug);
+        const q = loadSet(QUIERO_KEY);
+        const t = loadSet(TENGO_KEY);
+        if (state === "none") {
+          q.add(slug); saveSet(QUIERO_KEY, q);
+          if ((window as any).plausible) (window as any).plausible("Favorite Added", { props: { zapa: slug, tipo: "quiero" } });
+        } else if (state === "quiero") {
+          q.delete(slug); t.add(slug);
+          saveSet(QUIERO_KEY, q); saveSet(TENGO_KEY, t);
+        } else {
+          t.delete(slug); saveSet(TENGO_KEY, t);
         }
+        updateFavBtn(slug);
       });
     }
 
