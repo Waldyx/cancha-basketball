@@ -1,10 +1,9 @@
-@import "tailwindcss";
-
 /* ===================================================================
-   CANCHA.ZAPA — Design System Import
-   IMPORT entire cancha-redesign.css for brand tokens
+   CANCHA.ZAPA — Design System (must be before Tailwind)
    =================================================================== */
 @import url("./cancha-redesign.css");
+
+@import "tailwindcss";
 
 /* ── Tipografía global ── */
 body {

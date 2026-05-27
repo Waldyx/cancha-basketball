@@ -21,18 +21,29 @@ const scoreOf = (z: typeof zapatillas[0]): number => {
   return Math.round((v.reduce((a, b) => a + b, 0) / v.length) * 10) / 10;
 };
 
-// 7 ranking categories. The page renders all 7, hidden by JS toggle.
+// Precompute value ratio (score / price × 100) for each shoe
+const valueMap = new Map<string, number>();
+for (const z of zapatillas) {
+  const mp = findMejorPrecio(z.links_compra);
+  const price = mp ? mp.precio_actual : z.precio_msrp_eur;
+  if (price > 0) valueMap.set(z.slug, Math.round((scoreOf(z) / price) * 1000) / 10);
+}
+
+// 8 ranking categories. The page renders all 8, hidden by JS toggle.
 const RANKINGS = [
-  { id: "global",    label: "Mejor global",    key: null,                    blurb: "Score medio más alto: las que hacen todo bien." },
-  { id: "traccion",  label: "Mejor tracción",  key: "traccion" as const,     blurb: "El grip que necesitas en pista exterior." },
-  { id: "cushion",   label: "Más cushion",     key: "amortiguacion" as const,blurb: "Para rodillas, tobillos y jugadores >85kg." },
-  { id: "respuesta", label: "Más reactivas",   key: "respuesta" as const,    blurb: "Court feel premium. Para guardias rápidos." },
-  { id: "outdoor",   label: "Outdoor",         key: "durabilidad_outdoor" as const, blurb: "Aguantan asfalto sin gastarse." },
-  { id: "ligera",    label: "Más ligeras",     key: "peso_score" as const,   blurb: "Menos de 350g. Vuelas." },
+  { id: "global",    label: "Mejor global",      key: null,                    blurb: "Score medio más alto: las que hacen todo bien." },
+  { id: "valor",     label: "Precio / calidad",  key: null,                    blurb: "Máximo score por euro gastado. Las mejores relaciones calidad-precio." },
+  { id: "traccion",  label: "Mejor tracción",    key: "traccion" as const,     blurb: "El grip que necesitas en pista exterior." },
+  { id: "cushion",   label: "Más cushion",       key: "amortiguacion" as const,blurb: "Para rodillas, tobillos y jugadores >85kg." },
+  { id: "respuesta", label: "Más reactivas",     key: "respuesta" as const,    blurb: "Court feel premium. Para guardias rápidos." },
+  { id: "outdoor",   label: "Outdoor",           key: "durabilidad_outdoor" as const, blurb: "Aguantan asfalto sin gastarse." },
+  { id: "ligera",    label: "Más ligeras",       key: "peso_score" as const,   blurb: "Menos de 350g. Vuelas." },
+  { id: "soporte",   label: "Soporte tobillo",   key: "soporte_lateral" as const, blurb: "Para tobillos débiles y lesiones frecuentes." },
 ];
 
-function sortBy(key: keyof typeof zapatillas[0]["puntuaciones"] | null) {
+function sortBy(id: string, key: keyof typeof zapatillas[0]["puntuaciones"] | null) {
   const arr = [...zapatillas];
+  if (id === "valor") return arr.sort((a, b) => (valueMap.get(b.slug) ?? 0) - (valueMap.get(a.slug) ?? 0));
   if (key) return arr.sort((a, b) => b.puntuaciones[key] - a.puntuaciones[key]);
   return arr.sort((a, b) => scoreOf(b) - scoreOf(a));
 }
@@ -75,8 +86,9 @@ function sortBy(key: keyof typeof zapatillas[0]["puntuaciones"] | null) {
 
     {/* Rankings — one block per category, hidden except active */}
     {RANKINGS.map((r, i) => {
-      const sorted = sortBy(r.key);
+      const sorted = sortBy(r.id, r.key);
       const [first, second, third, ...rest] = sorted.slice(0, 10);
+      const isValor = r.id === "valor";
       return (
         <div class={`rk-panel ${i === 0 ? "" : "hidden"}`} data-rk-panel={r.id} data-blurb={r.blurb} data-label={r.label}>
           <section class="rk-podium">
@@ -88,7 +100,8 @@ function sortBy(key: keyof typeof zapatillas[0]["puntuaciones"] | null) {
                   const isFirst = rank === 1;
                   const cat = CAT_ACCENT[z.categoria_principal];
                   const sc = scoreOf(z);
-                  const metric = r.key ? z.puntuaciones[r.key] : sc;
+                  const metric = isValor ? (valueMap.get(z.slug) ?? 0) : r.key ? z.puntuaciones[r.key] : sc;
+                  const metricUnit = isValor ? "pts/100€" : "/10";
                   const mp = findMejorPrecio(z.links_compra);
                   return (
                     <article class={`rk-pod ${isFirst ? "primary" : ""}`} style={`--cat:${cat}`}>
@@ -104,7 +117,7 @@ function sortBy(key: keyof typeof zapatillas[0]["puntuaciones"] | null) {
                         <p class="rk-pod-marca">{z.marca}</p>
                         <h2 class="rk-pod-modelo">{z.modelo}</h2>
                         <div class="rk-pod-metric">
-                          <span class="rkpm-num">{metric}<small>/10</small></span>
+                          <span class="rkpm-num">{metric}<small>{metricUnit}</small></span>
                           <span class="rkpm-lab">{r.label.replace(/^(Mejor |Más )/,"")}</span>
                         </div>
                         <div class="rk-pod-foot">
@@ -125,14 +138,14 @@ function sortBy(key: keyof typeof zapatillas[0]["puntuaciones"] | null) {
                 <span>#</span>
                 <span>Zapatilla</span>
                 <span class="hide-sm">Categoría</span>
-                <span>{r.key ? r.label.replace(/^(Mejor |Más )/,"") : "Score"}</span>
+                <span>{isValor ? "pts/100€" : r.key ? r.label.replace(/^(Mejor |Más )/,"") : "Score"}</span>
                 <span>Precio</span>
                 <span></span>
               </div>
               {rest.map((z, i) => {
                 const cat = CAT_ACCENT[z.categoria_principal];
                 const sc = scoreOf(z);
-                const metric = r.key ? z.puntuaciones[r.key] : sc;
+                const metric = isValor ? (valueMap.get(z.slug) ?? 0) : r.key ? z.puntuaciones[r.key] : sc;
                 const mp = findMejorPrecio(z.links_compra);
                 return (
                   <a href={`/zapatilla/${z.slug}`} class="rk-row" style={`--cat:${cat}`}>
@@ -147,7 +160,7 @@ function sortBy(key: keyof typeof zapatillas[0]["puntuaciones"] | null) {
                       </span>
                     </span>
                     <span class="rk-row-cat hide-sm" style={`color:${cat}`}>{CAT_LABELS[z.categoria_principal]}</span>
-                    <span class="rk-row-metric">{metric}<small>/10</small></span>
+                    <span class="rk-row-metric">{metric}<small>{isValor ? "" : "/10"}</small></span>
                     <span class="rk-row-price">{Math.round(mp?.precio_actual ?? z.precio_msrp_eur)}€</span>
                     <span class="rk-row-arrow">→</span>
                   </a>

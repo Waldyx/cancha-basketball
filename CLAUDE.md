@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-05-27 (sesión 9)
+> Última actualización: 2026-05-27 (sesión 10)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -30,6 +30,20 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 ---
 
 ## Estado actual (sesión 8)
+
+### ✅ Completado (sesión 10)
+- **Blog artículo 11**: "Puma MB.04 vs MB.05 — LaMelo Ball 2025: ¿cuál comprar?" (Comparativa)
+- **Blog artículo 12**: "Zapatillas de baloncesto para pie plano: guía 2025-2026" (Guías)
+- **Nueva SEO page**: `/mejores-zapatillas-puma` — Puma brand page con guide y FAQs
+- **Rankings mejorado**: +2 nuevas categorías: "Precio/Calidad" (score/precio ratio) y "Soporte tobillo" (8 categorías total)
+- **TypeScript fixes**: 0 errores después de 6 correcciones (flyknit→knit, Fuente objects, mujer→women, etc.)
+- **Precios Amazon ES actualizados**: LeBron 22, Sabrina 2, ANTA KAI 1, Curry 12
+- **JD Sports**: URLs corregidas a `?q=` format, 7 zapas marcadas `disponible: false`
+- **BETA badge eliminado** del hero de la home
+- **"una sin sentido" eliminado** de la home
+- **CSS fix**: @import cancha-redesign.css movido antes de Tailwind (elimina warnings PostCSS)
+- **FAQ ampliada**: +3 preguntas (Puma, pie plano, ranking precio/calidad) → 23 total
+- **214 páginas** en producción
 
 ### ✅ Completado (sesión 9)
 - **30 zapatillas retro** con badge 🏅, filtro chip, disclaimer y scores reales
@@ -295,10 +309,10 @@ sk-or-v1-[REDACTED — ver ~/.openclaw/openclaw.json]
 
 ---
 
-Último push: 2026-05-26 (sesión 8)
+Último push: 2026-05-27 (sesión 10)
 Web live: canchazapa.com ✅
 
-## Blog artículos (10)
+## Blog artículos (12)
 1. Cómo elegir zapatillas de baloncesto (Guía)
 2. AE 3 vs Ja 3 — guards 2025 (Comparativa)
 3. Air Jordan 40 análisis (Análisis)
@@ -309,9 +323,12 @@ Web live: canchazapa.com ✅
 8. GT Cut 4 vs Curry 13 vs ANTA Kai 2 — explosivos (Comparativa)
 9. Mejores zapatillas baratas 2025 (Guía)
 10. Mejores zapatillas retro para jugar 2025 (Guía) ← sesión 9
+11. Puma MB.04 vs MB.05 (Comparativa) ← sesión 10
+12. Zapatillas baloncesto pie plano 2026 (Guías) ← sesión 10
 
-## SEO pages (26)
+## SEO pages (27)
 - Todas las anteriores + `/zapatillas-baloncesto-retro` ← sesión 9
+- `/mejores-zapatillas-puma` ← sesión 10
 
 ## Nuevas zapas sesión 7
 - `nike-kobe-9-high-protro` — Kobe signature, high-top, Zoom Air, 199€
