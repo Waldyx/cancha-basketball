@@ -176,7 +176,7 @@ const marca = (
   marcaKey: string,
   cfg: { title: string; description: string; eyebrow: string; lede: string; intro: string; points: { lab: string; body: string }[]; faqs: { q: string; a: string }[] }
 ): SeoPage => ({
-  slug: `mejores-zapatillas-${marcaKey.toLowerCase()}`,
+  slug: `mejores-zapatillas-${marcaKey.toLowerCase().replace(/\s+/g, "-")}`,
   title: cfg.title,
   description: cfg.description,
   eyebrow: cfg.eyebrow,
