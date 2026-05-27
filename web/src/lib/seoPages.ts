@@ -828,6 +828,29 @@ export const SEO_PAGES: SeoPage[] = [
     catalogLabel: "Ver todas las zapatillas retro",
   },
 
+  // ── MARCA ADICIONAL: Puma ──────────────────────────────────────────
+  marca("Puma", {
+    title: "Mejores zapatillas de baloncesto Puma 2025-2026 | CANCHA.ZAPA",
+    description: "Las 5 mejores Puma de baloncesto: MB.04, MB.05, All-Pro Nitro 2, Stewie 4. Análisis técnico honesto de la línea Nitro y LaMelo Ball.",
+    eyebrow: "★ Por marca · Puma",
+    lede: "Puma volvió al baloncesto con la línea Nitro y LaMelo Ball. El MB.04 y MB.05 son las zapatillas más comentadas del mercado en 2025. ¿Merecen la pena?",
+    intro: "Puma regresó al baloncesto de alto rendimiento en 2019 con la tecnología Nitro (nitrógeno inyectado en la espuma). La línea MB (LaMelo Ball) es la más visible, pero la All-Pro Nitro y la Scoot Zeros también tienen mérito técnico real.",
+    points: [
+      { lab: "Nitro foam — diferenciador clave", body: "La espuma Nitro de Puma es más ligera que la Boost de Adidas y más elástica que el Cushlon de Nike. El resultado: zapatillas más ligeras con buen retorno energético." },
+      { lab: "Tracción top de mercado", body: "El outsole del MB.04 tiene uno de los mejores herringbone del mercado en 2025. Comparable a la AE 3. Para pistas con algo de polvo, Puma supera a Nike de media." },
+      { lab: "LaMelo = colorways únicos", body: "Si quieres hacerte notar en la cancha, la línea MB tiene los diseños más atrevidos del mercado. El rendimiento está, pero el estilo también." },
+      { lab: "Precio razonable", body: "MB.04 (~130€), All-Pro Nitro 2 (~110€), Stewie 4 (~120€). Puma suele tener promociones que bajan 20-30€ en Amazon ES y Sprinter." },
+    ],
+    faqs: [
+      { q: "¿Son buenas las Puma para baloncesto real?",
+        a: "Sí. La línea Nitro tiene tecnología de espuma real, no marketing. El MB.04 y la All-Pro Nitro 2 compiten técnicamente con Nike AE 3 y Adidas Trae Young en sus rangos de precio." },
+      { q: "¿Qué diferencia hay entre MB.04 y MB.05?",
+        a: "MB.04 es más reactiva y ligera (355g), MB.05 tiene más cushion (370g). Para guards explosivos: MB.04. Para jugadores más pesados que necesitan más protección: MB.05." },
+      { q: "¿Dónde comprar Puma baloncesto en España?",
+        a: "Amazon ES, Sprinter y Foot Locker ES suelen tener stock completo de la línea MB. Puma.com tiene a veces colorways exclusivos. JD Sports menos fiable para baloncesto Puma." },
+    ],
+  }),
+
   // ── MEJOR DE 2025 ──────────────────────────────────────────────────
   {
     slug: "mejores-zapatillas-baloncesto-2025",

@@ -1047,6 +1047,193 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">¿Quieres ver el catálogo completo de retros con sus puntuaciones? <a href="/zapatillas">Filtra por "Retro"</a> en el catálogo — o usa el chip "🏅 Retro" en el sidebar para ver todas las zapatillas históricas con sus scores reales.</p>
     `,
   },
+
+  // ── 11. Puma MB.04 vs MB.05 ─────────────────────────────────────────
+  {
+    slug: "puma-mb04-vs-mb05-lamelo-2025",
+    title: "Puma MB.04 vs MB.05 — LaMelo Ball 2025: ¿cuál comprar?",
+    metaTitle: "Puma MB.04 vs MB.05 (LaMelo Ball 2025): comparativa completa | CANCHA.ZAPA",
+    description:
+      "Comparativa técnica entre la Puma MB.04 y MB.05 de LaMelo Ball: tracción, Nitro foam, peso y precio. Te decimos cuál vale más la pena en 2025.",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Comparativas",
+    readMinutes: 5,
+    eyebrow: "★ Comparativa · LaMelo Ball 2025",
+    heroTitle: "Puma MB.04 vs MB.05",
+    heroSubtitle: "LaMelo Ball — ¿cuál es mejor para jugar?",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["puma-mb-04", "puma-mb05", "puma-all-pro-nitro-2", "puma-scoot-zeros"],
+    relatedSeoPages: ["mejor-zapatilla-base", "zapatillas-reactivas", "mejores-zapatillas-baloncesto-2025"],
+    body: `
+<p class="art-intro">LaMelo Ball tiene una de las líneas signature más activas del mercado: MB.01, MB.02, MB.03, MB.04 y ya la MB.06 en camino. Aquí nos centramos en las dos más compradas en España en 2025: la MB.04 y la MB.05. ¿Son tan distintas como para justificar el precio extra?</p>
+
+<h2>De un vistazo</h2>
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:14px">
+  <thead>
+    <tr style="border-bottom:2px solid #f97316">
+      <th style="padding:8px;text-align:left">Atributo</th>
+      <th style="padding:8px;text-align:center">Puma MB.04</th>
+      <th style="padding:8px;text-align:center">Puma MB.05</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Tracción</td>
+      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+      <td style="padding:8px;text-align:center">8.5/10</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Amortiguación</td>
+      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">⭐ 8/10</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Respuesta</td>
+      <td style="padding:8px;text-align:center">⭐ 8.5/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Peso</td>
+      <td style="padding:8px;text-align:center">⭐ 355g</td>
+      <td style="padding:8px;text-align:center">370g</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Score CANCHA</td>
+      <td style="padding:8px;text-align:center">⭐ 7.9/10</td>
+      <td style="padding:8px;text-align:center">7.6/10</td>
+    </tr>
+    <tr>
+      <td style="padding:8px">Precio (ES)</td>
+      <td style="padding:8px;text-align:center">⭐ ~130€</td>
+      <td style="padding:8px;text-align:center">~150€</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Espuma: Nitro en ambas, pero diferente stack</h2>
+<p>Ambas usan Nitro foam de Puma, la tecnología de nitrógeno inyectado que caracteriza la línea MB. Sin embargo, la disposición cambia:</p>
+<ul>
+  <li><strong>MB.04:</strong> Nitro Elite en el talón y Nitro en el antepié. El resultado es una zapa más reactiva y firme — más court feel, menos amortiguación blanda.</li>
+  <li><strong>MB.05:</strong> Nitro full-length con mayor volumen de espuma. Más protección de impactos, especialmente en aterrizajes. Ligeramente menos "snap" que la MB.04.</li>
+</ul>
+<p><strong>Veredicto espuma:</strong> MB.04 si eres un guard explosivo que necesita primer paso rápido. MB.05 si pesas más de 80kg o necesitas más protección en rodillas.</p>
+
+<h2>Tracción: ventaja MB.04</h2>
+<p>El outsole de la MB.04 con patrón multidireccional es uno de los mejores del catálogo Puma en 2025. Agarra sin necesidad de limpiar en parquet y tolera bien pistas con algo de polvo. La MB.05 tiene buena tracción también (8.5/10), pero el patrón es ligeramente menos agresivo — se nota en cortes rápidos.</p>
+<p><strong>Veredicto:</strong> MB.04 claramente si la tracción es tu prioridad.</p>
+
+<h2>Peso y perfil</h2>
+<p>La MB.04 pesa 355g (US9) — ligera para ser una low-cut de baloncesto. La MB.05 sube a 370g por el stack de espuma adicional. 15g de diferencia no suenan a mucho, pero en 40 minutos de partido se nota. Para jugadores que valoran la sensación de agilidad, la MB.04 gana.</p>
+<p>Ambas son <strong>low-top</strong>. Si tienes historial de esguinces, considera las Puma All-Pro Nitro 2 en versión mid o las UA Curry 13 mid que ofrecen más soporte.</p>
+
+<h2>LaMelo brand vs rendimiento</h2>
+<p>Seamos honestos: parte del precio de ambas es el nombre LaMelo Ball. Los colorways son los más llamativos del mercado — si quieres hacerte notar en la cancha, estas son las zapatillas. Pero el rendimiento técnico las justifica también: no son zapas de marketing puro.</p>
+<p>Comparadas con el equivalente Nike/Jordan al mismo precio, las MB.04/MB.05 suelen ofrecer mejor tracción y similar cushion. La diferencia está en la respuesta: Nike ZoomX o Zoom Strobel tienen más energía de retorno puro. Puma Nitro es más equilibrado.</p>
+
+<h2>¿Cuál debo comprar?</h2>
+<ul>
+  <li><strong>Elige la MB.04 si:</strong> buscas mejor relación calidad-precio, priorizas tracción y respuesta, eres guard o escolta ligero (menos de 80kg).</li>
+  <li><strong>Elige la MB.05 si:</strong> quieres el modelo más nuevo, priorizas cushion sobre respuesta, o pesas más de 80kg y necesitas más protección.</li>
+</ul>
+<p>En ambos casos, si las encuentras en oferta (Puma tiene promociones frecuentes), merece la pena. A precio completo, la MB.04 a ~130€ tiene mejor value que la MB.05 a ~150€.</p>
+
+<p class="art-outro">¿Quieres compararlas lado a lado con todos los atributos? <a href="/comparar?slugs=puma-mb-04,puma-mb05">Usa el comparador →</a>. ¿No sabes si la línea MB encaja con tu perfil? <a href="/quiz">El quiz te lo dice en 10 preguntas</a>.</p>
+    `,
+  },
+
+  // ── 12. Zapatillas pie plano ─────────────────────────────────────────
+  {
+    slug: "zapatillas-baloncesto-pie-plano-2026",
+    title: "Zapatillas de baloncesto para pie plano: guía 2025-2026",
+    metaTitle: "Zapatillas baloncesto pie plano 2026: cuáles elegir | CANCHA.ZAPA",
+    description:
+      "Guía completa para elegir zapatillas de baloncesto con pie plano o pronación. Qué buscar en soporte de arco, estabilidad y cushion. Las 5 mejores opciones.",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Guía · Pie plano y pronación",
+    heroTitle: "Zapatillas de baloncesto para pie plano",
+    heroSubtitle: "Guía 2025-2026 — sin BS, sin ventas disfrazadas",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["ua-curry-13", "nike-lebron-22", "jordan-tatum-4", "adidas-ae-3", "nike-gt-cut-4"],
+    relatedSeoPages: ["zapatillas-cushion", "zapatillas-equilibradas", "mejor-zapatilla-pivot"],
+    body: `
+<p class="art-intro">El pie plano (o pronación excesiva) afecta aproximadamente al 20-30% de los jugadores de baloncesto. La buena noticia: con la zapatilla correcta, no es una desventaja real. La mala: la mayoría de guías de zapatillas ignoran este tema. Aquí lo abordamos en serio.</p>
+
+<h2>¿Qué es el pie plano en el contexto del baloncesto?</h2>
+<p>El pie plano significa que el arco interno del pie toca el suelo casi por completo al estar de pie. En baloncesto, esto implica <strong>pronación excesiva</strong>: el tobillo tiende a girar hacia dentro en cada zancada y aterrizaje. El resultado puede ser:</p>
+<ul>
+  <li>Mayor estrés en rodillas y caderas</li>
+  <li>Mayor riesgo de fascitis plantar</li>
+  <li>Inestabilidad lateral en cortes rápidos</li>
+  <li>Fatiga más rápida si la zapa no ofrece soporte</li>
+</ul>
+<p><strong>Importante:</strong> si tienes pie plano severo y dolor crónico, consulta a un podólogo antes de comprar zapatillas. A veces las plantillas ortopédicas son más efectivas que la zapatilla en sí.</p>
+
+<h2>Qué buscar en una zapatilla para pie plano</h2>
+
+<h3>1. Estabilidad 8+</h3>
+<p>El atributo más crítico. Una puntuación de estabilidad alta indica que la zapatilla tiene refuerzos laterales, TPU en el talón y base ancha que contrarrestan la pronación. En nuestro catálogo, puedes filtrar por estabilidad en las fichas individuales.</p>
+
+<h3>2. Soporte lateral 7+</h3>
+<p>Diferente a la estabilidad pero relacionado. El soporte lateral es la capacidad de contener el pie en movimientos laterales — cortes, cambios de dirección. Para pie plano, soporte lateral alto compensa la inestabilidad natural del arco.</p>
+
+<h3>3. Amortiguación media-alta</h3>
+<p>El arco plano transfiere más impacto a rodilla y cadera. Un cushion de 7+ ayuda a absorber parte de ese impacto. Ojo: más cushion blando no siempre es mejor — demasiado foam blando crea inestabilidad. Busca cushion firme y reactivo, no solo mucho foam.</p>
+
+<h3>4. Plataforma ancha</h3>
+<p>Una base ancha da más punto de apoyo. Modelos como el LeBron 22 o la UA Curry 13 tienen geometría de suela más ancha que zapatillas tipo "racing" como la Kobe 8 Protro. Evita los modelos más estrechos y con perfil bajo radical.</p>
+
+<h3>5. Talón con contrafuerte rígido</h3>
+<p>El contrafuerte es la zona rígida alrededor del talón. Para pie plano, un contrafuerte firme ayuda a controlar la pronación desde el punto de mayor impacto. Las zapatillas de categoría "balanced" o "cushion-focused" suelen tenerlo mejor.</p>
+
+<h2>Las 5 mejores opciones para pie plano</h2>
+
+<h3>1. Nike LeBron 22 — la mejor amortiguación + estabilidad</h3>
+<p>Zoom Air en talón y antepié, plataforma ancha, estabilidad 8.5/10. El LeBron está diseñado para jugadores físicos de 100kg+ — la misma ingeniería que protege a un jugador de ese tamaño protege perfectamente a un jugador con pie plano a cualquier peso. Precio: ~160-190€.</p>
+
+<h3>2. Jordan Tatum 4 — balanced con soporte real</h3>
+<p>Estabilidad 8.5/10, soporte lateral 8/10, Zoom Air full-length. La Tatum es una de las zapatillas más equilibradas del mercado — no brilla en ningún atributo específico pero no falla en ninguno. Perfecta para aleros con pie plano que necesitan versatilidad. Precio: ~140-160€.</p>
+
+<h3>3. UA Curry 13 — court feel con soporte</h3>
+<p>Sorprendentemente buena para pie plano: UA Flow con geometría de suela estabilizadora, soporte lateral 8/10, estabilidad 7.5/10. Más reactiva que el LeBron, ideal si eres guard con pie plano. El UA Flow actúa como una plantilla extra al ser la espuma de suela directo al suelo. Precio: ~140-160€.</p>
+
+<h3>4. Adidas AE 3 — la más accesible</h3>
+<p>Si el presupuesto importa, la AE 3 ofrece estabilidad 7.5/10 y soporte lateral 8/10 a ~120-130€. Lightstrike Pro firme, herringbone tracción. No llega al LeBron en cushion pero sí en soporte. Para jugadores de hasta 85kg con pie plano, es suficiente.</p>
+
+<h3>5. Nike GT Hustle 3 — soporte de tobillo + pie plano</h3>
+<p>Si tienes pie plano <em>y</em> historial de esguinces, la GT Hustle 3 en versión mid-top es la solución. Estabilidad 8/10, soporte lateral 7.5/10, collar de tobillo reforzado. Más pesada que la GT Cut, pero para un jugador con problemas combinados de pie plano + tobillo débil, es la opción más segura del mercado.</p>
+
+<h2>Lo que debes evitar</h2>
+<ul>
+  <li><strong>Zapatillas ultraligeras tipo "racing":</strong> La Kobe 8 Protro (295g), la GT Cut 4 (315g) o cualquier low-profile extremo no tiene la plataforma de soporte que necesita un pie plano. Excelentes zapatillas, pero no para este perfil.</li>
+  <li><strong>Zapatillas con cushion excesivamente blando:</strong> Foam muy blando (algunas versiones de Nike React) crea una base inestable que empeora la pronación. Busca cushion firme, no solo abundante.</li>
+  <li><strong>Horma muy estrecha:</strong> El pie plano tiende a ser más ancho cuando el arco no lo levanta. Horma estrecha crea puntos de presión. Modelos Nike con horma estrecha (muchos Kyrie) son problemáticos para este perfil.</li>
+</ul>
+
+<h2>¿Vale la pena una plantilla ortopédica?</h2>
+<p>Para pronación leve, una buena zapatilla es suficiente. Para pronación moderada o severa, una plantilla ortopédica <em>plus</em> una zapatilla de soporte es la mejor combinación. Las plantillas personalizadas de podólogo cuestan 100-200€ pero duran años y se transfieren entre zapatillas. No veas ese gasto como uno extra — es la solución real al problema, no un parche.</p>
+
+<p>Si optas por plantillas, necesitas una zapatilla con plantilla removible (la mayoría lo son) y espacio interior suficiente. El LeBron 22 tiene más espacio interior que la GT Cut, por ejemplo.</p>
+
+<h2>Preguntas frecuentes</h2>
+
+<h3>¿El pie plano empeora con el baloncesto?</h3>
+<p>El baloncesto no causa pie plano pero sí puede agravar los síntomas sin el calzado adecuado. Con buena zapatilla y posiblemente plantilla, puedes jugar sin limitaciones.</p>
+
+<h3>¿Qué diferencia hay entre pie plano y pie pronador?</h3>
+<p>Técnicamente el pie plano (arco bajo estructuralmente) y el pie pronador (que colapsa en movimiento) son distintos pero comparten recomendaciones similares: soporte de arco, estabilidad, cushion firme.</p>
+
+<h3>¿Puedo usar zapatillas de running con soporte de pronación para baloncesto?</h3>
+<p>No. Las zapatillas de running con soporte de pronación están diseñadas para movimientos en línea recta, no para los cortes laterales del baloncesto. Usar running en cancha aumenta el riesgo de lesión, especialmente de tobillo.</p>
+
+<p class="art-outro">Si tienes pie plano y dudas sobre qué zapatilla específica elegir para tu perfil, <a href="/quiz">usa el quiz</a> — en 10 preguntas te damos las 5 más compatibles con tu peso, posición y tipo de juego.</p>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
