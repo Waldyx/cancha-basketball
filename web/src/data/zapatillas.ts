@@ -92,10 +92,10 @@ const _rawZapatillas: Zapatilla[] = [
       {
         tienda: "amazon_es",
         url: "https://www.amazon.es/s?k=nike+lebron+22&tag=canchazapa-21",
-        precio_actual: 189.99,
+        precio_actual: 162,
         disponible: true,
         tiene_afiliado: true,
-        ultima_verificacion: "2026-05-13",
+        ultima_verificacion: "2026-05-27",
       },
       {
         tienda: "nike_es",
@@ -196,8 +196,8 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "ua_es", url: "https://www.underarmour.es/es-es/c/hombre/zapatillas/baloncesto/?q=curry+12", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+curry+12+baloncesto&tag=canchazapa-21", precio_actual: 149.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
-      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search/curry+12", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+curry+12+baloncesto&tag=canchazapa-21", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=curry+12+baloncesto", precio_actual: 160, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
     ],
   },
 
@@ -283,10 +283,10 @@ const _rawZapatillas: Zapatilla[] = [
       {
         tienda: "amazon_es",
         url: "https://www.amazon.es/s?k=nike+sabrina+2&tag=canchazapa-21",
-        precio_actual: 109.99,
+        precio_actual: 99.99,
         disponible: true,
         tiene_afiliado: true,
-        ultima_verificacion: "2026-05-13",
+        ultima_verificacion: "2026-05-27",
       },
       {
         tienda: "nike_es",
@@ -397,10 +397,10 @@ const _rawZapatillas: Zapatilla[] = [
       {
         tienda: "amazon_es",
         url: "https://www.amazon.es/s?k=anta+kai+1&tag=canchazapa-21",
-        precio_actual: 125,
+        precio_actual: 98.99,
         disponible: true,
         tiene_afiliado: true,
-        ultima_verificacion: "2026-05-13",
+        ultima_verificacion: "2026-05-27",
       },
     ],
   },
@@ -1278,7 +1278,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "nb_es", url: "https://www.newbalance.es/search?q=fresh+foam+bb+v3", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+fresh+foam+bb+v3+baloncesto&tag=canchazapa-21", precio_actual: 139, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
-      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search/new+balance+bb+v3", precio_actual: 144.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=new+balance+bb+v3", precio_actual: 144.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
     ],
   },
 
@@ -1337,8 +1337,8 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=harden+vol+9", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search/harden+vol+9", precio_actual: 159.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+harden+vol+9+baloncesto&tag=canchazapa-21", precio_actual: 169, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
+      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=harden+vol+9", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+harden+vol+9+baloncesto&tag=canchazapa-21", precio_actual: 169, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=harden+vol+9", precio_actual: 159.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
     ],
   },
@@ -1397,7 +1397,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 95,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=dame+certified", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search/dame+certified", precio_actual: 94.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=adidas+dame+certified", precio_actual: 94.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+certified+baloncesto&tag=canchazapa-21", precio_actual: 92, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
     ],
   },
@@ -1457,7 +1457,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 130,
     links_compra: [
       { tienda: "puma_es", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-mb-04-lo-team-unisex/312174?swatch=02", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search/puma+mb+04", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=puma+mb+04+basketball", precio_actual: 129.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+mb.04+baloncesto&tag=canchazapa-21", precio_actual: 125, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
     ],
   },
@@ -1639,7 +1639,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=dame+9", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search/dame+9", precio_actual: 119.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=adidas+dame+9+baloncesto", precio_actual: 119.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+9+baloncesto&tag=canchazapa-21", precio_actual: 124, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=dame+9", precio_actual: 119.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
     ],
@@ -1696,7 +1696,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=cross+em+up+speed", precio_actual: 60, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+cross+em+up+speed+baloncesto&tag=canchazapa-21", precio_actual: 60, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
-      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search/cross+em+up+speed", precio_actual: 69.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=adidas+cross+em+up+speed", precio_actual: 69.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
     ],
   },
 
@@ -1864,7 +1864,7 @@ const _rawZapatillas: Zapatilla[] = [
       "No competitiva",
     ],
     veredicto: "Solo para iniciación o jugador muy casual con presupuesto extremo. Subiendo a 80 â‚¬ ya hay mejores opciones.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/decathlon-tarmak-voltzy-500.jpg",
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-13",
@@ -2443,7 +2443,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Amortiguación básica para jugadores muy pesados",
     ],
     veredicto: "Si juegas en cemento o cambias de superficie constantemente, la Breakthru 5 es tu mejor opción. La mejora de soporte lateral sobre la 4 la hace más completa para aleros y jugadores activos.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/ua-flow-breakthru-5.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-19",
@@ -3109,7 +3109,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Para el jugador que quiere un zapato de performance con estilo diferente. La SHAI 001 no bate a la AE 2 o Ja 3 en tech puro, pero ofrece un equilibrio único de rendimiento y diseño limpio.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/converse-shai-001.jpg",
     imagenes: [],
 
     fuentes: [
@@ -4152,7 +4152,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Para jugadores que valoran la precisión y el feeling con la pista sobre el cushion. El Flyknit + herringbone hacen de la Kobe 9 Low Protro una de las zapatillas de baloncesto más técnicamente puras disponibles hoy. No para principiantes ni jugadores de exterior.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-kobe-9-low-protro.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -4449,7 +4449,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La mejor opción bajo 90â‚¬ con respaldo de una marca premium. Para juego recreativo, entrenos o como segunda zapatilla, la Immortality 5 es una opción sólida y asequible. Para juego competitivo, invierte en la Freak 7 o la Tatum 4.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-giannis-immortality-5.jpg",
     imagenes: [],
 
     fuentes: [],
@@ -5353,7 +5353,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Mejor cushion que la Exhibit A", "Ligera y transpirable", "Precio muy competitivo"],
     contras: ["Cushion todavía modesto", "Soporte lateral básico"],
     veredicto: "El upgrade perfecto del Exhibit A. Más cushion y reactividad por poco más de precio.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/adidas-exhibit-b.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -5835,7 +5835,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Versátil y duradera", "Buen soporte lateral", "Icónico diseño Jordan"],
     contras: ["Cushion modesto", "Algo pesada"],
     veredicto: "La opción Jordan equilibrada para aleros y ala-pívots con presupuesto medio.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/jordan-super-fly-8.png",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
@@ -7316,7 +7316,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Tracción dual indoor excepcional", "Muy reactiva y ligera (260g)", "Lockdown de primer nivel", "Diseño más maduro que generaciones anteriores"],
     contras: ["Poco cushion para jugadores pesados", "Durabilidad outdoor limitada", "Horma estrecha puede no adaptarse a todos"],
     veredicto: "La mejor Trae Young de la serie. Para guards ágiles del perímetro que necesitan el máximo agarre y velocidad de reacción.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/adidas-trae-young-4.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-19",
@@ -7567,7 +7567,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Amortiguación de primer nivel para jugadores pesados", "Soporte lateral y de tobillo sobresaliente", "Tracción fiable en interior", "Horma ancha â€” cómoda para pies anchos"],
     contras: ["Muy pesada (395g) â€” impensable para guards", "Precio elevado", "Lenta en cambios de dirección rápidos"],
     veredicto: "La opción más sólida de Nike para pivots que necesitan máximo soporte y cushion. Si juegas de 5 y pesas más de 90kg, esta es tu zapatilla.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-gt-jump-3.png",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-19",
@@ -7754,7 +7754,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "La mejor apuesta de New Balance para guards en 2024. Si priorizas rendimiento sobre marketing, la TWO WXY v6 supera a muchas signatures en valor real.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nb-two-wxy-v6.jpg",
     imagenes: [],
 
     fuentes: [{ tipo: "evaluacion-propia" }],
@@ -7894,7 +7894,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "Perfecta como primera zapatilla de baloncesto o para entrenamientos casuales. No esperes rendimiento de competición, pero para iniciarse o entrenar es más que suficiente.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/adidas-ownthegame-2.webp",
     imagenes: [],
 
     fuentes: [{ tipo: "evaluacion-propia" }],
@@ -7963,7 +7963,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "La opción más económica de Under Armour para baloncesto. Ideal para entrenamientos o para quien empieza y no quiere invertir mucho. Sin pretensiones de rendimiento elite.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/ua-assert-10.jpg",
     imagenes: [],
 
     fuentes: [{ tipo: "evaluacion-propia" }],
@@ -9437,7 +9437,7 @@ const _rawZapatillas: Zapatilla[] = [
       "La cámara de aire puede pincharse con los años",
     ],
     veredicto: "Un 4.3/10 en performance, pero la historia de Dee Brown en el All-Star vale más que cualquier score. Para coleccionistas de los 90, una pieza fundamental.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/reebok-pump-omni-lite.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
@@ -10079,7 +10079,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "El zapato que representa la era dorada de la NBA mejor que ninguno. 5.3/10 en performance — limitada, pero caminar con la Weapon es caminar con Bird y Magic. Para el historico del baloncesto.",
     es_retro: true,
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/converse-weapon.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
@@ -10266,7 +10266,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "La Penny 1 es mas pura que la 2 — mas ligera, mas reactiva, mas limpia en diseno. 6.0/10 en performance. Para el guard explosivo que quiere el legado completo de Hardaway desde el principio.",
     es_retro: true,
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-air-penny-1.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
@@ -10386,7 +10386,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto: "El rival clasico de la Air Force 1. Mejor soporte de tobillo que la AF1 gracias a la correa, pero sin Air. 5.2/10 en performance. Para el fan de Adidas que quiere representar la era dorada del baloncesto pre-Air.",
     es_retro: true,
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/adidas-forum-84.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
