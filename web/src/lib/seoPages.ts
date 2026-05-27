@@ -706,29 +706,6 @@ export const SEO_PAGES: SeoPage[] = [
     catalogLabel: "Ver todas las zapatillas Under Armour",
   },
 
-  // ── MARCA ADICIONAL: Puma ──────────────────────────────────────────
-  marca("Puma", {
-    title: "Mejores zapatillas de baloncesto Puma 2026 | CANCHA.ZAPA",
-    description: "Las 5 mejores Puma: LaMelo MB, Scoot Zeros, All-Pro Nitro. Análisis técnico + precio actualizado.",
-    eyebrow: "★ Por marca · Puma",
-    lede: "Puma volvió al baloncesto serio con LaMelo Ball y Scoot Henderson. NITROFOAM y All-Pro Nitro son sus apuestas para el performance.",
-    intro: "Puma tardó décadas en volver al baloncesto, pero lo hizo bien. LaMelo Ball lleva la línea MB (innovadora, polarizante), mientras Scoot Henderson representa a los guards explosivos. Sus espumas NITROFOAM son competitivas.",
-    points: [
-      { lab: "MB line = expresión", body: "Las LaMelo MB son zapatillas de carácter: diseño atrevido, NITROFOAM reactivo, talla ligeramente grande." },
-      { lab: "Scoot Zeros = court feel", body: "Para guards que priorizan sensación de suelo. Ligera, reactiva, sin el exceso de cushion de la MB." },
-      { lab: "All-Pro Nitro = balanced", body: "La más equilibrada de Puma. Para aleros o jugadores que no quieren extremos." },
-      { lab: "Disponibilidad en España", body: "Puma se encuentra en Foot Locker, JD Sports, Zalando y Puma.com. Menos presencia que Nike/Adidas." },
-    ],
-    faqs: [
-      { q: "¿Puma es buena para baloncesto?",
-        a: "Sí, si encajas en su perfil. Las MB son para guards expresivos; las All-Pro Nitro para jugadores equilibrados. La calidad técnica es real, no marketing." },
-      { q: "¿La MB.05 de LaMelo Ball es buena para jugar?",
-        a: "Sí. NITROFOAM con buena respuesta, tracción sólida, upper ventilado. No es la más ligera pero rinde bien indoor. Ojo: la talla tiende a quedar grande." },
-      { q: "¿Mejor Puma para guards?",
-        a: "Scoot Zeros o Clyde All-Pro 2. Ambas con respuesta alta y peso bajo, mejor para guards que la MB (más pesada y cushion)." },
-    ],
-  }),
-
   // ── MUJER ──────────────────────────────────────────────────────────
   {
     slug: "zapatillas-baloncesto-mujer",
@@ -908,6 +885,46 @@ export const SEO_PAGES: SeoPage[] = [
       { q: "¿New Balance es buena para baloncesto?", a: "Sí, aunque subestimada. La Fresh Foam BB v3 es la mejor zapatilla de cushion para pívots de su rango de precio. La Two WXY v6 compite con la Ja 3 y la AE 3 para guards." },
       { q: "¿Merece la pena la New Balance Fresh Foam BB v3?", a: "Para pívots con rodillas sensibles o jugadores de más de 90kg: sí. El stack de cushion es de los más generosos del mercado y el precio (~130€) es competitivo frente a Nike LeBron o Jordan Tatum." },
       { q: "¿Dónde comprar New Balance de baloncesto en España?", a: "Amazon ES y NewBalance.es tienen el catálogo completo. Foot Locker ES también tiene algo de stock. Evita comprar en webs de terceros no verificados." },
+    ],
+  }),
+
+  // ── MARCA: Converse ───────────────────────────────────────────────
+  marca("Converse", {
+    title: "Mejores zapatillas Converse para baloncesto 2026 | CANCHA.ZAPA",
+    description: "Las mejores Converse de baloncesto: BBall Pro, All Star Pro BB, Chuck Taylor. Análisis técnico honesto — ¿son buenas para jugar de verdad?",
+    eyebrow: "★ Por marca · Converse",
+    lede: "Converse vuelve al baloncesto de performance con la línea BBall Pro. Más allá de las clásicas Chuck Taylor, hay zapatillas técnicas serias para jugadores exigentes.",
+    intro: "Converse es la marca más histórica del baloncesto: la Chuck Taylor fue la zapatilla dominante hasta los 80. Hoy, Converse (parte de Nike) ha vuelto con la línea BBall Pro para competir en el segmento de performance. No son solo un guiño nostálgico — tienen tecnología real.",
+    points: [
+      { lab: "BBall Pro = performance real", body: "La Converse BBall Pro tiene Air Zoom en el antepié y un outsole de goma de alta tracción. No es retro — es una zapatilla técnica que compite con Nike Ja 3 y Adidas AE 3 en cortes y respuesta." },
+      { lab: "All Star Pro BB = el retro moderno", body: "La All Star Pro BB combina el estilo vintage de la Chuck con tecnología React de Nike. Para jugadores que quieren rendimiento en un silhouette clásico, es la opción perfecta." },
+      { lab: "Chuck Taylor = historia, no performance", body: "Las Chuck Taylor originales (bajo y alto) no están pensadas para baloncesto moderno. La suela plana y la falta de amortiguación las hacen inadecuadas para entrenamiento intenso. Son lifestyle, no performance." },
+      { lab: "Precio más accesible", body: "Las Converse de performance rondan los 100-130€, por debajo de los 150-180€ de Nike/Jordan de gama alta. Si encajas en el estilo, ofrecen buena relación calidad-precio." },
+    ],
+    faqs: [
+      { q: "¿Las Converse sirven para jugar baloncesto?", a: "Depende del modelo. La BBall Pro y la All Star Pro BB son zapatillas técnicas reales con Air Zoom y buena tracción — sí sirven para jugar. Las Chuck Taylor originales no son apropiadas para baloncesto moderno: no tienen amortiguación suficiente." },
+      { q: "¿Qué Converse es mejor para baloncesto?", a: "En 2025, la Converse BBall Pro es la mejor opción técnica de la marca. Tiene tracción competitiva, Air Zoom en el antepié y peso razonable. Compite en el segmento 100-130€ con la Nike Ja 3 y la Adidas AE 3 en talla normal." },
+      { q: "¿Dónde comprar Converse de baloncesto en España?", a: "Converse.com/es, Amazon ES (vendedor oficial Nike/Converse) y Foot Locker ES tienen el catálogo más completo. JD Sports también tiene stock en temporada." },
+    ],
+  }),
+
+  // ── MARCA: Reebok ─────────────────────────────────────────────────
+  marca("Reebok", {
+    title: "Mejores zapatillas Reebok para baloncesto 2026 | CANCHA.ZAPA",
+    description: "Las mejores zapatillas de baloncesto Reebok: Question Mid, Answer V, Legacy Court. Desde el legacy de Allen Iverson hasta los modelos actuales.",
+    eyebrow: "★ Por marca · Reebok",
+    lede: "Reebok tiene el legado de Allen Iverson y las zapatillas más icónicas de los 90. Hoy, la marca ofrece retros de alto rendimiento y modelos de lifestyle para la cancha.",
+    intro: "Reebok dominó el baloncesto en los 90 con Allen Iverson. La Question Mid y la Answer V son clásicos que se reeditan con suelas modernas. Para jugadores que quieren el estilo vintage de los 90 con rendimiento decente en parqué, Reebok es una opción a considerar.",
+    points: [
+      { lab: "Question Mid = ícono absoluto", body: "La Question Mid de Allen Iverson es una de las siluetas más queridas del baloncesto. Las reediciones mantienen el upper original pero actualizan la suela. Buena tracción herringbone, cushion modesto." },
+      { lab: "Answer V = cushion mejorado", body: "La Answer V tiene más cushion que la Question gracias a la actualización de la entresuela. Para un zapato retro, se defiende bien en indoor con cushion suficiente para sesiones moderadas." },
+      { lab: "Legacy Court = la más moderna", body: "La Legacy Court es la apuesta más técnica de Reebok actual: upper sintético ligero, suela de goma de alto grip. Menos historia, más rendimiento." },
+      { lab: "Precio competitivo", body: "Las Reebok de baloncesto rondan los 80-120€, por debajo de equivalentes Nike y Adidas. Para jugadores con presupuesto limitado que quieren un clásico, son una opción razonable." },
+    ],
+    faqs: [
+      { q: "¿Las Reebok de baloncesto son buenas para jugar?", a: "Depende del modelo. Las reediciones de la Question Mid y Answer V tienen tracción herringbone sólida para indoor. El cushion es modesto comparado con modelos actuales — úsalas para partidos amistosos, no para entrenamiento intensivo diario." },
+      { q: "¿Cuál es la mejor Reebok para baloncesto en 2025?", a: "La Legacy Court es la más técnica de la línea actual. Para los que quieren el legado de Iverson, la Question Mid reedición ofrece el equilibrio entre estilo y funcionalidad básica. Para rendimiento moderno, la AE 3 o GT Cut son superiores técnicamente." },
+      { q: "¿Dónde comprar Reebok en España?", a: "Reebok.es, Amazon ES y algunas tiendas Foot Locker tienen la línea de baloncesto. El stock es limitado comparado con Nike/Adidas — si encuentras tu talla, hazlo porque los retros tienden a agotar." },
     ],
   }),
 
