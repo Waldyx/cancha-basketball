@@ -206,11 +206,25 @@ const productJsonLd = {
           {/* Photo */}
           <div class="dh-photo">
             <div class="dh-photo-frame">
-              <span class="dh-cat-badge">{CAT_LABELS[z.categoria_principal]}</span>
-              {z.es_retro
-                ? <span class="dh-new-badge" style="background:#b45309;color:#fef3c7">🏅 Retro · {z.año_lanzamiento}</span>
-                : z.año_lanzamiento >= 2025 && <span class="dh-new-badge">★ Nueva {z.año_lanzamiento}</span>
-              }
+              {/* Badges izquierda: categoría + retro/nueva juntos */}
+              <div class="dh-badges-left">
+                <span class="dh-cat-badge">{CAT_LABELS[z.categoria_principal]}</span>
+                {z.es_retro
+                  ? <span class="dh-cat-badge" style="background:#451a03;color:#fef3c7;border-color:#92400e">🏅 Retro · {z.año_lanzamiento}</span>
+                  : z.año_lanzamiento >= 2025 && <span class="dh-cat-badge" style="background:#1a1a00;color:#fbbf24;border-color:#854d0e">★ {z.año_lanzamiento}</span>
+                }
+              </div>
+              {/* Corazón favorito — esquina superior derecha */}
+              <button
+                id="fav-btn"
+                data-slug={z.slug}
+                type="button"
+                class="dh-fav-btn"
+                title="Guardar en Mis Zapas"
+                aria-label="Guardar en Mis Zapas"
+              >
+                <span id="fav-icon">♡</span>
+              </button>
               {z.imagen_principal && !z.imagen_principal.includes('placeholder') && (
                 <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`}
                      onerror="this.style.display='none'" />
@@ -288,16 +302,6 @@ const productJsonLd = {
               </div>
             )}
 
-            {/* Botón favorito */}
-            <button
-              id="fav-btn"
-              data-slug={z.slug}
-              type="button"
-              style="margin-top:12px;display:flex;align-items:center;gap:8px;background:transparent;border:1px solid #3f3f46;color:#a1a1aa;padding:10px 18px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .15s;width:100%"
-            >
-              <span id="fav-icon" style="font-size:16px">♡</span>
-              <span id="fav-label">Guardar en Mis Zapas</span>
-            </button>
           </div>
         </div>
       </div>
@@ -574,15 +578,13 @@ const productJsonLd = {
     }
     function updateFavBtn(slug: string) {
       const favs = loadFavs();
-      const btn = document.getElementById("fav-btn");
+      const btn = document.getElementById("fav-btn") as HTMLElement | null;
       const icon = document.getElementById("fav-icon");
-      const label = document.getElementById("fav-label");
-      if (!btn || !icon || !label) return;
+      if (!btn || !icon) return;
       const isFav = favs.has(slug);
       icon.textContent = isFav ? "♥" : "♡";
-      label.textContent = isFav ? "Guardada en Mis Zapas ✓" : "Guardar en Mis Zapas";
-      (btn as HTMLElement).style.color = isFav ? "#f97316" : "#a1a1aa";
-      (btn as HTMLElement).style.borderColor = isFav ? "#f97316" : "#3f3f46";
+      btn.title = isFav ? "Quitar de Mis Zapas" : "Guardar en Mis Zapas";
+      btn.classList.toggle("is-fav", isFav);
     }
     const favBtn = document.getElementById("fav-btn");
     if (favBtn) {
