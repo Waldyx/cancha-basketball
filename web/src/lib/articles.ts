@@ -1144,6 +1144,182 @@ export const ARTICLES: Article[] = [
     `,
   },
 
+  // ── 13. Nike GT Cut 4 análisis ───────────────────────────────────────
+  {
+    slug: "nike-gt-cut-4-analisis-2025",
+    title: "Nike GT Cut 4: análisis completo — la zapatilla más reactiva de 2025",
+    metaTitle: "Nike GT Cut 4 análisis 2025: tracción, cushion y veredicto | CANCHA.ZAPA",
+    description:
+      "Análisis completo de la Nike Air Zoom GT Cut 4: tracción 10/10, Zoom Air Strobel, horma estrecha y por qué es la mejor zapatilla para bases y escoltas en 2025.",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Análisis",
+    readMinutes: 6,
+    eyebrow: "★ Análisis · Nike GT Cut 4",
+    heroTitle: "Nike GT Cut 4",
+    heroSubtitle: "La zapatilla más reactiva del mercado en 2025",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-gt-cut-4", "nike-gt-cut-3", "ua-curry-13", "anta-kai-2", "adidas-ae-3"],
+    relatedSeoPages: ["mejor-zapatilla-base", "zapatillas-reactivas", "mejores-zapatillas-baloncesto-2025"],
+    body: `
+<p class="art-intro">La Nike Air Zoom GT Cut 4 es la zapatilla de baloncesto que más se repite en la lista de deseos de guards y escoltas en 2025. Tracción 10/10, Zoom Air Strobel de última generación y solo 305g. Victor Wembanyama la escogió para la temporada NBA 25-26 — un 2,24m que usa una zapatilla de guard te dice todo lo que necesitas saber sobre su court feel.</p>
+
+<h2>Ficha técnica</h2>
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:14px">
+  <thead>
+    <tr style="border-bottom:2px solid #f97316">
+      <th style="padding:8px;text-align:left">Atributo</th>
+      <th style="padding:8px;text-align:left">Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px">Tecnología</td><td style="padding:8px">Zoom Air Strobel + React foam</td></tr>
+    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px">Suela</td><td style="padding:8px">Herringbone nueva generación (goma dura)</td></tr>
+    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px">Altura</td><td style="padding:8px">Low-top</td></tr>
+    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px">Peso</td><td style="padding:8px">305g (US10)</td></tr>
+    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px">Drop</td><td style="padding:8px">7mm</td></tr>
+    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px">Horma</td><td style="padding:8px">Normal (tirando a estrecha)</td></tr>
+    <tr><td style="padding:8px">Precio recomendado</td><td style="padding:8px">~160-170€</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Tracción: la mejor del mercado</h2>
+<p>El outsole herringbone de la GT Cut 4 es la referencia en tracción de pista cubierta en 2025. El patrón actualizado añade más canales multidireccionales que la GT Cut 3, lo que mejora el agarre en cortes oblicuos — los más exigentes en juego real.</p>
+<p>En parquet limpio, el agarre es inmediato sin necesidad de limpiar la suela. En pistas con algo de polvo, aguanta mejor que la mayoría de competidoras. La única limitación: la goma es fina para reducir peso, lo que penaliza en exterior (asfalto) donde se desgasta rápido. <strong>Son exclusivamente zapatillas de pabellón.</strong></p>
+
+<h2>Amortiguación: funcional, no espectacular</h2>
+<p>La GT Cut 4 no es una zapatilla de cushion — y eso es una elección deliberada. El Zoom Air Strobel (que recorre toda la plantilla) da una respuesta energética inmediata, pero la amortiguación total es moderada: 7/10 en nuestra escala. Pívots y jugadores de más de 100kg que aterrizan con impacto fuerte encontrarán otras opciones más protectoras.</p>
+<p>Para un guard de 70-85kg que hace cortes cortos y cambios de dirección rápidos, es suficiente. Pero si comparas con la Nike LeBron 22 o la Jordan Tatum 4 en cushion puro, la diferencia es notable.</p>
+
+<h2>Respuesta y court feel</h2>
+<p>Aquí es donde la GT Cut 4 destruye a la competencia. El Zoom Air Strobel tiene un retorno de energía casi instantáneo — pisas y recuperas energía en menos de 20ms según las pruebas de Nike. Combinado con el drop de 7mm y la suela fina, obtienes una sensación de contacto directo con el parquet que pocas zapatillas replican.</p>
+<p>Es la zapatilla que más se acerca a jugar descalzo sobre parquet — en el buen sentido. Sabes exactamente dónde está tu pie en cada momento.</p>
+
+<h2>Horma y ajuste</h2>
+<p>La GT Cut 4 tiene horma normal tirando a estrecha, especialmente en el antepié. Si tienes pie ancho (más de 10cm de anchura en la parte más ancha del pie), sube media talla o busca alternativas como la ANTA Kai 2 que tiene horma más generosa.</p>
+<p>El upper de mesh + TPU se adapta bien al pie después de unas horas de uso. Inicialmente puede sentirse más rígido que otras opciones — dale 2-3 sesiones antes de juzgar el confort final.</p>
+
+<h2>¿Para quién es la GT Cut 4?</h2>
+<ul>
+  <li><strong>Perfil ideal:</strong> base o escolta de 60-90kg, juega exclusivamente en pabellón interior, prioriza velocidad y primer paso sobre cushion.</li>
+  <li><strong>No recomendada para:</strong> pívots, jugadores con historial de esguinces (solo existe en low-top), jugadores con pie ancho, outdoor.</li>
+  <li><strong>Talla:</strong> pide tu talla habitual de Nike. Si tienes pie ancho, sube media talla.</li>
+</ul>
+
+<h2>Comparativa rápida: GT Cut 4 vs alternativas</h2>
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:14px">
+  <thead>
+    <tr style="border-bottom:2px solid #f97316">
+      <th style="padding:8px;text-align:left"></th>
+      <th style="padding:8px;text-align:center">GT Cut 4</th>
+      <th style="padding:8px;text-align:center">UA Curry 13</th>
+      <th style="padding:8px;text-align:center">ANTA Kai 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Tracción</td>
+      <td style="padding:8px;text-align:center">⭐ 10</td>
+      <td style="padding:8px;text-align:center">9</td>
+      <td style="padding:8px;text-align:center">8</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Respuesta</td>
+      <td style="padding:8px;text-align:center">⭐ 9</td>
+      <td style="padding:8px;text-align:center">9</td>
+      <td style="padding:8px;text-align:center">8</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Horma ancha</td>
+      <td style="padding:8px;text-align:center">❌ No</td>
+      <td style="padding:8px;text-align:center">✅ Normal</td>
+      <td style="padding:8px;text-align:center">⭐ Ancha</td>
+    </tr>
+    <tr>
+      <td style="padding:8px">Precio</td>
+      <td style="padding:8px;text-align:center">~160€</td>
+      <td style="padding:8px;text-align:center">~140€</td>
+      <td style="padding:8px;text-align:center">⭐ ~119€</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Veredicto</h2>
+<p>La Nike GT Cut 4 es la mejor zapatilla de baloncesto para guards en 2025 — si encajas en el perfil. La tracción y la respuesta son el techo del mercado. Pero hay dos condiciones: pie normal o estrecho, y juego exclusivamente indoor. Si se cumplen ambas, es una compra que no te arrepentirás.</p>
+<p>Si tienes pie ancho o necesitas más cushion, la <a href="/zapatilla/ua-curry-13">UA Curry 13</a> o la <a href="/zapatilla/anta-kai-2">ANTA Kai 2</a> son alternativas más cómodas y algo más baratas.</p>
+
+<p class="art-outro">¿Dudas entre la GT Cut 4 y otra zapatilla? <a href="/comparar?slugs=nike-gt-cut-4,ua-curry-13,anta-kai-2">Compáralas con todos los datos aquí</a>. ¿No sabes si es la tuya? <a href="/quiz">El quiz te lo dice en 60 segundos</a>.</p>
+    `,
+  },
+
+  // ── 14. Zapatillas niños y jóvenes ──────────────────────────────────
+  {
+    slug: "zapatillas-baloncesto-ninos-jovenes-2025",
+    title: "Mejores zapatillas de baloncesto para niños y jóvenes 2025",
+    metaTitle: "Mejores zapatillas baloncesto niños y jóvenes 2025 | CANCHA.ZAPA",
+    description:
+      "Guía completa para padres: las mejores zapatillas de baloncesto para niños y adolescentes en 2025. Qué marcas, qué modelos y cuánto gastar según la edad.",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 5,
+    eyebrow: "★ Guía para padres · Junior 2025",
+    heroTitle: "Zapatillas de baloncesto para niños y jóvenes",
+    heroSubtitle: "Lo que nadie te dice antes de comprarlas",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-precision-8", "adidas-cross-em-up-select", "decathlon-tarmak-voltzy-500", "nike-giannis-immortality-5", "ua-lockdown-7"],
+    relatedSeoPages: ["zapatillas-junior", "zapatillas-baratas", "mejor-zapatilla-base"],
+    body: `
+<p class="art-intro">Comprar zapatillas de baloncesto para un niño o adolescente tiene sus propias reglas. Los pies crecen rápido, el presupuesto es limitado y el rendimiento debe acompañar el nivel de juego. Esta guía responde las preguntas que todo padre hace antes de comprar.</p>
+
+<h2>Lo primero: ¿cuánto debo gastar?</h2>
+<p>La tentación de comprar las mismas zapatillas que usa el jugador favorito de tu hijo existe, pero no siempre tiene sentido. Aquí va una guía práctica según el nivel:</p>
+<ul>
+  <li><strong>Iniciación (6-10 años):</strong> 30-50€. Los niños crecen muy rápido — una zapatilla básica dura 1 temporada. Prioriza comodidad y amortiguación básica. Decathlon Tarmak y Nike Precision son las opciones más inteligentes.</li>
+  <li><strong>Escuela/Club (10-14 años):</strong> 50-80€. Ya tiene sentido invertir algo más — la zapa dura más y el niño empieza a desarrollar su técnica. Nike Precision 8, Adidas Cross-Em Up Select y UA Lockdown 7 son las mejores opciones de este rango.</li>
+  <li><strong>Federado/Cadete (14-18 años):</strong> 80-130€. A esta edad, el rendimiento importa. El pie ya está más estabilizado (menos crecimiento por año) y vale la pena invertir en modelos con tecnología seria: Adidas AE 3, Nike Zoom Freak, Puma MB.04.</li>
+</ul>
+
+<h2>Tallas: GS (Grade School) y diferencias clave</h2>
+<p>La mayoría de zapatillas de rendimiento de Nike, Adidas y Jordan están disponibles en <strong>tallas GS (Grade School)</strong>, que cubren aproximadamente EU 35.5 hasta EU 40. Estas son versiones reducidas del modelo adulto con la misma tecnología pero adaptadas al perfil del pie infantil.</p>
+<p><strong>Atención:</strong> algunas zapatillas premium solo están disponibles en tallas adulto (EU 40+). Verifica siempre la disponibilidad en GS antes de comprometerte con un modelo concreto.</p>
+<p>Para medir correctamente: mide el pie en centímetros por la tarde (cuando está más hinchado) y suma 1cm para espacio en punta. Los niños en crecimiento pueden necesitar 1-1.5cm de espacio adicional — pero no más, porque el pie se mueve demasiado dentro de la zapatilla.</p>
+
+<h2>Los mejores modelos junior en 2025</h2>
+
+<h3>1. Nike Precision 8 GS (~55€)</h3>
+<p>La mejor opción para iniciación y nivel escolar. Disponible en tallas desde EU 35.5, con la misma suela de tracción herringbone que el modelo adulto. Buena amortiguación básica, upper de malla transpirable. La zapatilla que más veces aparece en pistas escolares en España — y con razón.</p>
+
+<h3>2. Adidas Cross-Em Up Select Kids (~45€)</h3>
+<p>Suela Continental a un precio muy bajo. Para la edad de iniciación, la tracción Continental de Adidas en una zapatilla de 45€ es una ventaja real. La horma es algo estrecha — ideal para pies normales o estrechos.</p>
+
+<h3>3. Decathlon Tarmak Fast 500 (~35€)</h3>
+<p>La opción más económica con rendimiento real. Perfecta para niños que están probando el baloncesto y aún no sabes si seguirán. La Tarmak es durable, cómoda y aguanta exterior e interior. A 35€, si el niño crece dos tallas en una temporada, no duele tanto el gasto.</p>
+
+<h3>4. Nike Giannis Immortality 5 GS (~70€)</h3>
+<p>Para adolescentes de 12-16 años que juegan en club. El Giannis Immortality ofrece amortiguación de gama media y buena estabilidad a un precio razonable. El atractivo del jugador (Giannis Antetokounmpo) añade un plus de motivación para el chaval.</p>
+
+<h3>5. Jordan Tatum 2 o 3 GS (~80-90€)</h3>
+<p>Para jugadores cadetes con nivel federado que buscan rendimiento real. La línea Tatum tiene un cushion serio y tracción competente en un paquete que funciona para aleros y escoltas junior. La Tatum 2 a menudo la encuentras en oferta — buena opción de relación calidad-precio.</p>
+
+<h2>¿Low, mid o high para un niño?</h2>
+<p>Para niños sin historial de esguinces: cualquier altura funciona. Para niños con tobillos débiles o historial de torceduras: prioriza mid o high. La diferencia en protección entre low y mid es real en jugadores en formación cuya musculatura de tobillo aún se está desarrollando.</p>
+<p>Si tu hijo juega en posición 1-2 (base/escolta) y es ágil, low-top está bien. Para posiciones 4-5 (ala-pívot/pívot), una mid o high ofrece más protección en los contactos de la pintura.</p>
+
+<h2>¿Interior o exterior?</h2>
+<p>La mayoría de equipos junior entrenan y juegan en pabellón. Si tu hijo también juega en parque o cancha exterior (streetball), necesita una zapatilla con suela de goma robusta. La Nike Precision 8 y la Decathlon Tarmak son buenas opciones "todo terreno". Las zapatillas premium de competición (GT Cut, Curry 13) NO son para exterior.</p>
+
+<h2>Dónde comprar las mejores zapatillas junior</h2>
+<p>Para iniciación: Decathlon es la mejor opción — puedes probarlas en tienda, tienen buena política de devolución y el precio es imbatible. Para modelos Nike/Adidas/Jordan: Amazon ES con vendedor oficial ofrece devolución en 30 días, lo que es clave cuando el niño crece rápido o la talla no queda bien.</p>
+
+<p class="art-outro">¿Tu hijo ya tiene un nivel de juego claro y quieres la recomendación exacta para su posición, peso y presupuesto? <a href="/quiz">El quiz funciona igual para adultos que para jóvenes</a> — introduce sus datos y obtén las 5 zapatillas más compatibles con su perfil.</p>
+    `,
+  },
+
   // ── 12. Zapatillas pie plano ─────────────────────────────────────────
   {
     slug: "zapatillas-baloncesto-pie-plano-2026",

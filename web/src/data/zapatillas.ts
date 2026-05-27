@@ -10,7 +10,7 @@ import preciosJson from "./precios.json";
  */
 const _rawZapatillas: Zapatilla[] = [
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 1. NIKE LEBRON 22 â€” Tope de gama, cushion king
+  // 1. NIKE LEBRON 22 — Tope de gama, cushion king
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-lebron-22",
@@ -117,7 +117,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 2. UA CURRY 12 â€” Premium responsive, ligera
+  // 2. UA CURRY 12 — Premium responsive, ligera
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "ua-curry-12",
@@ -167,11 +167,11 @@ const _rawZapatillas: Zapatilla[] = [
     pros: [
       "Una de las zapatillas más ligeras del mercado (310g)",
       "Respuesta excelente para tiradores y guardias rápidos",
-      "Court feel premium â€” sientes el suelo perfectamente",
+      "Court feel premium — sientes el suelo perfectamente",
       "Ventilación notable en pista cubierta",
     ],
     contras: [
-      "Durabilidad outdoor pobre â€” el Flow se gasta rápido en asfalto",
+      "Durabilidad outdoor pobre — el Flow se gasta rápido en asfalto",
       "Cushion limitado para jugadores >85kg",
       "No es para juego físico de poste",
     ],
@@ -202,7 +202,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 3. NIKE SABRINA 2 â€” Gama media, ligera, balanceada
+  // 3. NIKE SABRINA 2 — Gama media, ligera, balanceada
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-sabrina-2",
@@ -250,7 +250,7 @@ const _rawZapatillas: Zapatilla[] = [
     resumen:
       "La mejor relación calidad-precio del catálogo signature de Nike. 28 gramos más ligera que la Sabrina 1, con Zoom Air en talón y Cushlon 3.0 en mediopié. Una zapatilla all-around que funciona para guardias y aleros que mezclan estilos.",
     pros: [
-      "Excelente relación calidad-precio (â‚¬120)",
+      "Excelente relación calidad-precio (€120)",
       "Equilibrio entre respuesta y amortiguación",
       "Tracción muy fiable indoor",
       "Versatilidad: sirve para varios estilos de juego",
@@ -261,7 +261,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Stock irregular en algunas tallas",
     ],
     veredicto:
-      "Si eres base, escolta o alero, juegas mayormente indoor y quieres lo mejor por debajo de â‚¬130, es de las apuestas más seguras del año. Sólida en todo, sin debilidades graves.",
+      "Si eres base, escolta o alero, juegas mayormente indoor y quieres lo mejor por debajo de €130, es de las apuestas más seguras del año. Sólida en todo, sin debilidades graves.",
 
     imagen_principal: "/shoes/nike-sabrina-2.png",
     imagenes: [],
@@ -308,7 +308,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 4. ANTA KAI 1 SPEED â€” Value premium, técnica
+  // 4. ANTA KAI 1 SPEED — Value premium, técnica
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "anta-kai-1-speed",
@@ -358,7 +358,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: [
       "Tracción excepcional, una de las mejores 2024-25",
       "Respuesta y court feel premium gracias a la placa de carbono",
-      "Excelente relación calidad-precio (â‚¬115)",
+      "Excelente relación calidad-precio (€115)",
       "Low-top moderno y cómodo",
     ],
     contras: [
@@ -406,7 +406,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 5. ADIDAS CROSS 'EM UP SELECT â€” Presupuesto outdoor
+  // 5. ADIDAS CROSS 'EM UP SELECT — Presupuesto outdoor
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-cross-em-up-select",
@@ -450,12 +450,12 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La mejor compra por debajo de â‚¬70 para juego outdoor. Goma reforzada que aguanta asfalto durante meses, high-top para tobillos delicados y un cushion Bounce básico pero fiable. Pensada para iniciación o jugadores casuales que machacan la zapa.",
+      "La mejor compra por debajo de €70 para juego outdoor. Goma reforzada que aguanta asfalto durante meses, high-top para tobillos delicados y un cushion Bounce básico pero fiable. Pensada para iniciación o jugadores casuales que machacan la zapa.",
     pros: [
-      "Durabilidad outdoor excepcional â€” aguanta meses en asfalto",
+      "Durabilidad outdoor excepcional — aguanta meses en asfalto",
       "High-top con buen soporte de tobillo a este precio",
       "Estabilidad sólida para jugadores con bases pesados",
-      "Precio imbatible (â‚¬60)",
+      "Precio imbatible (€60)",
     ],
     contras: [
       "Cushion muy básico, no para muchas horas de juego",
@@ -486,7 +486,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 6. NIKE KD 18 â€” Tope gama, all-around cushion
+  // 6. NIKE KD 18 — Tope gama, all-around cushion
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-kd-18",
@@ -549,7 +549,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 7. NIKE KOBE 8 PROTRO â€” Retro low-top, court feel
+  // 7. NIKE KOBE 8 PROTRO — Retro low-top, court feel
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-kobe-8-protro",
@@ -614,7 +614,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 8. JORDAN LUKA 5 â€” Tope gama, cushion ground-based
+  // 8. JORDAN LUKA 5 — Tope gama, cushion ground-based
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "jordan-luka-5",
@@ -674,7 +674,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 9. NIKE GT CUT 3 â€” Tope gama, ZoomX balanced
+  // 9. NIKE GT CUT 3 — Tope gama, ZoomX balanced
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-gt-cut-3",
@@ -737,7 +737,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 10. JORDAN TATUM 3 â€” Tope gama, versátil
+  // 10. JORDAN TATUM 3 — Tope gama, versátil
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "jordan-tatum-3",
@@ -797,7 +797,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 11. NIKE JA 2 â€” Tope gama, base rápido low-top
+  // 11. NIKE JA 2 — Tope gama, base rápido low-top
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-ja-2",
@@ -861,7 +861,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 12. LI-NING WAY OF WADE ALL CITY 13 â€” Value premium
+  // 12. LI-NING WAY OF WADE ALL CITY 13 — Value premium
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "lining-wow-allcity-13",
@@ -904,7 +904,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Disponibilidad limitada en España",
       "Estética polarizante",
     ],
-    veredicto: "El mejor performance por debajo de 180 â‚¬ si lo encuentras. No es para pies anchos ni para pívots pesados.",
+    veredicto: "El mejor performance por debajo de 180 € si lo encuentras. No es para pies anchos ni para pívots pesados.",
     imagen_principal: "/shoes/lining-wow-allcity-13.png",
     imagenes: [],
     fuentes: [
@@ -920,7 +920,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 13. NIKE KYRIE LOW 5 â€” Gama media, court feel
+  // 13. NIKE KYRIE LOW 5 — Gama media, court feel
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-kyrie-low-5",
@@ -983,7 +983,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 14. ANTA KAI 2 â€” Gama media, signature Kyrie
+  // 14. ANTA KAI 2 — Gama media, signature Kyrie
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "anta-kai-2",
@@ -1015,7 +1015,7 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["explosivo", "equilibrado"],
     },
     no_recomendada_para: { posiciones: ["pivot"] },
-    resumen: "Segunda signature de Kyrie con Anta. Salto importante desde la KAI 1: cushion mejor, materiales premium y tracción agresiva por menos de 150 â‚¬.",
+    resumen: "Segunda signature de Kyrie con Anta. Salto importante desde la KAI 1: cushion mejor, materiales premium y tracción agresiva por menos de 150 €.",
     pros: [
       "Tracción full-length de las mejores del año",
       "Nitro Edge bouncy y reactivo",
@@ -1043,7 +1043,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 15. ANTA KT 10 â€” Gama media, tirador estable
+  // 15. ANTA KT 10 — Gama media, tirador estable
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "anta-kt-10",
@@ -1103,7 +1103,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 16. JORDAN LUKA 3 â€” Gama media, outdoor balanced
+  // 16. JORDAN LUKA 3 — Gama media, outdoor balanced
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "jordan-luka-3",
@@ -1135,7 +1135,7 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["equilibrado", "potente"],
     },
     no_recomendada_para: { estilos: ["explosivo"] },
-    resumen: "Decente pero sin innovación para un signature de 130 â‚¬. Lo mejor es la tracción y el IsoPlate. Materiales pobres para el precio.",
+    resumen: "Decente pero sin innovación para un signature de 130 €. Lo mejor es la tracción y el IsoPlate. Materiales pobres para el precio.",
     pros: [
       "Tracción multidireccional fantástica",
       "IsoPlate da estabilidad lateral",
@@ -1164,7 +1164,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 17. LI-NING WAY OF WADE 12 â€” Tope gama, ligera reactiva
+  // 17. LI-NING WAY OF WADE 12 — Tope gama, ligera reactiva
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "lining-wow-12",
@@ -1223,7 +1223,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 18. NEW BALANCE FRESH FOAM BB v3 â€” Cushion king for big players
+  // 18. NEW BALANCE FRESH FOAM BB v3 — Cushion king for big players
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nb-fresh-foam-bb-v3",
@@ -1283,7 +1283,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 19. ADIDAS HARDEN VOL 9 â€” Gama media, tirador potente
+  // 19. ADIDAS HARDEN VOL 9 — Gama media, tirador potente
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-harden-vol-9",
@@ -1344,7 +1344,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 20. ADIDAS DAME CERTIFIED â€” Value premium budget
+  // 20. ADIDAS DAME CERTIFIED — Value premium budget
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-dame-certified",
@@ -1378,7 +1378,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: [
       "Tracción wavebone agresiva y durable",
       "Base muy ancha y estable",
-      "Materiales premium para 95 â‚¬",
+      "Materiales premium para 95 €",
       "Excelente para outdoor",
     ],
     contras: [
@@ -1403,7 +1403,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 21. PUMA MB.04 â€” Gama media, signature LaMelo
+  // 21. PUMA MB.04 — Gama media, signature LaMelo
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "puma-mb-04",
@@ -1463,7 +1463,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 22. NIKE PRECISION 8 â€” Presupuesto iniciación
+  // 22. NIKE PRECISION 8 — Presupuesto iniciación
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-precision-8",
@@ -1493,12 +1493,12 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["equilibrado", "explosivo"],
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
-    resumen: "La basket más barata de Nike y sorprende. Tracción fiable, soporte decente, cushion básico pero funcional. Mejor opción sub-80 â‚¬ con tick.",
+    resumen: "La basket más barata de Nike y sorprende. Tracción fiable, soporte decente, cushion básico pero funcional. Mejor opción sub-80 € con tick.",
     pros: [
       "Tracción herringbone multidireccional",
       "Soporte sólido para el precio",
       "Rubber duradero para outdoor",
-      "Solo 80 â‚¬",
+      "Solo 80 €",
     ],
     contras: [
       "Cushion Phylon básico, sin Zoom",
@@ -1522,7 +1522,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 23. NIKE LEBRON WITNESS 9 â€” Presupuesto cushion para pesados
+  // 23. NIKE LEBRON WITNESS 9 — Presupuesto cushion para pesados
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-lebron-witness-9",
@@ -1559,7 +1559,7 @@ const _rawZapatillas: Zapatilla[] = [
       "ReactX foam con 61-64% energy return",
       "Cushion plush y protector",
       "Roomy fit, ideal pies anchos",
-      "100 â‚¬ para signature LeBron",
+      "100 € para signature LeBron",
     ],
     contras: [
       "Pesada (428 g)",
@@ -1583,7 +1583,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 24. ADIDAS DAME 9 â€” Value premium gama media
+  // 24. ADIDAS DAME 9 — Value premium gama media
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-dame-9",
@@ -1616,7 +1616,7 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["equilibrado", "potente", "tirador"],
     },
     no_recomendada_para: { estilos: ["explosivo"] },
-    resumen: "Una de las mejores zapas de 2024. Lightstrike plush y reactivo, tracción intrincada y soporte top. 120 â‚¬ por todo este performance es un robo.",
+    resumen: "Una de las mejores zapas de 2024. Lightstrike plush y reactivo, tracción intrincada y soporte top. 120 € por todo este performance es un robo.",
     pros: [
       "Lightstrike full-length, súper cómodo",
       "Tracción thunderbolt grippy",
@@ -1646,7 +1646,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 25. ADIDAS CROSS 'EM UP SPEED â€” Presupuesto velocidad iniciación
+  // 25. ADIDAS CROSS 'EM UP SPEED — Presupuesto velocidad iniciación
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-cross-em-up-speed",
@@ -1687,7 +1687,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Sin reviews profesionales detalladas",
       "Performance genérico",
     ],
-    veredicto: "Para iniciación o uso casual. No es para competición seria. Si presupuesto sube de 70 â‚¬, mira el Dame Certified.",
+    veredicto: "Para iniciación o uso casual. No es para competición seria. Si presupuesto sube de 70 €, mira el Dame Certified.",
     imagen_principal: "/shoes/adidas-cross-em-up-speed.jpg",
     imagenes: [],
     fuentes: [],
@@ -1701,7 +1701,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 26. JORDAN ONE TAKE 6 â€” Presupuesto outdoor potente
+  // 26. JORDAN ONE TAKE 6 — Presupuesto outdoor potente
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "jordan-one-take-5",
@@ -1760,7 +1760,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 27. DECATHLON TARMAK FAST 900 â€” Presupuesto Decathlon low-top
+  // 27. DECATHLON TARMAK FAST 900 — Presupuesto Decathlon low-top
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "decathlon-tarmak-fast-900",
@@ -1799,7 +1799,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Ligera y rápida",
       "Buena para cambios de dirección",
       "Probada indoor y outdoor",
-      "85 â‚¬ con licencia NBA",
+      "85 € con licencia NBA",
     ],
     contras: [
       "Cushion modesto, no para pesados",
@@ -1819,7 +1819,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 28. DECATHLON TARMAK VOLTZY 500 MID â€” Iniciación ultra-budget
+  // 28. DECATHLON TARMAK VOLTZY 500 MID — Iniciación ultra-budget
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "decathlon-tarmak-voltzy-500",
@@ -1850,7 +1850,7 @@ const _rawZapatillas: Zapatilla[] = [
       lesiones_compatibles: ["tobillos"],
     },
     no_recomendada_para: { estilos: ["explosivo"] },
-    resumen: "Modelo básico mid-top de Decathlon para jugadores casuales o iniciación. Estable y robusto pero pesado y con cushion básico. Sub-50 â‚¬.",
+    resumen: "Modelo básico mid-top de Decathlon para jugadores casuales o iniciación. Estable y robusto pero pesado y con cushion básico. Sub-50 €.",
     pros: [
       "Precio extremadamente bajo",
       "Estable para iniciación",
@@ -1863,7 +1863,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Sin tecnología destacable",
       "No competitiva",
     ],
-    veredicto: "Solo para iniciación o jugador muy casual con presupuesto extremo. Subiendo a 80 â‚¬ ya hay mejores opciones.",
+    veredicto: "Solo para iniciación o jugador muy casual con presupuesto extremo. Subiendo a 80 € ya hay mejores opciones.",
     imagen_principal: "/shoes/decathlon-tarmak-voltzy-500.jpg",
     imagenes: [],
     fuentes: [],
@@ -1876,7 +1876,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 29. PEAK LOU WILLIAMS UNDERGROUND â€” Value premium china
+  // 29. PEAK LOU WILLIAMS UNDERGROUND — Value premium china
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "peak-lou-williams-underground",
@@ -1934,7 +1934,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 30. ANTA SHOCK THE GAME 5.0 â€” Presupuesto china outdoor
+  // 30. ANTA SHOCK THE GAME 5.0 — Presupuesto china outdoor
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "anta-shock-the-game-5",
@@ -1977,7 +1977,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Diseño noventero polariza",
       "Disponibilidad limitada en Europa",
     ],
-    veredicto: "Para jugadores con presupuesto justo que necesitan estabilidad y soporte outdoor. Una sorpresa por 100 â‚¬.",
+    veredicto: "Para jugadores con presupuesto justo que necesitan estabilidad y soporte outdoor. Una sorpresa por 100 €.",
     imagen_principal: "/shoes/anta-shock-the-game-5.jpg",
     imagenes: [],
     fuentes: [
@@ -1992,7 +1992,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 31. JORDAN XXXVII â€” Retro-performance equilibrado
+  // 31. JORDAN XXXVII — Retro-performance equilibrado
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "jordan-xxxvii",
@@ -2049,7 +2049,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 32. NIKE LEBRON 21 â€” Cushion para jugadores grandes
+  // 32. NIKE LEBRON 21 — Cushion para jugadores grandes
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-lebron-21",
@@ -2085,7 +2085,7 @@ const _rawZapatillas: Zapatilla[] = [
     resumen: "Una generación anterior al LeBron 22 pero con el mismo ADN: cushion masivo, soporte para jugadores grandes y protección de rodillas. La opción inteligente si buscas el rendimiento LeBron sin pagar precio de estreno.",
     pros: [
       "Cushion Cushlon+Zoom casi igual al 22",
-      "~50â‚¬ más barato que la gen actual",
+      "~50€ más barato que la gen actual",
       "Soporte lateral excepcional en high-top",
       "Durabilidad outdoor sólida",
     ],
@@ -2109,7 +2109,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 33. NIKE ZOOM FREAK 4 â€” Cushion para alas/pívots
+  // 33. NIKE ZOOM FREAK 4 — Cushion para alas/pívots
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-zoom-freak-4",
@@ -2153,7 +2153,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Sin carbon plate, sensación algo plana",
       "No es la Freak más responsive",
     ],
-    veredicto: "Para alas-pívot y pívots con presupuesto ajustado que necesitan amortiguación y soporte sin llegar a los â‚¬180 del LeBron.",
+    veredicto: "Para alas-pívot y pívots con presupuesto ajustado que necesitan amortiguación y soporte sin llegar a los €180 del LeBron.",
     imagen_principal: "/shoes/nike-zoom-freak-4.jpg",
     imagenes: [],
     fuentes: [],
@@ -2168,7 +2168,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 34. NIKE GIANNIS IMMORTALITY 3 â€” Budget para jugadores grandes
+  // 34. NIKE GIANNIS IMMORTALITY 3 — Budget para jugadores grandes
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-giannis-immortality-3",
@@ -2199,7 +2199,7 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["equilibrado", "potente"],
     },
     no_recomendada_para: { posiciones: ["base", "escolta"], estilos: ["explosivo"] },
-    resumen: "La línea budget de Giannis. React foam básico sin Zoom, talla ancha, tracción adecuada. No pretende ser premium â€” pretende dar una opción Nike para jugadores grandes con presupuesto limitado.",
+    resumen: "La línea budget de Giannis. React foam básico sin Zoom, talla ancha, tracción adecuada. No pretende ser premium — pretende dar una opción Nike para jugadores grandes con presupuesto limitado.",
     pros: [
       "Horma ancha para pies anchos",
       "Precio imbatible para Nike",
@@ -2226,7 +2226,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 35. PUMA ALL-PRO NITRO â€” Sorpresa responsive de Puma
+  // 35. PUMA ALL-PRO NITRO — Sorpresa responsive de Puma
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "puma-all-pro-nitro",
@@ -2282,7 +2282,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 36. PUMA MB.03 â€” Signature LaMelo generación anterior
+  // 36. PUMA MB.03 — Signature LaMelo generación anterior
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "puma-mb03",
@@ -2313,7 +2313,7 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["explosivo", "equilibrado", "tirador"],
     },
     no_recomendada_para: { posiciones: ["pivot", "ala-pivot"], estilos: ["potente"] },
-    resumen: "La generación anterior del zapato de LaMelo. Nitrofoam sin placa â€” más suave y menos explosivo que el MB.04 pero muy ligero y confortable para bases y escoltas.",
+    resumen: "La generación anterior del zapato de LaMelo. Nitrofoam sin placa — más suave y menos explosivo que el MB.04 pero muy ligero y confortable para bases y escoltas.",
     pros: [
       "Ligero y ágil",
       "Nitrofoam da buen cushion para el peso",
@@ -2325,7 +2325,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Estabilidad lateral justa para jugadores pesados",
       "Outdoor no recomendado",
     ],
-    veredicto: "Si el MB.04 se sale de presupuesto, el MB.03 es una alternativa sólida. Mismo concepto, algo menos de tecnología, 40-50â‚¬ menos.",
+    veredicto: "Si el MB.04 se sale de presupuesto, el MB.03 es una alternativa sólida. Mismo concepto, algo menos de tecnología, 40-50€ menos.",
     imagen_principal: "/shoes/puma-mb03.png",
     imagenes: [],
     fuentes: [],
@@ -2339,7 +2339,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 37. UA FLOW BREAKTHRU 4 â€” Reina del outdoor
+  // 37. UA FLOW BREAKTHRU 4 — Reina del outdoor
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "ua-flow-breakthru-4",
@@ -2382,7 +2382,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Amortiguación básica para jugadores pesados",
       "Soporte tobillo justo",
     ],
-    veredicto: "Si juegas en exterior o cambias frecuentemente de pista, esta es tu zapatilla. Nada supera al Flow en tracción multisuperficie. A 70â‚¬ es una ganga.",
+    veredicto: "Si juegas en exterior o cambias frecuentemente de pista, esta es tu zapatilla. Nada supera al Flow en tracción multisuperficie. A 70€ es una ganga.",
     imagen_principal: "/shoes/ua-flow-breakthru-4.jpg",
     imagenes: [],
     fuentes: [],
@@ -2396,7 +2396,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // UA FLOW BREAKTHRU 5 â€” La evolución del outdoor
+  // UA FLOW BREAKTHRU 5 — La evolución del outdoor
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "ua-flow-breakthru-5",
@@ -2455,7 +2455,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 38. ADIDAS AE 1 â€” Debut de Anthony Edwards
+  // 38. ADIDAS AE 1 — Debut de Anthony Edwards
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-ae-1",
@@ -2494,7 +2494,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Buen lateral containment para low-mid",
     ],
     contras: [
-      "Horma algo estrecha en antepiè â€” probad talla antes",
+      "Horma algo estrecha en antepiè — probad talla antes",
       "Outdoor uso moderado",
       "Precio original alto aunque ahora baja",
     ],
@@ -2513,7 +2513,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 39. NEW BALANCE TWO WXY V4 â€” El fiable de NB
+  // 39. NEW BALANCE TWO WXY V4 — El fiable de NB
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nb-two-wxy-v4",
@@ -2569,7 +2569,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 40. JORDAN LUKA 2 â€” Signature versátil de Luka
+  // 40. JORDAN LUKA 2 — Signature versátil de Luka
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "jordan-luka-2",
@@ -2612,7 +2612,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Outdoor limitado",
       "Indoor only recomendado",
     ],
-    veredicto: "Para el jugador versátil que quiere un Jordan signature con cushion real a un precio razonable. La Luka 5 es superior pero el Luka 2 sale ahora por 40-50â‚¬ menos.",
+    veredicto: "Para el jugador versátil que quiere un Jordan signature con cushion real a un precio razonable. La Luka 5 es superior pero el Luka 2 sale ahora por 40-50€ menos.",
     imagen_principal: "/shoes/jordan-luka-2.jpg",
     imagenes: [],
     fuentes: [],
@@ -2627,7 +2627,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 41. NIKE PG 6 â€” Court feel para guards
+  // 41. NIKE PG 6 — Court feel para guards
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-pg-6",
@@ -2670,7 +2670,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Cushion básico para jugadores pesados",
       "Indoor principalmente",
     ],
-    veredicto: "Para bases y escoltas que priorizan velocidad y court feel. Con la PG 6 a 65â‚¬, pocas zapatillas ofrecen mejor tracción por ese precio.",
+    veredicto: "Para bases y escoltas que priorizan velocidad y court feel. Con la PG 6 a 65€, pocas zapatillas ofrecen mejor tracción por ese precio.",
     imagen_principal: "/shoes/nike-pg-6.png",
     imagenes: [],
     fuentes: [],
@@ -2684,7 +2684,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 42. NIKE GT JUMP 2 â€” Pensada para pívots
+  // 42. NIKE GT JUMP 2 — Pensada para pívots
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-gt-jump-2",
@@ -2742,7 +2742,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 43. NIKE LEBRON 23 â€” Tope de gama cushion 2025
+  // 43. NIKE LEBRON 23 — Tope de gama cushion 2025
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-lebron-23",
@@ -2789,7 +2789,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "El LeBron 23 lleva el cushion a otro nivel con ZoomX + placa de carbono. La combinación entrega 72% de retorno de energía en antepié â€” el mayor registrado en un zapato de baloncesto Nike. Para jugadores grandes que quieren la máxima protección del mercado en 2025.",
+      "El LeBron 23 lleva el cushion a otro nivel con ZoomX + placa de carbono. La combinación entrega 72% de retorno de energía en antepié — el mayor registrado en un zapato de baloncesto Nike. Para jugadores grandes que quieren la máxima protección del mercado en 2025.",
     pros: [
       "Amortiguación líder absoluta del mercado en 2025",
       "ZoomX devuelve energía como ningún otro",
@@ -2821,7 +2821,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 44. NIKE JA 3 â€” Guard explosivo 2025
+  // 44. NIKE JA 3 — Guard explosivo 2025
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-ja-3",
@@ -2898,7 +2898,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 45. ADIDAS AE 2 â€” Mejor guard Adidas 2025
+  // 45. ADIDAS AE 2 — Mejor guard Adidas 2025
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-ae-2",
@@ -2943,7 +2943,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "El AE 2 mejora al AE 1 en todo lo que importa: más ligero, mejor ajuste en antepié y Lightstrike Pro actualizado que devuelve más energía. Sin el 'sophomore slump' típico â€” uno de los mejores zapatos para guards del año.",
+      "El AE 2 mejora al AE 1 en todo lo que importa: más ligero, mejor ajuste en antepié y Lightstrike Pro actualizado que devuelve más energía. Sin el 'sophomore slump' típico — uno de los mejores zapatos para guards del año.",
     pros: [
       "Más ligero que el AE 1 (305g vs 320g)",
       "Tracción Continental imbatible",
@@ -2951,7 +2951,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Ventilación mejorada",
     ],
     contras: [
-      "Horma algo estrecha en el antepié â€” probar talla",
+      "Horma algo estrecha en el antepié — probar talla",
       "Para indoor principalmente",
       "Precio en zona alta",
     ],
@@ -2975,7 +2975,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 46. PUMA MB.05 â€” Nitrofoam SQD, línea LaMelo
+  // 46. PUMA MB.05 — Nitrofoam SQD, línea LaMelo
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "puma-mb05",
@@ -3050,7 +3050,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 47. CONVERSE SHAI 001 â€” Debut SGA, sorpresa del año
+  // 47. CONVERSE SHAI 001 — Debut SGA, sorpresa del año
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "converse-shai-001",
@@ -3094,7 +3094,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "Converse volvió a la élite del rendimiento con el debut de SGA. La SHAI 001 mezcla un diseño limpio y minimal con React foam funcional y tracción herringbone fiable. La sorpresa más agradable de 2025 â€” demostró que Converse puede competir en performance.",
+      "Converse volvió a la élite del rendimiento con el debut de SGA. La SHAI 001 mezcla un diseño limpio y minimal con React foam funcional y tracción herringbone fiable. La sorpresa más agradable de 2025 — demostró que Converse puede competir en performance.",
     pros: [
       "Diseño más limpio y versátil del año",
       "React foam cómodo y ligero",
@@ -3126,7 +3126,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 48. NIKE GT CUT 4 â€” Tracción 10/10, cima guards cortadores
+  // 48. NIKE GT CUT 4 — Tracción 10/10, cima guards cortadores
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-gt-cut-4",
@@ -3172,7 +3172,7 @@ const _rawZapatillas: Zapatilla[] = [
     resumen:
       "La GT Cut 4 perfecciona lo que hizo grande a la línea: tracción 10/10 con herringbone de nueva generación, Zoom Air Strobel aún más reactivo y peso mínimo. Victor Wembanyama la usó en la temporada NBA 25-26 con su colorway Gold Panther. La cima del rendimiento para guards cortadores.",
     pros: [
-      "Tracción 10/10 â€” la mejor herringbone del mercado",
+      "Tracción 10/10 — la mejor herringbone del mercado",
       "Zoom Air Strobel ultra-reactivo",
       "Extremadamente ligera",
       "Court feel excepcional en low-top",
@@ -3201,7 +3201,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 49. LI-NING GAMMA 2 â€” Joya escondida 2026
+  // 49. LI-NING GAMMA 2 — Joya escondida 2026
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "lining-gamma-2",
@@ -3244,7 +3244,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "WearTesters la nombró 'mejor zapatilla de baloncesto de 2026 hasta la fecha'. BOOM foam + placa de carbono a 120â‚¬ es una combinación que avergüenza a muchos modelos que cuestan el doble. La mejor relación rendimiento-precio del mercado en 2026.",
+      "WearTesters la nombró 'mejor zapatilla de baloncesto de 2026 hasta la fecha'. BOOM foam + placa de carbono a 120€ es una combinación que avergüenza a muchos modelos que cuestan el doble. La mejor relación rendimiento-precio del mercado en 2026.",
     pros: [
       "BOOM foam + placa carbono a precio accesible",
       "Una de las más ligeras del catálogo (298g)",
@@ -3274,7 +3274,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 50. ANTA KT 11 â€” Mejor KT de la historia
+  // 50. ANTA KT 11 — Mejor KT de la historia
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "anta-kt-11",
@@ -3332,7 +3332,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Cushion justo para jugadores >100kg",
     ],
     veredicto:
-      "Para escoltas tiradores al estilo Klay que quieren tracción y estilo premium de marca china sin pagar marca occidental. La mejor KT de la historia y una de las mejores opciones del segmento 100-110â‚¬.",
+      "Para escoltas tiradores al estilo Klay que quieren tracción y estilo premium de marca china sin pagar marca occidental. La mejor KT de la historia y una de las mejores opciones del segmento 100-110€.",
 
     imagen_principal: "/shoes/anta-kt-11.jpg",
     imagenes: [],
@@ -3350,7 +3350,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 51. REEBOK QUESTION MID â€” El clásico de Allen Iverson
+  // 51. REEBOK QUESTION MID — El clásico de Allen Iverson
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "reebok-question-mid",
@@ -3394,7 +3394,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: [
       "Tracción de goma extremadamente pegajosa",
       "Upper de cuero durable y envolvente",
-      "Icono cultural â€” nadie cuestiona por qué las llevas",
+      "Icono cultural — nadie cuestiona por qué las llevas",
       "Muy buena ventilación para ser de cuero",
       "Soporte lateral sólido en mid-top",
     ],
@@ -3424,7 +3424,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 52. REEBOK ANSWER IV â€” El zapato de las Finales 2001
+  // 52. REEBOK ANSWER IV — El zapato de las Finales 2001
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "reebok-answer-iv",
@@ -3467,7 +3467,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
     resumen: "El zapato con el que Allen Iverson ganó el MVP de las Finales en 2001 contra los Lakers de Shaq y Kobe. DMX foam más avanzado que la Question, algo más ligera y mejor cushion. WearTesters la califica como jugable hoy en día con tracción excepcional.",
     pros: [
-      "Historia inigualable â€” Finales 2001",
+      "Historia inigualable — Finales 2001",
       "DMX foam mejor que Hexalite de la Question",
       "Tracción muy buena en cuero liso",
       "Algo más ligera que la Question Mid",
@@ -3479,7 +3479,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Disponibilidad por colorway limitada",
       "No recomendada para jugadores pesados",
     ],
-    veredicto: "Para el coleccionista que quiere jugar con historia en los pies. La Answer IV es el mejor zapato de rendimiento retro de Reebok â€” técnicamente superior a la Question y con la historia de las Finales. A ~100â‚¬ en rebajas, una ganga cultural.",
+    veredicto: "Para el coleccionista que quiere jugar con historia en los pies. La Answer IV es el mejor zapato de rendimiento retro de Reebok — técnicamente superior a la Question y con la historia de las Finales. A ~100€ en rebajas, una ganga cultural.",
     es_retro: true,
     imagen_principal: "/shoes/reebok-answer-iv.jpg",
     imagenes: [],
@@ -3498,7 +3498,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 53. REEBOK ENGINE A â€” El regreso de Reebok al rendimiento (2025)
+  // 53. REEBOK ENGINE A — El regreso de Reebok al rendimiento (2025)
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "reebok-engine-a",
@@ -3551,7 +3551,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Disponibilidad puede ser limitada en España",
       "No tan explosiva como la AE 2 o GT Cut 4",
     ],
-    veredicto: "Para el jugador que quiere algo diferente y equilibrado. La Engine A no lidera en ninguna categoría concreta pero es sólida en todo â€” y el rubber grueso la hace viable para exterior. Un regreso de Reebok que merece ser tomado en serio.",
+    veredicto: "Para el jugador que quiere algo diferente y equilibrado. La Engine A no lidera en ninguna categoría concreta pero es sólida en todo — y el rubber grueso la hace viable para exterior. Un regreso de Reebok que merece ser tomado en serio.",
     imagen_principal: "/shoes/reebok-engine-a.jpg",
     imagenes: [],
     fuentes: [
@@ -3567,7 +3567,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 54. UA CURRY 13 â€” Signature premium, generación actual
+  // 54. UA CURRY 13 — Signature premium, generación actual
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "ua-curry-13",
@@ -3615,15 +3615,15 @@ const _rawZapatillas: Zapatilla[] = [
     resumen:
       "La Curry 13 evoluciona la icónica línea Flow con el nuevo Warp 3.0 upper y mejoras en el soporte lateral. Mantiene el ADN de la línea: ultraligera, con court feel directo y respuesta máxima para tiradores. Disponible actualmente en Under Armour España.",
     pros: [
-      "Continuación refinada de la fórmula Flow â€” ligera y reactiva",
+      "Continuación refinada de la fórmula Flow — ligera y reactiva",
       "Warp 3.0 upper con mejor soporte lateral que la Curry 12",
       "Peso mínimo (~308g) para su nivel de protección",
-      "Disponible en España a 140â‚¬",
+      "Disponible en España a 140€",
     ],
     contras: [
       "Suela Flow poco durable en asfalto",
       "Cushion insuficiente para jugadores pesados o lesiones de tobillo",
-      "Horma estrecha en antepié â€” probar antes de comprar",
+      "Horma estrecha en antepié — probar antes de comprar",
     ],
     veredicto:
       "La mejor opción actual de UA para bases y escolteros que buscan respuesta máxima en pista cubierta. Si ya te gustó la Curry 12, la 13 es una mejora directa. Para asfalto o pesos > 90kg, busca otra cosa.",
@@ -3646,7 +3646,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 55. UA LOCKDOWN 7 â€” Entrada de gama UA, muy asequible
+  // 55. UA LOCKDOWN 7 — Entrada de gama UA, muy asequible
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "ua-lockdown-7",
@@ -3694,13 +3694,13 @@ const _rawZapatillas: Zapatilla[] = [
     resumen:
       "La opción más asequible de UA para baloncesto. EVA foam básico pero funcional, herringbone con buena tracción en pista y exterior. No compite con zapatillas premium en amortiguación o respuesta, pero cumple para uso casual y recreativo a un precio difícil de batir.",
     pros: [
-      "Precio muy accesible (75â‚¬ aprox.)",
+      "Precio muy accesible (75€ aprox.)",
       "Herringbone durable para outdoor e indoor",
       "Upper mesh transpirable",
       "Buen choice para principiantes o uso esporádico",
     ],
     contras: [
-      "EVA básico â€” menos cushion y respuesta que modelos premium",
+      "EVA básico — menos cushion y respuesta que modelos premium",
       "Soporte de tobillo limitado en cortes bruscos",
       "Peso algo elevado para lo que ofrece",
     ],
@@ -3720,7 +3720,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 56. UA SPAWN 7 MID â€” Mid-range de performance UA
+  // 56. UA SPAWN 7 MID — Mid-range de performance UA
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "ua-spawn-7-mid",
@@ -3771,7 +3771,7 @@ const _rawZapatillas: Zapatilla[] = [
       "HOVR foam con buena amortiguación y respuesta",
       "Perfil mid con soporte lateral adecuado",
       "Herringbone durable para indoor y outdoor",
-      "Precio justo en gama media (120â‚¬)",
+      "Precio justo en gama media (120€)",
     ],
     contras: [
       "Peso algo elevado para su nivel",
@@ -3794,7 +3794,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 57. UA FUTR X 4 â€” Upper-mid UA, reactiva y estable
+  // 57. UA FUTR X 4 — Upper-mid UA, reactiva y estable
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "ua-futr-x-4",
@@ -3840,7 +3840,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La FUTR X 4 es la zapatilla más equilibrada del catálogo UA: HOVR foam con buena energía devuelta, outsole reactiva similar al Flow en rendimiento, knit upper transpirable y soporte lateral sólido. Disponible en UA España a 120â‚¬.",
+      "La FUTR X 4 es la zapatilla más equilibrada del catálogo UA: HOVR foam con buena energía devuelta, outsole reactiva similar al Flow en rendimiento, knit upper transpirable y soporte lateral sólido. Disponible en UA España a 120€.",
     pros: [
       "Excelente equilibrio cushion-respuesta con HOVR",
       "Knit upper cómodo y transpirable",
@@ -3850,7 +3850,7 @@ const _rawZapatillas: Zapatilla[] = [
     contras: [
       "Outsole menos durable en exterior que herringbone clásico",
       "No tan ligera como la Curry 13",
-      "Relativa novedad â€” sin historial de durabilidad largo",
+      "Relativa novedad — sin historial de durabilidad largo",
     ],
     veredicto:
       "La mejor opción de UA para jugadores que quieren algo equilibrado sin decidirse entre la Curry (ultra-reactiva, poca protección) y la Spawn (más física). La FUTR X 4 funciona bien en todas las posiciones.",
@@ -3868,7 +3868,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 58. UA CURRY 3Z 25 â€” Curry budget, entrada de gama Curry
+  // 58. UA CURRY 3Z 25 — Curry budget, entrada de gama Curry
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "ua-curry-3z-25",
@@ -3914,20 +3914,20 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La versión asequible de la línea Curry. EVA foam básico pero funcional, herringbone resistente para outdoor, y el respaldo del nombre Curry. Ideal para jugadores que quieren el look Curry sin el precio premium. Disponible en UA España a 85â‚¬.",
+      "La versión asequible de la línea Curry. EVA foam básico pero funcional, herringbone resistente para outdoor, y el respaldo del nombre Curry. Ideal para jugadores que quieren el look Curry sin el precio premium. Disponible en UA España a 85€.",
     pros: [
-      "Precio muy asequible (85â‚¬) con el nombre Curry",
+      "Precio muy asequible (85€) con el nombre Curry",
       "Herringbone durable para outdoor e indoor",
       "Buena opción para principiantes o uso recreativo",
       "Ligera para su precio",
     ],
     contras: [
       "Muy inferior a la Curry 12/13 en cushion y respuesta",
-      "EVA básico â€” no hay UA Flow ni HOVR",
+      "EVA básico — no hay UA Flow ni HOVR",
       "No tiene las tecnologías premium de la línea Curry",
     ],
     veredicto:
-      "Si quieres el sello Curry sin gastar 140â‚¬+, la Curry 3Z 25 es la respuesta. No es una zapatilla técnicamente avanzada, pero cumple para uso recreativo o pistas exteriores. Para juego serio, invierte en la Curry 13.",
+      "Si quieres el sello Curry sin gastar 140€+, la Curry 3Z 25 es la respuesta. No es una zapatilla técnicamente avanzada, pero cumple para uso recreativo o pistas exteriores. Para juego serio, invierte en la Curry 13.",
 
     imagen_principal: "/shoes/ua-curry-3z-25.jpg",
     imagenes: [],
@@ -3942,7 +3942,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 59. Nike Luka 77 â€” Signature Luka, gama media Nike Brand
+  // 59. Nike Luka 77 — Signature Luka, gama media Nike Brand
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-luka-77",
@@ -3998,10 +3998,10 @@ const _rawZapatillas: Zapatilla[] = [
     contras: [
       "Menos soporte lateral que la Jordan Luka series",
       "Outsole no tan durable en exterior como herringbone clásico",
-      "Primera generación â€” sin historial de durabilidad",
+      "Primera generación — sin historial de durabilidad",
     ],
     veredicto:
-      "Para fans de Luka o jugadores de gama media que quieren un calzado equilibrado a buen precio. No alcanza el nivel técnico de la GT Cut 4 ni el cushion de la LeBron 23, pero a 99.99â‚¬ es una opción sólida.",
+      "Para fans de Luka o jugadores de gama media que quieren un calzado equilibrado a buen precio. No alcanza el nivel técnico de la GT Cut 4 ni el cushion de la LeBron 23, pero a 99.99€ es una opción sólida.",
 
     imagen_principal: "/shoes/nike-luka-77.jpg",
     imagenes: [],
@@ -4016,7 +4016,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 60. Nike Book 2 â€” Devin Booker signature, equilibrada y elegante
+  // 60. Nike Book 2 — Devin Booker signature, equilibrada y elegante
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-book-2",
@@ -4072,7 +4072,7 @@ const _rawZapatillas: Zapatilla[] = [
     contras: [
       "Menor amortiguación que zapatillas de gama alta con Zoom Air strobel",
       "Soporte de tobillo básico en diseño low",
-      "Precio de 150â‚¬ exige comparar con opciones similares",
+      "Precio de 150€ exige comparar con opciones similares",
     ],
     veredicto:
       "Una de las mejores opciones para bases y escoltas explosivos que priorizan velocidad y comodidad. La combinación React + Zoom Air en antepié la hace destacar en su rango de precio.",
@@ -4090,7 +4090,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 61. Nike Kobe 9 Low Protro â€” Retro icónico, bajo y preciso
+  // 61. Nike Kobe 9 Low Protro — Retro icónico, bajo y preciso
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-kobe-9-low-protro",
@@ -4144,9 +4144,9 @@ const _rawZapatillas: Zapatilla[] = [
       "Diseño icónico atemporal",
     ],
     contras: [
-      "Amortiguación mínima â€” no apta para jugadores pesados o exteriores",
+      "Amortiguación mínima — no apta para jugadores pesados o exteriores",
       "Horma ajustada: puede requerir media talla más",
-      "Precio elevado para un retro (180â‚¬)",
+      "Precio elevado para un retro (180€)",
       "Sin soporte de tobillo en diseño low",
     ],
     veredicto:
@@ -4166,7 +4166,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 62. Nike Sabrina 3 â€” Ionescu signature, cushion y agarre
+  // 62. Nike Sabrina 3 — Ionescu signature, cushion y agarre
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-sabrina-3",
@@ -4215,17 +4215,17 @@ const _rawZapatillas: Zapatilla[] = [
       "La Nike Sabrina 3 es la evolución más completa de la línea Ionescu. Zoom Air strobel full-length para cushion reactivo en todo el pie, React foam para amortiguación duradera, outsole con excelente agarre. Una de las zapatillas más versátiles de Nike para baloncesto en 2025.",
     pros: [
       "Zoom Air strobel full-length: cushion reactivo en todo el pie",
-      "Outsole con patrón de herringbone modificado â€” agarre excelente",
+      "Outsole con patrón de herringbone modificado — agarre excelente",
       "Estabilidad lateral buena para un low-top",
       "Precio justo para las tecnologías incluidas",
     ],
     contras: [
-      "Estética más orientada al juego femenino â€” no a todos gusta",
+      "Estética más orientada al juego femenino — no a todos gusta",
       "Cushion muy blando puede resultar impreciso para algunos",
       "Sin versión mid para quienes prefieren soporte de tobillo",
     ],
     veredicto:
-      "Una zapatilla seria que no debe descartarse por ser femenina en origen. El Zoom Air strobel + React la convierten en una de las opciones más completas de Nike bajo los 130â‚¬. Recomendada para jugadores ágiles de cualquier género.",
+      "Una zapatilla seria que no debe descartarse por ser femenina en origen. El Zoom Air strobel + React la convierten en una de las opciones más completas de Nike bajo los 130€. Recomendada para jugadores ágiles de cualquier género.",
 
     imagen_principal: "/shoes/nike-sabrina-3.jpg",
     imagenes: [],
@@ -4240,7 +4240,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 63. Jordan Tatum 4 â€” Tatum signature, cushion premium
+  // 63. Jordan Tatum 4 — Tatum signature, cushion premium
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "jordan-tatum-4",
@@ -4288,18 +4288,18 @@ const _rawZapatillas: Zapatilla[] = [
     resumen:
       "La Jordan Tatum 4 es la zapatilla signature más madura de Jayson Tatum. Zoom Air strobel para cushion reactivo en todo el pie, React foam para durabilidad, knit upper preciso. La combinación perfecta para aleros que necesitan un calzado versátil sin renunciar al cushion.",
     pros: [
-      "Zoom Air strobel full-length â€” cushion reactivo en todo el pie",
+      "Zoom Air strobel full-length — cushion reactivo en todo el pie",
       "Knit upper: sujeción precisa sin puntos de presión",
       "Buen soporte lateral para un low-top",
       "Precio competitivo para su nivel tecnológico",
     ],
     contras: [
-      "Sin versión mid â€” solo disponible como low-top",
+      "Sin versión mid — solo disponible como low-top",
       "Peso algo superior a otras opciones speed de Nike",
       "Outsole puede desgastarse rápido en exterior",
     ],
     veredicto:
-      "Para aleros y escoltas que quieren un calzado con cushion serio sin el precio de la LeBron o la Kobe Protro. La Tatum 4 es una compra inteligente a 90.99â‚¬ â€” probablemente la mejor relación calidad-precio de la línea Jordan signature en 2025.",
+      "Para aleros y escoltas que quieren un calzado con cushion serio sin el precio de la LeBron o la Kobe Protro. La Tatum 4 es una compra inteligente a 90.99€ — probablemente la mejor relación calidad-precio de la línea Jordan signature en 2025.",
 
     imagen_principal: "/shoes/jordan-tatum-4.jpg",
     imagenes: [],
@@ -4314,7 +4314,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 64. Nike Zoom Freak 7 â€” Giannis, potencia y estabilidad
+  // 64. Nike Zoom Freak 7 — Giannis, potencia y estabilidad
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-zoom-freak-7",
@@ -4364,16 +4364,16 @@ const _rawZapatillas: Zapatilla[] = [
     pros: [
       "Soporte lateral excepcional para interiores",
       "Zoom Air pods dan respuesta en momentos clave",
-      "Horma ancha â€” ideal para pies anchos o grandes",
+      "Horma ancha — ideal para pies anchos o grandes",
       "Outsole durable, apto para exterior ocasional",
     ],
     contras: [
-      "Pesada â€” no apta para jugadores que priorizan velocidad",
+      "Pesada — no apta para jugadores que priorizan velocidad",
       "Amortiguación no tan plush como la LeBron 23",
       "Precio elevado para zapatilla de posición interior",
     ],
     veredicto:
-      "La mejor opción Nike para pivots y aleros físicos que necesitan una zapatilla robusta. Si juegas como Giannis â€” potencia, cambios de dirección bruscos, juego en la pintura â€” la Freak 7 es la elección correcta.",
+      "La mejor opción Nike para pivots y aleros físicos que necesitan una zapatilla robusta. Si juegas como Giannis — potencia, cambios de dirección bruscos, juego en la pintura — la Freak 7 es la elección correcta.",
 
     imagen_principal: "/shoes/nike-zoom-freak-7.jpg",
     imagenes: [],
@@ -4388,7 +4388,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 65. Nike Giannis Immortality 5 â€” Gama media Giannis, accesible
+  // 65. Nike Giannis Immortality 5 — Gama media Giannis, accesible
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-giannis-immortality-5",
@@ -4442,12 +4442,12 @@ const _rawZapatillas: Zapatilla[] = [
       "Upper mesh transpirable",
     ],
     contras: [
-      "Sin Zoom Air â€” cushion básico",
+      "Sin Zoom Air — cushion básico",
       "No apta para juego intensivo o jugadores pesados",
       "Soporte lateral mínimo",
     ],
     veredicto:
-      "La mejor opción bajo 90â‚¬ con respaldo de una marca premium. Para juego recreativo, entrenos o como segunda zapatilla, la Immortality 5 es una opción sólida y asequible. Para juego competitivo, invierte en la Freak 7 o la Tatum 4.",
+      "La mejor opción bajo 90€ con respaldo de una marca premium. Para juego recreativo, entrenos o como segunda zapatilla, la Immortality 5 es una opción sólida y asequible. Para juego competitivo, invierte en la Freak 7 o la Tatum 4.",
 
     imagen_principal: "/shoes/nike-giannis-immortality-5.jpg",
     imagenes: [],
@@ -4462,7 +4462,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 66. Nike GT Cut Academy 2 â€” Gama media del GT Cut, versátil
+  // 66. Nike GT Cut Academy 2 — Gama media del GT Cut, versátil
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-gt-cut-academy-2",
@@ -4511,17 +4511,17 @@ const _rawZapatillas: Zapatilla[] = [
       "La GT Cut Academy 2 lleva el outsole herringbone multidireccional de la GT Cut 4 a un precio más accesible. Sin Zoom Air, pero con agarre excepcional gracias al patrón de outsole del GT Cut. Ideal para jugadores que priorizan el agarre y la agilidad sin pagar precio premium.",
     pros: [
       "Outsole inspirado en el GT Cut 4: agarre multidireccional sobresaliente",
-      "Precio muy competitivo (100â‚¬)",
+      "Precio muy competitivo (100€)",
       "Perfil bajo y ligero para jugadores de velocidad",
       "Buena durabilidad para el precio",
     ],
     contras: [
-      "Sin Zoom Air â€” cushion básico comparado con el GT Cut 4",
+      "Sin Zoom Air — cushion básico comparado con el GT Cut 4",
       "Upper sintético menos transpirable que mesh",
       "No tan reactiva como la versión premium",
     ],
     veredicto:
-      "Si quieres el agarre del GT Cut 4 sin el gasto, la GT Cut Academy 2 es la respuesta. Perfecta para jugadores de velocidad con presupuesto ajustado o para uso en entrenos intensivos. La relación calidad-precio es excepcional a 99.99â‚¬.",
+      "Si quieres el agarre del GT Cut 4 sin el gasto, la GT Cut Academy 2 es la respuesta. Perfecta para jugadores de velocidad con presupuesto ajustado o para uso en entrenos intensivos. La relación calidad-precio es excepcional a 99.99€.",
 
     imagen_principal: "/shoes/nike-gt-cut-academy-2.jpg",
     imagenes: [],
@@ -4536,7 +4536,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 67. Puma Stewie 4 â€” Breanna Stewart signature, versatil para interiores
+  // 67. Puma Stewie 4 — Breanna Stewart signature, versatil para interiores
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "puma-stewie-4",
@@ -4587,7 +4587,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Nitrofoam: cushion reactivo y duradero",
       "Outsole herringbone con buen agarre en pista cubierta",
       "Mid-top: soporte de tobillo decente",
-      "Precio competitivo a 120â‚¬ para zapatilla con Nitrofoam",
+      "Precio competitivo a 120€ para zapatilla con Nitrofoam",
     ],
     contras: [
       "No tan ligera como las opciones speed",
@@ -4610,7 +4610,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 68. Jordan Zion 4 â€” potencia y cushion para interiores grandes
+  // 68. Jordan Zion 4 — potencia y cushion para interiores grandes
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "jordan-zion-4",
@@ -4662,16 +4662,16 @@ const _rawZapatillas: Zapatilla[] = [
       "Base ultra estable para jugadores de más de 90 kg",
       "Horma ancha: ideal para pies anchos o juego físico",
       "Excelente tracción herringbone",
-      "Precio rebajado (~85â‚¬) â€” una de las mejores opciones para pivots",
+      "Precio rebajado (~85€) — una de las mejores opciones para pivots",
     ],
     contras: [
-      "Muy pesada (~425g) â€” no apta para jugadores de velocidad",
+      "Muy pesada (~425g) — no apta para jugadores de velocidad",
       "Respuesta limitada comparada con opciones más reactivas",
       "Ventilación justa para partidos largos",
       "Estética polarizadora",
     ],
     veredicto:
-      "Si juegas de pivot o ala-pivot y pesas más de 90 kg, la Zion 4 es una de las mejores protecciones para rodillas y tobillos del mercado por ~85â‚¬. No es para correr, es para dominar la pintura. Horma ancha, React foam sólido y precio rebajado: difícil de superar para su perfil.",
+      "Si juegas de pivot o ala-pivot y pesas más de 90 kg, la Zion 4 es una de las mejores protecciones para rodillas y tobillos del mercado por ~85€. No es para correr, es para dominar la pintura. Horma ancha, React foam sólido y precio rebajado: difícil de superar para su perfil.",
 
     imagen_principal: "/shoes/jordan-zion-4.jpg",
     imagenes: [],
@@ -4686,7 +4686,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 69. Adidas AE 3 â€” Anthony Edwards tercera edición, respuesta y agarre
+  // 69. Adidas AE 3 — Anthony Edwards tercera edición, respuesta y agarre
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-ae-3",
@@ -4732,12 +4732,12 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Adidas AE 3 es la tercera zapatilla signature de Anthony Edwards y su mejor obra hasta ahora. Lightstrike Pro mejorado, outsole herringbone renovado con excelente tracción, y un upper ligero de mesh. Si buscas velocidad y primer paso explosivo en el rango de 130â‚¬, la AE 3 es una de las mejores opciones del mercado.",
+      "La Adidas AE 3 es la tercera zapatilla signature de Anthony Edwards y su mejor obra hasta ahora. Lightstrike Pro mejorado, outsole herringbone renovado con excelente tracción, y un upper ligero de mesh. Si buscas velocidad y primer paso explosivo en el rango de 130€, la AE 3 es una de las mejores opciones del mercado.",
     pros: [
       "Lightstrike Pro: respuesta entre las mejores de 2025",
       "Outsole herringbone con tracción top en pistas cubiertas",
       "Upper mesh ligero y bien ventilado",
-      "Relación calidad-precio excepcional a 130â‚¬",
+      "Relación calidad-precio excepcional a 130€",
       "Perfil bajo para movilidad máxima en guards",
     ],
     contras: [
@@ -4746,7 +4746,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Durabilidad outdoor moderada",
     ],
     veredicto:
-      "La AE 3 es la evolución más lograda de la línea Anthony Edwards: más agarre, más respuesta y mejor fit que las versiones anteriores. A 130â‚¬ compite directamente con la Nike Ja 3 y la GT Cut 4. Si eres guard o escolta y priorizas la reactividad, es una de las compras más inteligentes del año.",
+      "La AE 3 es la evolución más lograda de la línea Anthony Edwards: más agarre, más respuesta y mejor fit que las versiones anteriores. A 130€ compite directamente con la Nike Ja 3 y la GT Cut 4. Si eres guard o escolta y priorizas la reactividad, es una de las compras más inteligentes del año.",
 
     imagen_principal: "/shoes/adidas-ae-3.jpg",
     imagenes: [],
@@ -4763,7 +4763,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 70. Jordan Luka 4 â€” Luka Doncic 4ª, versatilidad para guards/aleros
+  // 70. Jordan Luka 4 — Luka Doncic 4ª, versatilidad para guards/aleros
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "jordan-luka-4",
@@ -4809,13 +4809,13 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Jordan Luka 4 continúa la tradición de la línea Doncic: Zoom Air para cushion reactivo, upper de knit para comodidad, y soporte lateral mid-top. Perfecta para guards y aleros que buscan un equilibrio entre amortiguación y respuesta. A 80â‚¬ en rebajas es una auténtica ganga.",
+      "La Jordan Luka 4 continúa la tradición de la línea Doncic: Zoom Air para cushion reactivo, upper de knit para comodidad, y soporte lateral mid-top. Perfecta para guards y aleros que buscan un equilibrio entre amortiguación y respuesta. A 80€ en rebajas es una auténtica ganga.",
     pros: [
       "Zoom Air: cushion reactivo y responsive",
       "Upper knit: comodidad y ajuste natural al pie",
       "Mid-top: soporte de tobillo superior a low-tops",
       "Perfil equilibrado: serve para múltiples posiciones",
-      "Precio rebajado (~80â‚¬) â€” excelente relación calidad-precio",
+      "Precio rebajado (~80€) — excelente relación calidad-precio",
     ],
     contras: [
       "Algo más pesada que las opciones speed",
@@ -4823,7 +4823,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Respuesta no tan alta como Ja 3 o AE 3",
     ],
     veredicto:
-      "Si buscas una zapatilla mid-top bien equilibrada para guards y aleros con Zoom Air a 80â‚¬, la Luka 4 es difícil de superar en su rango de precio. La línea Doncic siempre ha ofrecido buen valor, y la 4ª edición no es excepción. Ideal para el jugador que busca confort y soporte sin sacrificar respuesta.",
+      "Si buscas una zapatilla mid-top bien equilibrada para guards y aleros con Zoom Air a 80€, la Luka 4 es difícil de superar en su rango de precio. La línea Doncic siempre ha ofrecido buen valor, y la 4ª edición no es excepción. Ideal para el jugador que busca confort y soporte sin sacrificar respuesta.",
 
     imagen_principal: "/shoes/jordan-luka-4.jpg",
     imagenes: [],
@@ -4838,7 +4838,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 71. Nike Book 1 â€” Devin Booker signature, shooter-oriented
+  // 71. Nike Book 1 — Devin Booker signature, shooter-oriented
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-book-1",
@@ -4884,13 +4884,13 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Nike Book 1 es la primera zapatilla signature de Devin Booker, diseñada para el jugador de perímetro que necesita respuesta, agarre y ligereza. Zoom Air en el antepié, outsole herringbone y upper knit que abraza el pie. Actualmente disponible a 60â‚¬ â€” una oportunidad increíble para su nivel de rendimiento.",
+      "La Nike Book 1 es la primera zapatilla signature de Devin Booker, diseñada para el jugador de perímetro que necesita respuesta, agarre y ligereza. Zoom Air en el antepié, outsole herringbone y upper knit que abraza el pie. Actualmente disponible a 60€ — una oportunidad increíble para su nivel de rendimiento.",
     pros: [
       "Zoom Air en el antepié: respuesta notable para tiradores",
       "Outsole herringbone con excelente agarre en pista cubierta",
       "Upper knit cómodo y bien ventilado",
       "Muy ligera para ser una low-top con Zoom",
-      "Precio rebajado a 60â‚¬ â€” mejor valor del catálogo Nike actualmente",
+      "Precio rebajado a 60€ — mejor valor del catálogo Nike actualmente",
     ],
     contras: [
       "Low-top: sin soporte de tobillo superior",
@@ -4898,7 +4898,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Amortiguación moderada (no es la prioridad en este modelo)",
     ],
     veredicto:
-      "A 60â‚¬ la Book 1 es probablemente la mejor compra del catálogo Nike ahora mismo para guards y escoltas. Zoom Air, tracción herringbone y comodidad de knit â€” todo lo que necesita un jugador de perímetro, a un precio que no tiene rival. El hecho de que sea la primera edición de Booker le da un punto de coleccionismo extra.",
+      "A 60€ la Book 1 es probablemente la mejor compra del catálogo Nike ahora mismo para guards y escoltas. Zoom Air, tracción herringbone y comodidad de knit — todo lo que necesita un jugador de perímetro, a un precio que no tiene rival. El hecho de que sea la primera edición de Booker le da un punto de coleccionismo extra.",
 
     imagen_principal: "/shoes/nike-book-1.jpg",
     imagenes: [],
@@ -4913,7 +4913,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 72. Adidas Harden Vol 10 â€” James Harden, protección máxima para guards pesados
+  // 72. Adidas Harden Vol 10 — James Harden, protección máxima para guards pesados
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-harden-vol-10",
@@ -4959,7 +4959,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Adidas Harden Vol 10 es la décima iteración de la línea de James Harden, con Lightstrike Pro mejorado y un outsole herringbone que ofrece tracción sólida. Mid-top para soporte de tobillo. Diseñada para el guard de físico que necesita cushion y soporte sin perder respuesta. A 160â‚¬ compite en el segmento premium.",
+      "La Adidas Harden Vol 10 es la décima iteración de la línea de James Harden, con Lightstrike Pro mejorado y un outsole herringbone que ofrece tracción sólida. Mid-top para soporte de tobillo. Diseñada para el guard de físico que necesita cushion y soporte sin perder respuesta. A 160€ compite en el segmento premium.",
     pros: [
       "Lightstrike Pro: una de las mejores mezclas cushion-respuesta del mercado",
       "Mid-top con soporte lateral elevado",
@@ -4967,12 +4967,12 @@ const _rawZapatillas: Zapatilla[] = [
       "Diseño equilibrado para el guard de físico",
     ],
     contras: [
-      "Precio premium (160â‚¬) para un modelo mid-range en prestaciones",
+      "Precio premium (160€) para un modelo mid-range en prestaciones",
       "Algo más pesada que la competencia directa",
       "Estética que puede no gustar a todos",
     ],
     veredicto:
-      "La Harden 10 es la zapatilla definitiva para el guard que pesa entre 85-105 kg y busca Lightstrike Pro con soporte mid-top. Compite con la Luka 5 y la Curry 13 en el mismo rango. Si valoras el equilibrio entre cushion, respuesta y soporte lateral, la Harden 10 es una elección sólida a 160â‚¬.",
+      "La Harden 10 es la zapatilla definitiva para el guard que pesa entre 85-105 kg y busca Lightstrike Pro con soporte mid-top. Compite con la Luka 5 y la Curry 13 en el mismo rango. Si valoras el equilibrio entre cushion, respuesta y soporte lateral, la Harden 10 es una elección sólida a 160€.",
 
     imagen_principal: "/shoes/adidas-harden-vol-10.jpg",
     imagenes: [],
@@ -4987,7 +4987,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 74. NIKE KD 17 â€” Durant signature, cushion equilibrado
+  // 74. NIKE KD 17 — Durant signature, cushion equilibrado
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-kd-17",
@@ -5042,7 +5042,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 75. NIKE D.O.N. ISSUE 6 â€” Donovan Mitchell, budget signature
+  // 75. NIKE D.O.N. ISSUE 6 — Donovan Mitchell, budget signature
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-don-issue-6",
@@ -5096,7 +5096,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 76. PUMA SCOOT ZEROS â€” Scoot Henderson, ultra ligera
+  // 76. PUMA SCOOT ZEROS — Scoot Henderson, ultra ligera
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "puma-scoot-zeros",
@@ -5150,7 +5150,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 77. NIKE PG 7 â€” Paul George, budget traction king
+  // 77. NIKE PG 7 — Paul George, budget traction king
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-dame-8",
@@ -5204,7 +5204,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 79. NIKE ZOOM FREAK 5 â€” Giannis, balanced traction
+  // 79. NIKE ZOOM FREAK 5 — Giannis, balanced traction
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-zoom-freak-5",
@@ -5259,7 +5259,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 80. ADIDAS EXHIBIT A â€” budget responsive, escolta/alero
+  // 80. ADIDAS EXHIBIT A — budget responsive, escolta/alero
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-exhibit-a",
@@ -5312,7 +5312,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 81. ADIDAS EXHIBIT B â€” mid-budget responsive
+  // 81. ADIDAS EXHIBIT B — mid-budget responsive
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-exhibit-b",
@@ -5365,7 +5365,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 82. NIKE KYRIE INFINITY 2 â€” budget tracción alta
+  // 82. NIKE KYRIE INFINITY 2 — budget tracción alta
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-kyrie-infinity-2",
@@ -5418,7 +5418,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 83. JORDAN xxxviii (38) â€” alto cushion, alero/pivot ligero
+  // 83. JORDAN xxxviii (38) — alto cushion, alero/pivot ligero
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "jordan-xxxviii",
@@ -5472,7 +5472,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 84. UA JET 23 â€” budget UA, tracción sólida
+  // 84. UA JET 23 — budget UA, tracción sólida
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "ua-jet-23",
@@ -5525,7 +5525,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 85. PUMA ALL-PRO NITRO 2 â€” cushion premium, pivot
+  // 85. PUMA ALL-PRO NITRO 2 — cushion premium, pivot
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "puma-all-pro-nitro-2",
@@ -5579,7 +5579,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 86. NIKE AIR MAX IMPACT 5 â€” presupuesto, interior básico
+  // 86. NIKE AIR MAX IMPACT 5 — presupuesto, interior básico
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-air-max-impact-5",
@@ -5620,7 +5620,7 @@ const _rawZapatillas: Zapatilla[] = [
     resumen: "La opción más accesible de Nike con Air Max. Sin ser revolucionaria, ofrece cushion decente y estabilidad para jugadores de interior con presupuesto ajustado.",
     pros: ["Precio muy asequible", "Cushion Air Max suficiente", "Estabilidad correcta para su precio"],
     contras: ["Pesada", "Court feel nulo", "No apta para juego explosivo"],
-    veredicto: "Para el jugador de interior que quiere cushion Nike sin gastar más de 80â‚¬. Simple y funcional.",
+    veredicto: "Para el jugador de interior que quiere cushion Nike sin gastar más de 80€. Simple y funcional.",
     imagen_principal: "/shoes/nike-air-max-impact-5.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
@@ -5633,7 +5633,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 87. LI-NING SONIC 12 â€” traction king, mercado chino
+  // 87. LI-NING SONIC 12 — traction king, mercado chino
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "lining-sonic-12",
@@ -5686,7 +5686,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 88. NIKE GIANNIS IMMORTALITY 4 â€” budget Giannis, tracción
+  // 88. NIKE GIANNIS IMMORTALITY 4 — budget Giannis, tracción
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-giannis-immortality-4",
@@ -5741,7 +5741,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 89. NIKE GT RUN 2 â€” cushion para corredores/tiradores
+  // 89. NIKE GT RUN 2 — cushion para corredores/tiradores
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-gt-run-2",
@@ -5794,7 +5794,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 90. JORDAN SUPER/FLY 10 â€” legacy budget Jordan
+  // 90. JORDAN SUPER/FLY 10 — legacy budget Jordan
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "jordan-super-fly-8",
@@ -5847,7 +5847,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 91. PEAK TAICHI FLASH â€” Asian brand, cushion reactivo
+  // 91. PEAK TAICHI FLASH — Asian brand, cushion reactivo
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "peak-taichi-flash",
@@ -5899,7 +5899,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 92. NIKE ZOOM FREAK 6 â€” Giannis mid-gen
+  // 92. NIKE ZOOM FREAK 6 — Giannis mid-gen
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-zoom-freak-6",
@@ -5954,7 +5954,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 93. ADIDAS CROSS EM UP 5 â€” budget all-round
+  // 93. ADIDAS CROSS EM UP 5 — budget all-round
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-cross-em-up-5",
@@ -6007,7 +6007,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 94. NIKE LEBRON WITNESS 8 â€” budget LeBron
+  // 94. NIKE LEBRON WITNESS 8 — budget LeBron
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-lebron-witness-8",
@@ -6062,7 +6062,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 95. NEW BALANCE KAWHI 1 â€” signature Kawhi, traction
+  // 95. NEW BALANCE KAWHI 1 — signature Kawhi, traction
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nb-kawhi-1",
@@ -6117,7 +6117,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 96. ANTA GORgordon HAY 1 â€” budget Anta, exterior
+  // 96. ANTA GORgordon HAY 1 — budget Anta, exterior
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "anta-shock-wave-5",
@@ -6170,7 +6170,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 97. NIKE SABRINA 1 â€” signature Sabrina Ionescu gen 1
+  // 97. NIKE SABRINA 1 — signature Sabrina Ionescu gen 1
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-sabrina-1",
@@ -6224,7 +6224,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 98. ADIDAS HARDEN STEPBACK 4 â€” budget Harden
+  // 98. ADIDAS HARDEN STEPBACK 4 — budget Harden
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-harden-stepback-4",
@@ -6278,7 +6278,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 99. NIKE KYRIE FLYTRAP 6 â€” ultra budget base/escolta
+  // 99. NIKE KYRIE FLYTRAP 6 — ultra budget base/escolta
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-kyrie-flytrap-6",
@@ -6315,7 +6315,7 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["explosivo", "equilibrado"],
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
-    resumen: "La opción más barata de la familia Kyrie. Tracción sólida y durabilidad outdoor para bases y escoltas que buscan el ADN Kyrie sin gastar más de 70â‚¬.",
+    resumen: "La opción más barata de la familia Kyrie. Tracción sólida y durabilidad outdoor para bases y escoltas que buscan el ADN Kyrie sin gastar más de 70€.",
     pros: ["Precio muy asequible", "Buena tracción", "Duradera en outdoor"],
     contras: ["Cushion básico", "Sin tecnología premium"],
     veredicto: "El punto de entrada a las Kyrie. Para jugadores de base con presupuesto ajustado que valoran el agarre.",
@@ -6331,7 +6331,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 100. JORDAN LUKA 1 â€” primera signature Doncic
+  // 100. JORDAN LUKA 1 — primera signature Doncic
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "jordan-luka-1",
@@ -6386,7 +6386,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 101. UA HOVR HAVOC 5 â€” cushion mid UA
+  // 101. UA HOVR HAVOC 5 — cushion mid UA
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "ua-hovr-havoc-5",
@@ -6440,7 +6440,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 102. NIKE AIR ZOOM CROSSOVER 2 â€” junior/youth budget
+  // 102. NIKE AIR ZOOM CROSSOVER 2 — junior/youth budget
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-air-zoom-crossover-2",
@@ -6480,7 +6480,7 @@ const _rawZapatillas: Zapatilla[] = [
     resumen: "La zapatilla junior de Nike con Zoom Air a precio accesible. Perfecta para jóvenes jugadores que quieren tecnología Nike sin el precio tope de gama.",
     pros: ["Zoom Air a buen precio", "Ligera para junior", "Buena tracción"],
     contras: ["No apta para adultos pesados", "Cushion básico para uso intensivo"],
-    veredicto: "La mejor opción Nike para jugadores junior que quieren rendimiento real sin gastar más de 75â‚¬.",
+    veredicto: "La mejor opción Nike para jugadores junior que quieren rendimiento real sin gastar más de 75€.",
     imagen_principal: "/shoes/nike-air-zoom-crossover-2.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
@@ -6493,7 +6493,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 103. ADIDAS OWNTHEGAME 3 â€” ultra budget, iniciación
+  // 103. ADIDAS OWNTHEGAME 3 — ultra budget, iniciación
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-ownthegame-3",
@@ -6533,7 +6533,7 @@ const _rawZapatillas: Zapatilla[] = [
     resumen: "La opción más económica de Adidas para baloncesto. Sin pretensiones: funcional, duradera y asequible para iniciación o uso recreativo.",
     pros: ["Precio imbatible", "Durable para el precio", "Disponible en cualquier tienda"],
     contras: ["Sin tecnología destacable", "Cushion y respuesta básicos", "No apta para competición seria"],
-    veredicto: "Para el jugador recreativo o principiante que quiere estrenar marca Adidas sin gastar más de 55â‚¬.",
+    veredicto: "Para el jugador recreativo o principiante que quiere estrenar marca Adidas sin gastar más de 55€.",
     imagen_principal: "/shoes/adidas-ownthegame-3.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
@@ -6546,7 +6546,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 104. NEW BALANCE OMN1S â€” retro performance, traction
+  // 104. NEW BALANCE OMN1S — retro performance, traction
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nb-omn1s",
@@ -6599,7 +6599,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 105. PUMA PLAYMAKER PRO MID â€” budget Puma, soporte tobillo
+  // 105. PUMA PLAYMAKER PRO MID — budget Puma, soporte tobillo
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "puma-playmaker-pro-mid",
@@ -6653,7 +6653,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 106. LI-NING YU SHUAI 18 â€” premium chino, traction/responsive
+  // 106. LI-NING YU SHUAI 18 — premium chino, traction/responsive
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "lining-yu-shuai-18",
@@ -6706,7 +6706,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 107. NIKE KD 16 â€” Durant pre-18, balanced
+  // 107. NIKE KD 16 — Durant pre-18, balanced
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-kd-16",
@@ -6760,7 +6760,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 108. ADIDAS AE 1.5 â€” Anthony Edwards mid-gen
+  // 108. ADIDAS AE 1.5 — Anthony Edwards mid-gen
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-ae-1-5",
@@ -6814,7 +6814,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 109. CONVERSE ALL STAR PRO BB â€” retro performance
+  // 109. CONVERSE ALL STAR PRO BB — retro performance
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "converse-all-star-pro-bb",
@@ -6868,7 +6868,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 110. NIKE PRECISION 7 â€” entry-level Nike
+  // 110. NIKE PRECISION 7 — entry-level Nike
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-precision-7",
@@ -6908,7 +6908,7 @@ const _rawZapatillas: Zapatilla[] = [
     resumen: "La línea de entrada de Nike para baloncesto. Sin pretensiones técnicas pero con el nombre y la calidad de construcción Nike a precio mínimo.",
     pros: ["Precio de entrada Nike más bajo", "Durable para uso recreativo", "Disponible en cualquier tienda"],
     contras: ["Sin tecnología destacable", "Solo para uso recreativo o entrenamiento básico"],
-    veredicto: "Para el jugador que quiere estrenar Nike sin gastar más de 65â‚¬. La puerta de entrada a la marca.",
+    veredicto: "Para el jugador que quiere estrenar Nike sin gastar más de 65€. La puerta de entrada a la marca.",
     imagen_principal: "/shoes/nike-precision-7.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
@@ -6921,7 +6921,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // NIKE JA 1 â€” Traction king del guard explosivo
+  // NIKE JA 1 — Traction king del guard explosivo
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-ja-1",
@@ -6993,7 +6993,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // ADIDAS TRAE YOUNG 3 â€” traction king del guard
+  // ADIDAS TRAE YOUNG 3 — traction king del guard
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-trae-young-3",
@@ -7065,7 +7065,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // NEW BALANCE TWO WXY v5 â€” el más versátil de NB
+  // NEW BALANCE TWO WXY v5 — el más versátil de NB
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nb-two-wxy-v5",
@@ -7135,7 +7135,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // NIKE GT HUSTLE 3 â€” cushion máximo para pivots
+  // NIKE GT HUSTLE 3 — cushion máximo para pivots
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-gt-hustle-3",
@@ -7207,7 +7207,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // NEW BALANCE KAWHI 2 â€” evolución ligera de The Klaw
+  // NEW BALANCE KAWHI 2 — evolución ligera de The Klaw
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nb-kawhi-2",
@@ -7279,7 +7279,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // ADIDAS TRAE YOUNG 4 â€” sucesor del traction king
+  // ADIDAS TRAE YOUNG 4 — sucesor del traction king
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-trae-young-4",
@@ -7329,7 +7329,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // JORDAN TATUM 2 â€” el alero versátil de Jayson
+  // JORDAN TATUM 2 — el alero versátil de Jayson
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "jordan-tatum-2",
@@ -7379,7 +7379,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // JORDAN ZION 3 â€” max cushion para el toro
+  // JORDAN ZION 3 — max cushion para el toro
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "jordan-zion-3",
@@ -7415,7 +7415,7 @@ const _rawZapatillas: Zapatilla[] = [
     no_recomendada_para: { posiciones: ["base", "escolta"], estilos: ["equilibrado"] },
     resumen: "Tercera firma de Zion Williamson, diseñada para aguantar el impacto brutal de un jugador de 130kg. React full-length y Zoom Air Strobel ofrecen la máxima protección de impactos de toda la línea.",
     pros: ["Amortiguación máxima para jugadores muy pesados", "Horma ancha ideal para pies anchos", "Tracción herringbone agresiva", "Build quality premium"],
-    contras: ["Muy pesada (415g) â€” no apta para guards", "Cara para lo que ofrece técnicamente", "Superada ya por la Zion 4"],
+    contras: ["Muy pesada (415g) — no apta para guards", "Cara para lo que ofrece técnicamente", "Superada ya por la Zion 4"],
     veredicto: "La opción definitiva para pivots y ala-pivots de más de 95kg. Si tu cuerpo pide amortiguación máxima, esta es la zapatilla.",
     imagen_principal: "/shoes/jordan-zion-3.jpg",
     imagenes: [],
@@ -7430,7 +7430,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // PUMA CLYDE ALL-PRO â€” NITRO versátil
+  // PUMA CLYDE ALL-PRO — NITRO versátil
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "puma-clyde-all-pro",
@@ -7463,9 +7463,9 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["explosivo", "equilibrado"],
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
-    resumen: "La Clyde All-Pro es la apuesta de Puma para competir en gama alta con NITRO foam, su espuma de nitrógeno más reactiva. Ligera, versátil y con buena tracción herringbone â€” una sorpresa muy competitiva para guards y aleros.",
-    pros: ["NITRO foam: respuesta y amortiguación equilibradas", "Peso muy competitivo (317g)", "Tracción herringbone fiable en interior", "Horma estándar â€” encaja con la mayoría de pies"],
-    contras: ["Puma tiene menor presencia en España â€” difícil de encontrar", "Soporte de tobillo limitado al ser low", "Durabilidad outdoor no testeada extensivamente"],
+    resumen: "La Clyde All-Pro es la apuesta de Puma para competir en gama alta con NITRO foam, su espuma de nitrógeno más reactiva. Ligera, versátil y con buena tracción herringbone — una sorpresa muy competitiva para guards y aleros.",
+    pros: ["NITRO foam: respuesta y amortiguación equilibradas", "Peso muy competitivo (317g)", "Tracción herringbone fiable en interior", "Horma estándar — encaja con la mayoría de pies"],
+    contras: ["Puma tiene menor presencia en España — difícil de encontrar", "Soporte de tobillo limitado al ser low", "Durabilidad outdoor no testeada extensivamente"],
     veredicto: "Opción muy sólida y algo infravalorada por la poca presencia de Puma en baloncesto. Si la encuentras a buen precio, es una compra muy inteligente para guards y aleros.",
     imagen_principal: "/shoes/puma-clyde-all-pro.jpg",
     imagenes: [],
@@ -7479,7 +7479,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // NIKE LEBRON NXXT GEN â€” LeBron ligero y versátil
+  // NIKE LEBRON NXXT GEN — LeBron ligero y versátil
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-lebron-nxxt-gen",
@@ -7513,7 +7513,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
     resumen: "El LeBron NXXT Gen es la apuesta de Nike por un LeBron más ligero y accesible. Combina Air Max en talón y Zoom Air Strobel en antepié con una construcción low que lo hace más versátil que sus predecesores. Menos monstruo, más polivalente.",
-    pros: ["Cushion premium en toda la longitud del pie", "Construcción low â€” más versátil que LeBrons anteriores", "Horma ancha cómoda para pies anchos", "Tracción fiable en pista cubierta"],
+    pros: ["Cushion premium en toda la longitud del pie", "Construcción low — más versátil que LeBrons anteriores", "Horma ancha cómoda para pies anchos", "Tracción fiable en pista cubierta"],
     contras: ["Pesado para un low (360g)", "Respuesta no al nivel de la línea Curry o GT Cut", "Precio elevado para lo que ofrece frente a rivales"],
     veredicto: "Buena opción para aleros y ala-pivots con pies anchos que quieren un LeBron sin renunciar a versatilidad. Si buscas máxima explosividad, mira otras opciones.",
     imagen_principal: "/shoes/nike-lebron-nxxt-gen.jpg",
@@ -7529,7 +7529,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // NIKE AIR ZOOM GT JUMP 3 â€” Big man reactivo
+  // NIKE AIR ZOOM GT JUMP 3 — Big man reactivo
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nike-gt-jump-3",
@@ -7564,8 +7564,8 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["base", "escolta"], estilos: ["explosivo"] },
     resumen: "La GT Jump 3 es la referencia Nike para pivots y ala-pivots. Zoom Air en talón y Strobel completo ofrecen amortiguación premium para jugadores grandes, con un cage de TPU que da soporte lateral excepcional en corte mid.",
-    pros: ["Amortiguación de primer nivel para jugadores pesados", "Soporte lateral y de tobillo sobresaliente", "Tracción fiable en interior", "Horma ancha â€” cómoda para pies anchos"],
-    contras: ["Muy pesada (395g) â€” impensable para guards", "Precio elevado", "Lenta en cambios de dirección rápidos"],
+    pros: ["Amortiguación de primer nivel para jugadores pesados", "Soporte lateral y de tobillo sobresaliente", "Tracción fiable en interior", "Horma ancha — cómoda para pies anchos"],
+    contras: ["Muy pesada (395g) — impensable para guards", "Precio elevado", "Lenta en cambios de dirección rápidos"],
     veredicto: "La opción más sólida de Nike para pivots que necesitan máximo soporte y cushion. Si juegas de 5 y pesas más de 90kg, esta es tu zapatilla.",
     imagen_principal: "/shoes/nike-gt-jump-3.png",
     imagenes: [],
@@ -7579,7 +7579,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // UNDER ARMOUR CURRY 11 â€” Flow ultraligero
+  // UNDER ARMOUR CURRY 11 — Flow ultraligero
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "ua-curry-11",
@@ -7614,7 +7614,7 @@ const _rawZapatillas: Zapatilla[] = [
     no_recomendada_para: { posiciones: ["pivot", "ala-pivot"], estilos: ["potente"] },
     resumen: "La Curry 11 lleva la suela UA FLOW a su máxima expresión. Sin goma exterior separada, la suela es amortiguación y tracción a la vez. Increíblemente ligera y reactiva para un guard de élite.",
     pros: ["UA FLOW: amortiguación y tracción integradas", "Muy ligera para la tecnología que ofrece", "Respuesta excepcional al corte", "Continuación de la exitosa línea Curry"],
-    contras: ["Horma estrecha â€” no apta para pies anchos", "Soporte de tobillo limitado al ser low", "Superada por la Curry 12"],
+    contras: ["Horma estrecha — no apta para pies anchos", "Soporte de tobillo limitado al ser low", "Superada por la Curry 12"],
     veredicto: "Una de las mejores opciones para guards que buscan máxima respuesta con tecnología UA FLOW. Vale la pena encontrarla a precio rebajado.",
     imagen_principal: "/shoes/ua-curry-11.jpg",
     imagenes: [],
@@ -7629,7 +7629,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // ADIDAS HARDEN VOL 8 â€” Predecesor del Vol 9
+  // ADIDAS HARDEN VOL 8 — Predecesor del Vol 9
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-harden-vol-8",
@@ -7699,7 +7699,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // NEW BALANCE TWO WXY v6 â€” Top de gama NB 2024
+  // NEW BALANCE TWO WXY v6 — Top de gama NB 2024
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "nb-two-wxy-v6",
@@ -7749,7 +7749,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     contras: [
       "Disponibilidad limitada en España",
-      "No signature â€” menor presencia de marketing",
+      "No signature — menor presencia de marketing",
       "Algo pesada para los más velocistas",
     ],
     veredicto: "La mejor apuesta de New Balance para guards en 2024. Si priorizas rendimiento sobre marketing, la TWO WXY v6 supera a muchas signatures en valor real.",
@@ -7768,7 +7768,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // JORDAN WHY NOT .6 â€” Russell Westbrook, mid
+  // JORDAN WHY NOT .6 — Russell Westbrook, mid
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "jordan-why-not-6",
@@ -7819,7 +7819,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Cushion equilibrado para el juego explosivo",
     ],
     contras: [
-      "Firma de un jugador en declive â€” disponibilidad cayendo",
+      "Firma de un jugador en declive — disponibilidad cayendo",
       "Algo pesada para ser una 'explosiva'",
       "No destaca en ninguna categoría de forma sobresaliente",
     ],
@@ -7839,7 +7839,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // ADIDAS OWNTHEGAME 2.0 â€” Budget todo terreno
+  // ADIDAS OWNTHEGAME 2.0 — Budget todo terreno
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "adidas-ownthegame-2",
@@ -7888,7 +7888,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Disponible en muchas tallas y colores",
     ],
     contras: [
-      "Cushion Bounce básico â€” no para competición seria",
+      "Cushion Bounce básico — no para competición seria",
       "Pesada para su nivel de prestaciones",
       "Superada por la Ownthegame 3",
     ],
@@ -7908,7 +7908,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // UNDER ARMOUR ASSERT 10 â€” Budget UA entrenamiento
+  // UNDER ARMOUR ASSERT 10 — Budget UA entrenamiento
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "ua-assert-10",
@@ -7957,7 +7957,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Durabilidad aceptable en exterior",
     ],
     contras: [
-      "Cushion básico â€” no apta para competición",
+      "Cushion básico — no apta para competición",
       "Tracción herringbone básico, no multidireccional",
       "Pocas opciones de colores",
     ],
