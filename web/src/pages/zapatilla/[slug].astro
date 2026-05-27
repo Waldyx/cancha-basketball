@@ -79,6 +79,30 @@ const linksOrdenados = [...z.links_compra]
     return (COMISIONES_TIENDA[b.tienda] ?? 0) - (COMISIONES_TIENDA[a.tienda] ?? 0);
   });
 
+// ── Upsell: Combina con → calcetines y plantillas ──────────────────
+const CALCETINES_UPSELL = [
+  { id: "nike-cushioned", emoji: "🧦", nombre: "Nike Elite Cushioned Crew",      precio: "~15€", nota: "Amortiguación extra en talón y antepié",            url: "https://www.amazon.es/s?k=nike+elite+cushioned+basketball+crew&tag=canchazapa-21" },
+  { id: "nike-light",     emoji: "🧦", nombre: "Nike Elite Lightweight Crew",     precio: "~13€", nota: "Perfil fino para máximo court feel",                 url: "https://www.amazon.es/s?k=nike+elite+lightweight+crew+calcetines+baloncesto&tag=canchazapa-21" },
+  { id: "adidas-crew",    emoji: "🧦", nombre: "Adidas Cushioned Crew 3-Pack",    precio: "~12€", nota: "Cushion Adidas — perfecto con zapas de la marca",   url: "https://www.amazon.es/s?k=adidas+cushioned+crew+calcetines+baloncesto+pack&tag=canchazapa-21" },
+  { id: "ua-playmaker",   emoji: "🧦", nombre: "Under Armour Playmaker Mid Crew", precio: "~12€", nota: "Cañero medio con soporte real de tobillo",           url: "https://www.amazon.es/s?k=under+armour+playmaker+mid+crew+calcetines&tag=canchazapa-21" },
+  { id: "stance-nba",     emoji: "🧦", nombre: "Stance NBA Performance Crew",     precio: "~16€", nota: "La opción premium oficial de la NBA",                url: "https://www.amazon.es/s?k=stance+nba+performance+crew+calcetines&tag=canchazapa-21" },
+];
+const PLANTILLAS_UPSELL = [
+  { id: "superfeet-green", emoji: "🦶", nombre: "Superfeet Green Premium",        precio: "~38€", nota: "Soporte de arco máximo — pronación y pie plano",    url: "https://www.amazon.es/s?k=superfeet+green+plantillas+deporte&tag=canchazapa-21" },
+  { id: "sofsole-athlete", emoji: "🦶", nombre: "Sof Sole Athlete Full Length",   precio: "~18€", nota: "Cushion extra para zapatillas básicas o retros",     url: "https://www.amazon.es/s?k=sof+sole+athlete+full+length+plantillas&tag=canchazapa-21" },
+  { id: "bauerfeind",      emoji: "🦶", nombre: "Bauerfeind Sports Basketball",   precio: "~45€", nota: "Soporte médico para tobillo y rodilla sensibles",    url: "https://www.amazon.es/s?k=bauerfeind+sports+plantillas+baloncesto&tag=canchazapa-21" },
+  { id: "currex",          emoji: "🦶", nombre: "Currex SupportST",               precio: "~40€", nota: "Arco dinámico — estabilidad sin perder reactividad", url: "https://www.amazon.es/s?k=currex+supportst+plantillas+deporte&tag=canchazapa-21" },
+];
+// Selección automática por perfil de la zapatilla
+const _cIdx = z.marca === "Adidas" ? 2
+  : (z.puntuaciones.respuesta >= 9 || z.categoria_principal === "responsive") ? 1
+  : (z.altura === "high" || z.puntuaciones.soporte_lateral >= 8.5) ? 3
+  : 0;
+const _pIdx = (z.es_retro || z.puntuaciones.amortiguacion <= 6) ? 1
+  : (z.ideal_para.lesiones_compatibles?.includes("tobillos")) ? 2
+  : 0; // default: Superfeet Green
+const combinaCon = [CALCETINES_UPSELL[_cIdx], PLANTILLAS_UPSELL[_pIdx]];
+
 // Helper: cuánto hace que se verificó este precio
 function verifiedAgo(fecha: string | undefined): { label: string; color: string; fresh: boolean } {
   if (!fecha) return { label: "Sin verificar", color: "#52525b", fresh: false };
@@ -428,6 +452,37 @@ const productJsonLd = {
         </section>
       );
     })()}
+
+    {/* COMBINA CON → */}
+    <section class="dh-combina-section">
+      <div class="shell">
+        <p class="cz-eyebrow" style="margin-bottom:14px">🧦 Combina con →</p>
+        <div class="dh-combina-grid">
+          {combinaCon.map(item => (
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer sponsored"
+              class="dh-combina-item aff-btn"
+              data-tienda="Amazon"
+              data-zapa={z.slug}
+            >
+              <span class="dci-emoji">{item.emoji}</span>
+              <div class="dci-body">
+                <strong class="dci-name">{item.nombre}</strong>
+                <span class="dci-nota">{item.nota}</span>
+              </div>
+              <span class="dci-price">{item.precio}<span class="dci-arrow"> →</span></span>
+            </a>
+          ))}
+        </div>
+        <p class="dh-combina-disc">
+          Enlace afiliado a Amazon · Si compras, CANCHA.ZAPA recibe una pequeña comisión sin coste extra para ti ·
+          <a href="/blog/mejores-calcetines-baloncesto" style="color:#f97316;text-decoration:underline">Guía de calcetines</a> ·
+          <a href="/blog/mejores-plantillas-baloncesto" style="color:#f97316;text-decoration:underline">Guía de plantillas</a>
+        </p>
+      </div>
+    </section>
 
     {/* PRECIOS */}
     {linksOrdenados.length > 0 && (

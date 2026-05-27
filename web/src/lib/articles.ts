@@ -2929,7 +2929,160 @@ export const ARTICLES: Article[] = [
     `,
   },
 
-  // ── 28. Adidas Crazy 8 / Kobe Bryant ────────────────────────────────
+  // ── 28. Calcetines de baloncesto ─────────────────────────────────────
+  {
+    slug: "mejores-calcetines-baloncesto",
+    title: "Mejores calcetines de baloncesto 2025-2026: guía completa",
+    metaTitle: "Mejores calcetines de baloncesto 2025: Nike, Adidas, Under Armour | CANCHA.ZAPA",
+    description: "Guía de los mejores calcetines técnicos para baloncesto: Nike Elite, Adidas Cushioned, Under Armour Playmaker, Stance NBA. Cuál elegir según tu zapatilla y estilo de juego.",
+    fecha: "2026-05-28",
+    fechaLabel: "28 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 5,
+    eyebrow: "★ Guía de accesorios · CANCHA.ZAPA",
+    heroTitle: "Mejores calcetines de baloncesto",
+    heroSubtitle: "2025-2026 · Nike, Adidas, UA, Stance — cuál te toca",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-gt-cut-4", "adidas-ae-3", "ua-curry-13", "nike-ja-3"],
+    relatedSeoPages: ["zapatillas-baloncesto-retro", "zapatillas-baloncesto-baratas"],
+    body: `
+<p class="art-intro">Un buen calcetín técnico mejora la tracción, la amortiguación y la prevención de ampollas. Suena exagerado hasta que llevas años con calcetines de algodón y pruebas unos Nike Elite por primera vez. La diferencia es real y cuesta 12-16€.</p>
+
+<h2>Por qué importan los calcetines en baloncesto</h2>
+<p>En baloncesto, el pie trabaja bajo tres tipos de estrés específicos que un calcetín técnico está diseñado para gestionar:</p>
+<ul>
+  <li><strong>Impacto en saltos y aterrizajes:</strong> Un calcetín con cushion en talón y antepié absorbe parte del impacto antes de que llegue a la entresuela. Con zapas de cushion básico (zapatillas económicas, retros), la diferencia es especialmente notable.</li>
+  <li><strong>Fricción en cortes laterales:</strong> El pie se desliza dentro de la zapatilla en cada cambio de dirección. El calcetín técnico tiene zonas de agarre (generalmente en el arco) que anclan el pie a la plantilla y reducen ampollas.</li>
+  <li><strong>Termorregulación:</strong> Las mallas sintéticas de los calcetines técnicos evacúan el sudor mejor que el algodón, reduciendo el riesgo de hongos y manteniendo el pie seco en partidos largos.</li>
+</ul>
+
+<h2>Los mejores calcetines de 2025: análisis por marca</h2>
+
+<h3>Nike Elite Cushioned Crew — la referencia</h3>
+<p>La Nike Elite es el calcetín técnico más vendido del mundo en baloncesto, y lo merece. Tiene Dri-FIT en toda la superficie, cushion específico en talón y antepié (Swoosh-shaped), y una zona de arco sin costuras que reduce ampollas. Cañero medio. Disponible en crew y no-show.</p>
+<p><strong>Mejor para:</strong> zapatillas de cushion (LeBron, Fresh Foam BB), pívots, jugadores con rodillas o pies sensibles.</p>
+<p><strong>Precio:</strong> ~15€ · <a href="https://www.amazon.es/s?k=nike+elite+cushioned+basketball+crew&tag=canchazapa-21" target="_blank" rel="noopener noreferrer sponsored">Ver en Amazon →</a></p>
+
+<h3>Nike Elite Lightweight Crew — para guards explosivos</h3>
+<p>Mismo sistema Dri-FIT pero con un perfil de cushion mucho más fino. Diseñado para jugadores que quieren máximo court feel — sentir el suelo a través de la zapatilla. Low-top compatible. Más transpirable que la versión cushioned.</p>
+<p><strong>Mejor para:</strong> zapatillas reactivas (GT Cut 4, Kobe 8 Protro), guards y bases que priorizan la sensación.</p>
+<p><strong>Precio:</strong> ~13€ · <a href="https://www.amazon.es/s?k=nike+elite+lightweight+crew+calcetines+baloncesto&tag=canchazapa-21" target="_blank" rel="noopener noreferrer sponsored">Ver en Amazon →</a></p>
+
+<h3>Adidas Cushioned Crew 3-Pack — la relación calidad-precio</h3>
+<p>Adidas ofrece sus calcetines técnicos en pack de 3, lo que baja el coste por par a ~4€. El tejido es Climalite (equivalente al Dri-FIT de Nike), el cushion es sólido aunque menos específico que la Elite, y la horma encaja especialmente bien con las zapas Adidas (AE 3, Harden, Dame).</p>
+<p><strong>Mejor para:</strong> jugadores con zapas Adidas, presupuesto ajustado, entrenadores que necesitan muchos pares.</p>
+<p><strong>Precio:</strong> ~12€ el pack · <a href="https://www.amazon.es/s?k=adidas+cushioned+crew+calcetines+baloncesto+pack&tag=canchazapa-21" target="_blank" rel="noopener noreferrer sponsored">Ver en Amazon →</a></p>
+
+<h3>Under Armour Playmaker Mid Crew — para caño alto</h3>
+<p>La UA Playmaker tiene el cañero más alto de esta lista — ideal para zapas high-top donde el calcetín interactúa con el collar. Tiene UA HeatGear (tejido frío en verano), cushion en zona de talón y una cinta de compresión en el arco que es notablemente buena para jugadores con pronación moderada.</p>
+<p><strong>Mejor para:</strong> zapas de caño alto (LeBron 23, Jordan Tatum 4), jugadores con historial de esguinces, cualquiera que prefiera el cañero largo.</p>
+<p><strong>Precio:</strong> ~12€ · <a href="https://www.amazon.es/s?k=under+armour+playmaker+mid+crew+calcetines&tag=canchazapa-21" target="_blank" rel="noopener noreferrer sponsored">Ver en Amazon →</a></p>
+
+<h3>Stance NBA Performance Crew — la opción premium</h3>
+<p>Stance es el calcetín oficial de la NBA. La versión Performance tiene un tejido compuesto de algodón combed y nylon con lycra, cushion en L-R (pie derecho e izquierdo anatómicamente distintos), y costuras planas en la punta. El más cómodo de la lista — y el más caro.</p>
+<p><strong>Mejor para:</strong> jugadores que invierten en sus materiales y quieren el máximo confort posible.</p>
+<p><strong>Precio:</strong> ~16€ · <a href="https://www.amazon.es/s?k=stance+nba+performance+crew+calcetines&tag=canchazapa-21" target="_blank" rel="noopener noreferrer sponsored">Ver en Amazon →</a></p>
+
+<h2>Tabla comparativa</h2>
+<div style="overflow-x:auto;margin:24px 0">
+<table style="width:100%;border-collapse:collapse;font-size:13px">
+  <thead>
+    <tr style="border-bottom:2px solid #f97316">
+      <th style="padding:10px;text-align:left">Calcetín</th>
+      <th style="padding:10px;text-align:center">Cushion</th>
+      <th style="padding:10px;text-align:center">Cañero</th>
+      <th style="padding:10px;text-align:center">Precio</th>
+      <th style="padding:10px;text-align:left">Mejor con</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px"><strong>Nike Elite Cushioned</strong></td><td style="padding:8px;text-align:center">⭐⭐⭐</td><td style="padding:8px;text-align:center">Medio</td><td style="padding:8px;text-align:center">~15€</td><td style="padding:8px">LeBron, Fresh Foam, pívots</td></tr>
+    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px"><strong>Nike Elite Lightweight</strong></td><td style="padding:8px;text-align:center">⭐</td><td style="padding:8px;text-align:center">Bajo</td><td style="padding:8px;text-align:center">~13€</td><td style="padding:8px">GT Cut 4, Kobe Protro, guards</td></tr>
+    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px"><strong>Adidas Cushioned 3pk</strong></td><td style="padding:8px;text-align:center">⭐⭐</td><td style="padding:8px;text-align:center">Medio</td><td style="padding:8px;text-align:center">~12€</td><td style="padding:8px">Zapas Adidas, uso diario</td></tr>
+    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px"><strong>UA Playmaker Mid</strong></td><td style="padding:8px;text-align:center">⭐⭐</td><td style="padding:8px;text-align:center">Alto</td><td style="padding:8px;text-align:center">~12€</td><td style="padding:8px">High-tops, esguinces recurrentes</td></tr>
+    <tr><td style="padding:8px"><strong>Stance NBA Perf.</strong></td><td style="padding:8px;text-align:center">⭐⭐</td><td style="padding:8px;text-align:center">Medio</td><td style="padding:8px;text-align:center">~16€</td><td style="padding:8px">Cualquier zapa, máximo confort</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>¿Qué talla pedir?</h2>
+<p>Los calcetines técnicos de baloncesto suelen ir en rangos. Pide siempre el tope del rango si estás en el límite — por ejemplo, si calcas un 42 y el rango es 40-42, pide el siguiente (43-46). Los calcetines apretatados en la punta generan ampollas rápidamente.</p>
+
+<p class="art-outro">¿Quieres saber qué calcetín combina mejor con tu zapatilla concreta? En cada ficha de zapatilla de CANCHA.ZAPA encontrarás la recomendación específica en la sección "Combina con →". También puedes consultar la <a href="/blog/mejores-plantillas-baloncesto">guía de plantillas</a> si buscas mejorar el cushion o el soporte de arco.</p>
+    `,
+  },
+
+  // ── 29. Plantillas de baloncesto ─────────────────────────────────────
+  {
+    slug: "mejores-plantillas-baloncesto",
+    title: "Mejores plantillas para zapatillas de baloncesto 2025-2026",
+    metaTitle: "Mejores plantillas para zapatillas de baloncesto 2025 | CANCHA.ZAPA",
+    description: "Guía de plantillas técnicas para baloncesto: Superfeet Green, Sof Sole Athlete, Bauerfeind Sports, Currex SupportST. Cuándo y por qué añadir una plantilla a tu zapatilla.",
+    fecha: "2026-05-28",
+    fechaLabel: "28 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 5,
+    eyebrow: "★ Guía de accesorios · CANCHA.ZAPA",
+    heroTitle: "Mejores plantillas para baloncesto",
+    heroSubtitle: "2025-2026 · Superfeet, Sof Sole, Bauerfeind, Currex",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["fila-grant-hill-1", "adidas-crazy-8", "nike-shox-bb4", "nike-air-penny-2"],
+    relatedSeoPages: ["zapatillas-baloncesto-retro", "zapatillas-baloncesto-rodillas"],
+    body: `
+<p class="art-intro">La plantilla de fábrica que viene en la mayoría de zapatillas es, en el mejor caso, mediocre. Sustituirla por una plantilla técnica de 18-45€ puede mejorar el soporte, reducir el impacto en rodillas y alargar la vida útil de la zapatilla. Especialmente útil en zapas retro y modelos de entrada.</p>
+
+<h2>¿Cuándo tiene sentido añadir una plantilla?</h2>
+<p>No siempre. Las zapatillas premium modernas (Nike LeBron 23, Air Jordan 40, UA Curry 13) tienen plantillas integradas bien diseñadas. Añadir una encima puede comprimir el espacio interno y generar incomodidad. Los casos donde sí merece la pena:</p>
+<ul>
+  <li><strong>Zapatillas retro:</strong> Las reediciones de clásicos (Jordan retros, Crazy 8, Shox BB4, Grant Hill) tienen plantillas básicas. Una plantilla de cushion mejora significativamente la amortiguación.</li>
+  <li><strong>Zapatillas de entrada (sub-80€):</strong> Modelos como la Decathlon Tarmak o la Nike Precision tienen plantillas de espuma básica. Una Sof Sole Athlete las mejora notablemente.</li>
+  <li><strong>Pronación o pie plano:</strong> Si tienes estas condiciones, una plantilla con soporte de arco (Superfeet, Currex) puede corregir la biomecánica incluso si la zapatilla no la corrige sola.</li>
+  <li><strong>Lesiones de tobillo o rodilla recurrentes:</strong> Una plantilla médica (Bauerfeind) puede complementar el trabajo de la zapatilla en la prevención de recaídas.</li>
+</ul>
+
+<h2>Las 4 mejores plantillas de 2025</h2>
+
+<h3>Superfeet Green Premium — la de soporte de arco</h3>
+<p>Superfeet Green es la plantilla con el soporte de arco más alto del mercado de consumo. Rígida, con un talón cup profundo que estabiliza el pie. Diseñada originalmente para senderismo pero adoptada masivamente en deportes de pista por podólogos deportivos.</p>
+<p><strong>Para quién:</strong> jugadores con pie plano, pronación moderada-severa, o fascia plantar. Pívots y jugadores pesados que aterrizan constantemente.</p>
+<p><strong>No para quién:</strong> pie neutro sin problemas biomecánicos — el arco puede resultar molesto si no lo necesitas.</p>
+<p><strong>Precio:</strong> ~38€ · <a href="https://www.amazon.es/s?k=superfeet+green+plantillas+deporte&tag=canchazapa-21" target="_blank" rel="noopener noreferrer sponsored">Ver en Amazon →</a></p>
+
+<h3>Sof Sole Athlete Full Length — la de cushion extra</h3>
+<p>Sof Sole Athlete es la plantilla de cushion más versátil del mercado. Espuma Hydrologix (antibacteriana, no retiene humedad) con gel en talón y antepié. Perfil neutro de arco — no corrige pronación pero añade amortiguación real. La plantilla perfecta para retros y zapatillas de entrada.</p>
+<p><strong>Para quién:</strong> jugadores con zapatillas retro, modelos de entrada, o cualquier zapa con cushion score por debajo de 7. También útil en zapas muy reactivas (GT Cut) para reducir el impacto en sesiones largas.</p>
+<p><strong>Precio:</strong> ~18€ · <a href="https://www.amazon.es/s?k=sof+sole+athlete+full+length+plantillas&tag=canchazapa-21" target="_blank" rel="noopener noreferrer sponsored">Ver en Amazon →</a></p>
+
+<h3>Bauerfeind Sports Basketball — la médica</h3>
+<p>Bauerfeind es una empresa alemana especializada en productos ortopédicos y de rehabilitación. Sus plantillas deportivas tienen un nivel de soporte que supera las opciones de consumo estándar: metatarsal pad integrado, soporte de talón con cápsula de gel, y compresión de arco dinámica.</p>
+<p><strong>Para quién:</strong> jugadores con historial de esguinces de tobillo, tendinitis, fascitis plantar, o que se recuperan de lesiones en el pie o la rodilla.</p>
+<p><strong>No para quién:</strong> jugadores sin problemas específicos — el coste de 45€ no se justifica si no tienes una necesidad clara.</p>
+<p><strong>Precio:</strong> ~45€ · <a href="https://www.amazon.es/s?k=bauerfeind+sports+plantillas+baloncesto&tag=canchazapa-21" target="_blank" rel="noopener noreferrer sponsored">Ver en Amazon →</a></p>
+
+<h3>Currex SupportST — el equilibrio</h3>
+<p>Currex diseña sus plantillas con perfiles de arco bajo, medio y alto — elige según tu tipo de arco. El sistema SupportST tiene una capa de amortiguación dinámica que se activa con el impacto (no es espuma pasiva) y una cubierta de tejido transpirable. Muy popular entre jugadores con pie neutro-bajo que quieren soporte sin rigidez.</p>
+<p><strong>Para quién:</strong> jugadores con arco bajo o neutro que quieren soporte sin la rigidez de la Superfeet. Buena opción si la Green te resulta demasiado rígida.</p>
+<p><strong>Precio:</strong> ~40€ · <a href="https://www.amazon.es/s?k=currex+supportst+plantillas+deporte&tag=canchazapa-21" target="_blank" rel="noopener noreferrer sponsored">Ver en Amazon →</a></p>
+
+<h2>Cómo elegir la tuya</h2>
+<div style="background:#18181b;border:1px solid #3f3f46;border-radius:4px;padding:20px 24px;margin:24px 0">
+  <ul style="margin:0;padding:0 0 0 16px;color:#a1a1aa;font-size:14px;line-height:2">
+    <li><strong style="color:#e4e4e7">Pie plano o pronación</strong> → Superfeet Green</li>
+    <li><strong style="color:#e4e4e7">Zapatilla retro o barata</strong> → Sof Sole Athlete</li>
+    <li><strong style="color:#e4e4e7">Historial de lesiones tobillo/rodilla</strong> → Bauerfeind Sports</li>
+    <li><strong style="color:#e4e4e7">Pie neutro, quieres algo entre rigidez y flexibilidad</strong> → Currex SupportST</li>
+    <li><strong style="color:#e4e4e7">Zapatilla premium moderna (LeBron, AE 3, Curry 13)</strong> → No necesitas plantilla</li>
+  </ul>
+</div>
+
+<h2>¿Afecta la plantilla al ajuste de la zapatilla?</h2>
+<p>Sí. Si añades una plantilla gruesa (Sof Sole, Superfeet), el pie sube dentro de la zapatilla y puede apretar más el empeine. Lo más seguro: retira la plantilla de fábrica antes de poner la nueva. Si la plantilla de fábrica es muy fina o de espuma básica (el caso de los retros), puedes sacarla sin problema. En zapas premium, la plantilla puede estar integrada y no ser extraíble — en ese caso, no añadas otra encima.</p>
+
+<p class="art-outro">En cada ficha de zapatilla de CANCHA.ZAPA encontrarás la plantilla recomendada para ese modelo específico en la sección "Combina con →". Para los calcetines técnicos, consulta también la <a href="/blog/mejores-calcetines-baloncesto">guía de calcetines</a>.</p>
+    `,
+  },
+
+  // ── 30. Adidas Crazy 8 / Kobe Bryant ────────────────────────────────
   {
     slug: "adidas-crazy-8-kobe-bryant",
     title: "Las zapatillas de Kobe Bryant con Adidas: la era KB8 (1996-2002)",
