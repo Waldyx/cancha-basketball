@@ -1857,6 +1857,405 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">La LeBron 22 es la mejor zapatilla de 2025 para jugadores que priorizan cushion y soporte por encima de todo. Si no estás seguro de si tu perfil encaja, <a href="/quiz">el quiz de CANCHA.ZAPA te da las 5 más compatibles en 60 segundos</a>.</p>
     `,
   },
+
+  // ── 21. Guía aleros ─────────────────────────────────────────────────
+  {
+    slug: "mejores-zapatillas-aleros-2025",
+    title: "Mejores zapatillas de baloncesto para aleros en 2025-2026",
+    metaTitle: "Mejores zapatillas para aleros 2025-2026 | CANCHA.ZAPA",
+    description:
+      "Guía de las mejores zapatillas para aleros en 2025: Jordan Tatum 4, Harden Vol 9, KD 17 y más. Qué buscar en equilibrio, soporte y versatilidad.",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Guía por posición · Aleros 2025",
+    heroTitle: "Mejores zapas para aleros",
+    heroSubtitle: "2025-2026 · Equilibrio, soporte y versatilidad",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["jordan-tatum-4", "adidas-harden-vol-9", "nike-kd-17", "ua-flow-breakthru-5", "jordan-luka-4"],
+    relatedSeoPages: ["mejor-zapatilla-alero", "zapatillas-equilibradas", "zapatillas-baloncesto-130-euros"],
+    body: `
+<p class="art-intro">El alero es la posición más exigente para una zapatilla porque no tiene perfil único. Un día defiendes al base más rápido del equipo rival; al siguiente, estás en la zona pugnando por rebotes con el pívot. Necesitas una zapatilla que no te falle en ninguno de esos escenarios — y eso significa equilibrio real, no marketinig.</p>
+
+<h2>Qué necesita un alero de su zapatilla</h2>
+
+<p>A diferencia de bases (priorizan reactividad) y pívots (priorizan cushion), el alero necesita el balance correcto:</p>
+<ul>
+  <li><strong>Score medio ≥ 7 en todos los ejes:</strong> ningún atributo por debajo de 6 — eso significa que falla en algún escenario.</li>
+  <li><strong>Cushion 7-8:</strong> defiendes jugadas aéreas y recibes contacto. Suficiente protección sin el peso de las zapas de pívot.</li>
+  <li><strong>Soporte lateral 7+:</strong> los cortes y cambios de defensa a ataque son los momentos de mayor riesgo.</li>
+  <li><strong>Mid-top casi siempre:</strong> el alero necesita protección lateral que la low-top no da, pero no la rigidez extrema de la high-top.</li>
+  <li><strong>Tracción 7+:</strong> juegas en todas las condiciones, interior y ocasionalmente exterior.</li>
+</ul>
+
+<h2>Los 5 mejores modelos para alero en 2025</h2>
+
+<h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — 150€</a></h3>
+<p><strong>El mejor equilibrio del mercado.</strong> Jayson Tatum es el prototipo del alero moderno: defiende del 1 al 5, mete cortes, tira de tres y postea. La Tatum 4 está diseñada para eso: score 7+ en todos los ejes con cushion Zoom Air + Impact Plate para los aterrizajes.</p>
+<ul>
+  <li>✅ Cushion 8 + respuesta 8: el mejor equilibrio technico del grupo</li>
+  <li>✅ High-top: máxima protección lateral para el alero que juega físico</li>
+  <li>✅ Horma normal-ancha: encaja con la mayoría de pies</li>
+  <li>❌ No es la más ligera (390g) — se nota si juegas de base en emergencia</li>
+</ul>
+
+<h3><a href="/zapatilla/adidas-harden-vol-9">Adidas Harden Vol 9 — 129€</a></h3>
+<p><strong>Para aleros con perfil físico que postean.</strong> James Harden es técnicamente un escolta/alero con juego de pívot — la Vol 9 refleja eso. Lightstrike Pro foam da cushion generoso sin exceso de peso. La opción si juegas media cancha más que medio campo.</p>
+<ul>
+  <li>✅ Lightstrike Pro: cushion alto con bounce reactivo</li>
+  <li>✅ Base ancha: estabilidad sólida en contactos laterales</li>
+  <li>✅ 30€ más barata que la Tatum 4 con rendimiento similar</li>
+  <li>❌ Respuesta algo por debajo: para cortes explosivos, la Tatum gana</li>
+</ul>
+
+<h3><a href="/zapatilla/nike-kd-17">Nike KD 17 — 149€</a></h3>
+<p><strong>Para aleros que salen mucho al perímetro.</strong> Kevin Durant es el alero/pívot que más tira de tres del mercado. La KD 17 tiene Zoom Strobel full-length para el bounce que necesitas cuando aterrizas de un tres, más upper TPU que soporta los contactos.</p>
+<ul>
+  <li>✅ Zoom Strobel full-length: cushion reactivo para jugadores >85kg</li>
+  <li>✅ Upper de TPU: soporte estructural sin peso extra</li>
+  <li>✅ Score equilibrado — ningún punto débil destacado</li>
+  <li>❌ Horma algo estrecha en el antepié para pie ancho</li>
+</ul>
+
+<h3><a href="/zapatilla/ua-flow-breakthru-5">Under Armour Flow Breakthru 5 — ~120€</a></h3>
+<p><strong>Para aleros dinámicos que priorizan la sensación de suelo.</strong> UA Flow sin capa de goma da un court feel diferente — más en contacto con el suelo, más reactivo. Para aleros que juegan más el uno contra uno y los cortes que el juego de poste.</p>
+<ul>
+  <li>✅ UA Flow: court feel excepcional para un alero</li>
+  <li>✅ Ligera para su cushion — ventaja en las ayudas defensivas</li>
+  <li>❌ No usar en exterior — sin goma, la suela se destruye en asfalto</li>
+  <li>❌ Horma algo estrecha para pie ancho</li>
+</ul>
+
+<h3><a href="/zapatilla/jordan-luka-4">Jordan Luka 4 — 145€</a></h3>
+<p><strong>Para aleros grandes o ala-pívots con juego de poste.</strong> Luka Doncic es técnicamente un base/alero, pero su zapatilla está diseñada para jugadores potentes: cushion alto, base ancha y soporte lateral extra.</p>
+<ul>
+  <li>✅ Cushion Zoom Air para aterrizajes de jugadores >90kg</li>
+  <li>✅ Base ancha — la más estable del grupo</li>
+  <li>✅ Horma normal — sirve para la mayoría de pies</li>
+  <li>❌ No es la más reactiva — para aleros dinámicos, la Tatum 4 o la KD son mejores</li>
+</ul>
+
+<h2>Comparativa rápida</h2>
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:14px">
+  <thead>
+    <tr style="border-bottom:2px solid #f97316">
+      <th style="padding:8px;text-align:left">Modelo</th>
+      <th style="padding:8px;text-align:center">Cushion</th>
+      <th style="padding:8px;text-align:center">Respuesta</th>
+      <th style="padding:8px;text-align:center">Soporte</th>
+      <th style="padding:8px;text-align:center">Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>Jordan Tatum 4</strong></td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">⭐ 8/10</td>
+      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+      <td style="padding:8px;text-align:center">150€</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>Adidas Harden Vol 9</strong></td>
+      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">⭐ 129€</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>Nike KD 17</strong></td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">149€</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>UA Flow Breakthru 5</strong></td>
+      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">⭐ 120€</td>
+    </tr>
+    <tr>
+      <td style="padding:8px"><strong>Jordan Luka 4</strong></td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">145€</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>¿Cuál elegir?</h2>
+<ul>
+  <li><strong>Si juegas un juego equilibrado (cortes, tiros, contacto):</strong> Jordan Tatum 4. El mejor equilibrio del mercado para el alero completo.</li>
+  <li><strong>Si juegas con potencia y posteas:</strong> Adidas Harden Vol 9. Cushion alto a precio razonable.</li>
+  <li><strong>Si eres alero-tirador y pesas >85kg:</strong> Nike KD 17. El Zoom Strobel da el bounce que necesitas en aterrizajes de tiro.</li>
+  <li><strong>Si priorizas el court feel y juegas solo en interior:</strong> UA Flow Breakthru 5. La más reactiva del grupo.</li>
+  <li><strong>Si eres alero grande o ala-pívot:</strong> Jordan Luka 4. La base más estable del grupo para jugadores físicos.</li>
+</ul>
+
+<p class="art-outro">¿No estás seguro de cuál encaja con tu juego? El <a href="/quiz">quiz de CANCHA.ZAPA</a> filtra por posición, peso, tipo de cancha y presupuesto para darte las 5 más compatibles con tu perfil en menos de un minuto.</p>
+    `,
+  },
+
+  // ── 22. Análisis Nike Ja 3 ──────────────────────────────────────────
+  {
+    slug: "nike-ja-3-analisis-2025",
+    title: "Nike Ja 3: análisis completo — la mejor zapatilla de Ja Morant vale lo que cuesta",
+    metaTitle: "Nike Ja 3 análisis completo 2025 | CANCHA.ZAPA",
+    description:
+      "Análisis técnico completo de la Nike Ja 3: ZoomX full-length, suela outdoor, horma ancha. ¿Es la mejor zapatilla para guards de 2025?",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Análisis",
+    readMinutes: 5,
+    eyebrow: "★ Análisis en profundidad · Guards 2025",
+    heroTitle: "Nike Ja 3",
+    heroSubtitle: "¿La mejor zapatilla de guard de 2025?",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-ja-3", "nike-ja-2", "adidas-ae-3", "ua-curry-13", "nike-gt-cut-4"],
+    relatedSeoPages: ["mejor-zapatilla-base", "mejor-zapatilla-escolta", "mejores-zapatillas-nike"],
+    body: `
+<p class="art-intro">Ja Morant tiene el primer paso más explosivo de la NBA en 2025. Y por primera vez desde la Kobe 8 Protro, hay una zapatilla de guard que realmente está diseñada para ese tipo de atletismo: ligera, reactiva, con la espuma más avanzada de Nike y una horma ancha que rompe el molde Nike clásico.</p>
+
+<h2>La tecnología que la define</h2>
+
+<h3>ZoomX foam full-length</h3>
+<p>La Ja 3 es la primera zapatilla de guard de Nike con ZoomX full-length — la espuma de los Vaporfly de running que devuelve el 85% de la energía de cada pisada. Antes de la Ja 3, el ZoomX solo aparecía en modelos de pívot o alero (Jordan 40). En una zapatilla de guard, el resultado es un bounce notablemente superior a cualquier Zoom Air clásico.</p>
+
+<h3>Suela de goma completa (diferencia con la Curry 13)</h3>
+<p>A diferencia de la Under Armour Curry 13 (que usa UA Flow sin capa de goma), la Ja 3 sí tiene suela de goma completa. Eso significa dos cosas: tracción más consistente y durabilidad outdoor real. Puedes llevar la Ja 3 al asfalto de vez en cuando sin destruirla — algo que la Curry 13 no puede decir.</p>
+
+<h3>Horma ancha: la excepción en Nike</h3>
+<p>Nike tradicionalmente fabrica sus zapatillas de baloncesto con horma estrecha o normal-estrecha. La Ja 3 rompe esa tendencia: Ja Morant tiene pie ancho y la firma lo refleja. Es la zapatilla Nike de baloncesto con más espacio en el antepié de las actuales en producción. Para jugadores que venían de frustrarse con Nike, esto es un cambio de juego.</p>
+
+<h2>Puntuación técnica CANCHA.ZAPA</h2>
+<ul>
+  <li>Tracción: <strong>8/10</strong> — sólida en parquet limpio, aguanta algo de polvo</li>
+  <li>Amortiguación: <strong>8/10</strong> — el ZoomX da cushion excepcional para low-top</li>
+  <li>Respuesta: <strong>9/10</strong> — bounce reactivo, primer paso rápido</li>
+  <li>Soporte lateral: <strong>7/10</strong> — aceptable para guard, no es su punto fuerte</li>
+  <li>Estabilidad: <strong>7/10</strong> — el ZoomX es algo blando bajo carga extrema</li>
+  <li>Ligereza: <strong>8/10</strong> — 326g, una de las más ligeras del grupo con cushion</li>
+  <li>Durabilidad outdoor: <strong>8/10</strong> — goma completa, aguanta asfalto moderado</li>
+  <li>Ventilación: <strong>7/10</strong> — malla densa, algo cálida en verano</li>
+</ul>
+
+<h2>¿Cómo se compara con sus rivales?</h2>
+
+<h3>vs Adidas AE 3 (130€)</h3>
+<p>La AE 3 gana en tracción (herringbone 9/10 vs 8/10) y es más económica. La Ja 3 gana en cushion (ZoomX vs Lightstrike Pro) y es mejor para pie ancho. Para jugadores de 70-85kg en pistas algo sucias: AE 3. Para jugadores con pie ancho o que priorizan el cushion: Ja 3.</p>
+
+<h3>vs Under Armour Curry 13 (140€)</h3>
+<p>La Curry 13 tiene mejor court feel (UA Flow directo al suelo). La Ja 3 tiene mejor durabilidad outdoor y horma más fácil para pie ancho. Si juegas siempre en interior limpio: Curry 13. Si juegas ocasionalmente fuera o tienes pie ancho: Ja 3.</p>
+
+<h3>vs Nike GT Cut 4 (150€)</h3>
+<p>La GT Cut 4 es más reactiva (10/10 respuesta, 310g). La Ja 3 tiene mejor cushion y horma más ancha. Para bases con pie normal o estrecho que buscan el máximo primer paso: GT Cut 4. Para bases con pie ancho o que priorizan cushion+outdoor: Ja 3.</p>
+
+<h2>¿Para quién es la Ja 3?</h2>
+<p>Es el mejor match para:</p>
+<ul>
+  <li>Bases y escoltas de <strong>70-90kg</strong></li>
+  <li>Jugadores con <strong>pie ancho</strong> que querían Nike pero no encajaban</li>
+  <li>Quien juega tanto en <strong>interior como exterior</strong> y quiere una sola zapatilla</li>
+  <li>Quien prioriza <strong>cushion reactivo</strong> sobre court feel extremo</li>
+</ul>
+
+<p><strong>No es para ti si:</strong> tienes pie muy estrecho y prefieres lockdown máximo, o si buscas el court feel ultra-bajo de la Curry 13 o la GT Cut 4.</p>
+
+<h2>Disponibilidad y precio</h2>
+<p>La Ja 3 se vende en Nike.es, Foot Locker ES, JD Sports ES y Amazon ES. El precio de salida fue 135€ — actualmente el más competitivo del grupo (AE 3 a 130€, Curry 13 a 140€, GT Cut 4 a 150€). Para una zapatilla con ZoomX full-length, 135€ es una propuesta seria.</p>
+
+<p class="art-outro">¿No sabes si la Ja 3 encaja con tu perfil? <a href="/quiz">El quiz de CANCHA.ZAPA</a> filtra por posición, peso, tipo de pie y tipo de juego para darte las 5 más compatibles en menos de un minuto.</p>
+    `,
+  },
+
+  // ── 23. Guía rodillas ────────────────────────────────────────────────
+  {
+    slug: "zapatillas-baloncesto-rodillas-guia-2025",
+    title: "Zapatillas de baloncesto para problemas de rodilla: guía completa 2025",
+    metaTitle: "Zapatillas baloncesto rodillas 2025: guía completa | CANCHA.ZAPA",
+    description:
+      "Guía para elegir zapatillas de baloncesto si tienes problemas de rodilla. Qué cushion necesitas, qué evitar, y el top 5 de modelos para 2025.",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 5,
+    eyebrow: "★ Guía · Lesiones rodilla 2025",
+    heroTitle: "Rodilla y baloncesto",
+    heroSubtitle: "Qué zapatilla protege tus rodillas de verdad",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-lebron-23", "jordan-40", "nike-kd-19", "jordan-tatum-4", "ua-flow-breakthru-5"],
+    relatedSeoPages: ["zapatillas-baloncesto-para-rodillas", "zapatillas-cushion", "mejor-zapatilla-pivot"],
+    body: `
+<p class="art-intro">El dolor de rodilla es la segunda queja más frecuente en jugadores de baloncesto amateur después de los esguinces de tobillo. Y a diferencia del tobillo, donde la caña alta ayuda directamente, la protección de rodilla viene principalmente de una variable: el cushion. La zapatilla correcta no cura nada — pero puede reducir significativamente el impacto acumulado partido a partido.</p>
+
+<h2>Por qué el cushion importa para las rodillas</h2>
+<p>En baloncesto, cada aterrizaje de un salto genera un impacto entre 3 y 8 veces el peso corporal sobre las rodillas. En 40 minutos de partido, eso son centenares de impactos. La entresuela de la zapatilla actúa como primer amortiguador antes de que ese impacto llegue a la articulación.</p>
+<p>Las variables que más importan:</p>
+<ul>
+  <li><strong>Amortiguación ≥ 8:</strong> el filtro mínimo si tienes antecedentes de rodilla.</li>
+  <li><strong>Espuma que no colapsa:</strong> una espuma demasiado blanda bajo tu peso no amortigua — se aplana. El cushion tiene que mantenerse partido tras partido.</li>
+  <li><strong>Estabilidad lateral:</strong> un aterrizaje desestabilizado pone más carga sobre el menisco. Estabilidad 7+ es necesaria.</li>
+  <li><strong>Peso razonable:</strong> una zapatilla pesada fuerza más los ligamentos en la deceleración. Sub-420g idealmente.</li>
+</ul>
+
+<h2>Lo que no funciona</h2>
+<ul>
+  <li><strong>Zapas ultra-reactivas sin cushion (GT Cut 4, Curry 13):</strong> excelentes para rendimiento, pero la espuma muy firme transmite más impacto a la rodilla. Para jugadores con problemas, no son la opción.</li>
+  <li><strong>Espumas baratas que se aplanan:</strong> las zapatillas sub-60€ tienen espumas que pierden amortiguación después de 20-30 partidos. Dos meses después, no amortiguan nada.</li>
+  <li><strong>Talla grande "para que no apriete":</strong> el pie se mueve dentro, los aterrizajes son inestables, y eso perjudica más a la rodilla.</li>
+</ul>
+
+<h2>Top 5 zapatillas para rodilla en 2025</h2>
+
+<h3><a href="/zapatilla/jordan-40">Air Jordan 40 — 199€ — La mejor cushion del mercado</a></h3>
+<p>ZoomX + Zoom Strobel full-length: la combinación de espumas más avanzada disponible en 2025. El ZoomX devuelve el 85% de la energía con bounce real, mientras el Strobel añade firmeza para que la espuma no colapse. Para pívots y ala-pívots con problemas de rodilla, es el techo tecnológico del mercado.</p>
+<ul>
+  <li>✅ Amortiguación 10/10 — el cushion más avanzado disponible</li>
+  <li>✅ 6 correas internas: estabilidad extra en aterrizajes</li>
+  <li>❌ 199€ y 395g — la más cara y pesada del grupo</li>
+</ul>
+
+<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — 179€ — Max Air para jugadores pesados</a></h3>
+<p>Max Air en talón + React foam en midsole. El Max Air es una cámara de aire de alta presión que no se aplana bajo cargas extremas — especialmente eficaz para jugadores de 90-110kg. LeBron James ha tenido problemas de rodilla durante su carrera, y la LeBron line refleja ese diseño.</p>
+<ul>
+  <li>✅ Max Air: el cushion que mejor aguanta bajo cargas pesadas</li>
+  <li>✅ React foam: cushion extra en toda la entresuela</li>
+  <li>❌ Horma algo estrecha — incómoda para pie ancho</li>
+</ul>
+
+<h3><a href="/zapatilla/nike-kd-19">Nike KD 19 — 149€ — El equilibrio precio/cushion</a></h3>
+<p>Zoom Strobel + Cushlon 3.0 a un precio 30-50€ por debajo de la LeBron 23 o la Jordan 40. Kevin Durant jugó con rodilla operada durante años — el KD 19 tiene cushion pensado para eso. Para ala-pívots que necesitan protección seria sin el precio top.</p>
+<ul>
+  <li>✅ Cushion 8/10 a precio razonable</li>
+  <li>✅ Bounce reactivo (Strobel) además de amortiguación</li>
+  <li>❌ No llega al nivel Max Air de la LeBron para jugadores >100kg</li>
+</ul>
+
+<h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — 150€ — El mejor para aleros con rodilla</a></h3>
+<p>Zoom Air + Impact Plate en la zona del antepié. El Impact Plate distribuye el impacto de los aterrizajes en tres puntos en lugar de concentrarlo, reduciendo el pico de presión en la rótula. Para aleros de 80-95kg con problemas de rodilla, es la mejor opción de la gama media.</p>
+<ul>
+  <li>✅ Impact Plate: tecnología de distribución de impacto única</li>
+  <li>✅ Cushion 8/10 con soporte lateral 9/10</li>
+  <li>❌ No está orientada a jugadores >100kg — ahí la LeBron gana</li>
+</ul>
+
+<h3><a href="/zapatilla/ua-flow-breakthru-5">Under Armour Flow Breakthru 5 — ~120€ — Para aleros que priorizan suavidad</a></h3>
+<p>UA Flow con UA Micro G foam ofrece un cushion suave y reactivo. No llega al nivel de la Jordan 40 o la LeBron, pero para jugadores de 70-85kg con molestias ligeras de rodilla es suficiente — y la más económica del grupo.</p>
+<ul>
+  <li>✅ Precio más accesible del grupo con cushion 7/10</li>
+  <li>✅ Suave sin ser imprecisa</li>
+  <li>❌ Para jugadores >90kg o con problemas serios de rodilla, el cushion no es suficiente</li>
+</ul>
+
+<h2>Regla de oro</h2>
+<p>Si tienes diagnóstico médico de condromalacia rotuliana, tendinitis rotuliana o problemas de menisco, consulta a tu médico o fisioterapeuta antes de decidir qué zapatilla usar. La zapatilla es un complemento, no un tratamiento.</p>
+<p>Pero como regla práctica: <strong>si pesas <85kg → Jordan Tatum 4 o KD 19; si pesas 85-100kg → LeBron 23; si pesas >100kg → Jordan 40 o LeBron 23.</strong></p>
+
+<p class="art-outro">El <a href="/quiz">quiz de CANCHA.ZAPA</a> pregunta directamente por lesiones de rodilla y filtra automáticamente los modelos según tu peso, posición y presupuesto. Si marcas "rodillas" en la sección de lesiones, los modelos con cushion bajo quedan fuera de tus resultados.</p>
+    `,
+  },
+
+  // ── 24. Comparativa New Balance vs ANTA ─────────────────────────────
+  {
+    slug: "new-balance-vs-anta-baloncesto-2025",
+    title: "New Balance vs ANTA: ¿cuál es mejor para baloncesto en 2025?",
+    metaTitle: "New Balance vs ANTA baloncesto 2025: comparativa completa | CANCHA.ZAPA",
+    description:
+      "Comparativa entre New Balance y ANTA en baloncesto: qué marca da más por menos dinero en 2025. Rendimiento, horma, durabilidad y precio analizados.",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Comparativas",
+    readMinutes: 5,
+    eyebrow: "★ Comparativa · Marcas presupuesto 2025",
+    heroTitle: "New Balance vs ANTA",
+    heroSubtitle: "¿Cuál da más por tu dinero?",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nb-fresh-foam-bb-v3", "nb-two-wxy-v4", "nb-kawhi-2", "anta-kai-2", "anta-kt-11"],
+    relatedSeoPages: ["mejores-zapatillas-new-balance", "mejores-zapatillas-anta", "zapatillas-baloncesto-baratas"],
+    body: `
+<p class="art-intro">Si tu presupuesto es ajustado o simplemente no quieres pagar el sobreprecio de Nike y Jordan, tienes dos marcas que en 2025 ofrecen rendimiento serio a precio razonable: New Balance y ANTA. Son perfiles muy distintos — y la mejor para ti depende de qué tipo de juego tienes.</p>
+
+<h2>Filosofías de diseño completamente distintas</h2>
+<p>Antes de comparar modelos concretos, hay que entender que New Balance y ANTA tienen enfoques diferentes:</p>
+<ul>
+  <li><strong>New Balance:</strong> cushion generoso, horma ancha, espumas propias (Fresh Foam, FuelCell). Más orientada a jugadores que priorizan comodidad y amortiguación. Influenciada por sus atletas signature (Kawhi Leonard, Darius Garland).</li>
+  <li><strong>ANTA:</strong> tecnología reactiva (A-Flashfoam), court feel más directo, horma muy ancha. Marcas de calzado chino con contratos de Kyrie Irving y Klay Thompson. Mejor relación rendimiento/precio en el mercado.</li>
+</ul>
+
+<h2>Duelo por categorías</h2>
+
+<h3>Tracción</h3>
+<p>ANTA gana. El patrón multidireccional de la Kai 2 y la KT 11 ofrece agarre consistente en parquet limpio y moderado. New Balance tiene tracción sólida pero menos agresiva — la Fresh Foam BB V3 resbala algo más en pistas con polvo.</p>
+
+<h3>Cushion</h3>
+<p>New Balance gana. Fresh Foam y FuelCell son espumas maduras con años de I+D en running. El cushion de la NB Fresh Foam BB V3 o la TWO WXY V4 es suave y duradera. ANTA A-Flashfoam es buena para su precio pero no llega al nivel NB en absorción pura.</p>
+
+<h3>Respuesta y court feel</h3>
+<p>ANTA gana. La Kai 2 tiene un court feel más directo y reactivo que cualquier NB de baloncesto actual. Para guards y jugadores explosivos, ANTA da mejor primer paso.</p>
+
+<h3>Horma</h3>
+<p>Empate, ambas anchas. ANTA y New Balance son las dos marcas con mejor horma para pie ancho en baloncesto. New Balance históricamente ha sido la referencia para pies anchos (sus tallas "2E" y "4E" son estándar en running). ANTA también va ancha, especialmente la Kai 2. Si tienes pie muy ancho, ambas son seguras.</p>
+
+<h3>Durabilidad outdoor</h3>
+<p>ANTA gana ligeramente. La Kai 2 tiene suela de goma más gruesa y resistente al asfalto. La Fresh Foam BB V3 aguanta exterior moderado pero se gasta antes en uso intensivo outdoor.</p>
+
+<h3>Precio</h3>
+<p>ANTA gana claramente. La Kai 2 (~119€) y la KT 11 (~80€) están significativamente por debajo de la NB TWO WXY V4 (~130€) o la Kawhi 2 (~140€). Para el mismo nivel de rendimiento básico, ANTA da más por menos.</p>
+
+<h2>Resumen por tipo de jugador</h2>
+
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:14px">
+  <thead>
+    <tr style="border-bottom:2px solid #f97316">
+      <th style="padding:8px;text-align:left">Perfil</th>
+      <th style="padding:8px;text-align:center">Mejor opción</th>
+      <th style="padding:8px;text-align:center">Modelo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Guard explosivo, pie ancho</td>
+      <td style="padding:8px;text-align:center">⭐ ANTA</td>
+      <td style="padding:8px;text-align:center">Kai 2 (~119€)</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Jugador pesado (&gt;90kg) con rodillas</td>
+      <td style="padding:8px;text-align:center">⭐ New Balance</td>
+      <td style="padding:8px;text-align:center">Fresh Foam BB V3</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Junior / primeras zapatillas</td>
+      <td style="padding:8px;text-align:center">⭐ ANTA</td>
+      <td style="padding:8px;text-align:center">KT 11 (~80€)</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Alero equilibrado, pie ancho</td>
+      <td style="padding:8px;text-align:center">⭐ New Balance</td>
+      <td style="padding:8px;text-align:center">TWO WXY V4 (~130€)</td>
+    </tr>
+    <tr>
+      <td style="padding:8px">Exterior / outdoor frecuente</td>
+      <td style="padding:8px;text-align:center">⭐ ANTA</td>
+      <td style="padding:8px;text-align:center">Kai 2 (mejor suela)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>El veredicto</h2>
+<p>Si tuviéramos que elegir una: <strong>ANTA gana en relación calidad-precio</strong>. La Kai 2 a ~119€ ofrece un rendimiento que avergüenza a zapatillas de 150€ de marcas mainstream. La tracción, la horma ancha y la respuesta están al nivel de modelos premium.</p>
+
+<p>Pero si priorizas cushion puro o pesas más de 90kg, <strong>New Balance es la elección más inteligente</strong>. Fresh Foam da una protección articular que ANTA no iguala en ese rango de precio.</p>
+
+<p class="art-outro">¿Todavía tienes dudas sobre qué marca encaja con tu perfil? <a href="/quiz">El quiz de CANCHA.ZAPA</a> no filtra por marca — filtra por tus necesidades reales y te da las 5 más compatibles. A veces el resultado sorprende.</p>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
