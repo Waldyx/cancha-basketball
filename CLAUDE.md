@@ -35,12 +35,18 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 - **Widget "Guías relacionadas"**: sidebar de blog/[slug].astro ahora muestra hasta 3 links a SEO pages relacionadas
 - **Fix slugs relatedSeoPages**: corregidos 9 artículos con slugs erróneos (zapatillas-baratas→baloncesto-baratas, zapatillas-junior→baloncesto-junior, zapatillas-premium→baloncesto-premium)
 - **Barra de progreso de lectura**: barra naranja fija en artículos (scroll sobre .art-body)
-- **4 nuevos artículos** → **24 artículos total**:
+- **7 nuevos artículos** → **27 artículos total** (todas las posiciones cubiertas):
   - Art.21: Guía mejores zapas para aleros 2025 (6 min)
   - Art.22: Nike Ja 3 análisis completo (5 min)
   - Art.23: Guía zapatillas para rodillas 2025 (5 min)
   - Art.24: Comparativa New Balance vs ANTA (5 min)
-- **FAQ**: +4 preguntas → **35 total** (aleros, Ja 3 pie ancho, rodillas, NB vs ANTA)
+  - Art.25: Guía mejores zapas para bases 2025 (6 min)
+  - Art.26: Guía mejores zapas para escoltas 2025 (5 min)
+  - Art.27: Guía mejores zapas para ala-pívots 2025 (6 min)
+- **Tabla de Contenidos (ToC)**: auto-generada en sidebar de artículos con ≥3 h2s, resalta sección activa al scroll
+- **JSON-LD mejorado**: Article ahora incluye image, wordCount, publisher.logo
+- **Home page**: añadido link "Para ala-pívots" en sección Guías por perfil (todas las 5 posiciones)
+- **FAQ**: +6 preguntas → **37 total** (aleros, Ja 3, rodillas, NB vs ANTA, ala-pívots, bases)
 
 ### ✅ Completado (sesión 12)
 - **Fix bug CI**: blog/[slug].astro — Blog nav link añadido (estaba solo en breadcrumb, no en cz-nav)
@@ -343,7 +349,7 @@ sk-or-v1-[REDACTED — ver ~/.openclaw/openclaw.json]
 Último push: 2026-05-27 (sesión 13)
 Web live: canchazapa.com ✅
 
-## Blog artículos (24)
+## Blog artículos (27)
 1. Cómo elegir zapatillas de baloncesto (Guía)
 2. AE 3 vs Ja 3 — guards 2025 (Comparativa)
 3. Air Jordan 40 análisis (Análisis)
@@ -368,6 +374,9 @@ Web live: canchazapa.com ✅
 22. Nike Ja 3 análisis completo (Análisis) ← sesión 13
 23. Zapatillas para rodillas 2025 (Guía) ← sesión 13
 24. New Balance vs ANTA comparativa (Comparativa) ← sesión 13
+25. Mejores zapatillas para bases 2025 (Guía) ← sesión 13
+26. Mejores zapatillas para escoltas 2025 (Guía) ← sesión 13
+27. Mejores zapatillas para ala-pívots 2025 (Guía) ← sesión 13
 
 ## SEO pages (33)
 Posición (5): base, escolta, alero, ala-pivot, pivot
