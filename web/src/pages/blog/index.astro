@@ -81,9 +81,17 @@ const blogJsonLd = [
     {/* Articles grid */}
     <section class="blog-list-section">
       <div class="shell">
-        <div class="blog-grid">
+        {/* Category filter */}
+        <div class="blog-filter" id="blog-filter">
+          <button class="bf-btn is-active" data-cat="all">Todos</button>
+          <button class="bf-btn" data-cat="Guías" style="--cc:#f97316">Guías</button>
+          <button class="bf-btn" data-cat="Comparativas" style="--cc:#facc15">Comparativas</button>
+          <button class="bf-btn" data-cat="Análisis" style="--cc:#38bdf8">Análisis</button>
+        </div>
+
+        <div class="blog-grid" id="blog-grid">
           {articles.map((art) => (
-            <article class="blog-card">
+            <article class="blog-card" data-cat={art.categoria}>
               <div class="blog-card-header">
                 <span
                   class="blog-cat"
@@ -221,8 +229,44 @@ const blogJsonLd = [
       font-size: 16px;
     }
     .blog-bottom-cta p { margin: 0 0 16px; }
+    .blog-filter {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .bf-btn {
+      background: transparent;
+      border: 1px solid #27272a;
+      color: #a1a1aa;
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      padding: 6px 14px;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .bf-btn:hover { border-color: var(--cc, #f97316); color: var(--cc, #f97316); }
+    .bf-btn.is-active { background: var(--cc, #f97316); border-color: var(--cc, #f97316); color: #000; }
+    .blog-card.hidden { display: none; }
     @media (max-width: 640px) {
       .blog-grid { grid-template-columns: 1fr; }
     }
   </style>
+
+  <script>
+    const filterBtns = document.querySelectorAll<HTMLButtonElement>(".bf-btn");
+    const cards = document.querySelectorAll<HTMLElement>(".blog-card");
+    filterBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach(b => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+        const cat = btn.dataset.cat;
+        cards.forEach(card => {
+          card.classList.toggle("hidden", cat !== "all" && card.dataset.cat !== cat);
+        });
+      });
+    });
+  </script>
 </Base>
