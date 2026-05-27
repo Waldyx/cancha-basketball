@@ -29,7 +29,7 @@ for (const z of zapatillas) {
   if (price > 0) valueMap.set(z.slug, Math.round((scoreOf(z) / price) * 1000) / 10);
 }
 
-// 8 ranking categories. The page renders all 8, hidden by JS toggle.
+// 9 ranking categories. The page renders all 9, hidden by JS toggle.
 const RANKINGS = [
   { id: "global",    label: "Mejor global",      key: null,                    blurb: "Score medio más alto: las que hacen todo bien." },
   { id: "valor",     label: "Precio / calidad",  key: null,                    blurb: "Máximo score por euro gastado. Las mejores relaciones calidad-precio." },
@@ -39,10 +39,11 @@ const RANKINGS = [
   { id: "outdoor",   label: "Outdoor",           key: "durabilidad_outdoor" as const, blurb: "Aguantan asfalto sin gastarse." },
   { id: "ligera",    label: "Más ligeras",       key: "peso_score" as const,   blurb: "Menos de 350g. Vuelas." },
   { id: "soporte",   label: "Soporte tobillo",   key: "soporte_lateral" as const, blurb: "Para tobillos débiles y lesiones frecuentes." },
+  { id: "retro",     label: "🏅 Retro",          key: null,                    blurb: "Clásicos que siguen siendo jugables. Score técnico con tecnología de su época." },
 ];
 
 function sortBy(id: string, key: keyof typeof zapatillas[0]["puntuaciones"] | null) {
-  const arr = [...zapatillas];
+  const arr = id === "retro" ? zapatillas.filter(z => z.es_retro) : [...zapatillas];
   if (id === "valor") return arr.sort((a, b) => (valueMap.get(b.slug) ?? 0) - (valueMap.get(a.slug) ?? 0));
   if (key) return arr.sort((a, b) => b.puntuaciones[key] - a.puntuaciones[key]);
   return arr.sort((a, b) => scoreOf(b) - scoreOf(a));
@@ -90,6 +91,7 @@ function sortBy(id: string, key: keyof typeof zapatillas[0]["puntuaciones"] | nu
       const sorted = sortBy(r.id, r.key);
       const [first, second, third, ...rest] = sorted.slice(0, 10);
       const isValor = r.id === "valor";
+      const isRetro = r.id === "retro";
       return (
         <div class={`rk-panel ${i === 0 ? "" : "hidden"}`} data-rk-panel={r.id} data-blurb={r.blurb} data-label={r.label}>
           <section class="rk-podium">
@@ -114,7 +116,7 @@ function sortBy(id: string, key: keyof typeof zapatillas[0]["puntuaciones"] | nu
                         <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} onerror="this.style.display='none'" />
                       </div>
                       <div class="rk-pod-body">
-                        <p class="rk-pod-cat">{CAT_LABELS[z.categoria_principal]}</p>
+                        <p class="rk-pod-cat">{isRetro ? `🏅 ${z.año_lanzamiento}` : CAT_LABELS[z.categoria_principal]}</p>
                         <p class="rk-pod-marca">{z.marca}</p>
                         <h2 class="rk-pod-modelo">{z.modelo}</h2>
                         <div class="rk-pod-metric">
@@ -160,7 +162,7 @@ function sortBy(id: string, key: keyof typeof zapatillas[0]["puntuaciones"] | nu
                         <span class="rkrn-modelo">{z.modelo}</span>
                       </span>
                     </span>
-                    <span class="rk-row-cat hide-sm" style={`color:${cat}`}>{CAT_LABELS[z.categoria_principal]}</span>
+                    <span class="rk-row-cat hide-sm" style={`color:${isRetro ? "#fbbf24" : cat}`}>{isRetro ? `🏅 ${z.año_lanzamiento}` : CAT_LABELS[z.categoria_principal]}</span>
                     <span class="rk-row-metric">{metric}<small>{isValor ? "" : "/10"}</small></span>
                     <span class="rk-row-price">{Math.round(mp?.precio_actual ?? z.precio_msrp_eur)}€</span>
                     <span class="rk-row-arrow">→</span>
