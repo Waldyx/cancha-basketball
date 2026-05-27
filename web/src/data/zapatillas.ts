@@ -4545,7 +4545,7 @@ const _rawZapatillas: Zapatilla[] = [
     modelo: "Stewie 4",
     generacion: 4,
     año_lanzamiento: 2025,
-    genero: "unisex",
+    genero: "women",
     signature_player: "Breanna Stewart",
     tecnologia_clave: ["Nitrofoam midsole", "outsole herringbone", "synthetic upper"],
     predecesor_id: null,

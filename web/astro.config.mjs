@@ -8,6 +8,9 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://canchazapa.com',
   integrations: [sitemap()],
+  redirects: {
+    '/catalogo': '/zapatillas',
+  },
   vite: {
     plugins: [tailwindcss()]
   }

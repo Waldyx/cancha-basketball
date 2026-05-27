@@ -208,6 +208,10 @@ export function aplicarFiltrosDuros(
     // Excluir zapatillas retro/históricas del quiz
     if (z.es_retro) return false;
 
+    // Género: excluir zapatillas de mujer en perfiles masculinos
+    // ("unisex" sí aparece para todos; "women" solo para mujer/junior)
+    if (respuestas.perfil === "hombre" && z.genero === "women") return false;
+
     // Presupuesto: si tiene tope, el precio mínimo disponible debe encajar
     // Usamos != null (loose) para cubrir tanto null como undefined
     if (respuestas.presupuesto_max_eur != null) {
