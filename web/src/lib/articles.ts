@@ -1144,7 +1144,106 @@ export const ARTICLES: Article[] = [
     `,
   },
 
-  // ── 13. Nike GT Cut 4 análisis ───────────────────────────────────────
+  // ── 13. Jordan Tatum 4 vs Adidas AE 3 ───────────────────────────────
+  {
+    slug: "jordan-tatum-4-vs-adidas-ae-3-aleros-2025",
+    title: "Jordan Tatum 4 vs Adidas AE 3: ¿cuál es mejor para aleros en 2025?",
+    metaTitle: "Jordan Tatum 4 vs Adidas AE 3 comparativa 2025: aleros y escoltas | CANCHA.ZAPA",
+    description:
+      "Comparativa completa entre Jordan Tatum 4 y Adidas AE 3: cushion, tracción, precio y para qué perfil de jugador es mejor cada una en 2025.",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Comparativas",
+    readMinutes: 5,
+    eyebrow: "★ Comparativa · Aleros 2025",
+    heroTitle: "Tatum 4 vs AE 3",
+    heroSubtitle: "Jordan o Adidas — ¿cuál para aleros en 2025?",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["jordan-tatum-4", "adidas-ae-3", "nike-gt-cut-4", "jordan-luka-4", "ua-curry-13"],
+    relatedSeoPages: ["mejor-zapatilla-alero", "zapatillas-equilibradas", "mejores-zapatillas-jordan"],
+    body: `
+<p class="art-intro">Jordan Tatum 4 vs Adidas AE 3: dos de los mejores modelos de 2025, ambos para aleros y escoltas, ambos low-top y con horma normal. Pero con filosofías distintas: la Tatum 4 prioriza el cushion y la versatilidad; la AE 3 prioriza la tracción y la respuesta explosiva. Y tiene una sorpresa: la Tatum 4 es más barata.</p>
+
+<h2>Comparativa de un vistazo</h2>
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:14px">
+  <thead>
+    <tr style="border-bottom:2px solid #f97316">
+      <th style="padding:8px;text-align:left">Atributo</th>
+      <th style="padding:8px;text-align:center">Jordan Tatum 4</th>
+      <th style="padding:8px;text-align:center">Adidas AE 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Tracción</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Amortiguación</td>
+      <td style="padding:8px;text-align:center">⭐ 8/10</td>
+      <td style="padding:8px;text-align:center">7/10</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Respuesta</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Soporte lateral</td>
+      <td style="padding:8px;text-align:center">⭐ 8/10</td>
+      <td style="padding:8px;text-align:center">7/10</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Peso</td>
+      <td style="padding:8px;text-align:center">345g</td>
+      <td style="padding:8px;text-align:center">⭐ 340g</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px">Altura</td>
+      <td style="padding:8px;text-align:center">Low-top</td>
+      <td style="padding:8px;text-align:center">Low-top</td>
+    </tr>
+    <tr>
+      <td style="padding:8px">Precio</td>
+      <td style="padding:8px;text-align:center">⭐ ~90€</td>
+      <td style="padding:8px;text-align:center">~130€</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>La sorpresa del precio: Jordan por menos que Adidas</h2>
+<p>La Jordan Tatum 4 cuesta ~90€ mientras que la Adidas AE 3 ronda los 130€ — una diferencia de 40€ que es inusual porque Jordan Brand suele estar por encima de Adidas en precio. ¿Por qué? La Tatum 4 es una línea más accesible dentro del catálogo Jordan, mientras la AE 3 es el flagship de Anthony Edwards. Si el presupuesto es tu filtro principal, la Tatum 4 gana sin duda.</p>
+
+<h2>Espuma: Zoom Strobel vs Lightstrike Pro</h2>
+<p><strong>Jordan Tatum 4 — Zoom Air Strobel + React foam:</strong> el Zoom Strobel full-length da una respuesta energética directa en todo el pie. El React foam bajo añade amortiguación extra. El resultado: el cushion más generoso de las dos zapatillas. Para aleros de 80-100kg que aterrizan con impacto (fintas, rebotes), la Tatum 4 protege mejor.</p>
+<p><strong>Adidas AE 3 — Lightstrike Pro:</strong> la espuma signature de Adidas es más firme y reactiva que el React de Nike. La energía de retorno es superior — lo notas en los saltos y en el primer paso. Pero hay menos "cushion puro": si aterrizas fuerte, la AE 3 transmite más impacto que la Tatum 4.</p>
+<p><strong>Veredicto espuma:</strong> Tatum 4 para más cushion y protección. AE 3 para más reactividad.</p>
+
+<h2>Tracción: ventaja AE 3</h2>
+<p>El outsole herringbone de la AE 3 es uno de los mejores del catálogo Adidas en 2025. Más agarre en cortes laterales y mejor respuesta en pistas con algo de polvo. La Tatum 4 tiene buena tracción (8/10) pero el patrón es menos agresivo. Si juegas en pistas con polvo frecuente, la AE 3 gana.</p>
+
+<h2>¿Para qué tipo de alero es cada una?</h2>
+<ul>
+  <li><strong>Jordan Tatum 4 si:</strong> eres alero de 75-100kg que prioriza cushion, juegas tanto en el perímetro como en la pintura, tienes presupuesto ajustado (~90€), o prefieres el branding Jordan.</li>
+  <li><strong>Adidas AE 3 si:</strong> eres alero-escolta (<90kg) que prioriza explosividad y tracción, juegas en pistas con polvo, quieres el máximo rendimiento técnico disponible a 130€, o ya conoces y confías en Lightstrike Pro.</li>
+</ul>
+
+<h2>¿Y si no soy alero?</h2>
+<p>Ambas sirven también para escoltas y, en el caso de la Tatum 4, para pívots ligeros (hasta ~100kg). Ninguna es recomendable para pívots pesados que necesitan más soporte y cushion.</p>
+<p>Si eres base explosivo, la <a href="/zapatilla/nike-gt-cut-4">Nike GT Cut 4</a> o la <a href="/zapatilla/ua-curry-13">UA Curry 13</a> son más específicas para ti que cualquiera de estas dos.</p>
+
+<h2>Veredicto final</h2>
+<p><strong>Si buscas la mejor relación calidad-precio: Jordan Tatum 4.</strong> A ~90€ ofrece un paquete técnico que avergüenza a muchas zapas de 120€. Cushion sólido, tracción competente, soporte lateral decente. Para casi todos los aleros que no tienen un perfil muy específico, es la compra más inteligente.</p>
+<p><strong>Si buscas el máximo rendimiento técnico: Adidas AE 3.</strong> Mejor tracción, mejor respuesta, más explosiva. Vale los 40€ extra si priorizas rendimiento puro sobre precio.</p>
+
+<p class="art-outro">¿Aún no estás seguro? <a href="/comparar?slugs=jordan-tatum-4,adidas-ae-3,nike-gt-cut-4">Compara estas tres zapatillas con todos los datos aquí</a>, o <a href="/quiz">haz el quiz en 60 segundos</a> para obtener tu recomendación personalizada.</p>
+    `,
+  },
+
+  // ── 14. Nike GT Cut 4 análisis ───────────────────────────────────────
   {
     slug: "nike-gt-cut-4-analisis-2025",
     title: "Nike GT Cut 4: análisis completo — la zapatilla más reactiva de 2025",
