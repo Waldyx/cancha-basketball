@@ -11,6 +11,7 @@ import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
 import { findMejorPrecio } from "../lib/scoring";
 import { SEO_PAGES, getSeoPage } from "../lib/seoPages";
+import { ARTICLES } from "../lib/articles";
 
 export async function getStaticPaths() {
   return SEO_PAGES.map((p) => ({
@@ -87,6 +88,11 @@ const combinedJsonLd = [faqJsonLd, breadcrumbJsonLd, itemListJsonLd];
 const relatedPages = page.related
   .map((s) => getSeoPage(s))
   .filter((p): p is NonNullable<typeof p> => p !== undefined);
+
+// Blog articles that link to this SEO page
+const relatedArticles = ARTICLES
+  .filter((a) => a.relatedSeoPages.includes(page.slug))
+  .slice(0, 3);
 ---
 
 <Base
@@ -284,6 +290,24 @@ const relatedPages = page.related
                 <h3 class="src-title">{r.h1Pre} <span style="color:#f97316">{r.h1Accent}</span></h3>
                 <p class="src-lede">{r.lede.slice(0, 120)}…</p>
                 <span class="src-arrow">Leer →</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* Blog articles */}
+    {relatedArticles.length > 0 && (
+      <section style="padding:40px 0 32px;border-top:1px solid #27272a">
+        <div class="shell">
+          <p class="cz-eyebrow" style="margin-bottom:16px">★ Del blog</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px">
+            {relatedArticles.map((art) => (
+              <a href={`/blog/${art.slug}`} class="art-ref-card" style="display:block;background:#141414;border:1px solid #27272a;padding:16px;text-decoration:none;transition:border-color .15s">
+                <span style="display:block;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:#f97316;margin-bottom:6px">{art.categoria}</span>
+                <span style="display:block;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:-.01em;color:#e4e4e7;line-height:1.2;margin-bottom:6px">{art.title}</span>
+                <span style="display:block;font-size:11px;color:#52525b">{art.readMinutes} min de lectura →</span>
               </a>
             ))}
           </div>
