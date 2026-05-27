@@ -1435,7 +1435,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "Guía 2025-2026 — sin BS, sin ventas disfrazadas",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["ua-curry-13", "nike-lebron-22", "jordan-tatum-4", "adidas-ae-3", "nike-gt-cut-4"],
-    relatedSeoPages: ["zapatillas-cushion", "zapatillas-equilibradas", "mejor-zapatilla-pivot"],
+    relatedSeoPages: ["zapatillas-baloncesto-pie-plano", "zapatillas-cushion", "zapatillas-equilibradas"],
     body: `
 <p class="art-intro">El pie plano (o pronación excesiva) afecta aproximadamente al 20-30% de los jugadores de baloncesto. La buena noticia: con la zapatilla correcta, no es una desventaja real. La mala: la mayoría de guías de zapatillas ignoran este tema. Aquí lo abordamos en serio.</p>
 

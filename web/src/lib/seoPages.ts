@@ -606,6 +606,34 @@ export const SEO_PAGES: SeoPage[] = [
     catalogLabel: "Ver todas con horma normal/ancha",
   }),
 
+  lesion("zapatillas-baloncesto-pie-plano", {
+    title: "Zapatillas de baloncesto para pie plano y pronación | CANCHA.ZAPA",
+    description: "Mejores zapatillas de baloncesto para pie plano o pronación excesiva. Qué buscar en estabilidad, soporte de arco y cushion. Top 5 recomendadas.",
+    eyebrow: "★ Pie plano · Pronación",
+    h1Pre: "Zapatillas para",
+    h1Accent: "pie plano y pronación",
+    lede: "El pie plano afecta al 20-30% de jugadores. Con la zapatilla correcta, no es una desventaja. Con la incorrecta, se convierte en una fuente de dolor en rodillas y fascia. Estas 5 son las más recomendadas.",
+    intro: "El pie plano (o pronación excesiva) significa que el arco interno del pie toca el suelo casi por completo. En baloncesto, esto genera mayor estrés en rodillas y tobillos. La solución: zapatillas con estabilidad alta, cushion generoso y base ancha que distribuya las fuerzas correctamente.",
+    points: [
+      { lab: "Estabilidad > cushion blando", body: "Un cushion demasiado blando colapsa bajo la pronación. Necesitas espuma firme-a-media con soporte lateral 7+." },
+      { lab: "Base ancha y counter de talón rígido", body: "La base ancha evita que el tobillo colapse hacia dentro. Un counter de talón rígido mantiene la alineación. Evita las ultra-ligeras sin soporte." },
+      { lab: "Horma normal o ancha obligatoria", body: "Pie plano a menudo va asociado a pie ancho. Las hormas estrechas agravan la pronación. New Balance, LeBron y AE 3 son las más seguras." },
+      { lab: "Plantilla ortopédica como complemento", body: "Si la pronación es severa, combina la zapatilla con una plantilla ortopédica. La zapa sola no sustituye una plantilla personalizada si la pronación es estructural." },
+    ],
+    faqs: [
+      { q: "¿Qué zapatilla de baloncesto es mejor para pie plano?",
+        a: "UA Curry 13 y Jordan Tatum 4 son las mejores opciones de 2025 para pie plano: ambas tienen estabilidad lateral 8+, cushion sólido y base ancha. Nike LeBron 22 es la opción si el peso supera los 90 kg. Evita zapatillas ultra-ligeras como la GT Cut 4 que no tienen soporte suficiente." },
+      { q: "¿Puedo usar zapatillas de running con soporte pronación para baloncesto?",
+        a: "No. Las zapatillas de running con soporte de pronación están diseñadas para movimiento rectilíneo, no para los cortes y cambios de dirección del baloncesto. Usar running en cancha aumenta el riesgo de lesión de tobillo." },
+      { q: "¿Debo usar plantilla ortopédica con zapatillas de baloncesto?",
+        a: "Si la pronación es leve, una buena zapatilla de baloncesto suele ser suficiente. Si la pronación es moderada-severa, combina la zapatilla con una plantilla de soporte. Consulta a un podólogo para una valoración personalizada." },
+    ],
+    filter: (z) => z.puntuaciones.estabilidad >= 7 && z.puntuaciones.amortiguacion >= 7 && z.horma !== "estrecha",
+    sort: byThenScore((a, b) => b.puntuaciones.estabilidad - a.puntuaciones.estabilidad),
+    catalogQuery: "?lesion=rodillas",
+    catalogLabel: "Ver zapatillas con alta estabilidad",
+  }),
+
   // ── MARCA (3) ───────────────────────────────────────────────────────
   marca("Nike", {
     title: "Mejores zapatillas de baloncesto Nike 2025 | CANCHA.ZAPA",
