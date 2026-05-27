@@ -8317,7 +8317,7 @@ const _rawZapatillas: Zapatilla[] = [
     horma: "normal",
     drop_mm: 10,
     tipo_cierre: "cordones",
-    material_superior: "flyknit",
+    material_superior: "knit",
 
     puntuaciones: {
       traccion: 9,
@@ -8655,7 +8655,10 @@ const _rawZapatillas: Zapatilla[] = [
 
     imagen_principal: "/shoes/jordan-xxxix.jpg",
     imagenes: [],
-    fuentes: ["https://about.nike.com/en/newsroom/releases/air-jordan-39-official-images", "https://ballershoesdb.com/shoes/air-jordan-39/"],
+    fuentes: [
+      { tipo: "evaluacion-propia", url: "https://about.nike.com/en/newsroom/releases/air-jordan-39-official-images" },
+      { tipo: "evaluacion-propia", url: "https://ballershoesdb.com/shoes/air-jordan-39/" },
+    ],
     ultima_actualizacion: "2026-05-26",
     precio_msrp_eur: 200,
     links_compra: [
@@ -8674,7 +8677,7 @@ const _rawZapatillas: Zapatilla[] = [
     marca: "Puma",
     modelo: "Stewie 3",
     año_lanzamiento: 2024,
-    genero: "mujer",
+    genero: "women",
     tecnologia_clave: ["Nitrofoam", "ProFoam+", "TPU shank plate", "Herringbone outsole"],
     predecesor_id: null,
     sucesor_id: null,
@@ -8684,7 +8687,7 @@ const _rawZapatillas: Zapatilla[] = [
     horma: "normal",
     drop_mm: 6,
     tipo_cierre: "cordones",
-    material_superior: "woven mesh",
+    material_superior: "mesh",
 
     puntuaciones: {
       traccion: 8,
@@ -8696,7 +8699,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 6,
       ventilacion: 8,
     },
-    categoria_principal: "speed",
+    categoria_principal: "responsive",
     tags: ["2024", "puma", "low-top", "mujer", "breanna-stewart", "guards", "ligera", "nitrofoam"],
 
     ideal_para: {
@@ -8727,7 +8730,10 @@ const _rawZapatillas: Zapatilla[] = [
 
     imagen_principal: "/shoes/puma-stewie-3.jpg",
     imagenes: [],
-    fuentes: ["https://weartesters.com/puma-stewie-3-review/", "https://ballershoesdb.com/shoes/puma-stewie-3/"],
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/puma-stewie-3-review/" },
+      { tipo: "evaluacion-propia", url: "https://ballershoesdb.com/shoes/puma-stewie-3/" },
+    ],
     ultima_actualizacion: "2026-05-26",
     precio_msrp_eur: 120,
     links_compra: [
