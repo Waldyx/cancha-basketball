@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-05-27 (sesión 12)
+> Última actualización: 2026-05-27 (sesión 13)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -29,7 +29,18 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 
 ---
 
-## Estado actual (sesión 12)
+## Estado actual (sesión 13)
+
+### ✅ Completado (sesión 13)
+- **Widget "Guías relacionadas"**: sidebar de blog/[slug].astro ahora muestra hasta 3 links a SEO pages relacionadas
+- **Fix slugs relatedSeoPages**: corregidos 9 artículos con slugs erróneos (zapatillas-baratas→baloncesto-baratas, zapatillas-junior→baloncesto-junior, zapatillas-premium→baloncesto-premium)
+- **Barra de progreso de lectura**: barra naranja fija en artículos (scroll sobre .art-body)
+- **4 nuevos artículos** → **24 artículos total**:
+  - Art.21: Guía mejores zapas para aleros 2025 (6 min)
+  - Art.22: Nike Ja 3 análisis completo (5 min)
+  - Art.23: Guía zapatillas para rodillas 2025 (5 min)
+  - Art.24: Comparativa New Balance vs ANTA (5 min)
+- **FAQ**: +4 preguntas → **35 total** (aleros, Ja 3 pie ancho, rodillas, NB vs ANTA)
 
 ### ✅ Completado (sesión 12)
 - **Fix bug CI**: blog/[slug].astro — Blog nav link añadido (estaba solo en breadcrumb, no en cz-nav)
@@ -329,10 +340,10 @@ sk-or-v1-[REDACTED — ver ~/.openclaw/openclaw.json]
 
 ---
 
-Último push: 2026-05-27 (sesión 12)
+Último push: 2026-05-27 (sesión 13)
 Web live: canchazapa.com ✅
 
-## Blog artículos (20)
+## Blog artículos (24)
 1. Cómo elegir zapatillas de baloncesto (Guía)
 2. AE 3 vs Ja 3 — guards 2025 (Comparativa)
 3. Air Jordan 40 análisis (Análisis)
@@ -348,11 +359,15 @@ Web live: canchazapa.com ✅
 13. Jordan Tatum 4 vs AE 3 — aleros 2025 (Comparativa)
 14. Nike GT Cut 4 análisis (Análisis)
 15. Zapatillas niños y jóvenes 2025 (Guía)
-16. Anta/Li-Ning/Peak — marcas chinas 2025 (Comparativa)  ← sesión anterior
+16. Anta/Li-Ning/Peak — marcas chinas 2025 (Comparativa)
 17. Adidas AE 3 análisis completo (Análisis)
 18. Under Armour Curry 13 análisis (Análisis)
 19. Jordan Tatum 4 análisis (Análisis)
 20. Nike LeBron 22 análisis (Análisis)
+21. Mejores zapatillas para aleros 2025 (Guía) ← sesión 13
+22. Nike Ja 3 análisis completo (Análisis) ← sesión 13
+23. Zapatillas para rodillas 2025 (Guía) ← sesión 13
+24. New Balance vs ANTA comparativa (Comparativa) ← sesión 13
 
 ## SEO pages (33)
 Posición (5): base, escolta, alero, ala-pivot, pivot
