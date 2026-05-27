@@ -2492,6 +2492,150 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">¿Escolta pero no sabes cuál de estos perfiles es el tuyo? El <a href="/quiz">quiz de CANCHA.ZAPA</a> tiene una pregunta sobre estilo de juego que distingue entre escolta-tirador y escolta-creador para darte la recomendación más ajustada a tu juego.</p>
     `,
   },
+
+  // ── 27. Guía ala-pívots ─────────────────────────────────────────────
+  {
+    slug: "mejores-zapatillas-ala-pivots-2025",
+    title: "Mejores zapatillas de baloncesto para ala-pívots en 2025-2026",
+    metaTitle: "Mejores zapatillas para ala-pívots baloncesto 2025-2026 | CANCHA.ZAPA",
+    description:
+      "Guía de las mejores zapatillas para ala-pívots en 2025: cushion, estabilidad y movilidad. Top 5 con análisis técnico y comparativa completa.",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Guía por posición · Ala-pívots 2025",
+    heroTitle: "Mejores zapas para ala-pívots",
+    heroSubtitle: "2025-2026 · Cushion, estabilidad y movilidad de 4 moderno",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-lebron-23", "nike-kd-19", "jordan-luka-4", "adidas-harden-vol-9", "jordan-40"],
+    relatedSeoPages: ["mejor-zapatilla-ala-pivot", "zapatillas-cushion", "zapatillas-baloncesto-130-euros"],
+    body: `
+<p class="art-intro">El ala-pívot moderno es la posición más exigente del juego contemporáneo. Juegas como pivot en la pintura y como alero en el perímetro. Saltas para rebotes, corres contraataques, defiedes al base en el pick-and-roll y aguantas los bloqueos del pívot contrario. La zapatilla de un 4 moderno tiene que hacer todo eso — y hacerlo 40 minutos.</p>
+
+<h2>Qué necesita un ala-pívot de su zapatilla</h2>
+
+<p>El ala-pívot es la posición que más tensión pone sobre la zapatilla. Los filtros que importan:</p>
+<ul>
+  <li><strong>Cushion 7-9:</strong> aterrizas en rebotes como un pívot pero tienes más movilidad. Cushion alto protege las articulaciones sin el exceso de peso de las zapas de pívot puro.</li>
+  <li><strong>Estabilidad 8+:</strong> los contactos laterales en la pintura y el juego de cara al aro requieren una base estable. La espuma blanda sin soporte lateral te pone en riesgo.</li>
+  <li><strong>Soporte lateral 7+:</strong> mid-top casi siempre. High-top si tienes historial de esguinces.</li>
+  <li><strong>Respuesta 6-8:</strong> no necesitas la reactividad de un base, pero tampoco quieres una zapa que te lastre en el contraataque. El 4 moderno corre el campo.</li>
+  <li><strong>Peso razonable (sub-420g):</strong> puede asumir más peso que un guard, pero demasiado y el último cuarto se vuelve eterno.</li>
+</ul>
+
+<h2>Top 5 zapatillas para ala-pívots en 2025</h2>
+
+<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — 179€</a></h3>
+<p><strong>La referencia para ala-pívots de 90kg+.</strong> Max Air en talón + React foam en toda la entresuela. LeBron James es el prototipo del 4 moderno que juega todo el campo — su zapatilla está diseñada para ese perfil. Para ala-pívots de alto impacto físico, el Max Air es el cushion más resistente bajo cargas extremas.</p>
+<ul>
+  <li>✅ Max Air: el cushion más duro bajo cargas extremas (>90kg)</li>
+  <li>✅ React foam en toda la entresuela: bounce además de absorción</li>
+  <li>✅ Suela XDR: aguanta outdoor moderado</li>
+  <li>❌ 395g y 179€ — la más pesada y cara del grupo</li>
+  <li>❌ Horma algo estrecha — problemas para pie muy ancho</li>
+</ul>
+
+<h3><a href="/zapatilla/nike-kd-19">Nike KD 19 — 149€</a></h3>
+<p><strong>Para ala-pívots dinámicos de 80-100kg.</strong> Kevin Durant es el ala-pívot más móvil de la historia — el KD 19 refleja eso: Zoom Strobel + Cushlon 3.0 da bounce reactivo sin el peso de la LeBron. Para el 4 que sale al perímetro, defiende al 2 y necesita respuesta suficiente para eso.</p>
+<ul>
+  <li>✅ Zoom Strobel: bounce reactivo para el 4 dinámico</li>
+  <li>✅ 30€ más barata que la LeBron con rendimiento muy cercano</li>
+  <li>✅ TPU dagger-cage: soporte lateral sólido sin peso extra</li>
+  <li>❌ Cushion algo menor que la LeBron para ala-pívots >100kg</li>
+</ul>
+
+<h3><a href="/zapatilla/jordan-luka-4">Jordan Luka 4 — 145€</a></h3>
+<p><strong>Para ala-pívots con mucho juego de poste y pick-and-pop.</strong> Luka Doncic es técnicamente un base/escolta pero tiene el perfil físico de un 4 pesado. La Luka 4 tiene la base más ancha del grupo y cushion generoso para los aterrizajes del jugador que posta y sale al tres. Horma normal, precio razonable.</p>
+<ul>
+  <li>✅ Base ancha: la más estable del grupo en contactos laterales</li>
+  <li>✅ Cushion Zoom Air para los aterrizajes frecuentes</li>
+  <li>✅ Horma normal — sirve para la mayoría de pies</li>
+  <li>❌ Respuesta algo menor — para el 4 que necesita mucha explosividad perimetral, considera la KD 19</li>
+</ul>
+
+<h3><a href="/zapatilla/adidas-harden-vol-9">Adidas Harden Vol 9 — 129€</a></h3>
+<p><strong>La mejor relación calidad-precio del grupo para ala-pívots medianos.</strong> James Harden juega de escolta pero tiene el perfil físico de un 4 — la Harden Vol 9 está pensada para jugadores potentes con movilidad. Lightstrike Pro foam da cushion 9/10 con bounce reactivo a 40€ menos que la LeBron 23.</p>
+<ul>
+  <li>✅ Lightstrike Pro: cushion 9/10 a precio competitivo</li>
+  <li>✅ La más económica del grupo con cushion de gama alta</li>
+  <li>✅ Respuesta suficiente para el 4 que sale al perímetro</li>
+  <li>❌ No llega a la estabilidad lateral de la LeBron o la Luka para juego de poste muy físico</li>
+</ul>
+
+<h3><a href="/zapatilla/jordan-40">Air Jordan 40 — 199€</a></h3>
+<p><strong>Para el ala-pívot que prioriza el bounce por encima de todo.</strong> ZoomX + Zoom Strobel es la combinación de espumas más avanzada de 2025. Si eres un 4 moderno que vive en el perímetro (tres puntos, pick-and-pop, post-fade) y valoras ese bounce en cada aterrizaje, la Jordan 40 no tiene rival. El problema: es cara, pesada y atrae el polvo.</p>
+<ul>
+  <li>✅ ZoomX + Strobel: el bounce más avanzado del mercado</li>
+  <li>✅ 6 correas internas: soporte lateral excepcional pese al cushion blando</li>
+  <li>❌ 199€ y 395g — precio premium para lo que es</li>
+  <li>❌ ZoomX atrae el polvo: tracción baja en pistas sucias</li>
+</ul>
+
+<h2>Comparativa rápida</h2>
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:14px">
+  <thead>
+    <tr style="border-bottom:2px solid #f97316">
+      <th style="padding:8px;text-align:left">Modelo</th>
+      <th style="padding:8px;text-align:center">Cushion</th>
+      <th style="padding:8px;text-align:center">Estabilidad</th>
+      <th style="padding:8px;text-align:center">Respuesta</th>
+      <th style="padding:8px;text-align:center">Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>Nike LeBron 23</strong></td>
+      <td style="padding:8px;text-align:center">⭐ 10/10</td>
+      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">179€</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>Nike KD 19</strong></td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">⭐ 8/10</td>
+      <td style="padding:8px;text-align:center">149€</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>Jordan Luka 4</strong></td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">145€</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>Adidas Harden Vol 9</strong></td>
+      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">⭐ 129€</td>
+    </tr>
+    <tr>
+      <td style="padding:8px"><strong>Air Jordan 40</strong></td>
+      <td style="padding:8px;text-align:center">⭐ 10/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+      <td style="padding:8px;text-align:center">199€</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>¿Cuál elegir?</h2>
+<ul>
+  <li><strong>Si pesas >90kg y juegas físico en la pintura → <a href="/zapatilla/nike-lebron-23">LeBron 23</a></strong> (Max Air insustituible para cargas extremas)</li>
+  <li><strong>Si eres 4 dinámico, 80-100kg, juegas en el perímetro → <a href="/zapatilla/nike-kd-19">KD 19</a></strong> (mejor equilibrio precio/rendimiento)</li>
+  <li><strong>Si juegas mucho poste y pick-and-pop → <a href="/zapatilla/jordan-luka-4">Luka 4</a></strong> (la base más estable del grupo)</li>
+  <li><strong>Si buscas la mejor relación calidad-precio → <a href="/zapatilla/adidas-harden-vol-9">Harden Vol 9</a></strong> (cushion 9/10 a 129€)</li>
+  <li><strong>Si priorizas el bounce y puedes gastar 200€ → <a href="/zapatilla/jordan-40">Air Jordan 40</a></strong> (el techo tecnológico de 2025)</li>
+</ul>
+
+<p class="art-outro">El <a href="/quiz">quiz de CANCHA.ZAPA</a> filtra específicamente para la posición ala-pívot teniendo en cuenta tu peso, tipo de juego y presupuesto. En menos de un minuto tienes las 5 más compatibles con tu perfil exacto.</p>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
