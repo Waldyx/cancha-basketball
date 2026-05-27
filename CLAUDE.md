@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-05-27 (sesión 10)
+> Última actualización: 2026-05-27 (sesión 11)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -29,7 +29,17 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 
 ---
 
-## Estado actual (sesión 8)
+## Estado actual (sesión 11)
+
+### ✅ Completado (sesión 11)
+- **CI fix**: eliminado paso "Deploy a Vercel" roto en `scrape-prices.yml` (error: cannot retrieve Project Settings). El git push ya activa Vercel automáticamente → 0 errores en próxima ejecución
+- **Encoding fix**: corregidos **177 em-dashes** (`â€"` → `—`) y **62 euro signs** (`â‚¬` → `€`) en `zapatillas.ts` — textos de resumen/veredicto/pros/contras ahora muestran correctamente
+- **Blog artículo 13**: "Nike GT Cut 4: análisis completo" (Análisis) → 14 artículos total
+- **Blog artículo 14**: "Mejores zapatillas de baloncesto para niños y jóvenes 2025" (Guías) → 14 artículos total
+- **Nav: Blog añadido** a la navegación principal de las **16 páginas** del sitio
+- **3 nuevas SEO pages**: Anta, Li-Ning, New Balance → **31 SEO pages total**
+- **FAQ**: +4 preguntas (Anta KAI 2, New Balance, niños/jóvenes, GT Cut 4 principiantes) → **27 total**
+- **robots.txt**: añadido `Allow` explícito para `/blog` y `/mis-zapas`
 
 ### ✅ Completado (sesión 10)
 - **Blog artículo 11**: "Puma MB.04 vs MB.05 — LaMelo Ball 2025: ¿cuál comprar?" (Comparativa)
@@ -40,7 +50,6 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 - **Precios Amazon ES actualizados**: LeBron 22, Sabrina 2, ANTA KAI 1, Curry 12
 - **JD Sports**: URLs corregidas a `?q=` format, 7 zapas marcadas `disponible: false`
 - **BETA badge eliminado** del hero de la home
-- **"una sin sentido" eliminado** de la home
 - **CSS fix**: @import cancha-redesign.css movido antes de Tailwind (elimina warnings PostCSS)
 - **FAQ ampliada**: +3 preguntas (Puma, pie plano, ranking precio/calidad) → 23 total
 - **214 páginas** en producción
@@ -75,8 +84,8 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 - Jordan Brand → Jordan (unificado)
 - **Encoding**: ✅ 1204 secuencias doble-encoding (Ã¡→á, â€"→—, etc.) corregidas
 - **AliExpress**: 13 zapas de marcas chinas (Anta, Li-Ning, Peak) con links
-- **Blog**: `/blog` con **8 artículos** editoriales — 5 generados con Mike/OpenRouter
-- **SEO pages**: 25 páginas (añadidas: UA, Puma, Mujer, Junior, Mejores 2025)
+- **Blog**: `/blog` con **14 artículos** editoriales
+- **SEO pages**: 31 páginas (añadidas sesión 11: Anta, Li-Ning, New Balance)
 - **FAQ**: ampliada de 8 → 20 preguntas
 - **Quiz**: recency bonus 2025+, sort por precio cuando prioridad=precio
 - **Vercel Root Directory**: arreglado a `web` (era `./`, causaba todos los deploy failures)
