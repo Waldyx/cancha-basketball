@@ -5,6 +5,7 @@ import "../../styles/cancha-redesign.css";
 import { ARTICLES, getArticle } from "../../lib/articles";
 import { zapatillas } from "../../data/zapatillas";
 import { findMejorPrecio } from "../../lib/scoring";
+import { getSeoPage } from "../../lib/seoPages";
 
 export async function getStaticPaths() {
   return ARTICLES.map((a) => ({
@@ -23,6 +24,12 @@ const relatedZapas = article.relatedShoes
 // Related articles (same category, exclude current)
 const relatedArticles = ARTICLES
   .filter((a) => a.slug !== article.slug && a.categoria === article.categoria)
+  .slice(0, 3);
+
+// Related SEO pages
+const relatedSeoGuias = article.relatedSeoPages
+  .map((s) => getSeoPage(s))
+  .filter((p): p is NonNullable<typeof p> => p !== undefined)
   .slice(0, 3);
 
 // JSON-LD Article
@@ -165,6 +172,24 @@ const CATEGORIA_COLOR: Record<string, string> = {
                     <span class="art-related-cat">{a.categoria}</span>
                     <span class="art-related-title">{a.title}</span>
                     <span class="art-related-time">{a.readMinutes} min</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Related SEO guides */}
+        {relatedSeoGuias.length > 0 && (
+          <div class="art-widget">
+            <p class="art-widget-title">★ Guías relacionadas</p>
+            <ul class="art-related-list">
+              {relatedSeoGuias.map((p) => (
+                <li class="art-related-item">
+                  <a href={`/${p.slug}`} class="art-related-link">
+                    <span class="art-related-cat">Guía SEO</span>
+                    <span class="art-related-title">{p.h1Pre} {p.h1Accent}</span>
+                    <span class="art-related-time">Top 5 →</span>
                   </a>
                 </li>
               ))}
