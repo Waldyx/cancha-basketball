@@ -2928,6 +2928,185 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">¿La Kobe 8 Protro es para tu perfil? El <a href="/quiz">quiz de CANCHA.ZAPA</a> evalúa tu posición, estilo de juego y tipo de pie para decirte si es tu match o si hay algo más adecuado. Sin ambigüedades.</p>
     `,
   },
+
+  // ── 28. Adidas Crazy 8 / Kobe Bryant ────────────────────────────────
+  {
+    slug: "adidas-crazy-8-kobe-bryant",
+    title: "Las zapatillas de Kobe Bryant con Adidas: la era KB8 (1996-2002)",
+    metaTitle: "Adidas Crazy 8 Kobe Bryant: historia y análisis de la KB8 | CANCHA.ZAPA",
+    description: "La historia de Kobe Bryant con Adidas, la era KB8 y por qué la Crazy 8 sigue siendo una de las zapatillas retro más buscadas del baloncesto.",
+    fecha: "2026-05-28",
+    fechaLabel: "28 mayo 2026",
+    categoria: "Análisis",
+    readMinutes: 6,
+    eyebrow: "🏅 Retro · Análisis · CANCHA.ZAPA",
+    heroTitle: "Kobe Bryant y Adidas",
+    heroSubtitle: "La era KB8 (1996-2002) · Historia de las Crazy 8",
+    author: "Editorial CANCHA.ZAPA",
+    imagen: "/shoes/adidas-crazy-8.webp",
+    relatedShoes: ["adidas-crazy-8"],
+    relatedSeoPages: ["mejores-zapatillas-adidas", "zapatillas-baloncesto-retro"],
+    body: `
+<p class="art-intro">Antes de ser una leyenda de Nike, Kobe Bryant fue el fichaje más ambicioso de Adidas. Durante seis años, la marca alemana apostó por el joven de Lower Merion como su respuesta a Michael Jordan. Lo que siguió fue uno de los capítulos más interesantes — y mal documentados — de la historia del calzado de baloncesto.</p>
+
+<h2>El fichaje que cambió la industria</h2>
+<p>En 1996, Kobe Bryant tenía 17 años, había sido seleccionado en el puesto 13 del Draft por los Charlotte Hornets (y enviado inmediatamente a Los Ángeles), y Adidas le ofreció 48 millones de dólares por seis años. Era el contrato más alto jamás firmado por un jugador sin un solo minuto en la NBA.</p>
+<p>Adidas apostaba por el futuro. La premisa era simple: Jordan era Nike, Kobe sería Adidas. El problema era que Jordan llevaba una década de ventaja y una mitología que ningún contrato podía comprar de la noche a la mañana.</p>
+
+<h2>KB8 I — El comienzo (1997)</h2>
+<p>La primera zapatilla signature de Kobe con Adidas se lanzó en 1997 como la <strong>KB8 I</strong> (el "8" era el número de Kobe en esa época). Fue un diseño audaz para su tiempo: upper de cuero y malla, mediasuela de Adiprene con amortiguación visible en el talón, y una suela de herringbone que ofrecía tracción sólida en interior.</p>
+<p>Las ventas fueron correctas. No fue el bombazo esperado, pero Kobe estaba ganando sus primeros campeonatos y la zapatilla ganaba visibilidad orgánica. El verdadero problema era la imagen: Adidas era percibida como la marca del pasado, la de los Superstars y los tres rayas de los 80. Competir con el swoosh era casi imposible en términos culturales.</p>
+
+<h2>KB8 II — La Crazy 8 (1998)</h2>
+<p>La segunda iteración, la <strong>KB8 II</strong> — comercializada hoy como <strong>Crazy 8</strong> en los retros — es la más icónica de la era. Diseño más limpio, peso reducido, mismo herringbone agresivo, y una paleta de colores que aprovechaba el morado y dorado de los Lakers.</p>
+<p>La Crazy 8 tuvo un momento cultural importante: Kobe Bryant la llevaba cuando ganó el Slam Dunk Contest en el All-Star de 1997 con 18 años, la noche que muchos ven como el primer gran anuncio al mundo de lo que vendría.</p>
+
+<div style="background:#18181b;border:1px solid #3f3f46;border-radius:4px;padding:20px 24px;margin:24px 0">
+  <p style="margin:0 0 12px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.12em;color:#f97316">Ficha técnica — Adidas Crazy 8 (KB8 II)</p>
+  <ul style="margin:0;padding:0 0 0 16px;color:#a1a1aa;font-size:14px;line-height:1.8">
+    <li><strong style="color:#e4e4e7">Tecnología:</strong> Adiprene cushion · Herringbone outsole</li>
+    <li><strong style="color:#e4e4e7">Altura:</strong> Mid-top</li>
+    <li><strong style="color:#e4e4e7">Lanzamiento original:</strong> 1998</li>
+    <li><strong style="color:#e4e4e7">Precio retro actual:</strong> 100-160€</li>
+    <li><strong style="color:#e4e4e7">Score jugabilidad:</strong> 7.5/10 (interior)</li>
+  </ul>
+</div>
+
+<h2>KB8 III — La Crazy 1 (1999)</h2>
+<p>La tercera generación fue donde Adidas decidió arriesgarlo todo en términos de diseño. La <strong>KB8 III</strong> — conocida hoy como <strong>Crazy 1</strong> — tenía un upper con forma de hoz, como un espolón que envolvía el tobillo. El diseñador fue Yohji Yamamoto. Era totalmente inusual para la época.</p>
+<p>El mercado reaccionó con confusión. Kobe la llevó, pero fue demasiado vanguardista para las masas. Hoy es la más cara de toda la era en el mercado secundario — precisamente por lo polarizante de su diseño.</p>
+
+<h2>Por qué Kobe se fue a Nike</h2>
+<p>En 2002, el contrato con Adidas expiró y Kobe no renovó. Las razones exactas nunca se confirmaron oficialmente, pero la narrativa era clara: Kobe quería más control sobre el diseño, más marketing enfocado en él, y sentía que Adidas no había dado el salto cultural necesario para competir con Jordan Brand.</p>
+<p>Nike firmó a Kobe en 2003 y el resto es historia. La línea Nike Kobe se convirtió en una de las más técnicamente avanzadas de la historia — low-top, perfil ultraligero, Zoom Air reactivo. Todo lo contrario del enfoque más clásico de Adidas.</p>
+
+<h2>¿Merecen la pena las Crazy 8 hoy para jugar?</h2>
+<p>La respuesta honesta: depende. El herringbone outsole de la Crazy 8 sigue siendo uno de los mejores patrones de tracción jamás diseñados — funciona perfectamente en parqué interior limpio. El cushion de Adiprene es modesto comparado con espumas modernas, pero más que suficiente para sesiones recreativas.</p>
+<p>Lo que no tiene sentido es comprarlas esperando el rendimiento de una AE 3 o una GT Cut. Son zapatillas retro con tecnología de 1998. La propuesta correcta es: si te gusta el estilo, si eres fan de la era Kobe-Adidas, o si simplemente quieres algo distinto en pista, son una opción válida. Para rendimiento puro, mira el catálogo moderno.</p>
+
+<p class="art-outro">¿Quieres comparar las Crazy 8 con las mejores zapatillas actuales? El <a href="/rankings">ranking de CANCHA.ZAPA</a> incluye la pestaña Retro para que veas exactamente dónde se posicionan frente a los clásicos de la era.</p>
+    `,
+  },
+
+  // ── 29. FILA Grant Hill 1 ────────────────────────────────────────────
+  {
+    slug: "fila-grant-hill-zapatilla-que-casi-destrona-jordan",
+    title: "FILA Grant Hill 1: la zapatilla que casi destrona a Jordan en 1995",
+    metaTitle: "FILA Grant Hill 1 (1995): la zapatilla que venció a Jordan en ventas | CANCHA.ZAPA",
+    description: "En 1995, la FILA Grant Hill 1 fue la zapatilla más vendida de la NBA, superando al Air Jordan. La historia del jugador y la marca que casi destronan a Michael Jordan.",
+    fecha: "2026-05-28",
+    fechaLabel: "28 mayo 2026",
+    categoria: "Análisis",
+    readMinutes: 5,
+    eyebrow: "🏅 Retro · Análisis · CANCHA.ZAPA",
+    heroTitle: "FILA Grant Hill 1",
+    heroSubtitle: "La zapatilla más vendida de 1995 · La amenaza real a Jordan",
+    author: "Editorial CANCHA.ZAPA",
+    imagen: "/shoes/fila-grant-hill-1.webp",
+    relatedShoes: ["fila-grant-hill-1"],
+    relatedSeoPages: ["mejores-zapatillas-fila", "zapatillas-baloncesto-retro"],
+    body: `
+<p class="art-intro">En 1995 había un jugador en la NBA que recibió más votos de los aficionados para el All-Star Game que Michael Jordan. En 1995 había una zapatilla de baloncesto que vendió más que el Air Jordan. Ese jugador era Grant Hill. Esa zapatilla era la FILA Grant Hill 1. Esta es la historia que casi nadie recuerda.</p>
+
+<h2>Grant Hill: el heredero que no llegó a serlo</h2>
+<p>Cuando Grant Hill llegó a los Detroit Pistons en 1994 como cuarta selección del Draft, la prensa ya lo había bautizado: el sucesor de Michael Jordan. No era solo hype. Hill era el jugador más completo de su generación: 1.98m, elegante, capaz de jugar todas las posiciones del 1 al 4, con un CI baloncestístico extraordinario y una imagen pública impecable — Duke, hijo de un jugador de la NFL, perfectamente articulado.</p>
+<p>En su primera temporada, los aficionados le votaron al All-Star Game con <strong>1.289.583 votos</strong>, por delante de Michael Jordan (1.054.844). No era un error estadístico — era la señal de que alguien había encontrado la grieta en la armadura de Jordan.</p>
+
+<h2>Por qué FILA en lugar de Nike o Adidas</h2>
+<p>Hill firmó con FILA antes de su temporada rookie. En ese momento, FILA era una marca italiana con fuerte presencia en tenis (Monica Seles, Björn Borg) pero marginal en baloncesto. La apuesta fue enorme para ambas partes.</p>
+<p>El contrato le dio a Hill control significativo sobre el diseño y el marketing. Quería una zapatilla que reflejara su juego: técnica, limpia, sin excesos. La FILA Grant Hill 1 fue el resultado.</p>
+
+<h2>La Grant Hill 1: técnica e historia</h2>
+<p>Lanzada en 1995, la Grant Hill 1 tenía todo lo que un jugador de su perfil necesitaba:</p>
+<ul>
+  <li><strong>Upper de cuero genuino de alta calidad</strong> — uno de los mejores de la época</li>
+  <li><strong>Alta caña</strong> para soporte de tobillo máximo (Hill tenía ya antecedentes de problemas)</li>
+  <li><strong>Herringbone outsole</strong> con tracción excepcional en interior</li>
+  <li><strong>FILA foam midsole</strong> — cushion sólido para la tecnología de 1995</li>
+</ul>
+<p>El resultado: la zapatilla más vendida de la NBA en la temporada 1994-95. Por encima del Air Jordan. El dato se menciona poco en la historia oficial del calzado deportivo, pero es verificable.</p>
+
+<div style="background:#18181b;border:1px solid #3f3f46;border-radius:4px;padding:20px 24px;margin:24px 0">
+  <p style="margin:0 0 12px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.12em;color:#f97316">Ficha técnica — FILA Grant Hill 1 (1995)</p>
+  <ul style="margin:0;padding:0 0 0 16px;color:#a1a1aa;font-size:14px;line-height:1.8">
+    <li><strong style="color:#e4e4e7">Tecnología:</strong> FILA foam · Cuero premium · Herringbone</li>
+    <li><strong style="color:#e4e4e7">Altura:</strong> High-top</li>
+    <li><strong style="color:#e4e4e7">Lanzamiento:</strong> 1995</li>
+    <li><strong style="color:#e4e4e7">Precio retro actual:</strong> 120-160€</li>
+    <li><strong style="color:#e4e4e7">Score jugabilidad:</strong> 7/10 (interior)</li>
+  </ul>
+</div>
+
+<h2>El tobillo que lo cambió todo</h2>
+<p>Grant Hill parecía destinado a dominar la NBA durante una década. Lo que nadie podía prever era lo que ocurriría en el año 2000: una grave lesión de tobillo (estafilococo que requirió múltiples cirugías) que le robó prácticamente cinco temporadas y afectó permanentemente a su explosividad.</p>
+<p>Cuando regresó con los Phoenix Suns en 2007, seguía siendo un buen jugador — inteligente, útil, profesional — pero ya no era "el sucesor de Jordan". La ventana se había cerrado.</p>
+
+<h2>FILA: la historia de la marca que pudo ser</h2>
+<p>Tras Grant Hill, FILA no encontró otro jugador con ese nivel de impacto cultural. La marca fue perdiendo terreno en baloncesto performance y se reorientó hacia el lifestyle. Hoy, FILA tiene una presencia muy limitada en el baloncesto de alto rendimiento.</p>
+<p>Lo que sí tiene FILA es una de las siluetas retro más puras del mercado. La Grant Hill 1 reedición mantiene el cuero, el alto del caño y el herringbone. Para coleccionistas y aficionados a la historia del baloncesto de los 90, es una adquisición que tiene sentido. Para rendimiento moderno, el mercado ha pasado por delante.</p>
+
+<h2>¿Vale la pena para jugar hoy?</h2>
+<p>La Grant Hill 1 retro sirve perfectamente para baloncesto recreativo en interior. La tracción herringbone es todavía competitiva en parqué limpio, el soporte de tobillo del caño alto es real, y el cuero aguanta bien. No esperes la respuesta de una zapatilla moderna con Zoom Air o Lightstrike Pro — el cushion es básico para los estándares actuales.</p>
+<p>La propuesta correcta: si la historia te importa y juegas de forma casual, la Grant Hill 1 es una pieza con narrativa real. Si juegas 3+ veces por semana a nivel federado, mira las opciones técnicas de 2025.</p>
+
+<p class="art-outro">¿Quieres explorar todas las opciones retro que todavía son jugables? <a href="/zapatillas-baloncesto-retro">La guía de retros de CANCHA.ZAPA</a> analiza 30 clásicos con puntuaciones técnicas actualizadas.</p>
+    `,
+  },
+
+  // ── 30. Nike Shox BB4 ────────────────────────────────────────────────
+  {
+    slug: "nike-shox-bb4-vince-carter-sydney-2000",
+    title: "Nike Shox BB4: el dunk imposible de Vince Carter en Sydney 2000",
+    metaTitle: "Nike Shox BB4: Vince Carter y el dunk más famoso de la historia | CANCHA.ZAPA",
+    description: "La Nike Shox BB4 de Vince Carter y el dunk entre las piernas de Frédéric Weis en los JJ.OO. de Sydney 2000. Historia, tecnología Shox y por qué el BB4 sigue siendo un ícono.",
+    fecha: "2026-05-28",
+    fechaLabel: "28 mayo 2026",
+    categoria: "Análisis",
+    readMinutes: 5,
+    eyebrow: "🏅 Retro · Análisis · CANCHA.ZAPA",
+    heroTitle: "Nike Shox BB4",
+    heroSubtitle: "Sydney 2000 · El dunk entre las piernas de Vince Carter",
+    author: "Editorial CANCHA.ZAPA",
+    imagen: "/shoes/nike-shox-bb4.webp",
+    relatedShoes: ["nike-shox-bb4"],
+    relatedSeoPages: ["zapatillas-baloncesto-retro", "mejores-zapatillas-nike"],
+    body: `
+<p class="art-intro">El 25 de septiembre de 2000, en los Juegos Olímpicos de Sydney, Vince Carter recibió un pase en el lado izquierdo del poste, cogió impulso, y se metió literalmente entre las piernas de Frédéric Weis, un pivot francés de 2.18 metros, para ejecutar lo que muchos consideran el dunk más imposible de la historia. Las zapatillas que llevaba eran las Nike Shox BB4.</p>
+
+<h2>Vince Carter en el año 2000</h2>
+<p>El año 2000 fue el apogeo de Vince Carter. En febrero, ganó el Slam Dunk Contest del All-Star en Oakland con una actuación que todavía se cita como la mejor de la historia — 360° entre piernas, el "elbow in the rim", cada mate perfectamente ejecutado. En septiembre, hizo ese mate en Sydney. Era el jugador más explosivo y espectacular del planeta.</p>
+<p>Y todo ese año lo hizo con las Nike Shox BB4 en los pies.</p>
+
+<h2>La tecnología Shox: columnas de elastómero</h2>
+<p>La Nike Shox fue un concepto radical cuando apareció en 2000. En lugar de espuma convencional, el sistema Shox usaba <strong>columnas de elastómero</strong> en el talón — cilindros de goma sintética que comprimían bajo el impacto y rebotaban. La idea era crear un efecto de resorte mecánico que la espuma sola no podía replicar.</p>
+<p>El resultado en la práctica era una sensación de aterrizaje completamente diferente a cualquier zapatilla anterior. Muy firme al principio, luego un rebote marcado. Polarizante: o te encantaba o te incomodaba. Carter claramente la necesitaba para el tipo de aterrizajes que ejecutaba.</p>
+
+<div style="background:#18181b;border:1px solid #3f3f46;border-radius:4px;padding:20px 24px;margin:24px 0">
+  <p style="margin:0 0 12px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.12em;color:#f97316">Ficha técnica — Nike Shox BB4 (2000)</p>
+  <ul style="margin:0;padding:0 0 0 16px;color:#a1a1aa;font-size:14px;line-height:1.8">
+    <li><strong style="color:#e4e4e7">Tecnología:</strong> Nike Shox (columnas elastómero) · Herringbone outsole</li>
+    <li><strong style="color:#e4e4e7">Altura:</strong> Mid-top</li>
+    <li><strong style="color:#e4e4e7">Lanzamiento:</strong> 2000</li>
+    <li><strong style="color:#e4e4e7">Precio retro actual:</strong> 140-180€</li>
+    <li><strong style="color:#e4e4e7">Score jugabilidad:</strong> 6.5/10 (interior)</li>
+  </ul>
+</div>
+
+<h2>El dunk que inmortalizó la zapatilla</h2>
+<p>La secuencia fue así: Estados Unidos jugaba contra Francia en cuartos de final. Carter recibe en penetración, Frédéric Weis — el pivot del Real Madrid en esa época — sale a bloquear. Carter no esquiva al jugador. Carter salta sobre él. Sus piernas pasan a ambos lados de la cabeza de Weis, el balón baja por el aro, y Carter aterriza al otro lado.</p>
+<p>Los franceses lo llaman "le dunk de la mort" — el dunk de la muerte. Para el espectador neutral es simplemente lo más imposible que alguien ha hecho en una pista de baloncesto. Y esa imagen, reproducida millones de veces, tiene de fondo la silueta inconfundible de las Shox BB4.</p>
+
+<h2>Por qué Shox no se quedó</h2>
+<p>La tecnología Shox tuvo su momento — Jordan Brand la adoptó brevemente, Vince Carter la llevó, y Nike la extendió a running. Pero tenía un problema fundamental: con el uso, las columnas de elastómero se degradaban de forma desigual, creando una sensación de inestabilidad lateral que las espumas convencionales no sufrían.</p>
+<p>Nike discontinuó la tecnología Shox en basketball en 2010, aunque mantiene reediciones retro de las silhouettes más icónicas. Las columnas Shox en los retros actuales son principalmente cosméticas — la función real la hace una entresuela de espuma convencional.</p>
+
+<h2>¿Merece la pena para jugar hoy?</h2>
+<p>Las Shox BB4 retro en 2025 son una zapatilla de interior con tracción herringbone funcional y un cushion que, en versión retro, ya no depende exclusivamente de las columnas. Para juego recreativo en parqué limpio, funcionan. Para alto rendimiento o exterior, no son la elección correcta.</p>
+<p>El valor real de las BB4 es narrativo: cada vez que las llevas a pista, estás llevando la zapatilla del mate más imposible de la historia.</p>
+
+<p class="art-outro">¿Quieres explorar todos los retros jugables de nuestra base de datos? Visita el <a href="/rankings">ranking Retro de CANCHA.ZAPA</a> — 30 clásicos evaluados con puntuaciones técnicas actualizadas para 2025.</p>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────

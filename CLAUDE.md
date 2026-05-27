@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-05-27 (sesión 13)
+> Última actualización: 2026-05-28 (sesión 14)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -30,6 +30,15 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 ---
 
 ## Estado actual (sesión 13)
+
+### ✅ Completado (sesión 14)
+- **3 artículos retro** → **30 artículos total**:
+  - Art.28: Adidas Crazy 8 / Kobe Bryant era KB8 (Análisis)
+  - Art.29: FILA Grant Hill 1 — la zapatilla que casi destrona a Jordan (Análisis)
+  - Art.30: Nike Shox BB4 y el dunk de Vince Carter en Sydney 2000 (Análisis)
+- **Nueva SEO page**: `/mejores-zapatillas-fila` → **34 SEO pages total**
+- **FAQ ampliada**: +6 preguntas retro → **43 total** (retros jugables, retro vs Protro, Crazy 8, Grant Hill 1, Shox, coleccionismo)
+- **258 páginas** en producción (eran 214)
 
 ### ✅ Completado (sesión 13)
 - **Widget "Guías relacionadas"**: sidebar de blog/[slug].astro ahora muestra hasta 3 links a SEO pages relacionadas
@@ -346,10 +355,10 @@ sk-or-v1-[REDACTED — ver ~/.openclaw/openclaw.json]
 
 ---
 
-Último push: 2026-05-27 (sesión 13)
+Último push: 2026-05-28 (sesión 14)
 Web live: canchazapa.com ✅
 
-## Blog artículos (27)
+## Blog artículos (30)
 1. Cómo elegir zapatillas de baloncesto (Guía)
 2. AE 3 vs Ja 3 — guards 2025 (Comparativa)
 3. Air Jordan 40 análisis (Análisis)
@@ -370,21 +379,24 @@ Web live: canchazapa.com ✅
 18. Under Armour Curry 13 análisis (Análisis)
 19. Jordan Tatum 4 análisis (Análisis)
 20. Nike LeBron 22 análisis (Análisis)
-21. Mejores zapatillas para aleros 2025 (Guía) ← sesión 13
-22. Nike Ja 3 análisis completo (Análisis) ← sesión 13
-23. Zapatillas para rodillas 2025 (Guía) ← sesión 13
-24. New Balance vs ANTA comparativa (Comparativa) ← sesión 13
-25. Mejores zapatillas para bases 2025 (Guía) ← sesión 13
-26. Mejores zapatillas para escoltas 2025 (Guía) ← sesión 13
-27. Mejores zapatillas para ala-pívots 2025 (Guía) ← sesión 13
+21. Mejores zapatillas para aleros 2025 (Guía)
+22. Nike Ja 3 análisis completo (Análisis)
+23. Zapatillas para rodillas 2025 (Guía)
+24. New Balance vs ANTA comparativa (Comparativa)
+25. Mejores zapatillas para bases 2025 (Guía)
+26. Mejores zapatillas para escoltas 2025 (Guía)
+27. Mejores zapatillas para ala-pívots 2025 (Guía)
+28. Adidas Crazy 8 / Kobe Bryant era KB8 (Análisis) ← sesión 14
+29. FILA Grant Hill 1 — la zapatilla que casi destrona a Jordan (Análisis) ← sesión 14
+30. Nike Shox BB4 y el dunk de Vince Carter en Sydney 2000 (Análisis) ← sesión 14
 
-## SEO pages (33)
+## SEO pages (34)
 Posición (5): base, escolta, alero, ala-pivot, pivot
 Cancha (2): outdoor, indoor
 Categoría (4): cushion, reactivas, equilibradas, traccion
 Presupuesto (3): baratas, 130€, premium
-Lesión (4): rodillas, tobillos, pie-ancho, pie-plano ← nueva sesión 12
-Marca (9): Nike, Jordan, Adidas, Puma, Anta, Li-Ning, New Balance, Converse, Reebok
+Lesión (4): rodillas, tobillos, pie-ancho, pie-plano
+Marca (10): Nike, Jordan, Adidas, Puma, Anta, Li-Ning, New Balance, Converse, Reebok, FILA ← nueva sesión 14
 Manual (6): Under Armour, mujer, junior, retro, talla-grande, mejores-2025
 
 ## Nuevas zapas sesión 7

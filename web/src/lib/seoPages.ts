@@ -956,6 +956,26 @@ export const SEO_PAGES: SeoPage[] = [
     ],
   }),
 
+  // ── MARCA: FILA ───────────────────────────────────────────────────
+  marca("FILA", {
+    title: "Zapatillas de baloncesto FILA: la marca que casi destrona a Jordan | CANCHA.ZAPA",
+    description: "Historia y análisis de las zapatillas FILA de baloncesto. La Grant Hill 1 fue la más vendida de 1995, por delante del Air Jordan. Retros que todavía funcionan.",
+    eyebrow: "🏅 Por marca · FILA",
+    lede: "En 1995, FILA venció a Jordan en ventas. La Grant Hill 1 fue la zapatilla más vendida de la NBA ese año. Una historia que el marketing oficial prefiere olvidar — nosotros no.",
+    intro: "FILA es la marca italiana que estuvo más cerca de destronar a Jordan en los 90. Ficharon a Grant Hill en 1994, antes de su primera temporada, y la Grant Hill 1 fue un bombazo: cuero premium, alta caña, herringbone outsole y la historia de un jugador que recibió más votos al All-Star que Michael Jordan. Hoy FILA tiene presencia mínima en baloncesto de rendimiento, pero sus retros son piezas con narrativa real.",
+    points: [
+      { lab: "Grant Hill 1 = el anti-Jordan de 1995", body: "La Grant Hill 1 fue la zapatilla más vendida de la NBA en 1995, por encima del Air Jordan. Cuero genuino, caño alto, herringbone clásico. Retros disponibles en 120-160€." },
+      { lab: "Herringbone outsole — tracción clásica vigente", body: "El patrón herringbone de los retros FILA sigue siendo competitivo en parqué interior. Agarre comparable a zapatillas modernas básicas en pista limpia." },
+      { lab: "Caño alto = soporte real", body: "La Grant Hill 1 tiene uno de los caños más altos del mercado retro. Soporte de tobillo real — útil si tienes historial de esguinces y buscas protección extra." },
+      { lab: "Precio retro competitivo", body: "Los retros FILA suelen estar en el rango 100-160€, por debajo de Jordan retros equivalentes. Si buscas un clásico de los 90 sin pagar precio de Air Jordan, FILA es la opción." },
+    ],
+    faqs: [
+      { q: "¿Las zapatillas FILA son buenas para jugar baloncesto?", a: "Los retros FILA (Grant Hill 1, etc.) funcionan para baloncesto recreativo en interior. La tracción herringbone es sólida en parqué limpio y el soporte de tobillo del caño alto es real. No son para rendimiento de alto nivel o exterior — para eso, las zapatillas técnicas de 2025 las superan claramente en cushion y respuesta." },
+      { q: "¿Por qué FILA ya no está en el baloncesto de rendimiento?", a: "Tras Grant Hill, FILA no encontró otro jugador con el mismo impacto cultural. Las lesiones de tobillo de Hill (2000-2006) dañaron indirectamente la visibilidad de la marca. FILA viró hacia el lifestyle y el tenis, donde su herencia italiana tiene más peso. Hoy su presencia en baloncesto performance es casi nula." },
+      { q: "¿Dónde comprar retros FILA en España?", a: "Amazon ES tiene habitualmente stock de la Grant Hill 1 reedición. FILA.com también tiene el catálogo oficial con envío a España. Para tallas o colorways específicos, KicksCrew tiene buena disponibilidad con envío internacional." },
+    ],
+  }),
+
   // ── TALLA GRANDE ──────────────────────────────────────────────────
   {
     slug: "zapatillas-baloncesto-talla-grande",
