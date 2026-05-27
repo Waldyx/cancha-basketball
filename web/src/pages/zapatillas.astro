@@ -314,6 +314,7 @@ const ordenadas = [...zapatillas].sort(
                       : isNew && <span class="new-badge">★ Nueva</span>
                     }
                     <span class={`cz-score-pill ${scClass} score-pill`}>{score}</span>
+                    <button class="fav-toggle" data-slug={z.slug} type="button" title="Guardar en Mis Zapas" aria-label="Guardar en Mis Zapas">♡</button>
                     {z.imagen_principal && !z.imagen_principal.includes('placeholder') && (
                       <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} loading="lazy"
                            onerror="this.style.display='none'" />
@@ -614,6 +615,37 @@ const ordenadas = [...zapatillas].sort(
       if (pos||cat||mrc||pmax||cancha) apply();
     })();
     refreshUI();
+
+    // ── Favoritos ─────────────────────────────────────────────────
+    const FAV_KEY = "cz.favs";
+    function loadFavs(): Set<string> {
+      try { return new Set(JSON.parse(localStorage.getItem(FAV_KEY) || "[]")); }
+      catch { return new Set(); }
+    }
+    function saveFavs(s: Set<string>) {
+      localStorage.setItem(FAV_KEY, JSON.stringify([...s]));
+    }
+    function syncFavButtons() {
+      const favs = loadFavs();
+      document.querySelectorAll<HTMLButtonElement>(".fav-toggle").forEach(btn => {
+        const slug = btn.dataset.slug || "";
+        btn.classList.toggle("is-fav", favs.has(slug));
+        btn.textContent = favs.has(slug) ? "♥" : "♡";
+        btn.title = favs.has(slug) ? "Quitar de Mis Zapas" : "Guardar en Mis Zapas";
+      });
+    }
+    document.querySelectorAll<HTMLButtonElement>(".fav-toggle").forEach(btn => {
+      btn.addEventListener("click", e => {
+        e.preventDefault();
+        e.stopPropagation();
+        const slug = btn.dataset.slug || "";
+        const favs = loadFavs();
+        if (favs.has(slug)) { favs.delete(slug); } else { favs.add(slug); }
+        saveFavs(favs);
+        syncFavButtons();
+      });
+    });
+    syncFavButtons();
   </script>
 </Base>
 

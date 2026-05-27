@@ -287,6 +287,17 @@ const productJsonLd = {
                 </a>
               </div>
             )}
+
+            {/* Botón favorito */}
+            <button
+              id="fav-btn"
+              data-slug={z.slug}
+              type="button"
+              style="margin-top:12px;display:flex;align-items:center;gap:8px;background:transparent;border:1px solid #3f3f46;color:#a1a1aa;padding:10px 18px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .15s;width:100%"
+            >
+              <span id="fav-icon" style="font-size:16px">♡</span>
+              <span id="fav-label">Guardar en Mis Zapas</span>
+            </button>
           </div>
         </div>
       </div>
@@ -552,6 +563,42 @@ const productJsonLd = {
     if (sb) {
       window.addEventListener("scroll", () => sb.classList.toggle("visible", window.scrollY > 700));
     }
+    // Favoritos
+    const FAV_KEY = "cz.favs";
+    function loadFavs(): Set<string> {
+      try { return new Set(JSON.parse(localStorage.getItem(FAV_KEY) || "[]")); }
+      catch { return new Set(); }
+    }
+    function saveFavs(s: Set<string>) {
+      localStorage.setItem(FAV_KEY, JSON.stringify([...s]));
+    }
+    function updateFavBtn(slug: string) {
+      const favs = loadFavs();
+      const btn = document.getElementById("fav-btn");
+      const icon = document.getElementById("fav-icon");
+      const label = document.getElementById("fav-label");
+      if (!btn || !icon || !label) return;
+      const isFav = favs.has(slug);
+      icon.textContent = isFav ? "♥" : "♡";
+      label.textContent = isFav ? "Guardada en Mis Zapas ✓" : "Guardar en Mis Zapas";
+      (btn as HTMLElement).style.color = isFav ? "#f97316" : "#a1a1aa";
+      (btn as HTMLElement).style.borderColor = isFav ? "#f97316" : "#3f3f46";
+    }
+    const favBtn = document.getElementById("fav-btn");
+    if (favBtn) {
+      const slug = (favBtn as HTMLElement).dataset.slug || "";
+      updateFavBtn(slug);
+      favBtn.addEventListener("click", () => {
+        const favs = loadFavs();
+        if (favs.has(slug)) { favs.delete(slug); } else { favs.add(slug); }
+        saveFavs(favs);
+        updateFavBtn(slug);
+        if ((window as any).plausible && !loadFavs().has(slug) === false) {
+          (window as any).plausible("Favorite Added", { props: { zapa: slug } });
+        }
+      });
+    }
+
     // Affiliate click tracking (Plausible)
     document.querySelectorAll(".aff-btn").forEach(el => {
       el.addEventListener("click", () => {
