@@ -2636,6 +2636,188 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">El <a href="/quiz">quiz de CANCHA.ZAPA</a> filtra específicamente para la posición ala-pívot teniendo en cuenta tu peso, tipo de juego y presupuesto. En menos de un minuto tienes las 5 más compatibles con tu perfil exacto.</p>
     `,
   },
+
+  // ── 28. Guía espumas ────────────────────────────────────────────────
+  {
+    slug: "espumas-baloncesto-ua-flow-zooomx-max-air-lightstrike-2025",
+    title: "UA Flow vs ZoomX vs Max Air vs Lightstrike: guía de espumas de baloncesto 2025",
+    metaTitle: "UA Flow vs ZoomX vs Max Air vs Lightstrike Pro: ¿cuál es mejor? | CANCHA.ZAPA",
+    description:
+      "Guía técnica de las espumas de baloncesto en 2025: UA Flow, ZoomX, Max Air, Lightstrike Pro. Cuál da más cushion, cuál más respuesta y para qué jugador.",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Guía técnica · Espumas 2025",
+    heroTitle: "UA Flow vs ZoomX vs Max Air",
+    heroSubtitle: "Guía técnica de espumas de baloncesto 2025",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["ua-curry-13", "jordan-40", "nike-lebron-23", "adidas-ae-3", "nike-ja-3"],
+    relatedSeoPages: ["zapatillas-cushion", "zapatillas-reactivas", "mejores-zapatillas-baloncesto-2025"],
+    body: `
+<p class="art-intro">La entresuela es el componente más importante de una zapatilla de baloncesto. Es lo que determina si sientes el suelo o flotas sobre él, si tus rodillas se resienten al tercer partido o aguantan toda la temporada. En 2025, cada marca tiene su tecnología propia — y entender sus diferencias te ayuda a elegir sin dejarte llevar por el marketing.</p>
+
+<h2>Las 4 espumas protagonistas de 2025</h2>
+
+<h3>UA Flow (Under Armour)</h3>
+<p><strong>Qué es:</strong> Una espuma de poliuretano que actúa directamente como suela sin necesidad de capa de goma adicional. Under Armour unió la entresuela y la outsole en un solo material.</p>
+<p><strong>Cómo se siente:</strong> El court feel más directo del mercado. Sientes el suelo a través de la espuma de forma que ninguna otra tecnología puede replicar. Para guards que necesitan saber exactamente dónde tienen los pies, es insuperable.</p>
+<p><strong>El problema:</strong> Sin goma en la suela, la durabilidad outdoor es prácticamente nula. Una sola sesión en asfalto puede dañar irreversiblemente la espuma. La UA Flow es exclusivamente para interior.</p>
+<p><strong>Modelos que la usan:</strong> UA Curry 12, UA Curry 13, UA Flow Breakthru.</p>
+<p><strong>Puntuación relativa:</strong> Respuesta 9/10 · Cushion 7/10 · Durabilidad outdoor 2/10</p>
+
+<h3>ZoomX (Nike)</h3>
+<p><strong>Qué es:</strong> Espuma de PEBA (polyether block amide) que Nike desarrolló originalmente para las zapatillas de running más rápidas del mundo (Vaporfly, Alphafly). Devuelve el 85% de la energía de cada pisada — el porcentaje más alto de cualquier espuma de baloncesto en 2025.</p>
+<p><strong>Cómo se siente:</strong> Un bounce notable y diferente. El ZoomX es suave pero energético — la pisada devuelve energía como si el suelo te empujara hacia arriba. La primera vez que pisas una zapatilla con ZoomX full-length (Jordan 40, Ja 3) se nota inmediatamente.</p>
+<p><strong>El problema:</strong> El ZoomX es demasiado blando para estabilidad máxima. Solo, colapsaría bajo un aterrizaje lateral fuerte. Nike lo combina siempre con otro elemento (Zoom Strobel, TPU plates) para añadir firmeza.</p>
+<p><strong>Modelos que la usan:</strong> Air Jordan 40 (ZoomX + Zoom Strobel), Nike Ja 3 (ZoomX full-length).</p>
+<p><strong>Puntuación relativa:</strong> Respuesta 9/10 · Cushion 9/10 · Estabilidad 6/10 (solo ZoomX)</p>
+
+<h3>Max Air (Nike)</h3>
+<p><strong>Qué es:</strong> Una cámara de aire de alta presión con unidades de aire visibles en el talón. No es una espuma, sino una tecnología de amortiguación por cámara de aire. Nike la usa en la línea LeBron desde la LeBron 1.</p>
+<p><strong>Cómo se siente:</strong> El cushion más "seguro" del mercado. No colapsa bajo cargas extremas — está diseñado para jugadores de 95-110kg que aterrizan con toda esa masa partido tras partido. El bounce es menor que el ZoomX, pero la protección bajo carga máxima no tiene rival.</p>
+<p><strong>El problema:</strong> No da el bounce reactivo del ZoomX. Es un cushion absorbente más que energético. Para guards que necesitan respuesta, no es la opción.</p>
+<p><strong>Modelos que la usan:</strong> Nike LeBron 22, Nike LeBron 23, Nike LeBron Witness.</p>
+<p><strong>Puntuación relativa:</strong> Respuesta 6/10 · Cushion 10/10 · Estabilidad 8/10</p>
+
+<h3>Lightstrike Pro (Adidas)</h3>
+<p><strong>Qué es:</strong> La espuma premium de Adidas para baloncesto y atletismo. Una espuma de TPU modificado que equilibra cushion y respuesta. Más firme que el ZoomX pero más reactiva que el Bounce foam convencional de Adidas.</p>
+<p><strong>Cómo se siente:</strong> El equilibrio más honesto del mercado. No es la que más cushion da (Max Air la supera) ni la más reactiva (ZoomX o UA Flow la superan), pero tiene un score medio muy alto en todos los atributos. Para jugadores que no quieren extremos, es la referencia.</p>
+<p><strong>El problema:</strong> Es cara de fabricar, por eso aparece solo en los modelos signature premium de Adidas (AE 3, Harden Vol 9). Las versiones económicas de Adidas usan Bounce, que es inferior.</p>
+<p><strong>Modelos que la usan:</strong> Adidas AE 3, Adidas Harden Vol 9, Adidas Trae Young 3.</p>
+<p><strong>Puntuación relativa:</strong> Respuesta 8/10 · Cushion 8/10 · Estabilidad 8/10</p>
+
+<h2>Comparativa directa</h2>
+
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:14px">
+  <thead>
+    <tr style="border-bottom:2px solid #f97316">
+      <th style="padding:8px;text-align:left">Espuma</th>
+      <th style="padding:8px;text-align:center">Respuesta</th>
+      <th style="padding:8px;text-align:center">Cushion</th>
+      <th style="padding:8px;text-align:center">Court feel</th>
+      <th style="padding:8px;text-align:center">Outdoor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>UA Flow</strong></td>
+      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">⭐ 10/10</td>
+      <td style="padding:8px;text-align:center">❌ 2/10</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>ZoomX</strong></td>
+      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">7/10*</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>Max Air</strong></td>
+      <td style="padding:8px;text-align:center">6/10</td>
+      <td style="padding:8px;text-align:center">⭐ 10/10</td>
+      <td style="padding:8px;text-align:center">5/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+    </tr>
+    <tr>
+      <td style="padding:8px"><strong>Lightstrike Pro</strong></td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p style="font-size:12px;color:#52525b">*ZoomX tiene capa de goma en modelos como la Ja 3; sin goma (como en otras configuraciones) no aguanta outdoor.</p>
+
+<h2>¿Cuál es para ti?</h2>
+<ul>
+  <li><strong>Base o escolta que prioriza court feel y plays en interior → UA Flow</strong> (UA Curry 13). No hay nada como sentir el suelo directamente.</li>
+  <li><strong>Guard o alero que quiere bounce con cushion decente → ZoomX</strong> (Nike Ja 3, Air Jordan 40). El mejor equilibrio cushion-respuesta del mercado.</li>
+  <li><strong>Pívot o ala-pívot de 90kg+ que necesita protección máxima → Max Air</strong> (Nike LeBron 22/23). El cushion que no colapsa.</li>
+  <li><strong>Cualquier posición que busca el mejor equilibrio sin extremos → Lightstrike Pro</strong> (Adidas AE 3, Harden Vol 9). El sweet spot del mercado.</li>
+</ul>
+
+<p class="art-outro">¿No sabes qué espuma encaja con tu perfil? El <a href="/quiz">quiz de CANCHA.ZAPA</a> usa tus respuestas de posición, peso y estilo de juego para filtrarte automáticamente las zapatillas con la espuma más adecuada para ti.</p>
+    `,
+  },
+
+  // ── 29. Puma MB.05 análisis ──────────────────────────────────────────
+  {
+    slug: "puma-mb05-analisis-lamelo-2025",
+    title: "Puma MB.05 análisis: ¿la firma de LaMelo Ball merece la pena en 2025?",
+    metaTitle: "Puma MB.05 análisis completo 2025 | CANCHA.ZAPA",
+    description:
+      "Análisis técnico completo de la Puma MB.05 de LaMelo Ball: Nitro foam, tracción y veredicto honesto. ¿Mejor que la MB.04? ¿Vale los 139€?",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Análisis",
+    readMinutes: 5,
+    eyebrow: "★ Análisis en profundidad · LaMelo 2025",
+    heroTitle: "Puma MB.05",
+    heroSubtitle: "¿La mejor Puma de baloncesto de 2025?",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["puma-mb05", "puma-mb-04", "puma-mb03", "adidas-ae-3", "ua-curry-13"],
+    relatedSeoPages: ["mejores-zapatillas-puma", "mejor-zapatilla-base", "mejores-zapatillas-baloncesto-2025"],
+    body: `
+<p class="art-intro">LaMelo Ball es el jugador más estiloso de la NBA en 2025 y eso se nota en su línea de calzado. Las MB.03 y MB.04 generaron mucha expectación — algunas la amaron, otras la odiaron. La MB.05 llega en 2025 como la más madura de la serie. ¿Cumple las expectativas?</p>
+
+<h2>Diseño y primeras impresiones</h2>
+<p>La MB.05 es estéticamente la más discreta de la línea Ball — y eso, paradójicamente, es un punto a favor para quien quiere llevarla en cancha sin que el diseño distraiga. El upper de malla multidireccional con refuerzos de TPU da un aspecto más funcional que las versiones anteriores. Puma ha escuchado las críticas sobre la excentricidad del diseño y ha equilibrado.</p>
+
+<h2>La tecnología: Nitro Elite foam</h2>
+<p>La MB.05 usa Nitro Elite foam — la versión avanzada del Nitro que Puma también usa en sus zapatillas de running de alta gama. Es una espuma de PEBA modificado, similar en concepto al ZoomX de Nike pero con una formulación propia. El resultado:</p>
+<ul>
+  <li><strong>Bounce mayor que la MB.04:</strong> el Nitro Elite es más reactivo que el Nitro estándar de la MB.04. En los primeros pasos se nota la diferencia — hay más energía de retorno.</li>
+  <li><strong>Cushion 8/10:</strong> más suave que la AE 3 (Lightstrike Pro más firme) pero menos que el ZoomX. Para un guard de 75-90kg es suficiente y protector.</li>
+  <li><strong>Ligereza:</strong> la MB.05 pesa alrededor de 330g — similar a la AE 3, más que la GT Cut 4. Para su nivel de cushion, es un peso muy competitivo.</li>
+</ul>
+
+<h2>Tracción: el punto débil de la serie</h2>
+<p>El patrón de suela de la MB.05 ha sido siempre el punto más criticado de la línea Ball. El problema no es el agarre en sí (es decente en parquet limpio) sino la consistencia: en pistas con algo de polvo, la suela de la MB.05 pierde tracción más rápido que la AE 3 o la Curry 13. El patrón es bonito pero no tan funcional como el herringbone clásico.</p>
+<p><strong>Tracción en limpio: 8/10. En pistas con polvo: 6/10.</strong> Si tu pista está impecable, bien. Si es de las pistas de barrio que no se limpian desde el miércoles, el agarre flojea.</p>
+
+<h2>Soporte lateral y tobillo</h2>
+<p>La MB.05 es low-top con un collar de espuma que cubre el tobillo sin llegar a mid-top. El soporte lateral está en 7/10 gracias a los refuerzos de TPU en el upper. Para un guard de 70-85kg sin historial de tobillos, es suficiente. Para jugadores más físicos o con esguinces previos, considera una mid-top.</p>
+
+<h2>¿Mejora a la MB.04?</h2>
+<p>Sí, en todos los atributos relevantes:</p>
+<ul>
+  <li>Nitro Elite > Nitro en bounce y cushion</li>
+  <li>Upper más contenido — menos llamativo pero más funcional</li>
+  <li>Ajuste de la horma más consistente — la MB.04 tenía problemas de talla</li>
+  <li>El punto débil (tracción en pistas sucias) sigue siendo el mismo</li>
+</ul>
+
+<h2>Puntuación técnica CANCHA.ZAPA</h2>
+<ul>
+  <li>Tracción: <strong>7/10</strong> (8 en limpio, 6 con polvo)</li>
+  <li>Amortiguación: <strong>8/10</strong> — Nitro Elite da cushion serio</li>
+  <li>Respuesta: <strong>8/10</strong> — bounce notable para un guard</li>
+  <li>Soporte lateral: <strong>7/10</strong> — suficiente para guard sin historial</li>
+  <li>Estabilidad: <strong>7/10</strong> — aceptable, no es su punto fuerte</li>
+  <li>Ligereza: <strong>8/10</strong> — 330g, muy competitivo para su cushion</li>
+  <li>Durabilidad outdoor: <strong>7/10</strong> — suela de goma aguanta outdoor moderado</li>
+</ul>
+
+<h2>¿Vale los 139€?</h2>
+<p>El precio de 139€ la pone en competencia directa con la Adidas AE 3 (130€) y la UA Curry 13 (140€). Mi veredicto honesto:</p>
+<ul>
+  <li>Si tienes la pista siempre limpia: <strong>sí, la MB.05 vale 139€</strong>. El Nitro Elite es una espuma premium y el conjunto es muy competitivo.</li>
+  <li>Si juegas en pistas con polvo frecuente: elige la <strong>AE 3</strong> — la tracción herringbone es más consistente.</li>
+  <li>Si priorizas el court feel y juegas solo en interior: elige la <strong>Curry 13</strong> — la UA Flow da una sensación que el Nitro Elite no puede replicar.</li>
+</ul>
+
+<h2>Disponibilidad en España</h2>
+<p>La MB.05 se vende principalmente en Puma.com y en tiendas Puma físicas. En Amazon ES y JD Sports el stock varía por colorway. El precio de salida fue 139€ y suele mantenerse estable en los primeros meses.</p>
+
+<p class="art-outro">¿Te interesan las Puma para baloncesto? Visita nuestra <a href="/mejores-zapatillas-puma">guía completa de las mejores Puma de baloncesto</a> o <a href="/quiz">haz el quiz</a> para saber si la MB.05 encaja con tu perfil específico.</p>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
