@@ -1797,6 +1797,66 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">La Jordan Tatum 4 es nuestra recomendación número uno para aleros y jugadores versátiles que no quieren comprometerse entre cushion, soporte y respuesta. Si quieres ver si encaja exactamente con tu perfil, <a href="/quiz">el quiz te da las 5 más compatibles en menos de un minuto</a>.</p>
     `,
   },
+  // ── 20. Nike LeBron 22 análisis ──────────────────────────────────────
+  {
+    slug: "nike-lebron-22-analisis-2025",
+    title: "Nike LeBron 22 análisis: el tope de cushion de 2025",
+    metaTitle: "Nike LeBron 22 análisis 2025: cushion, tracción, peso | CANCHA.ZAPA",
+    description:
+      "Análisis técnico completo de las Nike LeBron 22 (LeBron James): Air Zoom + Cushlon, 425g, high-top. ¿Es la mejor zapatilla para pívots y jugadores pesados de 2025?",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Análisis",
+    readMinutes: 5,
+    eyebrow: "★ Análisis técnico · Nike LeBron 22",
+    heroTitle: "Nike LeBron 22",
+    heroSubtitle: "El Rolls Royce del cushion — análisis honesto 2025",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-lebron-22", "jordan-tatum-4", "nb-fresh-foam-bb-v3", "ua-curry-13", "adidas-ae-3"],
+    relatedSeoPages: ["zapatillas-cushion", "zapatillas-baloncesto-para-rodillas", "mejor-zapatilla-pivot"],
+    body: `
+<p class="art-intro">LeBron James es el jugador más dominante de la historia por volumen y longevidad. Con 39 años, sigue jugando al máximo nivel — y su zapatilla refleja esa filosofía: más protección, más soporte, más cushion. La LeBron 22 no es para todos. Es para jugadores pesados, pívots, y cualquiera que priorice la protección sobre la ligereza.</p>
+
+<h2>La filosofía LeBron: fuerza por encima de velocidad</h2>
+<p>La línea LeBron siempre ha priorizado el cushion y la estabilidad sobre la ligereza y el court feel. LeBron (2.06m, 113kg) necesita una zapatilla que absorba los impactos de décadas de juego profesional. El resultado es una zapatilla que pesa 425g — bastante más que la GT Cut 4 (305g) o la AE 3 (350g). Pero ese peso no es un defecto; es la consecuencia de un sistema de cushion genuinamente premium.</p>
+
+<h2>Tecnología: Air Zoom + Cushlon 3.0</h2>
+<p>La LeBron 22 combina:</p>
+<ul>
+  <li><strong>Air Zoom Strobel full-length:</strong> unidad de aire de longitud completa bajo el pie. La presión del aire en el antepié ofrece respuesta rápida en el despegue. Es la misma tecnología que LeBron lleva usando desde las LeBron 19.</li>
+  <li><strong>Cushlon 3.0 en el talón:</strong> espuma de alta densidad que absorbe los impactos de aterrizajes. Para un jugador de más de 90kg que aterriza desde el aro decenas de veces por partido, este talón hace una diferencia real a largo plazo.</li>
+</ul>
+<p>El resultado es un score de amortiguación <strong>9/10</strong> — el más alto de nuestra base de datos junto con la New Balance Fresh Foam BB v3. Si tienes rodillas sensibles o pesas más de 90kg, ninguna otra zapatilla te protegerá mejor.</p>
+
+<h2>El gran trade-off: respuesta y peso</h2>
+<p>Toda esa protección tiene un coste. La LeBron 22 tiene la respuesta más baja de los modelos premium (5/10) — es una zapatilla que absorbe el impacto más que lo devuelve. Si eres un guard que vive de los primeros pasos y las carreras de transición, la LeBron 22 no es tu zapatilla. Pero si eres un ala-pívot o pívot que prioriza la protección en la pintura, ese court feel "apagado" es completamente aceptable.</p>
+<p>El peso de 425g en talla 44 es notable. En 40 minutos de partido, esa diferencia de 75-120g respecto a una zapatilla ligera se acumula. Para guards: descartada. Para pívots y jugadores de más de 95kg: justificada.</p>
+
+<h2>Tracción y soporte: excelente</h2>
+<p>La tracción es sólida (8/10) con un patrón multidireccional que funciona bien en pabellones limpios. No es la mejor en suelo con polvo (la AE 3 o la GT Cut 4 la superan), pero es más que suficiente para el 90% de pabellones españoles.</p>
+<p>El soporte lateral del high-top es excepcional (9/10). El collar de tobillo con espuma densa bloquea la inversión lateral de forma efectiva. Para pívots que hacen contactos constantes bajo el aro, o para cualquier jugador con historial de esguinces graves, este soporte marca una diferencia real. No es solo marketing — la construcción high-top de la LeBron 22 es genuinamente protectora.</p>
+
+<h2>¿Para quién es la LeBron 22?</h2>
+<ul>
+  <li><strong>Pívots (posición 5):</strong> el usuario ideal. El cushion y el soporte compensan el peso extra.</li>
+  <li><strong>Ala-pívots pesados (85-100+ kg):</strong> si pesas más de 90kg y no eres un guard puro explosivo, la LeBron 22 te protege mejor que cualquier alternativa del mercado.</li>
+  <li><strong>Jugadores con rodillas sensibles:</strong> el stack de cushion más alto del mercado reducirá el estrés en tus articulaciones.</li>
+  <li><strong>Jugadores con historial de esguinces graves:</strong> el high-top ofrece el mejor soporte de tobillo disponible.</li>
+</ul>
+<p>No recomendada para:</p>
+<ul>
+  <li>Guards y escoltas que necesitan velocidad máxima</li>
+  <li>Jugadores outdoor (la suela se desgasta rápido en asfalto)</li>
+  <li>Jugadores ligeros (sub-75kg) — el cushion es excesivo para ese perfil</li>
+</ul>
+
+<h2>Precio: ¿vale la pena?</h2>
+<p>La LeBron 22 cotiza a <strong>~180€ MSRP</strong>, el precio más alto de nuestra comparativa. En Amazon ES se encuentra a veces a 150-165€ en colorways menos populares. Para un jugador que va a usar la zapatilla 3-4 veces por semana durante una temporada completa, 180€ dividido entre 40 semanas son 4,5€ por semana de la mejor protección del mercado. Así analizado, el precio se justifica.</p>
+<p>Si el presupuesto es limitado, la Nike LeBron Witness 9 (~90€) es la versión accesible de la filosofía LeBron: menos cushion, menos soporte, pero la misma orientación hacia la protección. Para los que pueden permitirse el gasto, la LeBron 22 es la referencia absoluta en cushion 2025.</p>
+
+<p class="art-outro">La LeBron 22 es la mejor zapatilla de 2025 para jugadores que priorizan cushion y soporte por encima de todo. Si no estás seguro de si tu perfil encaja, <a href="/quiz">el quiz de CANCHA.ZAPA te da las 5 más compatibles en 60 segundos</a>.</p>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
