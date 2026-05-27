@@ -278,7 +278,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "2025-2026 · Amortiguación, soporte y estabilidad",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["nike-lebron-23", "nike-kd-19", "jordan-40", "anta-kt-11"],
-    relatedSeoPages: ["mejor-zapatilla-pivot", "zapatillas-cushion", "zapatillas-premium"],
+    relatedSeoPages: ["mejor-zapatilla-pivot", "zapatillas-baloncesto-para-rodillas", "zapatillas-cushion"],
     body: `
 <p class="art-intro">El pívot es la posición más exigente para una zapatilla. Cada rebote supone cientos de kilos de impacto. Cada bloqueo implica fricción lateral máxima. Y todo eso repetido durante 40 minutos. La zapatilla adecuada marca la diferencia entre aguantar el partido entero o coger el banquillo con las rodillas quemadas.</p>
 
@@ -412,7 +412,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "Cuáles aguantan el asfalto y cuáles no",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["nike-ja-3", "adidas-ae-3", "anta-kai-2", "nike-lebron-23", "ua-curry-13"],
-    relatedSeoPages: ["zapatillas-baratas", "mejor-zapatilla-base"],
+    relatedSeoPages: ["zapatillas-outdoor", "zapatillas-baratas", "mejor-zapatilla-base"],
     body: `
 <p class="art-intro">El baloncesto al aire libre es el mayor enemigo de tus zapatillas de interior. El asfalto y el cemento destrozan suelas en cuestión de semanas. Lo que dura 2 temporadas en pabellón puede quedar inutilizable después de 10 partidos en la calle. Antes de comprar, tienes que saber qué buscar — y qué evitar.</p>
 
@@ -528,7 +528,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "Las que realmente encajan — guía 2025",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["nike-ja-3", "adidas-ae-3", "anta-kai-2", "ua-curry-13", "nike-lebron-23"],
-    relatedSeoPages: ["mejores-zapatillas-baloncesto-2025", "zapatillas-baratas"],
+    relatedSeoPages: ["zapatillas-baloncesto-pie-ancho", "mejores-zapatillas-baloncesto-2025", "zapatillas-baratas"],
     body: `
 <p class="art-intro">La mayoría de marcas diseñan sus zapatillas de baloncesto para un pie estándar o incluso estrecho. Si tienes pie ancho, el mercado juega en tu contra: compras un modelo que en la talla parece correcto, lo pisas en el primer partido, y al cuarto de hora el quinto dedo ya está ardiendo. Esta guía va directo al grano: qué marcas van anchas, cuáles evitar, y los 5 mejores modelos para pie ancho en 2025.</p>
 
@@ -618,7 +618,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "Qué zapatilla te protege de verdad",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["jordan-tatum-4", "nike-lebron-23", "jordan-40", "anta-kt-11"],
-    relatedSeoPages: ["zapatillas-baratas", "mejor-zapatilla-pivot"],
+    relatedSeoPages: ["zapatillas-baloncesto-para-tobillos", "zapatillas-baratas", "mejor-zapatilla-pivot"],
     body: `
 <p class="art-intro">El esguince de tobillo es la lesión más frecuente en baloncesto. Cada cambio de dirección, cada aterrizaje, cada bloqueo es una oportunidad para torcerte. La zapatilla correcta no elimina el riesgo, pero lo reduce significativamente. Y la incorrecta — una low-top si tienes historial de esguinces — puede mandarte a la baja antes de acabar el primer partido.</p>
 
