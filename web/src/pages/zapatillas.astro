@@ -249,7 +249,7 @@ const ordenadas = [...zapatillas].sort(
                     <div class="pick-eyebrow">
                       <span class="pick-tag">★ Pick del editor</span>
                       <span class="pick-cat">{CAT_LABELS[z.categoria_principal]}</span>
-                      {z.año_lanzamiento >= 2025 && <span class="pick-new">Nueva {z.año_lanzamiento}</span>}
+                      {z.año_lanzamiento >= 2026 && <span class="pick-new">Nueva {z.año_lanzamiento}</span>}
                     </div>
                     <h2 class="pick-title">
                       <span class="pick-marca">{z.marca}</span>
@@ -287,7 +287,7 @@ const ordenadas = [...zapatillas].sort(
               const tienda = mejor ? LABELS_TIENDA[mejor.tienda] || mejor.tienda : null;
               const score = scoreOf(z);
               const cat = CAT_ACCENT[z.categoria_principal];
-              const isNew = z.año_lanzamiento >= 2025;
+              const isNew = z.año_lanzamiento >= 2026;
               const scClass = score >= 8 ? "hi" : score >= 6.5 ? "mid" : "lo";
               return (
                 <a
@@ -417,7 +417,7 @@ const ordenadas = [...zapatillas].sort(
       filters.alturas.forEach(a => out.push({ k: "alt", lab: a.toUpperCase(), remove: () => { filters.alturas.delete(a); apply(); refreshUI(); } }));
       filters.posiciones.forEach(p => out.push({ k: "pos", lab: p, remove: () => { filters.posiciones.delete(p); apply(); refreshUI(); } }));
       if (filters.precioMax < 250) out.push({ k: "precio", lab: `≤ ${filters.precioMax}€`, remove: () => { filters.precioMax = 250; (document.getElementById("price-range") as HTMLInputElement).value = "250"; apply(); refreshUI(); } });
-      if (filters.soloNuevas) out.push({ k: "new", lab: "Nuevas 2025", remove: () => { filters.soloNuevas = false; (document.getElementById("only-new") as HTMLInputElement).checked = false; apply(); refreshUI(); } });
+      if (filters.soloNuevas) out.push({ k: "new", lab: "Nuevas 2026", remove: () => { filters.soloNuevas = false; (document.getElementById("only-new") as HTMLInputElement).checked = false; apply(); refreshUI(); } });
       if (filters.soloVerificado) out.push({ k: "ver", lab: "Verificado", remove: () => { filters.soloVerificado = false; (document.getElementById("only-verified") as HTMLInputElement).checked = false; apply(); refreshUI(); } });
       if (filters.soloOutdoor) out.push({ k: "out", lab: "Outdoor", remove: () => { filters.soloOutdoor = false; document.getElementById("chip-outdoor")?.classList.remove("is-active"); apply(); refreshUI(); } });
       if (filters.soloLigera) out.push({ k: "ligera", lab: "Más ligeras", remove: () => { filters.soloLigera = false; document.getElementById("chip-ligera")?.classList.remove("is-active"); apply(); refreshUI(); } });
@@ -481,7 +481,7 @@ const ordenadas = [...zapatillas].sort(
         if (filters.alturas.size && !filters.alturas.has(alt)) ok = false;
         if (filters.posiciones.size && !pos.some(p => filters.posiciones.has(p))) ok = false;
         if (precio > filters.precioMax) ok = false;
-        if (filters.soloNuevas && año < 2025) ok = false;
+        if (filters.soloNuevas && año < 2026) ok = false;
         if (filters.soloVerificado && !verified) ok = false;
         if (filters.soloOutdoor && !outdoor) ok = false;
         if (filters.soloLigera && !ligera) ok = false;
