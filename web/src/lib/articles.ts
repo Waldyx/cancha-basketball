@@ -2818,6 +2818,116 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">¿Te interesan las Puma para baloncesto? Visita nuestra <a href="/mejores-zapatillas-puma">guía completa de las mejores Puma de baloncesto</a> o <a href="/quiz">haz el quiz</a> para saber si la MB.05 encaja con tu perfil específico.</p>
     `,
   },
+
+  // ── 30. Análisis Kobe 8 Protro ──────────────────────────────────────
+  {
+    slug: "nike-kobe-8-protro-analisis-2025",
+    title: "Nike Kobe 8 Protro análisis: la mejor zapatilla para tiradores en 2025",
+    metaTitle: "Nike Kobe 8 Protro análisis completo 2025 | CANCHA.ZAPA",
+    description:
+      "Análisis técnico de la Nike Kobe 8 Protro: la zapatilla más reactiva para escoltas y tiradores en 2025. Respuesta 10/10, 280g, court feel único. ¿Vale los 180€?",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Análisis",
+    readMinutes: 5,
+    eyebrow: "★ Análisis · La zapa del tirador",
+    heroTitle: "Nike Kobe 8 Protro",
+    heroSubtitle: "La referencia para tiradores en 2025",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-kobe-8-protro", "nike-gt-cut-4", "ua-curry-13", "adidas-ae-3", "nike-kobe-9-low-protro"],
+    relatedSeoPages: ["mejor-zapatilla-escolta", "zapatillas-reactivas", "mejores-zapatillas-nike"],
+    body: `
+<p class="art-intro">Kobe Bryant no necesitaba una zapatilla de moda. Necesitaba la que le diera ventaja en décimas de segundo. La Kobe 8 Protro es la reedición de la zapatilla que Kobe usó durante la temporada 2012-13 — y en 2025 sigue siendo una de las más reactivas del mercado. Esto no es nostalgia. Es ingeniería que aguanta el paso del tiempo.</p>
+
+<h2>¿Por qué la Kobe 8 Protro sigue siendo relevante?</h2>
+<p>La mayoría de zapatillas retro Protro son lifestyle disfrazadas de performance. La Kobe 8 Protro es diferente: Nike actualizó la entresuela con Zoom Air Strobel full-length, mantiene el perfil ultra-bajo y la suela herringbone original. El resultado es una zapatilla de 2012 con la tecnología de 2025.</p>
+<p>Para tiradores y escoltas, específicamente, la Kobe 8 Protro ofrece algo que ningún modelo nuevo 2025 replica exactamente: el perfil más bajo del mercado combinado con el Zoom Air más reactivo que Nike fabrica en ese volumen.</p>
+
+<h2>Lo que la hace especial técnicamente</h2>
+
+<h3>Perfil ultra-bajo (low-profile)</h3>
+<p>La Kobe 8 Protro tiene la distancia suelo-pie más baja de cualquier zapatilla de baloncesto en producción. Eso significa que cuando plantas el pie para tirar, sientes exactamente dónde estás. Para tiradores de posición fija (spot-up shooters), esa información es crítica. La zapatilla "desaparece" bajo el pie — que es exactamente lo que un tirador necesita.</p>
+
+<h3>Zoom Air Strobel full-length</h3>
+<p>El Zoom Air Strobel recorre toda la longitud de la zapatilla. En la Protro, está configurado para firmeza máxima — más reactivo que cushion absorbente. Cuando saltas y aterrizas en tiro, el Strobel devuelve energía rápido. Los 280g que pesa la zapatilla tampoco ayudan a frenar ese retorno.</p>
+
+<h3>Suela herringbone de carbon</h3>
+<p>El patrón herringbone de carbono de la Kobe 8 es uno de los diseños más copiados de la historia del baloncesto. No en vano: en parquet limpio, la tracción es excepcional. El problema: en pistas con polvo o suciedad, la goma fina se desliza antes que la goma más gruesa de la GT Cut 4 o la AE 3.</p>
+
+<h2>Puntuación técnica CANCHA.ZAPA</h2>
+<ul>
+  <li>Tracción: <strong>9/10</strong> (baja a 7 en pistas con polvo)</li>
+  <li>Amortiguación: <strong>7/10</strong> — el Strobel firma pero no es Max Air</li>
+  <li>Respuesta: <strong>10/10</strong> — empatada con la GT Cut 4 como la más reactiva del mercado</li>
+  <li>Soporte lateral: <strong>6/10</strong> — low-top con upper de malla: poco soporte</li>
+  <li>Estabilidad: <strong>7/10</strong> — la base ancha compensa el upper bajo</li>
+  <li>Ligereza: <strong>10/10</strong> — 280g, la más ligera del mercado con Zoom Air</li>
+  <li>Durabilidad outdoor: <strong>6/10</strong> — goma fina, no la lleves al asfalto</li>
+</ul>
+
+<h2>Comparativa con rivales</h2>
+
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:14px">
+  <thead>
+    <tr style="border-bottom:2px solid #f97316">
+      <th style="padding:8px;text-align:left">Modelo</th>
+      <th style="padding:8px;text-align:center">Respuesta</th>
+      <th style="padding:8px;text-align:center">Court feel</th>
+      <th style="padding:8px;text-align:center">Peso</th>
+      <th style="padding:8px;text-align:center">Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>Nike Kobe 8 Protro</strong></td>
+      <td style="padding:8px;text-align:center">⭐ 10/10</td>
+      <td style="padding:8px;text-align:center">⭐ 10/10</td>
+      <td style="padding:8px;text-align:center">⭐ 280g</td>
+      <td style="padding:8px;text-align:center">180€</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>Nike GT Cut 4</strong></td>
+      <td style="padding:8px;text-align:center">⭐ 10/10</td>
+      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">310g</td>
+      <td style="padding:8px;text-align:center">150€</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>UA Curry 13</strong></td>
+      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">⭐ 10/10</td>
+      <td style="padding:8px;text-align:center">345g</td>
+      <td style="padding:8px;text-align:center">140€</td>
+    </tr>
+    <tr>
+      <td style="padding:8px"><strong>Adidas AE 3</strong></td>
+      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">340g</td>
+      <td style="padding:8px;text-align:center">130€</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>¿Para quién es la Kobe 8 Protro?</h2>
+<p>Para un tipo de jugador muy específico:</p>
+<ul>
+  <li>Escoltas y bases que priorizan el primer paso y el court feel sobre todo lo demás</li>
+  <li>Tiradores de posición fija que necesitan sentir el suelo antes del tiro</li>
+  <li>Jugadores con pie estrecho o normal que no necesitan horma ancha</li>
+  <li>Jugadores que juegan siempre en pabellón con pista bien mantenida</li>
+</ul>
+
+<p><strong>No es para ti si:</strong> pesas más de 90kg (el cushion no es suficiente para esos impactos), tienes pie ancho (la horma es estrecha), juegas en exterior o en pistas con polvo.</p>
+
+<h2>¿Vale los 180€?</h2>
+<p>La pregunta del millón. Mi respuesta: sí, para el perfil correcto, sí vale. La Kobe 8 Protro ofrece algo que la GT Cut 4 a 150€ no tiene: el perfil más bajo del mercado con 10/10 en respuesta y 280g. Para un tirador puro, esa diferencia se nota en cada tiro. Para el resto de jugadores, la GT Cut 4 o la AE 3 son decisiones más inteligentes.</p>
+
+<p class="art-outro">¿La Kobe 8 Protro es para tu perfil? El <a href="/quiz">quiz de CANCHA.ZAPA</a> evalúa tu posición, estilo de juego y tipo de pie para decirte si es tu match o si hay algo más adecuado. Sin ambigüedades.</p>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
