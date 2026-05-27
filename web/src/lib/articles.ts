@@ -3260,6 +3260,73 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">¿Quieres explorar todos los retros jugables de nuestra base de datos? Visita el <a href="/rankings">ranking Retro de CANCHA.ZAPA</a> — 30 clásicos evaluados con puntuaciones técnicas actualizadas para 2025.</p>
     `,
   },
+  // ── 33. Calcetines cortos, medios o largos ───────────────────────────
+  {
+    slug: "calcetines-baloncesto-cortos-medios-o-largos",
+    title: "Calcetines de baloncesto: ¿cortos, medios o largos? Guía definitiva 2025",
+    metaTitle: "Calcetines baloncesto cortos, medios o largos — ¿cuál elegir? | CANCHA.ZAPA",
+    description: "¿Calcetines de baloncesto cortos, medios o largos? Descubre qué altura elegir según tu zapatilla, posición y estilo de juego. Guía con recomendaciones concretas.",
+    fecha: "2026-05-28",
+    fechaLabel: "28 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 4,
+    eyebrow: "★ Guía de accesorios · CANCHA.ZAPA",
+    heroTitle: "Calcetines de baloncesto",
+    heroSubtitle: "¿Cortos, medios o largos? — guía definitiva",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-kobe-4-protro", "nike-ja-3", "air-jordan-11", "ua-curry-13"],
+    relatedSeoPages: ["calcetines-baloncesto", "zapatillas-baloncesto-para-tobillos"],
+    body: `
+<p class="art-intro">La altura del calcetín no es solo estética. Afecta al ajuste dentro de la zapatilla, a la fricción, al soporte del tobillo y a cómo responde tu pie durante un cambio de dirección brusco. La buena noticia: la elección correcta es más sencilla de lo que parece.</p>
+
+<h2>Los tres tipos de altura</h2>
+<p>En baloncesto existen tres alturas principales. Cada una tiene un uso diferente y ninguna es universalmente mejor — depende de tu zapatilla y tu estilo:</p>
+
+<div style="background:#18181b;border:1px solid #3f3f46;border-radius:4px;padding:20px 24px;margin:24px 0">
+  <div style="display:grid;gap:16px">
+    <div>
+      <p style="margin:0 0 4px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;color:#f97316">CORTO — Ankle / No-Show</p>
+      <p style="margin:0;color:#a1a1aa;font-size:14px;line-height:1.7">Termina al nivel o por debajo del tobillo. Máximo court feel — sientes cada movimiento del pie dentro de la zapatilla. El preferido de los bases explosivos que usan low-tops. <strong style="color:#e4e4e7">Ejemplo:</strong> Nike Elite No-Show (~12€).</p>
+    </div>
+    <div>
+      <p style="margin:0 0 4px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;color:#f97316">MEDIO — Crew / Mid-Calf</p>
+      <p style="margin:0;color:#a1a1aa;font-size:14px;line-height:1.7">Llega a la mitad de la pantorrilla. El más popular en pista — equilibrio entre soporte, comodidad y protección ante abrasión. Funciona con mid-top y high-top. <strong style="color:#e4e4e7">Ejemplo:</strong> UA Playmaker Mid Crew (~12€).</p>
+    </div>
+    <div>
+      <p style="margin:0 0 4px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;color:#f97316">LARGO — Over-the-Calf / Knee</p>
+      <p style="margin:0;color:#a1a1aa;font-size:14px;line-height:1.7">Llega hasta debajo de la rodilla. Look NBA clásico de los 80-90. Añade compresión en pantorrilla — beneficioso para jugadores con historial de esguinces o que prefieren el soporte adicional. <strong style="color:#e4e4e7">Ejemplo:</strong> Stance NBA Over-the-Calf (~16€).</p>
+    </div>
+  </div>
+</div>
+
+<h2>¿Qué altura va con cada zapatilla?</h2>
+<p>La regla general es sencilla: la altura del calcetín no debería superar la caña de la zapatilla. Con un low-top, un calcetín largo queda raro y puede generar puntos de presión. Con un high-top, un calcetín corto deja espacio sin soporte entre el calcetín y el borde de la bota.</p>
+
+<ul>
+  <li><strong>Low-top</strong> (Kobe 4/5/6, Ja 3, GT Cut 4): calcetín <strong>corto o medio</strong>.</li>
+  <li><strong>Mid-top</strong> (AE 3, Curry 13, LeBron 22): calcetín <strong>medio</strong> — el más natural.</li>
+  <li><strong>High-top</strong> (Air Jordan 11, Reebok Question, Trae Young): calcetín <strong>medio o largo</strong>.</li>
+</ul>
+
+<h2>El factor posición</h2>
+<p>La posición en pista también influye. Los bases y escoltas acostumbran a preferir calcetines cortos o medios — priman la movilidad y el court feel. Los pívots y ala-pívots, que absorben más impactos verticales, suelen ir con medio o largo para la compresión extra en pantorrilla.</p>
+<p>Los aleros son el grupo más variado: depende de si priorizan explosividad lateral (corto) o soporte en drives al aro (medio/largo).</p>
+
+<h2>¿Importa la marca?</h2>
+<p>La altura es lo primero. La marca viene después. Dicho esto, no todos los calcetines del mismo precio rinden igual:</p>
+<ul>
+  <li><strong>Nike Elite</strong> (todas las alturas): el estándar en NBA, buena amortiguación en talón y antepié, talla fiel.</li>
+  <li><strong>Under Armour Playmaker</strong> (medio): grip interno excelente, no se mueve dentro de la zapatilla.</li>
+  <li><strong>Stance NBA</strong> (largo): la opción premium de la liga, hilo Royale con mayor durabilidad.</li>
+  <li><strong>Kiprun Decathlon</strong> (medio): la opción económica — 6€ que rinden mejor que cualquier calcetín de algodón.</li>
+</ul>
+
+<h2>Un apunte sobre el grosor</h2>
+<p>Separado de la altura, el grosor del calcetín afecta al ajuste. Si tu zapatilla queda justa, un calcetín más grueso (cushioned) puede causar rozaduras. Si queda con holgura, un calcetín más grueso puede mejorar el ajuste. La mayoría de los Nike Elite cushioned están calculados para ser el estándar — con uno de esos, el ajuste que probaste en tienda es el ajuste que tendrás en pista.</p>
+
+<p class="art-outro">En cada ficha de zapatilla de CANCHA.ZAPA encontrarás el calcetín recomendado por altura en la sección "Combina con →". Puedes ver todas las opciones en nuestra <a href="/calcetines-baloncesto">guía de calcetines de baloncesto</a> o comparar zapatillas por altura en el <a href="/comparar">comparador</a>.</p>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
