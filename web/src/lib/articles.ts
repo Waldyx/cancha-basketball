@@ -42,7 +42,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "Guía completa 2025-2026 · Sin publicidad disfrazada",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["nike-gt-cut-4", "adidas-ae-3", "ua-curry-13", "nike-lebron-23", "jordan-tatum-4"],
-    relatedSeoPages: ["mejor-zapatilla-base", "mejor-zapatilla-pivot", "zapatillas-baratas"],
+    relatedSeoPages: ["mejor-zapatilla-base", "mejor-zapatilla-pivot", "zapatillas-baloncesto-baratas"],
     body: `
 <p class="art-intro">Cada año salen decenas de modelos nuevos, cada uno prometiendo ser "el mejor". La realidad es más sencilla: la mejor zapatilla para ti depende de cuatro variables. Si las entiendes, nunca comprarás mal.</p>
 
@@ -215,7 +215,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "¿La mejor mainline de Jordan Brand en años?",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["jordan-40", "jordan-tatum-4", "nike-kd-19", "nike-lebron-23"],
-    relatedSeoPages: ["mejores-zapatillas-jordan", "zapatillas-premium", "zapatillas-cushion"],
+    relatedSeoPages: ["mejores-zapatillas-jordan", "zapatillas-baloncesto-premium", "zapatillas-cushion"],
     body: `
 <p class="art-intro">Jordan Brand llevaba años sin innovar de verdad en su línea mainline. La Jordan 38 fue discreta; la 39 mejoró pero sin hito tecnológico. Con la Air Jordan 40, la cosa cambia: es la primera zapatilla de baloncesto en combinar ZoomX foam con Zoom Strobel — tecnología que antes solo existía en los running más caros del mercado.</p>
 
@@ -412,7 +412,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "Cuáles aguantan el asfalto y cuáles no",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["nike-ja-3", "adidas-ae-3", "anta-kai-2", "nike-lebron-23", "ua-curry-13"],
-    relatedSeoPages: ["zapatillas-outdoor", "zapatillas-baratas", "mejor-zapatilla-base"],
+    relatedSeoPages: ["zapatillas-outdoor", "zapatillas-baloncesto-baratas", "mejor-zapatilla-base"],
     body: `
 <p class="art-intro">El baloncesto al aire libre es el mayor enemigo de tus zapatillas de interior. El asfalto y el cemento destrozan suelas en cuestión de semanas. Lo que dura 2 temporadas en pabellón puede quedar inutilizable después de 10 partidos en la calle. Antes de comprar, tienes que saber qué buscar — y qué evitar.</p>
 
@@ -528,7 +528,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "Las que realmente encajan — guía 2025",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["nike-ja-3", "adidas-ae-3", "anta-kai-2", "ua-curry-13", "nike-lebron-23"],
-    relatedSeoPages: ["zapatillas-baloncesto-pie-ancho", "mejores-zapatillas-baloncesto-2025", "zapatillas-baratas"],
+    relatedSeoPages: ["zapatillas-baloncesto-pie-ancho", "mejores-zapatillas-baloncesto-2025", "zapatillas-baloncesto-baratas"],
     body: `
 <p class="art-intro">La mayoría de marcas diseñan sus zapatillas de baloncesto para un pie estándar o incluso estrecho. Si tienes pie ancho, el mercado juega en tu contra: compras un modelo que en la talla parece correcto, lo pisas en el primer partido, y al cuarto de hora el quinto dedo ya está ardiendo. Esta guía va directo al grano: qué marcas van anchas, cuáles evitar, y los 5 mejores modelos para pie ancho en 2025.</p>
 
@@ -618,7 +618,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "Qué zapatilla te protege de verdad",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["jordan-tatum-4", "nike-lebron-23", "jordan-40", "anta-kt-11"],
-    relatedSeoPages: ["zapatillas-baloncesto-para-tobillos", "zapatillas-baratas", "mejor-zapatilla-pivot"],
+    relatedSeoPages: ["zapatillas-baloncesto-para-tobillos", "zapatillas-baloncesto-baratas", "mejor-zapatilla-pivot"],
     body: `
 <p class="art-intro">El esguince de tobillo es la lesión más frecuente en baloncesto. Cada cambio de dirección, cada aterrizaje, cada bloqueo es una oportunidad para torcerte. La zapatilla correcta no elimina el riesgo, pero lo reduce significativamente. Y la incorrecta — una low-top si tienes historial de esguinces — puede mandarte a la baja antes de acabar el primer partido.</p>
 
@@ -800,7 +800,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "Las 8 mejores opciones por menos de 80€ en 2025",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["nike-precision-8", "adidas-cross-em-up-select", "decathlon-tarmak-voltzy-500", "adidas-ownthegame-3", "ua-lockdown-7"],
-    relatedSeoPages: ["zapatillas-baratas", "zapatillas-junior"],
+    relatedSeoPages: ["zapatillas-baloncesto-baratas", "zapatillas-baloncesto-junior"],
     imagen: "https://ballershoesdb.com/wp-content/uploads/NikePrecision8-Cropped-650x406.jpg",
     body: `
 <p class="art-intro">Encontrar una zapatilla de baloncesto que combine buen rendimiento, estilo y un precio asequible no es fácil, pero en 2025 el mercado español ofrece varias opciones por debajo de los 80 €. Aquí tienes un análisis de las ocho mejores alternativas para que puedas jugar sin vaciar tu cartera.</p>
@@ -893,7 +893,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "¿Merecen la pena las zapatillas chinas de baloncesto?",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["anta-kai-2", "anta-kt-11", "lining-wow-allcity-13", "lining-sonic-12", "peak-taichi-flash"],
-    relatedSeoPages: ["zapatillas-baratas", "zapatillas-premium"],
+    relatedSeoPages: ["zapatillas-baloncesto-baratas", "zapatillas-baloncesto-premium"],
     imagen: "https://wowsole.com/wp-content/uploads/2024/01/ANTA-Kai-2-01.jpg",
     body: `
 <p class="art-intro">En los últimos años, ANTA, Li-Ning y Peak han pasado de ser marcas desconocidas en España a tener presencia real en las pistas. En 2025, estas marcas chinas ofrecen tecnología propia, colaboraciones con estrellas de la NBA y precios hasta un 40% más bajos que Nike o Adidas. ¿Pero merecen realmente la pena? Lo analizamos sin filtros.</p>
@@ -967,7 +967,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "Ranking honesto 2025 · Puntuaciones reales, no solo nostalgia",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["air-jordan-12", "air-jordan-14", "nike-kobe-5-protro", "reebok-question-mid", "nike-air-force-1"],
-    relatedSeoPages: ["mejores-zapatillas-baloncesto-2025", "zapatillas-baratas"],
+    relatedSeoPages: ["mejores-zapatillas-baloncesto-2025", "zapatillas-baloncesto-baratas"],
     body: `
 <p class="art-intro">Las zapatillas retro de baloncesto tienen un problema: se venden con nostalgia pero se evalúan con specs de 1990. En CANCHA.ZAPA las puntuamos igual que cualquier otra zapatilla. El resultado es honesto y a veces sorprendente: algunas aguantan mejor de lo que piensas.</p>
 
@@ -1371,7 +1371,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "Lo que nadie te dice antes de comprarlas",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["nike-precision-8", "adidas-cross-em-up-select", "decathlon-tarmak-voltzy-500", "nike-giannis-immortality-5", "ua-lockdown-7"],
-    relatedSeoPages: ["zapatillas-junior", "zapatillas-baratas", "mejor-zapatilla-base"],
+    relatedSeoPages: ["zapatillas-baloncesto-junior", "zapatillas-baloncesto-baratas", "mejor-zapatilla-base"],
     body: `
 <p class="art-intro">Comprar zapatillas de baloncesto para un niño o adolescente tiene sus propias reglas. Los pies crecen rápido, el presupuesto es limitado y el rendimiento debe acompañar el nivel de juego. Esta guía responde las preguntas que todo padre hace antes de comprar.</p>
 
