@@ -318,5 +318,40 @@ const pickAhorro = editorPick.mp && editorPick.mp.precio_actual < editorPick.z.p
       </div>
     </section>
 
+    {/* GUÍAS POR PERFIL */}
+    <section style="padding:48px 0 64px;border-top:1px solid #27272a">
+      <div class="shell">
+        <p class="cz-eyebrow" style="margin-bottom:16px">★ Guías por perfil</p>
+        <h2 class="home-h2-sm" style="margin-bottom:28px">
+          Encuentra tu <span class="accent">zapatilla</span>
+        </h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px">
+          {[
+            { href: "/mejor-zapatilla-base", label: "Para bases", icon: "⚡" },
+            { href: "/mejor-zapatilla-escolta", label: "Para escoltas", icon: "🏀" },
+            { href: "/mejor-zapatilla-alero", label: "Para aleros", icon: "🔄" },
+            { href: "/mejor-zapatilla-pivot", label: "Para pívots", icon: "💪" },
+            { href: "/zapatillas-outdoor", label: "Para exterior", icon: "☀️" },
+            { href: "/zapatillas-baloncesto-baratas", label: "Económicas", icon: "💰" },
+            { href: "/zapatillas-baloncesto-para-rodillas", label: "Rodillas sensibles", icon: "🦵" },
+            { href: "/zapatillas-baloncesto-para-tobillos", label: "Soporte tobillo", icon: "🩼" },
+            { href: "/zapatillas-baloncesto-pie-ancho", label: "Pie ancho", icon: "👟" },
+            { href: "/zapatillas-baloncesto-mujer", label: "Para mujer", icon: "⭐" },
+            { href: "/zapatillas-baloncesto-junior", label: "Para junior", icon: "🌱" },
+            { href: "/mejores-zapatillas-baloncesto-2025", label: "Top 2025-2026", icon: "🏆" },
+          ].map(({ href, label, icon }) => (
+            <a href={href} style="display:flex;align-items:center;gap:10px;background:#141414;border:1px solid #27272a;padding:12px 16px;text-decoration:none;transition:border-color .15s;font-size:13px;font-weight:700;color:#e4e4e7;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;letter-spacing:-.01em" class="guide-link">
+              <span>{icon}</span>
+              <span>{label}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
   </main>
+
+  <style>
+    .guide-link:hover { border-color: #f97316 !important; color: #f97316 !important; }
+  </style>
 </Base>
