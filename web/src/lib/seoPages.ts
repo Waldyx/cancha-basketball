@@ -851,6 +851,39 @@ export const SEO_PAGES: SeoPage[] = [
     ],
   }),
 
+  // ── TALLA GRANDE ──────────────────────────────────────────────────
+  {
+    slug: "zapatillas-baloncesto-talla-grande",
+    title: "Zapatillas de baloncesto talla grande (45-50) | CANCHA.ZAPA",
+    description: "Las mejores zapatillas de baloncesto en talla grande 45, 46, 47, 48 y más. Qué marcas llegan a tallas extra en España y dónde comprarlas.",
+    eyebrow: "★ Talla grande · Pie grande",
+    h1Pre: "Zapatillas baloncesto",
+    h1Accent: "talla grande",
+    h1Post: "— 45 a 50 EU",
+    lede: "Si usas talla 45 o más, saber qué modelos llegan a tu talla es tan importante como la calidad de la zapatilla. Aquí filtramos lo más puntuado para que elijas con confianza.",
+    filter: (z) => ["Nike", "Adidas", "Jordan", "Under Armour", "New Balance", "Li-Ning", "Anta"].includes(z.marca),
+    sort: byScoreDesc,
+    guideTitle: "Cómo comprar en talla grande en España",
+    guideIntro: "Los jugadores con talla 45+ tienen una limitación real: no todos los modelos llegan a esas tallas en España. Las grandes marcas (Nike, Adidas, UA, New Balance) generalmente cubren hasta EU 49-50. Las marcas más pequeñas o de nicho pueden cortar en 46-47.",
+    guidePoints: [
+      { lab: "Nike llega hasta EU 50", body: "La mayoría de modelos Nike y Jordan llegan a US 16 (EU ~50) en stockx.com, Amazon ES tiene hasta EU 48-49 habitualmente. LeBron y KD son las líneas con mejor disponibilidad en tallas grandes." },
+      { lab: "Adidas hasta EU 52", body: "Adidas es la marca con mayor rango de tallas en baloncesto: llega hasta US 18 en modelos como la AE 3 y Dame. Amazon ES y Adidas.es suelen tener tallas grandes en stock." },
+      { lab: "UA Curry hasta EU 50", body: "Under Armour tiene buena disponibilidad de la línea Curry hasta EU 50. Curry 13 y 12 disponibles en tallas grandes en UA.es y Amazon ES." },
+      { lab: "Pie ancho + talla grande", body: "Pie grande a menudo significa pie ancho. Nike LeBron y Adidas AE 3 tienen horma más generosa en tallas grandes. Evita modelos con horma estrecha como muchos Kyrie." },
+    ],
+    faqs: [
+      { q: "¿Dónde comprar zapatillas de baloncesto talla 46, 47 o 48 en España?",
+        a: "Amazon ES es la mejor opción con stock más amplio en tallas grandes. Nike.es y Adidas.es tienen tallas hasta EU 50 online aunque puede haber stock limitado. Foot Locker ES y JD Sports tienen menos disponibilidad. Para EU 49+, KicksCrew y StockX son opciones internacionales con envío a España." },
+      { q: "¿Las zapatillas de baloncesto se hacen en talla 50?",
+        a: "Sí, aunque no todos los modelos. Nike y Adidas llegan a US 16-18 (EU 49-52) en sus líneas signature principales. Jordan Brand también cubre US 16. Under Armour llega a US 15 (EU 49). Para tallas muy grandes, KicksCrew es la referencia con la mayor variedad." },
+      { q: "¿En talla grande es mejor Nike o Adidas para baloncesto?",
+        a: "Adidas tiene ligeramente mejor disponibilidad y horma más generosa en tallas grandes — el pie grande suele ir asociado a pie ancho, y Adidas horma es más cómoda. El LeBron de Nike también es amplio para tallas grandes. Para pívots con talla 47+: Nike LeBron 22 o Adidas AE 3 son las apuestas más seguras." },
+    ],
+    related: [],
+    catalogQuery: "?marca=Nike",
+    catalogLabel: "Ver catálogo ordenado por score",
+  },
+
   // ── MEJOR DE 2025 ──────────────────────────────────────────────────
   {
     slug: "mejores-zapatillas-baloncesto-2025",
