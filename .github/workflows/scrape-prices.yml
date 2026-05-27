@@ -72,13 +72,5 @@ jobs:
             echo "PRICES_UPDATED=true" >> $GITHUB_ENV
           fi
 
-      - name: 🚀 Deploy a Vercel
-        if: env.PRICES_UPDATED == 'true'
-        working-directory: web
-        run: |
-          npx vercel --prod --yes
-          echo "Deploy Vercel activado."
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      # Deploy: el git push del paso anterior ya activa el deploy automático
+      # de Vercel vía integración GitHub → no hace falta llamar a la CLI.
