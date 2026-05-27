@@ -6,10 +6,13 @@ Allow: /
 Allow: /zapatillas
 Allow: /zapatilla/
 Allow: /rankings
+Allow: /blog
+Allow: /blog/
 Allow: /metodologia
 Allow: /financiacion
 Allow: /faq
 Allow: /guia-tallas
+Allow: /mis-zapas
 
 # Páginas dinámicas que dependen de sessionStorage (vacías sin contexto)
 Disallow: /resultados
