@@ -2256,6 +2256,242 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">¿Todavía tienes dudas sobre qué marca encaja con tu perfil? <a href="/quiz">El quiz de CANCHA.ZAPA</a> no filtra por marca — filtra por tus necesidades reales y te da las 5 más compatibles. A veces el resultado sorprende.</p>
     `,
   },
+
+  // ── 25. Guía bases ──────────────────────────────────────────────────
+  {
+    slug: "mejores-zapatillas-bases-2025",
+    title: "Mejores zapatillas de baloncesto para bases en 2025-2026",
+    metaTitle: "Mejores zapatillas para bases baloncesto 2025-2026 | CANCHA.ZAPA",
+    description:
+      "Guía completa: las mejores zapatillas para bases en 2025. Reactividad, ligereza y tracción. Top 5 con análisis técnico, comparativa y veredicto honesto.",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Guía por posición · Bases 2025",
+    heroTitle: "Mejores zapas para bases",
+    heroSubtitle: "2025-2026 · Reactividad, ligereza y primer paso",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-gt-cut-4", "ua-curry-13", "adidas-ae-3", "anta-kai-2", "nike-ja-3"],
+    relatedSeoPages: ["mejor-zapatilla-base", "zapatillas-reactivas", "zapatillas-baloncesto-baratas"],
+    body: `
+<p class="art-intro">El base lleva el juego. Cada posesión empieza con el balón en tus manos y los primeros pasos determinan si el equipo abre el campo o se queda bloqueado. La zapatilla de un base tiene una misión clara: darte ventaja en el primer paso, darte agarre cuando frenas, y no pesarte cuando llegas al último cuarto. No hay sitio para concesiones.</p>
+
+<h2>Qué busca un base en su zapatilla</h2>
+
+<p>Tres atributos dominan la selección para un base. Todo lo demás es secundario:</p>
+<ul>
+  <li><strong>Respuesta 8+:</strong> el primer paso explosivo sale de la espuma que devuelve energía. Espumas blandas que absorben → lentitud. Espumas firmes y reactivas → ventaja.</li>
+  <li><strong>Ligereza (sub-380g):</strong> cada 50g extra se traduce en fatiga acumulada en los últimos 10 minutos. Los bases hacen más sprints por partido que cualquier otra posición.</li>
+  <li><strong>Tracción 8+:</strong> si no agarras cuando frenas, el primer paso no vale de nada. El patrón de suela es más importante que la marca.</li>
+</ul>
+
+<p>Lo que importa menos para un base:</p>
+<ul>
+  <li>Cushion máximo — sacrifica respuesta. Un cushion 6-7 es suficiente para la mayoría de bases sub-85kg.</li>
+  <li>Caña alta — limita la velocidad. Low o mid-top según tu historial de tobillo.</li>
+</ul>
+
+<h2>Top 5 zapatillas para bases en 2025</h2>
+
+<h3><a href="/zapatilla/nike-gt-cut-4">Nike GT Cut 4 — 150€</a></h3>
+<p><strong>La más explosiva del mercado en 2025.</strong> El Zoom Air de la GT Cut 4 es el más reactivo que Nike fabrica para baloncesto. 310g, suela de goma dura multidireccional con tracción 10/10, court feel absolutamente exceptional. Si tu pie encaja (horma estrecha) y juegas siempre en interior limpio, no hay nada mejor en 2025.</p>
+<ul>
+  <li>✅ Respuesta 10/10 — la más reactiva del grupo</li>
+  <li>✅ Tracción 10/10 — herringbone de carbono</li>
+  <li>✅ 310g — la más ligera del grupo</li>
+  <li>❌ Horma muy estrecha — pie normal o estrecho únicamente</li>
+  <li>❌ Solo interior — la suela se destruye en asfalto</li>
+</ul>
+
+<h3><a href="/zapatilla/ua-curry-13">Under Armour Curry 13 — 140€</a></h3>
+<p><strong>El mejor court feel del mercado.</strong> UA Flow sin goma en la suela significa que el antepié toca directamente la espuma — el feeling más cercano al suelo que puedes tener en una zapatilla de baloncesto. Para bases que priorizan sentir la cancha, es insuperable. Cushion algo mayor que la GT Cut 4 — mejor para bases de 75-90kg.</p>
+<ul>
+  <li>✅ Court feel único — el más cercano al suelo del mercado</li>
+  <li>✅ Tracción 9/10 en parquet limpio</li>
+  <li>✅ Horma normal — más segura para la mayoría de pies</li>
+  <li>❌ Sin goma → no outdoor. Una sesión en asfalto destruye la suela</li>
+  <li>❌ Tracción baja en pistas con polvo (sin goma que raspa)</li>
+</ul>
+
+<h3><a href="/zapatilla/adidas-ae-3">Adidas AE 3 — 130€</a></h3>
+<p><strong>El mejor equilibrio precio/rendimiento para bases.</strong> Herringbone 9/10 que funciona en parquet limpio y sucio. Lightstrike Pro reactivo pero con algo más de cushion que la GT Cut 4. 340g, horma normal. Para bases que juegan en diferentes canchas y no quieren pagar el precio premium de la GT Cut 4.</p>
+<ul>
+  <li>✅ Tracción 9/10 — aguanta pistas con polvo</li>
+  <li>✅ Respuesta 9/10 — primer paso rápido</li>
+  <li>✅ La más económica del top 3</li>
+  <li>❌ No llega al nivel de respuesta pura de la GT Cut 4</li>
+</ul>
+
+<h3><a href="/zapatilla/anta-kai-2">ANTA Kai 2 — ~119€</a></h3>
+<p><strong>La mejor relación calidad-precio del mercado + horma ancha.</strong> Kyrie Irving tiene uno de los pies más exigentes del baloncesto (ancho, con historial de tobillo) y la Kai 2 lo refleja. A-Flashfoam reactivo, tracción competente y suela que aguanta exterior moderado. Para bases con pie ancho o que no quieren gastar más de 120€, es la elección clara.</p>
+<ul>
+  <li>✅ Precio: 30€ menos que la AE 3 con 90% del rendimiento</li>
+  <li>✅ Horma ancha — la mejor para pies anchos del grupo</li>
+  <li>✅ Outdoor moderado — suela de goma más resistente que la Curry 13</li>
+  <li>❌ Respuesta algo por debajo de GT Cut 4 y Curry 13</li>
+</ul>
+
+<h3><a href="/zapatilla/nike-ja-3">Nike Ja 3 — 135€</a></h3>
+<p><strong>La mejor opción para bases con pie ancho dentro de Nike.</strong> ZoomX full-length da un bounce excepcional para su precio. Horma más ancha que cualquier otra Nike en producción. Suela de goma que aguanta outdoor moderado. Para bases que querían Nike pero no encajaban en la GT Cut 4, la Ja 3 es la respuesta.</p>
+<ul>
+  <li>✅ ZoomX full-length: cushion + bounce excepcional para un guard</li>
+  <li>✅ Horma ancha (raro en Nike)</li>
+  <li>✅ Outdoor moderado — goma completa</li>
+  <li>❌ No llega al court feel de la Curry 13 o la GT Cut 4</li>
+</ul>
+
+<h2>Comparativa rápida</h2>
+<div style="overflow-x:auto">
+<table style="width:100%;border-collapse:collapse;font-size:14px">
+  <thead>
+    <tr style="border-bottom:2px solid #f97316">
+      <th style="padding:8px;text-align:left">Modelo</th>
+      <th style="padding:8px;text-align:center">Respuesta</th>
+      <th style="padding:8px;text-align:center">Tracción</th>
+      <th style="padding:8px;text-align:center">Peso</th>
+      <th style="padding:8px;text-align:center">Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>Nike GT Cut 4</strong></td>
+      <td style="padding:8px;text-align:center">⭐ 10/10</td>
+      <td style="padding:8px;text-align:center">⭐ 10/10</td>
+      <td style="padding:8px;text-align:center">⭐ 310g</td>
+      <td style="padding:8px;text-align:center">150€</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>UA Curry 13</strong></td>
+      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">345g</td>
+      <td style="padding:8px;text-align:center">140€</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>Adidas AE 3</strong></td>
+      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">340g</td>
+      <td style="padding:8px;text-align:center">⭐ 130€</td>
+    </tr>
+    <tr style="border-bottom:1px solid #27272a">
+      <td style="padding:8px"><strong>ANTA Kai 2</strong></td>
+      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">330g</td>
+      <td style="padding:8px;text-align:center">⭐ 119€</td>
+    </tr>
+    <tr>
+      <td style="padding:8px"><strong>Nike Ja 3</strong></td>
+      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">326g</td>
+      <td style="padding:8px;text-align:center">135€</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<h2>¿Cuál elegir?</h2>
+<ul>
+  <li><strong>Máximo rendimiento, pie normal o estrecho, interior siempre → <a href="/zapatilla/nike-gt-cut-4">GT Cut 4</a></strong></li>
+  <li><strong>Máximo court feel, juegas solo en interior, horma normal → <a href="/zapatilla/ua-curry-13">Curry 13</a></strong></li>
+  <li><strong>Mejor equilibrio precio/rendimiento, interior y outdoor → <a href="/zapatilla/adidas-ae-3">AE 3</a></strong></li>
+  <li><strong>Presupuesto ajustado o pie ancho → <a href="/zapatilla/anta-kai-2">ANTA Kai 2</a></strong></li>
+  <li><strong>Pie ancho, quieres Nike, outdoor ocasional → <a href="/zapatilla/nike-ja-3">Ja 3</a></strong></li>
+</ul>
+
+<p class="art-outro">¿Sigues con dudas? El <a href="/quiz">quiz de CANCHA.ZAPA</a> filtra por posición, peso, tipo de pie y tipo de cancha para darte las 5 más compatibles con tu perfil exacto. Menos de un minuto.</p>
+    `,
+  },
+
+  // ── 26. Guía escoltas ───────────────────────────────────────────────
+  {
+    slug: "mejores-zapatillas-escoltas-2025",
+    title: "Mejores zapatillas de baloncesto para escoltas en 2025-2026",
+    metaTitle: "Mejores zapatillas para escoltas baloncesto 2025-2026 | CANCHA.ZAPA",
+    description:
+      "Las mejores zapatillas para escoltas en 2025: estabilidad lateral, cortes sin balón y tiro. Top 5 con análisis técnico honesto.",
+    fecha: "2026-05-27",
+    fechaLabel: "27 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 5,
+    eyebrow: "★ Guía por posición · Escoltas 2025",
+    heroTitle: "Mejores zapas para escoltas",
+    heroSubtitle: "2025-2026 · Estabilidad, cortes y tiro de confianza",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["adidas-ae-3", "nike-kobe-8-protro", "ua-curry-13", "jordan-tatum-4", "nike-gt-cut-4"],
+    relatedSeoPages: ["mejor-zapatilla-escolta", "zapatillas-equilibradas", "zapatillas-baloncesto-130-euros"],
+    body: `
+<p class="art-intro">El escolta es la posición más infravalorada cuando se trata de elegir zapatilla. Muchos escoltas copian a los bases y van a la más reactiva del mercado — y se dan cuenta en el primer partido que su juego pide más. El escolta corre sin balón (necesita ligereza), frena en seco para tirar (necesita estabilidad lateral), y defiende a jugadores más rápidos (necesita tracción constante). No es lo mismo que jugar de base.</p>
+
+<h2>El perfil del escolta moderno</h2>
+<p>El escolta en 2025 tiene dos variantes:</p>
+<ul>
+  <li><strong>Escolta-tirador (Klay Thompson, Devin Booker):</strong> mucho movimiento sin balón, paradas bruscas para el tiro, necesita estabilidad lateral 8+ para esos cambios de dirección. Puede permitirse algo más de cushion porque sus aterrizajes son frecuentes en el tiro.</li>
+  <li><strong>Escolta-creador (Shai Gilgeous-Alexander, Devin Booker):</strong> más parecido a un base, necesita respuesta alta para las penetraciones. Puede funcionar con casi las mismas zapatillas que un base.</li>
+</ul>
+
+<h2>Top 5 zapatillas para escoltas en 2025</h2>
+
+<h3><a href="/zapatilla/adidas-ae-3">Adidas AE 3 — 130€</a></h3>
+<p><strong>La opción más completa del mercado para el perfil escolta-creador.</strong> El herringbone de 9/10 da agarre en cualquier condición; el Lightstrike Pro da respuesta suficiente para las penetraciones sin sacrificar el cushion. Horma normal, precio competitivo. Para escoltas que juegan en diferentes canchas y no saben si van a interior o exterior.</p>
+<ul>
+  <li>✅ Tracción 9/10 — el mejor herringbone del mercado para exterior moderado</li>
+  <li>✅ Respuesta 9/10 — primer paso competitivo para escolta-creador</li>
+  <li>✅ El precio más equilibrado del grupo</li>
+  <li>❌ No el cushion más alto — para escoltas >90kg, considera la Tatum 4</li>
+</ul>
+
+<h3><a href="/zapatilla/nike-kobe-8-protro">Nike Kobe 8 Protro — 180€</a></h3>
+<p><strong>Para el escolta-tirador puro.</strong> La Kobe 8 Protro es la referencia histórica para el perfil escolta: ultra-reactiva (respuesta 10/10), ligerísima (280g) y con el court feel más bajo del mercado. Kobe Bryant era el tirador perfecto — su zapatilla lo refleja. El problema: la horma es muy estrecha y el precio alto.</p>
+<ul>
+  <li>✅ Respuesta 10/10 — la segunda más explosiva tras la GT Cut 4</li>
+  <li>✅ 280g — la más ligera del grupo</li>
+  <li>✅ Court feel excepcional para sentir la planta antes del tiro</li>
+  <li>❌ 180€ — la más cara del grupo</li>
+  <li>❌ Horma muy estrecha — pie normal o estrecho únicamente</li>
+</ul>
+
+<h3><a href="/zapatilla/ua-curry-13">Under Armour Curry 13 — 140€</a></h3>
+<p><strong>Para escoltas que priorizan el court feel y el tiro perimetral.</strong> UA Flow da la sensación de suelo más directa del mercado. Para el tirador que necesita sentir exactamente cuándo va a soltar el balón y qué tiene bajo los pies, la Curry 13 es el referente. Steph Curry es el mejor tirador de la historia — su zapatilla está diseñada para eso.</p>
+<ul>
+  <li>✅ Court feel único — ideal para tiradores de posición fija</li>
+  <li>✅ Tracción 9/10 en parquet limpio</li>
+  <li>✅ Horma normal — segura para la mayoría de pies</li>
+  <li>❌ Sin goma → exclusivamente interior. Outdoor la destruye</li>
+</ul>
+
+<h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — 150€</a></h3>
+<p><strong>Para el escolta-alero que juega físico.</strong> Jayson Tatum es técnicamente un alero, pero muchos escoltas físicos (6'5"+) se identifican con su perfil: defiende al base del rival, mete cortes, juega en el poste bajo a veces. La Tatum 4 ofrece la mayor estabilidad lateral del grupo y cushion para los aterrizajes de esos momentos físicos.</p>
+<ul>
+  <li>✅ Soporte lateral 9/10 — el mayor del grupo para escoltas físicos</li>
+  <li>✅ Cushion 8/10 — protege bien en aterrizajes de corte y rebote</li>
+  <li>✅ High-top: seguridad extra en el tobillo para el juego físico</li>
+  <li>❌ 390g y high-top — no para escoltas que priorizan la velocidad pura</li>
+</ul>
+
+<h3><a href="/zapatilla/nike-gt-cut-4">Nike GT Cut 4 — 150€</a></h3>
+<p><strong>Para el escolta-base que quiere la máxima reactividad.</strong> Si tu juego de escolta es más parecido al de un base (Shai Gilgeous-Alexander, por ejemplo), la GT Cut 4 te da el mismo primer paso explosivo con algo más de estabilidad que en configuración de base puro.</p>
+<ul>
+  <li>✅ Respuesta 10/10 y tracción 10/10 — el techo del mercado</li>
+  <li>✅ 310g — ligereza excepcional</li>
+  <li>❌ Horma muy estrecha — solo si tu pie lo admite</li>
+  <li>❌ No outdoor — solo interior limpio</li>
+</ul>
+
+<h2>¿Cuál elegir?</h2>
+<ul>
+  <li><strong>Escolta-creador con juego de penetración → <a href="/zapatilla/adidas-ae-3">AE 3</a></strong> (mejor equilibrio precio/rendimiento)</li>
+  <li><strong>Tirador puro de posición fija → <a href="/zapatilla/nike-kobe-8-protro">Kobe 8 Protro</a></strong> o <strong><a href="/zapatilla/ua-curry-13">Curry 13</a></strong> (court feel para el tiro)</li>
+  <li><strong>Escolta físico, 85kg+, juego por dentro → <a href="/zapatilla/jordan-tatum-4">Tatum 4</a></strong> (estabilidad y cushion)</li>
+  <li><strong>Escolta muy rápido, pie normal/estrecho → <a href="/zapatilla/nike-gt-cut-4">GT Cut 4</a></strong> (máxima reactividad)</li>
+</ul>
+
+<p class="art-outro">¿Escolta pero no sabes cuál de estos perfiles es el tuyo? El <a href="/quiz">quiz de CANCHA.ZAPA</a> tiene una pregunta sobre estilo de juego que distingue entre escolta-tirador y escolta-creador para darte la recomendación más ajustada a tu juego.</p>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────

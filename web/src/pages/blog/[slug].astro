@@ -33,11 +33,16 @@ const relatedSeoGuias = article.relatedSeoPages
   .slice(0, 3);
 
 // JSON-LD Article
+const ogImg = article.imagen
+  ? (article.imagen.startsWith("http") ? article.imagen : new URL(article.imagen, Astro.site).toString())
+  : new URL("/og-default.svg", Astro.site).toString();
+
 const articleJsonLd = {
   "@context": "https://schema.org",
   "@type": "Article",
   headline: article.title,
   description: article.description,
+  image: ogImg,
   author: {
     "@type": "Organization",
     name: article.author,
@@ -46,11 +51,13 @@ const articleJsonLd = {
   publisher: {
     "@type": "Organization",
     name: "CANCHA.ZAPA",
+    logo: { "@type": "ImageObject", url: new URL("/logo-cancha-zapa.svg", Astro.site).toString() },
     url: Astro.site?.toString(),
   },
   datePublished: article.fecha,
   dateModified: article.fecha,
   mainEntityOfPage: new URL(`/blog/${article.slug}`, Astro.site).toString(),
+  wordCount: Math.round(article.body.replace(/<[^>]+>/g, " ").trim().split(/\s+/).length),
 };
 
 // Breadcrumb JSON-LD
