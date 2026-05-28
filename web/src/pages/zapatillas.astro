@@ -510,6 +510,19 @@ const ordenadas = [...zapatillas].sort(
       });
       arr.forEach((c, i) => { (c as HTMLElement).style.order = String(i); });
 
+      // Force lazy images to load after CSS-order reflow (browser doesn't auto-retrigger)
+      requestAnimationFrame(() => {
+        $cards.forEach(c => {
+          if (c.classList.contains("hidden")) return;
+          c.querySelectorAll<HTMLImageElement>("img[loading='lazy']").forEach(img => {
+            if (!img.complete || img.naturalWidth === 0) {
+              const src = img.getAttribute("src");
+              if (src) { img.removeAttribute("src"); img.setAttribute("src", src); }
+            }
+          });
+        });
+      });
+
       $vacio.classList.toggle("hidden", visible > 0);
       $shown && ($shown.textContent = String(visible));
     }
