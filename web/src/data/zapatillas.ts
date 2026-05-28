@@ -1692,8 +1692,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para iniciación o uso casual. No es para competición seria. Si presupuesto sube de 70 €, mira el Dame Certified.",
     imagen_principal: "/shoes/adidas-cross-em-up-speed.webp",
     imagenes: [],
-    fuentes: [],
-    ultima_actualizacion: "2026-05-13",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 65,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=cross+em+up+speed", precio_actual: 60, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
@@ -1811,8 +1813,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para guards con presupuesto justo que buscan zapa rápida. La mejor relación calidad/precio low-top en tiendas físicas en España.",
     imagen_principal: "/shoes/decathlon-tarmak-fast-900.webp",
     imagenes: [],
-    fuentes: [],
-    ultima_actualizacion: "2026-05-13",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 85,
     links_compra: [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fsearch%3FNtt%3Dtarmak%2Bfast%2B900", precio_actual: 84.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
@@ -2011,9 +2015,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
     puntuaciones: {
-      traccion: 9, amortiguacion: 7, respuesta: 8,
-      soporte_lateral: 7, estabilidad: 7, peso_score: 7,
-      durabilidad_outdoor: 5, ventilacion: 7,
+      traccion: 8,
+      amortiguacion: 8,
+      respuesta: 8,
+      soporte_lateral: 7,
+      estabilidad: 8,
+      peso_score: 7,
+      durabilidad_outdoor: 5,
+      ventilacion: 7,
     },
     categoria_principal: "responsive",
     tags: ["retro-performance", "flight-plate", "all-around", "descuento"],
@@ -2038,8 +2047,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para escoltas y aleros que quieren un Jordan con rendimiento real sin pagar precio de lanzamiento. Un clásico moderno ahora asequible.",
     imagen_principal: "/shoes/jordan-xxxvii.webp",
     imagenes: [],
-    fuentes: [],
-    ultima_actualizacion: "2026-05-15",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/air-jordan-37-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 185,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=air+jordan+37&vst=air+jordan+37", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
@@ -2070,9 +2081,14 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "mesh+tpu",
     sucesor_id: "nike-lebron-22",
     puntuaciones: {
-      traccion: 8, amortiguacion: 8, respuesta: 5,
-      soporte_lateral: 8, estabilidad: 8, peso_score: 5,
-      durabilidad_outdoor: 7, ventilacion: 5,
+      traccion: 9,
+      amortiguacion: 9,
+      respuesta: 8,
+      soporte_lateral: 8,
+      estabilidad: 9,
+      peso_score: 5,
+      durabilidad_outdoor: 4,
+      ventilacion: 5,
     },
     categoria_principal: "cushion-focused",
     tags: ["signature", "cushion", "big-men", "descuento", "clasico"],
@@ -2098,8 +2114,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Si el LeBron 22 se sale de tu presupuesto, el 21 es prácticamente el mismo zapato con diferente upper. Para pívots y alas pesados, el mejor ratio calidad-precio del mercado ahora mismo.",
     imagen_principal: "/shoes/nike-lebron-21.webp",
     imagenes: [],
-    fuentes: [],
-    ultima_actualizacion: "2026-05-15",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-lebron-21-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 190,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=lebron+21&vst=lebron+21", precio_actual: 135, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
@@ -2129,9 +2147,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
     puntuaciones: {
-      traccion: 8, amortiguacion: 7, respuesta: 6,
-      soporte_lateral: 8, estabilidad: 8, peso_score: 6,
-      durabilidad_outdoor: 6, ventilacion: 6,
+      traccion: 8,
+      amortiguacion: 8,
+      respuesta: 7,
+      soporte_lateral: 9,
+      estabilidad: 9,
+      peso_score: 5,
+      durabilidad_outdoor: 6,
+      ventilacion: 7,
     },
     categoria_principal: "cushion-focused",
     tags: ["signature", "value", "big-men", "descuento"],
@@ -2157,8 +2180,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para alas-pívot y pívots con presupuesto ajustado que necesitan amortiguación y soporte sin llegar a los €180 del LeBron.",
     imagen_principal: "/shoes/nike-zoom-freak-4.webp",
     imagenes: [],
-    fuentes: [],
-    ultima_actualizacion: "2026-05-15",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-zoom-freak-4-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=zoom+freak+4&vst=zoom+freak+4", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
@@ -2188,9 +2213,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh",
     puntuaciones: {
-      traccion: 7, amortiguacion: 6, respuesta: 5,
-      soporte_lateral: 7, estabilidad: 7, peso_score: 6,
-      durabilidad_outdoor: 6, ventilacion: 5,
+      traccion: 9,
+      amortiguacion: 7,
+      respuesta: 6,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 7,
+      durabilidad_outdoor: 7,
+      ventilacion: 7,
     },
     categoria_principal: "balanced",
     tags: ["budget", "big-men", "presupuesto"],
@@ -2216,8 +2246,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "La opción más económica para un jugador grande que quiere una Nike fiable. No esperes maravillas, pero no te fallará.",
     imagen_principal: "/shoes/nike-giannis-immortality-3.webp",
     imagenes: [],
-    fuentes: [],
-    ultima_actualizacion: "2026-05-15",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-giannis-immortality-3-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 65,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=giannis+immortality+3&vst=giannis+immortality+3", precio_actual: 50, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
@@ -2302,9 +2334,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh",
     puntuaciones: {
-      traccion: 8, amortiguacion: 6, respuesta: 8,
-      soporte_lateral: 7, estabilidad: 6, peso_score: 8,
-      durabilidad_outdoor: 5, ventilacion: 7,
+      traccion: 9,
+      amortiguacion: 7,
+      respuesta: 7,
+      soporte_lateral: 8,
+      estabilidad: 7,
+      peso_score: 8,
+      durabilidad_outdoor: 6,
+      ventilacion: 6,
     },
     categoria_principal: "responsive",
     tags: ["signature", "guard", "nitrofoam", "descuento"],
@@ -2329,8 +2366,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Si el MB.04 se sale de presupuesto, el MB.03 es una alternativa sólida. Mismo concepto, algo menos de tecnología, 40-50€ menos.",
     imagen_principal: "/shoes/puma-mb03.webp",
     imagenes: [],
-    fuentes: [],
-    ultima_actualizacion: "2026-05-15",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/puma-mb-03-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "puma_es", url: "https://eu.puma.com/es/es/buscar?q=mb+03+baloncesto", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
@@ -2448,8 +2487,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/ua-futr-x-elite.webp",
     imagenes: [],
     fuentes: [
-      { tipo: "weartesters", url: "https://weartesters.com/under-armour-futr-x-elite/" },
-      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/under-armour-flow-futr-x-elite/" },
+      { tipo: "evaluacion-propia" },
     ],
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 150,
@@ -2478,9 +2516,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh",
     puntuaciones: {
-      traccion: 9, amortiguacion: 7, respuesta: 8,
-      soporte_lateral: 7, estabilidad: 7, peso_score: 8,
-      durabilidad_outdoor: 7, ventilacion: 8,
+      traccion: 9,
+      amortiguacion: 7,
+      respuesta: 8,
+      soporte_lateral: 9,
+      estabilidad: 9,
+      peso_score: 9,
+      durabilidad_outdoor: 4,
+      ventilacion: 8,
     },
     categoria_principal: "responsive",
     tags: ["signature", "guard", "lightstrike-pro", "descuento"],
@@ -2505,8 +2548,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para bases y escoltas que quieren lo mejor de Adidas en guards sin pagar el premium del lanzamiento. Uno de los mejores valores del mercado ahora mismo.",
     imagen_principal: "/shoes/adidas-ae-1.webp",
     imagenes: [],
-    fuentes: [],
-    ultima_actualizacion: "2026-05-15",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/adidas-ae-1-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=ae+1+baloncesto", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
@@ -2535,9 +2580,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh",
     puntuaciones: {
-      traccion: 8, amortiguacion: 7, respuesta: 7,
-      soporte_lateral: 7, estabilidad: 7, peso_score: 7,
-      durabilidad_outdoor: 6, ventilacion: 7,
+      traccion: 8,
+      amortiguacion: 8,
+      respuesta: 7,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 7,
+      durabilidad_outdoor: 8,
+      ventilacion: 7,
     },
     categoria_principal: "balanced",
     tags: ["balanced", "fuelcell", "all-around"],
@@ -2562,8 +2612,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "El Toyota Camry del baloncesto: fiable, consistente, sin sorpresas. Para aleros y escoltas equilibrados que quieren una NB que simplemente funcione.",
     imagen_principal: "/shoes/nb-two-wxy-v4.webp",
     imagenes: [],
-    fuentes: [],
-    ultima_actualizacion: "2026-05-15",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/new-balance-two-wxy-v4/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 95,
     links_compra: [
       { tienda: "nb_es", url: "https://www.newbalance.es/search?q=two+wxy+v4", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
@@ -2650,9 +2702,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh",
     puntuaciones: {
-      traccion: 9, amortiguacion: 6, respuesta: 8,
-      soporte_lateral: 6, estabilidad: 6, peso_score: 8,
-      durabilidad_outdoor: 6, ventilacion: 8,
+      traccion: 8,
+      amortiguacion: 7,
+      respuesta: 8,
+      soporte_lateral: 7,
+      estabilidad: 7,
+      peso_score: 8,
+      durabilidad_outdoor: 8,
+      ventilacion: 7,
     },
     categoria_principal: "responsive",
     tags: ["signature", "guard", "low-top", "court-feel", "descuento"],
@@ -2677,8 +2734,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para bases y escoltas que priorizan velocidad y court feel. Con la PG 6 a 65€, pocas zapatillas ofrecen mejor tracción por ese precio.",
     imagen_principal: "/shoes/nike-pg-6.webp",
     imagenes: [],
-    fuentes: [],
-    ultima_actualizacion: "2026-05-15",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-pg-6-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=pg+6&vst=pg+6", precio_actual: 65, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
@@ -2706,9 +2765,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
     puntuaciones: {
-      traccion: 9, amortiguacion: 8, respuesta: 7,
-      soporte_lateral: 8, estabilidad: 8, peso_score: 5,
-      durabilidad_outdoor: 5, ventilacion: 6,
+      traccion: 9,
+      amortiguacion: 10,
+      respuesta: 6,
+      soporte_lateral: 9,
+      estabilidad: 9,
+      peso_score: 4,
+      durabilidad_outdoor: 3,
+      ventilacion: 8,
     },
     categoria_principal: "cushion-focused",
     tags: ["big-men", "zoom", "high-top", "descuento"],
@@ -2734,8 +2798,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "El zapato de Nike pensado desde cero para el juego interior. Si eres pívot, saltas mucho y tienes historial de rodillas o tobillos, la GT Jump 2 ofrece la mejor protección del mercado Nike ahora mismo.",
     imagen_principal: "/shoes/nike-gt-jump-2.webp",
     imagenes: [],
-    fuentes: [],
-    ultima_actualizacion: "2026-05-15",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-gt-jump-2/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 150,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=gt+jump+2&vst=gt+jump+2", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
@@ -3637,12 +3703,9 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
 
     fuentes: [
-      {
-        tipo: "evaluacion-propia",
-        url: "https://www.underarmour.es/es-es/p/calzado/curry-13/6007670.html",
-      },
+      { tipo: "evaluacion-propia" },
     ],
-    ultima_actualizacion: "2026-05-16",
+    ultima_actualizacion: "2026-05-29",
 
     precio_msrp_eur: 160,
     links_compra: [
@@ -3715,8 +3778,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/ua-lockdown-7.webp",
     imagenes: [],
 
-    fuentes: [],
-    ultima_actualizacion: "2026-05-16",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
 
     precio_msrp_eur: 75,
     links_compra: [
@@ -3790,8 +3855,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/ua-spawn-7-mid.webp",
     imagenes: [],
 
-    fuentes: [],
-    ultima_actualizacion: "2026-05-16",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
 
     precio_msrp_eur: 120,
     links_compra: [
@@ -3938,8 +4005,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/ua-curry-3z-25.webp",
     imagenes: [],
 
-    fuentes: [],
-    ultima_actualizacion: "2026-05-16",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
 
     precio_msrp_eur: 85,
     links_compra: [
@@ -3973,13 +4042,13 @@ const _rawZapatillas: Zapatilla[] = [
 
     puntuaciones: {
       traccion: 8,
-      amortiguacion: 8,
+      amortiguacion: 7,
       respuesta: 7,
-      soporte_lateral: 7,
+      soporte_lateral: 8,
       estabilidad: 7,
       peso_score: 7,
-      durabilidad_outdoor: 5,
-      ventilacion: 8,
+      durabilidad_outdoor: 8,
+      ventilacion: 7,
     },
     categoria_principal: "balanced",
     tags: ["low-top", "signature", "reactiva", "gama-media"],
@@ -4013,8 +4082,11 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/nike-luka-77.webp",
     imagenes: [],
 
-    fuentes: [],
-    ultima_actualizacion: "2026-05-16",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/jordan-luka-77-review/" },
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/jordan-luka-77/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
 
     precio_msrp_eur: 100,
     links_compra: [
@@ -4048,12 +4120,12 @@ const _rawZapatillas: Zapatilla[] = [
     puntuaciones: {
       traccion: 8,
       amortiguacion: 8,
-      respuesta: 8,
+      respuesta: 7,
       soporte_lateral: 8,
-      estabilidad: 7,
-      peso_score: 8,
+      estabilidad: 8,
+      peso_score: 7,
       durabilidad_outdoor: 5,
-      ventilacion: 8,
+      ventilacion: 7,
     },
     categoria_principal: "responsive",
     tags: ["low-top", "signature", "ligera", "rapida", "explosiva"],
@@ -4087,8 +4159,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/nike-book-2.webp",
     imagenes: [],
 
-    fuentes: [],
-    ultima_actualizacion: "2026-05-16",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-book-2-performance-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
 
     precio_msrp_eur: 150,
     links_compra: [
@@ -4197,13 +4271,13 @@ const _rawZapatillas: Zapatilla[] = [
 
     puntuaciones: {
       traccion: 9,
-      amortiguacion: 8,
+      amortiguacion: 7,
       respuesta: 8,
-      soporte_lateral: 8,
-      estabilidad: 8,
+      soporte_lateral: 9,
+      estabilidad: 9,
       peso_score: 8,
-      durabilidad_outdoor: 6,
-      ventilacion: 8,
+      durabilidad_outdoor: 4,
+      ventilacion: 7,
     },
     categoria_principal: "balanced",
     tags: ["low-top", "signature", "cushion", "agarre", "versatil"],
@@ -4237,8 +4311,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/nike-sabrina-3.webp",
     imagenes: [],
 
-    fuentes: [],
-    ultima_actualizacion: "2026-05-16",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-sabrina-3-performance-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
 
     precio_msrp_eur: 130,
     links_compra: [
@@ -4419,13 +4495,13 @@ const _rawZapatillas: Zapatilla[] = [
 
     puntuaciones: {
       traccion: 8,
-      amortiguacion: 7,
-      respuesta: 7,
+      amortiguacion: 6,
+      respuesta: 5,
       soporte_lateral: 7,
       estabilidad: 7,
       peso_score: 7,
-      durabilidad_outdoor: 6,
-      ventilacion: 8,
+      durabilidad_outdoor: 7,
+      ventilacion: 7,
     },
     categoria_principal: "balanced",
     tags: ["low-top", "signature", "accesible", "gama-baja"],
@@ -4459,8 +4535,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/nike-giannis-immortality-5.webp",
     imagenes: [],
 
-    fuentes: [],
-    ultima_actualizacion: "2026-05-16",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
 
     precio_msrp_eur: 90,
     links_compra: [
@@ -4493,11 +4571,11 @@ const _rawZapatillas: Zapatilla[] = [
 
     puntuaciones: {
       traccion: 9,
-      amortiguacion: 7,
+      amortiguacion: 6,
       respuesta: 7,
-      soporte_lateral: 7,
-      estabilidad: 7,
-      peso_score: 7,
+      soporte_lateral: 6,
+      estabilidad: 6,
+      peso_score: 8,
       durabilidad_outdoor: 6,
       ventilacion: 7,
     },
@@ -4533,8 +4611,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/nike-gt-cut-academy-2.webp",
     imagenes: [],
 
-    fuentes: [],
-    ultima_actualizacion: "2026-05-16",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-gt-cut-academy/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
 
     precio_msrp_eur: 100,
     links_compra: [
@@ -4567,13 +4647,13 @@ const _rawZapatillas: Zapatilla[] = [
 
     puntuaciones: {
       traccion: 8,
-      amortiguacion: 8,
+      amortiguacion: 7,
       respuesta: 7,
-      soporte_lateral: 8,
+      soporte_lateral: 9,
       estabilidad: 8,
       peso_score: 7,
       durabilidad_outdoor: 6,
-      ventilacion: 7,
+      ventilacion: 5,
     },
     categoria_principal: "cushion-focused",
     tags: ["mid-top", "signature", "estable", "potente", "versatil"],
@@ -4607,8 +4687,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/puma-stewie-4.webp",
     imagenes: [],
 
-    fuentes: [],
-    ultima_actualizacion: "2026-05-16",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/puma-stewie-3-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
 
     precio_msrp_eur: 120,
     links_compra: [
@@ -4683,8 +4765,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/jordan-zion-4.webp",
     imagenes: [],
 
-    fuentes: [],
-    ultima_actualizacion: "2026-05-16",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
 
     precio_msrp_eur: 149.99,
     links_compra: [
@@ -4793,12 +4877,12 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "knit",
 
     puntuaciones: {
-      traccion: 8,
+      traccion: 9,
       amortiguacion: 8,
-      respuesta: 7,
-      soporte_lateral: 8,
+      respuesta: 9,
+      soporte_lateral: 9,
       estabilidad: 8,
-      peso_score: 6,
+      peso_score: 7,
       durabilidad_outdoor: 6,
       ventilacion: 7,
     },
@@ -4835,8 +4919,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/jordan-luka-4.webp",
     imagenes: [],
 
-    fuentes: [],
-    ultima_actualizacion: "2026-05-16",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/jordan-luka-4-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
 
     precio_msrp_eur: 139.99,
     links_compra: [
@@ -4868,14 +4954,14 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "knit",
 
     puntuaciones: {
-      traccion: 8,
+      traccion: 9,
       amortiguacion: 7,
-      respuesta: 8,
-      soporte_lateral: 6,
-      estabilidad: 7,
-      peso_score: 8,
-      durabilidad_outdoor: 6,
-      ventilacion: 8,
+      respuesta: 7,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 7,
+      durabilidad_outdoor: 7,
+      ventilacion: 6,
     },
     categoria_principal: "responsive",
     tags: ["low-top", "signature", "tirador", "guards", "zoom-air", "ligera"],
@@ -4910,8 +4996,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/nike-book-1.webp",
     imagenes: [],
 
-    fuentes: [],
-    ultima_actualizacion: "2026-05-16",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-book-1-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
 
     precio_msrp_eur: 110,
     links_compra: [
@@ -4943,14 +5031,14 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "mesh",
 
     puntuaciones: {
-      traccion: 8,
-      amortiguacion: 8,
-      respuesta: 8,
-      soporte_lateral: 8,
-      estabilidad: 8,
-      peso_score: 5,
-      durabilidad_outdoor: 6,
-      ventilacion: 7,
+      traccion: 9,
+      amortiguacion: 7,
+      respuesta: 7,
+      soporte_lateral: 9,
+      estabilidad: 9,
+      peso_score: 6,
+      durabilidad_outdoor: 4,
+      ventilacion: 2,
     },
     categoria_principal: "cushion-focused",
     tags: ["mid-top", "signature", "equilibrado", "guards", "lightstrike-pro"],
@@ -4984,8 +5072,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/adidas-harden-vol-10.webp",
     imagenes: [],
 
-    fuentes: [],
-    ultima_actualizacion: "2026-05-16",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/adidas-harden-vol-10-performance-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
 
     precio_msrp_eur: 159.99,
     links_compra: [
@@ -5286,14 +5376,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh",
     puntuaciones: {
-      traccion: 8,
+      traccion: 7,
       amortiguacion: 6,
       respuesta: 7,
       soporte_lateral: 7,
       estabilidad: 7,
-      peso_score: 8,
-      durabilidad_outdoor: 7,
-      ventilacion: 8,
+      peso_score: 9,
+      durabilidad_outdoor: 6,
+      ventilacion: 7,
     },
     categoria_principal: "balanced",
     tags: ["budget", "moderna"],
@@ -5309,8 +5399,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Buena opción para jugadores con presupuesto ajustado que buscan una zapatilla equilibrada y transpirable.",
     imagen_principal: "/shoes/adidas-exhibit-a.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 80,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=exhibit+a", precio_actual: 65, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
@@ -5393,10 +5485,10 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "mesh+tpu",
     puntuaciones: {
       traccion: 9,
-      amortiguacion: 7,
+      amortiguacion: 8,
       respuesta: 8,
-      soporte_lateral: 7,
-      estabilidad: 6,
+      soporte_lateral: 9,
+      estabilidad: 8,
       peso_score: 7,
       durabilidad_outdoor: 7,
       ventilacion: 7,
@@ -5415,8 +5507,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para bases que necesitan cambios de dirección rápidos y agarre constante a buen precio.",
     imagen_principal: "/shoes/nike-kyrie-infinity-2.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-kyrie-infinity-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 100,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kyrie+infinity+2&vst=kyrie+infinity+2", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
@@ -5522,8 +5616,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "La opción más asequible y fiable de UA. Para jugadores con presupuesto ajustado que juegan en pistas mixtas.",
     imagen_principal: "/shoes/ua-jet-23.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 75,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+jet+23+baloncesto&tag=canchazapa-21", precio_actual: 41.95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
@@ -5631,8 +5727,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para el jugador de interior que quiere cushion Nike sin gastar más de 80€. Simple y funcional.",
     imagen_principal: "/shoes/nike-air-max-impact-5.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 80,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=air+max+impact+5&vst=air+max+impact+5", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
@@ -5684,8 +5782,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "La alternativa de presupuesto medio más sorprendente. Si no te importa comprar online, bate a zapatillas el doble de caras en tracción.",
     imagen_principal: "/shoes/lining-sonic-12.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 100,
     links_compra: [
       { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c39LpYQ5", precio_actual: 85, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
@@ -5715,14 +5815,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
     puntuaciones: {
-      traccion: 8,
+      traccion: 9,
       amortiguacion: 7,
-      respuesta: 5,
+      respuesta: 6,
       soporte_lateral: 8,
       estabilidad: 8,
-      peso_score: 5,
-      durabilidad_outdoor: 8,
-      ventilacion: 6,
+      peso_score: 7,
+      durabilidad_outdoor: 7,
+      ventilacion: 7,
     },
     categoria_principal: "traction-king",
     tags: ["signature", "budget"],
@@ -5739,8 +5839,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "La opción más asequible para jugadores de interior con pie ancho. La Freak budget que funciona.",
     imagen_principal: "/shoes/nike-giannis-immortality-4.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-giannis-immortality-4-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 85,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=giannis+immortality+4&vst=giannis+immortality+4", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
@@ -5792,8 +5894,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para el escolta tirador que hace mucho trabajo fuera del balón y necesita cushion y transpirabilidad.",
     imagen_principal: "/shoes/nike-gt-run-2.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=gt+run+2&vst=gt+run+2", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
@@ -5845,8 +5949,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "La opción Jordan equilibrada para aleros y ala-pívots con presupuesto medio.",
     imagen_principal: "/shoes/jordan-super-fly-8.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 115,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=jordan+super+fly+10&vst=jordan+super+fly+10", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
@@ -5898,8 +6004,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para el jugador aventurero que quiere descubrir marcas asiáticas de calidad. Sorprende en todo por su precio.",
     imagen_principal: "/shoes/peak-taichi-flash.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 90,
     links_compra: [
       { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c4tjkTxx", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
@@ -6005,8 +6113,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "La referencia budget para jugadores junior. Funcional, duradera y asequible.",
     imagen_principal: "/shoes/adidas-cross-em-up-5.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 65,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=cross+em+up+5", precio_actual: 55, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
@@ -6036,12 +6146,12 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "mesh+tpu",
     puntuaciones: {
       traccion: 8,
-      amortiguacion: 8,
-      respuesta: 5,
-      soporte_lateral: 8,
-      estabilidad: 8,
-      peso_score: 5,
-      durabilidad_outdoor: 8,
+      amortiguacion: 6,
+      respuesta: 7,
+      soporte_lateral: 7,
+      estabilidad: 7,
+      peso_score: 8,
+      durabilidad_outdoor: 7,
       ventilacion: 6,
     },
     categoria_principal: "cushion-focused",
@@ -6059,8 +6169,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para el fan de LeBron con presupuesto ajustado. Cushion correcto a precio justo.",
     imagen_principal: "/shoes/nike-lebron-witness-8.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-lebron-witness-8/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 90,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=lebron+witness+8&vst=lebron+witness+8", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
@@ -6145,14 +6257,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
     puntuaciones: {
-      traccion: 8,
-      amortiguacion: 7,
-      respuesta: 7,
-      soporte_lateral: 7,
-      estabilidad: 7,
+      traccion: 9,
+      amortiguacion: 8,
+      respuesta: 8,
+      soporte_lateral: 9,
+      estabilidad: 9,
       peso_score: 7,
       durabilidad_outdoor: 9,
-      ventilacion: 7,
+      ventilacion: 6,
     },
     categoria_principal: "balanced",
     tags: ["value-premium", "moderna"],
@@ -6168,8 +6280,11 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "La zapatilla ideal para quien juega principalmente en pistas exteriores y quiere durabilidad máxima a precio razonable.",
     imagen_principal: "/shoes/anta-shock-wave-5.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/anta-shock-wave-5/" },
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/anta-shock-wave-5/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 90,
     links_compra: [
       { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3574IK9", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
@@ -6276,8 +6391,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "La opción más económica para el fan de Harden. Funcional y asequible para juego perimetral.",
     imagen_principal: "/shoes/adidas-harden-stepback-4.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 80,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=harden+stepback+4", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
@@ -6307,11 +6424,11 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "mesh+tpu",
     puntuaciones: {
       traccion: 8,
-      amortiguacion: 6,
-      respuesta: 7,
+      amortiguacion: 5,
+      respuesta: 6,
       soporte_lateral: 7,
       estabilidad: 7,
-      peso_score: 7,
+      peso_score: 8,
       durabilidad_outdoor: 8,
       ventilacion: 7,
     },
@@ -6329,8 +6446,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "El punto de entrada a las Kyrie. Para jugadores de base con presupuesto ajustado que valoran el agarre.",
     imagen_principal: "/shoes/nike-kyrie-flytrap-6.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-kyrie-flytrap-6-performance-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 70,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kyrie+flytrap+6&vst=kyrie+flytrap+6", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
@@ -6438,8 +6557,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "La alternativa UA más equilibrada para aleros y ala-pívots. Más barata que las grandes firmas con rendimiento similar.",
     imagen_principal: "/shoes/ua-hovr-havoc-5.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+hovr+havoc+5&tag=canchazapa-21", precio_actual: 101.20, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
@@ -6544,8 +6665,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para el jugador recreativo o principiante que quiere estrenar marca Adidas sin gastar más de 55€.",
     imagen_principal: "/shoes/adidas-ownthegame-3.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 55,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=ownthegame+3", precio_actual: 55, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
@@ -6652,8 +6775,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para jugadores con historial de torceduras que buscan soporte tobillo a precio medio sin gastar en tope de gama.",
     imagen_principal: "/shoes/puma-playmaker-pro-mid.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 90,
     links_compra: [
       { tienda: "puma_es", url: "https://es.puma.com/es_ES/search?q=playmaker+pro+mid", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
@@ -6683,13 +6808,13 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "mesh",
     puntuaciones: {
       traccion: 9,
-      amortiguacion: 8,
-      respuesta: 9,
-      soporte_lateral: 7,
-      estabilidad: 7,
+      amortiguacion: 7,
+      respuesta: 8,
+      soporte_lateral: 6,
+      estabilidad: 6,
       peso_score: 9,
       durabilidad_outdoor: 6,
-      ventilacion: 9,
+      ventilacion: 8,
     },
     categoria_principal: "responsive",
     tags: ["tope-de-gama", "ligera", "moderna"],
@@ -6705,8 +6830,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para el jugador dispuesto a comprar online y descubrir lo mejor del mercado asiático. Rendimiento de gama alta a mitad de precio.",
     imagen_principal: "/shoes/lining-yu-shuai-18.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c4ttOCV7", precio_actual: 100, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
@@ -6736,14 +6863,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
     puntuaciones: {
-      traccion: 8,
+      traccion: 9,
       amortiguacion: 8,
-      respuesta: 7,
-      soporte_lateral: 7,
-      estabilidad: 7,
-      peso_score: 7,
-      durabilidad_outdoor: 6,
-      ventilacion: 7,
+      respuesta: 8,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 6,
+      durabilidad_outdoor: 4,
+      ventilacion: 8,
     },
     categoria_principal: "balanced",
     tags: ["signature", "tope-de-gama"],
@@ -6759,8 +6886,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Si la encuentras de oferta, es una excelente zapatilla para aleros. La predecesora directa de la KD 17.",
     imagen_principal: "/shoes/nike-kd-16.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-kd-16-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kd+16&vst=kd+16", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
@@ -6843,14 +6972,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "leather",
     puntuaciones: {
-      traccion: 8,
-      amortiguacion: 8,
+      traccion: 7,
+      amortiguacion: 7,
       respuesta: 7,
-      soporte_lateral: 9,
-      estabilidad: 8,
-      peso_score: 5,
-      durabilidad_outdoor: 7,
-      ventilacion: 5,
+      soporte_lateral: 7,
+      estabilidad: 7,
+      peso_score: 6,
+      durabilidad_outdoor: 5,
+      ventilacion: 6,
     },
     categoria_principal: "cushion-focused",
     tags: ["tope-de-gama"],
@@ -6867,8 +6996,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para jugadores con problemas de tobillo que también quieren el look más icónico del baloncesto con tecnología moderna.",
     imagen_principal: "/shoes/converse-all-star-pro-bb.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/converse-all-star-pro-bb-performance-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=converse+all+star+pro+bb", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
@@ -6897,14 +7028,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
     puntuaciones: {
-      traccion: 7,
-      amortiguacion: 6,
-      respuesta: 5,
-      soporte_lateral: 6,
+      traccion: 8,
+      amortiguacion: 5,
+      respuesta: 6,
+      soporte_lateral: 7,
       estabilidad: 7,
-      peso_score: 6,
+      peso_score: 8,
       durabilidad_outdoor: 7,
-      ventilacion: 6,
+      ventilacion: 7,
     },
     categoria_principal: "balanced",
     tags: ["budget"],
@@ -6920,8 +7051,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para el jugador que quiere estrenar Nike sin gastar más de 65€. La puerta de entrada a la marca.",
     imagen_principal: "/shoes/nike-precision-7.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-18",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-precision-7-performance-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 65,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=precision+7&vst=precision+7", precio_actual: 65, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
@@ -7132,10 +7265,9 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/nb-two-wxy-v5.webp",
     imagenes: [],
     fuentes: [
-      { tipo: "weartesters", url: "https://weartesters.com/new-balance-two-wxy-v5/" },
-      { tipo: "runrepeat-lab", url: "https://runrepeat.com/new-balance-two-wxy-v5" },
+      { tipo: "evaluacion-propia" },
     ],
-    ultima_actualizacion: "2026-05-19",
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar?q=two+wxy+v5", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
@@ -7328,8 +7460,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "La mejor Trae Young de la serie. Para guards ágiles del perímetro que necesitan el máximo agarre y velocidad de reacción.",
     imagen_principal: "/shoes/adidas-trae-young-4.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-19",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 130,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=trae+young+4", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
@@ -7360,9 +7494,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
     puntuaciones: {
-      traccion: 8, amortiguacion: 8, respuesta: 8,
-      soporte_lateral: 8, estabilidad: 8, peso_score: 8,
-      durabilidad_outdoor: 7, ventilacion: 7,
+      traccion: 6,
+      amortiguacion: 7,
+      respuesta: 5,
+      soporte_lateral: 7,
+      estabilidad: 6,
+      peso_score: 7,
+      durabilidad_outdoor: 4,
+      ventilacion: 6,
     },
     categoria_principal: "balanced",
     tags: ["signature", "alero", "moderna", "tope-de-gama"],
@@ -7378,8 +7517,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Una sólida signature para aleros que buscan equilibrio completo. Vale la pena buscarla a precio reducido frente a la Tatum 3.",
     imagen_principal: "/shoes/jordan-tatum-2.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-19",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/jordan-tatum-2-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 155,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=tatum+2&vst=tatum+2", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
@@ -7410,9 +7551,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
     puntuaciones: {
-      traccion: 8, amortiguacion: 10, respuesta: 7,
-      soporte_lateral: 7, estabilidad: 7, peso_score: 4,
-      durabilidad_outdoor: 6, ventilacion: 6,
+      traccion: 7,
+      amortiguacion: 7,
+      respuesta: 8,
+      soporte_lateral: 7,
+      estabilidad: 6,
+      peso_score: 8,
+      durabilidad_outdoor: 6,
+      ventilacion: 7,
     },
     categoria_principal: "cushion-focused",
     tags: ["signature", "pivot", "cushion", "tope-de-gama"],
@@ -7429,8 +7575,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "La opción definitiva para pivots y ala-pivots de más de 95kg. Si tu cuerpo pide amortiguación máxima, esta es la zapatilla.",
     imagen_principal: "/shoes/jordan-zion-3.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-19",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/jordan-zion-3-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 185,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=zion+3&vst=zion+3", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
@@ -7461,9 +7609,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh",
     puntuaciones: {
-      traccion: 8, amortiguacion: 8, respuesta: 8,
-      soporte_lateral: 7, estabilidad: 7, peso_score: 8,
-      durabilidad_outdoor: 7, ventilacion: 8,
+      traccion: 9,
+      amortiguacion: 8,
+      respuesta: 8,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 7,
+      durabilidad_outdoor: 8,
+      ventilacion: 8,
     },
     categoria_principal: "balanced",
     tags: ["versatil", "guard", "nitro", "buena-relacion-calidad-precio"],
@@ -7479,8 +7632,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Opción muy sólida y algo infravalorada por la poca presencia de Puma en baloncesto. Si la encuentras a buen precio, es una compra muy inteligente para guards y aleros.",
     imagen_principal: "/shoes/puma-clyde-all-pro.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-19",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/puma-clyde-all-pro-performance-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 130,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+clyde+all+pro+baloncesto&tag=canchazapa-21", precio_actual: 63.03, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
@@ -7510,9 +7665,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
     puntuaciones: {
-      traccion: 8, amortiguacion: 9, respuesta: 7,
-      soporte_lateral: 8, estabilidad: 8, peso_score: 6,
-      durabilidad_outdoor: 7, ventilacion: 7,
+      traccion: 9,
+      amortiguacion: 9,
+      respuesta: 8,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 6,
+      durabilidad_outdoor: 5,
+      ventilacion: 5,
     },
     categoria_principal: "cushion-focused",
     tags: ["signature", "versatil", "alero", "cushion", "lebron"],
@@ -7528,8 +7688,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Buena opción para aleros y ala-pivots con pies anchos que quieren un LeBron sin renunciar a versatilidad. Si buscas máxima explosividad, mira otras opciones.",
     imagen_principal: "/shoes/nike-lebron-nxxt-gen.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-19",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-lebron-nxxt-gen-ampd-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 200,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=lebron+nxxt+gen&vst=lebron+nxxt+gen", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
@@ -7579,8 +7741,10 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "La opción más sólida de Nike para pivots que necesitan máximo soporte y cushion. Si juegas de 5 y pesas más de 90kg, esta es tu zapatilla.",
     imagen_principal: "/shoes/nike-gt-jump-3.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-19",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=gt+jump+3&vst=gt+jump+3", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
@@ -7610,9 +7774,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh",
     puntuaciones: {
-      traccion: 9, amortiguacion: 8, respuesta: 9,
-      soporte_lateral: 7, estabilidad: 7, peso_score: 9,
-      durabilidad_outdoor: 7, ventilacion: 8,
+      traccion: 9,
+      amortiguacion: 8,
+      respuesta: 8,
+      soporte_lateral: 9,
+      estabilidad: 9,
+      peso_score: 8,
+      durabilidad_outdoor: 4,
+      ventilacion: 8,
     },
     categoria_principal: "responsive",
     tags: ["signature", "guard", "traction", "explosivo", "tope-de-gama"],
@@ -7628,8 +7797,11 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Una de las mejores opciones para guards que buscan máxima respuesta con tecnología UA FLOW. Vale la pena encontrarla a precio rebajado.",
     imagen_principal: "/shoes/ua-curry-11.webp",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-19",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/under-armour-curry-11-review/" },
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/under-armour-curry-11/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "ua_es", url: "https://www.underarmour.es/es-es/p/curry-11/3027359.html", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
@@ -7662,14 +7834,14 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "mesh",
 
     puntuaciones: {
-      traccion: 8,
+      traccion: 9,
       amortiguacion: 8,
       respuesta: 7,
-      soporte_lateral: 7,
-      estabilidad: 7,
-      peso_score: 7,
-      durabilidad_outdoor: 7,
-      ventilacion: 8,
+      soporte_lateral: 9,
+      estabilidad: 9,
+      peso_score: 6,
+      durabilidad_outdoor: 4,
+      ventilacion: 7,
     },
     categoria_principal: "balanced",
     tags: ["signature", "guard", "escolta", "tirador", "lightstrike-pro"],
@@ -7698,8 +7870,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/adidas-harden-vol-8.webp",
     imagenes: [],
 
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-20",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/adidas-harden-vol-8-review/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
 
     precio_msrp_eur: 160,
     links_compra: [
@@ -7838,8 +8012,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/jordan-why-not-6.webp",
     imagenes: [],
 
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-20",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
 
     precio_msrp_eur: 110,
     links_compra: [
@@ -7976,8 +8152,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/ua-assert-10.webp",
     imagenes: [],
 
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-20",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
 
     precio_msrp_eur: 60,
     links_compra: [
@@ -8452,8 +8630,10 @@ const _rawZapatillas: Zapatilla[] = [
 
     imagen_principal: "/placeholder-shoe.svg",
     imagenes: [],
-    fuentes: [],
-    ultima_actualizacion: "2026-05-26",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 159.99,
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=jordan+super+fly+10", precio_actual: 159.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-26" },
@@ -8526,8 +8706,10 @@ const _rawZapatillas: Zapatilla[] = [
 
     imagen_principal: "/placeholder-shoe.svg",
     imagenes: [],
-    fuentes: [],
-    ultima_actualizacion: "2026-05-26",
+    fuentes: [
+      { tipo: "evaluacion-propia" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 139.99,
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=puma+mb+06", precio_actual: 139.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-26" },
@@ -8597,8 +8779,10 @@ const _rawZapatillas: Zapatilla[] = [
 
     imagen_principal: "/shoes/adidas-pro-vision.webp",
     imagenes: [],
-    fuentes: [],
-    ultima_actualizacion: "2026-05-26",
+    fuentes: [
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/adidas-pro-vision/" },
+    ],
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 74.99,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+pro+vision+baloncesto&tag=canchazapa-21", precio_actual: 74.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
@@ -8626,14 +8810,14 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "mesh",
 
     puntuaciones: {
-      traccion: 9,
+      traccion: 7,
       amortiguacion: 9,
-      respuesta: 9,
-      soporte_lateral: 7,
-      estabilidad: 7,
+      respuesta: 8,
+      soporte_lateral: 4,
+      estabilidad: 4,
       peso_score: 7,
-      durabilidad_outdoor: 6,
-      ventilacion: 8,
+      durabilidad_outdoor: 7,
+      ventilacion: 7,
     },
     categoria_principal: "balanced",
     tags: ["2024", "jordan", "mid-top", "zoomx", "air-zoom", "signature", "paolo-banchero"],
@@ -8667,10 +8851,9 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/jordan-xxxix.webp",
     imagenes: [],
     fuentes: [
-      { tipo: "evaluacion-propia", url: "https://about.nike.com/en/newsroom/releases/air-jordan-39-official-images" },
-      { tipo: "evaluacion-propia", url: "https://ballershoesdb.com/shoes/air-jordan-39/" },
+      { tipo: "weartesters", url: "https://weartesters.com/air-jordan-39-review/" },
     ],
-    ultima_actualizacion: "2026-05-26",
+    ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 200,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Air+Jordan+39+baloncesto&tag=canchazapa-21", precio_actual: 210, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
