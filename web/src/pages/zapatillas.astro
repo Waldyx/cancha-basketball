@@ -315,7 +315,7 @@ const ordenadas = [...zapatillas].sort(
                     }
                     <span class={`cz-score-pill ${scClass} score-pill`}>{score}</span>
                     {z.imagen_principal && !z.imagen_principal.includes('placeholder') && (
-                      <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} loading="eager"
+                      <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} loading="lazy"
                            onerror="this.style.display='none'" />
                     )}
                     <span class="cat-stripe"></span>
@@ -497,16 +497,18 @@ const ordenadas = [...zapatillas].sort(
       const filtering = filters.marcas.size + filters.categorias.size + filters.alturas.size + filters.posiciones.size + (filters.precioMax < 250 ? 1 : 0) + (filters.soloNuevas?1:0) + (filters.soloVerificado?1:0) + (filters.soloOutdoor?1:0) + (filters.soloLigera?1:0) + (filters.soloRetro?1:0) + (filters.q?1:0);
       if ($pick) $pick.classList.toggle("hidden", filtering > 0);
 
-      // Sort
-      const arr = [...$cards].filter(c => !c.classList.contains("hidden"));
+      // Sort — usa CSS order en lugar de appendChild para no resetear lazy loading
+      const arr = [...$cards];
       arr.sort((a, b) => {
+        const aH = a.classList.contains("hidden"), bH = b.classList.contains("hidden");
+        if (aH && !bH) return 1; if (!aH && bH) return -1;
         if (sortMode === "precio-asc")  return parseFloat(a.dataset.precio!) - parseFloat(b.dataset.precio!);
         if (sortMode === "precio-desc") return parseFloat(b.dataset.precio!) - parseFloat(a.dataset.precio!);
         if (sortMode === "score-desc")  return parseFloat(b.dataset.score!) - parseFloat(a.dataset.score!);
         if (sortMode === "nuevas")      return parseInt(b.dataset.año!) - parseInt(a.dataset.año!);
         return 0;
       });
-      arr.forEach(c => $grid.appendChild(c));
+      arr.forEach((c, i) => { (c as HTMLElement).style.order = String(i); });
 
       $vacio.classList.toggle("hidden", visible > 0);
       $shown && ($shown.textContent = String(visible));
