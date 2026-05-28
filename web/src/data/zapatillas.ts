@@ -85,17 +85,17 @@ const _rawZapatillas: Zapatilla[] = [
         url: "https://www.thehoopsgeek.com/nike-lebron-22-review/",
       },
     ],
-    ultima_actualizacion: "2026-05-13",
+    ultima_actualizacion: "2026-05-28",
 
     precio_msrp_eur: 200,
     links_compra: [
       {
         tienda: "amazon_es",
         url: "https://www.amazon.es/s?k=nike+lebron+22&tag=canchazapa-21",
-        precio_actual: 162,
+        precio_actual: 213.93,
         disponible: true,
         tiene_afiliado: true,
-        ultima_verificacion: "2026-05-27",
+        ultima_verificacion: "2026-05-28",
       },
       {
         tienda: "nike_es",
@@ -1038,7 +1038,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c4kdfzDB", precio_actual: 135, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kai+2&tag=canchazapa-21", precio_actual: 149, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kai+2&tag=canchazapa-21", precio_actual: 149, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
 
@@ -1098,7 +1098,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3S006Ff", precio_actual: 155, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kt+10&tag=canchazapa-21", precio_actual: 169, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kt+10&tag=canchazapa-21", precio_actual: 169, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
 
@@ -1277,7 +1277,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "nb_es", url: "https://www.newbalance.es/search?q=fresh+foam+bb+v3", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+fresh+foam+bb+v3+baloncesto&tag=canchazapa-21", precio_actual: 139, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+fresh+foam+bb+v3+baloncesto&tag=canchazapa-21", precio_actual: 139, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=new+balance+bb+v3", precio_actual: 144.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
     ],
   },
@@ -1333,12 +1333,12 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/adidas-harden-vol-9-review/" },
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/adidas-harden-volume-9/" },
     ],
-    ultima_actualizacion: "2026-05-13",
+    ultima_actualizacion: "2026-05-28",
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=harden+vol+9", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=harden+vol+9", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+harden+vol+9+baloncesto&tag=canchazapa-21", precio_actual: 169, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+harden+vol+9+baloncesto&tag=canchazapa-21", precio_actual: 82.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=harden+vol+9", precio_actual: 159.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
     ],
   },
@@ -1393,12 +1393,12 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/adidas-dame-certified/" },
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/adidas-dame-certified/" },
     ],
-    ultima_actualizacion: "2026-05-13",
+    ultima_actualizacion: "2026-05-28",
     precio_msrp_eur: 95,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=dame+certified", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=adidas+dame+certified", precio_actual: 94.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+certified+baloncesto&tag=canchazapa-21", precio_actual: 92, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+certified+baloncesto&tag=canchazapa-21", precio_actual: 59.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
 
@@ -2891,7 +2891,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 135,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+ja+3+basketball&tag=canchazapa-21", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+ja+3+basketball&tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=ja+3&vst=ja+3", precio_actual: 135, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+ja+3", precio_actual: 135, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
@@ -3194,7 +3194,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 170,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+gt+cut+4+basketball&tag=canchazapa-21", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-15" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+gt+cut+4+basketball&tag=canchazapa-21", precio_actual: 160, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=gt+cut+4&vst=gt+cut+4", precio_actual: 170, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+gt+cut+4", precio_actual: 165, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
