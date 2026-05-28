@@ -178,6 +178,8 @@ const ordenadas = [...zapatillas].sort(
               {Object.entries(CAT_LABELS).map(([k, l]) => (
                 <button class="chip" data-filter="categoria" data-value={k}>{l}</button>
               ))}
+              <button class="chip" id="chip-outdoor">Outdoor</button>
+              <button class="chip" id="chip-ligera">Ligera</button>
             </div>
           </section>
 
@@ -219,8 +221,6 @@ const ordenadas = [...zapatillas].sort(
           <section>
             <h3><span class="num">07</span> Colección</h3>
             <div class="chip-row">
-              <button class="chip" id="chip-outdoor">Outdoor</button>
-              <button class="chip" id="chip-ligera">Más ligeras</button>
               <button class="chip" id="chip-retro">🏅 Retro</button>
             </div>
           </section>
@@ -420,7 +420,7 @@ const ordenadas = [...zapatillas].sort(
       if (filters.soloNuevas) out.push({ k: "new", lab: "Nuevas 2026", remove: () => { filters.soloNuevas = false; (document.getElementById("only-new") as HTMLInputElement).checked = false; apply(); refreshUI(); } });
       if (filters.soloVerificado) out.push({ k: "ver", lab: "Verificado", remove: () => { filters.soloVerificado = false; (document.getElementById("only-verified") as HTMLInputElement).checked = false; apply(); refreshUI(); } });
       if (filters.soloOutdoor) out.push({ k: "out", lab: "Outdoor", remove: () => { filters.soloOutdoor = false; document.getElementById("chip-outdoor")?.classList.remove("is-active"); apply(); refreshUI(); } });
-      if (filters.soloLigera) out.push({ k: "ligera", lab: "Más ligeras", remove: () => { filters.soloLigera = false; document.getElementById("chip-ligera")?.classList.remove("is-active"); apply(); refreshUI(); } });
+      if (filters.soloLigera) out.push({ k: "ligera", lab: "Ligera", remove: () => { filters.soloLigera = false; document.getElementById("chip-ligera")?.classList.remove("is-active"); apply(); refreshUI(); } });
       if (filters.soloRetro) out.push({ k: "retro", lab: "🏅 Retro", remove: () => { filters.soloRetro = false; document.getElementById("chip-retro")?.classList.remove("is-active"); apply(); refreshUI(); } });
       if (filters.q) out.push({ k: "q", lab: `“${filters.q}”`, remove: () => { filters.q = ""; (document.getElementById("search") as HTMLInputElement).value = ""; apply(); refreshUI(); } });
       return out;
