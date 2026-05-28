@@ -5307,7 +5307,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 80,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=exhibit+a", precio_actual: 65, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+exhibit+a+baloncesto&tag=canchazapa-21", precio_actual: 60, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+exhibit+a+baloncesto&tag=canchazapa-21", precio_actual: 67.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
 
@@ -5360,7 +5360,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 95,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=exhibit+b", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+exhibit+b+baloncesto&tag=canchazapa-21", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+exhibit+b+baloncesto&tag=canchazapa-21", precio_actual: 75, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
 
@@ -5519,7 +5519,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 75,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+jet+23+baloncesto&tag=canchazapa-21", precio_actual: 65, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+jet+23+baloncesto&tag=canchazapa-21", precio_actual: 41.95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=under+armour+jet+23", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
     ],
   },
@@ -5628,7 +5628,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 80,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=air+max+impact+5&vst=air+max+impact+5", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+air+max+impact+5&tag=canchazapa-21", precio_actual: 72, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+air+max+impact+5&tag=canchazapa-21", precio_actual: 72, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
 
@@ -6002,7 +6002,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 65,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=cross+em+up+5", precio_actual: 55, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+cross+em+up+5&tag=canchazapa-21", precio_actual: 50, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+cross+em+up+5&tag=canchazapa-21", precio_actual: 41.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
 
@@ -6273,7 +6273,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 80,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=harden+stepback+4", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+harden+stepback+4&tag=canchazapa-21", precio_actual: 65, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+harden+stepback+4&tag=canchazapa-21", precio_actual: 65, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
 
@@ -6326,7 +6326,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 70,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kyrie+flytrap+6&vst=kyrie+flytrap+6", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+kyrie+flytrap+6&tag=canchazapa-21", precio_actual: 60, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+kyrie+flytrap+6&tag=canchazapa-21", precio_actual: 60, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
 
@@ -6434,7 +6434,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+hovr+havoc+5&tag=canchazapa-21", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+hovr+havoc+5&tag=canchazapa-21", precio_actual: 101.20, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=under+armour+hovr+havoc+5", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
     ],
   },
@@ -6541,7 +6541,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 55,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.adidas.es/buscar?q=ownthegame+3", precio_actual: 55, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ownthegame+3+baloncesto&tag=canchazapa-21", precio_actual: 48, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ownthegame+3+baloncesto&tag=canchazapa-21", precio_actual: 39.00, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
 
@@ -6594,7 +6594,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 130,
     links_compra: [
       { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar?q=omn1s", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+omn1s&tag=canchazapa-21", precio_actual: 80, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+omn1s&tag=canchazapa-21", precio_actual: 80, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
 
@@ -6648,7 +6648,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 90,
     links_compra: [
       { tienda: "puma_es", url: "https://es.puma.com/es_ES/search?q=playmaker+pro+mid", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+playmaker+pro+mid+baloncesto&tag=canchazapa-21", precio_actual: 80, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+playmaker+pro+mid+baloncesto&tag=canchazapa-21", precio_actual: 93.75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
 
@@ -6863,7 +6863,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=converse+all+star+pro+bb", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=converse+all+star+pro+bb&tag=canchazapa-21", precio_actual: 110, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=converse+all+star+pro+bb&tag=canchazapa-21", precio_actual: 110, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
 
@@ -6916,7 +6916,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 65,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=precision+7&vst=precision+7", precio_actual: 65, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+precision+7+baloncesto&tag=canchazapa-21", precio_actual: 55, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+precision+7+baloncesto&tag=canchazapa-21", precio_actual: 52.49, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
 
