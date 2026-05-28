@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-05-28 (sesión 14)
+> Última actualización: 2026-05-28 (sesión 15)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -29,7 +29,16 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 
 ---
 
-## Estado actual (sesión 13)
+## Estado actual (sesión 15)
+
+### ✅ Completado (sesión 15)
+- **Sweep precios Amazon ES**: 94 entradas verificadas/actualizadas con fecha 2026-05-28
+  - ~51 modelos modernos procesados (batches 1-4), retros en curso vía agente background
+  - Entradas marcadas `disponible: false`: ANTA (no distribuida ES), Decathlon (no en Amazon), modelos descatalogados inflados (jordan-xxxvii, lebron-21, ae-1, etc.)
+- **Awin verificación**: meta tag + archivo HTML en producción → sitio verificado
+- **adidas ES**: re-solicitud enviada tras verificación
+- **Atmósfera Sport**: links de afiliado añadidos a 9 modelos
+- **CLAUDE.md**: actualizado (182 zapas, estado Awin, imágenes)
 
 ### ✅ Completado (sesión 14)
 - **3 artículos retro** → **30 artículos total**:
@@ -131,31 +140,31 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 - **Awin Publisher ID 2908587**: ✅ cuenta activa, varios programas aprobados:
   - ✅ **Decathlon ES** (aid: 105405, ~6%)
   - ✅ **Snipes EU** (aid: 122628, ~5%)
-  - ⏳ Pendientes: El Corte Inglés, Foot Locker, JD Sports, adidas, Sprinter, Zalando, Reebok
+  - ✅ **Atmósfera Sport** (aid: 26255) — añadidos links en 9 modelos
+  - ✅ **Verificación de sitio Awin**: meta tag + archivo HTML en producción
+  - ⏳ Pendientes aprobación (13): adidas ES, Foot Locker ES, Reebok ES, Basket-Center ES, size?Official ES, Sneakin ES, Pro:Direct ES, Foot-Store ES, Forum Sport ES, AliExpress ES (Awin), Privé by Zalando ES, El Corte Inglés ES (EPC €13.99 🔥), Sprinter ES
+  - ❌ JD Sports: rechazado 3 veces — reintentar cuando haya más tráfico
 - **Afiliado ordering**: tiendas ordenadas por comisión cuando precio igual (±€0.50)
 - **COMISIONES_TIENDA** actualizado en `scoring.ts` con rates 2026
-- **Imágenes**: ✅ 120/138 zapas con imagen local en `/public/shoes/`
+- **Imágenes**: ✅ 179/182 zapas con imagen local en `/public/shoes/`
   - ballershoesdb bloqueaba hotlinking → imágenes descargadas localmente
-  - 3 zapas con placeholder (puma-mb-06 no lanzada, jordan-super-fly-10, nike-kd-19)
-  - ~15 zapas usan `/placeholder-shoe.svg` (modelos sin imagen conocida)
+  - 3 zapas con placeholder: nike-kd-19, jordan-super-fly-10, puma-mb-06 (no lanzadas, Q3 2026)
 
 ### 🟡 Pendiente
-- **Awin**: esperar aprobaciones → El Corte Inglés (EPC €13.99, prioritario), Foot Locker, JD Sports, adidas, Sprinter, Zalando, Reebok
+- **Awin**: esperar 13 aprobaciones → El Corte Inglés (EPC €13.99, prioritario), Foot Locker, adidas, Sprinter, Zalando, Reebok, Basket-Center, size?Official, etc.
 - **StockX Impact Radius**: pendiente aplicar
 - **Puma EU CJ Affiliate**: pendiente aprobación
-- **Precios reales**: precios son editoriales, no scrapeados
+- **Precios**: sweep Amazon ES en curso (2026-05-28) — ~51/94 entradas procesadas
 - **Recordatorio diario**: configurado para Amazon ES y JD Sports manual
-- **Imágenes placeholder** (19 zapas):
-  - No lanzadas aún: jordan-super-fly-10, nike-kd-19, puma-mb-06 (Q3 2026)
-  - Retros sin imagen en ballershoesdb: converse-weapon, nike-air-penny-1, adidas-forum-84, reebok-pump-omni-lite
-  - Modernas: ua-flow-breakthru-5, converse-shai-001, nike-giannis-immortality-5, adidas-exhibit-b, jordan-super-fly-8, adidas-trae-young-4, nike-gt-jump-3, nb-two-wxy-v6, adidas-ownthegame-2, ua-assert-10, nike-kobe-9-low-protro, decathlon-tarmak-voltzy-500
+- **Imágenes placeholder** (3 zapas — no lanzadas Q3 2026):
+  - nike-kd-19, jordan-super-fly-10, puma-mb-06
 
 ---
 
 ## Arquitectura de datos
 
 ### Archivo principal: `web/src/data/zapatillas.ts`
-- Array `_rawZapatillas` con **138 zapas** (sesión 7)
+- Array `_rawZapatillas` con **182 zapas** (sesión 15)
 - Función `mergePricesIntoShoes()` fusiona precios del scraper
 - Exporta `zapatillas`, `getZapatillaBySlug()`, `getAllZapatillas()`
 - Campo afiliados: `links_compra[].tiene_afiliado` — `true` para Amazon (activo), `false` para el resto (pendiente)
@@ -173,7 +182,7 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 | Página | Ruta | Estado |
 |--------|------|--------|
 | Home | `/` | ✅ |
-| Catálogo | `/zapatillas` | ✅ 138 modelos |
+| Catálogo | `/zapatillas` | ✅ 182 modelos |
 | Quiz | `/quiz` | ✅ 10 pasos |
 | Resultados | `/resultados` | ✅ |
 | Detalle zapatilla | `/zapatilla/[slug]` | ✅ + JSON-LD Product completo |
