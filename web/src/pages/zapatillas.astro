@@ -380,6 +380,23 @@ const ordenadas = [...zapatillas].sort(
   </main>
 
   <script>
+    // ── Load all card images eagerly after page renders ───────────
+    // lazy loading + long page = images below fold never load. Fix: after DOMContentLoaded
+    // switch all unloaded card images to eager so they load regardless of scroll position.
+    {
+      const loadAllCardImages = () => {
+        document.querySelectorAll<HTMLImageElement>(".cz-card img, .cz-pick img").forEach(img => {
+          if (img.loading === "lazy" && (!img.complete || img.naturalWidth === 0)) {
+            img.loading = "eager";
+          }
+        });
+      };
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", () => setTimeout(loadAllCardImages, 100));
+      } else {
+        setTimeout(loadAllCardImages, 100);
+      }
+    }
     // ── Filter / sort / search state ─────────────────────────────
     type Filters = {
       q: string;
@@ -510,14 +527,14 @@ const ordenadas = [...zapatillas].sort(
       });
       arr.forEach((c, i) => { (c as HTMLElement).style.order = String(i); });
 
-      // Force lazy images to load after CSS-order reflow (browser doesn't auto-retrigger)
+      // Force lazy images to load — css order changes don't retrigger IntersectionObserver
+      // Switching loading="eager" is the only reliable way to force load off-screen images
       requestAnimationFrame(() => {
         $cards.forEach(c => {
           if (c.classList.contains("hidden")) return;
-          c.querySelectorAll<HTMLImageElement>("img[loading='lazy']").forEach(img => {
+          c.querySelectorAll<HTMLImageElement>("img").forEach(img => {
             if (!img.complete || img.naturalWidth === 0) {
-              const src = img.getAttribute("src");
-              if (src) { img.removeAttribute("src"); img.setAttribute("src", src); }
+              img.loading = "eager";
             }
           });
         });
