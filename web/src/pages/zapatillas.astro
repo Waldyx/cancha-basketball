@@ -315,7 +315,7 @@ const ordenadas = [...zapatillas].sort(
                     }
                     <span class={`cz-score-pill ${scClass} score-pill`}>{score}</span>
                     {z.imagen_principal && !z.imagen_principal.includes('placeholder') && (
-                      <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} loading="lazy"
+                      <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} loading="eager"
                            onerror="this.style.display='none'" />
                     )}
                     <span class="cat-stripe"></span>
