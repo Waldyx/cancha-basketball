@@ -41,12 +41,21 @@ export function mergePricesIntoShoes(
     const mergedLinks: LinkCompra[] = shoe.links_compra.map((orig) => {
       const fresh = scrapedMap.get(orig.tienda);
       if (!fresh) return orig;
+      // NUNCA sobreescribir la URL de un link de afiliado: el scraper devuelve
+      // la URL directa del producto (p.ej. amazon.es/dp/...) SIN el tag de
+      // afiliado (?tag=, redirect AWIN cread.php, short link aliexpress), lo que
+      // rompería la monetización. Para afiliados conservamos la URL editorial y
+      // solo refrescamos precio/disponibilidad. Para no-afiliados sí hacemos el
+      // "upgrade" de search → página de producto directa.
+      const upgradeUrl =
+        !orig.tiene_afiliado && fresh.url && fresh.url !== orig.url
+          ? fresh.url
+          : orig.url;
       return {
         ...orig,
         precio_actual: fresh.precio_actual ?? orig.precio_actual,
         disponible: true, // ya comprobamos arriba que fresh.disponible === true
-        // Upgrade URL if scraper found a direct product page
-        url: fresh.url && fresh.url !== orig.url ? fresh.url : orig.url,
+        url: upgradeUrl,
         ultima_verificacion:
           fresh.ultima_verificacion ?? orig.ultima_verificacion,
       };

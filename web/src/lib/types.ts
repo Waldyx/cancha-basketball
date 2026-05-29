@@ -69,7 +69,8 @@ export type Tienda =
   | "fuikaomar_es"
   | "24segons_es"
   | "idealo_es"
-  | "snipes_eu";
+  | "snipes_eu"
+  | "atmosfera_sport";
 
 export type FuenteReview =
   | "weartesters"
