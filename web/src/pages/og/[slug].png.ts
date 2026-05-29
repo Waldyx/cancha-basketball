@@ -1,12 +1,16 @@
-// /og/[slug].svg — Open Graph image dinámica por zapatilla
+// /og/<slug>.png — Open Graph image dinámica por zapatilla (PNG)
 //
-// Genera un SVG 1200×630 con datos de cada zapa: marca, modelo, score,
-// precio, categoría. Se sirve como /og/<slug>.svg desde <meta property="og:image">
+// Genera un PNG 1200×630 con datos de cada zapa: marca, modelo, score,
+// precio, categoría. Se sirve como /og/<slug>.png desde <meta property="og:image">
 // en la página de detalle.
 //
-// SVG funciona en todos los crawlers modernos (Twitter, Facebook, WhatsApp,
-// LinkedIn). Si necesitas PNG en algún lado, conviértelo en build con sharp.
+// Se compone un SVG (diseño completo) y se rasteriza a PNG con sharp en build.
+// PNG es necesario porque WhatsApp, Facebook, X y LinkedIn NO renderizan SVG
+// en las previews de enlaces. Las fuentes se resuelven con las del sistema del
+// build (sharp/librsvg), así que la tipografía es aproximada pero el diseño,
+// colores y datos se mantienen.
 
+import sharp from "sharp";
 import { zapatillas } from "../../data/zapatillas";
 import { findMejorPrecio } from "../../lib/scoring";
 
@@ -30,7 +34,7 @@ function escape(s: string): string {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
-export const GET = ({ params }: { params: Record<string, string> }) => {
+export const GET = async ({ params }: { params: Record<string, string> }) => {
   const z = zapatillas.find((x) => x.slug === params.slug);
   if (!z) return new Response("Not found", { status: 404 });
 
@@ -128,9 +132,12 @@ export const GET = ({ params }: { params: Record<string, string> }) => {
   <rect x="0" y="624" width="1200" height="6" fill="${cat}"/>
 </svg>`;
 
-  return new Response(svg, {
+  // Rasterizar el SVG a PNG (1200×630) con sharp
+  const png = await sharp(Buffer.from(svg)).png().toBuffer();
+
+  return new Response(png, {
     headers: {
-      "Content-Type": "image/svg+xml",
+      "Content-Type": "image/png",
       "Cache-Control": "public, max-age=86400",
     },
   });
