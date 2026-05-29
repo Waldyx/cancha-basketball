@@ -82,6 +82,24 @@ const SCRAPERS: Record<string, StoreScraper> = {
 /** Umbral de empate de precio en EUR */
 const TIE_THRESHOLD = 0.5;
 
+/**
+ * Guardarraíl de cordura de precio. El matcher de títulos acepta el modelo
+ * correcto, pero NO detecta a los revendedores de Amazon Marketplace que
+ * listan esa misma zapa a precios disparatados (ej. 95€ editorial → 356€).
+ * Descartamos cualquier precio scrapeado fuera de un rango plausible respecto
+ * al precio editorial de referencia:
+ *  - > 1.5×  → casi siempre revendedor inflando / producto premium equivocado
+ *  - < 0.35× → suele ser un accesorio, talla infantil o match erróneo barato
+ * Los descartados conservan el precio editorial (igual que un "no encontrado").
+ */
+const MAX_PRICE_RATIO = 1.5;
+const MIN_PRICE_RATIO = 0.35;
+
+function precioPlausible(scraped: number, ref: number): boolean {
+  if (ref <= 0) return true; // sin referencia fiable → aceptar
+  return scraped <= ref * MAX_PRICE_RATIO && scraped >= ref * MIN_PRICE_RATIO;
+}
+
 /** Pausa aleatoria entre requests para evitar rate-limiting */
 function sleep(ms: number): Promise<void> {
   return new Promise((r) => setTimeout(r, ms));
@@ -246,7 +264,11 @@ async function main() {
         process.stdout.write(`  🌐 ${link.tienda.padEnd(16)} `);
         const result = await scraper.scrape(page, link.url, shoe_ref);
 
-        if (result.disponible && result.precio_actual > 0) {
+        if (
+          result.disponible &&
+          result.precio_actual > 0 &&
+          precioPlausible(result.precio_actual, link.precio_actual)
+        ) {
           successCount++;
           shoeSuccesses++;
           const changed = result.precio_actual !== link.precio_actual;
@@ -254,6 +276,14 @@ async function main() {
             ? ` (era ${link.precio_actual}€)`
             : " (sin cambio)";
           console.log(`→ ${result.precio_actual}€${changeStr}`);
+        } else if (result.disponible && result.precio_actual > 0) {
+          // Encontrado pero fuera de rango plausible → descartar (revendedor)
+          failCount++;
+          console.log(
+            `→ ⚠️  descartado ${result.precio_actual}€ (fuera de rango vs ${link.precio_actual}€)`
+          );
+          result.precio_actual = link.precio_actual;
+          result.disponible = false;
         } else {
           failCount++;
           console.log(

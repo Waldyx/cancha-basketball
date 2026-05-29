@@ -6,6 +6,21 @@ export interface PreciosJson {
 }
 
 /**
+ * Guardarraíl de cordura (segunda red, defensiva). Aunque el scraper ya filtra
+ * precios implausibles, este merge vuelve a comprobarlo en build: si un precio
+ * scrapeado se desvía demasiado del editorial (ej. revendedor Marketplace que
+ * infla 95€ → 356€), se ignora el override y se conserva el precio editorial.
+ * Así NUNCA llega un precio basura a producción, venga de donde venga precios.json.
+ */
+const MAX_PRICE_RATIO = 1.5;
+const MIN_PRICE_RATIO = 0.35;
+
+function precioPlausible(scraped: number, ref: number): boolean {
+  if (ref <= 0) return true;
+  return scraped <= ref * MAX_PRICE_RATIO && scraped >= ref * MIN_PRICE_RATIO;
+}
+
+/**
  * Mezcla precios scrapeados (precios.json) sobre los datos editoriales (zapatillas.ts).
  *
  * Reglas:
@@ -41,6 +56,11 @@ export function mergePricesIntoShoes(
     const mergedLinks: LinkCompra[] = shoe.links_compra.map((orig) => {
       const fresh = scrapedMap.get(orig.tienda);
       if (!fresh) return orig;
+      // Guardarraíl: si el precio scrapeado es implausible vs el editorial,
+      // ignorar el override por completo y conservar la entrada editorial.
+      if (!precioPlausible(fresh.precio_actual ?? 0, orig.precio_actual)) {
+        return orig;
+      }
       // NUNCA sobreescribir la URL de un link de afiliado: el scraper devuelve
       // la URL directa del producto (p.ej. amazon.es/dp/...) SIN el tag de
       // afiliado (?tag=, redirect AWIN cread.php, short link aliexpress), lo que
