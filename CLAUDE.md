@@ -1,7 +1,25 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-05-28 (sesión 15)
+> Última actualización: 2026-05-29 (sesión 16)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
+
+---
+
+## Reglas de edición (para Claude)
+
+> Basadas en las "Karpathy skills". Este proyecto es grande (182 zapas en un
+> solo archivo, comentarios con caracteres delicados). Sigue estas reglas SIEMPRE:
+
+1. **Cambios quirúrgicos**: edita SOLO lo que pide la tarea. No "mejores" código,
+   comentarios ni formato no relacionados. No refactorices lo que funciona. Respeta
+   el estilo existente. En `zapatillas.ts`, edita haciendo match del `id:`/código,
+   NUNCA de las líneas de comentario (tienen box-drawing chars que rompen el match).
+2. **Simplicidad**: el mínimo código que resuelve lo pedido. Sin features
+   especulativas ni abstracciones de un solo uso.
+3. **Piensa antes**: si algo es ambiguo, di tus suposiciones y pregunta. Propón la
+   alternativa más simple antes de lanzarte.
+4. **Objetivos verificables**: convierte tareas vagas en criterios comprobables
+   (ej. "el scraper saca un precio > 0") e itera hasta cumplirlos.
 
 ---
 
