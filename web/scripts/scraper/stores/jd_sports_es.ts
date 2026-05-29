@@ -2,6 +2,25 @@ import type { Page } from "playwright";
 import type { StoreScraper, ShoeRef, ScrapeResult } from "../types.js";
 import { matchesShoe, parsePrice, today } from "../matcher.js";
 
+/**
+ * Convierte una URL de búsqueda antigua (`?q=curry+12`) al formato actual de
+ * JD Sports, que lleva la consulta en la RUTA: `/search/curry+12/`.
+ * El formato `?q=` quedó obsoleto en 2025 (devuelve 404).
+ */
+function toSearchUrl(url: string): string {
+  try {
+    const u = new URL(url);
+    const q = u.searchParams.get("q");
+    if (q) {
+      const term = q.trim().replace(/\s+/g, "+");
+      return `https://www.jdsports.es/search/${term}/`;
+    }
+  } catch {
+    /* url no parseable → se usa tal cual */
+  }
+  return url;
+}
+
 export const jd_sports_es: StoreScraper = {
   tienda: "jd_sports_es",
 
@@ -15,52 +34,50 @@ export const jd_sports_es: StoreScraper = {
     };
 
     try {
-      // JD Sports tiene protección Cloudflare — usamos wait largo y UA realista
-      await page.goto(url, { waitUntil: "networkidle", timeout: 30000 });
+      const searchUrl = toSearchUrl(url);
 
+      // JD devuelve un status raro (204/error) en la página de búsqueda aunque
+      // renderice contenido → usamos "commit" e ignoramos el rechazo de goto.
+      await page
+        .goto(searchUrl, { waitUntil: "commit", timeout: 30000 })
+        .catch(() => {});
+
+      // Aceptar cookies (OneTrust)
       const cookieBtn = page.locator(
-        'button:has-text("Aceptar"), button[id*="accept"], #accept-cookies'
+        '#onetrust-accept-btn-handler, button:has-text("Aceptar")'
       );
       if (await cookieBtn.first().isVisible({ timeout: 4000 }).catch(() => false)) {
-        await cookieBtn.first().click();
+        await cookieBtn.first().click().catch(() => {});
         await page.waitForTimeout(800);
       }
 
-      await page.waitForSelector(
-        '[class*="product"], article, .c-product, [data-e2e*="product"]',
-        { timeout: 15000 }
-      ).catch(() => {});
+      // Esperar a que cargue la lista de productos (render por JS)
+      await page
+        .waitForSelector("li.productListItem", { timeout: 15000 })
+        .catch(() => {});
+      await page.waitForTimeout(1500);
 
-      // Esperar a que cargue JS (Cloudflare suele bloquear en este punto)
-      await page.waitForTimeout(2000);
+      const cards = await page.$$("li.productListItem");
 
-      const cards = await page.$$(
-        '[class*="productCard"], .c-product-card, article, [data-e2e="product-card"], li[class*="product"]'
-      );
+      for (const card of cards.slice(0, 12)) {
+        // El nombre y el precio vienen en el texto de la tarjeta.
+        const text = (await card.innerText().catch(() => "")) ?? "";
 
-      for (const card of cards.slice(0, 10)) {
-        const titleEl = await card.$(
-          'h3, h4, [class*="name"], [class*="title"], [data-e2e="product-name"], p[class*="name"]'
-        );
-        const title = (await titleEl?.textContent()) ?? "";
+        if (!matchesShoe(text, shoe.marca, shoe.modelo)) continue;
 
-        if (!matchesShoe(title, shoe.marca, shoe.modelo)) continue;
-
-        // Precio en JD: clase "pri", data-testid o span con precio
-        const priceEl = await card.$(
-          '.pri, [data-e2e="product-price"], [class*="price"]:not([class*="original"]):not([class*="was"]), span[class*="Price"]'
-        );
-        const priceText = (await priceEl?.textContent()) ?? "";
-        const price = parsePrice(priceText);
+        // Precio: primer patrón "XX,XX €" del texto de la tarjeta.
+        const priceMatch = text.match(/(\d{1,4}[.,]\d{2})\s*€/);
+        const price = priceMatch ? parsePrice(priceMatch[1]) : null;
         if (!price) continue;
 
-        const linkEl = await card.$("a");
+        // URL directa al producto
+        const linkEl = await card.$('a.itemImage, a[data-e2e="plp-productList-link"], a');
         const href = await linkEl?.getAttribute("href");
         const productUrl = href?.startsWith("http")
           ? href
           : href
           ? `https://www.jdsports.es${href}`
-          : url;
+          : searchUrl;
 
         return { ...base, url: productUrl, precio_actual: price, disponible: true };
       }
