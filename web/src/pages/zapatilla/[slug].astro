@@ -130,7 +130,10 @@ const productJsonLd = {
   "name": `${z.marca} ${z.modelo}`,
   "brand": { "@type": "Brand", "name": z.marca },
   "description": z.resumen,
-  "image": z.imagen_principal,
+  // Google Rich Results requiere URL absoluta para image
+  "image": z.imagen_principal.startsWith("http")
+    ? z.imagen_principal
+    : `https://canchazapa.com${z.imagen_principal}`,
   "url": `https://canchazapa.com/zapatilla/${z.slug}`,
   "sku": z.slug,
   ...(mejorPrecio ? {
