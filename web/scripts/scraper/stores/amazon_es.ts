@@ -39,8 +39,9 @@ export const amazon_es: StoreScraper = {
       const results = await page.$$('[data-component-type="s-search-result"]');
 
       for (const result of results.slice(0, 8)) {
-        const titleEl = await result.$("h2 span, .a-size-base-plus");
-        const title = (await titleEl?.textContent()) ?? "";
+        // Amazon (2025+) separa marca y modelo en elementos distintos, así que
+        // usamos el texto completo del resultado para la comparación fuzzy.
+        const title = (await result.innerText().catch(() => "")) ?? "";
 
         if (!matchesShoe(title, shoe.marca, shoe.modelo)) continue;
 

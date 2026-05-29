@@ -60,7 +60,10 @@ export function matchesShoe(
 
   // ── 1. Marca ─────────────────────────────────────────────────────────────
   const marcaNorm = normalize(marca);
-  const aliases = BRAND_ALIASES[marcaNorm] ?? [marcaNorm];
+  // Incluir SIEMPRE el nombre normalizado además de los alias. Si no, marcas de
+  // dos palabras como "under armour" / "new balance" (cuyos alias son "ua"/"nb")
+  // nunca matchean el título real que sí escribe el nombre completo.
+  const aliases = [marcaNorm, ...(BRAND_ALIASES[marcaNorm] ?? [])];
   const marcaMatch = aliases.some((a) => tNorm.includes(a));
   if (!marcaMatch) return false;
 

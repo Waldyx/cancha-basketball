@@ -14,7 +14,8 @@
  *  4. Fallback automático a idealo.es cuando todos los scrapers fallan para una zapatilla
  */
 
-import { chromium, type Browser, type BrowserContext } from "playwright";
+import { launchContext } from "cloakbrowser";
+import type { BrowserContext } from "playwright-core";
 import { writePreciosJson } from "./output.js";
 import type { ScrapeResult, ShoeRef, StoreScraper } from "./types.js";
 import { getComision } from "./commissions.js";
@@ -91,62 +92,6 @@ function randomDelay(min = 1500, max = 3500): Promise<void> {
 }
 
 /**
- * Script de stealth: oculta los indicadores de automatización del navegador.
- * Se inyecta en todas las páginas antes de que se ejecute cualquier JS.
- */
-const STEALTH_SCRIPT = `
-  // Ocultar webdriver flag (señal más evidente de Playwright/Selenium)
-  Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
-
-  // Simular objeto chrome con métodos esperados por los detectores
-  if (!window.chrome) {
-    window.chrome = {
-      runtime: {
-        connect: () => {},
-        sendMessage: () => {},
-      },
-      loadTimes: () => ({}),
-      csi: () => ({}),
-      app: { isInstalled: false },
-    };
-  }
-
-  // Simular plugins del navegador (headless Chrome tiene 0 plugins → señal clara)
-  if (navigator.plugins.length === 0) {
-    const fakePdf = { name: 'Chrome PDF Plugin', filename: 'internal-pdf-viewer', description: 'Portable Document Format' };
-    const fakeViewer = { name: 'Chrome PDF Viewer', filename: 'mhjfbmdgcfjbbpaeojofohoefgiehjai', description: '' };
-    Object.defineProperty(navigator, 'plugins', {
-      get: () => {
-        const arr = [fakePdf, fakeViewer];
-        arr.item = (i) => arr[i] || null;
-        arr.namedItem = (n) => arr.find(p => p.name === n) || null;
-        arr.refresh = () => {};
-        return arr;
-      }
-    });
-  }
-
-  // Idiomas (headless suele devolver [])
-  Object.defineProperty(navigator, 'languages', { get: () => ['es-ES', 'es', 'en-US', 'en'] });
-
-  // Plataforma
-  Object.defineProperty(navigator, 'platform', { get: () => 'Win32' });
-  Object.defineProperty(navigator, 'hardwareConcurrency', { get: () => 8 });
-  Object.defineProperty(navigator, 'deviceMemory', { get: () => 8 });
-
-  // Permissions: hacer que 'notifications' devuelva 'denied' como un navegador real
-  const _origPerms = navigator.permissions?.query?.bind(navigator.permissions);
-  if (_origPerms) {
-    navigator.permissions.query = (params) => {
-      if (params.name === 'notifications') {
-        return Promise.resolve({ state: 'denied', onchange: null });
-      }
-      return _origPerms(params);
-    };
-  }
-`;
-
-/**
  * Cuando varias tiendas tienen precios empatados, ordena por comisión
  * y devuelve el array reordenado (la más rentable primero).
  */
@@ -206,42 +151,35 @@ async function main() {
   let failCount = 0;
   let idealoFallbacks = 0;
 
-  const browser: Browser = await chromium.launch({
+  // ── CloakBrowser: Chromium stealth con parches de fingerprint a nivel de
+  //    binario (navigator.webdriver, chrome object, plugins, fonts, canvas,
+  //    WebGL, etc.). Reemplaza el STEALTH_SCRIPT manual que Amazon/JD detectaban.
+  //    locale/timezone van como campos top-level (rutean por flags de binario,
+  //    indetectables) en vez de emulación CDP.
+  const context: BrowserContext = await launchContext({
     headless: true,
+    locale: "es-ES",
+    timezone: "Europe/Madrid",
+    viewport: { width: 1366, height: 768 },
     args: [
       "--no-sandbox",
       "--disable-setuid-sandbox",
-      // Ocultar señales de automatización al nivel del motor
-      "--disable-blink-features=AutomationControlled",
       // Reducir uso de memoria
       "--disable-dev-shm-usage",
       // Deshabilitar la pantalla de bienvenida de Chrome
       "--no-first-run",
       "--no-default-browser-check",
     ],
-  });
-
-  // Contexto con UA y configuración regional realistas
-  const context: BrowserContext = await browser.newContext({
-    userAgent:
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
-      "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-    locale: "es-ES",
-    timezoneId: "Europe/Madrid",
-    viewport: { width: 1366, height: 768 },
-    extraHTTPHeaders: {
-      "Accept-Language": "es-ES,es;q=0.9,en;q=0.8",
-      "sec-ch-ua": '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
-      "sec-ch-ua-mobile": "?0",
-      "sec-ch-ua-platform": '"Windows"',
+    // Opciones de contexto que no afectan al fingerprint stealth
+    contextOptions: {
+      extraHTTPHeaders: {
+        "Accept-Language": "es-ES,es;q=0.9,en;q=0.8",
+      },
+      // Geolocalización de España para los permisos
+      geolocation: { longitude: -3.7037, latitude: 40.4168 }, // Madrid
+      permissions: ["geolocation"],
     },
-    // Proporcionar geolocalización de España para los permisos
-    geolocation: { longitude: -3.7037, latitude: 40.4168 }, // Madrid
-    permissions: ["geolocation"],
   });
-
-  // ── Inyectar stealth script en TODAS las páginas ─────────────────────────
-  await context.addInitScript(STEALTH_SCRIPT);
 
   // ── Bloquear recursos que no aportan al scraping (fuentes, tracking) ─────
   // NO bloqueamos imágenes porque algunos detectores verifican que se carguen
@@ -377,8 +315,7 @@ async function main() {
     }
   }
 
-  await context.close();
-  await browser.close();
+  await context.close(); // cerrar el context de CloakBrowser también cierra el browser
 
   // ── Resumen ───────────────────────────────────────────────────────────────
   console.log("\n─────────────────────────────────────");

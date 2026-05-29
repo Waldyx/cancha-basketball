@@ -39,9 +39,17 @@ jobs:
         working-directory: web
         run: npm ci
 
-      - name: 🎭 Instalar Playwright Chromium
+      # CloakBrowser usa su propio Chromium stealth (no el de Playwright), pero
+      # necesita las librerías de sistema de Ubuntu que Chromium requiere.
+      - name: 🎭 Instalar librerías de sistema (Chromium deps)
         working-directory: web
-        run: npx playwright install chromium --with-deps
+        run: npx playwright install-deps chromium
+
+      # Pre-descargar el binario stealth de CloakBrowser (~200MB) para que el
+      # scraper no pierda tiempo descargándolo en el primer request.
+      - name: 🥷 Descargar binario CloakBrowser
+        working-directory: web
+        run: node -e "import('cloakbrowser').then(m => m.ensureBinary()).then(i => console.log('CloakBrowser listo:', i?.binaryPath ?? 'ok')).catch(e => { console.error(e); process.exit(1); })"
 
       - name: 🔍 Ejecutar scraper
         working-directory: web
