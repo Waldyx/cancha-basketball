@@ -1283,6 +1283,25 @@ button { font-family: inherit; cursor: pointer; }
 }
 .dh-buy-btn:hover { transform: translate(-1px,-1px); box-shadow: 6px 6px 0 0 #facc15; }
 
+/* ── Comparativa top 3 tiendas ── */
+.dh-compare { margin-top: 14px; width: 100%; }
+.dh-compare-title { font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; color: #52525b; margin: 0 0 8px; }
+.dh-compare-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 12px; border-radius: 10px; margin-bottom: 6px;
+  background: #0c0c0c; border: 1px solid #27272a;
+  text-decoration: none; color: #d4d4d8;
+  font-size: 13px; font-weight: 700;
+  transition: border-color .15s, background .15s;
+}
+.dh-compare-row:hover { border-color: #52525b; background: #131316; }
+.dh-compare-row.best { border-color: #f97316; background: #1a1206; }
+.dcr-pos { width: 24px; font-size: 13px; flex-shrink: 0; }
+.dcr-tienda { flex: 1; color: #a1a1aa; }
+.dh-compare-row.best .dcr-tienda { color: #fff; }
+.dcr-price { font-family: "Barlow Condensed", sans-serif; font-size: 20px; font-weight: 900; color: #f97316; }
+.dcr-save { font-size: 11px; font-weight: 900; color: #4ade80; background: #052e16; padding: 2px 7px; border-radius: 999px; }
+
 /* ── Common section head ── */
 .section-head { margin-bottom: 28px; }
 .section-head h2 {

@@ -335,6 +335,33 @@ const productJsonLd = {
                 <a href={mejorPrecio.url} target="_blank" rel={mejorPrecio.tiene_afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"} class="dh-buy-btn aff-btn" data-tienda={LABELS_TIENDA[mejorPrecio.tienda]||mejorPrecio.tienda} data-zapa={z.slug}>
                   Ver en {LABELS_TIENDA[mejorPrecio.tienda] || mejorPrecio.tienda} →
                 </a>
+                {/* Comparativa top 3 tiendas más baratas */}
+                {linksOrdenados.length > 1 && (
+                  <div class="dh-compare">
+                    <p class="dh-compare-title">Comparar precios</p>
+                    {linksOrdenados.slice(0, 3).map((l, i) => (
+                      <a
+                        href={l.url}
+                        target="_blank"
+                        rel={l.tiene_afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"}
+                        class={`dh-compare-row aff-btn${i === 0 ? " best" : ""}`}
+                        data-tienda={LABELS_TIENDA[l.tienda] || l.tienda}
+                        data-zapa={z.slug}
+                      >
+                        <span class="dcr-pos">{i === 0 ? "🏆" : i === 1 ? "2º" : "3º"}</span>
+                        <span class="dcr-tienda">{LABELS_TIENDA[l.tienda] || l.tienda}</span>
+                        <span class="dcr-price">{Math.round(l.precio_actual)}€</span>
+                        {i === 0 && linksOrdenados.length > 1 && (
+                          <span class="dcr-save">
+                            {linksOrdenados[1] && linksOrdenados[1].precio_actual > l.precio_actual
+                              ? `−${Math.round(linksOrdenados[1].precio_actual - l.precio_actual)}€`
+                              : "mejor precio"}
+                          </span>
+                        )}
+                      </a>
+                    ))}
+                  </div>
+                )}
                 {heroSock && heroInsole && (
                   <p style="margin:12px 0 0;font-size:12px;color:#71717a;line-height:1.5">
                     💡 Combínalas con
