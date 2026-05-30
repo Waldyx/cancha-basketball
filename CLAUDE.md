@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-05-29 (sesión 16)
+> Última actualización: 2026-05-30 (sesión 16)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -47,7 +47,16 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 
 ---
 
-## Estado actual (sesión 15)
+## Estado actual (sesión 16)
+
+### ✅ Completado (sesión 16)
+- **Guardarraíl de precios (automatización segura)**: el scraper/CI a diario podía escribir precios basura de revendedores Amazon Marketplace (ej. 95€→356€). Añadido filtro de cordura `[0.35×, 1.5×]` del precio editorial en `scripts/scraper/index.ts` (precios.json limpio) y en `src/lib/mergePrices.ts` (red defensiva en build). Restauró 2 precios inflados que estaban activos.
+- **OG images en PNG**: `src/pages/og/[slug].png.ts` rasteriza el SVG con sharp (WhatsApp/FB/X no renderizan SVG). Buffer→Uint8Array para `Response`.
+- **SEO**: sitemap excluye rutas bloqueadas (`/resultados`, `/comparar`, `/og/`); imagen absoluta en Product schema.
+- **Recordatorio diario → Digest inteligente**: desactivado el aviso manual viejo; nueva rutina remota `trig_01QbvcuwM3BSMeXkQwBMP33W` (diaria 10:00 Madrid) que revisa top-10 Amazon/JD y SOLO avisa si algo está desactualizado. Solo lectura, no edita.
+- **Fix Puma All-Pro Nitro**: había 2 fichas "All-Pro Nitro 2" con datos contradictorios. Ahora `puma-all-pro-nitro`=gen 1 y `puma-all-pro-nitro-2`=gen 2 real (386g, low, balanced, guards) según WearTesters/RunRepeat.
+- **Coherencia de datos**: referencias predecesor/sucesor rotas → null (puma-clyde-all-pro, nike-lebron-nxxt-gen); 11 zapas (retros/lifestyle) recategorizadas a "balanced" (su categoría contradecía el score).
+- **Imágenes uniformes (look tienda)**: borrado de fondo con IA (`@imgly/background-removal-node`, carpeta aislada `C:\Users\oswal\bg-tool`) + composición sobre lienzo blanco 800×800 centrado. Backup de originales en `public/shoes/_pre_bg/`. Las fotos de producto quedan perfectas; las de origen "lifestyle" (con personas/varias zapas, ej. adidas-dame-8) quedan raras y necesitan otra imagen fuente. La orientación (izq/der) NO se puede automatizar.
 
 ### ✅ Completado (sesión 15)
 - **Sweep precios Amazon ES**: 94 entradas verificadas/actualizadas con fecha 2026-05-28
@@ -172,8 +181,9 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 - **Awin**: esperar 13 aprobaciones → El Corte Inglés (EPC €13.99, prioritario), Foot Locker, adidas, Sprinter, Zalando, Reebok, Basket-Center, size?Official, etc.
 - **StockX Impact Radius**: pendiente aplicar
 - **Puma EU CJ Affiliate**: pendiente aprobación
-- **Precios**: sweep Amazon ES en curso (2026-05-28) — ~51/94 entradas procesadas
-- **Recordatorio diario**: configurado para Amazon ES y JD Sports manual
+- **Precios**: Amazon ES y JD Sports siguen siendo manuales (bot detection); el digest diario `trig_01QbvcuwM3BSMeXkQwBMP33W` avisa cuando hace falta. El CI diario cubre el resto con guardarraíl.
+- **balones.ts** (`src/data/balones.ts`): catálogo de balones a medias — datos creados pero SIN página que los muestre ni import. Decisión de diseño pendiente (¿sección /balones?). Sin commitear.
+- **Imágenes lifestyle**: tras el borrado de fondo, las que tienen origen con personas/varias zapas quedan raras (ej. adidas-dame-8) → cambiar imagen fuente. Originales en `public/shoes/_pre_bg/`.
 - **Imágenes placeholder** (3 zapas — no lanzadas Q3 2026):
   - nike-kd-19, jordan-super-fly-10, puma-mb-06
 
