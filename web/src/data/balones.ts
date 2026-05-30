@@ -239,23 +239,23 @@ export const balones: Balon[] = [
   },
 
   {
-    id: "decathlon-tarmak-r900",
-    slug: "decathlon-tarmak-r900",
+    id: "decathlon-tarmak-r100",
+    slug: "decathlon-tarmak-r100",
     marca: "Decathlon",
-    modelo: "Tarmak R900",
+    modelo: "Tarmak R100",
     año_lanzamiento: 2022,
     terreno: "hybrid",
     material: "composite",
     talla_principal: 7,
     tallas_disponibles: [5, 6, 7],
-    precio_msrp_eur: 40,
+    precio_msrp_eur: 20,
     puntuaciones: {
       grip: 7,
       durabilidad: 8,
       rebote: 7,
       control: 7,
     },
-    resumen: "El balón de Decathlon con mejor relación calidad-precio del catálogo. Composite decente, aguanta exterior con uso moderado e interior sin problemas. Para jugadores que empiezan o que no quieren arriesgarse con un balón caro. La opción más accesible con afiliado Awin activo.",
+    resumen: "El balón de Decathlon más accesible. Composite básico que aguanta exterior con uso moderado e interior sin problemas. Para jugadores que empiezan o que no quieren arriesgarse con un balón caro. La opción más accesible del catálogo.",
     pros: [
       "El más barato del catálogo con calidad aceptable",
       "Disponible en Decathlon España — entrega rápida y devolución fácil",
@@ -267,14 +267,13 @@ export const balones: Balon[] = [
       "En cemento duro se desgasta en 2-3 meses de uso intensivo",
       "Grip por debajo de los composites de gama media",
     ],
-    veredicto: "7.0/10 para iniciación y uso casual. El balón para el padre que quiere uno decente para jugar con su hijo sin gastarse una fortuna. Difícil de batir en relación calidad-precio.",
-    imagen_principal: "/balls/decathlon-tarmak-r900.webp",
+    veredicto: "7.0/10 para iniciación y uso casual. El balón para el padre que quiere uno decente para jugar con su hijo sin gastarse una fortuna. Solo en Decathlon — no lo encontrarás en Amazon.",
+    imagen_principal: "/balls/decathlon-tarmak-r100.webp",
     tags: ["hybrid", "composite", "decathlon", "precio-calidad", "iniciacion", "junior"],
     links_compra: [
-      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fsearch%3FNtt%3Dtarmak%2Br900", precio_actual: 40, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=decathlon+tarmak+r900+baloncesto&tag=canchazapa-21", precio_actual: 42, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fbalon-de-baloncesto-talla-7-tarmak-r100-naranja-perfecto-para-iniciarte%2F306440%2Fc197m8547127", precio_actual: 20, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
     ],
-    ultima_actualizacion: "2026-05-27",
+    ultima_actualizacion: "2026-05-31",
   },
 
   // ─── OUTDOOR / GOMA ───────────────────────────────────────────────────────
