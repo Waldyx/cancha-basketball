@@ -3478,6 +3478,109 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">Si vas a jugar de verdad, usa la herramienta adecuada. Tienes opciones para cada bolsillo en el <a href="/zapatillas">catálogo</a>, las más económicas en <a href="/zapatillas-baloncesto-baratas">zapatillas baratas</a>, y si dudas qué modelo encaja contigo, prueba el <a href="/quiz">quiz</a>.</p>
     `,
   },
+
+  // ── 40. Altura: low vs mid vs high ──────────────────────────────────
+  {
+    slug: "altura-zapatillas-baloncesto-low-mid-high",
+    title: "Low, mid o high: qué altura de zapatilla de baloncesto te conviene",
+    metaTitle: "Zapatillas baloncesto low, mid o high: cuál elegir | CANCHA.ZAPA",
+    description:
+      "Low-top, mid-top o high-top: qué dice la ciencia sobre el soporte del tobillo y cómo elegir la altura según tu posición, peso e historial de lesiones.",
+    fecha: "2026-05-30",
+    fechaLabel: "30 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Guía editorial · CANCHA.ZAPA",
+    heroTitle: "Low, mid o high",
+    heroSubtitle: "Qué altura de zapatilla te conviene de verdad",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-gt-cut-4", "jordan-tatum-4", "nike-lebron-23", "ua-curry-13"],
+    relatedSeoPages: ["zapatillas-baloncesto-para-tobillos", "mejor-zapatilla-base"],
+    body: `
+<p class="art-intro">"Las altas protegen más el tobillo." Es la creencia más extendida del baloncesto, y la ciencia lleva años matizándola. La altura importa, pero no como crees. Aquí va lo que de verdad cambia entre low, mid y high.</p>
+
+<h2>El mito del high-top y lo que dicen los estudios</h2>
+<p>Varios estudios no han encontrado que un high-top reduzca por sí solo la incidencia de esguinces frente a un low-top. Lo que de verdad protege el tobillo es la fuerza propioceptiva, un buen soporte lateral en la mediasuela y una base ancha y estable — no la tela que sube por encima del maléolo.</p>
+<p>Dicho esto, un collar alto sí aporta una sensación de sujeción y un punto de contención psicológica que muchos jugadores valoran. No es inútil; simplemente no es la varita mágica que se vende.</p>
+
+<h2>Low-top: velocidad y libertad</h2>
+<p>Es la tendencia dominante en la NBA actual (Kobe lo popularizó). Menos peso, máxima movilidad de tobillo, mejor para cambios de dirección explosivos.</p>
+<ul>
+  <li><strong>Ideal para:</strong> bases y escoltas rápidos, jugadores ligeros, tobillos sanos.</li>
+  <li><strong>Piénsatelo si:</strong> tienes historial de esguinces y no compensas con tobilleras o trabajo de fuerza.</li>
+</ul>
+
+<h2>Mid-top: el equilibrio</h2>
+<p>La altura más versátil. Sujeción extra sin sacrificar apenas movilidad. La mayoría de modelos de rendimiento actuales son mid.</p>
+<ul>
+  <li><strong>Ideal para:</strong> aleros y la mayoría de jugadores recreativos. La opción segura si dudas.</li>
+</ul>
+
+<h2>High-top: contención y confianza</h2>
+<p>Más material alrededor del tobillo, más peso, sensación de "bota". Aporta confianza en los aterrizajes.</p>
+<ul>
+  <li><strong>Ideal para:</strong> ala-pívots y pívots, jugadores potentes y pesados, o quien viene de un esguince y quiere apoyo psicológico extra.</li>
+  <li><strong>Coste:</strong> algo más de peso y menos libertad en el primer paso.</li>
+</ul>
+
+<h2>Cómo decidir en 10 segundos</h2>
+<ul>
+  <li>Base/escolta ligero y rápido, tobillos sanos → <strong>low</strong>.</li>
+  <li>No lo tienes claro o eres alero → <strong>mid</strong>.</li>
+  <li>Interior pesado o vuelves de lesión → <strong>high</strong> (+ trabaja la fuerza del tobillo igualmente).</li>
+</ul>
+<p>Y recuerda: ninguna altura sustituye al fortalecimiento del tobillo. Si te preocupan los esguinces, la altura es el complemento, no la solución.</p>
+
+<p class="art-outro">En el <a href="/comparar">comparador</a> puedes filtrar y ver la altura de cada modelo de un vistazo. Si tu prioridad es el tobillo, mira nuestra selección en <a href="/zapatillas-baloncesto-para-tobillos">zapatillas para tobillos</a>, y para encontrar tu altura ideal según tu juego, haz el <a href="/quiz">quiz</a>.</p>
+    `,
+  },
+
+  // ── 41. Heel lock / atado ───────────────────────────────────────────
+  {
+    slug: "como-atar-zapatillas-baloncesto-heel-lock",
+    title: "Cómo atarte las zapatillas para que no se te salga el talón (heel lock)",
+    metaTitle: "Heel lock: cómo atar zapatillas de baloncesto correctamente | CANCHA.ZAPA",
+    description:
+      "El nudo heel lock (lace lock) que fija el talón y evita rozaduras y deslizamientos. Paso a paso, más trucos de atado para ganar sujeción gratis.",
+    fecha: "2026-05-30",
+    fechaLabel: "30 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 4,
+    eyebrow: "★ Truco de pista · CANCHA.ZAPA",
+    heroTitle: "El nudo que fija el talón",
+    heroSubtitle: "Heel lock: más sujeción gratis, en 20 segundos",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-gt-cut-4", "adidas-ae-3", "ua-curry-13", "jordan-tatum-4"],
+    relatedSeoPages: ["zapatillas-baloncesto-para-tobillos", "zapatillas-baloncesto-pie-ancho"],
+    body: `
+<p class="art-intro">Tu zapatilla puede sujetar mucho mejor sin gastar un euro. La mayoría de jugadores ignoran el último par de ojales y el nudo heel lock — justamente los que fijan el talón y eliminan el deslizamiento interno que causa rozaduras y pérdida de control.</p>
+
+<h2>Qué es el heel lock (lace lock)</h2>
+<p>Es una técnica de atado que usa los dos ojales superiores de la zapatilla (esos que parecen "de más" y casi nadie usa) para crear un anclaje que bloquea el talón contra el contrafuerte. Resultado: el pie deja de moverse dentro de la zapatilla en frenadas y cambios de dirección.</p>
+
+<h2>Paso a paso</h2>
+<ol>
+  <li>Ata los cordones de forma normal hasta el penúltimo ojal de cada lado.</li>
+  <li>En vez de cruzar, mete cada cordón en el <strong>último ojal de su mismo lado</strong>, dejando un pequeño bucle por fuera.</li>
+  <li>Cruza cada cordón y pásalo <strong>por el bucle del lado contrario</strong>.</li>
+  <li>Tira de ambos hacia arriba y hacia los lados: notarás cómo el talón se ancla.</li>
+  <li>Ata el nudo normal. Listo.</li>
+</ol>
+<p>La primera vez cuesta un minuto; luego sale solo. Es el mismo truco que usan los corredores, y en baloncesto marca aún más diferencia por los movimientos laterales.</p>
+
+<h2>Otros trucos de atado útiles</h2>
+<ul>
+  <li><strong>Pie ancho:</strong> salta el ojal central de la zona del empeine (no lo uses) para liberar presión sobre el puente.</li>
+  <li><strong>Empeine alto:</strong> usa el atado en paralelo (window lacing) en la zona que te aprieta.</li>
+  <li><strong>Tensión por zonas:</strong> aprieta más la zona del tobillo y deja algo más suelta la del antepié para combinar sujeción y comodidad.</li>
+</ul>
+
+<h2>Cuándo el problema no es el atado</h2>
+<p>Si por mucho heel lock que hagas el talón sigue bailando, puede que la zapatilla te quede grande o que el contrafuerte esté vencido por desgaste. En ese caso el atado solo es un parche.</p>
+
+<p class="art-outro">Un buen atado mejora cualquier zapatilla, pero parte de una buena base. Si tienes el pie ancho, mira <a href="/zapatillas-baloncesto-pie-ancho">opciones de horma ancha</a>; si te preocupa el tobillo, <a href="/zapatillas-baloncesto-para-tobillos">estas con más soporte</a>; y para acertar con la talla, revisa la <a href="/guia-tallas">guía de tallas</a>.</p>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
