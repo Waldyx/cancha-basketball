@@ -22,6 +22,19 @@ const TIENDA_LABEL: Record<string, string> = {
 // Orden: mejor score primero
 const ordenados = [...balones].sort((a, b) => scoreBalon(b) - scoreBalon(a));
 
+// Accesorios: calcetines y plantillas (afiliado Amazon)
+const CALCETINES = [
+  { altura: "Corto", nombre: "Nike Elite No-Show", precio: "~12€", nota: "Perfil bajo — máximo court feel, ideal low-top", url: "https://www.amazon.es/s?k=nike+elite+no+show+calcetines+baloncesto&tag=canchazapa-21" },
+  { altura: "Medio", nombre: "UA Playmaker Mid Crew", precio: "~12€", nota: "El más popular en pista — soporte real de tobillo", url: "https://www.amazon.es/s?k=under+armour+playmaker+mid+crew+calcetines&tag=canchazapa-21" },
+  { altura: "Largo", nombre: "Stance NBA Over-the-Calf", precio: "~16€", nota: "Look NBA clásico — compresión y soporte máximo", url: "https://www.amazon.es/s?k=stance+nba+over+the+calf+calcetines&tag=canchazapa-21" },
+];
+const PLANTILLAS = [
+  { nombre: "Superfeet Green Premium", precio: "~38€", nota: "Soporte de arco máximo — pronación y pie plano", url: "https://www.amazon.es/s?k=superfeet+green+plantillas+deporte&tag=canchazapa-21" },
+  { nombre: "Sof Sole Athlete Full Length", precio: "~18€", nota: "Cushion extra para zapatillas básicas o retros", url: "https://www.amazon.es/s?k=sof+sole+athlete+full+length+plantillas&tag=canchazapa-21" },
+  { nombre: "Bauerfeind Sports Basketball", precio: "~45€", nota: "Soporte médico para tobillo y rodilla sensibles", url: "https://www.amazon.es/s?k=bauerfeind+sports+plantillas+baloncesto&tag=canchazapa-21" },
+  { nombre: "Currex SupportST", precio: "~40€", nota: "Arco dinámico — estabilidad sin perder reactividad", url: "https://www.amazon.es/s?k=currex+supportst+plantillas+deporte&tag=canchazapa-21" },
+];
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -122,6 +135,41 @@ const jsonLd = {
       })}
     </section>
 
+    {/* ── Calcetines ── */}
+    <section class="shell bl-acc">
+      <div class="bl-acc-head">
+        <h2 class="bl-acc-title">🧦 Calcetines de baloncesto</h2>
+        <a href="/calcetines-baloncesto" class="bl-acc-link">Guía completa →</a>
+      </div>
+      <div class="bl-acc-grid">
+        {CALCETINES.map((c) => (
+          <a href={c.url} target="_blank" rel="noopener noreferrer sponsored" class="bl-acc-card">
+            <span class="bl-acc-badge">{c.altura}</span>
+            <span class="bl-acc-name">{c.nombre}</span>
+            <span class="bl-acc-nota">{c.nota}</span>
+            <span class="bl-acc-buy">{c.precio} · Amazon →</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    {/* ── Plantillas ── */}
+    <section class="shell bl-acc">
+      <div class="bl-acc-head">
+        <h2 class="bl-acc-title">🦶 Plantillas de baloncesto</h2>
+        <a href="/plantillas-baloncesto" class="bl-acc-link">Guía completa →</a>
+      </div>
+      <div class="bl-acc-grid">
+        {PLANTILLAS.map((c) => (
+          <a href={c.url} target="_blank" rel="noopener noreferrer sponsored" class="bl-acc-card">
+            <span class="bl-acc-name">{c.nombre}</span>
+            <span class="bl-acc-nota">{c.nota}</span>
+            <span class="bl-acc-buy">{c.precio} · Amazon →</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
     <aside class="shell bl-cta">
       <div>
         <p class="bl-cta-title">¿Y las zapatillas?</p>
@@ -158,6 +206,20 @@ const jsonLd = {
     .bl-btn:hover { background: #fb923c; }
     .bl-btn:nth-child(2) { background: #18181b; color: #f97316; border: 1px solid #f97316; }
     .bl-btn:nth-child(2):hover { background: #1f1f23; }
+
+    /* Accesorios (calcetines / plantillas) */
+    .bl-acc { padding: 8px 0 24px; }
+    .bl-acc-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; border-top: 1px solid #27272a; padding-top: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+    .bl-acc-title { font-family: "Barlow Condensed", sans-serif; font-weight: 900; font-size: 28px; text-transform: uppercase; color: #fff; margin: 0; }
+    .bl-acc-link { color: #f97316; font-weight: 800; font-size: 13px; text-decoration: none; white-space: nowrap; }
+    .bl-acc-link:hover { text-decoration: underline; }
+    .bl-acc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+    .bl-acc-card { display: flex; flex-direction: column; gap: 4px; background: #131316; border: 1px solid #27272a; border-radius: 12px; padding: 16px; text-decoration: none; transition: border-color .15s, transform .15s; }
+    .bl-acc-card:hover { border-color: #f97316; transform: translateY(-2px); }
+    .bl-acc-badge { align-self: flex-start; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; color: #f97316; border: 1px solid #f97316; padding: 2px 8px; border-radius: 999px; margin-bottom: 2px; }
+    .bl-acc-name { font-weight: 900; color: #fff; font-size: 15px; }
+    .bl-acc-nota { color: #a1a1aa; font-size: 12px; line-height: 1.4; flex: 1; }
+    .bl-acc-buy { color: #f97316; font-weight: 800; font-size: 13px; margin-top: 6px; }
 
     .bl-cta { display: flex; justify-content: space-between; align-items: center; gap: 20px; background: linear-gradient(135deg, #1a1a1d, #0c0c0c); border: 1px solid #27272a; border-radius: 16px; padding: 24px 28px; margin-bottom: 24px; flex-wrap: wrap; }
     .bl-cta-title { font-family: "Barlow Condensed", sans-serif; font-weight: 900; font-size: 24px; color: #fff; margin: 0; text-transform: uppercase; }
