@@ -3327,6 +3327,157 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">En cada ficha de zapatilla de CANCHA.ZAPA encontrarás el calcetín recomendado por altura en la sección "Combina con →". Puedes ver todas las opciones en nuestra <a href="/calcetines-baloncesto">guía de calcetines de baloncesto</a> o comparar zapatillas por altura en el <a href="/comparar">comparador</a>.</p>
     `,
   },
+
+  // ── 37. Cómo limpiar y cuidar zapatillas ────────────────────────────
+  {
+    slug: "como-limpiar-cuidar-zapatillas-baloncesto",
+    title: "Cómo limpiar y cuidar tus zapatillas de baloncesto (sin cargártelas)",
+    metaTitle: "Cómo limpiar zapatillas de baloncesto: guía paso a paso | CANCHA.ZAPA",
+    description:
+      "Cómo limpiar, secar y guardar tus zapatillas de baloncesto para que la tracción y la espuma duren más. Errores que cargan la suela y la mediasuela.",
+    fecha: "2026-05-30",
+    fechaLabel: "30 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Guía de mantenimiento · CANCHA.ZAPA",
+    heroTitle: "Cómo limpiar y cuidar tus zapatillas",
+    heroSubtitle: "Que la tracción y la espuma duren más · Sin mitos",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-gt-cut-4", "adidas-ae-3", "ua-curry-13", "jordan-tatum-4"],
+    relatedSeoPages: ["zapatillas-baloncesto-outdoor", "zapatillas-baloncesto-baratas"],
+    body: `
+<p class="art-intro">Una zapatilla de baloncesto se juega, no se exhibe. Pero unos cuidados básicos marcan la diferencia entre que la tracción te dure una temporada o dos, y entre una mediasuela que aguanta o una que se descompone antes de tiempo. Aquí va lo que sí importa y lo que es mito.</p>
+
+<h2>La regla número uno: la suela limpia es tracción</h2>
+<p>El 90% de los resbalones en pista no son culpa de la zapatilla, son culpa del polvo. La goma agarra por contacto directo con el suelo; una capa fina de polvo actúa como rodamientos. Por eso los profesionales se tocan la suela constantemente.</p>
+<ul>
+  <li><strong>En pista:</strong> pásate la mano húmeda o una toallita por la suela cada pocos minutos. Recupera el grip al instante.</li>
+  <li><strong>En casa:</strong> cepillo de cerdas blandas + agua tibia sobre el patrón de la suela. Quita el polvo incrustado en el herringbone.</li>
+  <li><strong>Outdoor:</strong> si juegas en asfalto, límpiala más a menudo — la arenilla además desgasta la goma.</li>
+</ul>
+
+<h2>Cómo limpiar el upper según el material</h2>
+<h3>Mesh y tejidos (knit)</h3>
+<p>Lo más común hoy. Paño húmedo con un poco de jabón neutro, movimientos suaves, y secar con un trapo. Nada de meterlas en la lavadora: el centrifugado deforma la horma y puede despegar la mediasuela.</p>
+<h3>Sintético / TPU</h3>
+<p>Aguanta más. Paño húmedo y listo. Para manchas, un cepillo de dientes viejo con agua jabonosa.</p>
+<h3>Cuero y nubuck (retros)</h3>
+<p>Aquí cuidado: nada de empapar. Paño apenas húmedo y, si es nubuck, cepillo específico en seco. El exceso de agua mancha el cuero para siempre.</p>
+
+<h2>El secado: donde se cargan más zapatillas</h2>
+<p>El calor es el enemigo número uno de la espuma. La mayoría de mediasuelas modernas (EVA, Boost, Nitro, espumas supercríticas) pierden propiedades con el calor directo.</p>
+<ul>
+  <li><strong>NUNCA</strong> las pongas al sol directo, sobre un radiador ni con secador. La espuma se reseca, amarillea y pierde rebote.</li>
+  <li>Sécalas a la sombra, a temperatura ambiente, con papel de periódico dentro para absorber humedad y mantener la forma.</li>
+  <li>Si están empapadas, saca la plantilla y los cordones para que aireen por dentro.</li>
+</ul>
+
+<h2>Guardado y rotación</h2>
+<p>La espuma necesita "descomprimirse" entre sesiones. Si juegas a diario, tener dos pares y alternarlos no es lujo: alarga la vida de ambos porque la mediasuela recupera su altura entre usos. Guárdalas en sitio fresco y seco, nunca en una bolsa cerrada y húmeda (criadero de hongos y de olor).</p>
+
+<h2>Mitos que puedes ignorar</h2>
+<ul>
+  <li><strong>"Cremas y sprays milagro":</strong> para una zapatilla de rendimiento no aportan nada. Agua, jabón neutro y un cepillo bastan.</li>
+  <li><strong>"Congelarlas para el olor":</strong> el frío no mata las bacterias del olor. Lo que funciona es secarlas bien y airearlas.</li>
+  <li><strong>"Arroz para secarlas":</strong> sirve para el móvil, no para una zapatilla. Papel de periódico es más eficaz.</li>
+</ul>
+
+<p class="art-outro">Cuidar la zapatilla es la mitad; la otra mitad es saber <a href="/blog/cada-cuanto-cambiar-zapatillas-baloncesto">cuándo toca cambiarla</a>. Y si buscas un modelo nuevo, filtra por lo que necesitas en el <a href="/zapatillas">catálogo</a> o compáralas en el <a href="/comparar">comparador</a>.</p>
+    `,
+  },
+
+  // ── 38. Cada cuánto cambiar zapatillas ──────────────────────────────
+  {
+    slug: "cada-cuanto-cambiar-zapatillas-baloncesto",
+    title: "¿Cada cuánto hay que cambiar las zapatillas de baloncesto?",
+    metaTitle: "¿Cada cuánto cambiar zapatillas de baloncesto? Señales claras | CANCHA.ZAPA",
+    description:
+      "Cuánto duran las zapatillas de baloncesto, las señales de que toca cambiarlas y por qué jugar con la mediasuela muerta es jugar lesionado.",
+    fecha: "2026-05-30",
+    fechaLabel: "30 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 5,
+    eyebrow: "★ Guía editorial · CANCHA.ZAPA",
+    heroTitle: "¿Cada cuánto cambiar las zapatillas?",
+    heroSubtitle: "Señales claras de que la mediasuela está muerta",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-lebron-23", "ua-curry-13", "nike-gt-cut-4", "adidas-ae-3"],
+    relatedSeoPages: ["zapatillas-baloncesto-rodillas", "zapatillas-baloncesto-baratas"],
+    body: `
+<p class="art-intro">No hay un número mágico de meses, pero sí hay señales objetivas. La clave no es cómo se ven por fuera — es lo que ha pasado con la mediasuela y la tracción por dentro. Jugar con una zapatilla "muerta" es la forma más tonta de acabar con dolor de rodillas o un tobillo torcido.</p>
+
+<h2>La cifra de referencia: horas, no meses</h2>
+<p>Una mediasuela de rendimiento aguanta de media entre <strong>80 y 120 horas de juego intenso</strong> antes de perder buena parte de su capacidad de absorber impactos. Traducido:</p>
+<ul>
+  <li><strong>Si juegas 2-3 veces por semana:</strong> piensa en cambiarlas cada 8-12 meses.</li>
+  <li><strong>Si juegas a diario o compites:</strong> pueden quedarse cortas en 4-6 meses.</li>
+  <li><strong>Outdoor:</strong> el asfalto desgasta la suela mucho antes que el impacto mate la espuma — ahí manda la tracción.</li>
+</ul>
+<p>Por eso tener dos pares en rotación no solo es más cómodo: reparte las horas y retrasa el momento de tirar dinero.</p>
+
+<h2>Las 5 señales de que toca cambiar</h2>
+<h3>1. La tracción ya no agarra (y la suela está limpia)</h3>
+<p>Si has limpiado bien la suela y aún resbalas, el patrón está liso por desgaste. En outdoor es lo primero que muere.</p>
+<h3>2. Sientes el suelo "duro"</h3>
+<p>Cuando la espuma se compacta, dejas de notar el colchón en los aterrizajes. Si al caer notas el impacto seco en las articulaciones, la mediasuela ya no protege.</p>
+<h3>3. Arrugas profundas en la mediasuela</h3>
+<p>Líneas marcadas y permanentes en la espuma (creasing) indican que ha perdido densidad. No vuelven.</p>
+<h3>4. El upper ya no sujeta</h3>
+<p>Si el pie se desliza dentro de la zapatilla en los cambios de dirección aunque aprietes los cordones, el soporte lateral está vencido — riesgo directo de torcedura.</p>
+<h3>5. Dolores nuevos sin cambiar nada más</h3>
+<p>Molestias nuevas en rodillas, fascia o tobillos sin otra explicación suelen ser la zapatilla pidiendo el relevo.</p>
+
+<h2>Por qué no merece la pena estirarlas</h2>
+<p>Una zapatilla de 120&euro; "muerta" no te ahorra dinero: te lo cuesta en fisioterapia. La amortiguación es, literalmente, lo que separa tus articulaciones del suelo. Cuando se va, se va — y ninguna plantilla nueva recupera una mediasuela compactada.</p>
+
+<p class="art-outro">Si notas varias de estas señales, es momento de buscar relevo. Filtra por amortiguación y soporte en el <a href="/zapatillas">catálogo</a>, mira las mejores en <a href="/rankings">rankings</a>, o repasa antes <a href="/blog/como-limpiar-cuidar-zapatillas-baloncesto">cómo cuidarlas</a> para que las próximas duren más.</p>
+    `,
+  },
+
+  // ── 39. Baloncesto vs running ───────────────────────────────────────
+  {
+    slug: "zapatillas-baloncesto-vs-running",
+    title: "Zapatillas de baloncesto vs running: ¿puedo usar unas por otras?",
+    metaTitle: "Zapatillas de baloncesto vs running: ¿sirven? | CANCHA.ZAPA",
+    description:
+      "Por qué no debes jugar al baloncesto con zapatillas de running (ni correr con las de basket). Las diferencias reales en suela, soporte y riesgo de lesión.",
+    fecha: "2026-05-30",
+    fechaLabel: "30 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 5,
+    eyebrow: "★ Guía editorial · CANCHA.ZAPA",
+    heroTitle: "Baloncesto vs running",
+    heroSubtitle: "¿Puedo usar unas por otras? La respuesta corta: no",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-gt-cut-4", "adidas-ae-3", "nike-precision-7", "ua-curry-13"],
+    relatedSeoPages: ["zapatillas-baloncesto-baratas", "zapatillas-baloncesto-outdoor"],
+    body: `
+<p class="art-intro">Es una de las preguntas más repetidas, sobre todo a la hora de ahorrar: "tengo unas de running buenas, ¿me valen para jugar?". La respuesta honesta es no, y no es por venderte otra zapatilla — es por cómo está diseñada cada una y por tu integridad física.</p>
+
+<h2>Movimientos opuestos, diseños opuestos</h2>
+<p>Correr es un movimiento lineal y repetitivo hacia delante. El baloncesto es lo contrario: arrancadas, frenadas, saltos y, sobre todo, <strong>movimiento lateral</strong> constante. Cada zapatilla está construida para su patrón.</p>
+
+<h3>La suela</h3>
+<ul>
+  <li><strong>Running:</strong> suela pensada para rodar de talón a punta. Poca tracción lateral y, muchas veces, una base estrecha y curva (rocker) que en un cambio de dirección te hace rodar el tobillo.</li>
+  <li><strong>Baloncesto:</strong> patrón (herringbone) multidireccional, base plana y ancha para frenar en seco hacia los lados sin resbalar.</li>
+</ul>
+
+<h3>El soporte lateral</h3>
+<p>Aquí está el riesgo real. Una zapatilla de running no tiene contención lateral: en un primer paso explosivo o al caer de un salto torcido, el pie se sale de la base. Las de baloncesto llevan refuerzos, contrafuertes y a menudo más altura precisamente para evitar el esguince de tobillo.</p>
+
+<h3>La amortiguación</h3>
+<p>La espuma de running está optimizada para impactos verticales repetidos de baja intensidad. La de baloncesto tiene que absorber aterrizajes mucho más violentos desde altura. Son perfiles de impacto distintos.</p>
+
+<h2>¿Y al revés? ¿Correr con las de basket?</h2>
+<p>Tampoco es buena idea. Una zapatilla de baloncesto pesa más, es más rígida y su amortiguación no está pensada para kilómetros continuos. Para una carrera larga acabarás con el pie cargado. Para un trote corto de calentamiento, no pasa nada — pero no las uses como zapatilla de running.</p>
+
+<h2>La excepción: las cross-training y el uso casual</h2>
+<p>Para gimnasio variado o uso de calle, una zapatilla de baloncesto low-top moderna funciona perfectamente. Y si tu presupuesto es ajustado y solo juegas pachangas ocasionales, mejor unas de basket baratas que unas de running caras: la seguridad lateral no se negocia.</p>
+
+<p class="art-outro">Si vas a jugar de verdad, usa la herramienta adecuada. Tienes opciones para cada bolsillo en el <a href="/zapatillas">catálogo</a>, las más económicas en <a href="/zapatillas-baloncesto-baratas">zapatillas baratas</a>, y si dudas qué modelo encaja contigo, prueba el <a href="/quiz">quiz</a>.</p>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
