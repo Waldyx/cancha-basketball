@@ -31,10 +31,10 @@ const CALCETINES = [
   { altura: "Grip", nombre: "Tapedesign Antideslizantes", precio: "~14€", nota: "Almohadillas antideslizantes — el pie no baila dentro de la zapa", img: "/accesorios/calcetin-grip.webp", url: "https://www.amazon.es/s?k=tapedesign+calcetines+antideslizantes&tag=canchazapa-21" },
 ];
 const PLANTILLAS = [
-  { nombre: "Superfeet Green Premium", precio: "~38€", nota: "Soporte de arco máximo — pronación y pie plano", url: "https://www.amazon.es/s?k=superfeet+green+plantillas+deporte&tag=canchazapa-21" },
-  { nombre: "Sof Sole Athlete Full Length", precio: "~18€", nota: "Cushion extra para zapatillas básicas o retros", url: "https://www.amazon.es/s?k=sof+sole+athlete+full+length+plantillas&tag=canchazapa-21" },
-  { nombre: "Bauerfeind Sports Basketball", precio: "~45€", nota: "Soporte médico para tobillo y rodilla sensibles", url: "https://www.amazon.es/s?k=bauerfeind+sports+plantillas+baloncesto&tag=canchazapa-21" },
-  { nombre: "Currex SupportST", precio: "~40€", nota: "Arco dinámico — estabilidad sin perder reactividad", url: "https://www.amazon.es/s?k=currex+supportst+plantillas+deporte&tag=canchazapa-21" },
+  { nombre: "Superfeet Green Premium", precio: "~38€", nota: "Soporte de arco máximo — pronación y pie plano", img: "/accesorios/plantilla-superfeet.webp", url: "https://www.amazon.es/s?k=superfeet+green+plantillas+deporte&tag=canchazapa-21" },
+  { nombre: "Sof Sole Athlete Full Length", precio: "~18€", nota: "Cushion extra para zapatillas básicas o retros", img: "/accesorios/plantilla-sofsole.webp", url: "https://www.amazon.es/s?k=sof+sole+athlete+full+length+plantillas&tag=canchazapa-21" },
+  { nombre: "Bauerfeind Sports Basketball", precio: "~45€", nota: "Soporte médico para tobillo y rodilla sensibles", img: "/accesorios/plantilla-bauerfeind.webp", url: "https://www.amazon.es/s?k=bauerfeind+sports+plantillas+baloncesto&tag=canchazapa-21" },
+  { nombre: "Currex SupportST", precio: "~40€", nota: "Arco dinámico — estabilidad sin perder reactividad", img: "/accesorios/plantilla-currex.webp", url: "https://www.amazon.es/s?k=currex+supportst+plantillas+deporte&tag=canchazapa-21" },
 ];
 
 const jsonLd = {
@@ -165,6 +165,7 @@ const jsonLd = {
       <div class="bl-acc-grid">
         {PLANTILLAS.map((c) => (
           <a href={c.url} target="_blank" rel="noopener noreferrer sponsored" class="bl-acc-card">
+            <div class="bl-acc-img"><img src={c.img} alt={c.nombre} width="160" height="160" /></div>
             <span class="bl-acc-name">{c.nombre}</span>
             <span class="bl-acc-nota">{c.nota}</span>
             <span class="bl-acc-buy">{c.precio} · Amazon →</span>
