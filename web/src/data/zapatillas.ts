@@ -2493,7 +2493,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 150,
     links_compra: [
-      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/p/calzado/ua_futr_x_elite_uaa/3028827.html", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-29" },
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/buscar/?q=futr+x+4", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-29" },
     ],
   },
 
@@ -5914,7 +5914,7 @@ const _rawZapatillas: Zapatilla[] = [
     slug: "jordan-super-fly-8",
     marca: "Jordan",
     modelo: "Super/Fly 8",
-    generacion: 10,
+    generacion: 8,
     año_lanzamiento: 2024,
     genero: "unisex",
     tecnologia_clave: ["Air", "herringbone"],
@@ -5956,8 +5956,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 115,
     links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=jordan+super+fly+10&vst=jordan+super+fly+10", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=jordan+super+fly+10", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=jordan+super+fly+8&vst=jordan+super+fly+8", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=jordan+super+fly+8", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
     ],
   },
 
