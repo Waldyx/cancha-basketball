@@ -69,14 +69,17 @@ const jsonLd = {
         <p class="cz-eyebrow">★ Equipamiento · CANCHA.ZAPA</p>
         <h1 class="rk-h1">Mejores balones<br/><span class="rk-h1-cat">de baloncesto</span></h1>
         <p class="rk-blurb">{balones.length} balones analizados sin BS · Por terreno, material y precio · Con dónde comprarlos</p>
-        <div class="bl-filters">
-          <button class="bl-chip active" data-f="all">Todos</button>
-          <button class="bl-chip" data-f="indoor">🏟️ Interior</button>
-          <button class="bl-chip" data-f="hybrid">🔄 Mixto</button>
-          <button class="bl-chip" data-f="outdoor">🌳 Exterior</button>
-        </div>
       </div>
     </section>
+
+    <nav class="rk-tabs">
+      <div class="shell rk-tabs-inner">
+        <button class="rk-tab is-active" data-f="all">Todos</button>
+        <button class="rk-tab" data-f="indoor">Interior</button>
+        <button class="rk-tab" data-f="hybrid">Mixto</button>
+        <button class="rk-tab" data-f="outdoor">Exterior</button>
+      </div>
+    </nav>
 
     <section class="shell bl-grid">
       {ordenados.map((b) => {
@@ -133,11 +136,6 @@ const jsonLd = {
   </main>
 
   <style>
-    .bl-filters { display: flex; gap: 8px; justify-content: flex-start; flex-wrap: wrap; margin-top: 18px; }
-    .bl-chip { background: #18181b; border: 1px solid #27272a; color: #d4d4d8; padding: 8px 16px; border-radius: 999px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all .15s; }
-    .bl-chip:hover { border-color: #52525b; }
-    .bl-chip.active { background: #f97316; border-color: #f97316; color: #0c0c0c; }
-
     .bl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 24px 0 48px; }
     .bl-card { background: #131316; border: 1px solid #27272a; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: border-color .15s, transform .15s; }
     .bl-card:hover { border-color: #3f3f46; transform: translateY(-2px); }
@@ -169,11 +167,11 @@ const jsonLd = {
   </style>
 
   <script is:inline>
-    document.querySelectorAll(".bl-chip").forEach((chip) => {
-      chip.addEventListener("click", () => {
-        const f = chip.getAttribute("data-f");
-        document.querySelectorAll(".bl-chip").forEach((c) => c.classList.remove("active"));
-        chip.classList.add("active");
+    document.querySelectorAll(".rk-tab").forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const f = tab.getAttribute("data-f");
+        document.querySelectorAll(".rk-tab").forEach((c) => c.classList.remove("is-active"));
+        tab.classList.add("is-active");
         document.querySelectorAll(".bl-card").forEach((card) => {
           const show = f === "all" || card.getAttribute("data-terreno") === f;
           card.style.display = show ? "" : "none";
