@@ -3581,6 +3581,61 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">Un buen atado mejora cualquier zapatilla, pero parte de una buena base. Si tienes el pie ancho, mira <a href="/zapatillas-baloncesto-pie-ancho">opciones de horma ancha</a>; si te preocupa el tobillo, <a href="/zapatillas-baloncesto-para-tobillos">estas con más soporte</a>; y para acertar con la talla, revisa la <a href="/guia-tallas">guía de tallas</a>.</p>
     `,
   },
+
+  // ── 42. Cómo elegir un balón ────────────────────────────────────────
+  {
+    slug: "como-elegir-balon-baloncesto-2026",
+    title: "Cómo elegir un balón de baloncesto (y los mejores de 2026)",
+    metaTitle: "Cómo elegir balón de baloncesto: talla, material y terreno | CANCHA.ZAPA",
+    description:
+      "Guía para elegir balón de baloncesto: talla 5, 6 o 7, cuero vs composite vs goma, indoor vs outdoor y presión correcta. Con los mejores balones recomendados.",
+    fecha: "2026-05-30",
+    fechaLabel: "30 mayo 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Equipamiento · CANCHA.ZAPA",
+    heroTitle: "Cómo elegir un balón de baloncesto",
+    heroSubtitle: "Talla, material y terreno · Y los mejores de 2026",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: [],
+    relatedSeoPages: ["zapatillas-baloncesto-outdoor", "zapatillas-baloncesto-junior"],
+    body: `
+<p class="art-intro">Un balón malo arruina cualquier entrenamiento: resbala, no bota recto o se pela en dos semanas. Elegir bien es fácil si entiendes tres cosas — talla, material y dónde vas a jugar. Aquí va la guía, y al final tienes nuestros balones recomendados con dónde comprarlos.</p>
+
+<h2>1. La talla: 5, 6 o 7</h2>
+<p>Es lo primero y lo que más gente falla. No es por gusto: cada talla es la oficial para un grupo.</p>
+<ul>
+  <li><strong>Talla 7</strong> (75 cm, 600-650 g): oficial masculina, a partir de ~13 años. La estándar para hombre adulto.</li>
+  <li><strong>Talla 6</strong> (72 cm, 510-567 g): oficial femenina y categorías mixtas/juveniles (~11-13 años).</li>
+  <li><strong>Talla 5</strong> (70 cm, 470-500 g): mini-basket, para niños hasta ~11 años.</li>
+</ul>
+<p>Jugar con la talla equivocada estropea la mecánica de tiro — sobre todo en niños. Si compras para un peque, ve a su talla, no a la 7 "para que le dure".</p>
+
+<h2>2. El material: cuero, composite o goma</h2>
+<h3>Cuero (sintético o natural)</h3>
+<p>El mejor tacto y grip, pero <strong>solo para interior</strong>. En cemento se destroza en días. Es lo que usan FIBA, ACB y NBA. Para parquet, insuperable.</p>
+<h3>Composite</h3>
+<p>El equilibrio. Aguanta interior y exterior suave, buen tacto, precio medio. Si juegas en sitios variados, es tu material.</p>
+<h3>Goma (rubber)</h3>
+<p>El más duro y barato. Tacto inferior pero <strong>indestructible en asfalto</strong>. Para la pista de la calle, es lo único que aguanta.</p>
+
+<h2>3. El terreno manda</h2>
+<ul>
+  <li><strong>Solo pabellón/parquet:</strong> cuero. No lo saques al asfalto.</li>
+  <li><strong>Solo calle/cemento:</strong> goma. Olvídate del cuero.</li>
+  <li><strong>De todo un poco:</strong> composite híbrido — la opción más versátil.</li>
+</ul>
+<p>Regla de oro: un balón de interior en cemento dura semanas; uno de exterior raya el parquet. No los mezcles.</p>
+
+<h2>4. El detalle que casi nadie cuida: la presión</h2>
+<p>Un balón mal inflado bota mal aunque sea excelente. La presión correcta es de <strong>0,5 a 0,6 bar</strong> (7-9 PSI). Prueba sencilla: déjalo caer desde la altura de tu cara (1,80 m); debe rebotar hasta la cintura. Si rebota poco, fáltale aire; si rebota a la altura del pecho, tiene de más.</p>
+
+<h2>Nuestros balones recomendados</h2>
+<p>Hemos analizado los mejores por terreno y precio, del Wilson Evolution de parquet al Spalding Streetball de calle, puntuando grip, rebote, durabilidad y control sin marketing de por medio.</p>
+
+<p class="art-outro">Mira la selección completa con scores y dónde comprarlos en nuestra sección de <a href="/balones">balones de baloncesto</a>. Y si lo que buscas son zapatillas a juego, filtra por terreno en el <a href="/zapatillas">catálogo</a> o por las mejores <a href="/zapatillas-baloncesto-outdoor">para exterior</a>.</p>
+    `,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
