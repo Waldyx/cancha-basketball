@@ -24,11 +24,11 @@ const ordenados = [...balones].sort((a, b) => scoreBalon(b) - scoreBalon(a));
 
 // Accesorios: calcetines y plantillas (afiliado Amazon)
 const CALCETINES = [
-  { altura: "Corto", nombre: "Nike Elite No-Show", precio: "~12€", nota: "Perfil bajo — máximo court feel, ideal low-top", url: "https://www.amazon.es/s?k=nike+elite+no+show+calcetines+baloncesto&tag=canchazapa-21" },
-  { altura: "Medio", nombre: "UA Playmaker Mid Crew", precio: "~12€", nota: "El más popular en pista — soporte real de tobillo", url: "https://www.amazon.es/s?k=under+armour+playmaker+mid+crew+calcetines&tag=canchazapa-21" },
-  { altura: "Largo", nombre: "Stance NBA Over-the-Calf", precio: "~16€", nota: "Look NBA clásico — compresión y soporte máximo", url: "https://www.amazon.es/s?k=stance+nba+over+the+calf+calcetines&tag=canchazapa-21" },
-  { altura: "Económico", nombre: "Kipsta Mid 500 (Decathlon)", precio: "~6€", nota: "La mejor relación calidad-precio — rinde más que cualquier algodón", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fsearch%3FNtt%3Dcalcetines%2Bbaloncesto" },
-  { altura: "Grip", nombre: "Tapedesign Antideslizantes", precio: "~14€", nota: "Almohadillas antideslizantes — el pie no baila dentro de la zapa", url: "https://www.amazon.es/s?k=tapedesign+calcetines+antideslizantes&tag=canchazapa-21" },
+  { altura: "Corto", nombre: "Nike Elite No-Show", precio: "~12€", nota: "Perfil bajo — máximo court feel, ideal low-top", img: "/accesorios/calcetin-corto.webp", url: "https://www.amazon.es/s?k=nike+elite+no+show+calcetines+baloncesto&tag=canchazapa-21" },
+  { altura: "Medio", nombre: "UA Playmaker Mid Crew", precio: "~12€", nota: "El más popular en pista — soporte real de tobillo", img: "/accesorios/calcetin-medio.webp", url: "https://www.amazon.es/s?k=under+armour+playmaker+mid+crew+calcetines&tag=canchazapa-21" },
+  { altura: "Largo", nombre: "Stance NBA Over-the-Calf", precio: "~16€", nota: "Look NBA clásico — compresión y soporte máximo", img: "/accesorios/calcetin-largo.webp", url: "https://www.amazon.es/s?k=stance+nba+over+the+calf+calcetines&tag=canchazapa-21" },
+  { altura: "Económico", nombre: "Kipsta Mid 500 (Decathlon)", precio: "~6€", nota: "La mejor relación calidad-precio — rinde más que cualquier algodón", img: "/accesorios/calcetin-eco.webp", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fsearch%3FNtt%3Dcalcetines%2Bbaloncesto" },
+  { altura: "Grip", nombre: "Tapedesign Antideslizantes", precio: "~14€", nota: "Almohadillas antideslizantes — el pie no baila dentro de la zapa", img: "/accesorios/calcetin-grip.webp", url: "https://www.amazon.es/s?k=tapedesign+calcetines+antideslizantes&tag=canchazapa-21" },
 ];
 const PLANTILLAS = [
   { nombre: "Superfeet Green Premium", precio: "~38€", nota: "Soporte de arco máximo — pronación y pie plano", url: "https://www.amazon.es/s?k=superfeet+green+plantillas+deporte&tag=canchazapa-21" },
@@ -146,6 +146,7 @@ const jsonLd = {
       <div class="bl-acc-grid">
         {CALCETINES.map((c) => (
           <a href={c.url} target="_blank" rel="noopener noreferrer sponsored" class="bl-acc-card">
+            <div class="bl-acc-img"><img src={c.img} alt={c.nombre} width="160" height="160" /></div>
             <span class="bl-acc-badge">{c.altura}</span>
             <span class="bl-acc-name">{c.nombre}</span>
             <span class="bl-acc-nota">{c.nota}</span>
@@ -218,6 +219,8 @@ const jsonLd = {
     .bl-acc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
     .bl-acc-card { display: flex; flex-direction: column; gap: 4px; background: #131316; border: 1px solid #27272a; border-radius: 12px; padding: 16px; text-decoration: none; transition: border-color .15s, transform .15s; }
     .bl-acc-card:hover { border-color: #f97316; transform: translateY(-2px); }
+    .bl-acc-img { background: #fff; border-radius: 8px; display: flex; justify-content: center; align-items: center; padding: 6px; margin-bottom: 4px; }
+    .bl-acc-img img { width: 100%; max-width: 150px; height: 130px; object-fit: contain; }
     .bl-acc-badge { align-self: flex-start; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; color: #f97316; border: 1px solid #f97316; padding: 2px 8px; border-radius: 999px; margin-bottom: 2px; }
     .bl-acc-name { font-weight: 900; color: #fff; font-size: 15px; }
     .bl-acc-nota { color: #a1a1aa; font-size: 12px; line-height: 1.4; flex: 1; }
