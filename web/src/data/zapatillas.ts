@@ -1847,7 +1847,7 @@ const _rawZapatillas: Zapatilla[] = [
       soporte_lateral: 5, estabilidad: 6, peso_score: 9,
       durabilidad_outdoor: 5, ventilacion: 7,
     },
-    categoria_principal: "responsive",
+    categoria_principal: "balanced",
     tags: ["presupuesto", "iniciacion", "junior", "nba", "licencia", "lakers", "nino"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -6155,7 +6155,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 7,
       ventilacion: 6,
     },
-    categoria_principal: "cushion-focused",
+    categoria_principal: "balanced",
     tags: ["budget", "moderna"],
     ideal_para: {
       posiciones: ["pivot", "ala-pivot", "alero"],
@@ -7602,7 +7602,7 @@ const _rawZapatillas: Zapatilla[] = [
     signature_player: "Clyde Drexler",
     tecnologia_clave: ["NITRO foam", "TPU shank", "herringbone"],
     predecesor_id: null,
-    sucesor_id: "puma-clyde-all-pro-2",
+    sucesor_id: null,
     peso_real_g: 317,
     altura: "low",
     horma: "normal",
@@ -7657,8 +7657,8 @@ const _rawZapatillas: Zapatilla[] = [
     genero: "unisex",
     signature_player: "LeBron James",
     tecnologia_clave: ["Air Max", "Zoom Air Strobel", "React"],
-    predecesor_id: "nike-lebron-20",
-    sucesor_id: "nike-lebron-nxxt-gen-ampd",
+    predecesor_id: null,
+    sucesor_id: null,
     peso_real_g: 360,
     altura: "low",
     horma: "ancha",
@@ -9548,7 +9548,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 5,
       ventilacion: 3,
     },
-    categoria_principal: "cushion-focused",
+    categoria_principal: "balanced",
     tags: ["retro", "shaq", "reebok", "pump", "high-top", "coleccionismo", "nba-1992"],
     ideal_para: {
       posiciones: ["pivot", "ala-pivot"],
@@ -9613,7 +9613,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 5,
       ventilacion: 3,
     },
-    categoria_principal: "cushion-focused",
+    categoria_principal: "balanced",
     tags: ["retro", "reebok", "pump", "high-top", "dee-brown", "coleccionismo", "1989"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -9678,7 +9678,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 7,
       ventilacion: 1,
     },
-    categoria_principal: "traction-king",
+    categoria_principal: "balanced",
     tags: ["retro", "foamposite", "penny", "hardaway", "coleccionismo", "galaxy", "royal"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -9943,7 +9943,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 6,
       ventilacion: 5,
     },
-    categoria_principal: "responsive",
+    categoria_principal: "balanced",
     tags: ["retro", "jordan", "icono", "mj", "clasico"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -10131,7 +10131,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 6,
       ventilacion: 6,
     },
-    categoria_principal: "responsive",
+    categoria_principal: "balanced",
     tags: ["retro", "jordan", "last-shot", "campeon-6", "icono", "mj", "clasico"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -10193,7 +10193,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 6,
       ventilacion: 3,
     },
-    categoria_principal: "cushion-focused",
+    categoria_principal: "balanced",
     tags: ["retro", "icono", "clasico", "nike", "primera-air", "lifestyle"],
     ideal_para: {
       posiciones: ["pivot", "ala-pivot"],
@@ -10623,7 +10623,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 6,
       ventilacion: 5,
     },
-    categoria_principal: "responsive",
+    categoria_principal: "balanced",
     tags: ["retro", "puma", "icono", "clasico", "frazier", "knicks", "oldschool", "lifestyle"],
     ideal_para: {
       posiciones: ["base", "escolta"],
@@ -11126,7 +11126,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 5,
       ventilacion: 7,
     },
-    categoria_principal: "responsive",
+    categoria_principal: "balanced",
     tags: ["retro", "nike", "huarache", "pippen", "1992", "clasico", "dream-team"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -11664,7 +11664,7 @@ const _rawZapatillas: Zapatilla[] = [
       traccion: 6, amortiguacion: 6, respuesta: 5, soporte_lateral: 7,
       estabilidad: 8, peso_score: 4, durabilidad_outdoor: 4, ventilacion: 4,
     },
-    categoria_principal: "cushion-focused",
+    categoria_principal: "balanced",
     tags: ["retro", "reebok", "blast", "hexalite", "1990", "high-top", "clasico", "90s", "big-shoe"],
     ideal_para: {
       posiciones: ["pivot", "ala-pivot"],
