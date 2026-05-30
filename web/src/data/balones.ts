@@ -393,6 +393,126 @@ export const balones: Balon[] = [
     ultima_actualizacion: "2026-05-27",
   },
 
+  // ── HYBRID ────────────────────────────────────────────────────────────────
+
+  {
+    id: "decathlon-bt500",
+    slug: "decathlon-bt500",
+    marca: "Decathlon",
+    modelo: "Tarmak BT500",
+    año_lanzamiento: 2021,
+    terreno: "hybrid",
+    material: "composite",
+    talla_principal: 6,
+    tallas_disponibles: [5, 6, 7],
+    precio_msrp_eur: 30,
+    puntuaciones: {
+      grip: 7,
+      durabilidad: 8,
+      rebote: 8,
+      control: 7,
+    },
+    resumen: "El composite mid-range de Decathlon. Aguanta pabellón y exterior sin problemas, buen rebote para el precio. El equilibrio perfecto para ligas locales y equipos junior que necesitan durabilidad a precio contenido.",
+    pros: [
+      "Precio muy accesible para un composite de esta calidad",
+      "Rebote consistente en cualquier superficie",
+      "Disponible en Decathlon España — fácil de encontrar y devolver",
+      "Tallas 5, 6 y 7",
+    ],
+    contras: [
+      "Grip inferior a los composites premium (Molten BG3800)",
+      "En cemento duro pierde acabado antes de lo esperado",
+      "Menos premium que los balones de competición",
+    ],
+    veredicto: "7.5/10 para uso mixto con presupuesto ajustado. El balón ideal para entrenamientos de equipo y ligas locales. Difícil de batir por precio en Decathlon.",
+    imagen_principal: "/balls/decathlon-bt500.webp",
+    tags: ["hybrid", "composite", "decathlon", "precio-calidad", "junior", "liga-local"],
+    links_compra: [
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fsearch%3FNtt%3Dbt500+balon+baloncesto", precio_actual: 30, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
+    ],
+    ultima_actualizacion: "2026-05-31",
+  },
+
+  // ── OUTDOOR ───────────────────────────────────────────────────────────────
+
+  {
+    id: "spalding-tf-150",
+    slug: "spalding-tf-150",
+    marca: "Spalding",
+    modelo: "TF-150",
+    año_lanzamiento: 2018,
+    terreno: "outdoor",
+    material: "rubber",
+    talla_principal: 7,
+    tallas_disponibles: [5, 6, 7],
+    precio_msrp_eur: 35,
+    puntuaciones: {
+      grip: 8,
+      durabilidad: 9,
+      rebote: 8,
+      control: 7,
+    },
+    resumen: "El balón oficial de la EuroLeague en versión outdoor. Diseño bicolor naranja-negro inconfundible, goma reforzada que aguanta el asfalto con soltura. Muy buen grip para un rubber y rebote consistente. El favorito de los jugadores de calle que quieren el look pro.",
+    pros: [
+      "Diseño EuroLeague oficial — look de competición en la calle",
+      "Grip superior para un rubber — canales bien marcados",
+      "Muy durable en cemento y asfalto",
+      "Disponible en Amazon ES con envío rápido",
+    ],
+    contras: [
+      "Tacto de goma — diferente al composite en interior",
+      "No apto para parquet — raya la superficie",
+      "Rebote menos preciso que el BG3800 en pista",
+    ],
+    veredicto: "8.5/10 para exterior. El mejor outdoor si quieres el aspecto de competición europea. Grip y durabilidad top en su categoría.",
+    imagen_principal: "/balls/spalding-tf-150.webp",
+    tags: ["outdoor", "goma", "euroleague", "spalding", "calle", "durable"],
+    links_compra: [
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=spalding+tf150+baloncesto+outdoor&tag=canchazapa-21", precio_actual: 35, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
+    ],
+    ultima_actualizacion: "2026-05-31",
+  },
+
+  // ── INDOOR ────────────────────────────────────────────────────────────────
+
+  {
+    id: "wilson-nba-authentic",
+    slug: "wilson-nba-authentic",
+    marca: "Wilson",
+    modelo: "NBA Authentic",
+    año_lanzamiento: 2021,
+    terreno: "hybrid",
+    material: "composite",
+    talla_principal: 7,
+    tallas_disponibles: [7],
+    precio_msrp_eur: 80,
+    puntuaciones: {
+      grip: 8,
+      durabilidad: 8,
+      rebote: 9,
+      control: 8,
+    },
+    resumen: "El balón oficial de la NBA en versión Authentic Outdoors — el mismo diseño que el oficial pero en composite durable para exterior. Logo NBA oficial, Wilson Exclusive Technology. Para el fan NBA que quiere jugar con el balón de sus ídolos sin pagar 200€ por el cuero.",
+    pros: [
+      "Diseño NBA oficial 2024-25 — el mismo que en la tele",
+      "Composite Wilson de calidad — aguanta indoor y outdoor",
+      "Rebote muy consistente para ser composite",
+      "Precio razonable para balón licenciado NBA",
+    ],
+    contras: [
+      "Solo talla 7 — sin opciones para junior",
+      "Composite no llega al nivel del Evolution en interior",
+      "Precio más alto que los composites sin licencia",
+    ],
+    veredicto: "8/10 para el fan NBA. Si quieres el look y el feel oficial NBA sin gastar 200€ en cuero, es la opción más inteligente. Rebote excelente para su rango de precio.",
+    imagen_principal: "/balls/wilson-nba-authentic.webp",
+    tags: ["hybrid", "composite", "nba", "wilson", "oficial", "outdoor"],
+    links_compra: [
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=wilson+nba+authentic+series+baloncesto&tag=canchazapa-21", precio_actual: 80, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
+    ],
+    ultima_actualizacion: "2026-05-31",
+  },
+
 ];
 
 // Helpers
