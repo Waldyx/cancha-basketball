@@ -9217,7 +9217,7 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "leather",
     puntuaciones: {
       traccion: 7,
-      amortiguacion: 8,
+      amortiguacion: 6,
       respuesta: 7,
       soporte_lateral: 6,
       estabilidad: 6,
@@ -9670,7 +9670,7 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "synthetic",
     puntuaciones: {
       traccion: 6,
-      amortiguacion: 8,
+      amortiguacion: 7,
       respuesta: 6,
       soporte_lateral: 8,
       estabilidad: 8,
@@ -11056,8 +11056,8 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "leather",
     puntuaciones: {
       traccion: 7,
-      amortiguacion: 8,
-      respuesta: 7,
+      amortiguacion: 6,
+      respuesta: 6,
       soporte_lateral: 7,
       estabilidad: 7,
       peso_score: 4,
@@ -11304,8 +11304,8 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "leather",
     puntuaciones: {
       traccion: 7,
-      amortiguacion: 8,
-      respuesta: 7,
+      amortiguacion: 6,
+      respuesta: 6,
       soporte_lateral: 7,
       estabilidad: 7,
       peso_score: 5,
@@ -11716,8 +11716,8 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "synthetic",
     puntuaciones: {
-      traccion: 8, amortiguacion: 9, respuesta: 8, soporte_lateral: 9,
-      estabilidad: 9, peso_score: 6, durabilidad_outdoor: 5, ventilacion: 7,
+      traccion: 8, amortiguacion: 7, respuesta: 8, soporte_lateral: 8,
+      estabilidad: 8, peso_score: 6, durabilidad_outdoor: 5, ventilacion: 7,
     },
     categoria_principal: "balanced",
     tags: ["retro", "nike", "kobe", "hyperdunk", "2008", "beijing", "olimpicos", "team-usa", "clasico"],
