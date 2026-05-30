@@ -64,15 +64,17 @@ const jsonLd = {
       </div>
     </header>
 
-    <section class="bl-hero shell">
-      <p class="bl-eyebrow">★ Equipamiento · CANCHA.ZAPA</p>
-      <h1 class="bl-title">Mejores balones de baloncesto</h1>
-      <p class="bl-sub">{balones.length} balones analizados sin BS · Por terreno, material y precio · Con dónde comprarlos</p>
-      <div class="bl-filters">
-        <button class="bl-chip active" data-f="all">Todos</button>
-        <button class="bl-chip" data-f="indoor">🏟️ Interior</button>
-        <button class="bl-chip" data-f="hybrid">🔄 Mixto</button>
-        <button class="bl-chip" data-f="outdoor">🌳 Exterior</button>
+    <section class="rk-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Equipamiento · CANCHA.ZAPA</p>
+        <h1 class="rk-h1">Mejores balones<br/><span class="rk-h1-cat">de baloncesto</span></h1>
+        <p class="rk-blurb">{balones.length} balones analizados sin BS · Por terreno, material y precio · Con dónde comprarlos</p>
+        <div class="bl-filters">
+          <button class="bl-chip active" data-f="all">Todos</button>
+          <button class="bl-chip" data-f="indoor">🏟️ Interior</button>
+          <button class="bl-chip" data-f="hybrid">🔄 Mixto</button>
+          <button class="bl-chip" data-f="outdoor">🌳 Exterior</button>
+        </div>
       </div>
     </section>
 
@@ -87,7 +89,7 @@ const jsonLd = {
               <span class="bl-score">{score}</span>
             </div>
             <div class="bl-ball">
-              <img src={b.imagen_principal} alt={`${b.marca} ${b.modelo}`} width="180" height="180" loading="lazy" />
+              <img src={b.imagen_principal} alt={`${b.marca} ${b.modelo}`} width="180" height="180" />
             </div>
             <div class="bl-body">
               <p class="bl-marca">{b.marca}</p>
@@ -131,11 +133,7 @@ const jsonLd = {
   </main>
 
   <style>
-    .bl-hero { padding: 48px 0 24px; text-align: center; }
-    .bl-eyebrow { color: #f97316; font-weight: 900; letter-spacing: 3px; font-size: 13px; text-transform: uppercase; margin: 0 0 8px; }
-    .bl-title { font-family: "Barlow Condensed", system-ui, sans-serif; font-weight: 900; font-size: clamp(36px, 7vw, 68px); line-height: 0.95; text-transform: uppercase; margin: 0 0 12px; color: #fff; }
-    .bl-sub { color: #a1a1aa; font-size: 15px; margin: 0 auto 24px; max-width: 600px; }
-    .bl-filters { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .bl-filters { display: flex; gap: 8px; justify-content: flex-start; flex-wrap: wrap; margin-top: 18px; }
     .bl-chip { background: #18181b; border: 1px solid #27272a; color: #d4d4d8; padding: 8px 16px; border-radius: 999px; font-weight: 700; font-size: 14px; cursor: pointer; transition: all .15s; }
     .bl-chip:hover { border-color: #52525b; }
     .bl-chip.active { background: #f97316; border-color: #f97316; color: #0c0c0c; }
