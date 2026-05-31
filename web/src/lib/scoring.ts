@@ -383,7 +383,8 @@ export const COMISIONES_TIENDA: Record<string, number> = {
   // Tasas reales aproximadas (mayo 2026)
   aliexpress: 7,        // AliExpress Portals ~4-9%, media ~7%
   decathlon: 6,         // Awin Decathlon ES ~3-9%, media ~6%
-  snipes_eu: 5,         // Awin Snipes EU ~4.5-6%, media ~5%
+  snipes_eu: 5,
+  joom: 6,            // Awin Joom ES (marketplace) ~5-7%         // Awin Snipes EU ~4.5-6%, media ~5%
   kickscrew: 5,
   basket_world: 5,
   puma_es: 6,           // Puma EU CJ ~4.5-6%

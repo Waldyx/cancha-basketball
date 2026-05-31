@@ -70,7 +70,8 @@ export type Tienda =
   | "24segons_es"
   | "idealo_es"
   | "snipes_eu"
-  | "atmosfera_sport";
+  | "atmosfera_sport"
+  | "joom";
 
 export type FuenteReview =
   | "weartesters"
