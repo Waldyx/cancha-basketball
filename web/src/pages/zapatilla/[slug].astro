@@ -72,6 +72,8 @@ const articulosRelacionados = ARTICLES
   .filter((a) => a.relatedShoes.includes(z.slug))
   .slice(0, 4);
 
+// Tiendas marketplace (vendedores terceros, envío largo, autenticidad variable)
+const MARKETPLACE = new Set(["joom", "aliexpress", "kickscrew"]);
 const PRECIO_TIE = 0.5;
 const linksOrdenados = [...z.links_compra]
   .filter(l => l.disponible)
@@ -352,7 +354,7 @@ const productJsonLd = {
                         data-zapa={z.slug}
                       >
                         <span class="dcr-pos">{i === 0 ? "🏆" : i === 1 ? "2º" : "3º"}</span>
-                        <span class="dcr-tienda">{LABELS_TIENDA[l.tienda] || l.tienda}</span>
+                        <span class="dcr-tienda">{LABELS_TIENDA[l.tienda] || l.tienda}{MARKETPLACE.has(l.tienda) && <span class="dcr-mkt">marketplace</span>}</span>
                         <span class="dcr-price">{Math.round(l.precio_actual)}€</span>
                         {i === 0 && linksOrdenados.length > 1 && (
                           <span class="dcr-save">
@@ -363,6 +365,9 @@ const productJsonLd = {
                         )}
                       </a>
                     ))}
+                    {linksOrdenados.slice(0, 3).some((l) => MARKETPLACE.has(l.tienda)) && (
+                      <p class="dh-mkt-note">⚠ Marketplace: vendedores terceros, envío 7-12 días y autenticidad variable. Verifica valoraciones del vendedor.</p>
+                    )}
                   </div>
                 )}
                 {heroSock && heroInsole && (

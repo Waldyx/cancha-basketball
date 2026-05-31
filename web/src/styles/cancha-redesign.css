@@ -1301,6 +1301,8 @@ button { font-family: inherit; cursor: pointer; }
 .dh-compare-row.best .dcr-tienda { color: #fff; }
 .dcr-price { font-family: "Barlow Condensed", sans-serif; font-size: 20px; font-weight: 900; color: #f97316; }
 .dcr-save { font-size: 11px; font-weight: 900; color: #4ade80; background: #052e16; padding: 2px 7px; border-radius: 999px; }
+.dcr-mkt { font-size: 9px; font-weight: 900; text-transform: uppercase; letter-spacing: .5px; color: #fbbf24; background: #3f2d09; padding: 1px 6px; border-radius: 999px; margin-left: 6px; vertical-align: middle; }
+.dh-mkt-note { font-size: 11px; color: #a1a1aa; line-height: 1.45; margin: 8px 2px 0; }
 
 /* ── Common section head ── */
 .section-head { margin-bottom: 28px; }
