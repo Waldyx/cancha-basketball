@@ -198,7 +198,7 @@ button { font-family: inherit; cursor: pointer; }
   letter-spacing: 0.12em; text-transform: uppercase; margin-right: 4px; }
 .hero-panel .ticker-row .t-price {
   font-family: "Barlow Condensed", sans-serif; font-weight: 900;
-  color: var(--cz-text); font-size: 14px;
+  color: #f97316; font-size: 14px;
 }
 
 .hero-match {
@@ -2081,12 +2081,12 @@ button { font-family: inherit; cursor: pointer; }
 }
 .home-hero-inner { position: relative; z-index: 1; }
 .home-hero-grid {
-  display: grid; grid-template-columns: 1.3fr auto 1fr; gap: 40px; align-items: start;
+  display: grid; grid-template-columns: 1.3fr auto 0.7fr; gap: 32px; align-items: start;
 }
 .home-hero-media { align-self: stretch; display: flex; min-height: 0; }
 .home-hero-media img,
 .home-hero-media video {
-  width: 330px; height: 100%; max-height: 560px; object-fit: cover; object-position: center;
+  width: 390px; height: 100%; max-height: 580px; object-fit: cover; object-position: center;
   display: block;
   /* Difuminar los 4 lados (máscaras H+V cruzadas) → sin líneas rectas visibles */
   -webkit-mask-image:
