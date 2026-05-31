@@ -799,7 +799,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Mejores zapatillas de baloncesto baratas",
     heroSubtitle: "Las 8 mejores opciones por menos de 80€ en 2025",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-precision-8", "adidas-cross-em-up-select", "decathlon-tarmak-voltzy-500", "adidas-ownthegame-3", "ua-lockdown-7"],
+    relatedShoes: ["nike-precision-8", "adidas-cross-em-up-select", "decathlon-tarmak-fast-900", "adidas-ownthegame-3", "ua-lockdown-7"],
     relatedSeoPages: ["zapatillas-baloncesto-baratas", "zapatillas-baloncesto-junior"],
     imagen: "https://ballershoesdb.com/wp-content/uploads/NikePrecision8-Cropped-650x406.jpg",
     body: `
@@ -821,7 +821,7 @@ export const ARTICLES: Article[] = [
   <li>Una de las mejores opciones sub-65€ del mercado</li>
 </ul>
 
-<h2>3. Decathlon Tarmak Voltzy 500 — ~50 €</h2>
+<h2>3. Decathlon Tarmak Fast 900 — ~50 €</h2>
 <p>Decathlon ha mejorado su línea Tarmak con la Voltzy 500, que incorpora una entresuela de espuma EVA de densidad media y una malla reforzada. La sorpresa del año en términos de relación calidad-precio — supera en durabilidad outdoor a modelos que cuestan tres veces más.</p>
 <ul>
   <li>Relación calidad-precio imbatible</li>
@@ -872,9 +872,9 @@ export const ARTICLES: Article[] = [
 <h3>¿Cómo elegir la mejor opción para ti?</h3>
 <p>Al buscar zapatillas baratas, ten en cuenta tres factores: <strong>tracción</strong> (lo que más afecta al rendimiento), <strong>altura</strong> (low si juegas rápido, mid si tienes dudas con el tobillo) y <strong>disponibilidad</strong> (Decathlon es la única que puedes probar en tienda física antes de comprar).</p>
 
-<p>Si juegas en exterior: <a href="/zapatilla/decathlon-tarmak-voltzy-500">Tarmak Voltzy 500</a> o <a href="/zapatilla/nike-precision-8">Nike Precision 8</a>. Si juegas solo en interior: <a href="/zapatilla/adidas-cross-em-up-select">Cross-Em Up Select</a>. Si tienes problemas de tobillo: <a href="/zapatilla/puma-playmaker-pro-mid">Playmaker Pro Mid</a>.</p>
+<p>Si juegas en exterior: <a href="/zapatilla/decathlon-tarmak-fast-900">Tarmak Fast 900</a> o <a href="/zapatilla/nike-precision-8">Nike Precision 8</a>. Si juegas solo en interior: <a href="/zapatilla/adidas-cross-em-up-select">Cross-Em Up Select</a>. Si tienes problemas de tobillo: <a href="/zapatilla/puma-playmaker-pro-mid">Playmaker Pro Mid</a>.</p>
 
-<p class="art-outro">En 2025 no necesitas gastar más de 80€ para jugar bien. La Adidas Cross-Em Up Select, la Nike Precision 8 y la Tarmak Voltzy 500 cubren la mayoría de perfiles. ¿No sabes cuál es la tuya? <a href="/quiz">Haz el quiz en 60 segundos</a> y te damos la recomendación exacta para tu juego.</p>
+<p class="art-outro">En 2025 no necesitas gastar más de 80€ para jugar bien. La Adidas Cross-Em Up Select, la Nike Precision 8 y la Tarmak Fast 900 cubren la mayoría de perfiles. ¿No sabes cuál es la tuya? <a href="/quiz">Haz el quiz en 60 segundos</a> y te damos la recomendación exacta para tu juego.</p>
     `,
   },
 
@@ -1370,7 +1370,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Zapatillas de baloncesto para niños y jóvenes",
     heroSubtitle: "Lo que nadie te dice antes de comprarlas",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-precision-8", "adidas-cross-em-up-select", "decathlon-tarmak-voltzy-500", "nike-giannis-immortality-5", "ua-lockdown-7"],
+    relatedShoes: ["nike-precision-8", "adidas-cross-em-up-select", "decathlon-tarmak-fast-900", "nike-giannis-immortality-5", "ua-lockdown-7"],
     relatedSeoPages: ["zapatillas-baloncesto-junior", "zapatillas-baloncesto-baratas", "mejor-zapatilla-base"],
     body: `
 <p class="art-intro">Comprar zapatillas de baloncesto para un niño o adolescente tiene sus propias reglas. Los pies crecen rápido, el presupuesto es limitado y el rendimiento debe acompañar el nivel de juego. Esta guía responde las preguntas que todo padre hace antes de comprar.</p>
@@ -1873,7 +1873,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Mejores zapas para aleros",
     heroSubtitle: "2025-2026 · Equilibrio, soporte y versatilidad",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["jordan-tatum-4", "adidas-harden-vol-9", "nike-kd-17", "ua-flow-breakthru-5", "jordan-luka-4"],
+    relatedShoes: ["jordan-tatum-4", "adidas-harden-vol-9", "nike-kd-17", "ua-flow-breakthru-4", "jordan-luka-4"],
     relatedSeoPages: ["mejor-zapatilla-alero", "zapatillas-equilibradas", "zapatillas-baloncesto-130-euros"],
     body: `
 <p class="art-intro">El alero es la posición más exigente para una zapatilla porque no tiene perfil único. Un día defiendes al base más rápido del equipo rival; al siguiente, estás en la zona pugnando por rebotes con el pívot. Necesitas una zapatilla que no te falle en ninguno de esos escenarios — y eso significa equilibrio real, no marketinig.</p>
@@ -1918,7 +1918,7 @@ export const ARTICLES: Article[] = [
   <li>❌ Horma algo estrecha en el antepié para pie ancho</li>
 </ul>
 
-<h3><a href="/zapatilla/ua-flow-breakthru-5">Under Armour Flow Breakthru 5 — ~120€</a></h3>
+<h3><a href="/zapatilla/ua-flow-breakthru-4">Under Armour Flow Breakthru 4 — ~110€</a></h3>
 <p><strong>Para aleros dinámicos que priorizan la sensación de suelo.</strong> UA Flow sin capa de goma da un court feel diferente — más en contacto con el suelo, más reactivo. Para aleros que juegan más el uno contra uno y los cortes que el juego de poste.</p>
 <ul>
   <li>✅ UA Flow: court feel excepcional para un alero</li>
@@ -1971,7 +1971,7 @@ export const ARTICLES: Article[] = [
       <td style="padding:8px;text-align:center">149€</td>
     </tr>
     <tr style="border-bottom:1px solid #27272a">
-      <td style="padding:8px"><strong>UA Flow Breakthru 5</strong></td>
+      <td style="padding:8px"><strong>UA Flow Breakthru 4</strong></td>
       <td style="padding:8px;text-align:center">7/10</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
       <td style="padding:8px;text-align:center">7/10</td>
@@ -1993,7 +1993,7 @@ export const ARTICLES: Article[] = [
   <li><strong>Si juegas un juego equilibrado (cortes, tiros, contacto):</strong> Jordan Tatum 4. El mejor equilibrio del mercado para el alero completo.</li>
   <li><strong>Si juegas con potencia y posteas:</strong> Adidas Harden Vol 9. Cushion alto a precio razonable.</li>
   <li><strong>Si eres alero-tirador y pesas >85kg:</strong> Nike KD 17. El Zoom Strobel da el bounce que necesitas en aterrizajes de tiro.</li>
-  <li><strong>Si priorizas el court feel y juegas solo en interior:</strong> UA Flow Breakthru 5. La más reactiva del grupo.</li>
+  <li><strong>Si priorizas el court feel y juegas solo en interior:</strong> UA Flow Breakthru 4. La más reactiva del grupo.</li>
   <li><strong>Si eres alero grande o ala-pívot:</strong> Jordan Luka 4. La base más estable del grupo para jugadores físicos.</li>
 </ul>
 
@@ -2088,7 +2088,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Rodilla y baloncesto",
     heroSubtitle: "Qué zapatilla protege tus rodillas de verdad",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-lebron-23", "jordan-40", "nike-kd-19", "jordan-tatum-4", "ua-flow-breakthru-5"],
+    relatedShoes: ["nike-lebron-23", "jordan-40", "nike-kd-19", "jordan-tatum-4", "ua-flow-breakthru-4"],
     relatedSeoPages: ["zapatillas-baloncesto-para-rodillas", "zapatillas-cushion", "mejor-zapatilla-pivot"],
     body: `
 <p class="art-intro">El dolor de rodilla es la segunda queja más frecuente en jugadores de baloncesto amateur después de los esguinces de tobillo. Y a diferencia del tobillo, donde la caña alta ayuda directamente, la protección de rodilla viene principalmente de una variable: el cushion. La zapatilla correcta no cura nada — pero puede reducir significativamente el impacto acumulado partido a partido.</p>
@@ -2144,7 +2144,7 @@ export const ARTICLES: Article[] = [
   <li>❌ No está orientada a jugadores >100kg — ahí la LeBron gana</li>
 </ul>
 
-<h3><a href="/zapatilla/ua-flow-breakthru-5">Under Armour Flow Breakthru 5 — ~120€ — Para aleros que priorizan suavidad</a></h3>
+<h3><a href="/zapatilla/ua-flow-breakthru-4">Under Armour Flow Breakthru 4 — ~110€ — Para aleros que priorizan suavidad</a></h3>
 <p>UA Flow con UA Micro G foam ofrece un cushion suave y reactivo. No llega al nivel de la Jordan 40 o la LeBron, pero para jugadores de 70-85kg con molestias ligeras de rodilla es suficiente — y la más económica del grupo.</p>
 <ul>
   <li>✅ Precio más accesible del grupo con cushion 7/10</li>
@@ -3633,7 +3633,7 @@ export const ARTICLES: Article[] = [
 <h2>Nuestros balones recomendados</h2>
 <p>Hemos analizado los mejores por terreno y precio, del Wilson Evolution de parquet al Spalding Streetball de calle, puntuando grip, rebote, durabilidad y control sin marketing de por medio.</p>
 
-<p class="art-outro">Mira la selección completa con scores y dónde comprarlos en nuestra sección de <a href="/balones">balones de baloncesto</a>. Y si lo que buscas son zapatillas a juego, filtra por terreno en el <a href="/zapatillas">catálogo</a> o por las mejores <a href="/zapatillas-baloncesto-outdoor">para exterior</a>.</p>
+<p class="art-outro">Mira la selección completa con scores y dónde comprarlos en nuestra sección de <a href="/balones">balones de baloncesto</a>. Y si lo que buscas son zapatillas a juego, filtra por terreno en el <a href="/zapatillas">catálogo</a> o por las mejores <a href="/blog/mejores-zapatillas-baloncesto-outdoor-2025">para exterior</a>.</p>
     `,
   },
 ];
