@@ -90,6 +90,14 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 200,
     links_compra: [
       {
+        tienda: "joom",
+        url: "https://www.joom.com/es/products/68c9d28bdf066801b880b469?variant_id=68c9d28bdf06683bb880b472&utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1",
+        precio_actual: 90,
+        disponible: true,
+        tiene_afiliado: true,
+        ultima_verificacion: "2026-05-31",
+      },
+      {
         tienda: "amazon_es",
         url: "https://www.amazon.es/s?k=nike+lebron+22&tag=canchazapa-21",
         precio_actual: 213.93,
@@ -623,7 +631,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 200,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kobe+8+protro&vst=kobe+8+protro", precio_actual: 200, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=kobe+8", precio_actual: 210, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/~/314109662404.html", precio_actual: 189.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fc%2Fzapatillas%3Fq%3Dkobe%2B8", precio_actual: 200, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-26" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=kobe+8", precio_actual: 199.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
     ],
@@ -746,6 +754,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 190,
     links_compra: [
+      { tienda: "joom", url: "https://www.joom.com/es/products/68c9e2a9d367ea012bf6f0a0?variant_id=68c9e2a9d367ea052bf6f0a8&utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1", precio_actual: 127, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=gt+cut+3&vst=gt+cut+3", precio_actual: 189.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=gt+cut+3", precio_actual: 195, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=gt+cut+3", precio_actual: 189.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
