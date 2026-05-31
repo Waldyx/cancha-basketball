@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-05-29 (sesión 16)
+> Última actualización: 2026-05-31 (sesión 17)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -47,7 +47,42 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 
 ---
 
-## Estado actual (sesión 15)
+## Estado actual (sesión 17)
+
+### ✅ Completado (sesión 17) — UI/UX + PWA + comparador
+- **Tema visual**: paleta a variables CSS (`--cz-*`), fondo gris carbón `#2a2a2e`
+  (antes negro), superficies/bordes y grises de texto recalibrados. Toda la web a
+  estética **cuadrada** (sin border-radius en cards/badges/botones/pills).
+- **Vídeo en el hero (home)**: `web/public/hero-cancha.mp4` (3,3 MB, de Pinterest) +
+  poster, en bucle silencioso. Escritorio: grid `1fr auto 0.7fr`, vídeo 460px centrado,
+  bordes difuminados con máscaras H+V cruzadas. Móvil (≤880): vídeo absoluto a la
+  derecha (top -55px, 475px alto, 52% ancho, op .62); texto en columna estrecha a la
+  izquierda (`.home-hero-left .home-h1/.home-lede` max-width 52-58% — OJO especificidad:
+  la base va después en el CSS). Botones margin-top 130px para no solaparse.
+- **PWA instalable**: `web/public/sw.js` (network-first páginas + cache assets/offline) +
+  registro en `Base.astro` + `offline.html`. Manifest colores `#2a2a2e`. iOS no muestra
+  icono auto (instalación manual vía Compartir → Añadir a inicio); Android Chrome menú ⋮.
+- **Comparador (`/comparar`)**: cambio de zapa **en cliente** (era estático → la URL no se
+  leía en runtime; ahora re-render JS sin recargar + `history.replaceState`). Tabla a un
+  único CSS grid por filas con `gap:1px` (cada fila cuadra). "sin trampa." en naranja.
+- **Nav**: añadido **Comparar** entre Quiz y Rankings en las 17 páginas. Móvil (≤720):
+  header en columna (logo arriba, nav fila con scroll horizontal debajo).
+- **Avisos beta** (imágenes orientativas + precios pueden fallar): en ficha, catálogo y footer.
+- **Ficha**: foto 1:1 (más grande) y sticky; quitada sección "Comprar ahora" (redundante).
+- **Home**: cards "Lo más reciente" compactas (estilo blog); panel Radar con 5 trending +
+  enlace "Ver rankings"; precios del ticker en naranja; botones hero (Rankings + Comparar);
+  arreglada incoherencia "Top 3" (`trendingHero` 5 para ticker, `top3` 3 para sección).
+- **Mis zapas**: botón ✓/♥ por tarjeta para mover zapas entre "Lo quiero"/"Lo tengo".
+- **Rankings móvil**: podio apila 1→2→3 (`order:-1` al primero).
+- **Accesorios** (`/balones`): pestaña renombrada a "Accesorios" + estética cuadrada.
+
+### 🟡 Pendiente (sesión 17)
+- **Precios top-10** (faltan 7, usuario pasa tienda→precio→URL): nike-lebron-22, ua-curry-12,
+  nike-gt-cut-3, jordan-tatum-3, nike-sabrina-2, lining-wow-12, nike-kobe-8-protro.
+- **Afiliados nuevos** (esperando aprobación/código del usuario):
+  - **Joom** (AWIN) → integrar con `awinmid` cuando aprueben.
+  - **TradeTracker** (Fútbol/Basketball Emotion + Fuikaomar) → monetizar Ja 3 (93,99€) y KAI 2.
+  - **AliExpress KAI 2** → cambiar a enlace `s.click` (ahora provisional, Portals roto por anti-bot).
 
 ### ✅ Completado (sesión 15)
 - **Sweep precios Amazon ES**: 94 entradas verificadas/actualizadas con fecha 2026-05-28
