@@ -1913,8 +1913,10 @@ button { font-family: inherit; cursor: pointer; }
 
 .cmp-grid-section { padding: 32px 0 60px; }
 .cmp-grid {
-  display: grid; grid-template-columns: 200px repeat(3, 1fr); gap: 0;
-  border: 1px solid rgba(63,63,70,0.4);
+  display: grid; grid-template-columns: 200px repeat(3, 1fr);
+  gap: 1px; background: rgba(63,63,70,0.45);
+  border: 1px solid rgba(63,63,70,0.45);
+  align-items: stretch;
 }
 @media (max-width: 880px) {
   .cmp-grid { grid-template-columns: 140px repeat(3, 1fr); }
@@ -1922,17 +1924,14 @@ button { font-family: inherit; cursor: pointer; }
 @media (max-width: 600px) {
   .cmp-grid { grid-template-columns: 110px repeat(3, 1fr); }
 }
-.cmp-col { display: flex; flex-direction: column; border-right: 1px solid rgba(63,63,70,0.3); }
-.cmp-col:last-child { border-right: none; }
-.cmp-col-labels { background: rgba(15,15,15,0.5); }
 .cmp-cell {
   padding: 12px 14px;
-  border-bottom: 1px solid rgba(63,63,70,0.25);
+  background: var(--cz-bg);
   display: flex; flex-direction: column; justify-content: center;
   font-size: 14px; color: var(--cz-text-soft);
   min-height: 48px;
 }
-.cmp-cell:last-child { border-bottom: none; }
+.cmp-cell.lab { background: var(--cz-surface); }
 .cmp-cell.head {
   padding: 0; align-items: stretch;
   min-height: 180px; border-bottom: 2px solid var(--cat, var(--cz-border));

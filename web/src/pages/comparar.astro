@@ -2,8 +2,9 @@
 // /comparar — comparador rediseñado
 // Drop-in replacement for web/src/pages/comparar.astro
 //
-// Lee las zapas a comparar desde la URL (?slugs=A,B,C). Si no hay,
-// usa 3 destacadas por defecto. Click en cualquier foto para cambiar.
+// La página es estática: el render inicial (SEO / sin JS) usa 3 zapas por
+// defecto o las del parámetro ?slugs=. El cambio de zapa se hace en cliente
+// (JS), sin recargar, porque un sitio estático no puede leer la query en runtime.
 
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
@@ -29,7 +30,7 @@ const scoreOf = (z: typeof zapatillas[0]): number => {
   return Math.round((v.reduce((a, b) => a + b, 0) / v.length) * 10) / 10;
 };
 
-// Read ?slugs= from URL
+// Read ?slugs= from URL (solo para el render inicial en build)
 const params = new URLSearchParams(Astro.url.search);
 const slugsParam = params.get("slugs");
 const requested = slugsParam ? slugsParam.split(",") : ["nike-lebron-22", "ua-curry-12", "nike-gt-cut-3"];
@@ -66,6 +67,7 @@ function ringPoints(f: number) {
     return `${SIZE/2 + Math.cos(a)*r},${SIZE/2 + Math.sin(a)*r}`;
   }).join(" ");
 }
+const ringFracs = [0.33, 0.66, 1];
 ---
 
 <Base title="Comparar zapatillas de baloncesto cara a cara | CANCHA"
@@ -97,110 +99,239 @@ function ringPoints(f: number) {
 
     <section class="cmp-grid-section">
       <div class="shell">
-        <div class="cmp-grid">
-          {/* Labels column */}
-          <div class="cmp-col cmp-col-labels">
-            <div class="cmp-cell head">&nbsp;</div>
-            <div class="cmp-cell"><span class="cmp-lab">Marca · Modelo</span></div>
-            <div class="cmp-cell"><span class="cmp-lab">Categoría</span></div>
-            <div class="cmp-cell"><span class="cmp-lab">Score CANCHA</span></div>
-            <div class="cmp-cell radar"><span class="cmp-lab">Perfil técnico</span></div>
-            {Object.entries(ATR_LABELS).map(([k, l]) => (
-              <div class="cmp-cell"><span class="cmp-lab">{l}</span></div>
-            ))}
-            <div class="cmp-cell"><span class="cmp-lab">Peso real (US 9)</span></div>
-            <div class="cmp-cell"><span class="cmp-lab">Altura</span></div>
-            <div class="cmp-cell"><span class="cmp-lab">Drop</span></div>
-            <div class="cmp-cell"><span class="cmp-lab">Horma</span></div>
-            <div class="cmp-cell"><span class="cmp-lab">Ideal para</span></div>
-            <div class="cmp-cell price-row"><span class="cmp-lab">Precio MSRP</span></div>
-            <div class="cmp-cell">&nbsp;</div>
-          </div>
+        <div class="cmp-grid" id="cmp-grid" data-cols={shoes.length}>
+          {/* HEAD */}
+          <div class="cmp-cell head lab">&nbsp;</div>
+          {shoes.map((z, idx) => (
+            <div class="cmp-cell head" style={`--cat:${CAT_ACCENT[z.categoria_principal]}`}>
+              <button class="cmp-photo" data-slot={idx}>
+                <img src={z.imagen_principal} alt={z.modelo} onerror="this.style.display='none'" />
+                <span class="cmp-photo-overlay">cambiar ↺</span>
+              </button>
+            </div>
+          ))}
 
-          {/* Shoe columns */}
-          {shoes.map((z, idx) => {
-            const cat = CAT_ACCENT[z.categoria_principal];
-            const sc = scoreOf(z);
-            return (
-              <div class="cmp-col" style={`--cat:${cat}`}>
-                <div class="cmp-cell head">
-                  <button class="cmp-photo" data-slot={idx}>
-                    <img src={z.imagen_principal} alt={z.modelo} onerror="this.style.display='none'" />
-                    <span class="cmp-photo-overlay">cambiar ↺</span>
-                  </button>
-                </div>
-                <div class="cmp-cell">
-                  <p class="cmp-marca">{z.marca}</p>
-                  <h3 class="cmp-modelo">{z.modelo}</h3>
-                </div>
-                <div class="cmp-cell"><span class="cmp-cat" style={`color:${cat}`}>{CAT_LABELS[z.categoria_principal]}</span></div>
-                <div class="cmp-cell"><span class="cmp-score-big">{sc}<small>/10</small></span></div>
-                <div class="cmp-cell radar">
-                  <div class="cmp-radar-wrap">
-                    <svg viewBox={`0 0 ${SIZE} ${SIZE}`} width={SIZE} height={SIZE} aria-hidden="true">
-                      {[0.33, 0.66, 1].map(f => (
-                        <polygon points={ringPoints(f)} fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
-                      ))}
-                      <polygon points={radarPoints(z)} fill={cat} fill-opacity="0.18" stroke={cat} stroke-width="1.5" />
-                    </svg>
-                  </div>
-                </div>
-                {Object.entries(ATR_LABELS).map(([k]) => {
-                  const winner = winnerFor(k as keyof typeof z.puntuaciones);
-                  return (
-                    <div class={`cmp-cell metric ${winner === idx ? "winner" : ""}`}>
-                      <span class="cmp-val">{z.puntuaciones[k as keyof typeof z.puntuaciones]}<small>/10</small></span>
-                      {winner === idx && <span class="cmp-win-tag">Mejor</span>}
-                    </div>
-                  );
-                })}
-                <div class="cmp-cell"><span class="cmp-val">{z.peso_real_g}<small>g</small></span></div>
-                <div class="cmp-cell"><span class="cmp-val capz">{z.altura}</span></div>
-                <div class="cmp-cell"><span class="cmp-val">{z.drop_mm}<small>mm</small></span></div>
-                <div class="cmp-cell"><span class="cmp-val capz">{z.horma}</span></div>
-                <div class="cmp-cell ideal">{z.ideal_para.posiciones.join(", ")}</div>
-                <div class={`cmp-cell price-row ${cheapestIdx === idx && shoes.length > 1 ? "winner" : ""}`}>
-                  <span class="cmp-price">{z.precio_msrp_eur}€</span>
-                  {cheapestIdx === idx && shoes.length > 1 && <span class="cmp-win-tag">Más barata</span>}
-                </div>
-                <div class="cmp-cell">
-                  <a href={`/zapatilla/${z.slug}`} class="cmp-cta">Ver review →</a>
-                </div>
+          {/* MARCA · MODELO */}
+          <div class="cmp-cell lab"><span class="cmp-lab">Marca · Modelo</span></div>
+          {shoes.map((z) => (
+            <div class="cmp-cell"><p class="cmp-marca">{z.marca}</p><h3 class="cmp-modelo">{z.modelo}</h3></div>
+          ))}
+
+          {/* CATEGORÍA */}
+          <div class="cmp-cell lab"><span class="cmp-lab">Categoría</span></div>
+          {shoes.map((z) => (
+            <div class="cmp-cell"><span class="cmp-cat" style={`color:${CAT_ACCENT[z.categoria_principal]}`}>{CAT_LABELS[z.categoria_principal]}</span></div>
+          ))}
+
+          {/* SCORE */}
+          <div class="cmp-cell lab"><span class="cmp-lab">Score CANCHA</span></div>
+          {shoes.map((z) => (
+            <div class="cmp-cell"><span class="cmp-score-big">{scoreOf(z)}<small>/10</small></span></div>
+          ))}
+
+          {/* RADAR */}
+          <div class="cmp-cell radar lab"><span class="cmp-lab">Perfil técnico</span></div>
+          {shoes.map((z) => (
+            <div class="cmp-cell radar">
+              <div class="cmp-radar-wrap">
+                <svg viewBox={`0 0 ${SIZE} ${SIZE}`} width={SIZE} height={SIZE} aria-hidden="true">
+                  {ringFracs.map(f => (
+                    <polygon points={ringPoints(f)} fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+                  ))}
+                  <polygon points={radarPoints(z)} fill={CAT_ACCENT[z.categoria_principal]} fill-opacity="0.18" stroke={CAT_ACCENT[z.categoria_principal]} stroke-width="1.5" />
+                </svg>
               </div>
-            );
-          })}
+            </div>
+          ))}
+
+          {/* 8 ATRIBUTOS */}
+          {Object.entries(ATR_LABELS).map(([k, l]) => (
+            <Fragment>
+              <div class="cmp-cell lab"><span class="cmp-lab">{l}</span></div>
+              {shoes.map((z, idx) => {
+                const winner = winnerFor(k as keyof typeof z.puntuaciones);
+                return (
+                  <div class={`cmp-cell metric ${winner === idx ? "winner" : ""}`}>
+                    <span class="cmp-val">{z.puntuaciones[k as keyof typeof z.puntuaciones]}<small>/10</small></span>
+                    {winner === idx && <span class="cmp-win-tag">Mejor</span>}
+                  </div>
+                );
+              })}
+            </Fragment>
+          ))}
+
+          {/* PESO */}
+          <div class="cmp-cell lab"><span class="cmp-lab">Peso real (US 9)</span></div>
+          {shoes.map((z) => (<div class="cmp-cell"><span class="cmp-val">{z.peso_real_g}<small>g</small></span></div>))}
+
+          {/* ALTURA */}
+          <div class="cmp-cell lab"><span class="cmp-lab">Altura</span></div>
+          {shoes.map((z) => (<div class="cmp-cell"><span class="cmp-val capz">{z.altura}</span></div>))}
+
+          {/* DROP */}
+          <div class="cmp-cell lab"><span class="cmp-lab">Drop</span></div>
+          {shoes.map((z) => (<div class="cmp-cell"><span class="cmp-val">{z.drop_mm}<small>mm</small></span></div>))}
+
+          {/* HORMA */}
+          <div class="cmp-cell lab"><span class="cmp-lab">Horma</span></div>
+          {shoes.map((z) => (<div class="cmp-cell"><span class="cmp-val capz">{z.horma}</span></div>))}
+
+          {/* IDEAL PARA */}
+          <div class="cmp-cell lab"><span class="cmp-lab">Ideal para</span></div>
+          {shoes.map((z) => (<div class="cmp-cell ideal">{z.ideal_para.posiciones.join(", ")}</div>))}
+
+          {/* PRECIO */}
+          <div class="cmp-cell lab price-row"><span class="cmp-lab">Precio MSRP</span></div>
+          {shoes.map((z, idx) => (
+            <div class={`cmp-cell price-row ${cheapestIdx === idx && shoes.length > 1 ? "winner" : ""}`}>
+              <span class="cmp-price">{z.precio_msrp_eur}€</span>
+              {cheapestIdx === idx && shoes.length > 1 && <span class="cmp-win-tag">Más barata</span>}
+            </div>
+          ))}
+
+          {/* CTA */}
+          <div class="cmp-cell lab">&nbsp;</div>
+          {shoes.map((z) => (
+            <div class="cmp-cell"><a href={`/zapatilla/${z.slug}`} class="cmp-cta">Ver review →</a></div>
+          ))}
         </div>
       </div>
     </section>
 
   </main>
 
-  <script define:vars={{ zapatillas: zapatillas.map(z => ({ slug: z.slug, marca: z.marca, modelo: z.modelo, img: z.imagen_principal, es_retro: z.es_retro ?? false })), initialSlugs: requested }}>
-    // Slot picker — click on a photo to swap that slot.
-    let current = [...initialSlugs];
-    const photos = document.querySelectorAll(".cmp-photo");
-    photos.forEach(btn => {
-      btn.addEventListener("click", () => {
-        const slot = parseInt(btn.dataset.slot);
-        showPicker(slot);
-      });
-    });
+  <script define:vars={{ DATA: zapatillas.map(z => ({ slug: z.slug, marca: z.marca, modelo: z.modelo, img: z.imagen_principal, cat: z.categoria_principal, punt: z.puntuaciones, peso: z.peso_real_g, altura: z.altura, drop: z.drop_mm, horma: z.horma, ideal: z.ideal_para.posiciones.join(", "), precio: z.precio_msrp_eur, es_retro: z.es_retro ?? false })), initialSlugs: requested, CAT_LABELS, CAT_ACCENT, ATR_LABELS, RADAR_KEYS, SIZE }}>
+    const RINGS = [0.33, 0.66, 1];
+    const grid = document.getElementById("cmp-grid");
 
-    function buildItems(slot, retroOnly) {
-      const remaining = zapatillas.filter(z => !current.includes(z.slug) && (!retroOnly || z.es_retro));
+    function scoreOf(d) {
+      const v = Object.values(d.punt);
+      return Math.round((v.reduce((a, b) => a + b, 0) / v.length) * 10) / 10;
+    }
+    function radarPoints(d) {
+      return RADAR_KEYS.map((k, i) => {
+        const a = (i / RADAR_KEYS.length) * Math.PI * 2 - Math.PI / 2;
+        const r = (d.punt[k] / 10) * (SIZE / 2 - 6);
+        return (SIZE/2 + Math.cos(a)*r) + "," + (SIZE/2 + Math.sin(a)*r);
+      }).join(" ");
+    }
+    function ringPoints(f) {
+      return RADAR_KEYS.map((_, i) => {
+        const a = (i / RADAR_KEYS.length) * Math.PI * 2 - Math.PI / 2;
+        const r = f * (SIZE / 2 - 6);
+        return (SIZE/2 + Math.cos(a)*r) + "," + (SIZE/2 + Math.sin(a)*r);
+      }).join(" ");
+    }
+    function winnerFor(shoes, key) {
+      if (shoes.length < 2) return null;
+      let b = 0;
+      for (let i = 1; i < shoes.length; i++) {
+        if (shoes[i].punt[key] > shoes[b].punt[key]) b = i;
+      }
+      return b;
+    }
+    function esc(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    function render(slugs) {
+      const shoes = slugs.map(s => DATA.find(d => d.slug === s)).filter(Boolean);
+      if (!shoes.length) return;
+      const cheapest = shoes.length >= 2
+        ? shoes.reduce((bi, z, i, arr) => z.precio < arr[bi].precio ? i : bi, 0)
+        : -1;
+      let h = "";
+
+      // head
+      h += `<div class="cmp-cell head lab">&nbsp;</div>`;
+      shoes.forEach((z, idx) => {
+        h += `<div class="cmp-cell head" style="--cat:${CAT_ACCENT[z.cat]}">
+          <button class="cmp-photo" data-slot="${idx}">
+            <img src="${esc(z.img)}" alt="${esc(z.modelo)}" onerror="this.style.display='none'">
+            <span class="cmp-photo-overlay">cambiar ↺</span>
+          </button></div>`;
+      });
+
+      // marca modelo
+      h += `<div class="cmp-cell lab"><span class="cmp-lab">Marca · Modelo</span></div>`;
+      shoes.forEach(z => { h += `<div class="cmp-cell"><p class="cmp-marca">${esc(z.marca)}</p><h3 class="cmp-modelo">${esc(z.modelo)}</h3></div>`; });
+
+      // categoría
+      h += `<div class="cmp-cell lab"><span class="cmp-lab">Categoría</span></div>`;
+      shoes.forEach(z => { h += `<div class="cmp-cell"><span class="cmp-cat" style="color:${CAT_ACCENT[z.cat]}">${CAT_LABELS[z.cat]}</span></div>`; });
+
+      // score
+      h += `<div class="cmp-cell lab"><span class="cmp-lab">Score CANCHA</span></div>`;
+      shoes.forEach(z => { h += `<div class="cmp-cell"><span class="cmp-score-big">${scoreOf(z)}<small>/10</small></span></div>`; });
+
+      // radar
+      h += `<div class="cmp-cell radar lab"><span class="cmp-lab">Perfil técnico</span></div>`;
+      shoes.forEach(z => {
+        const rings = RINGS.map(f => `<polygon points="${ringPoints(f)}" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"></polygon>`).join("");
+        h += `<div class="cmp-cell radar"><div class="cmp-radar-wrap"><svg viewBox="0 0 ${SIZE} ${SIZE}" width="${SIZE}" height="${SIZE}" aria-hidden="true">${rings}<polygon points="${radarPoints(z)}" fill="${CAT_ACCENT[z.cat]}" fill-opacity="0.18" stroke="${CAT_ACCENT[z.cat]}" stroke-width="1.5"></polygon></svg></div></div>`;
+      });
+
+      // 8 atributos
+      Object.keys(ATR_LABELS).forEach(k => {
+        h += `<div class="cmp-cell lab"><span class="cmp-lab">${ATR_LABELS[k]}</span></div>`;
+        const w = winnerFor(shoes, k);
+        shoes.forEach((z, idx) => {
+          h += `<div class="cmp-cell metric ${w === idx ? "winner" : ""}"><span class="cmp-val">${z.punt[k]}<small>/10</small></span>${w === idx ? '<span class="cmp-win-tag">Mejor</span>' : ""}</div>`;
+        });
+      });
+
+      // peso
+      h += `<div class="cmp-cell lab"><span class="cmp-lab">Peso real (US 9)</span></div>`;
+      shoes.forEach(z => { h += `<div class="cmp-cell"><span class="cmp-val">${z.peso}<small>g</small></span></div>`; });
+      // altura
+      h += `<div class="cmp-cell lab"><span class="cmp-lab">Altura</span></div>`;
+      shoes.forEach(z => { h += `<div class="cmp-cell"><span class="cmp-val capz">${esc(z.altura)}</span></div>`; });
+      // drop
+      h += `<div class="cmp-cell lab"><span class="cmp-lab">Drop</span></div>`;
+      shoes.forEach(z => { h += `<div class="cmp-cell"><span class="cmp-val">${z.drop}<small>mm</small></span></div>`; });
+      // horma
+      h += `<div class="cmp-cell lab"><span class="cmp-lab">Horma</span></div>`;
+      shoes.forEach(z => { h += `<div class="cmp-cell"><span class="cmp-val capz">${esc(z.horma)}</span></div>`; });
+      // ideal
+      h += `<div class="cmp-cell lab"><span class="cmp-lab">Ideal para</span></div>`;
+      shoes.forEach(z => { h += `<div class="cmp-cell ideal">${esc(z.ideal)}</div>`; });
+      // precio
+      h += `<div class="cmp-cell lab price-row"><span class="cmp-lab">Precio MSRP</span></div>`;
+      shoes.forEach((z, idx) => { h += `<div class="cmp-cell price-row ${cheapest === idx && shoes.length > 1 ? "winner" : ""}"><span class="cmp-price">${z.precio}€</span>${cheapest === idx && shoes.length > 1 ? '<span class="cmp-win-tag">Más barata</span>' : ""}</div>`; });
+      // cta
+      h += `<div class="cmp-cell lab">&nbsp;</div>`;
+      shoes.forEach(z => { h += `<div class="cmp-cell"><a href="/zapatilla/${z.slug}" class="cmp-cta">Ver review →</a></div>`; });
+
+      grid.setAttribute("data-cols", String(shoes.length));
+      grid.innerHTML = h;
+      attachPhotos();
+    }
+
+    // ── Slot picker ──
+    let current = [...initialSlugs];
+
+    function attachPhotos() {
+      grid.querySelectorAll(".cmp-photo").forEach(btn => {
+        btn.addEventListener("click", () => showPicker(parseInt(btn.dataset.slot)));
+      });
+    }
+
+    function buildItems(retroOnly) {
+      const remaining = DATA.filter(z => !current.includes(z.slug) && (!retroOnly || z.es_retro));
       return remaining.map(z => `
         <button class="cmp-pick-item" data-slug="${z.slug}">
-          <img src="${z.img}" alt="" onerror="this.style.display='none'">
-          <span class="cpi-name"><strong>${z.marca}</strong> ${z.modelo}${z.es_retro ? ' <span style="color:#fbbf24">🏅</span>' : ''}</span>
-        </button>
-      `).join("") || `<p style="color:#71717a;grid-column:1/-1;padding:20px;text-align:center">Sin resultados con este filtro.</p>`;
+          <img src="${esc(z.img)}" alt="" onerror="this.style.display='none'">
+          <span class="cpi-name"><strong>${esc(z.marca)}</strong> ${esc(z.modelo)}${z.es_retro ? ' <span style="color:#fbbf24">🏅</span>' : ''}</span>
+        </button>`).join("") || `<p style="color:var(--cz-text-muted);grid-column:1/-1;padding:20px;text-align:center">Sin resultados con este filtro.</p>`;
     }
 
     function attachItemListeners(overlay, slot) {
       overlay.querySelectorAll(".cmp-pick-item").forEach(item => {
         item.addEventListener("click", () => {
           current[slot] = item.dataset.slug;
-          location.search = `?slugs=${current.join(",")}`;
+          overlay.remove();
+          render(current);
+          try { history.replaceState(null, "", "?slugs=" + current.join(",")); } catch (e) {}
         });
       });
     }
@@ -214,32 +345,37 @@ function ringPoints(f: number) {
           <p class="cz-eyebrow">★ Cambiar zapa ${slot + 1}</p>
           <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:32px;text-transform:uppercase;letter-spacing:-0.03em;margin:6px 0 10px">Elige otra zapa</h3>
           <div style="margin-bottom:12px">
-            <button id="cmp-retro-chip" style="padding:5px 12px;border:1px solid #3f3f46;background:transparent;color:#71717a;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer;transition:all .15s" type="button">🏅 Solo retro</button>
+            <button id="cmp-retro-chip" style="padding:5px 12px;border:1px solid var(--cz-border2);background:transparent;color:var(--cz-text-muted);font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer;transition:all .15s" type="button">🏅 Solo retro</button>
           </div>
-          <div class="cmp-picker-grid" id="cmp-picker-items">
-            ${buildItems(slot, false)}
-          </div>
+          <div class="cmp-picker-grid" id="cmp-picker-items">${buildItems(false)}</div>
           <button class="cmp-pick-close">Cerrar</button>
-        </div>
-      `;
+        </div>`;
       overlay.addEventListener("click", () => overlay.remove());
       overlay.querySelector(".cmp-pick-close").addEventListener("click", () => overlay.remove());
       attachItemListeners(overlay, slot);
 
-      // Retro chip toggle
       const chip = overlay.querySelector("#cmp-retro-chip");
-      const grid = overlay.querySelector("#cmp-picker-items");
+      const itemsGrid = overlay.querySelector("#cmp-picker-items");
       chip.addEventListener("click", (e) => {
         e.stopPropagation();
         retroOnly = !retroOnly;
-        chip.style.color = retroOnly ? "#fbbf24" : "#71717a";
-        chip.style.borderColor = retroOnly ? "#fbbf24" : "#3f3f46";
+        chip.style.color = retroOnly ? "#fbbf24" : "var(--cz-text-muted)";
+        chip.style.borderColor = retroOnly ? "#fbbf24" : "var(--cz-border2)";
         chip.style.background = retroOnly ? "rgba(251,191,36,0.08)" : "transparent";
-        grid.innerHTML = buildItems(slot, retroOnly);
+        itemsGrid.innerHTML = buildItems(retroOnly);
         attachItemListeners(overlay, slot);
       });
 
       document.body.appendChild(overlay);
+    }
+
+    // Init: si la URL trae ?slugs= (link compartido), renderiza en cliente.
+    const q = new URLSearchParams(location.search).get("slugs");
+    if (q) {
+      current = q.split(",");
+      render(current);
+    } else {
+      attachPhotos();
     }
   </script>
 </Base>
