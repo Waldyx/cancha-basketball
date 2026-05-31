@@ -567,7 +567,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 170,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kd+18&vst=kd+18", precio_actual: 169.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=kd+18", precio_actual: 174.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/product/~/314109315904.html", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=kd+18", precio_actual: 169.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
     ],
   },
@@ -3066,6 +3066,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 145,
     links_compra: [
+      { tienda: "forumsport_es", url: "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-anthony-edwards-2-kj4228-1001075419-p", precio_actual: 83.84, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "adidas_es", url: "https://www.adidas.es/search?q=ae+2+baloncesto", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ae+2+baloncesto&tag=canchazapa-21", precio_actual: 135, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=adidas+ae+2", precio_actual: 145, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
@@ -4348,6 +4349,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 130,
     links_compra: [
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/~/314106243604.html", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "nike_es", url: "https://www.nike.com/es/t/sabrina-3-zapatillas-de-baloncesto-UrtEcG8G/HF2881-303", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
@@ -5034,6 +5036,8 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/nike-book-1-hombre-zapatillas/314109163304.html", precio_actual: 60, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+      { tienda: "basket4ballers_es", url: "https://www.basket4ballers.com/es/zapatillas-de-baloncesto/53167-book-1-white-varsity-red-varsity-blue-fj4249-105.html", precio_actual: 90.75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
+      { tienda: "fuikaomar_es", url: "https://www.fuikaomar.es/zapatillas-nike-book-1-valley.html", precio_actual: 129.90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
     ],
   },
 
@@ -7300,6 +7304,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 120,
     links_compra: [
+      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fnew-balance%2Fzapatillas-de-baloncesto-new-balance-two-wxy-v5-team-navy-151094.html", precio_actual: 79.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
       { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar/?q=two+wxy+v5", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=new+balance+two+wxy+v5", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+two+wxy+v5+baloncesto&tag=canchazapa-21", precio_actual: 110, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },

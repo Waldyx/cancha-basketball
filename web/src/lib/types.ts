@@ -72,7 +72,8 @@ export type Tienda =
   | "snipes_eu"
   | "atmosfera_sport"
   | "joom"
-  | "basketballemotion_es";
+  | "basketballemotion_es"
+  | "forumsport_es";
 
 export type FuenteReview =
   | "weartesters"
