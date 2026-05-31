@@ -28,7 +28,8 @@ const editorPick = (conDescuento.length > 0
 // Top 3 — score con preferencia por precio verificado
 const conPrecio = zapatillas.filter(z => findMejorPrecio(z.links_compra)).sort((a, b) => scoreOf(b) - scoreOf(a));
 const sinPrecio = zapatillas.filter(z => !findMejorPrecio(z.links_compra)).sort((a, b) => scoreOf(b) - scoreOf(a));
-const top3 = [...conPrecio, ...sinPrecio].slice(0, 5);
+const top3 = [...conPrecio, ...sinPrecio].slice(0, 3);
+const trendingHero = [...conPrecio, ...sinPrecio].slice(0, 5);
 
 const marcas = [...new Set(zapatillas.map(z => z.marca))];
 
@@ -113,7 +114,7 @@ const pickAhorro = editorPick.mp && editorPick.mp.precio_actual < editorPick.z.p
             </div>
             <div class="panel-ticker">
               <div class="ticker-label">★ Trending hoy</div>
-              {top3.map(z => (
+              {trendingHero.map(z => (
                 <div class="ticker-row">
                   <span class="t-rank">{scoreOf(z)}</span>
                   <span class="t-name"><strong>{z.marca}</strong> {z.modelo}</span>
