@@ -281,6 +281,22 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 120,
     links_compra: [
       {
+        tienda: "joom",
+        url: "https://www.joom.com/es/products/68c9ea5759560c01a81f5804?variant_id=68c9ea5759560c3fa81f5816&utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1",
+        precio_actual: 99,
+        disponible: true,
+        tiene_afiliado: true,
+        ultima_verificacion: "2026-05-31",
+      },
+      {
+        tienda: "fuikaomar_es",
+        url: "https://www.fuikaomar.es/zapatillas-nike-sabrina-2-retroed.html",
+        precio_actual: 119.90,
+        disponible: true,
+        tiene_afiliado: false,
+        ultima_verificacion: "2026-05-31",
+      },
+      {
         tienda: "amazon_es",
         url: "https://www.amazon.es/s?k=nike+sabrina+2&tag=canchazapa-21",
         precio_actual: 99.99,
@@ -790,6 +806,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 145,
     links_compra: [
+      { tienda: "joom", url: "https://www.joom.com/es/products/68c9e3a3da556e01f521fec8?variant_id=68c9e3a3da556e2ef521fecf&utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=jordan+tatum+3&vst=jordan+tatum+3", precio_actual: 144.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=tatum+3", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=tatum+3", precio_actual: 144.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
