@@ -2108,21 +2108,20 @@ button { font-family: inherit; cursor: pointer; }
 }
 @media (max-width: 880px) {
   .home-hero-grid { gap: 24px; }
-  /* Vídeo a pantalla completa como fondo atenuado del hero */
-  .home-hero { isolation: isolate; }
+  /* Vídeo a un lado (derecha), asomando tras el titular */
   .home-hero-inner { position: relative; }
   .home-hero-left { position: relative; z-index: 2; }
-  .home-hero-panel { position: relative; z-index: 2; }
   .home-hero-media {
-    position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%);
-    width: 100vw; z-index: 0; margin: 0; pointer-events: none;
-    -webkit-mask-image: none; mask-image: none;
+    position: absolute; top: -20px; right: -4%; left: auto; transform: none;
+    z-index: 0; margin: 0; width: 66%; height: 560px; pointer-events: none;
+    justify-content: center; align-items: flex-start;
   }
   .home-hero-media img,
   .home-hero-media video {
-    width: 100%; height: 100%; max-height: none; object-fit: cover; opacity: 0.22;
+    width: 100%; height: 100%; max-height: none; object-fit: cover; object-position: center top; opacity: 0.62;
   }
-  .home-cta-row { margin-top: 0; }
+  /* Bajar un poco los botones para que se vea más la imagen */
+  .home-cta-row { margin-top: 180px; }
 }
 .home-beta {
   display: inline-block; padding: 6px 14px;
