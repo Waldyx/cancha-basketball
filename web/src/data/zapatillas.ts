@@ -3294,6 +3294,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 170,
     links_compra: [
+      { tienda: "basket4ballers_es", url: "https://www.basket4ballers.com/es/zapatillas-de-baloncesto/59322-nike-gt-cut-4-preheat-iq6206-500.html", precio_actual: 153.27, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+gt+cut+4+basketball&tag=canchazapa-21", precio_actual: 160, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=gt+cut+4&vst=gt+cut+4", precio_actual: 170, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+gt+cut+4", precio_actual: 165, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
