@@ -2113,13 +2113,15 @@ button { font-family: inherit; cursor: pointer; }
   .home-hero-left { position: relative; z-index: 2; }
   .home-hero-media {
     position: absolute; top: 0; right: 0; z-index: 0; margin: 0;
-    width: 54%; height: 360px; pointer-events: none;
+    width: 56%; height: 520px; pointer-events: none;
     justify-content: flex-end; align-items: flex-start;
   }
   .home-hero-media img,
   .home-hero-media video {
-    width: 100%; height: 100%; max-height: none; object-fit: cover; opacity: 0.55;
+    width: 100%; height: 100%; max-height: none; object-fit: cover; opacity: 0.6;
   }
+  /* Bajar los botones para que se vea más el vídeo */
+  .home-cta-row { margin-top: 150px; }
 }
 .home-beta {
   display: inline-block; padding: 6px 14px;
