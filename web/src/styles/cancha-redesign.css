@@ -2115,8 +2115,8 @@ button { font-family: inherit; cursor: pointer; }
   .home-hero-left .home-lede { max-width: 52%; }
   .home-hero-left .home-cta-foot { max-width: 52%; }
   .home-hero-media {
-    position: absolute; top: -10px; right: -4%; left: auto; transform: none;
-    z-index: 0; margin: 0; width: 52%; height: 430px; pointer-events: none;
+    position: absolute; top: -55px; right: -4%; left: auto; transform: none;
+    z-index: 0; margin: 0; width: 52%; height: 475px; pointer-events: none;
     justify-content: center; align-items: stretch;
   }
   .home-hero-media img,
