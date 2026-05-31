@@ -305,10 +305,10 @@ const relatedArticles = ARTICLES
           <p class="cz-eyebrow" style="margin-bottom:16px">★ Del blog</p>
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px">
             {relatedArticles.map((art) => (
-              <a href={`/blog/${art.slug}`} class="art-ref-card" style="display:block;background:#141414;border:1px solid #27272a;padding:16px;text-decoration:none;transition:border-color .15s">
+              <a href={`/blog/${art.slug}`} class="art-ref-card" style="display:block;background:var(--cz-surface);border:1px solid var(--cz-border);padding:16px;text-decoration:none;transition:border-color .15s">
                 <span style="display:block;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:#f97316;margin-bottom:6px">{art.categoria}</span>
-                <span style="display:block;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:-.01em;color:#e4e4e7;line-height:1.2;margin-bottom:6px">{art.title}</span>
-                <span style="display:block;font-size:11px;color:#52525b">{art.readMinutes} min de lectura →</span>
+                <span style="display:block;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:-.01em;color:var(--cz-text-soft);line-height:1.2;margin-bottom:6px">{art.title}</span>
+                <span style="display:block;font-size:11px;color:var(--cz-text-dim)">{art.readMinutes} min de lectura →</span>
               </a>
             ))}
           </div>

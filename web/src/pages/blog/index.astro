@@ -136,7 +136,7 @@ const blogJsonLd = [
   <style>
     .blog-hero {
       padding: 64px 0 48px;
-      border-bottom: 1px solid #27272a;
+      border-bottom: 1px solid var(--cz-border);
     }
     .blog-hero-h1 {
       font-family: 'Barlow Condensed', sans-serif;
@@ -145,11 +145,11 @@ const blogJsonLd = [
       line-height: .9;
       letter-spacing: -.04em;
       text-transform: uppercase;
-      color: #fff;
+      color: var(--cz-text);
       margin: 12px 0 20px;
     }
     .blog-hero-lede {
-      color: #a1a1aa;
+      color: var(--cz-text-2);
       font-size: 16px;
       max-width: 560px;
       line-height: 1.6;
@@ -164,8 +164,8 @@ const blogJsonLd = [
       margin-bottom: 56px;
     }
     .blog-card {
-      background: #141414;
-      border: 1px solid #27272a;
+      background: var(--cz-surface);
+      border: 1px solid var(--cz-border);
       padding: 24px;
       display: flex;
       flex-direction: column;
@@ -187,7 +187,7 @@ const blogJsonLd = [
     }
     .blog-read {
       font-size: 11px;
-      color: #71717a;
+      color: var(--cz-text-muted);
       text-transform: uppercase;
       letter-spacing: .08em;
     }
@@ -200,10 +200,10 @@ const blogJsonLd = [
       letter-spacing: -.02em;
       margin: 0;
     }
-    .blog-card-title a { color: #fff; text-decoration: none; }
+    .blog-card-title a { color: var(--cz-text); text-decoration: none; }
     .blog-card-title a:hover { color: #f97316; }
     .blog-card-desc {
-      color: #a1a1aa;
+      color: var(--cz-text-2);
       font-size: 14px;
       line-height: 1.55;
       flex: 1;
@@ -214,11 +214,11 @@ const blogJsonLd = [
       align-items: center;
       justify-content: space-between;
       padding-top: 12px;
-      border-top: 1px solid #27272a;
+      border-top: 1px solid var(--cz-border);
     }
     .blog-date {
       font-size: 11px;
-      color: #71717a;
+      color: var(--cz-text-muted);
       text-transform: uppercase;
       letter-spacing: .06em;
     }
@@ -234,8 +234,8 @@ const blogJsonLd = [
     .blog-bottom-cta {
       text-align: center;
       padding: 40px 0;
-      border-top: 1px solid #27272a;
-      color: #a1a1aa;
+      border-top: 1px solid var(--cz-border);
+      color: var(--cz-text-2);
       font-size: 16px;
     }
     .blog-bottom-cta p { margin: 0 0 16px; }
@@ -247,8 +247,8 @@ const blogJsonLd = [
     }
     .bf-btn {
       background: transparent;
-      border: 1px solid #27272a;
-      color: #a1a1aa;
+      border: 1px solid var(--cz-border);
+      color: var(--cz-text-2);
       font-size: 11px;
       font-weight: 900;
       text-transform: uppercase;

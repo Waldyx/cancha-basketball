@@ -37,7 +37,7 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#0c0c0c" />
+    <meta name="theme-color" content="#2a2a2e" />
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -129,7 +129,7 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro
       }
     </style>
   </head>
-  <body class="bg-zinc-950 text-white antialiased">
+  <body class="antialiased">
     <!-- Skip-to-content para usuarios de teclado / lectores de pantalla -->
     <a href="#main-content" class="skip-to-content">Saltar al contenido</a>
 
@@ -141,7 +141,7 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro
         role="presentation"
         class="w-full h-full object-cover opacity-[0.18]"
       />
-      <div class="absolute inset-0 bg-zinc-950/50"></div>
+      <div class="cz-court-overlay absolute inset-0"></div>
     </div>
 
     <!-- Main content target for skip link -->
@@ -152,16 +152,21 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro
     <!-- Footer global -->
     <footer style="position:relative;z-index:10;border-top:1px solid rgba(63,63,70,0.3);padding:16px 0;margin-top:0">
       <div style="max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
-        <p style="font-size:11px;color:#3f3f46;text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin:0">
+        <p style="font-size:11px;color:var(--cz-text-dim);text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin:0">
           © 2026 CANCHA.ZAPA · Proyecto independiente
         </p>
         <div style="display:flex;gap:20px">
-          <a href="/blog" style="font-size:11px;color:#52525b;text-transform:uppercase;letter-spacing:.12em;font-weight:700;text-decoration:none">Blog</a>
-          <a href="/faq" style="font-size:11px;color:#52525b;text-transform:uppercase;letter-spacing:.12em;font-weight:700;text-decoration:none">FAQ</a>
-          <a href="/metodologia" style="font-size:11px;color:#52525b;text-transform:uppercase;letter-spacing:.12em;font-weight:700;text-decoration:none">Metodología</a>
-          <a href="/financiacion" style="font-size:11px;color:#52525b;text-transform:uppercase;letter-spacing:.12em;font-weight:700;text-decoration:none">Financiación</a>
-          <a href="/privacidad" style="font-size:11px;color:#52525b;text-transform:uppercase;letter-spacing:.12em;font-weight:700;text-decoration:none">Privacidad</a>
+          <a href="/blog" style="font-size:11px;color:var(--cz-text-muted);text-transform:uppercase;letter-spacing:.12em;font-weight:700;text-decoration:none">Blog</a>
+          <a href="/faq" style="font-size:11px;color:var(--cz-text-muted);text-transform:uppercase;letter-spacing:.12em;font-weight:700;text-decoration:none">FAQ</a>
+          <a href="/metodologia" style="font-size:11px;color:var(--cz-text-muted);text-transform:uppercase;letter-spacing:.12em;font-weight:700;text-decoration:none">Metodología</a>
+          <a href="/financiacion" style="font-size:11px;color:var(--cz-text-muted);text-transform:uppercase;letter-spacing:.12em;font-weight:700;text-decoration:none">Financiación</a>
+          <a href="/privacidad" style="font-size:11px;color:var(--cz-text-muted);text-transform:uppercase;letter-spacing:.12em;font-weight:700;text-decoration:none">Privacidad</a>
         </div>
+      </div>
+      <div style="max-width:1280px;margin:10px auto 0;padding:0 24px">
+        <p style="font-size:11px;color:var(--cz-text-muted);line-height:1.5;margin:0">
+          CANCHA.ZAPA está en fase beta: las imágenes son orientativas y los precios pueden variar o contener algún error. Confirma color, talla y precio definitivos en la tienda al abrir el enlace. Gracias por tu comprensión.
+        </p>
       </div>
     </footer>
 
