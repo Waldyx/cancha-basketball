@@ -2369,6 +2369,15 @@ button { font-family: inherit; cursor: pointer; }
   transition: all 0.15s;
 }
 .home-t3-card:hover .ht3-arrow { color: var(--cz-bg); background: #f97316; border-color: #f97316; }
+
+/* Cards de artículo (Blog reciente en home): compactas, sin foto */
+.home-t3-article .ht3-body { gap: 10px; padding: 18px 20px; }
+.home-t3-article .ht3-tags { display: flex; align-items: center; gap: 10px; }
+.home-t3-article .ht3-cat { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; color: #000; padding: 4px 9px; }
+.home-t3-article .ht3-min { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cz-text-2); }
+.home-t3-article .ht3-desc { font-size: 13px; line-height: 1.55; color: var(--cz-text-2); margin: 0; flex: 1; }
+.home-t3-article .ht3-date { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--cz-text-muted); }
+
 .home-top3-cta { text-align: center; }
 
 /* ── Manifiesto ── */
