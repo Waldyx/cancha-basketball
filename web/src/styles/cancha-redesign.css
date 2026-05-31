@@ -2111,9 +2111,9 @@ button { font-family: inherit; cursor: pointer; }
   /* Vídeo a la derecha; texto en columna estrecha vertical a la izquierda */
   .home-hero-inner { position: relative; }
   .home-hero-left { position: relative; z-index: 2; }
-  .home-h1 { max-width: 58%; }
-  .home-lede { max-width: 52%; }
-  .home-cta-foot { max-width: 52%; }
+  .home-hero-left .home-h1 { max-width: 58%; }
+  .home-hero-left .home-lede { max-width: 52%; }
+  .home-hero-left .home-cta-foot { max-width: 52%; }
   .home-hero-media {
     position: absolute; top: -10px; right: -4%; left: auto; transform: none;
     z-index: 0; margin: 0; width: 52%; height: 430px; pointer-events: none;
