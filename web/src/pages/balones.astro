@@ -191,24 +191,24 @@ const jsonLd = {
 
   <style>
     .bl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; padding: 24px 0 48px; }
-    .bl-card { background: var(--cz-surface); border: 1px solid var(--cz-border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: border-color .15s, transform .15s; }
+    .bl-card { background: var(--cz-surface); border: 1px solid var(--cz-border); border-radius: 0; overflow: hidden; display: flex; flex-direction: column; transition: border-color .15s, transform .15s; }
     .bl-card:hover { border-color: var(--cz-border2); transform: translateY(-2px); }
     .bl-card-top { display: flex; justify-content: space-between; align-items: center; padding: 14px 16px 0; }
-    .bl-badge { font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; color: var(--c); border: 1px solid var(--c); padding: 3px 10px; border-radius: 999px; }
+    .bl-badge { font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; color: var(--c); border: 1px solid var(--c); padding: 3px 10px; border-radius: 0; }
     .bl-score { font-family: "Barlow Condensed", sans-serif; font-weight: 900; font-size: 28px; color: #f97316; }
-    .bl-ball { display: flex; justify-content: center; padding: 8px 0 4px; background: #fff; border-radius: 12px; margin: 0 16px; }
+    .bl-ball { display: flex; justify-content: center; padding: 8px 0 4px; background: #fff; border-radius: 0; margin: 0 16px; }
     .bl-ball img { width: 180px; height: 180px; object-fit: contain; }
     .bl-body { padding: 4px 18px 18px; display: flex; flex-direction: column; flex: 1; }
     .bl-marca { color: var(--cz-text-muted); font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin: 0; }
     .bl-modelo { font-family: "Barlow Condensed", sans-serif; font-weight: 900; font-size: 26px; text-transform: uppercase; color: var(--cz-text); margin: 2px 0 6px; line-height: 1; }
     .bl-meta { display: flex; gap: 6px; color: var(--cz-text-2); font-size: 13px; font-weight: 600; margin-bottom: 12px; }
     .bl-scores { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; margin-bottom: 12px; }
-    .bl-scores div { text-align: center; background: var(--cz-bg); border-radius: 8px; padding: 6px 2px; }
+    .bl-scores div { text-align: center; background: var(--cz-bg); border-radius: 0; padding: 6px 2px; }
     .bl-scores b { display: block; color: #f97316; font-size: 18px; font-family: "Barlow Condensed", sans-serif; }
     .bl-scores span { font-size: 10px; color: var(--cz-text-muted); text-transform: uppercase; letter-spacing: .5px; }
     .bl-veredicto { color: var(--cz-text-soft); font-size: 13px; line-height: 1.5; margin: 0 0 14px; flex: 1; }
     .bl-buy { display: flex; flex-direction: column; gap: 8px; }
-    .bl-btn { display: block; text-align: center; background: #f97316; color: #0c0c0c; font-weight: 900; padding: 11px; border-radius: 10px; text-decoration: none; font-size: 14px; transition: background .15s; }
+    .bl-btn { display: block; text-align: center; background: #f97316; color: #0c0c0c; font-weight: 900; padding: 11px; border-radius: 0; text-decoration: none; font-size: 14px; transition: background .15s; }
     .bl-btn:hover { background: #fb923c; }
     .bl-btn:nth-child(2) { background: var(--cz-surface2); color: #f97316; border: 1px solid #f97316; }
     .bl-btn:nth-child(2):hover { background: var(--cz-border); }
@@ -220,16 +220,16 @@ const jsonLd = {
     .bl-acc-link { color: #f97316; font-weight: 800; font-size: 13px; text-decoration: none; white-space: nowrap; }
     .bl-acc-link:hover { text-decoration: underline; }
     .bl-acc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
-    .bl-acc-card { display: flex; flex-direction: column; gap: 4px; background: var(--cz-surface); border: 1px solid var(--cz-border); border-radius: 12px; padding: 16px; text-decoration: none; transition: border-color .15s, transform .15s; }
+    .bl-acc-card { display: flex; flex-direction: column; gap: 4px; background: var(--cz-surface); border: 1px solid var(--cz-border); border-radius: 0; padding: 16px; text-decoration: none; transition: border-color .15s, transform .15s; }
     .bl-acc-card:hover { border-color: #f97316; transform: translateY(-2px); }
-    .bl-acc-img { background: #fff; border-radius: 8px; display: flex; justify-content: center; align-items: center; padding: 6px; margin-bottom: 4px; }
+    .bl-acc-img { background: #fff; border-radius: 0; display: flex; justify-content: center; align-items: center; padding: 6px; margin-bottom: 4px; }
     .bl-acc-img img { width: 100%; max-width: 150px; height: 130px; object-fit: contain; }
-    .bl-acc-badge { align-self: flex-start; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; color: #f97316; border: 1px solid #f97316; padding: 2px 8px; border-radius: 999px; margin-bottom: 2px; }
+    .bl-acc-badge { align-self: flex-start; font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; color: #f97316; border: 1px solid #f97316; padding: 2px 8px; border-radius: 0; margin-bottom: 2px; }
     .bl-acc-name { font-weight: 900; color: var(--cz-text); font-size: 15px; }
     .bl-acc-nota { color: var(--cz-text-2); font-size: 12px; line-height: 1.4; flex: 1; }
     .bl-acc-buy { color: #f97316; font-weight: 800; font-size: 13px; margin-top: 6px; }
 
-    .bl-cta { display: flex; justify-content: space-between; align-items: center; gap: 20px; background: linear-gradient(135deg, var(--cz-surface2), var(--cz-surface)); border: 1px solid var(--cz-border); border-radius: 16px; padding: 24px 28px; margin-bottom: 24px; flex-wrap: wrap; }
+    .bl-cta { display: flex; justify-content: space-between; align-items: center; gap: 20px; background: linear-gradient(135deg, var(--cz-surface2), var(--cz-surface)); border: 1px solid var(--cz-border); border-radius: 0; padding: 24px 28px; margin-bottom: 24px; flex-wrap: wrap; }
     .bl-cta-title { font-family: "Barlow Condensed", sans-serif; font-weight: 900; font-size: 24px; color: var(--cz-text); margin: 0; text-transform: uppercase; }
     .bl-cta-sub { color: var(--cz-text-2); font-size: 14px; margin: 4px 0 0; }
     .bl-disclaimer { color: var(--cz-text-muted); font-size: 12px; line-height: 1.6; padding-bottom: 40px; text-align: center; max-width: 700px; margin: 0 auto; }
