@@ -28,7 +28,7 @@ const editorPick = (conDescuento.length > 0
 // Top 3 — score con preferencia por precio verificado
 const conPrecio = zapatillas.filter(z => findMejorPrecio(z.links_compra)).sort((a, b) => scoreOf(b) - scoreOf(a));
 const sinPrecio = zapatillas.filter(z => !findMejorPrecio(z.links_compra)).sort((a, b) => scoreOf(b) - scoreOf(a));
-const top3 = [...conPrecio, ...sinPrecio].slice(0, 3);
+const top3 = [...conPrecio, ...sinPrecio].slice(0, 5);
 
 const marcas = [...new Set(zapatillas.map(z => z.marca))];
 
@@ -120,6 +120,7 @@ const pickAhorro = editorPick.mp && editorPick.mp.precio_actual < editorPick.z.p
                   <span class="t-price">{Math.round(findMejorPrecio(z.links_compra)?.precio_actual ?? z.precio_msrp_eur)}€</span>
                 </div>
               ))}
+              <a href="/rankings" class="panel-ranklink">Ver rankings completos →</a>
             </div>
           </aside>
         </div>
