@@ -477,40 +477,6 @@ const productJsonLd = {
       </div>
     </section>
 
-    {/* AFILIADOS — 3 botones principales */}
-    {(() => {
-      const sprinter = z.links_compra.find(l => l.tienda === "sprinter_es" && l.disponible);
-      const footlocker = z.links_compra.find(l => l.tienda === "footlocker_es" && l.disponible);
-      const amazon = z.links_compra.find(l => l.tienda === "amazon_es" && l.disponible);
-      const tiendas = [
-        sprinter   && { label: "Sprinter",    url: sprinter.url,    precio: sprinter.precio_actual,    afiliado: sprinter.tiene_afiliado },
-        footlocker && { label: "Foot Locker", url: footlocker.url,  precio: footlocker.precio_actual,  afiliado: footlocker.tiene_afiliado },
-        amazon     && { label: "Amazon",      url: amazon.url,      precio: amazon.precio_actual,      afiliado: amazon.tiene_afiliado },
-      ].filter(Boolean);
-      if (!tiendas.length) return null;
-      return (
-        <section style="padding:40px 0;border-top:1px solid rgba(63,63,70,0.3)">
-          <div class="shell">
-            <p class="cz-eyebrow" style="margin-bottom:20px">★ Comprar ahora</p>
-            <div style="display:flex;flex-wrap:wrap;gap:12px">
-              {tiendas.map((t: any) => (
-                <a href={t.url} target="_blank"
-                   rel={t.afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"}
-                   class="aff-btn"
-                   data-tienda={t.label}
-                   data-zapa={z.slug}
-                   style="display:flex;align-items:center;gap:12px;padding:14px 24px;background:#18181b;border:1px solid rgba(249,115,22,0.4);color:#fff;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:16px;text-transform:uppercase;letter-spacing:.1em">
-                  <span>{t.label}</span>
-                  <span style="color:#f97316;font-size:18px">→</span>
-                  <span style="margin-left:auto;color:#f97316;font-weight:900">{t.precio}€</span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-      );
-    })()}
-
     {/* COMBINA CON → */}
     <section class="dh-combina-section" id="combina-con" style="scroll-margin-top:80px">
       <div class="shell">
