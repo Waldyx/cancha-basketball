@@ -2203,6 +2203,7 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 10px; color: var(--cz-text-muted); font-weight: 800;
   text-transform: uppercase; letter-spacing: 0.18em; margin-top: 4px;
 }
+.home-hero-panel .t-price { color: #f97316; }
 .panel-ranklink {
   display: block; margin-top: 10px; padding-top: 12px;
   border-top: 1px solid rgba(63,63,70,0.4);
