@@ -142,6 +142,7 @@ const ordenadas = [...zapatillas].sort((a, b) => a.marca.localeCompare(b.marca))
                     <span class="price">{Math.round(precio)}€</span>
                   </div>
                   <div class="actions">
+                    <button class="icon-btn mz-toggle" data-slug={z.slug} type="button" title="Marcar como Lo tengo">✓</button>
                     <label class="mz-check" title="Seleccionar para comparar">
                       <input type="checkbox" class="mz-pick" data-slug={z.slug} />
                       <span>⇄</span>
@@ -232,6 +233,13 @@ const ordenadas = [...zapatillas].sort((a, b) => a.marca.localeCompare(b.marca))
             badge.classList.add("hidden");
           }
         }
+
+        // Botón mover entre Lo quiero / Lo tengo
+        const tog = c.querySelector<HTMLElement>(".mz-toggle");
+        if (tog) {
+          if (inT) { tog.textContent = "♥"; tog.title = "Mover a 'Lo quiero'"; tog.classList.add("is-tengo"); }
+          else { tog.textContent = "✓"; tog.title = "Marcar como 'Lo tengo'"; tog.classList.remove("is-tengo"); }
+        }
       });
     }
 
@@ -266,6 +274,21 @@ const ordenadas = [...zapatillas].sort((a, b) => a.marca.localeCompare(b.marca))
         } else {
           picks.delete(slug);
         }
+        updateCompareBtn();
+      });
+    });
+
+    // Mover entre Lo quiero ↔ Lo tengo
+    document.querySelectorAll<HTMLButtonElement>(".mz-toggle").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const slug = btn.dataset.slug!;
+        const q = loadSet(QUIERO_KEY);
+        const t = loadSet(TENGO_KEY);
+        if (t.has(slug)) { t.delete(slug); q.add(slug); }
+        else { q.delete(slug); t.add(slug); }
+        saveSet(QUIERO_KEY, q); saveSet(TENGO_KEY, t);
+        picks.delete(slug);
+        render();
         updateCompareBtn();
       });
     });
@@ -345,5 +368,8 @@ const ordenadas = [...zapatillas].sort((a, b) => a.marca.localeCompare(b.marca))
       background: #f97316; color: #0c0c0c; border-color: #f97316;
     }
     .mz-card .mz-remove:hover { color: #ef4444; border-color: #ef4444; }
+    .mz-card .mz-toggle:hover { color: #22c55e; border-color: #22c55e; }
+    .mz-card .mz-toggle.is-tengo { color: #22c55e; border-color: #22c55e; }
+    .mz-card .mz-toggle.is-tengo:hover { color: #f97316; border-color: #f97316; }
   </style>
 </Base>
