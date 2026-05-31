@@ -1037,7 +1037,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 140,
     links_compra: [
-      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c4kdfzDB", precio_actual: 135, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
+      { tienda: "aliexpress", url: "https://es.aliexpress.com/item/1005011570638695.html", precio_actual: 63, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" }, // TODO: cambiar a s.click cuando se genere
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kai+2&tag=canchazapa-21", precio_actual: 149, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
