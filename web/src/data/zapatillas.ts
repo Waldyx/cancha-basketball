@@ -1605,6 +1605,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 100,
     links_compra: [
+      { tienda: "zalando_es", url: "https://www.zalando.es/nike-performance-zapatillas-de-baloncesto-black-iron-grey-dark-smoke-grey-black-n1242a2z7-q12.html", precio_actual: 82.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=lebron+witness+9&vst=lebron+witness+9", precio_actual: 99.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=witness+9", precio_actual: 104.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=witness+9", precio_actual: 99.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
@@ -5115,6 +5116,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 159.99,
     links_compra: [
+      { tienda: "zalando_es", url: "https://www.zalando.es/adidas-performance-zapatillas-de-baloncesto-core-blacklucid-lemon-ad542a5su-i11.html", precio_actual: 87.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/adidas-harden-volume-10-hombre-zapatillas/314109881004.html", precio_actual: 159.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
@@ -6100,6 +6102,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 150,
     links_compra: [
+      { tienda: "joom", url: "https://www.joom.com/es/products/68c9d4c3df066801b880be21?utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1", precio_actual: 77, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=zoom+freak+6&vst=zoom+freak+6", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+zoom+freak+6", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
     ],
