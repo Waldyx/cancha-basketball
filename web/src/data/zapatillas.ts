@@ -692,6 +692,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 135,
     links_compra: [
       { tienda: "zalando_es", url: "https://www.zalando.es/jordan-zapatillas-de-baloncesto-blackbright-crimson-joc42a06d-q11.html", precio_actual: 97.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/jordan/luka-5-viper-edge-electric-green-infrared-23-black-teal-tint-be", precio_actual: 109.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=jordan+luka+5&vst=jordan+luka+5", precio_actual: 135, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=jordan+luka+5", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=jordan+luka+5", precio_actual: 134.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
