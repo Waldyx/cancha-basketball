@@ -503,7 +503,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 60,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=cross+em+up+select", precio_actual: 55, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dcross%2Bem%2Bup%2Bselect", precio_actual: 55, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+cross+em+up+select&tag=canchazapa-21", precio_actual: 54.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fsearch%3FNtt%3Dadidas%2Bcross%2Bem%2Bup", precio_actual: 60, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
     ],
@@ -1364,7 +1364,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-28",
     precio_msrp_eur: 160,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=harden+vol+9", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dharden%2Bvol%2B9", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=harden+vol+9", precio_actual: 160, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+harden+vol+9+baloncesto&tag=canchazapa-21", precio_actual: 82.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=harden+vol+9", precio_actual: 159.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
@@ -1424,7 +1424,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-28",
     precio_msrp_eur: 95,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=dame+certified", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Ddame%2Bcertified", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=adidas+dame+certified", precio_actual: 94.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+certified+baloncesto&tag=canchazapa-21", precio_actual: 59.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
@@ -1669,7 +1669,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=dame+9", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Ddame%2B9", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=adidas+dame+9+baloncesto", precio_actual: 119.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+9+baloncesto&tag=canchazapa-21", precio_actual: 124, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=dame+9", precio_actual: 119.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
@@ -1727,7 +1727,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 65,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=cross+em+up+speed", precio_actual: 60, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dcross%2Bem%2Bup%2Bspeed", precio_actual: 60, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+cross+em+up+speed+baloncesto&tag=canchazapa-21", precio_actual: 44.27, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=adidas+cross+em+up+speed", precio_actual: 69.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
     ],
@@ -2585,7 +2585,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fadidas-originals-zapatilla-de-baloncesto-anthony-edwards-1-plata-41674", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=ae+1+baloncesto", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dae%2B1%2Bbaloncesto", precio_actual: 90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ae+1+baloncesto&tag=canchazapa-21", precio_actual: 85, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=adidas+ae+1+baloncesto", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=adidas+ae+1", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
@@ -3070,7 +3070,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 145,
     links_compra: [
       { tienda: "forumsport_es", url: "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-anthony-edwards-2-kj4228-1001075419-p", precio_actual: 83.84, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=ae+2+baloncesto", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dae%2B2%2Bbaloncesto", precio_actual: 140, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ae+2+baloncesto&tag=canchazapa-21", precio_actual: 135, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=adidas+ae+2", precio_actual: 145, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=adidas+ae+2+baloncesto", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
@@ -5333,7 +5333,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=dame+8", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Ddame%2B8", precio_actual: 100, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=adidas+dame+8", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
     ],
   },
@@ -5443,7 +5443,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 80,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=exhibit+a", precio_actual: 65, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dexhibit%2Ba", precio_actual: 65, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+exhibit+a+baloncesto&tag=canchazapa-21", precio_actual: 67.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -5496,7 +5496,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 95,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=exhibit+b", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dexhibit%2Bb", precio_actual: 80, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+exhibit+b+baloncesto&tag=canchazapa-21", precio_actual: 75, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -6158,7 +6158,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 65,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=cross+em+up+5", precio_actual: 55, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dcross%2Bem%2Bup%2B5", precio_actual: 55, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+cross+em+up+5&tag=canchazapa-21", precio_actual: 41.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -6436,7 +6436,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 80,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=harden+stepback+4", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dharden%2Bstepback%2B4", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+harden+stepback+4&tag=canchazapa-21", precio_actual: 65, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -6710,7 +6710,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 55,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=ownthegame+3", precio_actual: 55, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Downthegame%2B3", precio_actual: 55, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ownthegame+3+baloncesto&tag=canchazapa-21", precio_actual: 39.00, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-ownthegame-30-hombre-negro-negro-limluc-160464.html", precio_actual: 52, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
@@ -6985,7 +6985,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=ae+1.5", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dae%2B1.5", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=adidas+ae+1.5", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
     ],
   },
@@ -7240,7 +7240,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-19",
     precio_msrp_eur: 150,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=trae+young+3", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dtrae%2Byoung%2B3", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=adidas+trae+young+3", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+trae+young+3+baloncesto&tag=canchazapa-21", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
@@ -7506,7 +7506,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=trae+young+4", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dtrae%2Byoung%2B4", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=adidas+trae+young+4", precio_actual: 125, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+trae+young+4+baloncesto&tag=canchazapa-21", precio_actual: 115, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
@@ -7917,7 +7917,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 160,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=harden+vol+8", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-20" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dharden%2Bvol%2B8", precio_actual: 90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+harden+vol+8+baloncesto&tag=canchazapa-21", precio_actual: 80, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -8128,7 +8128,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 70,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=ownthegame+2.0", precio_actual: 55, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-20" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Downthegame%2B2.0", precio_actual: 55, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ownthegame+2.0+baloncesto&tag=canchazapa-21", precio_actual: 50, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -8440,7 +8440,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 94.99,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=dame+x", precio_actual: 94.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Ddame%2Bx", precio_actual: 94.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=dame+x", precio_actual: 94.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+x+baloncesto&tag=canchazapa-21", precio_actual: 65, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-dame-x-negro-143979.html", precio_actual: 63, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
@@ -10632,7 +10632,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 100,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=forum+84", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dforum%2B84", precio_actual: 100, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Adidas+Forum+84+baloncesto&tag=canchazapa-21", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
@@ -10883,7 +10883,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=crazy+8", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dcrazy%2B8", precio_actual: 110, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+crazy+8+kobe&tag=canchazapa-21", precio_actual: 115, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
@@ -10945,7 +10945,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 100,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=superstar", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dsuperstar", precio_actual: 100, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+superstar+baloncesto&tag=canchazapa-21", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
@@ -11007,7 +11007,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=top+ten", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dtop%2Bten", precio_actual: 110, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+top+ten+hi+baloncesto&tag=canchazapa-21", precio_actual: 105, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
@@ -11069,7 +11069,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 95,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.adidas.es/search?q=pro+model", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dpro%2Bmodel", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+pro+model+baloncesto&tag=canchazapa-21", precio_actual: 90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
