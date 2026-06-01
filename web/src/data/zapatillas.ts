@@ -412,11 +412,11 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       {
         tienda: "aliexpress",
-        url: "https://s.click.aliexpress.com/e/_c3Ax5OIz",
-        precio_actual: 99.99,
+        url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010620845749.html",
+        precio_actual: 77.39,
         disponible: true,
         tiene_afiliado: true,
-        ultima_verificacion: "2026-05-13",
+        ultima_verificacion: "2026-06-02",
       },
       {
         tienda: "amazon_es",
@@ -942,7 +942,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 150,
     links_compra: [
-      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3UwfTVr", precio_actual: 145, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005008340561587.html", precio_actual: 78.40, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=way+of+wade+all+city+13&tag=canchazapa-21", precio_actual: 159, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -1065,7 +1065,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 140,
     links_compra: [
-      { tienda: "aliexpress", url: "https://es.aliexpress.com/item/1005011570638695.html", precio_actual: 63, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" }, // TODO: cambiar a s.click cuando se genere
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011570638695.html", precio_actual: 63.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kai+2&tag=canchazapa-21", precio_actual: 149, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -1245,7 +1245,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 200,
     links_compra: [
-      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c4qQ0xx7", precio_actual: 190, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010685068543.html", precio_actual: 211, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=way+of+wade+12&tag=canchazapa-21", precio_actual: 215, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -3373,8 +3373,9 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3PkhD37", precio_actual: 105, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-15" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=li-ning+gamma+2+basketball&tag=canchazapa-21", precio_actual: 115, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "joom", url: "https://www.joom.com/es/products/69a07e130df6e501e349e8bc?variant_id=69a07e130df6e507e349e8c5&utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1", precio_actual: 282, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3PkhD37", precio_actual: 105, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=li-ning+gamma+2+basketball&tag=canchazapa-21", precio_actual: 115, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
   },
 
