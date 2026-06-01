@@ -1766,11 +1766,11 @@ button { font-family: inherit; cursor: pointer; }
 .rkpr-num {
   font-family: "Barlow Condensed", sans-serif; font-weight: 900;
   font-size: 56px; line-height: 0.85;
-  color: var(--cat); -webkit-text-stroke: 1.5px var(--cat);
+  color: var(--medal, var(--cat)); -webkit-text-stroke: 1.5px var(--medal, var(--cat));
   background: var(--cz-bg); padding: 0 8px;
 }
 .rk-pod.primary .rkpr-num {
-  color: #f97316; -webkit-text-stroke: 0;
+  color: var(--medal, #f97316); -webkit-text-stroke: 0;
   font-size: 72px;
 }
 .rkpr-crown {
@@ -1789,7 +1789,7 @@ button { font-family: inherit; cursor: pointer; }
   background-position: center, center;
   background-repeat: no-repeat;
   overflow: hidden;
-  border-bottom: 3px solid var(--cat);
+  border-bottom: 3px solid var(--medal, var(--cat));
 }
 .rk-pod-photo img { width: 100%; height: 100%; object-fit: contain; padding: 18px; color: transparent; font-size: 0; }
 .rk-pod-body { padding: 18px 18px 16px; display: flex; flex-direction: column; gap: 8px; }

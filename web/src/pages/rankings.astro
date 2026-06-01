@@ -103,12 +103,13 @@ function sortBy(id: string, key: keyof typeof zapatillas[0]["puntuaciones"] | nu
                   const rank = idx === 1 ? 1 : idx === 0 ? 2 : 3;
                   const isFirst = rank === 1;
                   const cat = CAT_ACCENT[z.categoria_principal];
+                  const medal = rank === 1 ? "#facc15" : rank === 2 ? "#cbd5e1" : "#cd7f32";
                   const sc = scoreOf(z);
                   const metric = isValor ? (valueMap.get(z.slug) ?? 0) : r.key ? z.puntuaciones[r.key] : sc;
                   const metricUnit = isValor ? "pts/100€" : "/10";
                   const mp = findMejorPrecio(z.links_compra);
                   return (
-                    <article class={`rk-pod ${isFirst ? "primary" : ""}`} style={`--cat:${cat}`}>
+                    <article class={`rk-pod ${isFirst ? "primary" : ""}`} style={`--cat:${cat};--medal:${medal}`}>
                       <div class="rk-pod-rank">
                         <span class="rkpr-num">{rank}</span>
                         {isFirst && <span class="rkpr-crown">★ Nº 1</span>}
