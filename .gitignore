@@ -1,2 +1,7 @@
 .claude/
 .codegraph/
+
+# Backup folders (local only)
+web/public/shoes/_orig_bk/
+web/public/shoes/_pre_reshoes/
+web/public/shoes/originals/
