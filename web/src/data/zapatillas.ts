@@ -1191,6 +1191,189 @@ const _rawZapatillas: Zapatilla[] = [
     ],
   },
 
+  // ─────────────────────────────────────────────────────────────────
+  // 14-ter. ANTA KAI 3 — Generación nueva Kyrie Irving signature
+  // ─────────────────────────────────────────────────────────────────
+  {
+    id: "anta-kai-3",
+    slug: "anta-kai-3",
+    marca: "Anta",
+    modelo: "KAI 3",
+    generacion: 3,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Kyrie Irving",
+    tecnologia_clave: ["Nitrogen foam", "TPU side cage", "Herringbone outsole"],
+    predecesor_id: "anta-kai-2",
+    peso_real_g: 420,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 9, respuesta: 8,
+      soporte_lateral: 9, estabilidad: 9, peso_score: 5,
+      durabilidad_outdoor: 8, ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "value-premium", "china-brand", "soporte-tobillo"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [70, 100],
+      estilos: ["explosivo", "equilibrado", "potente"],
+    },
+    no_recomendada_para: { estilos: ["tirador"] },
+    resumen:
+      "Tercera generación de la línea KAI de Kyrie con Anta. Mantiene la receta ganadora (tracción excepcional + soporte lateral premium) y mejora el cushion con Nitrogen foam. HG le da 8.6 global con soporte 9.1. Pesa más que la 2 (420g) pero es una zapa más completa para guards explosivos pesados.",
+    pros: [
+      "Soporte lateral excepcional (HG 9.1/10)",
+      "Tracción agresiva muy fiable",
+      "Nitrogen foam aporta buen impacto absorption",
+      "Outdoor decent (HG 75%)",
+    ],
+    contras: [
+      "Pesa 420g (no es para guards ligeros)",
+      "Mid-top puede limitar movilidad",
+      "Disponibilidad limitada en Europa",
+    ],
+    veredicto:
+      "Si te gustó la KAI 1 o KAI 2 y quieres más cushion + más soporte (aunque más peso), la KAI 3 es la evolución natural. Excelente para guards explosivos pesados (70-100kg).",
+    imagen_principal: "/shoes/anta-kai-3.png",
+    imagenes: [],
+    fuentes: [
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/anta-kai-3/" },
+    ],
+    ultima_actualizacion: "2026-06-02",
+    precio_msrp_eur: 130,
+    links_compra: [
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kai+3+baloncesto&tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────
+  // 14-quater. PUMA HALI 1 — Signature debut Tyrese Haliburton
+  // ─────────────────────────────────────────────────────────────────
+  {
+    id: "puma-hali-1",
+    slug: "puma-hali-1",
+    marca: "Puma",
+    modelo: "Hali 1",
+    generacion: 1,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Tyrese Haliburton",
+    tecnologia_clave: ["Nitro Foam", "ProFoam+", "PUMAGrip"],
+    predecesor_id: null,
+    peso_real_g: 340,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 9, respuesta: 8,
+      soporte_lateral: 8, estabilidad: 8, peso_score: 7,
+      durabilidad_outdoor: 5, ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "moderna", "ligera"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [65, 95],
+      estilos: ["tirador", "equilibrado", "explosivo"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"] },
+    resumen:
+      "Debut signature de Tyrese Haliburton con Puma. Combina Nitro Foam + ProFoam+ para un cushion bouncy y reactivo, con tracción PUMAGrip excelente (HG 9.3/10). Diseñada para guards versátiles que mezclan tirador y explosivo. 340g, low-top, una de las signatures debut más prometedoras de 2025.",
+    pros: [
+      "Tracción excepcional PUMAGrip (HG 9.3/10)",
+      "Cushion equilibrado Nitro+ProFoam",
+      "Ligera (340g) para una signature",
+      "Precio MSRP razonable ($120) — la encuentras a 80€",
+    ],
+    contras: [
+      "Outdoor flojo (HG 50% — no apta para asfalto regular)",
+      "Fit puede necesitar tallar arriba en pie ancho",
+      "Marca nueva en signature: menos demanda secundaria",
+    ],
+    veredicto:
+      "Una signature debut que cumple con todo: tracción de élite, cushion versátil y ligereza. Si te gusta la línea Stewie de Puma o querías una alternativa a las Curry/Sabrina, la Hali 1 es candidata seria.",
+    imagen_principal: "/shoes/puma-hali-1.png",
+    imagenes: [],
+    fuentes: [
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/puma-hali-1/" },
+    ],
+    ultima_actualizacion: "2026-06-02",
+    precio_msrp_eur: 120,
+    links_compra: [
+      { tienda: "puma_es", url: "https://eu.puma.com/es/es/search?q=hali+1", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+hali+1+basketball&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────
+  // 14-quinquies. NIKE GIANNIS FREAK 7 — Última gen Freak signature
+  // ─────────────────────────────────────────────────────────────────
+  {
+    id: "nike-giannis-freak-7",
+    slug: "nike-giannis-freak-7",
+    marca: "Nike",
+    modelo: "Giannis Freak 7",
+    generacion: 7,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Giannis Antetokounmpo",
+    tecnologia_clave: ["Cushlon 3.0", "Air Zoom", "TPU midfoot shank"],
+    predecesor_id: "nike-zoom-freak-6",
+    peso_real_g: 350,
+    altura: "mid",
+    horma: "ancha",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 8, respuesta: 7,
+      soporte_lateral: 8, estabilidad: 7, peso_score: 7,
+      durabilidad_outdoor: 4, ventilacion: 7,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "value", "horma-ancha"],
+    ideal_para: {
+      posiciones: ["alero", "ala-pivot", "pivot"],
+      peso_jugador_kg: [80, 110],
+      estilos: ["explosivo", "potente", "equilibrado"],
+    },
+    no_recomendada_para: { estilos: ["tirador"] },
+    resumen:
+      "Séptima signature de Giannis. Mantiene la receta: tracción agresiva (HG 8.5), cushion Cushlon 3.0 + Zoom, horma ancha para forwards/pivots. Precio MSRP muy accesible ($120) — en oferta se encuentra a 50€. HG le da 7.8 global, no es la mejor de la saga (Freak 5/6 eran superiores) pero es un value pick brutal a su precio.",
+    pros: [
+      "Precio chollo (~50€ en oferta)",
+      "Tracción muy fiable (HG 8.5)",
+      "Horma ancha cómoda para pies anchos",
+      "Soporte lateral sólido (Giannis es explosivo)",
+    ],
+    contras: [
+      "Outdoor pobre (HG 38% — solo indoor)",
+      "Fit puede ir grande, prueba media talla menos",
+      "Cushion no es premium (no compite con LeBron/KD)",
+    ],
+    veredicto:
+      "Si juegas de alero/ala-pívot/pivot con pie ancho y buscas value bajo 60€, la Freak 7 es candidata clara. Para indoor exclusivamente.",
+    imagen_principal: "/shoes/nike-giannis-freak-7.png",
+    imagenes: [],
+    fuentes: [
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/nike-giannis-freak-7/" },
+    ],
+    ultima_actualizacion: "2026-06-02",
+    precio_msrp_eur: 120,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=giannis+freak+7&vst=giannis+freak+7", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+freak+7", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+giannis+freak+7&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+    ],
+  },
+
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 15. ANTA KT 10 — Gama media, tirador estable
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
