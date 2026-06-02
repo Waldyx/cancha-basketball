@@ -5,3 +5,9 @@
 web/public/shoes/_orig_bk/
 web/public/shoes/_pre_reshoes/
 web/public/shoes/originals/
+
+# Audit tools y reports (local-only)
+web/_audit/
+
+# Logs del scraper de precios
+web/scraper-audit.log
