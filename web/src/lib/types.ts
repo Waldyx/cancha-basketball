@@ -74,7 +74,8 @@ export type Tienda =
   | "joom"
   | "basketballemotion_es"
   | "forumsport_es"
-  | "sizeofficial_es";
+  | "sizeofficial_es"
+  | "elcorteingles_es";
 
 export type FuenteReview =
   | "weartesters"
