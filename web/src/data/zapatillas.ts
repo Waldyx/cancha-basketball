@@ -947,6 +947,67 @@ const _rawZapatillas: Zapatilla[] = [
     ],
   },
 
+  // ─────────────────────────────────────────────────────────────────
+  // 12-bis. LI-NING WAY OF WADE ALL CITY 14 — Mid-tier killer 2025
+  // ─────────────────────────────────────────────────────────────────
+  {
+    id: "lining-wow-allcity-14",
+    slug: "lining-wow-allcity-14",
+    marca: "Li-Ning",
+    modelo: "Way of Wade All City 14",
+    generacion: 14,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Dwyane Wade",
+    tecnologia_clave: ["BOOM foam full-length", "Carbon fiber plate", "GCU outsole"],
+    predecesor_id: "lining-wow-allcity-13",
+    peso_real_g: 350,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 9, respuesta: 9,
+      soporte_lateral: 9, estabilidad: 8, peso_score: 7,
+      durabilidad_outdoor: 8, ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "value-premium", "china-brand", "tope-de-gama"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [60, 95],
+      estilos: ["explosivo", "equilibrado", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"] },
+    resumen:
+      "Top-tier performance a precio mid-tier (~149$). Según WearTesters, Way of Wade puede estar arrebatándole la corona a Jordan Brand: ofrecen un nivel técnico altísimo en un modelo que ni siquiera es su flagship. BOOM foam full-length + carbon plate + GCU outsole por menos de 130€.",
+    pros: [
+      "Tracción excepcional (HG 9.5/10)",
+      "Cushion BOOM + carbon plate de gama alta",
+      "Soporte lateral muy sólido",
+      "Outdoor durability decente (raro en zapas con foam premium)",
+    ],
+    contras: [
+      "Disponibilidad limitada en España (importar)",
+      "Fit puede necesitar break-in",
+      "Materiales algo pesados (350g)",
+    ],
+    veredicto:
+      "Si no quieres pagar 200€+ por la WoW 12, la All City 14 es la opción más sensata del mercado: 90% del rendimiento por mucho menos dinero. Probablemente la mejor relación calidad-precio de 2025.",
+    imagen_principal: "/shoes/lining-wow-allcity-14.png",
+    imagenes: [],
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/way-of-wade-all-city-14-performance-review/" },
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/li-ning-way-of-wade-all-city-14/" },
+    ],
+    ultima_actualizacion: "2026-06-02",
+    precio_msrp_eur: 140,
+    links_compra: [
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011540494334.html", precio_actual: 124.64, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+    ],
+  },
+
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 13. NIKE KYRIE LOW 5 — Gama media, court feel
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -1067,6 +1128,66 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011570638695.html", precio_actual: 63.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kai+2&tag=canchazapa-21", precio_actual: 149, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────
+  // 14-bis. ANTA KAI 2 SPEED — Versión Speed del KAI 2 (guards rápidos)
+  // ─────────────────────────────────────────────────────────────────
+  {
+    id: "anta-kai-2-speed",
+    slug: "anta-kai-2-speed",
+    marca: "Anta",
+    modelo: "KAI 2 Speed",
+    generacion: 2,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Kyrie Irving",
+    tecnologia_clave: ["Foam full-length", "Malla ultraligera", "Insertos termoplásticos laterales"],
+    predecesor_id: "anta-kai-1-speed",
+    peso_real_g: 380,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+    puntuaciones: {
+      traccion: 8, amortiguacion: 6, respuesta: 8,
+      soporte_lateral: 7, estabilidad: 7, peso_score: 6,
+      durabilidad_outdoor: 5, ventilacion: 8,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "ligera", "indoor", "china-brand"],
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [60, 90],
+      estilos: ["explosivo", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot", "ala-pivot"], estilos: ["potente"] },
+    resumen:
+      "Versión Speed del KAI 2: silueta más estilizada y redondeada que el KAI 2 normal, pensada para movimientos rápidos del pie y estructura más ligera. Tobillera suave con almohadilla para tendón de Aquiles, malla ultraligera y entresuela de espuma full-length. Anta recomienda uso indoor.",
+    pros: [
+      "Diseñada específicamente para bases que priorizan velocidad",
+      "Malla ultraligera muy transpirable",
+      "Insertos termoplásticos laterales para contención",
+      "Precio muy competitivo en AliExpress (~50€)",
+    ],
+    contras: [
+      "Reviews oficiales (HG/WT) aún no disponibles — datos provisionales",
+      "Uso recomendado solo interior (suela menos preparada para asfalto)",
+      "Cushion básico, no para impactos pesados",
+    ],
+    veredicto:
+      "Si juegas de base/escolta indoor y quieres una zapa ligera y reactiva a precio chollo, la KAI 2 Speed es candidata. Sin reviews exhaustivas todavía: puntuaciones basadas en specs oficiales del fabricante y predecesora KAI 1 Speed.",
+    imagen_principal: "/shoes/anta-kai-2-speed.webp",
+    imagenes: [],
+    fuentes: [
+      { tipo: "evaluacion-propia", datos: "Specs oficiales Anta + comparativa con KAI 1 Speed. Pendiente reviews HoopsGeek/WearTesters." },
+    ],
+    ultima_actualizacion: "2026-06-02",
+    precio_msrp_eur: 90,
+    links_compra: [
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010621033449.html", precio_actual: 51.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
   },
 
