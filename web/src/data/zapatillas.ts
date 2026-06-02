@@ -12402,6 +12402,189 @@ const _rawZapatillas: Zapatilla[] = [
     ],
   },
 
+  // ─────────────────────────────────────────────────────────────────
+  // NIKE LEBRON NXXT GENISUS — Signature secundario LeBron
+  // ─────────────────────────────────────────────────────────────────
+  {
+    id: "nike-lebron-nxxt-genisus",
+    slug: "nike-lebron-nxxt-genisus",
+    marca: "Nike",
+    modelo: "LeBron NXXT Genisus",
+    generacion: 1,
+    año_lanzamiento: 2024,
+    genero: "unisex",
+    signature_player: "LeBron James",
+    tecnologia_clave: ["Zoom Air", "Cushlon 3.0 midsole", "Rubber outsole"],
+    predecesor_id: null,
+    peso_real_g: 410,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 8, amortiguacion: 8, respuesta: 7,
+      soporte_lateral: 9, estabilidad: 8, peso_score: 5,
+      durabilidad_outdoor: 5, ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "value", "soporte-tobillo"],
+    ideal_para: {
+      posiciones: ["alero", "ala-pivot", "escolta"],
+      peso_jugador_kg: [80, 110],
+      estilos: ["equilibrado", "potente", "explosivo"],
+    },
+    no_recomendada_para: { posiciones: ["base"] },
+    resumen:
+      "Línea secundaria LeBron (NXXT GEN se renombró a NXXT Genisus). HG le da 8.2 global con soporte 8.7. 410g, mid-top, ideal para forwards potentes. Outdoor durabilidad media (HG 50%). MSRP $135 — el value pick LeBron sin pagar lo de la 22.",
+    pros: [
+      "Soporte lateral premium para wing-forwards (HG 8.7)",
+      "Cushion Zoom Air + Cushlon 3.0 sólido",
+      "Mucho más barata que LeBron 22",
+      "Outdoor decente para jugadores recreacionales",
+    ],
+    contras: [
+      "Pesa 410g (no para guards rápidos)",
+      "Tracción correcta pero no excepcional (HG 7.9)",
+      "Estética genérica vs LeBron 22 signature",
+    ],
+    veredicto:
+      "Si te gusta LeBron pero no quieres pagar 200€ por la 22, la NXXT Genisus ofrece la mayor parte de la receta a la mitad de precio. Para wings y forwards potentes.",
+    imagen_principal: "/shoes/nike-lebron-nxxt-genisus.png",
+    imagenes: [],
+    fuentes: [
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/nike-lebron-nxxt-genisus/" },
+    ],
+    ultima_actualizacion: "2026-06-02",
+    precio_msrp_eur: 125,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=lebron+nxxt+genisus&vst=lebron+nxxt+genisus", precio_actual: 125, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+lebron+nxxt+genisus&tag=canchazapa-21", precio_actual: 125, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────
+  // UNDER ARMOUR CURRY 10 — Saga Curry (entre 9 y 11)
+  // ─────────────────────────────────────────────────────────────────
+  {
+    id: "ua-curry-10",
+    slug: "ua-curry-10",
+    marca: "Under Armour",
+    modelo: "Curry 10",
+    generacion: 10,
+    año_lanzamiento: 2023,
+    genero: "unisex",
+    signature_player: "Stephen Curry",
+    tecnologia_clave: ["UA FLOW", "Warp upper", "Nitrogen-charged foam"],
+    predecesor_id: null,
+    peso_real_g: 350,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "knit",
+    puntuaciones: {
+      traccion: 10, amortiguacion: 8, respuesta: 8,
+      soporte_lateral: 9, estabilidad: 9, peso_score: 7,
+      durabilidad_outdoor: 2, ventilacion: 8,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "tope-de-gama", "ligera", "tirador"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [60, 90],
+      estilos: ["tirador", "explosivo", "equilibrado"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen:
+      "Décima signature de Curry. HG le da 8.8 global con tracción 9.6 (¡casi perfecta!) y fit 8.8. UA FLOW: amortiguación y tracción integradas sin goma exterior. 350g, low-top, una de las mejores zapas para guards técnicos de los últimos años. Outdoor pobre (HG 7%) — solo indoor.",
+    pros: [
+      "Tracción excepcional UA FLOW (HG 9.6/10 — casi perfecta)",
+      "Fit clavado (HG 8.8) sin break-in",
+      "Soporte y estabilidad premium para low-top",
+      "Reactividad inmediata para tiradores",
+    ],
+    contras: [
+      "Outdoor muy pobre (HG 7% — solo indoor)",
+      "Cushion limitada para jugadores pesados (>90kg)",
+      "Disponibilidad irregular en España",
+    ],
+    veredicto:
+      "Una de las mejores Curry de toda la saga (mejor que la 11 incluso según HG). Si juegas indoor de base/escolta y eres tirador, es candidata clara. La encuentras a 80-100€ con descuento.",
+    imagen_principal: "/shoes/ua-curry-10.png",
+    imagenes: [],
+    fuentes: [
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/under-armour-curry-10/" },
+    ],
+    ultima_actualizacion: "2026-06-02",
+    precio_msrp_eur: 160,
+    links_compra: [
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/buscar/?q=curry+10", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+curry+10&tag=canchazapa-21", precio_actual: 160, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────
+  // LI-NING WAY OF WADE ALL CITY 12 — Predecesora del 13
+  // ─────────────────────────────────────────────────────────────────
+  {
+    id: "lining-wow-allcity-12",
+    slug: "lining-wow-allcity-12",
+    marca: "Li-Ning",
+    modelo: "Way of Wade All City 12",
+    generacion: 12,
+    año_lanzamiento: 2023,
+    genero: "unisex",
+    signature_player: "Dwyane Wade",
+    tecnologia_clave: ["BOOM foam", "Carbon fiber plate", "GCU outsole"],
+    predecesor_id: null,
+    peso_real_g: 440,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 9, respuesta: 9,
+      soporte_lateral: 9, estabilidad: 8, peso_score: 4,
+      durabilidad_outdoor: 8, ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "value-premium", "china-brand", "tope-de-gama"],
+    ideal_para: {
+      posiciones: ["alero", "ala-pivot", "escolta"],
+      peso_jugador_kg: [75, 105],
+      estilos: ["equilibrado", "explosivo", "potente"],
+    },
+    no_recomendada_para: { posiciones: ["base"], estilos: ["tirador"] },
+    resumen:
+      "Penúltima All City antes de la 13. HG la considera mejor incluso que algunas WoW flagship: 8.9 global con cushion 9.4 (¡casi perfecto!) y tracción 9.3. BOOM foam + carbon plate por debajo del precio mid-tier. Pesa 440g (la más pesada de la línea), por eso no es para guards rápidos. Outdoor excelente (HG 83%) — apta para asfalto.",
+    pros: [
+      "Cushion BOOM excepcional (HG 9.4/10)",
+      "Tracción premium (HG 9.3)",
+      "Outdoor durability brutal para una zapa con foam premium (HG 83%)",
+      "Sigue siendo barata por ser modelo de 2023",
+    ],
+    contras: [
+      "440g — pesada para guards rápidos",
+      "Disponibilidad limitada (importación)",
+      "Estética polariza",
+    ],
+    veredicto:
+      "Si juegas indoor/outdoor de alero o ala-pívot y quieres una zapa con cushion BOOM a precio razonable, la AC12 sigue siendo candidata seria en 2026. La 14 es mejor en ratings pero la 12 se sigue vendiendo más barata.",
+    imagen_principal: "/shoes/lining-wow-allcity-12.png",
+    imagenes: [],
+    fuentes: [
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/li-ning-way-of-wade-all-city-12/" },
+    ],
+    ultima_actualizacion: "2026-06-02",
+    precio_msrp_eur: 120,
+    links_compra: [
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fw%2Fwholesale-way-of-wade-all-city-12.html", precio_actual: 110, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=way+of+wade+all+city+12&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+    ],
+  },
+
 ];
 
 /**
