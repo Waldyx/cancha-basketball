@@ -73,7 +73,8 @@ export type Tienda =
   | "atmosfera_sport"
   | "joom"
   | "basketballemotion_es"
-  | "forumsport_es";
+  | "forumsport_es"
+  | "sizeofficial_es";
 
 export type FuenteReview =
   | "weartesters"

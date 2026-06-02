@@ -12209,6 +12209,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 190,
     links_compra: [
+      { tienda: "sizeofficial_es", url: "https://www.sizeofficial.es/product/rojo-nike-kobe-9-elite-low/773347_sizees/", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/~/316707538704.html", precio_actual: 190, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kobe+9+elite+low+protro&vst=kobe+9+elite+low+protro", precio_actual: 190, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+kobe+9+elite+low+protro&tag=canchazapa-21", precio_actual: 190, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],

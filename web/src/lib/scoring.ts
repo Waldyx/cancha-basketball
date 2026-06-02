@@ -402,6 +402,7 @@ export const COMISIONES_TIENDA: Record<string, number> = {
   manelsanchez_es: 4,
   fuikaomar_es: 4,
   forumsport_es: 5,     // Forum Sport (AWIN, pendiente aprobación)
+  sizeofficial_es: 5,   // Size? Official (AWIN, pendiente aprobación)
   "24segons_es": 4,
   amazon_es: 3,         // Amazon ES zapas deportivas ~3%
   idealo_es: 0,         // Sin afiliado directo
