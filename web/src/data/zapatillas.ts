@@ -12153,6 +12153,250 @@ const _rawZapatillas: Zapatilla[] = [
     ],
   },
 
+  // ─────────────────────────────────────────────────────────────────
+  // NIKE KOBE 9 ELITE LOW PROTRO — Re-edición Protro 2024
+  // ─────────────────────────────────────────────────────────────────
+  {
+    id: "nike-kobe-9-elite-low-protro",
+    slug: "nike-kobe-9-elite-low-protro",
+    marca: "Nike",
+    modelo: "Kobe 9 Elite Low Protro",
+    generacion: 9,
+    año_lanzamiento: 2024,
+    genero: "unisex",
+    signature_player: "Kobe Bryant",
+    tecnologia_clave: ["Flyknit upper", "Zoom Air heel", "Cushlon midsole"],
+    predecesor_id: null,
+    peso_real_g: 350,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 9,
+    tipo_cierre: "cordones",
+    material_superior: "knit",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 8, respuesta: 8,
+      soporte_lateral: 9, estabilidad: 8, peso_score: 7,
+      durabilidad_outdoor: 2, ventilacion: 8,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "retro-protro", "moderna", "ligera"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [65, 95],
+      estilos: ["explosivo", "equilibrado", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"] },
+    resumen:
+      "Re-edición Protro de la legendaria Kobe 9 Elite Low. Flyknit upper, Zoom Air en talón + Cushlon. HG le da 8.6 global con tracción 9.3 y soporte 8.8. Conserva el ADN Kobe (low court feel, lockdown excepcional) con tecnología actualizada. Solo indoor — outdoor durabilidad muy pobre (HG 8%).",
+    pros: [
+      "Tracción excepcional (HG 9.3/10)",
+      "Soporte lateral premium para una low-top",
+      "Flyknit conforming a pie, lockdown sólido",
+      "Court feel directo, ideal para guards técnicos",
+    ],
+    contras: [
+      "Outdoor casi nulo (HG 8% — solo indoor)",
+      "Cushion limitado para jugadores pesados",
+      "Precio alto cuando se encuentra (MSRP $200)",
+    ],
+    veredicto:
+      "Para puristas Kobe y guards técnicos que juegan exclusivamente indoor. Si te apasiona el legado Kobe y quieres una Low Protro moderna, es candidata clara.",
+    imagen_principal: "/shoes/nike-kobe-9-elite-low-protro.png",
+    imagenes: [],
+    fuentes: [
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/nike-kobe-9-elite-low-protro/" },
+    ],
+    ultima_actualizacion: "2026-06-02",
+    precio_msrp_eur: 190,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kobe+9+elite+low+protro&vst=kobe+9+elite+low+protro", precio_actual: 190, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+kobe+9+elite+low+protro&tag=canchazapa-21", precio_actual: 190, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────
+  // UNDER ARMOUR EMBIID 1 — Signature debut Joel Embiid (Pívot)
+  // ─────────────────────────────────────────────────────────────────
+  {
+    id: "ua-embiid-1",
+    slug: "ua-embiid-1",
+    marca: "Under Armour",
+    modelo: "Embiid 1",
+    generacion: 1,
+    año_lanzamiento: 2023,
+    genero: "unisex",
+    signature_player: "Joel Embiid",
+    tecnologia_clave: ["UA HOVR", "Charged Cushioning", "TPU heel counter"],
+    predecesor_id: null,
+    peso_real_g: 410,
+    altura: "mid",
+    horma: "ancha",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 8, amortiguacion: 9, respuesta: 7,
+      soporte_lateral: 8, estabilidad: 8, peso_score: 5,
+      durabilidad_outdoor: 5, ventilacion: 8,
+    },
+    categoria_principal: "cushion-focused",
+    tags: ["signature", "horma-ancha", "soporte-tobillo"],
+    ideal_para: {
+      posiciones: ["pivot", "ala-pivot", "alero"],
+      peso_jugador_kg: [85, 130],
+      estilos: ["potente", "equilibrado"],
+    },
+    no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
+    resumen:
+      "Debut signature de Joel Embiid con UA. Pensada para jugadores grandes: amortiguación HOVR + Charged para impactos pesados, horma ancha y soporte mid-top. HG le da 8.1 global con cushion 8.6. 410g de peso refleja su construcción robusta para pívots.",
+    pros: [
+      "Cushion HOVR excelente para impactos pesados (HG 8.6)",
+      "Soporte y estabilidad ideales para pívots",
+      "Horma ancha cómoda para pies grandes",
+      "Build quality premium, durable",
+    ],
+    contras: [
+      "Pesada (410g) — no apta para guards/aleros rápidos",
+      "Respuesta limitada por el peso",
+      "Tracción correcta pero no excepcional (HG 7.8)",
+    ],
+    veredicto:
+      "Si juegas de pívot/ala-pívot y necesitas máxima protección de impactos con horma ancha, la Embiid 1 es una de las opciones más sólidas del mercado. Para jugadores que prefieren peso a ligereza.",
+    imagen_principal: "/shoes/ua-embiid-1.png",
+    imagenes: [],
+    fuentes: [
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/under-armour-embiid-1/" },
+    ],
+    ultima_actualizacion: "2026-06-02",
+    precio_msrp_eur: 160,
+    links_compra: [
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/buscar/?q=embiid+1", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+embiid+1&tag=canchazapa-21", precio_actual: 160, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────
+  // NEW BALANCE KAWHI 4 — Última gen signature Kawhi Leonard
+  // ─────────────────────────────────────────────────────────────────
+  {
+    id: "nb-kawhi-4",
+    slug: "nb-kawhi-4",
+    marca: "New Balance",
+    modelo: "Kawhi 4",
+    generacion: 4,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Kawhi Leonard",
+    tecnologia_clave: ["FuelCell", "TPU midfoot shank", "Engineered mesh"],
+    predecesor_id: "nb-kawhi-2",
+    peso_real_g: 400,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 9,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 9, respuesta: 8,
+      soporte_lateral: 8, estabilidad: 8, peso_score: 5,
+      durabilidad_outdoor: 2, ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "tope-de-gama", "moderna"],
+    ideal_para: {
+      posiciones: ["alero", "escolta", "ala-pivot"],
+      peso_jugador_kg: [75, 105],
+      estilos: ["equilibrado", "potente", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
+    resumen:
+      "Cuarta signature de Kawhi con NB. HG le da 8.4 global con tracción 8.9 y cushion 8.8 (FuelCell potente). 400g, mid-top, pensada para aleros/wings que priorizan cushion y soporte sobre ligereza. Outdoor durability pobre (HG 14% — solo indoor).",
+    pros: [
+      "Cushion FuelCell muy bueno (HG 8.8/10)",
+      "Tracción muy fiable indoor (HG 8.9)",
+      "Build quality premium NB",
+      "Soporte sólido para aleros potentes",
+    ],
+    contras: [
+      "Outdoor casi nulo (HG 14%)",
+      "Pesa 400g — no para guards rápidos",
+      "Disponibilidad limitada fuera de USA",
+    ],
+    veredicto:
+      "Si te gusta Kawhi y juegas como él (wing potente, equilibrado, indoor): la Kawhi 4 es candidata seria. Para fans del estilo y cushion FuelCell.",
+    imagen_principal: "/shoes/nb-kawhi-4.png",
+    imagenes: [],
+    fuentes: [
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/new-balance-kawhi-4/" },
+    ],
+    ultima_actualizacion: "2026-06-02",
+    precio_msrp_eur: 150,
+    links_compra: [
+      { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar/?q=kawhi+4", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+kawhi+4+basketball&tag=canchazapa-21", precio_actual: 150, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────
+  // ADIDAS D.O.N. ISSUE 7 — Donovan Mitchell signature 2025
+  // ─────────────────────────────────────────────────────────────────
+  {
+    id: "adidas-don-issue-7",
+    slug: "adidas-don-issue-7",
+    marca: "Adidas",
+    modelo: "D.O.N. Issue 7",
+    generacion: 7,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Donovan Mitchell",
+    tecnologia_clave: ["Lightstrike Pro", "Lightlock support", "Continental rubber outsole"],
+    predecesor_id: null,
+    peso_real_g: 400,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 9, respuesta: 8,
+      soporte_lateral: 9, estabilidad: 9, peso_score: 5,
+      durabilidad_outdoor: 2, ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "value", "tope-de-gama"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [70, 100],
+      estilos: ["explosivo", "equilibrado", "potente"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"] },
+    resumen:
+      "Séptima D.O.N. Issue de Donovan Mitchell. HG le da 8.7 global con tracción 9.2 y fit 8.8. Lightstrike Pro + Continental rubber: cushion premium y tracción excepcional. MSRP $130 — value pick claro. Outdoor pobre (HG 7%) limita uso a indoor.",
+    pros: [
+      "Tracción excepcional Continental (HG 9.2/10)",
+      "Cushion Lightstrike Pro premium",
+      "Fit clavado (HG 8.8) sin necesidad de break-in",
+      "Soporte y estabilidad sobresalientes",
+    ],
+    contras: [
+      "Outdoor casi nulo (HG 7%) — solo indoor",
+      "Peso 400g — algo pesada",
+      "Disponibilidad puede ser irregular",
+    ],
+    veredicto:
+      "Una de las mejores compras del año en signature shoes. Si juegas indoor de base/escolta/alero y quieres tope de gama a precio razonable: la D.O.N. 7 es candidata firme. Para fans de Spida.",
+    imagen_principal: "/shoes/adidas-don-issue-7.png",
+    imagenes: [],
+    fuentes: [
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/adidas-don-issue-7/" },
+    ],
+    ultima_actualizacion: "2026-06-02",
+    precio_msrp_eur: 130,
+    links_compra: [
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Ddon%2Bissue%2B7", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+don+issue+7&tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+    ],
+  },
+
 ];
 
 /**
