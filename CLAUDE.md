@@ -57,7 +57,8 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 - Anta KAI 2 con afiliado por fin (estaba pendiente meses por bug Portals)
 
 **Programas Awin confirmados (5 adheridos):** adidas, decathlon, aliexpress, atmosfera sport, snipes.
-**Rechazado:** Foot-Store ES. **Pendientes:** Foot Locker, ECI, Size?, Zalando, Reebok, Basket-Center, etc.
+**Rechazados Awin (3):** Foot-Store ES, Sprinter ES (aid 27904, "URL no relevante"), Foot Locker ES (aid 23409, "espacio no complementa"). Patrón típico de marcas grandes con muchos afiliados — reintentar en 3-6 meses cuando haya más tráfico documentado en Plausible.
+**Pendientes Awin:** ECI, Size?, Zalando, Reebok, Basket-Center, etc.
 
 **Joom activo** (Impact, utm_campaign=2700663): aplicado en ~10 modelos.
 
