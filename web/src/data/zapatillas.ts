@@ -1247,6 +1247,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 130,
     links_compra: [
+      { tienda: "joom", url: "https://www.joom.com/es/products/6973cac89d658501efa7ae30?variant_id=6973cac99d658577efa7ae3a&utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1", precio_actual: 109, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kai+3+baloncesto&tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
   },
@@ -1307,6 +1308,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 120,
     links_compra: [
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/puma/hali-1-opal-blissful-blue-royal-saphire", precio_actual: 77.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "puma_es", url: "https://eu.puma.com/es/es/search?q=hali+1", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+hali+1+basketball&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
@@ -1368,6 +1370,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 120,
     links_compra: [
+      { tienda: "joom", url: "https://www.joom.com/es/products/6995a03236111c010b2e9a0a?variant_id=6995a03236111ca90b2e9a22&utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1", precio_actual: 56, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=giannis+freak+7&vst=giannis+freak+7", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+freak+7", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+giannis+freak+7&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
