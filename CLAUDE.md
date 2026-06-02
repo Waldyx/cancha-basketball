@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-05-31 (sesión 17)
+> Última actualización: 2026-06-02 (sesión 18)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -47,7 +47,48 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 
 ---
 
-## Estado actual (sesión 17)
+## Estado actual (sesión 18)
+
+### ✅ Completado (sesión 18) — Afiliados Awin + 13 zapas nuevas + auditoría
+
+**Afiliados Awin activados:**
+- **adidas ES** (AID 77008): 24 zapas con deeplinks activos
+- **AliExpress ES** (AID 11640): top 5 chinas migradas de Portals s.click a Awin (producto directo + cookie 30d)
+- Anta KAI 2 con afiliado por fin (estaba pendiente meses por bug Portals)
+
+**Programas Awin confirmados (5 adheridos):** adidas, decathlon, aliexpress, atmosfera sport, snipes.
+**Rechazado:** Foot-Store ES. **Pendientes:** Foot Locker, ECI, Size?, Zalando, Reebok, Basket-Center, etc.
+
+**Joom activo** (Impact, utm_campaign=2700663): aplicado en ~10 modelos.
+
+**13 zapas nuevas con datos HG reales:**
+- lining-wow-allcity-14, anta-kai-2-speed, anta-kai-3, puma-hali-1, nike-giannis-freak-7,
+  nike-kobe-9-elite-low-protro, ua-embiid-1, nb-kawhi-4, adidas-don-issue-7,
+  nike-lebron-nxxt-genisus, ua-curry-10, lining-wow-allcity-12, lining-wade-dlo-1.
+- Total catálogo: 182 → **195 zapas, 288 páginas**.
+
+**Auditoría puntuaciones:**
+- Cross-check con HG para 83 zapas (matcher strict tras bug "Air Jordan 1 → 31")
+- 69 correcciones iniciales (outdoor -1 + 5 discrepancias graves)
+- 12 correcciones adicionales saga PUMA All-Pro tras checklist técnico del usuario
+  - Bug grave: All-Pro Nitro 1 peso 295g → 380g real
+
+**Nuevas tiendas dadas de alta:** `forumsport_es`, `sizeofficial_es`, `elcorteingles_es`.
+
+### 🟡 Pendiente (sesión 18)
+
+**Esperando aprobaciones del usuario / Awin:**
+- TradeTracker (Fútbol/Basketball Emotion + Fuikaomar) → desbloquea afiliado en Sabrina 2, Book 1, Hali 1, Kawhi 4, Tatum 3, Luka 5
+- Foot Locker Awin → activaría Kobe 9 ELP + muchas Nike/Adidas
+- Size? Official Awin → activaría Kobe 9 ELP
+- El Corte Inglés Awin (EPC €13.99 prioritario)
+- Zalando Awin → activaría Luka 5, Witness 9, Harden Vol 10, DON 7
+- StockX Impact Radius
+- Puma EU CJ Affiliate
+
+**Posibles próximas auditorías por saga:** Nike LeBron (21/22/23/Witness/NXXT), UA Curry (10/11/12/13), Adidas Dame (8/9/X/Certified), Anta KT.
+
+### ✅ Completado (sesión 17)
 
 ### ✅ Completado (sesión 17) — UI/UX + PWA + comparador
 - **Tema visual**: paleta a variables CSS (`--cz-*`), fondo gris carbón `#2a2a2e`

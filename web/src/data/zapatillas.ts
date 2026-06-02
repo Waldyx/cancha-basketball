@@ -12460,7 +12460,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/68c9ed62e0ccc2018213d7db?variant_id=68c9ed62e0ccc2358213d7de&utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1", precio_actual: 79, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D9V6CTD1?tag=canchazapa-21", precio_actual: 90.51, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
-      { tienda: "elcorteingles_es", url: "https://www.elcorteingles.es/deportes/A53976764-zapatillas-de-baloncesto-hombre-lbj-nxxt-genisus-nike/", precio_actual: 125, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
+      { tienda: "elcorteingles_es", url: "https://www.elcorteingles.es/deportes/A53976764-zapatillas-de-baloncesto-hombre-lbj-nxxt-genisus-nike/", precio_actual: 149.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=lebron+nxxt+genisus&vst=lebron+nxxt+genisus", precio_actual: 125, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
     ],
   },
