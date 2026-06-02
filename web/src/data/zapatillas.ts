@@ -12588,6 +12588,67 @@ const _rawZapatillas: Zapatilla[] = [
     ],
   },
 
+  // ─────────────────────────────────────────────────────────────────
+  // LI-NING WADE DLO 1 — Signature secundario Wade, BOOM + ligera
+  // ─────────────────────────────────────────────────────────────────
+  {
+    id: "lining-wade-dlo-1",
+    slug: "lining-wade-dlo-1",
+    marca: "Li-Ning",
+    modelo: "Wade DLo 1",
+    generacion: 1,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Dwyane Wade",
+    tecnologia_clave: ["BOOM foam", "TPU midfoot shank", "GCU outsole"],
+    predecesor_id: null,
+    peso_real_g: 340,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 9, respuesta: 8,
+      soporte_lateral: 8, estabilidad: 8, peso_score: 7,
+      durabilidad_outdoor: 6, ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "value-premium", "china-brand", "ligera"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [65, 95],
+      estilos: ["explosivo", "equilibrado", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"] },
+    resumen:
+      "Nueva línea Wade DLo (signature secundario de Dwyane Wade en Li-Ning). HG le da 8.4 global con tracción 9.0 y cushion 9.0 (BOOM foam). 340g, low-top — más ligera que la línea Way of Wade flagship. Outdoor decente (HG 63%) — apta para uso mixto. Una alternativa más asequible a la WoW 12.",
+    pros: [
+      "Tracción premium (HG 9.0/10)",
+      "Cushion BOOM 9.0 — al nivel de modelos flagship",
+      "Ligera (340g) para una zapa con foam tan completo",
+      "Outdoor decente para una zapa con foam premium (HG 63%)",
+    ],
+    contras: [
+      "Fit puede necesitar break-in (HG 7.8)",
+      "Disponibilidad limitada en España",
+      "Marca y modelo poco conocidos en Europa",
+    ],
+    veredicto:
+      "Si te gusta la línea WoW pero quieres algo más ligero y barato, la DLo 1 es candidata seria. Cushion BOOM + tracción premium + 340g por menos de 100€ — value pick brutal para guards/aleros.",
+    imagen_principal: "/shoes/lining-wade-dlo-1.png",
+    imagenes: [],
+    fuentes: [
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/li-ning-wade-dlo-1/" },
+    ],
+    ultima_actualizacion: "2026-06-02",
+    precio_msrp_eur: 110,
+    links_compra: [
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012269555144.html", precio_actual: 110, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=li-ning+wade+dlo+1&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+    ],
+  },
+
 ];
 
 /**
