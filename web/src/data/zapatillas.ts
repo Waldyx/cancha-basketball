@@ -12644,7 +12644,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012269555144.html", precio_actual: 110, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012269555144.html", precio_actual: 85.97, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=li-ning+wade+dlo+1&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
   },
