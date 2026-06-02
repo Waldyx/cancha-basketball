@@ -756,7 +756,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 190,
     links_compra: [
-      { tienda: "joom", url: "https://www.joom.com/es/products/68c9e2a9d367ea012bf6f0a0?variant_id=68c9e2a9d367ea052bf6f0a8&utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1", precio_actual: 127, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
+      { tienda: "joom", url: "https://www.joom.com/es/products/68c9e2a9d367ea012bf6f0a0?variant_id=68c9e2a9d367ea052bf6f0a8", precio_actual: 127, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=gt+cut+3&vst=gt+cut+3", precio_actual: 189.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=gt+cut+3", precio_actual: 195, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=gt+cut+3", precio_actual: 189.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
@@ -817,7 +817,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 145,
     links_compra: [
-      { tienda: "joom", url: "https://www.joom.com/es/products/68c9e3a3da556e01f521fec8?variant_id=68c9e3a3da556e2ef521fecf&utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
+      { tienda: "joom", url: "https://www.joom.com/es/products/68c9e3a3da556e01f521fec8?variant_id=68c9e3a3da556e2ef521fecf", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=jordan+tatum+3&vst=jordan+tatum+3", precio_actual: 144.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=tatum+3", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=tatum+3", precio_actual: 144.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
@@ -1247,7 +1247,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "joom", url: "https://www.joom.com/es/products/6973cac89d658501efa7ae30?variant_id=6973cac99d658577efa7ae3a&utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1", precio_actual: 109, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "joom", url: "https://www.joom.com/es/products/6973cac89d658501efa7ae30?variant_id=6973cac99d658577efa7ae3a", precio_actual: 109, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kai+3+baloncesto&tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
   },
@@ -1370,7 +1370,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "joom", url: "https://www.joom.com/es/products/6995a03236111c010b2e9a0a?variant_id=6995a03236111ca90b2e9a22&utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1", precio_actual: 56, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "joom", url: "https://www.joom.com/es/products/6995a03236111c010b2e9a0a?variant_id=6995a03236111ca90b2e9a22", precio_actual: 56, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=giannis+freak+7&vst=giannis+freak+7", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+freak+7", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+giannis+freak+7&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
@@ -3680,7 +3680,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "joom", url: "https://www.joom.com/es/products/69a07e130df6e501e349e8bc?variant_id=69a07e130df6e507e349e8c5&utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1", precio_actual: 282, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "joom", url: "https://www.joom.com/es/products/69a07e130df6e501e349e8bc?variant_id=69a07e130df6e507e349e8c5", precio_actual: 282, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3PkhD37", precio_actual: 105, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=li-ning+gamma+2+basketball&tag=canchazapa-21", precio_actual: 115, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
@@ -6410,7 +6410,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 150,
     links_compra: [
-      { tienda: "joom", url: "https://www.joom.com/es/products/68c9d4c3df066801b880be21?utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1", precio_actual: 77, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
+      { tienda: "joom", url: "https://www.joom.com/es/products/68c9d4c3df066801b880be21", precio_actual: 77, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=zoom+freak+6&vst=zoom+freak+6", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+zoom+freak+6", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
     ],
@@ -12272,7 +12272,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 160,
     links_compra: [
-      { tienda: "joom", url: "https://www.joom.com/es/products/68c7f7aca04d000170748283?variant_id=68c7f7aca04d009070748287&utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1", precio_actual: 81, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "joom", url: "https://www.joom.com/es/products/68c7f7aca04d000170748283?variant_id=68c7f7aca04d009070748287", precio_actual: 81, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "ua_es", url: "https://www.underarmour.es/es-es/buscar/?q=embiid+1", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+embiid+1&tag=canchazapa-21", precio_actual: 160, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
@@ -12458,7 +12458,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 125,
     links_compra: [
-      { tienda: "joom", url: "https://www.joom.com/es/products/68c9ed62e0ccc2018213d7db?variant_id=68c9ed62e0ccc2358213d7de&utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1", precio_actual: 79, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "joom", url: "https://www.joom.com/es/products/68c9ed62e0ccc2018213d7db?variant_id=68c9ed62e0ccc2358213d7de", precio_actual: 79, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D9V6CTD1?tag=canchazapa-21", precio_actual: 90.51, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
       { tienda: "elcorteingles_es", url: "https://www.elcorteingles.es/deportes/A53976764-zapatillas-de-baloncesto-hombre-lbj-nxxt-genisus-nike/", precio_actual: 149.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=lebron+nxxt+genisus&vst=lebron+nxxt+genisus", precio_actual: 125, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
@@ -12521,7 +12521,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 160,
     links_compra: [
-      { tienda: "joom", url: "https://www.joom.com/es/products/6952597cc263e701ec4f1b2d?variant_id=6952597cc263e7c3ec4f1b30&utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1", precio_actual: 81, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "joom", url: "https://www.joom.com/es/products/6952597cc263e701ec4f1b2d?variant_id=6952597cc263e7c3ec4f1b30", precio_actual: 81, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "ua_es", url: "https://www.underarmour.es/es-es/buscar/?q=curry+10", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+curry+10&tag=canchazapa-21", precio_actual: 160, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
