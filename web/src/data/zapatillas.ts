@@ -995,7 +995,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Si no quieres pagar 200€+ por la WoW 12, la All City 14 es la opción más sensata del mercado: 90% del rendimiento por mucho menos dinero. Probablemente la mejor relación calidad-precio de 2025.",
-    imagen_principal: "/shoes/lining-wow-allcity-14.png",
+    imagen_principal: "/shoes/lining-wow-allcity-14.webp",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/way-of-wade-all-city-14-performance-review/" },
@@ -1239,7 +1239,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Si te gustó la KAI 1 o KAI 2 y quieres más cushion + más soporte (aunque más peso), la KAI 3 es la evolución natural. Excelente para guards explosivos pesados (70-100kg).",
-    imagen_principal: "/shoes/anta-kai-3.png",
+    imagen_principal: "/shoes/anta-kai-3.webp",
     imagenes: [],
     fuentes: [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/anta-kai-3/" },
@@ -1300,7 +1300,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Una signature debut que cumple con todo: tracción de élite, cushion versátil y ligereza. Si te gusta la línea Stewie de Puma o querías una alternativa a las Curry/Sabrina, la Hali 1 es candidata seria.",
-    imagen_principal: "/shoes/puma-hali-1.png",
+    imagen_principal: "/shoes/puma-hali-1.webp",
     imagenes: [],
     fuentes: [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/puma-hali-1/" },
@@ -1362,7 +1362,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Si juegas de alero/ala-pívot/pivot con pie ancho y buscas value bajo 60€, la Freak 7 es candidata clara. Para indoor exclusivamente.",
-    imagen_principal: "/shoes/nike-giannis-freak-7.png",
+    imagen_principal: "/shoes/nike-giannis-freak-7.webp",
     imagenes: [],
     fuentes: [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/nike-giannis-freak-7/" },
@@ -12201,7 +12201,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Para puristas Kobe y guards técnicos que juegan exclusivamente indoor. Si te apasiona el legado Kobe y quieres una Low Protro moderna, es candidata clara.",
-    imagen_principal: "/shoes/nike-kobe-9-elite-low-protro.png",
+    imagen_principal: "/shoes/nike-kobe-9-elite-low-protro.webp",
     imagenes: [],
     fuentes: [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/nike-kobe-9-elite-low-protro/" },
@@ -12264,7 +12264,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Si juegas de pívot/ala-pívot y necesitas máxima protección de impactos con horma ancha, la Embiid 1 es una de las opciones más sólidas del mercado. Para jugadores que prefieren peso a ligereza.",
-    imagen_principal: "/shoes/ua-embiid-1.png",
+    imagen_principal: "/shoes/ua-embiid-1.webp",
     imagenes: [],
     fuentes: [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/under-armour-embiid-1/" },
@@ -12326,7 +12326,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Si te gusta Kawhi y juegas como él (wing potente, equilibrado, indoor): la Kawhi 4 es candidata seria. Para fans del estilo y cushion FuelCell.",
-    imagen_principal: "/shoes/nb-kawhi-4.png",
+    imagen_principal: "/shoes/nb-kawhi-4.webp",
     imagenes: [],
     fuentes: [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/new-balance-kawhi-4/" },
@@ -12388,7 +12388,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Una de las mejores compras del año en signature shoes. Si juegas indoor de base/escolta/alero y quieres tope de gama a precio razonable: la D.O.N. 7 es candidata firme. Para fans de Spida.",
-    imagen_principal: "/shoes/adidas-don-issue-7.png",
+    imagen_principal: "/shoes/adidas-don-issue-7.webp",
     imagenes: [],
     fuentes: [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/adidas-don-issue-7/" },
@@ -12450,7 +12450,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Si te gusta LeBron pero no quieres pagar 200€ por la 22, la NXXT Genisus ofrece la mayor parte de la receta a la mitad de precio. Para wings y forwards potentes.",
-    imagen_principal: "/shoes/nike-lebron-nxxt-genisus.png",
+    imagen_principal: "/shoes/nike-lebron-nxxt-genisus.webp",
     imagenes: [],
     fuentes: [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/nike-lebron-nxxt-genisus/" },
@@ -12513,7 +12513,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Una de las mejores Curry de toda la saga (mejor que la 11 incluso según HG). Si juegas indoor de base/escolta y eres tirador, es candidata clara. La encuentras a 80-100€ con descuento.",
-    imagen_principal: "/shoes/ua-curry-10.png",
+    imagen_principal: "/shoes/ua-curry-10.webp",
     imagenes: [],
     fuentes: [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/under-armour-curry-10/" },
@@ -12575,7 +12575,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Si juegas indoor/outdoor de alero o ala-pívot y quieres una zapa con cushion BOOM a precio razonable, la AC12 sigue siendo candidata seria en 2026. La 14 es mejor en ratings pero la 12 se sigue vendiendo más barata.",
-    imagen_principal: "/shoes/lining-wow-allcity-12.png",
+    imagen_principal: "/shoes/lining-wow-allcity-12.webp",
     imagenes: [],
     fuentes: [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/li-ning-way-of-wade-all-city-12/" },
@@ -12636,7 +12636,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Si te gusta la línea WoW pero quieres algo más ligero y barato, la DLo 1 es candidata seria. Cushion BOOM + tracción premium + 340g por menos de 100€ — value pick brutal para guards/aleros.",
-    imagen_principal: "/shoes/lining-wade-dlo-1.png",
+    imagen_principal: "/shoes/lining-wade-dlo-1.webp",
     imagenes: [],
     fuentes: [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/li-ning-wade-dlo-1/" },
