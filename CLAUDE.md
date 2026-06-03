@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-06-03 (sesión 19)
+> Última actualización: 2026-06-03 (sesión 20)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -44,6 +44,45 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel** vía GitH
 CANCHA<span class="text-orange-500">.</span>ZAPA
 ```
 "CANCHA" blanco, punto naranja, "ZAPA" blanco.
+
+---
+
+## Estado actual (sesión 20)
+
+### ✅ Completado (sesión 20) — Retros + nuevas fichas + TradeTracker activo
+
+**TradeTracker Fútbol Emotion #35939 APROBADO (3.5%)** — deeplinks activos en 5 zapas:
+- jordan-luka-5, puma-hali-1, nike-ja-3, air-jordan-1, air-jordan-4
+
+**FuikaOmar #37834** — deeplinks preconfigurados (tiene_afiliado:false hasta aprobación) en:
+- nike-sabrina-2, nike-book-1, nb-kawhi-4, converse-weapon, nike-air-more-uptempo
+
+**Nuevas fichas:**
+- `reebok-shaqnosis` (1995, Shaq, score 4.3/10) — 289 páginas
+- `nike-kobe-1-protro` "81 Points" (1999/retro, score 7.1/10, BE 160€ ✅ TradeTracker) — 290 páginas
+
+**Retros actualizadas con links reales (jun 2026):**
+- `converse-weapon`: Amazon (Low) 72€ ✅, Converse.com 130€, Fuikaomar 130€ ⏳, Decathlon 136€ ✅
+- `nike-air-more-uptempo`: Amazon 150€ ✅, FL 155€, Decathlon (Low) 178€ ✅, Fuikaomar 190€ ⏳
+- `reebok-shaqnosis`: Zalando 150€, Amazon 150€ ✅, Reebok.eu 150€, ECI 150€
+
+**Pendientes de actualizar (retros):** Shox BB4, Reebok Question Mid, Reebok Answer IV.
+
+**Nuevas tiendas:** `converse_es` (sin afiliado), `footdistrict_es` (Webgains, sin afiliado).
+
+**Imagen SHAI 001 corregida** — era colorway incorrecto, reemplazada por Triple White.
+
+**Auditoría nocturna (sesión 19→20):**
+- atmosfera_sport: 6 añadido a COMISIONES_TIENDA
+- 2 Joom pendientes limpiados (LeBron 22 + Sabrina 2)
+- footlocker_es duplicado eliminado en SHAI 001
+- 0 errores TS, 197 zapas, 290 páginas, build limpio
+
+### 🟡 Pendiente (sesión 20)
+- **Retros pendientes precios:** Shox BB4, Reebok Question Mid, Reebok Answer IV
+- **FuikaOmar #37834:** pendiente aprobación → activar tiene_afiliado:true en Sabrina 2, Book 1, Kawhi 4, Weapon, Uptempo
+- **Awin pendientes:** ECI (prioritario), Zalando, Size?, Reebok, Basket-Center
+- **Joom Awin:** cuando aprueben → activar 11 links
 
 ---
 
