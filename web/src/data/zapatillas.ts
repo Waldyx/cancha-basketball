@@ -9676,6 +9676,67 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // ─────────────────────────────────────────────────────────────────────────
+  // R-06b. NIKE KOBE 1 PROTRO (1999/retro 2018)
+  {
+    id: "nike-kobe-1-protro",
+    slug: "nike-kobe-1-protro",
+    es_retro: true,
+    marca: "Nike",
+    modelo: "Kobe 1 Protro",
+    año_lanzamiento: 1999,
+    genero: "unisex",
+    signature_player: "Kobe Bryant",
+    tecnologia_clave: ["Zoom Air full-length", "Herringbone outsole", "Mid-top", "Cuero y sintético"],
+    predecesor_id: null,
+    sucesor_id: "nike-kobe-4-protro",
+    peso_real_g: 350,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "leather",
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 7,
+      respuesta: 8,
+      soporte_lateral: 7,
+      estabilidad: 7,
+      peso_score: 7,
+      durabilidad_outdoor: 6,
+      ventilacion: 6,
+    },
+    categoria_principal: "balanced",
+    tags: ["retro", "kobe", "protro", "nike", "81-points", "coleccionismo", "signature"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [60, 100],
+      estilos: ["equilibrado", "explosivo"],
+    },
+    no_recomendada_para: { lesiones: ["tobillos"] },
+    resumen: "La primera zapatilla signature de Kobe Bryant, ahora modernizada con tecnología Protro. El colorway '81 Points' rinde homenaje al partido histórico del 22 de enero de 2006 contra los Raptors — la segunda mayor anotación individual de la historia de la NBA. Zoom Air full-length y tracción herringbone actualizada hacen de esta Protro una zapatilla jugable de verdad.",
+    pros: [
+      "Zoom Air full-length: cushion reactivo y moderno",
+      "Tracción herringbone actualizada — agarre fiable en pista",
+      "Colorway '81 Points': uno de los más buscados de toda la saga Kobe",
+      "350g — ligera para ser una mid-top con historia",
+    ],
+    contras: [
+      "Soporte de tobillo moderado — mid-top limitado vs high-top",
+      "Horma estrecha en la puntera — no apta para pie ancho",
+      "Precio elevado para ser un retro (200€ MSRP)",
+    ],
+    veredicto: "La Kobe 1 Protro es donde empieza la leyenda. 7.1/10 en performance — totalmente jugable — y un 10/10 en storytelling. El '81 Points' es el colorway definitivo para cualquier fan de Kobe.",
+    imagen_principal: "/shoes/nike-kobe-1-protro.webp",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-03",
+    precio_msrp_eur: 200,
+    links_compra: [
+      { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fnike%2Fkobe-1-protro-81-points-white-black-court-purple", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
   // R-07. NIKE KOBE 4 PROTRO (2009/retro 2019)
   {
     id: "nike-kobe-4-protro",
@@ -10000,7 +10061,10 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-03",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Reebok+Shaqnosis&tag=canchazapa-21", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/reebok-classic-shaqnosis-unisex-zapatillas-whiteblackvector-red-re015p02n-a11.html", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FD432JNP/?tag=canchazapa-21", precio_actual: 150, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+      { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/products/shaqnosis-low-unisex-sneakers-100244789-2294", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
+      { tienda: "elcorteingles_es", url: "https://www.elcorteingles.es/deportes/MP_0012975_100244789-zapatillas-de-baloncesto-unisex-shaqnosis-low-reebok/", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
     ],
   },
 
