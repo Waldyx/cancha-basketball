@@ -20,6 +20,92 @@ function precioPlausible(scraped: number, ref: number): boolean {
   return scraped <= ref * MAX_PRICE_RATIO && scraped >= ref * MIN_PRICE_RATIO;
 }
 
+function isAmazonUrl(url: string): boolean {
+  return /(^|\/\/)(www\.)?amazon\./i.test(url);
+}
+
+function getAmazonTag(url: string): string | null {
+  try {
+    const parsed = new URL(url);
+    return parsed.searchParams.get("tag");
+  } catch {
+    return null;
+  }
+}
+
+function setWrapperDestination(originalUrl: string, destinationUrl: string): string {
+  try {
+    const parsed = new URL(originalUrl);
+
+    // Awin uses `ued`, Tradetracker often uses `u`; keep the wrapper and swap
+    // only the merchant destination.
+    const keyCandidates = ["ued", "u", "url", "dest", "destination"];
+    for (const key of keyCandidates) {
+      if (parsed.searchParams.has(key)) {
+        parsed.searchParams.set(key, destinationUrl);
+        return parsed.toString();
+      }
+    }
+  } catch {
+    // Fall through to returning the destination.
+  }
+  return destinationUrl;
+}
+
+function isSearchLikeUrl(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    const haystack = `${parsed.hostname}${parsed.pathname}`.toLowerCase();
+    const searchParams = [...parsed.searchParams.keys()].map((k) => k.toLowerCase());
+
+    if (/(^|\/)(search|results|finder|browse)(\/|$)/.test(haystack)) return true;
+    if (/(^|\/)(collection|category|categories)(\/|$)/.test(haystack)) return true;
+    if (searchParams.some((key) => ["q", "query", "keyword", "keywords", "s"].includes(key))) {
+      return true;
+    }
+
+    return false;
+  } catch {
+    return false;
+  }
+}
+
+function resolveUrl(orig: LinkCompra, freshUrl?: string): string {
+  if (!freshUrl || freshUrl === orig.url) return orig.url;
+
+  const freshLooksLikeSearch = isSearchLikeUrl(freshUrl);
+  const origLooksLikeSearch = isSearchLikeUrl(orig.url);
+
+  // Si el scraper trae una URL de búsqueda/categoría y ya teníamos una ficha
+  // de producto, nos quedamos con la ficha. No queremos degradar una URL buena.
+  if (freshLooksLikeSearch && !origLooksLikeSearch) {
+    return orig.url;
+  }
+
+  // If the scraper found a clean product URL, prefer it. When the original
+  // link is an affiliate wrapper, try to preserve the wrapper and swap only
+  // the destination to the fresh product URL.
+  if (orig.tiene_afiliado) {
+    if (isAmazonUrl(orig.url)) {
+      const tag = getAmazonTag(orig.url) ?? "canchazapa-21";
+      try {
+        const parsed = new URL(freshUrl);
+        if (parsed.hostname.includes("amazon.")) {
+          parsed.searchParams.set("tag", tag);
+          return parsed.toString();
+        }
+      } catch {
+        // If freshUrl is not a valid absolute URL, fall through.
+      }
+    }
+
+    const wrapped = setWrapperDestination(orig.url, freshUrl);
+    if (wrapped !== freshUrl) return wrapped;
+  }
+
+  return freshUrl;
+}
+
 /**
  * Mezcla precios scrapeados (precios.json) sobre los datos editoriales (zapatillas.ts).
  *
@@ -64,13 +150,10 @@ export function mergePricesIntoShoes(
       // NUNCA sobreescribir la URL de un link de afiliado: el scraper devuelve
       // la URL directa del producto (p.ej. amazon.es/dp/...) SIN el tag de
       // afiliado (?tag=, redirect AWIN cread.php, short link aliexpress), lo que
-      // rompería la monetización. Para afiliados conservamos la URL editorial y
-      // solo refrescamos precio/disponibilidad. Para no-afiliados sí hacemos el
-      // "upgrade" de search → página de producto directa.
-      const upgradeUrl =
-        !orig.tiene_afiliado && fresh.url && fresh.url !== orig.url
-          ? fresh.url
-          : orig.url;
+      // rompería la monetización. Para afiliados, intentamos mantener el wrapper
+      // y solo sustituir el destino por la URL de producto directa. Para
+      // no-afiliados, hacemos el "upgrade" completo a la página de producto.
+      const upgradeUrl = resolveUrl(orig, fresh.url);
       return {
         ...orig,
         precio_actual: fresh.precio_actual ?? orig.precio_actual,

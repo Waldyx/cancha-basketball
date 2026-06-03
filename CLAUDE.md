@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-06-03 (sesión 20)
+> Última actualización: 2026-06-03 (sesión 21)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -44,6 +44,38 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel** vía GitH
 CANCHA<span class="text-orange-500">.</span>ZAPA
 ```
 "CANCHA" blanco, punto naranja, "ZAPA" blanco.
+
+---
+
+## Estado actual (sesión 21)
+
+### ✅ Completado (sesión 21) — Auditoría completa de links retros
+
+**SW cache bump v2** — forzado re-fetch imagen SHAI 001 corregida.
+
+**Precios actualizados:**
+- Air More Uptempo: Amazon Low 153€ (B0DGTYTW9L) ✅
+- Nike Shox BB4: Joom 171€ ✅ (FL + Amazon sin BB4)
+
+**Auditoría retros — 20 correcciones aplicadas:**
+- 4 Zalando product URLs caducadas → search format
+- Fuikaomar Weapon + Uptempo: URLs caducadas → `disponible:false`
+- Kickscrew Kobe 4/5/6 collections (404) → search URLs
+- Nike.es AF1 URL rota → `disponible:false`
+- ECI Shaqnosis + FL AF1 SKU → `disponible:false`
+- Precios: ECI AJ1 70→140€, Decathlon AJ11 188→190€, FL Chuck Taylor 80→45€
+- Precios Amazon: AJ3 210→186€, AJ6 215→289€, Shaq Attaq 150→273€, Foamposite 280→207€, Penny 2 160→134€
+- Reebok Pump Omni Lite → `disponible:false` (no aparece en Amazon ES)
+- Question Mid + Answer IV: todas las tiendas sin stock
+
+**mergePrices.ts mejorado** — resolveUrl() preserva affiliate wrappers al actualizar destinos.
+
+### 🟡 Pendiente (sesión 21)
+- **FuikaOmar #37834:** pendiente aprobación → activar tiene_afiliado:true en Sabrina 2, Book 1, Kawhi 4, Weapon, Uptempo
+- **Awin pendientes:** ECI (prioritario), Zalando, Size?, Reebok
+- **Snipes (via Awin) y JD Sports searches:** no verificados precio (requieren JS)
+- **Kickscrew** (AJ2/5/7/8/12/14, Zoom Gen, Penny 1, FILA GH1): cargan sin precio visible
+- **Adidas.es + Puma.es:** bot protection impide verificación directa
 
 ---
 
