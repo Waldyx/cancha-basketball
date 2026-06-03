@@ -9604,6 +9604,10 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 220,
     links_compra: [
+      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-11-grand-finale-blanco-91854", precio_actual: 170, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-11-retro-low-university-blue-blanco-98223", precio_actual: 200, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-11-retro-rare-air%2F96423715-aec3-4328-bc0b-c9b5aa3153a0%2Fc5", precio_actual: 188, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/jordan-air-jordan-11-retro-unisex-zapatillas-de-baloncesto-blackgamma-blue-joc43a04p-c12.html", precio_actual: 185, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=air+jordan+11", precio_actual: 220, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=air+jordan+11", precio_actual: 220, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+11+retro&tag=canchazapa-21", precio_actual: 240, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
