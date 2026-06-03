@@ -11027,7 +11027,6 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 160,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Air+More+Uptempo+Pippen&tag=canchazapa-21", precio_actual: 150, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DGTYTW9L/?tag=canchazapa-21", precio_actual: 153, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+air+more+uptempo", precio_actual: 155, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-air-more-uptempo-low-dark-grey-light-crimson%2F8094b496-dc1b-4c51-937f-e2123b6b4bdf%2Fc14", precio_actual: 178, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
