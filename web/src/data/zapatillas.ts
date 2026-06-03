@@ -91,11 +91,11 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       {
         tienda: "joom",
-        url: "https://www.joom.com/es/products/68c9d28bdf066801b880b469?variant_id=68c9d28bdf06683bb880b472&utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1",
+        url: "https://www.joom.com/es/products/68c9d28bdf066801b880b469?variant_id=68c9d28bdf06683bb880b472",
         precio_actual: 90,
         disponible: true,
-        tiene_afiliado: true,
-        ultima_verificacion: "2026-05-31",
+        tiene_afiliado: false,
+        ultima_verificacion: "2026-06-03",
       },
       {
         tienda: "amazon_es",
@@ -290,11 +290,11 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       {
         tienda: "joom",
-        url: "https://www.joom.com/es/products/68c9ea5759560c01a81f5804?variant_id=68c9ea5759560c3fa81f5816&utm_source=impact&utm_medium=partners&utm_campaign=2700663&irgwc=1&afsrc=1",
+        url: "https://www.joom.com/es/products/68c9ea5759560c01a81f5804?variant_id=68c9ea5759560c3fa81f5816",
         precio_actual: 99,
         disponible: true,
-        tiene_afiliado: true,
-        ultima_verificacion: "2026-05-31",
+        tiene_afiliado: false,
+        ultima_verificacion: "2026-06-03",
       },
       {
         tienda: "fuikaomar_es",
@@ -1847,7 +1847,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/nike-precision-8-performance-review/" },
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/nike-precision-8/" },
     ],
-    ultima_actualizacion: "2026-05-13",
+    ultima_actualizacion: "2026-06-03",
     precio_msrp_eur: 80,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=nike+precision+8&vst=precision+8", precio_actual: 79.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
@@ -1909,7 +1909,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/nike-lebron-9-performance-review/" },
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/nike-lebron-witness-9/" },
     ],
-    ultima_actualizacion: "2026-05-13",
+    ultima_actualizacion: "2026-06-03",
     precio_msrp_eur: 100,
     links_compra: [
       { tienda: "zalando_es", url: "https://www.zalando.es/nike-performance-zapatillas-de-baloncesto-black-iron-grey-dark-smoke-grey-black-n1242a2z7-q12.html", precio_actual: 82.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
@@ -9347,7 +9347,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/air-jordan-1.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-27",
+    ultima_actualizacion: "2026-06-03",
     precio_msrp_eur: 180,
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.elcorteingles.es/deportes/A52028803-zapatillas-de-baloncesto-de-hombre-air-jordan-1-mid-jordan/", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
@@ -9476,7 +9476,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/air-jordan-4.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-27",
+    ultima_actualizacion: "2026-06-03",
     precio_msrp_eur: 220,
     links_compra: [
       { tienda: "footdistrict_es", url: "https://footdistrict.com/products/air-jordan-4-retro-og-flight-club-im4002-100", precio_actual: 158, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
@@ -9602,7 +9602,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/air-jordan-11.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-27",
+    ultima_actualizacion: "2026-06-03",
     precio_msrp_eur: 220,
     links_compra: [
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-11-grand-finale-blanco-91854", precio_actual: 170, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
@@ -10130,7 +10130,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/converse-chuck-taylor.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-27",
+    ultima_actualizacion: "2026-06-03",
     precio_msrp_eur: 75,
     links_compra: [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fbaskets-homme-baskets-converse-bordeaux-bordeaux-converse%2F2e9ddaaf-f8ab-47a3-93da-73d7d366f505%2Fc15", precio_actual: 43, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
@@ -10582,7 +10582,7 @@ const _rawZapatillas: Zapatilla[] = [
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-air-force-1-performance-review/" },
     ],
-    ultima_actualizacion: "2026-05-27",
+    ultima_actualizacion: "2026-06-03",
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fnike-air-force-1-07-lv8-azul-92119%2F436442", precio_actual: 90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },

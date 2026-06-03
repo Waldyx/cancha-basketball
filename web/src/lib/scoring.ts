@@ -385,7 +385,8 @@ export const COMISIONES_TIENDA: Record<string, number> = {
   decathlon: 6,         // Awin Decathlon ES ~3-9%, media ~6%
   snipes_eu: 5,
   joom: 6,            // Awin Joom ES (marketplace) ~5-7%
-  basketballemotion_es: 0,  // sin afiliado aun (tienda ES especializada)         // Awin Snipes EU ~4.5-6%, media ~5%
+  atmosfera_sport: 6,       // Awin Atmósfera Sport ES ~5-8%, media ~6%
+  basketballemotion_es: 0,  // sin afiliado aun (TradeTracker pendiente aprobación)
   kickscrew: 5,
   basket_world: 5,
   puma_es: 6,           // Puma EU CJ ~4.5-6%
