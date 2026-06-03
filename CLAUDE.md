@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-06-02 (sesión 18)
+> Última actualización: 2026-06-03 (sesión 19)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -44,6 +44,46 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel** vía GitH
 CANCHA<span class="text-orange-500">.</span>ZAPA
 ```
 "CANCHA" blanco, punto naranja, "ZAPA" blanco.
+
+---
+
+## Estado actual (sesión 19)
+
+### ✅ Completado (sesión 19) — Precios retros + fixes afiliados
+
+**Retros actualizadas con links reales (jun 2026):**
+- `air-jordan-1`: 7 links (ECI 70€, BE 84€, Zalando 105€, Snipes Mid+Low ✅, JD 185€, Amazon 190€)
+- `air-jordan-4`: 4 links (Foot District 158€, BE 180€, Snipes 210€ ✅, Amazon 230€ ✅)
+- `air-jordan-11`: 6 links (Snipes High 170€ ✅, Zalando 185€, Decathlon 188€ ✅, Snipes Low 200€ ✅, FL 220€, JD 220€, Amazon 240€ ✅)
+- `nike-air-force-1`: 5 links (Snipes Low 90€ ✅, Zalando 104€, Amazon 110€ ✅, FL 130€, Nike.es 120€)
+- `converse-chuck-taylor`: 6 links (Decathlon 43€ ✅, Atmósfera 53€ ✅, Amazon 75€ ✅, Zalando 75€, FL 80€, JD 80€)
+
+**Pendientes de actualizar (retros):** Converse Weapon, Air More Uptempo, Shox BB4, Reebok Question Mid, Reebok Answer IV.
+
+**Fixes afiliados:**
+- Bug `snipes_es` → `snipes_eu` corregido en AJ1 y AJ4
+- Nueva tienda `footdistrict_es` (Webgains, sin afiliado por ahora)
+- Sticky bottom panel: añadido `rel="sponsored"` condicional (igual que resto de botones)
+
+**Joom limpiado:** 11 links con `tiene_afiliado: false` + URLs sin UTM (afiliado Awin pendiente).
+
+**Precios modernos actualizados:** LeBron Witness 9 Atmósfera 109→99€, Precision 8 Atmósfera 67→75€.
+
+**Imagen corregida:** `nike-precision-8.webp` (Mid) → `nike-precision-8-low.webp` (Low, descargada por usuario).
+
+**TradeTracker:** campañas #37834 FuikaOmar (5%) y #35939 Fútbol Emotion (3.5%) en estado **"Bajo evaluación"**. Enviar mensaje al anunciante para acelerar aprobación.
+
+**Build verificado:** 288 páginas, 0 errores TypeScript.
+
+**Auditoría links:**
+- 9 links AliExpress Portals (`s.click`) con `tiene_afiliado:true` — son correctos (Portals ES es afiliado válido para chinas sin Awin).
+- ~352 URLs de búsqueda (`/search?q=`) vs producto directo — normal para tiendas sin stock garantizado. Priorizar reemplazar las de Nike.es y Basket World cuando el usuario encuentre URLs de producto.
+
+### 🟡 Pendiente (sesión 19)
+
+**Retros sin actualizar:** Weapon, Uptempo, Shox BB4, Reebok Question, Reebok Answer IV.
+**TradeTracker:** enviar mensaje a FuikaOmar (#37834) y Fútbol Emotion (#35939) para acelerar aprobación. Una vez aceptados → activar deeplinks en: Sabrina 2, Book 1, Kawhi 4 (Fuikaomar) + Hali 1, Luka 5, Ja 3 (Basketball Emotion).
+**Awin pendientes:** ECI (prioritario, EPC €13.99), Zalando, Size?, Reebok, Basket-Center.
 
 ---
 
