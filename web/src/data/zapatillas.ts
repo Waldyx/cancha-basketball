@@ -9350,7 +9350,10 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 180,
     links_compra: [
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/category/jordan/air-jordan-1", precio_actual: 180, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "elcorteingles_es", url: "https://www.elcorteingles.es/deportes/A52028803-zapatillas-de-baloncesto-de-hombre-air-jordan-1-mid-jordan/", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatilla/jordan/air-jordan-1-mid-sail-midnight-green-pure-platinum", precio_actual: 84, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/jordan-air-jordan-1-mid-zapatillas-altas-joc12n001-g14.html", precio_actual: 105, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
+      { tienda: "snipes_es", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-1-mid-blanco-94681", precio_actual: 110, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=air+jordan+1", precio_actual: 185, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+1+retro&tag=canchazapa-21", precio_actual: 190, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
