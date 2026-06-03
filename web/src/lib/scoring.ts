@@ -404,6 +404,7 @@ export const COMISIONES_TIENDA: Record<string, number> = {
   forumsport_es: 5,     // Forum Sport (AWIN, pendiente aprobación)
   sizeofficial_es: 5,   // Size? Official (AWIN, pendiente aprobación)
   elcorteingles_es: 6,  // El Corte Inglés (AWIN, pendiente — EPC €13.99 prioritario)
+  footdistrict_es: 0,  // sin afiliado (Webgains, no registrado)
   "24segons_es": 4,
   amazon_es: 3,         // Amazon ES zapas deportivas ~3%
   idealo_es: 0,         // Sin afiliado directo

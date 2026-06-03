@@ -75,7 +75,8 @@ export type Tienda =
   | "basketballemotion_es"
   | "forumsport_es"
   | "sizeofficial_es"
-  | "elcorteingles_es";
+  | "elcorteingles_es"
+  | "footdistrict_es";
 
 export type FuenteReview =
   | "weartesters"
