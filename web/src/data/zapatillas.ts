@@ -11590,6 +11590,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+shox+bb4", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+shox+bb4+vince+carter&tag=canchazapa-21", precio_actual: 165, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "joom", url: "https://www.joom.com/es/products/68f85c62278ded010e92dda1", precio_actual: 171, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
     ],
   },
 
