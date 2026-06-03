@@ -85,6 +85,27 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 **TradeTracker:** enviar mensaje a FuikaOmar (#37834) y Fútbol Emotion (#35939) para acelerar aprobación. Una vez aceptados → activar deeplinks en: Sabrina 2, Book 1, Kawhi 4 (Fuikaomar) + Hali 1, Luka 5, Ja 3 (Basketball Emotion).
 **Awin pendientes:** ECI (prioritario, EPC €13.99), Zalando, Size?, Reebok, Basket-Center.
 
+### 📋 Estado retros pendientes (precios actuales en BD)
+
+| Modelo | MSRP | Links actuales | Afiliado |
+|---|---|---|---|
+| Converse Weapon | 110€ | Amazon 110€ | ✅ solo Amazon |
+| Air More Uptempo | 160€ | FL 155€, Amazon 150€ | ✅ solo Amazon |
+| Shox BB4 | 160€ | FL 160€, Amazon 165€ | ✅ solo Amazon |
+| Reebok Question Mid | 130€ | Reebok.es 130€ (no disp), Zalando 115€, FL 120€ | ❌ ninguno |
+| Reebok Answer IV | 120€ | Reebok.es 120€ (no disp), Zalando 110€, FL 105€ | ❌ ninguno |
+
+Todas con URLs de búsqueda — en la próxima sesión reemplazar con URLs de producto directo + añadir Snipes/Decathlon/Atmósfera donde aplique.
+
+### 📋 Top URLs de búsqueda a reemplazar (136 modelos, prioridad alta)
+
+Las más críticas por tráfico estimado:
+- `jordan-luka-5`, `nike-gt-cut-3`, `jordan-tatum-3`, `nike-ja-2`, `nike-kyrie-low-5` — 3 tiendas cada una con search URL
+- `air-jordan-37`, `nike-lebron-21`, `nike-zoom-freak-4` — Nike.es + Zalando + FL con search URL
+- `reebok-question-mid`, `reebok-answer-iv` — Reebok.es + Zalando + FL con search URL
+
+En la práctica: Nike.es y Basket World siempre son search (no tienen URLs de producto estables). FL y Zalando sí conviene reemplazar con producto directo cuando el usuario encuentre la URL.
+
 ---
 
 ## Estado actual (sesión 18)
