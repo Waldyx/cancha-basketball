@@ -9940,6 +9940,71 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // ─────────────────────────────────────────────────────────────────────────
+  // R-10b. REEBOK SHAQNOSIS (1995) — el diseño hipnótico
+  {
+    id: "reebok-shaqnosis",
+    slug: "reebok-shaqnosis",
+    es_retro: true,
+    marca: "Reebok",
+    modelo: "Shaqnosis",
+    año_lanzamiento: 1995,
+    genero: "unisex",
+    signature_player: "Shaquille O'Neal",
+    tecnologia_clave: ["Hexalite cushioning", "Diseño óptico anillos", "High-top", "Cuero y sintético"],
+    predecesor_id: "reebok-shaq-attaq",
+    sucesor_id: null,
+    peso_real_g: 520,
+    altura: "high",
+    horma: "ancha",
+    drop_mm: 12,
+    tipo_cierre: "cordones",
+    material_superior: "leather",
+    puntuaciones: {
+      traccion: 5,
+      amortiguacion: 5,
+      respuesta: 3,
+      soporte_lateral: 6,
+      estabilidad: 6,
+      peso_score: 2,
+      durabilidad_outdoor: 5,
+      ventilacion: 3,
+    },
+    categoria_principal: "balanced",
+    tags: ["retro", "shaq", "reebok", "high-top", "coleccionismo", "nba-1995", "iconic"],
+    ideal_para: {
+      posiciones: ["pivot", "ala-pivot"],
+      peso_jugador_kg: [85, 130],
+      estilos: ["potente"],
+    },
+    no_recomendada_para: {
+      estilos: ["explosivo"],
+      lesiones: ["fascia"],
+    },
+    resumen: "La Shaqnosis es una de las zapatillas más reconocibles de los 90 gracias a su diseño óptico de anillos concéntricos blanco y negro — un efecto casi hipnótico que le dio el nombre. Llevaba amortiguación Hexalite de Reebok y la calzó Shaquille O'Neal. Más estética que rendimiento, hoy es una pieza de culto absoluta del coleccionismo sneaker.",
+    pros: [
+      "Diseño óptico irrepetible — la más reconocible de Shaq junto a la Attaq",
+      "Hexalite en mediasuela: amortiguación decente para su época",
+      "Estabilidad sólida gracias a la base ancha",
+      "Pieza de coleccionismo con re-releases muy buscadas",
+    ],
+    contras: [
+      "520g — pesadísima para estándares modernos",
+      "Sin retorno de energía — foam básico bajo el Hexalite",
+      "Materiales poco transpirables",
+      "No apta para juego moderno de alto impacto",
+    ],
+    veredicto: "Un 4.3/10 en performance, pero un 9/10 en iconicidad visual. Las Shaqnosis se compran por el diseño hipnótico y la conexión con Shaq, no para jugar. Una de las retros más llamativas del catálogo.",
+    imagen_principal: "/shoes/reebok-shaqnosis.webp",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-03",
+    precio_msrp_eur: 130,
+    links_compra: [
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Reebok+Shaqnosis&tag=canchazapa-21", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
   // R-11. REEBOK PUMP OMNI LITE (1989) — la Pump original de baloncesto
   {
     id: "reebok-pump-omni-lite",
