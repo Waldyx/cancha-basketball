@@ -635,7 +635,7 @@ const productJsonLd = {
             <span class="sbp-now">{Math.round(mejorPrecio.precio_actual)}€</span>
             {ahorro > 0 && <span class="sbp-msrp">msrp {z.precio_msrp_eur}€</span>}
           </div>
-          <a href={mejorPrecio.url} target="_blank" rel="noopener noreferrer" class="sb-btn">
+          <a href={mejorPrecio.url} target="_blank" rel={mejorPrecio.tiene_afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"} class="sb-btn">
             Ver en {LABELS_TIENDA[mejorPrecio.tienda] || mejorPrecio.tienda} →
           </a>
         </div>
