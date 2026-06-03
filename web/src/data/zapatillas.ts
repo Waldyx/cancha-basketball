@@ -10779,7 +10779,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0F5RLM2R7/?tag=canchazapa-21", precio_actual: 72, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "converse_es", url: "https://www.converse.com/es/shop/p/converse-x-engineered-garments-weapon-unisex/A19690C.html", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
-      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-converse-weapon-og-mid-black-ivory.html", precio_actual: 130, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-converse-weapon-og-mid-black-ivory.html", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-converse-weapon-blanco-hombre%2F26e292fc-d118-4769-b9a3-4f6c1a3eb2a6%2Fc4", precio_actual: 136, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
     ],
   },
