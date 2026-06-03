@@ -3,7 +3,7 @@
 // fallback offline) y cache-first para assets estáticos (CSS/JS hasheados,
 // imágenes, fuentes). Habilita la instalación PWA (Add to Home Screen).
 
-const CACHE = "cz-cache-v1";
+const CACHE = "cz-cache-v2";
 const PRECACHE = ["/", "/favicon.svg", "/manifest.json", "/offline.html"];
 
 self.addEventListener("install", (event) => {
