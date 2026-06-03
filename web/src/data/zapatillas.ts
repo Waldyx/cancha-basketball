@@ -298,7 +298,7 @@ const _rawZapatillas: Zapatilla[] = [
       },
       {
         tienda: "fuikaomar_es",
-        url: "https://www.fuikaomar.es/zapatillas-nike-sabrina-2-retroed.html",
+        url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-sabrina-2-retroed.html",
         precio_actual: 119.90,
         disponible: true,
         tiene_afiliado: false,
@@ -5347,7 +5347,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/nike-book-1-hombre-zapatillas/314109163304.html", precio_actual: 60, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
       { tienda: "basket4ballers_es", url: "https://www.basket4ballers.com/es/zapatillas-de-baloncesto/53167-book-1-white-varsity-red-varsity-blue-fj4249-105.html", precio_actual: 90.75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
-      { tienda: "fuikaomar_es", url: "https://www.fuikaomar.es/zapatillas-nike-book-1-valley.html", precio_actual: 129.90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-book-1-valley.html", precio_actual: 129.90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
     ],
   },
 
@@ -12349,7 +12349,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 150,
     links_compra: [
-      { tienda: "fuikaomar_es", url: "https://www.fuikaomar.es/zapatillas-new-balance-kawhi-4-third-eye.html", precio_actual: 129.90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-new-balance-kawhi-4-third-eye.html", precio_actual: 129.90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar/?q=kawhi+4", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+kawhi+4+basketball&tag=canchazapa-21", precio_actual: 150, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
