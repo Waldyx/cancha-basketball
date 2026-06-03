@@ -1841,7 +1841,7 @@ const _rawZapatillas: Zapatilla[] = [
       "No para impactos grandes",
     ],
     veredicto: "Ideal para inicio o jugador casual con presupuesto bajo. Si compites en serio, sube de gama.",
-    imagen_principal: "/shoes/nike-precision-8.webp",
+    imagen_principal: "/shoes/nike-precision-8-low.webp",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-precision-8-performance-review/" },
@@ -1853,7 +1853,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=nike+precision+8&vst=precision+8", precio_actual: 79.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=precision+8", precio_actual: 84.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=precision+8", precio_actual: 79.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
-      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fnike%2Fzapatillas-de-baloncesto-nike-precision-8-low-hombre-negro-blanco-rojo-175748.html", precio_actual: 67.49, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fnike%2Fzapatillas-de-baloncesto-nike-precision-8-low-hombre-negro-blanco-rojo-175748.html", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
     ],
   },
 
@@ -1916,7 +1916,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=lebron+witness+9&vst=lebron+witness+9", precio_actual: 99.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=witness+9", precio_actual: 104.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=witness+9", precio_actual: 99.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
-      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fnike%2Fbotas-de-baloncesto-nike-lebron-witness-ix-hombre-negro-176479.html", precio_actual: 109.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fnike%2Fbotas-de-baloncesto-nike-lebron-witness-ix-hombre-negro-176479.html", precio_actual: 99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
     ],
   },
 
