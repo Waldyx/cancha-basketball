@@ -2093,9 +2093,9 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=jordan+one+take+6&vst=jordan+one+take+6", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=one+take+6", precio_actual: 114.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
-      { tienda: "basket_world", url: "https://basketworld.com/buscar?q=one+take+6", precio_actual: 109.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=jordan+one+take+5&vst=jordan+one+take+5", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=one+take+5", precio_actual: 114.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
+      { tienda: "basket_world", url: "https://basketworld.com/buscar?q=one+take+5", precio_actual: 109.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
     ],
   },
 
@@ -2829,7 +2829,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 150,
     links_compra: [
-      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/buscar/?q=futr+x+4", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-29" },
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/buscar/?q=futr+x+elite", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-29" },
     ],
   },
 
@@ -9417,7 +9417,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 200,
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=air+jordan+3", precio_actual: 200, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+3+retro&tag=canchazapa-21", precio_actual: 210, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+3+retro&tag=canchazapa-21", precio_actual: 186, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
 
@@ -9543,7 +9543,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 210,
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=air+jordan+6", precio_actual: 210, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+6+retro&tag=canchazapa-21", precio_actual: 215, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+6+retro&tag=canchazapa-21", precio_actual: 289, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
 
@@ -9798,7 +9798,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 175,
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=kobe+4+protro", precio_actual: 175, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/collections/kobe-4-protro", precio_actual: 180, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Kobe+4+Protro", precio_actual: 180, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Kobe+4+Protro&tag=canchazapa-21", precio_actual: 200, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
@@ -9864,7 +9864,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 175,
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=kobe+5+protro", precio_actual: 175, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/collections/kobe-5-protro", precio_actual: 185, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Kobe+5+Protro", precio_actual: 185, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Kobe+5+Protro&tag=canchazapa-21", precio_actual: 195, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
@@ -9930,7 +9930,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 175,
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=kobe+6+protro", precio_actual: 175, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/collections/kobe-6-protro", precio_actual: 195, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Kobe+6+Protro", precio_actual: 195, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Kobe+6+Protro&tag=canchazapa-21", precio_actual: 200, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
@@ -9996,7 +9996,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 150,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Reebok+Shaq+Attaq&tag=canchazapa-21", precio_actual: 150, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Reebok+Shaq+Attaq&tag=canchazapa-21", precio_actual: 273, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
 
@@ -10129,7 +10129,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 160,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Reebok+Pump+Omni+Lite&tag=canchazapa-21", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Reebok+Pump+Omni+Lite&tag=canchazapa-21", precio_actual: 160, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
 
@@ -10196,7 +10196,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 250,
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=foamposite", precio_actual: 250, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Air+Foamposite+One&tag=canchazapa-21", precio_actual: 280, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Air+Foamposite+One&tag=canchazapa-21", precio_actual: 207, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
 
@@ -10330,7 +10330,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 160,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Air+Penny+2&tag=canchazapa-21", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Air+Penny+2&tag=canchazapa-21", precio_actual: 134, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
 
@@ -10718,7 +10718,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B08QBFY9K8/?tag=canchazapa-21", precio_actual: 110, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B08QBB56BV/?tag=canchazapa-21", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/~/314102202604.html", precio_actual: 130, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
-      { tienda: "nike_es", url: "https://www.nike.com/es/t/air-force-1-07-zapatillas", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/air-force-1-07-zapatillas", precio_actual: 120, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
     ],
   },
 
@@ -10779,7 +10779,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0F5RLM2R7/?tag=canchazapa-21", precio_actual: 72, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "converse_es", url: "https://www.converse.com/es/shop/p/converse-x-engineered-garments-weapon-unisex/A19690C.html", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
-      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-converse-weapon-og-mid-black-ivory.html", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-converse-weapon-og-mid-black-ivory.html", precio_actual: 130, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-converse-weapon-blanco-hombre%2F26e292fc-d118-4769-b9a3-4f6c1a3eb2a6%2Fc4", precio_actual: 136, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
     ],
   },
@@ -11030,7 +11030,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DGTYTW9L/?tag=canchazapa-21", precio_actual: 153, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+air+more+uptempo", precio_actual: 155, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-air-more-uptempo-low-dark-grey-light-crimson%2F8094b496-dc1b-4c51-937f-e2123b6b4bdf%2Fc14", precio_actual: 178, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
-      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-air-more-uptempo-96-olympic.html", precio_actual: 190, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-air-more-uptempo-96-olympic.html", precio_actual: 190, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
     ],
   },
 
