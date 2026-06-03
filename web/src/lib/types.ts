@@ -76,7 +76,8 @@ export type Tienda =
   | "forumsport_es"
   | "sizeofficial_es"
   | "elcorteingles_es"
-  | "footdistrict_es";
+  | "footdistrict_es"
+  | "converse_es";
 
 export type FuenteReview =
   | "weartesters"
