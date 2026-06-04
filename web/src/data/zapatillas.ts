@@ -7621,8 +7621,6 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fnew-balance%2Fzapatillas-de-baloncesto-new-balance-two-wxy-v5-team-navy-151094.html", precio_actual: 79.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-new-balance-two-wxy-azul-oscuro%2F362992%2Fc8m8967078", precio_actual: 79.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fnew-balance%2Ftwo-wxy-v5-scarlet", precio_actual: 90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
-      { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar/?q=two+wxy+v5", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=new+balance+two+wxy+v5", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+two+wxy+v5+baloncesto&tag=canchazapa-21", precio_actual: 110, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
