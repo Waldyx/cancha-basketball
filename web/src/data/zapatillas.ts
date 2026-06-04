@@ -5812,12 +5812,12 @@ const _rawZapatillas: Zapatilla[] = [
   // 82. NIKE KYRIE INFINITY 2 — budget tracción alta
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
-    id: "nike-kyrie-infinity-2",
-    slug: "nike-kyrie-infinity-2",
+    id: "nike-kyrie-infinity",
+    slug: "nike-kyrie-infinity",
     marca: "Nike",
-    modelo: "Kyrie Infinity 2",
-    generacion: 2,
-    año_lanzamiento: 2023,
+    modelo: "Kyrie Infinity",
+    generacion: 1,
+    año_lanzamiento: 2022,
     genero: "unisex",
     tecnologia_clave: ["Zoom Air", "360° traction"],
     predecesor_id: null,
@@ -5846,20 +5846,20 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["explosivo", "equilibrado"],
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
-    resumen: "Sin la firma oficial de Kyrie Irving, Nike relanza el modelo Infinity 2 con la misma tracción 360° que hizo famosa la línea. Gran opción budget para bases.",
+    resumen: "La Kyrie Infinity tiene la misma tracción 360° que hizo famosa la línea Kyrie. Gran opción budget para bases que priorizan agarre y reactividad.",
     pros: ["Tracción 360° excepcional", "Buena respuesta", "Precio accesible"],
     contras: ["Estabilidad algo baja en comparación con otras Kyrie", "Cushion básico"],
     veredicto: "Para bases que necesitan cambios de dirección rápidos y agarre constante a buen precio.",
-    imagen_principal: "/shoes/nike-kyrie-infinity-2.webp",
+    imagen_principal: "/shoes/nike-kyrie-infinity.webp",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-kyrie-infinity-review/" },
     ],
-    ultima_actualizacion: "2026-05-29",
+    ultima_actualizacion: "2026-06-05",
     precio_msrp_eur: 100,
     links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kyrie+infinity+2&vst=kyrie+infinity+2", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+kyrie+infinity+2", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-de-baloncesto-nike-kyrie-infinity-hombre%2F60c01261-32b4-4f18-a661-3eb55686beb4%2Fc1", precio_actual: 88, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
+      { tienda: "joom", url: "https://www.joom.com/es/products/68c8408465f3e3012396c5e7", precio_actual: 131, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
     ],
   },
 
