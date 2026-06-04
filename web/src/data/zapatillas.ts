@@ -7766,6 +7766,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar/?q=kawhi+2", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=new+balance+kawhi+2", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+kawhi+2+baloncesto&tag=canchazapa-21", precio_actual: 145, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "manelsanchez_es", url: "https://www.manelsanchez.com/kawhi-ii-white-thunder.html", precio_actual: 112, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
     ],
   },
 
