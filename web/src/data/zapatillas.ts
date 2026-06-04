@@ -6633,6 +6633,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 90,
     links_compra: [
+      { tienda: "joom", url: "https://www.joom.com/es/products/6999387eb21639012998da84", precio_actual: 61, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3574IK9", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
       { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=anta+shock+wave+5", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-anta-shock-wave-5-pro-moon.html", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
