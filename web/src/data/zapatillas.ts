@@ -1372,6 +1372,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/6995a03236111c010b2e9a0a?variant_id=6995a03236111ca90b2e9a22", precio_actual: 56, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
+      { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fnike%2Fgiannis-freak-7-all-star-volt-black", precio_actual: 98, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=giannis+freak+7&vst=giannis+freak+7", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+freak+7", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+giannis+freak+7&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
