@@ -1,0 +1,303 @@
+# Informe Links a Revisar — 2026-06-04
+
+> 151 zapas con links genéricos (búsquedas) que idealmente deberían ser producto directo.
+
+## Por prioridad
+
+### 🔴 Amazon (sin ASIN) — mayor impacto en conversión
+
+- **Curry 12** () — 94.83€
+- **Cross ** () — 54.99€
+- **Way of Wade All City 13** () — 159€
+- **Harden Vol 9** () — 82.99€
+- **Dame Certified** () — 59.90€
+- **MB.04** () — 125€
+- **Dame 9** () — 124€
+- **Cross ** () — 44.27€
+- **Zoom Freak 4** () — 80€
+- **All-Pro Nitro** () — 125€
+- **MB.03** () — 70€
+- **Flow Breakthru 4** () — 70€
+- **Luka 2** () — 75€
+- **MB.05** () — 85.99€
+- **Engine A** () — 87.99€
+- **Exhibit A** () — 67.90€
+- **Jet 23** () — 41.95€
+- **Cross Em Up 5** () — 41.99€
+- **LeBron Witness 8** () — 80€
+- **HOVR Havoc 5** () — 101.20€
+- **OwnTheGame 3** () — 39.00€
+- **Playmaker Pro Mid** () — 93.75€
+- **Precision 7** () — 52.49€
+- **Trae Young 3** () — 75€
+- **GT Hustle 3** () — 131.32€
+- **Tatum 2** () — 110€
+- **Zion 3** () — 140€
+- **Clyde All-Pro** () — 63.03€
+- **LeBron NXXT Gen** () — 150€
+- **Curry 11** () — 129€
+- **Dame X** () — 65€
+- **Stewie 3** () — 70.99€
+- **Air Jordan 1** () — 190€
+- **Air Jordan 3** () — 186€
+- **Air Jordan 4** () — 230€
+- **Air Jordan 6** () — 289€
+- **Air Jordan 11** () — 240€
+- **Air Jordan 13** () — 215€
+- **Kobe 4 Protro** () — 200€
+- **Kobe 5 Protro** () — 195€
+- **Kobe 6 Protro** () — 200€
+- **Shaq Attaq** () — 273€
+- **Air Foamposite One** () — 207€
+- **Chuck Taylor All Star** () — 75€
+- **Zoom Generation** () — 200€
+- **Air Jordan 5 Retro** () — 230€
+- **Air Jordan 7 Retro** () — 210€
+- **Air Jordan 12 Retro** () — 235€
+- **Air Jordan 14 Retro** () — 220€
+- **Air Jordan 2 Retro** () — 195€
+- **Air Jordan 8 Retro** () — 210€
+- **Air Penny 1** () — 160€
+- **Forum 84** () — 95€
+- **Clyde** () — 75€
+- **Air Jordan 9** () — 200€
+- **Air Jordan 10** () — 200€
+- **Crazy 8** () — 115€
+- **Superstar** () — 95€
+- **Top Ten** () — 105€
+- **Pro Model** () — 90€
+- **Air Flight Huarache** () — 135€
+- **Air Max CB 34** () — 155€
+- **Air Pippen 1** () — 145€
+- **Grant Hill 1** () — 130€
+- **Kamikaze I** () — 125€
+- **Pro Leather** () — 85€
+- **Sky LX** () — 80€
+- **Air Zoom Flight 95** () — 130€
+- **EQT Basketball 93** () — 120€
+- **Blast** () — 110€
+- **Hyperdunk 2008** () — 150€
+- **Larry Johnson All Star** () — 120€
+
+### 🟠 Adidas.es (sin producto directo)
+
+- **Cross ** () — 55€
+- **Harden Vol 9** () — 160€
+- **Dame Certified** () — 95€
+- **Dame 9** () — 120€
+- **Cross ** () — 60€
+- **Dame 8** () — 100€
+- **Exhibit A** () — 65€
+- **Exhibit B** () — 80€
+- **Cross Em Up 5** () — 55€
+- **Harden Stepback 4** () — 70€
+- **OwnTheGame 3** () — 55€
+- **AE 1.5** () — 120€
+- **Trae Young 3** () — 120€
+- **Trae Young 4** () — 130€
+- **Harden Vol 8** () — 90€
+- **Ownthegame 2.0** () — 55€
+- **Dame X** () — 94.99€
+- **Forum 84** () — 100€
+- **Crazy 8** () — 110€
+- **Superstar** () — 100€
+- **Top Ten** () — 110€
+- **Pro Model** () — 95€
+
+### 🟡 Nike.es (URLs de búsqueda — difíciles de mejorar)
+
+- **KD 18** () — 169.99€
+- **Kobe 8 Protro** () — 200€
+- **Luka 5** () — 135€
+- **GT Cut 3** () — 189.99€
+- **Tatum 3** () — 144.99€
+- **Ja 2** () — 120€
+- **Kyrie Low 5** () — 119.99€
+- **Giannis Freak 7** () — 120€
+- **Luka 3** () — 129.99€
+- **Precision 8** () — 79.99€
+- **LeBron Witness 9** () — 99.99€
+- **One Take 5** () — 110€
+- **Air Jordan 37** () — 120€
+- **LeBron 21** () — 135€
+- **Zoom Freak 4** () — 80€
+- **Giannis Immortality 3** () — 50€
+- **Luka 2** () — 75€
+- **PG 6** () — 65€
+- **Air Zoom G.T. Jump 2** () — 95€
+- **LeBron 23** () — 220€
+- **Ja 3** () — 135€
+- **Air Zoom G.T. Cut 4** () — 170€
+- **KD 17** () — 160€
+- **D.O.N. Issue 6** () — 110€
+- **Zoom Freak 5** () — 120€
+- **Air Jordan XXXVIII** () — 160€
+- **Air Max Impact 5** () — 80€
+- **Giannis Immortality 4** () — 85€
+- **GT Run 2** () — 110€
+- **Super/Fly 8** () — 115€
+- **Zoom Freak 6** () — 150€
+- **LeBron Witness 8** () — 90€
+- **Sabrina 1** () — 100€
+- **Kyrie Flytrap 6** () — 70€
+- **Luka 1** () — 100€
+- **Air Zoom Crossover 2** () — 75€
+- **KD 16** () — 120€
+- **Precision 7** () — 65€
+- **Ja 1** () — 85€
+- **GT Hustle 3** () — 185€
+- **Tatum 2** () — 120€
+- **Zion 3** () — 150€
+- **LeBron NXXT Gen** () — 160€
+- **Air Zoom GT Jump 3** () — 150€
+- **Why Not .6** () — 90€
+- **KD 19** () — 149.99€
+- **Air Jordan 40** () — 199.99€
+- **Kobe 9 High Protro** () — 199.99€
+- **Kobe 9 Elite Low Protro** () — 190€
+- **LeBron NXXT Genisus** () — 125€
+
+### 🟡 Foot Locker (búsqueda genérica)
+
+- **Luka 5** () — 140€
+- **GT Cut 3** () — 195€
+- **Tatum 3** () — 150€
+- **Ja 2** () — 124.99€
+- **Kyrie Low 5** () — 124.99€
+- **Giannis Freak 7** () — 120€
+- **Luka 3** () — 119.99€
+- **Precision 8** () — 84.99€
+- **LeBron Witness 9** () — 104.99€
+- **One Take 5** () — 114.99€
+- **Air Jordan 37** () — 125€
+- **LeBron 21** () — 150€
+- **Zoom Freak 4** () — 90€
+- **AE 1** () — 95€
+- **Luka 2** () — 85€
+- **Air Zoom G.T. Jump 2** () — 105€
+- **LeBron 23** () — 215€
+- **Ja 3** () — 135€
+- **AE 2** () — 145€
+- **SHAI 001** () — 125€
+- **Air Zoom G.T. Cut 4** () — 165€
+- **Zion 4** () — 85€
+- **Luka 4** () — 80€
+- **KD 17** () — 155€
+- **D.O.N. Issue 6** () — 100€
+- **Scoot Zeros** () — 115€
+- **Dame 8** () — 95€
+- **Zoom Freak 5** () — 110€
+- **Air Jordan XXXVIII** () — 155€
+- **Jet 23** () — 70€
+- **All-Pro Nitro 2** () — 120€
+- **Giannis Immortality 4** () — 80€
+- **GT Run 2** () — 100€
+- **Super/Fly 8** () — 110€
+- **Zoom Freak 6** () — 140€
+- **LeBron Witness 8** () — 85€
+- **Kawhi 1** () — 140€
+- **Sabrina 1** () — 90€
+- **Luka 1** () — 90€
+- **HOVR Havoc 5** () — 100€
+- **Air Zoom Crossover 2** () — 65€
+- **KD 16** () — 110€
+- **AE 1.5** () — 110€
+- **All Star Pro BB** () — 120€
+- **Ja 1** () — 89€
+- **Trae Young 3** () — 130€
+- **GT Hustle 3** () — 180€
+- **Kawhi 2** () — 150€
+- **Trae Young 4** () — 125€
+- **Tatum 2** () — 130€
+- **Zion 3** () — 160€
+- **Clyde All-Pro** () — 110€
+- **LeBron NXXT Gen** () — 170€
+- **Air Zoom GT Jump 3** () — 155€
+- **Curry 11** () — 140€
+- **KD 19** () — 154.99€
+- **Air Jordan 40** () — 209.99€
+- **Dame X** () — 94.99€
+- **Super Fly 10** () — 159.99€
+- **MB.06** () — 139.99€
+- **Pro Vision** () — 74.99€
+- **XXXIX** () — 210€
+- **Stewie 3** () — 120€
+- **Air Jordan 3** () — 200€
+- **Air Jordan 6** () — 210€
+- **Air Jordan 11** () — 220€
+- **Air Jordan 13** () — 210€
+- **Kobe 4 Protro** () — 175€
+- **Kobe 5 Protro** () — 175€
+- **Kobe 6 Protro** () — 175€
+- **Air Foamposite One** () — 250€
+- **Air More Uptempo** () — 155€
+- **Air Jordan 9** () — 190€
+- **Air Jordan 10** () — 190€
+- **Air Flight Huarache** () — 130€
+- **Air Max CB 34** () — 150€
+- **Air Pippen 1** () — 140€
+- **Pro Leather** () — 90€
+
+### ⚪ Otros (Zalando, UA, NB, Puma, JD, Kickscrew)
+
+- **Curry 12** [ua_es] — 150€ (UA búsqueda)
+- **Cross ** [decathlon] — 60€ (decathlon búsqueda)
+- **Fresh Foam BB v3** [nb_es] — 140€ (NB búsqueda)
+- **Fast 900 Low-1** [decathlon] — 84.99€ (decathlon búsqueda)
+- **Air Jordan 37** [zalando_es] — 115€ (Zalando búsqueda)
+- **LeBron 21** [zalando_es] — 145€ (Zalando búsqueda)
+- **Zoom Freak 4** [zalando_es] — 85€ (Zalando búsqueda)
+- **Giannis Immortality 3** [zalando_es] — 55€ (Zalando búsqueda)
+- **All-Pro Nitro** [puma_es] — 130€ (Puma búsqueda)
+- **All-Pro Nitro** [zalando_es] — 130€ (Zalando búsqueda)
+- **MB.03** [puma_es] — 70€ (Puma búsqueda)
+- **MB.03** [zalando_es] — 75€ (Zalando búsqueda)
+- **Flow Breakthru 4** [ua_es] — 70€ (UA búsqueda)
+- **Flow Breakthru 4** [zalando_es] — 75€ (Zalando búsqueda)
+- **FUTR X Elite** [ua_es] — 75€ (UA búsqueda)
+- **AE 1** [zalando_es] — 90€ (Zalando búsqueda)
+- **Two WXY v4** [nb_es] — 75€ (NB búsqueda)
+- **Two WXY v4** [zalando_es] — 80€ (Zalando búsqueda)
+- **Luka 2** [zalando_es] — 80€ (Zalando búsqueda)
+- **PG 6** [zalando_es] — 72€ (Zalando búsqueda)
+- **Air Zoom G.T. Jump 2** [zalando_es] — 100€ (Zalando búsqueda)
+- **AE 2** [zalando_es] — 140€ (Zalando búsqueda)
+- **MB.05** [puma_es] — 120€ (Puma búsqueda)
+- **MB.05** [zalando_es] — 120€ (Zalando búsqueda)
+- **SHAI 001** [zalando_es] — 128€ (Zalando búsqueda)
+- **Engine A** [zalando_es] — 115€ (Zalando búsqueda)
+- **Curry 13** [ua_es] — 140€ (UA búsqueda)
+- **Scoot Zeros** [puma_es] — 120€ (Puma búsqueda)
+- **Sonic 12** [kickscrew] — 100€ (Kickscrew búsqueda)
+- **Shock Wave 5** [kickscrew] — 90€ (Kickscrew búsqueda)
+- **Playmaker Pro Mid** [puma_es] — 90€ (Puma búsqueda)
+- **Yu Shuai 18** [kickscrew] — 120€ (Kickscrew búsqueda)
+- **Kawhi 2** [nb_es] — 160€ (NB búsqueda)
+- **Curry 11** [ua_es] — 130€ (UA búsqueda)
+- **TWO WXY v6** [nb_es] — 185€ (NB búsqueda)
+- **Assert 10** [ua_es] — 55€ (UA búsqueda)
+- **D. Fox 2** [ua_es] — 119.99€ (UA búsqueda)
+- **Air Jordan 1** [zalando_es] — 105€ (Zalando búsqueda)
+- **Air Jordan 1** [jd_sports_es] — 185€ (JD búsqueda)
+- **Air Jordan 11** [zalando_es] — 185€ (Zalando búsqueda)
+- **Air Jordan 11** [jd_sports_es] — 220€ (JD búsqueda)
+- **Kobe 4 Protro** [kickscrew] — 180€ (Kickscrew búsqueda)
+- **Kobe 5 Protro** [kickscrew] — 185€ (Kickscrew búsqueda)
+- **Kobe 6 Protro** [kickscrew] — 195€ (Kickscrew búsqueda)
+- **Chuck Taylor All Star** [jd_sports_es] — 80€ (JD búsqueda)
+- **Zoom Generation** [kickscrew] — 180€ (Kickscrew búsqueda)
+- **Air Jordan 5 Retro** [kickscrew] — 210€ (Kickscrew búsqueda)
+- **Air Jordan 7 Retro** [kickscrew] — 200€ (Kickscrew búsqueda)
+- **Air Jordan 12 Retro** [kickscrew] — 220€ (Kickscrew búsqueda)
+- **Air Jordan 14 Retro** [kickscrew] — 210€ (Kickscrew búsqueda)
+- **Air Force 1** [zalando_es] — 104€ (Zalando búsqueda)
+- **Air Jordan 2 Retro** [kickscrew] — 185€ (Kickscrew búsqueda)
+- **Air Jordan 8 Retro** [kickscrew] — 200€ (Kickscrew búsqueda)
+- **Air Penny 1** [kickscrew] — 150€ (Kickscrew búsqueda)
+- **Clyde** [puma_es] — 80€ (Puma búsqueda)
+- **Grant Hill 1** [kickscrew] — 140€ (Kickscrew búsqueda)
+- **Kamikaze I** [reebok_es] — 120€ (reebok_es búsqueda)
+- **Sky LX** [puma_es] — 85€ (Puma búsqueda)
+- **Embiid 1** [ua_es] — 160€ (UA búsqueda)
+- **Kawhi 4** [nb_es] — 150€ (NB búsqueda)
+- **Curry 10** [ua_es] — 160€ (UA búsqueda)
