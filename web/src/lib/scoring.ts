@@ -407,6 +407,7 @@ export const COMISIONES_TIENDA: Record<string, number> = {
   elcorteingles_es: 6,  // El Corte Inglés (AWIN, pendiente — EPC €13.99 prioritario)
   footdistrict_es: 0,  // sin afiliado (Webgains, no registrado)
   converse_es: 0,      // sin afiliado (tienda oficial Converse)
+  miinto_es: 0,        // sin afiliado
   "24segons_es": 4,
   amazon_es: 3,         // Amazon ES zapas deportivas ~3%
   idealo_es: 0,         // Sin afiliado directo

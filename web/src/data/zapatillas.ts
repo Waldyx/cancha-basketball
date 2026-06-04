@@ -10332,6 +10332,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 160,
     links_compra: [
+      { tienda: "miinto_es", url: "https://es.miinto.com/p-air-penny-ii-sneakers-2c027672-0ce3-4fff-b3aa-321e9bbfdcac", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BWM9Z36S/?tag=canchazapa-21", precio_actual: 134, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
     ],
   },

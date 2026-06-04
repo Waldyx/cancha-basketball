@@ -77,7 +77,8 @@ export type Tienda =
   | "sizeofficial_es"
   | "elcorteingles_es"
   | "footdistrict_es"
-  | "converse_es";
+  | "converse_es"
+  | "miinto_es";
 
 export type FuenteReview =
   | "weartesters"
