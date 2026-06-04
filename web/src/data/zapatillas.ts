@@ -1791,7 +1791,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "puma_es", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-mb-04-lo-team-unisex/312174?swatch=02", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "puma_es", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-mb-04-lo-team-unisex/312174?swatch=02", precio_actual: 92, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=puma+mb+04+basketball", precio_actual: 129.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+mb.04+baloncesto&tag=canchazapa-21", precio_actual: 125, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
