@@ -1553,7 +1553,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 200,
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010685068543.html", precio_actual: 211, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=way+of+wade+12&tag=canchazapa-21", precio_actual: 215, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B00A2G1P5G/?tag=canchazapa-21", precio_actual: 175, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
     ],
   },
 
