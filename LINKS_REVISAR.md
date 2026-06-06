@@ -1,242 +1,244 @@
-# Informe Links a Revisar — 2026-06-04
+# Informe Links a Revisar — 2026-06-06
 
-> 151 zapas con links genéricos (búsquedas) que idealmente deberían ser producto directo.
+> 152 zapas con 284 links genéricos (búsquedas) que idealmente deberían ser producto directo.
 
 ## Por prioridad
 
 ### 🔴 Amazon (sin ASIN) — mayor impacto en conversión
 
-- **Curry 12** () — 94.83€
-- **Cross ** () — 54.99€
-- **Way of Wade All City 13** () — 159€
-- **Harden Vol 9** () — 82.99€
-- **Dame Certified** () — 59.90€
-- **MB.04** () — 125€
-- **Dame 9** () — 124€
-- **Cross ** () — 44.27€
-- **Zoom Freak 4** () — 80€
-- **All-Pro Nitro** () — 125€
-- **MB.03** () — 70€
-- **Flow Breakthru 4** () — 70€
-- **Luka 2** () — 75€
-- **MB.05** () — 85.99€
-- **Engine A** () — 87.99€
-- **Exhibit A** () — 67.90€
-- **Jet 23** () — 41.95€
-- **Cross Em Up 5** () — 41.99€
-- **LeBron Witness 8** () — 80€
-- **HOVR Havoc 5** () — 101.20€
-- **OwnTheGame 3** () — 39.00€
-- **Playmaker Pro Mid** () — 93.75€
-- **Precision 7** () — 52.49€
-- **Trae Young 3** () — 75€
-- **GT Hustle 3** () — 131.32€
-- **Tatum 2** () — 110€
-- **Zion 3** () — 140€
-- **Clyde All-Pro** () — 63.03€
-- **LeBron NXXT Gen** () — 150€
-- **Curry 11** () — 129€
-- **Dame X** () — 65€
-- **Stewie 3** () — 70.99€
-- **Air Jordan 1** () — 190€
-- **Air Jordan 3** () — 186€
-- **Air Jordan 4** () — 230€
-- **Air Jordan 6** () — 289€
-- **Air Jordan 11** () — 240€
-- **Air Jordan 13** () — 215€
-- **Kobe 4 Protro** () — 200€
-- **Kobe 5 Protro** () — 195€
-- **Kobe 6 Protro** () — 200€
-- **Shaq Attaq** () — 273€
-- **Air Foamposite One** () — 207€
-- **Chuck Taylor All Star** () — 75€
-- **Zoom Generation** () — 200€
-- **Air Jordan 5 Retro** () — 230€
-- **Air Jordan 7 Retro** () — 210€
-- **Air Jordan 12 Retro** () — 235€
-- **Air Jordan 14 Retro** () — 220€
-- **Air Jordan 2 Retro** () — 195€
-- **Air Jordan 8 Retro** () — 210€
-- **Air Penny 1** () — 160€
-- **Forum 84** () — 95€
-- **Clyde** () — 75€
-- **Air Jordan 9** () — 200€
-- **Air Jordan 10** () — 200€
-- **Crazy 8** () — 115€
-- **Superstar** () — 95€
-- **Top Ten** () — 105€
-- **Pro Model** () — 90€
-- **Air Flight Huarache** () — 135€
-- **Air Max CB 34** () — 155€
-- **Air Pippen 1** () — 145€
-- **Grant Hill 1** () — 130€
-- **Kamikaze I** () — 125€
-- **Pro Leather** () — 85€
-- **Sky LX** () — 80€
-- **Air Zoom Flight 95** () — 130€
-- **EQT Basketball 93** () — 120€
-- **Blast** () — 110€
-- **Hyperdunk 2008** () — 150€
-- **Larry Johnson All Star** () — 120€
+- **Curry 12** (`ua-curry-12`) — 94.83€
+- **Cross ** (`adidas-cross-em-up-select`) — 54.99€
+- **Way of Wade All City 13** (`lining-wow-allcity-13`) — 159€
+- **Harden Vol 9** (`adidas-harden-vol-9`) — 82.99€
+- **Dame Certified** (`adidas-dame-certified`) — 59.90€
+- **MB.04** (`puma-mb-04`) — 125€
+- **Dame 9** (`adidas-dame-9`) — 124€
+- **Cross ** (`adidas-cross-em-up-speed`) — 44.27€
+- **Zoom Freak 4** (`nike-zoom-freak-4`) — 80€
+- **All-Pro Nitro** (`puma-all-pro-nitro`) — 125€
+- **MB.03** (`puma-mb03`) — 70€
+- **Flow Breakthru 4** (`ua-flow-breakthru-4`) — 70€
+- **Luka 2** (`jordan-luka-2`) — 75€
+- **MB.05** (`puma-mb05`) — 85.99€
+- **Engine A** (`reebok-engine-a`) — 87.99€
+- **Exhibit A** (`adidas-exhibit-a`) — 67.90€
+- **Jet 23** (`ua-jet-23`) — 41.95€
+- **Cross Em Up 5** (`adidas-cross-em-up-5`) — 41.99€
+- **LeBron Witness 8** (`nike-lebron-witness-8`) — 80€
+- **HOVR Havoc 5** (`ua-hovr-havoc-5`) — 101.20€
+- **OwnTheGame 3** (`adidas-ownthegame-3`) — 39.00€
+- **Playmaker Pro Mid** (`puma-playmaker-pro-mid`) — 93.75€
+- **Precision 7** (`nike-precision-7`) — 52.49€
+- **Trae Young 3** (`adidas-trae-young-3`) — 75€
+- **GT Hustle 3** (`nike-gt-hustle-3`) — 131.32€
+- **Tatum 2** (`jordan-tatum-2`) — 110€
+- **Zion 3** (`jordan-zion-3`) — 140€
+- **Clyde All-Pro** (`puma-clyde-all-pro`) — 63.03€
+- **LeBron NXXT Gen** (`nike-lebron-nxxt-gen`) — 150€
+- **Curry 11** (`ua-curry-11`) — 129€
+- **Dame X** (`adidas-dame-x`) — 65€
+- **Stewie 3** (`puma-stewie-3`) — 70.99€
+- **Air Jordan 1** (`air-jordan-1`) — 190€
+- **Air Jordan 3** (`air-jordan-3`) — 186€
+- **Air Jordan 4** (`air-jordan-4`) — 230€
+- **Air Jordan 6** (`air-jordan-6`) — 289€
+- **Air Jordan 11** (`air-jordan-11`) — 240€
+- **Air Jordan 13** (`air-jordan-13`) — 215€
+- **Kobe 4 Protro** (`nike-kobe-4-protro`) — 200€
+- **Kobe 5 Protro** (`nike-kobe-5-protro`) — 195€
+- **Kobe 6 Protro** (`nike-kobe-6-protro`) — 200€
+- **Shaq Attaq** (`reebok-shaq-attaq`) — 273€
+- **Air Foamposite One** (`nike-air-foamposite-one`) — 207€
+- **Chuck Taylor All Star** (`converse-chuck-taylor`) — 75€
+- **Zoom Generation** (`nike-zoom-generation`) — 200€
+- **Air Jordan 5 Retro** (`air-jordan-5`) — 230€
+- **Air Jordan 7 Retro** (`air-jordan-7`) — 210€
+- **Air Jordan 12 Retro** (`air-jordan-12`) — 235€
+- **Air Jordan 14 Retro** (`air-jordan-14`) — 220€
+- **Air Jordan 2 Retro** (`air-jordan-2`) — 195€
+- **Air Jordan 8 Retro** (`air-jordan-8`) — 210€
+- **Air Penny 1** (`nike-air-penny-1`) — 160€
+- **Forum 84** (`adidas-forum-84`) — 95€
+- **Clyde** (`puma-clyde`) — 75€
+- **Air Jordan 9** (`air-jordan-9`) — 200€
+- **Air Jordan 10** (`air-jordan-10`) — 200€
+- **Crazy 8** (`adidas-crazy-8`) — 115€
+- **Superstar** (`adidas-superstar`) — 95€
+- **Top Ten** (`adidas-top-ten`) — 105€
+- **Pro Model** (`adidas-pro-model`) — 90€
+- **Air Flight Huarache** (`nike-air-flight-huarache`) — 135€
+- **Air Max CB 34** (`nike-air-max-cb-34`) — 155€
+- **Air Pippen 1** (`nike-air-pippen`) — 145€
+- **Grant Hill 1** (`fila-grant-hill-1`) — 130€
+- **Kamikaze I** (`reebok-kamikaze-1`) — 125€
+- **Pro Leather** (`converse-pro-leather`) — 85€
+- **Sky LX** (`puma-sky-lx`) — 80€
+- **Air Zoom Flight 95** (`nike-air-zoom-flight-95`) — 130€
+- **EQT Basketball 93** (`adidas-eqt-basketball`) — 120€
+- **Blast** (`reebok-blast`) — 110€
+- **Hyperdunk 2008** (`nike-hyperdunk-2008`) — 150€
+- **Larry Johnson All Star** (`converse-larry-johnson`) — 120€
 
 ### 🟠 Adidas.es (sin producto directo)
 
-- **Cross ** () — 55€
-- **Harden Vol 9** () — 160€
-- **Dame Certified** () — 95€
-- **Dame 9** () — 120€
-- **Cross ** () — 60€
-- **Dame 8** () — 100€
-- **Exhibit A** () — 65€
-- **Exhibit B** () — 80€
-- **Cross Em Up 5** () — 55€
-- **Harden Stepback 4** () — 70€
-- **OwnTheGame 3** () — 55€
-- **AE 1.5** () — 120€
-- **Trae Young 3** () — 120€
-- **Trae Young 4** () — 130€
-- **Harden Vol 8** () — 90€
-- **Ownthegame 2.0** () — 55€
-- **Dame X** () — 94.99€
-- **Forum 84** () — 100€
-- **Crazy 8** () — 110€
-- **Superstar** () — 100€
-- **Top Ten** () — 110€
-- **Pro Model** () — 95€
+- **Cross ** (`adidas-cross-em-up-select`) — 55€
+- **Harden Vol 9** (`adidas-harden-vol-9`) — 160€
+- **Dame Certified** (`adidas-dame-certified`) — 95€
+- **Dame 9** (`adidas-dame-9`) — 120€
+- **Cross ** (`adidas-cross-em-up-speed`) — 60€
+- **Dame 8** (`adidas-dame-8`) — 100€
+- **Exhibit A** (`adidas-exhibit-a`) — 65€
+- **Exhibit B** (`adidas-exhibit-b`) — 80€
+- **Cross Em Up 5** (`adidas-cross-em-up-5`) — 55€
+- **Harden Stepback 4** (`adidas-harden-stepback-4`) — 70€
+- **OwnTheGame 3** (`adidas-ownthegame-3`) — 55€
+- **AE 1.5** (`adidas-ae-1-5`) — 120€
+- **Trae Young 3** (`adidas-trae-young-3`) — 120€
+- **Trae Young 4** (`adidas-trae-young-4`) — 130€
+- **Harden Vol 8** (`adidas-harden-vol-8`) — 90€
+- **Ownthegame 2.0** (`adidas-ownthegame-2`) — 55€
+- **Dame X** (`adidas-dame-x`) — 94.99€
+- **Forum 84** (`adidas-forum-84`) — 100€
+- **Crazy 8** (`adidas-crazy-8`) — 110€
+- **Superstar** (`adidas-superstar`) — 100€
+- **Top Ten** (`adidas-top-ten`) — 110€
+- **Pro Model** (`adidas-pro-model`) — 95€
 
 ### 🟡 Nike.es (URLs de búsqueda — difíciles de mejorar)
 
-- **KD 18** () — 169.99€
-- **Kobe 8 Protro** () — 200€
-- **Luka 5** () — 135€
-- **GT Cut 3** () — 189.99€
-- **Tatum 3** () — 144.99€
-- **Ja 2** () — 120€
-- **Kyrie Low 5** () — 119.99€
-- **Giannis Freak 7** () — 120€
-- **Luka 3** () — 129.99€
-- **Precision 8** () — 79.99€
-- **LeBron Witness 9** () — 99.99€
-- **One Take 5** () — 110€
-- **Air Jordan 37** () — 120€
-- **LeBron 21** () — 135€
-- **Zoom Freak 4** () — 80€
-- **Giannis Immortality 3** () — 50€
-- **Luka 2** () — 75€
-- **PG 6** () — 65€
-- **Air Zoom G.T. Jump 2** () — 95€
-- **LeBron 23** () — 220€
-- **Ja 3** () — 135€
-- **Air Zoom G.T. Cut 4** () — 170€
-- **KD 17** () — 160€
-- **D.O.N. Issue 6** () — 110€
-- **Zoom Freak 5** () — 120€
-- **Air Jordan XXXVIII** () — 160€
-- **Air Max Impact 5** () — 80€
-- **Giannis Immortality 4** () — 85€
-- **GT Run 2** () — 110€
-- **Super/Fly 8** () — 115€
-- **Zoom Freak 6** () — 150€
-- **LeBron Witness 8** () — 90€
-- **Sabrina 1** () — 100€
-- **Kyrie Flytrap 6** () — 70€
-- **Luka 1** () — 100€
-- **Air Zoom Crossover 2** () — 75€
-- **KD 16** () — 120€
-- **Precision 7** () — 65€
-- **Ja 1** () — 85€
-- **GT Hustle 3** () — 185€
-- **Tatum 2** () — 120€
-- **Zion 3** () — 150€
-- **LeBron NXXT Gen** () — 160€
-- **Air Zoom GT Jump 3** () — 150€
-- **Why Not .6** () — 90€
-- **KD 19** () — 149.99€
-- **Air Jordan 40** () — 199.99€
-- **Kobe 9 High Protro** () — 199.99€
-- **Kobe 9 Elite Low Protro** () — 190€
-- **LeBron NXXT Genisus** () — 125€
+- **KD 18** (`nike-kd-18`) — 169.99€
+- **Kobe 8 Protro** (`nike-kobe-8-protro`) — 200€
+- **Luka 5** (`jordan-luka-5`) — 135€
+- **GT Cut 3** (`nike-gt-cut-3`) — 189.99€
+- **Tatum 3** (`jordan-tatum-3`) — 144.99€
+- **Ja 2** (`nike-ja-2`) — 120€
+- **Kyrie Low 5** (`nike-kyrie-low-5`) — 119.99€
+- **Giannis Freak 7** (`nike-giannis-freak-7`) — 120€
+- **Luka 3** (`jordan-luka-3`) — 129.99€
+- **Precision 8** (`nike-precision-8`) — 79.99€
+- **LeBron Witness 9** (`nike-lebron-witness-9`) — 99.99€
+- **One Take 5** (`jordan-one-take-5`) — 110€
+- **Air Jordan 37** (`jordan-xxxvii`) — 120€
+- **LeBron 21** (`nike-lebron-21`) — 135€
+- **Zoom Freak 4** (`nike-zoom-freak-4`) — 80€
+- **Giannis Immortality 3** (`nike-giannis-immortality-3`) — 50€
+- **Luka 2** (`jordan-luka-2`) — 75€
+- **PG 6** (`nike-pg-6`) — 65€
+- **Air Zoom G.T. Jump 2** (`nike-gt-jump-2`) — 95€
+- **LeBron 23** (`nike-lebron-23`) — 220€
+- **Ja 3** (`nike-ja-3`) — 135€
+- **Air Zoom G.T. Cut 4** (`nike-gt-cut-4`) — 170€
+- **A** (`nike-aone`) — 130€
+- **KD 17** (`nike-kd-17`) — 160€
+- **D.O.N. Issue 6** (`nike-don-issue-6`) — 110€
+- **Zoom Freak 5** (`nike-zoom-freak-5`) — 120€
+- **Air Jordan XXXVIII** (`jordan-xxxviii`) — 160€
+- **Air Max Impact 5** (`nike-air-max-impact-5`) — 80€
+- **Giannis Immortality 4** (`nike-giannis-immortality-4`) — 85€
+- **GT Run 2** (`nike-gt-run-2`) — 110€
+- **Super/Fly 8** (`jordan-super-fly-8`) — 115€
+- **Zoom Freak 6** (`nike-zoom-freak-6`) — 150€
+- **LeBron Witness 8** (`nike-lebron-witness-8`) — 90€
+- **Sabrina 1** (`nike-sabrina-1`) — 100€
+- **Kyrie Flytrap 6** (`nike-kyrie-flytrap-6`) — 70€
+- **Luka 1** (`jordan-luka-1`) — 100€
+- **Air Zoom Crossover 2** (`nike-air-zoom-crossover-2`) — 75€
+- **KD 16** (`nike-kd-16`) — 120€
+- **Precision 7** (`nike-precision-7`) — 65€
+- **Ja 1** (`nike-ja-1`) — 85€
+- **GT Hustle 3** (`nike-gt-hustle-3`) — 185€
+- **Tatum 2** (`jordan-tatum-2`) — 120€
+- **Zion 3** (`jordan-zion-3`) — 150€
+- **LeBron NXXT Gen** (`nike-lebron-nxxt-gen`) — 160€
+- **Air Zoom GT Jump 3** (`nike-gt-jump-3`) — 150€
+- **Why Not .6** (`jordan-why-not-6`) — 90€
+- **KD 19** (`nike-kd-19`) — 149.99€
+- **Air Jordan 40** (`jordan-40`) — 199.99€
+- **Kobe 9 High Protro** (`nike-kobe-9-high-protro`) — 199.99€
+- **Kobe 3 Protro** (`nike-kobe-3-protro`) — 200€
+- **Kobe 9 Elite Low Protro** (`nike-kobe-9-elite-low-protro`) — 190€
+- **LeBron NXXT Genisus** (`nike-lebron-nxxt-genisus`) — 125€
 
 ### 🟡 Foot Locker (búsqueda genérica)
 
-- **Luka 5** () — 140€
-- **GT Cut 3** () — 195€
-- **Tatum 3** () — 150€
-- **Ja 2** () — 124.99€
-- **Kyrie Low 5** () — 124.99€
-- **Giannis Freak 7** () — 120€
-- **Luka 3** () — 119.99€
-- **Precision 8** () — 84.99€
-- **LeBron Witness 9** () — 104.99€
-- **One Take 5** () — 114.99€
-- **Air Jordan 37** () — 125€
-- **LeBron 21** () — 150€
-- **Zoom Freak 4** () — 90€
-- **AE 1** () — 95€
-- **Luka 2** () — 85€
-- **Air Zoom G.T. Jump 2** () — 105€
-- **LeBron 23** () — 215€
-- **Ja 3** () — 135€
-- **AE 2** () — 145€
-- **SHAI 001** () — 125€
-- **Air Zoom G.T. Cut 4** () — 165€
-- **Zion 4** () — 85€
-- **Luka 4** () — 80€
-- **KD 17** () — 155€
-- **D.O.N. Issue 6** () — 100€
-- **Scoot Zeros** () — 115€
-- **Dame 8** () — 95€
-- **Zoom Freak 5** () — 110€
-- **Air Jordan XXXVIII** () — 155€
-- **Jet 23** () — 70€
-- **All-Pro Nitro 2** () — 120€
-- **Giannis Immortality 4** () — 80€
-- **GT Run 2** () — 100€
-- **Super/Fly 8** () — 110€
-- **Zoom Freak 6** () — 140€
-- **LeBron Witness 8** () — 85€
-- **Kawhi 1** () — 140€
-- **Sabrina 1** () — 90€
-- **Luka 1** () — 90€
-- **HOVR Havoc 5** () — 100€
-- **Air Zoom Crossover 2** () — 65€
-- **KD 16** () — 110€
-- **AE 1.5** () — 110€
-- **All Star Pro BB** () — 120€
-- **Ja 1** () — 89€
-- **Trae Young 3** () — 130€
-- **GT Hustle 3** () — 180€
-- **Kawhi 2** () — 150€
-- **Trae Young 4** () — 125€
-- **Tatum 2** () — 130€
-- **Zion 3** () — 160€
-- **Clyde All-Pro** () — 110€
-- **LeBron NXXT Gen** () — 170€
-- **Air Zoom GT Jump 3** () — 155€
-- **Curry 11** () — 140€
-- **KD 19** () — 154.99€
-- **Air Jordan 40** () — 209.99€
-- **Dame X** () — 94.99€
-- **Super Fly 10** () — 159.99€
-- **MB.06** () — 139.99€
-- **Pro Vision** () — 74.99€
-- **XXXIX** () — 210€
-- **Stewie 3** () — 120€
-- **Air Jordan 3** () — 200€
-- **Air Jordan 6** () — 210€
-- **Air Jordan 11** () — 220€
-- **Air Jordan 13** () — 210€
-- **Kobe 4 Protro** () — 175€
-- **Kobe 5 Protro** () — 175€
-- **Kobe 6 Protro** () — 175€
-- **Air Foamposite One** () — 250€
-- **Air More Uptempo** () — 155€
-- **Air Jordan 9** () — 190€
-- **Air Jordan 10** () — 190€
-- **Air Flight Huarache** () — 130€
-- **Air Max CB 34** () — 150€
-- **Air Pippen 1** () — 140€
-- **Pro Leather** () — 90€
+- **Luka 5** (`jordan-luka-5`) — 140€
+- **GT Cut 3** (`nike-gt-cut-3`) — 195€
+- **Tatum 3** (`jordan-tatum-3`) — 150€
+- **Ja 2** (`nike-ja-2`) — 124.99€
+- **Kyrie Low 5** (`nike-kyrie-low-5`) — 124.99€
+- **Giannis Freak 7** (`nike-giannis-freak-7`) — 120€
+- **Luka 3** (`jordan-luka-3`) — 119.99€
+- **Precision 8** (`nike-precision-8`) — 84.99€
+- **LeBron Witness 9** (`nike-lebron-witness-9`) — 104.99€
+- **One Take 5** (`jordan-one-take-5`) — 114.99€
+- **Air Jordan 37** (`jordan-xxxvii`) — 125€
+- **LeBron 21** (`nike-lebron-21`) — 150€
+- **Zoom Freak 4** (`nike-zoom-freak-4`) — 90€
+- **AE 1** (`adidas-ae-1`) — 95€
+- **Luka 2** (`jordan-luka-2`) — 85€
+- **Air Zoom G.T. Jump 2** (`nike-gt-jump-2`) — 105€
+- **LeBron 23** (`nike-lebron-23`) — 215€
+- **Ja 3** (`nike-ja-3`) — 135€
+- **AE 2** (`adidas-ae-2`) — 145€
+- **SHAI 001** (`converse-shai-001`) — 125€
+- **Air Zoom G.T. Cut 4** (`nike-gt-cut-4`) — 165€
+- **Zion 4** (`jordan-zion-4`) — 85€
+- **Luka 4** (`jordan-luka-4`) — 80€
+- **KD 17** (`nike-kd-17`) — 155€
+- **D.O.N. Issue 6** (`nike-don-issue-6`) — 100€
+- **Scoot Zeros** (`puma-scoot-zeros`) — 115€
+- **Dame 8** (`adidas-dame-8`) — 95€
+- **Zoom Freak 5** (`nike-zoom-freak-5`) — 110€
+- **Air Jordan XXXVIII** (`jordan-xxxviii`) — 155€
+- **Jet 23** (`ua-jet-23`) — 70€
+- **All-Pro Nitro 2** (`puma-all-pro-nitro-2`) — 120€
+- **Giannis Immortality 4** (`nike-giannis-immortality-4`) — 80€
+- **GT Run 2** (`nike-gt-run-2`) — 100€
+- **Super/Fly 8** (`jordan-super-fly-8`) — 110€
+- **Zoom Freak 6** (`nike-zoom-freak-6`) — 140€
+- **LeBron Witness 8** (`nike-lebron-witness-8`) — 85€
+- **Kawhi 1** (`nb-kawhi-1`) — 140€
+- **Sabrina 1** (`nike-sabrina-1`) — 90€
+- **Luka 1** (`jordan-luka-1`) — 90€
+- **HOVR Havoc 5** (`ua-hovr-havoc-5`) — 100€
+- **Air Zoom Crossover 2** (`nike-air-zoom-crossover-2`) — 65€
+- **KD 16** (`nike-kd-16`) — 110€
+- **AE 1.5** (`adidas-ae-1-5`) — 110€
+- **All Star Pro BB** (`converse-all-star-pro-bb`) — 120€
+- **Ja 1** (`nike-ja-1`) — 89€
+- **Trae Young 3** (`adidas-trae-young-3`) — 130€
+- **GT Hustle 3** (`nike-gt-hustle-3`) — 180€
+- **Kawhi 2** (`nb-kawhi-2`) — 150€
+- **Trae Young 4** (`adidas-trae-young-4`) — 125€
+- **Tatum 2** (`jordan-tatum-2`) — 130€
+- **Zion 3** (`jordan-zion-3`) — 160€
+- **Clyde All-Pro** (`puma-clyde-all-pro`) — 110€
+- **LeBron NXXT Gen** (`nike-lebron-nxxt-gen`) — 170€
+- **Air Zoom GT Jump 3** (`nike-gt-jump-3`) — 155€
+- **Curry 11** (`ua-curry-11`) — 140€
+- **KD 19** (`nike-kd-19`) — 154.99€
+- **Air Jordan 40** (`jordan-40`) — 209.99€
+- **Dame X** (`adidas-dame-x`) — 94.99€
+- **Super Fly 10** (`jordan-super-fly-10`) — 159.99€
+- **MB.06** (`puma-mb-06`) — 139.99€
+- **Pro Vision** (`adidas-pro-vision`) — 74.99€
+- **XXXIX** (`jordan-xxxix`) — 210€
+- **Stewie 3** (`puma-stewie-3`) — 120€
+- **Air Jordan 3** (`air-jordan-3`) — 200€
+- **Air Jordan 6** (`air-jordan-6`) — 210€
+- **Air Jordan 11** (`air-jordan-11`) — 220€
+- **Air Jordan 13** (`air-jordan-13`) — 210€
+- **Kobe 4 Protro** (`nike-kobe-4-protro`) — 175€
+- **Kobe 5 Protro** (`nike-kobe-5-protro`) — 175€
+- **Kobe 6 Protro** (`nike-kobe-6-protro`) — 175€
+- **Air Foamposite One** (`nike-air-foamposite-one`) — 250€
+- **Air More Uptempo** (`nike-air-more-uptempo`) — 155€
+- **Air Jordan 9** (`air-jordan-9`) — 190€
+- **Air Jordan 10** (`air-jordan-10`) — 190€
+- **Air Flight Huarache** (`nike-air-flight-huarache`) — 130€
+- **Air Max CB 34** (`nike-air-max-cb-34`) — 150€
+- **Air Pippen 1** (`nike-air-pippen`) — 140€
+- **Pro Leather** (`converse-pro-leather`) — 90€
 
 ### ⚪ Otros (Zalando, UA, NB, Puma, JD, Kickscrew)
 
@@ -274,7 +276,6 @@
 - **Yu Shuai 18** [kickscrew] — 120€ (Kickscrew búsqueda)
 - **Kawhi 2** [nb_es] — 160€ (NB búsqueda)
 - **Curry 11** [ua_es] — 130€ (UA búsqueda)
-- **TWO WXY v6** [nb_es] — 185€ (NB búsqueda)
 - **Assert 10** [ua_es] — 55€ (UA búsqueda)
 - **D. Fox 2** [ua_es] — 119.99€ (UA búsqueda)
 - **Air Jordan 1** [zalando_es] — 105€ (Zalando búsqueda)
