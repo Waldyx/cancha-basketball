@@ -4669,7 +4669,79 @@ const _rawZapatillas: Zapatilla[] = [
     ],
   },
 
-  // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ─────────────────────────────────────────────────────────────────────────
+  // NIKE A'ONE — Debut signature A'ja Wilson (WNBA MVP)
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    id: "nike-aone",
+    slug: "nike-aone",
+    marca: "Nike",
+    modelo: "A'One",
+    generacion: 1,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "A'ja Wilson",
+    tecnologia_clave: ["Cushlon 3.0 foam", "Zoom Air heel", "Wide forefoot platform", "Herringbone outsole"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 380,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 9,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 8,
+      respuesta: 7,
+      soporte_lateral: 8,
+      estabilidad: 9,
+      peso_score: 6,
+      durabilidad_outdoor: 7,
+      ventilacion: 7,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "debut", "wnba", "pivot", "ala-pivot", "moderna"],
+
+    ideal_para: {
+      posiciones: ["alero", "ala-pivot", "pivot"],
+      peso_jugador_kg: [75, 110],
+      estilos: ["potente", "equilibrado"],
+    },
+    no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
+
+    resumen: "Debut signature de A'ja Wilson, 3x MVP de la WNBA. Nike diseñó la A'One pensando en forwards y pívots: plataforma ancha, Cushlon 3.0 con Zoom heel, y estética afilada. Una de las primeras signatures Nike de jugadora WNBA con este nivel de inversión técnica.",
+    pros: [
+      "Plataforma ancha — estabilidad excepcional para forwards",
+      "Cushlon 3.0 + Zoom heel: amortiguación premium para impacto vertical",
+      "Tracción herringbone fiable indoor",
+      "Diseño agresivo que rompe con la estética clásica WNBA",
+    ],
+    contras: [
+      "Pesada (380g) — no para guards explosivos",
+      "Respuesta baja para cortes rápidos",
+      "Disponibilidad limitada en España al lanzamiento",
+      "Precio premium para una primera signature",
+    ],
+    veredicto: "El mejor debut WNBA de Nike en años. La A'One es zapatilla seria de pívot/ala-pívot, no un accesorio de marketing. Si juegas con peso y necesitas plataforma ancha, candidata real frente a Tatum 4 o LeBron Witness 9.",
+
+    imagen_principal: "/shoes/nike-aone.webp",
+    imagenes: [],
+
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-05",
+
+    precio_msrp_eur: 130,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=a%27one&vst=a%27one", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+a+one+wilson", precio_actual: 130, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+a%27one+wilson&tag=canchazapa-21", precio_actual: 140, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
   // 63. Jordan Tatum 4 — Tatum signature, cushion premium
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
@@ -9672,6 +9744,78 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 200,
     links_compra: [
       { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fnike%2Fkobe-1-protro-81-points-white-black-court-purple", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // NIKE KOBE 3 PROTRO (2008/retro 2026) — Mamba Mentality debut
+  // ─────────────────────────────────────────────────────────────────────────
+  {
+    id: "nike-kobe-3-protro",
+    slug: "nike-kobe-3-protro",
+    es_retro: true,
+    marca: "Nike",
+    modelo: "Kobe 3 Protro",
+    generacion: 3,
+    año_lanzamiento: 2008,
+    genero: "unisex",
+    signature_player: "Kobe Bryant",
+    tecnologia_clave: ["Zoom Air heel + forefoot", "Mid-top reforzado", "Herringbone full outsole"],
+    predecesor_id: "nike-kobe-1-protro",
+    sucesor_id: "nike-kobe-4-protro",
+
+    peso_real_g: 360,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 9,
+    tipo_cierre: "cordones",
+    material_superior: "cuero+sintético",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 7,
+      respuesta: 8,
+      soporte_lateral: 9,
+      estabilidad: 9,
+      peso_score: 6,
+      durabilidad_outdoor: 6,
+      ventilacion: 5,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "retro", "mid", "kobe", "culto"],
+
+    ideal_para: {
+      posiciones: ["escolta", "alero"],
+      peso_jugador_kg: [70, 95],
+      estilos: ["equilibrado", "explosivo"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+
+    resumen: "La última Kobe antes de la era low-top. La Kobe 3 representa el momento en que MJ pasó el testigo y Bryant empezó a definir su propio legado. Soporte de tobillo brutal, Zoom dual y construcción tank. Las reediciones Protro 2026 se agotan en minutos.",
+    pros: [
+      "Soporte de tobillo de los mejores de la era",
+      "Tracción herringbone muy fiable",
+      "Estabilidad lateral excelente",
+      "Construcción premium en cuero",
+    ],
+    contras: [
+      "Pesada para estándares modernos (360g)",
+      "Cushion básico comparado con foams actuales",
+      "Ventilación limitada — cuero+sintético",
+      "Disponibilidad muy limitada — sold out frecuente",
+    ],
+    veredicto: "Para el coleccionista Kobe que quiere historia jugable. La 3 Protro mantiene el ADN agresivo de la original con tuning moderno. 7.5/10 en performance — su mayor valor está en la cultura.",
+
+    imagen_principal: "/shoes/nike-kobe-3-protro.webp",
+    imagenes: [],
+
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-05",
+    precio_msrp_eur: 200,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kobe+3+protro&vst=kobe+3+protro", precio_actual: 200, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+kobe+3+protro", precio_actual: 200, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+kobe+3+protro&tag=canchazapa-21", precio_actual: 220, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
     ],
   },
 
