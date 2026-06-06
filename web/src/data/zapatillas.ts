@@ -4739,6 +4739,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/~/314109490004.html", precio_actual: 60, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fnike%2Faone-lem-and-lime-mujer-volt-white-barely-volt", precio_actual: 76, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fnike-a-ja-wilson-a-one-all-star-women-s%2F2a0a5073-24e6-461d-9b70-5379fb3e323c%2Fc4", precio_actual: 116, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-aone-mvps.html", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=a%27one&vst=a%27one", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+a%27one+wilson&tag=canchazapa-21", precio_actual: 140, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
     ],
