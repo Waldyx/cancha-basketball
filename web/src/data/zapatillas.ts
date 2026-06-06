@@ -9819,6 +9819,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-05",
     precio_msrp_eur: 200,
     links_compra: [
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-kobe-3-protro-halo%2Fd932e932-5e25-4d2d-b068-7c6fc8eead45%2Fc4", precio_actual: 132, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fnike%2Fkobe-3-protro-christmas-royal-pulse-chrome-white", precio_actual: 170, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kobe+3+protro&vst=kobe+3+protro", precio_actual: 200, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+kobe+3+protro", precio_actual: 200, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
