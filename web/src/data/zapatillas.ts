@@ -7573,7 +7573,7 @@ const _rawZapatillas: Zapatilla[] = [
     genero: "unisex",
     tecnologia_clave: ["FuelCell foam", "Fresh Foam X", "suction-cup traction", "torsional plate"],
     predecesor_id: "nb-two-wxy-v4",
-    sucesor_id: "nb-two-wxy-v6",
+    sucesor_id: null,
 
     peso_real_g: 390,
     altura: "low",
@@ -8238,76 +8238,7 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // NEW BALANCE TWO WXY v6 — Top de gama NB 2024
-  // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  {
-    id: "nb-two-wxy-v6",
-    slug: "nb-two-wxy-v6",
-    marca: "New Balance",
-    modelo: "TWO WXY v6",
-    generacion: 6,
-    año_lanzamiento: 2024,
-    genero: "unisex",
-    tecnologia_clave: ["FuelCell", "herringbone", "goma translúcida"],
-    predecesor_id: "nb-two-wxy-v5",
-    sucesor_id: undefined,
-
-    peso_real_g: 350,
-    altura: "low",
-    horma: "normal",
-    drop_mm: 8,
-    tipo_cierre: "cordones",
-    material_superior: "mesh+tpu",
-
-    puntuaciones: {
-      traccion: 9,
-      amortiguacion: 8,
-      respuesta: 8,
-      soporte_lateral: 8,
-      estabilidad: 8,
-      peso_score: 7,
-      durabilidad_outdoor: 8,
-      ventilacion: 7,
-    },
-    categoria_principal: "balanced",
-    tags: ["tope-de-gama", "guard", "escolta", "fuelcell", "moderna"],
-
-    ideal_para: {
-      posiciones: ["base", "escolta"],
-      peso_jugador_kg: [65, 95],
-      estilos: ["explosivo", "equilibrado"],
-    },
-    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
-
-    resumen: "La TWO WXY v6 es el tope de gama de New Balance para 2024. FuelCell reactivo combinado con una tracción herringbone en goma translúcida que ofrece un agarre excepcional en cancha interior. Una de las mejores opciones para guards que valoran el equilibrio total.",
-    pros: [
-      "FuelCell: amortiguación reactiva y ligera",
-      "Tracción herringbone translúcida muy fiable",
-      "Construcción premium con precio competitivo vs Nike/Adidas",
-      "Soporte lateral sólido para ser low",
-    ],
-    contras: [
-      "Disponibilidad limitada en España",
-      "No signature — menor presencia de marketing",
-      "Algo pesada para los más velocistas",
-    ],
-    veredicto: "La mejor apuesta de New Balance para guards en 2024. Si priorizas rendimiento sobre marketing, la TWO WXY v6 supera a muchas signatures en valor real.",
-
-    imagen_principal: "/shoes/nb-two-wxy-v6.webp",
-    imagenes: [],
-
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-05-20",
-
-    precio_msrp_eur: 200,
-    links_compra: [
-      { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar/?q=two+wxy+v6", precio_actual: 185, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-20" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+two+wxy+v6+baloncesto&tag=canchazapa-21", precio_actual: 180, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
-    ],
-  },
-
-  // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // JORDAN WHY NOT .6 — Russell Westbrook, mid
+    // JORDAN WHY NOT .6 — Russell Westbrook, mid
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
     id: "jordan-why-not-6",
