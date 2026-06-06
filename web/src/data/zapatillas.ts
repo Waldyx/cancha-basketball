@@ -9434,8 +9434,9 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 200,
     links_compra: [
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=air+jordan+3", precio_actual: 200, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-3-retro-og-rare-air%2F9427ddab-16c5-46e9-a38b-b63c97f90ec4%2Fc1", precio_actual: 183, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+3+retro&tag=canchazapa-21", precio_actual: 186, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=air+jordan+3", precio_actual: 200, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
     ],
   },
 
