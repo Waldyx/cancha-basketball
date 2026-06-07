@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-06-03 (sesión 21)
+> Última actualización: 2026-06-08 (sesión 22)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -47,7 +47,33 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 
 ---
 
-## Estado actual (sesión 21)
+## Estado actual (sesión 22) — Auditoría masiva de puntuaciones y specs
+
+### ✅ Completado (sesión 22) — Calidad de datos
+
+**Auditoría puntuaciones (119 zapas ajustadas):**
+- Contraste de TODAS las puntuaciones no-retro contra WearTesters (~80 reviews verificadas)
+- Lógica de saga aplicada al resto (sucesoras no deben puntuar menos que predecesoras salvo evidencia)
+- Quedan solo 13 inconsistencias menores (diff ≤ 0.5), todas confirmadas correctas por WT (LeBron 23, Freak 7, GT Cut 4, XXXIX son peor que sus predecesores)
+
+**Top scores ahora reflejando WT real:**
+- Curry 12 (9.5), KT 10 (9.5), WoW 12 (9.5), Gamma 2 (9.5), Kyrie Infinity (9.5)
+- Shock The Game 5 (9.25), Curry 11 (9.25)
+- LeBron 22, KD 18, KAI 2/3, Hali 1, Dame 9, AE 2, GT Jump 2, AJ 40, XXXVIII, KD 16/17, Curry 10, Wow All City 14 (todas 9)
+- GT Cut 4 bajada a 6.5 (WT 5/10), Freak 7 a 6 (WT 6/10), Book 2 a 6 (WT 6/10)
+
+**Auditoría specs peso/drop (76 zapas ajustadas):**
+- 26 verificadas en RunRepeat lab (datos cuasi-oficiales)
+- 50 verificadas con Google AI overview (WT/RR/fichas oficiales)
+- Hallazgos críticos: AE 1 348g→448g, Kawhi 2 NB 348g→437g, SHAI 001 315g→414g, Curry 11 298g→348g, Immortality 4 420g/10mm→357g/5mm, Sabrina 3 drop 10mm→6mm, Witness 8 drop 6mm→9mm, etc.
+
+**Total commits sesión 22:** 8 commits en master
+
+**Pendiente sesión 22:** ~50 zapas sin verificar specs (Reebok, Decathlon, Peak, NB OMN1S, Anta secundarias — sin reviews públicas o datos no encontrados)
+
+---
+
+## Estado anterior (sesión 21)
 
 ### ✅ Completado (sesión 21) — Auditoría completa de links retros
 

@@ -11,3 +11,11 @@ web/_audit/
 
 # Logs del scraper de precios
 web/scraper-audit.log
+
+# Scripts auxiliares de auditoría (local-only, no necesarios en repo)
+.scores_*.js
+.scores_raw.json
+.specs_*.js
+.specs_raw.json
+SCORES_AUDIT.md
+web/fix-joom.mjs
