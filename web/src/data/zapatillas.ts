@@ -1201,7 +1201,7 @@ const _rawZapatillas: Zapatilla[] = [
     marca: "Anta",
     modelo: "KAI 3",
     generacion: 3,
-    año_lanzamiento: 2025,
+    año_lanzamiento: 2026,
     genero: "unisex",
     signature_player: "Kyrie Irving",
     tecnologia_clave: ["Nitrogen foam", "TPU side cage", "Herringbone outsole"],
@@ -4756,7 +4756,7 @@ const _rawZapatillas: Zapatilla[] = [
     marca: "Jordan",
     modelo: "Tatum 4",
     generacion: 4,
-    año_lanzamiento: 2025,
+    año_lanzamiento: 2026,
     genero: "unisex",
     signature_player: "Jayson Tatum",
     tecnologia_clave: ["Zoom Air strobel", "React midsole", "knit upper"],
@@ -6207,112 +6207,12 @@ const _rawZapatillas: Zapatilla[] = [
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 89. NIKE GT RUN 2 — cushion para corredores/tiradores
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  {
-    id: "nike-gt-run-2",
-    slug: "nike-gt-run-2",
-    marca: "Nike",
-    modelo: "GT Run 2",
-    generacion: 2,
-    año_lanzamiento: 2023,
-    genero: "unisex",
-    tecnologia_clave: ["Zoom Air", "React foam"],
-    predecesor_id: null,
-    sucesor_id: null,
-    peso_real_g: 360,
-    altura: "mid",
-    horma: "normal",
-    drop_mm: 9,
-    tipo_cierre: "cordones",
-    material_superior: "mesh",
-    puntuaciones: {
-      traccion: 7,
-      amortiguacion: 7,
-      respuesta: 7,
-      soporte_lateral: 7,
-      estabilidad: 7,
-      peso_score: 7,
-      durabilidad_outdoor: 6,
-      ventilacion: 8,
-    },
-    categoria_principal: "balanced",
-    tags: ["value-premium", "moderna"],
-    ideal_para: {
-      posiciones: ["escolta", "alero", "base"],
-      peso_jugador_kg: [65, 90],
-      estilos: ["tirador", "equilibrado"],
-    },
-    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
-    resumen: "Nike GT Run 2 equilibra cushion y respuesta con una combinación de Zoom Air y React foam. Para jugadores que corren mucho y necesitan protección sin perder agilidad.",
-    pros: ["Buen cushion para el precio", "Muy transpirable", "Respuesta agradable"],
-    contras: ["Tracción mejorable en superficies polvorientas", "Durabilidad outdoor justa"],
-    veredicto: "Para el escolta tirador que hace mucho trabajo fuera del balón y necesita cushion y transpirabilidad.",
-    imagen_principal: "/shoes/nike-gt-run-2.webp",
-    imagenes: [],
-    fuentes: [
-      { tipo: "evaluacion-propia" },
-    ],
-    ultima_actualizacion: "2026-05-29",
-    precio_msrp_eur: 110,
-    links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=gt+run+2&vst=gt+run+2", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+gt+run+2", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-    ],
-  },
+  // DELETED: nike-gt-run-2 (línea inexistente — Nike reorganizó la saga G.T. Run en G.T. Hustle)
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 90. JORDAN SUPER/FLY 10 — legacy budget Jordan
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  {
-    id: "jordan-super-fly-8",
-    slug: "jordan-super-fly-8",
-    marca: "Jordan",
-    modelo: "Super/Fly 8",
-    generacion: 8,
-    año_lanzamiento: 2024,
-    genero: "unisex",
-    tecnologia_clave: ["Air", "herringbone"],
-    predecesor_id: null,
-    sucesor_id: null,
-    peso_real_g: 395,
-    altura: "mid",
-    horma: "normal",
-    drop_mm: 10,
-    tipo_cierre: "cordones",
-    material_superior: "mesh+tpu",
-    puntuaciones: {
-      traccion: 7,
-      amortiguacion: 7,
-      respuesta: 6,
-      soporte_lateral: 8,
-      estabilidad: 8,
-      peso_score: 6,
-      durabilidad_outdoor: 8,
-      ventilacion: 6,
-    },
-    categoria_principal: "balanced",
-    tags: ["value-premium"],
-    ideal_para: {
-      posiciones: ["alero", "ala-pivot", "escolta"],
-      peso_jugador_kg: [75, 105],
-      estilos: ["equilibrado", "potente"],
-    },
-    no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
-    resumen: "Décima entrega de la clásica línea Jordan Super/Fly. Versátil, duradera y con buen soporte lateral. Perfecta para jugadores versátiles que no quieren gastar en tope de gama.",
-    pros: ["Versátil y duradera", "Buen soporte lateral", "Icónico diseño Jordan"],
-    contras: ["Cushion modesto", "Algo pesada"],
-    veredicto: "La opción Jordan equilibrada para aleros y ala-pívots con presupuesto medio.",
-    imagen_principal: "/shoes/jordan-super-fly-8.webp",
-    imagenes: [],
-    fuentes: [
-      { tipo: "evaluacion-propia" },
-    ],
-    ultima_actualizacion: "2026-05-29",
-    precio_msrp_eur: 115,
-    links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=jordan+super+fly+8&vst=jordan+super+fly+8", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=jordan+super+fly+8", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-    ],
-  },
+  // DELETED: jordan-super-fly-8 (línea Super.Fly discontinuada por Jordan tras el modelo 6/MVP)
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 91. PEAK TAICHI FLASH — Asian brand, cushion reactivo
@@ -8858,78 +8758,7 @@ const _rawZapatillas: Zapatilla[] = [
   // Ya en catálogo como adidas-harden-vol-10 (imagen fija ahora)
   // 136. JORDAN SUPER FLY 10 – Verticalidad, pívots y aleros
   // ─────────────────────────────────────────────────────────────────────────
-  {
-    id: "jordan-super-fly-10",
-    slug: "jordan-super-fly-10",
-    marca: "Jordan",
-    modelo: "Super Fly 10",
-    generacion: 10,
-    año_lanzamiento: 2025,
-    genero: "unisex",
-    tecnologia_clave: ["Zoom Air Strobel", "TPU cage", "herringbone outsole"],
-    predecesor_id: "jordan-super-fly-8",
-    sucesor_id: null,
-
-    peso_real_g: 398,
-    altura: "high",
-    horma: "normal",
-    drop_mm: 8,
-    tipo_cierre: "cordones",
-    material_superior: "mesh",
-
-    puntuaciones: {
-      traccion: 9,
-      amortiguacion: 8,
-      respuesta: 7,
-      soporte_lateral: 9,
-      estabilidad: 9,
-      peso_score: 4,
-      durabilidad_outdoor: 7,
-      ventilacion: 7,
-    },
-    categoria_principal: "cushion-focused",
-    tags: ["high-top", "2025", "pivots", "aleros", "estabilidad"],
-
-    ideal_para: {
-      posiciones: ["pivot", "ala-pivot", "alero"],
-      peso_jugador_kg: [85, 130],
-      estilos: ["potente", "equilibrado"],
-      lesiones_compatibles: ["tobillos", "rodillas"],
-    },
-    no_recomendada_para: {
-      posiciones: ["base"],
-      estilos: ["explosivo"],
-    },
-
-    resumen:
-      "La Jordan Super Fly 10 es la zapatilla de Jordan Brand para pívots y jugadores de poste de 2025. Caña high con TPU cage estructural, Zoom Air Strobel y uno de los mejores herringbones del mercado. Pensada para jugadores físicos que necesitan estabilidad máxima en el juego interior.",
-    pros: [
-      "Estabilidad 9/10 — la más sólida de la línea Jordan 2025",
-      "Soporte lateral excepcional gracias al TPU cage",
-      "Tracción herringbone excelente en interior",
-      "Zoom Air Strobel: cushion reactivo para pívots",
-      "Ideal para jugadores >90kg en el poste",
-    ],
-    contras: [
-      "398g — una de las más pesadas del catálogo",
-      "No apta para guards o estilos explosivos",
-      "Precio premium Jordan",
-    ],
-    veredicto:
-      "La opción de Jordan Brand para el juego interior en 2025. Si eres pívot o ala-pívot de más de 90kg y priorizas estabilidad y soporte tobillo sobre velocidad, la Super Fly 10 compite directamente con la LeBron 23.",
-
-    imagen_principal: "/placeholder-shoe.svg",
-    imagenes: [],
-    fuentes: [
-      { tipo: "evaluacion-propia" },
-    ],
-    ultima_actualizacion: "2026-05-29",
-    precio_msrp_eur: 159.99,
-    links_compra: [
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=jordan+super+fly+10", precio_actual: 159.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-26" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=jordan+super+fly+10+baloncesto&tag=canchazapa-21", precio_actual: 159.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
-    ],
-  },
+  // DELETED: jordan-super-fly-10 (línea Super.Fly discontinuada por Jordan)
 
   // ─────────────────────────────────────────────────────────────────────────
   // 137. PUMA MB.06 – LaMelo Ball, Nitro foam, guard explosivo
@@ -9625,14 +9454,14 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // ─────────────────────────────────────────────────────────────────────────
-  // R-06b. NIKE KOBE 1 PROTRO (1999/retro 2018)
+  // R-06b. NIKE KOBE 1 PROTRO (Zoom Kobe 1 original 2006 / Protro re-edición 2018)
   {
     id: "nike-kobe-1-protro",
     slug: "nike-kobe-1-protro",
     es_retro: true,
     marca: "Nike",
     modelo: "Kobe 1 Protro",
-    año_lanzamiento: 1999,
+    año_lanzamiento: 2006,
     genero: "unisex",
     signature_player: "Kobe Bryant",
     tecnologia_clave: ["Zoom Air full-length", "Herringbone outsole", "Mid-top", "Cuero y sintético"],
