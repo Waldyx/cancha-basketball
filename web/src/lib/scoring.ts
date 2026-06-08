@@ -402,7 +402,7 @@ export const COMISIONES_TIENDA: Record<string, number> = {
   basket4ballers_es: 4,
   manelsanchez_es: 4,
   fuikaomar_es: 4,
-  forumsport_es: 5,     // Forum Sport (AWIN, pendiente aprobación)
+  forumsport_es: 5,     // Forum Sport (AWIN aid:23805, activo desde 2026-06-08)
   sizeofficial_es: 5,   // Size? Official (AWIN, pendiente aprobación)
   elcorteingles_es: 6,  // El Corte Inglés (AWIN, pendiente — EPC €13.99 prioritario)
   footdistrict_es: 0,  // sin afiliado (Webgains, no registrado)
