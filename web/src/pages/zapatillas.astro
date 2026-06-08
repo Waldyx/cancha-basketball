@@ -40,9 +40,13 @@ const marcas = [...new Set(zapatillas.map(z => z.marca))].sort();
 const marcaCounts: Record<string, number> = {};
 zapatillas.forEach(z => { marcaCounts[z.marca] = (marcaCounts[z.marca] || 0) + 1; });
 
-// Editor's pick = highest score among those with verified discount
+// Editor's pick = highest score with any link below MSRP (disponible irrelevant — user sees stock on product page)
 const editorPick = [...zapatillas]
-  .map(z => ({ z, mejor: findMejorPrecio(z.links_compra), score: scoreOf(z) }))
+  .map(z => {
+    const links = z.links_compra;
+    const mejor = links.length ? links.reduce((a, b) => b.precio_actual < a.precio_actual ? b : a) : undefined;
+    return { z, mejor, score: scoreOf(z) };
+  })
   .filter(x => x.mejor && x.mejor.precio_actual < x.z.precio_msrp_eur)
   .sort((a, b) => b.score - a.score)[0];
 
