@@ -13,10 +13,8 @@ function scoreOf(z: typeof zapatillas[0]): number {
   return Math.round((v.reduce((a, b) => a + b, 0) / v.length) * 10) / 10;
 }
 
-// EDITOR'S PICK — override editorial > la nº1 con verified discount > fallback a mejor score
-// Override: priorizar WoW 12 (criterio técnico, diferenciación vs Curry 12)
-const EDITORIAL_PICK_ID = "lining-wow-12";
-
+// EDITOR'S PICK — la nº1 con verified discount, fallback a la mejor score global
+// Tie-breaker en empate de score: año más reciente → id alfabético (criterio reproducible)
 const conDescuento = zapatillas
   .map(z => {
     const mp = findMejorPrecio(z.links_compra);
@@ -24,13 +22,15 @@ const conDescuento = zapatillas
   })
   .filter(x => x.mp && x.mp.precio_actual < x.z.precio_msrp_eur);
 
-const editorialOverride = conDescuento.find(x => x.z.id === EDITORIAL_PICK_ID);
-
-const editorPick = (editorialOverride
-  ? editorialOverride
-  : conDescuento.length > 0
-    ? conDescuento.sort((a, b) => b.score - a.score)[0]
-    : { z: zapatillas[0], mp: findMejorPrecio(zapatillas[0].links_compra), score: scoreOf(zapatillas[0]) });
+const editorPick = (conDescuento.length > 0
+  ? conDescuento.sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      const yearA = a.z.año_lanzamiento ?? 0;
+      const yearB = b.z.año_lanzamiento ?? 0;
+      if (yearB !== yearA) return yearB - yearA;
+      return a.z.id.localeCompare(b.z.id);
+    })[0]
+  : { z: zapatillas[0], mp: findMejorPrecio(zapatillas[0].links_compra), score: scoreOf(zapatillas[0]) });
 
 // Top 3 — score con preferencia por precio verificado
 const conPrecio = zapatillas.filter(z => findMejorPrecio(z.links_compra)).sort((a, b) => scoreOf(b) - scoreOf(a));
