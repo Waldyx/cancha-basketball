@@ -1337,9 +1337,9 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
     puntuaciones: {
-      traccion: 7, amortiguacion: 7, respuesta: 6,
-      soporte_lateral: 7, estabilidad: 6, peso_score: 6,
-      durabilidad_outdoor: 3, ventilacion: 6,
+      traccion: 9, amortiguacion: 8, respuesta: 8,
+      soporte_lateral: 9, estabilidad: 9, peso_score: 6,
+      durabilidad_outdoor: 4, ventilacion: 8,
     },
     categoria_principal: "balanced",
     tags: ["signature", "value", "horma-ancha"],
@@ -1702,8 +1702,8 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh",
     puntuaciones: {
-      traccion: 10, amortiguacion: 7, respuesta: 9,
-      soporte_lateral: 9, estabilidad: 10, peso_score: 7,
+      traccion: 9, amortiguacion: 6, respuesta: 7,
+      soporte_lateral: 7, estabilidad: 8, peso_score: 7,
       durabilidad_outdoor: 9, ventilacion: 7,
     },
     categoria_principal: "traction-king",
@@ -2423,13 +2423,13 @@ const _rawZapatillas: Zapatilla[] = [
     sucesor_id: "nike-lebron-22",
     puntuaciones: {
       traccion: 9,
-      amortiguacion: 9,
+      amortiguacion: 10,
       respuesta: 9,
-      soporte_lateral: 9,
+      soporte_lateral: 10,
       estabilidad: 9,
-      peso_score: 7,
+      peso_score: 8,
       durabilidad_outdoor: 5,
-      ventilacion: 7,
+      ventilacion: 8,
     },
     categoria_principal: "cushion-focused",
     tags: ["signature", "cushion", "big-men", "descuento", "clasico"],
@@ -4822,80 +4822,6 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 64. Nike Zoom Freak 7 — Giannis, potencia y estabilidad
-  // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  {
-    id: "nike-zoom-freak-7",
-    slug: "nike-zoom-freak-7",
-    marca: "Nike",
-    modelo: "Zoom Freak 7",
-    generacion: 7,
-    año_lanzamiento: 2025,
-    genero: "unisex",
-    signature_player: "Giannis Antetokounmpo",
-    tecnologia_clave: ["Zoom Air pods", "foam midsole", "TPU shank"],
-    predecesor_id: "nike-zoom-freak-4",
-    sucesor_id: null,
-
-    peso_real_g: 390,
-    altura: "mid",
-    horma: "ancha",
-    drop_mm: 12,
-    tipo_cierre: "cordones",
-    material_superior: "mesh",
-
-    puntuaciones: {
-      traccion: 9,
-      amortiguacion: 8,
-      respuesta: 7,
-      soporte_lateral: 9,
-      estabilidad: 9,
-      peso_score: 5,
-      durabilidad_outdoor: 7,
-      ventilacion: 7,
-    },
-    categoria_principal: "cushion-focused",
-    tags: ["mid-top", "signature", "potente", "estable", "potente"],
-
-    ideal_para: {
-      posiciones: ["pivot", "ala-pivot", "alero"],
-      peso_jugador_kg: [85, 130],
-      estilos: ["potente", "potente", "potente"],
-    },
-    no_recomendada_para: {
-      posiciones: ["base"],
-      estilos: ["explosivo"],
-    },
-
-    resumen:
-      "La Nike Zoom Freak 7 está diseñada para jugadores de físico potente, como el propio Giannis. Zoom Air pods estratégicamente situados, construcción mid-top para soporte de tobillo, horma ancha para pies grandes o anchos. La opción Nike para interiores y aleros físicos.",
-    pros: [
-      "Soporte lateral excepcional para interiores",
-      "Zoom Air pods dan respuesta en momentos clave",
-      "Horma ancha — ideal para pies anchos o grandes",
-      "Outsole durable, apto para exterior ocasional",
-    ],
-    contras: [
-      "Pesada — no apta para jugadores que priorizan velocidad",
-      "Amortiguación no tan plush como la LeBron 23",
-      "Precio elevado para zapatilla de posición interior",
-    ],
-    veredicto:
-      "La mejor opción Nike para pivots y aleros físicos que necesitan una zapatilla robusta. Si juegas como Giannis — potencia, cambios de dirección bruscos, juego en la pintura — la Freak 7 es la elección correcta.",
-
-    imagen_principal: "/shoes/nike-zoom-freak-7.webp",
-    imagenes: [],
-
-    fuentes: [],
-    ultima_actualizacion: "2026-05-16",
-
-    precio_msrp_eur: 115,
-    links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/t/giannis-freak-7-light-aqua-zapatillas-de-baloncesto-unI5zoUd/HF3450-402", precio_actual: 114.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
-    ],
-  },
-
-  // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 65. Nike Giannis Immortality 5 — Gama media Giannis, accesible
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
@@ -5742,7 +5668,7 @@ const _rawZapatillas: Zapatilla[] = [
     signature_player: "Giannis Antetokounmpo",
     tecnologia_clave: ["Zoom Air", "herringbone", "wide base"],
     predecesor_id: null,
-    sucesor_id: "nike-zoom-freak-7",
+    sucesor_id: "nike-giannis-freak-7",
     peso_real_g: 345,
     altura: "mid",
     horma: "ancha",
@@ -6456,7 +6382,7 @@ const _rawZapatillas: Zapatilla[] = [
     signature_player: "Giannis Antetokounmpo",
     tecnologia_clave: ["Zoom Air", "wide herringbone"],
     predecesor_id: "nike-zoom-freak-5",
-    sucesor_id: "nike-zoom-freak-7",
+    sucesor_id: "nike-giannis-freak-7",
     peso_real_g: 344,
     altura: "mid",
     horma: "ancha",
@@ -9174,11 +9100,11 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "mesh",
 
     puntuaciones: {
-      traccion: 8,
-      amortiguacion: 9,
-      respuesta: 9,
-      soporte_lateral: 5,
-      estabilidad: 5,
+      traccion: 9,
+      amortiguacion: 10,
+      respuesta: 10,
+      soporte_lateral: 6,
+      estabilidad: 7,
       peso_score: 8,
       durabilidad_outdoor: 8,
       ventilacion: 8,
@@ -9857,14 +9783,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "synthetic",
     puntuaciones: {
-      traccion: 8,
-      amortiguacion: 6,
-      respuesta: 7,
-      soporte_lateral: 7,
-      estabilidad: 6,
-      peso_score: 8,
-      durabilidad_outdoor: 5,
-      ventilacion: 7,
+      traccion: 10,
+      amortiguacion: 9,
+      respuesta: 10,
+      soporte_lateral: 8,
+      estabilidad: 9,
+      peso_score: 9,
+      durabilidad_outdoor: 6,
+      ventilacion: 9,
     },
     categoria_principal: "responsive",
     tags: ["retro", "kobe", "low-top", "zoom-air", "coleccionismo", "wizenard", "ftb"],
@@ -9990,14 +9916,14 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "synthetic",
     puntuaciones: {
-      traccion: 8,
-      amortiguacion: 8,
-      respuesta: 8,
-      soporte_lateral: 6,
-      estabilidad: 7,
-      peso_score: 8,
-      durabilidad_outdoor: 5,
-      ventilacion: 7,
+      traccion: 10,
+      amortiguacion: 9,
+      respuesta: 9,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 10,
+      durabilidad_outdoor: 8,
+      ventilacion: 10,
     },
     categoria_principal: "responsive",
     tags: ["retro", "kobe", "low-top", "grinch", "coleccionismo", "mambamentality"],
