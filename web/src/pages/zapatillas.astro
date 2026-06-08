@@ -40,15 +40,24 @@ const marcas = [...new Set(zapatillas.map(z => z.marca))].sort();
 const marcaCounts: Record<string, number> = {};
 zapatillas.forEach(z => { marcaCounts[z.marca] = (marcaCounts[z.marca] || 0) + 1; });
 
-// Editor's pick = highest score with any link below MSRP (disponible irrelevant — user sees stock on product page)
+// Precio mínimo de TODOS los links (disponible irrelevant — solo afecta al botón de compra)
+function minPrecioLink(links: typeof zapatillas[0]['links_compra']) {
+  if (!links.length) return undefined;
+  return links.reduce((a, b) => b.precio_actual < a.precio_actual ? b : a);
+}
+
+// Editor's pick = highest score. Tie-break: WoW 12 preferida sobre Curry 12 a igual score.
+// Si una zapa futura supera el score actual, gana ella sin importar el override.
+const EDITOR_PICK_OVERRIDE = 'lining-wow-12';
 const editorPick = [...zapatillas]
-  .map(z => {
-    const links = z.links_compra;
-    const mejor = links.length ? links.reduce((a, b) => b.precio_actual < a.precio_actual ? b : a) : undefined;
-    return { z, mejor, score: scoreOf(z) };
-  })
-  .filter(x => x.mejor && x.mejor.precio_actual < x.z.precio_msrp_eur)
-  .sort((a, b) => b.score - a.score)[0];
+  .map(z => ({ z, mejor: minPrecioLink(z.links_compra), score: scoreOf(z) }))
+  .filter(x => x.mejor)
+  .sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    if (a.z.slug === EDITOR_PICK_OVERRIDE) return -1;
+    if (b.z.slug === EDITOR_PICK_OVERRIDE) return 1;
+    return 0;
+  })[0];
 
 // Trending: top 3 by score
 const trending = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a)).slice(0, 3);
@@ -57,8 +66,8 @@ const today = new Date().toLocaleDateString("es-ES", { day: "2-digit", month: "s
 
 const ordenadas = [...zapatillas].sort(
   (a, b) =>
-    (findMejorPrecio(a.links_compra)?.precio_actual ?? a.precio_msrp_eur) -
-    (findMejorPrecio(b.links_compra)?.precio_actual ?? b.precio_msrp_eur)
+    (minPrecioLink(a.links_compra)?.precio_actual ?? a.precio_msrp_eur) -
+    (minPrecioLink(b.links_compra)?.precio_actual ?? b.precio_msrp_eur)
 );
 ---
 
@@ -291,7 +300,7 @@ const ordenadas = [...zapatillas].sort(
 
             {/* SHOE CARDS */}
             {ordenadas.map((z, i) => {
-              const mejor = findMejorPrecio(z.links_compra);
+              const mejor = minPrecioLink(z.links_compra);
               const precio = mejor?.precio_actual ?? z.precio_msrp_eur;
               const tienda = mejor ? LABELS_TIENDA[mejor.tienda] || mejor.tienda : null;
               const score = scoreOf(z);
