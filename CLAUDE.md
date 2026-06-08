@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-06-08 (sesión 22)
+> Última actualización: 2026-06-08 (sesión 23)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -44,6 +44,22 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel** vía GitH
 CANCHA<span class="text-orange-500">.</span>ZAPA
 ```
 "CANCHA" blanco, punto naranja, "ZAPA" blanco.
+
+---
+
+## Estado actual (sesión 23) — Fix editor's pick + regla disponibilidad
+
+### ✅ Completado (sesión 23)
+
+**Fix editor's pick** (`web/src/pages/zapatillas.astro`):
+- Bug: editor's pick usaba `findMejorPrecio` (solo `disponible:true`) para calificar zapas. Zapas con links baratos marcados como `disponible:false` (Gamma 2 a 105€ en AliExpress) quedaban excluidas porque el único disponible era más caro que el MSRP (Joom 282€).
+- Fix: ahora usa el precio mínimo de TODOS los links independientemente de `disponible`. Stock se muestra en la ficha, no condiciona el catálogo.
+- 10 zapas rescatadas: Gamma 2, Reebok Question Mid, Reebok Answer IV, NB OMN1S, Ja 2, Dame 9, One Take 5, Air Max Impact 5, Kyrie Flytrap 6, NB Fresh Foam BB v3.
+
+**Regla nueva (NO olvidar):**
+`disponible: false` solo afecta al botón de compra en la ficha individual. NUNCA debe excluir una zapa de rankings, editor's pick ni catálogo.
+
+**Total commits sesión 23:** 1 commit en master
 
 ---
 
