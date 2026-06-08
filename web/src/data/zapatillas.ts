@@ -2298,8 +2298,8 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh",
     puntuaciones: {
-      traccion: 10, amortiguacion: 10, respuesta: 9,
-      soporte_lateral: 9, estabilidad: 9, peso_score: 9,
+      traccion: 9, amortiguacion: 7, respuesta: 7,
+      soporte_lateral: 8, estabilidad: 8, peso_score: 7,
       durabilidad_outdoor: 10, ventilacion: 8,
     },
     categoria_principal: "balanced",
@@ -4369,9 +4369,9 @@ const _rawZapatillas: Zapatilla[] = [
   // 59. Nike Luka 77 — Signature Luka, gama media Nike Brand
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
-    id: "nike-luka-77",
-    slug: "nike-luka-77",
-    marca: "Nike",
+    id: "jordan-luka-77",
+    slug: "jordan-luka-77",
+    marca: "Jordan",
     modelo: "Luka 77",
     generacion: 1,
     año_lanzamiento: 2025,
@@ -4427,7 +4427,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Para fans de Luka o jugadores de gama media que quieren un calzado equilibrado a buen precio. No alcanza el nivel técnico de la GT Cut 4 ni el cushion de la LeBron 23, pero a 99.99€ es una opción sólida.",
 
-    imagen_principal: "/shoes/nike-luka-77.webp",
+    imagen_principal: "/shoes/jordan-luka-77.webp",
     imagenes: [],
 
     fuentes: [
@@ -5496,9 +5496,9 @@ const _rawZapatillas: Zapatilla[] = [
   // 75. NIKE D.O.N. ISSUE 6 — Donovan Mitchell, budget signature
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
-    id: "nike-don-issue-6",
-    slug: "nike-don-issue-6",
-    marca: "Nike",
+    id: "adidas-don-issue-6",
+    slug: "adidas-don-issue-6",
+    marca: "Adidas",
     modelo: "D.O.N. Issue 6",
     generacion: 6,
     año_lanzamiento: 2024,
@@ -5535,7 +5535,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Tracción de primer nivel", "Buena durabilidad outdoor", "Precio competitivo para signature"],
     contras: ["Algo pesada", "Cushion solo correcto, no destacado"],
     veredicto: "Para jugadores que priorizan el agarre y juegan tanto interior como exterior. Una de las mejores relaciones calidad-precio en signatures.",
-    imagen_principal: "/shoes/nike-don-issue-6.webp",
+    imagen_principal: "/shoes/adidas-don-issue-6.webp",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-don-issue-6-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -7968,12 +7968,12 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh",
     puntuaciones: {
-      traccion: 9,
-      amortiguacion: 8,
-      respuesta: 8,
+      traccion: 10,
+      amortiguacion: 9,
+      respuesta: 9,
       soporte_lateral: 8,
       estabilidad: 8,
-      peso_score: 8,
+      peso_score: 9,
       durabilidad_outdoor: 7,
       ventilacion: 8,
     },
