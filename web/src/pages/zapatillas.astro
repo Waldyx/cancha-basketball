@@ -64,11 +64,7 @@ const trending = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a)).slice(0
 
 const today = new Date().toLocaleDateString("es-ES", { day: "2-digit", month: "short" }).toUpperCase();
 
-const ordenadas = [...zapatillas].sort(
-  (a, b) =>
-    (minPrecioLink(a.links_compra)?.precio_actual ?? a.precio_msrp_eur) -
-    (minPrecioLink(b.links_compra)?.precio_actual ?? b.precio_msrp_eur)
-);
+const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
 ---
 
 <Base
@@ -154,9 +150,9 @@ const ordenadas = [...zapatillas].sort(
           <div class="cz-select">
             <span class="label">Ordenar</span>
             <select id="sort">
+              <option value="score-desc" selected>★ Mejor score</option>
               <option value="precio-asc">↑ Precio</option>
               <option value="precio-desc">↓ Precio</option>
-              <option value="score-desc">★ Mejor score</option>
               <option value="nuevas">Más nuevas</option>
             </select>
           </div>
@@ -434,7 +430,7 @@ const ordenadas = [...zapatillas].sort(
       posiciones: new Set(), precioMax: 250,
       soloNuevas: false, soloVerificado: false, soloOutdoor: false, soloLigera: false, soloRetro: false,
     };
-    let sortMode = "precio-asc";
+    let sortMode = "score-desc";
 
     const $grid = document.getElementById("catalogo-grid")!;
     const $vacio = document.getElementById("catalogo-vacio")!;
