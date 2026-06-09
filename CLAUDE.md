@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-06-08 (sesión 23)
+> Última actualización: 2026-06-09 (sesión 24)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -47,7 +47,100 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 
 ---
 
-## Estado actual (sesión 23) — Fix editor's pick + regla disponibilidad
+## Estado actual (sesión 24) — Auditoría iterativa scores + 13 nuevas zapas + marcas nicho
+
+### ✅ Completado (sesión 24)
+
+**Editor's Pick — WoW 12 como tie-breaker permanente**
+- Override editorial: si hay empate de score, gana lining-wow-12 (sobre Curry 12 a 9.5).
+- Aplicado en `web/src/pages/zapatillas.astro` Y `web/src/pages/index.astro` (las 2 páginas que muestran pick).
+- Si una zapa supera el score actual (>9.5), gana ella automáticamente sin necesidad de tocar el código.
+- Sin filtro MSRP (antes excluía zapas a precio MSRP).
+
+**Catálogo: ordena por Mejor Score por defecto**
+- Select y JS arrancan en score-desc. Pre-render server-side también por score (sin flash al cargar).
+
+**Auditoría iterativa de puntuaciones (12 oleadas de ajustes)**
+
+Oleada 1 (Top tier + Immortality + retros):
+- KD 17 9.0→8.6, KD 19 9.0→8.8, WoW All City 14 9.0→8.8, Kobe 9 ELP 8.5→8.8
+- Immortality 3/4/5: 8.3/8.3/8.0 → 7.3 (zona budget real)
+- AJ12 Retro 6.1→7.0, Kobe 6 Protro 6.9→7.1
+
+Oleada 2 (Kobe Protro + dedupe Freak 7):
+- Kobe 4 Protro 6.8→8.8, Kobe 6 Protro 7.1→9.0 (Protro = estándar oro NBA actual)
+- LeBron 21 8.0→8.5, AJ XXXIX 7.5→8.3, Dame Certified 8.5→7.5
+- DELETED duplicado nike-zoom-freak-7; nike-giannis-freak-7 score 6.0→7.6
+- 2 sucesor_id de Freak 5/6 actualizados a nike-giannis-freak-7
+
+Oleada 3 (Granularidad 9.0 + 3 fantasmas):
+- Curry 11, LeBron 22, WoW All City 14: 9.0 → 9.1 (aciertos unánimes)
+- Hali 1, AJ 40: 9.0 → 8.8 (todavía sin demostrar consistencia)
+- Precision 8 8.0→6.8 (gama blanca, no premium)
+- Kobe 5 Protro 7.0→8.8 (Protro tier)
+- Book 2 6.0→7.5 (penalización excesiva)
+
+Oleada 4 (Brands cruzadas + 2 scores):
+- D.O.N. Issue 6: Nike → Adidas (rename id, slug, marca, imagen)
+- Luka 77: Nike → Jordan (idem)
+- Shock The Game 5.0: 9.3 → 8.0 (es outdoor king, no flagship pabellón)
+- Clyde All-Pro: 8.0 → 8.5 ("la Kobe de Puma")
+
+Oleada 5 (3 fantasmas + 3 años):
+- DELETED: nike-gt-run-2 (saga GT Run → GT Hustle)
+- DELETED: jordan-super-fly-8 y jordan-super-fly-10 (línea Super.Fly discontinuada)
+- Kobe 1 Protro año 1999 → 2006 (Kobe firmó con Nike en 2003)
+- Anta KAI 3 año 2025 → 2026 (no solapa con KAI 2)
+- Jordan Tatum 4 año 2025 → 2026 (idem solapamiento)
+
+Oleada 6 (1 delete + 9 años):
+- DELETED: ua-assert-10 (zapa de running, no básquet)
+- Harden Vol 8: 2022 → 2024 (el del chasis EVA salió en 2024)
+- Kyrie Low 5: 2024 → 2022 + score 8.5 → 8.0 (Kyrie rompió con Nike fin 2022)
+- Pro Vision: 2024 → 2018 (modelo clásico de equipo)
+- Kawhi 1: 2024 → 2020 (campeonato Raptors), Kawhi 2: 2024 → 2022, Kawhi 4: 2025 → 2024
+- Embiid 1: 2023 → 2020 (Embiid ya dejó UA por Skechers)
+- AE 3: 2025 → 2026, MB.06: 2025 → 2026, Luka 5: 2025 → 2026 (no solapan con predecesores)
+
+Oleada 7 (Consistencia datos):
+- AJ XXXVIII → "Air Jordan 38" (modelo visible; slug jordan-xxxviii preserved)
+- XXXIX → "Air Jordan 39" (modelo visible; slug jordan-xxxix preserved)
+- Sabrina 1, Stewie 3, Stewie 4: genero "women" → "unisex" (los hombres también las usan)
+
+NOTA confirmada: "Nike LeBron NXXT Genisus" NO es errata. Es el nombre oficial de Nike (fusión "Gen II" + "Genesis"). Nike.es y ECI usan "genisus" en sus SKUs.
+
+**+10 nuevas fichas — Marcas nicho SEO alta conversión**
+
+361° (3 zapas):
+- Joker 1 (Jokić MVP signature) — 8.0/10, 119€
+- Big3 6.0 Pro — 8.0/10, 105€
+- Zen 7 (outdoor calidad-precio) — 7.5/10, 90€
+
+Rigorer (3 zapas):
+- AR3 (Austin Reaves nuevo flagship) — 8.3/10, 95€
+- AR1 (la viral, estilo Kobe) — 7.8/10, 75€
+- Warship (outdoor budget) — 7.0/10, 60€
+
+Skechers (4 zapas):
+- SKX JE1 (Joel Embiid signature) — 8.0/10, 130€
+- SKX Resagrip (tracción Goodyear top) — 8.1/10, 145€
+- SKX League (budget bajo 100€) — 7.0/10, 95€
+- SKX Float (max cushion premium) — 8.3/10, 155€
+
+Catálogo final sesión 24: **205 zapas, 298 páginas** (sesión 23 = 200 zapas).
+
+**Afiliados nuevos activados (sesión 24)**
+- Forum Sport ES (Awin aid:23805) ✅ APROBADO — link AE 2 envuelto en wrapper
+- WoW 12: Basketball Emotion 169.99€ (TradeTracker activo)
+- Curry 12: Joom 76€ (URL limpia)
+
+**Sesión incluyó también (sesión 24 inicio):**
+- Fix `disponible:false` en catálogo de zapatillas.astro (sesión 23 era solo editor's pick)
+- Fix repo .git huérfano en C:\Users\oswal\ (borrado, no afectaba master)
+
+---
+
+## Estado anterior (sesión 23) — Fix editor's pick + regla disponibilidad
 
 ### ✅ Completado (sesión 23)
 
