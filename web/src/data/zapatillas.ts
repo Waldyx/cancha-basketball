@@ -4689,10 +4689,10 @@ const _rawZapatillas: Zapatilla[] = [
 
     peso_real_g: 366,
     altura: "mid",
-    horma: "ajustada",
+    horma: "estrecha",
     drop_mm: 8,
     tipo_cierre: "cordones",
-    material_superior: "mesh+sintético",
+    material_superior: "mesh+synthetic",
 
     puntuaciones: {
       traccion: 8,
@@ -7479,7 +7479,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: "nb-two-wxy-v4",
     sucesor_id: null,
 
-    peso_real_g: 398,
+    peso_real_g: 390,
     altura: "low",
     horma: "normal",
     drop_mm: 8,
@@ -9470,7 +9470,7 @@ const _rawZapatillas: Zapatilla[] = [
     horma: "normal",
     drop_mm: 10,
     tipo_cierre: "cordones",
-    material_superior: "cuero+sintético",
+    material_superior: "leather+synthetic",
 
     puntuaciones: {
       traccion: 9,
@@ -12111,7 +12111,7 @@ const _rawZapatillas: Zapatilla[] = [
     horma: "normal",
     drop_mm: 10,
     tipo_cierre: "cordones",
-    material_superior: "mesh+cuero",
+    material_superior: "mesh+leather",
     puntuaciones: {
       traccion: 7,
       amortiguacion: 6,
@@ -13194,7 +13194,7 @@ const _rawZapatillas: Zapatilla[] = [
     horma: "normal",
     drop_mm: 10,
     tipo_cierre: "cordones",
-    material_superior: "mesh+sintetico",
+    material_superior: "mesh+synthetic",
     puntuaciones: {
       traccion: 7, amortiguacion: 7, respuesta: 7,
       soporte_lateral: 7, estabilidad: 7, peso_score: 7,

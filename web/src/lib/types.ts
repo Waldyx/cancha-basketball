@@ -46,7 +46,10 @@ export type MaterialSuperior =
   | "leather"
   | "knit"
   | "mesh+tpu"
-  | "synthetic";
+  | "synthetic"
+  | "mesh+synthetic"
+  | "mesh+leather"
+  | "leather+synthetic";
 
 export type Tienda =
   | "amazon_es"
