@@ -36,8 +36,9 @@ const ROMAN_MAP: Record<string, number> = {
  */
 function convertRomanNumerals(title: string): string {
   // Sort by length descending so XXXIX is matched before XXX, etc.
+  // Case-insensitive: FL devuelve "Xxiii" (Title Case) en algunos productos.
   const romans = Object.keys(ROMAN_MAP).sort((a, b) => b.length - a.length);
-  const pattern = new RegExp(`\\b(${romans.join("|")})\\b`, "g");
+  const pattern = new RegExp(`\\b(${romans.join("|")})\\b`, "gi");
   return title.replace(pattern, (match) => {
     const val = ROMAN_MAP[match.toUpperCase()];
     return val !== undefined ? String(val) : match;
@@ -50,8 +51,15 @@ async function priceFromFLWeb(
   shoe: ShoeRef,
   url: string
 ): Promise<{ price: number; url: string } | null> {
+  // Reconstruimos siempre una URL search canónica a partir del catálogo:
+  //  - Si la URL del catálogo es de producto (puede ser obsoleta tras bugs de
+  //    matching anteriores), evitamos quedarnos atrapados ahí.
+  //  - Si es search pero con parámetro obsoleto (?q= en vez de ?query=), FL
+  //    devuelve resultados genéricos no relacionados → buscar de cero.
+  const searchUrl = `${BASE}/es/search?query=${encodeURIComponent(`${shoe.marca} ${shoe.modelo}`.toLowerCase())}`;
+
   try {
-    const res = await fetch(url, {
+    const res = await fetch(searchUrl, {
       headers: {
         "User-Agent":
           "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
@@ -62,66 +70,80 @@ async function priceFromFLWeb(
       signal: AbortSignal.timeout(15000),
     });
 
-    if (!res.ok) return null;
+    // Foot Locker devuelve 400 como técnica anti-bot aunque el HTML sea válido.
+    // Aceptamos cualquier respuesta y comprobamos por contenido más abajo.
     const html = await res.text();
+    if (!html || html.length < 5000) return null;
 
     /**
-     * Strategy:
-     * 1. Find all product card links: href="/es/product/{slug}/{sku}.html"
-     *    Filter to shoe-only URLs (slug contains "zapatillas" or "shoes")
-     * 2. For each shoe link, extract SKU from URL
-     * 3. Find JSON entry: "imageSku":"SKU",...,"name":"...","originalPrice":{"value":PRICE}
-     * 4. Match product name against shoe catalog entry
+     * Strategy: parse the embedded React data JSON. Each product entry has:
+     *   "name":"...","originalPrice":{"value":PVP},"price":{"value":CURRENT},...,"sku":"SKU"
+     * "sku" and "imageSku" come AFTER "name" and "price" in the JSON, so we
+     * extract whole product blocks by capturing from "name" through "sku" in
+     * one regex.
      */
+    const productRe = /"name":"([^"]+)"[\s\S]{0,80}?"originalPrice":\{"value":([0-9.]+)[\s\S]{0,80}?"price":\{"value":([0-9.]+)[\s\S]{0,300}?"sku":"(\d+)"/g;
 
-    // Step 1: find all product card links
-    const linkRe = /href="(\/es\/product\/([^/]+)\/(\d+)\.html)"/g;
     const seenSkus = new Set<string>();
-    const cards: Array<{ path: string; slug: string; sku: string }> = [];
+    const candidates: Array<{ name: string; price: number; sku: string }> = [];
 
-    let lm: RegExpExecArray | null;
-    while ((lm = linkRe.exec(html)) !== null) {
-      const [, path, slug, sku] = lm;
+    let pm: RegExpExecArray | null;
+    while ((pm = productRe.exec(html)) !== null) {
+      const [, rawName, , currentPriceStr, sku] = pm;
       if (seenSkus.has(sku)) continue;
       seenSkus.add(sku);
-      // Filter: must be a shoe (slug ends with "zapatillas" or contains "shoe")
-      if (!slug.includes("zapatilla") && !slug.includes("shoe")) continue;
-      cards.push({ path, slug, sku });
+      const price = parseFloat(currentPriceStr);
+      if (!price || price < 20 || price > 500) continue;
+      // Filtra modelos infantiles/junior antes del strip — un AJ11 "Primaria y
+      // colegio" a 145€ matchearía con el AJ11 adulto del catálogo si solo
+      // miramos al nombre stripped.
+      if (/-\s*(Primaria|Bebés?|Bebe|Niñ[oa]s?|Infantil|Junior|Kids?|Preescolar)/i.test(rawName)) continue;
+      const name = convertRomanNumerals(
+        rawName.replace(/\s*-\s*(Hombre|Mujer|Niñ[oa]s?|Unisex)[^,]*/i, "").trim()
+      );
+      candidates.push({ name, price, sku });
     }
 
-    if (cards.length === 0) return null;
+    if (candidates.length === 0) return null;
 
-    // Step 2+3: for each shoe card, find name + price from embedded JSON
-    for (const { path, sku } of cards) {
-      // Find JSON block for this SKU: "imageSku":"SKU",...,"name":"...","originalPrice":{"value":PRICE}
-      const skuIdx = html.indexOf(`"imageSku":"${sku}"`);
-      if (skuIdx === -1) continue;
+    // Confirm SKU also appears as a product card link (avoids matching
+    // recommended/related products that aren't in the search results)
+    const linkRe = /href="(\/es\/product\/[^/]+\/(\d+)\.html)"/g;
+    const cardSkus = new Map<string, string>(); // sku -> path
+    let lm: RegExpExecArray | null;
+    while ((lm = linkRe.exec(html)) !== null) {
+      const [, path, sku] = lm;
+      if (!cardSkus.has(sku)) cardSkus.set(sku, path);
+    }
 
-      // Look forward for name and price in the same object (next ~600 chars)
-      const block = html.slice(skuIdx, skuIdx + 600);
+    // Si el modelo del catálogo contiene un número (ej. "Tatum 3", "GT Cut 4"),
+    // EXIGIMOS que ese número aparezca como token en el título de FL.
+    // Sin esto, "Jordan Tatum" (sin número, modelo viejo) matchearía con "Tatum 3".
+    const modelNumberMatch = shoe.modelo.match(/\b(\d+)\b/);
+    const requiredNumber = modelNumberMatch ? modelNumberMatch[1] : null;
 
-      const nameM = block.match(/"name":"([^"]+)"/);
-      const priceM = block.match(/"originalPrice":\{"value":([0-9.]+)/);
+    for (const c of candidates) {
+      const path = cardSkus.get(c.sku);
+      if (!path) continue;
 
-      if (!nameM || !priceM) continue;
+      if (requiredNumber) {
+        const titleTokens = c.name.toLowerCase().split(/[\s\-.]+/);
+        if (!titleTokens.includes(requiredNumber)) continue;
+      }
 
-      const rawName = nameM[1];
-      // Strip category suffix: "- Hombre Zapatillas", "- Mujer Zapatillas", etc.
-      const name = convertRomanNumerals(
-        rawName.replace(/\s*-\s*(Hombre|Mujer|Niño|Unisex|Primaria[^-]*)[^,]*/i, "").trim()
-      );
-      const price = parseFloat(priceM[1]);
-
-      if (!price || price < 20 || price > 500) continue;
-
-      // Match name against shoe catalog entry
+      // Match name against shoe catalog entry. minScore 0.5 (no 0.6) porque
+      // FL recorta prefijos de tecnología: catálogo "Air Zoom G.T. Cut 4" vs
+      // FL "Nike G.T. Cut 4". El filtro de marca + filtro junior previo + el
+      // SKU presente en cards + el filtro de número anterior bloquean falsos
+      // positivos amplios.
       // FootLocker may use "Jordan" brand for Nike/Jordan shoes
-      if (!matchesShoe(name, shoe.marca, shoe.modelo) &&
-          !matchesShoe(name.replace(/^Jordan /i, "Nike "), shoe.marca, shoe.modelo) &&
-          !matchesShoe(name.replace(/^Nike /i, "Jordan "), shoe.marca, shoe.modelo)) continue;
+      const minScore = 0.5;
+      if (!matchesShoe(c.name, shoe.marca, shoe.modelo, minScore) &&
+          !matchesShoe(c.name.replace(/^Jordan /i, "Nike "), shoe.marca, shoe.modelo, minScore) &&
+          !matchesShoe(c.name.replace(/^Nike /i, "Jordan "), shoe.marca, shoe.modelo, minScore)) continue;
 
       const productUrl = `${BASE}${path}`;
-      return { price, url: productUrl };
+      return { price: c.price, url: productUrl };
     }
 
     return null;
