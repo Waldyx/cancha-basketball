@@ -631,9 +631,19 @@ En la práctica: Nike.es y Basket World siempre son search (no tienen URLs de pr
   - ✅ **Decathlon ES** — aid: 105405, conv 5.95%, aprob 86%, EPC 0.14€ (15 links)
   - ✅ **Atmósfera Sport ES** — aid: 26255, conv 3.74%, aprob 69%, EPC 0.16€ (11 links)
   - ✅ **Snipes EU** — aid: 122628, conv 0.88%, aprob 79%, EPC 0.07€ (14 links)
-- **Pendientes / en cola**: El Corte Inglés (EPC alto, prioritario), Zalando ES, Reebok ES, size? Official.
+- **PENDIENTES de aprobación (6) — al 2026-06-12**:
+  - ⏳ **El Corte Inglés ES** — conv 29.90%, EPC **13.99€** 🔥 (el premio gordo, prioritario)
+  - ⏳ **Joom ES** — conv 7.65%, aprob 94%, EPC 0.30€ → desbloquea **19 links Joom** ya en BD (tiene_afiliado:false)
+  - ⏳ **Basket-Center ES** — conv 7.27%, aprob 90%
+  - ⏳ **Sneakin ES** — conv 4.32%, aprob 75%
+  - ⏳ **Pro:Direct ES** — conv 0.12%, aprob 100%
+  - ⏳ **Reebok ES** — N/A (recién lanzado 11/12/26) → 5 links Reebok esperando
 - **Rechazados (reintentar en 3-6 meses con más tráfico)**: Foot Locker ES, Sprinter ES, Foot-Store ES, JD Sports.
 - **Formato link Awin**: `https://www.awin1.com/cread.php?awinmid=AIDID&awinaffid=2908587&ued=URL_ENCODED_URL`
+
+### CJ (Commission Junction) — Publisher 7969834
+- ❌ **Puma EU** (#5569379) — solicitud **RECHAZADA** (2026-06). Buena estructura (Sneaker Content
+  10%/8%, cookie 30d) → reintentar con más tráfico documentado. Hay **11 links puma_es** esperando.
 
 ### TradeTracker ✅ ACTIVO — User ID: 334982
 - **Panel**: https://affiliate.tradetracker.com
