@@ -117,11 +117,15 @@ export default async function handler(req: any, res: any) {
   const models = process.env.CHAT_MODEL
     ? [process.env.CHAT_MODEL]
     : [
-        // Rápidos y multilingües primero (no-reasoning). Probamos en cadena: los free
-        // se rate-limitean/atascan a ratos, así que diversificamos familias.
-        "meta-llama/llama-3.3-70b-instruct:free",
-        "qwen/qwen3-next-80b-a3b-instruct:free",
-        "openai/gpt-oss-120b:free",
+        // Cadena gratuita mejor→peor, validada en vivo (jun 2026) para español + formato
+        // [[shoe:slug]] + latencia. Diversificada por PROVEEDOR: un 429 vuelve en ~0.3s,
+        // así que saltar entre familias distintas esquiva el rate-limit compartido casi
+        // sin coste de latencia.
+        "google/gemma-4-31b-it:free", // 2.4s, formato OK, español limpio, alta disponibilidad
+        "meta-llama/llama-3.3-70b-instruct:free", // top instrucciones/multilingüe
+        "qwen/qwen3-next-80b-a3b-instruct:free", // MoE rápido, multilingüe
+        "openai/gpt-oss-120b:free", // sólido, algo más lento (reasoning aparte)
+        "google/gemma-4-26b-a4b-it:free", // MoE rápido, último recurso
       ];
 
   const payload = (model: string) =>
