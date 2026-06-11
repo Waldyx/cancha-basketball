@@ -62,6 +62,21 @@ function rateLimited(ip: string): boolean {
 type Msg = { role: string; content: string };
 
 export default async function handler(req: any, res: any) {
+  // CORS: el sitio puede servirse en canchazapa.com o www.canchazapa.com (redirect
+  // apex→www). Si el service worker sirve la página en el apex, el fetch a /api/chat
+  // cruza a www → preflight. Permitimos ambos orígenes para que nunca falle.
+  const origin = (req.headers["origin"] || "").toString();
+  if (/^https:\/\/(www\.)?canchazapa\.com$/.test(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader("Vary", "Origin");
+  }
+  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    res.status(204).end();
+    return;
+  }
   if (req.method !== "POST") {
     res.status(405).json({ error: "Method not allowed" });
     return;
