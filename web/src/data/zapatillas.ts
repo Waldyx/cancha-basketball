@@ -302,7 +302,7 @@ const _rawZapatillas: Zapatilla[] = [
         url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-sabrina-2-retroed.html",
         precio_actual: 119.90,
         disponible: true,
-        tiene_afiliado: false,
+        tiene_afiliado: true,
         ultima_verificacion: "2026-05-31",
       },
       {
@@ -4741,7 +4741,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/~/314109490004.html", precio_actual: 60, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fnike%2Faone-lem-and-lime-mujer-volt-white-barely-volt", precio_actual: 76, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fnike-a-ja-wilson-a-one-all-star-women-s%2F2a0a5073-24e6-461d-9b70-5379fb3e323c%2Fc4", precio_actual: 116, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
-      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-aone-mvps.html", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-aone-mvps.html", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=a%27one&vst=a%27one", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+a%27one+wilson&tag=canchazapa-21", precio_actual: 140, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
     ],
@@ -5356,7 +5356,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/nike-book-1-hombre-zapatillas/314109163304.html", precio_actual: 60, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
       { tienda: "basket4ballers_es", url: "https://www.basket4ballers.com/es/zapatillas-de-baloncesto/53167-book-1-white-varsity-red-varsity-blue-fj4249-105.html", precio_actual: 90.75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
-      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-book-1-valley.html", precio_actual: 129.90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-book-1-valley.html", precio_actual: 129.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
     ],
   },
 
@@ -6545,7 +6545,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "joom", url: "https://www.joom.com/es/products/6999387eb21639012998da84", precio_actual: 61, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3574IK9", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
       { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=anta+shock+wave+5", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-anta-shock-wave-5-pro-moon.html", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-anta-shock-wave-5-pro-moon.html", precio_actual: 140, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
     ],
   },
 
@@ -10569,7 +10569,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0F5RLM2R7/?tag=canchazapa-21", precio_actual: 72, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "converse_es", url: "https://www.converse.com/es/shop/p/converse-x-engineered-garments-weapon-unisex/A19690C.html", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
-      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-converse-weapon-og-mid-black-ivory.html", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-converse-weapon-og-mid-black-ivory.html", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-converse-weapon-blanco-hombre%2F26e292fc-d118-4769-b9a3-4f6c1a3eb2a6%2Fc4", precio_actual: 136, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
     ],
   },
@@ -10820,7 +10820,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DGTYTW9L/?tag=canchazapa-21", precio_actual: 153, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+air+more+uptempo", precio_actual: 155, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-air-more-uptempo-low-dark-grey-light-crimson%2F8094b496-dc1b-4c51-937f-e2123b6b4bdf%2Fc14", precio_actual: 178, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
-      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-air-more-uptempo-96-olympic.html", precio_actual: 190, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-air-more-uptempo-96-olympic.html", precio_actual: 190, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
     ],
   },
 
@@ -12398,7 +12398,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 150,
     links_compra: [
-      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-new-balance-kawhi-4-third-eye.html", precio_actual: 129.90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-new-balance-kawhi-4-third-eye.html", precio_actual: 129.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
       { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar/?q=kawhi+4", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+kawhi+4+basketball&tag=canchazapa-21", precio_actual: 150, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
