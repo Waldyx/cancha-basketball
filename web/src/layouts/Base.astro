@@ -6,6 +6,7 @@ import "../styles/global.css";
 import CommandPalette from "../components/CommandPalette.astro";
 import CookieBanner from "../components/CookieBanner.astro";
 import Analytics from "../components/Analytics.astro";
+import ChatWidget from "../components/ChatWidget.astro";
 
 interface Props {
   title: string;
@@ -175,6 +176,9 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro
 
     <!-- Cookie banner (EU compliance) -->
     <CookieBanner />
+
+    <!-- Asistente IA flotante (chat) -->
+    <ChatWidget />
 
     <script>
       const hideBrokenImages = () => {
