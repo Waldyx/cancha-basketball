@@ -130,7 +130,15 @@ export default async function handler(req: any, res: any) {
       temperature: 0.4,
     });
 
+  // Presupuesto total de tiempo. maxDuration=30s (validado por Vercel en build),
+  // dejamos margen: ~25s repartidos, hasta 15s por modelo. Los free de OpenRouter
+  // suelen contestar en 3-6s pero a veces se atascan; con este presupuesto el
+  // segundo modelo aún tiene tiempo si el primero tarda.
+  const deadline = Date.now() + 25000;
+
   for (const model of models) {
+    const remaining = deadline - Date.now();
+    if (remaining < 2500) break; // sin tiempo útil para otro intento
     try {
       const r = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
@@ -141,7 +149,7 @@ export default async function handler(req: any, res: any) {
           "X-Title": "CANCHA.ZAPA",
         },
         body: payload(model),
-        signal: AbortSignal.timeout(9000),
+        signal: AbortSignal.timeout(Math.min(15000, remaining)),
       });
 
       if (!r.ok) {
