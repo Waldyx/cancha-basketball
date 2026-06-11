@@ -18,23 +18,16 @@
  *   CHAT_MODEL           (opcional)    — fuerza un único modelo; si no, usa la
  *                                        cadena de fallback gratuita de abajo.
  */
-import { zapatillas } from "../src/data/zapatillas";
-import { findMejorPrecio } from "../src/lib/scoring";
+// Catálogo precompilado en build (scripts/gen-chat-catalog.ts → prebuild). Se importa
+// como JSON con extensión explícita para que la función sea autocontenida y no
+// arrastre la cadena de TS del catálogo (evita ERR_MODULE_NOT_FOUND en el ESM de Vercel).
+import catalogData from "./_catalog.json" with { type: "json" };
+
+// Permite a Vercel ampliar el tiempo de ejecución si el plan lo soporta.
+export const config = { maxDuration: 30 };
 
 // ── Catálogo compacto para el system prompt (1 línea/zapa, ~5k tokens) ─────────
-const CATALOGO = zapatillas
-  .map((z) => {
-    const s = z.puntuaciones;
-    const precio = findMejorPrecio(z.links_compra)?.precio_actual ?? z.precio_msrp_eur;
-    return (
-      `${z.slug} | ${z.marca} ${z.modelo} | ${z.categoria_principal} | ${Math.round(precio)}€ | ` +
-      `tracc ${s.traccion} cushion ${s.amortiguacion} resp ${s.respuesta} ` +
-      `soporte ${s.soporte_lateral} estab ${s.estabilidad} ligereza ${s.peso_score} ` +
-      `outdoor ${s.durabilidad_outdoor} vent ${s.ventilacion} | ${z.altura} | horma ${z.horma}` +
-      (z.tags.includes("retro") ? " | RETRO" : "")
-    );
-  })
-  .join("\n");
+const CATALOGO: string = catalogData.catalogo;
 
 const SYSTEM = `Eres el experto de CANCHA.ZAPA, web independiente de zapatillas de baloncesto para España. Hablas castellano, directo, sin marketing ("sin BS"). Tuteas.
 
@@ -109,9 +102,9 @@ export default async function handler(req: any, res: any) {
   const models = process.env.CHAT_MODEL
     ? [process.env.CHAT_MODEL]
     : [
-        "deepseek/deepseek-v4-flash:free",
-        "openai/gpt-oss-120b:free",
+        // Rápidos primero (no-reasoning) para responder dentro del corte de Vercel.
         "meta-llama/llama-3.3-70b-instruct:free",
+        "openai/gpt-oss-120b:free",
       ];
 
   const payload = (model: string) =>
@@ -133,7 +126,7 @@ export default async function handler(req: any, res: any) {
           "X-Title": "CANCHA.ZAPA",
         },
         body: payload(model),
-        signal: AbortSignal.timeout(25000),
+        signal: AbortSignal.timeout(9000),
       });
 
       if (!r.ok) {
