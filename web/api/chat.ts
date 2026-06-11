@@ -117,8 +117,10 @@ export default async function handler(req: any, res: any) {
   const models = process.env.CHAT_MODEL
     ? [process.env.CHAT_MODEL]
     : [
-        // Rápidos primero (no-reasoning) para responder dentro del corte de Vercel.
+        // Rápidos y multilingües primero (no-reasoning). Probamos en cadena: los free
+        // se rate-limitean/atascan a ratos, así que diversificamos familias.
         "meta-llama/llama-3.3-70b-instruct:free",
+        "qwen/qwen3-next-80b-a3b-instruct:free",
         "openai/gpt-oss-120b:free",
       ];
 
@@ -149,7 +151,7 @@ export default async function handler(req: any, res: any) {
           "X-Title": "CANCHA.ZAPA",
         },
         body: payload(model),
-        signal: AbortSignal.timeout(Math.min(15000, remaining)),
+        signal: AbortSignal.timeout(Math.min(12000, remaining)),
       });
 
       if (!r.ok) {
