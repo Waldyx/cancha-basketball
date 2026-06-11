@@ -89,6 +89,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 200,
     links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fsearch%3Ftext%3DNike%2BLeBron%2B22", precio_actual: 200, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       {
         tienda: "joom",
         url: "https://www.joom.com/es/products/68c9d28bdf066801b880b469?variant_id=68c9d28bdf06683bb880b472",
@@ -203,6 +204,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 160,
     links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fsearch%3Ftext%3DUnder%2BArmour%2BCurry%2B12", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "joom", url: "https://www.joom.com/es/products/695257de300a5d0109e14f4f?variant_id=695257de300a5d8609e14f59", precio_actual: 76, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-08" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+curry+12+baloncesto&tag=canchazapa-21", precio_actual: 94.83, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "ua_es", url: "https://www.underarmour.es/es-es/buscar/?q=curry+12", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
@@ -289,6 +291,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 120,
     links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fsearch%3Ftext%3DNike%2BSabrina%2B2", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       {
         tienda: "joom",
         url: "https://www.joom.com/es/products/68c9ea5759560c01a81f5804?variant_id=68c9ea5759560c3fa81f5816",
@@ -567,6 +570,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 170,
     links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fsearch%3Ftext%3DNike%2BKD%2B18", precio_actual: 170, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kd+18&vst=kd+18", precio_actual: 169.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/product/~/314109315904.html", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=kd+18", precio_actual: 169.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
@@ -692,6 +696,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 135,
     links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fsearch%3Ftext%3DJordan%2BLuka%2B5", precio_actual: 135, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "zalando_es", url: "https://www.zalando.es/jordan-zapatillas-de-baloncesto-blackbright-crimson-joc42a06d-q11.html", precio_actual: 97.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fjordan%2Fluka-5-viper-edge-electric-green-infrared-23-black-teal-tint-be", precio_actual: 109.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=jordan+luka+5&vst=jordan+luka+5", precio_actual: 135, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
@@ -757,6 +762,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 190,
     links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fsearch%3Ftext%3DNike%2BGT%2BCut%2B3", precio_actual: 190, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "joom", url: "https://www.joom.com/es/products/68c9e2a9d367ea012bf6f0a0?variant_id=68c9e2a9d367ea052bf6f0a8", precio_actual: 127, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=gt+cut+3&vst=gt+cut+3", precio_actual: 189.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=gt+cut+3", precio_actual: 195, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
@@ -818,6 +824,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 145,
     links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fsearch%3Ftext%3DJordan%2BTatum%2B3", precio_actual: 145, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "joom", url: "https://www.joom.com/es/products/68c9e3a3da556e01f521fec8?variant_id=68c9e3a3da556e2ef521fecf", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=jordan+tatum+3&vst=jordan+tatum+3", precio_actual: 144.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=tatum+3", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
@@ -1309,6 +1316,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 120,
     links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fsearch%3Ftext%3DPuma%2BHali%2B1", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fpuma%2Fhali-1-gray-echo-feather-gray", precio_actual: 52, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fpuma%2Fhali-1-opal-blissful-blue-royal-saphire", precio_actual: 78, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
       { tienda: "puma_es", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-hali-1-unisex/313450?swatch=01", precio_actual: 104, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
@@ -1372,6 +1380,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 120,
     links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fsearch%3Ftext%3DNike%2BGiannis%2BFreak%2B7", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "joom", url: "https://www.joom.com/es/products/6995a03236111c010b2e9a0a?variant_id=6995a03236111ca90b2e9a22", precio_actual: 56, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "joom", url: "https://www.joom.com/es/products/6951f7637afe890117de18c0", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fnike%2Fgiannis-freak-7-all-star-volt-black", precio_actual: 98, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
@@ -1676,6 +1685,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-28",
     precio_msrp_eur: 160,
     links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fsearch%3Ftext%3DAdidas%2BHarden%2BVol%2B9", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dharden%2Bvol%2B9", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=harden+vol+9", precio_actual: 160, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+harden+vol+9+baloncesto&tag=canchazapa-21", precio_actual: 82.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
@@ -1736,6 +1746,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-28",
     precio_msrp_eur: 95,
     links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fsearch%3Ftext%3DAdidas%2BDame%2BCertified", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Ddame%2Bcertified", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=adidas+dame+certified", precio_actual: 94.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+certified+baloncesto&tag=canchazapa-21", precio_actual: 59.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
@@ -1796,6 +1807,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 130,
     links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fsearch%3Ftext%3DPuma%2BMB.04", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "puma_es", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-mb-04-lo-team-unisex/312174?swatch=02", precio_actual: 92, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=puma+mb+04+basketball", precio_actual: 129.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+mb.04+baloncesto&tag=canchazapa-21", precio_actual: 125, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
@@ -12770,7 +12782,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-09",
     precio_msrp_eur: 119,
     links_compra: [
-      { tienda: "aliexpress", url: "https://es.aliexpress.com/wholesale?SearchText=361+joker+1+nikola+jokic", precio_actual: 119, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-09" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fwholesale%3FSearchText%3D361%2Bjoker%2B1%2Bnikola%2Bjokic", precio_actual: 119, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=361+joker+1+jokic&tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
     ],
   },
@@ -12827,7 +12839,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-09",
     precio_msrp_eur: 105,
     links_compra: [
-      { tienda: "aliexpress", url: "https://es.aliexpress.com/wholesale?SearchText=361+big3+6+pro", precio_actual: 105, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-09" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fwholesale%3FSearchText%3D361%2Bbig3%2B6%2Bpro", precio_actual: 105, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=361+big3+pro+baloncesto&tag=canchazapa-21", precio_actual: 110, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
     ],
   },
@@ -12884,7 +12896,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-09",
     precio_msrp_eur: 90,
     links_compra: [
-      { tienda: "aliexpress", url: "https://es.aliexpress.com/wholesale?SearchText=361+zen+7+basketball", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-09" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fwholesale%3FSearchText%3D361%2Bzen%2B7%2Bbasketball", precio_actual: 90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=361+zen+7+baloncesto&tag=canchazapa-21", precio_actual: 95, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
     ],
   },
@@ -12942,7 +12954,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-09",
     precio_msrp_eur: 95,
     links_compra: [
-      { tienda: "aliexpress", url: "https://es.aliexpress.com/wholesale?SearchText=rigorer+ar3+austin+reaves", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-09" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fwholesale%3FSearchText%3Drigorer%2Bar3%2Baustin%2Breaves", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=rigorer+ar3&tag=canchazapa-21", precio_actual: 110, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
     ],
   },
@@ -13000,7 +13012,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-09",
     precio_msrp_eur: 75,
     links_compra: [
-      { tienda: "aliexpress", url: "https://es.aliexpress.com/wholesale?SearchText=rigorer+ar1", precio_actual: 65, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-09" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fwholesale%3FSearchText%3Drigorer%2Bar1", precio_actual: 65, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=rigorer+ar1+austin+reaves&tag=canchazapa-21", precio_actual: 85, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
     ],
   },
@@ -13057,7 +13069,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-09",
     precio_msrp_eur: 60,
     links_compra: [
-      { tienda: "aliexpress", url: "https://es.aliexpress.com/wholesale?SearchText=rigorer+warship+basketball", precio_actual: 60, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-09" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fwholesale%3FSearchText%3Drigorer%2Bwarship%2Bbasketball", precio_actual: 60, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=rigorer+warship&tag=canchazapa-21", precio_actual: 70, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
     ],
   },
