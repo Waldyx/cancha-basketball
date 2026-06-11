@@ -627,7 +627,13 @@ En la práctica: Nike.es y Basket World siempre son search (no tienen URLs de pr
 - **Programas ADHERIDOS (6) — al 2026-06-12**:
   - ✅ **adidas ES** — aid: 77008, conv 2.06%, aprob 87%, EPC 0.08€ (25 links)
   - ✅ **AliExpress ES** — aid: 11640, conv 18.55%, aprob 96%, EPC 0.09€ (17 links)
-  - ✅ **Forum Sport ES** — aid: 23805, conv 3.24%, aprob 57%, EPC 0.09€ (solo 1 link — AMPLIAR)
+  - ✅ **Forum Sport ES** — aid: 23805, conv 3.24%, aprob 57%, EPC 0.09€ (3 links de producto real)
+    - ⚠ OJO: el catálogo de básquet de Forum Sport es FINO. NO tiene flagships actuales
+      (LeBron 22, Curry 12, KD 18, Luka 5, Tatum 3, GT Cut 3, Hali 1, Freak 7, MB.04, Sabrina 2).
+      Solo gama media/budget: Harden Vol 9 (103.99€), LeBron Witness IX (90.19€), AE 2, Precision VII,
+      GT Cut Academy, Dame Certified 3 (infantil). Verificado con Claude-in-Chrome 2026-06-12.
+      Formato búsqueda: `forumsport.com/es-es/search?text=QUERY`. URL producto acaba en `-p`.
+      NO añadir search-links: caen en modelos equivocados. Solo enlazar producto verificado.
   - ✅ **Decathlon ES** — aid: 105405, conv 5.95%, aprob 86%, EPC 0.14€ (15 links)
   - ✅ **Atmósfera Sport ES** — aid: 26255, conv 3.74%, aprob 69%, EPC 0.16€ (11 links)
   - ✅ **Snipes EU** — aid: 122628, conv 0.88%, aprob 79%, EPC 0.07€ (14 links)
