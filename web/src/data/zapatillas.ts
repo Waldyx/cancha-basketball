@@ -1,7 +1,7 @@
 ﻿import type { Zapatilla } from "../lib/types";
 import { mergePricesIntoShoes } from "../lib/mergePrices";
 import type { PreciosJson } from "../lib/mergePrices";
-import preciosJson from "./precios.json";
+import preciosJson from "./precios.json" with { type: "json" };
 
 /**
  * Catálogo inicial de zapatillas (MVP).
