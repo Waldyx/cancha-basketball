@@ -624,18 +624,29 @@ En la práctica: Nike.es y Basket World siempre son search (no tienen URLs de pr
 
 ### Awin ✅ ACTIVO — Publisher ID: 2908587
 - **Panel**: https://ui.awin.com
-- **Programas aprobados**:
-  - ✅ **Decathlon ES** — aid: 105405, ~6%, formato Awin
-  - ✅ **Snipes EU** — aid: 122628, ~5%, formato Awin
-- **Programas pendientes** (ya solicitados):
-  - ⏳ El Corte Inglés (EPC €13.99 — prioritario)
-  - ⏳ Foot Locker ES
-  - ⏳ JD Sports ES (~5%)
-  - ⏳ adidas ES (~8%)
-  - ⏳ Sprinter ES
-  - ⏳ Zalando ES (~4-6%)
-  - ⏳ Reebok ES (~6%)
+- **Programas ADHERIDOS (6) — al 2026-06-12**:
+  - ✅ **adidas ES** — aid: 77008, conv 2.06%, aprob 87%, EPC 0.08€ (25 links)
+  - ✅ **AliExpress ES** — aid: 11640, conv 18.55%, aprob 96%, EPC 0.09€ (17 links)
+  - ✅ **Forum Sport ES** — aid: 23805, conv 3.24%, aprob 57%, EPC 0.09€ (solo 1 link — AMPLIAR)
+  - ✅ **Decathlon ES** — aid: 105405, conv 5.95%, aprob 86%, EPC 0.14€ (15 links)
+  - ✅ **Atmósfera Sport ES** — aid: 26255, conv 3.74%, aprob 69%, EPC 0.16€ (11 links)
+  - ✅ **Snipes EU** — aid: 122628, conv 0.88%, aprob 79%, EPC 0.07€ (14 links)
+- **Pendientes / en cola**: El Corte Inglés (EPC alto, prioritario), Zalando ES, Reebok ES, size? Official.
+- **Rechazados (reintentar en 3-6 meses con más tráfico)**: Foot Locker ES, Sprinter ES, Foot-Store ES, JD Sports.
 - **Formato link Awin**: `https://www.awin1.com/cread.php?awinmid=AIDID&awinaffid=2908587&ued=URL_ENCODED_URL`
+
+### TradeTracker ✅ ACTIVO — User ID: 334982
+- **Panel**: https://affiliate.tradetracker.com
+- **Campañas ACEPTADAS (3) — al 2026-06-12**:
+  - ✅ **FuikaOmar** — #37834, 5% (7 links: sabrina-2, aone, book-1, shock-wave-5, weapon, uptempo, kawhi-4)
+  - ✅ **Fútbol/Basketball Emotion** — #35939, 3.5% (14 links, deeplink `tc.tradetracker.net/?c=35939&m=12&a=511170`)
+  - ✅ **Referidos TradeTracker** — #1158, 3%
+- **Formato deeplink**: `https://tc.tradetracker.net/?c=CAMPAÑA&m=12&a=511170&r=&u=URL_ENCODED` (FuikaOmar usa `deals.fuikaomar.es/c?c=37834&m=12&a=511170&...`)
+
+> AUDITORÍA 2026-06-12: todo lo aprobado está correctamente activado en los datos
+> (0 links de tienda aprobada en `tiene_afiliado:false`). Único pendiente: 6 enlaces
+> AliExpress de marcas nicho (361° Joker 1/Big3 6/Zen 7, Rigorer AR3/AR1/Warship) son
+> URLs de búsqueda planas — requieren que el usuario genere el link Portals s.click.
 
 ### AliExpress Portals ✅ ACTIVO
 - **Panel**: https://portals.aliexpress.com
