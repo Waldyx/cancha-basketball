@@ -124,6 +124,10 @@ const def = index.find((z) => !z.retro) ?? index[0];
                 </div>
                 <div class="cr-gauge-bar"><div class="cr-gauge-fill" id="out-desgaste-bar"></div></div>
               </div>
+              <div class="cr-outdoor-warn hidden" id="cr-outdoor-warn">
+                ⚠ A este ritmo en exterior la desgastas en <strong id="out-warn-meses">—</strong>. Si juegas tanto en asfalto, busca una con suela <strong>outdoor</strong> resistente.
+                <a href="/zapatillas?cancha=exterior" class="cr-outdoor-link">Ver zapas resistentes a exterior →</a>
+              </div>
               <a href="#" id="cr-cta" class="home-btn primary" style="margin-top:18px">Ver review de la zapa →</a>
             </div>
           </div>
@@ -171,6 +175,7 @@ const def = index.find((z) => !z.retro) ?? index[0];
       const gColor = desgaste6m < 50 ? "#4ade80" : desgaste6m < 85 ? "#facc15" : "#ef4444";
 
       $("out-coste").textContent = coste.toFixed(2) + "€";
+      $("out-coste").style.color = verdict[1];
       $("out-veredicto").textContent = verdict[0];
       $("out-veredicto").style.color = verdict[1];
       $("out-partidos").textContent = partidos;
@@ -180,6 +185,13 @@ const def = index.find((z) => !z.retro) ?? index[0];
       $("out-desgaste").style.color = gColor;
       $("out-desgaste-bar").style.width = desgaste6m + "%";
       $("out-desgaste-bar").style.background = gColor;
+
+      // Aviso outdoor: solo cuando la desgastas rápido (no por coste alto)
+      const warn = $("cr-outdoor-warn");
+      const showWarn = desgaste6m >= 85 && !current.retro;
+      warn.classList.toggle("hidden", !showWarn);
+      if (showWarn) $("out-warn-meses").textContent = `~${meses.toFixed(0)} meses`;
+
       $("cr-cta").href = `/zapatilla/${current.slug}`;
     }
 
@@ -199,5 +211,29 @@ const def = index.find((z) => !z.retro) ?? index[0];
     recompute();
   </script>
 
-  <style>.hidden { display: none !important; }</style>
+  <style>
+    .hidden { display: none !important; }
+    .cr-outdoor-warn {
+      margin-top: 16px;
+      padding: 12px 14px;
+      border: 1px solid rgba(239,68,68,0.4);
+      border-left: 3px solid #ef4444;
+      background: rgba(239,68,68,0.08);
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--cz-text-muted, #d4d4d8);
+    }
+    .cr-outdoor-warn strong { color: #fff; }
+    .cr-outdoor-link {
+      display: inline-block;
+      margin-top: 8px;
+      color: #f97316;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      font-size: 12px;
+      text-decoration: none;
+    }
+    .cr-outdoor-link:hover { text-decoration: underline; }
+  </style>
 </Base>

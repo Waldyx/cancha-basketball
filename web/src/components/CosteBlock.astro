@@ -88,6 +88,11 @@ const uid = `cb-${slug}`;
       </div>
     </div>
 
+    <div class="cb-outdoor-warn hidden" data-out="warn">
+      ⚠ A este ritmo en exterior la desgastas en <strong data-out="warn-meses">—</strong>. Para tanto asfalto busca una con suela <strong>outdoor</strong> resistente.
+      <a href="/zapatillas?cancha=exterior" class="cb-outdoor-link">Ver zapas resistentes a exterior →</a>
+    </div>
+
     <p class="cb-disclaimer">
       ⚠ Estimación según el score de durabilidad ({durabilidad}/10) y tu uso. El desgaste real
       varía con la superficie y el cuidado.
@@ -123,6 +128,7 @@ const uid = `cb-${slug}`;
       $('[data-out="semana"]').textContent = semana;
       $('[data-out="outdoor"]').textContent = outdoor + "%";
       $('[data-out="coste"]').textContent = coste.toFixed(2) + "€";
+      $('[data-out="coste"]').style.color = verdict[1];
       $('[data-out="veredicto"]').textContent = verdict[0];
       $('[data-out="veredicto"]').style.color = verdict[1];
       $('[data-out="partidos"]').textContent = partidos;
@@ -132,9 +138,41 @@ const uid = `cb-${slug}`;
       const bar = $('[data-out="desgaste-bar"]');
       bar.style.width = desgaste6m + "%";
       bar.style.background = gColor;
+
+      // Aviso outdoor: solo cuando la desgastas rápido (no por coste alto)
+      const warn = $('[data-out="warn"]');
+      const showWarn = desgaste6m >= 85;
+      warn.classList.toggle("hidden", !showWarn);
+      if (showWarn) $('[data-out="warn-meses"]').textContent = `~${meses.toFixed(0)} meses`;
     }
 
     root.querySelectorAll(".cb-range").forEach((r) => r.addEventListener("input", recompute));
     recompute();
   }
 </script>
+
+<style>
+  .hidden { display: none !important; }
+  .cb-outdoor-warn {
+    margin-top: 14px;
+    padding: 11px 13px;
+    border: 1px solid rgba(239,68,68,0.4);
+    border-left: 3px solid #ef4444;
+    background: rgba(239,68,68,0.08);
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--cz-text-muted, #d4d4d8);
+  }
+  .cb-outdoor-warn strong { color: #fff; }
+  .cb-outdoor-link {
+    display: inline-block;
+    margin-top: 7px;
+    color: #f97316;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-size: 11px;
+    text-decoration: none;
+  }
+  .cb-outdoor-link:hover { text-decoration: underline; }
+</style>
