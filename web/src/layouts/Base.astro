@@ -130,7 +130,7 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro
       }
     </style>
   </head>
-  <body class="antialiased">
+  <body class="antialiased" style="min-height:100vh;display:flex;flex-direction:column">
     <!-- Skip-to-content para usuarios de teclado / lectores de pantalla -->
     <a href="#main-content" class="skip-to-content">Saltar al contenido</a>
 
@@ -146,7 +146,7 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro
     </div>
 
     <!-- Main content target for skip link -->
-    <div id="main-content" class="relative z-10">
+    <div id="main-content" class="relative z-10" style="flex:1">
       <slot />
     </div>
 
