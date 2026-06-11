@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-06-09 (sesión 24)
+> Última actualización: 2026-06-12 (sesión 25)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -47,7 +47,59 @@ CANCHA<span class="text-orange-500">.</span>ZAPA
 
 ---
 
-## Estado actual (sesión 24) — Auditoría iterativa scores + 13 nuevas zapas + marcas nicho
+## Estado actual (sesión 25) — Chat IA en producción + calculadora + FuikaOmar aprobado
+
+### ✅ Completado (sesión 25)
+
+**Asistente IA (chat) ARREGLADO y funcionando en producción** ✅
+- **Bug raíz**: la función serverless `web/api/chat.ts` crasheaba con `ERR_MODULE_NOT_FOUND`.
+  Con `"type":"module"` Vercel ejecuta `/api` en ESM puro SIN bundling, y los imports sin
+  extensión (`../src/data/zapatillas`) no resuelven en Node ESM. Nunca llegaba a OpenRouter
+  (por eso el error era constante aunque la API key estuviera bien).
+- **Fix**: función **autocontenida**. `scripts/gen-chat-catalog.ts` (corre en `prebuild`)
+  precompila el catálogo compacto a `web/api/_catalog.json`; la función solo importa ese
+  JSON (con extensión → seguro en ESM). El JSON se commitea como fallback y se regenera en
+  cada build (precios siempre frescos).
+- **CORS + OPTIONS**: añadido por si el SW sirve la página en apex y el fetch cruza a www.
+- **Cadena de modelos GRATUITA optimizada** (probada en vivo jun 2026, mejor→peor),
+  diversificada por proveedor para esquivar el rate-limit compartido (un 429 vuelve en ~0.3s):
+  1. `google/gemma-4-31b-it:free` (2-3s, español limpio, sigue formato `[[shoe:]]`, alta disponib.)
+  2. `meta-llama/llama-3.3-70b-instruct:free`
+  3. `qwen/qwen3-next-80b-a3b-instruct:free`
+  4. `openai/gpt-oss-120b:free`
+  5. `google/gemma-4-26b-a4b-it:free`
+  - Presupuesto 25s, 12s máx/modelo, `export const config={maxDuration:30}`.
+  - Fiabilidad real ~90% (resto = saturación free tier, se maneja con "reintenta", no crashea).
+  - DESCARTADOS: `deepseek-v4-flash:free` (YA NO existe en gratis, da 404 → solo de pago),
+    nemotron-ultra-550b (30s), nemotron-super-120b (filtra su reasoning en inglés al texto).
+  - `OPENROUTER_API_KEY` configurada en Vercel (Production). NUNCA en el repo.
+
+**Calculadora de coste/partido — mejoras visuales** (`/calculadora` + `components/CosteBlock.astro`)
+- El número grande (€/partido) ahora adopta el color del veredicto (verde/naranja/amarillo/rojo);
+  número + texto coordinados (ambos miden coste). La barra y su % mantienen su color (desgaste).
+- Aviso outdoor en rojo: cuando desgaste ≥85% (y no es retro) aparece consejo accionable +
+  enlace a `/zapatillas?cancha=exterior` (filtro Outdoor real). Aplicado en los DOS sitios
+  (página suelta y bloque embebido en la ficha).
+- Fixes previos: quitado doble overlay/footer, footer global anclado abajo en Base.astro
+  (body flex column), nav completo añadido.
+
+**Nav: Calculadora entre Catálogo y Accesorios en TODAS las páginas** + botón en el hero del home.
+
+**Afiliados — FuikaOmar (TradeTracker #37834, 5%) APROBADO** ✅
+- Activado `tiene_afiliado: true` en 7 zapas con deeplink ya preconfigurado:
+  nike-sabrina-2, nike-aone, nike-book-1, anta-shock-wave-5, converse-weapon,
+  nike-air-more-uptempo, nb-kawhi-4.
+- TradeTracker ahora con **3 campañas aceptadas**: FuikaOmar (#37834, 5%),
+  Fútbol/Basketball Emotion (#35939, 3.5%), Referidos TradeTracker (#1158, 3%).
+
+### 🟡 Pendiente (sesión 25)
+- **Awin en cola**: ECI (prioritario, EPC alto), Zalando, Size?, Reebok.
+- **Chat ~100% fiable**: solo con modelo de pago (`deepseek/deepseek-v4-flash`, céntimos/mes).
+  El usuario prefiere mantenerlo 100% gratis por ahora.
+
+---
+
+## Estado anterior (sesión 24) — Auditoría iterativa scores + 13 nuevas zapas + marcas nicho
 
 ### ✅ Completado (sesión 24)
 
