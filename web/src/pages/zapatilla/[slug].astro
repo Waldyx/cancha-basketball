@@ -7,6 +7,7 @@ import "../../styles/cancha-redesign.css";
 import { zapatillas } from "../../data/zapatillas";
 import { findMejorPrecio, COMISIONES_TIENDA } from "../../lib/scoring";
 import PriceAlert from "../../components/PriceAlert.astro";
+import CosteBlock from "../../components/CosteBlock.astro";
 import { ARTICLES } from "../../lib/articles";
 
 export async function getStaticPaths() {
@@ -215,6 +216,7 @@ const productJsonLd = {
           <a href="/zapatillas" class="active">Catálogo</a>
           <a href="/balones">Accesorios</a>
           <a href="/blog">Blog</a>
+          <a href="/calculadora">Calculadora</a>
           <a href="/mis-zapas">♥ Mis zapas</a>
         </nav>
       </div>
@@ -441,6 +443,20 @@ const productJsonLd = {
             <span>Sin sesgo editorial · Sin patrocinios · Links de afiliado etiquetados</span>
           </div>
         </div>
+      </div>
+    </section>
+
+    {/* COSTE POR PARTIDO */}
+    <section class="cz-detail-coste">
+      <div class="shell">
+        <CosteBlock
+          slug={z.slug}
+          marca={z.marca}
+          modelo={z.modelo}
+          durabilidad={z.puntuaciones.durabilidad_outdoor}
+          precio={mejorPrecio?.precio_actual ?? z.precio_msrp_eur}
+          isRetro={z.tags.includes("retro")}
+        />
       </div>
     </section>
 

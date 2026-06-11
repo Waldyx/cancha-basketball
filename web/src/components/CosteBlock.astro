@@ -1,0 +1,140 @@
+---
+// CosteBlock.astro — calculadora de coste por partido, embebida en la ficha.
+//
+// Uso en /zapatilla/[slug].astro (tras el análisis técnico):
+//   import CosteBlock from "../../components/CosteBlock.astro";
+//   ...
+//   <CosteBlock
+//     slug={z.slug}
+//     marca={z.marca}
+//     modelo={z.modelo}
+//     durabilidad={z.puntuaciones.durabilidad_outdoor}
+//     precio={(findMejorPrecio(z.links_compra)?.precio_actual) ?? z.precio_msrp_eur}
+//     isRetro={z.tags.includes("retro")}
+//   />
+//
+// Modelo: vidaPartidos = durabilidad × 35 (baseline indoor).
+// Desgaste por partido: indoor ×1, outdoor ×2.5 → mezcla ponderada.
+
+interface Props {
+  slug: string;
+  marca: string;
+  modelo: string;
+  durabilidad: number;   // 1-10 (puntuaciones.durabilidad_outdoor)
+  precio: number;        // EUR
+  isRetro?: boolean;
+}
+
+const { slug, marca, modelo, durabilidad, precio, isRetro = false } = Astro.props;
+const uid = `cb-${slug}`;
+---
+
+{isRetro ? (
+  <aside class="cb-block cb-retro">
+    <div class="cb-head">
+      <span class="cb-bell cb-bell-retro" aria-hidden="true">◈</span>
+      <div>
+        <p class="cz-eyebrow" style="font-size:10px;color:#facc15">★ Retro · Coleccionismo</p>
+        <h3 class="cb-title">Esta es más de vitrina que de cancha</h3>
+      </div>
+    </div>
+    <p class="cb-retro-body">
+      La <strong>{marca} {modelo}</strong> es un modelo retro. La mayoría se compran para
+      coleccionismo o uso casual, no para jugar — por eso el "coste por partido" no aplica
+      igual. Si la vas a usar en pista, mira su durabilidad ({durabilidad}/10) y asume que
+      las suelas vintage se gastan antes que las modernas.
+    </p>
+    <a href="/zapatillas?retro=false" class="cb-retro-link">Ver zapas pensadas para jugar →</a>
+  </aside>
+) : (
+  <aside class="cb-block" id={uid} data-dura={durabilidad} data-precio={precio}>
+    <div class="cb-head">
+      <span class="cb-bell" aria-hidden="true">◔</span>
+      <div>
+        <p class="cz-eyebrow" style="font-size:10px">★ Calculadora · Sin BS</p>
+        <h3 class="cb-title">¿Cuánto te cuesta por partido?</h3>
+      </div>
+    </div>
+
+    <div class="cb-grid">
+      <div class="cb-controls">
+        <div class="cb-ctl">
+          <label class="cb-lab">Partidos / semana <strong data-out="semana">3</strong></label>
+          <input type="range" min="1" max="7" step="1" value="3" class="cb-range" data-in="semana" />
+        </div>
+        <div class="cb-ctl">
+          <label class="cb-lab">Juego en exterior <strong data-out="outdoor">30%</strong></label>
+          <input type="range" min="0" max="100" step="10" value="30" class="cb-range" data-in="outdoor" />
+        </div>
+        <div class="cb-gauge">
+          <div class="cb-gauge-head">
+            <span>Desgaste a 6 meses</span>
+            <strong data-out="desgaste">—</strong>
+          </div>
+          <div class="cb-gauge-bar">
+            <div class="cb-gauge-fill" data-out="desgaste-bar"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cb-result">
+        <span class="cb-cost" data-out="coste">—</span>
+        <span class="cb-cost-unit">por partido</span>
+        <span class="cb-verdict" data-out="veredicto">—</span>
+        <div class="cb-mini-stats">
+          <div><strong data-out="partidos">—</strong><span>partidos</span></div>
+          <div><strong data-out="vida">—</strong><span>vida útil</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="cb-disclaimer">
+      ⚠ Estimación según el score de durabilidad ({durabilidad}/10) y tu uso. El desgaste real
+      varía con la superficie y el cuidado.
+    </p>
+  </aside>
+)}
+
+<script define:vars={{ uid }}>
+  const root = document.getElementById(uid);
+  if (root) {
+    const dura = Number(root.dataset.dura);
+    const precio = Number(root.dataset.precio);
+    const $ = (sel) => root.querySelector(sel);
+
+    function recompute() {
+      const semana = Number($('[data-in="semana"]').value);
+      const outdoor = Number($('[data-in="outdoor"]').value);
+      const vidaBaseIndoor = dura * 35;
+      const outdoorFrac = outdoor / 100;
+      const desgasteMedio = (1 - outdoorFrac) * 1 + outdoorFrac * 2.5;
+      const partidos = Math.round(vidaBaseIndoor / desgasteMedio);
+      const meses = semana > 0 ? partidos / (semana * 4.33) : 0;
+      const coste = partidos > 0 ? precio / partidos : 0;
+      const partidos6m = semana * 4.33 * 6;
+      const desgaste6m = Math.min(100, Math.round((partidos6m / partidos) * 100));
+
+      const verdict = coste < 0.5 ? ["Chollo. Se amortiza sola.", "#4ade80"]
+        : coste < 1.2 ? ["Compra sensata.", "#f97316"]
+        : coste < 2.5 ? ["Cara por partido.", "#facc15"]
+        : ["Solo si la exprimes.", "#ef4444"];
+      const gColor = desgaste6m < 50 ? "#4ade80" : desgaste6m < 85 ? "#facc15" : "#ef4444";
+
+      $('[data-out="semana"]').textContent = semana;
+      $('[data-out="outdoor"]').textContent = outdoor + "%";
+      $('[data-out="coste"]').textContent = coste.toFixed(2) + "€";
+      $('[data-out="veredicto"]').textContent = verdict[0];
+      $('[data-out="veredicto"]').style.color = verdict[1];
+      $('[data-out="partidos"]').textContent = partidos;
+      $('[data-out="vida"]').textContent = meses.toFixed(0) + "m";
+      $('[data-out="desgaste"]').textContent = desgaste6m + "%";
+      $('[data-out="desgaste"]').style.color = gColor;
+      const bar = $('[data-out="desgaste-bar"]');
+      bar.style.width = desgaste6m + "%";
+      bar.style.background = gColor;
+    }
+
+    root.querySelectorAll(".cb-range").forEach((r) => r.addEventListener("input", recompute));
+    recompute();
+  }
+</script>

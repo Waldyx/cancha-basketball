@@ -3642,3 +3642,125 @@ button { font-family: inherit; cursor: pointer; }
   .seo-row-foot { padding: 14px 16px; }
   .srf-now { font-size: 28px; }
 }
+/* ============================================================
+   Calculadora de coste por partido
+   - CosteBlock.astro (bloque embebido en ficha): clases .cb-*
+   - /calculadora (página standalone): clases .cost-* / .cc-* / .cr-*
+   Añade este bloque al final de web/src/styles/cancha-redesign.css
+   ============================================================ */
+
+/* ── Bloque embebido (.cb-*) ── */
+.cz-detail-coste { padding: 0 0 12px; }
+.cb-block {
+  background: rgba(22,22,22,0.85); border: 1px solid rgba(249,115,22,0.35);
+  border-left: 4px solid #f97316; padding: 22px 24px;
+}
+.cb-block.cb-retro { border-color: rgba(250,204,21,0.4); border-left-color: #facc15; }
+.cb-head { display: flex; gap: 12px; align-items: center; margin-bottom: 18px; }
+.cb-bell {
+  width: 34px; height: 34px; flex-shrink: 0; background: #f97316; color: #0c0c0c;
+  display: inline-flex; align-items: center; justify-content: center; font-size: 19px; font-weight: 900;
+}
+.cb-bell-retro { background: #facc15; }
+.cb-title {
+  font-family: "Barlow Condensed", sans-serif; font-weight: 900; font-size: 24px;
+  line-height: 1; text-transform: uppercase; letter-spacing: -0.02em; color: #fff; margin: 4px 0 0;
+}
+.cb-retro-body { color: #a1a1aa; font-size: 14px; line-height: 1.6; margin: 0 0 14px; }
+.cb-retro-body strong { color: #fff; font-weight: 800; }
+.cb-retro-link {
+  font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.14em;
+  color: #facc15; border-bottom: 2px solid #facc15; padding-bottom: 1px;
+}
+.cb-grid { display: grid; grid-template-columns: 1fr 260px; gap: 24px; align-items: stretch; }
+@media (max-width: 720px) { .cb-grid { grid-template-columns: 1fr; gap: 18px; } }
+.cb-controls { display: flex; flex-direction: column; gap: 16px; }
+.cb-ctl { display: flex; flex-direction: column; gap: 6px; }
+.cb-lab {
+  font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.14em; color: #a1a1aa;
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.cb-lab strong { font-family: "Barlow Condensed", sans-serif; font-size: 20px; color: #f97316; }
+.cb-range { width: 100%; accent-color: #f97316; cursor: pointer; }
+.cb-gauge { margin-top: 2px; }
+.cb-gauge-head {
+  display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px;
+  font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: #71717a;
+}
+.cb-gauge-head strong { font-family: "Barlow Condensed", sans-serif; font-size: 17px; }
+.cb-gauge-bar { height: 8px; background: #0c0c0c; border: 1px solid rgba(63,63,70,0.5); overflow: hidden; }
+.cb-gauge-fill { height: 100%; transition: width 0.4s cubic-bezier(0.2,0.7,0.2,1); }
+.cb-result {
+  text-align: center; background: #0f0f0f; border: 1px solid rgba(249,115,22,0.3);
+  padding: 20px 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+}
+.cb-cost {
+  font-family: "Barlow Condensed", sans-serif; font-weight: 900; font-size: 48px;
+  line-height: 0.9; color: #f97316; letter-spacing: -0.03em; white-space: nowrap;
+}
+.cb-cost-unit { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.2em; color: #71717a; }
+.cb-verdict { font-family: "Barlow Condensed", sans-serif; font-weight: 700; font-size: 16px; margin-top: 8px; line-height: 1.05; }
+.cb-mini-stats { display: flex; gap: 18px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(63,63,70,0.4); }
+.cb-mini-stats div { display: flex; flex-direction: column; }
+.cb-mini-stats strong { font-family: "Barlow Condensed", sans-serif; font-weight: 900; font-size: 22px; color: #fff; line-height: 1; }
+.cb-mini-stats span { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: #71717a; margin-top: 3px; }
+.cb-disclaimer { font-size: 11px; color: #52525b; line-height: 1.5; margin: 16px 0 0; }
+
+/* ── Página standalone (.cost-* / .cc-* / .cr-*) ── */
+.cost-main { padding: 36px 0 48px; }
+.cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+@media (max-width: 880px) { .cost-grid { grid-template-columns: 1fr; } }
+.cost-controls { display: flex; flex-direction: column; gap: 22px; }
+.cc-block { display: flex; flex-direction: column; gap: 8px; }
+.cc-label {
+  font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.14em; color: #a1a1aa;
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.cc-label strong { font-family: "Barlow Condensed", sans-serif; font-size: 22px; color: #f97316; }
+.cc-search {
+  width: 100%; padding: 12px 14px; background: #0c0c0c; border: 1px solid #27272a;
+  color: #fff; font-size: 15px; font-weight: 600; font-family: "Inter", system-ui, sans-serif;
+  outline: none; transition: border-color 0.15s;
+}
+.cc-search:focus { border-color: #f97316; }
+.cc-search::placeholder { color: #52525b; }
+.cc-range { width: 100%; accent-color: #f97316; cursor: pointer; }
+.cc-hint { font-size: 11px; color: #52525b; margin: 2px 0 0; }
+
+.cost-result {
+  background: #0f0f0f; border: 1px solid rgba(249,115,22,0.35); border-top: 3px solid #f97316;
+  padding: 28px 26px; text-align: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.cr-retro { margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid rgba(63,63,70,0.4); }
+.cr-retro .cb-bell-retro { margin: 0 auto 10px; }
+.cr-retro-body { color: #a1a1aa; font-size: 13px; line-height: 1.5; margin: 6px 0 0; }
+.cr-retro-body strong { color: #fff; }
+.cr-cost {
+  font-family: "Barlow Condensed", sans-serif; font-weight: 900; font-size: 84px;
+  line-height: 0.82; color: #f97316; letter-spacing: -0.04em;
+}
+.cr-cost-unit { font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.22em; color: #71717a; }
+.cr-verdict { font-family: "Barlow Condensed", sans-serif; font-weight: 700; font-size: 22px; margin-top: 12px; }
+.cr-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; width: 100%;
+  margin-top: 18px; padding-top: 18px; border-top: 1px solid rgba(63,63,70,0.4);
+}
+.cr-stats div { display: flex; flex-direction: column; }
+.cr-stats strong { font-family: "Barlow Condensed", sans-serif; font-weight: 900; font-size: 26px; color: #fff; line-height: 1; }
+.cr-stats span { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: #71717a; margin-top: 4px; }
+.cr-gauge { width: 100%; margin-top: 18px; text-align: left; }
+.cr-gauge-head {
+  display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px;
+  font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: #71717a;
+}
+.cr-gauge-head strong { font-family: "Barlow Condensed", sans-serif; font-size: 18px; }
+.cr-gauge-bar { height: 8px; background: #0c0c0c; border: 1px solid rgba(63,63,70,0.5); overflow: hidden; }
+.cr-gauge-fill { height: 100%; transition: width 0.4s cubic-bezier(0.2,0.7,0.2,1); }
+.cost-disclaimer { font-size: 12px; color: #52525b; line-height: 1.6; margin: 28px 0 0; max-width: 760px; }
+
+@media (max-width: 720px) {
+  .cr-cost { font-size: 64px; }
+  .cr-stats { grid-template-columns: 1fr; gap: 8px; }
+  .cr-stats div { flex-direction: row; gap: 8px; align-items: baseline; }
+}
