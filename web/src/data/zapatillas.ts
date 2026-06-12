@@ -203,6 +203,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 160,
     links_compra: [
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fchaussure-de-basketball-under-armour-curry-12-gravity%2F16852cc3-72c5-4e36-9add-066ea3edb3b1%2Fc255", precio_actual: 137.95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "joom", url: "https://www.joom.com/es/products/695257de300a5d0109e14f4f?variant_id=695257de300a5d8609e14f59", precio_actual: 76, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-08" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DMN4R55B/?tag=canchazapa-21", precio_actual: 138.19, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "ua_es", url: "https://www.underarmour.es/es-es/buscar/?q=curry+12", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
