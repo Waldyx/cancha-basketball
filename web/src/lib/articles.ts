@@ -3636,6 +3636,60 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">Mira la selección completa con scores y dónde comprarlos en nuestra sección de <a href="/balones">balones de baloncesto</a>. Y si lo que buscas son zapatillas a juego, filtra por terreno en el <a href="/zapatillas">catálogo</a> o por las mejores <a href="/blog/mejores-zapatillas-baloncesto-outdoor-2025">para exterior</a>.</p>
     `,
   },
+  {
+    slug: "zapatillas-baloncesto-mas-buscadas-2026",
+    title: "Las zapatillas de baloncesto mas buscadas en 2026 (lista trending)",
+    metaTitle: "Zapatillas de baloncesto mas buscadas 2026: lista trending | CANCHA.ZAPA",
+    description:
+      "Las zapatillas de baloncesto que mas se buscan y se agotan en 2026: del hype de AE 2, Sabrina 3 y Ja 3 a las joyas asiaticas. Lista trending actualizada.",
+    fecha: "2026-06-12",
+    fechaLabel: "12 junio 2026",
+    categoria: "Guias",
+    readMinutes: 7,
+    eyebrow: "Radar CANCHA.ZAPA",
+    heroTitle: "Las mas buscadas de 2026",
+    heroSubtitle: "El hype real de pistas y redes - Lista trending",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["adidas-ae-2", "nike-sabrina-3", "ua-curry-12", "lining-wow-12", "asics-unpre-ars-2"],
+    relatedSeoPages: ["mejores-zapatillas-baloncesto-2025", "zapatillas-baloncesto-retro"],
+    body: `
+<p class="art-intro">Cada temporada hay un punado de modelos que dominan las busquedas, vuelan de las tiendas y monopolizan TikTok e Instagram. No siempre son las mejores en una review tecnica, son las que la gente quiere. Esta es nuestra lista <strong>trending de 2026</strong>, la misma que puedes filtrar en el <a href="/zapatillas?trending=1">catalogo con el chip Trending</a> o ver ordenada por nota en <a href="/rankings">Rankings</a>.</p>
+<h2>Los reyes del hype</h2>
+<ul>
+  <li><a href="/zapatilla/adidas-ae-2">Adidas AE 2</a> el diseno mas futurista del mercado y el iman de SEO numero uno (Anthony Edwards).</li>
+  <li><a href="/zapatilla/nike-sabrina-3">Nike Sabrina 3</a> corte bajo y traccion que muerde el parquet. Cabecera del baloncesto federado en Espana.</li>
+  <li><a href="/zapatilla/nike-ja-3">Nike Ja 3</a> para jugadores electricos. Por fin estabilizo la amortiguacion del talon.</li>
+  <li><a href="/zapatilla/puma-mb05">Puma MB.05</a> colores chillones, Nitrofoam comoda y sello LaMelo Ball.</li>
+  <li><a href="/zapatilla/jordan-luka-4">Jordan Luka 4</a> ancha, ultraestable para el step-back y contencion lateral mejorada.</li>
+</ul>
+<h2>Las firmas de elite (gama premium)</h2>
+<ul>
+  <li><a href="/zapatilla/nike-lebron-23">Nike LeBron 23</a> el tanque de Nike. Maxima amortiguacion para pivots y aleros pesados.</li>
+  <li><a href="/zapatilla/ua-curry-12">Under Armour Curry 12</a> tecnologia Flow, ligereza insuperable y court feel para tiradores.</li>
+  <li><a href="/zapatilla/jordan-tatum-3">Jordan Tatum 3</a> de las mas ligeras del Jumpman, minimalista y flexible.</li>
+  <li><a href="/zapatilla/nike-kd-18">Nike KD 18</a> probablemente la mas equilibrada de Nike. Gusta a bases y pivots.</li>
+  <li><a href="/zapatilla/adidas-harden-vol-9">Adidas Harden Vol. 9</a> chasis EVA y agarre lateral perfecto para cambios de ritmo.</li>
+</ul>
+<h2>El mercado sibarita (marcas asiaticas y emergentes)</h2>
+<ul>
+  <li><a href="/zapatilla/lining-wow-allcity-14">Way of Wade All City 14</a> rendimiento pro a precio de gama media (espuma Boom).</li>
+  <li><a href="/zapatilla/lining-wow-12">Way of Wade 12</a> placa de carbono vista y materiales aeroespaciales. Puro estatus.</li>
+  <li><a href="/zapatilla/rigorer-ar3">Rigorer AR3</a> perfil bajo, traccion extrema en interior y estetica cuidada.</li>
+  <li><a href="/zapatilla/361-joker-1">361 Joker 1</a> el modelo del MVP Nikola Jokic. Estabilidad y precio competitivo.</li>
+  <li><a href="/zapatilla/asics-unpre-ars-2">Asics Unpre Ars 2</a> la joya japonesa de Yuki Kawamura. Estabilidad lateral de elite.</li>
+  <li><a href="/zapatilla/skechers-skx-float">Skechers SKX Float</a> amortiguacion Hyper Burst, pensada para proteger rodillas.</li>
+</ul>
+<h2>Rendimiento especializado y volumen</h2>
+<ul>
+  <li><a href="/zapatilla/nike-book-2">Nike Book 2</a> estetica retro/skate que rinde en pista y vale para vestir.</li>
+  <li><a href="/zapatilla/nike-giannis-freak-7">Nike Zoom Freak 7</a> transiciones rapidas y soporte brutal en el antepie.</li>
+  <li><a href="/zapatilla/adidas-don-issue-7">Adidas DON Issue 7</a> la signature de Donovan Mitchell, ideal para cambios de ritmo.</li>
+  <li><a href="/zapatilla/nike-giannis-immortality-5">Nike Giannis Immortality 5</a> el rey de las baratas (bajo 90 euros) y durabilidad para exterior.</li>
+</ul>
+<h2>Como usar esta lista</h2>
+<p class="art-outro">El hype es un buen punto de partida, pero no compres solo por moda. Filtra el <a href="/zapatillas">catalogo</a> por tu posicion y presupuesto, contrasta la nota en <a href="/rankings">Rankings</a> y, si dudas, haz el <a href="/quiz">quiz</a>: te decimos cual encaja con tu juego. Sin sesgo de marca, sin BS.</p>
+`,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────

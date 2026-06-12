@@ -32,6 +32,7 @@ for (const z of zapatillas) {
 // 9 ranking categories. The page renders all 9, hidden by JS toggle.
 const RANKINGS = [
   { id: "global",    label: "Mejor global",      key: null,                    blurb: "Score medio más alto: las que hacen todo bien." },
+  { id: "trending",  label: "🔥 Trending",       key: null,                    blurb: "Las más buscadas ahora mismo: el hype real de pistas y redes, ordenado por score." },
   { id: "valor",     label: "Precio / calidad",  key: null,                    blurb: "Máximo score por euro gastado. Las mejores relaciones calidad-precio." },
   { id: "traccion",  label: "Mejor tracción",    key: "traccion" as const,     blurb: "El grip que necesitas en pista exterior." },
   { id: "cushion",   label: "Más cushion",       key: "amortiguacion" as const,blurb: "Para rodillas, tobillos y jugadores >85kg." },
@@ -43,7 +44,9 @@ const RANKINGS = [
 ];
 
 function sortBy(id: string, key: keyof typeof zapatillas[0]["puntuaciones"] | null) {
-  const arr = id === "retro" ? zapatillas.filter(z => z.es_retro) : [...zapatillas];
+  const arr = id === "retro" ? zapatillas.filter(z => z.es_retro)
+    : id === "trending" ? zapatillas.filter(z => (z.tags || []).includes("trending"))
+    : [...zapatillas];
   if (id === "valor") return arr.sort((a, b) => (valueMap.get(b.slug) ?? 0) - (valueMap.get(a.slug) ?? 0));
   if (key) return arr.sort((a, b) => b.puntuaciones[key] - a.puntuaciones[key]);
   return arr.sort((a, b) => scoreOf(b) - scoreOf(a));
