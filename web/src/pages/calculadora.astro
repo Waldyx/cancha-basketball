@@ -20,6 +20,7 @@ const index = zapatillas.map((z) => ({
   precio: (findMejorPrecio(z.links_compra)?.precio_actual) ?? z.precio_msrp_eur,
   cat: z.categoria_principal,
   retro: z.tags.includes("retro"),
+  img: z.imagen_principal,
 }));
 
 // Por defecto: la primera no-retro con precio verificado
@@ -71,19 +72,16 @@ const def = index.find((z) => !z.retro) ?? index[0];
           <div class="cost-controls">
             <div class="cc-block">
               <label class="cc-label">Tu zapa <strong style="font-size:11px;color:#71717a">{index.length} en catálogo</strong></label>
-              <input
-                id="cost-search"
-                class="cc-search"
-                list="cz-shoe-list"
-                placeholder="Busca marca o modelo…"
-                value={`${def.marca} ${def.modelo}`}
-                autocomplete="off"
-              />
-              <datalist id="cz-shoe-list">
-                {index.map((s) => (
-                  <option value={`${s.marca} ${s.modelo}`}>{Math.round(s.precio)}€ · {s.cat}{s.retro ? " · retro" : ""}</option>
-                ))}
-              </datalist>
+              <div class="cc-combo">
+                <input
+                  id="cost-search"
+                  class="cc-search"
+                  placeholder="Busca marca o modelo…"
+                  value={`${def.marca} ${def.modelo}`}
+                  autocomplete="off"
+                />
+                <div id="cost-dropdown" class="cc-dropdown hidden"></div>
+              </div>
             </div>
 
             <div class="cc-block">
@@ -144,7 +142,6 @@ const def = index.find((z) => !z.retro) ?? index[0];
   </main>
 
   <script define:vars={{ index, defSlug: def.slug }}>
-    const byLabel = new Map(index.map((z) => [`${z.marca} ${z.modelo}`, z]));
     let current = index.find((z) => z.slug === defSlug) ?? index[0];
 
     const $ = (id) => document.getElementById(id);
@@ -195,10 +192,36 @@ const def = index.find((z) => !z.retro) ?? index[0];
       $("cr-cta").href = `/zapatilla/${current.slug}`;
     }
 
-    search.addEventListener("change", () => {
-      const match = byLabel.get(search.value);
-      if (match) { current = match; recompute(); }
-    });
+    // ── Dropdown con miniaturas ──────────────────────────────────────────
+    const dropdown = $("cost-dropdown");
+    const esc = (s) => String(s == null ? "" : s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+    function buildDropdown(q) {
+      const query = (q || "").trim().toLowerCase();
+      const list = index
+        .filter((z) => !query || (z.marca + " " + z.modelo).toLowerCase().includes(query))
+        .slice(0, 60);
+      if (!list.length) { dropdown.innerHTML = '<p class="cc-dd-empty">Sin resultados</p>'; return; }
+      dropdown.innerHTML = list.map((z) => `
+        <button type="button" class="cc-dd-item${z.slug === current.slug ? " is-sel" : ""}" data-slug="${esc(z.slug)}">
+          <img src="${esc(z.img)}" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+          <span class="cc-dd-name"><strong>${esc(z.marca)}</strong> ${esc(z.modelo)}${z.retro ? ' <span style="color:#fbbf24">🏅</span>' : ""}</span>
+          <span class="cc-dd-price">${Math.round(z.precio)}€</span>
+        </button>`).join("");
+      dropdown.querySelectorAll(".cc-dd-item").forEach((it) => {
+        it.addEventListener("mousedown", (e) => {
+          e.preventDefault(); // selecciona antes de que el input pierda foco
+          const m = index.find((z) => z.slug === it.dataset.slug);
+          if (m) { current = m; search.value = `${m.marca} ${m.modelo}`; recompute(); }
+          dropdown.classList.add("hidden");
+        });
+      });
+    }
+
+    search.addEventListener("focus", () => { buildDropdown(""); dropdown.classList.remove("hidden"); search.select(); });
+    search.addEventListener("input", () => { buildDropdown(search.value); dropdown.classList.remove("hidden"); });
+    search.addEventListener("blur", () => { setTimeout(() => dropdown.classList.add("hidden"), 150); });
+
     $("in-semana").addEventListener("input", recompute);
     $("in-outdoor").addEventListener("input", recompute);
 
@@ -213,6 +236,48 @@ const def = index.find((z) => !z.retro) ?? index[0];
 
   <style>
     .hidden { display: none !important; }
+
+    /* Selector de zapa con miniaturas */
+    .cc-combo { position: relative; }
+    .cc-dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      right: 0;
+      z-index: 50;
+      max-height: 360px;
+      overflow-y: auto;
+      background: #16161a;
+      border: 1px solid var(--cz-border2, #3f3f46);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.55);
+    }
+    .cc-dd-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 7px 10px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(63,63,70,0.4);
+      cursor: pointer;
+      text-align: left;
+      color: var(--cz-text, #e4e4e7);
+    }
+    .cc-dd-item:hover, .cc-dd-item.is-sel { background: rgba(249,115,22,0.12); }
+    .cc-dd-item img {
+      width: 44px; height: 44px;
+      object-fit: contain;
+      background: #fff;
+      flex-shrink: 0;
+    }
+    .cc-dd-name { flex: 1; font-size: 13px; line-height: 1.3; }
+    .cc-dd-name strong { font-weight: 800; }
+    .cc-dd-price {
+      font-size: 13px; font-weight: 900; color: #f97316; white-space: nowrap;
+    }
+    .cc-dd-empty { padding: 18px; text-align: center; color: var(--cz-text-muted, #a1a1aa); font-size: 13px; }
+
     .cr-outdoor-warn {
       margin-top: 16px;
       padding: 12px 14px;
