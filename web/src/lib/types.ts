@@ -81,7 +81,8 @@ export type Tienda =
   | "elcorteingles_es"
   | "footdistrict_es"
   | "converse_es"
-  | "miinto_es";
+  | "miinto_es"
+  | "moolahkicks";
 
 export type FuenteReview =
   | "weartesters"
