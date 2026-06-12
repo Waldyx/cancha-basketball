@@ -9457,7 +9457,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "zalando_es", url: "https://www.zalando.es/jordan-air-jordan-1-mid-zapatillas-altas-joc12n001-g14.html", precio_actual: 105, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-1-retro-high-og-satin-bred%2Fd458e42d-95be-4b3d-ba9d-407bfd810831%2Fc14c1", precio_actual: 117, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-1-high-og-lost-and-found%2F378773b8-208e-4fbf-88af-580b422fb96a%2Fc4", precio_actual: 252, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
-      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-1-mid-blanco-94681", precio_actual: 110, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
+      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-1-mid-blanco-94681", precio_actual: 90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-1-low-se-blanco-97780", precio_actual: 140, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=air+jordan+1", precio_actual: 185, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+1+retro&tag=canchazapa-21", precio_actual: 190, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
@@ -9588,7 +9588,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "footdistrict_es", url: "https://footdistrict.com/products/air-jordan-4-retro-og-flight-club-im4002-100", precio_actual: 158, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatilla%2Fjordan%2Fair-jordan-4-retro-og-flight-club-sail-black-univ-red", precio_actual: 180, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
-      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-4-retro-%2522toro-bravo%2522-rojo-98232", precio_actual: 210, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-4-retro-%2522toro-bravo%2522-rojo-98232", precio_actual: 170, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+4+retro&tag=canchazapa-21", precio_actual: 230, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
@@ -9650,6 +9650,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 210,
     links_compra: [
+      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-6-retro-infrared-salesman-negro-94676", precio_actual: 150, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=air+jordan+6", precio_actual: 210, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+6+retro&tag=canchazapa-21", precio_actual: 289, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
@@ -9713,7 +9714,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 220,
     links_compra: [
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-11-grand-finale-blanco-91854", precio_actual: 170, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
-      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-11-retro-low-university-blue-blanco-98223", precio_actual: 200, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-11-retro-low-university-blue-blanco-98223", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-11-retro-rare-air%2F96423715-aec3-4328-bc0b-c9b5aa3153a0%2Fc5", precio_actual: 188, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "zalando_es", url: "https://www.zalando.es/zapatillas/?q=air+jordan+11+retro", precio_actual: 185, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=air+jordan+11", precio_actual: 220, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
