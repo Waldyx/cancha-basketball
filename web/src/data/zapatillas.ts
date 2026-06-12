@@ -1677,7 +1677,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-harden-volume-9-jr2506-1001051705-p", precio_actual: 103.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
-      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dharden%2Bvol%2B9", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-harden-volume-9%2FJS1304.html", precio_actual: 112, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=harden+vol+9", precio_actual: 160, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+harden+vol+9+baloncesto&tag=canchazapa-21", precio_actual: 82.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=harden+vol+9", precio_actual: 159.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
@@ -6930,7 +6930,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 55,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Downthegame%2B3", precio_actual: 55, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-own-the-game-3%2FIF4566.html", precio_actual: 45.5, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ownthegame+3+baloncesto&tag=canchazapa-21", precio_actual: 39.00, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-ownthegame-30-hombre-negro-negro-limluc-160464.html", precio_actual: 52, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
@@ -8526,7 +8526,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 94.99,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Ddame%2Bx", precio_actual: 94.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-dame-x%2FJP6090.html", precio_actual: 90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=dame+x", precio_actual: 94.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+x+baloncesto&tag=canchazapa-21", precio_actual: 65, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-dame-x-negro-143979.html", precio_actual: 63, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
