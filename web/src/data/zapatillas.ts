@@ -2297,7 +2297,7 @@ const _rawZapatillas: Zapatilla[] = [
     modelo: "Fast 900 Low-1 NBA Junior",
     generacion: 1,
     año_lanzamiento: 2024,
-    genero: "unisex",
+    genero: "gs",
     tecnologia_clave: ["EVA midsole", "Suela no-marca multidireccional", "Upper sintético+malla", "Licencia NBA"],
     peso_real_g: 250,
     altura: "low",
