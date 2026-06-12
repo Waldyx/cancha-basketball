@@ -1986,7 +1986,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=lebron+witness+9&vst=lebron+witness+9", precio_actual: 99.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=witness+9", precio_actual: 104.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=witness+9", precio_actual: 99.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
-      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fnike%2Fbotas-de-baloncesto-nike-lebron-witness-ix-hombre-negro-176479.html", precio_actual: 99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fnike%2Fbotas-de-baloncesto-nike-lebron-witness-ix-hombre-negro-176479.html", precio_actual: 98.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
 
@@ -3568,6 +3568,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-12",
     precio_msrp_eur: 100,
     links_compra: [
+      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-believe-that-1-negro-177966.html", precio_actual: 100, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-believe-that-1%2FJQ9475.html", precio_actual: 100, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+believe+that+1+baloncesto&tag=canchazapa-21", precio_actual: 100, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
