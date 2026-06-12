@@ -6263,6 +6263,61 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=under+armour+jet+23", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
     ],
   },
+  {
+    id: "ua-jet-25",
+    slug: "ua-jet-25",
+    marca: "Under Armour",
+    modelo: "Jet '25",
+    generacion: 25,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    tecnologia_clave: ["Espuma EVA", "Suela de goma", "Malla transpirable"],
+    predecesor_id: "ua-jet-23",
+    sucesor_id: null,
+    peso_real_g: 380,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 8, amortiguacion: 7, respuesta: 6,
+      soporte_lateral: 7, estabilidad: 7, peso_score: 6,
+      durabilidad_outdoor: 8, ventilacion: 7,
+    },
+    categoria_principal: "balanced",
+    tags: ["budget", "equipo", "moderna"],
+    ideal_para: {
+      posiciones: ["alero", "ala-pivot", "pivot"],
+      peso_jugador_kg: [65, 105],
+      estilos: ["equilibrado"],
+    },
+    no_recomendada_para: { posiciones: [], estilos: ["explosivo"] },
+    resumen:
+      "La UA Jet '25 es la zapatilla de baloncesto de iniciacion de Under Armour para 2025: confort, durabilidad y soporte de media cana a precio budget. Malla transpirable y suela de goma que resiste el desgaste, ideal para empezar, entrenar o jugar recreativo sin gastar mucho. Sucesora de la Jet 23.",
+    pros: [
+      "Precio de iniciacion muy ajustado",
+      "Suela de goma resistente (aguanta exterior)",
+      "Soporte de tobillo de media cana",
+      "Malla transpirable",
+    ],
+    contras: [
+      "Pesada y poco reactiva para guards",
+      "Cushion basico sin espuma premium",
+      "No para competicion de nivel",
+    ],
+    veredicto:
+      "Para iniciacion, entrenamiento o juego recreativo con presupuesto ajustado, la Jet '25 cumple. Si buscas reactividad o rendimiento de competicion, sube de gama.",
+    imagen_principal: "/shoes/ua-jet-25.jpg",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-12",
+    precio_msrp_eur: 90,
+    links_compra: [
+      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Funder-armour%2Fzapatillas-de-baloncesto-under-armour-jet-25-blanco-154243.html", precio_actual: 63, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+jet+25+baloncesto&tag=canchazapa-21", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+    ],
+  },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 85. PUMA ALL-PRO NITRO 2 — cushion premium, pivot
