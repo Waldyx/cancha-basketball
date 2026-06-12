@@ -5086,6 +5086,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/~/314106243604.html", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "nike_es", url: "https://www.nike.com/es/t/sabrina-3-zapatillas-de-baloncesto-UrtEcG8G/HF2881-303", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-sabrina-3-clay-green.html", precio_actual: 149.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
 
