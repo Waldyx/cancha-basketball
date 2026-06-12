@@ -558,7 +558,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Diseño conservador, sin innovación",
     ],
     veredicto: "Para aleros y forwards que priorizan amortiguación y tracción sobre velocidad. Si eres un base rápido, busca otra cosa.",
-    imagen_principal: "/shoes/nike-kd-18.webp",
+    imagen_principal: "/shoes/nike-kd-18.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-kd-18-review/" },
@@ -1667,7 +1667,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Estética polariza",
     ],
     veredicto: "Para guards y wings que valoran cushion y soporte sobre velocidad. Mejor opción Harden en años.",
-    imagen_principal: "/shoes/adidas-harden-vol-9.webp",
+    imagen_principal: "/shoes/adidas-harden-vol-9.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/adidas-harden-vol-9-review/" },
@@ -1909,7 +1909,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Respuesta limitada por foam soft",
     ],
     veredicto: "Para forwards y pívots medianos/pesados con presupuesto. Si eres guard rápido, esta no es.",
-    imagen_principal: "/shoes/nike-lebron-witness-9.webp",
+    imagen_principal: "/shoes/nike-lebron-witness-9.jpg",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-lebron-9-performance-review/" },
@@ -3220,7 +3220,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si eres pívot, pesas más de 90kg y el presupuesto no es problema, el LeBron 23 es el techo tecnológico del mercado. Si buscas velocidad, ni lo mires.",
 
-    imagen_principal: "/shoes/nike-lebron-23.webp",
+    imagen_principal: "/shoes/nike-lebron-23.jpg",
     imagenes: [],
 
     fuentes: [
@@ -5842,7 +5842,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Cushion premium", "Muy buena estabilidad", "Icónico diseño Jordan"],
     contras: ["Algo pesada", "Durabilidad outdoor limitada", "Precio alto"],
     veredicto: "Para el jugador que quiere el look y el rendimiento Jordan en una posición versátil. Premium en todo.",
-    imagen_principal: "/shoes/jordan-xxxviii.webp",
+    imagen_principal: "/shoes/jordan-xxxviii.jpg",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/air-jordan-xxxviii-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
