@@ -36,9 +36,14 @@ const scoreOf = (z: typeof zapatillas[0]): number => {
   return Math.round((v.reduce((a, b) => a + b, 0) / v.length) * 10) / 10;
 };
 
+// Junior/GS: se ocultan del catálogo por defecto (duplicaban a la adulta).
+// Se muestran solo al activar el chip "Junior (GS)". Conservan ficha y SEO.
+const esGS = (z: typeof zapatillas[0]) => z.genero === "gs";
+const nonGSCount = zapatillas.filter(z => !esGS(z)).length;
+
 const marcas = [...new Set(zapatillas.map(z => z.marca))].sort();
 const marcaCounts: Record<string, number> = {};
-zapatillas.forEach(z => { marcaCounts[z.marca] = (marcaCounts[z.marca] || 0) + 1; });
+zapatillas.forEach(z => { if (!esGS(z)) marcaCounts[z.marca] = (marcaCounts[z.marca] || 0) + 1; });
 
 // Precio mínimo de TODOS los links (disponible irrelevant — solo afecta al botón de compra)
 function minPrecioLink(links: typeof zapatillas[0]['links_compra']) {
@@ -51,7 +56,7 @@ function minPrecioLink(links: typeof zapatillas[0]['links_compra']) {
 const EDITOR_PICK_OVERRIDE = 'lining-wow-12';
 const editorPick = [...zapatillas]
   .map(z => ({ z, mejor: minPrecioLink(z.links_compra), score: scoreOf(z) }))
-  .filter(x => x.mejor)
+  .filter(x => x.mejor && !esGS(x.z))
   .sort((a, b) => {
     if (b.score !== a.score) return b.score - a.score;
     if (a.z.slug === EDITOR_PICK_OVERRIDE) return -1;
@@ -60,7 +65,7 @@ const editorPick = [...zapatillas]
   })[0];
 
 // Trending: top 3 by score
-const trending = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a)).slice(0, 3);
+const trending = [...zapatillas].filter(z => !esGS(z)).sort((a, b) => scoreOf(b) - scoreOf(a)).slice(0, 3);
 
 const today = new Date().toLocaleDateString("es-ES", { day: "2-digit", month: "short" }).toUpperCase();
 
@@ -133,7 +138,7 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
           </aside>
         </div>
         <div class="hero-match">
-          <span>Mostrando <strong id="catalogo-count">{zapatillas.length}</strong> de <strong>{zapatillas.length}</strong> zapas con tus filtros</span>
+          <span>Mostrando <strong id="catalogo-count">{nonGSCount}</strong> de <strong>{nonGSCount}</strong> zapas con tus filtros</span>
           <span class="sep">·</span>
           <span><span class="dot-orange"></span>Recomendado: ajusta el quiz para resultados a medida</span>
         </div>
@@ -238,6 +243,7 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
             <div class="chip-row">
               <button class="chip" id="chip-trending">🔥 Trending</button>
               <button class="chip" id="chip-retro">🏅 Retro</button>
+              <button class="chip" id="chip-gs">👟 Junior (GS)</button>
             </div>
           </section>
 
@@ -324,6 +330,7 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
                   data-verified={mejor ? "true" : "false"}
                   data-retro={z.es_retro ? "true" : "false"}
                   data-trending={isTrending ? "true" : "false"}
+                  data-gs={esGS(z) ? "true" : "false"}
                 >
                   <div class="photo">
                     <span class="cat-badge">{CAT_LABELS[z.categoria_principal]}</span>
@@ -430,11 +437,12 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
       soloLigera: boolean;
       soloRetro: boolean;
       soloTrending: boolean;
+      soloGS: boolean;
     };
     const filters: Filters = {
       q: "", marcas: new Set(), categorias: new Set(), alturas: new Set(),
       posiciones: new Set(), precioMax: 250,
-      soloNuevas: false, soloVerificado: false, soloOutdoor: false, soloLigera: false, soloRetro: false, soloTrending: false,
+      soloNuevas: false, soloVerificado: false, soloOutdoor: false, soloLigera: false, soloRetro: false, soloTrending: false, soloGS: false,
     };
     let sortMode = "score-desc";
 
@@ -445,7 +453,8 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
     const $count = document.getElementById("catalogo-count")!;
     const $cards = $grid.querySelectorAll<HTMLAnchorElement>(".cz-card");
     const $pick = $grid.querySelector<HTMLElement>("[data-pick]");
-    const totalAll = $cards.length;
+    // Total base = sin las GS (ocultas por defecto). El chip Junior las muestra aparte.
+    const totalAll = [...$cards].filter(c => c.dataset.gs !== "true").length;
 
     function activeChips(): { k: string; lab: string; remove: () => void }[] {
       const out: { k: string; lab: string; remove: () => void }[] = [];
@@ -460,6 +469,7 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
       if (filters.soloLigera) out.push({ k: "ligera", lab: "Ligera", remove: () => { filters.soloLigera = false; document.getElementById("chip-ligera")?.classList.remove("is-active"); apply(); refreshUI(); } });
       if (filters.soloRetro) out.push({ k: "retro", lab: "🏅 Retro", remove: () => { filters.soloRetro = false; document.getElementById("chip-retro")?.classList.remove("is-active"); apply(); refreshUI(); } });
       if (filters.soloTrending) out.push({ k: "trend", lab: "🔥 Trending", remove: () => { filters.soloTrending = false; document.getElementById("chip-trending")?.classList.remove("is-active"); apply(); refreshUI(); } });
+      if (filters.soloGS) out.push({ k: "gs", lab: "👟 Junior (GS)", remove: () => { filters.soloGS = false; document.getElementById("chip-gs")?.classList.remove("is-active"); apply(); refreshUI(); } });
       if (filters.q) out.push({ k: "q", lab: `“${filters.q}”`, remove: () => { filters.q = ""; (document.getElementById("search") as HTMLInputElement).value = ""; apply(); refreshUI(); } });
       return out;
     }
@@ -491,6 +501,7 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
       document.getElementById("chip-ligera")?.classList.toggle("is-active", filters.soloLigera);
       document.getElementById("chip-retro")?.classList.toggle("is-active", filters.soloRetro);
       document.getElementById("chip-trending")?.classList.toggle("is-active", filters.soloTrending);
+      document.getElementById("chip-gs")?.classList.toggle("is-active", filters.soloGS);
     }
 
     function visibleCount(): number {
@@ -514,8 +525,12 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
         const verified = c.dataset.verified === "true";
         const retro = c.dataset.retro === "true";
         const trending = c.dataset.trending === "true";
+        const gs = c.dataset.gs === "true";
 
         let ok = true;
+        // GS ocultas por defecto; el chip Junior muestra SOLO las GS.
+        if (filters.soloGS) { if (!gs) ok = false; }
+        else if (gs) ok = false;
         if (filters.marcas.size && !filters.marcas.has(marca)) ok = false;
         if (filters.categorias.size && !filters.categorias.has(cat)) ok = false;
         if (filters.alturas.size && !filters.alturas.has(alt)) ok = false;
@@ -535,7 +550,7 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
       $cards.forEach(c => card(c));
 
       // Hide pick when any filter is on (it's not filterable)
-      const filtering = filters.marcas.size + filters.categorias.size + filters.alturas.size + filters.posiciones.size + (filters.precioMax < 250 ? 1 : 0) + (filters.soloNuevas?1:0) + (filters.soloVerificado?1:0) + (filters.soloOutdoor?1:0) + (filters.soloLigera?1:0) + (filters.soloRetro?1:0) + (filters.soloTrending?1:0) + (filters.q?1:0);
+      const filtering = filters.marcas.size + filters.categorias.size + filters.alturas.size + filters.posiciones.size + (filters.precioMax < 250 ? 1 : 0) + (filters.soloNuevas?1:0) + (filters.soloVerificado?1:0) + (filters.soloOutdoor?1:0) + (filters.soloLigera?1:0) + (filters.soloRetro?1:0) + (filters.soloTrending?1:0) + (filters.soloGS?1:0) + (filters.q?1:0);
       if ($pick) $pick.classList.toggle("hidden", filtering > 0);
 
       // Sort — usa CSS order en lugar de appendChild para no resetear lazy loading
@@ -625,6 +640,7 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
       { id: "chip-outdoor",  get: () => filters.soloOutdoor,  toggle: () => { filters.soloOutdoor  = !filters.soloOutdoor;  } },
       { id: "chip-ligera",   get: () => filters.soloLigera,   toggle: () => { filters.soloLigera   = !filters.soloLigera;   } },
       { id: "chip-retro",    get: () => filters.soloRetro,    toggle: () => { filters.soloRetro    = !filters.soloRetro;    } },
+      { id: "chip-gs",       get: () => filters.soloGS,       toggle: () => { filters.soloGS      = !filters.soloGS;       } },
     ];
     colChips.forEach(({ id, get, toggle }) => {
       document.getElementById(id)?.addEventListener("click", () => {
@@ -634,10 +650,10 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
     });
     document.getElementById("clear-filters")!.addEventListener("click", () => {
       filters.marcas.clear(); filters.categorias.clear(); filters.alturas.clear(); filters.posiciones.clear();
-      filters.precioMax = 250; filters.soloNuevas = false; filters.soloVerificado = false; filters.soloOutdoor = false; filters.soloLigera = false; filters.soloRetro = false; filters.soloTrending = false;
+      filters.precioMax = 250; filters.soloNuevas = false; filters.soloVerificado = false; filters.soloOutdoor = false; filters.soloLigera = false; filters.soloRetro = false; filters.soloTrending = false; filters.soloGS = false;
       filters.q = "";
       document.querySelectorAll<HTMLInputElement>("input[type=checkbox]").forEach(cb => cb.checked = false);
-      ["chip-outdoor","chip-ligera","chip-retro","chip-trending"].forEach(id => document.getElementById(id)?.classList.remove("is-active"));
+      ["chip-outdoor","chip-ligera","chip-retro","chip-trending","chip-gs"].forEach(id => document.getElementById(id)?.classList.remove("is-active"));
       $range.value = "250"; $rangeLabel.textContent = "sin tope";
       (document.getElementById("search") as HTMLInputElement).value = "";
       apply(); refreshUI();
@@ -671,8 +687,11 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
       if (cancha === "exterior") { filters.soloOutdoor = true; }
       const trend = sp.get("trending") || sp.get("coleccion");
       if (trend === "1" || trend === "trending") { filters.soloTrending = true; }
-      if (pos||cat||mrc||pmax||cancha||trend) apply();
+      const gs = sp.get("junior") || sp.get("gs");
+      if (gs === "1" || gs === "junior" || gs === "gs") { filters.soloGS = true; }
     })();
+    // Siempre aplicar al cargar: oculta las GS por defecto (y activa cualquier filtro de la URL).
+    apply();
     refreshUI();
 
   </script>
