@@ -203,12 +203,11 @@ const def = index.find((z) => !z.retro) ?? index[0];
         .slice(0, 60);
       if (!list.length) { dropdown.innerHTML = '<p class="cc-dd-empty">Sin resultados</p>'; return; }
       dropdown.innerHTML = list.map((z) => `
-        <button type="button" class="cc-dd-item${z.slug === current.slug ? " is-sel" : ""}" data-slug="${esc(z.slug)}">
+        <button type="button" class="cmp-pick-item${z.slug === current.slug ? " is-sel" : ""}" data-slug="${esc(z.slug)}">
           <img src="${esc(z.img)}" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
-          <span class="cc-dd-name"><strong>${esc(z.marca)}</strong> ${esc(z.modelo)}${z.retro ? ' <span style="color:#fbbf24">🏅</span>' : ""}</span>
-          <span class="cc-dd-price">${Math.round(z.precio)}€</span>
+          <span class="cpi-name"><strong>${esc(z.marca)}</strong> ${esc(z.modelo)}${z.retro ? ' <span style="color:#fbbf24">🏅</span>' : ""}</span>
         </button>`).join("");
-      dropdown.querySelectorAll(".cc-dd-item").forEach((it) => {
+      dropdown.querySelectorAll(".cmp-pick-item").forEach((it) => {
         it.addEventListener("mousedown", (e) => {
           e.preventDefault(); // selecciona antes de que el input pierda foco
           const m = index.find((z) => z.slug === it.dataset.slug);
@@ -237,7 +236,7 @@ const def = index.find((z) => !z.retro) ?? index[0];
   <style>
     .hidden { display: none !important; }
 
-    /* Selector de zapa con miniaturas */
+    /* Selector de zapa con miniaturas (mismo estilo que el comparador) */
     .cc-combo { position: relative; }
     .cc-dropdown {
       position: absolute;
@@ -247,36 +246,17 @@ const def = index.find((z) => !z.retro) ?? index[0];
       z-index: 50;
       max-height: 360px;
       overflow-y: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      padding: 10px;
       background: #16161a;
       border: 1px solid var(--cz-border2, #3f3f46);
       box-shadow: 0 16px 40px rgba(0,0,0,0.55);
     }
-    .cc-dd-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      width: 100%;
-      padding: 7px 10px;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid rgba(63,63,70,0.4);
-      cursor: pointer;
-      text-align: left;
-      color: var(--cz-text, #e4e4e7);
-    }
-    .cc-dd-item:hover, .cc-dd-item.is-sel { background: rgba(249,115,22,0.12); }
-    .cc-dd-item img {
-      width: 44px; height: 44px;
-      object-fit: contain;
-      background: #fff;
-      flex-shrink: 0;
-    }
-    .cc-dd-name { flex: 1; font-size: 13px; line-height: 1.3; }
-    .cc-dd-name strong { font-weight: 800; }
-    .cc-dd-price {
-      font-size: 13px; font-weight: 900; color: #f97316; white-space: nowrap;
-    }
-    .cc-dd-empty { padding: 18px; text-align: center; color: var(--cz-text-muted, #a1a1aa); font-size: 13px; }
+    @media (max-width: 620px) { .cc-dropdown { grid-template-columns: repeat(2, 1fr); } }
+    .cc-dropdown .cmp-pick-item.is-sel { border-color: #f97316; background: rgba(249,115,22,0.12); }
+    .cc-dd-empty { grid-column: 1 / -1; padding: 18px; text-align: center; color: var(--cz-text-muted, #a1a1aa); font-size: 13px; }
 
     .cr-outdoor-warn {
       margin-top: 16px;
