@@ -14701,9 +14701,9 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh",
     puntuaciones: {
-      traccion: 8, amortiguacion: 6, respuesta: 8,
-      soporte_lateral: 7, estabilidad: 7, peso_score: 8,
-      durabilidad_outdoor: 6, ventilacion: 7,
+      traccion: 8, amortiguacion: 7, respuesta: 9,
+      soporte_lateral: 8, estabilidad: 8, peso_score: 9,
+      durabilidad_outdoor: 6, ventilacion: 9,
     },
     categoria_principal: "responsive",
     tags: ["mujer", "moderna", "low-top"],
@@ -14722,15 +14722,15 @@ const _rawZapatillas: Zapatilla[] = [
       "Disponible en España (Forum Sport, Amazon)",
     ],
     contras: [
-      "Cushion bajo: poca protección de impacto",
-      "Soporte de tobillo justo (corte bajo)",
-      "Outdoor moderado",
+      "Cushion fino (Cushlon 3.0 drop-in): poca protección de impacto",
+      "Tracción sufre con polvo: hay que limpiar la suela",
+      "Corte bajo: soporte de tobillo justo",
     ],
     veredicto:
-      "El movimiento de Jordan Brand por el baloncesto femenino: una signature de mujer de verdad, low-to-ground y cortante. Para la jugadora rápida de perímetro que prioriza court feel y velocidad. Y por 66€ en Forum, una compra redonda.",
+      "WearTesters la nombró la mejor Jordan de baloncesto de la temporada 2024-25 (8/10): ligera, reactiva, low-to-ground y con court feel y soporte de sobra. Una signature de mujer de verdad — y por 66€ en Forum, una compra redonda para la jugadora rápida de perímetro.",
     imagen_principal: "/shoes/jordan-heir-series.jpg",
     imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
+    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/air-jordan-heir-review/" }],
     ultima_actualizacion: "2026-06-13",
     precio_msrp_eur: 110,
     links_compra: [
