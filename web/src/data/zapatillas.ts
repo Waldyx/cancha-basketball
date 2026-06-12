@@ -2956,7 +2956,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fadidas-originals-zapatilla-de-baloncesto-anthony-edwards-1-plata-41674", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
-      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-anthony-edwards-1-low-basketball%2FJI4065.html", precio_actual: 77, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-anthony-edwards-1-low%2FJQ6133.html", precio_actual: 71.50, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ae+1+baloncesto&tag=canchazapa-21", precio_actual: 85, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=adidas+ae+1+baloncesto", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=adidas+ae+1", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
@@ -5529,6 +5529,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 159.99,
     links_compra: [
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-harden-volume-10%2FKH9153.html", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "zalando_es", url: "https://www.zalando.es/adidas-performance-zapatillas-de-baloncesto-core-blacklucid-lemon-ad542a5su-i11.html", precio_actual: 87.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/adidas-harden-volume-10-hombre-zapatillas/314109881004.html", precio_actual: 159.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
@@ -8570,7 +8571,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 94.99,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-dame-x%2FJP6090.html", precio_actual: 90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-dame-x%2FKI5949.html", precio_actual: 63, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=dame+x", precio_actual: 94.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+x+baloncesto&tag=canchazapa-21", precio_actual: 65, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-dame-x-negro-143979.html", precio_actual: 63, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
@@ -12506,7 +12507,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fd.o.n.-issue-7%2FJR9503.html", precio_actual: 69.60, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fd.o.n.-issue-7%2FJR9503.html", precio_actual: 69.60, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "zalando_es", url: "https://www.zalando.es/adidas-performance-don-issue-7-unisex-zapatillas-de-baloncesto-core-blackgold-coloured-metallicice-gold-coloured-metallic-ad544a1hj-q11.html", precio_actual: 77.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+don+issue+7&tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
