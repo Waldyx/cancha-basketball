@@ -210,6 +210,62 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=curry+12+baloncesto", precio_actual: 160, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
     ],
   },
+  {
+    id: "ua-curry-12-gs",
+    slug: "ua-curry-12-gs",
+    marca: "Under Armour",
+    modelo: "Curry 12 GS",
+    generacion: 12,
+    año_lanzamiento: 2024,
+    genero: "gs",
+    signature_player: "Stephen Curry",
+    tecnologia_clave: ["UA Flow", "Warp 2.0 upper"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 290,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "knit",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 8, respuesta: 9,
+      soporte_lateral: 8, estabilidad: 8, peso_score: 10,
+      durabilidad_outdoor: 6, ventilacion: 9,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "ligera", "junior"],
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [35, 65],
+      estilos: ["tirador", "explosivo", "equilibrado"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen:
+      "Version junior (Grade School) de la signature de Stephen Curry, con la misma tecnologia UA Flow del modelo adulto: suela sin goma, solo foam directo al suelo, super ligera y reactiva. La opcion premium para el junior federado que quiere una signature de verdad y no una zapa de iniciacion.",
+    pros: [
+      "Misma tecnologia UA Flow que la adulta",
+      "Muy ligera y reactiva para guards junior",
+      "Court feel premium en pista cubierta",
+      "Signature real a precio junior",
+    ],
+    contras: [
+      "Durabilidad outdoor pobre (el Flow se gasta en asfalto)",
+      "Tallaje GS: hasta EU 40 aprox.",
+      "Cushion justo para juego muy fisico",
+    ],
+    veredicto:
+      "Para el junior tirador o base que juega en pabellon y quiere lo mejor, es la signature premium de su categoria. Para exterior o iniciacion, hay opciones mas baratas y resistentes.",
+    imagen_principal: "/shoes/ua-curry-12-gs.webp",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-12",
+    precio_msrp_eur: 130,
+    links_compra: [
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-under-armour-curry-12-gs-supernova.html", precio_actual: 114.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+curry+12+gs&tag=canchazapa-21", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+    ],
+  },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 3. NIKE SABRINA 2 — Gama media, ligera, balanceada
