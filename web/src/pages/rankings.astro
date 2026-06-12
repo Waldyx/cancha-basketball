@@ -44,9 +44,11 @@ const RANKINGS = [
 ];
 
 function sortBy(id: string, key: keyof typeof zapatillas[0]["puntuaciones"] | null) {
-  const arr = id === "retro" ? zapatillas.filter(z => z.es_retro)
-    : id === "trending" ? zapatillas.filter(z => (z.tags || []).includes("trending"))
-    : [...zapatillas];
+  // Las Junior (GS) heredan el score de la adulta -> fuera de rankings para no duplicar.
+  const pool = zapatillas.filter(z => z.genero !== "gs");
+  const arr = id === "retro" ? pool.filter(z => z.es_retro)
+    : id === "trending" ? pool.filter(z => (z.tags || []).includes("trending"))
+    : [...pool];
   if (id === "valor") return arr.sort((a, b) => (valueMap.get(b.slug) ?? 0) - (valueMap.get(a.slug) ?? 0));
   if (key) return arr.sort((a, b) => b.puntuaciones[key] - a.puntuaciones[key]);
   return arr.sort((a, b) => scoreOf(b) - scoreOf(a));

@@ -16,7 +16,9 @@ function scoreOf(z: typeof zapatillas[0]): number {
 // EDITOR'S PICK — la nº1 con descuento sobre MSRP
 // Tie-breaker en empate de score: WoW 12 preferida (override editorial); luego año más reciente → id alfabético
 const EDITOR_PICK_OVERRIDE = 'lining-wow-12';
-const conDescuento = zapatillas
+// Las Junior (GS) heredan el score de la adulta -> fuera de pick/top3/trending (no duplicar).
+const visibles = zapatillas.filter(z => z.genero !== "gs");
+const conDescuento = visibles
   .map(z => {
     const mp = findMejorPrecio(z.links_compra);
     return { z, mp, score: scoreOf(z) };
@@ -36,12 +38,12 @@ const editorPick = (conDescuento.length > 0
   : { z: zapatillas[0], mp: findMejorPrecio(zapatillas[0].links_compra), score: scoreOf(zapatillas[0]) });
 
 // Top 3 — score con preferencia por precio verificado
-const conPrecio = zapatillas.filter(z => findMejorPrecio(z.links_compra)).sort((a, b) => scoreOf(b) - scoreOf(a));
-const sinPrecio = zapatillas.filter(z => !findMejorPrecio(z.links_compra)).sort((a, b) => scoreOf(b) - scoreOf(a));
+const conPrecio = visibles.filter(z => findMejorPrecio(z.links_compra)).sort((a, b) => scoreOf(b) - scoreOf(a));
+const sinPrecio = visibles.filter(z => !findMejorPrecio(z.links_compra)).sort((a, b) => scoreOf(b) - scoreOf(a));
 const top3 = [...conPrecio, ...sinPrecio].slice(0, 3);
 // "Trending hoy" = lista curada (tag "trending"), priorizando precio verificado y score.
 // Fallback a top por score si no hubiera suficientes etiquetadas.
-const trendingTagged = zapatillas
+const trendingTagged = visibles
   .filter(z => (z.tags || []).includes("trending"))
   .sort((a, b) => {
     const pa = findMejorPrecio(a.links_compra) ? 0 : 1;
