@@ -14681,6 +14681,63 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+exhibit+select+mid+mujer+baloncesto&tag=canchazapa-21", precio_actual: 87.88, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-13" },
     ],
   },
+
+  // JORDAN HEIR SERIES — primera signature 100% femenina de Jordan Brand. genero=women.
+  {
+    id: "jordan-heir-series",
+    slug: "jordan-heir-series",
+    marca: "Jordan",
+    modelo: "Heir Series",
+    generacion: 1,
+    año_lanzamiento: 2024,
+    genero: "women",
+    tecnologia_clave: ["Diseño basado en jugadoras WNBA", "Perfil bajo (court feel)", "Cushion reactivo"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 320,
+    altura: "low",
+    horma: "estrecha",
+    drop_mm: 6,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+    puntuaciones: {
+      traccion: 8, amortiguacion: 6, respuesta: 8,
+      soporte_lateral: 7, estabilidad: 7, peso_score: 8,
+      durabilidad_outdoor: 6, ventilacion: 7,
+    },
+    categoria_principal: "responsive",
+    tags: ["mujer", "moderna", "low-top"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [45, 85],
+      estilos: ["explosivo", "equilibrado", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen:
+      "La primera zapatilla de baloncesto 100% femenina de Jordan Brand: una silueta nueva creada exclusivamente con los insights de jugadoras de la WNBA, no una de hombre adaptada. Perfil bajo pegado al suelo para court feel y cortes rápidos, pensada para el juego de velocidad y agilidad del baloncesto femenino. Se vende como Women's (no unisex).",
+    pros: [
+      "Diseñada desde cero para el pie y el juego femenino",
+      "Perfil bajo: court feel y cambios de ritmo rápidos",
+      "Ligera y reactiva para guards",
+      "Disponible en España (Forum Sport, Amazon)",
+    ],
+    contras: [
+      "Cushion bajo: poca protección de impacto",
+      "Soporte de tobillo justo (corte bajo)",
+      "Outdoor moderado",
+    ],
+    veredicto:
+      "El movimiento de Jordan Brand por el baloncesto femenino: una signature de mujer de verdad, low-to-ground y cortante. Para la jugadora rápida de perímetro que prioriza court feel y velocidad. Y por 66€ en Forum, una compra redonda.",
+    imagen_principal: "/shoes/jordan-heir-series.jpg",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-13",
+    precio_msrp_eur: 110,
+    links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fnike-zapatilla-baloncesto-jordan-heir-series-nero-fq3858-1001068836-p", precio_actual: 65.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-13" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=jordan+heir+series+baloncesto&tag=canchazapa-21", precio_actual: 90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-13" },
+    ],
+  },
 ];
 
 /**

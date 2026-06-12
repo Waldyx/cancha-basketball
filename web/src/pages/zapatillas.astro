@@ -36,12 +36,12 @@ const scoreOf = (z: typeof zapatillas[0]): number => {
   return Math.round((v.reduce((a, b) => a + b, 0) / v.length) * 10) / 10;
 };
 
-// Junior/GS y Mujer (100%): se ocultan del catálogo por defecto y se muestran solo
-// con su chip. Las signatures femeninas (Sabrina, A'One, Stewie…) son unisex y SÍ
-// salen en el catálogo normal; solo se aíslan las de horma 100% femenina (genero="women").
+// Junior/GS: se OCULTAN por defecto (duplican a la adulta) → solo con chip Junior.
+// Mujer (genero="women"): son modelos ÚNICOS (no duplican nada) → SÍ salen en el
+// catálogo normal; el chip ♀ Mujer solo filtra para verlas aisladas (como Trending/Retro).
 const esGS = (z: typeof zapatillas[0]) => z.genero === "gs";
 const esW = (z: typeof zapatillas[0]) => z.genero === "women";
-const oculta = (z: typeof zapatillas[0]) => esGS(z) || esW(z);
+const oculta = (z: typeof zapatillas[0]) => esGS(z); // solo GS se oculta del catálogo
 const nonGSCount = zapatillas.filter(z => !oculta(z)).length;
 
 const marcas = [...new Set(zapatillas.map(z => z.marca))].sort();
@@ -459,8 +459,8 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
     const $count = document.getElementById("catalogo-count")!;
     const $cards = $grid.querySelectorAll<HTMLAnchorElement>(".cz-card");
     const $pick = $grid.querySelector<HTMLElement>("[data-pick]");
-    // Total base = sin GS ni Mujer (ocultas por defecto). Sus chips las muestran aparte.
-    const totalAll = [...$cards].filter(c => c.dataset.gs !== "true" && c.dataset.w !== "true").length;
+    // Total base = sin GS (ocultas por defecto). Las de Mujer SÍ cuentan (están en el catálogo).
+    const totalAll = [...$cards].filter(c => c.dataset.gs !== "true").length;
 
     function activeChips(): { k: string; lab: string; remove: () => void }[] {
       const out: { k: string; lab: string; remove: () => void }[] = [];
@@ -537,10 +537,11 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
         const wm = c.dataset.w === "true";
 
         let ok = true;
-        // GS y Mujer ocultas por defecto; cada chip muestra SOLO su grupo.
+        // GS ocultas por defecto (chip Junior las muestra). Mujer SÍ visibles por defecto;
+        // el chip ♀ Mujer filtra a solo-mujer (como Trending/Retro).
         if (filters.soloGS) { if (!gs) ok = false; }
         else if (filters.soloW) { if (!wm) ok = false; }
-        else if (gs || wm) ok = false;
+        else if (gs) ok = false;
         if (filters.marcas.size && !filters.marcas.has(marca)) ok = false;
         if (filters.categorias.size && !filters.categorias.has(cat)) ok = false;
         if (filters.alturas.size && !filters.alturas.has(alt)) ok = false;
