@@ -236,6 +236,7 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
           <section>
             <h3><span class="num">07</span> Colección</h3>
             <div class="chip-row">
+              <button class="chip" id="chip-trending">🔥 Trending</button>
               <button class="chip" id="chip-retro">🏅 Retro</button>
             </div>
           </section>
@@ -303,6 +304,7 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
               const score = scoreOf(z);
               const cat = CAT_ACCENT[z.categoria_principal];
               const isNew = z.año_lanzamiento >= 2026;
+              const isTrending = (z.tags || []).includes("trending");
               const scClass = score >= 8 ? "hi" : score >= 6.5 ? "mid" : "lo";
               return (
                 <a
@@ -321,6 +323,7 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
                   data-ligera={z.peso_real_g <= 340 ? "true" : "false"}
                   data-verified={mejor ? "true" : "false"}
                   data-retro={z.es_retro ? "true" : "false"}
+                  data-trending={isTrending ? "true" : "false"}
                 >
                   <div class="photo">
                     <span class="cat-badge">{CAT_LABELS[z.categoria_principal]}</span>
@@ -328,6 +331,7 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
                       ? <span class="new-badge" style="background:#b45309;color:#fef3c7">🏅 Retro</span>
                       : isNew && <span class="new-badge">★ Nueva</span>
                     }
+                    {isTrending && <span class="new-badge" style="background:#dc2626;color:#fff;top:auto;bottom:8px">🔥 HOT</span>}
                     <span class={`cz-score-pill ${scClass} score-pill`}>{score}</span>
                     {z.imagen_principal && !z.imagen_principal.includes('placeholder') && (
                       <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} loading="lazy"
@@ -425,11 +429,12 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
       soloOutdoor: boolean;
       soloLigera: boolean;
       soloRetro: boolean;
+      soloTrending: boolean;
     };
     const filters: Filters = {
       q: "", marcas: new Set(), categorias: new Set(), alturas: new Set(),
       posiciones: new Set(), precioMax: 250,
-      soloNuevas: false, soloVerificado: false, soloOutdoor: false, soloLigera: false, soloRetro: false,
+      soloNuevas: false, soloVerificado: false, soloOutdoor: false, soloLigera: false, soloRetro: false, soloTrending: false,
     };
     let sortMode = "score-desc";
 
@@ -454,6 +459,7 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
       if (filters.soloOutdoor) out.push({ k: "out", lab: "Outdoor", remove: () => { filters.soloOutdoor = false; document.getElementById("chip-outdoor")?.classList.remove("is-active"); apply(); refreshUI(); } });
       if (filters.soloLigera) out.push({ k: "ligera", lab: "Ligera", remove: () => { filters.soloLigera = false; document.getElementById("chip-ligera")?.classList.remove("is-active"); apply(); refreshUI(); } });
       if (filters.soloRetro) out.push({ k: "retro", lab: "🏅 Retro", remove: () => { filters.soloRetro = false; document.getElementById("chip-retro")?.classList.remove("is-active"); apply(); refreshUI(); } });
+      if (filters.soloTrending) out.push({ k: "trend", lab: "🔥 Trending", remove: () => { filters.soloTrending = false; document.getElementById("chip-trending")?.classList.remove("is-active"); apply(); refreshUI(); } });
       if (filters.q) out.push({ k: "q", lab: `“${filters.q}”`, remove: () => { filters.q = ""; (document.getElementById("search") as HTMLInputElement).value = ""; apply(); refreshUI(); } });
       return out;
     }
@@ -484,6 +490,7 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
       document.getElementById("chip-outdoor")?.classList.toggle("is-active", filters.soloOutdoor);
       document.getElementById("chip-ligera")?.classList.toggle("is-active", filters.soloLigera);
       document.getElementById("chip-retro")?.classList.toggle("is-active", filters.soloRetro);
+      document.getElementById("chip-trending")?.classList.toggle("is-active", filters.soloTrending);
     }
 
     function visibleCount(): number {
@@ -506,6 +513,7 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
         const ligera = c.dataset.ligera === "true";
         const verified = c.dataset.verified === "true";
         const retro = c.dataset.retro === "true";
+        const trending = c.dataset.trending === "true";
 
         let ok = true;
         if (filters.marcas.size && !filters.marcas.has(marca)) ok = false;
@@ -518,6 +526,7 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
         if (filters.soloOutdoor && !outdoor) ok = false;
         if (filters.soloLigera && !ligera) ok = false;
         if (filters.soloRetro && !retro) ok = false;
+        if (filters.soloTrending && !trending) ok = false;
         if (filters.q && !nombre.includes(filters.q.toLowerCase())) ok = false;
 
         c.classList.toggle("hidden", !ok);
@@ -526,7 +535,7 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
       $cards.forEach(c => card(c));
 
       // Hide pick when any filter is on (it's not filterable)
-      const filtering = filters.marcas.size + filters.categorias.size + filters.alturas.size + filters.posiciones.size + (filters.precioMax < 250 ? 1 : 0) + (filters.soloNuevas?1:0) + (filters.soloVerificado?1:0) + (filters.soloOutdoor?1:0) + (filters.soloLigera?1:0) + (filters.soloRetro?1:0) + (filters.q?1:0);
+      const filtering = filters.marcas.size + filters.categorias.size + filters.alturas.size + filters.posiciones.size + (filters.precioMax < 250 ? 1 : 0) + (filters.soloNuevas?1:0) + (filters.soloVerificado?1:0) + (filters.soloOutdoor?1:0) + (filters.soloLigera?1:0) + (filters.soloRetro?1:0) + (filters.soloTrending?1:0) + (filters.q?1:0);
       if ($pick) $pick.classList.toggle("hidden", filtering > 0);
 
       // Sort — usa CSS order en lugar de appendChild para no resetear lazy loading
@@ -610,24 +619,25 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
         apply(); refreshUI();
       });
     });
-    // Colección chips (outdoor / ligera / retro)
-    const colChips: Array<{ id: string; toggle: () => void }> = [
-      { id: "chip-outdoor", toggle: () => { filters.soloOutdoor = !filters.soloOutdoor; } },
-      { id: "chip-ligera",  toggle: () => { filters.soloLigera  = !filters.soloLigera;  } },
-      { id: "chip-retro",   toggle: () => { filters.soloRetro   = !filters.soloRetro;   } },
+    // Colección chips (trending / outdoor / ligera / retro)
+    const colChips: Array<{ id: string; get: () => boolean; toggle: () => void }> = [
+      { id: "chip-trending", get: () => filters.soloTrending, toggle: () => { filters.soloTrending = !filters.soloTrending; } },
+      { id: "chip-outdoor",  get: () => filters.soloOutdoor,  toggle: () => { filters.soloOutdoor  = !filters.soloOutdoor;  } },
+      { id: "chip-ligera",   get: () => filters.soloLigera,   toggle: () => { filters.soloLigera   = !filters.soloLigera;   } },
+      { id: "chip-retro",    get: () => filters.soloRetro,    toggle: () => { filters.soloRetro    = !filters.soloRetro;    } },
     ];
-    colChips.forEach(({ id, toggle }) => {
+    colChips.forEach(({ id, get, toggle }) => {
       document.getElementById(id)?.addEventListener("click", () => {
         toggle(); apply(); refreshUI();
-        document.getElementById(id)?.classList.toggle("is-active", id === "chip-outdoor" ? filters.soloOutdoor : id === "chip-ligera" ? filters.soloLigera : filters.soloRetro);
+        document.getElementById(id)?.classList.toggle("is-active", get());
       });
     });
     document.getElementById("clear-filters")!.addEventListener("click", () => {
       filters.marcas.clear(); filters.categorias.clear(); filters.alturas.clear(); filters.posiciones.clear();
-      filters.precioMax = 250; filters.soloNuevas = false; filters.soloVerificado = false; filters.soloOutdoor = false; filters.soloLigera = false; filters.soloRetro = false;
+      filters.precioMax = 250; filters.soloNuevas = false; filters.soloVerificado = false; filters.soloOutdoor = false; filters.soloLigera = false; filters.soloRetro = false; filters.soloTrending = false;
       filters.q = "";
       document.querySelectorAll<HTMLInputElement>("input[type=checkbox]").forEach(cb => cb.checked = false);
-      ["chip-outdoor","chip-ligera","chip-retro"].forEach(id => document.getElementById(id)?.classList.remove("is-active"));
+      ["chip-outdoor","chip-ligera","chip-retro","chip-trending"].forEach(id => document.getElementById(id)?.classList.remove("is-active"));
       $range.value = "250"; $rangeLabel.textContent = "sin tope";
       (document.getElementById("search") as HTMLInputElement).value = "";
       apply(); refreshUI();
@@ -659,7 +669,9 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
       if (pmax) { const v = parseInt(pmax,10); if (!isNaN(v) && v < 250) { filters.precioMax = v; const rng = document.getElementById("price-range") as HTMLInputElement; const lbl = document.getElementById("price-label"); if(rng) rng.value=String(v); if(lbl) lbl.textContent=v+"€"; } }
       const cancha = sp.get("cancha");
       if (cancha === "exterior") { filters.soloOutdoor = true; }
-      if (pos||cat||mrc||pmax||cancha) apply();
+      const trend = sp.get("trending") || sp.get("coleccion");
+      if (trend === "1" || trend === "trending") { filters.soloTrending = true; }
+      if (pos||cat||mrc||pmax||cancha||trend) apply();
     })();
     refreshUI();
 

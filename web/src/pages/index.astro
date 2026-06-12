@@ -39,7 +39,17 @@ const editorPick = (conDescuento.length > 0
 const conPrecio = zapatillas.filter(z => findMejorPrecio(z.links_compra)).sort((a, b) => scoreOf(b) - scoreOf(a));
 const sinPrecio = zapatillas.filter(z => !findMejorPrecio(z.links_compra)).sort((a, b) => scoreOf(b) - scoreOf(a));
 const top3 = [...conPrecio, ...sinPrecio].slice(0, 3);
-const trendingHero = [...conPrecio, ...sinPrecio].slice(0, 5);
+// "Trending hoy" = lista curada (tag "trending"), priorizando precio verificado y score.
+// Fallback a top por score si no hubiera suficientes etiquetadas.
+const trendingTagged = zapatillas
+  .filter(z => (z.tags || []).includes("trending"))
+  .sort((a, b) => {
+    const pa = findMejorPrecio(a.links_compra) ? 0 : 1;
+    const pb = findMejorPrecio(b.links_compra) ? 0 : 1;
+    if (pa !== pb) return pa - pb;
+    return scoreOf(b) - scoreOf(a);
+  });
+const trendingHero = (trendingTagged.length >= 5 ? trendingTagged : [...conPrecio, ...sinPrecio]).slice(0, 5);
 
 const marcas = [...new Set(zapatillas.map(z => z.marca))];
 

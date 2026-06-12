@@ -158,7 +158,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 10,
     },
     categoria_principal: "responsive",
-    tags: ["signature", "ligera", "tope-de-gama"],
+    tags: ["trending","signature", "ligera", "tope-de-gama"],
 
     ideal_para: {
       posiciones: ["base", "escolta"],
@@ -537,7 +537,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 7, ventilacion: 8,
     },
     categoria_principal: "cushion-focused",
-    tags: ["signature", "tope-de-gama", "moderna"],
+    tags: ["trending","signature", "tope-de-gama", "moderna"],
     ideal_para: {
       posiciones: ["alero", "ala-pivot", "escolta"],
       peso_jugador_kg: [75, 105],
@@ -789,7 +789,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 5, ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["signature", "tope-de-gama", "moderna", "ligera"],
+    tags: ["trending","signature", "tope-de-gama", "moderna", "ligera"],
     ideal_para: {
       posiciones: ["escolta", "alero", "base"],
       peso_jugador_kg: [70, 95],
@@ -974,7 +974,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 9, ventilacion: 9,
     },
     categoria_principal: "balanced",
-    tags: ["signature", "value-premium", "china-brand", "tope-de-gama"],
+    tags: ["trending","signature", "value-premium", "china-brand", "tope-de-gama"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
       peso_jugador_kg: [60, 95],
@@ -1342,7 +1342,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 4, ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["signature", "value", "horma-ancha"],
+    tags: ["trending","signature", "value", "horma-ancha"],
     ideal_para: {
       posiciones: ["alero", "ala-pivot", "pivot"],
       peso_jugador_kg: [80, 110],
@@ -1527,7 +1527,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 7, ventilacion: 9,
     },
     categoria_principal: "balanced",
-    tags: ["signature", "value-premium", "china-brand", "ligera", "tope-de-gama"],
+    tags: ["trending","signature", "value-premium", "china-brand", "ligera", "tope-de-gama"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
       peso_jugador_kg: [60, 95],
@@ -1647,7 +1647,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 7, ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["signature", "moderna"],
+    tags: ["trending","signature", "moderna"],
     ideal_para: {
       posiciones: ["escolta", "alero", "base"],
       peso_jugador_kg: [70, 100],
@@ -3190,7 +3190,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 5,
     },
     categoria_principal: "cushion-focused",
-    tags: ["signature", "tope-de-gama", "cushion", "moderna", "big-men"],
+    tags: ["trending","signature", "tope-de-gama", "cushion", "moderna", "big-men"],
 
     ideal_para: {
       posiciones: ["pivot", "ala-pivot"],
@@ -3268,7 +3268,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 9,
     },
     categoria_principal: "responsive",
-    tags: ["signature", "guard", "explosivo", "moderna", "ligera"],
+    tags: ["trending","signature", "guard", "explosivo", "moderna", "ligera"],
 
     ideal_para: {
       posiciones: ["base", "escolta"],
@@ -3346,7 +3346,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 9,
     },
     categoria_principal: "responsive",
-    tags: ["signature", "guard", "lightstrike-pro", "moderna", "top-guard-2025"],
+    tags: ["trending","signature", "guard", "lightstrike-pro", "moderna", "top-guard-2025"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -3424,7 +3424,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 9,
     },
     categoria_principal: "responsive",
-    tags: ["signature", "guard", "nitrofoam", "moderna", "ligera"],
+    tags: ["trending","signature", "guard", "nitrofoam", "moderna", "ligera"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -4478,7 +4478,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 10,
     },
     categoria_principal: "responsive",
-    tags: ["low-top", "signature", "ligera", "rapida", "explosiva"],
+    tags: ["trending","low-top", "signature", "ligera", "rapida", "explosiva"],
 
     ideal_para: {
       posiciones: ["base", "escolta"],
@@ -4630,7 +4630,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["low-top", "signature", "cushion", "agarre", "versatil"],
+    tags: ["trending","low-top", "signature", "cushion", "agarre", "versatil"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -4857,7 +4857,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 7,
     },
     categoria_principal: "balanced",
-    tags: ["low-top", "signature", "accesible", "gama-baja"],
+    tags: ["trending","low-top", "signature", "accesible", "gama-baja"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -5240,7 +5240,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["mid-top", "signature", "equilibrado", "versatil", "zoom-air"],
+    tags: ["trending","mid-top", "signature", "equilibrado", "versatil", "zoom-air"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -6181,7 +6181,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 7,
     },
     categoria_principal: "traction-king",
-    tags: ["signature", "budget"],
+    tags: ["trending","signature", "budget"],
     ideal_para: {
       posiciones: ["pivot", "ala-pivot", "alero"],
       peso_jugador_kg: [80, 120],
@@ -12432,7 +12432,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 2, ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["signature", "value", "tope-de-gama"],
+    tags: ["trending","signature", "value", "tope-de-gama"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
       peso_jugador_kg: [70, 100],
@@ -12744,7 +12744,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 7, ventilacion: 8,
     },
     categoria_principal: "cushion-focused",
-    tags: ["signature", "china-brand", "big-man", "value-premium"],
+    tags: ["trending","signature", "china-brand", "big-man", "value-premium"],
     ideal_para: {
       posiciones: ["pivot", "ala-pivot", "alero"],
       peso_jugador_kg: [85, 130],
@@ -12916,7 +12916,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 7, ventilacion: 8,
     },
     categoria_principal: "responsive",
-    tags: ["signature", "china-brand", "guards", "tracción", "moderna"],
+    tags: ["trending","signature", "china-brand", "guards", "tracción", "moderna"],
     ideal_para: {
       posiciones: ["base", "escolta"],
       peso_jugador_kg: [65, 95],
@@ -13260,7 +13260,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 7, ventilacion: 7,
     },
     categoria_principal: "cushion-focused",
-    tags: ["max-cushion", "premium", "moderna", "rodillas-amigable"],
+    tags: ["trending","max-cushion", "premium", "moderna", "rodillas-amigable"],
     ideal_para: {
       posiciones: ["alero", "ala-pivot", "pivot", "escolta"],
       peso_jugador_kg: [80, 120],
