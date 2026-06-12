@@ -7759,7 +7759,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fnew-balance%2Fzapatillas-de-baloncesto-new-balance-two-wxy-v5-bleached-lime-glo-145033.html", precio_actual: 89.49, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
-      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-new-balance-two-wxy-azul-oscuro%2F362992%2Fc8m8967078", precio_actual: 79.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-new-balance-two-wxy-azul-oscuro%2F362992%2Fc8m8967078", precio_actual: 79.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fnew-balance%2Ftwo-wxy-v5-scarlet", precio_actual: 90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+two+wxy+v5+baloncesto&tag=canchazapa-21", precio_actual: 110, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
@@ -8755,6 +8755,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 94.99,
     links_compra: [
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-adidas-dame-x-gris-plateado%2F373766%2Fm8998618", precio_actual: 90.49, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-dame-x%2FKI5949.html", precio_actual: 63, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=dame+x", precio_actual: 94.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+x+baloncesto&tag=canchazapa-21", precio_actual: 65, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
