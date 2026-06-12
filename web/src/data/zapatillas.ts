@@ -6271,7 +6271,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 25,
     año_lanzamiento: 2025,
     genero: "unisex",
-    tecnologia_clave: ["Espuma EVA", "Suela de goma", "Malla transpirable"],
+    tecnologia_clave: ["Micro G", "Suela de goma", "Malla transpirable"],
     predecesor_id: "ua-jet-23",
     sucesor_id: null,
     peso_real_g: 380,
