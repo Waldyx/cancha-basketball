@@ -3690,6 +3690,69 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">El hype es un buen punto de partida, pero no compres solo por moda. Filtra el <a href="/zapatillas">catalogo</a> por tu posicion y presupuesto, contrasta la nota en <a href="/rankings">Rankings</a> y, si dudas, haz el <a href="/quiz">quiz</a>: te decimos cual encaja con tu juego. Sin sesgo de marca, sin BS.</p>
 `,
   },
+
+  // ── Guía: zapatillas de baloncesto para mujer ──────────────────────
+  {
+    slug: "zapatillas-baloncesto-mujer-unisex-vs-horma-femenina-2026",
+    title: "Zapatillas de baloncesto para mujer: unisex vs horma 100% femenina (2026)",
+    metaTitle: "Zapatillas de baloncesto para mujer 2026: unisex vs horma femenina | CANCHA.ZAPA",
+    description:
+      "La guía honesta de zapatillas de baloncesto para mujer: diferencia real entre signatures unisex (Sabrina, Stewie, Heir Series) y moldes 100% femeninos (Moolah, UA Flow Breakthru, Adidas Exhibit Select).",
+    fecha: "2026-06-13",
+    fechaLabel: "13 junio 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Guía editorial · Baloncesto femenino",
+    heroTitle: "Zapatillas de baloncesto para mujer",
+    heroSubtitle: "Unisex vs horma 100% femenina · Guía 2026",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-sabrina-3", "jordan-heir-series", "ua-flow-breakthru-4", "adidas-exhibit-select", "moolah-neovolt-pro-v3", "puma-stewie-4"],
+    relatedSeoPages: ["zapatillas-baloncesto-mujer", "zapatillas-baloncesto-junior", "mejores-zapatillas-baloncesto-2025"],
+    body: `
+<p class="art-intro">Durante años, "zapatilla de baloncesto para mujer" significaba coger un modelo de hombre, pintarlo de rosa y hacerlo en tallas pequeñas. Eso se acabó. El boom de la WNBA ha empujado a las marcas a diseñar de verdad para el pie femenino. Pero hay un matiz que casi ninguna tienda explica: <strong>no todas las "de mujer" son iguales</strong>. Aquí te lo aclaramos.</p>
+
+<h2>Por qué el pie femenino necesita otra horma</h2>
+<p>No es marketing: hay diferencias biomecánicas reales que cambian cómo debería construirse la zapatilla.</p>
+<ul>
+  <li><strong>Talón más estrecho:</strong> la mujer suele tener el talón proporcionalmente más estrecho respecto al antepié. Con una horma de hombre, el pie "baila" y se desliza hacia arriba al saltar.</li>
+  <li><strong>Arco y ángulo Q:</strong> la alineación cadera-rodilla (ángulo Q) es distinta, lo que cambia cómo se absorbe el impacto al caer de un rebote. Un soporte de arco adaptado ayuda a prevenir lesiones (el cruzado anterior es más común en el básquet femenino).</li>
+  <li><strong>Menos masa estructural:</strong> a igual estatura, menor peso medio. No hace falta una placa de torsión tan rígida ni una espuma tan dura para no hundir la mediasuela.</li>
+</ul>
+
+<h2>Las dos familias (y por qué importa la diferencia)</h2>
+
+<h3>1. Signatures unisex con ADN femenino</h3>
+<p>Llevan el nombre de una estrella de la WNBA, pero se venden en <strong>tallaje completo</strong> porque los hombres también las quieren por su rendimiento. Horma estándar, ajuste ceñido. Son las más vendidas del planeta:</p>
+<ul>
+  <li><strong>Nike Sabrina 3 (Sabrina Ionescu):</strong> el mayor éxito reciente de Nike. Low-top, ligera, agarre salvaje. Estilo "Kobe". La opción nº1 de muchas jugadoras.</li>
+  <li><strong>Nike A'One (A'ja Wilson):</strong> debut de la MVP. Más enfocada a amortiguación y estabilidad para juego todoterreno.</li>
+  <li><strong>Puma Stewie 3/4 (Breanna Stewart):</strong> Puma fue pionera en recuperar este mercado. Nitro foam, comodidad brutal y horma polivalente.</li>
+  <li><strong>Jordan Heir Series:</strong> la primera silueta de Jordan Brand creada con insights de jugadoras WNBA. Low-to-ground, cortante. WearTesters la nombró la mejor Jordan de baloncesto de 2024-25 (8/10).</li>
+</ul>
+<p>Si juegas y no te obsesiona la horma anatómica, aquí tienes el mejor rendimiento. Funcionan perfectamente para mujer.</p>
+
+<h3>2. Horma 100% femenina (molde biométrico)</h3>
+<p>No comparten molde con ningún modelo de hombre. Se construyen sobre bases anatómicas exclusivas del pie de mujer: talón ultra estrecho, arco elevado, menos volumen en empeine. Un hombre con su talla equivalente notaría el talón demasiado apretado.</p>
+<ul>
+  <li><strong>Moolah Kicks (Neovolt Pro V3, Evolyte Elite, Triple Double):</strong> la única marca dedicada 100% al básquet femenino. Filón para quien busca el ajuste anatómico real. En España hay que importarla (moolahkicks.com), pero su review es justo lo que buscas si vas a comprarla.</li>
+  <li><strong>Under Armour Flow Breakthru 4:</strong> horma biométrica femenina + suela UA Flow (sin goma, solo espuma al suelo): de las más ligeras del mercado. Y se compra en España (Amazon) a precio de ganga.</li>
+  <li><strong>Adidas Exhibit Select:</strong> desarrollada con mapas de presión de atletas WNBA. Bootie de neopreno, Bounce flexible desde el minuto uno, horma estrecha. También disponible en Amazon España.</li>
+</ul>
+
+<h2>¿Cuál eliges?</h2>
+<p>Depende de qué priorices:</p>
+<ul>
+  <li><strong>Rendimiento puro y disponibilidad fácil →</strong> una signature: Sabrina 3, Heir Series o Stewie. Las compras en cualquier sitio y rinden a tope.</li>
+  <li><strong>Ajuste anatómico femenino real →</strong> UA Flow Breakthru 4 o Adidas Exhibit Select (compra en España), o Moolah Kicks (importando) si quieres lo más especializado.</li>
+  <li><strong>Talón que se te escapa con hormas de hombre →</strong> ve directa a la familia 100% femenina: el talón estrecho lo soluciona.</li>
+</ul>
+
+<h2>Lo que viene</h2>
+<p>El mercado femenino es el que más rápido crece. La <strong>Nike Caitlin 1</strong> (Caitlin Clark), prevista para finales de 2026, apunta a reventar ventas por su impacto mediático. La iremos añadiendo en cuanto haya datos reales.</p>
+
+<p class="art-outro">¿Quieres ver de un vistazo todo el arsenal para jugadoras? Filtra el catálogo con el chip <a href="/zapatillas?mujer=1">♀ Mujer</a> — te salen tanto los moldes 100% femeninos como las signatures con ADN WNBA. O <a href="/quiz">haz el quiz</a> para una recomendación a tu medida.</p>
+`,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
