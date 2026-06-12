@@ -630,6 +630,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 170,
     links_compra: [
+      { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fnike%2Fkd18-atomic-pink-photo-blue-lt-wild-mango", precio_actual: 109.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kd+18&vst=kd+18", precio_actual: 169.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/product/~/314109315904.html", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=kd+18", precio_actual: 169.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
@@ -3412,6 +3413,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 220,
     links_compra: [
+      { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fnike%2Flebron-23-grand-opening-white-metallic-gold-university-red-black", precio_actual: 119.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+lebron+23+basketball&tag=canchazapa-21", precio_actual: 210, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=lebron+23&vst=lebron+23", precio_actual: 220, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+lebron+23", precio_actual: 215, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
@@ -4928,6 +4930,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 150,
     links_compra: [
+      { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fnike%2Fbook-2-rising-black-multi-color-safety-orange-sundial-tatto", precio_actual: 119.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "nike_es", url: "https://www.nike.com/es/t/book-2-rising-zapatillas-de-baloncesto-m5KwDWWn/IB6687-001", precio_actual: 149.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
@@ -5231,6 +5234,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 90,
     links_compra: [
+      { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fjordan%2Ftatum-4-green-glow-green-glow-black", precio_actual: 89.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "nike_es", url: "https://www.nike.com/es/t/tatum-4-zapatillas-de-baloncesto-Bbr6tfuA/HQ4614-004", precio_actual: 90.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
@@ -5617,6 +5621,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 139.99,
     links_compra: [
+      { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fjordan%2Fluka-4-gone-ranching-summit-white-pine-green-canyon-gold", precio_actual: 97.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=jordan+luka+4", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
@@ -6600,6 +6605,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 85,
     links_compra: [
+      { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fnike%2Fgiannis-immortality-4-white-black-volt-wolf-grey-cool-grey-total-or", precio_actual: 67.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=giannis+immortality+4&vst=giannis+immortality+4", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=giannis+immortality+4", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
     ],
