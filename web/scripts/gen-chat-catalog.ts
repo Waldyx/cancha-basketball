@@ -29,7 +29,9 @@ const catalogo = zapatillas
       `tracc ${s.traccion} cushion ${s.amortiguacion} resp ${s.respuesta} ` +
       `soporte ${s.soporte_lateral} estab ${s.estabilidad} ligereza ${s.peso_score} ` +
       `outdoor ${s.durabilidad_outdoor} vent ${s.ventilacion} | ${z.altura} | horma ${z.horma}` +
-      (z.tags.includes("retro") ? " | RETRO" : "")
+      (z.tags.includes("retro") ? " | RETRO" : "") +
+      (z.genero === "gs" ? " | JUNIOR-GS" : "") +
+      (z.genero === "women" ? " | MUJER-100%" : z.tags.includes("mujer") ? " | MUJER-tambien" : "")
     );
   })
   .join("\n");

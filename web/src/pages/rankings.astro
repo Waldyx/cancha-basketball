@@ -41,13 +41,18 @@ const RANKINGS = [
   { id: "ligera",    label: "Más ligeras",       key: "peso_score" as const,   blurb: "Menos de 350g. Vuelas." },
   { id: "soporte",   label: "Soporte tobillo",   key: "soporte_lateral" as const, blurb: "Para tobillos débiles y lesiones frecuentes." },
   { id: "retro",     label: "🏅 Retro",          key: null,                    blurb: "Clásicos que siguen siendo jugables. Score técnico con tecnología de su época." },
+  { id: "mujer",     label: "♀ Mujer",           key: null,                    blurb: "Lo mejor para jugadoras: moldes 100% femeninos + signatures con ADN de la WNBA (Sabrina, Stewie, Heir Series…)." },
+  { id: "junior",    label: "👟 Junior",         key: null,                    blurb: "Las mejores en tallaje júnior (Grade School): rendimiento de adulto para los más jóvenes." },
 ];
 
 function sortBy(id: string, key: keyof typeof zapatillas[0]["puntuaciones"] | null) {
-  // Las Junior (GS) heredan el score de la adulta -> fuera de rankings para no duplicar.
+  // Las Junior (GS) heredan el score de la adulta -> fuera de rankings generales para
+  // no duplicar; solo aparecen en su propia pestaña "junior".
   const pool = zapatillas.filter(z => z.genero !== "gs");
   const arr = id === "retro" ? pool.filter(z => z.es_retro)
     : id === "trending" ? pool.filter(z => (z.tags || []).includes("trending"))
+    : id === "mujer" ? zapatillas.filter(z => z.genero === "women" || (z.tags || []).includes("mujer"))
+    : id === "junior" ? zapatillas.filter(z => z.genero === "gs")
     : [...pool];
   if (id === "valor") return arr.sort((a, b) => (valueMap.get(b.slug) ?? 0) - (valueMap.get(a.slug) ?? 0));
   if (key) return arr.sort((a, b) => b.puntuaciones[key] - a.puntuaciones[key]);
