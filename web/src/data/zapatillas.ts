@@ -2962,6 +2962,62 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=adidas+ae+1", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
   },
+  {
+    id: "adidas-ae-1-gs",
+    slug: "adidas-ae-1-gs",
+    marca: "Adidas",
+    modelo: "AE 1 Low GS",
+    generacion: 1,
+    año_lanzamiento: 2024,
+    genero: "gs",
+    signature_player: "Anthony Edwards",
+    tecnologia_clave: ["Lightstrike", "Refuerzo lateral"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 330,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 8, respuesta: 8,
+      soporte_lateral: 7, estabilidad: 8, peso_score: 9,
+      durabilidad_outdoor: 6, ventilacion: 9,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "junior"],
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [35, 65],
+      estilos: ["explosivo", "equilibrado"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen:
+      "Version junior (Grade School) low-top de la AE 1, la signature de Anthony Edwards. Misma base reactiva con Lightstrike y buen agarre, en un corte bajo y ligero pensado para guards junior que buscan rapidez y court feel. Una de las pocas signature NBA de verdad disponibles en talla nino a precio razonable.",
+    pros: [
+      "Signature NBA real en talla junior",
+      "Low-top ligero y reactivo para guards",
+      "Buena traccion en pista cubierta",
+      "Precio razonable para una signature",
+    ],
+    contras: [
+      "Corte bajo: menos sujecion de tobillo",
+      "Durabilidad outdoor moderada",
+      "Tallaje GS: hasta EU 40 aprox.",
+    ],
+    veredicto:
+      "Para el junior base o escolta que quiere una signature de verdad sin pagar precio de adulto, la AE 1 Low GS es de las mejores opciones. Si necesita mas sujecion de tobillo, mira una mid.",
+    imagen_principal: "/shoes/adidas-ae-1-gs.jpg",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-12",
+    precio_msrp_eur: 65,
+    links_compra: [
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-anthony-edwards-1-low-basketball-para-nino%2FJS1773.html", precio_actual: 63, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ae+1+low+nino+baloncesto&tag=canchazapa-21", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+    ],
+  },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 39. NEW BALANCE TWO WXY V4 — El fiable de NB
