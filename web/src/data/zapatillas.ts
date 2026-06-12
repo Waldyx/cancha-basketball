@@ -3633,6 +3633,63 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+believe+that+1+baloncesto&tag=canchazapa-21", precio_actual: 100, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
+
+  // ADIDAS BELIEVE THAT 1 GS — versión junior, tracción y soporte top
+  {
+    id: "adidas-believe-that-1-gs",
+    slug: "adidas-believe-that-1-gs",
+    marca: "Adidas",
+    modelo: "Believe That 1 GS",
+    generacion: 1,
+    año_lanzamiento: 2025,
+    genero: "gs",
+    tecnologia_clave: ["Dreamstrike", "Herringbone multidireccional"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 340,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 7, respuesta: 8,
+      soporte_lateral: 9, estabilidad: 9, peso_score: 8,
+      durabilidad_outdoor: 8, ventilacion: 8,
+    },
+    categoria_principal: "traction-king",
+    tags: ["junior", "traction", "budget"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [35, 65],
+      estilos: ["equilibrado", "explosivo"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen:
+      "Versión junior (Grade School) de la Believe That 1, una de las mejores compras calidad-precio de adidas, en tallaje niño. Tracción herringbone de élite y soporte de gama alta con buena durabilidad outdoor: rendimiento serio por poco dinero.",
+    pros: [
+      "Tracción y soporte de gama superior",
+      "Aguanta bien el outdoor",
+      "Estabilidad excelente para guards junior",
+      "Gran relación calidad-precio",
+    ],
+    contras: [
+      "Cushion algo firme (Dreamstrike)",
+      "Tallaje GS: hasta EU 40 aprox.",
+      "No es la más reactiva",
+    ],
+    veredicto:
+      "Para el junior que prioriza agarre y estabilidad sin gastar de más: rendimiento de gama alta a precio budget. Una compra muy inteligente para pista cubierta y exterior.",
+    imagen_principal: "/shoes/adidas-believe-that-1.jpg",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-12",
+    precio_msrp_eur: 80,
+    links_compra: [
+      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fzapatillas-de-baloncesto-adidas-believe-that-1-j-azul-infantil-178002.html", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+    ],
+  },
+
   {
     id: "kipsta-canaveral-900",
     slug: "kipsta-canaveral-900",
@@ -4612,6 +4669,62 @@ const _rawZapatillas: Zapatilla[] = [
     ],
   },
 
+  // UNDER ARMOUR LOCKDOWN 7 GS — versión junior budget
+  {
+    id: "ua-lockdown-7-gs",
+    slug: "ua-lockdown-7-gs",
+    marca: "Under Armour",
+    modelo: "Lockdown 7 GS",
+    generacion: 7,
+    año_lanzamiento: 2024,
+    genero: "gs",
+    tecnologia_clave: ["EVA foam midsole", "herringbone outsole", "mesh upper"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 310,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+    puntuaciones: {
+      traccion: 7, amortiguacion: 6, respuesta: 6,
+      soporte_lateral: 6, estabilidad: 7, peso_score: 6,
+      durabilidad_outdoor: 7, ventilacion: 7,
+    },
+    categoria_principal: "balanced",
+    tags: ["junior", "budget"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [35, 70],
+      estilos: ["equilibrado"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["explosivo"] },
+    resumen:
+      "Versión junior de la UA Lockdown 7, la entrada de gama de Under Armour en tallaje niño. Low-top ligera con EVA básico y herringbone fiable: la segunda zapatilla perfecta para entrenar o el junior que empieza con presupuesto ajustado.",
+    pros: [
+      "Ligera y cómoda",
+      "Herringbone con tracción decente",
+      "Precio bajísimo (por debajo de 45€)",
+      "Buena para entrenar",
+    ],
+    contras: [
+      "Cushion EVA básico",
+      "Low-top: menos soporte de tobillo",
+      "Tallaje GS: hasta EU 40 aprox.",
+    ],
+    veredicto:
+      "La opción más barata de UA para el junior: para iniciación o como segunda zapatilla de entrenamiento cumple de sobra. Para competir, sube a la Jet '25 GS o a una signature.",
+    imagen_principal: "/shoes/ua-lockdown-7.webp",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-12",
+    precio_msrp_eur: 50,
+    links_compra: [
+      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fzapatillas-de-baloncesto-under-armour-gs-lockdown-7-infantil-negro-99482.html", precio_actual: 44, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+    ],
+  },
+
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 56. UA SPAWN 7 MID — Mid-range de performance UA
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -4914,6 +5027,63 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fnike-zapatilla-baloncesto-jordan-luka-77-neant-hf0806-1001053712-p", precio_actual: 59.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "nike_es", url: "https://www.nike.com/es/t/luka-77-zapatillas-de-baloncesto-BERU1e7j/IF1610-500", precio_actual: 99.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+    ],
+  },
+
+  // JORDAN LUKA 77 GS — versión junior de la signature de Dončić
+  {
+    id: "jordan-luka-77-gs",
+    slug: "jordan-luka-77-gs",
+    marca: "Jordan",
+    modelo: "Luka 77 GS",
+    generacion: 1,
+    año_lanzamiento: 2025,
+    genero: "gs",
+    signature_player: "Luka Dončić",
+    tecnologia_clave: ["React foam", "Zoom Air heel", "knit upper"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 310,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 6,
+    tipo_cierre: "cordones",
+    material_superior: "knit",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 9, respuesta: 8,
+      soporte_lateral: 9, estabilidad: 8, peso_score: 8,
+      durabilidad_outdoor: 9, ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "junior"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [35, 65],
+      estilos: ["equilibrado", "explosivo", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen:
+      "Versión junior (Grade School) de la Nike Luka 77, con el mismo combo React + Zoom Air del modelo adulto en tallaje niño. Buen cushion, knit cómodo y una de las mejores durabilidades outdoor del segmento: aguanta dentro y fuera.",
+    pros: [
+      "React + Zoom Air: cushion equilibrado",
+      "Aguanta bien el outdoor",
+      "Knit cómodo desde el primer uso",
+      "Signature real a precio junior",
+    ],
+    contras: [
+      "Tallaje GS: hasta EU 40 aprox.",
+      "No es la más reactiva del segmento",
+      "Estética sobria",
+    ],
+    veredicto:
+      "Para el junior de perímetro que juega dentro y fuera y quiere una signature equilibrada y resistente. Una compra muy sensata por debajo de 65€.",
+    imagen_principal: "/shoes/jordan-luka-77.webp",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-12",
+    precio_msrp_eur: 90,
+    links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fnike-zapatilla-baloncesto-ninos-jordan-luka-77-gs-azrs-ih0573-1001091579-p", precio_actual: 63.19, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
 
@@ -6502,6 +6672,62 @@ const _rawZapatillas: Zapatilla[] = [
     ],
   },
 
+  // UNDER ARMOUR JET '25 GS — versión junior de iniciación
+  {
+    id: "ua-jet-25-gs",
+    slug: "ua-jet-25-gs",
+    marca: "Under Armour",
+    modelo: "Jet '25 GS",
+    generacion: 1,
+    año_lanzamiento: 2025,
+    genero: "gs",
+    tecnologia_clave: ["Micro G", "Suela de goma", "Malla transpirable"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 340,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 8, amortiguacion: 7, respuesta: 6,
+      soporte_lateral: 7, estabilidad: 7, peso_score: 6,
+      durabilidad_outdoor: 8, ventilacion: 7,
+    },
+    categoria_principal: "balanced",
+    tags: ["junior", "budget", "outdoor"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero", "ala-pivot"],
+      peso_jugador_kg: [35, 70],
+      estilos: ["equilibrado"],
+    },
+    no_recomendada_para: { posiciones: [], estilos: ["explosivo"] },
+    resumen:
+      "Versión junior de la UA Jet '25, la zapatilla de iniciación de Under Armour en tallaje niño. Micro G cómodo, suela de goma resistente al asfalto y media caña para sujeción: confort y durabilidad a precio budget.",
+    pros: [
+      "Micro G cómodo para empezar",
+      "Aguanta bien el outdoor",
+      "Mid-top con soporte de tobillo",
+      "Precio de iniciación bajo",
+    ],
+    contras: [
+      "Poco reactiva (no es de competición)",
+      "Tallaje GS: hasta EU 40 aprox.",
+      "Materiales sencillos",
+    ],
+    veredicto:
+      "Para iniciar, entrenar o jugar recreativo el junior sin gastar mucho: cumple, dura y protege. Si compite en serio, sube de gama.",
+    imagen_principal: "/shoes/ua-jet-25.jpg",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-12",
+    precio_msrp_eur: 55,
+    links_compra: [
+      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fzapatillas-de-baloncesto-under-armour-gs-jet-25-infantil-gris-171643.html", precio_actual: 43.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+    ],
+  },
+
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 85. PUMA ALL-PRO NITRO 2 — cushion premium, pivot
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -7513,6 +7739,62 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-own-the-game-3%2FIF4566.html", precio_actual: 45.5, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ownthegame+3+baloncesto&tag=canchazapa-21", precio_actual: 39.00, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-ownthegame-30-hombre-negro-141378.html", precio_actual: 45.50, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+    ],
+  },
+
+  // ADIDAS OWNTHEGAME 3 GS — versión junior budget all-round
+  {
+    id: "adidas-ownthegame-3-gs",
+    slug: "adidas-ownthegame-3-gs",
+    marca: "Adidas",
+    modelo: "OwnTheGame 3 GS",
+    generacion: 3,
+    año_lanzamiento: 2024,
+    genero: "gs",
+    tecnologia_clave: ["Bounce foam", "rubber outsole"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 340,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "synthetic",
+    puntuaciones: {
+      traccion: 6, amortiguacion: 6, respuesta: 5,
+      soporte_lateral: 6, estabilidad: 6, peso_score: 6,
+      durabilidad_outdoor: 7, ventilacion: 6,
+    },
+    categoria_principal: "balanced",
+    tags: ["junior", "budget", "outdoor"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero", "ala-pivot"],
+      peso_jugador_kg: [35, 70],
+      estilos: ["equilibrado"],
+    },
+    no_recomendada_para: { posiciones: [], estilos: ["explosivo"] },
+    resumen:
+      "Versión junior de la OwnTheGame 3, la opción más económica de adidas para baloncesto en tallaje niño. Sin pretensiones: funcional, durable y resistente al asfalto. La compra de iniciación más barata de adidas.",
+    pros: [
+      "Precio imbatible (por debajo de 45€)",
+      "Durable, aguanta el outdoor",
+      "Mid-top con soporte de tobillo",
+      "Disponible en cualquier talla",
+    ],
+    contras: [
+      "Cushion Bounce básico",
+      "Materiales sintéticos sencillos",
+      "Poco reactiva para juego rápido",
+    ],
+    veredicto:
+      "Para iniciación o uso recreativo del junior sin gastar: cumple, dura y protege el tobillo. Si ya compite en serio, sube a la Dame X GS o a una signature.",
+    imagen_principal: "/shoes/adidas-ownthegame-3.webp",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-12",
+    precio_msrp_eur: 50,
+    links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-ninos-ownthegame-30-j-azve-js2177-1001075273-p", precio_actual: 41.27, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
 
@@ -9110,6 +9392,63 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=dame+x", precio_actual: 94.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+x+baloncesto&tag=canchazapa-21", precio_actual: 65, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-dame-x-rosa-144325.html", precio_actual: 50.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+    ],
+  },
+
+  // ADIDAS DAME X GS — versión junior de la signature budget de Lillard
+  {
+    id: "adidas-dame-x-gs",
+    slug: "adidas-dame-x-gs",
+    marca: "Adidas",
+    modelo: "Dame X GS",
+    generacion: 10,
+    año_lanzamiento: 2025,
+    genero: "gs",
+    signature_player: "Damian Lillard",
+    tecnologia_clave: ["Lightstrike midsole", "Stretch-woven upper", "Generative rubber outsole"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 360,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 9, respuesta: 9,
+      soporte_lateral: 8, estabilidad: 8, peso_score: 9,
+      durabilidad_outdoor: 7, ventilacion: 9,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "junior", "budget"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [35, 65],
+      estilos: ["equilibrado", "explosivo", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen:
+      "Versión junior (Grade School) de la Dame X, la primera signature de Lillard por debajo de 100€, en tallaje niño. Mismo Lightstrike sólido y suela generativa del adulto: muchísimo rendimiento por muy poco dinero.",
+    pros: [
+      "Lightstrike cómodo y reactivo",
+      "Relación calidad-precio brutal para una signature",
+      "Ligera y versátil",
+      "Buena tracción multidireccional",
+    ],
+    contras: [
+      "Tallaje GS: hasta EU 40 aprox.",
+      "Materiales sencillos",
+      "Outdoor correcto pero no ideal",
+    ],
+    veredicto:
+      "La signature junior más rentable de adidas: por debajo de 55€ ofrece más que muchas zapas de 80€. Ideal para el junior de perímetro que empieza a competir.",
+    imagen_principal: "/shoes/adidas-dame-x.webp",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-12",
+    precio_msrp_eur: 75,
+    links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-ninos-dame-x-j-rone-jp8639-1001075060-p", precio_actual: 50.73, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
 
