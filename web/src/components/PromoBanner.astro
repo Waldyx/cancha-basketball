@@ -85,12 +85,16 @@ const promosData = PROMOS.map((p) => ({
   (function () {
     try {
       var now = Date.now();
+      // Modo preview: ?promo=preview fuerza mostrar la primera promo (para previsualizar
+      // antes de su fecha de inicio). Los usuarios normales no lo activan.
+      var preview = new URLSearchParams(location.search).get("promo") === "preview";
       var active = promosData.filter(function (p) {
         return now >= new Date(p.desde).getTime() && now <= new Date(p.hasta).getTime();
       });
+      if (!active.length && preview && promosData.length) active = [promosData[0]];
       if (!active.length) return;
       var p = active[0]; // si hubiera varias, mostramos la primera
-      if (localStorage.getItem("cz.promo.dismissed." + p.id)) return;
+      if (!preview && localStorage.getItem("cz.promo.dismissed." + p.id)) return;
 
       var fin = new Date(p.hasta).toLocaleDateString("es-ES", { day: "numeric", month: "short" });
       var resumen;
