@@ -307,7 +307,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 9,
     },
     categoria_principal: "balanced",
-    tags: ["signature", "ligera", "value-premium"],
+    tags: ["mujer", "signature", "ligera", "value-premium"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -5274,7 +5274,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["trending","low-top", "signature", "cushion", "agarre", "versatil"],
+    tags: ["mujer", "trending","low-top", "signature", "cushion", "agarre", "versatil"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -5409,7 +5409,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 7,
     },
     categoria_principal: "balanced",
-    tags: ["signature", "debut", "wnba", "value-premium", "moderna", "all-around"],
+    tags: ["mujer", "signature", "debut", "wnba", "value-premium", "moderna", "all-around"],
 
     ideal_para: {
       posiciones: ["alero", "escolta", "ala-pivot"],
@@ -5713,7 +5713,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "cushion-focused",
-    tags: ["mid-top", "signature", "estable", "potente", "versatil"],
+    tags: ["mujer", "mid-top", "signature", "estable", "potente", "versatil"],
 
     ideal_para: {
       posiciones: ["alero", "ala-pivot", "pivot"],
@@ -7432,7 +7432,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "traction-king",
-    tags: ["signature", "ligera", "women", "moderna"],
+    tags: ["mujer", "signature", "ligera", "women", "moderna"],
     ideal_para: {
       posiciones: ["base", "escolta"],
       peso_jugador_kg: [50, 80],
@@ -7707,7 +7707,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 7,
     },
     categoria_principal: "balanced",
-    tags: ["budget", "junior"],
+    tags: ["mujer", "budget", "junior"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
       peso_jugador_kg: [40, 70],
@@ -14690,7 +14690,7 @@ const _rawZapatillas: Zapatilla[] = [
     modelo: "Heir Series",
     generacion: 1,
     año_lanzamiento: 2024,
-    genero: "women",
+    genero: "unisex",
     tecnologia_clave: ["Diseño basado en jugadoras WNBA", "Perfil bajo (court feel)", "Cushion reactivo"],
     predecesor_id: null,
     sucesor_id: null,

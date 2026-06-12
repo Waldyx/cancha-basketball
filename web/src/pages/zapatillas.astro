@@ -37,8 +37,10 @@ const scoreOf = (z: typeof zapatillas[0]): number => {
 };
 
 // Junior/GS: se OCULTAN por defecto (duplican a la adulta) → solo con chip Junior.
-// Mujer (genero="women"): son modelos ÚNICOS (no duplican nada) → SÍ salen en el
-// catálogo normal; el chip ♀ Mujer solo filtra para verlas aisladas (como Trending/Retro).
+// Mujer: el chip ♀ Mujer muestra (a) los moldes 100% femeninos (genero="women") y
+// (b) las signatures unisex con ADN femenino etiquetadas con tag "mujer" (Sabrina,
+// Stewie, A'One, Heir Series…). Todas siguen visibles en el catálogo normal; el chip
+// solo filtra para que la jugadora vea de golpe todo su arsenal (como Trending/Retro).
 const esGS = (z: typeof zapatillas[0]) => z.genero === "gs";
 const esW = (z: typeof zapatillas[0]) => z.genero === "women";
 const oculta = (z: typeof zapatillas[0]) => esGS(z); // solo GS se oculta del catálogo
@@ -335,7 +337,7 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
                   data-retro={z.es_retro ? "true" : "false"}
                   data-trending={isTrending ? "true" : "false"}
                   data-gs={esGS(z) ? "true" : "false"}
-                  data-w={esW(z) ? "true" : "false"}
+                  data-w={(esW(z) || (z.tags || []).includes("mujer")) ? "true" : "false"}
                 >
                   <div class="photo">
                     <span class="cat-badge">{CAT_LABELS[z.categoria_principal]}</span>
