@@ -7084,57 +7084,6 @@ const _rawZapatillas: Zapatilla[] = [
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 108. ADIDAS AE 1.5 — Anthony Edwards mid-gen
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  {
-    id: "adidas-ae-1-5",
-    slug: "adidas-ae-1-5",
-    marca: "Adidas",
-    modelo: "AE 1.5",
-    generacion: 2,
-    año_lanzamiento: 2024,
-    genero: "unisex",
-    signature_player: "Anthony Edwards",
-    tecnologia_clave: ["Lightstrike Pro", "herringbone"],
-    predecesor_id: "adidas-ae-1",
-    sucesor_id: "adidas-ae-2",
-    peso_real_g: 425,
-    altura: "low",
-    horma: "normal",
-    drop_mm: 8,
-    tipo_cierre: "cordones",
-    material_superior: "mesh+tpu",
-    puntuaciones: {
-      traccion: 8,
-      amortiguacion: 8,
-      respuesta: 9,
-      soporte_lateral: 8,
-      estabilidad: 7,
-      peso_score: 9,
-      durabilidad_outdoor: 7,
-      ventilacion: 8,
-    },
-    categoria_principal: "responsive",
-    tags: ["signature", "ligera", "moderna"],
-    ideal_para: {
-      posiciones: ["escolta", "base", "alero"],
-      peso_jugador_kg: [65, 90],
-      estilos: ["explosivo", "tirador"],
-    },
-    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
-    resumen: "La versión intermedia entre AE 1 y AE 2. Lightstrike Pro refinado con nueva upper más transpirable. Una de las zapatillas más rápidas de 2024.",
-    pros: ["Rapidísima y muy ligera", "Excelente respuesta Lightstrike Pro", "Muy transpirable"],
-    contras: ["Durabilidad outdoor limitada", "Cushion modesto para jugadores pesados"],
-    veredicto: "Para escoltas explosivos tipo Ant Edwards que necesitan velocidad pura.",
-    imagen_principal: "/shoes/adidas-ae-1-5.webp",
-    imagenes: [],
-    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/adidas-ae-1-5-performance-review/" }],
-    ultima_actualizacion: "2026-05-18",
-    precio_msrp_eur: 130,
-    links_compra: [
-      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Dae%2B1.5", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=adidas+ae+1.5", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-    ],
-  },
-
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 109. CONVERSE ALL STAR PRO BB — retro performance
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
