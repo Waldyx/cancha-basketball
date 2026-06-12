@@ -705,8 +705,13 @@ En la práctica: Nike.es y Basket World siempre son search (no tienen URLs de pr
 - **Panel**: https://affiliate.tradetracker.com
 - **Campañas ACEPTADAS (3) — al 2026-06-12**:
   - ✅ **FuikaOmar** — #37834, 5% (7 links: sabrina-2, aone, book-1, shock-wave-5, weapon, uptempo, kawhi-4)
-  - ✅ **Fútbol/Basketball Emotion** — #35939, 3.5% (14 links, deeplink `tc.tradetracker.net/?c=35939&m=12&a=511170`)
+  - ✅ **Fútbol Emotion** — #35939, 3.5% — ⚠️ SOLO `futbolemotion.com` (fútbol). NO cubre baloncesto.
   - ✅ **Referidos TradeTracker** — #1158, 3%
+- ⛔ **Basketball Emotion (basketballemotion.com) NO tiene programa de afiliados** (verificado 2026-06-12).
+  La campaña 35939 es Fútbol Emotion (futbolemotion.com) y su deeplink da error con URLs de basketballemotion.com.
+  NO existe campaña "Basketball Emotion"/"baloncesto" en TradeTracker. → Los ~23 enlaces de `basketballemotion_es`
+  están como **URL directa con `tiene_afiliado:false`** (funcionan, sin comisión). NO volver a envolverlos en
+  tc.tradetracker.net. Revisar si algún día sale programa de basketballemotion.com.
 - **Formato deeplink**: `https://tc.tradetracker.net/?c=CAMPAÑA&m=12&a=511170&r=&u=URL_ENCODED` (FuikaOmar usa `deals.fuikaomar.es/c?c=37834&m=12&a=511170&...`)
 
 > AUDITORÍA 2026-06-12: todo lo aprobado está correctamente activado en los datos
