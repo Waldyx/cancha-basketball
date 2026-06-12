@@ -7454,6 +7454,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 75,
     links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fnike-zapatilla-baloncesto-ninos-nike-air-zoom-crossover-2-gs-fb2689-1000967527-p", precio_actual: 57.11, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=air+zoom+crossover+2&vst=air+zoom+crossover+2", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+air+zoom+crossover+2", precio_actual: 65, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
     ],
@@ -13047,6 +13048,63 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "zalando_es", url: "https://www.zalando.es/adidas-performance-don-issue-7-unisex-zapatillas-de-baloncesto-core-blackgold-coloured-metallicice-gold-coloured-metallic-ad544a1hj-q11.html", precio_actual: 77.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+don+issue+7&tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-don-issue-7-blanco-gris-144153.html", precio_actual: 78, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+    ],
+  },
+
+  // ADIDAS D.O.N. ISSUE 7 GS — versión junior de la signature de Mitchell
+  {
+    id: "adidas-don-issue-7-gs",
+    slug: "adidas-don-issue-7-gs",
+    marca: "Adidas",
+    modelo: "D.O.N. Issue 7 GS",
+    generacion: 7,
+    año_lanzamiento: 2025,
+    genero: "gs",
+    signature_player: "Donovan Mitchell",
+    tecnologia_clave: ["Lightstrike Pro", "Lightlock support", "Continental rubber outsole"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 300,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 9,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 9, respuesta: 8,
+      soporte_lateral: 9, estabilidad: 9, peso_score: 5,
+      durabilidad_outdoor: 2, ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "junior"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [35, 65],
+      estilos: ["equilibrado", "explosivo"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen:
+      "Versión junior (Grade School) de la D.O.N. Issue 7 de Donovan Mitchell, con el mismo Lightstrike Pro y la suela Continental del modelo adulto en tallaje niño. Una de las mejores relaciones rendimiento-precio del segmento junior: cushion premium y tracción de élite indoor.",
+    pros: [
+      "Mismo Lightstrike Pro premium que la adulta",
+      "Suela Continental: tracción de élite en pista",
+      "Soporte y estabilidad sobresalientes",
+      "Signature real a precio junior",
+    ],
+    contras: [
+      "Durabilidad outdoor muy pobre (solo pista cubierta)",
+      "Tallaje GS: hasta EU 40 aprox.",
+      "Algo pesada para su categoría",
+    ],
+    veredicto:
+      "Para el junior de perímetro que juega en pabellón y quiere cushion premium con tracción top: de lo mejor del segmento. Para exterior, se gasta rápido — busca otra cosa.",
+    imagen_principal: "/shoes/adidas-don-issue-7.webp",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-12",
+    precio_msrp_eur: 90,
+    links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-ninos-don-issue-7-azne-jq6836-1001075090-p", precio_actual: 70.19, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
 
