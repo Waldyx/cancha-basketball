@@ -36,5 +36,6 @@ const catalogo = zapatillas
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const out = resolve(__dirname, "../api/_catalog.json");
-writeFileSync(out, JSON.stringify({ catalogo, generado: new Date().toISOString(), zapas: zapatillas.length }, null, 0));
+// Sin timestamp: evita que el JSON quede "sucio" en git tras cada build.
+writeFileSync(out, JSON.stringify({ catalogo, zapas: zapatillas.length }, null, 0));
 console.log(`[gen-chat-catalog] ${zapatillas.length} zapas → ${out}`);
