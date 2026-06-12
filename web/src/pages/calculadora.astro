@@ -261,8 +261,10 @@ const def = index.find((z) => !z.retro) ?? index[0];
       box-shadow: 0 16px 40px rgba(0,0,0,0.55);
     }
     @media (max-width: 620px) { .cc-dropdown { grid-template-columns: repeat(2, 1fr); } }
-    .cc-dropdown .cmp-pick-item.is-sel { border-color: #f97316; background: rgba(249,115,22,0.12); }
-    .cc-dd-empty { grid-column: 1 / -1; padding: 18px; text-align: center; color: var(--cz-text-muted, #a1a1aa); font-size: 13px; }
+    /* Selectores :global porque el contenido se inserta por JS (innerHTML),
+       y los estilos scoped de Astro no aplican a elementos creados en runtime. */
+    :global(.cc-dropdown .cmp-pick-item.is-sel) { border-color: #f97316; background: rgba(249,115,22,0.12); }
+    :global(.cc-dd-empty) { grid-column: 1 / -1; padding: 18px; text-align: center; color: var(--cz-text-muted, #a1a1aa); font-size: 13px; }
 
     /* Miniatura de la zapa seleccionada, debajo del buscador */
     .cc-selected {
@@ -274,14 +276,15 @@ const def = index.find((z) => !z.retro) ?? index[0];
       border: 1px solid var(--cz-border2, #3f3f46);
       background: rgba(255,255,255,0.02);
     }
-    .cc-selected img {
-      width: 64px; height: 64px;
+    :global(.cc-selected) { display: flex; align-items: center; gap: 12px; }
+    :global(.cc-selected img) {
+      width: 48px; height: 48px;
       object-fit: contain;
       background: #fff;
       flex-shrink: 0;
     }
-    .cc-sel-name { font-size: 14px; color: var(--cz-text, #e4e4e7); line-height: 1.3; }
-    .cc-sel-name strong { font-weight: 800; }
+    :global(.cc-sel-name) { font-size: 13px; color: var(--cz-text, #e4e4e7); line-height: 1.3; min-width: 0; }
+    :global(.cc-sel-name strong) { font-weight: 800; }
 
     .cr-outdoor-warn {
       margin-top: 16px;
