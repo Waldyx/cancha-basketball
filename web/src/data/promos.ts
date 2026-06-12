@@ -56,19 +56,18 @@ export const PROMOS: Promo[] = [
     nota: "Solo en productos con el sello “Promo Mitad de Año” · envíos a España · no acumulable con otras promos",
     color: "#ff4747",
   },
-  // Ejemplo caducado (Forum Sport) dejado como plantilla para la próxima:
-  // {
-  //   id: "forumsport-flash-night-2026-06",
-  //   tienda: "forumsport_es",
-  //   tiendaLabel: "Forum Sport",
-  //   titulo: "Flash Night Verano",
-  //   desde: "2026-06-11T18:00:00+02:00",
-  //   hasta: "2026-06-12T10:00:00+02:00",
-  //   codigo: "25MIN",
-  //   descuentoTexto: "25% mínimo en ropa y calzado (compras +70€)",
-  //   nota: "Solo socios · exclusivo online · no acumulable",
-  //   color: "#facc15",
-  // },
+  {
+    id: "forumsport-flash-night-2026-06",
+    tienda: "forumsport_es",
+    tiendaLabel: "Forum Sport",
+    titulo: "Flash Night Verano",
+    desde: "2026-06-11T18:00:00+02:00",
+    hasta: "2026-06-12T10:00:00+02:00",
+    codigo: "25MIN",
+    descuentoTexto: "25% mínimo en calzado (compras +70€)",
+    nota: "Solo socios · exclusivo online · no acumulable",
+    color: "#facc15",
+  },
 ];
 
 /** Promos activas a una fecha dada (por defecto, ahora). */

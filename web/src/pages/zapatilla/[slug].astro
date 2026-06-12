@@ -89,10 +89,21 @@ const linksOrdenados = [...z.links_compra]
 // Promo contextual: si la zapa tiene enlace a una tienda con códigos por importe
 // (AliExpress) y el precio cumple algún tramo, preparamos el aviso. La activación
 // por fecha la hace un script en cliente (web estática).
-const aliLink = z.links_compra.find((l) => l.tienda === "aliexpress");
-const aliPromo = PROMOS.find((p) => p.tienda === "aliexpress" && p.codigos?.length);
-const aliCodigo = aliLink && aliPromo ? mejorCodigo(aliPromo, aliLink.precio_actual) : null;
-const aliPromoFin = aliPromo ? new Date(aliPromo.hasta).toLocaleDateString("es-ES", { day: "numeric", month: "short" }) : "";
+type FichaPromo = { id: string; desde: string; hasta: string; color: string; tiendaLabel: string; titulo: string; fin: string; texto: string; nota: string };
+const promosFicha: FichaPromo[] = [];
+for (const p of PROMOS) {
+  const link = z.links_compra.find((l) => l.tienda === p.tienda);
+  if (!link) continue;
+  const fin = new Date(p.hasta).toLocaleDateString("es-ES", { day: "numeric", month: "short" });
+  const color = p.color ?? "#f97316";
+  if (p.codigos?.length) {
+    const c = mejorCodigo(p, link.precio_actual);
+    if (!c) continue;
+    promosFicha.push({ id: p.id, desde: p.desde, hasta: p.hasta, color, tiendaLabel: p.tiendaLabel, titulo: p.titulo, fin, texto: `−${c.descuento}€ con el código ${c.code} en compras desde ${c.minCompra}€`, nota: p.nota ?? "" });
+  } else if (p.codigo) {
+    promosFicha.push({ id: p.id, desde: p.desde, hasta: p.hasta, color, tiendaLabel: p.tiendaLabel, titulo: p.titulo, fin, texto: `${p.descuentoTexto ?? "descuento"} con el código ${p.codigo}`, nota: p.nota ?? "" });
+  }
+}
 
 // ── Upsell: Combina con → calcetines y plantillas ──────────────────
 // Calcetines por altura — siempre mostramos los 3 para que el usuario elija
@@ -381,19 +392,19 @@ const productJsonLd = {
                     )}
                   </div>
                 )}
-                {aliLink && aliPromo && aliCodigo && (
+                {promosFicha.map((fp) => (
                   <div
                     class="dh-promo"
-                    data-promo-id={aliPromo.id}
-                    data-desde={aliPromo.desde}
-                    data-hasta={aliPromo.hasta}
+                    data-promo-id={fp.id}
+                    data-desde={fp.desde}
+                    data-hasta={fp.hasta}
                     hidden
-                    style="margin:14px 0 0;padding:11px 13px;border:1px solid rgba(255,71,71,.45);border-left:3px solid #ff4747;background:rgba(255,71,71,.08);font-size:12.5px;line-height:1.55;color:var(--cz-text-muted)"
+                    style={`margin:14px 0 0;padding:11px 13px;border:1px solid ${fp.color}73;border-left:3px solid ${fp.color};background:${fp.color}14;font-size:12.5px;line-height:1.55;color:var(--cz-text-muted)`}
                   >
-                    <strong style="color:#fff">💸 {aliPromo.tiendaLabel} · {aliPromo.titulo}</strong>: −{aliCodigo.descuento}€ con el código <strong style="color:#fff">{aliCodigo.code}</strong> en compras desde {aliCodigo.minCompra}€.
-                    <span style="display:block;margin-top:4px;font-size:11px;opacity:.85">Aplica solo a productos con el sello “Promo Mitad de Año”. Válido hasta el {aliPromoFin}.</span>
+                    <strong style="color:#fff">💸 {fp.tiendaLabel} · {fp.titulo}</strong>: {fp.texto}.
+                    <span style="display:block;margin-top:4px;font-size:11px;opacity:.85">{fp.nota} · Válido hasta el {fp.fin}.</span>
                   </div>
-                )}
+                ))}
                 <p style="margin:14px 0 0;padding:10px 12px;border:1px solid var(--cz-border);background:var(--cz-bg);font-size:11.5px;color:var(--cz-text-muted);line-height:1.55">
                   ℹ️ Las imágenes son orientativas. Al abrir el enlace de la tienda podrás ver los colores y tallas disponibles. Los precios se actualizan de forma periódica y, al encontrarnos en fase beta, pueden variar o contener algún error. Gracias por tu comprensión.
                 </p>
