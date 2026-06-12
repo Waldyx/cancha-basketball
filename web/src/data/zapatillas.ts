@@ -2961,6 +2961,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 140,
     links_compra: [
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-anthony-edwards-1-low-blanco-y-negro%2F373647%2Fm9007177", precio_actual: 89.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fadidas-originals-zapatilla-de-baloncesto-anthony-edwards-1-plata-41674", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-anthony-edwards-1-low%2FJQ6133.html", precio_actual: 71.50, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ae+1+baloncesto&tag=canchazapa-21", precio_actual: 85, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
