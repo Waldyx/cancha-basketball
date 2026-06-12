@@ -1,7 +1,57 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-06-12 (sesión 25)
+> Última actualización: 2026-06-12 (sesión 26)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
+
+---
+
+## Estado actual (sesión 26) — Sistema promos + trending en todo + barrido afiliados + fichas nuevas
+
+### ✅ Completado (sesión 26)
+
+**Chat IA — ya conoce los accesorios**: el system prompt de `web/api/chat.ts` ahora sabe que
+la web tiene balones/calcetines/plantillas en `/balones` y redirige ahí en vez de negarlo.
+Cadena de modelos gratuita actual (mejor→peor): gemma-4-31b → llama-3.3-70b → qwen3-next-80b →
+gpt-oss-120b → gemma-4-26b. `deepseek-v4-flash:free` NO existe (404, solo de pago).
+
+**Sistema de promos afiliadas date-gated** (`web/src/data/promos.ts` + `components/PromoBanner.astro`):
+- Banner superior dismissable (apila varias) + aviso contextual en ficha (`zapatilla/[slug].astro`).
+- Activación por fecha EN CLIENTE (web estática). `?promo=preview` fuerza mostrarlas (preview).
+- Activas: AliExpress Mitad de Año (ESMYS02-55, 15-20 jun), Forum Sport Flash 48h (7EXTRA, 14-15 jun).
+- Para añadir promo: copiar objeto en promos.ts (tienda, fechas, codigo/codigos, url Awin). Aparece sola.
+
+**Trending en 4 sitios**: tag `trending` en ~20 zapas (lista curada del usuario) → chip 🔥 en catálogo
+(`?trending=1`), Radar del home, pestaña Rankings, y artículo SEO `/blog/zapatillas-baloncesto-mas-buscadas-2026`.
+
+**Fantasmas eliminados**: Adidas AE 3 y AE 1.5 NO existen (verificado adidas.es+WT, tenían URLs WT
+inventadas). Borradas; AE 3 retargeteada a AE 2 en blog/SEO/FAQ. Existen: AE 1 (mid/low) y AE 2.
+
+**Imágenes**: barrido de las 207 → solo 6 eran genéricas "on-foot baldosas" (cluster 600x400).
+Cambiadas a producto real (LeBron 23, KD 18, Witness 9, AJ38, Harden Vol 9) + Immortality 5 corregida.
+
+**Barrido de afiliados (en curso, el usuario pasa enlaces)** — añadidos producto real:
+- adidas.es: AE 2, AE 1, Dame X, DON Issue 6/7, Harden Vol 9/10, Believe That 1.
+- Decathlon: Curry 12/13, MB.04, All-Pro Nitro 2, AE 1, DON 6/7, Dame 9, Dame X, NB WXY V5, cross-em-up.
+- Atmósfera: AE 2, Believe That 1, Witness 9, Precision 7/8, Ownthegame 3, Immortality 5, Curry 3Z 25, NB WXY V5.
+- FuikaOmar (7, ya activas) + Basketball Emotion.
+
+**Fichas NUEVAS creadas** (208→213 zapas, marcas nuevas Asics/Kipsta):
+- Asics: Unpre Ars 2, Gelhoop V17, Glide Nova FF 4.
+- Kipsta Canaveral 900 (Decathlon, Alex Sarr). Decathlon Tarmak SE500 Mid. Adidas Believe That 1. UA Jet '25.
+- **Segmento JUNIOR/GS** (genero "gs"): Curry 12 GS, AE 1 GS, AE 2 GS (+ ya existían Cross Em Up 5, Crossover 2).
+
+### 📋 Metodología de SCORES (regla del usuario, importante)
+- **WT-verificado** 🟢: contrastar con WearTesters/RunRepeat/TheHoopsGeek (mainstream casi siempre tienen).
+- **Estimación editorial** 🟡: budget/team/nicho/chinas/GS sin review → `fuentes: evaluacion-propia`,
+  fundamentar en specs oficiales + reseñas. GS heredan los scores del adulto (que ya están WT-calibrados).
+- SIEMPRE avisar al usuario del estado del score al crear ficha nueva.
+- Verificar SIEMPRE modelo + generación exactos antes de meter un enlace (Curry 12≠13≠GS, etc.).
+
+### Formato enlaces afiliados (recordatorio)
+- Decathlon Awin: `awinmid=105405` · Atmósfera: `awinmid=26255` · adidas: `awinmid=77008` · AliExpress: `awinmid=11640` · Forum Sport: `awinmid=23805`
+- Wrapper: `https://www.awin1.com/cread.php?awinmid=AID&awinaffid=2908587&ued=URL_ENCODED`
+- FuikaOmar (TT): `https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=URL_ENCODED`
+- Imágenes: descargar a `web/public/shoes/{slug}.jpg|webp` (adidas CDN, KicksCrew shopify, Decathlon mediadecathlon — todas accesibles vía Chrome).
 
 ---
 
