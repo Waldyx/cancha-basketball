@@ -738,36 +738,36 @@ export const SEO_PAGES: SeoPage[] = [
   {
     slug: "zapatillas-baloncesto-mujer",
     title: "Mejores zapatillas de baloncesto para mujer 2026 | CANCHA.ZAPA",
-    description: "Las 5 mejores zapatillas de baloncesto para mujer. Modelos signature femeninos y unisex adaptados. Análisis técnico y precio.",
+    description: "Las mejores zapatillas de baloncesto para mujer 2026: signatures unisex con ADN WNBA (Sabrina, Stewie, Heir Series) y moldes 100% femeninos (Moolah, UA Flow Breakthru 4, Adidas Exhibit Select).",
     eyebrow: "★ Para mujer · WNBA inspired",
     h1Pre: "Zapatillas de baloncesto",
     h1Accent: "para mujer",
     h1Post: "",
-    lede: "Las mejores zapatillas para jugadoras. Tanto modelos signature femeninos (Sabrina, Stewie) como opciones unisex que funcionan perfectamente para mujer.",
+    lede: "Las mejores zapatillas para jugadoras, en dos familias: signatures unisex con ADN femenino (Sabrina, A'One, Stewie, Jordan Heir Series) y moldes 100% femeninos de horma anatómica (Moolah Kicks, UA Flow Breakthru 4, Adidas Exhibit Select).",
     filter: (z) =>
       z.genero === "women" ||
-      (z.signature_player !== undefined && ["Sabrina Ionescu", "Breanna Stewart", "Caitlin Clark", "A'ja Wilson", "De'Aaron Fox"].some(p => z.signature_player?.includes(p))) ||
-      (z.ideal_para.peso_jugador_kg[0] <= 60 && z.puntuaciones.respuesta >= 7),
+      (z.tags || []).includes("mujer") ||
+      (z.signature_player !== undefined && ["Sabrina Ionescu", "Breanna Stewart", "A'ja Wilson"].some(p => z.signature_player?.includes(p))),
     sort: byScoreDesc,
     guideTitle: "Cómo elegir zapa para baloncesto femenino",
-    guideIntro: "La clave para jugadoras: el peso del pie es menor de media, así que la ligereza y el court feel importan más que en hombre. Las zapas signature femeninas (Sabrina, Stewie) se diseñan con hormas específicas. Las unisex con horma normal también funcionan bien.",
+    guideIntro: "Hay dos enfoques y conviene distinguirlos. Las signatures con ADN femenino (Sabrina, Stewie, A'One, Jordan Heir Series) se venden en tallaje unisex pero están pensadas para el juego femenino: las usan ellas y ellos. Las de horma 100% femenina (Moolah, UA Flow Breakthru 4, Adidas Exhibit Select) se construyen sobre un molde anatómico de mujer (talón estrecho, arco elevado) y no tienen versión de hombre.",
     guidePoints: [
-      { lab: "Signature femeninas primero", body: "Nike Sabrina 2/3, Puma Stewie 4 — diseñadas específicamente para el juego femenino. Horma, peso y respuesta ajustadas." },
-      { lab: "Peso más ligero", body: "Para una jugadora media (<70kg), prioriza zapas sub-350g. El court feel mejora notablemente." },
-      { lab: "Horma normal o ancha", body: "Las hormas estrechas masculinas no se adaptan bien. Sabrina y Stewie tienen horma más generosa." },
-      { lab: "Respuesta sobre cushion", body: "Las guardas y escoltas WNBA priorizan respuesta. Cushion es para jugadoras de poste >80kg." },
+      { lab: "Signatures unisex (las más vendidas)", body: "Nike Sabrina 3, A'One, Puma Stewie, Jordan Heir Series. Máximo rendimiento y disponibles en cualquier sitio. Horma estándar ceñida." },
+      { lab: "Horma 100% femenina", body: "UA Flow Breakthru 4 y Adidas Exhibit Select (en Amazon España) o Moolah Kicks (importando de EE.UU.): talón estrecho que evita que el pie se deslice al saltar." },
+      { lab: "Si el talón se te escapa", body: "Es el problema nº1 con hormas de hombre. La familia 100% femenina lo soluciona: ve directa a Flow Breakthru, Exhibit Select o Moolah." },
+      { lab: "Ligereza y court feel", body: "El peso medio del pie es menor: prioriza zapas ligeras y reactivas (sub-350g). La respuesta importa más que un cushion enorme salvo en poste." },
     ],
     faqs: [
       { q: "¿Cuál es la mejor zapatilla de baloncesto para mujer?",
-        a: "Nike Sabrina 3 es la referencia de 2025: ligera, reactiva, horma cómoda. Puma Stewie 4 es la mejor opción para jugadoras que buscan más cushion. Ambas se encuentran por 120-130€." },
+        a: "Depende del ajuste que busques. Para rendimiento puro y disponibilidad fácil: Nike Sabrina 3 o Jordan Heir Series (signatures unisex). Para horma 100% femenina comprable en España: UA Flow Breakthru 4 o Adidas Exhibit Select. La marca más especializada es Moolah Kicks, pero hay que importarla." },
+      { q: "¿Qué diferencia hay entre una signature unisex y una de horma 100% femenina?",
+        a: "La signature unisex (Sabrina, Stewie, Heir) usa horma estándar y la compran hombres y mujeres. La de horma 100% femenina (Moolah, Flow Breakthru, Exhibit) está moldeada sobre la anatomía del pie de mujer: talón más estrecho, arco elevado, menos volumen. Un hombre notaría el talón demasiado apretado." },
       { q: "¿Las zapas de hombre sirven para mujer?",
-        a: "Sí, en talla equivalente (generalmente -1 a -1.5 tallas). Las unisex son perfectamente válidas. La ventaja de las women's es la horma ajustada al pie femenino." },
-      { q: "¿Cuánto gastar en zapas de baloncesto siendo mujer?",
-        a: "Igual que cualquier jugador: tu nivel y frecuencia de juego. Recreativa: 60-100€. Amateur federada: 100-150€. Elite: sin tope." },
+        a: "Sí, en talla equivalente, y las unisex son perfectamente válidas. La ventaja de las 100% femeninas es que evitan el deslizamiento del talón al saltar, un problema típico con hormas masculinas." },
     ],
     related: [],
-    catalogQuery: "?perfil=mujer",
-    catalogLabel: "Ver catálogo para mujer",
+    catalogQuery: "?mujer=1",
+    catalogLabel: "Ver catálogo de mujer",
   },
 
   // ── JUNIOR ──────────────────────────────────────────────────────────
@@ -799,8 +799,8 @@ export const SEO_PAGES: SeoPage[] = [
         a: "No. Las de running tienen amortiguación lateral incorrecta para los cortes laterales del baloncesto. El riesgo de esguince es mayor. Usa siempre zapatillas diseñadas para basketball." },
     ],
     related: [],
-    catalogQuery: "?precio_max=100",
-    catalogLabel: "Ver todas las zapatillas junior",
+    catalogQuery: "?junior=1",
+    catalogLabel: "Ver el segmento Junior (GS)",
   },
 
   // ── RETRO ──────────────────────────────────────────────────────────

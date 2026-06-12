@@ -3753,6 +3753,150 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">¿Quieres ver de un vistazo todo el arsenal para jugadoras? Filtra el catálogo con el chip <a href="/zapatillas?mujer=1">♀ Mujer</a> — te salen tanto los moldes 100% femeninos como las signatures con ADN WNBA. O <a href="/quiz">haz el quiz</a> para una recomendación a tu medida.</p>
 `,
   },
+
+  {
+    slug: "zapatillas-baloncesto-junior-gs-2026",
+    title: "Zapatillas de baloncesto junior/GS 2026: la signature de tu hijo a mitad de precio",
+    metaTitle: "Zapatillas de baloncesto júnior (GS) 2026: signatures a mitad de precio | CANCHA.ZAPA",
+    description:
+      "Las mejores zapatillas de baloncesto júnior/GS 2026: las signatures de la NBA (Curry, AE, MB.05, DON) en tallaje niño a mitad de precio. Guía y precios.",
+    fecha: "2026-06-13",
+    fechaLabel: "13 junio 2026",
+    categoria: "Guías",
+    readMinutes: 5,
+    eyebrow: "★ Guía editorial · Júnior / GS",
+    heroTitle: "Zapatillas de baloncesto júnior (GS)",
+    heroSubtitle: "La signature de tu hijo a mitad de precio · 2026",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["ua-curry-12-gs","adidas-ae-2-gs","puma-mb05-gs","adidas-don-issue-7-gs","nike-giannis-immortality-4-gs","jordan-luka-77-gs"],
+    relatedSeoPages: ["zapatillas-baloncesto-junior","zapatillas-baloncesto-baratas","mejores-zapatillas-baloncesto-2025"],
+    body: `
+<p class="art-intro">Las zapatillas signature de la NBA cuestan 130-200€. Pero casi todas tienen una versión "GS" (Grade School, tallaje júnior) con <strong>la misma tecnología, la misma suela y el mismo diseño</strong>, a menudo por la mitad de precio. Si tu hijo (o tú, si calzas hasta una EU 40) juega en serio, este es el secreto peor guardado del básquet.</p>
+
+<h2>¿Qué significa "GS" exactamente?</h2>
+<p>GS = Grade School. Es el tallaje júnior, que suele llegar hasta una <strong>EU 40 aprox.</strong> (US 7Y). No es una zapatilla "de niño" de peor calidad: en la mayoría de signatures, la GS comparte midsole, tracción y upper con la versión adulta. Cambia el tallaje y, a veces, baja un poco el peso. Por eso heredan prácticamente el mismo rendimiento — y el mismo score técnico.</p>
+<p>Ojo: una GS no es para un adulto de pie grande. Si calzas más de una EU 40-41, necesitas la versión adulta. La GS es para júnior, adolescentes y adultos de pie pequeño.</p>
+
+<h2>Las mejores signatures en versión GS (2026)</h2>
+<ul>
+  <li><strong>UA Curry 12 GS (~100€):</strong> la misma suela UA Flow (sin goma, súper ligera y reactiva) que la adulta de 160€. La signature premium del júnior tirador.</li>
+  <li><strong>Adidas AE 1 / AE 2 GS (~60-70€):</strong> la zapa de Anthony Edwards, la más aspiracional ahora mismo, en talla niño a precio de ganga.</li>
+  <li><strong>Puma MB.05 GS (~100€):</strong> el estilo y el Nitrofoam de LaMelo Ball para los más jóvenes.</li>
+  <li><strong>Adidas D.O.N. Issue 7 GS (~70€):</strong> Lightstrike Pro + suela Continental: cushion premium y tracción de élite indoor.</li>
+  <li><strong>Nike Giannis Immortality 4 GS (~52€):</strong> horma ancha, resistente al asfalto y baratísima. La mejor budget para el júnior interior.</li>
+  <li><strong>Jordan Luka 77 GS (~63€):</strong> React + Zoom Air, equilibrada y de las pocas que aguantan bien el outdoor.</li>
+</ul>
+
+<h2>¿Y las budget puras?</h2>
+<p>Si el presupuesto es muy ajustado o es la primera zapatilla, no hace falta una signature:</p>
+<ul>
+  <li><strong>Adidas OwnTheGame 3 GS (~41€) / Dame X GS (~51€):</strong> iniciación y gama media de adidas en talla niño.</li>
+  <li><strong>UA Jet '25 GS / Lockdown 7 GS (~44€):</strong> confort y durabilidad de iniciación.</li>
+  <li><strong>Decathlon Tarmak Fast 900 NBA Junior (~55€):</strong> ligera, licencia NBA oficial, para llevar los colores del equipo favorito.</li>
+</ul>
+
+<h2>Cómo elegir para tu hijo</h2>
+<ol>
+  <li><strong>Comprueba la talla:</strong> que entre en el tallaje GS (hasta ~EU 40). Si se le queda pequeña pronto, mejor budget.</li>
+  <li><strong>Mira dónde juega:</strong> si es mucho outdoor, prioriza durabilidad (Immortality 4 GS, OwnTheGame 3 GS, Luka 77 GS). Para pabellón, cualquier signature.</li>
+  <li><strong>No pagues de más en pies que crecen:</strong> un júnior cambia de talla cada temporada. La GS te da rendimiento real sin gastar 160€.</li>
+</ol>
+
+<p class="art-outro">Filtra todo el segmento júnior con el chip <a href="/zapatillas?junior=1">👟 Junior (GS)</a> del catálogo, o <a href="/quiz">haz el quiz</a> marcando el perfil júnior para una recomendación a medida.</p>
+`,
+  },
+
+  {
+    slug: "moolah-kicks-review-marca-mujer-2026",
+    title: "Moolah Kicks: review de la única marca 100% femenina (¿merece importarla?)",
+    metaTitle: "Moolah Kicks review 2026: la marca de baloncesto 100% mujer | CANCHA.ZAPA",
+    description:
+      "Review de Moolah Kicks, la única marca de baloncesto dedicada 100% al pie femenino: gama (Neovolt Pro V3, Evolyte Elite, Triple Double), horma, importación y veredicto.",
+    fecha: "2026-06-13",
+    fechaLabel: "13 junio 2026",
+    categoria: "Análisis",
+    readMinutes: 5,
+    eyebrow: "★ Análisis · Marca 100% mujer",
+    heroTitle: "Moolah Kicks",
+    heroSubtitle: "La única marca 100% femenina · ¿merece importarla?",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["moolah-neovolt-pro-v3","moolah-evolyte-elite","moolah-triple-double","ua-flow-breakthru-4","adidas-exhibit-select"],
+    relatedSeoPages: ["zapatillas-baloncesto-mujer","zapatillas-baloncesto-premium"],
+    body: `
+<p class="art-intro">Si buscas en Google "zapatillas de baloncesto solo para mujer", tarde o temprano aparece <strong>Moolah Kicks</strong>: la única marca del mundo dedicada 100% al básquet femenino. Pero en España no se ven en tiendas físicas, así que la duda es real: ¿merece la pena importarlas? Esto es lo que tienes que saber antes de pagar aduanas.</p>
+
+<h2>Qué es Moolah Kicks (y por qué es distinta)</h2>
+<p>Moolah no coge una zapatilla de hombre y la "feminiza". Diseña desde cero sobre bases biométricas exclusivas del pie de mujer. Su <em>Signature Female Fit</em> incluye:</p>
+<ul>
+  <li><strong>Talón ultra estrecho:</strong> evita que el pie se deslice hacia arriba al saltar — el problema nº1 de las jugadoras con hormas de hombre.</li>
+  <li><strong>Arco elevado y ancho más slim:</strong> adaptados a la anatomía femenina media.</li>
+  <li><strong>Lateral rebajado:</strong> para court feel y cambios de dirección.</li>
+</ul>
+<p>Un hombre con su talla equivalente notaría el talón demasiado apretado. No es marketing: es un molde diferente.</p>
+
+<h2>La gama (2026)</h2>
+<ul>
+  <li><strong>Neovolt Pro V3 (~125€):</strong> el modelo performance de referencia. Equilibrada, reactiva, con cushion mejorado. La que recomendamos para empezar con la marca.</li>
+  <li><strong>Evolyte Elite (~170€):</strong> el tope de gama. Placa TPU completa y espuma de doble densidad para retorno de energía brutal en el primer paso, manteniendo el control de talón. Para la exterior ultra rápida.</li>
+  <li><strong>Triple Double (~125€):</strong> la "todoterreno". Sacrifica la placa rígida por una suela de caucho más gruesa y duradera: ideal para outdoor o entrenamientos diarios intensos.</li>
+</ul>
+
+<h2>El pero: importación</h2>
+<p>Aquí está el freno. Moolah se vende sobre todo en <strong>moolahkicks.com y Amazon.com (EE.UU.)</strong>. En España toca importar, con el coste y los plazos que eso implica. Por eso, si quieres horma 100% femenina <em>comprable aquí</em>, hay dos alternativas serias: la <strong>UA Flow Breakthru 4</strong> y la <strong>Adidas Exhibit Select</strong>, ambas con molde femenino y disponibles en Amazon España.</p>
+
+<h2>Veredicto: ¿merece importarla?</h2>
+<p><strong>Sí, si:</strong> ya has probado hormas de mujer y notas que ninguna otra te sujeta el talón, o si quieres la marca más especializada del mercado y no te importa esperar/pagar el envío.</p>
+<p><strong>No, si:</strong> es tu primera zapatilla "de mujer" o quieres probar el concepto sin complicarte. Empieza por la Flow Breakthru 4 o la Exhibit Select aquí, y si te enganchas, das el salto a Moolah.</p>
+
+<p class="art-outro">Mira las Moolah y el resto del arsenal femenino con el chip <a href="/zapatillas?mujer=1">♀ Mujer</a>, o lee nuestra <a href="/blog/zapatillas-baloncesto-mujer-unisex-vs-horma-femenina-2026">guía de unisex vs horma femenina</a> para entender la diferencia completa.</p>
+`,
+  },
+
+  {
+    slug: "sabrina-3-vs-jordan-heir-vs-ua-flow-breakthru-mujer-2026",
+    title: "Sabrina 3 vs Jordan Heir Series vs UA Flow Breakthru 4: las 3 puntas del básquet femenino",
+    metaTitle: "Sabrina 3 vs Jordan Heir vs UA Flow Breakthru 4: comparativa mujer 2026 | CANCHA.ZAPA",
+    description:
+      "Comparativa de las 3 mejores zapatillas de baloncesto femenino 2026: Nike Sabrina 3, Jordan Heir Series y UA Flow Breakthru 4. Tracción, cushion, ajuste y cuál elegir.",
+    fecha: "2026-06-13",
+    fechaLabel: "13 junio 2026",
+    categoria: "Comparativas",
+    readMinutes: 5,
+    eyebrow: "★ Comparativa · Baloncesto femenino",
+    heroTitle: "Sabrina 3 vs Heir Series vs Flow Breakthru 4",
+    heroSubtitle: "Las 3 puntas del básquet femenino · 2026",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-sabrina-3","jordan-heir-series","ua-flow-breakthru-4"],
+    relatedSeoPages: ["zapatillas-baloncesto-mujer","zapatillas-reactivas","zapatillas-outdoor"],
+    body: `
+<p class="art-intro">Son las tres puntas de lanza del baloncesto femenino actual, pero responden a filosofías distintas: una signature unisex que arrasa, la primera mujer-signature de Jordan, y un molde 100% femenino. Si juegas y dudas entre ellas, esta comparativa te la resuelve.</p>
+
+<h2>De un vistazo</h2>
+<ul>
+  <li><strong>Nike Sabrina 3 — la superventas (score ~8,5):</strong> unisex, pero LA opción de muchas jugadoras. Low-top, tracción salvaje, ligera, estilo "Kobe". Horma estándar ceñida.</li>
+  <li><strong>Jordan Heir Series — la cortante (score 8,0, WT 8/10):</strong> primera silueta de Jordan creada con insights de jugadoras WNBA. Low-to-ground, reactiva, pensada para velocidad y cambios de ritmo.</li>
+  <li><strong>UA Flow Breakthru 4 — la anatómica (score ~7,5):</strong> horma 100% femenina (talón estrecho) + suela UA Flow sin goma: súper ligera y la mejor de las tres en outdoor.</li>
+</ul>
+
+<h2>Tracción</h2>
+<p>La <strong>Sabrina 3</strong> manda en pista limpia (tracción de las mejores del mercado). La <strong>Heir</strong> tiene un herringbone fiable pero sensible al polvo (hay que limpiar la suela). La <strong>Flow Breakthru</strong> es la única que agarra igual de bien dentro y fuera gracias al compound Flow.</p>
+
+<h2>Cushion y respuesta</h2>
+<p>Ninguna es una "nube": las tres son de perfil bajo y reactivo. La <strong>Sabrina 3</strong> ofrece el mejor equilibrio cushion/respuesta. La <strong>Heir</strong> es la más cortante y baja al suelo (Cushlon 3.0 fino: poca protección de impacto). La <strong>Flow Breakthru</strong> prioriza ligereza y durabilidad sobre amortiguación.</p>
+
+<h2>Ajuste (lo que las diferencia de verdad)</h2>
+<p>Aquí está la clave. Sabrina y Heir son <strong>unisex</strong>: horma estándar ceñida, válida para casi todo el mundo. La <strong>Flow Breakthru 4 es 100% femenina</strong>: si tienes el talón estrecho y se te escapa con otras zapatillas, esta lo soluciona. No hay versión de hombre.</p>
+
+<h2>¿Cuál eliges?</h2>
+<ul>
+  <li><strong>Rendimiento puro en pabellón y la más vendida →</strong> Nike Sabrina 3.</li>
+  <li><strong>Juego rápido, cortante, perfil bajo →</strong> Jordan Heir Series (y a 66€ en Forum, un chollo).</li>
+  <li><strong>Ajuste anatómico femenino real y juego dentro/fuera →</strong> UA Flow Breakthru 4.</li>
+</ul>
+
+<p class="art-outro">¿Sigues sin decidirte? <a href="/comparar?slugs=nike-sabrina-3,jordan-heir-series,ua-flow-breakthru-4">Compáralas cara a cara</a> con sus 8 atributos, o filtra el <a href="/zapatillas?mujer=1">catálogo de mujer</a>.</p>
+`,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
