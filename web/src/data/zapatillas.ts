@@ -6308,6 +6308,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 130,
     links_compra: [
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-puma-all-pro-nitro-2-blanco-brillo-solar%2F362929%2Fm8998760", precio_actual: 104.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "puma_es", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-all-pro-nitro-2-unisex/312839?swatch=02", precio_actual: 87, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=puma+all+pro+nitro+2", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fpuma%2Fzapatillas-de-baloncesto-puma-all-pro-nitro-2electric-orchid-pum-unisex-158163.html", precio_actual: 77.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
