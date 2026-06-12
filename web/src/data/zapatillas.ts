@@ -12873,6 +12873,63 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=rigorer+ar3&tag=canchazapa-21", precio_actual: 110, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
     ],
   },
+  {
+    id: "asics-unpre-ars-2",
+    slug: "asics-unpre-ars-2",
+    marca: "Asics",
+    modelo: "Unpre Ars 2",
+    generacion: 2,
+    año_lanzamiento: 2024,
+    genero: "unisex",
+    tecnologia_clave: ["Rearfoot GEL", "Upper de PU", "Paneles laterales TPU", "Outsole X-groove"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 400,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "synthetic",
+    puntuaciones: {
+      traccion: 8, amortiguacion: 7, respuesta: 8,
+      soporte_lateral: 9, estabilidad: 9, peso_score: 6,
+      durabilidad_outdoor: 8, ventilacion: 6,
+    },
+    categoria_principal: "balanced",
+    tags: ["trending", "guards", "estabilidad", "outdoor", "moderna"],
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [65, 100],
+      estilos: ["equilibrado", "explosivo"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen:
+      "La Asics Unpre Ars 2 (Unpre Ars Low 2) es la joya nicho del baloncesto japones, la que calza Yuki Kawamura. Low-top centrada en estabilidad lateral: upper de PU rigido con paneles laterales que hacen casi imposible que se te doble el pie, amortiguacion Rearfoot GEL y outsole X-groove de goma dura muy resistente. Muy cotizada por bases y escoltas que priorizan seguridad de apoyo y court feel.",
+    pros: [
+      "Estabilidad lateral y contencion de elite",
+      "Suela X-groove durisima, aguanta outdoor",
+      "Court feel bajo y directo para guards",
+      "Calidad Asics a precio de gama media",
+    ],
+    contras: [
+      "Pesada para ser low-top (~400g)",
+      "Amortiguacion justa (solo Rearfoot GEL)",
+      "Upper de PU poco transpirable",
+      "Dificil de conseguir en Espana (importar)",
+    ],
+    veredicto:
+      "Si eres base o escolta y te tuerces los tobillos con facilidad, pocas low-top sujetan como esta. Joya importada para quien busca estabilidad por encima de todo.",
+    imagen_principal: "/shoes/asics-unpre-ars-2.jpg",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-12",
+    precio_msrp_eur: 120,
+    links_compra: [
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fwholesale%3FSearchText%3Dasics%2Bunpre%2Bars%2B2", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/collections/asics-unpre-ars", precio_actual: 111.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=asics+unpre+ars+2&tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+    ],
+  },
 
   // RIGORER AR1 — La viral, estilo Kobe, long-tail SEO
   {
