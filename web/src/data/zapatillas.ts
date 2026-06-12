@@ -4885,7 +4885,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La mejor opción bajo 90€ con respaldo de una marca premium. Para juego recreativo, entrenos o como segunda zapatilla, la Immortality 5 es una opción sólida y asequible. Para juego competitivo, invierte en la Freak 7 o la Tatum 4.",
 
-    imagen_principal: "/shoes/nike-giannis-immortality-5.webp",
+    imagen_principal: "/shoes/nike-giannis-immortality-5.avif",
     imagenes: [],
 
     fuentes: [
