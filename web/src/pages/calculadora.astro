@@ -82,6 +82,7 @@ const def = index.find((z) => !z.retro) ?? index[0];
                 />
                 <div id="cost-dropdown" class="cc-dropdown hidden"></div>
               </div>
+              <div id="cost-selected" class="cc-selected"></div>
             </div>
 
             <div class="cc-block">
@@ -190,6 +191,11 @@ const def = index.find((z) => !z.retro) ?? index[0];
       if (showWarn) $("out-warn-meses").textContent = `~${meses.toFixed(0)} meses`;
 
       $("cr-cta").href = `/zapatilla/${current.slug}`;
+
+      // Miniatura de la zapa seleccionada (debajo del buscador)
+      $("cost-selected").innerHTML =
+        `<img src="${current.img}" alt="" loading="lazy" onerror="this.style.visibility='hidden'">` +
+        `<span class="cc-sel-name"><strong>${current.marca}</strong> ${current.modelo}</span>`;
     }
 
     // ── Dropdown con miniaturas ──────────────────────────────────────────
@@ -257,6 +263,25 @@ const def = index.find((z) => !z.retro) ?? index[0];
     @media (max-width: 620px) { .cc-dropdown { grid-template-columns: repeat(2, 1fr); } }
     .cc-dropdown .cmp-pick-item.is-sel { border-color: #f97316; background: rgba(249,115,22,0.12); }
     .cc-dd-empty { grid-column: 1 / -1; padding: 18px; text-align: center; color: var(--cz-text-muted, #a1a1aa); font-size: 13px; }
+
+    /* Miniatura de la zapa seleccionada, debajo del buscador */
+    .cc-selected {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 10px;
+      padding: 8px 10px;
+      border: 1px solid var(--cz-border2, #3f3f46);
+      background: rgba(255,255,255,0.02);
+    }
+    .cc-selected img {
+      width: 64px; height: 64px;
+      object-fit: contain;
+      background: #fff;
+      flex-shrink: 0;
+    }
+    .cc-sel-name { font-size: 14px; color: var(--cz-text, #e4e4e7); line-height: 1.3; }
+    .cc-sel-name strong { font-weight: 800; }
 
     .cr-outdoor-warn {
       margin-top: 16px;
