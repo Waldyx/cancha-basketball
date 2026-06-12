@@ -1859,6 +1859,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 130,
     links_compra: [
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-puma-lamelo-ball-mb04-low-azul%2F372870%2Fm8967856", precio_actual: 114.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "puma_es", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-mb-04-lo-team-unisex/312174?swatch=02", precio_actual: 92, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/search?q=puma+mb+04+basketball", precio_actual: 129.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+mb.04+baloncesto&tag=canchazapa-21", precio_actual: 125, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
