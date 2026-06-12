@@ -411,7 +411,7 @@ const productJsonLd = {
                 <script is:inline>
                   (function () {
                     var now = Date.now();
-                    var preview = new URLSearchParams(location.search).get("promo") === "preview";
+                    var preview = (new URLSearchParams(location.search).get("promo") || "").indexOf("preview") === 0;
                     document.querySelectorAll(".dh-promo[data-promo-id]").forEach(function (el) {
                       var d = new Date(el.getAttribute("data-desde")).getTime();
                       var h = new Date(el.getAttribute("data-hasta")).getTime();

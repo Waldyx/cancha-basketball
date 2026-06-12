@@ -78,7 +78,7 @@ const promosData = PROMOS.map((p) => ({
   (function () {
     try {
       var now = Date.now();
-      var preview = new URLSearchParams(location.search).get("promo") === "preview";
+      var preview = (new URLSearchParams(location.search).get("promo") || "").indexOf("preview") === 0;
       var list = promosData.filter(function (p) {
         if (preview) return true;
         return now >= new Date(p.desde).getTime() && now <= new Date(p.hasta).getTime();
