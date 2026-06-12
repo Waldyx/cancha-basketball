@@ -268,7 +268,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-12",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-under-armour-curry-12-gs-supernova.html", precio_actual: 114.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-under-armour-curry-12-dub-nation.html", precio_actual: 99.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+curry+12+gs&tag=canchazapa-21", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
@@ -3880,6 +3880,64 @@ const _rawZapatillas: Zapatilla[] = [
     ],
   },
 
+  // PUMA MB.05 GS — versión junior de la signature de LaMelo
+  {
+    id: "puma-mb05-gs",
+    slug: "puma-mb05-gs",
+    marca: "Puma",
+    modelo: "MB.05 GS",
+    generacion: 5,
+    año_lanzamiento: 2025,
+    genero: "gs",
+    signature_player: "LaMelo Ball",
+    tecnologia_clave: ["Nitrofoam SQD", "Engineered mesh upper"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 360,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 6,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 9, respuesta: 9,
+      soporte_lateral: 8, estabilidad: 8, peso_score: 10,
+      durabilidad_outdoor: 6, ventilacion: 9,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "guard", "junior", "ligera"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [35, 65],
+      estilos: ["explosivo", "equilibrado", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen:
+      "Versión junior (Grade School) de la MB.05 de LaMelo Ball, con el mismo Nitrofoam SQD reactivo y upper de mesh del modelo adulto en tallaje niño. La signature MB más ligera y divertida, ahora para el junior que quiere el estilo LaMelo de verdad.",
+    pros: [
+      "Mismo Nitrofoam SQD que la adulta",
+      "Muy ligera y reactiva para guards junior",
+      "Estética llamativa LaMelo",
+      "Signature real a precio junior",
+    ],
+    contras: [
+      "Durabilidad outdoor limitada",
+      "Tallaje GS: hasta EU 40 aprox.",
+      "Tracción sufre en pista con polvo",
+    ],
+    veredicto:
+      "Para el junior base o escolta que quiere la signature de LaMelo con rendimiento real: ligera, reactiva y con flow. Para exterior intensivo, mira algo más resistente.",
+    imagen_principal: "/shoes/puma-mb05-gs.jpg",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-12",
+    precio_msrp_eur: 100,
+    links_compra: [
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-puma-mb05-low-fluorish-junior.html", precio_actual: 99.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fpuma%2Fmb.05-lo-flourish-nino-fluro-green-pes-fluro-yellow-pes", precio_actual: 104.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+    ],
+  },
+
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 47. CONVERSE SHAI 001 — Debut SGA, sorpresa del año
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -5087,6 +5145,63 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/~/314106243604.html", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "nike_es", url: "https://www.nike.com/es/t/sabrina-3-zapatillas-de-baloncesto-UrtEcG8G/HF2881-303", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-sabrina-3-clay-green.html", precio_actual: 149.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+    ],
+  },
+
+  // NIKE SABRINA 3 GS — versión junior de la signature de Ionescu
+  {
+    id: "nike-sabrina-3-gs",
+    slug: "nike-sabrina-3-gs",
+    marca: "Nike",
+    modelo: "Sabrina 3 GS",
+    generacion: 3,
+    año_lanzamiento: 2025,
+    genero: "gs",
+    signature_player: "Sabrina Ionescu",
+    tecnologia_clave: ["Zoom Air strobel", "React foam", "rubber outsole"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 320,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 6,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+    puntuaciones: {
+      traccion: 10, amortiguacion: 8, respuesta: 9,
+      soporte_lateral: 10, estabilidad: 10, peso_score: 9,
+      durabilidad_outdoor: 4, ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["low-top", "signature", "junior", "versatil"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [35, 65],
+      estilos: ["equilibrado", "explosivo", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen:
+      "Versión junior (Grade School) de la Sabrina 3, con el mismo Zoom Air strobel y la tracción de élite del modelo adulto en tallaje niño. Una de las signatures más versátiles y completas del mercado, ahora para el junior que juega en serio.",
+    pros: [
+      "Misma tracción top y Zoom Air que la adulta",
+      "Low-top ligero y versátil",
+      "Estabilidad y soporte excelentes",
+      "Signature real a precio junior",
+    ],
+    contras: [
+      "Durabilidad outdoor pobre (solo pista cubierta)",
+      "Tallaje GS: hasta EU 40 aprox.",
+      "Cushion justo para juego muy físico",
+    ],
+    veredicto:
+      "Para el junior de cualquier posición de perímetro que quiere lo mejor en pista cubierta: tracción, soporte y versatilidad de adulto en tallaje niño. Para exterior, busca otra cosa.",
+    imagen_principal: "/shoes/nike-sabrina-3-gs.jpg",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-12",
+    precio_msrp_eur: 110,
+    links_compra: [
+      { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fnike%2Fsabrina-3-nino-sail-navy-atom-red-photo-blue", precio_actual: 109.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
 
@@ -6610,6 +6725,63 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fnike%2Fgiannis-immortality-4-white-black-volt-wolf-grey-cool-grey-total-or", precio_actual: 67.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=giannis+immortality+4&vst=giannis+immortality+4", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=giannis+immortality+4", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+    ],
+  },
+
+  // NIKE GIANNIS IMMORTALITY 4 GS — versión junior budget de Giannis
+  {
+    id: "nike-giannis-immortality-4-gs",
+    slug: "nike-giannis-immortality-4-gs",
+    marca: "Nike",
+    modelo: "Giannis Immortality 4 GS",
+    generacion: 4,
+    año_lanzamiento: 2024,
+    genero: "gs",
+    signature_player: "Giannis Antetokounmpo",
+    tecnologia_clave: ["Cushlon foam", "herringbone"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 310,
+    altura: "mid",
+    horma: "ancha",
+    drop_mm: 5,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 7, respuesta: 7,
+      soporte_lateral: 7, estabilidad: 7, peso_score: 7,
+      durabilidad_outdoor: 7, ventilacion: 7,
+    },
+    categoria_principal: "traction-king",
+    tags: ["signature", "budget", "junior"],
+    ideal_para: {
+      posiciones: ["alero", "ala-pivot", "pivot"],
+      peso_jugador_kg: [35, 70],
+      estilos: ["potente", "equilibrado"],
+    },
+    no_recomendada_para: { posiciones: [], estilos: [] },
+    resumen:
+      "Versión junior (Grade School) de la Giannis Immortality 4, la signature budget de Giannis en tallaje niño. Tracción herringbone fiable, horma ancha cómoda y buena durabilidad outdoor: la opción signature más asequible y resistente para el junior.",
+    pros: [
+      "Tracción herringbone sólida",
+      "Horma ancha cómoda para pies anchos",
+      "Buena durabilidad outdoor (aguanta el asfalto)",
+      "Signature a precio budget junior",
+    ],
+    contras: [
+      "Cushion básico (Cushlon)",
+      "Tallaje GS: hasta EU 40 aprox.",
+      "Sin tecnología premium",
+    ],
+    veredicto:
+      "La compra inteligente para el junior interior con pie ancho que juega dentro y fuera: signature de Giannis, resistente y barata. Si busca reactividad, hay opciones más técnicas.",
+    imagen_principal: "/shoes/nike-giannis-immortality-4-gs.jpg",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-12",
+    precio_msrp_eur: 65,
+    links_compra: [
+      { tienda: "basketballemotion_es", url: "https://tc.tradetracker.net/?c=35939&m=12&a=511170&r=&u=https%3A%2F%2Fwww.basketballemotion.com%2Fes%2Fcomprar%2Fzapatillas%2Fnike%2Fgiannis-immortality-4-nino-dark-raisin-total-crimson-volt-sail", precio_actual: 51.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
 
