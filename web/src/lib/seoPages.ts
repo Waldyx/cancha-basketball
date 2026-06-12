@@ -617,7 +617,7 @@ export const SEO_PAGES: SeoPage[] = [
     points: [
       { lab: "Estabilidad > cushion blando", body: "Un cushion demasiado blando colapsa bajo la pronación. Necesitas espuma firme-a-media con soporte lateral 7+." },
       { lab: "Base ancha y counter de talón rígido", body: "La base ancha evita que el tobillo colapse hacia dentro. Un counter de talón rígido mantiene la alineación. Evita las ultra-ligeras sin soporte." },
-      { lab: "Horma normal o ancha obligatoria", body: "Pie plano a menudo va asociado a pie ancho. Las hormas estrechas agravan la pronación. New Balance, LeBron y AE 3 son las más seguras." },
+      { lab: "Horma normal o ancha obligatoria", body: "Pie plano a menudo va asociado a pie ancho. Las hormas estrechas agravan la pronación. New Balance, LeBron y AE 2 son las más seguras." },
       { lab: "Plantilla ortopédica como complemento", body: "Si la pronación es severa, combina la zapatilla con una plantilla ortopédica. La zapa sola no sustituye una plantilla personalizada si la pronación es estructural." },
     ],
     faqs: [
@@ -842,13 +842,13 @@ export const SEO_PAGES: SeoPage[] = [
     intro: "Puma regresó al baloncesto de alto rendimiento en 2019 con la tecnología Nitro (nitrógeno inyectado en la espuma). La línea MB (LaMelo Ball) es la más visible, pero la All-Pro Nitro y la Scoot Zeros también tienen mérito técnico real.",
     points: [
       { lab: "Nitro foam — diferenciador clave", body: "La espuma Nitro de Puma es más ligera que la Boost de Adidas y más elástica que el Cushlon de Nike. El resultado: zapatillas más ligeras con buen retorno energético." },
-      { lab: "Tracción top de mercado", body: "El outsole del MB.04 tiene uno de los mejores herringbone del mercado en 2025. Comparable a la AE 3. Para pistas con algo de polvo, Puma supera a Nike de media." },
+      { lab: "Tracción top de mercado", body: "El outsole del MB.04 tiene uno de los mejores herringbone del mercado en 2025. Comparable a la AE 2. Para pistas con algo de polvo, Puma supera a Nike de media." },
       { lab: "LaMelo = colorways únicos", body: "Si quieres hacerte notar en la cancha, la línea MB tiene los diseños más atrevidos del mercado. El rendimiento está, pero el estilo también." },
       { lab: "Precio razonable", body: "MB.04 (~130€), All-Pro Nitro 2 (~110€), Stewie 4 (~120€). Puma suele tener promociones que bajan 20-30€ en Amazon ES y Sprinter." },
     ],
     faqs: [
       { q: "¿Son buenas las Puma para baloncesto real?",
-        a: "Sí. La línea Nitro tiene tecnología de espuma real, no marketing. El MB.04 y la All-Pro Nitro 2 compiten técnicamente con Nike AE 3 y Adidas Trae Young en sus rangos de precio." },
+        a: "Sí. La línea Nitro tiene tecnología de espuma real, no marketing. El MB.04 y la All-Pro Nitro 2 compiten técnicamente con Nike AE 2 y Adidas Trae Young en sus rangos de precio." },
       { q: "¿Qué diferencia hay entre MB.04 y MB.05?",
         a: "MB.04 es más reactiva y ligera (355g), MB.05 tiene más cushion (370g). Para guards explosivos: MB.04. Para jugadores más pesados que necesitan más protección: MB.05." },
       { q: "¿Dónde comprar Puma baloncesto en España?",
@@ -870,7 +870,7 @@ export const SEO_PAGES: SeoPage[] = [
       { lab: "Talla y horma generosa", body: "Anta tiende a horma más ancha que Nike. Para pies anchos, es una ventaja real. Comprueba siempre las guías de talla — suelen correr entre normal y ligeramente grande." },
     ],
     faqs: [
-      { q: "¿Son buenas las zapatillas Anta para baloncesto?", a: "Sí, especialmente para el precio. La KAI 2 compite técnicamente con la Nike AE 3 a 30€ menos. La marca invierte en tecnología real, no solo en marketing." },
+      { q: "¿Son buenas las zapatillas Anta para baloncesto?", a: "Sí, especialmente para el precio. La KAI 2 compite técnicamente con la Nike AE 2 a 30€ menos. La marca invierte en tecnología real, no solo en marketing." },
       { q: "¿Merece la pena la Anta KAI 2 de Kyrie Irving?", a: "Sí. Tracción 8/10, respuesta 9/10, horma ancha, 119€. Para bases o escoltas con pie normal o ancho que buscan rendimiento sin gastar 150€+, es la mejor compra de 2025." },
       { q: "¿Dónde comprar Anta en España?", a: "Amazon ES es la principal fuente de Anta en España, con vendedores oficiales y devolución fácil. AliExpress tiene más colorways pero tarda más. Pocas tiendas físicas en España tienen stock." },
     ],
@@ -910,7 +910,7 @@ export const SEO_PAGES: SeoPage[] = [
       { lab: "Horma inglesa = cómoda", body: "NB tiene fama de horma cómoda. Su D (normal) y EE (ancha) ofrecen opciones para pies más anchos que no encajan en Nike o Adidas." },
     ],
     faqs: [
-      { q: "¿New Balance es buena para baloncesto?", a: "Sí, aunque subestimada. La Fresh Foam BB v3 es la mejor zapatilla de cushion para pívots de su rango de precio. La Two WXY v6 compite con la Ja 3 y la AE 3 para guards." },
+      { q: "¿New Balance es buena para baloncesto?", a: "Sí, aunque subestimada. La Fresh Foam BB v3 es la mejor zapatilla de cushion para pívots de su rango de precio. La Two WXY v6 compite con la Ja 3 y la AE 2 para guards." },
       { q: "¿Merece la pena la New Balance Fresh Foam BB v3?", a: "Para pívots con rodillas sensibles o jugadores de más de 90kg: sí. El stack de cushion es de los más generosos del mercado y el precio (~130€) es competitivo frente a Nike LeBron o Jordan Tatum." },
       { q: "¿Dónde comprar New Balance de baloncesto en España?", a: "Amazon ES y NewBalance.es tienen el catálogo completo. Foot Locker ES también tiene algo de stock. Evita comprar en webs de terceros no verificados." },
     ],
@@ -924,14 +924,14 @@ export const SEO_PAGES: SeoPage[] = [
     lede: "Converse vuelve al baloncesto de performance con la línea BBall Pro. Más allá de las clásicas Chuck Taylor, hay zapatillas técnicas serias para jugadores exigentes.",
     intro: "Converse es la marca más histórica del baloncesto: la Chuck Taylor fue la zapatilla dominante hasta los 80. Hoy, Converse (parte de Nike) ha vuelto con la línea BBall Pro para competir en el segmento de performance. No son solo un guiño nostálgico — tienen tecnología real.",
     points: [
-      { lab: "BBall Pro = performance real", body: "La Converse BBall Pro tiene Air Zoom en el antepié y un outsole de goma de alta tracción. No es retro — es una zapatilla técnica que compite con Nike Ja 3 y Adidas AE 3 en cortes y respuesta." },
+      { lab: "BBall Pro = performance real", body: "La Converse BBall Pro tiene Air Zoom en el antepié y un outsole de goma de alta tracción. No es retro — es una zapatilla técnica que compite con Nike Ja 3 y Adidas AE 2 en cortes y respuesta." },
       { lab: "All Star Pro BB = el retro moderno", body: "La All Star Pro BB combina el estilo vintage de la Chuck con tecnología React de Nike. Para jugadores que quieren rendimiento en un silhouette clásico, es la opción perfecta." },
       { lab: "Chuck Taylor = historia, no performance", body: "Las Chuck Taylor originales (bajo y alto) no están pensadas para baloncesto moderno. La suela plana y la falta de amortiguación las hacen inadecuadas para entrenamiento intenso. Son lifestyle, no performance." },
       { lab: "Precio más accesible", body: "Las Converse de performance rondan los 100-130€, por debajo de los 150-180€ de Nike/Jordan de gama alta. Si encajas en el estilo, ofrecen buena relación calidad-precio." },
     ],
     faqs: [
       { q: "¿Las Converse sirven para jugar baloncesto?", a: "Depende del modelo. La BBall Pro y la All Star Pro BB son zapatillas técnicas reales con Air Zoom y buena tracción — sí sirven para jugar. Las Chuck Taylor originales no son apropiadas para baloncesto moderno: no tienen amortiguación suficiente." },
-      { q: "¿Qué Converse es mejor para baloncesto?", a: "En 2025, la Converse BBall Pro es la mejor opción técnica de la marca. Tiene tracción competitiva, Air Zoom en el antepié y peso razonable. Compite en el segmento 100-130€ con la Nike Ja 3 y la Adidas AE 3 en talla normal." },
+      { q: "¿Qué Converse es mejor para baloncesto?", a: "En 2025, la Converse BBall Pro es la mejor opción técnica de la marca. Tiene tracción competitiva, Air Zoom en el antepié y peso razonable. Compite en el segmento 100-130€ con la Nike Ja 3 y la Adidas AE 2 en talla normal." },
       { q: "¿Dónde comprar Converse de baloncesto en España?", a: "Converse.com/es, Amazon ES (vendedor oficial Nike/Converse) y Foot Locker ES tienen el catálogo más completo. JD Sports también tiene stock en temporada." },
     ],
   }),
@@ -951,7 +951,7 @@ export const SEO_PAGES: SeoPage[] = [
     ],
     faqs: [
       { q: "¿Las Reebok de baloncesto son buenas para jugar?", a: "Depende del modelo. Las reediciones de la Question Mid y Answer V tienen tracción herringbone sólida para indoor. El cushion es modesto comparado con modelos actuales — úsalas para partidos amistosos, no para entrenamiento intensivo diario." },
-      { q: "¿Cuál es la mejor Reebok para baloncesto en 2025?", a: "La Legacy Court es la más técnica de la línea actual. Para los que quieren el legado de Iverson, la Question Mid reedición ofrece el equilibrio entre estilo y funcionalidad básica. Para rendimiento moderno, la AE 3 o GT Cut son superiores técnicamente." },
+      { q: "¿Cuál es la mejor Reebok para baloncesto en 2025?", a: "La Legacy Court es la más técnica de la línea actual. Para los que quieren el legado de Iverson, la Question Mid reedición ofrece el equilibrio entre estilo y funcionalidad básica. Para rendimiento moderno, la AE 2 o GT Cut son superiores técnicamente." },
       { q: "¿Dónde comprar Reebok en España?", a: "Reebok.es, Amazon ES y algunas tiendas Foot Locker tienen la línea de baloncesto. El stock es limitado comparado con Nike/Adidas — si encuentras tu talla, hazlo porque los retros tienden a agotar." },
     ],
   }),
@@ -1019,7 +1019,7 @@ export const SEO_PAGES: SeoPage[] = [
     filter: (z) => z.es_retro === true || z.puntuaciones.amortiguacion <= 6,
     sort: byScoreDesc,
     guideTitle: "Cuándo añadir una plantilla",
-    guideIntro: "No siempre es necesario. Las zapatillas premium modernas (LeBron 23, Curry 13, AE 3) tienen plantillas integradas de calidad. Las plantillas técnicas tienen más sentido en zapatillas retro, modelos de entrada o si tienes problemas biomecánicos.",
+    guideIntro: "No siempre es necesario. Las zapatillas premium modernas (LeBron 23, Curry 13, AE 2) tienen plantillas integradas de calidad. Las plantillas técnicas tienen más sentido en zapatillas retro, modelos de entrada o si tienes problemas biomecánicos.",
     guidePoints: [
       { lab: "Sof Sole Athlete (~18€) → retros y básicas", body: "Cushion extra para zapatillas retro y modelos de entrada. Espuma antibacteriana, gel en talón y antepié. La más versátil de la lista." },
       { lab: "Superfeet Green (~38€) → pie plano y pronación", body: "Soporte de arco rígido, ideal para pronación y pie plano. Muy usada por podólogos deportivos. No para pie neutro sin problemas biomecánicos." },
@@ -1052,9 +1052,9 @@ export const SEO_PAGES: SeoPage[] = [
     guideIntro: "Los jugadores con talla 45+ tienen una limitación real: no todos los modelos llegan a esas tallas en España. Las grandes marcas (Nike, Adidas, UA, New Balance) generalmente cubren hasta EU 49-50. Las marcas más pequeñas o de nicho pueden cortar en 46-47.",
     guidePoints: [
       { lab: "Nike llega hasta EU 50", body: "La mayoría de modelos Nike y Jordan llegan a US 16 (EU ~50) en stockx.com, Amazon ES tiene hasta EU 48-49 habitualmente. LeBron y KD son las líneas con mejor disponibilidad en tallas grandes." },
-      { lab: "Adidas hasta EU 52", body: "Adidas es la marca con mayor rango de tallas en baloncesto: llega hasta US 18 en modelos como la AE 3 y Dame. Amazon ES y Adidas.es suelen tener tallas grandes en stock." },
+      { lab: "Adidas hasta EU 52", body: "Adidas es la marca con mayor rango de tallas en baloncesto: llega hasta US 18 en modelos como la AE 2 y Dame. Amazon ES y Adidas.es suelen tener tallas grandes en stock." },
       { lab: "UA Curry hasta EU 50", body: "Under Armour tiene buena disponibilidad de la línea Curry hasta EU 50. Curry 13 y 12 disponibles en tallas grandes en UA.es y Amazon ES." },
-      { lab: "Pie ancho + talla grande", body: "Pie grande a menudo significa pie ancho. Nike LeBron y Adidas AE 3 tienen horma más generosa en tallas grandes. Evita modelos con horma estrecha como muchos Kyrie." },
+      { lab: "Pie ancho + talla grande", body: "Pie grande a menudo significa pie ancho. Nike LeBron y Adidas AE 2 tienen horma más generosa en tallas grandes. Evita modelos con horma estrecha como muchos Kyrie." },
     ],
     faqs: [
       { q: "¿Dónde comprar zapatillas de baloncesto talla 46, 47 o 48 en España?",
@@ -1062,7 +1062,7 @@ export const SEO_PAGES: SeoPage[] = [
       { q: "¿Las zapatillas de baloncesto se hacen en talla 50?",
         a: "Sí, aunque no todos los modelos. Nike y Adidas llegan a US 16-18 (EU 49-52) en sus líneas signature principales. Jordan Brand también cubre US 16. Under Armour llega a US 15 (EU 49). Para tallas muy grandes, KicksCrew es la referencia con la mayor variedad." },
       { q: "¿En talla grande es mejor Nike o Adidas para baloncesto?",
-        a: "Adidas tiene ligeramente mejor disponibilidad y horma más generosa en tallas grandes — el pie grande suele ir asociado a pie ancho, y Adidas horma es más cómoda. El LeBron de Nike también es amplio para tallas grandes. Para pívots con talla 47+: Nike LeBron 22 o Adidas AE 3 son las apuestas más seguras." },
+        a: "Adidas tiene ligeramente mejor disponibilidad y horma más generosa en tallas grandes — el pie grande suele ir asociado a pie ancho, y Adidas horma es más cómoda. El LeBron de Nike también es amplio para tallas grandes. Para pívots con talla 47+: Nike LeBron 22 o Adidas AE 2 son las apuestas más seguras." },
     ],
     related: [],
     catalogQuery: "?marca=Nike",
@@ -1082,16 +1082,16 @@ export const SEO_PAGES: SeoPage[] = [
     filter: (z) => z.año_lanzamiento >= 2025,
     sort: byScoreDesc,
     guideTitle: "Qué novedades trajo 2025 al baloncesto",
-    guideIntro: "2025 ha sido un año de innovación en espumas: ZoomX llega al baloncesto con la Air Jordan 40, Lightstrike Pro evoluciona en la AE 3, y Under Armour consolida UA Flow. Los signature siguen siendo la apuesta segura.",
+    guideIntro: "2025 ha sido un año de innovación en espumas: ZoomX llega al baloncesto con la Air Jordan 40, Lightstrike Pro evoluciona en la AE 2, y Under Armour consolida UA Flow. Los signature siguen siendo la apuesta segura.",
     guidePoints: [
       { lab: "ZoomX en baloncesto", body: "La Air Jordan 40 es la primera en combinar ZoomX + Zoom Strobel. Antes solo estaba en running." },
-      { lab: "Signature más competitivos", body: "AE 3, Ja 3, Curry 13, Jordan 40 — el listón técnico sube cada año. 2025 no defrauda." },
+      { lab: "Signature más competitivos", body: "AE 2, Ja 3, Curry 13, Jordan 40 — el listón técnico sube cada año. 2025 no defrauda." },
       { lab: "Budget mejora", body: "Adidas Dame X a 95€ demuestra que se puede tener tecnología signature sin gastar 150€+." },
       { lab: "Marcas chinas maduran", body: "Anta y Li-Ning siguen mejorando. KAI 2 y WoW AllCity 13 son opciones reales para jugadores europeos." },
     ],
     faqs: [
       { q: "¿Cuáles son las mejores zapatillas de baloncesto de 2025?",
-        a: "Para guards: Nike Ja 3 y AE 3. Para jugadores equilibrados: Jordan Tatum 4 y Jordan Luka 5. Para cushion máximo: Air Jordan 40 y LeBron 23. Para presupuesto ajustado: Adidas Dame X." },
+        a: "Para guards: Nike Ja 3 y AE 2. Para jugadores equilibrados: Jordan Tatum 4 y Jordan Luka 5. Para cushion máximo: Air Jordan 40 y LeBron 23. Para presupuesto ajustado: Adidas Dame X." },
       { q: "¿Merece la pena comprar modelos de 2025 vs los de 2024?",
         a: "Depende. Si el precio es similar, sí — la tecnología avanza. Pero un modelo de 2024 en outlet al 30% de descuento puede ser mejor decisión que el de 2025 a precio completo." },
       { q: "¿Cuándo se pueden comprar en España los modelos nuevos?",

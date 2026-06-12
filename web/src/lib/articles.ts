@@ -41,7 +41,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Cómo elegir zapatillas de baloncesto",
     heroSubtitle: "Guía completa 2025-2026 · Sin publicidad disfrazada",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-gt-cut-4", "adidas-ae-3", "ua-curry-13", "nike-lebron-23", "jordan-tatum-4"],
+    relatedShoes: ["nike-gt-cut-4", "adidas-ae-2", "ua-curry-13", "nike-lebron-23", "jordan-tatum-4"],
     relatedSeoPages: ["mejor-zapatilla-base", "mejor-zapatilla-pivot", "zapatillas-baloncesto-baratas"],
     body: `
 <p class="art-intro">Cada año salen decenas de modelos nuevos, cada uno prometiendo ser "el mejor". La realidad es más sencilla: la mejor zapatilla para ti depende de cuatro variables. Si las entiendes, nunca comprarás mal.</p>
@@ -66,7 +66,7 @@ export const ARTICLES: Article[] = [
 <p>Hay tres rangos que tienen sentido:</p>
 <ul>
   <li><strong>Hasta 80€:</strong> Para recreativos casuales, junior y primera zapatilla. Decathlon Tarmak, Adidas Cross 'Em Up.</li>
-  <li><strong>80-130€:</strong> El sweet spot. Aquí están las mejores relaciones calidad-precio: Nike Ja 3, Adidas AE 3, UA Curry 13.</li>
+  <li><strong>80-130€:</strong> El sweet spot. Aquí están las mejores relaciones calidad-precio: Nike Ja 3, Adidas AE 2, UA Curry 13.</li>
   <li><strong>130€+:</strong> Para quien juega 3+ veces por semana y nota la diferencia. Nike KD 19, Air Jordan 40, LeBron 23.</li>
 </ul>
 
@@ -107,25 +107,25 @@ export const ARTICLES: Article[] = [
     `,
   },
 
-  // ── 2. Comparativa AE 3 vs Ja 3 ─────────────────────────────────────
+  // ── 2. Comparativa AE 2 vs Ja 3 ─────────────────────────────────────
   {
-    slug: "adidas-ae-3-vs-nike-ja-3-2025",
-    title: "AE 3 vs Ja 3: ¿cuál es mejor para guards y escoltas en 2025?",
-    metaTitle: "Adidas AE 3 vs Nike Ja 3 2025: comparativa completa | CANCHA.ZAPA",
+    slug: "adidas-ae-2-vs-nike-ja-3-2025",
+    title: "AE 2 vs Ja 3: ¿cuál es mejor para guards y escoltas en 2025?",
+    metaTitle: "Adidas AE 2 vs Nike Ja 3 2025: comparativa completa | CANCHA.ZAPA",
     description:
-      "Comparativa técnica entre la Adidas AE 3 (Anthony Edwards) y la Nike Ja 3 (Ja Morant): tracción, amortiguación, horma y precio para guards y escoltas.",
+      "Comparativa técnica entre la Adidas AE 2 (Anthony Edwards) y la Nike Ja 3 (Ja Morant): tracción, amortiguación, horma y precio para guards y escoltas.",
     fecha: "2026-05-22",
     fechaLabel: "22 mayo 2026",
     categoria: "Comparativas",
     readMinutes: 5,
     eyebrow: "★ Comparativa · Guards 2025",
-    heroTitle: "AE 3 vs Ja 3",
+    heroTitle: "AE 2 vs Ja 3",
     heroSubtitle: "La batalla de los guards en 2025",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["adidas-ae-3", "nike-ja-3", "ua-curry-13", "nike-gt-cut-4"],
+    relatedShoes: ["adidas-ae-2", "nike-ja-3", "ua-curry-13", "nike-gt-cut-4"],
     relatedSeoPages: ["mejor-zapatilla-base", "mejor-zapatilla-escolta", "zapatillas-reactivas"],
     body: `
-<p class="art-intro">2025 tiene dos claros candidatos al trono de los guards: la Adidas AE 3 de Anthony Edwards y la Nike Ja 3 de Ja Morant. Ambas cuestan alrededor de 130€, las dos son low-top, y las dos prometen lo mismo. Aquí te decimos cuál vale realmente la pena.</p>
+<p class="art-intro">2025 tiene dos claros candidatos al trono de los guards: la Adidas AE 2 de Anthony Edwards y la Nike Ja 3 de Ja Morant. Ambas cuestan alrededor de 130€, las dos son low-top, y las dos prometen lo mismo. Aquí te decimos cuál vale realmente la pena.</p>
 
 <h2>Resumen rápido</h2>
 <div style="overflow-x:auto">
@@ -133,7 +133,7 @@ export const ARTICLES: Article[] = [
   <thead>
     <tr style="border-bottom:2px solid #f97316">
       <th style="padding:8px;text-align:left">Atributo</th>
-      <th style="padding:8px;text-align:center">Adidas AE 3</th>
+      <th style="padding:8px;text-align:center">Adidas AE 2</th>
       <th style="padding:8px;text-align:center">Nike Ja 3</th>
     </tr>
   </thead>
@@ -172,28 +172,28 @@ export const ARTICLES: Article[] = [
 </table>
 </div>
 
-<h2>Tracción: ventaja clara para la AE 3</h2>
-<p>El patrón herringbone de la AE 3 es uno de los mejores del mercado en 2025. Agarra sin necesidad de limpiar cada partido y funciona bien en parquet polvoriento. La Ja 3 también tiene buena tracción, pero en condiciones sucias la AE 3 gana por un margen notable.</p>
-<p><strong>Veredicto:</strong> AE 3 si juegas en pistas con polvo frecuente.</p>
+<h2>Tracción: ventaja clara para la AE 2</h2>
+<p>El patrón herringbone de la AE 2 es uno de los mejores del mercado en 2025. Agarra sin necesidad de limpiar cada partido y funciona bien en parquet polvoriento. La Ja 3 también tiene buena tracción, pero en condiciones sucias la AE 2 gana por un margen notable.</p>
+<p><strong>Veredicto:</strong> AE 2 si juegas en pistas con polvo frecuente.</p>
 
 <h2>Amortiguación: Ja 3 va un paso por delante</h2>
-<p>La Ja 3 usa ZoomX full-length — la misma espuma de los Vaporfly de running. Eso se nota: el bounce es superior al Lightstrike Pro de la AE 3, que es más firme y reactivo pero con menor retorno energético puro. Para un guard de más de 85kg, la Ja 3 protege mejor las rodillas.</p>
+<p>La Ja 3 usa ZoomX full-length — la misma espuma de los Vaporfly de running. Eso se nota: el bounce es superior al Lightstrike Pro de la AE 2, que es más firme y reactivo pero con menor retorno energético puro. Para un guard de más de 85kg, la Ja 3 protege mejor las rodillas.</p>
 <p><strong>Veredicto:</strong> Ja 3 si priorizas el cushion o pesas más de 80kg.</p>
 
 <h2>Respuesta: empate técnico</h2>
-<p>Ambas tienen 9/10 en respuesta en nuestro análisis. La AE 3 tiene un primer paso más agresivo gracias al Lightstrike Pro firme; la Ja 3 tiene más bounce pero similar tiempo de respuesta. Para guards explosivos, las dos están en el mismo nivel.</p>
+<p>Ambas tienen 9/10 en respuesta en nuestro análisis. La AE 2 tiene un primer paso más agresivo gracias al Lightstrike Pro firme; la Ja 3 tiene más bounce pero similar tiempo de respuesta. Para guards explosivos, las dos están en el mismo nivel.</p>
 
 <h2>Horma: ventaja Ja 3 para pies anchos</h2>
-<p>La AE 3 tiene horma normal — ni estrecha ni ancha. La Ja 3 tiene una horma más generosa, especialmente en el antepié. Si tu pie es ancho o has tenido problemas con Nike en el pasado (muchos modelos van estrechos), la Ja 3 es más segura.</p>
+<p>La AE 2 tiene horma normal — ni estrecha ni ancha. La Ja 3 tiene una horma más generosa, especialmente en el antepié. Si tu pie es ancho o has tenido problemas con Nike en el pasado (muchos modelos van estrechos), la Ja 3 es más segura.</p>
 
 <h2>¿Cuál debo comprar?</h2>
 <p>Depende de qué priorices:</p>
 <ul>
-  <li><strong>Elige la AE 3 si:</strong> priorizas tracción sobre todo, juegas en pistas con polvo, tienes pie normal y buscas el menor precio posible.</li>
+  <li><strong>Elige la AE 2 si:</strong> priorizas tracción sobre todo, juegas en pistas con polvo, tienes pie normal y buscas el menor precio posible.</li>
   <li><strong>Elige la Ja 3 si:</strong> priorizas el cushion y el bounce, tienes pie ancho, pesas más de 80kg o juegas en pistas en buen estado donde la tracción no es problema.</li>
 </ul>
 
-<p>Las dos son excelentes zapatillas de guards de 2025. Si te queda duda, <a href="/comparar?slugs=adidas-ae-3,nike-ja-3">compáralas aquí lado a lado</a> con todos los atributos desplegados.</p>
+<p>Las dos son excelentes zapatillas de guards de 2025. Si te queda duda, <a href="/comparar?slugs=adidas-ae-2,nike-ja-3">compáralas aquí lado a lado</a> con todos los atributos desplegados.</p>
 
 <p class="art-outro">¿Aún no sabes cuál encaja con tu perfil específico? <a href="/quiz">El quiz te da la respuesta en 10 preguntas</a>.</p>
     `,
@@ -237,7 +237,7 @@ export const ARTICLES: Article[] = [
 <h2>Rendimiento real</h2>
 
 <h3>Para qué tipo de jugador</h3>
-<p>La Jordan 40 es ideal para aleros y ala-pívots de 75-100kg que priorizan cushion y bounce. No es para guards puros — es demasiado pesada y el ZoomX (aunque reactivo) no da el mismo primer paso que una AE 3 o una Ja 3.</p>
+<p>La Jordan 40 es ideal para aleros y ala-pívots de 75-100kg que priorizan cushion y bounce. No es para guards puros — es demasiado pesada y el ZoomX (aunque reactivo) no da el mismo primer paso que una AE 2 o una Ja 3.</p>
 
 <h3>Puntuación técnica CANCHA.ZAPA</h3>
 <ul>
@@ -411,7 +411,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Zapatillas outdoor 2025",
     heroSubtitle: "Cuáles aguantan el asfalto y cuáles no",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-ja-3", "adidas-ae-3", "anta-kai-2", "nike-lebron-23", "ua-curry-13"],
+    relatedShoes: ["nike-ja-3", "adidas-ae-2", "anta-kai-2", "nike-lebron-23", "ua-curry-13"],
     relatedSeoPages: ["zapatillas-outdoor", "zapatillas-baloncesto-baratas", "mejor-zapatilla-base"],
     body: `
 <p class="art-intro">El baloncesto al aire libre es el mayor enemigo de tus zapatillas de interior. El asfalto y el cemento destrozan suelas en cuestión de semanas. Lo que dura 2 temporadas en pabellón puede quedar inutilizable después de 10 partidos en la calle. Antes de comprar, tienes que saber qué buscar — y qué evitar.</p>
@@ -434,8 +434,8 @@ export const ARTICLES: Article[] = [
   <li>❌ En asfalto muy húmedo la tracción baja bastante</li>
 </ul>
 
-<h3><a href="/zapatilla/adidas-ae-3">Adidas AE 3 — 130€</a></h3>
-<p>El herringbone de la AE 3 es uno de los patrones más resistentes al desgaste en asfalto. Los cantos son profundos y la goma es de dureza media-alta. Para jugadores que alternan interior y exterior, es la opción más equilibrada del mercado.</p>
+<h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — 130€</a></h3>
+<p>El herringbone de la AE 2 es uno de los patrones más resistentes al desgaste en asfalto. Los cantos son profundos y la goma es de dureza media-alta. Para jugadores que alternan interior y exterior, es la opción más equilibrada del mercado.</p>
 <ul>
   <li>✅ Herringbone aguanta exterior mejor que la mayoría</li>
   <li>✅ Upper robusto — resiste suciedad y golpes</li>
@@ -454,7 +454,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — 179€</a></h3>
-<p>La LeBron tiene suela Max Air con caucho de alta densidad. Para outdoor moderado (2-3 sesiones al mes en asfalto), aguanta bien. Para uso intensivo exterior, el precio no se justifica — la Ja 3 o la AE 3 son más inteligentes.</p>
+<p>La LeBron tiene suela Max Air con caucho de alta densidad. Para outdoor moderado (2-3 sesiones al mes en asfalto), aguanta bien. Para uso intensivo exterior, el precio no se justifica — la Ja 3 o la AE 2 son más inteligentes.</p>
 <ul>
   <li>✅ Suela Max Air robusta para jugadores pesados</li>
   <li>❌ 179€ para outdoor es excesivo — existen mejores opciones por menos</li>
@@ -485,7 +485,7 @@ export const ARTICLES: Article[] = [
       <td style="padding:8px;text-align:center">135€</td>
     </tr>
     <tr style="border-bottom:1px solid #27272a">
-      <td style="padding:8px"><strong>Adidas AE 3</strong></td>
+      <td style="padding:8px"><strong>Adidas AE 2</strong></td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">130€</td>
     </tr>
@@ -527,7 +527,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Zapatillas para pie ancho",
     heroSubtitle: "Las que realmente encajan — guía 2025",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-ja-3", "adidas-ae-3", "anta-kai-2", "ua-curry-13", "nike-lebron-23"],
+    relatedShoes: ["nike-ja-3", "adidas-ae-2", "anta-kai-2", "ua-curry-13", "nike-lebron-23"],
     relatedSeoPages: ["zapatillas-baloncesto-pie-ancho", "mejores-zapatillas-baloncesto-2025", "zapatillas-baloncesto-baratas"],
     body: `
 <p class="art-intro">La mayoría de marcas diseñan sus zapatillas de baloncesto para un pie estándar o incluso estrecho. Si tienes pie ancho, el mercado juega en tu contra: compras un modelo que en la talla parece correcto, lo pisas en el primer partido, y al cuarto de hora el quinto dedo ya está ardiendo. Esta guía va directo al grano: qué marcas van anchas, cuáles evitar, y los 5 mejores modelos para pie ancho en 2025.</p>
@@ -568,8 +568,8 @@ export const ARTICLES: Article[] = [
   <li>❌ Más pesada que otros modelos low-top de guards</li>
 </ul>
 
-<h3><a href="/zapatilla/adidas-ae-3">Adidas AE 3 — equilibrio para pie normal-ancho</a></h3>
-<p>La AE 3 no es ancha como la Kai 2, pero tiene más espacio en el antepié que la mayoría de Nike. Para pie normal-ancho (no extra ancho), encaja sin problemas. Anthony Edwards tiene pie grande y eso ha influido en el diseño.</p>
+<h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — equilibrio para pie normal-ancho</a></h3>
+<p>La AE 2 no es ancha como la Kai 2, pero tiene más espacio en el antepié que la mayoría de Nike. Para pie normal-ancho (no extra ancho), encaja sin problemas. Anthony Edwards tiene pie grande y eso ha influido en el diseño.</p>
 <ul>
   <li>✅ Más espacio en antepié que la media del mercado</li>
   <li>✅ Excelente tracción herringbone</li>
@@ -625,7 +625,7 @@ export const ARTICLES: Article[] = [
 <h2>Altura de caña: ¿low, mid o high?</h2>
 <p>Es la decisión más importante. No hay elección "correcta" universal — depende de tu historial:</p>
 <ul>
-  <li><strong>Low-top:</strong> máxima velocidad y agilidad, mínima protección lateral. Para bases sanos sin historial de tobillo. Ejemplos: Nike GT Cut 4, Adidas AE 3, UA Curry 13.</li>
+  <li><strong>Low-top:</strong> máxima velocidad y agilidad, mínima protección lateral. Para bases sanos sin historial de tobillo. Ejemplos: Nike GT Cut 4, Adidas AE 2, UA Curry 13.</li>
   <li><strong>Mid-top:</strong> el equilibrio. Cubre la parte baja del tobillo sin restringir el movimiento. La opción más versátil y la recomendada si tienes algún esguince en el historial pero no recurrente. Ejemplos: Nike LeBron 23, ANTA KT 11.</li>
   <li><strong>High-top:</strong> máxima protección, especialmente con correas o collar acolchado. Para jugadores con esguinces recurrentes o que quieran la máxima seguridad. Ejemplos: Jordan Tatum 4, Air Jordan 40.</li>
 </ul>
@@ -701,7 +701,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "GT Cut 4 vs Curry 13 vs Kai 2",
     heroSubtitle: "¿Cuál reacciona más rápido?",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-gt-cut-4", "ua-curry-13", "anta-kai-2", "adidas-ae-3"],
+    relatedShoes: ["nike-gt-cut-4", "ua-curry-13", "anta-kai-2", "adidas-ae-2"],
     relatedSeoPages: ["zapatillas-reactivas", "mejor-zapatilla-base", "mejor-zapatilla-escolta"],
     body: `
 <p class="art-intro">Si priorizas el primer paso explosivo sobre cualquier otra cosa, el mercado de 2025 tiene tres candidatos claros: la Nike GT Cut 4, la Under Armour Curry 13 y la ANTA Kai 2 de Kyrie Irving. Las tres son low-top, las tres tienen court feel excepcional — y las tres difieren significativamente en precio y en a qué tipo de jugador favorecen más.</p>
@@ -948,7 +948,7 @@ export const ARTICLES: Article[] = [
   <li><strong>Mejor precio entrada → <a href="/zapatilla/anta-kt-11">ANTA KT-11</a></strong></li>
 </ul>
 
-<p class="art-outro">Las marcas chinas ya no son la segunda opción para quien no puede permitirse Nike. En 2025 son una alternativa real y en muchos casos superior para el jugador amateur español. ¿Quieres ver cómo comparan con modelos de Nike y Adidas de su mismo rango? <a href="/comparar?slugs=anta-kai-2,adidas-ae-3,nike-gt-cut-4">Usa el comparador</a> y juzga tú mismo.</p>
+<p class="art-outro">Las marcas chinas ya no son la segunda opción para quien no puede permitirse Nike. En 2025 son una alternativa real y en muchos casos superior para el jugador amateur español. ¿Quieres ver cómo comparan con modelos de Nike y Adidas de su mismo rango? <a href="/comparar?slugs=anta-kai-2,adidas-ae-2,nike-gt-cut-4">Usa el comparador</a> y juzga tú mismo.</p>
     `,
   },
 
@@ -1144,25 +1144,25 @@ export const ARTICLES: Article[] = [
     `,
   },
 
-  // ── 13. Jordan Tatum 4 vs Adidas AE 3 ───────────────────────────────
+  // ── 13. Jordan Tatum 4 vs Adidas AE 2 ───────────────────────────────
   {
-    slug: "jordan-tatum-4-vs-adidas-ae-3-aleros-2025",
-    title: "Jordan Tatum 4 vs Adidas AE 3: ¿cuál es mejor para aleros en 2025?",
-    metaTitle: "Jordan Tatum 4 vs Adidas AE 3 comparativa 2025: aleros y escoltas | CANCHA.ZAPA",
+    slug: "jordan-tatum-4-vs-adidas-ae-2-aleros-2025",
+    title: "Jordan Tatum 4 vs Adidas AE 2: ¿cuál es mejor para aleros en 2025?",
+    metaTitle: "Jordan Tatum 4 vs Adidas AE 2 comparativa 2025: aleros y escoltas | CANCHA.ZAPA",
     description:
-      "Comparativa completa entre Jordan Tatum 4 y Adidas AE 3: cushion, tracción, precio y para qué perfil de jugador es mejor cada una en 2025.",
+      "Comparativa completa entre Jordan Tatum 4 y Adidas AE 2: cushion, tracción, precio y para qué perfil de jugador es mejor cada una en 2025.",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
     categoria: "Comparativas",
     readMinutes: 5,
     eyebrow: "★ Comparativa · Aleros 2025",
-    heroTitle: "Tatum 4 vs AE 3",
+    heroTitle: "Tatum 4 vs AE 2",
     heroSubtitle: "Jordan o Adidas — ¿cuál para aleros en 2025?",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["jordan-tatum-4", "adidas-ae-3", "nike-gt-cut-4", "jordan-luka-4", "ua-curry-13"],
+    relatedShoes: ["jordan-tatum-4", "adidas-ae-2", "nike-gt-cut-4", "jordan-luka-4", "ua-curry-13"],
     relatedSeoPages: ["mejor-zapatilla-alero", "zapatillas-equilibradas", "mejores-zapatillas-jordan"],
     body: `
-<p class="art-intro">Jordan Tatum 4 vs Adidas AE 3: dos de los mejores modelos de 2025, ambos para aleros y escoltas, ambos low-top y con horma normal. Pero con filosofías distintas: la Tatum 4 prioriza el cushion y la versatilidad; la AE 3 prioriza la tracción y la respuesta explosiva. Y tiene una sorpresa: la Tatum 4 es más barata.</p>
+<p class="art-intro">Jordan Tatum 4 vs Adidas AE 2: dos de los mejores modelos de 2025, ambos para aleros y escoltas, ambos low-top y con horma normal. Pero con filosofías distintas: la Tatum 4 prioriza el cushion y la versatilidad; la AE 2 prioriza la tracción y la respuesta explosiva. Y tiene una sorpresa: la Tatum 4 es más barata.</p>
 
 <h2>Comparativa de un vistazo</h2>
 <div style="overflow-x:auto">
@@ -1171,7 +1171,7 @@ export const ARTICLES: Article[] = [
     <tr style="border-bottom:2px solid #f97316">
       <th style="padding:8px;text-align:left">Atributo</th>
       <th style="padding:8px;text-align:center">Jordan Tatum 4</th>
-      <th style="padding:8px;text-align:center">Adidas AE 3</th>
+      <th style="padding:8px;text-align:center">Adidas AE 2</th>
     </tr>
   </thead>
   <tbody>
@@ -1215,20 +1215,20 @@ export const ARTICLES: Article[] = [
 </div>
 
 <h2>La sorpresa del precio: Jordan por menos que Adidas</h2>
-<p>La Jordan Tatum 4 cuesta ~90€ mientras que la Adidas AE 3 ronda los 130€ — una diferencia de 40€ que es inusual porque Jordan Brand suele estar por encima de Adidas en precio. ¿Por qué? La Tatum 4 es una línea más accesible dentro del catálogo Jordan, mientras la AE 3 es el flagship de Anthony Edwards. Si el presupuesto es tu filtro principal, la Tatum 4 gana sin duda.</p>
+<p>La Jordan Tatum 4 cuesta ~90€ mientras que la Adidas AE 2 ronda los 130€ — una diferencia de 40€ que es inusual porque Jordan Brand suele estar por encima de Adidas en precio. ¿Por qué? La Tatum 4 es una línea más accesible dentro del catálogo Jordan, mientras la AE 2 es el flagship de Anthony Edwards. Si el presupuesto es tu filtro principal, la Tatum 4 gana sin duda.</p>
 
 <h2>Espuma: Zoom Strobel vs Lightstrike Pro</h2>
 <p><strong>Jordan Tatum 4 — Zoom Air Strobel + React foam:</strong> el Zoom Strobel full-length da una respuesta energética directa en todo el pie. El React foam bajo añade amortiguación extra. El resultado: el cushion más generoso de las dos zapatillas. Para aleros de 80-100kg que aterrizan con impacto (fintas, rebotes), la Tatum 4 protege mejor.</p>
-<p><strong>Adidas AE 3 — Lightstrike Pro:</strong> la espuma signature de Adidas es más firme y reactiva que el React de Nike. La energía de retorno es superior — lo notas en los saltos y en el primer paso. Pero hay menos "cushion puro": si aterrizas fuerte, la AE 3 transmite más impacto que la Tatum 4.</p>
-<p><strong>Veredicto espuma:</strong> Tatum 4 para más cushion y protección. AE 3 para más reactividad.</p>
+<p><strong>Adidas AE 2 — Lightstrike Pro:</strong> la espuma signature de Adidas es más firme y reactiva que el React de Nike. La energía de retorno es superior — lo notas en los saltos y en el primer paso. Pero hay menos "cushion puro": si aterrizas fuerte, la AE 2 transmite más impacto que la Tatum 4.</p>
+<p><strong>Veredicto espuma:</strong> Tatum 4 para más cushion y protección. AE 2 para más reactividad.</p>
 
-<h2>Tracción: ventaja AE 3</h2>
-<p>El outsole herringbone de la AE 3 es uno de los mejores del catálogo Adidas en 2025. Más agarre en cortes laterales y mejor respuesta en pistas con algo de polvo. La Tatum 4 tiene buena tracción (8/10) pero el patrón es menos agresivo. Si juegas en pistas con polvo frecuente, la AE 3 gana.</p>
+<h2>Tracción: ventaja AE 2</h2>
+<p>El outsole herringbone de la AE 2 es uno de los mejores del catálogo Adidas en 2025. Más agarre en cortes laterales y mejor respuesta en pistas con algo de polvo. La Tatum 4 tiene buena tracción (8/10) pero el patrón es menos agresivo. Si juegas en pistas con polvo frecuente, la AE 2 gana.</p>
 
 <h2>¿Para qué tipo de alero es cada una?</h2>
 <ul>
   <li><strong>Jordan Tatum 4 si:</strong> eres alero de 75-100kg que prioriza cushion, juegas tanto en el perímetro como en la pintura, tienes presupuesto ajustado (~90€), o prefieres el branding Jordan.</li>
-  <li><strong>Adidas AE 3 si:</strong> eres alero-escolta (<90kg) que prioriza explosividad y tracción, juegas en pistas con polvo, quieres el máximo rendimiento técnico disponible a 130€, o ya conoces y confías en Lightstrike Pro.</li>
+  <li><strong>Adidas AE 2 si:</strong> eres alero-escolta (<90kg) que prioriza explosividad y tracción, juegas en pistas con polvo, quieres el máximo rendimiento técnico disponible a 130€, o ya conoces y confías en Lightstrike Pro.</li>
 </ul>
 
 <h2>¿Y si no soy alero?</h2>
@@ -1237,9 +1237,9 @@ export const ARTICLES: Article[] = [
 
 <h2>Veredicto final</h2>
 <p><strong>Si buscas la mejor relación calidad-precio: Jordan Tatum 4.</strong> A ~90€ ofrece un paquete técnico que avergüenza a muchas zapas de 120€. Cushion sólido, tracción competente, soporte lateral decente. Para casi todos los aleros que no tienen un perfil muy específico, es la compra más inteligente.</p>
-<p><strong>Si buscas el máximo rendimiento técnico: Adidas AE 3.</strong> Mejor tracción, mejor respuesta, más explosiva. Vale los 40€ extra si priorizas rendimiento puro sobre precio.</p>
+<p><strong>Si buscas el máximo rendimiento técnico: Adidas AE 2.</strong> Mejor tracción, mejor respuesta, más explosiva. Vale los 40€ extra si priorizas rendimiento puro sobre precio.</p>
 
-<p class="art-outro">¿Aún no estás seguro? <a href="/comparar?slugs=jordan-tatum-4,adidas-ae-3,nike-gt-cut-4">Compara estas tres zapatillas con todos los datos aquí</a>, o <a href="/quiz">haz el quiz en 60 segundos</a> para obtener tu recomendación personalizada.</p>
+<p class="art-outro">¿Aún no estás seguro? <a href="/comparar?slugs=jordan-tatum-4,adidas-ae-2,nike-gt-cut-4">Compara estas tres zapatillas con todos los datos aquí</a>, o <a href="/quiz">haz el quiz en 60 segundos</a> para obtener tu recomendación personalizada.</p>
     `,
   },
 
@@ -1258,7 +1258,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Nike GT Cut 4",
     heroSubtitle: "La zapatilla más reactiva del mercado en 2025",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-gt-cut-4", "nike-gt-cut-3", "ua-curry-13", "anta-kai-2", "adidas-ae-3"],
+    relatedShoes: ["nike-gt-cut-4", "nike-gt-cut-3", "ua-curry-13", "anta-kai-2", "adidas-ae-2"],
     relatedSeoPages: ["mejor-zapatilla-base", "zapatillas-reactivas", "mejores-zapatillas-baloncesto-2025"],
     body: `
 <p class="art-intro">La Nike Air Zoom GT Cut 4 es la zapatilla de baloncesto que más se repite en la lista de deseos de guards y escoltas en 2025. Tracción 10/10, Zoom Air Strobel de última generación y solo 305g. Victor Wembanyama la escogió para la temporada NBA 25-26 — un 2,24m que usa una zapatilla de guard te dice todo lo que necesitas saber sobre su court feel.</p>
@@ -1380,7 +1380,7 @@ export const ARTICLES: Article[] = [
 <ul>
   <li><strong>Iniciación (6-10 años):</strong> 30-50€. Los niños crecen muy rápido — una zapatilla básica dura 1 temporada. Prioriza comodidad y amortiguación básica. Decathlon Tarmak y Nike Precision son las opciones más inteligentes.</li>
   <li><strong>Escuela/Club (10-14 años):</strong> 50-80€. Ya tiene sentido invertir algo más — la zapa dura más y el niño empieza a desarrollar su técnica. Nike Precision 8, Adidas Cross-Em Up Select y UA Lockdown 7 son las mejores opciones de este rango.</li>
-  <li><strong>Federado/Cadete (14-18 años):</strong> 80-130€. A esta edad, el rendimiento importa. El pie ya está más estabilizado (menos crecimiento por año) y vale la pena invertir en modelos con tecnología seria: Adidas AE 3, Nike Zoom Freak, Puma MB.04.</li>
+  <li><strong>Federado/Cadete (14-18 años):</strong> 80-130€. A esta edad, el rendimiento importa. El pie ya está más estabilizado (menos crecimiento por año) y vale la pena invertir en modelos con tecnología seria: Adidas AE 2, Nike Zoom Freak, Puma MB.04.</li>
 </ul>
 
 <h2>Tallas: GS (Grade School) y diferencias clave</h2>
@@ -1434,7 +1434,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Zapatillas de baloncesto para pie plano",
     heroSubtitle: "Guía 2025-2026 — sin BS, sin ventas disfrazadas",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["ua-curry-13", "nike-lebron-22", "jordan-tatum-4", "adidas-ae-3", "nike-gt-cut-4"],
+    relatedShoes: ["ua-curry-13", "nike-lebron-22", "jordan-tatum-4", "adidas-ae-2", "nike-gt-cut-4"],
     relatedSeoPages: ["zapatillas-baloncesto-pie-plano", "zapatillas-cushion", "zapatillas-equilibradas"],
     body: `
 <p class="art-intro">El pie plano (o pronación excesiva) afecta aproximadamente al 20-30% de los jugadores de baloncesto. La buena noticia: con la zapatilla correcta, no es una desventaja real. La mala: la mayoría de guías de zapatillas ignoran este tema. Aquí lo abordamos en serio.</p>
@@ -1477,8 +1477,8 @@ export const ARTICLES: Article[] = [
 <h3>3. UA Curry 13 — court feel con soporte</h3>
 <p>Sorprendentemente buena para pie plano: UA Flow con geometría de suela estabilizadora, soporte lateral 8/10, estabilidad 7.5/10. Más reactiva que el LeBron, ideal si eres guard con pie plano. El UA Flow actúa como una plantilla extra al ser la espuma de suela directo al suelo. Precio: ~140-160€.</p>
 
-<h3>4. Adidas AE 3 — la más accesible</h3>
-<p>Si el presupuesto importa, la AE 3 ofrece estabilidad 7.5/10 y soporte lateral 8/10 a ~120-130€. Lightstrike Pro firme, herringbone tracción. No llega al LeBron en cushion pero sí en soporte. Para jugadores de hasta 85kg con pie plano, es suficiente.</p>
+<h3>4. Adidas AE 2 — la más accesible</h3>
+<p>Si el presupuesto importa, la AE 2 ofrece estabilidad 7.5/10 y soporte lateral 8/10 a ~120-130€. Lightstrike Pro firme, herringbone tracción. No llega al LeBron en cushion pero sí en soporte. Para jugadores de hasta 85kg con pie plano, es suficiente.</p>
 
 <h3>5. Nike GT Hustle 3 — soporte de tobillo + pie plano</h3>
 <p>Si tienes pie plano <em>y</em> historial de esguinces, la GT Hustle 3 en versión mid-top es la solución. Estabilidad 8/10, soporte lateral 7.5/10, collar de tobillo reforzado. Más pesada que la GT Cut, pero para un jugador con problemas combinados de pie plano + tobillo débil, es la opción más segura del mercado.</p>
@@ -1510,32 +1510,32 @@ export const ARTICLES: Article[] = [
     `,
   },
 
-  // ── 17. Adidas AE 3 análisis ─────────────────────────────────────────
+  // ── 17. Adidas AE 2 análisis ─────────────────────────────────────────
   {
-    slug: "adidas-ae-3-analisis-2025",
-    title: "Adidas AE 3 análisis completo: la mejor zapatilla de baloncesto de 2025",
-    metaTitle: "Adidas AE 3 análisis 2025: tracción, cushion, precio | CANCHA.ZAPA",
+    slug: "adidas-ae-2-analisis-2025",
+    title: "Adidas AE 2 análisis completo: la mejor zapatilla de baloncesto de 2025",
+    metaTitle: "Adidas AE 2 análisis 2025: tracción, cushion, precio | CANCHA.ZAPA",
     description:
-      "Análisis técnico completo de las Adidas AE 3 (Anthony Edwards): tracción, amortiguación, ajuste y comparativa con GT Cut 4 y Curry 13. ¿Vale la pena a 130€?",
+      "Análisis técnico completo de las Adidas AE 2 (Anthony Edwards): tracción, amortiguación, ajuste y comparativa con GT Cut 4 y Curry 13. ¿Vale la pena a 130€?",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
     categoria: "Análisis",
     readMinutes: 6,
-    eyebrow: "★ Análisis técnico · Adidas AE 3",
-    heroTitle: "Adidas AE 3 análisis",
+    eyebrow: "★ Análisis técnico · Adidas AE 2",
+    heroTitle: "Adidas AE 2 análisis",
     heroSubtitle: "La zapatilla de Anthony Edwards — ¿realmente la mejor del mercado?",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["adidas-ae-3", "nike-gt-cut-4", "ua-curry-13", "anta-kai-2", "jordan-tatum-4"],
+    relatedShoes: ["adidas-ae-2", "nike-gt-cut-4", "ua-curry-13", "anta-kai-2", "jordan-tatum-4"],
     relatedSeoPages: ["zapatillas-traccion", "zapatillas-reactivas", "mejor-zapatilla-base"],
     body: `
-<p class="art-intro">La Adidas AE 3 lleva varios meses en el tope de nuestros rankings. Tracción 9/10, respuesta excepcional, horma versátil. Pero ¿por qué exactamente? Este análisis desmonta la zapatilla atributo por atributo para que entiendas qué la hace tan buena y si encaja con tu perfil.</p>
+<p class="art-intro">La Adidas AE 2 lleva varios meses en el tope de nuestros rankings. Tracción 9/10, respuesta excepcional, horma versátil. Pero ¿por qué exactamente? Este análisis desmonta la zapatilla atributo por atributo para que entiendas qué la hace tan buena y si encaja con tu perfil.</p>
 
 <h2>Contexto: Anthony Edwards y la línea AE</h2>
-<p>Anthony Edwards firmó con Adidas en 2023 y la AE 3 es el tercer modelo de su línea signature. Edwards es un escolta explosivo, potente y con un primer paso brutal — su zapatilla refleja exactamente eso: tracción y respuesta por encima de todo. Adidas metió Lightstrike Pro en el modelo, la misma tecnología de las zapatillas de élite de atletismo.</p>
-<p>La AE 3 se lanzó a <strong>~130€</strong>, un precio razonable para la tecnología que incluye. Es un escalón por debajo del precio aspiracional de Jordan y Nike (150-180€) con rendimiento comparable o superior en la mayoría de atributos.</p>
+<p>Anthony Edwards firmó con Adidas en 2023 y la AE 2 es el tercer modelo de su línea signature. Edwards es un escolta explosivo, potente y con un primer paso brutal — su zapatilla refleja exactamente eso: tracción y respuesta por encima de todo. Adidas metió Lightstrike Pro en el modelo, la misma tecnología de las zapatillas de élite de atletismo.</p>
+<p>La AE 2 se lanzó a <strong>~130€</strong>, un precio razonable para la tecnología que incluye. Es un escalón por debajo del precio aspiracional de Jordan y Nike (150-180€) con rendimiento comparable o superior en la mayoría de atributos.</p>
 
 <h2>Tracción: la mejor del mercado en indoor</h2>
-<p>El patrón herringbone de la AE 3 es uno de los mejores que hemos probado en pabellón en 2025. La goma agarra en todas las direcciones — cambios de dirección laterales, arranques, paradas — sin un solo deslizamiento. En polvo de la cancha funciona bien; en suelo muy sucio (pabellones mal barridos) necesitas limpiar con regularidad, como cualquier zapatilla indoor.</p>
+<p>El patrón herringbone de la AE 2 es uno de los mejores que hemos probado en pabellón en 2025. La goma agarra en todas las direcciones — cambios de dirección laterales, arranques, paradas — sin un solo deslizamiento. En polvo de la cancha funciona bien; en suelo muy sucio (pabellones mal barridos) necesitas limpiar con regularidad, como cualquier zapatilla indoor.</p>
 <ul>
   <li><strong>Indoor:</strong> excepcional (9/10)</li>
   <li><strong>Outdoor:</strong> no recomendable — la goma se desgasta rápido en asfalto</li>
@@ -1543,29 +1543,29 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h2>Amortiguación: reactiva, no máxima</h2>
-<p>La AE 3 lleva <strong>Lightstrike Pro</strong> en el antepié y una capa de Lightstrike base en el talón. El resultado es un cushion reactivo y devolutivo — sientes el suelo pero con protección suficiente. No es la zapatilla de máxima amortiguación del mercado (ese papel lo juegan LeBron 22 o Fresh Foam BB v3), pero tampoco es minimal. Score: 7.5/10.</p>
+<p>La AE 2 lleva <strong>Lightstrike Pro</strong> en el antepié y una capa de Lightstrike base en el talón. El resultado es un cushion reactivo y devolutivo — sientes el suelo pero con protección suficiente. No es la zapatilla de máxima amortiguación del mercado (ese papel lo juegan LeBron 22 o Fresh Foam BB v3), pero tampoco es minimal. Score: 7.5/10.</p>
 <p>Para jugadores de 60-85 kg que no buscan cushion de pívot, es más que suficiente. Para jugadores de 90+ kg o con rodillas sensibles, considera alternativas con más stack de cushion.</p>
 
 <h2>Respuesta y court feel</h2>
-<p>Aquí la AE 3 destaca especialmente. El Lightstrike Pro devuelve energía de forma eficiente — cuando aceleras, la midsole "empuja" en lugar de absorber pasivamente. Es la característica que más aprecia Edwards (cuyo juego se basa en primeros pasos) y que más notable resulta en cancha.</p>
+<p>Aquí la AE 2 destaca especialmente. El Lightstrike Pro devuelve energía de forma eficiente — cuando aceleras, la midsole "empuja" en lugar de absorber pasivamente. Es la característica que más aprecia Edwards (cuyo juego se basa en primeros pasos) y que más notable resulta en cancha.</p>
 <p>El court feel es excelente para una zapatilla con cushion de este nivel. No es tan "al suelo" como la GT Cut 4, pero tampoco parece que estás sobre un cojín.</p>
 
 <h2>Ajuste y horma</h2>
-<p>La AE 3 tiene una horma <strong>media-ancha</strong>, más generosa que la GT Cut 4 (estrecha) y más estrecha que la LeBron 22 (ancha). Para la mayoría de pies normales a ligeramente anchos, encaja perfectamente en talla habitual. Algunos usuarios con pie muy ancho suben media talla.</p>
-<p>El upper en flyknit estructurado ofrece un ajuste ceñido pero sin puntos de presión. El collar de tobillo está bien acolchado. No hay historial de rozaduras en el talón en la AE 3, un problema que sí afecta a algunos usuarios de la GT Cut 4.</p>
+<p>La AE 2 tiene una horma <strong>media-ancha</strong>, más generosa que la GT Cut 4 (estrecha) y más estrecha que la LeBron 22 (ancha). Para la mayoría de pies normales a ligeramente anchos, encaja perfectamente en talla habitual. Algunos usuarios con pie muy ancho suben media talla.</p>
+<p>El upper en flyknit estructurado ofrece un ajuste ceñido pero sin puntos de presión. El collar de tobillo está bien acolchado. No hay historial de rozaduras en el talón en la AE 2, un problema que sí afecta a algunos usuarios de la GT Cut 4.</p>
 
 <h2>Soporte y estabilidad</h2>
-<p>La AE 3 ofrece soporte lateral sólido (7.5/10) para un zapato low-top. El counter de talón es rígido y el midfoot shank controla el torsional. Para guards y escoltas que hacen muchos cortes, el soporte es más que suficiente. No es el zapato para un pívot de 100 kg que necesita máxima estabilidad — ahí manda el LeBron 22 o la Jordan Tatum 4.</p>
+<p>La AE 2 ofrece soporte lateral sólido (7.5/10) para un zapato low-top. El counter de talón es rígido y el midfoot shank controla el torsional. Para guards y escoltas que hacen muchos cortes, el soporte es más que suficiente. No es el zapato para un pívot de 100 kg que necesita máxima estabilidad — ahí manda el LeBron 22 o la Jordan Tatum 4.</p>
 
 <h2>Peso</h2>
-<p>La AE 3 pesa aproximadamente <strong>350g</strong> en talla 44 (US 10), que es ligera para su categoría. No llega a la ligereza extrema de la GT Cut 4 (~305g), pero la diferencia no es apreciable en cancha. Para un jugador amateur, el peso no es un factor diferencial en este rango.</p>
+<p>La AE 2 pesa aproximadamente <strong>350g</strong> en talla 44 (US 10), que es ligera para su categoría. No llega a la ligereza extrema de la GT Cut 4 (~305g), pero la diferencia no es apreciable en cancha. Para un jugador amateur, el peso no es un factor diferencial en este rango.</p>
 
 <h2>Comparativa directa</h2>
 <table style="border-collapse:collapse;width:100%;font-size:13px;margin:16px 0">
   <thead>
     <tr style="border-bottom:2px solid #f97316">
       <th style="padding:8px;text-align:left;color:#fff">Atributo</th>
-      <th style="padding:8px;text-align:center;color:#f97316">AE 3</th>
+      <th style="padding:8px;text-align:center;color:#f97316">AE 2</th>
       <th style="padding:8px;text-align:center;color:#e4e4e7">GT Cut 4</th>
       <th style="padding:8px;text-align:center;color:#e4e4e7">Curry 13</th>
     </tr>
@@ -1604,8 +1604,8 @@ export const ARTICLES: Article[] = [
   </tbody>
 </table>
 
-<h2>¿Para quién es la AE 3?</h2>
-<p>La AE 3 es el zapato más versátil de la gama premium de 2025. Funciona para:</p>
+<h2>¿Para quién es la AE 2?</h2>
+<p>La AE 2 es el zapato más versátil de la gama premium de 2025. Funciona para:</p>
 <ul>
   <li><strong>Guards (1-2):</strong> tracción y respuesta ideales para un juego explosivo</li>
   <li><strong>Escoltas (2-3):</strong> polivalencia y horma que encaja en pies medios</li>
@@ -1619,9 +1619,9 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h2>¿Dónde comprar?</h2>
-<p>La AE 3 está disponible en Amazon ES (vendedor oficial Adidas), Adidas.es y JD Sports. Amazon suele ser el más barato con devolución en 30 días — ideal si no has probado la horma antes. Algunas colorways limitadas solo están en Adidas.es. Para pies anchos, recomendamos probar primero en tienda si tienes Foot Locker cerca.</p>
+<p>La AE 2 está disponible en Amazon ES (vendedor oficial Adidas), Adidas.es y JD Sports. Amazon suele ser el más barato con devolución en 30 días — ideal si no has probado la horma antes. Algunas colorways limitadas solo están en Adidas.es. Para pies anchos, recomendamos probar primero en tienda si tienes Foot Locker cerca.</p>
 
-<p class="art-outro">La Adidas AE 3 es nuestra zapatilla más recomendada de 2025 para jugadores entre 60-85 kg sin necesidades especiales de cushion máximo. Si tienes dudas sobre si encaja con tu perfil específico, <a href="/quiz">el quiz te da las 5 más compatibles en menos de un minuto</a>.</p>
+<p class="art-outro">La Adidas AE 2 es nuestra zapatilla más recomendada de 2025 para jugadores entre 60-85 kg sin necesidades especiales de cushion máximo. Si tienes dudas sobre si encaja con tu perfil específico, <a href="/quiz">el quiz te da las 5 más compatibles en menos de un minuto</a>.</p>
     `,
   },
 
@@ -1631,7 +1631,7 @@ export const ARTICLES: Article[] = [
     title: "Under Armour Curry 13 análisis: ¿merece los 150€?",
     metaTitle: "UA Curry 13 análisis 2025: tracción, cushion y ajuste | CANCHA.ZAPA",
     description:
-      "Análisis técnico de las Under Armour Curry 13 (Stephen Curry): tecnología UA Flow, cushion, tracción y comparativa con AE 3 y GT Cut 4. ¿Vale la pena?",
+      "Análisis técnico de las Under Armour Curry 13 (Stephen Curry): tecnología UA Flow, cushion, tracción y comparativa con AE 2 y GT Cut 4. ¿Vale la pena?",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
     categoria: "Análisis",
@@ -1640,10 +1640,10 @@ export const ARTICLES: Article[] = [
     heroTitle: "Under Armour Curry 13",
     heroSubtitle: "El zapato de Stephen Curry — análisis técnico honesto 2025",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["ua-curry-13", "adidas-ae-3", "nike-gt-cut-4", "anta-kai-2", "jordan-tatum-4"],
+    relatedShoes: ["ua-curry-13", "adidas-ae-2", "nike-gt-cut-4", "anta-kai-2", "jordan-tatum-4"],
     relatedSeoPages: ["zapatillas-reactivas", "mejor-zapatilla-base", "zapatillas-traccion"],
     body: `
-<p class="art-intro">Stephen Curry es el mejor tirador de la historia de la NBA y Under Armour lleva desde 2013 construyendo zapatillas alrededor de su estilo de juego: velocidad sin balón, cambios de dirección sin perder equilibrio, y un primer paso que descoloca defensas. La Curry 13 lleva esa filosofía al límite. ¿Pero a 150€ vale la pena frente a la AE 3 a 130€?</p>
+<p class="art-intro">Stephen Curry es el mejor tirador de la historia de la NBA y Under Armour lleva desde 2013 construyendo zapatillas alrededor de su estilo de juego: velocidad sin balón, cambios de dirección sin perder equilibrio, y un primer paso que descoloca defensas. La Curry 13 lleva esa filosofía al límite. ¿Pero a 150€ vale la pena frente a la AE 2 a 130€?</p>
 
 <h2>Tecnología: UA Flow y Warp</h2>
 <p>La Curry 13 usa dos tecnologías clave:</p>
@@ -1654,8 +1654,8 @@ export const ARTICLES: Article[] = [
 <p>La combinación de Flow + Warp hace que la Curry 13 tenga un feel único en cancha: muy pegada al suelo, muy responsiva, pero con buena protección en el antepié.</p>
 
 <h2>Tracción: consistente pero no excepcional</h2>
-<p>La tracción de la Curry 13 es buena (8/10) pero no llega a la excelencia de la GT Cut 4 o la AE 3 en superficies perfectas. El patrón multidireccional funciona bien en pabellones limpios. En pistas con polvo o ligeramente húmedas, la Curry 13 aguanta mejor que la media gracias al compuesto de goma de UA.</p>
-<p>El UA Flow sin goma en el antepié es más deslizante en surfaces no ideales que un patrón herringbone clásico. Si tu pabellón no se barre bien, considera la AE 3 o la GT Cut 4 como alternativas más fiables.</p>
+<p>La tracción de la Curry 13 es buena (8/10) pero no llega a la excelencia de la GT Cut 4 o la AE 2 en superficies perfectas. El patrón multidireccional funciona bien en pabellones limpios. En pistas con polvo o ligeramente húmedas, la Curry 13 aguanta mejor que la media gracias al compuesto de goma de UA.</p>
+<p>El UA Flow sin goma en el antepié es más deslizante en surfaces no ideales que un patrón herringbone clásico. Si tu pabellón no se barre bien, considera la AE 2 o la GT Cut 4 como alternativas más fiables.</p>
 
 <h2>Cushion y protección</h2>
 <p>La midsole ofrece un cushion <strong>8/10</strong> — generosa para una zapatilla tan reactiva. No es el nivel de stack de la LeBron 22, pero protege bien para el juego de Curry: aterrizajes controlados de un guard de 86 kg que rara vez domina la pintura. Para pívots o jugadores de 90 kg+, puede quedarse corta en sesiones largas.</p>
@@ -1663,15 +1663,15 @@ export const ARTICLES: Article[] = [
 
 <h2>Soporte y estabilidad: el punto fuerte</h2>
 <p>Aquí la Curry 13 destaca claramente sobre sus rivales directos. El sistema Warp distribuye las fuerzas de los cortes de forma más uniforme, y la geometría del talón con el counter rígido ofrece una estabilidad lateral excepcional para un zapato low-top (8/10). Ideal para jugadores con historial leve de esguinces que no quieren renunciar a la libertad de movimiento del low-top.</p>
-<p>Si compararas la Curry 13 con la AE 3 en estabilidad lateral, la Curry gana claramente. Si la comparas con un mid-top como la Tatum 4, la Tatum gana. Para la mayoría de guards con tobillos razonablemente estables, la Curry 13 ofrece más que suficiente.</p>
+<p>Si compararas la Curry 13 con la AE 2 en estabilidad lateral, la Curry gana claramente. Si la comparas con un mid-top como la Tatum 4, la Tatum gana. Para la mayoría de guards con tobillos razonablemente estables, la Curry 13 ofrece más que suficiente.</p>
 
 <h2>Peso y comfort</h2>
-<p>La Curry 13 pesa <strong>~330g</strong> en talla 44, ligeramente menos que la AE 3 (~350g). El comfort general es alto desde el primer uso — el sistema Warp evita los puntos de presión comunes en zapatos con upper rígido. La lengüeta acolchada y el collar de tobillo bien acabado se notan desde el día uno.</p>
+<p>La Curry 13 pesa <strong>~330g</strong> en talla 44, ligeramente menos que la AE 2 (~350g). El comfort general es alto desde el primer uso — el sistema Warp evita los puntos de presión comunes en zapatos con upper rígido. La lengüeta acolchada y el collar de tobillo bien acabado se notan desde el día uno.</p>
 
-<h2>AE 3 vs Curry 13: ¿cuál elegir?</h2>
+<h2>AE 2 vs Curry 13: ¿cuál elegir?</h2>
 <p>Son los dos mejores zapatos de guard de 2025 y la elección depende de tu perfil:</p>
 <ul>
-  <li><strong>Elige la AE 3 si:</strong> priorizas la tracción, juegas en pabellones con polvo, tienes pie medio-ancho, o tu presupuesto es 130€</li>
+  <li><strong>Elige la AE 2 si:</strong> priorizas la tracción, juegas en pabellones con polvo, tienes pie medio-ancho, o tu presupuesto es 130€</li>
   <li><strong>Elige la Curry 13 si:</strong> priorizas estabilidad lateral y court feel, juegas en pabellones limpios, quieres el mejor ajuste customizable, o tienes historial leve de esguinces</li>
   <li><strong>Si tienes 90 kg+:</strong> ninguna de las dos es tu primera opción — considera la LeBron 22, Jordan Tatum 4 o Fresh Foam BB v3</li>
 </ul>
@@ -1689,7 +1689,7 @@ export const ARTICLES: Article[] = [
     title: "Jordan Tatum 4 análisis: la zapatilla más versátil de 2025",
     metaTitle: "Jordan Tatum 4 análisis 2025: cushion, tracción, precio | CANCHA.ZAPA",
     description:
-      "Análisis técnico completo de las Jordan Tatum 4 (Jayson Tatum): cushion, soporte lateral, ajuste y comparativa con AE 3, Curry 13 y GT Cut 4. ¿La zapatilla más versátil del mercado?",
+      "Análisis técnico completo de las Jordan Tatum 4 (Jayson Tatum): cushion, soporte lateral, ajuste y comparativa con AE 2, Curry 13 y GT Cut 4. ¿La zapatilla más versátil del mercado?",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
     categoria: "Análisis",
@@ -1698,14 +1698,14 @@ export const ARTICLES: Article[] = [
     heroTitle: "Jordan Tatum 4 análisis",
     heroSubtitle: "La zapatilla de Jayson Tatum — ¿la más versátil de 2025?",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["jordan-tatum-4", "adidas-ae-3", "ua-curry-13", "nike-gt-cut-4", "nike-lebron-23"],
+    relatedShoes: ["jordan-tatum-4", "adidas-ae-2", "ua-curry-13", "nike-gt-cut-4", "nike-lebron-23"],
     relatedSeoPages: ["zapatillas-cushion", "zapatillas-equilibradas", "mejor-zapatilla-alero"],
     body: `
 <p class="art-intro">Jayson Tatum es el alero completo de la era moderna: anota, rebota, defiende y corre la pista entera. Su zapatilla tiene que hacer lo mismo. La Jordan Tatum 4 es nuestra zapatilla más equilibrada de 2025 — no es la mejor en ningún atributo individual, pero no falla en ninguno. Para la mayoría de jugadores amateurs, eso es exactamente lo que necesitan.</p>
 
 <h2>Contexto: Jayson Tatum y la línea Tatum</h2>
 <p>Jayson Tatum (Boston Celtics, All-Star, campeón NBA 2024) es el prototipo del alero moderno. Su juego combina explosividad, finesse y versatilidad defensiva. La línea Tatum nació en 2022 y la Tatum 4 es la evolución más madura: más cushion, mejor soporte, construcción más premium.</p>
-<p>El precio MSRP es ~140-150€, situándola en el segmento premium-accessible — por encima de la AE 3 (130€) pero por debajo de la LeBron 22 (180€) o la Nike GT Cut 4 (165€).</p>
+<p>El precio MSRP es ~140-150€, situándola en el segmento premium-accessible — por encima de la AE 2 (130€) pero por debajo de la LeBron 22 (180€) o la Nike GT Cut 4 (165€).</p>
 
 <h2>Tecnología: Zoom Air + React</h2>
 <p>La Jordan Tatum 4 usa una combinación de:</p>
@@ -1720,18 +1720,18 @@ export const ARTICLES: Article[] = [
 <p>El cushion no sacrifica el court feel gracias al Zoom en el antepié. Otros zapatos con tanto cushion (LeBron 22, Witness) se sienten "esponjosos" — la Tatum 4 mantiene conexión con el suelo.</p>
 
 <h2>Tracción</h2>
-<p>El patrón multidireccional de la Tatum 4 es sólido (8/10) aunque no excepcional. En pabellones limpios, agarra en todas las direcciones sin problema. En suelo con polvo, necesitas limpiar la suela con regularidad. No llega al nivel de la AE 3 o la GT Cut 4 en tracción pura, pero tampoco decepciona.</p>
+<p>El patrón multidireccional de la Tatum 4 es sólido (8/10) aunque no excepcional. En pabellones limpios, agarra en todas las direcciones sin problema. En suelo con polvo, necesitas limpiar la suela con regularidad. No llega al nivel de la AE 2 o la GT Cut 4 en tracción pura, pero tampoco decepciona.</p>
 
 <h2>Soporte lateral y estabilidad: el punto diferencial</h2>
-<p>Aquí la Tatum 4 destaca sobre sus rivales más explosivos (AE 3, GT Cut 4, Curry 13). La construcción high-top ofrece soporte real de tobillo — no solo estético. El collar acolchado está diseñado para contener el tobillo en los cortes laterales sin restringir el movimiento vertical.</p>
+<p>Aquí la Tatum 4 destaca sobre sus rivales más explosivos (AE 2, GT Cut 4, Curry 13). La construcción high-top ofrece soporte real de tobillo — no solo estético. El collar acolchado está diseñado para contener el tobillo en los cortes laterales sin restringir el movimiento vertical.</p>
 <p>Para jugadores con historial de esguinces leves o que simplemente quieren más seguridad en los cortes, la Tatum 4 ofrece el mejor soporte lateral de la gama sin llegar al extremo restrictivo de los LeBron 22 más altos. Score: <strong>9/10</strong>.</p>
 
 <h2>Ajuste y horma</h2>
 <p>La Tatum 4 tiene horma <strong>media</strong>, ligeramente más estrecha que la LeBron 22 pero más generosa que la GT Cut 4 o la Kyrie. Para la mayoría de pies normales, encaja perfectamente en talla habitual. Los que tienen pie ancho pueden necesitar media talla más — en talla habitual el antepié puede quedar justo.</p>
-<p>El upper construido en materiales sintéticos de alta densidad es sólido pero transpira menos que el flyknit de la AE 3. Para sesiones largas o pabellones calurosos, la ventilación es un punto débil.</p>
+<p>El upper construido en materiales sintéticos de alta densidad es sólido pero transpira menos que el flyknit de la AE 2. Para sesiones largas o pabellones calurosos, la ventilación es un punto débil.</p>
 
 <h2>Peso: el único punto negativo</h2>
-<p>La Tatum 4 pesa aproximadamente <strong>390g</strong> en talla 44 — más que la AE 3 (350g), la Curry 13 (330g) o la GT Cut 4 (305g). Para una zapatilla de alero versátil, ese peso se nota en sesiones largas. No es un dealbreaker para jugadores de posición 3-4, pero si eres un base que necesita máxima agilidad, el peso es un factor.</p>
+<p>La Tatum 4 pesa aproximadamente <strong>390g</strong> en talla 44 — más que la AE 2 (350g), la Curry 13 (330g) o la GT Cut 4 (305g). Para una zapatilla de alero versátil, ese peso se nota en sesiones largas. No es un dealbreaker para jugadores de posición 3-4, pero si eres un base que necesita máxima agilidad, el peso es un factor.</p>
 
 <h2>¿Para quién es la Jordan Tatum 4?</h2>
 <p>La Tatum 4 es perfecta para:</p>
@@ -1754,7 +1754,7 @@ export const ARTICLES: Article[] = [
     <tr style="border-bottom:2px solid #f97316">
       <th style="padding:8px;text-align:left;color:#fff">Atributo</th>
       <th style="padding:8px;text-align:center;color:#f97316">Tatum 4</th>
-      <th style="padding:8px;text-align:center;color:#e4e4e7">AE 3</th>
+      <th style="padding:8px;text-align:center;color:#e4e4e7">AE 2</th>
       <th style="padding:8px;text-align:center;color:#e4e4e7">Curry 13</th>
       <th style="padding:8px;text-align:center;color:#e4e4e7">GT Cut 4</th>
     </tr>
@@ -1812,13 +1812,13 @@ export const ARTICLES: Article[] = [
     heroTitle: "Nike LeBron 22",
     heroSubtitle: "El Rolls Royce del cushion — análisis honesto 2025",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-lebron-22", "jordan-tatum-4", "nb-fresh-foam-bb-v3", "ua-curry-13", "adidas-ae-3"],
+    relatedShoes: ["nike-lebron-22", "jordan-tatum-4", "nb-fresh-foam-bb-v3", "ua-curry-13", "adidas-ae-2"],
     relatedSeoPages: ["zapatillas-cushion", "zapatillas-baloncesto-para-rodillas", "mejor-zapatilla-pivot"],
     body: `
 <p class="art-intro">LeBron James es el jugador más dominante de la historia por volumen y longevidad. Con 39 años, sigue jugando al máximo nivel — y su zapatilla refleja esa filosofía: más protección, más soporte, más cushion. La LeBron 22 no es para todos. Es para jugadores pesados, pívots, y cualquiera que priorice la protección sobre la ligereza.</p>
 
 <h2>La filosofía LeBron: fuerza por encima de velocidad</h2>
-<p>La línea LeBron siempre ha priorizado el cushion y la estabilidad sobre la ligereza y el court feel. LeBron (2.06m, 113kg) necesita una zapatilla que absorba los impactos de décadas de juego profesional. El resultado es una zapatilla que pesa 425g — bastante más que la GT Cut 4 (305g) o la AE 3 (350g). Pero ese peso no es un defecto; es la consecuencia de un sistema de cushion genuinamente premium.</p>
+<p>La línea LeBron siempre ha priorizado el cushion y la estabilidad sobre la ligereza y el court feel. LeBron (2.06m, 113kg) necesita una zapatilla que absorba los impactos de décadas de juego profesional. El resultado es una zapatilla que pesa 425g — bastante más que la GT Cut 4 (305g) o la AE 2 (350g). Pero ese peso no es un defecto; es la consecuencia de un sistema de cushion genuinamente premium.</p>
 
 <h2>Tecnología: Air Zoom + Cushlon 3.0</h2>
 <p>La LeBron 22 combina:</p>
@@ -1833,7 +1833,7 @@ export const ARTICLES: Article[] = [
 <p>El peso de 425g en talla 44 es notable. En 40 minutos de partido, esa diferencia de 75-120g respecto a una zapatilla ligera se acumula. Para guards: descartada. Para pívots y jugadores de más de 95kg: justificada.</p>
 
 <h2>Tracción y soporte: excelente</h2>
-<p>La tracción es sólida (8/10) con un patrón multidireccional que funciona bien en pabellones limpios. No es la mejor en suelo con polvo (la AE 3 o la GT Cut 4 la superan), pero es más que suficiente para el 90% de pabellones españoles.</p>
+<p>La tracción es sólida (8/10) con un patrón multidireccional que funciona bien en pabellones limpios. No es la mejor en suelo con polvo (la AE 2 o la GT Cut 4 la superan), pero es más que suficiente para el 90% de pabellones españoles.</p>
 <p>El soporte lateral del high-top es excepcional (9/10). El collar de tobillo con espuma densa bloquea la inversión lateral de forma efectiva. Para pívots que hacen contactos constantes bajo el aro, o para cualquier jugador con historial de esguinces graves, este soporte marca una diferencia real. No es solo marketing — la construcción high-top de la LeBron 22 es genuinamente protectora.</p>
 
 <h2>¿Para quién es la LeBron 22?</h2>
@@ -2016,7 +2016,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Nike Ja 3",
     heroSubtitle: "¿La mejor zapatilla de guard de 2025?",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-ja-3", "nike-ja-2", "adidas-ae-3", "ua-curry-13", "nike-gt-cut-4"],
+    relatedShoes: ["nike-ja-3", "nike-ja-2", "adidas-ae-2", "ua-curry-13", "nike-gt-cut-4"],
     relatedSeoPages: ["mejor-zapatilla-base", "mejor-zapatilla-escolta", "mejores-zapatillas-nike"],
     body: `
 <p class="art-intro">Ja Morant tiene el primer paso más explosivo de la NBA en 2025. Y por primera vez desde la Kobe 8 Protro, hay una zapatilla de guard que realmente está diseñada para ese tipo de atletismo: ligera, reactiva, con la espuma más avanzada de Nike y una horma ancha que rompe el molde Nike clásico.</p>
@@ -2046,8 +2046,8 @@ export const ARTICLES: Article[] = [
 
 <h2>¿Cómo se compara con sus rivales?</h2>
 
-<h3>vs Adidas AE 3 (130€)</h3>
-<p>La AE 3 gana en tracción (herringbone 9/10 vs 8/10) y es más económica. La Ja 3 gana en cushion (ZoomX vs Lightstrike Pro) y es mejor para pie ancho. Para jugadores de 70-85kg en pistas algo sucias: AE 3. Para jugadores con pie ancho o que priorizan el cushion: Ja 3.</p>
+<h3>vs Adidas AE 2 (130€)</h3>
+<p>La AE 2 gana en tracción (herringbone 9/10 vs 8/10) y es más económica. La Ja 3 gana en cushion (ZoomX vs Lightstrike Pro) y es mejor para pie ancho. Para jugadores de 70-85kg en pistas algo sucias: AE 2. Para jugadores con pie ancho o que priorizan el cushion: Ja 3.</p>
 
 <h3>vs Under Armour Curry 13 (140€)</h3>
 <p>La Curry 13 tiene mejor court feel (UA Flow directo al suelo). La Ja 3 tiene mejor durabilidad outdoor y horma más fácil para pie ancho. Si juegas siempre en interior limpio: Curry 13. Si juegas ocasionalmente fuera o tienes pie ancho: Ja 3.</p>
@@ -2067,7 +2067,7 @@ export const ARTICLES: Article[] = [
 <p><strong>No es para ti si:</strong> tienes pie muy estrecho y prefieres lockdown máximo, o si buscas el court feel ultra-bajo de la Curry 13 o la GT Cut 4.</p>
 
 <h2>Disponibilidad y precio</h2>
-<p>La Ja 3 se vende en Nike.es, Foot Locker ES, JD Sports ES y Amazon ES. El precio de salida fue 135€ — actualmente el más competitivo del grupo (AE 3 a 130€, Curry 13 a 140€, GT Cut 4 a 150€). Para una zapatilla con ZoomX full-length, 135€ es una propuesta seria.</p>
+<p>La Ja 3 se vende en Nike.es, Foot Locker ES, JD Sports ES y Amazon ES. El precio de salida fue 135€ — actualmente el más competitivo del grupo (AE 2 a 130€, Curry 13 a 140€, GT Cut 4 a 150€). Para una zapatilla con ZoomX full-length, 135€ es una propuesta seria.</p>
 
 <p class="art-outro">¿No sabes si la Ja 3 encaja con tu perfil? <a href="/quiz">El quiz de CANCHA.ZAPA</a> filtra por posición, peso, tipo de pie y tipo de juego para darte las 5 más compatibles en menos de un minuto.</p>
     `,
@@ -2272,7 +2272,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Mejores zapas para bases",
     heroSubtitle: "2025-2026 · Reactividad, ligereza y primer paso",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-gt-cut-4", "ua-curry-13", "adidas-ae-3", "anta-kai-2", "nike-ja-3"],
+    relatedShoes: ["nike-gt-cut-4", "ua-curry-13", "adidas-ae-2", "anta-kai-2", "nike-ja-3"],
     relatedSeoPages: ["mejor-zapatilla-base", "zapatillas-reactivas", "zapatillas-baloncesto-baratas"],
     body: `
 <p class="art-intro">El base lleva el juego. Cada posesión empieza con el balón en tus manos y los primeros pasos determinan si el equipo abre el campo o se queda bloqueado. La zapatilla de un base tiene una misión clara: darte ventaja en el primer paso, darte agarre cuando frenas, y no pesarte cuando llegas al último cuarto. No hay sitio para concesiones.</p>
@@ -2314,7 +2314,7 @@ export const ARTICLES: Article[] = [
   <li>❌ Tracción baja en pistas con polvo (sin goma que raspa)</li>
 </ul>
 
-<h3><a href="/zapatilla/adidas-ae-3">Adidas AE 3 — 130€</a></h3>
+<h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — 130€</a></h3>
 <p><strong>El mejor equilibrio precio/rendimiento para bases.</strong> Herringbone 9/10 que funciona en parquet limpio y sucio. Lightstrike Pro reactivo pero con algo más de cushion que la GT Cut 4. 340g, horma normal. Para bases que juegan en diferentes canchas y no quieren pagar el precio premium de la GT Cut 4.</p>
 <ul>
   <li>✅ Tracción 9/10 — aguanta pistas con polvo</li>
@@ -2326,7 +2326,7 @@ export const ARTICLES: Article[] = [
 <h3><a href="/zapatilla/anta-kai-2">ANTA Kai 2 — ~119€</a></h3>
 <p><strong>La mejor relación calidad-precio del mercado + horma ancha.</strong> Kyrie Irving tiene uno de los pies más exigentes del baloncesto (ancho, con historial de tobillo) y la Kai 2 lo refleja. A-Flashfoam reactivo, tracción competente y suela que aguanta exterior moderado. Para bases con pie ancho o que no quieren gastar más de 120€, es la elección clara.</p>
 <ul>
-  <li>✅ Precio: 30€ menos que la AE 3 con 90% del rendimiento</li>
+  <li>✅ Precio: 30€ menos que la AE 2 con 90% del rendimiento</li>
   <li>✅ Horma ancha — la mejor para pies anchos del grupo</li>
   <li>✅ Outdoor moderado — suela de goma más resistente que la Curry 13</li>
   <li>❌ Respuesta algo por debajo de GT Cut 4 y Curry 13</li>
@@ -2369,7 +2369,7 @@ export const ARTICLES: Article[] = [
       <td style="padding:8px;text-align:center">140€</td>
     </tr>
     <tr style="border-bottom:1px solid #27272a">
-      <td style="padding:8px"><strong>Adidas AE 3</strong></td>
+      <td style="padding:8px"><strong>Adidas AE 2</strong></td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">340g</td>
@@ -2397,7 +2397,7 @@ export const ARTICLES: Article[] = [
 <ul>
   <li><strong>Máximo rendimiento, pie normal o estrecho, interior siempre → <a href="/zapatilla/nike-gt-cut-4">GT Cut 4</a></strong></li>
   <li><strong>Máximo court feel, juegas solo en interior, horma normal → <a href="/zapatilla/ua-curry-13">Curry 13</a></strong></li>
-  <li><strong>Mejor equilibrio precio/rendimiento, interior y outdoor → <a href="/zapatilla/adidas-ae-3">AE 3</a></strong></li>
+  <li><strong>Mejor equilibrio precio/rendimiento, interior y outdoor → <a href="/zapatilla/adidas-ae-2">AE 2</a></strong></li>
   <li><strong>Presupuesto ajustado o pie ancho → <a href="/zapatilla/anta-kai-2">ANTA Kai 2</a></strong></li>
   <li><strong>Pie ancho, quieres Nike, outdoor ocasional → <a href="/zapatilla/nike-ja-3">Ja 3</a></strong></li>
 </ul>
@@ -2421,7 +2421,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Mejores zapas para escoltas",
     heroSubtitle: "2025-2026 · Estabilidad, cortes y tiro de confianza",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["adidas-ae-3", "nike-kobe-8-protro", "ua-curry-13", "jordan-tatum-4", "nike-gt-cut-4"],
+    relatedShoes: ["adidas-ae-2", "nike-kobe-8-protro", "ua-curry-13", "jordan-tatum-4", "nike-gt-cut-4"],
     relatedSeoPages: ["mejor-zapatilla-escolta", "zapatillas-equilibradas", "zapatillas-baloncesto-130-euros"],
     body: `
 <p class="art-intro">El escolta es la posición más infravalorada cuando se trata de elegir zapatilla. Muchos escoltas copian a los bases y van a la más reactiva del mercado — y se dan cuenta en el primer partido que su juego pide más. El escolta corre sin balón (necesita ligereza), frena en seco para tirar (necesita estabilidad lateral), y defiende a jugadores más rápidos (necesita tracción constante). No es lo mismo que jugar de base.</p>
@@ -2435,7 +2435,7 @@ export const ARTICLES: Article[] = [
 
 <h2>Top 5 zapatillas para escoltas en 2025</h2>
 
-<h3><a href="/zapatilla/adidas-ae-3">Adidas AE 3 — 130€</a></h3>
+<h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — 130€</a></h3>
 <p><strong>La opción más completa del mercado para el perfil escolta-creador.</strong> El herringbone de 9/10 da agarre en cualquier condición; el Lightstrike Pro da respuesta suficiente para las penetraciones sin sacrificar el cushion. Horma normal, precio competitivo. Para escoltas que juegan en diferentes canchas y no saben si van a interior o exterior.</p>
 <ul>
   <li>✅ Tracción 9/10 — el mejor herringbone del mercado para exterior moderado</li>
@@ -2483,7 +2483,7 @@ export const ARTICLES: Article[] = [
 
 <h2>¿Cuál elegir?</h2>
 <ul>
-  <li><strong>Escolta-creador con juego de penetración → <a href="/zapatilla/adidas-ae-3">AE 3</a></strong> (mejor equilibrio precio/rendimiento)</li>
+  <li><strong>Escolta-creador con juego de penetración → <a href="/zapatilla/adidas-ae-2">AE 2</a></strong> (mejor equilibrio precio/rendimiento)</li>
   <li><strong>Tirador puro de posición fija → <a href="/zapatilla/nike-kobe-8-protro">Kobe 8 Protro</a></strong> o <strong><a href="/zapatilla/ua-curry-13">Curry 13</a></strong> (court feel para el tiro)</li>
   <li><strong>Escolta físico, 85kg+, juego por dentro → <a href="/zapatilla/jordan-tatum-4">Tatum 4</a></strong> (estabilidad y cushion)</li>
   <li><strong>Escolta muy rápido, pie normal/estrecho → <a href="/zapatilla/nike-gt-cut-4">GT Cut 4</a></strong> (máxima reactividad)</li>
@@ -2652,7 +2652,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "UA Flow vs ZoomX vs Max Air",
     heroSubtitle: "Guía técnica de espumas de baloncesto 2025",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["ua-curry-13", "jordan-40", "nike-lebron-23", "adidas-ae-3", "nike-ja-3"],
+    relatedShoes: ["ua-curry-13", "jordan-40", "nike-lebron-23", "adidas-ae-2", "nike-ja-3"],
     relatedSeoPages: ["zapatillas-cushion", "zapatillas-reactivas", "mejores-zapatillas-baloncesto-2025"],
     body: `
 <p class="art-intro">La entresuela es el componente más importante de una zapatilla de baloncesto. Es lo que determina si sientes el suelo o flotas sobre él, si tus rodillas se resienten al tercer partido o aguantan toda la temporada. En 2025, cada marca tiene su tecnología propia — y entender sus diferencias te ayuda a elegir sin dejarte llevar por el marketing.</p>
@@ -2683,8 +2683,8 @@ export const ARTICLES: Article[] = [
 <h3>Lightstrike Pro (Adidas)</h3>
 <p><strong>Qué es:</strong> La espuma premium de Adidas para baloncesto y atletismo. Una espuma de TPU modificado que equilibra cushion y respuesta. Más firme que el ZoomX pero más reactiva que el Bounce foam convencional de Adidas.</p>
 <p><strong>Cómo se siente:</strong> El equilibrio más honesto del mercado. No es la que más cushion da (Max Air la supera) ni la más reactiva (ZoomX o UA Flow la superan), pero tiene un score medio muy alto en todos los atributos. Para jugadores que no quieren extremos, es la referencia.</p>
-<p><strong>El problema:</strong> Es cara de fabricar, por eso aparece solo en los modelos signature premium de Adidas (AE 3, Harden Vol 9). Las versiones económicas de Adidas usan Bounce, que es inferior.</p>
-<p><strong>Modelos que la usan:</strong> Adidas AE 3, Adidas Harden Vol 9, Adidas Trae Young 3.</p>
+<p><strong>El problema:</strong> Es cara de fabricar, por eso aparece solo en los modelos signature premium de Adidas (AE 2, Harden Vol 9). Las versiones económicas de Adidas usan Bounce, que es inferior.</p>
+<p><strong>Modelos que la usan:</strong> Adidas AE 2, Adidas Harden Vol 9, Adidas Trae Young 3.</p>
 <p><strong>Puntuación relativa:</strong> Respuesta 8/10 · Cushion 8/10 · Estabilidad 8/10</p>
 
 <h2>Comparativa directa</h2>
@@ -2739,7 +2739,7 @@ export const ARTICLES: Article[] = [
   <li><strong>Base o escolta que prioriza court feel y plays en interior → UA Flow</strong> (UA Curry 13). No hay nada como sentir el suelo directamente.</li>
   <li><strong>Guard o alero que quiere bounce con cushion decente → ZoomX</strong> (Nike Ja 3, Air Jordan 40). El mejor equilibrio cushion-respuesta del mercado.</li>
   <li><strong>Pívot o ala-pívot de 90kg+ que necesita protección máxima → Max Air</strong> (Nike LeBron 22/23). El cushion que no colapsa.</li>
-  <li><strong>Cualquier posición que busca el mejor equilibrio sin extremos → Lightstrike Pro</strong> (Adidas AE 3, Harden Vol 9). El sweet spot del mercado.</li>
+  <li><strong>Cualquier posición que busca el mejor equilibrio sin extremos → Lightstrike Pro</strong> (Adidas AE 2, Harden Vol 9). El sweet spot del mercado.</li>
 </ul>
 
 <p class="art-outro">¿No sabes qué espuma encaja con tu perfil? El <a href="/quiz">quiz de CANCHA.ZAPA</a> usa tus respuestas de posición, peso y estilo de juego para filtrarte automáticamente las zapatillas con la espuma más adecuada para ti.</p>
@@ -2761,7 +2761,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Puma MB.05",
     heroSubtitle: "¿La mejor Puma de baloncesto de 2025?",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["puma-mb05", "puma-mb-04", "puma-mb03", "adidas-ae-3", "ua-curry-13"],
+    relatedShoes: ["puma-mb05", "puma-mb-04", "puma-mb03", "adidas-ae-2", "ua-curry-13"],
     relatedSeoPages: ["mejores-zapatillas-puma", "mejor-zapatilla-base", "mejores-zapatillas-baloncesto-2025"],
     body: `
 <p class="art-intro">LaMelo Ball es el jugador más estiloso de la NBA en 2025 y eso se nota en su línea de calzado. Las MB.03 y MB.04 generaron mucha expectación — algunas la amaron, otras la odiaron. La MB.05 llega en 2025 como la más madura de la serie. ¿Cumple las expectativas?</p>
@@ -2773,12 +2773,12 @@ export const ARTICLES: Article[] = [
 <p>La MB.05 usa Nitro Elite foam — la versión avanzada del Nitro que Puma también usa en sus zapatillas de running de alta gama. Es una espuma de PEBA modificado, similar en concepto al ZoomX de Nike pero con una formulación propia. El resultado:</p>
 <ul>
   <li><strong>Bounce mayor que la MB.04:</strong> el Nitro Elite es más reactivo que el Nitro estándar de la MB.04. En los primeros pasos se nota la diferencia — hay más energía de retorno.</li>
-  <li><strong>Cushion 8/10:</strong> más suave que la AE 3 (Lightstrike Pro más firme) pero menos que el ZoomX. Para un guard de 75-90kg es suficiente y protector.</li>
-  <li><strong>Ligereza:</strong> la MB.05 pesa alrededor de 330g — similar a la AE 3, más que la GT Cut 4. Para su nivel de cushion, es un peso muy competitivo.</li>
+  <li><strong>Cushion 8/10:</strong> más suave que la AE 2 (Lightstrike Pro más firme) pero menos que el ZoomX. Para un guard de 75-90kg es suficiente y protector.</li>
+  <li><strong>Ligereza:</strong> la MB.05 pesa alrededor de 330g — similar a la AE 2, más que la GT Cut 4. Para su nivel de cushion, es un peso muy competitivo.</li>
 </ul>
 
 <h2>Tracción: el punto débil de la serie</h2>
-<p>El patrón de suela de la MB.05 ha sido siempre el punto más criticado de la línea Ball. El problema no es el agarre en sí (es decente en parquet limpio) sino la consistencia: en pistas con algo de polvo, la suela de la MB.05 pierde tracción más rápido que la AE 3 o la Curry 13. El patrón es bonito pero no tan funcional como el herringbone clásico.</p>
+<p>El patrón de suela de la MB.05 ha sido siempre el punto más criticado de la línea Ball. El problema no es el agarre en sí (es decente en parquet limpio) sino la consistencia: en pistas con algo de polvo, la suela de la MB.05 pierde tracción más rápido que la AE 2 o la Curry 13. El patrón es bonito pero no tan funcional como el herringbone clásico.</p>
 <p><strong>Tracción en limpio: 8/10. En pistas con polvo: 6/10.</strong> Si tu pista está impecable, bien. Si es de las pistas de barrio que no se limpian desde el miércoles, el agarre flojea.</p>
 
 <h2>Soporte lateral y tobillo</h2>
@@ -2805,10 +2805,10 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h2>¿Vale los 139€?</h2>
-<p>El precio de 139€ la pone en competencia directa con la Adidas AE 3 (130€) y la UA Curry 13 (140€). Mi veredicto honesto:</p>
+<p>El precio de 139€ la pone en competencia directa con la Adidas AE 2 (130€) y la UA Curry 13 (140€). Mi veredicto honesto:</p>
 <ul>
   <li>Si tienes la pista siempre limpia: <strong>sí, la MB.05 vale 139€</strong>. El Nitro Elite es una espuma premium y el conjunto es muy competitivo.</li>
-  <li>Si juegas en pistas con polvo frecuente: elige la <strong>AE 3</strong> — la tracción herringbone es más consistente.</li>
+  <li>Si juegas en pistas con polvo frecuente: elige la <strong>AE 2</strong> — la tracción herringbone es más consistente.</li>
   <li>Si priorizas el court feel y juegas solo en interior: elige la <strong>Curry 13</strong> — la UA Flow da una sensación que el Nitro Elite no puede replicar.</li>
 </ul>
 
@@ -2834,7 +2834,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Nike Kobe 8 Protro",
     heroSubtitle: "La referencia para tiradores en 2025",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-kobe-8-protro", "nike-gt-cut-4", "ua-curry-13", "adidas-ae-3", "nike-kobe-9-low-protro"],
+    relatedShoes: ["nike-kobe-8-protro", "nike-gt-cut-4", "ua-curry-13", "adidas-ae-2", "nike-kobe-9-low-protro"],
     relatedSeoPages: ["mejor-zapatilla-escolta", "zapatillas-reactivas", "mejores-zapatillas-nike"],
     body: `
 <p class="art-intro">Kobe Bryant no necesitaba una zapatilla de moda. Necesitaba la que le diera ventaja en décimas de segundo. La Kobe 8 Protro es la reedición de la zapatilla que Kobe usó durante la temporada 2012-13 — y en 2025 sigue siendo una de las más reactivas del mercado. Esto no es nostalgia. Es ingeniería que aguanta el paso del tiempo.</p>
@@ -2852,7 +2852,7 @@ export const ARTICLES: Article[] = [
 <p>El Zoom Air Strobel recorre toda la longitud de la zapatilla. En la Protro, está configurado para firmeza máxima — más reactivo que cushion absorbente. Cuando saltas y aterrizas en tiro, el Strobel devuelve energía rápido. Los 280g que pesa la zapatilla tampoco ayudan a frenar ese retorno.</p>
 
 <h3>Suela herringbone de carbon</h3>
-<p>El patrón herringbone de carbono de la Kobe 8 es uno de los diseños más copiados de la historia del baloncesto. No en vano: en parquet limpio, la tracción es excepcional. El problema: en pistas con polvo o suciedad, la goma fina se desliza antes que la goma más gruesa de la GT Cut 4 o la AE 3.</p>
+<p>El patrón herringbone de carbono de la Kobe 8 es uno de los diseños más copiados de la historia del baloncesto. No en vano: en parquet limpio, la tracción es excepcional. El problema: en pistas con polvo o suciedad, la goma fina se desliza antes que la goma más gruesa de la GT Cut 4 o la AE 2.</p>
 
 <h2>Puntuación técnica CANCHA.ZAPA</h2>
 <ul>
@@ -2901,7 +2901,7 @@ export const ARTICLES: Article[] = [
       <td style="padding:8px;text-align:center">140€</td>
     </tr>
     <tr>
-      <td style="padding:8px"><strong>Adidas AE 3</strong></td>
+      <td style="padding:8px"><strong>Adidas AE 2</strong></td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">340g</td>
@@ -2923,7 +2923,7 @@ export const ARTICLES: Article[] = [
 <p><strong>No es para ti si:</strong> pesas más de 90kg (el cushion no es suficiente para esos impactos), tienes pie ancho (la horma es estrecha), juegas en exterior o en pistas con polvo.</p>
 
 <h2>¿Vale los 180€?</h2>
-<p>La pregunta del millón. Mi respuesta: sí, para el perfil correcto, sí vale. La Kobe 8 Protro ofrece algo que la GT Cut 4 a 150€ no tiene: el perfil más bajo del mercado con 10/10 en respuesta y 280g. Para un tirador puro, esa diferencia se nota en cada tiro. Para el resto de jugadores, la GT Cut 4 o la AE 3 son decisiones más inteligentes.</p>
+<p>La pregunta del millón. Mi respuesta: sí, para el perfil correcto, sí vale. La Kobe 8 Protro ofrece algo que la GT Cut 4 a 150€ no tiene: el perfil más bajo del mercado con 10/10 en respuesta y 280g. Para un tirador puro, esa diferencia se nota en cada tiro. Para el resto de jugadores, la GT Cut 4 o la AE 2 son decisiones más inteligentes.</p>
 
 <p class="art-outro">¿La Kobe 8 Protro es para tu perfil? El <a href="/quiz">quiz de CANCHA.ZAPA</a> evalúa tu posición, estilo de juego y tipo de pie para decirte si es tu match o si hay algo más adecuado. Sin ambigüedades.</p>
     `,
@@ -2943,7 +2943,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Mejores calcetines de baloncesto",
     heroSubtitle: "2025-2026 · Nike, Adidas, UA, Stance — cuál te toca",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-gt-cut-4", "adidas-ae-3", "ua-curry-13", "nike-ja-3"],
+    relatedShoes: ["nike-gt-cut-4", "adidas-ae-2", "ua-curry-13", "nike-ja-3"],
     relatedSeoPages: ["zapatillas-baloncesto-retro", "zapatillas-baloncesto-baratas"],
     body: `
 <p class="art-intro">Un buen calcetín técnico mejora la tracción, la amortiguación y la prevención de ampollas. Suena exagerado hasta que llevas años con calcetines de algodón y pruebas unos Nike Elite por primera vez. La diferencia es real y cuesta 12-16€.</p>
@@ -2969,7 +2969,7 @@ export const ARTICLES: Article[] = [
 <p><strong>Precio:</strong> ~13€ · <a href="https://www.amazon.es/s?k=nike+elite+lightweight+crew+calcetines+baloncesto&tag=canchazapa-21" target="_blank" rel="noopener noreferrer sponsored">Ver en Amazon →</a></p>
 
 <h3>Adidas Cushioned Crew 3-Pack — la relación calidad-precio</h3>
-<p>Adidas ofrece sus calcetines técnicos en pack de 3, lo que baja el coste por par a ~4€. El tejido es Climalite (equivalente al Dri-FIT de Nike), el cushion es sólido aunque menos específico que la Elite, y la horma encaja especialmente bien con las zapas Adidas (AE 3, Harden, Dame).</p>
+<p>Adidas ofrece sus calcetines técnicos en pack de 3, lo que baja el coste por par a ~4€. El tejido es Climalite (equivalente al Dri-FIT de Nike), el cushion es sólido aunque menos específico que la Elite, y la horma encaja especialmente bien con las zapas Adidas (AE 2, Harden, Dame).</p>
 <p><strong>Mejor para:</strong> jugadores con zapas Adidas, presupuesto ajustado, entrenadores que necesitan muchos pares.</p>
 <p><strong>Precio:</strong> ~12€ el pack · <a href="https://www.amazon.es/s?k=adidas+cushioned+crew+calcetines+baloncesto+pack&tag=canchazapa-21" target="_blank" rel="noopener noreferrer sponsored">Ver en Amazon →</a></p>
 
@@ -3071,7 +3071,7 @@ export const ARTICLES: Article[] = [
     <li><strong style="color:#e4e4e7">Zapatilla retro o barata</strong> → Sof Sole Athlete</li>
     <li><strong style="color:#e4e4e7">Historial de lesiones tobillo/rodilla</strong> → Bauerfeind Sports</li>
     <li><strong style="color:#e4e4e7">Pie neutro, quieres algo entre rigidez y flexibilidad</strong> → Currex SupportST</li>
-    <li><strong style="color:#e4e4e7">Zapatilla premium moderna (LeBron, AE 3, Curry 13)</strong> → No necesitas plantilla</li>
+    <li><strong style="color:#e4e4e7">Zapatilla premium moderna (LeBron, AE 2, Curry 13)</strong> → No necesitas plantilla</li>
   </ul>
 </div>
 
@@ -3135,7 +3135,7 @@ export const ARTICLES: Article[] = [
 
 <h2>¿Merecen la pena las Crazy 8 hoy para jugar?</h2>
 <p>La respuesta honesta: depende. El herringbone outsole de la Crazy 8 sigue siendo uno de los mejores patrones de tracción jamás diseñados — funciona perfectamente en parqué interior limpio. El cushion de Adiprene es modesto comparado con espumas modernas, pero más que suficiente para sesiones recreativas.</p>
-<p>Lo que no tiene sentido es comprarlas esperando el rendimiento de una AE 3 o una GT Cut. Son zapatillas retro con tecnología de 1998. La propuesta correcta es: si te gusta el estilo, si eres fan de la era Kobe-Adidas, o si simplemente quieres algo distinto en pista, son una opción válida. Para rendimiento puro, mira el catálogo moderno.</p>
+<p>Lo que no tiene sentido es comprarlas esperando el rendimiento de una AE 2 o una GT Cut. Son zapatillas retro con tecnología de 1998. La propuesta correcta es: si te gusta el estilo, si eres fan de la era Kobe-Adidas, o si simplemente quieres algo distinto en pista, son una opción válida. Para rendimiento puro, mira el catálogo moderno.</p>
 
 <p class="art-outro">¿Quieres comparar las Crazy 8 con las mejores zapatillas actuales? El <a href="/rankings">ranking de CANCHA.ZAPA</a> incluye la pestaña Retro para que veas exactamente dónde se posicionan frente a los clásicos de la era.</p>
     `,
@@ -3304,7 +3304,7 @@ export const ARTICLES: Article[] = [
 
 <ul>
   <li><strong>Low-top</strong> (Kobe 4/5/6, Ja 3, GT Cut 4): calcetín <strong>corto o medio</strong>.</li>
-  <li><strong>Mid-top</strong> (AE 3, Curry 13, LeBron 22): calcetín <strong>medio</strong> — el más natural.</li>
+  <li><strong>Mid-top</strong> (AE 2, Curry 13, LeBron 22): calcetín <strong>medio</strong> — el más natural.</li>
   <li><strong>High-top</strong> (Air Jordan 11, Reebok Question, Trae Young): calcetín <strong>medio o largo</strong>.</li>
 </ul>
 
@@ -3343,7 +3343,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Cómo limpiar y cuidar tus zapatillas",
     heroSubtitle: "Que la tracción y la espuma duren más · Sin mitos",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-gt-cut-4", "adidas-ae-3", "ua-curry-13", "jordan-tatum-4"],
+    relatedShoes: ["nike-gt-cut-4", "adidas-ae-2", "ua-curry-13", "jordan-tatum-4"],
     relatedSeoPages: ["zapatillas-baloncesto-outdoor", "zapatillas-baloncesto-baratas"],
     body: `
 <p class="art-intro">Una zapatilla de baloncesto se juega, no se exhibe. Pero unos cuidados básicos marcan la diferencia entre que la tracción te dure una temporada o dos, y entre una mediasuela que aguanta o una que se descompone antes de tiempo. Aquí va lo que sí importa y lo que es mito.</p>
@@ -3401,7 +3401,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "¿Cada cuánto cambiar las zapatillas?",
     heroSubtitle: "Señales claras de que la mediasuela está muerta",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-lebron-23", "ua-curry-13", "nike-gt-cut-4", "adidas-ae-3"],
+    relatedShoes: ["nike-lebron-23", "ua-curry-13", "nike-gt-cut-4", "adidas-ae-2"],
     relatedSeoPages: ["zapatillas-baloncesto-rodillas", "zapatillas-baloncesto-baratas"],
     body: `
 <p class="art-intro">No hay un número mágico de meses, pero sí hay señales objetivas. La clave no es cómo se ven por fuera — es lo que ha pasado con la mediasuela y la tracción por dentro. Jugar con una zapatilla "muerta" es la forma más tonta de acabar con dolor de rodillas o un tobillo torcido.</p>
@@ -3449,7 +3449,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Baloncesto vs running",
     heroSubtitle: "¿Puedo usar unas por otras? La respuesta corta: no",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-gt-cut-4", "adidas-ae-3", "nike-precision-7", "ua-curry-13"],
+    relatedShoes: ["nike-gt-cut-4", "adidas-ae-2", "nike-precision-7", "ua-curry-13"],
     relatedSeoPages: ["zapatillas-baloncesto-baratas", "zapatillas-baloncesto-outdoor"],
     body: `
 <p class="art-intro">Es una de las preguntas más repetidas, sobre todo a la hora de ahorrar: "tengo unas de running buenas, ¿me valen para jugar?". La respuesta honesta es no, y no es por venderte otra zapatilla — es por cómo está diseñada cada una y por tu integridad física.</p>
@@ -3550,7 +3550,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "El nudo que fija el talón",
     heroSubtitle: "Heel lock: más sujeción gratis, en 20 segundos",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-gt-cut-4", "adidas-ae-3", "ua-curry-13", "jordan-tatum-4"],
+    relatedShoes: ["nike-gt-cut-4", "adidas-ae-2", "ua-curry-13", "jordan-tatum-4"],
     relatedSeoPages: ["zapatillas-baloncesto-para-tobillos", "zapatillas-baloncesto-pie-ancho"],
     body: `
 <p class="art-intro">Tu zapatilla puede sujetar mucho mejor sin gastar un euro. La mayoría de jugadores ignoran el último par de ojales y el nudo heel lock — justamente los que fijan el talón y eliminan el deslizamiento interno que causa rozaduras y pérdida de control.</p>
