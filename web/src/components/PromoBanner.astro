@@ -1,0 +1,115 @@
+---
+// PromoBanner.astro — franja fina de promos activas (afiliados).
+// Se renderiza oculta y un script la muestra SOLO si hay promo vigente hoy
+// (gating por fecha en cliente, porque la web es estática) y no fue cerrada.
+import { PROMOS } from "../data/promos";
+
+// Serializamos solo lo que el cliente necesita.
+const promosData = PROMOS.map((p) => ({
+  id: p.id,
+  tiendaLabel: p.tiendaLabel,
+  titulo: p.titulo,
+  desde: p.desde,
+  hasta: p.hasta,
+  url: p.url ?? null,
+  maxDesc: p.codigos?.length ? Math.max(...p.codigos.map((c) => c.descuento)) : null,
+  codigo: p.codigo ?? null,
+  descuentoTexto: p.descuentoTexto ?? null,
+  color: p.color ?? "#f97316",
+}));
+---
+
+<div id="cz-promo-banner" class="cz-promo-banner" hidden>
+  <div class="cz-promo-inner">
+    <span class="cz-promo-text" id="cz-promo-text"></span>
+    <a id="cz-promo-cta" class="cz-promo-cta" href="#" target="_blank" rel="sponsored noopener" hidden>Ver en tienda →</a>
+    <button id="cz-promo-close" class="cz-promo-close" aria-label="Cerrar aviso">×</button>
+  </div>
+</div>
+
+<style>
+  .cz-promo-banner {
+    position: relative;
+    z-index: 30;
+    background: var(--cz-promo-accent, #f97316);
+    color: #0c0c0c;
+  }
+  .cz-promo-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 7px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .cz-promo-text {
+    font-size: 12.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+  .cz-promo-cta {
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #0c0c0c;
+    text-decoration: underline;
+    white-space: nowrap;
+  }
+  .cz-promo-close {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #0c0c0c;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    font-weight: 700;
+    opacity: 0.7;
+  }
+  .cz-promo-close:hover { opacity: 1; }
+  @media (max-width: 600px) {
+    .cz-promo-inner { padding: 7px 34px 7px 14px; gap: 8px; }
+    .cz-promo-text { font-size: 11px; }
+  }
+</style>
+
+<script is:inline define:vars={{ promosData }}>
+  (function () {
+    try {
+      var now = Date.now();
+      var active = promosData.filter(function (p) {
+        return now >= new Date(p.desde).getTime() && now <= new Date(p.hasta).getTime();
+      });
+      if (!active.length) return;
+      var p = active[0]; // si hubiera varias, mostramos la primera
+      if (localStorage.getItem("cz.promo.dismissed." + p.id)) return;
+
+      var fin = new Date(p.hasta).toLocaleDateString("es-ES", { day: "numeric", month: "short" });
+      var resumen;
+      if (p.maxDesc) resumen = "hasta −" + p.maxDesc + "€ con código";
+      else if (p.codigo) resumen = (p.descuentoTexto || "descuento") + " · código " + p.codigo;
+      else resumen = p.descuentoTexto || "oferta activa";
+
+      var banner = document.getElementById("cz-promo-banner");
+      var text = document.getElementById("cz-promo-text");
+      var cta = document.getElementById("cz-promo-cta");
+      banner.style.setProperty("--cz-promo-accent", p.color);
+      text.textContent = "🔥 " + p.tiendaLabel + " · " + p.titulo + ": " + resumen + " · hasta " + fin;
+      if (p.url) { cta.href = p.url; cta.hidden = false; }
+      banner.hidden = false;
+
+      document.getElementById("cz-promo-close").addEventListener("click", function () {
+        banner.hidden = true;
+        try { localStorage.setItem("cz.promo.dismissed." + p.id, "1"); } catch (e) {}
+      });
+    } catch (e) {}
+  })();
+</script>

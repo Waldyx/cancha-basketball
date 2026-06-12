@@ -7,6 +7,7 @@ import CommandPalette from "../components/CommandPalette.astro";
 import CookieBanner from "../components/CookieBanner.astro";
 import Analytics from "../components/Analytics.astro";
 import ChatWidget from "../components/ChatWidget.astro";
+import PromoBanner from "../components/PromoBanner.astro";
 
 interface Props {
   title: string;
@@ -133,6 +134,9 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro
   <body class="antialiased" style="min-height:100vh;display:flex;flex-direction:column">
     <!-- Skip-to-content para usuarios de teclado / lectores de pantalla -->
     <a href="#main-content" class="skip-to-content">Saltar al contenido</a>
+
+    <!-- Franja de promos de afiliados (se muestra sola si hay alguna vigente hoy) -->
+    <PromoBanner />
 
     <!-- Cancha street de fondo (muy sutil en páginas interiores) -->
     <div class="fixed inset-0 pointer-events-none select-none z-0" aria-hidden="true">
