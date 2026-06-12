@@ -317,8 +317,11 @@ const ringFracs = [0.33, 0.66, 1];
       });
     }
 
-    function buildItems(retroOnly) {
-      const remaining = DATA.filter(z => !current.includes(z.slug) && (!retroOnly || z.es_retro));
+    function buildItems(retroOnly, q) {
+      const query = (q || "").trim().toLowerCase();
+      const remaining = DATA.filter(z => !current.includes(z.slug)
+        && (!retroOnly || z.es_retro)
+        && (!query || (z.marca + " " + z.modelo).toLowerCase().includes(query)));
       return remaining.map(z => `
         <button class="cmp-pick-item" data-slug="${z.slug}">
           <img src="${esc(z.img)}" alt="" onerror="this.style.display='none'">
@@ -345,10 +348,11 @@ const ringFracs = [0.33, 0.66, 1];
         <div class="cmp-picker-card" onclick="event.stopPropagation()">
           <p class="cz-eyebrow">★ Cambiar zapa ${slot + 1}</p>
           <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:32px;text-transform:uppercase;letter-spacing:-0.03em;margin:6px 0 10px">Elige otra zapa</h3>
-          <div style="margin-bottom:12px">
-            <button id="cmp-retro-chip" style="padding:5px 12px;border:1px solid var(--cz-border2);background:transparent;color:var(--cz-text-muted);font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer;transition:all .15s" type="button">🏅 Solo retro</button>
+          <div style="margin-bottom:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+            <input id="cmp-search" type="text" placeholder="Buscar marca o modelo…" autocomplete="off" style="flex:1;min-width:150px;padding:8px 12px;background:rgba(255,255,255,0.04);border:1px solid var(--cz-border2);color:var(--cz-text);font-size:13px;outline:none" />
+            <button id="cmp-retro-chip" style="padding:7px 12px;border:1px solid var(--cz-border2);background:transparent;color:var(--cz-text-muted);font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer;transition:all .15s;white-space:nowrap" type="button">🏅 Solo retro</button>
           </div>
-          <div class="cmp-picker-grid" id="cmp-picker-items">${buildItems(false)}</div>
+          <div class="cmp-picker-grid" id="cmp-picker-items">${buildItems(false, "")}</div>
           <button class="cmp-pick-close">Cerrar</button>
         </div>`;
       overlay.addEventListener("click", () => overlay.remove());
@@ -357,17 +361,24 @@ const ringFracs = [0.33, 0.66, 1];
 
       const chip = overlay.querySelector("#cmp-retro-chip");
       const itemsGrid = overlay.querySelector("#cmp-picker-items");
+      const search = overlay.querySelector("#cmp-search");
+      let query = "";
+      const refresh = () => {
+        itemsGrid.innerHTML = buildItems(retroOnly, query);
+        attachItemListeners(overlay, slot);
+      };
       chip.addEventListener("click", (e) => {
         e.stopPropagation();
         retroOnly = !retroOnly;
         chip.style.color = retroOnly ? "#fbbf24" : "var(--cz-text-muted)";
         chip.style.borderColor = retroOnly ? "#fbbf24" : "var(--cz-border2)";
         chip.style.background = retroOnly ? "rgba(251,191,36,0.08)" : "transparent";
-        itemsGrid.innerHTML = buildItems(retroOnly);
-        attachItemListeners(overlay, slot);
+        refresh();
       });
+      search.addEventListener("input", () => { query = search.value; refresh(); });
 
       document.body.appendChild(overlay);
+      setTimeout(() => search.focus(), 30);
     }
 
     // Init: si la URL trae ?slugs= (link compartido), renderiza en cliente.
