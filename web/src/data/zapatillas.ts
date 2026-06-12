@@ -3504,6 +3504,62 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-anthony-edwards-2-negro-rojo-plamet-169463.html", precio_actual: 91, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
+  {
+    id: "adidas-ae-2-gs",
+    slug: "adidas-ae-2-gs",
+    marca: "Adidas",
+    modelo: "AE 2 GS",
+    generacion: 2,
+    año_lanzamiento: 2025,
+    genero: "gs",
+    signature_player: "Anthony Edwards",
+    tecnologia_clave: ["Lightstrike Pro 2.0", "Continental rubber", "TPU shank"],
+    predecesor_id: "adidas-ae-1-gs",
+    sucesor_id: null,
+    peso_real_g: 330,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 7,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+    puntuaciones: {
+      traccion: 10, amortiguacion: 9, respuesta: 9,
+      soporte_lateral: 8, estabilidad: 8, peso_score: 10,
+      durabilidad_outdoor: 8, ventilacion: 9,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "junior"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [35, 65],
+      estilos: ["explosivo", "equilibrado"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen:
+      "Version junior (Grade School) de la AE 2, la esperada continuacion de la signature de Anthony Edwards y una de las zapas mas buscadas. Misma estetica futurista y la misma base reactiva (Lightstrike Pro, goma Continental) que la adulta, en tallaje nino. La signature trending por excelencia para el junior federado.",
+    pros: [
+      "Signature NBA top en talla junior",
+      "Reactiva y con traccion Continental excelente",
+      "Estetica futurista muy demandada",
+      "Buen comportamiento tambien en exterior",
+    ],
+    contras: [
+      "Tallaje GS: hasta EU 40 aprox.",
+      "Precio algo mayor que una junior de iniciacion",
+      "Horma ajustada: probar talla",
+    ],
+    veredicto:
+      "Si tu junior quiere LA signature del momento y juega en serio, la AE 2 GS es la mejor opcion: rendimiento real de adulto en tallaje nino. La mas aspiracional del segmento.",
+    imagen_principal: "/shoes/adidas-ae-2-gs.jpg",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-12",
+    precio_msrp_eur: 70,
+    links_compra: [
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-ninos-anthony-edwards-2%2FJR9377.html", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ae+2+nino+baloncesto&tag=canchazapa-21", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+    ],
+  },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 46. PUMA MB.05 — Nitrofoam SQD, línea LaMelo
