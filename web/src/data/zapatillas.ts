@@ -9208,7 +9208,7 @@ const _rawZapatillas: Zapatilla[] = [
     marca: "Nike",
     modelo: "KD 19",
     generacion: 19,
-    año_lanzamiento: 2025,
+    año_lanzamiento: 2026,
     genero: "unisex",
     signature_player: "Kevin Durant",
     tecnologia_clave: ["Zoom Strobel full-length", "Cushlon 3.0", "Midfoot TPU shank", "TPU dagger upper"],
