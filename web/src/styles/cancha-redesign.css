@@ -3987,3 +3987,17 @@ button { font-family: inherit; cursor: pointer; }
   }
   .cz-chat[data-open="true"] .cz-chat-bubble { opacity: 0; pointer-events: none; }
 }
+
+/* ── Footer links ──────────────────────────────────────────── */
+.footer-links {
+  display: flex; gap: 20px; flex-wrap: wrap;
+}
+.footer-links a {
+  font-size: 11px; color: var(--cz-text-muted);
+  text-transform: uppercase; letter-spacing: .12em;
+  font-weight: 700; text-decoration: none;
+}
+@media (max-width: 600px) {
+  .footer-links { gap: 12px; }
+  .footer-links a { font-size: 10px; letter-spacing: .08em; }
+}
