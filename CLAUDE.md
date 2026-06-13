@@ -712,6 +712,11 @@ En la práctica: Nike.es y Basket World siempre son search (no tienen URLs de pr
   NO existe campaña "Basketball Emotion"/"baloncesto" en TradeTracker. → Los ~23 enlaces de `basketballemotion_es`
   están como **URL directa con `tiene_afiliado:false`** (funcionan, sin comisión). NO volver a envolverlos en
   tc.tradetracker.net. Revisar si algún día sale programa de basketballemotion.com.
+  - ⏳ **PENDIENTE (acción del usuario)**: escrito mensaje al anunciante (Sports Emotion Hub, campaña #35939)
+    pidiendo añadir basketballemotion.com a la campaña o indicar red propia (Awin/otra). Verificado que
+    futbolemotion.com NO vende básquet (no se puede deeplinkear por ahí) y que basketballemotion.com no tiene
+    programa público ni script de red de afiliación en su home. Cuando el usuario consiga UN deeplink válido →
+    re-envolver los ~23 enlaces `basketballemotion_es` con ese formato (poner `tiene_afiliado:true`).
 - **Formato deeplink**: `https://tc.tradetracker.net/?c=CAMPAÑA&m=12&a=511170&r=&u=URL_ENCODED` (FuikaOmar usa `deals.fuikaomar.es/c?c=37834&m=12&a=511170&...`)
 
 > AUDITORÍA 2026-06-12: todo lo aprobado está correctamente activado en los datos
