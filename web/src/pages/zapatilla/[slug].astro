@@ -64,6 +64,24 @@ const radarPts = RADAR_KEYS.map((k, i) => {
 });
 const radarPath = radarPts.map(p => p.join(",")).join(" ");
 
+// ── Versión adulto ↔ junior (GS) ──────────────────────────────
+// Los slugs GS siguen el patrón {slug-adulto}-gs; el Tarmak junior usa -nba-junior.
+// Derivamos la contraparte sin tocar los datos.
+const JUNIOR_SUFFIXES = [/-gs$/, /-nba-junior$/];
+function adultSlugOf(slug: string): string | null {
+  for (const re of JUNIOR_SUFFIXES) if (re.test(slug)) return slug.replace(re, "");
+  return null;
+}
+let versionLink: typeof z | undefined;
+let versionEsGs = false; // true si el enlace apunta a la versión GS (z es adulto)
+if (z.genero === "gs") {
+  const aSlug = adultSlugOf(z.slug);
+  if (aSlug) versionLink = zapatillas.find(o => o.slug === aSlug);
+} else {
+  versionLink = zapatillas.find(o => o.genero === "gs" && adultSlugOf(o.slug) === z.slug);
+  versionEsGs = !!versionLink;
+}
+
 const relacionadas = zapatillas
   .filter(o => o.slug !== z.slug && o.categoria_principal === z.categoria_principal)
   .sort((a, b) => Object.values(b.puntuaciones).reduce((s, v) => s + v, 0) - Object.values(a.puntuaciones).reduce((s, v) => s + v, 0))
@@ -258,6 +276,22 @@ const productJsonLd = {
         <div class="shell" style="display:flex;align-items:center;gap:12px;font-size:13px;color:#fde68a">
           <span style="font-size:20px">🏅</span>
           <span><strong>Zapatilla histórica</strong> — Las puntuaciones reflejan rendimiento técnico con tecnología de su época, no valor de colección. No aparece en el quiz de recomendación.</span>
+        </div>
+      </div>
+    )}
+
+    {/* VERSIÓN ADULTO ↔ JUNIOR (GS) */}
+    {versionLink && (
+      <div style="background:var(--cz-surface);border-bottom:1px solid var(--cz-border);padding:10px 0">
+        <div class="shell" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--cz-text-muted)">
+          <span style="font-size:16px">{versionEsGs ? "🧒" : "👟"}</span>
+          <span>
+            {versionEsGs
+              ? <>¿Es para un jugador <strong style="color:var(--cz-text)">junior</strong>? También existe la <strong style="color:var(--cz-text)">versión GS (niño/a)</strong> de este modelo.</>
+              : <>Estás viendo la <strong style="color:var(--cz-text)">versión junior (GS)</strong>. ¿Buscabas la talla adulto?</>
+            }
+          </span>
+          <a href={`/zapatilla/${versionLink.slug}`} style="color:#f97316;font-weight:700;text-decoration:underline">Ver {versionLink.marca} {versionLink.modelo} →</a>
         </div>
       </div>
     )}
