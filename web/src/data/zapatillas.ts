@@ -5478,11 +5478,11 @@ const _rawZapatillas: Zapatilla[] = [
       traccion: 8,
       amortiguacion: 8,
       respuesta: 8,
-      soporte_lateral: 8,
+      soporte_lateral: 7,
       estabilidad: 7,
       peso_score: 8,
       durabilidad_outdoor: 5,
-      ventilacion: 8,
+      ventilacion: 9,
     },
     categoria_principal: "balanced",
     tags: ["low-top", "signature", "cushion", "versatil", "reactiva"],
@@ -5516,8 +5516,11 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/jordan-tatum-4.webp",
     imagenes: [],
 
-    fuentes: [],
-    ultima_actualizacion: "2026-05-16",
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/jordan-tatum-4-performance-review/" },
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/jordan-tatum-4/" },
+    ],
+    ultima_actualizacion: "2026-06-13",
 
     precio_msrp_eur: 90,
     links_compra: [
@@ -5592,7 +5595,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
 
     fuentes: [
-      { tipo: "evaluacion-propia" },
+      { tipo: "weartesters", url: "https://weartesters.com/nike-giannis-immortality-5-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
 
@@ -5781,12 +5784,12 @@ const _rawZapatillas: Zapatilla[] = [
     puntuaciones: {
       traccion: 8,
       amortiguacion: 9,
-      respuesta: 6,
+      respuesta: 7,
       soporte_lateral: 8,
-      estabilidad: 9,
-      peso_score: 4,
-      durabilidad_outdoor: 6,
-      ventilacion: 6,
+      estabilidad: 8,
+      peso_score: 6,
+      durabilidad_outdoor: 7,
+      ventilacion: 8,
     },
     categoria_principal: "cushion-focused",
     tags: ["mid-top", "signature", "potente", "interior", "horma-ancha", "amortiguacion-maxima"],
@@ -5823,7 +5826,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
 
     fuentes: [
-      { tipo: "evaluacion-propia" },
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/jordan-zion-4/" },
     ],
     ultima_actualizacion: "2026-05-29",
 
@@ -8379,9 +8382,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/nb-two-wxy-v5.webp",
     imagenes: [],
     fuentes: [
-      { tipo: "evaluacion-propia" },
+      { tipo: "weartesters", url: "https://weartesters.com/new-balance-two-wxy-v5/" },
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/new-balance-two-wxy-v5/" },
     ],
-    ultima_actualizacion: "2026-05-29",
+    ultima_actualizacion: "2026-06-13",
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fnew-balance%2Fzapatillas-de-baloncesto-new-balance-two-wxy-v5-team-navy-151094.html", precio_actual: 79.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
@@ -13819,9 +13823,9 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
     puntuaciones: {
-      traccion: 9, amortiguacion: 8, respuesta: 8,
-      soporte_lateral: 8, estabilidad: 8, peso_score: 8,
-      durabilidad_outdoor: 7, ventilacion: 8,
+      traccion: 10, amortiguacion: 9, respuesta: 8,
+      soporte_lateral: 9, estabilidad: 9, peso_score: 7,
+      durabilidad_outdoor: 8, ventilacion: 8,
     },
     categoria_principal: "responsive",
     tags: ["china-brand", "value-premium", "guards", "buque-insignia"],
