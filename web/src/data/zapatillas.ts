@@ -9262,9 +9262,9 @@ const _rawZapatillas: Zapatilla[] = [
       "Low-top: soporte de tobillo limitado",
     ],
     veredicto:
-      "La mejor KD en años. Si eres escolta o alero, tienes pie estrecho y priorizas respuesta y bounce, la KD 19 es una de las compras más inteligentes de 2025. Para pies anchos o si necesitas más tobillo, considera la KD 18 o la Air Jordan 40.",
+      "La mejor KD en años. Si eres escolta o alero, tienes pie estrecho y priorizas respuesta y bounce, la KD 19 es una de las compras más inteligentes de 2026. Para pies anchos o si necesitas más tobillo, considera la KD 18 o la Air Jordan 40.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-kd-19.jpg",
     imagenes: [],
 
     fuentes: [
