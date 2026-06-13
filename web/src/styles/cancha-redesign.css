@@ -2130,14 +2130,6 @@ button { font-family: inherit; cursor: pointer; }
   /* Botones por debajo del vídeo para que no se solapen */
   .home-cta-row { margin-top: 130px; }
 }
-.home-beta {
-  display: inline-block; padding: 6px 14px;
-  background: #facc15; color: var(--cz-bg);
-  font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.2em;
-  transform: rotate(-2deg);
-  box-shadow: 3px 3px 0 0 #f97316;
-  margin-bottom: 24px;
-}
 .home-h1 {
   font-family: "Barlow Condensed", sans-serif; font-weight: 900;
   font-size: clamp(56px, 9vw, 112px);
