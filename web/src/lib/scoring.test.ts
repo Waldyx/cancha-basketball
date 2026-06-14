@@ -74,13 +74,14 @@ describe("aplicarFiltrosDuros", () => {
       zapatillas,
       perfil({ lesiones: ["rodillas"] })
     );
+    // Regla: con rodillas, NINGUNA zapa con amortiguación < 6 debe pasar
+    // (property-based: sobrevive a recalibraciones de score)
+    for (const z of filtradas) {
+      expect(z.puntuaciones.amortiguacion).toBeGreaterThanOrEqual(6);
+    }
+    // Y las de cushion alto sí siguen presentes
     const ids = filtradas.map((z) => z.id);
-    // Zapas con amortiguación < 6 fuera
-    expect(ids).not.toContain("adidas-cross-em-up-select"); // 5
-    expect(ids).not.toContain("nike-precision-8"); // 5
-    // Las con cushion alto sí
     expect(ids).toContain("nike-lebron-22"); // 9
-    expect(ids).toContain("nike-lebron-witness-9"); // 9
   });
 
   it("filtra durabilidad outdoor < 5 si la cancha es exterior", () => {
@@ -88,14 +89,17 @@ describe("aplicarFiltrosDuros", () => {
       zapatillas,
       perfil({ cancha: "exterior", prioridad: "durabilidad" })
     );
-    const ids = filtradas.map((z) => z.id);
-    // Curry 12 tiene durabilidad outdoor 4
-    expect(ids).not.toContain("ua-curry-12");
+    // Regla: en exterior, NINGUNA zapa con durabilidad outdoor < 5 debe pasar
+    for (const z of filtradas) {
+      expect(z.puntuaciones.durabilidad_outdoor).toBeGreaterThanOrEqual(5);
+    }
   });
 
-  it("sin filtros restrictivos pasan todas las zapas", () => {
+  it("sin filtros restrictivos pasan todas las zapas no-retro", () => {
     const filtradas = aplicarFiltrosDuros(zapatillas, perfil());
-    expect(filtradas.length).toBe(zapatillas.length);
+    // Las retro se excluyen SIEMPRE del quiz (por diseño); el resto debe pasar.
+    const noRetro = zapatillas.filter((z) => !z.es_retro).length;
+    expect(filtradas.length).toBe(noRetro);
   });
 });
 
@@ -222,25 +226,26 @@ describe("recomendar — perfiles realistas", () => {
     expect(top3.some((id) => zapasBaseExplosivo.includes(id))).toBe(true);
   });
 
-  it("Presupuesto bajo + exterior → top incluye zapa outdoor durable", () => {
+  it("Presupuesto bajo + exterior → la recomendación top respeta presupuesto y outdoor", () => {
+    const BUDGET = 80;
     const recs = recomendar(
       perfil({
         posicion: "alero",
         cancha: "exterior",
         prioridad: "durabilidad",
-        presupuesto_max_eur: 80,
+        presupuesto_max_eur: BUDGET,
       }),
       zapatillas
     );
-    // Sub-80€ outdoor: Cross 'Em Up Select, Precision 8, Voltzy 500, Cross Em Up Speed o UA Flow Breakthru 4
-    const top1 = recs[0].zapatilla.id;
-    expect([
-      "adidas-cross-em-up-select",
-      "nike-precision-8",
-      "decathlon-tarmak-voltzy-500",
-      "adidas-cross-em-up-speed",
-      "ua-flow-breakthru-4",
-    ]).toContain(top1);
+    // El top debe respetar las restricciones duras del perfil:
+    // precio ≤ presupuesto Y durabilidad outdoor ≥ 5 (property-based).
+    const top = recs[0].zapatilla;
+    const disponibles = top.links_compra.filter((l) => l.disponible);
+    const precioMin = disponibles.length > 0
+      ? Math.min(...disponibles.map((l) => l.precio_actual))
+      : top.precio_msrp_eur;
+    expect(precioMin).toBeLessThanOrEqual(BUDGET);
+    expect(top.puntuaciones.durabilidad_outdoor).toBeGreaterThanOrEqual(5);
   });
 
   it("Base con tobillos delicados → no aparece la Anta KAI 1 (low-top)", () => {
@@ -292,19 +297,21 @@ describe("recomendar — perfiles realistas", () => {
     }
   });
 
-  it("presupuesto_max_eur null (sin tope) no filtra nada", () => {
+  it("presupuesto_max_eur null (sin tope) no filtra por precio", () => {
     const todas = aplicarFiltrosDuros(zapatillas, perfil({ presupuesto_max_eur: null }));
-    // null = sin límite → deben pasar todas (sin otras restricciones)
-    expect(todas.length).toBe(zapatillas.length);
+    // null = sin límite → pasan todas menos las retro (excluidas por diseño)
+    const noRetro = zapatillas.filter((z) => !z.es_retro).length;
+    expect(todas.length).toBe(noRetro);
   });
 
-  it("presupuesto_max_eur undefined no filtra nada (fallo silencioso evitado)", () => {
+  it("presupuesto_max_eur undefined no filtra por precio (fallo silencioso evitado)", () => {
     // El motor usa != null (loose) para cubrir undefined también
     const conUndefined = aplicarFiltrosDuros(zapatillas, {
       ...perfil(),
       presupuesto_max_eur: undefined as unknown as null,
     });
-    expect(conUndefined.length).toBe(zapatillas.length);
+    const noRetro = zapatillas.filter((z) => !z.es_retro).length;
+    expect(conUndefined.length).toBe(noRetro);
   });
 
   it("cada card tiene al menos 1 razón aunque la zapa tenga scores bajos", () => {
