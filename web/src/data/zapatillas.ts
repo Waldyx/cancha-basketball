@@ -1623,7 +1623,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 200,
     links_compra: [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/li-ning/way-of-wade-12-obsidian-black", precio_actual: 169.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-08" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B00A2G1P5G/?tag=canchazapa-21", precio_actual: 175, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=li-ning+way+of+wade+12&tag=canchazapa-21", precio_actual: 175, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-14" },
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010685068543.html", precio_actual: 211, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
     ],
   },
@@ -7784,7 +7784,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 55,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-own-the-game-3%2FIF4566.html", precio_actual: 45.5, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ownthegame+3+baloncesto&tag=canchazapa-21", precio_actual: 39.00, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ownthegame+2+baloncesto&tag=canchazapa-21", precio_actual: 39.00, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-14" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-ownthegame-30-hombre-negro-141378.html", precio_actual: 45.50, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
@@ -11020,7 +11020,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-03",
     precio_msrp_eur: 75,
     links_compra: [
-      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fbaskets-homme-baskets-converse-bordeaux-bordeaux-converse%2F2e9ddaaf-f8ab-47a3-93da-73d7d366f505%2Fc15", precio_actual: 43, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fbaskets-homme-baskets-converse-bordeaux-bordeaux-converse%2F2e9ddaaf-f8ab-47a3-93da-73d7d366f505%2Fc15", precio_actual: 43, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-14" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fconverse%2Fchuck-taylor-all-star-9755.html", precio_actual: 53, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Converse+Chuck+Taylor+All+Star+high&tag=canchazapa-21", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
       { tienda: "zalando_es", url: "https://www.zalando.es/converse-zapatillas-altas/", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
@@ -11976,7 +11976,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 190,
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=air+jordan+9", precio_actual: 190, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+9+retro&tag=canchazapa-21", precio_actual: 200, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+10+retro&tag=canchazapa-21", precio_actual: 200, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-14" },
     ],
   },
 

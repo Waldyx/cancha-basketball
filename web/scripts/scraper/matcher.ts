@@ -24,6 +24,21 @@ const BRAND_ALIASES: Record<string, string[]> = {
   "decathlon": ["decathlon", "tarmak"],
 };
 
+/**
+ * Quita "ruido" del título que inyecta números/tokens espurios y provoca
+ * falsos positivos en el matching (tallas y códigos de estilo):
+ *  - Tallas:  "EU 45", "UK 10", "US 11", "45 EU", "talla 42", "(PS)"
+ *  - Códigos: "AO2372-122", "DO1925", "DX8733", "IM6119-800"
+ * Ej: sin esto, "Air Max 270 ... 34 EU" matchea "Air Max CB 34" por la talla.
+ */
+function stripNoise(s: string): string {
+  return s
+    .replace(/\b[a-z]{1,3}\d{3,5}(?:[-\s]?\d{2,3})?\b/gi, " ") // códigos de estilo
+    .replace(/\b(?:eu|uk|us|talla|size)\s*\d{1,2}(?:[.,]\d)?\b/gi, " ") // "EU 45"
+    .replace(/\b\d{1,2}(?:[.,]\d)?\s*(?:eu|uk|us)\b/gi, " ") // "45 EU"
+    .replace(/\(ps\)|\(gs\)|\(td\)/gi, " "); // segmentos de talla infantil
+}
+
 /** Normaliza un string para comparación: quita puntos, guiones → espacio, minúsculas */
 function normalize(s: string): string {
   return s
@@ -56,7 +71,8 @@ export function matchesShoe(
   modelo: string,
   minScore = 0.6
 ): boolean {
-  const tNorm = normalize(title);
+  // Limpiar tallas/códigos ANTES de normalizar (evita números espurios)
+  const tNorm = normalize(stripNoise(title));
 
   // ── 1. Marca ─────────────────────────────────────────────────────────────
   const marcaNorm = normalize(marca);
@@ -71,34 +87,28 @@ export function matchesShoe(
   const modeloWords = significantWords(modelo);
   if (modeloWords.length === 0) return true; // Sin palabras útiles → OK si marca ok
 
-  // Contar palabras del modelo que aparecen completas en el título normalizado
-  // Usamos regex para evitar falsos positivos: "LeBron 2" no debe matchear "LeBron 22"
   const tWords = tNorm.split(/\s+/);
-  let matched = 0;
-  for (const w of modeloWords) {
-    // Número exacto o palabra completa
-    const isNumber = /^\d+$/.test(w);
-    if (isNumber) {
-      // Número: debe aparecer como token separado (evita LeBron2 ~ LeBron22)
-      // CRÍTICO: si el número del modelo NO está en el título pero hay OTRO número,
-      // forzamos fallo. Ej: "Zoom Freak 4" NO debe matchear "Zoom Freak 7".
-      if (tWords.includes(w)) {
-        matched++;
-      } else {
-        // Si el título tiene algún número de modelo diferente, es fallo seguro
-        const titleHasAnyNumber = tWords.some((tw) => /^\d+$/.test(tw));
-        if (titleHasAnyNumber) return false; // número distinto → no es el mismo modelo
-        // Si el título no tiene ningún número, contamos como pendiente (no penalizamos)
-      }
-    } else {
-      // Palabra: aparece como subcadena completa
-      const re = new RegExp(`(^|\\s|-)${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(\\s|-|$)`, "i");
-      if (re.test(tNorm)) matched++;
-    }
+  const numeros = modeloWords.filter((w) => /^\d+$/.test(w));
+  const palabras = modeloWords.filter((w) => !/^\d+$/.test(w));
+
+  // ── 2a. TODOS los números del modelo son OBLIGATORIOS ──────────────────────
+  // El número es lo que distingue saga (Curry 12 ≠ 13, Impact 5 ≠ Alpha Trainer 6,
+  // AJ10 ≠ AJ Two Trey). Si falta cualquiera, NO es el mismo modelo. Como ya
+  // limpiamos tallas/códigos, un número que quede es de verdad del modelo.
+  for (const n of numeros) {
+    if (!tWords.includes(n)) return false;
   }
 
-  const score = matched / modeloWords.length;
-  return score >= minScore;
+  // ── 2b. Score sobre las PALABRAS (sin contar números, que ya son obligatorios) ─
+  // Así "Air Max 1" no cuela como "Air Penny 1": comparten "air"+"1" pero falta
+  // la palabra distintiva "penny" → score de palabras < umbral.
+  if (palabras.length === 0) return true; // modelo solo-número y ya validado
+  let matched = 0;
+  for (const w of palabras) {
+    const re = new RegExp(`(^|\\s|-)${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(\\s|-|$)`, "i");
+    if (re.test(tNorm)) matched++;
+  }
+  return matched / palabras.length >= minScore;
 }
 
 /**

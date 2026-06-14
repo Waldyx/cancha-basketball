@@ -1440,7 +1440,7 @@
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/NIKE-Basketball-Trainers-Sneakers-Zapatos/dp/B0DK7J82XN/ref=sr_1_5",
           "precio_actual": 149.99,
-          "disponible": true,
+          "disponible": false,
           "ultima_verificacion": "2026-06-11"
         }
       ]
@@ -1560,7 +1560,7 @@
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/Alpha-Trainer-Sneaker-Hombre-Black/dp/B0DB28F7QC/ref=sr_1_1",
           "precio_actual": 52.06,
-          "disponible": true,
+          "disponible": false,
           "ultima_verificacion": "2026-06-03"
         }
       ]
@@ -1687,7 +1687,7 @@
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/Reebok-Zapatillas-Unisex-Adulto-Blanco/dp/B0FD418W82/ref=sr_1_1",
           "precio_actual": 148.76,
-          "disponible": true,
+          "disponible": false,
           "ultima_verificacion": "2026-06-03"
         }
       ]
@@ -1749,7 +1749,7 @@
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/NIKE-Essential-Sneaker-Hombre-Crimson/dp/B0F8J3GXPF/ref=sr_1_2",
           "precio_actual": 86.77,
-          "disponible": true,
+          "disponible": false,
           "ultima_verificacion": "2026-06-03"
         }
       ]
@@ -1782,7 +1782,7 @@
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/adidas-Zapatillas-Hombre-Color-Multicolor/dp/B00P0NGJA2/ref=sr_1_3",
           "precio_actual": 109.99,
-          "disponible": true,
+          "disponible": false,
           "ultima_verificacion": "2026-06-03"
         }
       ]
@@ -1815,7 +1815,7 @@
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/Reebok-Chill-Zapatillas-Unisex-Adulto/dp/B0DMQBP98B/ref=sr_1_1",
           "precio_actual": 58.71,
-          "disponible": true,
+          "disponible": false,
           "ultima_verificacion": "2026-05-30"
         }
       ]
@@ -1902,7 +1902,7 @@
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/NIKE-Trainers-Sneakers-Zapatos-Varsity/dp/B0DTYW1CGM/ref=sr_1_4",
           "precio_actual": 149.99,
-          "disponible": true,
+          "disponible": false,
           "ultima_verificacion": "2026-06-03"
         }
       ]
@@ -1946,7 +1946,7 @@
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/Zapatos-C%C3%B3digo-AO2372-122-Blanco-rosa/dp/B0DYKW83KJ/ref=sr_1_1",
           "precio_actual": 89,
-          "disponible": true,
+          "disponible": false,
           "ultima_verificacion": "2026-06-01"
         }
       ]
@@ -2327,7 +2327,7 @@
           "tienda": "adidas_es",
           "url": "https://www.adidas.es/zapatilla-run-70s-2.0/JQ9589.html",
           "precio_actual": 70,
-          "disponible": true,
+          "disponible": false,
           "ultima_verificacion": "2026-06-13"
         }
       ]
