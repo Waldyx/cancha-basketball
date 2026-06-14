@@ -24,6 +24,32 @@ function isAmazonUrl(url: string): boolean {
   return /(^|\/\/)(www\.)?amazon\./i.test(url);
 }
 
+/**
+ * Guardarraíl de IDENTIDAD de producto (segunda red, como el de precio).
+ * El scraper puede emparejar mal o un ASIN puede derivar a otro producto
+ * (ej. "Air Max Impact 5" → "Air Max SC"/"Alpha Trainer"). Si la URL de Amazon
+ * trae un slug de nombre de producto pero NO contiene NINGÚN token del modelo,
+ * es otra zapatilla → rechazamos el override y conservamos el enlace editorial.
+ * Las fichas correctas de Amazon SÍ incluyen el modelo en el slug.
+ */
+function amazonProductoEquivocado(freshUrl: string, marca: string, modelo: string): boolean {
+  try {
+    const u = new URL(freshUrl);
+    if (!/amazon\./i.test(u.hostname)) return false;
+    // slug de nombre = segmento de texto antes de /dp/ (Amazon mete el título ahí)
+    const m = u.pathname.match(/\/([^/]+)\/dp\//i);
+    if (!m) return false; // /dp/ASIN pelado, sin slug que juzgar → no bloqueamos
+    const slug = decodeURIComponent(m[1]).toLowerCase().replace(/[^a-z0-9]+/g, " ");
+    if (slug.length < 6) return false;
+    const GENERICAS = new Set(["air","zoom","low","mid","high","the","de","pro","gs","nike","adidas","jordan","puma","reebok","converse","under","armour","new","balance","anta","skechers"]);
+    const toks = (modelo.toLowerCase().match(/[a-z0-9]+/g) || []).filter((t) => t.length >= 2 && !GENERICAS.has(t));
+    if (toks.length === 0) return false; // sin tokens distintivos → no podemos juzgar
+    return !toks.some((t) => slug.includes(t)); // ninguno presente → modelo equivocado
+  } catch {
+    return false;
+  }
+}
+
 function getAmazonTag(url: string): string | null {
   try {
     const parsed = new URL(url);
@@ -145,6 +171,11 @@ export function mergePricesIntoShoes(
       // Guardarraíl: si el precio scrapeado es implausible vs el editorial,
       // ignorar el override por completo y conservar la entrada editorial.
       if (!precioPlausible(fresh.precio_actual ?? 0, orig.precio_actual)) {
+        return orig;
+      }
+      // Guardarraíl de identidad: si la URL de Amazon nombra OTRA zapatilla,
+      // ignorar el override (el scraper emparejó mal o el ASIN derivó).
+      if (fresh.url && amazonProductoEquivocado(fresh.url, shoe.marca, shoe.modelo)) {
         return orig;
       }
       // NUNCA sobreescribir la URL de un link de afiliado: el scraper devuelve
