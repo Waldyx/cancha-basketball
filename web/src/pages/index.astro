@@ -5,12 +5,11 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecio } from "../lib/scoring";
+import { findMejorPrecio, scoreDisplay } from "../lib/scoring";
 import { getAllArticles } from "../lib/articles";
 
 function scoreOf(z: typeof zapatillas[0]): number {
-  const v = Object.values(z.puntuaciones);
-  return Math.round((v.reduce((a, b) => a + b, 0) / v.length) * 10) / 10;
+  return scoreDisplay(z);
 }
 
 // EDITOR'S PICK — la nº1 con descuento sobre MSRP

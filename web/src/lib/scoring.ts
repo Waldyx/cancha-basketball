@@ -595,3 +595,20 @@ export function recomendar(
   // Paso 5: regla de diversidad y top N
   return aplicarDiversidad(recomendaciones, topN);
 }
+
+// ─────────────────────────────────────────────────────────
+// Score MOSTRADO — anclado a fuentes de referencia (HoopsGeek/RunRepeat)
+// con fallback al promedio de nuestros 8 ejes. Ver lib/scoreFuentes.ts.
+// ─────────────────────────────────────────────────────────
+import { scoreInfo, axisAverage } from "./scoreFuentes";
+import type { ScoreInfo } from "./scoreFuentes";
+
+/** Score 0-10 que se muestra al usuario (consenso de fuentes o editorial). */
+export function scoreDisplay(z: Zapatilla): number {
+  return scoreInfo(z.id, axisAverage(z.puntuaciones as any)).score;
+}
+
+/** Score + confianza + fuentes, para la UI de transparencia de la ficha. */
+export function scoreMeta(z: Zapatilla): ScoreInfo {
+  return scoreInfo(z.id, axisAverage(z.puntuaciones as any));
+}

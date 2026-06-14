@@ -5,7 +5,7 @@
 import Base from "../../layouts/Base.astro";
 import "../../styles/cancha-redesign.css";
 import { zapatillas } from "../../data/zapatillas";
-import { findMejorPrecio, COMISIONES_TIENDA } from "../../lib/scoring";
+import { findMejorPrecio, COMISIONES_TIENDA, scoreMeta } from "../../lib/scoring";
 import PriceAlert from "../../components/PriceAlert.astro";
 import CosteBlock from "../../components/CosteBlock.astro";
 import { ARTICLES } from "../../lib/articles";
@@ -46,8 +46,10 @@ const ATR_LABELS: Record<string, string> = {
 };
 
 const mejorPrecio = findMejorPrecio(z.links_compra);
-const scoreVals = Object.values(z.puntuaciones);
-const score = Math.round((scoreVals.reduce((a, b) => a + b, 0) / scoreVals.length) * 10) / 10;
+const sMeta = scoreMeta(z);
+const score = sMeta.score;
+const CONF_LABEL = { alta: "Verificado", media: "Contrastado", editorial: "Estimación editorial" } as const;
+const CONF_ICON = { alta: "🟢", media: "🟡", editorial: "⚪" } as const;
 const cat = CAT_ACCENT[z.categoria_principal];
 const ahorro = mejorPrecio && mejorPrecio.precio_actual < z.precio_msrp_eur
   ? z.precio_msrp_eur - mejorPrecio.precio_actual : 0;
@@ -359,11 +361,19 @@ const productJsonLd = {
                 </svg>
               </div>
               <div class="dh-score-meta">
-                <div class="dhsm-lab">Score CANCHA</div>
-                <div class="dhsm-sub">Media de 8 atributos · {z.fuentes.length || 1} {z.fuentes.length === 1 ? "fuente" : "fuentes"}</div>
-                <div class="dhsm-fuentes">
-                  {z.fuentes.map(f => <span class="dhf">{LABELS_FUENTE[f.tipo] || f.tipo}</span>)}
-                </div>
+                <div class="dhsm-lab">{CONF_ICON[sMeta.confianza]} {CONF_LABEL[sMeta.confianza]}</div>
+                {sMeta.fuentes.length > 0 ? (
+                  <div class="dhsm-fuentes">
+                    {sMeta.fuentes.map(f => (
+                      f.url
+                        ? <a class="dhf" href={f.url} target="_blank" rel="noopener nofollow">{f.nombre} {f.escala}{f.n ? ` · ${f.n} análisis` : ""} ↗</a>
+                        : <span class="dhf">{f.nombre} {f.escala}</span>
+                    ))}
+                  </div>
+                ) : (
+                  <div class="dhsm-sub">Nuestra estimación a partir de specs y reseñas · sin review independiente todavía</div>
+                )}
+                {sMeta.rango && <div class="dhsm-sub">Consenso de expertos {sMeta.rango[0]}–{sMeta.rango[1]}</div>}
               </div>
             </div>
 
