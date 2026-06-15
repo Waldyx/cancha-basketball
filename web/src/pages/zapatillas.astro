@@ -571,10 +571,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
         if (sortMode === "precio-asc")  return parseFloat(a.dataset.precio!) - parseFloat(b.dataset.precio!);
         if (sortMode === "precio-desc") return parseFloat(b.dataset.precio!) - parseFloat(a.dataset.precio!);
         if (sortMode === "score-desc") {
-          // Desempate por recencia (bonus acotado, transitivo): igual que compareByScore.
-          const rb = (y: string | undefined) => Math.min(Math.max((parseInt(y!) || 0) - 2021, 0), 5) * 0.04;
-          const ea = parseFloat(a.dataset.score!) + rb(a.dataset.año), eb = parseFloat(b.dataset.score!) + rb(b.dataset.año);
-          if (eb !== ea) return eb - ea;
+          // Más es mejor. El año solo desempata si el score es exactamente igual.
           const d = parseFloat(b.dataset.score!) - parseFloat(a.dataset.score!);
           return d !== 0 ? d : (parseInt(b.dataset.año!) || 0) - (parseInt(a.dataset.año!) || 0);
         }

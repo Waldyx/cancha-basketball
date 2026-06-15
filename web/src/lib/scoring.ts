@@ -603,35 +603,49 @@ export function recomendar(
 import { scoreInfo, axisAverage } from "./scoreFuentes";
 import type { ScoreInfo } from "./scoreFuentes";
 
-/** Score 0-10 que se muestra al usuario (consenso de fuentes o editorial). */
+// Ajuste de antigüedad: el rendimiento no cambia, pero un score de hace años no
+// es del todo comparable con uno actual (deriva de criterios + relevancia para
+// el comprador de hoy). A partir de 3 años: -0.1 cada 2 años, tope -0.3.
+// Las retro NO se penalizan (se juzgan por su época, viven en su propia pestaña).
+const CURRENT_YEAR = 2026;
+function agePenalty(z: Zapatilla): number {
+  if (z.es_retro) return 0;
+  const age = CURRENT_YEAR - (z.año_lanzamiento ?? CURRENT_YEAR);
+  if (age <= 2) return 0;
+  return -Math.min(Math.floor((age - 1) / 2) * 0.1, 0.3);
+}
+
+export interface ScoreMetaFull extends ScoreInfo {
+  /** Score de las fuentes antes del ajuste por antigüedad. */
+  scoreBase: number;
+  /** Ajuste por antigüedad aplicado (0 o negativo). */
+  ajusteAntiguedad: number;
+}
+
+/** Score 0-10 que se muestra al usuario (consenso de fuentes − ajuste antigüedad). */
 export function scoreDisplay(z: Zapatilla): number {
-  return scoreInfo(z.id, axisAverage(z.puntuaciones as any)).score;
+  const base = scoreInfo(z.id, axisAverage(z.puntuaciones as any)).score;
+  return Math.round((base + agePenalty(z)) * 10) / 10;
 }
 
-/** Score + confianza + fuentes, para la UI de transparencia de la ficha. */
-export function scoreMeta(z: Zapatilla): ScoreInfo {
-  return scoreInfo(z.id, axisAverage(z.puntuaciones as any));
+/** Score + confianza + fuentes + desglose del ajuste, para la UI de la ficha. */
+export function scoreMeta(z: Zapatilla): ScoreMetaFull {
+  const info = scoreInfo(z.id, axisAverage(z.puntuaciones as any));
+  const ajuste = agePenalty(z);
+  return {
+    ...info,
+    scoreBase: info.score,
+    ajusteAntiguedad: ajuste,
+    score: Math.round((info.score + ajuste) * 10) / 10,
+  };
 }
 
 /**
- * Bonus de recencia ACOTADO (0 a +0.20): +0.04 por año desde 2021, tope 2026.
- * Sirve para desempatar por "más nueva" sin romper el orden: al ser un único
- * término acotado, una zapa NO puede adelantar a otra con score realmente
- * superior (un 8.8 jamás supera a un 9.0), solo reordena dentro del ruido.
- */
-function recencyBonus(year?: number): number {
-  return Math.min(Math.max((year ?? 0) - 2021, 0), 5) * 0.04;
-}
-
-/**
- * Comparador para ordenar por score DESC con DESEMPATE POR RECENCIA (transitivo).
- * Evita que una zapa antigua (p.ej. Clyde All-Pro 2022) lidere por delante de
- * flagships actuales casi empatados, sin que scores menores leapfrog a mayores.
+ * Comparador para ordenar por score DESC. Regla simple: MÁS ES MEJOR.
+ * El año solo desempata cuando el score es EXACTAMENTE igual (9.0 vs 9.0 → la
+ * más nueva). Un 9.1 va siempre por delante de un 9.0.
  */
 export function compareByScore(a: Zapatilla, b: Zapatilla): number {
-  const ea = scoreDisplay(a) + recencyBonus(a.año_lanzamiento);
-  const eb = scoreDisplay(b) + recencyBonus(b.año_lanzamiento);
-  if (eb !== ea) return eb - ea;
   const sa = scoreDisplay(a), sb = scoreDisplay(b);
   if (sb !== sa) return sb - sa;
   return (b.año_lanzamiento ?? 0) - (a.año_lanzamiento ?? 0);

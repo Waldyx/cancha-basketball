@@ -374,6 +374,9 @@ const productJsonLd = {
                   <div class="dhsm-sub">Nuestra estimación a partir de specs y reseñas · sin review independiente todavía</div>
                 )}
                 {sMeta.rango && <div class="dhsm-sub">Consenso de expertos {sMeta.rango[0]}–{sMeta.rango[1]}</div>}
+                {sMeta.ajusteAntiguedad < 0 && (
+                  <div class="dhsm-sub">Score base {sMeta.scoreBase} · −{Math.abs(sMeta.ajusteAntiguedad).toFixed(1)} por antigüedad ({z.año_lanzamiento})</div>
+                )}
               </div>
             </div>
 
