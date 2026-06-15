@@ -24,3 +24,6 @@ pnpm-debug.log*
 .idea/
 
 .vercel
+
+# Artefactos generados por scripts de auditoria
+scripts/*.out.json
