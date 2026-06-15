@@ -5,7 +5,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecio, scoreDisplay } from "../lib/scoring";
+import { findMejorPrecio, scoreDisplay, compareByScore } from "../lib/scoring";
 
 const CAT_LABELS: Record<string, string> = {
   "cushion-focused": "Cushion", "responsive": "Reactiva",
@@ -56,7 +56,7 @@ function sortBy(id: string, key: keyof typeof zapatillas[0]["puntuaciones"] | nu
     : [...poolModern];
   if (id === "valor") return arr.sort((a, b) => (valueMap.get(b.slug) ?? 0) - (valueMap.get(a.slug) ?? 0));
   if (key) return arr.sort((a, b) => b.puntuaciones[key] - a.puntuaciones[key]);
-  return arr.sort((a, b) => scoreOf(b) - scoreOf(a));
+  return arr.sort(compareByScore);
 }
 ---
 

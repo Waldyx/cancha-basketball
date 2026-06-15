@@ -6,7 +6,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecio, scoreDisplay } from "../lib/scoring";
+import { findMejorPrecio, scoreDisplay, compareByScore } from "../lib/scoring";
 
 const LABELS_TIENDA: Record<string, string> = {
   amazon_es: "Amazon", decathlon: "Decathlon", nike_es: "Nike", adidas_es: "Adidas",
@@ -71,7 +71,7 @@ const trending = [...zapatillas].filter(z => !oculta(z)).sort((a, b) => scoreOf(
 
 const today = new Date().toLocaleDateString("es-ES", { day: "2-digit", month: "short" }).toUpperCase();
 
-const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
+const ordenadas = [...zapatillas].sort(compareByScore);
 ---
 
 <Base
@@ -570,7 +570,14 @@ const ordenadas = [...zapatillas].sort((a, b) => scoreOf(b) - scoreOf(a));
         if (aH && !bH) return 1; if (!aH && bH) return -1;
         if (sortMode === "precio-asc")  return parseFloat(a.dataset.precio!) - parseFloat(b.dataset.precio!);
         if (sortMode === "precio-desc") return parseFloat(b.dataset.precio!) - parseFloat(a.dataset.precio!);
-        if (sortMode === "score-desc")  return parseFloat(b.dataset.score!) - parseFloat(a.dataset.score!);
+        if (sortMode === "score-desc") {
+          // Desempate por recencia (bonus acotado, transitivo): igual que compareByScore.
+          const rb = (y: string | undefined) => Math.min(Math.max((parseInt(y!) || 0) - 2021, 0), 5) * 0.04;
+          const ea = parseFloat(a.dataset.score!) + rb(a.dataset.año), eb = parseFloat(b.dataset.score!) + rb(b.dataset.año);
+          if (eb !== ea) return eb - ea;
+          const d = parseFloat(b.dataset.score!) - parseFloat(a.dataset.score!);
+          return d !== 0 ? d : (parseInt(b.dataset.año!) || 0) - (parseInt(a.dataset.año!) || 0);
+        }
         if (sortMode === "nuevas")      return parseInt(b.dataset.año!) - parseInt(a.dataset.año!);
         return 0;
       });

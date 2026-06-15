@@ -5,7 +5,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecio, scoreDisplay } from "../lib/scoring";
+import { findMejorPrecio, scoreDisplay, compareByScore } from "../lib/scoring";
 import { getAllArticles } from "../lib/articles";
 
 function scoreOf(z: typeof zapatillas[0]): number {
@@ -37,8 +37,8 @@ const editorPick = (conDescuento.length > 0
   : { z: zapatillas[0], mp: findMejorPrecio(zapatillas[0].links_compra), score: scoreOf(zapatillas[0]) });
 
 // Top 3 — score con preferencia por precio verificado
-const conPrecio = visibles.filter(z => findMejorPrecio(z.links_compra)).sort((a, b) => scoreOf(b) - scoreOf(a));
-const sinPrecio = visibles.filter(z => !findMejorPrecio(z.links_compra)).sort((a, b) => scoreOf(b) - scoreOf(a));
+const conPrecio = visibles.filter(z => findMejorPrecio(z.links_compra)).sort(compareByScore);
+const sinPrecio = visibles.filter(z => !findMejorPrecio(z.links_compra)).sort(compareByScore);
 const top3 = [...conPrecio, ...sinPrecio].slice(0, 3);
 // "Trending hoy" = lista curada (tag "trending"), priorizando precio verificado y score.
 // Fallback a top por score si no hubiera suficientes etiquetadas.

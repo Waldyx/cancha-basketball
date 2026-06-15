@@ -612,3 +612,27 @@ export function scoreDisplay(z: Zapatilla): number {
 export function scoreMeta(z: Zapatilla): ScoreInfo {
   return scoreInfo(z.id, axisAverage(z.puntuaciones as any));
 }
+
+/**
+ * Bonus de recencia ACOTADO (0 a +0.20): +0.04 por año desde 2021, tope 2026.
+ * Sirve para desempatar por "más nueva" sin romper el orden: al ser un único
+ * término acotado, una zapa NO puede adelantar a otra con score realmente
+ * superior (un 8.8 jamás supera a un 9.0), solo reordena dentro del ruido.
+ */
+function recencyBonus(year?: number): number {
+  return Math.min(Math.max((year ?? 0) - 2021, 0), 5) * 0.04;
+}
+
+/**
+ * Comparador para ordenar por score DESC con DESEMPATE POR RECENCIA (transitivo).
+ * Evita que una zapa antigua (p.ej. Clyde All-Pro 2022) lidere por delante de
+ * flagships actuales casi empatados, sin que scores menores leapfrog a mayores.
+ */
+export function compareByScore(a: Zapatilla, b: Zapatilla): number {
+  const ea = scoreDisplay(a) + recencyBonus(a.año_lanzamiento);
+  const eb = scoreDisplay(b) + recencyBonus(b.año_lanzamiento);
+  if (eb !== ea) return eb - ea;
+  const sa = scoreDisplay(a), sb = scoreDisplay(b);
+  if (sb !== sa) return sb - sa;
+  return (b.año_lanzamiento ?? 0) - (a.año_lanzamiento ?? 0);
+}
