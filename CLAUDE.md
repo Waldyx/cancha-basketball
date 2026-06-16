@@ -1,11 +1,49 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-06-12 (sesión 26)
+> Última actualización: 2026-06-17 (sesión 27)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
 
-## Estado actual (sesión 26) — Sistema promos + trending en todo + barrido afiliados + fichas nuevas
+## Estado actual (sesión 27) — Ampliación de consenso de fuentes (HoopsGeek) + auditoría imágenes
+
+### ✅ Completado (sesión 27)
+
+**Consenso de scores ampliado 98 → 115 zapas** en `web/src/data/score-fuentes.json`:
+- **9 variantes GS/junior** heredan el score MOSTRADO del adulto WT/HG-calibrado (confianza
+  `editorial`, no se revisa la GS en sí): curry-12-gs, ae-1-gs, ae-2-gs, mb05-gs, luka-77-gs,
+  sabrina-3-gs, immortality-4-gs, dame-x-gs, don-issue-7-gs.
+- **4 nicho modernas** ancladas a HoopsGeek (verificadas en web): 361 Joker 1 (8.8/n5),
+  Puma MB.03 (8.3/n7), Puma MB.04 (7.9/n5), Jordan Why Not 6 (7.9/n5, slug HG `jordan-why-not-zero6`).
+- **4 Kobe Protro retro** con review HG real (fuera del ranking global, pero la ficha muestra el
+  consenso): Kobe 1 (8.7/n9), Kobe 4 (8.6/n6), Kobe 5 (8.7/n6), Kobe 6 (8.7/n5).
+- Commits: `bd9b873` (GS + 4 HG) y `3828dd2` (4 Kobe Protro).
+
+**Frontera de fuentes AGOTADA** (no insistir): confirmado SIN review pública en HG/RR/WT →
+se quedan en editorial/axisAvg. NO tienen review: Asics (Unpre/Gelhoop/Glide Nova), Skechers
+(JE1/Resagrip/Float/League), GT Jump 3, Kyrie Flytrap 6, Kyrie Infinity, Cross Em Up 5, Li-Ning
+Sonic 12, Trae Young 4, Trae Unlimited 2, Stewie 4, Immortality 5, Air Max Impact 5, Harden
+Stepback 4, Flow Breakthru 4, Kobe 3 Protro. (RunRepeat ya casi no cubre básquet; HG no lleva
+Asics/Skechers de básquet.) → para anclar estas haría falta otra fuente o estimación editorial manual.
+
+**Auditoría de imágenes — catálogo SANO, nada que arreglar**:
+- 0 imágenes rotas (las 230 refs `/shoes/` existen en disco), 0 thumbnails diminutos.
+- `scripts/optimize-images.mjs` **capa a 600px de ancho a propósito** ("suficiente para catálogo",
+  WebP q82). Las imágenes de ~460-600px son por DISEÑO, no baja calidad. NO subir resolución: el
+  optimizador lo revierte. Imágenes ~terminadas.
+- Único placeholder legítimo: **puma-mb-06** → MB.06 NO está revelada/lanzada (esperada temporada
+  2026-27 NBA, ~oct; MB.05 sigue siendo la actual). Dejar placeholder hasta que Puma publique imagen.
+
+### 🟡 Pendiente / requiere criterio del usuario (sesión 27)
+- **Anclas editorial para ~110 nicho sin review** (budget/team/chinas/Decathlon/Moolah/retros OG):
+  hoy muestran el promedio crudo de los 8 ejes (axisAvg). La metodología prefiere `editorial`
+  calibrado, pero requiere juicio por-zapa (no batchear a ciegas).
+- **Posible duplicado a verificar**: `nike-kobe-9-low-protro` vs `nike-kobe-9-elite-low-protro`
+  (ambas 2024, low). Confirmar si son la misma reedición o modelos distintos antes de tocar nada.
+
+---
+
+## Estado anterior (sesión 26) — Sistema promos + trending en todo + barrido afiliados + fichas nuevas
 
 ### ✅ Completado (sesión 26)
 
