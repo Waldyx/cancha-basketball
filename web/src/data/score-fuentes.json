@@ -102,6 +102,22 @@
     "lining-gamma-2":             { "editorial": 8.8, "wt_url": "https://weartesters.com/li-ning-gamma-2-performance-review/" },
     "anta-kt-11":                 { "editorial": 8.6 },
     "ua-curry-13":                { "editorial": 8.3 },
-    "nike-kd-19":                 { "editorial": 8.3 }
+    "nike-kd-19":                 { "editorial": 8.3 },
+
+    "361-joker-1":                { "hg": 8.8, "n": 5, "url": "https://www.thehoopsgeek.com/shoe-reviews/361-joker-1/" },
+    "puma-mb03":                  { "hg": 8.3, "n": 7, "url": "https://www.thehoopsgeek.com/shoe-reviews/puma-mb03/" },
+    "puma-mb-04":                 { "hg": 7.9, "n": 5, "url": "https://www.thehoopsgeek.com/shoe-reviews/puma-mb04/" },
+    "jordan-why-not-6":           { "hg": 7.9, "n": 5, "url": "https://www.thehoopsgeek.com/shoe-reviews/jordan-why-not-zero6/" },
+
+    "_doc_gs": "Variantes junior/GS: heredan el score MOSTRADO del modelo adulto (que ya está WT/HG-calibrado). Confianza editorial porque no se revisa la GS en sí, se hereda. Si el adulto es rr-only, se usa el score ya normalizado (rr/10 - 0.6).",
+    "ua-curry-12-gs":               { "editorial": 8.5 },
+    "adidas-ae-1-gs":               { "editorial": 8.5 },
+    "adidas-ae-2-gs":               { "editorial": 8.5 },
+    "puma-mb05-gs":                 { "editorial": 8.2 },
+    "jordan-luka-77-gs":            { "editorial": 8.1 },
+    "nike-sabrina-3-gs":            { "editorial": 8.3 },
+    "nike-giannis-immortality-4-gs": { "editorial": 8.1 },
+    "adidas-dame-x-gs":             { "editorial": 8.3 },
+    "adidas-don-issue-7-gs":        { "editorial": 8.7 }
   }
 }
