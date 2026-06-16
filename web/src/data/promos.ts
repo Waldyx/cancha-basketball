@@ -69,6 +69,18 @@ export const PROMOS: Promo[] = [
     nota: "Productos seleccionados · exclusivo online · no acumulable",
     color: "#facc15",
   },
+  {
+    id: "adidas-end-of-season-2026",
+    tienda: "adidas_es",
+    tiendaLabel: "adidas",
+    titulo: "End of Season Sales",
+    desde: "2026-06-26T00:00:00+02:00",
+    hasta: "2026-07-20T23:59:59+02:00",
+    url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Foutlet",
+    descuentoTexto: "hasta 30% en selección",
+    nota: "Descuentos aplicados directamente en la web · selección de artículos · no acumulable",
+    color: "#9fd0ff",
+  },
 ];
 
 /** Promos activas a una fecha dada (por defecto, ahora). */
