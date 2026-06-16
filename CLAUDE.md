@@ -35,9 +35,13 @@ Asics/Skechers de básquet.) → para anclar estas haría falta otra fuente o es
   2026-27 NBA, ~oct; MB.05 sigue siendo la actual). Dejar placeholder hasta que Puma publique imagen.
 
 ### 🟡 Pendiente / requiere criterio del usuario (sesión 27)
-- **Anclas editorial para ~110 nicho sin review** (budget/team/chinas/Decathlon/Moolah/retros OG):
-  hoy muestran el promedio crudo de los 8 ejes (axisAvg). La metodología prefiere `editorial`
-  calibrado, pero requiere juicio por-zapa (no batchear a ciegas).
+- ~~Anclas editorial para ~110 nicho~~ **EVALUADO — no hace falta acción masiva**: las nicho sin
+  review muestran el `axisAvg` de los 8 ejes, que YA están curados y funcionan como la estimación
+  editorial. Verificado: `anta-kai-2-speed` cae en axisAvg 8.5 = exacto el HG de su base `anta-kai-2`
+  → los ejes ya están bien calibrados. Solo 2 "variantes" candidatas y ninguna necesitaba override
+  (kai-2-speed ya da 8.5; `adidas-dame-certified-3` es gen budget distinta, su 7.3 es correcto, NO
+  heredar de Dame Certified 8.2). → Overridear una zapa concreta con `editorial` solo si aparece
+  review nueva o detectas una miscalibración puntual; no batchear.
 - ~~Posible duplicado Kobe 9~~ **RESUELTO**: `nike-kobe-9-low-protro` era un FANTASMA (Nike solo
   lanzó "Kobe 9 Elite Low Protro" / "Elite High Protro"; no existe una "Low Protro" no-Elite).
   Eliminado (ficha + precios.json + imagen + repuntado relatedShoes del artículo de tiradores a
