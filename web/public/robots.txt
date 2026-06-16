@@ -22,5 +22,9 @@ Disallow: /comparar
 # OG images dinámicas — no necesarias para indexación textual
 Disallow: /og/
 
+# Endpoint serverless del chat (POST-only). Googlebot lo rastrea con GET y recibe
+# 405 → GSC lo marcaba como "bloqueado por otro problema 4xx". No es una página.
+Disallow: /api/
+
 # Sitemap (Astro lo genera en build con @astrojs/sitemap)
 Sitemap: https://canchazapa.com/sitemap-index.xml
