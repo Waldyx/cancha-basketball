@@ -38,8 +38,10 @@ Asics/Skechers de básquet.) → para anclar estas haría falta otra fuente o es
 - **Anclas editorial para ~110 nicho sin review** (budget/team/chinas/Decathlon/Moolah/retros OG):
   hoy muestran el promedio crudo de los 8 ejes (axisAvg). La metodología prefiere `editorial`
   calibrado, pero requiere juicio por-zapa (no batchear a ciegas).
-- **Posible duplicado a verificar**: `nike-kobe-9-low-protro` vs `nike-kobe-9-elite-low-protro`
-  (ambas 2024, low). Confirmar si son la misma reedición o modelos distintos antes de tocar nada.
+- ~~Posible duplicado Kobe 9~~ **RESUELTO**: `nike-kobe-9-low-protro` era un FANTASMA (Nike solo
+  lanzó "Kobe 9 Elite Low Protro" / "Elite High Protro"; no existe una "Low Protro" no-Elite).
+  Eliminado (ficha + precios.json + imagen + repuntado relatedShoes del artículo de tiradores a
+  `nike-kobe-9-elite-low-protro`, que es la canónica HG-verificada 8.6). Catálogo 231→230 ids.
 
 ---
 

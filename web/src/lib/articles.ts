@@ -2834,7 +2834,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Nike Kobe 8 Protro",
     heroSubtitle: "La referencia para tiradores en 2025",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-kobe-8-protro", "nike-gt-cut-4", "ua-curry-13", "adidas-ae-2", "nike-kobe-9-low-protro"],
+    relatedShoes: ["nike-kobe-8-protro", "nike-gt-cut-4", "ua-curry-13", "adidas-ae-2", "nike-kobe-9-elite-low-protro"],
     relatedSeoPages: ["mejor-zapatilla-escolta", "zapatillas-reactivas", "mejores-zapatillas-nike"],
     body: `
 <p class="art-intro">Kobe Bryant no necesitaba una zapatilla de moda. Necesitaba la que le diera ventaja en décimas de segundo. La Kobe 8 Protro es la reedición de la zapatilla que Kobe usó durante la temporada 2012-13 — y en 2025 sigue siendo una de las más reactivas del mercado. Esto no es nostalgia. Es ingeniería que aguanta el paso del tiempo.</p>

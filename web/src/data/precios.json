@@ -381,24 +381,6 @@
         }
       ]
     },
-    "nike-kobe-9-low-protro": {
-      "links_compra": [
-        {
-          "tienda": "nike_es",
-          "url": "https://www.nike.com/es/t/kobe-9-low-protro-zapatillas-de-baloncesto-a69NSpgE/IM6119-800",
-          "precio_actual": 179.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-06-16"
-        },
-        {
-          "tienda": "snipes_eu",
-          "url": "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fc%2Fzapatillas%3Fq%3Dkobe%2B9",
-          "precio_actual": 180,
-          "disponible": true,
-          "ultima_verificacion": "2026-06-16"
-        }
-      ]
-    },
     "nike-sabrina-3": {
       "links_compra": [
         {
