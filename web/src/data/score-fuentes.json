@@ -109,6 +109,12 @@
     "puma-mb-04":                 { "hg": 7.9, "n": 5, "url": "https://www.thehoopsgeek.com/shoe-reviews/puma-mb04/" },
     "jordan-why-not-6":           { "hg": 7.9, "n": 5, "url": "https://www.thehoopsgeek.com/shoe-reviews/jordan-why-not-zero6/" },
 
+    "_doc_retro": "Retro-modernas con review HG real (fuera del ranking global, pero la ficha individual muestra el consenso). Kobe Protro = reissues recientes con reviews de rendimiento.",
+    "nike-kobe-1-protro":         { "hg": 8.7, "n": 9, "url": "https://www.thehoopsgeek.com/shoe-reviews/nike-zoom-kobe-1-protro/" },
+    "nike-kobe-4-protro":         { "hg": 8.6, "n": 6, "url": "https://www.thehoopsgeek.com/shoe-reviews/nike-kobe-4-protro/" },
+    "nike-kobe-5-protro":         { "hg": 8.7, "n": 6, "url": "https://www.thehoopsgeek.com/shoe-reviews/nike-kobe-5-protro/" },
+    "nike-kobe-6-protro":         { "hg": 8.7, "n": 5, "url": "https://www.thehoopsgeek.com/shoe-reviews/nike-kobe-6-protro/" },
+
     "_doc_gs": "Variantes junior/GS: heredan el score MOSTRADO del modelo adulto (que ya está WT/HG-calibrado). Confianza editorial porque no se revisa la GS en sí, se hereda. Si el adulto es rr-only, se usa el score ya normalizado (rr/10 - 0.6).",
     "ua-curry-12-gs":               { "editorial": 8.5 },
     "adidas-ae-1-gs":               { "editorial": 8.5 },
