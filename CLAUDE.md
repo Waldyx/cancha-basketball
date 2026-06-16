@@ -34,6 +34,20 @@ Asics/Skechers de básquet.) → para anclar estas haría falta otra fuente o es
 - Único placeholder legítimo: **puma-mb-06** → MB.06 NO está revelada/lanzada (esperada temporada
   2026-27 NBA, ~oct; MB.05 sigue siendo la actual). Dejar placeholder hasta que Puma publique imagen.
 
+**SEO — aviso GSC "4xx" RESUELTO**: Search Console marcaba "bloqueado por otro problema 4xx" porque
+Googlebot rastreaba `/api/chat` (serverless POST-only) con GET y recibía **405**. Fix: añadido
+`Disallow: /api/` a `robots.txt` (no afecta al chat, robots.txt no aplica al fetch del navegador).
+Verificado en prod: `GET /api/chat` = 405. → El usuario debe pulsar "Validar corrección" en GSC.
+NO es pérdida de SEO real (el endpoint nunca fue una página). Commit `2470de7`.
+
+**Afiliados (sesión 27)**:
+- **Basketball Emotion — CERRADO DEFINITIVO**: TradeTracker (Sports Emotion Hub) respondió por
+  ticket 2026-06-16: *"Basketball Emotion no tiene programa de afiliados"*. Los ~23 links
+  `basketballemotion_es` se quedan como URL directa `tiene_afiliado:false` (funcionan, sin comisión).
+  Auditado: 0 con afiliado activo, 0 con wrapper TradeTracker muerto. NO volver a perseguir esto.
+- **Promo adidas End of Season Sales** añadida a `promos.ts` (date-gated 26 jun–20 jul 2026, hasta
+  30%, deeplink Awin 77008→outlet, sin código). Se autoactiva el 26-jun. Commit `d8e0291`.
+
 ### 🟡 Pendiente / requiere criterio del usuario (sesión 27)
 - ~~Anclas editorial para ~110 nicho~~ **EVALUADO — no hace falta acción masiva**: las nicho sin
   review muestran el `axisAvg` de los 8 ejes, que YA están curados y funcionan como la estimación
@@ -756,11 +770,9 @@ En la práctica: Nike.es y Basket World siempre son search (no tienen URLs de pr
   NO existe campaña "Basketball Emotion"/"baloncesto" en TradeTracker. → Los ~23 enlaces de `basketballemotion_es`
   están como **URL directa con `tiene_afiliado:false`** (funcionan, sin comisión). NO volver a envolverlos en
   tc.tradetracker.net. Revisar si algún día sale programa de basketballemotion.com.
-  - ⏳ **PENDIENTE (acción del usuario)**: escrito mensaje al anunciante (Sports Emotion Hub, campaña #35939)
-    pidiendo añadir basketballemotion.com a la campaña o indicar red propia (Awin/otra). Verificado que
-    futbolemotion.com NO vende básquet (no se puede deeplinkear por ahí) y que basketballemotion.com no tiene
-    programa público ni script de red de afiliación en su home. Cuando el usuario consiga UN deeplink válido →
-    re-envolver los ~23 enlaces `basketballemotion_es` con ese formato (poner `tiene_afiliado:true`).
+  - ⛔ **CERRADO DEFINITIVO (2026-06-16)**: TradeTracker respondió por ticket que *Basketball Emotion
+    NO tiene programa de afiliados*. Los ~23 enlaces `basketballemotion_es` se quedan como URL directa
+    con `tiene_afiliado:false` (funcionan, sin comisión). NO volver a perseguir esto (ver sesión 27).
 - **Formato deeplink**: `https://tc.tradetracker.net/?c=CAMPAÑA&m=12&a=511170&r=&u=URL_ENCODED` (FuikaOmar usa `deals.fuikaomar.es/c?c=37834&m=12&a=511170&...`)
 
 > AUDITORÍA 2026-06-12: todo lo aprobado está correctamente activado en los datos
