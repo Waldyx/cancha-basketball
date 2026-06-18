@@ -103,17 +103,20 @@
     "anta-kt-11":                 { "editorial": 8.6 },
     "ua-curry-13":                { "editorial": 8.3 },
     "nike-kd-19":                 { "editorial": 8.3 },
+    "nike-giannis-immortality-5": { "editorial": 7.3, "wt_url": "https://weartesters.com/nike-giannis-immortality-5-review/" },
 
     "361-joker-1":                { "hg": 8.8, "n": 5, "url": "https://www.thehoopsgeek.com/shoe-reviews/361-joker-1/" },
     "puma-mb03":                  { "hg": 8.3, "n": 7, "url": "https://www.thehoopsgeek.com/shoe-reviews/puma-mb03/" },
     "puma-mb-04":                 { "hg": 7.9, "n": 5, "url": "https://www.thehoopsgeek.com/shoe-reviews/puma-mb04/" },
     "jordan-why-not-6":           { "hg": 7.9, "n": 5, "url": "https://www.thehoopsgeek.com/shoe-reviews/jordan-why-not-zero6/" },
+    "rigorer-ar3":                { "hg": 8.5, "n": 6, "url": "https://www.thehoopsgeek.com/shoe-reviews/rigorer-ar3/", "wt_url": "https://weartesters.com/rigorer-ar3-performance-review/" },
 
     "_doc_retro": "Retro-modernas con review HG real (fuera del ranking global, pero la ficha individual muestra el consenso). Kobe Protro = reissues recientes con reviews de rendimiento.",
     "nike-kobe-1-protro":         { "hg": 8.7, "n": 9, "url": "https://www.thehoopsgeek.com/shoe-reviews/nike-zoom-kobe-1-protro/" },
     "nike-kobe-4-protro":         { "hg": 8.6, "n": 6, "url": "https://www.thehoopsgeek.com/shoe-reviews/nike-kobe-4-protro/" },
     "nike-kobe-5-protro":         { "hg": 8.7, "n": 6, "url": "https://www.thehoopsgeek.com/shoe-reviews/nike-kobe-5-protro/" },
     "nike-kobe-6-protro":         { "hg": 8.7, "n": 5, "url": "https://www.thehoopsgeek.com/shoe-reviews/nike-kobe-6-protro/" },
+    "nike-kobe-3-protro":         { "hg": 8.3, "n": 7, "url": "https://www.thehoopsgeek.com/shoe-reviews/nike-kobe-protro-3/", "wt_url": "https://weartesters.com/nike-kobe-3-protro-performance-review/" },
 
     "_doc_gs": "Variantes junior/GS: heredan el score MOSTRADO del modelo adulto (que ya está WT/HG-calibrado). Confianza editorial porque no se revisa la GS en sí, se hereda. Si el adulto es rr-only, se usa el score ya normalizado (rr/10 - 0.6).",
     "ua-curry-12-gs":               { "editorial": 8.5 },
