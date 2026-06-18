@@ -3027,7 +3027,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "2025-2026 · Superfeet, Sof Sole, Bauerfeind, Currex",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["fila-grant-hill-1", "adidas-crazy-8", "nike-shox-bb4", "nike-air-penny-2"],
-    relatedSeoPages: ["zapatillas-baloncesto-retro", "zapatillas-baloncesto-rodillas"],
+    relatedSeoPages: ["zapatillas-baloncesto-retro", "zapatillas-baloncesto-para-rodillas"],
     body: `
 <p class="art-intro">La plantilla de fábrica que viene en la mayoría de zapatillas es, en el mejor caso, mediocre. Sustituirla por una plantilla técnica de 18-45€ puede mejorar el soporte, reducir el impacto en rodillas y alargar la vida útil de la zapatilla. Especialmente útil en zapas retro y modelos de entrada.</p>
 
@@ -3344,7 +3344,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "Que la tracción y la espuma duren más · Sin mitos",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["nike-gt-cut-4", "adidas-ae-2", "ua-curry-13", "jordan-tatum-4"],
-    relatedSeoPages: ["zapatillas-baloncesto-outdoor", "zapatillas-baloncesto-baratas"],
+    relatedSeoPages: ["zapatillas-outdoor", "zapatillas-baloncesto-baratas"],
     body: `
 <p class="art-intro">Una zapatilla de baloncesto se juega, no se exhibe. Pero unos cuidados básicos marcan la diferencia entre que la tracción te dure una temporada o dos, y entre una mediasuela que aguanta o una que se descompone antes de tiempo. Aquí va lo que sí importa y lo que es mito.</p>
 
@@ -3402,7 +3402,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "Señales claras de que la mediasuela está muerta",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["nike-lebron-23", "ua-curry-13", "nike-gt-cut-4", "adidas-ae-2"],
-    relatedSeoPages: ["zapatillas-baloncesto-rodillas", "zapatillas-baloncesto-baratas"],
+    relatedSeoPages: ["zapatillas-baloncesto-para-rodillas", "zapatillas-baloncesto-baratas"],
     body: `
 <p class="art-intro">No hay un número mágico de meses, pero sí hay señales objetivas. La clave no es cómo se ven por fuera — es lo que ha pasado con la mediasuela y la tracción por dentro. Jugar con una zapatilla "muerta" es la forma más tonta de acabar con dolor de rodillas o un tobillo torcido.</p>
 
@@ -3450,7 +3450,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "¿Puedo usar unas por otras? La respuesta corta: no",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["nike-gt-cut-4", "adidas-ae-2", "nike-precision-7", "ua-curry-13"],
-    relatedSeoPages: ["zapatillas-baloncesto-baratas", "zapatillas-baloncesto-outdoor"],
+    relatedSeoPages: ["zapatillas-baloncesto-baratas", "zapatillas-outdoor"],
     body: `
 <p class="art-intro">Es una de las preguntas más repetidas, sobre todo a la hora de ahorrar: "tengo unas de running buenas, ¿me valen para jugar?". La respuesta honesta es no, y no es por venderte otra zapatilla — es por cómo está diseñada cada una y por tu integridad física.</p>
 
@@ -3598,7 +3598,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "Talla, material y terreno · Y los mejores de 2026",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: [],
-    relatedSeoPages: ["zapatillas-baloncesto-outdoor", "zapatillas-baloncesto-junior"],
+    relatedSeoPages: ["zapatillas-outdoor", "zapatillas-baloncesto-junior"],
     body: `
 <p class="art-intro">Un balón malo arruina cualquier entrenamiento: resbala, no bota recto o se pela en dos semanas. Elegir bien es fácil si entiendes tres cosas — talla, material y dónde vas a jugar. Aquí va la guía, y al final tienes nuestros balones recomendados con dónde comprarlos.</p>
 
