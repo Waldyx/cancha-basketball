@@ -26,11 +26,43 @@ acababa ~24 jun; con ~153 visitantes únicos/28d no compensa pagar 9€/mes):
 - Commit `4b0db0a` + deploy `d5fa005`. Build limpio (329 páginas), beacon verificado en el
   HTML de prod, 0 rastro de `plausible.io`. → El trial de Plausible puede caducar tranquilo.
 
+**Scores — 2 anclas nuevas + 1 link WT** (`score-fuentes.json`, 118→120 zapas). Búsqueda de
+fuentes para trending/nuevas sin consenso:
+- `nike-kobe-3-protro`: estaba a **7.0 editorial → HoopsGeek 8.3/n7** (infravalorada, +1.3).
+  Slug HG real: `nike-kobe-protro-3`. + wt_url.
+- `rigorer-ar3`: editorial 8.3 → **HoopsGeek 8.5/n6** (pasa a verificada). + wt_url.
+- `nike-giannis-immortality-5`: sin score numérico en ninguna fuente; axisAvg 7.3 coincide con
+  WearTesters (~85$, "fiable pero básica"). Solo wt_url.
+- Confirmado SIN review numérica (frontera, se quedan editorial): KD 19 (recién salida), Kobe 9
+  High Protro (HG solo tiene la Low), Asics (Unpre/Gelhoop/Glide), Skechers (JE1/Float/Resagrip/
+  League). RunRepeat ya no cubre básquet. Commit `2d5fcfa`.
+
+**Auditoría de afiliados (sesión 28)** — `scripts/audit-affiliates.ts`:
+- **653 enlaces totales: 317 con afiliado nuestro · 336 sin afiliado.** 0 mal etiquetados.
+- **Fix bug FuikaOmar**: 6 enlaces eran URL directa `fuikaomar.es` (tiene_afiliado:false) →
+  perdían comisión (FuikaOmar #37834 está aprobado). Existían solo en `precios.json`, por lo que
+  el merge los añadía como false. Añadidos como link editorial en `zapatillas.ts` con wrapper:
+  anta-kai-1-speed, anta-kai-2, anta-kt-10, nb-two-wxy-v4, adidas-harden-vol-10, adidas-don-issue-7.
+  Commit `4efb2c3`. (311→317 afiliados.)
+- **Afiliados ACTIVOS (9, las únicas que monetizan)**: Amazon, Decathlon, Atmósfera, adidas,
+  AliExpress (Awin + Portals), Forum Sport, Snipes, **FuikaOmar**. (= set `AFILIADO_OK` del script.)
+- **32 zapas SIN ningún afiliado** (media 2.8 links/zapa): muchas son flagships muy buscadas
+  (KD 18, Luka 5, GT Cut 3, Book 2, Tatum 4, Zion 4, Freak 5/6, KD 16/17, Immortality 4). Su
+  único stock es Nike.es/Foot Locker (no afiliados) → no cobran nada. PRIORIDAD: añadirles un
+  afiliado. Mejor fuente por comisión que SÍ vende Nike/Jordan: **Atmósfera (6%) > Snipes (5%) >
+  FuikaOmar (~5%) > Amazon (3%)**. El usuario pasa los enlaces y Claude los envuelve.
+
 ### 🟡 Pendiente / requiere criterio del usuario (sesión 28)
-- ~~Migrar analítica a Cloudflare~~ **HECHO** (ver arriba).
-- **Anclas editoriales para ~110 nicho** (heredado de s27): EVALUADO, no hace falta acción
-  masiva (los `axisAvg` ya funcionan como estimación). Overridear puntual solo si aparece
-  review nueva o miscalibración detectada; no batchear.
+- ~~Migrar analítica a Cloudflare~~ **HECHO**.
+- **Rellenar las 32 zapas sin afiliado** (el usuario busca enlaces, Claude envuelve). En curso.
+- **ESTRATEGIA de enlaces decidida (pendiente de ejecutar)**: para los ~290 enlaces de tiendas
+  RECHAZADAS/sin-programa (que nunca cobran: Foot Locker 88, Nike.es 59, Zalando 27, etc.) →
+  **NO mantener precio a mano**. Dos destinos por enlace: (A) botón **"Ver precio en [tienda]"**
+  SIN número cuando es la única/mejor opción de compra; (B) **podar** cuando es redundante (ya hay
+  un afiliado igual o más barato). El precio real SOLO se mantiene donde monetizamos (los 317
+  afiliados, que puede llevar el scraper). De momento NO se borra nada (usuario eligió opción 3).
+- **Pendientes Awin que SÍ convertirán** → activarán sus links solos: Joom (19), ECI (7), Reebok (5).
+- **Anclas editoriales para ~110 nicho** (heredado s27): EVALUADO, no hace falta acción masiva.
 
 ---
 
@@ -804,7 +836,10 @@ En la práctica: Nike.es y Basket World siempre son search (no tienen URLs de pr
   - ⏳ **Sneakin ES** — conv 4.32%, aprob 75%
   - ⏳ **Pro:Direct ES** — conv 0.12%, aprob 100%
   - ⏳ **Reebok ES** — N/A (recién lanzado 11/12/26) → 5 links Reebok esperando
-- **Rechazados (reintentar en 3-6 meses con más tráfico)**: Foot Locker ES, Sprinter ES, Foot-Store ES, JD Sports.
+- **Rechazados (6) — al 2026-06-18** (botón "+Unirse", reintentar en 3-6 meses con más tráfico):
+  Foot Locker ES, JD Sports ES, Sprinter ES, Foot-Store ES, **size?Official ES**, **Privé by Zalando ES**.
+  ⚠ CAMBIO s28: **Zalando y size? pasaron de PENDIENTE a RECHAZADO**. Sus enlaces (Zalando 27,
+  size? 1) ya NO van a convertir → son peso muerto, tratar como "Ver precio"/podar (ver sesión 28).
 - **Formato link Awin**: `https://www.awin1.com/cread.php?awinmid=AIDID&awinaffid=2908587&ued=URL_ENCODED_URL`
 
 ### CJ (Commission Junction) — Publisher 7969834
