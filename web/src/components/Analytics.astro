@@ -1,44 +1,41 @@
 ---
-// Componente: Analytics (Plausible — privacy-first, sin cookies)
+// Componente: Analytics (Cloudflare Web Analytics — privacy-first, sin cookies)
 //
-// Plausible: <1kb, sin cookies, GDPR-compliant.
-// Alternativa: Umami self-hosted (mismo formato de embed).
+// Cloudflare Web Analytics: gratis, sin cookies, sin localStorage, GDPR-compliant.
+// No rastrea visitantes individuales → no requiere banner de cookies.
+// Migrado de Plausible (sesión 28, 2026-06-18, al acabar el trial de Plausible).
 //
-// IMPORTANTE: Pon tu dominio real cuando lo tengas (ahora "cancha.zapa").
-// Si quieres Umami, sustituye el src= y data-website-id.
+// Token del beacon: Cloudflare dash → Analytics → Web Analytics → canchazapa.com.
 
 const isDev = import.meta.env.DEV;
-const domain = "canchazapa.com";
+const CF_TOKEN = "4052ed0c20a7494895e7111141ce38b5";
 ---
 
 {!isDev && (
   <>
-    {/* Plausible — gratis hasta 10k pageviews/mes, $9/mes después.
-        Sin cookies, sin localStorage. No requiere banner. */}
+    {/* Cloudflare Web Analytics — beacon JS, sin cookies. */}
     <script
       defer
-      data-domain={domain}
-      src="https://plausible.io/js/script.js"
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon={`{"token": "${CF_TOKEN}"}`}
     ></script>
 
-    {/* Custom event helper (window.plausible) para eventos como
-        "Quiz Completed", "Affiliate Click", etc. */}
+    {/* No-op de window.plausible: el sitio aún llama a window.plausible(...)
+        para eventos custom. Lo dejamos como función vacía para no romper esas
+        llamadas. Cloudflare Web Analytics no soporta eventos custom; el dato
+        de clicks de afiliado ya lo dan los paneles de Amazon/Awin/TradeTracker. */}
     <script is:inline>
-      {`window.plausible = window.plausible || function(){
-        (window.plausible.q = window.plausible.q || []).push(arguments);
-      }`}
+      {`window.plausible = window.plausible || function(){};`}
     </script>
   </>
 )}
 
 <!--
-  CÓMO TRACKEAR EVENTOS PERSONALIZADOS:
+  EVENTOS PERSONALIZADOS (legado):
 
-  En cualquier página puedes lanzar eventos custom:
-
-    window.plausible("Quiz Completed", { props: { posicion, estilo } });
-    window.plausible("Affiliate Click", { props: { tienda, zapa } });
-    window.plausible("Favorite Added", { props: { zapa } });
-
-  En el dashboard de Plausible verás conversion rate por evento.
+  El sitio sigue llamando a window.plausible("Affiliate Click", ...) en varios
+  sitios. Tras la migración a Cloudflare Web Analytics esas llamadas son no-op
+  (Cloudflare no tiene eventos custom). Los clicks de afiliado se miden desde
+  los paneles de Amazon, Awin y TradeTracker. Si algún día se quiere recuperar
+  el tracking de eventos, valorar Plausible de pago o un endpoint propio.
 -->
