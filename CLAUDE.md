@@ -1,11 +1,40 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-06-17 (sesión 27)
+> Última actualización: 2026-06-18 (sesión 28)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
 
-## Estado actual (sesión 27) — Ampliación de consenso de fuentes (HoopsGeek) + auditoría imágenes
+## Estado actual (sesión 28) — Migración de analítica: Plausible → Cloudflare Web Analytics
+
+### ✅ Completado (sesión 28)
+
+**Analítica migrada de Plausible a Cloudflare Web Analytics** (el trial de Plausible
+acababa ~24 jun; con ~153 visitantes únicos/28d no compensa pagar 9€/mes):
+- `web/src/components/Analytics.astro`: ahora inyecta el beacon de Cloudflare
+  (`static.cloudflareinsights.com/beacon.min.js`, token `4052ed0c20a7494895e7111141ce38b5`),
+  sin cookies. `window.plausible` pasa a **no-op** (`function(){}`) para no romper las
+  llamadas de eventos custom (`Affiliate Click`, `Quiz Completed`, etc.) repartidas por el sitio.
+- `web/src/pages/privacidad.astro`: 3 menciones Plausible → Cloudflare Web Analytics
+  (sigue sin cookies, sin banner de consentimiento). `Base.astro`: comentario actualizado.
+- **Eventos custom DEJAN de registrarse**: Cloudflare Web Analytics NO soporta eventos
+  personalizados. No es pérdida real → los clicks de afiliado se miden desde los paneles de
+  Amazon/Awin/TradeTracker. Si algún día se quiere recuperar, valorar Plausible de pago o
+  un endpoint propio.
+- Panel CF creado para `canchazapa.com` (método **JS snippet**, NO DNS proxy — el sitio
+  sigue en Vercel). Account ID CF: `98aed7b8c4ec1be751603f514bbc3bfc`.
+- Commit `4b0db0a` + deploy `d5fa005`. Build limpio (329 páginas), beacon verificado en el
+  HTML de prod, 0 rastro de `plausible.io`. → El trial de Plausible puede caducar tranquilo.
+
+### 🟡 Pendiente / requiere criterio del usuario (sesión 28)
+- ~~Migrar analítica a Cloudflare~~ **HECHO** (ver arriba).
+- **Anclas editoriales para ~110 nicho** (heredado de s27): EVALUADO, no hace falta acción
+  masiva (los `axisAvg` ya funcionan como estimación). Overridear puntual solo si aparece
+  review nueva o miscalibración detectada; no batchear.
+
+---
+
+## Estado anterior (sesión 27) — Ampliación de consenso de fuentes (HoopsGeek) + auditoría imágenes
 
 ### ✅ Completado (sesión 27)
 
