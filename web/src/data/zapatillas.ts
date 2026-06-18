@@ -490,6 +490,7 @@ const _rawZapatillas: Zapatilla[] = [
         tiene_afiliado: true,
         ultima_verificacion: "2026-05-28",
       },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-anta-kai-1-team-black-blue.html", precio_actual: 79.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
     ],
   },
 
@@ -1195,6 +1196,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011570638695.html", precio_actual: 63.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kai+2&tag=canchazapa-21", precio_actual: 149, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-anta-kai-2-moon.html", precio_actual: 109.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
     ],
   },
 
@@ -1504,6 +1506,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3S006Ff", precio_actual: 155, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kt+10&tag=canchazapa-21", precio_actual: 169, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-anta-kt10-low-graffiti.html", precio_actual: 139.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
     ],
   },
 
@@ -3150,6 +3153,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "nb_es", url: "https://www.newbalance.es/search?q=two+wxy+v4", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+two+wxy+v4+baloncesto&tag=canchazapa-21", precio_actual: 72, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=new+balance+two+wxy+v4", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-new-balance-two-wxy-v4-acero.html", precio_actual: 79.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
     ],
   },
 
@@ -5995,6 +5999,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-harden-volume-10%2FKH9153.html", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "zalando_es", url: "https://www.zalando.es/adidas-performance-zapatillas-de-baloncesto-core-blacklucid-lemon-ad542a5su-i11.html", precio_actual: 87.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/adidas-harden-volume-10-hombre-zapatillas/314109881004.html", precio_actual: 159.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-harden-vol-10-aquamarine.html", precio_actual: 149.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
     ],
   },
 
@@ -13359,6 +13364,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "zalando_es", url: "https://www.zalando.es/adidas-performance-don-issue-7-unisex-zapatillas-de-baloncesto-core-blackgold-coloured-metallicice-gold-coloured-metallic-ad544a1hj-q11.html", precio_actual: 77.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+don+issue+7&tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-don-issue-7-blanco-gris-144153.html", precio_actual: 78, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-don-issue-7-all-star.html", precio_actual: 109.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
     ],
   },
 
