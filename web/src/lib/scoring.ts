@@ -441,6 +441,33 @@ export function findMejorPrecio(links: LinkCompra[]): LinkCompra | undefined {
 }
 
 // ─────────────────────────────────────────────────────────
+// 5b. Precio MOSTRADO (estrategia "ver precio" — sesión 28)
+//
+// Solo mostramos un PRECIO numérico de tiendas donde monetizamos o que están
+// a punto de aprobarse (convertirán). Para las tiendas rechazadas / sin programa
+// NO mantenemos el precio a mano: la ficha muestra "Ver precio en [tienda]" sin
+// número. Así el precio que enseñamos es el que de verdad respaldamos.
+//
+// OJO: esto SOLO afecta a lo que se MUESTRA. El ORDEN del catálogo y el editor's
+// pick siguen usando findMejorPrecio (precio real más barato), que NO se toca.
+// ─────────────────────────────────────────────────────────
+
+// Tiendas pendientes de aprobación: mostramos su precio porque convertirán pronto.
+const TIENDAS_PENDIENTES = new Set([
+  "joom", "elcorteingles_es", "reebok_es", "basket_center_es", "sneakin_es", "prodirect_es",
+]);
+
+/** ¿Mostramos el precio numérico de este enlace? (afiliado activo o pendiente) */
+export function mostramosPrecio(link: LinkCompra): boolean {
+  return link.tiene_afiliado === true || TIENDAS_PENDIENTES.has(link.tienda);
+}
+
+/** Mejor precio entre las tiendas cuyo precio SÍ mostramos (para el "desde X€"). */
+export function findMejorPrecioMostrado(links: LinkCompra[]): LinkCompra | undefined {
+  return findMejorPrecio(links.filter((l) => mostramosPrecio(l)));
+}
+
+// ─────────────────────────────────────────────────────────
 // 6. Razones humanas (max 3 por card)
 // ─────────────────────────────────────────────────────────
 

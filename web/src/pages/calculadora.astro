@@ -9,7 +9,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecio } from "../lib/scoring";
+import { findMejorPrecioMostrado } from "../lib/scoring";
 
 // Indexar todo el catálogo para el datalist + lookup en cliente
 const index = zapatillas.map((z) => ({
@@ -17,7 +17,7 @@ const index = zapatillas.map((z) => ({
   marca: z.marca,
   modelo: z.modelo,
   dura: z.puntuaciones.durabilidad_outdoor,
-  precio: (findMejorPrecio(z.links_compra)?.precio_actual) ?? z.precio_msrp_eur,
+  precio: (findMejorPrecioMostrado(z.links_compra)?.precio_actual) ?? z.precio_msrp_eur,
   cat: z.categoria_principal,
   retro: z.tags.includes("retro"),
   img: z.imagen_principal,

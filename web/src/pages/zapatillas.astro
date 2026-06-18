@@ -6,7 +6,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecio, scoreDisplay, compareByScore } from "../lib/scoring";
+import { findMejorPrecio, findMejorPrecioMostrado, scoreDisplay, compareByScore } from "../lib/scoring";
 
 const LABELS_TIENDA: Record<string, string> = {
   amazon_es: "Amazon", decathlon: "Decathlon", nike_es: "Nike", adidas_es: "Adidas",
@@ -133,7 +133,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
                 <div class="ticker-row">
                   <span class="t-rank">{scoreOf(z)}</span>
                   <span class="t-name"><strong>{z.marca}</strong> {z.modelo}</span>
-                  <span class="t-price">{Math.round(findMejorPrecio(z.links_compra)?.precio_actual ?? z.precio_msrp_eur)}€</span>
+                  <span class="t-price">{Math.round(findMejorPrecioMostrado(z.links_compra)?.precio_actual ?? z.precio_msrp_eur)}€</span>
                 </div>
               ))}
             </div>
@@ -259,8 +259,11 @@ const ordenadas = [...zapatillas].sort(compareByScore);
             {/* Editor's pick */}
             {editorPick && (() => {
               const z = editorPick.z;
-              const mejor = editorPick.mejor!;
-              const ahorro = z.precio_msrp_eur - mejor.precio_actual;
+              // El pick se elige con el precio real (sin tocar), pero MOSTRAMOS el precio
+              // de una tienda que monetiza/pendiente; si no hay, el MSRP oficial.
+              const mejorVista = findMejorPrecioMostrado(z.links_compra);
+              const precioVista = mejorVista?.precio_actual ?? z.precio_msrp_eur;
+              const ahorro = z.precio_msrp_eur - precioVista;
               return (
                 <article class="cz-pick" data-pick="true" style={`--cat:${CAT_ACCENT[z.categoria_principal]}`}>
                   <div class="pick-photo">
@@ -289,12 +292,14 @@ const ordenadas = [...zapatillas].sort(compareByScore);
                     </div>
                     <div class="pick-foot">
                       <div class="pick-price">
-                        <div class="pp-now">{Math.round(mejor.precio_actual)}€</div>
+                        <div class="pp-now">{Math.round(precioVista)}€</div>
                         <div class="pp-meta">
-                          <span class="msrp">msrp {z.precio_msrp_eur}€</span>
-                          <span class="save">−{Math.round(ahorro)}€</span>
+                          {mejorVista && ahorro > 0 && <><span class="msrp">msrp {z.precio_msrp_eur}€</span><span class="save">−{Math.round(ahorro)}€</span></>}
                         </div>
-                        <div class="pp-tienda"><span class="dot"></span>Verificado en {LABELS_TIENDA[mejor.tienda] || mejor.tienda}</div>
+                        {mejorVista
+                          ? <div class="pp-tienda"><span class="dot"></span>Verificado en {LABELS_TIENDA[mejorVista.tienda] || mejorVista.tienda}</div>
+                          : <div class="pp-tienda"><span class="dot" style="background:#71717a"></span>Precio oficial · ver tiendas</div>
+                        }
                       </div>
                       <div class="pick-actions">
                         <a class="pick-btn primary" href={`/zapatilla/${z.slug}`}>Ver review →</a>
@@ -307,9 +312,11 @@ const ordenadas = [...zapatillas].sort(compareByScore);
 
             {/* SHOE CARDS */}
             {ordenadas.map((z, i) => {
-              const mejor = minPrecioLink(z.links_compra);
+              const mejor = minPrecioLink(z.links_compra);            // precio REAL (filtros / data-precio, no se toca)
               const precio = mejor?.precio_actual ?? z.precio_msrp_eur;
-              const tienda = mejor ? LABELS_TIENDA[mejor.tienda] || mejor.tienda : null;
+              const mejorVista = findMejorPrecioMostrado(z.links_compra); // precio MOSTRADO (solo tiendas que monetizan/pendientes)
+              const precioVista = mejorVista?.precio_actual ?? z.precio_msrp_eur;
+              const tienda = mejorVista ? LABELS_TIENDA[mejorVista.tienda] || mejorVista.tienda : null;
               const score = scoreOf(z);
               const cat = CAT_ACCENT[z.categoria_principal];
               const isNew = z.año_lanzamiento >= 2026;
@@ -380,11 +387,11 @@ const ordenadas = [...zapatillas].sort(compareByScore);
                     </div>
                     <div class="foot">
                       <div>
-                        {mejor
+                        {mejorVista
                           ? <span class="price-meta"><span class="dot"></span>Verificado</span>
-                          : <span class="price-meta" style="color:#71717a"><span class="dot" style="background:#71717a"></span>Editorial</span>
+                          : <span class="price-meta" style="color:#71717a"><span class="dot" style="background:#71717a"></span>Precio oficial</span>
                         }
-                        <span class="price">{Math.round(precio)}€</span>
+                        <span class="price">{Math.round(precioVista)}€</span>
                         {tienda && <p class="tienda">en {tienda}</p>}
                       </div>
                       <span class="card-ver-btn">VER →</span>

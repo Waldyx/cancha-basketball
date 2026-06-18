@@ -4,7 +4,7 @@ import Base from "../../layouts/Base.astro";
 import "../../styles/cancha-redesign.css";
 import { ARTICLES, getArticle } from "../../lib/articles";
 import { zapatillas } from "../../data/zapatillas";
-import { findMejorPrecio } from "../../lib/scoring";
+import { findMejorPrecioMostrado } from "../../lib/scoring";
 import { getSeoPage } from "../../lib/seoPages";
 
 export async function getStaticPaths() {
@@ -149,7 +149,7 @@ const CATEGORIA_COLOR: Record<string, string> = {
             <ul class="art-shoe-list">
               {relatedZapas.map((z) => {
                 if (!z) return null;
-                const mejor = findMejorPrecio(z.links_compra);
+                const mejor = findMejorPrecioMostrado(z.links_compra);
                 return (
                   <li class="art-shoe-item">
                     <a href={`/zapatilla/${z.slug}`} class="art-shoe-link">

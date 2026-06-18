@@ -16,14 +16,14 @@
 // desde zapatillas.ts en build time (SHOE_INDEX abajo) — sin llamadas extra.
 
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecio } from "../lib/scoring";
+import { findMejorPrecioMostrado } from "../lib/scoring";
 
 // Índice mínimo para las mini-cards (todas las zapas, ~200)
 const SHOE_INDEX = Object.fromEntries(
   zapatillas.map((z) => {
     const vals = Object.values(z.puntuaciones);
     const score = Math.round((vals.reduce((a, b) => a + b, 0) / vals.length) * 10) / 10;
-    const precio = (findMejorPrecio(z.links_compra)?.precio_actual) ?? z.precio_msrp_eur;
+    const precio = (findMejorPrecioMostrado(z.links_compra)?.precio_actual) ?? z.precio_msrp_eur;
     return [z.slug, {
       marca: z.marca,
       modelo: z.modelo,

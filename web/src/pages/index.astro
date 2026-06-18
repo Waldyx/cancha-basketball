@@ -5,7 +5,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecio, scoreDisplay, compareByScore } from "../lib/scoring";
+import { findMejorPrecio, findMejorPrecioMostrado, scoreDisplay, compareByScore } from "../lib/scoring";
 import { getAllArticles } from "../lib/articles";
 
 function scoreOf(z: typeof zapatillas[0]): number {
@@ -67,8 +67,12 @@ const today = new Date().toLocaleDateString("es-ES", { day: "2-digit", month: "s
 const recentArticles = getAllArticles().slice(0, 3);
 const BLOG_CAT_COLOR: Record<string, string> = { "Guías": "#f97316", "Comparativas": "#facc15", "Análisis": "#38bdf8" };
 
-const pickAhorro = editorPick.mp && editorPick.mp.precio_actual < editorPick.z.precio_msrp_eur
-  ? editorPick.z.precio_msrp_eur - editorPick.mp.precio_actual : 0;
+// Precio MOSTRADO del pick (solo tiendas que monetizan/pendientes; si no, MSRP). El pick
+// se sigue ELIGIENDO con el precio real (editorPick), pero el número que enseñamos es éste.
+const pickMostrado = findMejorPrecioMostrado(editorPick.z.links_compra);
+const pickPrecioVista = pickMostrado?.precio_actual ?? editorPick.z.precio_msrp_eur;
+const pickAhorro = pickMostrado && pickPrecioVista < editorPick.z.precio_msrp_eur
+  ? editorPick.z.precio_msrp_eur - pickPrecioVista : 0;
 ---
 
 <Base title="CANCHA.ZAPA — Tu zapatilla de baloncesto, sin BS"
@@ -141,7 +145,7 @@ const pickAhorro = editorPick.mp && editorPick.mp.precio_actual < editorPick.z.p
                 <div class="ticker-row">
                   <span class="t-rank">{scoreOf(z)}</span>
                   <span class="t-name"><strong>{z.marca}</strong> {z.modelo}</span>
-                  <span class="t-price">{Math.round(findMejorPrecio(z.links_compra)?.precio_actual ?? z.precio_msrp_eur)}€</span>
+                  <span class="t-price">{Math.round(findMejorPrecioMostrado(z.links_compra)?.precio_actual ?? z.precio_msrp_eur)}€</span>
                 </div>
               ))}
               <a href="/rankings" class="panel-ranklink">Ver rankings completos →</a>
@@ -187,14 +191,14 @@ const pickAhorro = editorPick.mp && editorPick.mp.precio_actual < editorPick.z.p
             </div>
             <div class="pick-foot">
               <div class="pick-price">
-                <div class="pp-now">{Math.round(editorPick.mp?.precio_actual ?? editorPick.z.precio_msrp_eur)}€</div>
+                <div class="pp-now">{Math.round(pickPrecioVista)}€</div>
                 {pickAhorro > 0 && (
                   <div class="pp-meta">
                     <span class="msrp">msrp {editorPick.z.precio_msrp_eur}€</span>
                     <span class="save">−{Math.round(pickAhorro)}€</span>
                   </div>
                 )}
-                <div class="pp-tienda"><span class="dot"></span>{editorPick.mp ? "Verificado" : "Editorial"}</div>
+                <div class="pp-tienda"><span class="dot"></span>{pickMostrado ? "Verificado" : "Precio oficial"}</div>
               </div>
               <div class="pick-actions">
                 <a class="pick-btn primary" href={`/zapatilla/${editorPick.z.slug}`}>Ver review →</a>
@@ -271,7 +275,7 @@ const pickAhorro = editorPick.mp && editorPick.mp.precio_actual < editorPick.z.p
 
         <div class="home-top3-grid">
           {top3.map((z, i) => {
-            const mejor = findMejorPrecio(z.links_compra);
+            const mejor = findMejorPrecioMostrado(z.links_compra);
             const precio = mejor?.precio_actual ?? z.precio_msrp_eur;
             const score = scoreOf(z);
             const cat = CAT_ACCENT[z.categoria_principal];

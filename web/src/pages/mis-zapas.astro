@@ -7,7 +7,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecio } from "../lib/scoring";
+import { findMejorPrecioMostrado } from "../lib/scoring";
 
 const CAT_LABELS: Record<string, string> = {
   "cushion-focused": "Cushion", "responsive": "Reactiva",
@@ -107,7 +107,7 @@ const ordenadas = [...zapatillas].sort((a, b) => a.marca.localeCompare(b.marca))
     <section class="shell" style="padding:24px 24px 60px">
       <div class="cz-grid cols-3" id="mz-grid">
         {ordenadas.map(z => {
-          const mejor = findMejorPrecio(z.links_compra);
+          const mejor = findMejorPrecioMostrado(z.links_compra);
           const precio = mejor?.precio_actual ?? z.precio_msrp_eur;
           const cat = CAT_ACCENT[z.categoria_principal];
           const score = Math.round((Object.values(z.puntuaciones).reduce((a,b)=>a+b,0)/8)*10)/10;

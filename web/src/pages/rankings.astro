@@ -5,7 +5,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecio, scoreDisplay, compareByScore } from "../lib/scoring";
+import { findMejorPrecio, findMejorPrecioMostrado, scoreDisplay, compareByScore } from "../lib/scoring";
 
 const CAT_LABELS: Record<string, string> = {
   "cushion-focused": "Cushion", "responsive": "Reactiva",
@@ -118,7 +118,7 @@ function sortBy(id: string, key: keyof typeof zapatillas[0]["puntuaciones"] | nu
                   const sc = scoreOf(z);
                   const metric = isValor ? (valueMap.get(z.slug) ?? 0) : r.key ? z.puntuaciones[r.key] : sc;
                   const metricUnit = isValor ? "pts/100€" : "/10";
-                  const mp = findMejorPrecio(z.links_compra);
+                  const mp = findMejorPrecioMostrado(z.links_compra);
                   return (
                     <article class={`rk-pod ${isFirst ? "primary" : ""}`} style={`--cat:${cat};--medal:${medal}`}>
                       <div class="rk-pod-rank">
@@ -162,7 +162,7 @@ function sortBy(id: string, key: keyof typeof zapatillas[0]["puntuaciones"] | nu
                 const cat = CAT_ACCENT[z.categoria_principal];
                 const sc = scoreOf(z);
                 const metric = isValor ? (valueMap.get(z.slug) ?? 0) : r.key ? z.puntuaciones[r.key] : sc;
-                const mp = findMejorPrecio(z.links_compra);
+                const mp = findMejorPrecioMostrado(z.links_compra);
                 return (
                   <a href={`/zapatilla/${z.slug}`} class="rk-row" style={`--cat:${cat}`}>
                     <span class="rk-row-rank">#{i + 4}</span>

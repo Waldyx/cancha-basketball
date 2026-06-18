@@ -5,7 +5,7 @@
 import Base from "../../layouts/Base.astro";
 import "../../styles/cancha-redesign.css";
 import { zapatillas } from "../../data/zapatillas";
-import { findMejorPrecio, COMISIONES_TIENDA, scoreMeta } from "../../lib/scoring";
+import { findMejorPrecio, findMejorPrecioMostrado, mostramosPrecio, COMISIONES_TIENDA, scoreMeta } from "../../lib/scoring";
 import PriceAlert from "../../components/PriceAlert.astro";
 import CosteBlock from "../../components/CosteBlock.astro";
 import { ARTICLES } from "../../lib/articles";
@@ -45,14 +45,19 @@ const ATR_LABELS: Record<string, string> = {
   durabilidad_outdoor: "Durabilidad outdoor", ventilacion: "Ventilación",
 };
 
-const mejorPrecio = findMejorPrecio(z.links_compra);
+const mejorPrecio = findMejorPrecio(z.links_compra);            // precio REAL más barato (fallback CTA)
+// Precio MOSTRADO: solo de tiendas que monetizan/pendientes (estrategia "ver precio" s28).
+// Si no hay ninguna, mostramos el MSRP oficial y el CTA cae al más barato real.
+const mejorMostrado = findMejorPrecioMostrado(z.links_compra);
+const precioVista = mejorMostrado?.precio_actual ?? z.precio_msrp_eur;
+const ctaLink = mejorMostrado ?? mejorPrecio;                   // botón principal de compra
 const sMeta = scoreMeta(z);
 const score = sMeta.score;
 const CONF_LABEL = { alta: "Verificado", media: "Contrastado", editorial: "Estimación editorial" } as const;
 const CONF_ICON = { alta: "🟢", media: "🟡", editorial: "⚪" } as const;
 const cat = CAT_ACCENT[z.categoria_principal];
-const ahorro = mejorPrecio && mejorPrecio.precio_actual < z.precio_msrp_eur
-  ? z.precio_msrp_eur - mejorPrecio.precio_actual : 0;
+const ahorro = mejorMostrado && precioVista < z.precio_msrp_eur
+  ? z.precio_msrp_eur - precioVista : 0;
 const ahorroPct = ahorro > 0 ? Math.round((ahorro / z.precio_msrp_eur) * 100) : 0;
 
 // Build SVG radar points for the score
@@ -182,13 +187,13 @@ const productJsonLd = {
     : `https://canchazapa.com${z.imagen_principal}`,
   "url": `https://canchazapa.com/zapatilla/${z.slug}`,
   "sku": z.slug,
-  ...(mejorPrecio ? {
+  ...(ctaLink ? {
     "offers": {
       "@type": "Offer",
-      "price": mejorPrecio.precio_actual,
+      "price": precioVista,
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
-      "url": mejorPrecio.url,
+      "url": ctaLink.url,
       "priceValidUntil": `${new Date().getFullYear() + 1}-12-31`,
       "shippingDetails": {
         "@type": "OfferShippingDetails",
@@ -393,7 +398,7 @@ const productJsonLd = {
               <div class="dh-buy">
                 <div class="dh-buy-price">
                   <div class="dhbp-row">
-                    <span class="dhbp-now">{Math.round(mejorPrecio.precio_actual)}€</span>
+                    <span class="dhbp-now">{Math.round(precioVista)}€</span>
                     {ahorro > 0 && (
                       <>
                         <span class="dhbp-msrp">msrp {z.precio_msrp_eur}€</span>
@@ -402,12 +407,14 @@ const productJsonLd = {
                     )}
                   </div>
                   <div class="dhbp-meta">
-                    <span class="dhbp-dot"></span>
-                    Verificado · mejor precio en <strong>{LABELS_TIENDA[mejorPrecio.tienda] || mejorPrecio.tienda}</strong>
+                    {mejorMostrado
+                      ? <><span class="dhbp-dot"></span>Verificado · mejor precio en <strong>{LABELS_TIENDA[mejorMostrado.tienda] || mejorMostrado.tienda}</strong></>
+                      : <><span class="dhbp-dot" style="background:#71717a"></span>Precio oficial · ver tiendas abajo</>
+                    }
                   </div>
                 </div>
-                <a href={mejorPrecio.url} target="_blank" rel={mejorPrecio.tiene_afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"} class="dh-buy-btn aff-btn" data-tienda={LABELS_TIENDA[mejorPrecio.tienda]||mejorPrecio.tienda} data-zapa={z.slug}>
-                  Ver en {LABELS_TIENDA[mejorPrecio.tienda] || mejorPrecio.tienda} →
+                <a href={ctaLink.url} target="_blank" rel={ctaLink.tiene_afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"} class="dh-buy-btn aff-btn" data-tienda={LABELS_TIENDA[ctaLink.tienda]||ctaLink.tienda} data-zapa={z.slug}>
+                  Ver {mejorMostrado ? "" : "precio "}en {LABELS_TIENDA[ctaLink.tienda] || ctaLink.tienda} →
                 </a>
                 {/* Comparativa top 3 tiendas más baratas */}
                 {linksOrdenados.length > 1 && (
@@ -424,8 +431,11 @@ const productJsonLd = {
                       >
                         <span class="dcr-pos">{i === 0 ? "🏆" : i === 1 ? "2º" : "3º"}</span>
                         <span class="dcr-tienda">{LABELS_TIENDA[l.tienda] || l.tienda}{MARKETPLACE.has(l.tienda) && <span class="dcr-mkt">marketplace</span>}</span>
-                        <span class="dcr-price">{Math.round(l.precio_actual)}€</span>
-                        {i === 0 && linksOrdenados.length > 1 && (
+                        {mostramosPrecio(l)
+                          ? <span class="dcr-price">{Math.round(l.precio_actual)}€</span>
+                          : <span class="dcr-price" style="color:#a1a1aa;font-weight:600">Ver precio →</span>
+                        }
+                        {i === 0 && mostramosPrecio(l) && linksOrdenados.length > 1 && (
                           <span class="dcr-save">
                             {linksOrdenados[1] && linksOrdenados[1].precio_actual > l.precio_actual
                               ? `−${Math.round(linksOrdenados[1].precio_actual - l.precio_actual)}€`
@@ -545,7 +555,7 @@ const productJsonLd = {
           marca={z.marca}
           modelo={z.modelo}
           durabilidad={z.puntuaciones.durabilidad_outdoor}
-          precio={mejorPrecio?.precio_actual ?? z.precio_msrp_eur}
+          precio={precioVista}
           isRetro={z.tags.includes("retro")}
         />
       </div>
@@ -646,10 +656,15 @@ const productJsonLd = {
                   </div>
                   <div style="display:flex;align-items:center;gap:16px;margin-left:auto">
                     <div style="text-align:right">
-                      <p style={`font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:24px;margin:0;line-height:1;color:${idx === 0 ? "#f97316" : "var(--cz-text)"}`}>
-                        {link.precio_actual}€
-                      </p>
-                      {diffPct > 0 && <p style="font-size:10px;color:#4ade80;font-weight:900;letter-spacing:.06em;margin:2px 0 0">-{diffPct}% vs MSRP</p>}
+                      {mostramosPrecio(link)
+                        ? <>
+                            <p style={`font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:24px;margin:0;line-height:1;color:${idx === 0 ? "#f97316" : "var(--cz-text)"}`}>
+                              {link.precio_actual}€
+                            </p>
+                            {diffPct > 0 && <p style="font-size:10px;color:#4ade80;font-weight:900;letter-spacing:.06em;margin:2px 0 0">-{diffPct}% vs MSRP</p>}
+                          </>
+                        : <p style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:16px;margin:0;line-height:1;color:#a1a1aa">Ver precio</p>
+                      }
                     </div>
                     <a href={link.url} target="_blank" rel={link.tiene_afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"}
                        class="aff-btn" data-tienda={LABELS_TIENDA[link.tienda]||link.tienda} data-zapa={z.slug}
@@ -672,7 +687,7 @@ const productJsonLd = {
           slug={z.slug}
           marca={z.marca}
           modelo={z.modelo}
-          precioActual={mejorPrecio?.precio_actual ?? z.precio_msrp_eur}
+          precioActual={precioVista}
         />
       </div>
     )}
@@ -688,7 +703,7 @@ const productJsonLd = {
           <div class="related-grid">
             {relacionadas.map(r => {
               const rsc = Math.round((Object.values(r.puntuaciones).reduce((a,b)=>a+b,0)/8)*10)/10;
-              const rmp = findMejorPrecio(r.links_compra);
+              const rmp = findMejorPrecioMostrado(r.links_compra);
               return (
                 <a href={`/zapatilla/${r.slug}`} class="rel-card">
                   <div class="rc-photo">
@@ -739,11 +754,11 @@ const productJsonLd = {
             </div>
           </div>
           <div class="sb-price">
-            <span class="sbp-now">{Math.round(mejorPrecio.precio_actual)}€</span>
+            <span class="sbp-now">{Math.round(precioVista)}€</span>
             {ahorro > 0 && <span class="sbp-msrp">msrp {z.precio_msrp_eur}€</span>}
           </div>
-          <a href={mejorPrecio.url} target="_blank" rel={mejorPrecio.tiene_afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"} class="sb-btn">
-            Ver en {LABELS_TIENDA[mejorPrecio.tienda] || mejorPrecio.tienda} →
+          <a href={ctaLink.url} target="_blank" rel={ctaLink.tiene_afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"} class="sb-btn">
+            Ver {mejorMostrado ? "" : "precio "}en {LABELS_TIENDA[ctaLink.tienda] || ctaLink.tienda} →
           </a>
         </div>
       </div>

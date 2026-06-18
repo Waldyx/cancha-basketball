@@ -9,7 +9,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecio } from "../lib/scoring";
+import { findMejorPrecioMostrado } from "../lib/scoring";
 import { SEO_PAGES, getSeoPage } from "../lib/seoPages";
 import { ARTICLES } from "../lib/articles";
 
@@ -77,7 +77,7 @@ const itemListJsonLd = {
       offers: {
         "@type": "Offer",
         priceCurrency: "EUR",
-        price: findMejorPrecio(z.links_compra)?.precio_actual ?? z.precio_msrp_eur,
+        price: findMejorPrecioMostrado(z.links_compra)?.precio_actual ?? z.precio_msrp_eur,
       },
     },
   })),
@@ -167,7 +167,7 @@ const relatedArticles = ARTICLES
         ) : (
           <div class="seo-top5-list">
             {top5.map((z, i) => {
-              const mejor = findMejorPrecio(z.links_compra);
+              const mejor = findMejorPrecioMostrado(z.links_compra);
               const precio = mejor?.precio_actual ?? z.precio_msrp_eur;
               const score = Math.round((Object.values(z.puntuaciones).reduce((a,b)=>a+b,0)/8)*10)/10;
               const cat = CAT_ACCENT[z.categoria_principal];
