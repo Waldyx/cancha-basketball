@@ -48,7 +48,30 @@ NO es pérdida de SEO real (el endpoint nunca fue una página). Commit `2470de7`
 - **Promo adidas End of Season Sales** añadida a `promos.ts` (date-gated 26 jun–20 jul 2026, hasta
   30%, deeplink Awin 77008→outlet, sin código). Se autoactiva el 26-jun. Commit `d8e0291`.
 
+**SEO — DOMINIO CANÓNICO UNIFICADO (importante)**: GSC daba "Error de redirección" en 5 URLs y el
+sitio tenía un desajuste www/sin-www. Causa: en **Vercel → Domains**, `www.canchazapa.com` era el
+dominio PRIMARIO (apex redirigía a www con 307 temporal), pero TODO el código (astro `site`, sitemap,
+canonical, og:url, robots) usa **sin-www**. → Invertido en Vercel (vía Chrome): ahora
+`canchazapa.com` sirve Production (200) y `www` → **308 permanente** → apex. Verificado en prod.
+NO hay cambio de repo (el código ya era sin-www). Si algún día se vuelve a tocar el dominio primario,
+mantener **apex (sin-www) como primario**. Las 2 validaciones de GSC (Error redirección + 4xx
+`/api/chat`) lanzadas 18/6/26. Los 2 "404" de GSC eran URLs fantasma de versiones viejas
+(`$(z.slug)` template roto + `ua-flow-breakthru-5`), ya no en el código → se autolimpian, NO validar.
+
+**Auditoría de integridad de referencias internas (sesión 27)**: 0 rotas en predecesor/sucesor,
+relatedShoes, ids/slugs (todo único). Arreglados **5 `relatedSeoPages` con slug roto** en artículos
+(`zapatillas-baloncesto-rodillas`→`-para-rodillas`, `zapatillas-baloncesto-outdoor`→`zapatillas-outdoor`);
+el widget los descartaba en silencio → enlace perdido. Commit `da31095`. Sanidad catálogo: 0 sin links,
+0 precio≤0, 0 url vacía. Auditoría afiliados (`scripts/audit-affiliates.ts`, worklist en `.out.json`):
+311 links, "graves" son falsos positivos (AJ1/Decathlon con slug de marketplace sin "jordan") o
+`disponible:false` (Converse Chuck Taylor burdeos en Decathlon, sin verificar por bot-protection 403).
+
 ### 🟡 Pendiente / requiere criterio del usuario (sesión 27)
+- **Analítica — Plausible trial acaba ~24 jun**: decidido migrar a **Cloudflare Web Analytics**
+  (gratis, sin cookies, mantiene promesa /privacidad). Falta que el usuario cree la cuenta CF y pase
+  el token `data-cf-beacon`; luego swap en `Analytics.astro` (dejar `window.plausible` como no-op) +
+  actualizar `/privacidad`. Eventos custom (Affiliate Click) se pierden pero ya los dan los paneles
+  de Amazon/Awin/TradeTracker.
 - ~~Anclas editorial para ~110 nicho~~ **EVALUADO — no hace falta acción masiva**: las nicho sin
   review muestran el `axisAvg` de los 8 ejes, que YA están curados y funcionan como la estimación
   editorial. Verificado: `anta-kai-2-speed` cae en axisAvg 8.5 = exacto el HG de su base `anta-kai-2`
