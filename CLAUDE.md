@@ -52,17 +52,37 @@ fuentes para trending/nuevas sin consenso:
   afiliado. Mejor fuente por comisión que SÍ vende Nike/Jordan: **Atmósfera (6%) > Snipes (5%) >
   FuikaOmar (~5%) > Amazon (3%)**. El usuario pasa los enlaces y Claude los envuelve.
 
+**Estrategia "Ver precio" IMPLEMENTADA** (commit `b294d99`) — solo mostramos PRECIO numérico
+donde monetizamos. Las tiendas rechazadas/sin programa muestran **"Ver precio en [tienda]"** sin
+número (no mantenemos un precio que se pudre). El "desde X€" sale de tiendas afiliadas/pendientes;
+si no hay ninguna disponible, MSRP oficial. **NO se borró ningún enlace** (opción 3 del usuario:
+todas las opciones de compra siguen). El ORDEN del catálogo y el editor's pick NO cambian (siguen
+con findMejorPrecio = precio real más barato).
+- `scoring.ts`: helpers nuevos `mostramosPrecio(link)` y `findMejorPrecioMostrado(links)`.
+  `TIENDAS_PENDIENTES` (joom, elcorteingles_es, reebok_es, ...) también muestran precio.
+- Aplicado en DISPLAY (no en lógica de orden/filtro): ficha (`zapatilla/[slug]`), catálogo
+  (`zapatillas`), home, rankings, mis-zapas, blog, SEO (`[slug]`), OG image, ChatWidget, calculadora.
+- Para volver a mostrar el precio de una tienda: basta activar su afiliado (tiene_afiliado:true)
+  o meterla en TIENDAS_PENDIENTES.
+
 ### 🟡 Pendiente / requiere criterio del usuario (sesión 28)
 - ~~Migrar analítica a Cloudflare~~ **HECHO**.
-- **Rellenar las 32 zapas sin afiliado** (el usuario busca enlaces, Claude envuelve). En curso.
-- **ESTRATEGIA de enlaces decidida (pendiente de ejecutar)**: para los ~290 enlaces de tiendas
-  RECHAZADAS/sin-programa (que nunca cobran: Foot Locker 88, Nike.es 59, Zalando 27, etc.) →
-  **NO mantener precio a mano**. Dos destinos por enlace: (A) botón **"Ver precio en [tienda]"**
-  SIN número cuando es la única/mejor opción de compra; (B) **podar** cuando es redundante (ya hay
-  un afiliado igual o más barato). El precio real SOLO se mantiene donde monetizamos (los 317
-  afiliados, que puede llevar el scraper). De momento NO se borra nada (usuario eligió opción 3).
+- ~~Estrategia "Ver precio" en enlaces no-monetizables~~ **HECHO** (ver arriba; opción A, sin podar).
+- **Rellenar las 32 zapas sin afiliado** (el usuario busca enlaces, Claude envuelve). EN CURSO.
+  Mejor fuente por comisión que vende Nike/Jordan: **Atmósfera (6%) > Snipes (5%) > FuikaOmar (~5%) >
+  Amazon (3%)**. Lista completa de las 32 más abajo (al final de este bloque s28).
+- **Podar redundantes** (opción B): descartado de momento; reconsiderar si el catálogo se ve cargado.
 - **Pendientes Awin que SÍ convertirán** → activarán sus links solos: Joom (19), ECI (7), Reebok (5).
 - **Anclas editoriales para ~110 nicho** (heredado s27): EVALUADO, no hace falta acción masiva.
+
+#### Las 32 zapas SIN afiliado (worklist — el usuario pasa enlace, Claude envuelve)
+NIKE: kd-18, gt-cut-3, book-2, zoom-freak-5, zoom-freak-6, giannis-immortality-4, kyrie-low-5,
+kd-17, kd-16, gt-cut-academy-2, gt-jump-3, sabrina-1, sabrina-3-gs, giannis-immortality-4-gs.
+JORDAN: luka-5, tatum-4, zion-4, luka-4, luka-3, luka-1, one-take-5, xxxviii (AJ38).
+UNDER ARMOUR: futr-x-elite, futr-x-4, spawn-7-mid (→ Amazon/FuikaOmar).
+PUMA: stewie-4, scoot-zeros (→ Atmósfera/FuikaOmar).
+NEW BALANCE: kawhi-1 (→ Amazon).
+MOOLAH KICKS (difíciles, quizá solo Amazon): neovolt-pro-v3, evolyte-elite, triple-double.
 
 ---
 
