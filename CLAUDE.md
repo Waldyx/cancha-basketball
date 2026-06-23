@@ -65,12 +65,25 @@ con findMejorPrecio = precio real más barato).
 - Para volver a mostrar el precio de una tienda: basta activar su afiliado (tiene_afiliado:true)
   o meterla en TIENDAS_PENDIENTES.
 
+**Las 32 zapas sin afiliado → 28 RELLENADAS con Amazon** (commit `16696e2`). Verificado en
+Chrome: **Atmósfera y FuikaOmar NO stockean las flagships Nike/Jordan** (KD 18, etc.) — por eso
+no tenían afiliado; su único stock era Nike.es/Foot Locker (no afiliados). **Amazon SÍ las tiene**
+(resellers). Añadido enlace Amazon afiliado `amazon.es/s?k=modelo&tag=canchazapa-21` a 28 zapas.
+- **Precio inicial = MSRP placeholder** (disponible:true); el scraper diario debe refinar el precio
+  real de Amazon. OJO: hasta que corra el scraper, muestran MSRP como "Verificado en Amazon".
+- **4 se quedan SIN fuente afiliada posible**: `nike-kobe-1-protro` (Amazon solo tiene Kobe 4/9
+  Protro, no la 1 → un search-link caería en modelo equivocado) + 3 Moolah Kicks (marca US no
+  distribuida en Amazon.es). Mantienen su tienda actual como "Ver precio" + MSRP.
+- Afiliados 317 → 345. **Zapas sin afiliado: 32 → 4.**
+
 ### 🟡 Pendiente / requiere criterio del usuario (sesión 28)
 - ~~Migrar analítica a Cloudflare~~ **HECHO**.
-- ~~Estrategia "Ver precio" en enlaces no-monetizables~~ **HECHO** (ver arriba; opción A, sin podar).
-- **Rellenar las 32 zapas sin afiliado** (el usuario busca enlaces, Claude envuelve). EN CURSO.
-  Mejor fuente por comisión que vende Nike/Jordan: **Atmósfera (6%) > Snipes (5%) > FuikaOmar (~5%) >
-  Amazon (3%)**. Lista completa de las 32 más abajo (al final de este bloque s28).
+- ~~Estrategia "Ver precio" en enlaces no-monetizables~~ **HECHO** (opción A, sin podar).
+- ~~Rellenar las 32 zapas sin afiliado~~ **28/32 HECHO con Amazon** (ver arriba). Quedan 4 sin
+  fuente posible (Kobe 1 Protro + 3 Moolah). Si algún día Atmósfera/Snipes/FuikaOmar stockean
+  alguna flagship, mejor cambiarla de Amazon (3%) a esa fuente (5-6%).
+- **Verificar precios Amazon reales** de las 28 (ahora MSRP placeholder) — lo hará el scraper, o
+  pasada manual. Amazon confirmado con stock de todas (KD 18 ~145€, etc.).
 - **Podar redundantes** (opción B): descartado de momento; reconsiderar si el catálogo se ve cargado.
 - **Pendientes Awin que SÍ convertirán** → activarán sus links solos: Joom (19), ECI (7), Reebok (5).
 - **Anclas editoriales para ~110 nicho** (heredado s27): EVALUADO, no hace falta acción masiva.
