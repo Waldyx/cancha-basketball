@@ -457,7 +457,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si eres base o escolta técnico, buscas respuesta y tracción, y no tienes problemas de tobillo, es una de las mejores compras del año. Para tobillos delicados o juego potente, busca otra opción.",
 
-    imagen_principal: "/shoes/anta-kai-1-speed.webp",
+    imagen_principal: "/shoes/anta-kai-1-speed.avif",
     imagenes: [],
 
     fuentes: [
@@ -474,23 +474,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 115,
     links_compra: [
-      {
-        tienda: "aliexpress",
-        url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010620845749.html",
-        precio_actual: 77.39,
-        disponible: true,
-        tiene_afiliado: true,
-        ultima_verificacion: "2026-06-02",
-      },
-      {
-        tienda: "amazon_es",
-        url: "https://www.amazon.es/s?k=anta+kai+1&tag=canchazapa-21",
-        precio_actual: 98.99,
-        disponible: false,
-        tiene_afiliado: true,
-        ultima_verificacion: "2026-05-28",
-      },
-      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-anta-kai-1-team-black-blue.html", precio_actual: 79.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010620845749.html", precio_actual: 67.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
     ],
   },
 
@@ -1013,8 +997,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 150,
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005008340561587.html", precio_actual: 85.22, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=way+of+wade+all+city+13&tag=canchazapa-21", precio_actual: 159, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005008340561587.html", precio_actual: 117.44, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
     ],
   },
 
@@ -1508,8 +1491,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 160,
     links_compra: [
-      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3S006Ff", precio_actual: 155, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kt+10&tag=canchazapa-21", precio_actual: 169, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012498467123.html", precio_actual: 100.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012505451023.html", precio_actual: 104.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-anta-kt10-low-graffiti.html", precio_actual: 139.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
     ],
   },
@@ -1630,8 +1613,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 200,
     links_compra: [
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/li-ning/way-of-wade-12-obsidian-black", precio_actual: 169.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-08" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=li-ning+way+of+wade+12&tag=canchazapa-21", precio_actual: 175, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-14" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/Li-Ning-Profesionales-Baloncesto-Antideslizantes-Basquetbol/dp/B00A2G1P4W?tag=canchazapa-21", precio_actual: 175, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010685068543.html", precio_actual: 211, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
     ],
   },
@@ -4227,9 +4209,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "joom", url: "https://www.joom.com/es/products/69a07e130df6e501e349e8bc?variant_id=69a07e130df6e507e349e8c5", precio_actual: 282, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
-      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3PkhD37", precio_actual: 105, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=li-ning+gamma+2+basketball&tag=canchazapa-21", precio_actual: 115, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012501940607.html", precio_actual: 360.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
     ],
   },
 
@@ -8761,7 +8741,6 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 130,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+clyde+all+pro+baloncesto&tag=canchazapa-21", precio_actual: 63.03, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=puma+clyde+all+pro", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
     ],
   },
 
@@ -9308,8 +9287,8 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 199.99,
     links_compra: [
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012501438353.html", precio_actual: 193.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=air+jordan+40&vst=air+jordan+40", precio_actual: 199.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=jordan+40", precio_actual: 209.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+40+baloncesto&tag=canchazapa-21", precio_actual: 199.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -13753,8 +13732,10 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-09",
     precio_msrp_eur: 119,
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fwholesale%3FSearchText%3D361%2Bjoker%2B1%2Bnikola%2Bjokic", precio_actual: 119, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=361+joker+1+jokic&tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010194753497.html", precio_actual: 113.98, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/361/joker-1-denver-blue-white", precio_actual: 105, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-24" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012114784807.html", precio_actual: 146.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DSJB58JQ?tag=canchazapa-21", precio_actual: 113, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
     ],
   },
 
