@@ -86,23 +86,36 @@ Verificado tienda por tienda con Claude-in-Chrome. RESULTADO FINAL (commits `166
 **Promos añadidas** (`promos.ts`, date-gated, commit `fc8f273`): AliExpress "Día de marcas"
 (BDES04→40, 22-26 jun) + Decathlon "Play Days" (PLAY10, 10% solo app, 23-26 jun).
 
-### ▶️ EN CURSO — Revisión manual de enlaces por orden de score (retomar aquí)
-El usuario revisa los enlaces de compra zapa por zapa, **en orden de puntuación** (de mayor a
-menor), y confirma si son correctos. Worklist generada en **`web/scripts/review-by-score.out.txt`**
-(230 zapas ordenadas con tienda/precio/afiliado/URL completa). Regenerar con
-`npx tsx scripts/review-by-score.ts` si cambian datos.
-- **Progreso (s29): verificadas #1–#9. Siguiente: #10** (nike-lebron-21). Ir presentando una zapa
-  cada vez con sus enlaces; el usuario navega en Chrome y pasa precio/URL reales, Claude los envuelve.
-  Cambios aplicados #1-#9 (commit `454219d`): #2 wow-12 (quita BE, Amazon→B00A2G1P4W directo),
-  #3 clyde-all-pro (quita FL), #4 wow-allcity-13 (AliExpress real 117,44€, quita Amazon),
-  #5 anta-kai-1-speed (AliExpress 67,39€ + imagen .avif nueva, quita Amazon/FuikaOmar/B4B),
-  #6 anta-kt-10 (2 AliExpress Low/regular 100,99/104,39€, quita Amazon), #7 gamma-2 (AliExpress
-  real 360,39€, quita Joom/Amazon), #8 jordan-40 (+AliExpress 193,39€, quita FL), #9 361-joker-1
-  (2 AliExpress reales + BE 105€ + Amazon ASIN B0DSJB58JQ — confirmar disponibilidad en .es).
-- **Patrón observado**: el usuario sustituye casi todos los enlaces search/Amazon por **item AliExpress
-  real** (URL `/item/NNN.html` envuelta en wrapper Awin awinmid=11640) con precio actual. Muchas
-  marcas chinas/flagships solo tienen stock real ahí. Verificación build OK (329 págs), catálogo
-  230 zapas carga limpio, auditoría sin problemas nuevos.
+### ▶️ EN CURSO — Revisión manual de enlaces (retomar aquí)
+El usuario revisa los enlaces de compra zapa por zapa y confirma si son correctos. Navega en Chrome
+y pasa precio/URL reales; Claude los envuelve (AliExpress→Awin awinmid=11640, Decathlon→105405,
+adidas→77008, atmosfera→26255, FuikaOmar→deals.fuikaomar.es c=37834). Worklist por score en
+**`web/scripts/review-by-score.out.txt`** (regenerar con `npx tsx scripts/review-by-score.ts`).
+
+**FASE 1 — por score: verificadas #1–#11** (commits hasta `9fef595`). Hecho: wow-allcity-14, wow-12,
+clyde-all-pro, wow-allcity-13, kai-1-speed, kt-10, gamma-2, jordan-40, 361-joker-1, lebron-21,
+wow-allcity-12. (Pendiente seguir por score desde #12 si se retoma esa vía, pero ahora vamos por trending.)
+
+**FASE 2 — TRENDING (en curso, retomar en #7).** 21 zapas con tag `trending`; 3 ya hechas en fase 1
+(wow-allcity-14, wow-12, 361-joker-1). Orden por score (ver lista). **Verificadas trending #1–#6**:
+don-issue-7, ae-2, rigorer-ar3, ua-curry-12, harden-vol-9, lebron-23. **SIGUIENTE: trending #7 =
+nike-sabrina-3 (8.3)**. Luego: skx-float, kd-18, ja-3, mb05, luka-4, immortality-4, freak-7, tatum-3,
+unpre-ars-2, immortality-5, book-2.
+
+**APRENDIZAJES de esta sesión (importantes para `precios.json`)**:
+- `precios.json` (scraper, CRLF) **OVERRIDE/append por tienda** vía `mergePricesIntoShoes`. Al revisar
+  una zapa SIEMPRE comprobar `node -e "...p.shoes['ID']..."`: si una tienda que editas también está
+  en precios.json, el merge **pisa** tu precio/URL (mismo tienda) o **reañade** la tienda (si no está
+  en editorial). Hay que actualizar/eliminar también en precios.json. Para borrar entradas: script
+  node por rango de líneas respetando CRLF (NO round-trip JSON.stringify, reformatea todo el archivo).
+- Limpiadas 6 huérfanas de precios.json (zapas borradas): freak-7, ae-3, je-1, ar-2, adizero-select-3,
+  assert-10 (182→176). Fix URL atmosfera ae-2 (wrapper Awin auto-anidado ~4000 chars, roto).
+- Imágenes nuevas: descargar og:image del listado (AliExpress/FuikaOmar), `sharp` resize 600px webp q82,
+  mismo path .webp. kd-18 pasó de Aunt Pearl rosa a Liquid Lime. kai-1-speed a foto AliExpress real.
+- Pendiente menor: imagen `nike-lebron-nxxt-genisus` es pequeña (585×319), mejorable. KD19 (8.3
+  editorial) y Kobe 1 Protro (8.7 hg/n9) → el usuario dice DEJARLAS como están.
+- Verificación: tras editar, reiniciar dev server (el módulo de datos se cachea) + `gen-chat-catalog`
+  + fetch ficha con cache-bust. Commit+push por zapa. Build OK 329 págs.
 
 ### 🟡 Pendiente / requiere criterio del usuario (sesión 28)
 - ~~Migrar analítica a Cloudflare~~ **HECHO**.
