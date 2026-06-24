@@ -608,7 +608,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Diseño conservador, sin innovación",
     ],
     veredicto: "Para aleros y forwards que priorizan amortiguación y tracción sobre velocidad. Si eres un base rápido, busca otra cosa.",
-    imagen_principal: "/shoes/nike-kd-18.jpg",
+    imagen_principal: "/shoes/nike-kd-18.webp",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-kd-18-review/" },
