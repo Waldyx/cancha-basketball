@@ -5172,6 +5172,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 150,
     links_compra: [
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fnike-book-2-spiridon-sport-red%2F0016d89e-d6c5-4f8e-afc7-eb477540d685%2Fc14", precio_actual: 161.09, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/book-2-rising-black-multi-color-safety-orange-sundial-tatto", precio_actual: 119.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
       { tienda: "nike_es", url: "https://www.nike.com/es/t/book-2-rising-zapatillas-de-baloncesto-m5KwDWWn/IB6687-001", precio_actual: 149.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
