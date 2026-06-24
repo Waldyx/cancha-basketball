@@ -13910,8 +13910,11 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-09",
     precio_msrp_eur: 95,
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fwholesale%3FSearchText%3Drigorer%2Bar3%2Baustin%2Breaves", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=rigorer+ar3&tag=canchazapa-21", precio_actual: 110, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0GQM3MBPW?tag=canchazapa-21", precio_actual: 90.03, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010696055283.html", precio_actual: 102.46, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-de-baloncesto-rigorer-ar3-hitman%2F5a220446-8725-471a-8f6d-010c644fff75%2Fc4", precio_actual: 103.50, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012216803460.html", precio_actual: 104.04, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011799546879.html", precio_actual: 121.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
     ],
   },
   {
