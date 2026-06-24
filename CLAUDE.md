@@ -65,20 +65,23 @@ con findMejorPrecio = precio real más barato).
 - Para volver a mostrar el precio de una tienda: basta activar su afiliado (tiene_afiliado:true)
   o meterla en TIENDAS_PENDIENTES.
 
-**Las 32 zapas sin afiliado → 23 monetizadas (navegación manual en Chrome, precios REALES)**.
-Verificado tienda por tienda con Claude-in-Chrome. RESULTADO FINAL (commits `16696e2`, `4abf5c9`, `892975f`):
+**Las 32 zapas sin afiliado → 24 monetizadas (navegación manual en Chrome, precios REALES)**.
+Verificado tienda por tienda con Claude-in-Chrome. RESULTADO FINAL (commits `16696e2`, `4abf5c9`, `892975f`, `4f2842a`):
 - **8 vía FuikaOmar (5%, precio real)** — FuikaOmar SÍ stockea varias flagships (mi búsqueda inicial
   "kd 18" con espacio fallaba; "kd" sí las encuentra): KD 16/17/18, Luka 1/4/5, Freak 5/6.
+- **1 vía Decathlon (6%, marketplace W.Sneakers)**: nike-book-2 (161,09 — sobre MSRP, reseller).
 - **15 vía Amazon (3%, precio real del modelo EXACTO)**: gt-cut-3 (289,99 — descatalogada, resellers
   inflan), immortality-4 (75,90), kyrie-low-5 (196), gt-cut-academy-2 (116,71), tatum-4 (109,05),
   zion-4 (292,55), one-take-5 (68,26), luka-3 (186,34), sabrina-1 (137,23), ua-futr-x-elite (75),
   ua-futr-x-4 (48), ua-spawn-7-mid (67,95), stewie-4 (58,99), scoot-zeros (58,99), kawhi-1 (286,70).
-- **9 SIN afiliado** (Amazon no surfacea el modelo exacto / sin fuente): book-2, gt-jump-3, AJ38
-  (xxxviii), sabrina-3-gs, immortality-4-gs (Amazon devuelve otro modelo → enlace quitado para no
-  engañar), + nike-kobe-1-protro y 3 Moolah Kicks (no distribuidas). Muestran "Ver precio" + MSRP.
+- **8 SIN afiliado** (ninguna fuente afiliada tiene el modelo EXACTO; verificado Amazon+Decathlon+
+  FuikaOmar+Snipes): gt-jump-3 (solo GT Jump Academy), AJ38/xxxviii (solo AJ1/4 talla 38),
+  sabrina-3-gs e immortality-4-gs (solo adulto, no GS), nike-kobe-1-protro (solo Kobe 4/9) y
+  3 Moolah Kicks (marca US no distribuida). Muestran "Ver precio" + MSRP. NO insistir salvo
+  que entren en stock en una afiliada.
 - **OJO precios Amazon de modelos descatalogados** (gt-cut-3, zion-4, kyrie-low-5, kawhi-1): resellers
   los venden MUY por encima de MSRP (250-290€). Es el precio real, pero hace que parezcan caras.
-- Afiliados 317 → 345. **Zapas sin afiliado: 32 → 9.**
+- Afiliados 317 → 346. **Zapas sin afiliado: 32 → 8.**
 
 **Promos añadidas** (`promos.ts`, date-gated, commit `fc8f273`): AliExpress "Día de marcas"
 (BDES04→40, 22-26 jun) + Decathlon "Play Days" (PLAY10, 10% solo app, 23-26 jun).
