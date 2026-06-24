@@ -690,24 +690,6 @@
         }
       ]
     },
-    "anta-kai-1-speed": {
-      "links_compra": [
-        {
-          "tienda": "fuikaomar_es",
-          "url": "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-anta-kai-1-team-black-blue.html",
-          "precio_actual": 79.9,
-          "disponible": true,
-          "ultima_verificacion": "2026-06-24"
-        },
-        {
-          "tienda": "basket4ballers_es",
-          "url": "https://www.basket4ballers.com/es/1122-chaussures-basketball-anta",
-          "precio_actual": 126.04,
-          "disponible": true,
-          "ultima_verificacion": "2026-06-24"
-        }
-      ]
-    },
     "nike-lebron-22": {
       "links_compra": [
         {
