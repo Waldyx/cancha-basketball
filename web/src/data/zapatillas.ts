@@ -457,7 +457,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si eres base o escolta técnico, buscas respuesta y tracción, y no tienes problemas de tobillo, es una de las mejores compras del año. Para tobillos delicados o juego potente, busca otra opción.",
 
-    imagen_principal: "/shoes/anta-kai-1-speed.avif",
+    imagen_principal: "/shoes/anta-kai-1-speed.webp",
     imagenes: [],
 
     fuentes: [
