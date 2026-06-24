@@ -91,8 +91,18 @@ El usuario revisa los enlaces de compra zapa por zapa, **en orden de puntuación
 menor), y confirma si son correctos. Worklist generada en **`web/scripts/review-by-score.out.txt`**
 (230 zapas ordenadas con tienda/precio/afiliado/URL completa). Regenerar con
 `npx tsx scripts/review-by-score.ts` si cambian datos.
-- **Progreso: verificada #1** (lining-wow-allcity-14, OK, solo AliExpress). Siguiente: **#2**
-  (lining-wow-12). Ir presentando una zapa cada vez con sus enlaces; el usuario dice si están bien.
+- **Progreso (s29): verificadas #1–#9. Siguiente: #10** (nike-lebron-21). Ir presentando una zapa
+  cada vez con sus enlaces; el usuario navega en Chrome y pasa precio/URL reales, Claude los envuelve.
+  Cambios aplicados #1-#9 (commit `454219d`): #2 wow-12 (quita BE, Amazon→B00A2G1P4W directo),
+  #3 clyde-all-pro (quita FL), #4 wow-allcity-13 (AliExpress real 117,44€, quita Amazon),
+  #5 anta-kai-1-speed (AliExpress 67,39€ + imagen .avif nueva, quita Amazon/FuikaOmar/B4B),
+  #6 anta-kt-10 (2 AliExpress Low/regular 100,99/104,39€, quita Amazon), #7 gamma-2 (AliExpress
+  real 360,39€, quita Joom/Amazon), #8 jordan-40 (+AliExpress 193,39€, quita FL), #9 361-joker-1
+  (2 AliExpress reales + BE 105€ + Amazon ASIN B0DSJB58JQ — confirmar disponibilidad en .es).
+- **Patrón observado**: el usuario sustituye casi todos los enlaces search/Amazon por **item AliExpress
+  real** (URL `/item/NNN.html` envuelta en wrapper Awin awinmid=11640) con precio actual. Muchas
+  marcas chinas/flagships solo tienen stock real ahí. Verificación build OK (329 págs), catálogo
+  230 zapas carga limpio, auditoría sin problemas nuevos.
 
 ### 🟡 Pendiente / requiere criterio del usuario (sesión 28)
 - ~~Migrar analítica a Cloudflare~~ **HECHO**.
