@@ -86,6 +86,14 @@ Verificado tienda por tienda con Claude-in-Chrome. RESULTADO FINAL (commits `166
 **Promos añadidas** (`promos.ts`, date-gated, commit `fc8f273`): AliExpress "Día de marcas"
 (BDES04→40, 22-26 jun) + Decathlon "Play Days" (PLAY10, 10% solo app, 23-26 jun).
 
+### ▶️ EN CURSO — Revisión manual de enlaces por orden de score (retomar aquí)
+El usuario revisa los enlaces de compra zapa por zapa, **en orden de puntuación** (de mayor a
+menor), y confirma si son correctos. Worklist generada en **`web/scripts/review-by-score.out.txt`**
+(230 zapas ordenadas con tienda/precio/afiliado/URL completa). Regenerar con
+`npx tsx scripts/review-by-score.ts` si cambian datos.
+- **Progreso: verificada #1** (lining-wow-allcity-14, OK, solo AliExpress). Siguiente: **#2**
+  (lining-wow-12). Ir presentando una zapa cada vez con sus enlaces; el usuario dice si están bien.
+
 ### 🟡 Pendiente / requiere criterio del usuario (sesión 28)
 - ~~Migrar analítica a Cloudflare~~ **HECHO**.
 - ~~Estrategia "Ver precio" en enlaces no-monetizables~~ **HECHO** (opción A, sin podar).
