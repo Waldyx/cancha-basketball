@@ -3410,9 +3410,12 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 220,
     links_compra: [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/lebron-23-grand-opening-white-metallic-gold-university-red-black", precio_actual: 119.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
+      { tienda: "basket4ballers_es", url: "https://www.basket4ballers.com/es/lebron-james/57990-nike-lebron-23-bubble-boy-if0694-002.html", precio_actual: 121, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-24" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/~/314109650904.html", precio_actual: 135, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-24" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/lebron-xxiii-motor-king-zapatillas-de-baloncesto-UL9ABsK7/IH1513-602", precio_actual: 139, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-24" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012098378688.html", precio_actual: 157.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fnike-lebron-xxiii-shut-up-and-dribble%2F6c6d08b5-4aff-4800-9127-4913c3006964%2Fc4", precio_actual: 161.09, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+lebron+23+basketball&tag=canchazapa-21", precio_actual: 210, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
-      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=lebron+23&vst=lebron+23", precio_actual: 220, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+lebron+23", precio_actual: 215, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
   },
 
