@@ -521,6 +521,47 @@ export const SEO_PAGES: SeoPage[] = [
     catalogLabel: "Ver catálogo premium",
   }),
 
+  // ── RELACIÓN CALIDAD-PRECIO (valor por euro, no solo precio bajo) ─────
+  {
+    slug: "zapatillas-baloncesto-calidad-precio",
+    title: "Mejores zapatillas de baloncesto calidad-precio 2026 | CANCHA.ZAPA",
+    description:
+      "Las zapatillas de baloncesto con mejor relación calidad-precio en 2026: máximo rendimiento por euro, no solo las más baratas. Ranking honesto por score/precio con precios verificados en tiendas españolas.",
+    eyebrow: "★ Relación calidad-precio",
+    h1Pre: "Zapatillas baloncesto",
+    h1Accent: "calidad-precio",
+    h1Post: "2026",
+    lede: "No es lo mismo barato que buen valor. Aquí mandan las que dan más rendimiento por cada euro: score alto a precio contenido. Las marcas chinas y los modelos 'team' arrasan en esta lista.",
+    filter: (z) => z.genero !== "gs" && !z.es_retro && avg(z) >= 8.0 && lowestPrice(z) <= 130,
+    sort: (a, b) => avg(b) / lowestPrice(b) - avg(a) / lowestPrice(a),
+    guideTitle: "Cómo medir la relación calidad-precio de verdad",
+    guideIntro:
+      "El 'mejor precio' no es el número más bajo, es el rendimiento que te llevas por lo que pagas. Una zapa de 100€ con score 8.9 bate a una de 60€ con score 6.5. Estas son las claves para no confundir barato con buen valor.",
+    guidePoints: [
+      { lab: "Mira score ÷ precio, no solo el precio", body: "Una Anta KAI Speed (~67-90€) o una Adidas Dame X rinden como flagships de 180€ a un tercio del precio. Ese es el valor real." },
+      { lab: "Las marcas chinas son las reinas del valor", body: "Anta, Li-Ning, Rigorer y 361° ofrecen tecnología de primer nivel (placas de carbono, espumas reactivas) a mitad de precio que Nike/Jordan. El 'pero' es importarlas (AliExpress)." },
+      { lab: "Los modelos 'team' baten a las signature antiguas", body: "Una Nike Ja 2 (~99€) o una Adidas Trae Young rinden más que una signature de hace 3 años a precio rebajado." },
+      { lab: "El precio de hoy manda", body: "Una flagship del año pasado en outlet a 110€ puede ser mejor valor que la nueva a 180€. Verifica siempre el precio actual, no el MSRP." },
+    ],
+    faqs: [
+      { q: "¿Cuál es la zapatilla de baloncesto con mejor relación calidad-precio en 2026?",
+        a: "La gama Anta KAI Speed (KAI 1 Speed y KAI 2 Speed, desde ~67€ en AliExpress) y la Adidas Dame X encabezan la relación calidad-precio: rinden como flagships de 180€ a un tercio del precio. Les siguen la Li-Ning Way of Wade All City y la 361° Joker 1." },
+      { q: "¿Las zapatillas chinas de baloncesto valen la pena?",
+        a: "Sí, en rendimiento puro son imbatibles por precio: Anta, Li-Ning y Rigorer montan placas de carbono y espumas reactivas de primer nivel. El inconveniente es la disponibilidad (suelen venir de AliExpress) y el tallaje, que conviene revisar." },
+      { q: "¿Buena relación calidad-precio significa barata?",
+        a: "No. Barata es solo precio bajo; buena relación calidad-precio es rendimiento alto por euro. Una zapa de 100€ con score 8.9 es mejor compra que una de 55€ con score 6.5 si juegas en serio." },
+      { q: "¿Merece la pena pagar más de 130€?",
+        a: "Solo si juegas federado serio y notas diferencias sutiles de court feel. Para la mayoría, el sweet spot de valor está entre 70€ y 130€, donde tienes tecnología top sin pagar el premium del nombre." },
+    ],
+    related: [
+      "zapatillas-baloncesto-baratas",
+      "zapatillas-baloncesto-130-euros",
+      "mejores-zapatillas-baloncesto-2025",
+    ],
+    catalogQuery: "?precio_max=130",
+    catalogLabel: "Ver catálogo bajo 130€",
+  },
+
   // ── LESIONES (3) ────────────────────────────────────────────────────
   lesion("zapatillas-baloncesto-para-rodillas", {
     title: "Zapatillas de baloncesto para problemas de rodilla | CANCHA.ZAPA",
