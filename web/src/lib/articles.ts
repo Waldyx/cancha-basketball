@@ -800,7 +800,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "Las 8 mejores opciones por menos de 80€ en 2025",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["nike-precision-8", "adidas-cross-em-up-select", "decathlon-tarmak-fast-900", "adidas-ownthegame-3", "ua-lockdown-7"],
-    relatedSeoPages: ["zapatillas-baloncesto-baratas", "zapatillas-baloncesto-junior"],
+    relatedSeoPages: ["zapatillas-baloncesto-baratas", "zapatillas-baloncesto-calidad-precio", "zapatillas-baloncesto-junior"],
     imagen: "https://ballershoesdb.com/wp-content/uploads/NikePrecision8-Cropped-650x406.jpg",
     body: `
 <p class="art-intro">Encontrar una zapatilla de baloncesto que combine buen rendimiento, estilo y un precio asequible no es fácil, pero en 2025 el mercado español ofrece varias opciones por debajo de los 80 €. Aquí tienes un análisis de las ocho mejores alternativas para que puedas jugar sin vaciar tu cartera.</p>
@@ -893,7 +893,7 @@ export const ARTICLES: Article[] = [
     heroSubtitle: "¿Merecen la pena las zapatillas chinas de baloncesto?",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["anta-kai-2", "anta-kt-11", "lining-wow-allcity-13", "lining-sonic-12", "peak-taichi-flash"],
-    relatedSeoPages: ["zapatillas-baloncesto-baratas", "zapatillas-baloncesto-premium"],
+    relatedSeoPages: ["zapatillas-baloncesto-calidad-precio", "zapatillas-baloncesto-baratas", "zapatillas-baloncesto-premium"],
     imagen: "https://wowsole.com/wp-content/uploads/2024/01/ANTA-Kai-2-01.jpg",
     body: `
 <p class="art-intro">En los últimos años, ANTA, Li-Ning y Peak han pasado de ser marcas desconocidas en España a tener presencia real en las pistas. En 2025, estas marcas chinas ofrecen tecnología propia, colaboraciones con estrellas de la NBA y precios hasta un 40% más bajos que Nike o Adidas. ¿Pero merecen realmente la pena? Lo analizamos sin filtros.</p>
