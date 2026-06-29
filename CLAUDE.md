@@ -903,8 +903,10 @@ En la práctica: Nike.es y Basket World siempre son search (no tienen URLs de pr
   - ✅ **Decathlon ES** — aid: 105405, conv 5.95%, aprob 86%, EPC 0.14€ (15 links)
   - ✅ **Atmósfera Sport ES** — aid: 26255, conv 3.74%, aprob 69%, EPC 0.16€ (11 links)
   - ✅ **Snipes EU** — aid: 122628, conv 0.88%, aprob 79%, EPC 0.07€ (14 links)
-- **PENDIENTES de aprobación (6) — al 2026-06-12**:
-  - ⏳ **El Corte Inglés ES** — conv 29.90%, EPC **13.99€** 🔥 (el premio gordo, prioritario)
+  - ✅ **El Corte Inglés ES** — aid: 13075, **APROBADO 2026-06-26** 🔥 (EPC €13.99, el premio gordo).
+    Activados los 7 links elcorteingles_es (wrapper Awin + tiene_afiliado:true), comisión 6%.
+    Quitado de TIENDAS_PENDIENTES y añadido a AFILIADO_OK. ⚠ NO permite Cashback (no aplica, no somos cashback).
+- **PENDIENTES de aprobación (5) — al 2026-06-29**:
   - ⏳ **Joom ES** — conv 7.65%, aprob 94%, EPC 0.30€ → desbloquea **19 links Joom** ya en BD (tiene_afiliado:false)
   - ⏳ **Basket-Center ES** — conv 7.27%, aprob 90%
   - ⏳ **Sneakin ES** — conv 4.32%, aprob 75%
