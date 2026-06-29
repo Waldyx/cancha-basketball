@@ -17,7 +17,7 @@ const AWIN_MID: Record<string, string> = {
 // tiendas afiliadas activas (deben tener tiene_afiliado:true legítimamente)
 const AFILIADO_OK = new Set([
   "amazon_es", "decathlon", "atmosfera_sport", "adidas_es", "aliexpress",
-  "forumsport_es", "snipes_eu", "fuikaomar_es",
+  "forumsport_es", "snipes_eu", "fuikaomar_es", "elcorteingles_es",
 ]);
 
 function decodeUed(url: string): string | null {

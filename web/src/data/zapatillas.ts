@@ -9961,7 +9961,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-03",
     precio_msrp_eur: 180,
     links_compra: [
-      { tienda: "elcorteingles_es", url: "https://www.elcorteingles.es/deportes/A52028803-zapatillas-de-baloncesto-de-hombre-air-jordan-1-mid-jordan/", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA52028803-zapatillas-de-baloncesto-de-hombre-air-jordan-1-mid-jordan%2F", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatilla/jordan/air-jordan-1-mid-sail-midnight-green-pure-platinum", precio_actual: 84, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatilla/jordan/air-jordan-1-mid-white-white-white", precio_actual: 98, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "zalando_es", url: "https://www.zalando.es/jordan-air-jordan-1-mid-zapatillas-altas-joc12n001-g14.html", precio_actual: 105, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
@@ -10760,7 +10760,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "zalando_es", url: "https://www.zalando.es/zapatillas/?q=reebok+shaqnosis", precio_actual: 150, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FD432JNP/?tag=canchazapa-21", precio_actual: 150, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/products/shaqnosis-low-unisex-sneakers-100244789-2294", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
-      { tienda: "elcorteingles_es", url: "https://www.elcorteingles.es/deportes/MP_0012975_100244789-zapatillas-de-baloncesto-unisex-shaqnosis-low-reebok/", precio_actual: 150, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FMP_0012975_100244789-zapatillas-de-baloncesto-unisex-shaqnosis-low-reebok%2F", precio_actual: 150, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
     ],
   },
 
@@ -13490,7 +13490,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/68c9ed62e0ccc2018213d7db?variant_id=68c9ed62e0ccc2358213d7de", precio_actual: 79, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D9V6CTD1?tag=canchazapa-21", precio_actual: 90.51, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
-      { tienda: "elcorteingles_es", url: "https://www.elcorteingles.es/deportes/A53976764-zapatillas-de-baloncesto-hombre-lbj-nxxt-genisus-nike/", precio_actual: 149.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA53976764-zapatillas-de-baloncesto-hombre-lbj-nxxt-genisus-nike%2F", precio_actual: 149.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=lebron+nxxt+genisus&vst=lebron+nxxt+genisus", precio_actual: 125, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
     ],
   },
@@ -14257,7 +14257,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 130,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=skechers+je1+embiid+baloncesto&tag=canchazapa-21", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
-      { tienda: "elcorteingles_es", url: "https://www.elcorteingles.es/deportes/buscar/?term=skechers+skx+je1", precio_actual: 135, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-09" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2Fbuscar%2F%3Fterm%3Dskechers%2Bskx%2Bje1", precio_actual: 135, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fskechers%2Fzapatillas-skechers-skx-je-1-hombre-blanco-negro-160188.html", precio_actual: 106.21, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
@@ -14315,7 +14315,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 145,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=skechers+skx+resagrip&tag=canchazapa-21", precio_actual: 145, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
-      { tienda: "elcorteingles_es", url: "https://www.elcorteingles.es/deportes/buscar/?term=skechers+resagrip", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-09" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2Fbuscar%2F%3Fterm%3Dskechers%2Bresagrip", precio_actual: 150, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fmoda-deportiva-para-hombre%2Fzapatillas-de-baloncesto-skechers-skx-resagrip-hombre-negro-rojo-160197.html", precio_actual: 144.95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
@@ -14373,7 +14373,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 95,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=skechers+skx+league+baloncesto&tag=canchazapa-21", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
-      { tienda: "elcorteingles_es", url: "https://www.elcorteingles.es/deportes/buscar/?term=skechers+skx+league", precio_actual: 99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-09" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2Fbuscar%2F%3Fterm%3Dskechers%2Bskx%2Bleague", precio_actual: 99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
     ],
   },
 
@@ -14430,7 +14430,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 155,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=skechers+skx+float+baloncesto&tag=canchazapa-21", precio_actual: 155, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
-      { tienda: "elcorteingles_es", url: "https://www.elcorteingles.es/deportes/buscar/?term=skechers+skx+float", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-09" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2Fbuscar%2F%3Fterm%3Dskechers%2Bskx%2Bfloat", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
     ],
   },
 

@@ -404,7 +404,7 @@ export const COMISIONES_TIENDA: Record<string, number> = {
   fuikaomar_es: 4,
   forumsport_es: 5,     // Forum Sport (AWIN aid:23805, activo desde 2026-06-08)
   sizeofficial_es: 5,   // Size? Official (AWIN, pendiente aprobación)
-  elcorteingles_es: 6,  // El Corte Inglés (AWIN, pendiente — EPC €13.99 prioritario)
+  elcorteingles_es: 6,  // El Corte Inglés (AWIN aid:13075, APROBADO 2026-06-26 — EPC €13.99)
   footdistrict_es: 0,  // sin afiliado (Webgains, no registrado)
   converse_es: 0,      // sin afiliado (tienda oficial Converse)
   miinto_es: 0,        // sin afiliado
@@ -454,7 +454,7 @@ export function findMejorPrecio(links: LinkCompra[]): LinkCompra | undefined {
 
 // Tiendas pendientes de aprobación: mostramos su precio porque convertirán pronto.
 const TIENDAS_PENDIENTES = new Set([
-  "joom", "elcorteingles_es", "reebok_es", "basket_center_es", "sneakin_es", "prodirect_es",
+  "joom", "reebok_es", "basket_center_es", "sneakin_es", "prodirect_es",
 ]);
 
 /** ¿Mostramos el precio numérico de este enlace? (afiliado activo o pendiente) */
