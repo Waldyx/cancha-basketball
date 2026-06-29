@@ -58,9 +58,27 @@ function sortBy(id: string, key: keyof typeof zapatillas[0]["puntuaciones"] | nu
   if (key) return arr.sort((a, b) => b.puntuaciones[key] - a.puntuaciones[key]);
   return arr.sort(compareByScore);
 }
+
+// ItemList JSON-LD del Top 10 global (posible rich result de lista en Google).
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://canchazapa.com";
+const top10Global = sortBy("global", null).slice(0, 10);
+const rankingJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Top 10 Mejores Zapatillas de Baloncesto 2026",
+  itemListOrder: "https://schema.org/ItemListOrderDescending",
+  numberOfItems: top10Global.length,
+  itemListElement: top10Global.map((z, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    url: `${siteUrl}/zapatilla/${z.slug}`,
+    name: `${z.marca} ${z.modelo}`,
+  })),
+};
 ---
 
 <Base title="Top 10 Mejores Zapatillas de Baloncesto 2026 | Rankings CANCHA.ZAPA"
+      jsonLd={rankingJsonLd}
       description="Rankings de las mejores zapatillas de baloncesto: mejor tracción, más cushion, más reactivas, para exterior y más ligeras. Actualizado 2026.">
   <main class="app">
 

@@ -73,9 +73,36 @@ const pickMostrado = findMejorPrecioMostrado(editorPick.z.links_compra);
 const pickPrecioVista = pickMostrado?.precio_actual ?? editorPick.z.precio_msrp_eur;
 const pickAhorro = pickMostrado && pickPrecioVista < editorPick.z.precio_msrp_eur
   ? editorPick.z.precio_msrp_eur - pickPrecioVista : 0;
+
+// Entidad de marca para Google (Organization + WebSite). Mejora el reconocimiento
+// del sitio como marca/recurso. Sin SearchAction (no hay endpoint de búsqueda real)
+// ni sameAs (aún sin redes sociales enlazadas).
+const siteUrl = Astro.site?.toString().replace(/\/$/, "") ?? "https://canchazapa.com";
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "CANCHA.ZAPA",
+      url: `${siteUrl}/`,
+      logo: `${siteUrl}/logo-cancha-zapa.svg`,
+      description: "Catálogo y comparador honesto de zapatillas de baloncesto para el mercado español: análisis técnico, puntuaciones y mejores precios verificados.",
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      name: "CANCHA.ZAPA",
+      url: `${siteUrl}/`,
+      inLanguage: "es-ES",
+      publisher: { "@id": `${siteUrl}/#organization` },
+    },
+  ],
+};
 ---
 
 <Base title="CANCHA.ZAPA — Tu zapatilla de baloncesto, sin BS"
+      jsonLd={homeJsonLd}
       description="Quiz gratuito y comparador honesto de zapatillas de baloncesto. 5 recomendaciones a medida, precios verificados en tiendas españolas.">
   <main class="app">
 
