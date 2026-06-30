@@ -5393,6 +5393,7 @@ const _rawZapatillas: Zapatilla[] = [
   {
     id: "nike-caitlin-1",
     slug: "nike-caitlin-1",
+    proximamente: true,
     marca: "Nike",
     modelo: "Caitlin 1",
     generacion: 1,
@@ -6739,62 +6740,6 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57852356%2F", precio_actual: 62.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Funder-armour%2Fzapatillas-de-baloncesto-under-armour-jet-25-blanco-154243.html", precio_actual: 63, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+jet+25+baloncesto&tag=canchazapa-21", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
-    ],
-  },
-  {
-    id: "ua-d-fox-2",
-    slug: "ua-d-fox-2",
-    marca: "Under Armour",
-    modelo: "D Fox 2",
-    generacion: 2,
-    año_lanzamiento: 2025,
-    genero: "unisex",
-    signature_player: "De'Aaron Fox",
-    tecnologia_clave: ["UA Flow (espuma + suela sin goma)", "Upper de malla tejida", "Correa de mediopie"],
-    predecesor_id: null,
-    sucesor_id: null,
-    peso_real_g: 370,
-    altura: "low",
-    horma: "normal",
-    drop_mm: 6,
-    tipo_cierre: "cordones",
-    material_superior: "knit",
-    puntuaciones: {
-      traccion: 9, amortiguacion: 7, respuesta: 8,
-      soporte_lateral: 7, estabilidad: 7, peso_score: 8,
-      durabilidad_outdoor: 4, ventilacion: 7,
-    },
-    categoria_principal: "responsive",
-    tags: ["signature", "ligera", "moderna"],
-    ideal_para: {
-      posiciones: ["base", "escolta"],
-      peso_jugador_kg: [60, 95],
-      estilos: ["explosivo", "equilibrado"],
-    },
-    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
-    resumen:
-      "La Under Armour D Fox 2 es la segunda signature de De'Aaron Fox, el base mas rapido de la NBA. Hereda la tecnologia UA Flow (espuma y suela en una sola pieza, sin goma) que la convierte en una de las zapatillas mas ligeras y con mejor traccion en pista de interior. Pensada para guards explosivos que priorizan velocidad y court feel sobre cushion maximo.",
-    pros: [
-      "UA Flow: traccion sobresaliente en indoor y muy ligera",
-      "Court feel excelente para guards rapidos",
-      "Correa de mediopie: lockdown extra",
-      "Respuesta directa, ideal para cambios de ritmo",
-    ],
-    contras: [
-      "Suela Flow SIN goma: se desgasta rapido en exterior",
-      "Cushion justo para jugadores pesados o pivots",
-      "Disponibilidad limitada en Espana",
-    ],
-    veredicto:
-      "Si eres base o escolta explosivo, juegas en interior y quieres la ligereza y traccion de la tecnologia Flow (la misma de las Curry), la D Fox 2 es una compra muy seria. Para exterior o juego potente, busca una suela de goma.",
-    imagen_principal: "/shoes/ua-d-fox-2.webp",
-    imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-06-29",
-    precio_msrp_eur: 130,
-    links_compra: [
-      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57852858%2F", precio_actual: 90.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+d+fox+2+baloncesto&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
     ],
   },
   {
@@ -9825,6 +9770,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 119.99,
     links_compra: [
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57852858%2F", precio_actual: 90.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-30" },
       { tienda: "ua_es", url: "https://www.underarmour.es/es-es/buscar/?q=d+fox+2", precio_actual: 119.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+d+fox+2+baloncesto&tag=canchazapa-21", precio_actual: 119.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],

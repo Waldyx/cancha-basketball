@@ -203,6 +203,8 @@ export interface Zapatilla {
   // Retro / histórica
   /** Si true: excluida del quiz, badge "Retro" en catálogo. */
   es_retro?: boolean;
+  /** Si true: aún sin lanzar. Se oculta de catálogo/rankings y la ficha muestra "Próximamente" en vez de nota. */
+  proximamente?: boolean;
 
   // Precios
   precio_msrp_eur: number;

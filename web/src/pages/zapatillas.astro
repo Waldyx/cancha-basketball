@@ -6,7 +6,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecio, findMejorPrecioMostrado, scoreDisplay, compareByScore } from "../lib/scoring";
+import { findMejorPrecio, findMejorPrecioMostrado, scoreDisplay, scoreBadge, compareByScore } from "../lib/scoring";
 
 const LABELS_TIENDA: Record<string, string> = {
   amazon_es: "Amazon", decathlon: "Decathlon", nike_es: "Nike", adidas_es: "Adidas",
@@ -350,7 +350,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
                       : isNew && <span class="new-badge">★ Nueva</span>
                     }
                     {isTrending && <span class="new-badge" style="background:#dc2626;color:#fff;top:auto;bottom:8px">🔥 HOT</span>}
-                    <span class={`cz-score-pill ${scClass} score-pill`}>{score}</span>
+                    <span class={`cz-score-pill ${scClass} score-pill`}>{scoreBadge(z)}</span>
                     {z.imagen_principal && !z.imagen_principal.includes('placeholder') && (
                       <img src={z.imagen_principal} alt={`${z.marca} ${z.modelo}`} loading="lazy"
                            onerror="this.style.display='none'" />

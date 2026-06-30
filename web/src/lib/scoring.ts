@@ -655,6 +655,12 @@ export function scoreDisplay(z: Zapatilla): number {
   return Math.round((base + agePenalty(z)) * 10) / 10;
 }
 
+/** Texto del badge de score. Para zapas sin lanzar (proximamente) NO mostramos
+ *  un número (sería inventado): mostramos "PRÓX". Para el resto, la nota a 1 decimal. */
+export function scoreBadge(z: Zapatilla): string {
+  return z.proximamente ? "PRÓX" : scoreDisplay(z).toFixed(1);
+}
+
 /** Score + confianza + fuentes + desglose del ajuste, para la UI de la ficha. */
 export function scoreMeta(z: Zapatilla): ScoreMetaFull {
   const info = scoreInfo(z.id, axisAverage(z.puntuaciones as any));

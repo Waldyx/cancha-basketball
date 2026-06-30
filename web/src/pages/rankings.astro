@@ -45,13 +45,13 @@ const RANKINGS = [
 function sortBy(id: string, key: keyof typeof zapatillas[0]["puntuaciones"] | null) {
   // Las Junior (GS) heredan el score de la adulta -> fuera de rankings generales para
   // no duplicar; solo aparecen en su propia pestaña "junior".
-  const pool = zapatillas.filter(z => z.genero !== "gs");
+  const pool = zapatillas.filter(z => z.genero !== "gs" && !z.proximamente);
   // Las retro tienen su propia pestaña; fuera del global y de las categorias
   // ("Top Mejores 2026" no debe encabezarlo una reedicion con score editorial).
   const poolModern = pool.filter(z => !z.es_retro);
   const arr = id === "retro" ? pool.filter(z => z.es_retro)
     : id === "trending" ? poolModern.filter(z => (z.tags || []).includes("trending"))
-    : id === "mujer" ? zapatillas.filter(z => z.genero === "women" || (z.tags || []).includes("mujer"))
+    : id === "mujer" ? zapatillas.filter(z => !z.proximamente && (z.genero === "women" || (z.tags || []).includes("mujer")))
     : id === "junior" ? zapatillas.filter(z => z.genero === "gs")
     : [...poolModern];
   if (id === "valor") return arr.sort((a, b) => (valueMap.get(b.slug) ?? 0) - (valueMap.get(a.slug) ?? 0));
