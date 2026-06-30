@@ -3407,7 +3407,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si eres pívot, pesas más de 90kg y el presupuesto no es problema, el LeBron 23 es el techo tecnológico del mercado. Si buscas velocidad, ni lo mires.",
 
-    imagen_principal: "/shoes/nike-lebron-23.jpg",
+    imagen_principal: "/shoes/nike-gt-jump-1.webp",
     imagenes: [],
 
     fuentes: [
@@ -9045,7 +9045,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Para pivots y ala-pivots que buscan amortiguacion y estabilidad a precio budget, la GT Jump Academy cumple. Si quieres el maximo retorno de energia, sube a la GT Jump original o a la 2.",
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-gt-jump-academy.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-29",
