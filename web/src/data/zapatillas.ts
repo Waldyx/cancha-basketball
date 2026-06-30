@@ -10707,7 +10707,7 @@ const _rawZapatillas: Zapatilla[] = [
     es_retro: true,
     marca: "Nike",
     modelo: "Kobe 6 Protro",
-    año_lanzamiento: 2010,
+    año_lanzamiento: 2011,
     genero: "unisex",
     signature_player: "Kobe Bryant",
     tecnologia_clave: ["Zoom Air forefoot+heel", "Low-top", "Herringbone outsole", "Kobe System upper"],
