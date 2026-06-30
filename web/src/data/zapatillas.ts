@@ -5326,7 +5326,7 @@ const _rawZapatillas: Zapatilla[] = [
     signature_player: "A'ja Wilson",
     tecnologia_clave: ["Cushlon 3.0 foam full-length", "Phylon EVA carrier", "TPU midfoot torsional plate", "Nubs+grooves outsole", "Internal lateral lockdown"],
     predecesor_id: null,
-    sucesor_id: null,
+    sucesor_id: "nike-atwo",
 
     peso_real_g: 366,
     altura: "mid",
@@ -5442,6 +5442,65 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/t/caitlin-1-zapatillas-de-baloncesto-oGRTM2xz/IH7423-400", precio_actual: 139.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-30" },
+    ],
+  },
+  // ─────────────────────────────────────────────────────────────────
+  // NIKE A'TWO — Segunda signature A'ja Wilson (WNBA MVP)
+  // ─────────────────────────────────────────────────────────────────
+  {
+    id: "nike-atwo",
+    slug: "nike-atwo",
+    marca: "Nike",
+    modelo: "A'Two",
+    generacion: 2,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "A'ja Wilson",
+    tecnologia_clave: ["Unidad de aire visible en talon", "Cushlon", "Suela de goma multidireccional"],
+    predecesor_id: "nike-aone",
+    sucesor_id: null,
+    peso_real_g: 370,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "sintetico+tpu",
+    puntuaciones: {
+      traccion: 8, amortiguacion: 8, respuesta: 7,
+      soporte_lateral: 8, estabilidad: 8, peso_score: 6,
+      durabilidad_outdoor: 6, ventilacion: 6,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "mujer", "moderna"],
+    ideal_para: {
+      posiciones: ["alero", "ala-pivot", "pivot"],
+      peso_jugador_kg: [65, 110],
+      estilos: ["equilibrado", "potente"],
+    },
+    no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
+    resumen:
+      "La Nike A'Two es la segunda signature de A'ja Wilson (3x MVP WNBA), sucesora de la aclamada A'One (WearTesters 8/10). Mantiene la filosofia de cushion comodo y soporte para jugadoras y jugadores versatiles de interior, con una unidad de aire visible en el talon. Recien lanzada: puntuacion editorial provisional hasta que haya reviews independientes.",
+    pros: [
+      "Signature de A'ja Wilson, 3x MVP de la WNBA",
+      "Cushion comodo y soporte solido (herencia de la A'One)",
+      "Unidad de aire visible en el talon",
+      "Versatil para aleros y juego interior",
+    ],
+    contras: [
+      "Recien salida: rendimiento aun sin verificar (sin reviews)",
+      "No es la mas ligera ni reactiva para guards explosivos",
+      "Puntuacion editorial provisional",
+    ],
+    veredicto:
+      "Si te gusto la A'One o buscas una signature comoda y con soporte para juego versatil de interior, la A'Two es la evolucion natural. Actualizaremos la nota cuando salgan las primeras reviews.",
+    imagen_principal: "/shoes/nike-atwo.webp",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-30",
+    precio_msrp_eur: 140,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/atwo-apink-shoe-zapatillas-de-baloncesto-de-aja-wilson-ItyUbdSB/IH1135-600", precio_actual: 139.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-30" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+a%27two+wilson&tag=canchazapa-21", precio_actual: 140, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-30" },
     ],
   },
 
