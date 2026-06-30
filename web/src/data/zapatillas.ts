@@ -5387,6 +5387,63 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+a%27one+wilson&tag=canchazapa-21", precio_actual: 140, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
     ],
   },
+  // ─────────────────────────────────────────────────────────────────
+  // NIKE CAITLIN 1 — Debut signature Caitlin Clark (PRÓXIMAMENTE 2026)
+  // ─────────────────────────────────────────────────────────────────
+  {
+    id: "nike-caitlin-1",
+    slug: "nike-caitlin-1",
+    marca: "Nike",
+    modelo: "Caitlin 1",
+    generacion: 1,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "Caitlin Clark",
+    tecnologia_clave: ["Diseño low para guards", "Tracción multidireccional", "Specs por confirmar (sin lanzar)"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 330,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 6,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 8, amortiguacion: 7, respuesta: 8,
+      soporte_lateral: 7, estabilidad: 7, peso_score: 8,
+      durabilidad_outdoor: 6, ventilacion: 7,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "mujer", "moderna"],
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [55, 90],
+      estilos: ["explosivo", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen:
+      "La Nike Caitlin 1 es la primera signature de Caitlin Clark, el mayor fenomeno del baloncesto femenino actual. PROXIMAMENTE (2026): aun no se ha lanzado. Por el perfil de Clark (base tiradora de paso atras y triples profundos) se espera una low ligera y reactiva, pensada para crear espacio y cambios de ritmo. Datos tecnicos y puntuacion PRELIMINARES — se actualizaran con el lanzamiento y las primeras reviews.",
+    pros: [
+      "Primera signature de Caitlin Clark (enorme tiron)",
+      "Perfil low ligero orientado a guards tiradores",
+      "Respaldo Nike Basketball",
+    ],
+    contras: [
+      "Aun sin lanzar: rendimiento sin verificar",
+      "Puntuacion preliminar (sin reviews todavia)",
+      "Disponibilidad y precio finales por confirmar",
+    ],
+    veredicto:
+      "Si sigues a Caitlin Clark o juegas de base/escolta tiradora, su debut signature sera de lo mas esperado de 2026. Cuando salga y haya reviews actualizaremos specs y nota; de momento es una ficha de pre-lanzamiento.",
+    imagen_principal: "/shoes/nike-caitlin-1.webp",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-06-30",
+    precio_msrp_eur: 140,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/caitlin-1-zapatillas-de-baloncesto-oGRTM2xz/IH7423-400", precio_actual: 139.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-30" },
+    ],
+  },
 
   // ─────────────────────────────────────────────────────────────────────────
   // 63. Jordan Tatum 4 — Tatum signature, cushion premium
