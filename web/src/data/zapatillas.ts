@@ -617,7 +617,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 170,
     links_compra: [
-      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56002888%2F", precio_actual: 111.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA53978261-negro-pr-zapatillas-de-baloncesto-de-hombre-kd18-nike%2F", precio_actual: 95.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-01" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-kd-18-liquid-lime.html", precio_actual: 139.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/kd18-atomic-pink-photo-blue-lt-wild-mango", precio_actual: 109.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kd+18&vst=kd+18", precio_actual: 169.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
@@ -5172,7 +5172,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 150,
     links_compra: [
-      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA200792409%2F", precio_actual: 159.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56001212-amarillo-pr-zapatillas-de-baloncesto-de-hombre-book-2-se-nike%2F", precio_actual: 104.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-01" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fnike-book-2-spiridon-sport-red%2F0016d89e-d6c5-4f8e-afc7-eb477540d685%2Fc14", precio_actual: 161.09, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/book-2-rising-black-multi-color-safety-orange-sundial-tatto", precio_actual: 119.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
       { tienda: "nike_es", url: "https://www.nike.com/es/t/book-2-rising-zapatillas-de-baloncesto-m5KwDWWn/IB6687-001", precio_actual: 149.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
