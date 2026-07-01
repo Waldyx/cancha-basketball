@@ -110,6 +110,18 @@ export const PROMOS: Promo[] = [
     color: "#9fd0ff",
   },
   {
+    id: "atmosfera-rebajas-2026-07",
+    tienda: "atmosfera_sport",
+    tiendaLabel: "Atmósfera Sport",
+    titulo: "Rebajas hasta 60%",
+    desde: "2026-07-01T00:00:00+02:00",
+    hasta: "2026-07-26T23:59:59+02:00",
+    url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Frebajas-material-deportivo-1349",
+    descuentoTexto: "hasta 60% en calzado, ropa y equipamiento",
+    nota: "Descuento aplicado directamente en la web · calzado, ropa y equipamiento deportivo · selección de productos",
+    color: "#12a5e5",
+  },
+  {
     id: "aliexpress-ahorros-verano-2026-07",
     tienda: "aliexpress",
     tiendaLabel: "AliExpress",
