@@ -948,14 +948,19 @@ En la práctica: Nike.es y Basket World siempre son search (no tienen URLs de pr
 - **Tracking ID**: `default`
 - **Estado**: ✅ aprobado 2026-05-25, 13 links actualizados con `tiene_afiliado: true`
 - **Comisión**: ~4-9%, cookie 3 días
-- **Uso**: SOLO para marcas chinas (Anta, Li-Ning, Peak, Way of Wade)
-- **Formato link**: `https://s.click.aliexpress.com/e/_XXXXX`
+- **Uso**: marcas chinas (Anta, Li-Ning, Peak, Way of Wade) SIEMPRE. **Marcas occidentales
+  (Nike/Jordan/adidas/etc.) SOLO si el listado tiene el sello `Marcas+ Verificado`** (canal de
+  marcas autenticadas de AliExpress con garantía de originalidad; el SKU debe coincidir con el
+  modelo real). NUNCA enlazar un listado Nike/Jordan suelto sin ese sello (son réplicas). Ejemplo:
+  nike-sabrina-3 → "Nike Authentic Sabrina 3 EP HF2882-600" (Marcas+ Verificado) 90,99€, s28.
+- **Formato link**: `https://s.click.aliexpress.com/e/_XXXXX` (Portals) o wrapper Awin
+  `awinmid=11640` sobre la URL de producto `es.aliexpress.com/item/ID.html` (preferido, cookie 30d).
 - **Zapas con AliExpress** (13): anta-kai-1-speed, lining-wow-allcity-13, anta-kai-2, anta-kt-10, lining-wow-12, peak-lou-williams-underground, anta-shock-the-game-5, lining-gamma-2, anta-kt-11, lining-sonic-12, peak-taichi-flash, anta-shock-wave-5, lining-yu-shuai-18
 
 ### Tiendas sin programa de afiliados (no añadir)
 - El Corte Inglés — sin programa público
 - Basket World — sin programa
-- AliExpress — SÍ usar pero SOLO para marcas chinas (originales)
+- AliExpress — SÍ usar: marcas chinas siempre; marcas occidentales solo con sello Marcas+ Verificado (ver arriba)
 
 ---
 

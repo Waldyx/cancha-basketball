@@ -813,6 +813,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 190,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+gt+cut+3&tag=canchazapa-21", precio_actual: 289.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012511774286.html", precio_actual: 160.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-01" },
       { tienda: "joom", url: "https://www.joom.com/es/products/68c9e2a9d367ea012bf6f0a0?variant_id=68c9e2a9d367ea052bf6f0a8", precio_actual: 127, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=gt+cut+3&vst=gt+cut+3", precio_actual: 189.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=gt+cut+3", precio_actual: 195, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
@@ -1124,6 +1125,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+kyrie+low+5&tag=canchazapa-21", precio_actual: 196, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012507149508.html", precio_actual: 140.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-01" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kyrie+low+5&vst=kyrie+low+5", precio_actual: 119.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=kyrie+low+5", precio_actual: 124.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=kyrie+low+5", precio_actual: 119.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
@@ -5895,6 +5897,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 149.99,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=jordan+zion+4&tag=canchazapa-21", precio_actual: 292.55, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012500269730.html", precio_actual: 115.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-01" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=jordan+zion+4", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
