@@ -129,6 +129,7 @@ export const PROMOS: Promo[] = [
     desde: "2026-07-01T00:00:00+02:00",
     hasta: "2026-07-07T23:59:59+02:00",
     codigos: [
+      { code: "ESCD02", descuento: 2, minCompra: 18 },
       { code: "ESCD06", descuento: 6, minCompra: 45 },
       { code: "ESCD11", descuento: 11, minCompra: 79 },
       { code: "ESCD20", descuento: 20, minCompra: 149 },
