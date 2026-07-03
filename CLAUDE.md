@@ -1,11 +1,66 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-06-18 (sesión 28)
+> Última actualización: 2026-07-03 (sesión 29)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
 
-## Estado actual (sesión 28) — Migración de analítica: Plausible → Cloudflare Web Analytics
+## Estado actual (sesión 29) — AliExpress Marcas+ como fuente afiliada + cierre frente 1 + cruce ECI
+
+### ✅ Completado (sesión 29)
+
+**AliExpress Marcas+ Verificado abierto como fuente afiliada para marcas occidentales** (7%,
+canal autenticado POIZON/Dewu con garantía de originalidad y SKU real). **Regla actualizada en
+CLAUDE.md** (sección AliExpress Portals): marcas occidentales (Nike/Jordan/adidas) permitidas
+SOLO con el sello `Marcas+ Verificado`; y **solo añadir el enlace si su precio ≤ MSRP / precio
+mostrado actual** (si está por encima, empeora el "desde X€"). Búsqueda con
+`es.aliexpress.com/w/wholesale-QUERY.html?SortType=price_asc` + click al listado con badge
+Marcas+; el SKU y precio se leen del título de la pestaña. Wrapper Awin `awinmid=11640`.
+
+**Trending #7 = nike-sabrina-3 MONETIZADA** (era la que tocaba): AliExpress Marcas+ 90,99€
+(HF2882-600) → "desde" 149,90 (FuikaOmar) → 90,99. + Decathlon W.Sneakers Oregon Ducks 144,29
+(6%). Foot Locker/Nike siguen "Ver precio". Atmósfera/Snipes/Amazon NO tienen la 3 exacta.
+
+**Flagships infladas: precio y comisión mejorados vía AliExpress Marcas+** (su único afiliado
+era Amazon a precio reseller inflado):
+- jordan-zion-4: 292,55 (Amazon 3%) → 115,39 (FD0591-401, 7%).
+- nike-kyrie-low-5: 196 (Amazon) → 140,69 (DJ6014-100).
+- nike-gt-cut-3: +AliExpress 160,39 (IB8870-191), afiliado activo más barato (Amazon 289,99;
+  joom 127 sigue "pendiente" mostrando precio).
+- nb-kawhi-1: SKIP (solo NB 850 lifestyle, sin Marcas+ del signature) → se queda Amazon.
+- nike-kobe-1-protro: Marcas+ 202,99 > MSRP 200 → SKIP por la regla.
+
+**FRENTE 1 (zapas sin afiliado) — AGOTADO.** Barrido AliExpress Marcas+:
+- jordan-xxxviii (AJ38): primer afiliado, 123,99 (FD2325-107, <MSRP 180). "Ver precio" → 123,99.
+- SKIP definitivos: sabrina-3-gs (no hay GS diferenciada en AliExpress), nike-kobe-1-protro
+  (>MSRP), 3 Moolah (marca US NO está en AliExpress, solo accesorios de coche).
+- immortality-4-gs ya tenía afiliado (ECI 52,49). gt-jump-3 NO existe en el catálogo (entrada
+  errónea de la worklist; solo hay gt-jump-1/2/academy). → Lista real "sin afiliado" baja a 5
+  (sabrina-3-gs, kobe-1-protro, 3 Moolah), todas por causas insalvables. NO insistir.
+
+**Cruce del catálogo básquet de El Corte Inglés (afiliado 6%) con el nuestro** — ya estaba
+integrado casi al completo (ECI es el precio más barato mostrado en la mayoría: LeBron 23,
+Curry 13, Luka 4/5, Tatum 4, Immortality 4/5, GT Cut Academy 2, Witness IX, D Fox 2, UA Jet 25,
+Believe That 1, Freak 7…). Dos mejoras:
+- nike-kd-18: enlace ECI PRM (111,99) → KD18 estándar A53978261 (95,99).
+- nike-book-2: ECI estándar (159,99) → Book 2 SE A56001212 (104,99). Colorway estándar sigue
+  disponible vía Decathlon/Nike/BE.
+- SIN mejora (ya lo tenemos o ECI más caro que nuestro afiliado): Harden Vol 9, DON 7, Dame X, AE 1.
+
+**Promo añadida** (`promos.ts`, date-gated): Atmósfera Sport rebajas −60% (01-26 jul, Awin 26255).
+
+Commits sesión 29 (7): `fc8f273`→`878675b`→`be00443`→`f1d2924`→`a8bcfa7` (+ promo y regla). Build 334 págs.
+
+### ▶️ EN CURSO — retomar aquí (trending + frente 2)
+**FASE 2 TRENDING**: #7 (sabrina-3) ✅ HECHO esta sesión. También hechas kd-18 y book-2 (vía ECI).
+**SIGUIENTE trending = #8 skx-float** (Skechers Float). Luego: ja-3, mb05, luka-4, immortality-4,
+freak-7, tatum-3, unpre-ars-2, immortality-5. (kd-18 y book-2 ya monetizadas.)
+**FRENTE 2 (opcional)**: upgrade de comisión Amazon 3% → AliExpress Marcas+ 7% / ECI 6% en zapas
+que ya monetizan barato pero con comisión baja (KD 16/17, Luka 3, One Take 5…). No urgente.
+
+---
+
+## Estado anterior (sesión 28) — Migración de analítica: Plausible → Cloudflare Web Analytics
 
 ### ✅ Completado (sesión 28)
 
