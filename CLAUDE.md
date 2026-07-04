@@ -49,14 +49,26 @@ Believe That 1, Freak 7…). Dos mejoras:
 
 **Promo añadida** (`promos.ts`, date-gated): Atmósfera Sport rebajas −60% (01-26 jul, Awin 26255).
 
-Commits sesión 29 (7): `fc8f273`→`878675b`→`be00443`→`f1d2924`→`a8bcfa7` (+ promo y regla). Build 334 págs.
+**Trending #12 = jordan-tatum-3 MONETIZADA**: único afiliado que pagaba era FuikaOmar 109,90 →
+AliExpress Marcas+ 79,80 (HV5912-300, 7%). joom 75 sigue "pendiente" mostrando precio.
 
-### ▶️ EN CURSO — retomar aquí (trending + frente 2)
-**FASE 2 TRENDING**: #7 (sabrina-3) ✅ HECHO esta sesión. También hechas kd-18 y book-2 (vía ECI).
-**SIGUIENTE trending = #8 skx-float** (Skechers Float). Luego: ja-3, mb05, luka-4, immortality-4,
-freak-7, tatum-3, unpre-ars-2, immortality-5. (kd-18 y book-2 ya monetizadas.)
-**FRENTE 2 (opcional)**: upgrade de comisión Amazon 3% → AliExpress Marcas+ 7% / ECI 6% en zapas
-que ya monetizan barato pero con comisión baja (KD 16/17, Luka 3, One Take 5…). No urgente.
+**FASE 2 TRENDING — REVISADA AL COMPLETO.** Resto ya bien monetizado (sin acción): luka-4
+(ECI 77,99), immortality-4 (ECI 53,99), immortality-5 (ECI 89,99), freak-7 (ECI 68,99),
+unpre-ars-2 (AliExpress 120=MSRP), mb05 (Amazon 85,99). SIN fuente afiliada viable (NO insistir):
+- skx-float: ninguna afiliada la stockea (Amazon OOS, Atmósfera/FuikaOmar/ECI no tienen Skechers).
+- ja-3: AliExpress Marcas+ 152,99 (>MSRP 135), Amazon solo GS inflada (165-295), ECI/FuikaOmar no.
+
+**Promo**: añadido tramo bajo ESCD02 (2€/18€) a AliExpress Ahorros de verano (newsletter Awin).
+
+Commits sesión 29 (9): `fc8f273`→`878675b`→`be00443`→`f1d2924`→`a8bcfa7`→`fed75c2`→`dcb36a9`→`efd5069`
+(+ promo, regla, docs). Build 334 págs.
+
+### ▶️ EN CURSO — retomar aquí (frente 2, opcional)
+**FASE 2 TRENDING = CERRADA** (todas revisadas; sabrina-3, kd-18, book-2, tatum-3 monetizadas
+esta sesión; skx-float y ja-3 sin stock afiliado, no insistir).
+**FRENTE 2 (opcional, NO urgente)**: upgrade de comisión Amazon 3% → AliExpress Marcas+ 7% / ECI 6%
+en zapas que ya monetizan barato pero con comisión baja (KD 16/17, Luka 3, One Take 5…). Requiere
+que el AliExpress Marcas+ sea ≤ precio actual mostrado (regla). No urgente.
 
 ---
 
