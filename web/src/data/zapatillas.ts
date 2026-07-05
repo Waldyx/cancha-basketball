@@ -10302,7 +10302,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/~/316706499304.html", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-3-retro-og-rare-air%2F9427ddab-16c5-46e9-a38b-b63c97f90ec4%2Fc1", precio_actual: 183, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0G2ZTZJ5F/?tag=canchazapa-21", precio_actual: 147, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
-      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-3-retro-og-%22worlds-best-dad%22-beige-98222", precio_actual: 210, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
+      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-3-retro-og-worlds-best-dad-beige-98222", precio_actual: 170, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
     ],
   },
 
@@ -10365,7 +10365,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "footdistrict_es", url: "https://footdistrict.com/products/air-jordan-4-retro-og-flight-club-im4002-100", precio_actual: 158, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatilla/jordan/air-jordan-4-retro-og-flight-club-sail-black-univ-red", precio_actual: 180, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
-      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-4-retro-%2522toro-bravo%2522-rojo-98232", precio_actual: 170, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-4-retro-toro-bravo-rojo-98232", precio_actual: 170, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+4+retro&tag=canchazapa-21", precio_actual: 230, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
