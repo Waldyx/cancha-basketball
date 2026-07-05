@@ -11426,6 +11426,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 210,
     links_compra: [
       { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Air+Jordan+5+Retro", precio_actual: 210, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fair-jordan-5-retro-se-craft-light-orewood-brown-taille-eu%2F7b7897ea-561b-4730-9477-e6f5e7d85b97%2Fc27c20", precio_actual: 238.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Air+Jordan+5+Retro&tag=canchazapa-21", precio_actual: 230, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
