@@ -140,6 +140,25 @@ export const PROMOS: Promo[] = [
     nota: "Códigos no válidos en productos virtuales · envíos a España · no acumulable con otras promos",
     color: "#ff4747",
   },
+  {
+    id: "aliexpress-venta-vacaciones-2026-07",
+    tienda: "aliexpress",
+    tiendaLabel: "AliExpress",
+    titulo: "Venta de vacaciones",
+    desde: "2026-07-13T00:00:00+02:00",
+    hasta: "2026-07-19T23:59:59+02:00",
+    codigos: [
+      { code: "VSES01", descuento: 2, minCompra: 18 },
+      { code: "VSES02", descuento: 6, minCompra: 45 },
+      { code: "VSES03", descuento: 11, minCompra: 79 },
+      { code: "VSES04", descuento: 20, minCompra: 149 },
+      { code: "VSES05", descuento: 30, minCompra: 239 },
+      { code: "VSES06", descuento: 45, minCompra: 359 },
+      { code: "VSES07", descuento: 60, minCompra: 479 },
+    ],
+    nota: "Solo en productos con el sello “Venta de vacaciones” · envíos a España · no acumulable con otras promos",
+    color: "#ff4747",
+  },
 ];
 
 /** Promos activas a una fecha dada (por defecto, ahora). */
