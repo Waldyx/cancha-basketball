@@ -985,6 +985,13 @@ En la práctica: Nike.es y Basket World siempre son search (no tienen URLs de pr
   - ✅ **El Corte Inglés ES** — aid: 13075, **APROBADO 2026-06-26** 🔥 (EPC €13.99, el premio gordo).
     Activados los 7 links elcorteingles_es (wrapper Awin + tiene_afiliado:true), comisión 6%.
     Quitado de TIENDAS_PENDIENTES y añadido a AFILIADO_OK. ⚠ NO permite Cashback (no aplica, no somos cashback).
+    - 🔑 **NAVEGAR ECI con Claude-in-Chrome (bot-block resuelto, s29)**: ECI mete un bucle de
+      "Challenge Validation" si navegas DIRECTO a una URL de búsqueda/ficha sin sesión. Solución
+      (navegación normal, NO es evadir nada): **1º navegar a la home `https://www.elcorteingles.es/`**
+      (carga sin reto y crea cookies de sesión), **2º ya funcionan** las búsquedas
+      (`/search-nwx/?s=QUERY`) y las fichas. Ojo: `get_page_text` en el grid de resultados solo
+      devuelve el 1er producto (lazy-load) → leer por **screenshots** scrolleando. Categoría básquet:
+      buscar "zapatillas de baloncesto" (~947 resultados, ordenables por descuento).
 - **PENDIENTES de aprobación (5) — al 2026-06-29**:
   - ⏳ **Joom ES** — conv 7.65%, aprob 94%, EPC 0.30€ → desbloquea **19 links Joom** ya en BD (tiene_afiliado:false)
   - ⏳ **Basket-Center ES** — conv 7.27%, aprob 90%
