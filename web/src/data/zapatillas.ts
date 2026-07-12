@@ -11027,7 +11027,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "zalando_es", url: "https://www.zalando.es/zapatillas/?q=reebok+shaqnosis", precio_actual: 150, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FD432JNP/?tag=canchazapa-21", precio_actual: 150, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/products/shaqnosis-low-unisex-sneakers-100244789-2294", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
-      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FMP_0012975_100244789-blanco-pr-zapatillas-de-baloncesto-unisex-shaqnosis-low-reebok%2F", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-05" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FMP_0012975_100244789-blanco-pr-zapatillas-de-baloncesto-unisex-shaqnosis-low-reebok%2F", precio_actual: 105, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-12" },
     ],
   },
 
