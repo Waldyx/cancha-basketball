@@ -60,8 +60,20 @@ unpre-ars-2 (AliExpress 120=MSRP), mb05 (Amazon 85,99). SIN fuente afiliada viab
 
 **Promo**: añadido tramo bajo ESCD02 (2€/18€) a AliExpress Ahorros de verano (newsletter Awin).
 
-Commits sesión 29 (9): `fc8f273`→`878675b`→`be00443`→`f1d2924`→`a8bcfa7`→`fed75c2`→`dcb36a9`→`efd5069`
-(+ promo, regla, docs). Build 334 págs.
+**RETROS más buscados — revisados (NO usar AliExpress para retros).** Aprendizaje clave: AliExpress
+Marcas+ NO sirve para retros hiper-demandados → las legítimas (Kobe Protro 295-640) salen MÁS caras
+que Amazon; las sospechosamente baratas (AJ4 a 85€) = riesgo de RÉPLICA aunque pongan Marcas+, NO
+enlazar. Barrido en ECI/Snipes/Decathlon. Mejoras aplicadas:
+- air-jordan-5: Decathlon marketplace (WE HAVE IT) 238,99 (6%) < Amazon inflado 299.
+- reebok-shaqnosis (es la LOW, product ID 100244789): ECI 150/sin-stock → 120/disponible.
+- air-jordan-4: Snipes Toro Bravo 170 (era 210 stale en precios.json) < Amazon.
+- air-jordan-3/6: precios/URLs Snipes verificados (AJ3 170, AJ6 150). Limpiadas comillas mal
+  codificadas (%2522/%22) en URLs de producto Snipes de AJ4/AJ3 (editorial + precios.json, node/CRLF).
+- SIN mejora (Amazon ya es el precio real de mercado): AJ12/13 (Decathlon 365), AJ8/9 (no stock),
+  Kobe 4/5/6 Protro (Amazon 195-200; AliExpress/Decathlon 295-640). Kobe 1 Protro sigue sin afiliado.
+
+Commits sesión 29 (14): `fc8f273`→`878675b`→`be00443`→`f1d2924`→`a8bcfa7`→`fed75c2`→`dcb36a9`→
+`efd5069`→`5f76d00`→`4640921`→`6d74c95`→`0455441` (+ promo, regla, docs, retros). Build 334 págs.
 
 ### ▶️ EN CURSO — retomar aquí (frente 2, opcional)
 **FASE 2 TRENDING = CERRADA** (todas revisadas; sabrina-3, kd-18, book-2, tatum-3 monetizadas
