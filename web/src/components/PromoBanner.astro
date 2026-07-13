@@ -1,8 +1,9 @@
 ---
-// PromoBanner.astro — franjas de promos activas (afiliados).
-// Renderiza un contenedor vacío; un script crea una franja por cada promo
-// vigente hoy (gating por fecha en cliente, web estática). ?promo=preview
-// fuerza mostrarlas todas (para previsualizar antes de su fecha).
+// PromoBanner.astro — franja ÚNICA rotativa de promos activas (afiliados).
+// Renderiza un contenedor vacío; un script monta UNA sola franja que va
+// rotando entre las promos vigentes hoy (carrusel, cambio cada 5s, pausa al
+// pasar el ratón). Gating por fecha en cliente (web estática).
+// ?promo=preview fuerza mostrarlas todas (para previsualizar antes de su fecha).
 import { PROMOS } from "../data/promos";
 
 const promosData = PROMOS.map((p) => ({
@@ -21,22 +22,25 @@ const promosData = PROMOS.map((p) => ({
 
 <div id="cz-promo-banner" class="cz-promo-banner"></div>
 
-<style>
+<style is:global>
   .cz-promo-banner { position: relative; z-index: 30; }
   .cz-promo-strip {
     position: relative;
     color: #0c0c0c;
+    transition: background-color 0.4s ease;
   }
   .cz-promo-inner {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 7px 36px 7px 24px;
+    padding: 8px 44px 8px 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
+    gap: 6px 14px;
     flex-wrap: wrap;
+    transition: opacity 0.22s ease;
   }
+  .cz-promo-inner.is-fading { opacity: 0; }
   .cz-promo-text {
     font-size: 12.5px;
     font-weight: 800;
@@ -52,7 +56,24 @@ const promosData = PROMOS.map((p) => ({
     color: #0c0c0c;
     text-decoration: underline;
     white-space: nowrap;
+    margin-left: 8px;
   }
+  .cz-promo-dots {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 5px;
+  }
+  .cz-promo-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(12, 12, 12, 0.35);
+    transition: background 0.2s ease;
+  }
+  .cz-promo-dot.is-active { background: #0c0c0c; }
   .cz-promo-close {
     position: absolute;
     right: 12px;
@@ -69,8 +90,10 @@ const promosData = PROMOS.map((p) => ({
   }
   .cz-promo-close:hover { opacity: 1; }
   @media (max-width: 600px) {
-    .cz-promo-inner { padding: 7px 32px 7px 14px; gap: 8px; }
+    .cz-promo-inner { padding: 8px 36px 8px 34px; gap: 4px 8px; }
     .cz-promo-text { font-size: 11px; }
+    .cz-promo-dots { left: 10px; gap: 4px; }
+    .cz-promo-dot { width: 5px; height: 5px; }
   }
 </style>
 
@@ -85,42 +108,104 @@ const promosData = PROMOS.map((p) => ({
       });
       var cont = document.getElementById("cz-promo-banner");
       if (!cont || !list.length) return;
-
-      list.forEach(function (p) {
-        if (!preview && localStorage.getItem("cz.promo.dismissed." + p.id)) return;
-        var fin = new Date(p.hasta).toLocaleDateString("es-ES", { day: "numeric", month: "short" });
-        var resumen;
-        if (p.maxDesc) resumen = "hasta −" + p.maxDesc + "€ con código";
-        else if (p.codigo) resumen = (p.descuentoTexto || "descuento") + " · código " + p.codigo;
-        else resumen = p.descuentoTexto || "oferta activa";
-
-        var strip = document.createElement("div");
-        strip.className = "cz-promo-strip";
-        strip.style.background = p.color;
-        var inner = document.createElement("div");
-        inner.className = "cz-promo-inner";
-        var txt = document.createElement("span");
-        txt.className = "cz-promo-text";
-        txt.textContent = "🔥 " + p.tiendaLabel + " · " + p.titulo + ": " + resumen + " · hasta " + fin;
-        inner.appendChild(txt);
-        if (p.url) {
-          var a = document.createElement("a");
-          a.className = "cz-promo-cta";
-          a.href = p.url; a.target = "_blank"; a.rel = "sponsored noopener";
-          a.textContent = "Ver en tienda →";
-          inner.appendChild(a);
-        }
-        var close = document.createElement("button");
-        close.className = "cz-promo-close";
-        close.setAttribute("aria-label", "Cerrar aviso");
-        close.textContent = "×";
-        close.addEventListener("click", function () {
-          strip.remove();
-          try { localStorage.setItem("cz.promo.dismissed." + p.id, "1"); } catch (e) {}
+      if (!preview) {
+        list = list.filter(function (p) {
+          return !localStorage.getItem("cz.promo.dismissed." + p.id);
         });
-        strip.appendChild(inner);
-        strip.appendChild(close);
-        cont.appendChild(strip);
+      }
+      if (!list.length) return;
+
+      function resumen(p) {
+        if (p.maxDesc) return "hasta −" + p.maxDesc + "€ con código";
+        if (p.codigo) return (p.descuentoTexto || "descuento") + " · código " + p.codigo;
+        return p.descuentoTexto || "oferta activa";
+      }
+      function fin(p) {
+        return new Date(p.hasta).toLocaleDateString("es-ES", { day: "numeric", month: "short" });
+      }
+
+      // Franja única
+      var strip = document.createElement("div");
+      strip.className = "cz-promo-strip";
+      var inner = document.createElement("div");
+      inner.className = "cz-promo-inner";
+      var txt = document.createElement("span");
+      txt.className = "cz-promo-text";
+      var cta = document.createElement("a");
+      cta.className = "cz-promo-cta";
+      cta.target = "_blank";
+      cta.rel = "sponsored noopener";
+      inner.appendChild(txt);
+      inner.appendChild(cta);
+      var dots = document.createElement("div");
+      dots.className = "cz-promo-dots";
+      var close = document.createElement("button");
+      close.className = "cz-promo-close";
+      close.setAttribute("aria-label", "Cerrar aviso");
+      close.textContent = "×";
+      strip.appendChild(dots);
+      strip.appendChild(inner);
+      strip.appendChild(close);
+      cont.appendChild(strip);
+
+      var i = 0;
+      var timer = null;
+
+      function buildDots() {
+        dots.innerHTML = "";
+        if (list.length < 2) return;
+        for (var k = 0; k < list.length; k++) {
+          var d = document.createElement("span");
+          d.className = "cz-promo-dot" + (k === i ? " is-active" : "");
+          dots.appendChild(d);
+        }
+      }
+      function paint() {
+        var p = list[i];
+        strip.style.background = p.color;
+        txt.textContent = "🔥 " + p.tiendaLabel + " · " + p.titulo + ": " + resumen(p) + " · hasta " + fin(p);
+        if (p.url) {
+          cta.style.display = "";
+          cta.href = p.url;
+          cta.textContent = "Ver en tienda →";
+        } else {
+          cta.style.display = "none";
+        }
+        var ds = dots.children;
+        for (var k = 0; k < ds.length; k++) {
+          ds[k].className = "cz-promo-dot" + (k === i ? " is-active" : "");
+        }
+      }
+      function advance() {
+        inner.classList.add("is-fading");
+        setTimeout(function () {
+          i = (i + 1) % list.length;
+          paint();
+          inner.classList.remove("is-fading");
+        }, 220);
+      }
+      function start() {
+        if (list.length > 1 && !timer) timer = setInterval(advance, 5000);
+      }
+      function stop() {
+        if (timer) { clearInterval(timer); timer = null; }
+      }
+
+      buildDots();
+      paint();
+      start();
+
+      strip.addEventListener("mouseenter", stop);
+      strip.addEventListener("mouseleave", start);
+
+      close.addEventListener("click", function () {
+        var p = list[i];
+        try { localStorage.setItem("cz.promo.dismissed." + p.id, "1"); } catch (e) {}
+        list.splice(i, 1);
+        if (!list.length) { stop(); strip.remove(); return; }
+        if (i >= list.length) i = 0;
+        buildDots();
+        paint();
       });
     } catch (e) {}
   })();
