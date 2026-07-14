@@ -1,8 +1,0 @@
-401  api/v1/BoxScore/2491568
-401  api/v1/TeamStats/2491568
-401  api/v1/ShotChart/2491568
-401  api/v1/KeyFacts/2491568
-401  api/v1/BoxScore/2417267
-401  api/v1/TeamStats/2417267
-401  api/v1/ShotChart/2417267
-401  api/v1/KeyFacts/2417267

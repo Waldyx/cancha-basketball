@@ -18,11 +18,15 @@ jobs:
           mkdir -p probe-out
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
           for id in 2491568 2417267; do
-            for ep in "BoxScore/$id" "TeamStats/$id" "ShotChart/$id" "KeyFacts/$id"; do
+            curl -sL -A "$UA" -o "probe-out/partido-$id.html" "https://baloncestoenvivo.feb.es/partido/$id"
+            TOKEN=$(grep -oE 'id="_ctl0_token" value="[^"]+"' "probe-out/partido-$id.html" | sed 's/.*value="//;s/"$//')
+            echo "token partido $id: ${#TOKEN} chars" >> probe-out/_status.txt
+            for ep in "BoxScore/$id" "TeamStats/$id"; do
               fn=$(echo "v1-$ep" | tr '/' '-')
-              code=$(curl -sL -A "$UA" -H "Accept: application/json" -H "Referer: https://baloncestoenvivo.feb.es/partido/$id" -o "probe-out/$fn.json" -w "%{http_code}" "https://intrafeb.feb.es/LiveStats.API/api/v1/$ep" || echo ERR)
+              code=$(curl -sL -A "$UA" -H "Accept: application/json" -H "Authorization: Bearer $TOKEN" -o "probe-out/$fn.json" -w "%{http_code}" "https://intrafeb.feb.es/LiveStats.API/api/v1/$ep" || echo ERR)
               echo "$code  api/v1/$ep" >> probe-out/_status.txt
             done
+            rm -f "probe-out/partido-$id.html"
           done
           echo "== STATUS =="; cat probe-out/_status.txt
       - name: Commit results to work branch
