@@ -1,0 +1,706 @@
+---
+// /estadisticas — MVP "agente de estadísticas" de baloncesto.
+// 100% cliente: los partidos se guardan en localStorage (cz.stats.v1), sin cuentas ni backend.
+// Calcula métricas avanzadas (TS%, eFG%, VAL estilo FIBA) y genera análisis automático por reglas.
+
+import Base from "../layouts/Base.astro";
+import "../styles/cancha-redesign.css";
+---
+
+<Base
+  title="Tus estadísticas de baloncesto · Agente analista | CANCHA.ZAPA"
+  description="Registra tus partidos y deja que el agente analice tu juego: TS%, eFG%, valoración, tendencias y consejos concretos. Gratis, sin cuentas, todo en tu navegador."
+>
+  <main class="app">
+    <div class="cz-strip"></div>
+    <header class="cz-header">
+      <div class="shell cz-header-inner">
+        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
+        <nav class="cz-nav">
+          <a href="/quiz">Quiz</a>
+          <a href="/comparar">Comparar</a>
+          <a href="/rankings">Rankings</a>
+          <a href="/zapatillas">Catálogo</a>
+          <a href="/calculadora">Calculadora</a>
+          <a href="/estadisticas" class="active" aria-current="page">Stats</a>
+          <a href="/balones">Accesorios</a>
+          <a href="/blog">Blog</a>
+          <a href="/mis-zapas">♥ Mis zapas</a>
+        </nav>
+      </div>
+    </header>
+
+    {/* HERO */}
+    <section class="doc-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Stats · Beta</p>
+        <h1 class="doc-h1">
+          Tus stats,<br/>
+          <span class="accent">analizadas</span>
+        </h1>
+        <p class="doc-lede">
+          Apunta tu línea de cada partido y el agente hace el resto: TS%, eFG%, valoración,
+          tendencia y consejos concretos para mejorar. Sin cuentas, sin humo — todo se guarda
+          en tu navegador.
+        </p>
+      </div>
+    </section>
+
+    <section class="st-main">
+      <div class="shell">
+
+        {/* PERFIL + FORMULARIO + RESUMEN */}
+        <div class="st-grid">
+          <div class="st-col">
+            <div class="st-panel">
+              <h2 class="st-h2">Tu perfil</h2>
+              <div class="st-profile">
+                <div class="st-field">
+                  <label for="p-nombre">Nombre</label>
+                  <input id="p-nombre" type="text" placeholder="Tu nombre" maxlength="30" />
+                </div>
+                <div class="st-field">
+                  <label for="p-pos">Posición</label>
+                  <select id="p-pos">
+                    <option value="base">Base</option>
+                    <option value="escolta">Escolta</option>
+                    <option value="alero" selected>Alero</option>
+                    <option value="ala-pivot">Ala-pívot</option>
+                    <option value="pivot">Pívot</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="st-panel">
+              <h2 class="st-h2">Registrar partido</h2>
+              <form id="st-form" novalidate>
+                <div class="st-form-row">
+                  <div class="st-field">
+                    <label for="f-fecha">Fecha</label>
+                    <input id="f-fecha" type="date" required />
+                  </div>
+                  <div class="st-field st-grow">
+                    <label for="f-rival">Rival</label>
+                    <input id="f-rival" type="text" placeholder="CB Ejemplo" maxlength="40" />
+                  </div>
+                  <div class="st-field">
+                    <label for="f-res">Resultado</label>
+                    <select id="f-res">
+                      <option value="">—</option>
+                      <option value="V">Victoria</option>
+                      <option value="D">Derrota</option>
+                    </select>
+                  </div>
+                  <div class="st-field">
+                    <label for="f-min">Minutos</label>
+                    <input id="f-min" type="number" min="0" max="48" value="20" />
+                  </div>
+                </div>
+
+                <div class="st-form-stats">
+                  <div class="st-field"><label for="f-t2c">T2 metidos</label><input id="f-t2c" type="number" min="0" value="0" /></div>
+                  <div class="st-field"><label for="f-t2i">T2 intentados</label><input id="f-t2i" type="number" min="0" value="0" /></div>
+                  <div class="st-field"><label for="f-t3c">T3 metidos</label><input id="f-t3c" type="number" min="0" value="0" /></div>
+                  <div class="st-field"><label for="f-t3i">T3 intentados</label><input id="f-t3i" type="number" min="0" value="0" /></div>
+                  <div class="st-field"><label for="f-tlc">TL metidos</label><input id="f-tlc" type="number" min="0" value="0" /></div>
+                  <div class="st-field"><label for="f-tli">TL intentados</label><input id="f-tli" type="number" min="0" value="0" /></div>
+                  <div class="st-field"><label for="f-ro">Reb. ofensivos</label><input id="f-ro" type="number" min="0" value="0" /></div>
+                  <div class="st-field"><label for="f-rd">Reb. defensivos</label><input id="f-rd" type="number" min="0" value="0" /></div>
+                  <div class="st-field"><label for="f-ast">Asistencias</label><input id="f-ast" type="number" min="0" value="0" /></div>
+                  <div class="st-field"><label for="f-rob">Robos</label><input id="f-rob" type="number" min="0" value="0" /></div>
+                  <div class="st-field"><label for="f-tap">Tapones</label><input id="f-tap" type="number" min="0" value="0" /></div>
+                  <div class="st-field"><label for="f-per">Pérdidas</label><input id="f-per" type="number" min="0" value="0" /></div>
+                  <div class="st-field"><label for="f-fal">Faltas</label><input id="f-fal" type="number" min="0" max="6" value="0" /></div>
+                </div>
+
+                <p id="st-form-error" class="st-error hidden"></p>
+                <button type="submit" class="st-btn">＋ Guardar partido</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="st-col">
+            <div class="st-panel">
+              <h2 class="st-h2">Temporada <span id="st-pj" class="st-h2-tag">0 partidos</span></h2>
+              <div class="st-tiles" id="st-tiles">
+                <div class="st-tile"><strong id="t-pts">—</strong><span>puntos / partido</span></div>
+                <div class="st-tile"><strong id="t-reb">—</strong><span>rebotes / partido</span></div>
+                <div class="st-tile"><strong id="t-ast">—</strong><span>asistencias / partido</span></div>
+                <div class="st-tile"><strong id="t-val">—</strong><span>valoración media</span></div>
+                <div class="st-tile"><strong id="t-ts">—</strong><span>TS% temporada</span></div>
+                <div class="st-tile"><strong id="t-efg">—</strong><span>eFG% temporada</span></div>
+              </div>
+              <p class="st-note">
+                <strong>TS%</strong> = eficiencia real de anotación (tiros de campo + libres).
+                <strong>eFG%</strong> = % de tiro ajustado al valor del triple.
+                <strong>VAL</strong> = valoración estilo FIBA (aporte total − errores).
+              </p>
+            </div>
+
+            <div class="st-panel">
+              <div class="st-chart-head">
+                <h2 class="st-h2">Evolución</h2>
+                <div class="st-metric-tabs" role="tablist" aria-label="Métrica del gráfico">
+                  <button class="st-mtab active" data-metric="pts" role="tab" aria-selected="true">Puntos</button>
+                  <button class="st-mtab" data-metric="val" role="tab" aria-selected="false">Valoración</button>
+                  <button class="st-mtab" data-metric="ts" role="tab" aria-selected="false">TS%</button>
+                </div>
+              </div>
+              <div class="st-chart-wrap" id="st-chart-wrap">
+                <svg id="st-chart" viewBox="0 0 720 260" preserveAspectRatio="none" role="img" aria-label="Evolución por partido"></svg>
+                <div id="st-tooltip" class="st-tooltip hidden"></div>
+                <p id="st-chart-empty" class="st-empty">Registra al menos 2 partidos para ver tu evolución.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* AGENTE */}
+        <div class="st-panel st-agent">
+          <h2 class="st-h2">🤖 El agente dice</h2>
+          <div id="st-insights" class="st-insights"></div>
+        </div>
+
+        {/* HISTORIAL */}
+        <div class="st-panel">
+          <h2 class="st-h2">Historial</h2>
+          <div class="st-table-wrap">
+            <table class="st-table" id="st-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th><th>Rival</th><th>Res</th><th>Min</th><th>PTS</th>
+                  <th>T2</th><th>T3</th><th>TL</th><th>REB</th><th>AST</th>
+                  <th>ROB</th><th>TAP</th><th>PÉR</th><th>FAL</th><th>TS%</th><th>VAL</th><th></th>
+                </tr>
+              </thead>
+              <tbody id="st-tbody"></tbody>
+            </table>
+          </div>
+          <p id="st-table-empty" class="st-empty">Todavía no hay partidos registrados.</p>
+        </div>
+
+        {/* DATOS */}
+        <div class="st-panel st-data">
+          <h2 class="st-h2">Tus datos</h2>
+          <p class="st-note">
+            Todo vive en tu navegador (localStorage). Si cambias de dispositivo o limpias
+            el navegador, se pierde — exporta una copia de vez en cuando.
+          </p>
+          <div class="st-data-btns">
+            <button id="st-export" class="st-btn st-btn-ghost">⬇ Exportar JSON</button>
+            <label class="st-btn st-btn-ghost" for="st-import-file" style="cursor:pointer">⬆ Importar JSON
+              <input id="st-import-file" type="file" accept="application/json" class="hidden" />
+            </label>
+            <button id="st-reset" class="st-btn st-btn-danger">✕ Borrar todo</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // ───────────────────────── datos ─────────────────────────
+    const LS_KEY = "cz.stats.v1";
+    const load = () => {
+      try {
+        const raw = localStorage.getItem(LS_KEY);
+        if (!raw) return { perfil: { nombre: "", posicion: "alero" }, partidos: [] };
+        const d = JSON.parse(raw);
+        return {
+          perfil: d.perfil && typeof d.perfil === "object" ? d.perfil : { nombre: "", posicion: "alero" },
+          partidos: Array.isArray(d.partidos) ? d.partidos : [],
+        };
+      } catch { return { perfil: { nombre: "", posicion: "alero" }, partidos: [] }; }
+    };
+    const save = () => localStorage.setItem(LS_KEY, JSON.stringify(state));
+    let state = load();
+
+    // ─────────────────────── métricas ────────────────────────
+    const calcGame = (g) => {
+      const pts = 2 * g.t2c + 3 * g.t3c + g.tlc;
+      const fgm = g.t2c + g.t3c, fga = g.t2i + g.t3i;
+      const tsa = fga + 0.44 * g.tli; // posesiones de tiro reales
+      const ts = tsa > 0 ? (pts / (2 * tsa)) * 100 : null;
+      const efg = fga > 0 ? ((fgm + 0.5 * g.t3c) / fga) * 100 : null;
+      const reb = g.ro + g.rd;
+      const val = pts + reb + g.ast + g.rob + g.tap - (fga - fgm) - (g.tli - g.tlc) - g.per - g.fal;
+      return { pts, reb, ts, efg, val };
+    };
+
+    const calcSeason = (games) => {
+      const n = games.length;
+      if (!n) return null;
+      const sum = (f) => games.reduce((a, g) => a + f(g), 0);
+      const pts = sum((g) => 2 * g.t2c + 3 * g.t3c + g.tlc);
+      const fgm = sum((g) => g.t2c + g.t3c), fga = sum((g) => g.t2i + g.t3i);
+      const tlc = sum((g) => g.tlc), tli = sum((g) => g.tli);
+      const t3c = sum((g) => g.t3c), t3i = sum((g) => g.t3i);
+      const tsa = fga + 0.44 * tli;
+      return {
+        n, pts,
+        ppg: pts / n,
+        rpg: sum((g) => g.ro + g.rd) / n,
+        apg: sum((g) => g.ast) / n,
+        spg: sum((g) => g.rob) / n,
+        fpg: sum((g) => g.fal) / n,
+        perTot: sum((g) => g.per),
+        astTot: sum((g) => g.ast),
+        ts: tsa > 0 ? (pts / (2 * tsa)) * 100 : null,
+        efg: fga > 0 ? ((fgm + 0.5 * t3c) / fga) * 100 : null,
+        tlPct: tli > 0 ? (tlc / tli) * 100 : null,
+        tliPg: tli / n,
+        t3Pct: t3i > 0 ? (t3c / t3i) * 100 : null,
+        t3iTot: t3i, tliTot: tli,
+        valAvg: games.reduce((a, g) => a + calcGame(g).val, 0) / n,
+      };
+    };
+
+    // ─────────────────────── el agente ───────────────────────
+    const buildInsights = (games, perfil) => {
+      const out = [];
+      const push = (tone, icon, titulo, texto) => out.push({ tone, icon, titulo, texto });
+      const s = calcSeason(games);
+      if (!s) {
+        push("info", "🏀", "Sin datos todavía", "Registra tu primer partido y empiezo a analizar tu juego.");
+        return out;
+      }
+      if (s.n < 3) {
+        push("info", "📊", "Poca muestra aún", `Con ${s.n} partido${s.n > 1 ? "s" : ""} el análisis es orientativo. A partir de 3 se afina de verdad.`);
+      }
+      // Eficiencia de anotación
+      if (s.ts != null) {
+        if (s.ts >= 60) push("good", "🎯", `TS% de élite (${s.ts.toFixed(1)}%)`, "Eficiencia de anotación excelente. Tu selección de tiro es tu arma: mantenla aunque suba el volumen.");
+        else if (s.ts >= 54) push("good", "✅", `TS% sólido (${s.ts.toFixed(1)}%)`, "Anotas con buena eficiencia. Para dar el salto, busca más tiros de alto valor: aro y esquinas.");
+        else if (s.ts >= 48) push("warn", "⚠️", `TS% mejorable (${s.ts.toFixed(1)}%)`, "Estás por debajo de un anotador eficiente (~55%). Revisa la selección de tiro: menos tiros forzados de media distancia.");
+        else push("bad", "🚨", `TS% bajo (${s.ts.toFixed(1)}%)`, "Cada tiro tuyo rinde poco. Prioriza tiros cerca del aro y provocar faltas antes que el volumen exterior.");
+      }
+      // Tiros libres
+      if (s.tlPct != null && s.tliTot >= 8) {
+        if (s.tlPct < 65) {
+          const perdidos = ((0.75 - s.tlPct / 100) * s.tliPg).toFixed(1);
+          push("warn", "🆓", `Tiros libres al ${s.tlPct.toFixed(0)}%`, `Estás dejando ~${perdidos} puntos por partido en la línea (vs un 75% estándar). Es la mejora más barata que existe: 50 libres al final de cada entreno.`);
+        } else if (s.tlPct >= 80) {
+          push("good", "🆓", `Tiros libres al ${s.tlPct.toFixed(0)}%`, "Fiable desde la línea. En finales apretados, pide el balón.");
+        }
+      }
+      // Triple
+      if (s.t3Pct != null && s.t3iTot >= 10) {
+        if (s.t3Pct < 28) push("warn", "3️⃣", `Triple al ${s.t3Pct.toFixed(0)}%`, "Por debajo del umbral rentable (~33%). Reduce volumen o trabaja el catch & shoot con los pies puestos.");
+        else if (s.t3Pct >= 38) push("good", "3️⃣", `Triple al ${s.t3Pct.toFixed(0)}%`, "Tirador de verdad. Busca más intentos: con ese porcentaje, cada triple abierto que no tiras es un error.");
+      }
+      // Asistencias vs pérdidas
+      if (s.perTot > 0) {
+        const ratio = s.astTot / s.perTot;
+        if (ratio >= 2) push("good", "🧠", `Ratio AST/PÉR ${ratio.toFixed(1)}`, "Cuidas el balón y generas para otros. Nivel de organizador serio.");
+        else if (ratio < 1) push("bad", "🔄", `Ratio AST/PÉR ${ratio.toFixed(1)}`, "Pierdes más balones de los que conviertes en asistencias. Simplifica: menos bote en tráfico, decisiones más rápidas.");
+      }
+      // Faltas
+      if (s.fpg >= 3.5) push("warn", "🖐️", `${s.fpg.toFixed(1)} faltas / partido`, "Vives al borde de la eliminación. Trabaja la posición defensiva para defender con piernas, no con manos.");
+      // Tendencia (últimos 3 vs temporada)
+      if (s.n >= 5) {
+        const last3 = games.slice(-3);
+        const v3 = last3.reduce((a, g) => a + calcGame(g).val, 0) / 3;
+        if (s.valAvg > 0 && v3 >= s.valAvg * 1.15) push("good", "📈", "Racha al alza", `Tu valoración media en los últimos 3 partidos (${v3.toFixed(1)}) supera claramente tu media de temporada (${s.valAvg.toFixed(1)}). Sigue con lo que estás haciendo.`);
+        else if (s.valAvg > 0 && v3 <= s.valAvg * 0.85) push("warn", "📉", "Bajón reciente", `Tus últimos 3 partidos (VAL ${v3.toFixed(1)}) están por debajo de tu media (${s.valAvg.toFixed(1)}). Revisa descanso, minutos y molestias antes de forzar.`);
+      }
+      // Récord
+      if (s.n >= 3) {
+        const ptsList = games.map((g) => calcGame(g).pts);
+        const last = ptsList[ptsList.length - 1];
+        if (last === Math.max(...ptsList) && last > 0) push("good", "🏆", `Récord personal: ${last} puntos`, "Tu último partido es tu mejor marca anotadora de la temporada.");
+      }
+      // Por posición
+      if (perfil.posicion === "base" && s.n >= 3 && s.apg < 3) {
+        push("info", "🎮", "Un base que asiste poco", `${s.apg.toFixed(1)} asistencias por partido es poco para un base. Levanta la cabeza al cruzar medio campo: primero pase, luego tiro.`);
+      }
+      if ((perfil.posicion === "pivot" || perfil.posicion === "ala-pivot") && s.n >= 3 && s.rpg < 6) {
+        push("info", "🧱", "Faltan rebotes para un interior", `${s.rpg.toFixed(1)} rebotes por partido es poca captura para tu posición. El rebote es querer: bloquea el rebote SIEMPRE, incluso cuando no vayas a cogerlo.`);
+      }
+      // Tie-in zapas
+      if (s.n >= 3) {
+        if (s.spg >= 2) push("info", "👟", "Tu juego pide tracción", `Con ${s.spg.toFixed(1)} robos por partido, vives de las manos rápidas y los cambios de dirección. Prioriza suela con buen agarre → <a href="/quiz">haz el quiz</a> o mira las <a href="/rankings">mejores por tracción</a>.`);
+        else if (s.rpg >= 8) push("info", "👟", "Tu juego pide amortiguación", `${s.rpg.toFixed(1)} rebotes por partido = muchos saltos y aterrizajes. Prioriza cushion y estabilidad → <a href="/quiz">haz el quiz</a>.`);
+        else push("info", "👟", "¿Zapas a la altura de tus stats?", `Cuéntanos tu posición y estilo en el <a href="/quiz">quiz</a> y te decimos qué zapatilla encaja con tu juego. Sin humo.`);
+      }
+      return out;
+    };
+
+    // ─────────────────────── gráfico ─────────────────────────
+    const CHART_COLOR = "#ea580c"; // validado sobre superficie oscura
+    const METRICS = {
+      pts: { label: "Puntos", get: (d) => d.pts, fmt: (v) => String(Math.round(v)) },
+      val: { label: "Valoración", get: (d) => d.val, fmt: (v) => v.toFixed(0) },
+      ts:  { label: "TS%", get: (d) => d.ts ?? 0, fmt: (v) => v.toFixed(1) + "%" },
+    };
+    let currentMetric = "pts";
+    let chartPoints = []; // para el hover: [{x,y,g,value}]
+
+    const renderChart = () => {
+      const svg = document.getElementById("st-chart");
+      const empty = document.getElementById("st-chart-empty");
+      const games = state.partidos;
+      chartPoints = [];
+      svg.innerHTML = "";
+      if (games.length < 2) { empty.classList.remove("hidden"); svg.style.display = "none"; return; }
+      empty.classList.add("hidden"); svg.style.display = "block";
+
+      const M = METRICS[currentMetric];
+      const data = games.map((g) => ({ g, value: M.get(calcGame(g)) }));
+      const W = 720, H = 260, padL = 44, padR = 52, padT = 16, padB = 30;
+      const iw = W - padL - padR, ih = H - padT - padB;
+      let lo = Math.min(0, ...data.map((d) => d.value));
+      let hi = Math.max(...data.map((d) => d.value), 1);
+      const span = hi - lo || 1;
+      hi += span * 0.08;
+      const x = (i) => padL + (data.length === 1 ? iw / 2 : (i / (data.length - 1)) * iw);
+      const y = (v) => padT + ih - ((v - lo) / (hi - lo)) * ih;
+      const NS = "http://www.w3.org/2000/svg";
+      const el = (tag, attrs) => {
+        const n = document.createElementNS(NS, tag);
+        for (const k in attrs) n.setAttribute(k, attrs[k]);
+        return n;
+      };
+
+      // grid horizontal recesivo + etiquetas de eje
+      const ticks = 4;
+      for (let t = 0; t <= ticks; t++) {
+        const v = lo + ((hi - lo) * t) / ticks;
+        const yy = y(v);
+        svg.appendChild(el("line", { x1: padL, x2: W - padR, y1: yy, y2: yy, stroke: "rgba(255,255,255,0.07)", "stroke-width": 1 }));
+        const lbl = el("text", { x: padL - 8, y: yy + 3, "text-anchor": "end", fill: "#8a8a93", "font-size": 10, "font-family": "Inter, sans-serif" });
+        lbl.textContent = currentMetric === "ts" ? v.toFixed(0) : String(Math.round(v));
+        svg.appendChild(lbl);
+      }
+      // línea base (0) si hay valores negativos
+      if (lo < 0) svg.appendChild(el("line", { x1: padL, x2: W - padR, y1: y(0), y2: y(0), stroke: "rgba(255,255,255,0.18)", "stroke-width": 1 }));
+
+      // línea de la serie
+      const path = data.map((d, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(d.value).toFixed(1)}`).join(" ");
+      svg.appendChild(el("path", { d: path, fill: "none", stroke: CHART_COLOR, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
+
+      // marcadores con anillo del color de la superficie
+      data.forEach((d, i) => {
+        const cx = x(i), cy = y(d.value);
+        svg.appendChild(el("circle", { cx, cy, r: 4, fill: CHART_COLOR, stroke: "#333338", "stroke-width": 2 }));
+        chartPoints.push({ x: cx, y: cy, g: d.g, value: d.value });
+      });
+
+      // etiquetas eje X (J1, J2… cada n para no saturar)
+      const step = Math.max(1, Math.ceil(data.length / 8));
+      data.forEach((d, i) => {
+        if (i % step !== 0 && i !== data.length - 1) return;
+        const lbl = el("text", { x: x(i), y: H - 10, "text-anchor": "middle", fill: "#8a8a93", "font-size": 10, "font-family": "Inter, sans-serif" });
+        lbl.textContent = "J" + (i + 1);
+        svg.appendChild(lbl);
+      });
+
+      // etiqueta directa en el último punto (texto en token de texto, no en color de serie)
+      const lastI = data.length - 1;
+      const dl = el("text", { x: x(lastI) + 9, y: y(data[lastI].value) + 4, fill: "#d4d4d8", "font-size": 12, "font-weight": "700", "font-family": "Inter, sans-serif" });
+      dl.textContent = M.fmt(data[lastI].value);
+      svg.appendChild(dl);
+    };
+
+    // hover: tooltip del punto más cercano
+    const wrap = document.getElementById("st-chart-wrap");
+    const tooltip = document.getElementById("st-tooltip");
+    wrap.addEventListener("mousemove", (ev) => {
+      if (!chartPoints.length) return;
+      const svg = document.getElementById("st-chart");
+      const r = svg.getBoundingClientRect();
+      const mx = ((ev.clientX - r.left) / r.width) * 720;
+      let best = chartPoints[0], bd = Infinity;
+      chartPoints.forEach((p) => { const d = Math.abs(p.x - mx); if (d < bd) { bd = d; best = p; } });
+      const M = METRICS[currentMetric];
+      const fecha = best.g.fecha || "—";
+      const rival = best.g.rival ? ` · vs ${best.g.rival}` : "";
+      tooltip.innerHTML = `<strong>${M.fmt(best.value)}</strong> ${M.label}<br/><span>${fecha}${rival}</span>`;
+      const px = (best.x / 720) * r.width, py = (best.y / 260) * r.height;
+      tooltip.style.left = Math.min(px + 12, r.width - 150) + "px";
+      tooltip.style.top = Math.max(py - 48, 4) + "px";
+      tooltip.classList.remove("hidden");
+    });
+    wrap.addEventListener("mouseleave", () => tooltip.classList.add("hidden"));
+
+    document.querySelectorAll(".st-mtab").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        currentMetric = btn.dataset.metric;
+        document.querySelectorAll(".st-mtab").forEach((b) => {
+          b.classList.toggle("active", b === btn);
+          b.setAttribute("aria-selected", b === btn ? "true" : "false");
+        });
+        renderChart();
+      });
+    });
+
+    // ─────────────────────── render ──────────────────────────
+    const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    const fmt1 = (v) => (v == null ? "—" : v.toFixed(1));
+
+    const render = () => {
+      const games = state.partidos;
+      const s = calcSeason(games);
+      document.getElementById("st-pj").textContent = `${games.length} partido${games.length === 1 ? "" : "s"}`;
+      document.getElementById("t-pts").textContent = s ? fmt1(s.ppg) : "—";
+      document.getElementById("t-reb").textContent = s ? fmt1(s.rpg) : "—";
+      document.getElementById("t-ast").textContent = s ? fmt1(s.apg) : "—";
+      document.getElementById("t-val").textContent = s ? fmt1(s.valAvg) : "—";
+      document.getElementById("t-ts").textContent = s && s.ts != null ? s.ts.toFixed(1) + "%" : "—";
+      document.getElementById("t-efg").textContent = s && s.efg != null ? s.efg.toFixed(1) + "%" : "—";
+
+      // tabla
+      const tbody = document.getElementById("st-tbody");
+      tbody.innerHTML = games.map((g, i) => {
+        const d = calcGame(g);
+        return `<tr>
+          <td>${esc(g.fecha || "—")}</td>
+          <td>${esc(g.rival || "—")}</td>
+          <td>${g.res === "V" ? '<span class="st-w">V</span>' : g.res === "D" ? '<span class="st-l">D</span>' : "—"}</td>
+          <td>${g.min}</td>
+          <td><strong>${d.pts}</strong></td>
+          <td>${g.t2c}/${g.t2i}</td>
+          <td>${g.t3c}/${g.t3i}</td>
+          <td>${g.tlc}/${g.tli}</td>
+          <td>${d.reb}</td>
+          <td>${g.ast}</td>
+          <td>${g.rob}</td>
+          <td>${g.tap}</td>
+          <td>${g.per}</td>
+          <td>${g.fal}</td>
+          <td>${d.ts == null ? "—" : d.ts.toFixed(0) + "%"}</td>
+          <td><strong>${d.val}</strong></td>
+          <td><button class="st-del" data-i="${i}" aria-label="Borrar partido" title="Borrar">✕</button></td>
+        </tr>`;
+      }).join("");
+      document.getElementById("st-table-empty").classList.toggle("hidden", games.length > 0);
+      tbody.querySelectorAll(".st-del").forEach((b) => b.addEventListener("click", () => {
+        state.partidos.splice(Number(b.dataset.i), 1);
+        save(); render();
+      }));
+
+      // agente (los <a> de los insights los generamos nosotros, no el usuario)
+      const insights = buildInsights(games, state.perfil);
+      document.getElementById("st-insights").innerHTML = insights.map((it) =>
+        `<div class="st-insight st-${it.tone}">
+          <span class="st-insight-icon">${it.icon}</span>
+          <div><strong>${esc(it.titulo)}</strong><p>${it.texto}</p></div>
+        </div>`
+      ).join("");
+
+      renderChart();
+    };
+
+    // ─────────────────────── formulario ──────────────────────
+    const num = (id) => {
+      const v = parseInt(document.getElementById(id).value, 10);
+      return Number.isFinite(v) && v >= 0 ? v : 0;
+    };
+    document.getElementById("f-fecha").value = new Date().toISOString().slice(0, 10);
+
+    document.getElementById("st-form").addEventListener("submit", (ev) => {
+      ev.preventDefault();
+      const g = {
+        fecha: document.getElementById("f-fecha").value,
+        rival: document.getElementById("f-rival").value.trim(),
+        res: document.getElementById("f-res").value,
+        min: num("f-min"),
+        t2c: num("f-t2c"), t2i: num("f-t2i"),
+        t3c: num("f-t3c"), t3i: num("f-t3i"),
+        tlc: num("f-tlc"), tli: num("f-tli"),
+        ro: num("f-ro"), rd: num("f-rd"),
+        ast: num("f-ast"), rob: num("f-rob"), tap: num("f-tap"),
+        per: num("f-per"), fal: num("f-fal"),
+      };
+      const err = document.getElementById("st-form-error");
+      const fail = (msg) => { err.textContent = msg; err.classList.remove("hidden"); };
+      if (g.t2c > g.t2i) return fail("T2 metidos no puede superar a intentados.");
+      if (g.t3c > g.t3i) return fail("T3 metidos no puede superar a intentados.");
+      if (g.tlc > g.tli) return fail("TL metidos no puede superar a intentados.");
+      if (!g.fecha) return fail("Pon la fecha del partido.");
+      err.classList.add("hidden");
+      state.partidos.push(g);
+      state.partidos.sort((a, b) => (a.fecha < b.fecha ? -1 : a.fecha > b.fecha ? 1 : 0));
+      save(); render();
+      // reset de contadores (fecha y rival se mantienen para tandas de carga)
+      ["f-t2c","f-t2i","f-t3c","f-t3i","f-tlc","f-tli","f-ro","f-rd","f-ast","f-rob","f-tap","f-per","f-fal"].forEach((id) => {
+        document.getElementById(id).value = "0";
+      });
+      if (window.plausible) window.plausible("Stat Game Logged");
+    });
+
+    // ─────────────────────── perfil ──────────────────────────
+    const inNombre = document.getElementById("p-nombre");
+    const inPos = document.getElementById("p-pos");
+    inNombre.value = state.perfil.nombre || "";
+    inPos.value = state.perfil.posicion || "alero";
+    inNombre.addEventListener("change", () => { state.perfil.nombre = inNombre.value.trim(); save(); });
+    inPos.addEventListener("change", () => { state.perfil.posicion = inPos.value; save(); render(); });
+
+    // ─────────────────── export / import / reset ─────────────
+    document.getElementById("st-export").addEventListener("click", () => {
+      const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "canchazapa-stats.json";
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+    document.getElementById("st-import-file").addEventListener("change", (ev) => {
+      const file = ev.target.files && ev.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const d = JSON.parse(String(reader.result));
+          if (!d || !Array.isArray(d.partidos)) throw new Error("formato");
+          state = {
+            perfil: d.perfil && typeof d.perfil === "object" ? d.perfil : state.perfil,
+            partidos: d.partidos,
+          };
+          save();
+          inNombre.value = state.perfil.nombre || "";
+          inPos.value = state.perfil.posicion || "alero";
+          render();
+        } catch { alert("Ese archivo no parece un export válido de CANCHA.ZAPA Stats."); }
+      };
+      reader.readAsText(file);
+      ev.target.value = "";
+    });
+    document.getElementById("st-reset").addEventListener("click", () => {
+      if (!confirm("¿Borrar TODOS tus partidos y perfil? Esto no se puede deshacer.")) return;
+      state = { perfil: { nombre: "", posicion: "alero" }, partidos: [] };
+      save();
+      inNombre.value = ""; inPos.value = "alero";
+      render();
+    });
+
+    render();
+  </script>
+
+  <style>
+    .st-main { padding: 32px 0 60px; }
+    .st-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;
+    }
+    .st-col { display: flex; flex-direction: column; gap: 20px; min-width: 0; }
+    .st-panel {
+      background: var(--cz-surface); border: 1px solid var(--cz-border);
+      padding: 20px;
+    }
+    .st-h2 {
+      font-family: "Barlow Condensed", sans-serif; font-weight: 900; text-transform: uppercase;
+      font-size: 22px; letter-spacing: 0.02em; margin: 0 0 14px; color: var(--cz-text);
+      display: flex; align-items: baseline; gap: 10px;
+    }
+    .st-h2-tag {
+      font-family: Inter, sans-serif; font-size: 11px; font-weight: 700;
+      color: #f97316; text-transform: uppercase; letter-spacing: 0.1em;
+    }
+    /* perfil + form */
+    .st-profile { display: flex; gap: 12px; }
+    .st-field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+    .st-field label {
+      font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--cz-text-muted);
+    }
+    .st-field input, .st-field select {
+      background: var(--cz-bg); border: 1px solid var(--cz-border); color: var(--cz-text);
+      padding: 8px 10px; font-size: 14px; width: 100%; border-radius: 0;
+    }
+    .st-field input:focus, .st-field select:focus { outline: 2px solid #f97316; outline-offset: -1px; }
+    .st-grow { flex: 1; }
+    .st-form-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+    .st-form-row .st-field { flex: 1 1 120px; }
+    .st-form-stats {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+      gap: 10px; margin-bottom: 14px;
+    }
+    .st-btn {
+      background: #f97316; color: #0c0c0c; border: none; cursor: pointer;
+      font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px;
+      padding: 12px 18px; border-radius: 0;
+    }
+    .st-btn:hover { background: #fb923c; }
+    .st-btn-ghost { background: transparent; color: var(--cz-text-soft); border: 1px solid var(--cz-border2); }
+    .st-btn-ghost:hover { background: var(--cz-surface2); }
+    .st-btn-danger { background: transparent; color: #f87171; border: 1px solid #7f1d1d; }
+    .st-btn-danger:hover { background: rgba(127,29,29,0.25); }
+    .st-error { color: #f87171; font-size: 13px; margin: 0 0 10px; }
+    /* tiles */
+    .st-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .st-tile {
+      background: var(--cz-bg); border: 1px solid var(--cz-border); padding: 12px 10px; text-align: center;
+    }
+    .st-tile strong {
+      display: block; font-family: "Barlow Condensed", sans-serif; font-weight: 900;
+      font-size: 30px; line-height: 1; color: var(--cz-text); margin-bottom: 4px;
+    }
+    .st-tile span {
+      font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cz-text-muted);
+      font-weight: 700;
+    }
+    .st-note { font-size: 12px; color: var(--cz-text-muted); line-height: 1.55; margin: 12px 0 0; }
+    .st-note strong { color: var(--cz-text-soft); }
+    /* chart */
+    .st-chart-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .st-metric-tabs { display: flex; gap: 6px; margin-bottom: 14px; }
+    .st-mtab {
+      background: transparent; border: 1px solid var(--cz-border2); color: var(--cz-text-2);
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 6px 12px; cursor: pointer; border-radius: 0;
+    }
+    .st-mtab.active { background: #f97316; border-color: #f97316; color: #0c0c0c; }
+    .st-chart-wrap { position: relative; }
+    #st-chart { width: 100%; height: 260px; display: block; }
+    .st-tooltip {
+      position: absolute; pointer-events: none; z-index: 5;
+      background: #1c1c1f; border: 1px solid var(--cz-border2); padding: 8px 10px;
+      font-size: 12px; color: var(--cz-text); min-width: 110px; line-height: 1.4;
+    }
+    .st-tooltip span { color: var(--cz-text-muted); font-size: 11px; }
+    .st-empty { color: var(--cz-text-muted); font-size: 13px; padding: 24px 0; text-align: center; margin: 0; }
+    /* agente */
+    .st-agent { margin-bottom: 20px; }
+    .st-insights { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+    .st-insight {
+      display: flex; gap: 12px; align-items: flex-start;
+      background: var(--cz-bg); border: 1px solid var(--cz-border); border-left-width: 3px;
+      padding: 14px;
+    }
+    .st-insight.st-good { border-left-color: #22c55e; }
+    .st-insight.st-warn { border-left-color: #facc15; }
+    .st-insight.st-bad { border-left-color: #ef4444; }
+    .st-insight.st-info { border-left-color: #f97316; }
+    .st-insight-icon { font-size: 20px; line-height: 1.2; }
+    .st-insight strong { display: block; font-size: 14px; color: var(--cz-text); margin-bottom: 3px; }
+    .st-insight p { font-size: 13px; color: var(--cz-text-2); line-height: 1.5; margin: 0; }
+    .st-insight p :global(a) { color: #fb923c; text-decoration: underline; }
+    /* tabla */
+    .st-table-wrap { overflow-x: auto; }
+    .st-table { width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
+    .st-table th {
+      text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--cz-text-muted); padding: 8px 10px; border-bottom: 1px solid var(--cz-border);
+    }
+    .st-table td { padding: 8px 10px; border-bottom: 1px solid rgba(71,71,79,0.4); color: var(--cz-text-soft); }
+    .st-w { color: #22c55e; font-weight: 900; }
+    .st-l { color: #ef4444; font-weight: 900; }
+    .st-del {
+      background: transparent; border: none; color: var(--cz-text-dim); cursor: pointer; font-size: 13px;
+    }
+    .st-del:hover { color: #f87171; }
+    /* datos */
+    .st-data { margin-top: 20px; }
+    .st-data-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+    .hidden { display: none !important; }
+    @media (max-width: 900px) {
+      .st-grid { grid-template-columns: 1fr; }
+      .st-tiles { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .st-tiles { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</Base>
