@@ -1,6 +1,0 @@
-token partido 2491568: 841 chars
-200  api/v1/BoxScore/2491568
-200  api/v1/TeamStats/2491568
-token partido 2417267: 841 chars
-200  api/v1/BoxScore/2417267
-200  api/v1/TeamStats/2417267
