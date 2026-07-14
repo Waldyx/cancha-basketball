@@ -1,9 +1,0 @@
-js-1.js <- https://baloncestoenvivo.feb.es/scripts/ShotChart.js?v=23092020
-js-2.js <- https://baloncestoenvivo.feb.es/scripts/basics.js?v=23092020
-js-3.js <- https://baloncestoenvivo.feb.es/scripts/handlebars.js
-js-4.js <- https://baloncestoenvivo.feb.es/scripts/jquery-1.11.0.js
-js-5.js <- https://baloncestoenvivo.feb.es/scripts/moment.js
-js-6.js <- https://baloncestoenvivo.feb.es/scripts/plug.carrusel.js?v=23092020
-js-7.js <- https://baloncestoenvivo.feb.es/scripts/widget.handlebars.helpers.js?v=20251020
-js-8.js <- https://baloncestoenvivo.feb.es/scripts/widget.launcher.js?v=20251022
-js-9.js <- https://cdn-cookieyes.com/client_data/a35cb4c6be15abd5570b413e1d031eb5/script.js

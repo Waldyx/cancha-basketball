@@ -18,28 +18,12 @@ jobs:
           mkdir -p probe-out
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
           for id in 2491568 2417267; do
-            for ep in "partido/$id" "api/ShotChart/$id" "api/BoxScore/$id" "api/PlayByPlay/$id" "api/Game/$id" "api/GameStats/$id"; do
-              fn=$(echo "$ep" | tr '/' '-')
-              code=$(curl -sL -A "$UA" -o "probe-out/$fn" -w "%{http_code}" "https://baloncestoenvivo.feb.es/$ep" || echo ERR)
-              echo "$code  $ep" >> probe-out/_status.txt
+            for ep in "BoxScore/$id" "TeamStats/$id" "ShotChart/$id" "KeyFacts/$id"; do
+              fn=$(echo "v1-$ep" | tr '/' '-')
+              code=$(curl -sL -A "$UA" -H "Accept: application/json" -H "Referer: https://baloncestoenvivo.feb.es/partido/$id" -o "probe-out/$fn.json" -w "%{http_code}" "https://intrafeb.feb.es/LiveStats.API/api/v1/$ep" || echo ERR)
+              echo "$code  api/v1/$ep" >> probe-out/_status.txt
             done
           done
-          # JS que carga la página del partido (ahí están los endpoints reales)
-          grep -ohE 'src="[^"]+\.js[^"]*"' probe-out/partido-* 2>/dev/null | sed 's/src="//;s/"$//' | sort -u | head -25 > probe-out/_js-urls.txt || true
-          i=0
-          while read -r u; do
-            [ -z "$u" ] && continue
-            case "$u" in
-              http*) full="$u";;
-              /*) full="https://baloncestoenvivo.feb.es$u";;
-              *) full="https://baloncestoenvivo.feb.es/$u";;
-            esac
-            i=$((i+1))
-            curl -sL -A "$UA" -o "probe-out/js-$i.js" "$full" || true
-            echo "js-$i.js <- $full" >> probe-out/_js-map.txt
-          done < probe-out/_js-urls.txt
-          # todas las rutas api/ mencionadas en HTML+JS
-          grep -ohriE '[a-z]*api/[A-Za-z0-9/_.-]+' probe-out/ 2>/dev/null | sort -u > probe-out/_api-endpoints.txt || true
           echo "== STATUS =="; cat probe-out/_status.txt
       - name: Commit results to work branch
         run: |
