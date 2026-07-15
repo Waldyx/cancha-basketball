@@ -85,6 +85,19 @@ import "../styles/cancha-redesign.css";
                 <div id="feb-result" class="hidden"></div>
               </div>
 
+              <details class="st-import st-import-paste">
+                <summary>¿Cataluña u otra liga? Pega tu acta y la leo</summary>
+                <p class="st-paste-help">
+                  Abre tu partido en la app o web de tu federación (p. ej. Bàsquet Català),
+                  selecciona la tabla de estadísticas de tu equipo y <strong>pégala aquí tal cual</strong>.
+                  Detecto las columnas por su cabecera (Punts, T2, T3, TL, Reb, As…) en catalán o castellano.
+                </p>
+                <textarea id="paste-in" class="st-paste-area" rows="6" placeholder="Dorsal  Jugador  Min  Punts  T2  T3  TL  Reb  As  BR  Tap  PP  Faltes&#10;7  COGNOM, Nom  24  15  4/7  1/3  4/4  6  3  2  0  2  3  …"></textarea>
+                <button type="button" id="paste-parse" class="st-btn">Leer acta pegada</button>
+                <p id="paste-error" class="st-error hidden"></p>
+                <div id="paste-result" class="hidden"></div>
+              </details>
+
               <form id="st-form" novalidate>
                 <div class="st-form-row">
                   <div class="st-field">
@@ -546,7 +559,7 @@ import "../styles/cancha-redesign.css";
     const febResult = document.getElementById("feb-result");
     const febFail = (msg) => { febError.textContent = msg; febError.classList.remove("hidden"); febResult.classList.add("hidden"); };
 
-    const fillFromFeb = (j, meta) => {
+    const fillFromFeb = (j, meta, source) => {
       const set = (id, v) => { document.getElementById(id).value = String(v); };
       set("f-fecha", meta.fecha || new Date().toISOString().slice(0, 10));
       set("f-rival", meta.rival);
@@ -562,7 +575,7 @@ import "../styles/cancha-redesign.css";
       const form = document.getElementById("st-form");
       form.scrollIntoView({ behavior: "smooth", block: "center" });
       febError.classList.add("hidden");
-      if (window.plausible) window.plausible("FEB Import");
+      if (window.plausible) window.plausible(source === "paste" ? "Acta Paste Import" : "FEB Import");
     };
 
     document.getElementById("feb-q").addEventListener("keydown", (ev) => {
@@ -599,6 +612,108 @@ import "../styles/cancha-redesign.css";
       } catch {
         febFail("No se pudo leer el acta. Comprueba la URL y reintenta.");
       }
+    });
+
+    // ──────────── importar acta PEGADA (Cataluña / genérico) ──────────
+    // Detecta las columnas por su cabecera (catalán/castellano) → no asume orden.
+    // Sinónimos normalizados (sin acentos ni símbolos): cabecera → campo interno.
+    const COLS = {
+      dorsal: ["dorsal", "d", "num", "numero", "no", "n"],
+      nombre: ["jugador", "jugadora", "nom", "nombre", "name", "cognom", "cognoms", "jugadores"],
+      min: ["min", "minuts", "minutos", "m"],
+      pts: ["punts", "puntos", "pts", "pt", "p"],
+      t2: ["t2", "2p", "tir2", "tirsde2", "t2ci", "2punts", "2puntos"],
+      t2c: ["t2c", "2pc", "c2", "t2m", "t2a"],
+      t2i: ["t2i", "2pi", "i2", "t2int"],
+      t3: ["t3", "3p", "tir3", "tirsde3", "t3ci", "3punts", "3puntos"],
+      t3c: ["t3c", "3pc", "c3", "t3m"],
+      t3i: ["t3i", "3pi", "i3", "t3int"],
+      tl: ["t1", "tl", "tll", "1p", "tir1", "tirslliures", "tiroslibres", "tlci"],
+      tlc: ["t1c", "tlc", "1pc", "c1", "t1m"],
+      tli: ["t1i", "tli", "1pi", "i1", "t1int"],
+      ro: ["ro", "rebof", "rebotofensiu", "rof", "rebotesofensivos"],
+      rd: ["rd", "rebdef", "rebotdefensiu", "rdef", "rebotesdefensivos"],
+      rt: ["rt", "reb", "rebot", "rebots", "rebotes", "r", "reboundstotals"],
+      ast: ["as", "assist", "assistencies", "asistencias", "ass", "assis", "a"],
+      rob: ["br", "rec", "recuperacions", "robos", "robatoris", "recuperaciones", "br"],
+      tap: ["tap", "taps", "tapones", "tp"],
+      per: ["pp", "perdues", "pilotesperdudes", "perdidas", "balonesperdidos", "bp"],
+      fal: ["fp", "faltes", "faltas", "faltespersonals", "f"],
+    };
+    const normHead = (s) => String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "");
+    const pInt = (v) => { const m = String(v).match(/-?\d+/); const x = m ? parseInt(m[0], 10) : 0; return Number.isFinite(x) && x >= 0 ? x : 0; };
+    const splitMA = (v) => { const m = String(v).match(/(\d+)\s*[\/\-]\s*(\d+)/); return m ? [+m[1], +m[2]] : null; };
+
+    function parsePaste(raw) {
+      const lines = raw.replace(/\r/g, "").split("\n").map((l) => l.trim()).filter(Boolean);
+      if (lines.length < 2) throw new Error("Pega al menos la fila de cabecera y una de jugador.");
+      const tok = (l) => (l.includes("\t") ? l.split("\t") : l.split(/ {2,}|\t/)).map((x) => x.trim()).filter((x) => x !== "");
+      // Busca la cabecera: la línea (de las primeras) con más columnas reconocidas
+      let headerMap = null, headerIdx = -1, best = 0;
+      for (let i = 0; i < Math.min(lines.length, 5); i++) {
+        const cells = tok(lines[i]); const map = {}; let score = 0;
+        cells.forEach((c, idx) => {
+          const n = normHead(c);
+          for (const field in COLS) { if (COLS[field].includes(n)) { if (!(idx in map)) { map[idx] = field; score++; } break; } }
+        });
+        if (score > best) { best = score; headerMap = map; headerIdx = i; }
+      }
+      if (best < 3) throw new Error("No reconozco las columnas. Copia también la fila de cabecera (Min, Punts, T2, T3, TL, Reb…).");
+      const jugadores = [];
+      for (let i = headerIdx + 1; i < lines.length; i++) {
+        const cells = tok(lines[i]);
+        if (!cells.length) continue;
+        const g = { nombre: "", dorsal: "", min: 0, t2c: 0, t2i: 0, t3c: 0, t3i: 0, tlc: 0, tli: 0, ro: 0, rd: 0, ast: 0, rob: 0, tap: 0, per: 0, fal: 0 };
+        let rt = null, hasStat = false;
+        cells.forEach((cell, idx) => {
+          const field = headerMap[idx];
+          if (!field) return;
+          if (field === "nombre") { g.nombre = cell; return; }
+          if (field === "dorsal") { g.dorsal = cell.replace(/[^0-9]/g, ""); return; }
+          const ma = splitMA(cell);
+          if (field === "t2") { if (ma) { g.t2c = ma[0]; g.t2i = ma[1]; hasStat = true; } return; }
+          if (field === "t3") { if (ma) { g.t3c = ma[0]; g.t3i = ma[1]; hasStat = true; } return; }
+          if (field === "tl") { if (ma) { g.tlc = ma[0]; g.tli = ma[1]; hasStat = true; } return; }
+          if (field === "rt") { rt = pInt(cell); return; }
+          if (field === "pts") { hasStat = true; return; } // pts se recalcula; solo marca fila válida
+          g[field] = pInt(cell); if (g[field]) hasStat = true;
+        });
+        // Si no hay nombre marcado, coge el primer token no numérico largo
+        if (!g.nombre) {
+          const cand = cells.find((c) => /[a-zà-ú]{3,}/i.test(c) && !/^\d/.test(c));
+          if (cand) g.nombre = cand;
+        }
+        // Rebotes: si solo hay total (rt) y no O/D, mételo como defensivos (preserva el total)
+        if (rt != null && g.ro === 0 && g.rd === 0) g.rd = rt;
+        if (g.nombre && hasStat) jugadores.push(g);
+      }
+      if (!jugadores.length) throw new Error("Reconocí la cabecera pero no encontré filas de jugador debajo.");
+      return jugadores;
+    }
+
+    const pasteError = document.getElementById("paste-error");
+    const pasteResult = document.getElementById("paste-result");
+    const pasteFail = (m) => { pasteError.textContent = m; pasteError.classList.remove("hidden"); pasteResult.classList.add("hidden"); };
+
+    document.getElementById("paste-parse").addEventListener("click", () => {
+      const raw = document.getElementById("paste-in").value;
+      if (!raw.trim()) return pasteFail("Pega el acta en el recuadro.");
+      let jugadores;
+      try { jugadores = parsePaste(raw); }
+      catch (e) { return pasteFail(e.message); }
+      pasteError.classList.add("hidden");
+      pasteResult.innerHTML =
+        `<p class="st-import-hint">${jugadores.length} jugador${jugadores.length === 1 ? "" : "es"} detectado${jugadores.length === 1 ? "" : "s"}. <strong>Toca tu nombre</strong> para rellenar el formulario (revísalo antes de guardar):</p>` +
+        `<div class="st-import-players">` +
+        jugadores.map((j, ji) =>
+          `<button type="button" class="st-player" data-j="${ji}"><span>${esc(j.dorsal || "·")}</span>${esc(j.nombre)}</button>`
+        ).join("") + `</div>`;
+      pasteResult.classList.remove("hidden");
+      pasteResult.querySelectorAll(".st-player").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          fillFromFeb(jugadores[Number(btn.dataset.j)], { fecha: new Date().toISOString().slice(0, 10), rival: "", res: "" }, "paste");
+        });
+      });
     });
 
     // ─────────────────────── perfil ──────────────────────────
@@ -713,6 +828,26 @@ import "../styles/cancha-redesign.css";
     .st-player span { color: #fb923c; font-weight: 900; font-size: 11px; }
     .st-player:hover { background: #f97316; color: #0c0c0c; }
     .st-player:hover span { color: #0c0c0c; }
+    /* importar pegando el acta */
+    .st-import-paste { padding: 0; border-left-color: var(--cz-border2); }
+    .st-import-paste[open] { border-left-color: #f97316; padding: 14px; }
+    .st-import-paste summary {
+      cursor: pointer; padding: 12px 14px; font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em; color: var(--cz-text-2);
+      list-style: none;
+    }
+    .st-import-paste[open] summary { padding: 0 0 10px; color: var(--cz-text-soft); }
+    .st-import-paste summary::-webkit-details-marker { display: none; }
+    .st-import-paste summary::before { content: "▸ "; color: #f97316; }
+    .st-import-paste[open] summary::before { content: "▾ "; }
+    .st-paste-help { font-size: 12px; color: var(--cz-text-2); line-height: 1.55; margin: 0 0 10px; }
+    .st-paste-help strong { color: var(--cz-text); }
+    .st-paste-area {
+      width: 100%; background: var(--cz-surface); border: 1px solid var(--cz-border);
+      color: var(--cz-text); padding: 10px; font-size: 12px; font-family: ui-monospace, monospace;
+      line-height: 1.5; margin-bottom: 10px; resize: vertical; border-radius: 0;
+    }
+    .st-paste-area:focus { outline: 2px solid #f97316; outline-offset: -1px; }
     .st-form-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
     .st-form-row .st-field { flex: 1 1 120px; }
     .st-form-stats {
