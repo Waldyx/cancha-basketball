@@ -635,10 +635,10 @@ import "../styles/cancha-redesign.css";
       rd: ["rd", "rebdef", "rebotdefensiu", "rdef", "rebotesdefensivos"],
       rt: ["rt", "reb", "rebot", "rebots", "rebotes", "r", "reboundstotals"],
       ast: ["as", "assist", "assistencies", "asistencias", "ass", "assis", "a"],
-      rob: ["br", "rec", "recuperacions", "robos", "robatoris", "recuperaciones", "br"],
-      tap: ["tap", "taps", "tapones", "tp"],
-      per: ["pp", "perdues", "pilotesperdudes", "perdidas", "balonesperdidos", "bp"],
-      fal: ["fp", "faltes", "faltas", "faltespersonals", "f"],
+      rob: ["br", "rec", "recuperacions", "robos", "robatoris", "recuperaciones", "recup", "rb"],
+      tap: ["tap", "taps", "tapones", "tp", "ta"],
+      per: ["pp", "perdues", "pilotesperdudes", "perdidas", "balonesperdidos", "bp", "per", "perd", "pilperdudes"],
+      fal: ["fp", "faltes", "faltas", "faltespersonals", "faltescomeses", "fc", "f"],
     };
     const normHead = (s) => String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "");
     const pInt = (v) => { const m = String(v).match(/-?\d+/); const x = m ? parseInt(m[0], 10) : 0; return Number.isFinite(x) && x >= 0 ? x : 0; };
