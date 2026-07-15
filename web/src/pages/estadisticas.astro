@@ -565,6 +565,9 @@ import "../styles/cancha-redesign.css";
       if (window.plausible) window.plausible("FEB Import");
     };
 
+    document.getElementById("feb-q").addEventListener("keydown", (ev) => {
+      if (ev.key === "Enter") { ev.preventDefault(); document.getElementById("feb-buscar").click(); }
+    });
     document.getElementById("feb-buscar").addEventListener("click", async () => {
       const q = document.getElementById("feb-q").value.trim();
       if (!q) return febFail("Pega la URL del partido (o su ID numérico).");
