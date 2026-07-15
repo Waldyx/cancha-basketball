@@ -38,3 +38,6 @@
 45847  shot-38.jpg  <- https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/10/54/1d/10541ddf-ce2c-225f-e9c4-d9e828714266/6c05f3c0-92a0-4122-9be3-0c6221e0f633_002.png/314x680bb-60.jpg
 83546  shot-39.jpg  <- https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/10/54/1d/10541ddf-ce2c-225f-e9c4-d9e828714266/6c05f3c0-92a0-4122-9be3-0c6221e0f633_002.png/460x998bb-60.jpg
 120903  shot-40.jpg  <- https://is1-ssl.mzstatic.com/image/thumb/PurpleSource112/v4/10/54/1d/10541ddf-ce2c-225f-e9c4-d9e828714266/6c05f3c0-92a0-4122-9be3-0c6221e0f633_002.png/600x1300bb-60.jpg
+200  https://www.basquet.top/ -> bt-home.html
+000  https://esmaixada.cat/es/produccio-basquet/ -> esm.html
+ERR https://esmaixada.cat/es/produccio-basquet/
