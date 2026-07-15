@@ -74,6 +74,17 @@ import "../styles/cancha-redesign.css";
 
             <div class="st-panel">
               <h2 class="st-h2">Registrar partido</h2>
+
+              <div class="st-import">
+                <label for="feb-q">¿Jugaste federado? Importa tu línea del acta oficial (FEB)</label>
+                <div class="st-import-row">
+                  <input id="feb-q" type="text" placeholder="URL o ID del partido en baloncestoenvivo.feb.es" autocomplete="off" />
+                  <button type="button" id="feb-buscar" class="st-btn">Importar</button>
+                </div>
+                <p id="feb-error" class="st-error hidden"></p>
+                <div id="feb-result" class="hidden"></div>
+              </div>
+
               <form id="st-form" novalidate>
                 <div class="st-form-row">
                   <div class="st-field">
@@ -530,6 +541,63 @@ import "../styles/cancha-redesign.css";
       if (window.plausible) window.plausible("Stat Game Logged");
     });
 
+    // ──────────────── importar acta FEB ──────────────────────
+    const febError = document.getElementById("feb-error");
+    const febResult = document.getElementById("feb-result");
+    const febFail = (msg) => { febError.textContent = msg; febError.classList.remove("hidden"); febResult.classList.add("hidden"); };
+
+    const fillFromFeb = (j, meta) => {
+      const set = (id, v) => { document.getElementById(id).value = String(v); };
+      set("f-fecha", meta.fecha || new Date().toISOString().slice(0, 10));
+      set("f-rival", meta.rival);
+      document.getElementById("f-res").value = meta.res;
+      set("f-min", Math.min(48, j.min));
+      set("f-t2c", j.t2c); set("f-t2i", j.t2i);
+      set("f-t3c", j.t3c); set("f-t3i", j.t3i);
+      set("f-tlc", j.tlc); set("f-tli", j.tli);
+      set("f-ro", j.ro); set("f-rd", j.rd);
+      set("f-ast", j.ast); set("f-rob", j.rob); set("f-tap", j.tap);
+      set("f-per", j.per); set("f-fal", Math.min(6, j.fal));
+      febResult.classList.add("hidden");
+      const form = document.getElementById("st-form");
+      form.scrollIntoView({ behavior: "smooth", block: "center" });
+      febError.classList.add("hidden");
+      if (window.plausible) window.plausible("FEB Import");
+    };
+
+    document.getElementById("feb-buscar").addEventListener("click", async () => {
+      const q = document.getElementById("feb-q").value.trim();
+      if (!q) return febFail("Pega la URL del partido (o su ID numérico).");
+      febError.classList.add("hidden");
+      febResult.innerHTML = '<p class="st-empty">Leyendo el acta…</p>';
+      febResult.classList.remove("hidden");
+      try {
+        const r = await fetch(`/api/feb?partido=${encodeURIComponent(q)}`);
+        const d = await r.json();
+        if (!r.ok) return febFail(d.error || "No se pudo leer el acta.");
+        if (!d.equipos || d.equipos.length !== 2) return febFail("El acta no tiene estadísticas todavía.");
+        const [a, b] = d.equipos;
+        const resFor = (own, other) => (own.pts > other.pts ? "V" : own.pts < other.pts ? "D" : "");
+        febResult.innerHTML =
+          `<p class="st-import-hint">${esc(d.competicion)} · ${esc(d.fecha)} · ${esc(a.nombre)} ${a.pts}–${b.pts} ${esc(b.nombre)}<br/><strong>Toca tu nombre</strong> para rellenar el formulario:</p>` +
+          d.equipos.map((eq, ti) =>
+            `<div class="st-import-team"><h3>${esc(eq.nombre)}</h3><div class="st-import-players">` +
+            eq.jugadores.map((j, ji) =>
+              `<button type="button" class="st-player" data-t="${ti}" data-j="${ji}"><span>${esc(j.dorsal)}</span>${esc(j.nombre)}</button>`
+            ).join("") + `</div></div>`
+          ).join("");
+        febResult.querySelectorAll(".st-player").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const ti = Number(btn.dataset.t), ji = Number(btn.dataset.j);
+            const own = d.equipos[ti], other = d.equipos[1 - ti];
+            fillFromFeb(own.jugadores[ji], { fecha: d.fecha, rival: other.nombre, res: resFor(own, other) });
+          });
+        });
+      } catch {
+        febFail("No se pudo leer el acta. Comprueba la URL y reintenta.");
+      }
+    });
+
     // ─────────────────────── perfil ──────────────────────────
     const inNombre = document.getElementById("p-nombre");
     const inPos = document.getElementById("p-pos");
@@ -611,6 +679,37 @@ import "../styles/cancha-redesign.css";
     }
     .st-field input:focus, .st-field select:focus { outline: 2px solid #f97316; outline-offset: -1px; }
     .st-grow { flex: 1; }
+    /* importar acta FEB */
+    .st-import {
+      background: var(--cz-bg); border: 1px solid var(--cz-border); border-left: 3px solid #f97316;
+      padding: 14px; margin-bottom: 16px;
+    }
+    .st-import > label {
+      display: block; font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--cz-text-soft); margin-bottom: 8px;
+    }
+    .st-import-row { display: flex; gap: 8px; }
+    .st-import-row input {
+      flex: 1; background: var(--cz-surface); border: 1px solid var(--cz-border);
+      color: var(--cz-text); padding: 8px 10px; font-size: 13px; min-width: 0; border-radius: 0;
+    }
+    .st-import-row input:focus { outline: 2px solid #f97316; outline-offset: -1px; }
+    .st-import-row .st-btn { padding: 8px 14px; flex-shrink: 0; }
+    .st-import-hint { font-size: 12px; color: var(--cz-text-2); margin: 12px 0 8px; line-height: 1.5; }
+    .st-import-hint strong { color: var(--cz-text); }
+    .st-import-team h3 {
+      font-family: "Barlow Condensed", sans-serif; font-weight: 900; text-transform: uppercase;
+      font-size: 15px; color: var(--cz-text-soft); margin: 10px 0 6px;
+    }
+    .st-import-players { display: flex; flex-wrap: wrap; gap: 6px; }
+    .st-player {
+      background: var(--cz-surface); border: 1px solid var(--cz-border2); color: var(--cz-text-soft);
+      font-size: 12px; padding: 6px 10px; cursor: pointer; border-radius: 0;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .st-player span { color: #fb923c; font-weight: 900; font-size: 11px; }
+    .st-player:hover { background: #f97316; color: #0c0c0c; }
+    .st-player:hover span { color: #0c0c0c; }
     .st-form-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
     .st-form-row .st-field { flex: 1 1 120px; }
     .st-form-stats {

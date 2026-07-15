@@ -29,6 +29,9 @@ self.addEventListener("fetch", (event) => {
   // Dejar pasar peticiones cross-origin (Google Fonts, analytics, afiliados…)
   if (url.origin !== self.location.origin) return;
 
+  // API serverless (chat, importador FEB…): siempre red, nunca caché
+  if (url.pathname.startsWith("/api/")) return;
+
   // Navegación (páginas): network-first → siempre lo más nuevo, offline como respaldo
   if (req.mode === "navigate") {
     event.respondWith(
