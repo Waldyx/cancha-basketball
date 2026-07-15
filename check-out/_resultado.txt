@@ -1,0 +1,5 @@
+GET /estadisticas -> 200
+bloque importador FEB: PRESENTE
+sw.js bypass /api/: OK
+GET /api/feb?partido=2491568 -> 200 (3901 bytes)
+GET /api/feb?partido=abc -> 400
