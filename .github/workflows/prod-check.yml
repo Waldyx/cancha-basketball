@@ -1,0 +1,30 @@
+# TEMPORAL — verifica /api/coach en producción con una llamada real. Solo esta
+# rama; borrar tras la revisión. NO fusionar a master.
+name: Prod check
+on:
+  push:
+    branches: ["claude/basketball-analytics-app-mwwaq5"]
+    paths: [".github/workflows/prod-check.yml"]
+permissions:
+  contents: write
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wait for deploy, then hit /api/coach
+        run: |
+          mkdir -p check-out
+          sleep 120  # margen para que Vercel despliegue el merge
+          body='{"perfil":{"nombre":"Marc","posicion":"base"},"resumen":{"n":3,"ppg":14.3,"rpg":4,"apg":6.3,"spg":2,"fpg":2.3,"ts":57,"efg":54,"tlPct":64,"t3Pct":31,"valAvg":15},"partidos":[{"fecha":"2026-06-01","rival":"CB Norte","res":"V","min":26,"pts":12,"reb":4,"ast":7,"rob":2,"tap":0,"per":4,"fal":2,"ts":52,"val":13},{"fecha":"2026-06-08","rival":"CB Sur","res":"D","min":28,"pts":11,"reb":5,"ast":5,"rob":1,"tap":0,"per":5,"fal":3,"ts":49,"val":9},{"fecha":"2026-06-15","rival":"CB Este","res":"V","min":30,"pts":20,"reb":3,"ast":7,"rob":3,"tap":1,"per":2,"fal":2,"ts":66,"val":24}],"messages":[{"role":"user","content":"¿En qué debo mejorar?"}]}'
+          code=$(curl -sS -X POST "https://canchazapa.com/api/coach" -H "Content-Type: application/json" -d "$body" -o check-out/coach.json -w "%{http_code}")
+          echo "HTTP $code" > check-out/_status.txt
+          echo "== RESPUESTA ==" ; cat check-out/coach.json ; echo
+      - name: Commit results
+        run: |
+          git config user.name "prod-check-bot"
+          git config user.email "actions@github.com"
+          git pull --rebase origin claude/basketball-analytics-app-mwwaq5 || true
+          git add -f check-out
+          git commit -m "chore(check): resultado /api/coach en produccion" || echo "nada"
+          git push origin HEAD:claude/basketball-analytics-app-mwwaq5
