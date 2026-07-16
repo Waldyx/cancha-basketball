@@ -160,6 +160,8 @@ import "../styles/cancha-redesign.css";
                 <strong>eFG%</strong> = % de tiro ajustado al valor del triple.
                 <strong>VAL</strong> = valoración estilo FIBA (aporte total − errores).
               </p>
+              <button type="button" id="share-card" class="st-btn st-share-btn" disabled>📸 Compartir mi temporada</button>
+              <canvas id="card-canvas" width="1080" height="1080" class="hidden"></canvas>
             </div>
 
             <div class="st-panel">
@@ -526,6 +528,7 @@ import "../styles/cancha-redesign.css";
 
       renderChart();
       renderCoachSuggest();
+      document.getElementById("share-card").disabled = games.length === 0;
     };
 
     // ──────────────── agente conversacional (IA) ─────────────
@@ -593,6 +596,97 @@ import "../styles/cancha-redesign.css";
     };
 
     document.getElementById("coach-form").addEventListener("submit", (ev) => { ev.preventDefault(); askCoach(coachIn.value); });
+
+    // ──────────────── tarjeta compartible (canvas) ───────────
+    const drawCard = (s, perfil, best) => {
+      const cv = document.getElementById("card-canvas");
+      const ctx = cv.getContext("2d");
+      const W = 1080, H = 1080, P = 76;
+      // fondo
+      ctx.fillStyle = "#232327"; ctx.fillRect(0, 0, W, H);
+      ctx.fillStyle = "#2b2b30"; ctx.fillRect(0, 0, W, 8);
+      ctx.fillStyle = "#f97316"; ctx.fillRect(0, 0, 360, 8);
+      const BC = "'Barlow Condensed', sans-serif", IN = "'Inter', sans-serif";
+      // logo
+      ctx.textBaseline = "alphabetic";
+      ctx.font = `900 58px ${BC}`;
+      ctx.textAlign = "left";
+      let x = P, y = 128;
+      ctx.fillStyle = "#fff"; ctx.fillText("CANCHA", x, y); x += ctx.measureText("CANCHA").width;
+      ctx.fillStyle = "#f97316"; ctx.fillText(".", x, y); x += ctx.measureText(".").width;
+      ctx.fillStyle = "#fff"; ctx.fillText("ZAPA", x, y);
+      // eyebrow + nombre + sub
+      ctx.fillStyle = "#f97316"; ctx.font = `700 27px ${IN}`;
+      ctx.fillText("★ MI TEMPORADA", P, 214);
+      ctx.fillStyle = "#fff"; ctx.font = `900 84px ${BC}`;
+      const nombre = (perfil?.nombre || "MI JUGADOR").toUpperCase().slice(0, 18);
+      ctx.fillText(nombre, P, 300);
+      ctx.fillStyle = "#a1a1aa"; ctx.font = `600 30px ${IN}`;
+      const pos = (perfil?.posicion || "").replace("-", "-");
+      ctx.fillText(`${pos ? pos.charAt(0).toUpperCase() + pos.slice(1) + " · " : ""}${s.n} partido${s.n === 1 ? "" : "s"}`, P, 346);
+      // 2x2 tiles grandes
+      const gap = 22, tw = (W - P * 2 - gap) / 2, th = 190, ty = 392;
+      const bigTiles = [
+        [fmt1(s.ppg), "PUNTOS / PARTIDO"],
+        [fmt1(s.rpg), "REBOTES / PARTIDO"],
+        [fmt1(s.apg), "ASISTENCIAS / PARTIDO"],
+        [fmt1(s.valAvg), "VALORACIÓN MEDIA"],
+      ];
+      bigTiles.forEach((t, i) => {
+        const col = i % 2, row = (i / 2) | 0;
+        const tx = P + col * (tw + gap), tyy = ty + row * (th + gap);
+        ctx.fillStyle = "#2c2c31"; ctx.fillRect(tx, tyy, tw, th);
+        ctx.fillStyle = "#f97316"; ctx.fillRect(tx, tyy, 6, th);
+        ctx.textAlign = "left";
+        ctx.fillStyle = "#fff"; ctx.font = `900 108px ${BC}`;
+        ctx.fillText(t[0], tx + 34, tyy + 120);
+        ctx.fillStyle = "#8a8a93"; ctx.font = `700 24px ${IN}`;
+        ctx.fillText(t[1], tx + 36, tyy + 160);
+      });
+      // fila de 3 secundarias
+      const sy = ty + 2 * (th + gap) + 8, sw = (W - P * 2 - gap * 2) / 3, sh = 150;
+      const smallTiles = [
+        [s.ts == null ? "—" : fmt1(s.ts) + "%", "TS% (TIRO REAL)"],
+        [s.efg == null ? "—" : fmt1(s.efg) + "%", "eFG%"],
+        [String(best || 0), "SU MEJOR PARTIDO (PTS)"],
+      ];
+      smallTiles.forEach((t, i) => {
+        const tx = P + i * (sw + gap);
+        ctx.fillStyle = "#2c2c31"; ctx.fillRect(tx, sy, sw, sh);
+        ctx.textAlign = "center";
+        ctx.fillStyle = "#facc15"; ctx.font = `900 66px ${BC}`;
+        ctx.fillText(t[0], tx + sw / 2, sy + 82);
+        ctx.fillStyle = "#8a8a93"; ctx.font = `700 20px ${IN}`;
+        ctx.fillText(t[1], tx + sw / 2, sy + 120);
+      });
+      // footer
+      ctx.textAlign = "center";
+      ctx.fillStyle = "#f97316"; ctx.font = `800 30px ${IN}`;
+      ctx.fillText("canchazapa.com/estadisticas", W / 2, H - 54);
+    };
+
+    const shareBtn = document.getElementById("share-card");
+    shareBtn.addEventListener("click", async () => {
+      const games = state.partidos;
+      const s = calcSeason(games);
+      if (!s) return;
+      const best = games.reduce((m, g) => Math.max(m, calcGame(g).pts), 0);
+      await (document.fonts?.ready ?? Promise.resolve());
+      drawCard(s, state.perfil, best);
+      const cv = document.getElementById("card-canvas");
+      cv.toBlob(async (blob) => {
+        if (!blob) return;
+        const file = new File([blob], "mi-temporada-canchazapa.png", { type: "image/png" });
+        const shareData = { files: [file], text: "Mi temporada 🏀 analizada en canchazapa.com/estadisticas" };
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          try { await navigator.share(shareData); if (window.plausible) window.plausible("Season Card Share"); return; } catch { /* cancelado → cae a descarga */ }
+        }
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob); a.download = file.name; a.click();
+        URL.revokeObjectURL(a.href);
+        if (window.plausible) window.plausible("Season Card Download");
+      }, "image/png");
+    });
 
     // ─────────────────────── formulario ──────────────────────
     const num = (id) => {
@@ -957,6 +1051,9 @@ import "../styles/cancha-redesign.css";
       font-weight: 700;
     }
     .st-note { font-size: 12px; color: var(--cz-text-muted); line-height: 1.55; margin: 12px 0 0; }
+    .st-share-btn { margin-top: 14px; width: 100%; }
+    .st-share-btn:disabled { opacity: 0.45; cursor: default; }
+    #card-canvas { display: none; }
     .st-note strong { color: var(--cz-text-soft); }
     /* chart */
     .st-chart-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
