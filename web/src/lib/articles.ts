@@ -26,6 +26,64 @@ export interface Article {
 }
 
 export const ARTICLES: Article[] = [
+  // ── Herramienta: estadísticas de baloncesto ─────────────────────────
+  {
+    slug: "calcular-estadisticas-baloncesto-gratis",
+    title: "Cómo calcular tus estadísticas de baloncesto gratis (TS%, valoración y más)",
+    metaTitle: "Calcular estadísticas de baloncesto gratis: TS%, eFG%, valoración | CANCHA.ZAPA",
+    description:
+      "Registra tus partidos y calcula tus estadísticas avanzadas de baloncesto (TS%, eFG%, valoración FIBA) gratis y sin cuentas. Importa tu acta de la FEB, deja que el análisis te diga en qué mejorar y comparte tu temporada.",
+    fecha: "2026-07-16",
+    fechaLabel: "16 julio 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Guía · Herramienta gratuita",
+    heroTitle: "Calcula tus estadísticas de baloncesto gratis",
+    heroSubtitle: "TS%, eFG%, valoración y análisis automático · Sin cuentas, sin humo",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: ["nike-gt-cut-4", "ua-curry-13", "nike-lebron-23", "adidas-ae-2", "jordan-tatum-4"],
+    relatedSeoPages: ["mejores-zapatillas-baloncesto-2025", "zapatillas-baloncesto-calidad-precio"],
+    body: `
+<p class="art-intro">Los puntos no cuentan toda la verdad. Un 20 puntos con 8/22 en tiros es peor partido que un 14 con 5/8, aunque el marcador diga lo contrario. Para saber de verdad cómo juegas necesitas mirar la <strong>eficiencia</strong>, no solo el volumen. Y eso se calcula — gratis y en un minuto.</p>
+
+<h2>Las estadísticas que de verdad importan</h2>
+
+<h3>TS% — Porcentaje de tiro real</h3>
+<p>Es la mejor medida de eficiencia anotadora que existe, porque mete en la misma cuenta los tiros de 2, los de 3 (que valen más) y los tiros libres. Un anotador eficiente ronda el <strong>55%</strong>; por encima de 60% es nivel élite. La fórmula:</p>
+<p><strong>TS% = Puntos ÷ (2 × (Tiros de campo intentados + 0,44 × Tiros libres intentados)) × 100</strong></p>
+
+<h3>eFG% — Porcentaje de tiro efectivo</h3>
+<p>Como el porcentaje de tiro normal, pero dándole al triple el valor extra que merece (un 3 vale 1,5 veces un 2). Sirve para comparar a un tirador exterior con uno interior de forma justa.</p>
+<p><strong>eFG% = (Tiros de campo convertidos + 0,5 × Triples convertidos) ÷ Tiros de campo intentados × 100</strong></p>
+
+<h3>Valoración (estilo FIBA)</h3>
+<p>El número que resume tu aporte total en un solo dígito: suma lo bueno (puntos, rebotes, asistencias, robos, tapones) y resta lo malo (tiros fallados, pérdidas, faltas). Es la métrica oficial de la ACB y la FEB.</p>
+
+<h3>Ratio asistencias / pérdidas</h3>
+<p>Para bases sobre todo: cuántos balones conviertes en canasta frente a cuántos regalas. Por debajo de 1 es una señal de alarma; por encima de 2, eres un organizador fiable.</p>
+
+<h2>Calcularlas a mano es un rollo. Hazlo gratis en dos clics</h2>
+<p>Puedes sacar todo esto con una calculadora y las fórmulas de arriba… o dejar que lo haga la herramienta. En <a href="/estadisticas">la calculadora de estadísticas de CANCHA.ZAPA</a> apuntas tu línea de cada partido (tiros, rebotes, asistencias…) y te devuelve al instante tus medias, tu TS%, tu eFG% y tu valoración, con un gráfico de tu evolución partido a partido. <strong>Gratis, sin cuentas y sin registro</strong>: todo se guarda en tu propio navegador.</p>
+
+<h3>¿Juegas federado? Importa tu acta oficial</h3>
+<p>Si juegas en una competición de la <strong>Federación Española (FEB)</strong>, no tienes ni que teclear: pega el enlace de tu partido y la herramienta lee el acta oficial, te muestra el equipo y rellena tu línea sola. Y si juegas en una liga autonómica (Cataluña y otras), puedes pegar la tabla de estadísticas tal cual y la interpreta igual.</p>
+
+<h3>Un análisis que te dice en qué mejorar</h3>
+<p>Además de los números, un agente analiza tu temporada y te suelta consejos concretos sin rodeos: si dejas puntos en la línea de tiros libres, si tu triple no es rentable, si pierdes demasiados balones o si tu rendimiento se hunde contra ciertos rivales. Y puedes generar una <strong>tarjeta de tu temporada</strong> lista para compartir.</p>
+
+<h2>Tus estadísticas también dicen qué zapatilla necesitas</h2>
+<p>Aquí es donde los números se vuelven útiles de verdad para tu juego. Tu línea revela tu estilo, y tu estilo pide un tipo de zapatilla:</p>
+<ul>
+  <li><strong>Muchos robos y pocos rebotes</strong> → vives de las manos rápidas y los cambios de dirección. Prioriza <strong>tracción</strong> y una zapa reactiva y baja, tipo <a href="/zapatilla/nike-gt-cut-4">Nike GT Cut 4</a> o <a href="/zapatilla/ua-curry-13">UA Curry 13</a>.</li>
+  <li><strong>Muchos rebotes y minutos</strong> → saltas y aterrizas sin parar. Prioriza <strong>amortiguación y estabilidad</strong>, tipo <a href="/zapatilla/nike-lebron-23">Nike LeBron 23</a>.</li>
+  <li><strong>Perfil equilibrado de alero</strong> → busca una zapa versátil como la <a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4</a> o la <a href="/zapatilla/adidas-ae-2">adidas AE 2</a>.</li>
+</ul>
+<p>¿No lo tienes claro? El <a href="/quiz">quiz</a> cruza tu perfil con las 200+ zapatillas del catálogo y te da las 5 más compatibles en menos de un minuto.</p>
+
+<p class="art-outro">Deja de fiarte solo de los puntos. <a href="/estadisticas">Registra tu próximo partido gratis</a> y empieza a ver cómo juegas de verdad.</p>
+    `,
+  },
+
   // ── 1. Guía completa ────────────────────────────────────────────────
   {
     slug: "como-elegir-zapatillas-baloncesto-2025",
