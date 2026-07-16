@@ -184,6 +184,17 @@ import "../styles/cancha-redesign.css";
         <div class="st-panel st-agent">
           <h2 class="st-h2">🤖 El agente dice</h2>
           <div id="st-insights" class="st-insights"></div>
+
+          <div class="st-coach">
+            <h3 class="st-coach-title">Pregúntale a tu agente</h3>
+            <div id="coach-log" class="st-coach-log"></div>
+            <div id="coach-suggest" class="st-coach-suggest"></div>
+            <form id="coach-form" class="st-coach-form" autocomplete="off">
+              <input id="coach-in" class="st-coach-in" placeholder="¿En qué debo mejorar? ¿Cuál fue mi mejor partido?" maxlength="300" />
+              <button type="submit" id="coach-send" class="st-btn">Preguntar</button>
+            </form>
+            <p class="st-coach-note">Al preguntar, las estadísticas de tu temporada se envían al modelo de IA para analizarlas. No se guardan en ningún sitio.</p>
+          </div>
         </div>
 
         {/* HISTORIAL */}
@@ -514,7 +525,74 @@ import "../styles/cancha-redesign.css";
       ).join("");
 
       renderChart();
+      renderCoachSuggest();
     };
+
+    // ──────────────── agente conversacional (IA) ─────────────
+    const coachMessages = []; // historial {role, content} para el contexto del modelo
+    const SUGERENCIAS = [
+      "¿En qué debo mejorar?",
+      "¿Cuál fue mi mejor partido?",
+      "¿Cómo es mi selección de tiro?",
+      "¿Contra qué rival juego mejor?",
+    ];
+    const coachLog = document.getElementById("coach-log");
+    const coachIn = document.getElementById("coach-in");
+    const coachSend = document.getElementById("coach-send");
+
+    const linkify = (s) => esc(s).replace(/(\/(quiz|rankings|zapatillas|calculadora|comparar)\b)/g, '<a href="$1">$1</a>');
+    const addBubble = (role, text, cls) => {
+      const div = document.createElement("div");
+      div.className = "st-bubble st-bubble-" + role + (cls ? " " + cls : "");
+      div.innerHTML = role === "coach" ? linkify(text).replace(/\n/g, "<br/>") : esc(text);
+      coachLog.appendChild(div);
+      coachLog.scrollTop = coachLog.scrollHeight;
+      return div;
+    };
+
+    const renderCoachSuggest = () => {
+      const box = document.getElementById("coach-suggest");
+      // solo mostramos sugerencias si hay partidos y aún no se ha preguntado nada
+      if (!state.partidos.length || coachMessages.length) { box.innerHTML = ""; return; }
+      box.innerHTML = SUGERENCIAS.map((q) => `<button type="button" class="st-chip">${esc(q)}</button>`).join("");
+      box.querySelectorAll(".st-chip").forEach((b) => b.addEventListener("click", () => askCoach(b.textContent)));
+    };
+
+    const askCoach = async (question) => {
+      const q = String(question || "").trim();
+      if (!q) return;
+      if (!state.partidos.length) { addBubble("coach", "Aún no tienes partidos. Apunta o importa alguno y te analizo el juego."); return; }
+      document.getElementById("coach-suggest").innerHTML = "";
+      addBubble("user", q);
+      coachMessages.push({ role: "user", content: q });
+      coachIn.value = "";
+      coachSend.disabled = true;
+      const thinking = addBubble("coach", "Analizando tus partidos…", "st-bubble-wait");
+      try {
+        const partidos = state.partidos.map((g) => {
+          const d = calcGame(g);
+          return { fecha: g.fecha, rival: g.rival, res: g.res, min: g.min, pts: d.pts, reb: d.reb,
+            ast: g.ast, rob: g.rob, tap: g.tap, per: g.per, fal: g.fal, ts: d.ts, val: d.val };
+        });
+        const r = await fetch("/api/coach", {
+          method: "POST", headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ perfil: state.perfil, resumen: calcSeason(state.partidos), partidos, messages: coachMessages }),
+        });
+        const d = await r.json();
+        const reply = d.reply || "No he podido responder ahora mismo. Reinténtalo.";
+        thinking.remove();
+        addBubble("coach", reply);
+        if (r.ok) coachMessages.push({ role: "assistant", content: reply });
+        if (window.plausible) window.plausible("Coach Question");
+      } catch {
+        thinking.remove();
+        addBubble("coach", "No he podido conectar con el agente. Reinténtalo en un momento.");
+      } finally {
+        coachSend.disabled = false;
+      }
+    };
+
+    document.getElementById("coach-form").addEventListener("submit", (ev) => { ev.preventDefault(); askCoach(coachIn.value); });
 
     // ─────────────────────── formulario ──────────────────────
     const num = (id) => {
@@ -765,7 +843,7 @@ import "../styles/cancha-redesign.css";
     render();
   </script>
 
-  <style>
+  <style is:global>
     .st-main { padding: 32px 0 60px; }
     .st-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;
@@ -900,6 +978,36 @@ import "../styles/cancha-redesign.css";
     .st-empty { color: var(--cz-text-muted); font-size: 13px; padding: 24px 0; text-align: center; margin: 0; }
     /* agente */
     .st-agent { margin-bottom: 20px; }
+    /* agente conversacional */
+    .st-coach { margin-top: 18px; border-top: 1px solid var(--cz-border); padding-top: 16px; }
+    .st-coach-title {
+      font-family: "Barlow Condensed", sans-serif; font-weight: 900; text-transform: uppercase;
+      font-size: 16px; letter-spacing: 0.03em; color: var(--cz-text); margin: 0 0 12px;
+    }
+    .st-coach-log { display: flex; flex-direction: column; gap: 8px; max-height: 340px; overflow-y: auto; }
+    .st-coach-log:not(:empty) { margin-bottom: 12px; }
+    .st-bubble { padding: 10px 12px; font-size: 13px; line-height: 1.5; max-width: 88%; }
+    .st-bubble-user {
+      align-self: flex-end; background: #f97316; color: #0c0c0c; font-weight: 600;
+    }
+    .st-bubble-coach { align-self: flex-start; background: var(--cz-bg); border: 1px solid var(--cz-border); color: var(--cz-text-soft); }
+    .st-bubble-coach :global(a) { color: #fb923c; text-decoration: underline; }
+    .st-bubble-wait { opacity: 0.6; font-style: italic; }
+    .st-coach-suggest { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+    .st-chip {
+      background: transparent; border: 1px solid var(--cz-border2); color: var(--cz-text-2);
+      font-size: 12px; padding: 6px 11px; cursor: pointer; border-radius: 0; text-align: left;
+    }
+    .st-chip:hover { border-color: #f97316; color: #f97316; }
+    .st-coach-form { display: flex; gap: 8px; }
+    .st-coach-in {
+      flex: 1; background: var(--cz-bg); border: 1px solid var(--cz-border); color: var(--cz-text);
+      padding: 10px 12px; font-size: 14px; min-width: 0; border-radius: 0;
+    }
+    .st-coach-in:focus { outline: 2px solid #f97316; outline-offset: -1px; }
+    .st-coach-form .st-btn { flex-shrink: 0; }
+    .st-coach-send:disabled, .st-coach-form .st-btn:disabled { opacity: 0.5; cursor: default; }
+    .st-coach-note { font-size: 11px; color: var(--cz-text-muted); line-height: 1.5; margin: 10px 0 0; }
     .st-insights { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
     .st-insight {
       display: flex; gap: 12px; align-items: flex-start;
