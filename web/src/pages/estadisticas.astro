@@ -199,6 +199,12 @@ import "../styles/cancha-redesign.css";
           </div>
         </div>
 
+        {/* DESGLOSE Y RÉCORDS */}
+        <div class="st-panel st-splits" id="st-splits-panel">
+          <h2 class="st-h2">Rachas y récords</h2>
+          <div id="st-splits"></div>
+        </div>
+
         {/* HISTORIAL */}
         <div class="st-panel">
           <h2 class="st-h2">Historial</h2>
@@ -292,6 +298,42 @@ import "../styles/cancha-redesign.css";
         t3iTot: t3i, tliTot: tli,
         valAvg: games.reduce((a, g) => a + calcGame(g).val, 0) / n,
       };
+    };
+
+    // Desglose: récords, victorias vs derrotas, y medias por rival.
+    const computeSplits = (games) => {
+      if (!games.length) return null;
+      const wc = games.map((g, i) => ({ g, d: calcGame(g), i }));
+      const argmax = (fn) => wc.reduce((b, x) => (fn(x) > fn(b) ? x : b), wc[0]);
+      const records = {
+        pts: argmax((x) => x.d.pts),
+        reb: argmax((x) => x.d.reb),
+        ast: argmax((x) => x.g.ast),
+        val: argmax((x) => x.d.val),
+      };
+      const byRes = (res) => {
+        const arr = wc.filter((x) => x.g.res === res);
+        if (!arr.length) return null;
+        return {
+          n: arr.length,
+          ppg: arr.reduce((a, x) => a + x.d.pts, 0) / arr.length,
+          valAvg: arr.reduce((a, x) => a + x.d.val, 0) / arr.length,
+        };
+      };
+      const rivalMap = {};
+      wc.forEach((x) => { const k = (x.g.rival || "—").trim() || "—"; (rivalMap[k] ||= []).push(x); });
+      const byRival = Object.entries(rivalMap).map(([rival, arr]) => {
+        const n = arr.length;
+        const v = arr.filter((x) => x.g.res === "V").length;
+        const d = arr.filter((x) => x.g.res === "D").length;
+        return {
+          rival, n, balance: `${v}-${d}`,
+          ppg: arr.reduce((a, x) => a + x.d.pts, 0) / n,
+          apg: arr.reduce((a, x) => a + x.g.ast, 0) / n,
+          valAvg: arr.reduce((a, x) => a + x.d.val, 0) / n,
+        };
+      }).sort((a, b) => b.n - a.n || b.valAvg - a.valAvg);
+      return { records, wins: byRes("V"), losses: byRes("D"), byRival };
     };
 
     // ─────────────────────── el agente ───────────────────────
@@ -527,8 +569,43 @@ import "../styles/cancha-redesign.css";
       ).join("");
 
       renderChart();
+      renderSplits(games);
       renderCoachSuggest();
       document.getElementById("share-card").disabled = games.length === 0;
+    };
+
+    const renderSplits = (games) => {
+      const panel = document.getElementById("st-splits-panel");
+      const box = document.getElementById("st-splits");
+      const sp = computeSplits(games);
+      if (!sp) { panel.classList.add("hidden"); box.innerHTML = ""; return; }
+      panel.classList.remove("hidden");
+      const rec = (r, label) => {
+        const via = r.g.rival ? `vs ${esc(r.g.rival)}` : (r.g.fecha || "");
+        return `<div class="st-rec"><strong>${label.v}</strong><span class="st-rec-lbl">${label.t}</span><span class="st-rec-via">${via}</span></div>`;
+      };
+      const records =
+        `<div class="st-recs">` +
+        rec(sp.records.pts, { v: sp.records.pts.d.pts, t: "máx. puntos" }) +
+        rec(sp.records.reb, { v: sp.records.reb.d.reb, t: "máx. rebotes" }) +
+        rec(sp.records.ast, { v: sp.records.ast.g.ast, t: "máx. asistencias" }) +
+        rec(sp.records.val, { v: sp.records.val.d.val, t: "máx. valoración" }) +
+        `</div>`;
+      let vd = "";
+      if (sp.wins && sp.losses) {
+        vd = `<div class="st-vd">
+          <div class="st-vd-col st-vd-w"><span class="st-vd-h">En victorias (${sp.wins.n})</span><strong>${fmt1(sp.wins.ppg)} pts</strong><em>VAL ${fmt1(sp.wins.valAvg)}</em></div>
+          <div class="st-vd-col st-vd-l"><span class="st-vd-h">En derrotas (${sp.losses.n})</span><strong>${fmt1(sp.losses.ppg)} pts</strong><em>VAL ${fmt1(sp.losses.valAvg)}</em></div>
+        </div>`;
+      }
+      const rivales = sp.byRival.length
+        ? `<div class="st-rival-wrap"><table class="st-table st-rival-table"><thead><tr>
+             <th>Rival</th><th>PJ</th><th>V-D</th><th>PTS</th><th>AST</th><th>VAL</th></tr></thead><tbody>` +
+          sp.byRival.map((r) =>
+            `<tr><td>${esc(r.rival)}</td><td>${r.n}</td><td>${r.balance}</td><td>${fmt1(r.ppg)}</td><td>${fmt1(r.apg)}</td><td><strong>${fmt1(r.valAvg)}</strong></td></tr>`
+          ).join("") + `</tbody></table></div>`
+        : "";
+      box.innerHTML = `<h3 class="st-sub">Récords personales</h3>${records}${vd ? `<h3 class="st-sub">Victorias vs derrotas</h3>${vd}` : ""}<h3 class="st-sub">Por rival</h3>${rivales}`;
     };
 
     // ──────────────── agente conversacional (IA) ─────────────
@@ -1054,6 +1131,31 @@ import "../styles/cancha-redesign.css";
     .st-share-btn { margin-top: 14px; width: 100%; }
     .st-share-btn:disabled { opacity: 0.45; cursor: default; }
     #card-canvas { display: none; }
+    /* desglose y récords */
+    .st-splits { margin-bottom: 20px; }
+    .st-sub {
+      font-family: "Barlow Condensed", sans-serif; font-weight: 900; text-transform: uppercase;
+      font-size: 15px; letter-spacing: 0.05em; color: var(--cz-text-soft); margin: 18px 0 10px;
+    }
+    .st-sub:first-child { margin-top: 0; }
+    .st-recs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .st-rec { background: var(--cz-bg); border: 1px solid var(--cz-border); border-top: 3px solid #facc15; padding: 12px; }
+    .st-rec > strong {
+      display: block; font-family: "Barlow Condensed", sans-serif; font-weight: 900;
+      font-size: 34px; line-height: 1; color: var(--cz-text);
+    }
+    .st-rec-lbl { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--cz-text-muted); margin: 5px 0 2px; }
+    .st-rec-via { display: block; font-size: 11px; color: var(--cz-text-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .st-vd { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .st-vd-col { background: var(--cz-bg); border: 1px solid var(--cz-border); padding: 14px; border-left-width: 3px; }
+    .st-vd-w { border-left-color: #22c55e; }
+    .st-vd-l { border-left-color: #ef4444; }
+    .st-vd-h { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--cz-text-muted); margin-bottom: 6px; }
+    .st-vd-col strong { font-family: "Barlow Condensed", sans-serif; font-weight: 900; font-size: 28px; color: var(--cz-text); }
+    .st-vd-col em { font-style: normal; font-size: 13px; color: var(--cz-text-2); margin-left: 8px; }
+    .st-rival-wrap { overflow-x: auto; }
+    .st-rival-table th, .st-rival-table td { white-space: nowrap; }
+    @media (max-width: 560px) { .st-recs { grid-template-columns: repeat(2, 1fr); } }
     .st-note strong { color: var(--cz-text-soft); }
     /* chart */
     .st-chart-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
