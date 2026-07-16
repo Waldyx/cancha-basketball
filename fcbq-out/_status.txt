@@ -1,2 +1,0 @@
-status: 200
-title: Verificació de seguretat · Bàsquet Català

@@ -1,9 +1,0 @@
-Sistema de seguretat
-Estem protegint l'accés al web oficial de la Federació Catalana de Bàsquet.
-Verificació de seguretat
-
-El nostre sistema ha detectat activitat inusual des del teu dispositiu. Completa la verificació per continuar navegant normalment.
-
-CONFIRMA QUE ETS UNA PERSONA
-
-Protegit per reCAPTCHA · Google Privadesa
