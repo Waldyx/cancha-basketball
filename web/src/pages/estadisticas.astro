@@ -205,6 +205,18 @@ import "../styles/cancha-redesign.css";
           <div id="st-splits"></div>
         </div>
 
+        {/* OBJETIVOS */}
+        <div class="st-panel st-metas">
+          <h2 class="st-h2">Mis objetivos</h2>
+          <div class="st-meta-add">
+            <select id="meta-tipo" aria-label="Métrica del objetivo"></select>
+            <input id="meta-target" type="number" step="0.1" min="0" aria-label="Valor objetivo" />
+            <button type="button" id="meta-add" class="st-btn">＋ Añadir objetivo</button>
+          </div>
+          <div id="st-metas-list"></div>
+          <p id="st-metas-empty" class="st-note">Fíjate un objetivo (p. ej. tiros libres al 75%) y te muestro tu progreso partido a partido.</p>
+        </div>
+
         {/* HISTORIAL */}
         <div class="st-panel">
           <h2 class="st-h2">Historial</h2>
@@ -247,15 +259,17 @@ import "../styles/cancha-redesign.css";
     // ───────────────────────── datos ─────────────────────────
     const LS_KEY = "cz.stats.v1";
     const load = () => {
+      const def = () => ({ perfil: { nombre: "", posicion: "alero" }, partidos: [], metas: [] });
       try {
         const raw = localStorage.getItem(LS_KEY);
-        if (!raw) return { perfil: { nombre: "", posicion: "alero" }, partidos: [] };
+        if (!raw) return def();
         const d = JSON.parse(raw);
         return {
           perfil: d.perfil && typeof d.perfil === "object" ? d.perfil : { nombre: "", posicion: "alero" },
           partidos: Array.isArray(d.partidos) ? d.partidos : [],
+          metas: Array.isArray(d.metas) ? d.metas : [],
         };
-      } catch { return { perfil: { nombre: "", posicion: "alero" }, partidos: [] }; }
+      } catch { return def(); }
     };
     const save = () => localStorage.setItem(LS_KEY, JSON.stringify(state));
     let state = load();
@@ -573,6 +587,7 @@ import "../styles/cancha-redesign.css";
 
       renderChart();
       renderSplits(games);
+      renderMetas(s);
       renderCoachSuggest();
       document.getElementById("share-card").disabled = games.length === 0;
     };
@@ -609,6 +624,48 @@ import "../styles/cancha-redesign.css";
           ).join("") + `</tbody></table></div>`
         : "";
       box.innerHTML = `<h3 class="st-sub">Récords personales</h3>${records}${vd ? `<h3 class="st-sub">Victorias vs derrotas</h3>${vd}` : ""}<h3 class="st-sub">Por rival</h3>${rivales}`;
+    };
+
+    // ─────────────────────── objetivos ───────────────────────
+    // dir: "gte" = cuanto más alto mejor · "lte" = cuanto más bajo mejor
+    const META_DEFS = {
+      ts:  { label: "TS% (tiro real)", unit: "%", dir: "gte", def: 55, get: (s) => s.ts },
+      tl:  { label: "Tiros libres", unit: "%", dir: "gte", def: 75, get: (s) => s.tlPct },
+      t3:  { label: "Triple", unit: "%", dir: "gte", def: 33, get: (s) => s.t3Pct },
+      ppg: { label: "Puntos / partido", unit: "", dir: "gte", def: 15, get: (s) => s.ppg },
+      apg: { label: "Asistencias / partido", unit: "", dir: "gte", def: 4, get: (s) => s.apg },
+      val: { label: "Valoración media", unit: "", dir: "gte", def: 12, get: (s) => s.valAvg },
+      per: { label: "Pérdidas / partido", unit: "", dir: "lte", def: 2, get: (s) => (s.n ? s.perTot / s.n : null) },
+    };
+
+    const renderMetas = (s) => {
+      const list = document.getElementById("st-metas-list");
+      const empty = document.getElementById("st-metas-empty");
+      const metas = state.metas || [];
+      empty.classList.toggle("hidden", metas.length > 0);
+      list.innerHTML = metas.map((m, i) => {
+        const def = META_DEFS[m.id];
+        if (!def) return "";
+        const cur = s ? def.get(s) : null;
+        const target = Number(m.target);
+        let pct = 0, hit = false, curTxt = "—";
+        if (cur != null) {
+          curTxt = fmt1(cur) + def.unit;
+          if (def.dir === "gte") { pct = target > 0 ? Math.min(100, (cur / target) * 100) : 100; hit = cur >= target; }
+          else { pct = cur > 0 ? Math.min(100, (target / cur) * 100) : 100; hit = cur <= target; }
+        }
+        return `<div class="st-meta ${hit ? "st-meta-hit" : ""}">
+          <div class="st-meta-top">
+            <span class="st-meta-lbl">${def.dir === "lte" ? "≤ " : ""}${esc(def.label)}</span>
+            <span class="st-meta-val">${curTxt} <em>/ ${fmt1(target)}${def.unit}</em> ${hit ? "✓" : ""}</span>
+            <button type="button" class="st-meta-del" data-i="${i}" aria-label="Quitar objetivo" title="Quitar">✕</button>
+          </div>
+          <div class="st-meta-bar"><span style="width:${pct.toFixed(0)}%"></span></div>
+        </div>`;
+      }).join("");
+      list.querySelectorAll(".st-meta-del").forEach((b) => b.addEventListener("click", () => {
+        state.metas.splice(Number(b.dataset.i), 1); save(); render();
+      }));
     };
 
     // ──────────────── agente conversacional (IA) ─────────────
@@ -996,6 +1053,7 @@ import "../styles/cancha-redesign.css";
           state = {
             perfil: d.perfil && typeof d.perfil === "object" ? d.perfil : state.perfil,
             partidos: d.partidos,
+            metas: Array.isArray(d.metas) ? d.metas : [],
           };
           save();
           inNombre.value = state.perfil.nombre || "";
@@ -1008,7 +1066,7 @@ import "../styles/cancha-redesign.css";
     });
     document.getElementById("st-reset").addEventListener("click", () => {
       if (!confirm("¿Borrar TODOS tus partidos y perfil? Esto no se puede deshacer.")) return;
-      state = { perfil: { nombre: "", posicion: "alero" }, partidos: [] };
+      state = { perfil: { nombre: "", posicion: "alero" }, partidos: [], metas: [] };
       save();
       inNombre.value = ""; inPos.value = "alero";
       render();
@@ -1019,6 +1077,7 @@ import "../styles/cancha-redesign.css";
     document.getElementById("st-demo").addEventListener("click", () => {
       state = {
         perfil: { nombre: "Ejemplo", posicion: "base" },
+        metas: [{ id: "ts", target: 55 }, { id: "tl", target: 75 }],
         partidos: [
           { fecha: "2026-06-01", rival: "CB Nord", res: "V", min: 26, t2c: 4, t2i: 8, t3c: 1, t3i: 4, tlc: 3, tli: 6, ro: 1, rd: 4, ast: 6, rob: 2, tap: 0, per: 3, fal: 2 },
           { fecha: "2026-06-08", rival: "CB Sud", res: "D", min: 28, t2c: 5, t2i: 12, t3c: 0, t3i: 4, tlc: 2, tli: 3, ro: 2, rd: 5, ast: 4, rob: 3, tap: 1, per: 4, fal: 3 },
@@ -1030,6 +1089,21 @@ import "../styles/cancha-redesign.css";
       inNombre.value = state.perfil.nombre; inPos.value = state.perfil.posicion;
       render();
       document.getElementById("st-splits-panel").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    // init objetivos: rellena el select y el valor por defecto
+    const metaTipo = document.getElementById("meta-tipo");
+    const metaTarget = document.getElementById("meta-target");
+    metaTipo.innerHTML = Object.entries(META_DEFS).map(([id, d]) => `<option value="${id}">${d.label}</option>`).join("");
+    metaTarget.value = String(META_DEFS[metaTipo.value].def);
+    metaTipo.addEventListener("change", () => { metaTarget.value = String(META_DEFS[metaTipo.value].def); });
+    document.getElementById("meta-add").addEventListener("click", () => {
+      const id = metaTipo.value, target = parseFloat(metaTarget.value);
+      if (!META_DEFS[id] || !Number.isFinite(target) || target < 0) return;
+      state.metas = state.metas || [];
+      const ex = state.metas.findIndex((m) => m.id === id);
+      if (ex >= 0) state.metas[ex].target = target; else state.metas.push({ id, target });
+      save(); render();
     });
 
     render();
@@ -1176,6 +1250,27 @@ import "../styles/cancha-redesign.css";
     .st-vd-col em { font-style: normal; font-size: 13px; color: var(--cz-text-2); margin-left: 8px; }
     .st-rival-wrap { overflow-x: auto; }
     .st-rival-table th, .st-rival-table td { white-space: nowrap; }
+    /* objetivos */
+    .st-metas { margin-bottom: 20px; }
+    .st-meta-add { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+    .st-meta-add select, .st-meta-add input {
+      background: var(--cz-bg); border: 1px solid var(--cz-border); color: var(--cz-text);
+      padding: 9px 10px; font-size: 13px; border-radius: 0;
+    }
+    .st-meta-add select { flex: 1; min-width: 160px; }
+    .st-meta-add input { width: 90px; }
+    .st-meta-add select:focus, .st-meta-add input:focus { outline: 2px solid #f97316; outline-offset: -1px; }
+    .st-meta { background: var(--cz-bg); border: 1px solid var(--cz-border); padding: 12px 14px; margin-bottom: 8px; }
+    .st-meta-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .st-meta-lbl { font-size: 13px; font-weight: 700; color: var(--cz-text-soft); flex-shrink: 0; }
+    .st-meta-val { font-size: 13px; color: var(--cz-text); margin-left: auto; }
+    .st-meta-val em { font-style: normal; color: var(--cz-text-muted); }
+    .st-meta-hit .st-meta-val { color: #22c55e; font-weight: 700; }
+    .st-meta-del { background: none; border: none; color: var(--cz-text-dim); cursor: pointer; font-size: 13px; padding: 0 2px; }
+    .st-meta-del:hover { color: #f87171; }
+    .st-meta-bar { height: 8px; background: var(--cz-surface2); overflow: hidden; }
+    .st-meta-bar span { display: block; height: 100%; background: #f97316; transition: width 0.4s; }
+    .st-meta-hit .st-meta-bar span { background: #22c55e; }
     @media (max-width: 560px) { .st-recs { grid-template-columns: repeat(2, 1fr); } }
     .st-note strong { color: var(--cz-text-soft); }
     /* chart */
