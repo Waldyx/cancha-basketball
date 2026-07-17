@@ -80,7 +80,7 @@ export const PROMOS: Promo[] = [
     titulo: "Rebajas",
     desde: "2026-06-29T00:00:00+02:00",
     hasta: "2026-07-31T23:59:59+02:00",
-    url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Flp%2Frebajas",
+    url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Flp%2Fc%2Frebajas",
     descuentoTexto: "Rebajas en gran selección",
     nota: "Descuento aplicado directamente en la web · selección de productos",
     color: "#0082c3",
@@ -158,6 +158,18 @@ export const PROMOS: Promo[] = [
     ],
     nota: "Solo en productos con el sello “Venta de vacaciones” · envíos a España · no acumulable con otras promos",
     color: "#ff4747",
+  },
+  {
+    id: "forumsport-segundas-rebajas-2026-07",
+    tienda: "forumsport_es",
+    tiendaLabel: "Forum Sport",
+    titulo: "Segundas Rebajas",
+    desde: "2026-07-15T12:51:00+02:00",
+    hasta: "2026-07-29T23:59:59+02:00",
+    url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2F",
+    descuentoTexto: "hasta 50% en selección",
+    nota: "Descuento aplicado directamente en el precio · productos seleccionados · exclusivo online",
+    color: "#facc15",
   },
 ];
 

@@ -2588,7 +2588,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005009817325177.html", precio_actual: 85.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010673521913.html", precio_actual: 88.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011644113862.html", precio_actual: 92.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
-      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-lebron-21-akoya.html", precio_actual: 169.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-lebron-21-akoya.html", precio_actual: 159.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-13" },
     ],
   },
 
@@ -4227,7 +4227,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012501940607.html", precio_actual: 360.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012511374212.html", precio_actual: 491.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-13" },
     ],
   },
 
