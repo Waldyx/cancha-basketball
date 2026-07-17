@@ -171,6 +171,18 @@ export const PROMOS: Promo[] = [
     nota: "Descuento aplicado directamente en el precio · productos seleccionados · exclusivo online",
     color: "#facc15",
   },
+  {
+    id: "elcorteingles-rebajas-verano-2026",
+    tienda: "elcorteingles_es",
+    tiendaLabel: "El Corte Inglés",
+    titulo: "Rebajas de Verano",
+    desde: "2026-07-17T00:00:00+02:00",
+    hasta: "2026-08-31T23:59:59+02:00",
+    url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fsearch-nwx%2F%3Fs%3Dzapatillas%2Bde%2Bbaloncesto%26sorting%3DdiscountDesc",
+    descuentoTexto: "hasta 50% en zapatillas de baloncesto",
+    nota: "Descuento aplicado directamente en la web · selección de calzado de baloncesto · ordenado por mayor descuento",
+    color: "#7cb342",
+  },
 ];
 
 /** Promos activas a una fecha dada (por defecto, ahora). */
