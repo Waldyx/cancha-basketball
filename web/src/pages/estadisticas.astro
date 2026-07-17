@@ -220,7 +220,7 @@ import "../styles/cancha-redesign.css";
               <tbody id="st-tbody"></tbody>
             </table>
           </div>
-          <p id="st-table-empty" class="st-empty">Todavía no hay partidos registrados.</p>
+          <p id="st-table-empty" class="st-empty">Todavía no hay partidos registrados. <button type="button" id="st-demo" class="st-linkbtn">Ver un ejemplo →</button></p>
         </div>
 
         {/* DATOS */}
@@ -555,6 +555,9 @@ import "../styles/cancha-redesign.css";
       }).join("");
       document.getElementById("st-table-empty").classList.toggle("hidden", games.length > 0);
       tbody.querySelectorAll(".st-del").forEach((b) => b.addEventListener("click", () => {
+        const g = state.partidos[Number(b.dataset.i)];
+        const quien = g && g.rival ? ` vs ${g.rival}` : "";
+        if (!confirm(`¿Borrar el partido${quien}? No se puede deshacer.`)) return;
         state.partidos.splice(Number(b.dataset.i), 1);
         save(); render();
       }));
@@ -1011,6 +1014,24 @@ import "../styles/cancha-redesign.css";
       render();
     });
 
+    // "Ver ejemplo": carga partidos de muestra para que un visitante nuevo vea
+    // la herramienta funcionando (solo visible en el estado vacío).
+    document.getElementById("st-demo").addEventListener("click", () => {
+      state = {
+        perfil: { nombre: "Ejemplo", posicion: "base" },
+        partidos: [
+          { fecha: "2026-06-01", rival: "CB Nord", res: "V", min: 26, t2c: 4, t2i: 8, t3c: 1, t3i: 4, tlc: 3, tli: 6, ro: 1, rd: 4, ast: 6, rob: 2, tap: 0, per: 3, fal: 2 },
+          { fecha: "2026-06-08", rival: "CB Sud", res: "D", min: 28, t2c: 5, t2i: 12, t3c: 0, t3i: 4, tlc: 2, tli: 3, ro: 2, rd: 5, ast: 4, rob: 3, tap: 1, per: 4, fal: 3 },
+          { fecha: "2026-06-15", rival: "CB Nord", res: "V", min: 30, t2c: 7, t2i: 12, t3c: 3, t3i: 6, tlc: 6, tli: 7, ro: 1, rd: 6, ast: 7, rob: 2, tap: 1, per: 1, fal: 2 },
+          { fecha: "2026-06-22", rival: "CB Est", res: "V", min: 24, t2c: 6, t2i: 10, t3c: 2, t3i: 5, tlc: 4, tli: 5, ro: 2, rd: 3, ast: 5, rob: 4, tap: 0, per: 2, fal: 4 },
+        ],
+      };
+      save();
+      inNombre.value = state.perfil.nombre; inPos.value = state.perfil.posicion;
+      render();
+      document.getElementById("st-splits-panel").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
     render();
   </script>
 
@@ -1175,6 +1196,8 @@ import "../styles/cancha-redesign.css";
     }
     .st-tooltip span { color: var(--cz-text-muted); font-size: 11px; }
     .st-empty { color: var(--cz-text-muted); font-size: 13px; padding: 24px 0; text-align: center; margin: 0; }
+    .st-linkbtn { background: none; border: none; color: #fb923c; font-size: 13px; font-weight: 700; cursor: pointer; text-decoration: underline; padding: 0; }
+    .st-linkbtn:hover { color: #f97316; }
     /* agente */
     .st-agent { margin-bottom: 20px; }
     /* agente conversacional */
