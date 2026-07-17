@@ -1,11 +1,87 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-07-03 (sesión 29)
+> Última actualización: 2026-07-17 (sesión 30)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
 
-## Estado actual (sesión 29) — AliExpress Marcas+ como fuente afiliada + cierre frente 1 + cruce ECI
+## Estado actual (sesión 30) — Herramienta de ESTADÍSTICAS personales (`/estadisticas`)
+
+### ✅ Completado (sesión 30)
+
+**Nueva sección `/estadisticas`** — agente/calculadora de estadísticas personales de baloncesto,
+**100% cliente** (localStorage `cz.stats.v1`, sin backend ni cuentas). Página nueva
+`web/src/pages/estadisticas.astro`. Enlace **"Stats"** añadido al nav de TODAS las páginas
+(entre Calculadora y Accesorios). Build 336 págs. Todo en producción (`master`) y verificado E2E
+(Playwright) antes de cada merge.
+
+Piezas (todas en esa única página + 1 función serverless):
+- **Registro manual** de partidos (T2/T3/TL C-I, reb O/D, AST, ROB, TAP, PÉR, FAL, min, rival, V/D).
+- **Métricas avanzadas** por partido y temporada: **TS%**, **eFG%**, **valoración estilo FIBA**,
+  ratio AST/PÉR. Tiles de temporada + **gráfico SVG de evolución** (Puntos/Valoración/TS%) con
+  tooltip. Color de serie `#ea580c` (validado sobre superficie oscura con el validador dataviz).
+- **Agente de reglas** ("El agente dice"): consejos en español por eficiencia/libres/triple/
+  pérdidas/faltas/tendencia últimos 3/récords/posición + tie-in a zapas (robos→tracción,
+  rebotes→cushion → quiz/rankings).
+- **Agente conversacional IA** (`web/api/coach.ts`, serverless OpenRouter, misma cadena de modelos
+  gratuita que `chat.ts`): le pasas tus partidos y responde "¿en qué mejoro?" etc. Verificado en
+  prod HTTP 200 con análisis real. (Nota: reutiliza el patrón autocontenido; NO importa el catálogo.)
+- **Importador de actas FEB** (`web/api/feb.ts`, serverless): `GET /api/feb?partido=ID|URL`. Descarga
+  el acta de `baloncestoenvivo.feb.es/partido/{id}`, extrae el **JWT** que la página incrusta en
+  `#_ctl0_token` y llama a la API interna **`https://intrafeb.feb.es/LiveStats.API/api/v1/BoxScore/{id}`**
+  con `Authorization: Bearer {jwt}` (mismo flujo que hace su web). Devuelve equipos+jugadores
+  mapeados. Verificado en prod (partido real 2491568). Cubre FEB + autonómicas que publican en su
+  plataforma. Caché CDN 10 min. Campos JSON FEB: `p1m/p1a,p2m/p2a,p3m/p3a,min(seg),ro,rd,assist,st,bs,to,pf,pts`.
+- **Importador por PEGADO** (Cataluña/FCBQ y genérico): bloque plegable, parser en cliente **dirigido
+  por cabecera** (no asume orden) con sinónimos catalán+castellano (T1 tiros libres, BR robos,
+  BP pérdidas, FC faltas, RO/RD/RT rebotes…). Soporta tiros "4/7" o columnas C/I separadas. El
+  usuario pega su tabla y elige su nombre. **NO se pudo validar contra un acta FCBQ literal** (ver
+  abajo); calibrado sobre notación FIBA-catalana estándar (la app catalana es sistema **Meytel**,
+  mismo proveedor/modelo que la FEB). Si un usuario real reporta un desajuste → añadir etiqueta al
+  diccionario `COLS` (1 línea).
+- **Tarjeta compartible** de temporada: botón genera imagen 1080×1080 en canvas (sin servidor) con
+  marca + medias + TS%/eFG%/mejor partido + `canchazapa.com/estadisticas` al pie. `navigator.share`
+  en móvil, descarga en escritorio. Palanca de crecimiento.
+- **Panel "Rachas y récords"**: récords personales (máx pts/reb/ast/val con rival), victorias vs
+  derrotas (pts y VAL medios), tabla por rival (PJ, balance V-D, medias). Agrega cualquier origen.
+- `web/public/sw.js`: **bypass de `/api/`** en el service worker (antes cacheaba GET a la API para
+  siempre). Importante para futuros endpoints.
+
+**Artículo SEO** `web/src/lib/articles.ts` → `/blog/calcular-estadisticas-baloncesto-gratis`
+(categoría Guías, sale 1º por fecha): posiciona para "calcular estadísticas de baloncesto gratis",
+canaliza a `/estadisticas` (3 CTAs), explica TS%/eFG%/VAL con fórmulas, y **ata al motor de
+ingresos** (11 enlaces a fichas + quiz; la plantilla surface las zapas mencionadas con precio de
+afiliado en el sidebar). Total artículos: 30 → 31.
+
+### 🟡 FCBQ / Cataluña — DÓNDE QUEDÓ (importante, NO reintentar por la vía mala)
+- `basquetcatala.cat` protege **toda** la web (incluidas páginas informativas) con un reto
+  **reCAPTCHA "Verificació de seguretat"** — confirmado renderizando con Chromium real. **NO se
+  debe resolver/rodear** (el clasificador de seguridad lo bloqueó, con razón; además el usuario
+  pedía saltárselo y se le explicó por qué no). Su **Open Data FCBQ es de PAGO** (~25-30€/mes).
+- Sondas descartadas (todas limpiadas del repo): APK de mirrors (bloqueado), capturas de las tiendas
+  (solo noticias/marcador, no box score), `basquet.top` (SPA que ya no muestra stats).
+- **Vía legítima = el importador por pegado** (ya hecho). El usuario NO juega/no está federado, así
+  que la función es para SUS usuarios catalanes; se validará cuando un jugador real pegue un acta.
+- Aprendizaje: las apps FEB y FCBQ son **Meytel**; la FEB expone `intrafeb.feb.es/LiveStats.API`
+  (JWT del acta, sin key). NO hay equivalente accesible para FCBQ sin pasar su reCAPTCHA.
+
+### ▶️ EN CURSO / decisión tomada — MEDIR antes de construir más
+Roadmap de stats PAUSADO a propósito. Pendientes NO hechos (solo si hay señal de uso): **mapa de
+tiro** (la API FEB da coordenadas en `SHOTCHART`, solo sirve para partidos FEB) y **metas/objetivos**.
+- **Problema de medición**: la web usa **Cloudflare Web Analytics**, que **NO registra eventos
+  custom**. Los `window.plausible(...)` que dejé cableados (`Stat Game Logged`, `FEB Import`,
+  `Acta Paste Import`, `Season Card Share/Download`, `FEB Coach Ask`…) son **no-op** → no se miden.
+  Cloudflare SÍ mide páginas vistas de `/estadisticas`. Para medir adopción real haría falta un
+  contador propio ligero (o volver a Plausible de pago). Recomendación dada al usuario: soltar,
+  mirar páginas vistas/retorno unas semanas, y decidir con datos.
+
+Commits sesión 30 (en `master`): estadisticas.astro (MVP) → feb.ts (importador FEB) → nav Stats +
+Enter → parser pegado Cataluña → +notación catalana → coach.ts (IA) → tarjeta compartible → panel
+Rachas y récords → artículo SEO. Rama de trabajo: `claude/basketball-analytics-app-mwwaq5`.
+
+---
+
+## Estado anterior (sesión 29) — AliExpress Marcas+ como fuente afiliada + cierre frente 1 + cruce ECI
 
 ### ✅ Completado (sesión 29)
 
