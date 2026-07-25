@@ -20,7 +20,10 @@ jobs:
   scrape:
     name: Scrape precios
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    # El scrape completo de ~234 zapas tarda ~100 min (se acerca a las 234 con margen).
+    # A 90 min se cancelaba al 93% ANTES del commit → precios.json nunca se guardaba
+    # (el scraper escribe una sola vez al final). 150 da holgura para crecer el catálogo.
+    timeout-minutes: 150
 
     steps:
       - name: 📥 Checkout código
