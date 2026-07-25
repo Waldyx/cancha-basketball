@@ -183,6 +183,18 @@ export const PROMOS: Promo[] = [
     nota: "Descuento aplicado directamente en la web · selección de calzado de baloncesto · ordenado por mayor descuento",
     color: "#7cb342",
   },
+  {
+    id: "snipes-rebajas-verano-2026-07",
+    tienda: "snipes_eu",
+    tiendaLabel: "Snipes",
+    titulo: "Ofertas Flash",
+    desde: "2026-07-26T00:00:00+02:00",
+    hasta: "2026-08-07T10:00:00+02:00",
+    url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fc%2Frebajas-660",
+    descuentoTexto: "hasta 20% en selección",
+    nota: "Descuento aplicado directamente en la web · artículos seleccionados · rebajas de verano",
+    color: "#ff8a3d",
+  },
 ];
 
 /** Promos activas a una fecha dada (por defecto, ahora). */
