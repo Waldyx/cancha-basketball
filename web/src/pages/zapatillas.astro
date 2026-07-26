@@ -6,7 +6,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecio, findMejorPrecioMostrado, scoreDisplay, scoreBadge, compareByScore } from "../lib/scoring";
+import { findMejorPrecio, findMejorPrecioMostrado, scoreDisplay, scoreBadge, compareByScore, fechaVerificacionMasReciente } from "../lib/scoring";
 
 const LABELS_TIENDA: Record<string, string> = {
   amazon_es: "Amazon", decathlon: "Decathlon", nike_es: "Nike", adidas_es: "Adidas",
@@ -69,7 +69,9 @@ const editorPick = [...zapatillas]
 // Trending: top 3 by score
 const trending = [...zapatillas].filter(z => !oculta(z)).sort((a, b) => scoreOf(b) - scoreOf(a)).slice(0, 3);
 
-const today = new Date().toLocaleDateString("es-ES", { day: "2-digit", month: "short" }).toUpperCase();
+// Fecha de la verificación de precios MÁS reciente en el catálogo (no la fecha de build).
+const _fechaVerif = fechaVerificacionMasReciente(zapatillas);
+const today = (_fechaVerif ? new Date(_fechaVerif + "T12:00:00") : new Date()).toLocaleDateString("es-ES", { day: "2-digit", month: "short" }).toUpperCase();
 
 const ordenadas = [...zapatillas].sort(compareByScore);
 ---

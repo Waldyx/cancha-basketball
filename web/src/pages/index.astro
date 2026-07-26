@@ -5,7 +5,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecio, findMejorPrecioMostrado, scoreDisplay, compareByScore } from "../lib/scoring";
+import { findMejorPrecio, findMejorPrecioMostrado, scoreDisplay, compareByScore, fechaVerificacionMasReciente } from "../lib/scoring";
 import { getAllArticles } from "../lib/articles";
 
 function scoreOf(z: typeof zapatillas[0]): number {
@@ -63,7 +63,9 @@ const CAT_ACCENT: Record<string, string> = {
   "balanced": "#d4d4d8", "traction-king": "#fb923c",
 };
 
-const today = new Date().toLocaleDateString("es-ES", { day: "2-digit", month: "short" }).toUpperCase();
+// Fecha de la verificación de precios MÁS reciente en el catálogo (no la fecha de build).
+const _fechaVerif = fechaVerificacionMasReciente(zapatillas);
+const today = (_fechaVerif ? new Date(_fechaVerif + "T12:00:00") : new Date()).toLocaleDateString("es-ES", { day: "2-digit", month: "short" }).toUpperCase();
 const recentArticles = getAllArticles().slice(0, 3);
 const BLOG_CAT_COLOR: Record<string, string> = { "Guías": "#f97316", "Comparativas": "#facc15", "Análisis": "#38bdf8" };
 

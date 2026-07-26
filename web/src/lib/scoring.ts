@@ -417,6 +417,24 @@ export const COMISIONES_TIENDA: Record<string, number> = {
 const PRECIO_TIE_THRESHOLD = 0.5;
 
 /**
+ * Fecha (YYYY-MM-DD) de la verificación de precio MÁS reciente del catálogo.
+ * Se usa para el sello "Precios re-verificados X": debe reflejar la última vez
+ * que el scraper tocó precios REALES, no la fecha de build (que sería engañosa).
+ */
+export function fechaVerificacionMasReciente(
+  zapas: { links_compra?: { ultima_verificacion?: string }[] }[],
+): string | null {
+  let max: string | null = null;
+  for (const z of zapas) {
+    for (const l of z.links_compra || []) {
+      const f = l.ultima_verificacion;
+      if (f && (max === null || f > max)) max = f;
+    }
+  }
+  return max;
+}
+
+/**
  * Devuelve el link más barato disponible.
  * Si dos tiendas empatan en precio (diferencia ≤ 0,50 €), gana la de mayor comisión.
  */
