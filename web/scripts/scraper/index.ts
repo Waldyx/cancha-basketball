@@ -49,6 +49,7 @@ interface LinkCompraRaw {
   url: string;
   precio_actual: number;
   disponible: boolean;
+  ultima_verificacion?: string;
 }
 interface ZapatillaRaw {
   id: string;
@@ -246,13 +247,18 @@ async function main() {
 
       const scraper = SCRAPERS[link.tienda];
       if (!scraper) {
-        console.log(`  ⚠️  Sin scraper para: ${link.tienda}`);
+        // Sin scraper: copiamos la entrada tal cual (hay links que SOLO viven
+        // aquí y se perderían), pero CONSERVANDO su fecha original. Poner hoy
+        // marcaría como "verificado" un precio que nadie ha comprobado, y
+        // falsearía el sello "Precios re-verificados" del home.
+        console.log(`  ⚠️  Sin scraper para: ${link.tienda} (se copia sin re-fechar)`);
         results.push({
           tienda: link.tienda,
           url: link.url,
           precio_actual: link.precio_actual,
           disponible: link.disponible,
-          ultima_verificacion: new Date().toISOString().slice(0, 10),
+          // el ?? solo aplicaría a un link nuevo que aún no tuviera fecha
+          ultima_verificacion: link.ultima_verificacion ?? new Date().toISOString().slice(0, 10),
         });
         continue;
       }
