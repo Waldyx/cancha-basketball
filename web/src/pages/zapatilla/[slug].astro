@@ -416,9 +416,11 @@ const productJsonLd = {
                     }
                   </div>
                 </div>
-                <a href={ctaLink.url} target="_blank" rel={ctaLink.tiene_afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"} class="dh-buy-btn aff-btn" data-tienda={LABELS_TIENDA[ctaLink.tienda]||ctaLink.tienda} data-zapa={z.slug}>
-                  Ver {mejorMostrado ? "" : "precio "}en {LABELS_TIENDA[ctaLink.tienda] || ctaLink.tienda} →
-                </a>
+                {ctaLink && (
+                  <a href={ctaLink.url} target="_blank" rel={ctaLink.tiene_afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"} class="dh-buy-btn aff-btn" data-tienda={LABELS_TIENDA[ctaLink.tienda]||ctaLink.tienda} data-zapa={z.slug}>
+                    Ver {mejorMostrado ? "" : "precio "}en {LABELS_TIENDA[ctaLink.tienda] || ctaLink.tienda} →
+                  </a>
+                )}
                 {/* Comparativa top 3 tiendas más baratas */}
                 {linksOrdenados.length > 1 && (
                   <div class="dh-compare">
@@ -760,9 +762,11 @@ const productJsonLd = {
             <span class="sbp-now">{Math.round(precioVista)}€</span>
             {ahorro > 0 && <span class="sbp-msrp">msrp {z.precio_msrp_eur}€</span>}
           </div>
-          <a href={ctaLink.url} target="_blank" rel={ctaLink.tiene_afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"} class="sb-btn">
-            Ver {mejorMostrado ? "" : "precio "}en {LABELS_TIENDA[ctaLink.tienda] || ctaLink.tienda} →
-          </a>
+          {ctaLink && (
+            <a href={ctaLink.url} target="_blank" rel={ctaLink.tiene_afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"} class="sb-btn">
+              Ver {mejorMostrado ? "" : "precio "}en {LABELS_TIENDA[ctaLink.tienda] || ctaLink.tienda} →
+            </a>
+          )}
         </div>
       </div>
     )}

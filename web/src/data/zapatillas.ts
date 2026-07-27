@@ -5470,7 +5470,7 @@ const _rawZapatillas: Zapatilla[] = [
     horma: "normal",
     drop_mm: 8,
     tipo_cierre: "cordones",
-    material_superior: "sintetico+tpu",
+    material_superior: "synthetic+tpu",
     puntuaciones: {
       traccion: 8, amortiguacion: 8, respuesta: 7,
       soporte_lateral: 8, estabilidad: 8, peso_score: 6,
@@ -6765,7 +6765,7 @@ const _rawZapatillas: Zapatilla[] = [
     horma: "normal",
     drop_mm: 10,
     tipo_cierre: "cordones",
-    material_superior: "mesh+sintetico",
+    material_superior: "mesh+synthetic",
     puntuaciones: {
       traccion: 7, amortiguacion: 7, respuesta: 6,
       soporte_lateral: 7, estabilidad: 7, peso_score: 7,

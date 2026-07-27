@@ -256,10 +256,28 @@ import "../styles/cancha-redesign.css";
   </main>
 
   <script>
+    // ─── tipos + accesor DOM (script cliente; tipado para astro check) ───
+    interface Game { fecha: string; rival: string; res: string; min: number; t2c: number; t2i: number; t3c: number; t3i: number; tlc: number; tli: number; ro: number; rd: number; ast: number; rob: number; tap: number; per: number; fal: number; }
+    interface Perfil { nombre: string; posicion: string; }
+    interface Meta { id: string; target: number; }
+    interface Insight { tone: string; icon: string; titulo: string; texto: string; }
+    interface State { perfil: Perfil; partidos: Game[]; metas: Meta[]; }
+    // Accesor DOM: los elementos existen en el HTML de esta misma página → asumimos
+    // no-null. El tipo unión cubre las APIs usadas (value/disabled/files/canvas).
+    // (no se pueden intersecar HTMLInputElement & HTMLCanvasElement: colapsa a never)
+    type El = HTMLElement & {
+      value: string;
+      disabled: boolean;
+      files: FileList | null;
+      getContext(id: "2d"): CanvasRenderingContext2D | null;
+      toBlob(cb: (b: Blob | null) => void, type?: string): void;
+    };
+    const $ = (id: string): El => document.getElementById(id) as unknown as El;
+
     // ───────────────────────── datos ─────────────────────────
     const LS_KEY = "cz.stats.v1";
-    const load = () => {
-      const def = () => ({ perfil: { nombre: "", posicion: "alero" }, partidos: [], metas: [] });
+    const load = (): State => {
+      const def = (): State => ({ perfil: { nombre: "", posicion: "alero" }, partidos: [], metas: [] });
       try {
         const raw = localStorage.getItem(LS_KEY);
         if (!raw) return def();
@@ -275,7 +293,7 @@ import "../styles/cancha-redesign.css";
     let state = load();
 
     // ─────────────────────── métricas ────────────────────────
-    const calcGame = (g) => {
+    const calcGame = (g: Game) => {
       const pts = 2 * g.t2c + 3 * g.t3c + g.tlc;
       const fgm = g.t2c + g.t3c, fga = g.t2i + g.t3i;
       const tsa = fga + 0.44 * g.tli; // posesiones de tiro reales
@@ -286,10 +304,10 @@ import "../styles/cancha-redesign.css";
       return { pts, reb, ts, efg, val };
     };
 
-    const calcSeason = (games) => {
+    const calcSeason = (games: Game[]) => {
       const n = games.length;
       if (!n) return null;
-      const sum = (f) => games.reduce((a, g) => a + f(g), 0);
+      const sum = (f: (g: Game) => number) => games.reduce((a: number, g: Game) => a + f(g), 0);
       const pts = sum((g) => 2 * g.t2c + 3 * g.t3c + g.tlc);
       const fgm = sum((g) => g.t2c + g.t3c), fga = sum((g) => g.t2i + g.t3i);
       const tlc = sum((g) => g.tlc), tli = sum((g) => g.tli);
@@ -310,50 +328,51 @@ import "../styles/cancha-redesign.css";
         tliPg: tli / n,
         t3Pct: t3i > 0 ? (t3c / t3i) * 100 : null,
         t3iTot: t3i, tliTot: tli,
-        valAvg: games.reduce((a, g) => a + calcGame(g).val, 0) / n,
+        valAvg: games.reduce((a: number, g: Game) => a + calcGame(g).val, 0) / n,
       };
     };
 
     // Desglose: récords, victorias vs derrotas, y medias por rival.
-    const computeSplits = (games) => {
+    const computeSplits = (games: Game[]) => {
       if (!games.length) return null;
-      const wc = games.map((g, i) => ({ g, d: calcGame(g), i }));
-      const argmax = (fn) => wc.reduce((b, x) => (fn(x) > fn(b) ? x : b), wc[0]);
+      const wc = games.map((g: Game, i: number) => ({ g, d: calcGame(g), i }));
+      type WC = (typeof wc)[number];
+      const argmax = (fn: (x: WC) => number) => wc.reduce((b: WC, x: WC) => (fn(x) > fn(b) ? x : b), wc[0]);
       const records = {
-        pts: argmax((x) => x.d.pts),
-        reb: argmax((x) => x.d.reb),
-        ast: argmax((x) => x.g.ast),
-        val: argmax((x) => x.d.val),
+        pts: argmax((x: WC) => x.d.pts),
+        reb: argmax((x: WC) => x.d.reb),
+        ast: argmax((x: WC) => x.g.ast),
+        val: argmax((x: WC) => x.d.val),
       };
-      const byRes = (res) => {
-        const arr = wc.filter((x) => x.g.res === res);
+      const byRes = (res: string) => {
+        const arr = wc.filter((x: WC) => x.g.res === res);
         if (!arr.length) return null;
         return {
           n: arr.length,
-          ppg: arr.reduce((a, x) => a + x.d.pts, 0) / arr.length,
-          valAvg: arr.reduce((a, x) => a + x.d.val, 0) / arr.length,
+          ppg: arr.reduce((a: number, x: WC) => a + x.d.pts, 0) / arr.length,
+          valAvg: arr.reduce((a: number, x: WC) => a + x.d.val, 0) / arr.length,
         };
       };
-      const rivalMap = {};
-      wc.forEach((x) => { const k = (x.g.rival || "—").trim() || "—"; (rivalMap[k] ||= []).push(x); });
+      const rivalMap: Record<string, WC[]> = {};
+      wc.forEach((x: WC) => { const k = (x.g.rival || "—").trim() || "—"; (rivalMap[k] ||= []).push(x); });
       const byRival = Object.entries(rivalMap).map(([rival, arr]) => {
         const n = arr.length;
-        const v = arr.filter((x) => x.g.res === "V").length;
-        const d = arr.filter((x) => x.g.res === "D").length;
+        const v = arr.filter((x: WC) => x.g.res === "V").length;
+        const d = arr.filter((x: WC) => x.g.res === "D").length;
         return {
           rival, n, balance: `${v}-${d}`,
-          ppg: arr.reduce((a, x) => a + x.d.pts, 0) / n,
-          apg: arr.reduce((a, x) => a + x.g.ast, 0) / n,
-          valAvg: arr.reduce((a, x) => a + x.d.val, 0) / n,
+          ppg: arr.reduce((a: number, x: WC) => a + x.d.pts, 0) / n,
+          apg: arr.reduce((a: number, x: WC) => a + x.g.ast, 0) / n,
+          valAvg: arr.reduce((a: number, x: WC) => a + x.d.val, 0) / n,
         };
       }).sort((a, b) => b.n - a.n || b.valAvg - a.valAvg);
       return { records, wins: byRes("V"), losses: byRes("D"), byRival };
     };
 
     // ─────────────────────── el agente ───────────────────────
-    const buildInsights = (games, perfil) => {
-      const out = [];
-      const push = (tone, icon, titulo, texto) => out.push({ tone, icon, titulo, texto });
+    const buildInsights = (games: Game[], perfil: Perfil) => {
+      const out: Insight[] = [];
+      const push = (tone: string, icon: string, titulo: string, texto: string) => out.push({ tone, icon, titulo, texto });
       const s = calcSeason(games);
       if (!s) {
         push("info", "🏀", "Sin datos todavía", "Registra tu primer partido y empiezo a analizar tu juego.");
@@ -394,13 +413,13 @@ import "../styles/cancha-redesign.css";
       // Tendencia (últimos 3 vs temporada)
       if (s.n >= 5) {
         const last3 = games.slice(-3);
-        const v3 = last3.reduce((a, g) => a + calcGame(g).val, 0) / 3;
+        const v3 = last3.reduce((a: number, g: Game) => a + calcGame(g).val, 0) / 3;
         if (s.valAvg > 0 && v3 >= s.valAvg * 1.15) push("good", "📈", "Racha al alza", `Tu valoración media en los últimos 3 partidos (${v3.toFixed(1)}) supera claramente tu media de temporada (${s.valAvg.toFixed(1)}). Sigue con lo que estás haciendo.`);
         else if (s.valAvg > 0 && v3 <= s.valAvg * 0.85) push("warn", "📉", "Bajón reciente", `Tus últimos 3 partidos (VAL ${v3.toFixed(1)}) están por debajo de tu media (${s.valAvg.toFixed(1)}). Revisa descanso, minutos y molestias antes de forzar.`);
       }
       // Récord
       if (s.n >= 3) {
-        const ptsList = games.map((g) => calcGame(g).pts);
+        const ptsList = games.map((g: Game) => calcGame(g).pts);
         const last = ptsList[ptsList.length - 1];
         if (last === Math.max(...ptsList) && last > 0) push("good", "🏆", `Récord personal: ${last} puntos`, "Tu último partido es tu mejor marca anotadora de la temporada.");
       }
@@ -422,17 +441,18 @@ import "../styles/cancha-redesign.css";
 
     // ─────────────────────── gráfico ─────────────────────────
     const CHART_COLOR = "#ea580c"; // validado sobre superficie oscura
-    const METRICS = {
+    type GameCalc = ReturnType<typeof calcGame>;
+    const METRICS: Record<string, { label: string; get: (d: GameCalc) => number; fmt: (v: number) => string }> = {
       pts: { label: "Puntos", get: (d) => d.pts, fmt: (v) => String(Math.round(v)) },
       val: { label: "Valoración", get: (d) => d.val, fmt: (v) => v.toFixed(0) },
       ts:  { label: "TS%", get: (d) => d.ts ?? 0, fmt: (v) => v.toFixed(1) + "%" },
     };
     let currentMetric = "pts";
-    let chartPoints = []; // para el hover: [{x,y,g,value}]
+    let chartPoints: { x: number; y: number; g: Game; value: number }[] = []; // para el hover
 
     const renderChart = () => {
-      const svg = document.getElementById("st-chart");
-      const empty = document.getElementById("st-chart-empty");
+      const svg = $("st-chart");
+      const empty = $("st-chart-empty");
       const games = state.partidos;
       chartPoints = [];
       svg.innerHTML = "";
@@ -440,19 +460,19 @@ import "../styles/cancha-redesign.css";
       empty.classList.add("hidden"); svg.style.display = "block";
 
       const M = METRICS[currentMetric];
-      const data = games.map((g) => ({ g, value: M.get(calcGame(g)) }));
+      const data = games.map((g: Game) => ({ g, value: M.get(calcGame(g)) }));
       const W = 720, H = 260, padL = 44, padR = 52, padT = 16, padB = 30;
       const iw = W - padL - padR, ih = H - padT - padB;
       let lo = Math.min(0, ...data.map((d) => d.value));
       let hi = Math.max(...data.map((d) => d.value), 1);
       const span = hi - lo || 1;
       hi += span * 0.08;
-      const x = (i) => padL + (data.length === 1 ? iw / 2 : (i / (data.length - 1)) * iw);
-      const y = (v) => padT + ih - ((v - lo) / (hi - lo)) * ih;
+      const x = (i: number) => padL + (data.length === 1 ? iw / 2 : (i / (data.length - 1)) * iw);
+      const y = (v: number) => padT + ih - ((v - lo) / (hi - lo)) * ih;
       const NS = "http://www.w3.org/2000/svg";
-      const el = (tag, attrs) => {
+      const el = (tag: string, attrs: Record<string, string | number>) => {
         const n = document.createElementNS(NS, tag);
-        for (const k in attrs) n.setAttribute(k, attrs[k]);
+        for (const k in attrs) n.setAttribute(k, String(attrs[k]));
         return n;
       };
 
@@ -482,7 +502,7 @@ import "../styles/cancha-redesign.css";
 
       // etiquetas eje X (J1, J2… cada n para no saturar)
       const step = Math.max(1, Math.ceil(data.length / 8));
-      data.forEach((d, i) => {
+      data.forEach((_d, i) => {
         if (i % step !== 0 && i !== data.length - 1) return;
         const lbl = el("text", { x: x(i), y: H - 10, "text-anchor": "middle", fill: "#8a8a93", "font-size": 10, "font-family": "Inter, sans-serif" });
         lbl.textContent = "J" + (i + 1);
@@ -497,11 +517,11 @@ import "../styles/cancha-redesign.css";
     };
 
     // hover: tooltip del punto más cercano
-    const wrap = document.getElementById("st-chart-wrap");
-    const tooltip = document.getElementById("st-tooltip");
-    wrap.addEventListener("mousemove", (ev) => {
+    const wrap = $("st-chart-wrap");
+    const tooltip = $("st-tooltip");
+    wrap.addEventListener("mousemove", (ev: MouseEvent) => {
       if (!chartPoints.length) return;
-      const svg = document.getElementById("st-chart");
+      const svg = $("st-chart");
       const r = svg.getBoundingClientRect();
       const mx = ((ev.clientX - r.left) / r.width) * 720;
       let best = chartPoints[0], bd = Infinity;
@@ -517,10 +537,10 @@ import "../styles/cancha-redesign.css";
     });
     wrap.addEventListener("mouseleave", () => tooltip.classList.add("hidden"));
 
-    document.querySelectorAll(".st-mtab").forEach((btn) => {
+    document.querySelectorAll<HTMLElement>(".st-mtab").forEach((btn) => {
       btn.addEventListener("click", () => {
-        currentMetric = btn.dataset.metric;
-        document.querySelectorAll(".st-mtab").forEach((b) => {
+        currentMetric = btn.dataset.metric || "pts";
+        document.querySelectorAll<HTMLElement>(".st-mtab").forEach((b) => {
           b.classList.toggle("active", b === btn);
           b.setAttribute("aria-selected", b === btn ? "true" : "false");
         });
@@ -529,23 +549,24 @@ import "../styles/cancha-redesign.css";
     });
 
     // ─────────────────────── render ──────────────────────────
-    const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-    const fmt1 = (v) => (v == null ? "—" : v.toFixed(1));
+    const ESC_MAP: Record<string, string> = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
+    const esc = (s: unknown) => String(s).replace(/[&<>"']/g, (c) => ESC_MAP[c] ?? c);
+    const fmt1 = (v: number | null | undefined) => (v == null ? "—" : v.toFixed(1));
 
     const render = () => {
       const games = state.partidos;
       const s = calcSeason(games);
-      document.getElementById("st-pj").textContent = `${games.length} partido${games.length === 1 ? "" : "s"}`;
-      document.getElementById("t-pts").textContent = s ? fmt1(s.ppg) : "—";
-      document.getElementById("t-reb").textContent = s ? fmt1(s.rpg) : "—";
-      document.getElementById("t-ast").textContent = s ? fmt1(s.apg) : "—";
-      document.getElementById("t-val").textContent = s ? fmt1(s.valAvg) : "—";
-      document.getElementById("t-ts").textContent = s && s.ts != null ? s.ts.toFixed(1) + "%" : "—";
-      document.getElementById("t-efg").textContent = s && s.efg != null ? s.efg.toFixed(1) + "%" : "—";
+      $("st-pj").textContent = `${games.length} partido${games.length === 1 ? "" : "s"}`;
+      $("t-pts").textContent = s ? fmt1(s.ppg) : "—";
+      $("t-reb").textContent = s ? fmt1(s.rpg) : "—";
+      $("t-ast").textContent = s ? fmt1(s.apg) : "—";
+      $("t-val").textContent = s ? fmt1(s.valAvg) : "—";
+      $("t-ts").textContent = s && s.ts != null ? s.ts.toFixed(1) + "%" : "—";
+      $("t-efg").textContent = s && s.efg != null ? s.efg.toFixed(1) + "%" : "—";
 
       // tabla
-      const tbody = document.getElementById("st-tbody");
-      tbody.innerHTML = games.map((g, i) => {
+      const tbody = $("st-tbody");
+      tbody.innerHTML = games.map((g: Game, i: number) => {
         const d = calcGame(g);
         return `<tr>
           <td>${esc(g.fecha || "—")}</td>
@@ -567,8 +588,8 @@ import "../styles/cancha-redesign.css";
           <td><button class="st-del" data-i="${i}" aria-label="Borrar partido" title="Borrar">✕</button></td>
         </tr>`;
       }).join("");
-      document.getElementById("st-table-empty").classList.toggle("hidden", games.length > 0);
-      tbody.querySelectorAll(".st-del").forEach((b) => b.addEventListener("click", () => {
+      $("st-table-empty").classList.toggle("hidden", games.length > 0);
+      tbody.querySelectorAll<HTMLElement>(".st-del").forEach((b) => b.addEventListener("click", () => {
         const g = state.partidos[Number(b.dataset.i)];
         const quien = g && g.rival ? ` vs ${g.rival}` : "";
         if (!confirm(`¿Borrar el partido${quien}? No se puede deshacer.`)) return;
@@ -578,7 +599,7 @@ import "../styles/cancha-redesign.css";
 
       // agente (los <a> de los insights los generamos nosotros, no el usuario)
       const insights = buildInsights(games, state.perfil);
-      document.getElementById("st-insights").innerHTML = insights.map((it) =>
+      $("st-insights").innerHTML = insights.map((it) =>
         `<div class="st-insight st-${it.tone}">
           <span class="st-insight-icon">${it.icon}</span>
           <div><strong>${esc(it.titulo)}</strong><p>${it.texto}</p></div>
@@ -589,16 +610,16 @@ import "../styles/cancha-redesign.css";
       renderSplits(games);
       renderMetas(s);
       renderCoachSuggest();
-      document.getElementById("share-card").disabled = games.length === 0;
+      $("share-card").disabled = games.length === 0;
     };
 
-    const renderSplits = (games) => {
-      const panel = document.getElementById("st-splits-panel");
-      const box = document.getElementById("st-splits");
+    const renderSplits = (games: Game[]) => {
+      const panel = $("st-splits-panel");
+      const box = $("st-splits");
       const sp = computeSplits(games);
       if (!sp) { panel.classList.add("hidden"); box.innerHTML = ""; return; }
       panel.classList.remove("hidden");
-      const rec = (r, label) => {
+      const rec = (r: any, label: { v: number | string; t: string }) => {
         const via = r.g.rival ? `vs ${esc(r.g.rival)}` : (r.g.fecha || "");
         return `<div class="st-rec"><strong>${label.v}</strong><span class="st-rec-lbl">${label.t}</span><span class="st-rec-via">${via}</span></div>`;
       };
@@ -619,7 +640,7 @@ import "../styles/cancha-redesign.css";
       const rivales = sp.byRival.length
         ? `<div class="st-rival-wrap"><table class="st-table st-rival-table"><thead><tr>
              <th>Rival</th><th>PJ</th><th>V-D</th><th>PTS</th><th>AST</th><th>VAL</th></tr></thead><tbody>` +
-          sp.byRival.map((r) =>
+          sp.byRival.map((r: any) =>
             `<tr><td>${esc(r.rival)}</td><td>${r.n}</td><td>${r.balance}</td><td>${fmt1(r.ppg)}</td><td>${fmt1(r.apg)}</td><td><strong>${fmt1(r.valAvg)}</strong></td></tr>`
           ).join("") + `</tbody></table></div>`
         : "";
@@ -628,22 +649,22 @@ import "../styles/cancha-redesign.css";
 
     // ─────────────────────── objetivos ───────────────────────
     // dir: "gte" = cuanto más alto mejor · "lte" = cuanto más bajo mejor
-    const META_DEFS = {
-      ts:  { label: "TS% (tiro real)", unit: "%", dir: "gte", def: 55, get: (s) => s.ts },
-      tl:  { label: "Tiros libres", unit: "%", dir: "gte", def: 75, get: (s) => s.tlPct },
-      t3:  { label: "Triple", unit: "%", dir: "gte", def: 33, get: (s) => s.t3Pct },
-      ppg: { label: "Puntos / partido", unit: "", dir: "gte", def: 15, get: (s) => s.ppg },
-      apg: { label: "Asistencias / partido", unit: "", dir: "gte", def: 4, get: (s) => s.apg },
-      val: { label: "Valoración media", unit: "", dir: "gte", def: 12, get: (s) => s.valAvg },
-      per: { label: "Pérdidas / partido", unit: "", dir: "lte", def: 2, get: (s) => (s.n ? s.perTot / s.n : null) },
+    const META_DEFS: Record<string, { label: string; unit: string; dir: string; def: number; get: (s: any) => number | null }> = {
+      ts:  { label: "TS% (tiro real)", unit: "%", dir: "gte", def: 55, get: (s: any) => s.ts },
+      tl:  { label: "Tiros libres", unit: "%", dir: "gte", def: 75, get: (s: any) => s.tlPct },
+      t3:  { label: "Triple", unit: "%", dir: "gte", def: 33, get: (s: any) => s.t3Pct },
+      ppg: { label: "Puntos / partido", unit: "", dir: "gte", def: 15, get: (s: any) => s.ppg },
+      apg: { label: "Asistencias / partido", unit: "", dir: "gte", def: 4, get: (s: any) => s.apg },
+      val: { label: "Valoración media", unit: "", dir: "gte", def: 12, get: (s: any) => s.valAvg },
+      per: { label: "Pérdidas / partido", unit: "", dir: "lte", def: 2, get: (s: any) => (s.n ? s.perTot / s.n : null) },
     };
 
-    const renderMetas = (s) => {
-      const list = document.getElementById("st-metas-list");
-      const empty = document.getElementById("st-metas-empty");
+    const renderMetas = (s: any) => {
+      const list = $("st-metas-list");
+      const empty = $("st-metas-empty");
       const metas = state.metas || [];
       empty.classList.toggle("hidden", metas.length > 0);
-      list.innerHTML = metas.map((m, i) => {
+      list.innerHTML = metas.map((m: Meta, i: number) => {
         const def = META_DEFS[m.id];
         if (!def) return "";
         const cur = s ? def.get(s) : null;
@@ -663,25 +684,25 @@ import "../styles/cancha-redesign.css";
           <div class="st-meta-bar"><span style="width:${pct.toFixed(0)}%"></span></div>
         </div>`;
       }).join("");
-      list.querySelectorAll(".st-meta-del").forEach((b) => b.addEventListener("click", () => {
+      list.querySelectorAll<HTMLElement>(".st-meta-del").forEach((b) => b.addEventListener("click", () => {
         state.metas.splice(Number(b.dataset.i), 1); save(); render();
       }));
     };
 
     // ──────────────── agente conversacional (IA) ─────────────
-    const coachMessages = []; // historial {role, content} para el contexto del modelo
+    const coachMessages: { role: string; content: string }[] = []; // historial para el contexto del modelo
     const SUGERENCIAS = [
       "¿En qué debo mejorar?",
       "¿Cuál fue mi mejor partido?",
       "¿Cómo es mi selección de tiro?",
       "¿Contra qué rival juego mejor?",
     ];
-    const coachLog = document.getElementById("coach-log");
-    const coachIn = document.getElementById("coach-in");
-    const coachSend = document.getElementById("coach-send");
+    const coachLog = $("coach-log");
+    const coachIn = $("coach-in");
+    const coachSend = $("coach-send");
 
-    const linkify = (s) => esc(s).replace(/(\/(quiz|rankings|zapatillas|calculadora|comparar)\b)/g, '<a href="$1">$1</a>');
-    const addBubble = (role, text, cls) => {
+    const linkify = (s: string) => esc(s).replace(/(\/(quiz|rankings|zapatillas|calculadora|comparar)\b)/g, '<a href="$1">$1</a>');
+    const addBubble = (role: string, text: string, cls?: string) => {
       const div = document.createElement("div");
       div.className = "st-bubble st-bubble-" + role + (cls ? " " + cls : "");
       div.innerHTML = role === "coach" ? linkify(text).replace(/\n/g, "<br/>") : esc(text);
@@ -691,25 +712,25 @@ import "../styles/cancha-redesign.css";
     };
 
     const renderCoachSuggest = () => {
-      const box = document.getElementById("coach-suggest");
+      const box = $("coach-suggest");
       // solo mostramos sugerencias si hay partidos y aún no se ha preguntado nada
       if (!state.partidos.length || coachMessages.length) { box.innerHTML = ""; return; }
       box.innerHTML = SUGERENCIAS.map((q) => `<button type="button" class="st-chip">${esc(q)}</button>`).join("");
-      box.querySelectorAll(".st-chip").forEach((b) => b.addEventListener("click", () => askCoach(b.textContent)));
+      box.querySelectorAll<HTMLElement>(".st-chip").forEach((b) => b.addEventListener("click", () => askCoach(b.textContent)));
     };
 
-    const askCoach = async (question) => {
+    const askCoach = async (question: unknown) => {
       const q = String(question || "").trim();
       if (!q) return;
       if (!state.partidos.length) { addBubble("coach", "Aún no tienes partidos. Apunta o importa alguno y te analizo el juego."); return; }
-      document.getElementById("coach-suggest").innerHTML = "";
+      $("coach-suggest").innerHTML = "";
       addBubble("user", q);
       coachMessages.push({ role: "user", content: q });
       coachIn.value = "";
       coachSend.disabled = true;
       const thinking = addBubble("coach", "Analizando tus partidos…", "st-bubble-wait");
       try {
-        const partidos = state.partidos.map((g) => {
+        const partidos = state.partidos.map((g: Game) => {
           const d = calcGame(g);
           return { fecha: g.fecha, rival: g.rival, res: g.res, min: g.min, pts: d.pts, reb: d.reb,
             ast: g.ast, rob: g.rob, tap: g.tap, per: g.per, fal: g.fal, ts: d.ts, val: d.val };
@@ -723,7 +744,7 @@ import "../styles/cancha-redesign.css";
         thinking.remove();
         addBubble("coach", reply);
         if (r.ok) coachMessages.push({ role: "assistant", content: reply });
-        if (window.plausible) window.plausible("Coach Question");
+        if ((window as any).plausible) (window as any).plausible("Coach Question");
       } catch {
         thinking.remove();
         addBubble("coach", "No he podido conectar con el agente. Reinténtalo en un momento.");
@@ -732,12 +753,12 @@ import "../styles/cancha-redesign.css";
       }
     };
 
-    document.getElementById("coach-form").addEventListener("submit", (ev) => { ev.preventDefault(); askCoach(coachIn.value); });
+    $("coach-form").addEventListener("submit", (ev: Event) => { ev.preventDefault(); askCoach(coachIn.value); });
 
     // ──────────────── tarjeta compartible (canvas) ───────────
-    const drawCard = (s, perfil, best) => {
-      const cv = document.getElementById("card-canvas");
-      const ctx = cv.getContext("2d");
+    const drawCard = (s: any, perfil: Perfil, best: number) => {
+      const cv = $("card-canvas");
+      const ctx = cv.getContext("2d")!;
       const W = 1080, H = 1080, P = 76;
       // fondo
       ctx.fillStyle = "#232327"; ctx.fillRect(0, 0, W, H);
@@ -769,7 +790,7 @@ import "../styles/cancha-redesign.css";
         [fmt1(s.apg), "ASISTENCIAS / PARTIDO"],
         [fmt1(s.valAvg), "VALORACIÓN MEDIA"],
       ];
-      bigTiles.forEach((t, i) => {
+      bigTiles.forEach((t: string[], i: number) => {
         const col = i % 2, row = (i / 2) | 0;
         const tx = P + col * (tw + gap), tyy = ty + row * (th + gap);
         ctx.fillStyle = "#2c2c31"; ctx.fillRect(tx, tyy, tw, th);
@@ -787,7 +808,7 @@ import "../styles/cancha-redesign.css";
         [s.efg == null ? "—" : fmt1(s.efg) + "%", "eFG%"],
         [String(best || 0), "SU MEJOR PARTIDO (PTS)"],
       ];
-      smallTiles.forEach((t, i) => {
+      smallTiles.forEach((t: string[], i: number) => {
         const tx = P + i * (sw + gap);
         ctx.fillStyle = "#2c2c31"; ctx.fillRect(tx, sy, sw, sh);
         ctx.textAlign = "center";
@@ -802,42 +823,42 @@ import "../styles/cancha-redesign.css";
       ctx.fillText("canchazapa.com/estadisticas", W / 2, H - 54);
     };
 
-    const shareBtn = document.getElementById("share-card");
+    const shareBtn = $("share-card");
     shareBtn.addEventListener("click", async () => {
       const games = state.partidos;
       const s = calcSeason(games);
       if (!s) return;
-      const best = games.reduce((m, g) => Math.max(m, calcGame(g).pts), 0);
+      const best = games.reduce((m: number, g: Game) => Math.max(m, calcGame(g).pts), 0);
       await (document.fonts?.ready ?? Promise.resolve());
       drawCard(s, state.perfil, best);
-      const cv = document.getElementById("card-canvas");
-      cv.toBlob(async (blob) => {
+      const cv = $("card-canvas");
+      cv.toBlob(async (blob: Blob | null) => {
         if (!blob) return;
         const file = new File([blob], "mi-temporada-canchazapa.png", { type: "image/png" });
         const shareData = { files: [file], text: "Mi temporada 🏀 analizada en canchazapa.com/estadisticas" };
         if (navigator.canShare && navigator.canShare({ files: [file] })) {
-          try { await navigator.share(shareData); if (window.plausible) window.plausible("Season Card Share"); return; } catch { /* cancelado → cae a descarga */ }
+          try { await navigator.share(shareData); if ((window as any).plausible) (window as any).plausible("Season Card Share"); return; } catch { /* cancelado → cae a descarga */ }
         }
         const a = document.createElement("a");
         a.href = URL.createObjectURL(blob); a.download = file.name; a.click();
         URL.revokeObjectURL(a.href);
-        if (window.plausible) window.plausible("Season Card Download");
+        if ((window as any).plausible) (window as any).plausible("Season Card Download");
       }, "image/png");
     });
 
     // ─────────────────────── formulario ──────────────────────
-    const num = (id) => {
-      const v = parseInt(document.getElementById(id).value, 10);
+    const num = (id: string) => {
+      const v = parseInt($(id).value, 10);
       return Number.isFinite(v) && v >= 0 ? v : 0;
     };
-    document.getElementById("f-fecha").value = new Date().toISOString().slice(0, 10);
+    $("f-fecha").value = new Date().toISOString().slice(0, 10);
 
-    document.getElementById("st-form").addEventListener("submit", (ev) => {
+    $("st-form").addEventListener("submit", (ev: Event) => {
       ev.preventDefault();
-      const g = {
-        fecha: document.getElementById("f-fecha").value,
-        rival: document.getElementById("f-rival").value.trim(),
-        res: document.getElementById("f-res").value,
+      const g: Game = {
+        fecha: $("f-fecha").value,
+        rival: $("f-rival").value.trim(),
+        res: $("f-res").value,
         min: num("f-min"),
         t2c: num("f-t2c"), t2i: num("f-t2i"),
         t3c: num("f-t3c"), t3i: num("f-t3i"),
@@ -846,33 +867,33 @@ import "../styles/cancha-redesign.css";
         ast: num("f-ast"), rob: num("f-rob"), tap: num("f-tap"),
         per: num("f-per"), fal: num("f-fal"),
       };
-      const err = document.getElementById("st-form-error");
-      const fail = (msg) => { err.textContent = msg; err.classList.remove("hidden"); };
+      const err = $("st-form-error");
+      const fail = (msg: string) => { err.textContent = msg; err.classList.remove("hidden"); };
       if (g.t2c > g.t2i) return fail("T2 metidos no puede superar a intentados.");
       if (g.t3c > g.t3i) return fail("T3 metidos no puede superar a intentados.");
       if (g.tlc > g.tli) return fail("TL metidos no puede superar a intentados.");
       if (!g.fecha) return fail("Pon la fecha del partido.");
       err.classList.add("hidden");
       state.partidos.push(g);
-      state.partidos.sort((a, b) => (a.fecha < b.fecha ? -1 : a.fecha > b.fecha ? 1 : 0));
+      state.partidos.sort((a: Game, b: Game) => (a.fecha < b.fecha ? -1 : a.fecha > b.fecha ? 1 : 0));
       save(); render();
       // reset de contadores (fecha y rival se mantienen para tandas de carga)
-      ["f-t2c","f-t2i","f-t3c","f-t3i","f-tlc","f-tli","f-ro","f-rd","f-ast","f-rob","f-tap","f-per","f-fal"].forEach((id) => {
-        document.getElementById(id).value = "0";
+      ["f-t2c","f-t2i","f-t3c","f-t3i","f-tlc","f-tli","f-ro","f-rd","f-ast","f-rob","f-tap","f-per","f-fal"].forEach((id: string) => {
+        $(id).value = "0";
       });
-      if (window.plausible) window.plausible("Stat Game Logged");
+      if ((window as any).plausible) (window as any).plausible("Stat Game Logged");
     });
 
     // ──────────────── importar acta FEB ──────────────────────
-    const febError = document.getElementById("feb-error");
-    const febResult = document.getElementById("feb-result");
-    const febFail = (msg) => { febError.textContent = msg; febError.classList.remove("hidden"); febResult.classList.add("hidden"); };
+    const febError = $("feb-error");
+    const febResult = $("feb-result");
+    const febFail = (msg: string) => { febError.textContent = msg; febError.classList.remove("hidden"); febResult.classList.add("hidden"); };
 
-    const fillFromFeb = (j, meta, source) => {
-      const set = (id, v) => { document.getElementById(id).value = String(v); };
+    const fillFromFeb = (j: any, meta: { fecha?: string; rival: string; res: string }, source?: string) => {
+      const set = (id: string, v: unknown) => { $(id).value = String(v); };
       set("f-fecha", meta.fecha || new Date().toISOString().slice(0, 10));
       set("f-rival", meta.rival);
-      document.getElementById("f-res").value = meta.res;
+      $("f-res").value = meta.res;
       set("f-min", Math.min(48, j.min));
       set("f-t2c", j.t2c); set("f-t2i", j.t2i);
       set("f-t3c", j.t3c); set("f-t3i", j.t3i);
@@ -881,17 +902,17 @@ import "../styles/cancha-redesign.css";
       set("f-ast", j.ast); set("f-rob", j.rob); set("f-tap", j.tap);
       set("f-per", j.per); set("f-fal", Math.min(6, j.fal));
       febResult.classList.add("hidden");
-      const form = document.getElementById("st-form");
+      const form = $("st-form");
       form.scrollIntoView({ behavior: "smooth", block: "center" });
       febError.classList.add("hidden");
-      if (window.plausible) window.plausible(source === "paste" ? "Acta Paste Import" : "FEB Import");
+      if ((window as any).plausible) (window as any).plausible(source === "paste" ? "Acta Paste Import" : "FEB Import");
     };
 
-    document.getElementById("feb-q").addEventListener("keydown", (ev) => {
-      if (ev.key === "Enter") { ev.preventDefault(); document.getElementById("feb-buscar").click(); }
+    $("feb-q").addEventListener("keydown", (ev: KeyboardEvent) => {
+      if (ev.key === "Enter") { ev.preventDefault(); $("feb-buscar").click(); }
     });
-    document.getElementById("feb-buscar").addEventListener("click", async () => {
-      const q = document.getElementById("feb-q").value.trim();
+    $("feb-buscar").addEventListener("click", async () => {
+      const q = $("feb-q").value.trim();
       if (!q) return febFail("Pega la URL del partido (o su ID numérico).");
       febError.classList.add("hidden");
       febResult.innerHTML = '<p class="st-empty">Leyendo el acta…</p>';
@@ -902,16 +923,16 @@ import "../styles/cancha-redesign.css";
         if (!r.ok) return febFail(d.error || "No se pudo leer el acta.");
         if (!d.equipos || d.equipos.length !== 2) return febFail("El acta no tiene estadísticas todavía.");
         const [a, b] = d.equipos;
-        const resFor = (own, other) => (own.pts > other.pts ? "V" : own.pts < other.pts ? "D" : "");
+        const resFor = (own: any, other: any) => (own.pts > other.pts ? "V" : own.pts < other.pts ? "D" : "");
         febResult.innerHTML =
           `<p class="st-import-hint">${esc(d.competicion)} · ${esc(d.fecha)} · ${esc(a.nombre)} ${a.pts}–${b.pts} ${esc(b.nombre)}<br/><strong>Toca tu nombre</strong> para rellenar el formulario:</p>` +
-          d.equipos.map((eq, ti) =>
+          d.equipos.map((eq: any, ti: number) =>
             `<div class="st-import-team"><h3>${esc(eq.nombre)}</h3><div class="st-import-players">` +
-            eq.jugadores.map((j, ji) =>
+            eq.jugadores.map((j: any, ji: number) =>
               `<button type="button" class="st-player" data-t="${ti}" data-j="${ji}"><span>${esc(j.dorsal)}</span>${esc(j.nombre)}</button>`
             ).join("") + `</div></div>`
           ).join("");
-        febResult.querySelectorAll(".st-player").forEach((btn) => {
+        febResult.querySelectorAll<HTMLElement>(".st-player").forEach((btn) => {
           btn.addEventListener("click", () => {
             const ti = Number(btn.dataset.t), ji = Number(btn.dataset.j);
             const own = d.equipos[ti], other = d.equipos[1 - ti];
@@ -926,7 +947,7 @@ import "../styles/cancha-redesign.css";
     // ──────────── importar acta PEGADA (Cataluña / genérico) ──────────
     // Detecta las columnas por su cabecera (catalán/castellano) → no asume orden.
     // Sinónimos normalizados (sin acentos ni símbolos): cabecera → campo interno.
-    const COLS = {
+    const COLS: Record<string, string[]> = {
       dorsal: ["dorsal", "d", "num", "numero", "no", "n"],
       nombre: ["jugador", "jugadora", "nom", "nombre", "name", "cognom", "cognoms", "jugadores"],
       min: ["min", "minuts", "minutos", "m"],
@@ -949,19 +970,19 @@ import "../styles/cancha-redesign.css";
       per: ["pp", "perdues", "pilotesperdudes", "perdidas", "balonesperdidos", "bp", "per", "perd", "pilperdudes"],
       fal: ["fp", "faltes", "faltas", "faltespersonals", "faltescomeses", "fc", "f"],
     };
-    const normHead = (s) => String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "");
-    const pInt = (v) => { const m = String(v).match(/-?\d+/); const x = m ? parseInt(m[0], 10) : 0; return Number.isFinite(x) && x >= 0 ? x : 0; };
-    const splitMA = (v) => { const m = String(v).match(/(\d+)\s*[\/\-]\s*(\d+)/); return m ? [+m[1], +m[2]] : null; };
+    const normHead = (s: unknown) => String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "");
+    const pInt = (v: unknown) => { const m = String(v).match(/-?\d+/); const x = m ? parseInt(m[0], 10) : 0; return Number.isFinite(x) && x >= 0 ? x : 0; };
+    const splitMA = (v: unknown) => { const m = String(v).match(/(\d+)\s*[\/\-]\s*(\d+)/); return m ? [+m[1], +m[2]] : null; };
 
-    function parsePaste(raw) {
-      const lines = raw.replace(/\r/g, "").split("\n").map((l) => l.trim()).filter(Boolean);
+    function parsePaste(raw: string) {
+      const lines = raw.replace(/\r/g, "").split("\n").map((l: string) => l.trim()).filter(Boolean);
       if (lines.length < 2) throw new Error("Pega al menos la fila de cabecera y una de jugador.");
-      const tok = (l) => (l.includes("\t") ? l.split("\t") : l.split(/ {2,}|\t/)).map((x) => x.trim()).filter((x) => x !== "");
+      const tok = (l: string) => (l.includes("\t") ? l.split("\t") : l.split(/ {2,}|\t/)).map((x: string) => x.trim()).filter((x: string) => x !== "");
       // Busca la cabecera: la línea (de las primeras) con más columnas reconocidas
-      let headerMap = null, headerIdx = -1, best = 0;
+      let headerMap: Record<number, string> = {}, headerIdx = -1, best = 0;
       for (let i = 0; i < Math.min(lines.length, 5); i++) {
-        const cells = tok(lines[i]); const map = {}; let score = 0;
-        cells.forEach((c, idx) => {
+        const cells = tok(lines[i]); const map: Record<number, string> = {}; let score = 0;
+        cells.forEach((c: string, idx: number) => {
           const n = normHead(c);
           for (const field in COLS) { if (COLS[field].includes(n)) { if (!(idx in map)) { map[idx] = field; score++; } break; } }
         });
@@ -972,9 +993,9 @@ import "../styles/cancha-redesign.css";
       for (let i = headerIdx + 1; i < lines.length; i++) {
         const cells = tok(lines[i]);
         if (!cells.length) continue;
-        const g = { nombre: "", dorsal: "", min: 0, t2c: 0, t2i: 0, t3c: 0, t3i: 0, tlc: 0, tli: 0, ro: 0, rd: 0, ast: 0, rob: 0, tap: 0, per: 0, fal: 0 };
-        let rt = null, hasStat = false;
-        cells.forEach((cell, idx) => {
+        const g: Record<string, any> = { nombre: "", dorsal: "", min: 0, t2c: 0, t2i: 0, t3c: 0, t3i: 0, tlc: 0, tli: 0, ro: 0, rd: 0, ast: 0, rob: 0, tap: 0, per: 0, fal: 0 };
+        let rt: number | null = null, hasStat = false;
+        cells.forEach((cell: string, idx: number) => {
           const field = headerMap[idx];
           if (!field) return;
           if (field === "nombre") { g.nombre = cell; return; }
@@ -989,7 +1010,7 @@ import "../styles/cancha-redesign.css";
         });
         // Si no hay nombre marcado, coge el primer token no numérico largo
         if (!g.nombre) {
-          const cand = cells.find((c) => /[a-zà-ú]{3,}/i.test(c) && !/^\d/.test(c));
+          const cand = cells.find((c: string) => /[a-zà-ú]{3,}/i.test(c) && !/^\d/.test(c));
           if (cand) g.nombre = cand;
         }
         // Rebotes: si solo hay total (rt) y no O/D, mételo como defensivos (preserva el total)
@@ -1000,25 +1021,25 @@ import "../styles/cancha-redesign.css";
       return jugadores;
     }
 
-    const pasteError = document.getElementById("paste-error");
-    const pasteResult = document.getElementById("paste-result");
-    const pasteFail = (m) => { pasteError.textContent = m; pasteError.classList.remove("hidden"); pasteResult.classList.add("hidden"); };
+    const pasteError = $("paste-error");
+    const pasteResult = $("paste-result");
+    const pasteFail = (m: string) => { pasteError.textContent = m; pasteError.classList.remove("hidden"); pasteResult.classList.add("hidden"); };
 
-    document.getElementById("paste-parse").addEventListener("click", () => {
-      const raw = document.getElementById("paste-in").value;
+    $("paste-parse").addEventListener("click", () => {
+      const raw = $("paste-in").value;
       if (!raw.trim()) return pasteFail("Pega el acta en el recuadro.");
-      let jugadores;
+      let jugadores: ReturnType<typeof parsePaste>;
       try { jugadores = parsePaste(raw); }
-      catch (e) { return pasteFail(e.message); }
+      catch (e) { return pasteFail((e as Error).message); }
       pasteError.classList.add("hidden");
       pasteResult.innerHTML =
         `<p class="st-import-hint">${jugadores.length} jugador${jugadores.length === 1 ? "" : "es"} detectado${jugadores.length === 1 ? "" : "s"}. <strong>Toca tu nombre</strong> para rellenar el formulario (revísalo antes de guardar):</p>` +
         `<div class="st-import-players">` +
-        jugadores.map((j, ji) =>
+        jugadores.map((j: any, ji: number) =>
           `<button type="button" class="st-player" data-j="${ji}"><span>${esc(j.dorsal || "·")}</span>${esc(j.nombre)}</button>`
         ).join("") + `</div>`;
       pasteResult.classList.remove("hidden");
-      pasteResult.querySelectorAll(".st-player").forEach((btn) => {
+      pasteResult.querySelectorAll<HTMLElement>(".st-player").forEach((btn) => {
         btn.addEventListener("click", () => {
           fillFromFeb(jugadores[Number(btn.dataset.j)], { fecha: new Date().toISOString().slice(0, 10), rival: "", res: "" }, "paste");
         });
@@ -1026,15 +1047,15 @@ import "../styles/cancha-redesign.css";
     });
 
     // ─────────────────────── perfil ──────────────────────────
-    const inNombre = document.getElementById("p-nombre");
-    const inPos = document.getElementById("p-pos");
+    const inNombre = $("p-nombre");
+    const inPos = $("p-pos");
     inNombre.value = state.perfil.nombre || "";
     inPos.value = state.perfil.posicion || "alero";
     inNombre.addEventListener("change", () => { state.perfil.nombre = inNombre.value.trim(); save(); });
     inPos.addEventListener("change", () => { state.perfil.posicion = inPos.value; save(); render(); });
 
     // ─────────────────── export / import / reset ─────────────
-    document.getElementById("st-export").addEventListener("click", () => {
+    $("st-export").addEventListener("click", () => {
       const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
       const a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
@@ -1042,8 +1063,9 @@ import "../styles/cancha-redesign.css";
       a.click();
       URL.revokeObjectURL(a.href);
     });
-    document.getElementById("st-import-file").addEventListener("change", (ev) => {
-      const file = ev.target.files && ev.target.files[0];
+    $("st-import-file").addEventListener("change", (ev: Event) => {
+      const input = ev.target as HTMLInputElement;
+      const file = input.files && input.files[0];
       if (!file) return;
       const reader = new FileReader();
       reader.onload = () => {
@@ -1062,9 +1084,9 @@ import "../styles/cancha-redesign.css";
         } catch { alert("Ese archivo no parece un export válido de CANCHA.ZAPA Stats."); }
       };
       reader.readAsText(file);
-      ev.target.value = "";
+      input.value = "";
     });
-    document.getElementById("st-reset").addEventListener("click", () => {
+    $("st-reset").addEventListener("click", () => {
       if (!confirm("¿Borrar TODOS tus partidos y perfil? Esto no se puede deshacer.")) return;
       state = { perfil: { nombre: "", posicion: "alero" }, partidos: [], metas: [] };
       save();
@@ -1074,7 +1096,7 @@ import "../styles/cancha-redesign.css";
 
     // "Ver ejemplo": carga partidos de muestra para que un visitante nuevo vea
     // la herramienta funcionando (solo visible en el estado vacío).
-    document.getElementById("st-demo").addEventListener("click", () => {
+    $("st-demo").addEventListener("click", () => {
       state = {
         perfil: { nombre: "Ejemplo", posicion: "base" },
         metas: [{ id: "ts", target: 55 }, { id: "tl", target: 75 }],
@@ -1088,20 +1110,20 @@ import "../styles/cancha-redesign.css";
       save();
       inNombre.value = state.perfil.nombre; inPos.value = state.perfil.posicion;
       render();
-      document.getElementById("st-splits-panel").scrollIntoView({ behavior: "smooth", block: "start" });
+      $("st-splits-panel").scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
     // init objetivos: rellena el select y el valor por defecto
-    const metaTipo = document.getElementById("meta-tipo");
-    const metaTarget = document.getElementById("meta-target");
+    const metaTipo = $("meta-tipo");
+    const metaTarget = $("meta-target");
     metaTipo.innerHTML = Object.entries(META_DEFS).map(([id, d]) => `<option value="${id}">${d.label}</option>`).join("");
     metaTarget.value = String(META_DEFS[metaTipo.value].def);
     metaTipo.addEventListener("change", () => { metaTarget.value = String(META_DEFS[metaTipo.value].def); });
-    document.getElementById("meta-add").addEventListener("click", () => {
+    $("meta-add").addEventListener("click", () => {
       const id = metaTipo.value, target = parseFloat(metaTarget.value);
       if (!META_DEFS[id] || !Number.isFinite(target) || target < 0) return;
       state.metas = state.metas || [];
-      const ex = state.metas.findIndex((m) => m.id === id);
+      const ex = state.metas.findIndex((m: Meta) => m.id === id);
       if (ex >= 0) state.metas[ex].target = target; else state.metas.push({ id, target });
       save(); render();
     });
