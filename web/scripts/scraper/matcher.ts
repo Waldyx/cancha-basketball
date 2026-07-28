@@ -79,6 +79,15 @@ function romanToArabic(tok: string): number | null {
 }
 
 /**
+ * Sinónimos de VARIAS palabras: hay que sustituirlos antes de trocear en tokens.
+ * Algunas tiendas escriben el nombre completo del jugador donde la marca usa las
+ * siglas (Decathlon vende la adidas "AE 1" como "Anthony Edwards 1").
+ */
+const PHRASE_SYNONYMS: [RegExp, string][] = [
+  [/\banthony edwards\b/g, "ae"],
+];
+
+/**
  * Normaliza un string para comparación: quita puntos, guiones → espacio, minúsculas.
  * Además unifica las dos convenciones con las que las tiendas escriben la
  * generación del modelo, y que hacían fallar el match con el catálogo:
@@ -95,7 +104,12 @@ function normalize(s: string): string {
     .replace(/\s+/g, " ")
     .trim();
 
-  return base
+  const conSinonimos = PHRASE_SYNONYMS.reduce(
+    (acc, [re, rep]) => acc.replace(re, rep),
+    base
+  );
+
+  return conSinonimos
     .split(" ")
     .map((tok) => {
       if (tok === "volume") return "vol";

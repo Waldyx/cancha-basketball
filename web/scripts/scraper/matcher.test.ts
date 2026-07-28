@@ -41,6 +41,21 @@ describe("matchesShoe — no confundir el modelo con ruido del título", () => {
   });
 });
 
+// Algunas tiendas usan el nombre largo del jugador donde adidas usa las siglas.
+describe("matchesShoe — alias de modelo (nombre largo del jugador)", () => {
+  it("Decathlon vende la AE 1 como 'Anthony Edwards 1'", () => {
+    expect(
+      matchesShoe("ADIDAS Zapatillas de baloncesto Adulto - Anthony Edwards 1 Low blanco y negro", "Adidas", "AE 1")
+    ).toBe(true);
+  });
+  it("y la AE 2 como 'Anthony Edwards 2'", () => {
+    expect(matchesShoe("adidas Anthony Edwards 2 Basketball Shoes", "Adidas", "AE 2")).toBe(true);
+  });
+  it("pero la generación sigue mandando: Anthony Edwards 2 no es AE 1", () => {
+    expect(matchesShoe("adidas Anthony Edwards 2 Basketball Shoes", "Adidas", "AE 1")).toBe(false);
+  });
+});
+
 describe("unwrapAffiliateUrl — scrapear la tienda, no el redirect de afiliado", () => {
   it("Awin (Decathlon): extrae el destino de ?ued=", () => {
     const dest = "https://www.decathlon.es/es/p/zapatilla-x/372870/m8967856";
