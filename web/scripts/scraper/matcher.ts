@@ -33,7 +33,9 @@ const BRAND_ALIASES: Record<string, string[]> = {
  */
 function stripNoise(s: string): string {
   return s
-    .replace(/\b[a-z]{1,3}\d{3,5}(?:[-\s]?\d{2,3})?\b/gi, " ") // códigos de estilo
+    // Códigos de estilo (AO2372-122, DO1925). Se exigen 4+ dígitos: con 3 se
+    // borraban modelos reales como el Tarmak "SE500", que dejaba de encontrarse.
+    .replace(/\b[a-z]{1,3}\d{4,5}(?:[-\s]?\d{2,3})?\b/gi, " ")
     .replace(/\b(?:eu|uk|us|talla|size)\s*\d{1,2}(?:[.,]\d)?\b/gi, " ") // "EU 45"
     .replace(/\b\d{1,2}(?:[.,]\d)?\s*(?:eu|uk|us)\b/gi, " ") // "45 EU"
     .replace(/\(ps\)|\(gs\)|\(td\)/gi, " "); // segmentos de talla infantil
@@ -89,6 +91,7 @@ function normalize(s: string): string {
     .replace(/[.·]/g, " ")   // MB.04 → MB 04
     .replace(/[-–—]/g, " ")  // All-Pro → All Pro
     .replace(/[''´`]/g, "")  // L'eggs → Legs
+    .replace(/[()[\],/]/g, " ") // "Canaveral 900 (Sarr Edition)" → tokens limpios
     .replace(/\s+/g, " ")
     .trim();
 
@@ -97,7 +100,12 @@ function normalize(s: string): string {
     .map((tok) => {
       if (tok === "volume") return "vol";
       const n = romanToArabic(tok);
-      return n === null ? tok : String(n);
+      if (n !== null) return String(n);
+      // "MB04" → "mb 04", "AE1" → "ae 1": las tiendas pegan la sigla al número
+      // y el catálogo los separa ("MB.04", "AE 1"), así el número obligatorio
+      // sí se encuentra. Se limita a siglas cortas para no partir palabras.
+      const m = tok.match(/^([a-z]{1,3})(\d{1,3})$/);
+      return m ? `${m[1]} ${m[2]}` : tok;
     })
     .join(" ");
 }

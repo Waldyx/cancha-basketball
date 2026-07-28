@@ -47,28 +47,40 @@ export const decathlon: StoreScraper = {
 
       // ── Ficha de producto (/es/p/…): 30 de los 31 enlaces del catálogo ──────
       if (!isSearch) {
-        // El título confirma que la ficha es de la zapa que buscamos (una URL
-        // puede quedar obsoleta y redirigir a otro producto).
-        const titulo = await page
-          .$eval("h1", (el) => el.textContent?.trim() ?? "")
-          .catch(() => "");
-        if (titulo && !matchesShoe(titulo, shoe.marca, shoe.modelo)) {
+        const ld = await page
+          .$$eval('script[type="application/ld+json"]', (nodes) =>
+            nodes.map((n) => n.textContent || "").filter((t) => t.includes('"price"'))
+          )
+          .catch(() => [] as string[]);
+        const ldTexto = ld[0] ?? "";
+
+        // Identidad: el h1 de Decathlon MUCHAS veces omite la marca ("Zapatillas
+        // de baloncesto Adulto - D.O.N ISSUE 7", sin "adidas"), así que validamos
+        // contra h1 + nombre y marca del JSON-LD + <title>. Si ninguno casa, la
+        // ficha es de otro producto (URL obsoleta) y no la damos por buena.
+        const h1 = await page.$eval("h1", (el) => el.textContent?.trim() ?? "").catch(() => "");
+        const docTitle = await page.title().catch(() => "");
+        const ldNombre = (ldTexto.match(/"name"\s*:\s*"([^"]+)"/) || [])[1] ?? "";
+        const ldMarca = (ldTexto.match(/"brand"\s*:\s*(?:\{[^}]*?"name"\s*:\s*)?"([^"]+)"/) || [])[1] ?? "";
+
+        const candidatos = [
+          [ldMarca, ldNombre].filter(Boolean).join(" "),
+          docTitle,
+          h1,
+        ].filter((t) => t.trim().length > 0);
+
+        if (candidatos.length > 0 && !candidatos.some((t) => matchesShoe(t, shoe.marca, shoe.modelo))) {
           return { ...base, disponible: false };
         }
 
         // 1) JSON-LD: el precio canónico del producto de esta página.
-        const ldPrecio = await page
-          .$$eval('script[type="application/ld+json"]', (nodes) =>
-            nodes.map((n) => n.textContent || "").filter((t) => t.includes('"price"'))
-          )
-          .then((textos) => {
-            for (const t of textos) {
-              const m = t.match(/"price"\s*:\s*"?([\d.]+)/);
-              if (m) return parseFloat(m[1]);
-            }
-            return null;
-          })
-          .catch(() => null);
+        const ldPrecio = (() => {
+          for (const t of ld) {
+            const m = t.match(/"price"\s*:\s*"?([\d.]+)/);
+            if (m) return parseFloat(m[1]);
+          }
+          return null;
+        })();
         if (ldPrecio && ldPrecio > 0) {
           return { ...base, precio_actual: ldPrecio, disponible: true };
         }

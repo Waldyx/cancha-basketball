@@ -1,6 +1,46 @@
 import { describe, it, expect } from "vitest";
 import { matchesShoe, unwrapAffiliateUrl } from "./matcher";
 
+// Las tiendas pegan letra+número ("MB04", "AE1") donde el catálogo lo separa
+// ("MB.04", "AE 1"). Sin normalizarlo, el número obligatorio no se encontraba.
+describe("matchesShoe — modelo con letra+número pegados", () => {
+  const right: [string, string, string][] = [
+    ["Zapatillas de baloncesto Adulto - PUMA LaMelo Ball MB04 Low azul", "Puma", "MB.04"],
+    ["adidas AE1 Basketball Shoes", "Adidas", "AE 1"],
+    ["ANTA KT10 Klay Thompson", "Anta", "KT 10"],
+  ];
+  for (const [t, marca, modelo] of right) {
+    it(`"${t.slice(0, 40)}" SÍ es ${marca} ${modelo}`, () => {
+      expect(matchesShoe(t, marca, modelo)).toBe(true);
+    });
+  }
+  it("no confunde generaciones: MB03 no es MB.04", () => {
+    expect(matchesShoe("PUMA LaMelo Ball MB03 Low", "Puma", "MB.04")).toBe(false);
+  });
+});
+
+describe("matchesShoe — no confundir el modelo con ruido del título", () => {
+  it("SE500 es el modelo, no un código de estilo", () => {
+    expect(
+      matchesShoe("TARMAK Zapatillas de baloncesto Adulto SE500 MID blancas", "Decathlon Tarmak", "SE500 Mid")
+    ).toBe(true);
+  });
+  it("sigue descartando códigos de estilo reales (4+ dígitos)", () => {
+    expect(
+      matchesShoe("NIKE Zapatos Air Max 270 (PS) Código AO2372-122 Blanco, 34 EU", "Nike", "Air Max CB 34")
+    ).toBe(false);
+  });
+  it("los paréntesis del modelo no rompen el match", () => {
+    expect(
+      matchesShoe(
+        "KIPSTA Zapatillas de baloncesto de media caña edición Sarr hombre/mujer, Canaveral 900 azul",
+        "Kipsta",
+        "Canaveral 900 (Sarr Edition)"
+      )
+    ).toBe(true);
+  });
+});
+
 describe("unwrapAffiliateUrl — scrapear la tienda, no el redirect de afiliado", () => {
   it("Awin (Decathlon): extrae el destino de ?ued=", () => {
     const dest = "https://www.decathlon.es/es/p/zapatilla-x/372870/m8967856";
