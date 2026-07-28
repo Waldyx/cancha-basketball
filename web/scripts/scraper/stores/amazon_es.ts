@@ -29,6 +29,30 @@ export const amazon_es: StoreScraper = {
         await page.waitForTimeout(800);
       }
 
+      // ── Ficha de producto (/dp/ASIN) ────────────────────────────────────────
+      // No tiene resultados de búsqueda: si esperásemos el selector de listado
+      // daría timeout y la zapa se marcaba "no encontrada" (12 links del catálogo).
+      if (/\/dp\/|\/gp\/product\//.test(scrapeUrl)) {
+        const titulo = await page
+          .$eval("#productTitle", (el) => el.textContent?.trim() ?? "")
+          .catch(() => "");
+        if (!titulo || !matchesShoe(titulo, shoe.marca, shoe.modelo)) {
+          return { ...base, disponible: false };
+        }
+        // El precio vive en distintos contenedores según el tipo de oferta, y el
+        // primer `.a-offscreen` del DOM suele venir VACÍO: recogemos todos los
+        // candidatos en orden y nos quedamos con el primero que parsee.
+        const candidatos = await page
+          .$$eval(
+            "#corePrice_feature_div .a-offscreen, #corePriceDisplay_desktop_feature_div .a-offscreen, #price_inside_buybox, .a-price .a-offscreen",
+            (els) => els.map((el) => el.textContent?.trim() ?? "")
+          )
+          .catch(() => [] as string[]);
+        const precio = candidatos.map((t) => parsePrice(t)).find((p): p is number => p !== null);
+        if (!precio) return { ...base, disponible: false };
+        return { ...base, precio_actual: precio, disponible: true };
+      }
+
       // Esperar resultados de búsqueda
       await page.waitForSelector(
         '[data-component-type="s-search-result"], .s-result-item',

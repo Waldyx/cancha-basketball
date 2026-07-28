@@ -39,15 +39,67 @@ function stripNoise(s: string): string {
     .replace(/\(ps\)|\(gs\)|\(td\)/gi, " "); // segmentos de talla infantil
 }
 
-/** Normaliza un string para comparación: quita puntos, guiones → espacio, minúsculas */
+/**
+ * Tokens que PARECEN romanos pero son tallas de ropa. Sin esta lista, "XL"
+ * (talla) se leería como 40 y colaría en modelos con ese número.
+ */
+const SIZE_LIKE_ROMAN = new Set(["xs", "s", "m", "l", "xl", "xxl", "xxxl", "mm", "cm"]);
+
+const ROMAN_VALUES: Record<string, number> = { i: 1, v: 5, x: 10, l: 50, c: 100, d: 500, m: 1000 };
+
+function arabicToRoman(n: number): string {
+  const tabla: [number, string][] = [
+    [50, "l"], [40, "xl"], [10, "x"], [9, "ix"], [5, "v"], [4, "iv"], [1, "i"],
+  ];
+  let out = "";
+  for (const [val, sym] of tabla) while (n >= val) { out += sym; n -= val; }
+  return out;
+}
+
+/**
+ * Convierte un token romano a su número, o null si no lo es.
+ * Solo acepta romanos CANÓNICOS de 2+ caracteres y hasta 50: las generaciones de
+ * zapatillas van de II a XXXIX (Air Jordan 39). Se valida re-generando el romano
+ * para descartar basura tipo "iiii", "mm" o siglas del título.
+ */
+function romanToArabic(tok: string): number | null {
+  if (tok.length < 2 || SIZE_LIKE_ROMAN.has(tok)) return null;
+  if (!/^[ivxlcdm]+$/.test(tok)) return null;
+  let total = 0;
+  let prev = 0;
+  for (let i = tok.length - 1; i >= 0; i--) {
+    const v = ROMAN_VALUES[tok[i]];
+    if (v < prev) total -= v;
+    else { total += v; prev = v; }
+  }
+  if (total < 2 || total > 50) return null;
+  return arabicToRoman(total) === tok ? total : null;
+}
+
+/**
+ * Normaliza un string para comparación: quita puntos, guiones → espacio, minúsculas.
+ * Además unifica las dos convenciones con las que las tiendas escriben la
+ * generación del modelo, y que hacían fallar el match con el catálogo:
+ *  - Romanos → arábigos:  "Lebron Xxii" → "lebron 22"  (nuestro dato: "LeBron 22")
+ *  - "Volume" → "vol":    "Harden Volume 9" → "harden vol 9"
+ */
 function normalize(s: string): string {
-  return s
+  const base = s
     .toLowerCase()
     .replace(/[.·]/g, " ")   // MB.04 → MB 04
     .replace(/[-–—]/g, " ")  // All-Pro → All Pro
     .replace(/[''´`]/g, "")  // L'eggs → Legs
     .replace(/\s+/g, " ")
     .trim();
+
+  return base
+    .split(" ")
+    .map((tok) => {
+      if (tok === "volume") return "vol";
+      const n = romanToArabic(tok);
+      return n === null ? tok : String(n);
+    })
+    .join(" ");
 }
 
 /** Palabras significativas (> 1 char y no stopwords de ropa deportiva) */
@@ -157,4 +209,44 @@ export function parsePrice(raw: string): number | null {
 
 export function today(): string {
   return new Date().toISOString().slice(0, 10);
+}
+
+/** Hosts de redirección de afiliado y el parámetro donde llevan la URL destino. */
+const AFFILIATE_HOSTS: [RegExp, string[]][] = [
+  [/(^|\.)awin1\.com$/i, ["ued", "p"]],
+  [/(^|\.)tradetracker\.net$/i, ["u", "r"]],
+  [/(^|\.)fuikaomar\.es$/i, ["u"]],
+];
+
+/**
+ * Devuelve la URL real de la tienda que hay dentro de un enlace de afiliado.
+ * Si no es un wrapper conocido, devuelve la URL tal cual.
+ *
+ * Importante para el scraper por dos motivos:
+ *  1. Al pedir el wrapper, la red de afiliación responde con su página de
+ *     tracking/redirect — no con el HTML de la tienda. Los 31 links de Decathlon
+ *     (100% envueltos en Awin) fallaban siempre por esto.
+ *  2. Cada fetch del wrapper cuenta como CLICK de afiliado. Scrapear a diario
+ *     inflaba clicks que jamás convierten y hunde el EPC de la cuenta.
+ *
+ * La URL de afiliado original NO se toca en los datos: el merge (`resolveUrl`)
+ * conserva el wrapper y solo sustituye el destino.
+ */
+export function unwrapAffiliateUrl(url: string): string {
+  try {
+    const parsed = new URL(url);
+    for (const [host, params] of AFFILIATE_HOSTS) {
+      if (!host.test(parsed.hostname)) continue;
+      for (const p of params) {
+        const dest = parsed.searchParams.get(p);
+        if (dest && /^https?:\/\//i.test(dest)) {
+          // Puede venir doblemente codificada (wrapper dentro de wrapper).
+          return unwrapAffiliateUrl(dest);
+        }
+      }
+    }
+    return url;
+  } catch {
+    return url;
+  }
 }

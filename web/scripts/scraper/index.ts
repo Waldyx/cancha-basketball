@@ -19,6 +19,7 @@ import type { BrowserContext } from "playwright-core";
 import { writePreciosJson } from "./output.js";
 import type { ScrapeResult, ShoeRef, StoreScraper } from "./types.js";
 import { getComision } from "./commissions.js";
+import { unwrapAffiliateUrl } from "./matcher.js";
 
 // Store scrapers
 import { amazon_es } from "./stores/amazon_es.js";
@@ -268,7 +269,11 @@ async function main() {
 
       try {
         process.stdout.write(`  🌐 ${link.tienda.padEnd(16)} `);
-        const result = await scraper.scrape(page, link.url, shoe_ref);
+        // Scrapear SIEMPRE la URL real de la tienda, no el redirect de afiliado:
+        // el wrapper devuelve la página de tracking (no el HTML del producto) y
+        // además cada visita cuenta como click de afiliado que nunca convierte.
+        // El wrapper original se conserva en los datos (lo re-aplica el merge).
+        const result = await scraper.scrape(page, unwrapAffiliateUrl(link.url), shoe_ref);
 
         if (
           result.disponible &&

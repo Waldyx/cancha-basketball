@@ -1,5 +1,28 @@
 import { describe, it, expect } from "vitest";
-import { matchesShoe } from "./matcher";
+import { matchesShoe, unwrapAffiliateUrl } from "./matcher";
+
+describe("unwrapAffiliateUrl — scrapear la tienda, no el redirect de afiliado", () => {
+  it("Awin (Decathlon): extrae el destino de ?ued=", () => {
+    const dest = "https://www.decathlon.es/es/p/zapatilla-x/372870/m8967856";
+    const wrap = `https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=${encodeURIComponent(dest)}`;
+    expect(unwrapAffiliateUrl(wrap)).toBe(dest);
+  });
+
+  it("TradeTracker/FuikaOmar: extrae el destino de ?u=", () => {
+    const dest = "https://www.fuikaomar.es/zapatillas-nike-kd-18.html";
+    const wrap = `https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=${encodeURIComponent(dest)}`;
+    expect(unwrapAffiliateUrl(wrap)).toBe(dest);
+  });
+
+  it("deja intactas las URLs que no son wrapper", () => {
+    const u = "https://www.amazon.es/s?k=nike+lebron+22&tag=canchazapa-21";
+    expect(unwrapAffiliateUrl(u)).toBe(u);
+  });
+
+  it("no rompe con una URL inválida", () => {
+    expect(unwrapAffiliateUrl("no-es-una-url")).toBe("no-es-una-url");
+  });
+});
 
 // Casos reales recogidos con cloakbrowser (títulos de Amazon ES). Blindan el matcher
 // contra los falsos positivos que metían productos equivocados en precios.json.
@@ -35,6 +58,38 @@ describe("matchesShoe — debe ACEPTar la zapa correcta", () => {
   for (const [titulo, marca, modelo] of right) {
     it(`"${titulo.slice(0, 40)}" SÍ es ${marca} ${modelo}`, () => {
       expect(matchesShoe(titulo, marca, modelo)).toBe(true);
+    });
+  }
+});
+
+// Amazon escribe la generación en ROMANOS ("Lebron Xxii") y "Volume" en vez de
+// "Vol". Nuestro catálogo usa arábigos ("LeBron 22") y "Vol", así que el matcher
+// rechazaba el producto correcto: era la causa de ~90% de fallos en amazon_es.
+describe("matchesShoe — romanos y sinónimos (títulos reales de Amazon)", () => {
+  const right: [string, string, string][] = [
+    ["NIKE Lebron Xxii SneakerHombre", "Nike", "LeBron 22"],
+    ["adidas Performance Harden Volume 9 Cyber Metallic Hombre", "Adidas", "Harden Vol 9"],
+    ["adidas Harden Volume 9 Basketball Shoes ZapatillasUnisex Adulto", "Adidas", "Harden Vol 9"],
+    ["NIKE Air Jordan XXXVIII Low Zapatillas", "Jordan", "Air Jordan 38"],
+    ["Nike Kobe IX Elite Low Protro", "Nike", "Kobe 9 Elite Low Protro"],
+  ];
+  for (const [titulo, marca, modelo] of right) {
+    it(`"${titulo.slice(0, 42)}" SÍ es ${marca} ${modelo}`, () => {
+      expect(matchesShoe(titulo, marca, modelo)).toBe(true);
+    });
+  }
+
+  // El romano NO puede volverse comodín: otra generación sigue siendo otra zapa,
+  // y las tallas tipo "XL" no deben interpretarse como el número 40.
+  const wrong: [string, string, string][] = [
+    ["NIKE Lebron Xxi Zapatillas Hombre", "Nike", "LeBron 22"],
+    ["NIKE Lebron Xxii SneakerHombre", "Nike", "LeBron 21"],
+    ["adidas Harden Volume 8 Basketball Shoes", "Adidas", "Harden Vol 9"],
+    ["Nike Camiseta de baloncesto talla XL", "Nike", "Air Max CB 40"],
+  ];
+  for (const [titulo, marca, modelo] of wrong) {
+    it(`"${titulo.slice(0, 42)}" NO es ${marca} ${modelo}`, () => {
+      expect(matchesShoe(titulo, marca, modelo)).toBe(false);
     });
   }
 });
