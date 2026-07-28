@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T09:08:34.746Z",
+  "generated_at": "2026-07-28T08:04:48.810Z",
   "shoes": {
     "puma-mb-04": {
       "links_compra": [
@@ -15,7 +15,14 @@
           "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-mb-04-lo-team-unisex/312174?swatch=02",
           "precio_actual": 69,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
+        },
+        {
+          "tienda": "amazon_es",
+          "url": "https://www.amazon.es/PUMA-Mb-04-Phoenix-baloncesto-hombre/dp/B0FR698BGR/ref=sr_1_1",
+          "precio_actual": 151.33,
+          "disponible": true,
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -33,7 +40,14 @@
           "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-puma-x-pokemon-all-pro-nitro-2-pikachu-unisex/312843?search=true&amp;swatch=01",
           "precio_actual": 112,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
+        },
+        {
+          "tienda": "amazon_es",
+          "url": "https://www.amazon.es/PUMA-All-pro-hombre-Alerta-amarilla/dp/B0DLTF4CZ1/ref=sr_1_1",
+          "precio_actual": 105.05,
+          "disponible": true,
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "atmosfera_sport",
@@ -58,14 +72,14 @@
           "url": "https://www.nike.com/es/t/precision-8-low-zapatillas-de-baloncesto-hombre-l5giREmS/IH1104-006",
           "precio_actual": 74.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "footlocker_es",
-          "url": "https://www.footlocker.es/es/product/nike-precision-8-low-hombre-zapatillas/314110272904.html",
+          "url": "https://www.footlocker.es/es/product/nike-precision-8-low-hombre-zapatillas/314110271104.html",
           "precio_actual": 74.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "atmosfera_sport",
@@ -83,7 +97,7 @@
           "url": "https://www.nike.com/es/t/luka-5-zapatillas-de-baloncesto-VgheA11M/HV8082-002",
           "precio_actual": 90.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "elcorteingles_es",
@@ -111,7 +125,7 @@
           "url": "https://www.footlocker.es/es/product/jordan-luka-5-hombre-zapatillas/314109791104.html",
           "precio_actual": 139.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -136,14 +150,14 @@
           "url": "https://www.nike.com/es/t/lebron-witness-9-zapatillas-de-baloncesto-EDmIL9g4/HQ8034-009",
           "precio_actual": 109.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "footlocker_es",
-          "url": "https://www.footlocker.es/es/product/nike-lebron-witness-9-hombre-zapatillas/314109757204.html",
-          "precio_actual": 109.99,
+          "url": "https://www.footlocker.es/es/product/nike-lebron-9-hombre-zapatillas/314109321704.html",
+          "precio_actual": 75,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "atmosfera_sport",
@@ -168,14 +182,14 @@
           "url": "https://www.nike.com/es/t/ja-3-animal-pack-zapatillas-de-baloncesto-Cpzx6c5U/IU6793-800",
           "precio_actual": 134.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "footlocker_es",
           "url": "https://www.footlocker.es/es/product/nike-ja-3-hombre-zapatillas/314109865304.html",
           "precio_actual": 134.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -186,7 +200,7 @@
           "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-puma-x-fast--furious-mb-05-miami-unisex/314021?search=true&amp;swatch=01",
           "precio_actual": 108,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "fuikaomar_es",
@@ -211,7 +225,7 @@
           "url": "https://www.footlocker.es/es/product/converse-shai-001-hombre-zapatillas/314101626704.html",
           "precio_actual": 129.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -223,13 +237,6 @@
           "precio_actual": 97.99,
           "disponible": true,
           "ultima_verificacion": "2026-06-29"
-        },
-        {
-          "tienda": "ua_es",
-          "url": "https://www.underarmour.es/es-es/TWFzdGVyUHJvZHVjdDo2MDA3Njcw",
-          "precio_actual": 140,
-          "disponible": true,
-          "ultima_verificacion": "2026-07-27"
         },
         {
           "tienda": "basket4ballers_es",
@@ -255,13 +262,6 @@
           "precio_actual": 52.5,
           "disponible": true,
           "ultima_verificacion": "2026-06-12"
-        },
-        {
-          "tienda": "ua_es",
-          "url": "https://www.underarmour.es/es-es/TWFzdGVyUHJvZHVjdDozMDI4NTEy",
-          "precio_actual": 75,
-          "disponible": true,
-          "ultima_verificacion": "2026-07-27"
         }
       ]
     },
@@ -291,7 +291,7 @@
       "links_compra": [
         {
           "tienda": "atmosfera_sport",
-          "url": "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.awin1.com%2Fcread.php%3Fawinmid%3D26255%26awinaffid%3D2908587%26ued%3Dhttps%253A%252F%252Fwww.awin1.com%252Fcread.php%253Fawinmid%253D26255%2526awinaffid%253D2908587%2526ued%253Dhttps%25253A%25252F%25252Fwww.awin1.com%25252Fcread.php%25253Fawinmid%25253D26255%252526awinaffid%25253D2908587%252526ued%25253Dhttps%2525253A%2525252F%2525252Fwww.awin1.com%2525252Fcread.php%2525253Fawinmid%2525253D26255%25252526awinaffid%2525253D2908587%25252526ued%2525253Dhttps%252525253A%252525252F%252525252Fwww.awin1.com%252525252Fcread.php%252525253Fawinmid%252525253D26255%2525252526awinaffid%252525253D2908587%2525252526ued%252525253Dhttps%25252525253A%25252525252F%25252525252Fwww.awin1.com%25252525252Fcread.php%25252525253Fawinmid%25252525253D26255%252525252526awinaffid%25252525253D2908587%252525252526ued%25252525253Dhttps%2525252525253A%2525252525252F%2525252525252Fwww.awin1.com%2525252525252Fcread.php%2525252525253Fawinmid%2525252525253D26255%25252525252526awinaffid%2525252525253D2908587%25252525252526ued%2525252525253Dhttps%252525252525253A%252525252525252F%252525252525252Fwww.awin1.com%252525252525252Fcread.php%252525252525253Fawinmid%252525252525253D26255%2525252525252526awinaffid%252525252525253D2908587%2525252525252526ued%252525252525253Dhttps%25252525252525253A%25252525252525252F%25252525252525252Fwww.awin1.com%25252525252525252Fcread.php%25252525252525253Fawinmid%25252525252525253D26255%252525252525252526awinaffid%25252525252525253D2908587%252525252525252526ued%25252525252525253Dhttps%2525252525252525253A%2525252525252525252F%2525252525252525252Fwww.awin1.com%2525252525252525252Fcread.php%2525252525252525253Fawinmid%2525252525252525253D26255%25252525252525252526awinaffid%2525252525252525253D2908587%25252525252525252526ued%2525252525252525253Dhttps%252525252525252525253A%252525252525252525252F%252525252525252525252Fwww.awin1.com%252525252525252525252Fcread.php%252525252525252525253Fawinmid%252525252525252525253D26255%2525252525252525252526awinaffid%252525252525252525253D2908587%2525252525252525252526ued%252525252525252525253Dhttps%25252525252525252525253A%25252525252525252525252F%25252525252525252525252Fwww.awin1.com%25252525252525252525252Fcread.php%25252525252525252525253Fawinmid%25252525252525252525253D26255%252525252525252525252526awinaffid%25252525252525252525253D2908587%252525252525252525252526ued%25252525252525252525253Dhttps%2525252525252525252525253A%2525252525252525252525252F%2525252525252525252525252Fwww.awin1.com%2525252525252525252525252Fcread.php%2525252525252525252525253Fawinmid%2525252525252525252525253D26255%25252525252525252525252526awinaffid%2525252525252525252525253D2908587%25252525252525252525252526ued%2525252525252525252525253Dhttps%252525252525252525252525253A%252525252525252525252525252F%252525252525252525252525252Fwww.awin1.com%252525252525252525252525252Fcread.php%252525252525252525252525253Fawinmid%252525252525252525252525253D26255%2525252525252525252525252526awinaffid%252525252525252525252525253D2908587%2525252525252525252525252526ued%252525252525252525252525253Dhttps%25252525252525252525252525253A%25252525252525252525252525252F%25252525252525252525252525252Fwww.awin1.com%25252525252525252525252525252Fcread.php%25252525252525252525252525253Fawinmid%25252525252525252525252525253D26255%252525252525252525252525252526awinaffid%25252525252525252525252525253D2908587%252525252525252525252525252526ued%25252525252525252525252525253Dhttps%2525252525252525252525252525253A%2525252525252525252525252525252F%2525252525252525252525252525252Fwww.awin1.com%2525252525252525252525252525252Fcread.php%2525252525252525252525252525253Fawinmid%2525252525252525252525252525253D26255%25252525252525252525252525252526awinaffid%2525252525252525252525252525253D2908587%25252525252525252525252525252526ued%2525252525252525252525252525253Dhttps%252525252525252525252525252525253A%252525252525252525252525252525252F%252525252525252525252525252525252Fwww.atmosferasport.es%252525252525252525252525252525252Funder-armour%252525252525252525252525252525252Fzapatillas-de-baloncesto-under-armour-curry-3z-25-hombre-blanco-162401.html",
+          "url": "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.awin1.com%2Fcread.php%3Fawinmid%3D26255%26awinaffid%3D2908587%26ued%3Dhttps%253A%252F%252Fwww.awin1.com%252Fcread.php%253Fawinmid%253D26255%2526awinaffid%253D2908587%2526ued%253Dhttps%25253A%25252F%25252Fwww.awin1.com%25252Fcread.php%25253Fawinmid%25253D26255%252526awinaffid%25253D2908587%252526ued%25253Dhttps%2525253A%2525252F%2525252Fwww.awin1.com%2525252Fcread.php%2525253Fawinmid%2525253D26255%25252526awinaffid%2525253D2908587%25252526ued%2525253Dhttps%252525253A%252525252F%252525252Fwww.awin1.com%252525252Fcread.php%252525253Fawinmid%252525253D26255%2525252526awinaffid%252525253D2908587%2525252526ued%252525253Dhttps%25252525253A%25252525252F%25252525252Fwww.awin1.com%25252525252Fcread.php%25252525253Fawinmid%25252525253D26255%252525252526awinaffid%25252525253D2908587%252525252526ued%25252525253Dhttps%2525252525253A%2525252525252F%2525252525252Fwww.awin1.com%2525252525252Fcread.php%2525252525253Fawinmid%2525252525253D26255%25252525252526awinaffid%2525252525253D2908587%25252525252526ued%2525252525253Dhttps%252525252525253A%252525252525252F%252525252525252Fwww.awin1.com%252525252525252Fcread.php%252525252525253Fawinmid%252525252525253D26255%2525252525252526awinaffid%252525252525253D2908587%2525252525252526ued%252525252525253Dhttps%25252525252525253A%25252525252525252F%25252525252525252Fwww.awin1.com%25252525252525252Fcread.php%25252525252525253Fawinmid%25252525252525253D26255%252525252525252526awinaffid%25252525252525253D2908587%252525252525252526ued%25252525252525253Dhttps%2525252525252525253A%2525252525252525252F%2525252525252525252Fwww.awin1.com%2525252525252525252Fcread.php%2525252525252525253Fawinmid%2525252525252525253D26255%25252525252525252526awinaffid%2525252525252525253D2908587%25252525252525252526ued%2525252525252525253Dhttps%252525252525252525253A%252525252525252525252F%252525252525252525252Fwww.awin1.com%252525252525252525252Fcread.php%252525252525252525253Fawinmid%252525252525252525253D26255%2525252525252525252526awinaffid%252525252525252525253D2908587%2525252525252525252526ued%252525252525252525253Dhttps%25252525252525252525253A%25252525252525252525252F%25252525252525252525252Fwww.awin1.com%25252525252525252525252Fcread.php%25252525252525252525253Fawinmid%25252525252525252525253D26255%252525252525252525252526awinaffid%25252525252525252525253D2908587%252525252525252525252526ued%25252525252525252525253Dhttps%2525252525252525252525253A%2525252525252525252525252F%2525252525252525252525252Fwww.awin1.com%2525252525252525252525252Fcread.php%2525252525252525252525253Fawinmid%2525252525252525252525253D26255%25252525252525252525252526awinaffid%2525252525252525252525253D2908587%25252525252525252525252526ued%2525252525252525252525253Dhttps%252525252525252525252525253A%252525252525252525252525252F%252525252525252525252525252Fwww.awin1.com%252525252525252525252525252Fcread.php%252525252525252525252525253Fawinmid%252525252525252525252525253D26255%2525252525252525252525252526awinaffid%252525252525252525252525253D2908587%2525252525252525252525252526ued%252525252525252525252525253Dhttps%25252525252525252525252525253A%25252525252525252525252525252F%25252525252525252525252525252Fwww.awin1.com%25252525252525252525252525252Fcread.php%25252525252525252525252525253Fawinmid%25252525252525252525252525253D26255%252525252525252525252525252526awinaffid%25252525252525252525252525253D2908587%252525252525252525252525252526ued%25252525252525252525252525253Dhttps%2525252525252525252525252525253A%2525252525252525252525252525252F%2525252525252525252525252525252Fwww.awin1.com%2525252525252525252525252525252Fcread.php%2525252525252525252525252525253Fawinmid%2525252525252525252525252525253D26255%25252525252525252525252525252526awinaffid%2525252525252525252525252525253D2908587%25252525252525252525252525252526ued%2525252525252525252525252525253Dhttps%252525252525252525252525252525253A%252525252525252525252525252525252F%252525252525252525252525252525252Fwww.awin1.com%252525252525252525252525252525252Fcread.php%252525252525252525252525252525253Fawinmid%252525252525252525252525252525253D26255%2525252525252525252525252525252526awinaffid%252525252525252525252525252525253D2908587%2525252525252525252525252525252526ued%252525252525252525252525252525253Dhttps%25252525252525252525252525252525253A%25252525252525252525252525252525252F%25252525252525252525252525252525252Fwww.atmosferasport.es%25252525252525252525252525252525252Funder-armour%25252525252525252525252525252525252Fzapatillas-de-baloncesto-under-armour-curry-3z-25-hombre-blanco-162401.html",
           "precio_actual": 59.5,
           "disponible": true,
           "ultima_verificacion": "2026-06-12"
@@ -348,10 +348,10 @@
         },
         {
           "tienda": "footlocker_es",
-          "url": "https://www.footlocker.es/es/product/nike-kd-18-hombre-zapatillas/314109441304.html",
-          "precio_actual": 105,
+          "url": "https://www.footlocker.es/es/product/nike-kd-18-thunder-and-reign-hombre-zapatillas/314105119904.html",
+          "precio_actual": 110,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -376,7 +376,7 @@
           "url": "https://www.nike.com/es/t/luka-77-zapatillas-de-baloncesto-BERU1e7j/IF1610-500",
           "precio_actual": 99.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -397,6 +397,13 @@
           "ultima_verificacion": "2026-06-12"
         },
         {
+          "tienda": "nike_es",
+          "url": "https://www.nike.com/es/t/book-2-x-mcdonalds-zapatillas-de-baloncesto-Z5XbhugV/IR6443-100",
+          "precio_actual": 159.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-07-28"
+        },
+        {
           "tienda": "basket4ballers_es",
           "url": "https://www.basket4ballers.com/es/zapatillas-de-baloncesto/59325-nike-book-2-the-phoenix-ib6687-700.html",
           "precio_actual": 121,
@@ -412,14 +419,14 @@
           "url": "https://www.footlocker.es/es/product/nike-sabrina-3-hombre-zapatillas/314106243604.html",
           "precio_actual": 129.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "nike_es",
           "url": "https://www.nike.com/gb/t/sabrina-3-basketball-shoes-UrtEcG8G/HF2881-303",
           "precio_actual": 83.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "fuikaomar_es",
@@ -440,6 +447,13 @@
           "ultima_verificacion": "2026-06-29"
         },
         {
+          "tienda": "amazon_es",
+          "url": "https://www.amazon.es/NIKE-Jordan-Tatum-Hq4614-Zapatillas/dp/B0GFHM6SXQ/ref=sr_1_1",
+          "precio_actual": 115.03,
+          "disponible": true,
+          "ultima_verificacion": "2026-07-28"
+        },
+        {
           "tienda": "basketballemotion_es",
           "url": "https://www.basketballemotion.com/es/comprar/zapatillas/jordan/tatum-4-green-glow-green-glow-black",
           "precio_actual": 89.99,
@@ -451,7 +465,7 @@
           "url": "https://www.nike.com/es/t/tatum-4-zapatillas-de-baloncesto-Bbr6tfuA/HQ4614-101",
           "precio_actual": 90.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -462,7 +476,7 @@
           "url": "https://www.nike.com/es/t/giannis-immortality-5-zapatillas-de-baloncesto-5HW4SGTy/IM5130-700",
           "precio_actual": 89.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "elcorteingles_es",
@@ -494,7 +508,7 @@
           "url": "https://www.nike.com/es/t/gt-cut-academy-2-zapatillas-de-baloncesto-KR3H9TWw/HV9774-001",
           "precio_actual": 99.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -505,7 +519,7 @@
           "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-stewie-4-most-wanted-para-mujer/312744?search=true&swatch=01",
           "precio_actual": 96,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -516,7 +530,7 @@
           "url": "https://www.footlocker.es/es/product/nike-kobe-viii-protro-hombre-zapatillas/314109662404.html",
           "precio_actual": 189.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "snipes_eu",
@@ -542,10 +556,10 @@
       "links_compra": [
         {
           "tienda": "footlocker_es",
-          "url": "https://www.footlocker.es/es/product/jordan-zion-4-hombre-zapatillas/314106126304.html",
-          "precio_actual": 85,
+          "url": "https://www.footlocker.es/es/product/jordan-zion-4-hombre-zapatillas/314109478504.html",
+          "precio_actual": 70,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -560,10 +574,10 @@
         },
         {
           "tienda": "adidas_es",
-          "url": "https://www.adidas.es/zapatilla-harden-volume-9/JS1028.html",
-          "precio_actual": 96,
+          "url": "https://www.adidas.es/harden-volumen-9/JQ9137.html",
+          "precio_actual": 112,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "atmosfera_sport",
@@ -609,7 +623,7 @@
           "url": "https://www.footlocker.es/es/product/jordan-luka-4-hombre-zapatillas/314109477704.html",
           "precio_actual": 80,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -642,17 +656,17 @@
         },
         {
           "tienda": "adidas_es",
-          "url": "https://www.adidas.es/zapatilla-harden-volume-10/JQ9422.html",
-          "precio_actual": 112,
+          "url": "https://www.adidas.es/zapatilla-harden-volume-10/KI1608.html",
+          "precio_actual": 160,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "footlocker_es",
           "url": "https://www.footlocker.es/es/product/adidas-harden-volume-10-hombre-zapatillas/314110268704.html",
           "precio_actual": 159.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "fuikaomar_es",
@@ -847,10 +861,10 @@
         },
         {
           "tienda": "adidas_es",
-          "url": "https://www.adidas.es/zapatilla-anthony-edwards-1-low/JQ6140.html",
-          "precio_actual": 77,
+          "url": "https://www.adidas.es/zapatilla-anthony-edwards-1-low/JQ6133.html",
+          "precio_actual": 49.5,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "atmosfera_sport",
@@ -863,6 +877,13 @@
     },
     "jordan-one-take-5": {
       "links_compra": [
+        {
+          "tienda": "amazon_es",
+          "url": "https://www.amazon.es/Jordan-Zapatillas-b%C3%A1squetbol-Hombre-Legend/dp/B0DMGTTRYF/ref=sr_1_1",
+          "precio_actual": 68.36,
+          "disponible": true,
+          "ultima_verificacion": "2026-07-28"
+        },
         {
           "tienda": "basket4ballers_es",
           "url": "https://www.basket4ballers.com/es/47290-jordan-one-take-5-pink-lilac-fq3098-100.html",
@@ -885,6 +906,13 @@
     },
     "adidas-dame-certified": {
       "links_compra": [
+        {
+          "tienda": "amazon_es",
+          "url": "https://www.amazon.es/adidas-Zapatillas-Lillard-Certified-Unisex/dp/B0CYN6L7VK/ref=sr_1_2",
+          "precio_actual": 33.46,
+          "disponible": true,
+          "ultima_verificacion": "2026-07-28"
+        },
         {
           "tienda": "basket4ballers_es",
           "url": "https://www.basket4ballers.com/es/promo/41082-adidas-dame-certified-royal-id1811.html",
@@ -923,7 +951,7 @@
           "url": "https://www.adidas.es/d.o.n.-issue-7/JS1301.html",
           "precio_actual": 60,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "atmosfera_sport",
@@ -973,7 +1001,7 @@
           "url": "https://www.footlocker.es/es/product/nike-zoom-vomero-5-hombre-zapatillas/314216617804.html",
           "precio_actual": 100,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "basket4ballers_es",
@@ -1034,11 +1062,18 @@
     "puma-scoot-zeros": {
       "links_compra": [
         {
+          "tienda": "amazon_es",
+          "url": "https://www.amazon.es/PUMA-Scoot-Zeros-baloncesto-Aguamarina/dp/B0DLTCPS7R/ref=sr_1_1",
+          "precio_actual": 78.25,
+          "disponible": true,
+          "ultima_verificacion": "2026-07-28"
+        },
+        {
           "tienda": "footlocker_es",
           "url": "https://www.footlocker.es/es/product/puma-scoot-zeros-iii-hombre-zapatillas/314109580804.html",
           "precio_actual": 60,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -1081,18 +1116,18 @@
           "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-all-pro-nitro-2-unisex/312839?swatch=02",
           "precio_actual": 65,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "footlocker_es",
           "url": "https://www.footlocker.es/es/product/puma-all-pro-nitro-2-hombre-zapatillas/314109230004.html",
           "precio_actual": 50,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "atmosfera_sport",
-          "url": "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.awin1.com%2Fcread.php%3Fawinmid%3D26255%26awinaffid%3D2908587%26ued%3Dhttps%253A%252F%252Fwww.awin1.com%252Fcread.php%253Fawinmid%253D26255%2526awinaffid%253D2908587%2526ued%253Dhttps%25253A%25252F%25252Fwww.awin1.com%25252Fcread.php%25253Fawinmid%25253D26255%252526awinaffid%25253D2908587%252526ued%25253Dhttps%2525253A%2525252F%2525252Fwww.awin1.com%2525252Fcread.php%2525253Fawinmid%2525253D26255%25252526awinaffid%2525253D2908587%25252526ued%2525253Dhttps%252525253A%252525252F%252525252Fwww.awin1.com%252525252Fcread.php%252525253Fawinmid%252525253D26255%2525252526awinaffid%252525253D2908587%2525252526ued%252525253Dhttps%25252525253A%25252525252F%25252525252Fwww.awin1.com%25252525252Fcread.php%25252525253Fawinmid%25252525253D26255%252525252526awinaffid%25252525253D2908587%252525252526ued%25252525253Dhttps%2525252525253A%2525252525252F%2525252525252Fwww.awin1.com%2525252525252Fcread.php%2525252525253Fawinmid%2525252525253D26255%25252525252526awinaffid%2525252525253D2908587%25252525252526ued%2525252525253Dhttps%252525252525253A%252525252525252F%252525252525252Fwww.awin1.com%252525252525252Fcread.php%252525252525253Fawinmid%252525252525253D26255%2525252525252526awinaffid%252525252525253D2908587%2525252525252526ued%252525252525253Dhttps%25252525252525253A%25252525252525252F%25252525252525252Fwww.awin1.com%25252525252525252Fcread.php%25252525252525253Fawinmid%25252525252525253D26255%252525252525252526awinaffid%25252525252525253D2908587%252525252525252526ued%25252525252525253Dhttps%2525252525252525253A%2525252525252525252F%2525252525252525252Fwww.awin1.com%2525252525252525252Fcread.php%2525252525252525253Fawinmid%2525252525252525253D26255%25252525252525252526awinaffid%2525252525252525253D2908587%25252525252525252526ued%2525252525252525253Dhttps%252525252525252525253A%252525252525252525252F%252525252525252525252Fwww.awin1.com%252525252525252525252Fcread.php%252525252525252525253Fawinmid%252525252525252525253D26255%2525252525252525252526awinaffid%252525252525252525253D2908587%2525252525252525252526ued%252525252525252525253Dhttps%25252525252525252525253A%25252525252525252525252F%25252525252525252525252Fwww.awin1.com%25252525252525252525252Fcread.php%25252525252525252525253Fawinmid%25252525252525252525253D26255%252525252525252525252526awinaffid%25252525252525252525253D2908587%252525252525252525252526ued%25252525252525252525253Dhttps%2525252525252525252525253A%2525252525252525252525252F%2525252525252525252525252Fwww.awin1.com%2525252525252525252525252Fcread.php%2525252525252525252525253Fawinmid%2525252525252525252525253D26255%25252525252525252525252526awinaffid%2525252525252525252525253D2908587%25252525252525252525252526ued%2525252525252525252525253Dhttps%252525252525252525252525253A%252525252525252525252525252F%252525252525252525252525252Fwww.awin1.com%252525252525252525252525252Fcread.php%252525252525252525252525253Fawinmid%252525252525252525252525253D26255%2525252525252525252525252526awinaffid%252525252525252525252525253D2908587%2525252525252525252525252526ued%252525252525252525252525253Dhttps%25252525252525252525252525253A%25252525252525252525252525252F%25252525252525252525252525252Fwww.awin1.com%25252525252525252525252525252Fcread.php%25252525252525252525252525253Fawinmid%25252525252525252525252525253D26255%252525252525252525252525252526awinaffid%25252525252525252525252525253D2908587%252525252525252525252525252526ued%25252525252525252525252525253Dhttps%2525252525252525252525252525253A%2525252525252525252525252525252F%2525252525252525252525252525252Fwww.awin1.com%2525252525252525252525252525252Fcread.php%2525252525252525252525252525253Fawinmid%2525252525252525252525252525253D26255%25252525252525252525252525252526awinaffid%2525252525252525252525252525253D2908587%25252525252525252525252525252526ued%2525252525252525252525252525253Dhttps%252525252525252525252525252525253A%252525252525252525252525252525252F%252525252525252525252525252525252Fwww.atmosferasport.es%252525252525252525252525252525252Fpuma%252525252525252525252525252525252Fzapatillas-de-baloncesto-puma-all-pro-nitro-2electric-orchid-pum-unisex-158163.html",
+          "url": "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.awin1.com%2Fcread.php%3Fawinmid%3D26255%26awinaffid%3D2908587%26ued%3Dhttps%253A%252F%252Fwww.awin1.com%252Fcread.php%253Fawinmid%253D26255%2526awinaffid%253D2908587%2526ued%253Dhttps%25253A%25252F%25252Fwww.awin1.com%25252Fcread.php%25253Fawinmid%25253D26255%252526awinaffid%25253D2908587%252526ued%25253Dhttps%2525253A%2525252F%2525252Fwww.awin1.com%2525252Fcread.php%2525253Fawinmid%2525253D26255%25252526awinaffid%2525253D2908587%25252526ued%2525253Dhttps%252525253A%252525252F%252525252Fwww.awin1.com%252525252Fcread.php%252525253Fawinmid%252525253D26255%2525252526awinaffid%252525253D2908587%2525252526ued%252525253Dhttps%25252525253A%25252525252F%25252525252Fwww.awin1.com%25252525252Fcread.php%25252525253Fawinmid%25252525253D26255%252525252526awinaffid%25252525253D2908587%252525252526ued%25252525253Dhttps%2525252525253A%2525252525252F%2525252525252Fwww.awin1.com%2525252525252Fcread.php%2525252525253Fawinmid%2525252525253D26255%25252525252526awinaffid%2525252525253D2908587%25252525252526ued%2525252525253Dhttps%252525252525253A%252525252525252F%252525252525252Fwww.awin1.com%252525252525252Fcread.php%252525252525253Fawinmid%252525252525253D26255%2525252525252526awinaffid%252525252525253D2908587%2525252525252526ued%252525252525253Dhttps%25252525252525253A%25252525252525252F%25252525252525252Fwww.awin1.com%25252525252525252Fcread.php%25252525252525253Fawinmid%25252525252525253D26255%252525252525252526awinaffid%25252525252525253D2908587%252525252525252526ued%25252525252525253Dhttps%2525252525252525253A%2525252525252525252F%2525252525252525252Fwww.awin1.com%2525252525252525252Fcread.php%2525252525252525253Fawinmid%2525252525252525253D26255%25252525252525252526awinaffid%2525252525252525253D2908587%25252525252525252526ued%2525252525252525253Dhttps%252525252525252525253A%252525252525252525252F%252525252525252525252Fwww.awin1.com%252525252525252525252Fcread.php%252525252525252525253Fawinmid%252525252525252525253D26255%2525252525252525252526awinaffid%252525252525252525253D2908587%2525252525252525252526ued%252525252525252525253Dhttps%25252525252525252525253A%25252525252525252525252F%25252525252525252525252Fwww.awin1.com%25252525252525252525252Fcread.php%25252525252525252525253Fawinmid%25252525252525252525253D26255%252525252525252525252526awinaffid%25252525252525252525253D2908587%252525252525252525252526ued%25252525252525252525253Dhttps%2525252525252525252525253A%2525252525252525252525252F%2525252525252525252525252Fwww.awin1.com%2525252525252525252525252Fcread.php%2525252525252525252525253Fawinmid%2525252525252525252525253D26255%25252525252525252525252526awinaffid%2525252525252525252525253D2908587%25252525252525252525252526ued%2525252525252525252525253Dhttps%252525252525252525252525253A%252525252525252525252525252F%252525252525252525252525252Fwww.awin1.com%252525252525252525252525252Fcread.php%252525252525252525252525253Fawinmid%252525252525252525252525253D26255%2525252525252525252525252526awinaffid%252525252525252525252525253D2908587%2525252525252525252525252526ued%252525252525252525252525253Dhttps%25252525252525252525252525253A%25252525252525252525252525252F%25252525252525252525252525252Fwww.awin1.com%25252525252525252525252525252Fcread.php%25252525252525252525252525253Fawinmid%25252525252525252525252525253D26255%252525252525252525252525252526awinaffid%25252525252525252525252525253D2908587%252525252525252525252525252526ued%25252525252525252525252525253Dhttps%2525252525252525252525252525253A%2525252525252525252525252525252F%2525252525252525252525252525252Fwww.awin1.com%2525252525252525252525252525252Fcread.php%2525252525252525252525252525253Fawinmid%2525252525252525252525252525253D26255%25252525252525252525252525252526awinaffid%2525252525252525252525252525253D2908587%25252525252525252525252525252526ued%2525252525252525252525252525253Dhttps%252525252525252525252525252525253A%252525252525252525252525252525252F%252525252525252525252525252525252Fwww.awin1.com%252525252525252525252525252525252Fcread.php%252525252525252525252525252525253Fawinmid%252525252525252525252525252525253D26255%2525252525252525252525252525252526awinaffid%252525252525252525252525252525253D2908587%2525252525252525252525252525252526ued%252525252525252525252525252525253Dhttps%25252525252525252525252525252525253A%25252525252525252525252525252525252F%25252525252525252525252525252525252Fwww.atmosferasport.es%25252525252525252525252525252525252Fpuma%25252525252525252525252525252525252Fzapatillas-de-baloncesto-puma-all-pro-nitro-2electric-orchid-pum-unisex-158163.html",
           "precio_actual": 77.99,
           "disponible": true,
           "ultima_verificacion": "2026-06-12"
@@ -1109,6 +1144,13 @@
           "ultima_verificacion": "2026-06-29"
         },
         {
+          "tienda": "amazon_es",
+          "url": "https://www.amazon.es/Nike-Giannis-Immortality-Zapatillas-Baloncesto/dp/B0F3LYRBPC/ref=sr_1_1",
+          "precio_actual": 102.25,
+          "disponible": true,
+          "ultima_verificacion": "2026-07-28"
+        },
+        {
           "tienda": "basketballemotion_es",
           "url": "https://www.basketballemotion.com/es/comprar/zapatillas/nike/giannis-immortality-4-white-black-volt-wolf-grey-cool-grey-total-or",
           "precio_actual": 67.99,
@@ -1120,7 +1162,7 @@
           "url": "https://www.footlocker.es/es/product/nike-giannis-immortality-4-hombre-zapatillas/314109647504.html",
           "precio_actual": 114.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -1131,7 +1173,7 @@
           "url": "https://www.footlocker.es/es/product/converse-all-star-bb-shift-cx-hombre-zapatillas/314100918904.html",
           "precio_actual": 70,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -1142,7 +1184,7 @@
           "url": "https://www.nike.com/es/t/precision-7-zapatillas-de-baloncesto-hombre-sgMnSD/FN4322-101",
           "precio_actual": 52.49,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "elcorteingles_es",
@@ -1153,7 +1195,7 @@
         },
         {
           "tienda": "atmosfera_sport",
-          "url": "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.awin1.com%2Fcread.php%3Fawinmid%3D26255%26awinaffid%3D2908587%26ued%3Dhttps%253A%252F%252Fwww.awin1.com%252Fcread.php%253Fawinmid%253D26255%2526awinaffid%253D2908587%2526ued%253Dhttps%25253A%25252F%25252Fwww.awin1.com%25252Fcread.php%25253Fawinmid%25253D26255%252526awinaffid%25253D2908587%252526ued%25253Dhttps%2525253A%2525252F%2525252Fwww.awin1.com%2525252Fcread.php%2525253Fawinmid%2525253D26255%25252526awinaffid%2525253D2908587%25252526ued%2525253Dhttps%252525253A%252525252F%252525252Fwww.awin1.com%252525252Fcread.php%252525253Fawinmid%252525253D26255%2525252526awinaffid%252525253D2908587%2525252526ued%252525253Dhttps%25252525253A%25252525252F%25252525252Fwww.awin1.com%25252525252Fcread.php%25252525253Fawinmid%25252525253D26255%252525252526awinaffid%25252525253D2908587%252525252526ued%25252525253Dhttps%2525252525253A%2525252525252F%2525252525252Fwww.awin1.com%2525252525252Fcread.php%2525252525253Fawinmid%2525252525253D26255%25252525252526awinaffid%2525252525253D2908587%25252525252526ued%2525252525253Dhttps%252525252525253A%252525252525252F%252525252525252Fwww.awin1.com%252525252525252Fcread.php%252525252525253Fawinmid%252525252525253D26255%2525252525252526awinaffid%252525252525253D2908587%2525252525252526ued%252525252525253Dhttps%25252525252525253A%25252525252525252F%25252525252525252Fwww.awin1.com%25252525252525252Fcread.php%25252525252525253Fawinmid%25252525252525253D26255%252525252525252526awinaffid%25252525252525253D2908587%252525252525252526ued%25252525252525253Dhttps%2525252525252525253A%2525252525252525252F%2525252525252525252Fwww.awin1.com%2525252525252525252Fcread.php%2525252525252525253Fawinmid%2525252525252525253D26255%25252525252525252526awinaffid%2525252525252525253D2908587%25252525252525252526ued%2525252525252525253Dhttps%252525252525252525253A%252525252525252525252F%252525252525252525252Fwww.awin1.com%252525252525252525252Fcread.php%252525252525252525253Fawinmid%252525252525252525253D26255%2525252525252525252526awinaffid%252525252525252525253D2908587%2525252525252525252526ued%252525252525252525253Dhttps%25252525252525252525253A%25252525252525252525252F%25252525252525252525252Fwww.awin1.com%25252525252525252525252Fcread.php%25252525252525252525253Fawinmid%25252525252525252525253D26255%252525252525252525252526awinaffid%25252525252525252525253D2908587%252525252525252525252526ued%25252525252525252525253Dhttps%2525252525252525252525253A%2525252525252525252525252F%2525252525252525252525252Fwww.awin1.com%2525252525252525252525252Fcread.php%2525252525252525252525253Fawinmid%2525252525252525252525253D26255%25252525252525252525252526awinaffid%2525252525252525252525253D2908587%25252525252525252525252526ued%2525252525252525252525253Dhttps%252525252525252525252525253A%252525252525252525252525252F%252525252525252525252525252Fwww.awin1.com%252525252525252525252525252Fcread.php%252525252525252525252525253Fawinmid%252525252525252525252525253D26255%2525252525252525252525252526awinaffid%252525252525252525252525253D2908587%2525252525252525252525252526ued%252525252525252525252525253Dhttps%25252525252525252525252525253A%25252525252525252525252525252F%25252525252525252525252525252Fwww.awin1.com%25252525252525252525252525252Fcread.php%25252525252525252525252525253Fawinmid%25252525252525252525252525253D26255%252525252525252525252525252526awinaffid%25252525252525252525252525253D2908587%252525252525252525252525252526ued%25252525252525252525252525253Dhttps%2525252525252525252525252525253A%2525252525252525252525252525252F%2525252525252525252525252525252Fwww.awin1.com%2525252525252525252525252525252Fcread.php%2525252525252525252525252525253Fawinmid%2525252525252525252525252525253D26255%25252525252525252525252525252526awinaffid%2525252525252525252525252525253D2908587%25252525252525252525252525252526ued%2525252525252525252525252525253Dhttps%252525252525252525252525252525253A%252525252525252525252525252525252F%252525252525252525252525252525252Fwww.atmosferasport.es%252525252525252525252525252525252Fnike%252525252525252525252525252525252Fzapatillas-de-baloncesto-nike-precision-7-basketball-hombre-negro-gris-165953.html",
+          "url": "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.awin1.com%2Fcread.php%3Fawinmid%3D26255%26awinaffid%3D2908587%26ued%3Dhttps%253A%252F%252Fwww.awin1.com%252Fcread.php%253Fawinmid%253D26255%2526awinaffid%253D2908587%2526ued%253Dhttps%25253A%25252F%25252Fwww.awin1.com%25252Fcread.php%25253Fawinmid%25253D26255%252526awinaffid%25253D2908587%252526ued%25253Dhttps%2525253A%2525252F%2525252Fwww.awin1.com%2525252Fcread.php%2525253Fawinmid%2525253D26255%25252526awinaffid%2525253D2908587%25252526ued%2525253Dhttps%252525253A%252525252F%252525252Fwww.awin1.com%252525252Fcread.php%252525253Fawinmid%252525253D26255%2525252526awinaffid%252525253D2908587%2525252526ued%252525253Dhttps%25252525253A%25252525252F%25252525252Fwww.awin1.com%25252525252Fcread.php%25252525253Fawinmid%25252525253D26255%252525252526awinaffid%25252525253D2908587%252525252526ued%25252525253Dhttps%2525252525253A%2525252525252F%2525252525252Fwww.awin1.com%2525252525252Fcread.php%2525252525253Fawinmid%2525252525253D26255%25252525252526awinaffid%2525252525253D2908587%25252525252526ued%2525252525253Dhttps%252525252525253A%252525252525252F%252525252525252Fwww.awin1.com%252525252525252Fcread.php%252525252525253Fawinmid%252525252525253D26255%2525252525252526awinaffid%252525252525253D2908587%2525252525252526ued%252525252525253Dhttps%25252525252525253A%25252525252525252F%25252525252525252Fwww.awin1.com%25252525252525252Fcread.php%25252525252525253Fawinmid%25252525252525253D26255%252525252525252526awinaffid%25252525252525253D2908587%252525252525252526ued%25252525252525253Dhttps%2525252525252525253A%2525252525252525252F%2525252525252525252Fwww.awin1.com%2525252525252525252Fcread.php%2525252525252525253Fawinmid%2525252525252525253D26255%25252525252525252526awinaffid%2525252525252525253D2908587%25252525252525252526ued%2525252525252525253Dhttps%252525252525252525253A%252525252525252525252F%252525252525252525252Fwww.awin1.com%252525252525252525252Fcread.php%252525252525252525253Fawinmid%252525252525252525253D26255%2525252525252525252526awinaffid%252525252525252525253D2908587%2525252525252525252526ued%252525252525252525253Dhttps%25252525252525252525253A%25252525252525252525252F%25252525252525252525252Fwww.awin1.com%25252525252525252525252Fcread.php%25252525252525252525253Fawinmid%25252525252525252525253D26255%252525252525252525252526awinaffid%25252525252525252525253D2908587%252525252525252525252526ued%25252525252525252525253Dhttps%2525252525252525252525253A%2525252525252525252525252F%2525252525252525252525252Fwww.awin1.com%2525252525252525252525252Fcread.php%2525252525252525252525253Fawinmid%2525252525252525252525253D26255%25252525252525252525252526awinaffid%2525252525252525252525253D2908587%25252525252525252525252526ued%2525252525252525252525253Dhttps%252525252525252525252525253A%252525252525252525252525252F%252525252525252525252525252Fwww.awin1.com%252525252525252525252525252Fcread.php%252525252525252525252525253Fawinmid%252525252525252525252525253D26255%2525252525252525252525252526awinaffid%252525252525252525252525253D2908587%2525252525252525252525252526ued%252525252525252525252525253Dhttps%25252525252525252525252525253A%25252525252525252525252525252F%25252525252525252525252525252Fwww.awin1.com%25252525252525252525252525252Fcread.php%25252525252525252525252525253Fawinmid%25252525252525252525252525253D26255%252525252525252525252525252526awinaffid%25252525252525252525252525253D2908587%252525252525252525252525252526ued%25252525252525252525252525253Dhttps%2525252525252525252525252525253A%2525252525252525252525252525252F%2525252525252525252525252525252Fwww.awin1.com%2525252525252525252525252525252Fcread.php%2525252525252525252525252525253Fawinmid%2525252525252525252525252525253D26255%25252525252525252525252525252526awinaffid%2525252525252525252525252525253D2908587%25252525252525252525252525252526ued%2525252525252525252525252525253Dhttps%252525252525252525252525252525253A%252525252525252525252525252525252F%252525252525252525252525252525252Fwww.awin1.com%252525252525252525252525252525252Fcread.php%252525252525252525252525252525253Fawinmid%252525252525252525252525252525253D26255%2525252525252525252525252525252526awinaffid%252525252525252525252525252525253D2908587%2525252525252525252525252525252526ued%252525252525252525252525252525253Dhttps%25252525252525252525252525252525253A%25252525252525252525252525252525252F%25252525252525252525252525252525252Fwww.atmosferasport.es%25252525252525252525252525252525252Fnike%25252525252525252525252525252525252Fzapatillas-de-baloncesto-nike-precision-7-basketball-hombre-negro-gris-165953.html",
           "precio_actual": 52.49,
           "disponible": true,
           "ultima_verificacion": "2026-06-12"
@@ -1179,6 +1221,13 @@
           "precio_actual": 120,
           "disponible": true,
           "ultima_verificacion": "2026-05-26"
+        },
+        {
+          "tienda": "amazon_es",
+          "url": "https://www.amazon.es/Reebok-QUESTION-Sneaker-Unisex-Adulto/dp/B0DTPWKGCJ/ref=sr_1_3",
+          "precio_actual": 47.46,
+          "disponible": true,
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -1240,7 +1289,7 @@
           "url": "https://www.footlocker.es/es/product/jordan-3-retro-true-blue-hombre-zapatillas/314109852104.html",
           "precio_actual": 209.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "snipes_eu",
@@ -1258,7 +1307,7 @@
           "url": "https://www.footlocker.es/es/product/jordan-retro-6-infrared-salesman-primaria-y-colegio-zapatillas/316706668304.html",
           "precio_actual": 149.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "snipes_eu",
@@ -1266,6 +1315,13 @@
           "precio_actual": 150,
           "disponible": true,
           "ultima_verificacion": "2026-06-12"
+        },
+        {
+          "tienda": "amazon_es",
+          "url": "https://www.amazon.es/JORDAN-Zapatos-Hombre-Reino-Unido/dp/B079QKNK9Q/ref=sr_1_1",
+          "precio_actual": 275,
+          "disponible": true,
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -1290,21 +1346,14 @@
           "url": "https://www.footlocker.es/es/product/jordan-retro-11-university-blue-hombre-zapatillas/314109632704.html",
           "precio_actual": 165,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
-        },
-        {
-          "tienda": "jd_sports_es",
-          "url": "https://www.jdsports.es/product/blanco-jordan-air-11-retro-low-university-blue/19745762_jdsportses/",
-          "precio_actual": 200,
-          "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/Retro-Jordan-Jubilee-25th-por/dp/B08QCD8KJD/ref=sr_1_1",
           "precio_actual": 350,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -1315,7 +1364,7 @@
           "url": "https://www.amazon.es/Jordan-Retro-Obsidian-CZ0790-400-azul/dp/B0F4NZ3KZM/ref=sr_1_2",
           "precio_actual": 183.64,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -1330,35 +1379,28 @@
         },
         {
           "tienda": "footlocker_es",
-          "url": "https://www.footlocker.es/es/product/nike-air-force-1-low-hombre-zapatillas/314101996404.html",
-          "precio_actual": 119.99,
+          "url": "https://www.footlocker.es/es/product/nike-air-force-1-low-hombre-zapatillas/314109645904.html",
+          "precio_actual": 85,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "nike_es",
           "url": "https://www.nike.com/es/t/air-force-1-07-zapatillas-hombre-n8juM1H2/CW2288-111",
           "precio_actual": 119.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
     "puma-clyde-all-pro": {
       "links_compra": [
         {
-          "tienda": "amazon_es",
-          "url": "https://www.amazon.es/PUMA-Hoops-Polar-Express-Nitro/dp/B0DLTGCMJJ/ref=sr_1_2",
-          "precio_actual": 75.66,
-          "disponible": true,
-          "ultima_verificacion": "2026-07-27"
-        },
-        {
           "tienda": "footlocker_es",
           "url": "https://www.footlocker.es/es/product/puma-all-pro-nitro-2-hombre-zapatillas/314109230004.html",
           "precio_actual": 50,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -1384,13 +1426,6 @@
           "precio_actual": 170,
           "disponible": true,
           "ultima_verificacion": "2026-06-12"
-        },
-        {
-          "tienda": "amazon_es",
-          "url": "https://www.amazon.es/Air-Jordan-Retro-308497-White-tour/dp/B0C53QY671/ref=sr_1_6",
-          "precio_actual": 234,
-          "disponible": true,
-          "ultima_verificacion": "2026-07-27"
         }
       ]
     },
@@ -1409,10 +1444,10 @@
       "links_compra": [
         {
           "tienda": "footlocker_es",
-          "url": "https://www.footlocker.es/es/product/nike-air-max-tuned-1-hombre-zapatillas/314218246404.html",
+          "url": "https://www.footlocker.es/es/product/nike-air-max-tuned-1-hombre-zapatillas/314218250604.html",
           "precio_actual": 150,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -1434,11 +1469,18 @@
           "url": "https://www.adidas.es/zapatilla-ownthegame-3.0/JS2180.html",
           "precio_actual": 35.75,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
+        },
+        {
+          "tienda": "amazon_es",
+          "url": "https://www.amazon.es/adidas-Zapatos-Ownthegame-Hombre-Plateado/dp/B0F1XG42NZ/ref=sr_1_2",
+          "precio_actual": 42.86,
+          "disponible": true,
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "atmosfera_sport",
-          "url": "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.awin1.com%2Fcread.php%3Fawinmid%3D26255%26awinaffid%3D2908587%26ued%3Dhttps%253A%252F%252Fwww.awin1.com%252Fcread.php%253Fawinmid%253D26255%2526awinaffid%253D2908587%2526ued%253Dhttps%25253A%25252F%25252Fwww.awin1.com%25252Fcread.php%25253Fawinmid%25253D26255%252526awinaffid%25253D2908587%252526ued%25253Dhttps%2525253A%2525252F%2525252Fwww.awin1.com%2525252Fcread.php%2525253Fawinmid%2525253D26255%25252526awinaffid%2525253D2908587%25252526ued%2525253Dhttps%252525253A%252525252F%252525252Fwww.awin1.com%252525252Fcread.php%252525253Fawinmid%252525253D26255%2525252526awinaffid%252525253D2908587%2525252526ued%252525253Dhttps%25252525253A%25252525252F%25252525252Fwww.awin1.com%25252525252Fcread.php%25252525253Fawinmid%25252525253D26255%252525252526awinaffid%25252525253D2908587%252525252526ued%25252525253Dhttps%2525252525253A%2525252525252F%2525252525252Fwww.awin1.com%2525252525252Fcread.php%2525252525253Fawinmid%2525252525253D26255%25252525252526awinaffid%2525252525253D2908587%25252525252526ued%2525252525253Dhttps%252525252525253A%252525252525252F%252525252525252Fwww.awin1.com%252525252525252Fcread.php%252525252525253Fawinmid%252525252525253D26255%2525252525252526awinaffid%252525252525253D2908587%2525252525252526ued%252525252525253Dhttps%25252525252525253A%25252525252525252F%25252525252525252Fwww.awin1.com%25252525252525252Fcread.php%25252525252525253Fawinmid%25252525252525253D26255%252525252525252526awinaffid%25252525252525253D2908587%252525252525252526ued%25252525252525253Dhttps%2525252525252525253A%2525252525252525252F%2525252525252525252Fwww.awin1.com%2525252525252525252Fcread.php%2525252525252525253Fawinmid%2525252525252525253D26255%25252525252525252526awinaffid%2525252525252525253D2908587%25252525252525252526ued%2525252525252525253Dhttps%252525252525252525253A%252525252525252525252F%252525252525252525252Fwww.awin1.com%252525252525252525252Fcread.php%252525252525252525253Fawinmid%252525252525252525253D26255%2525252525252525252526awinaffid%252525252525252525253D2908587%2525252525252525252526ued%252525252525252525253Dhttps%25252525252525252525253A%25252525252525252525252F%25252525252525252525252Fwww.awin1.com%25252525252525252525252Fcread.php%25252525252525252525253Fawinmid%25252525252525252525253D26255%252525252525252525252526awinaffid%25252525252525252525253D2908587%252525252525252525252526ued%25252525252525252525253Dhttps%2525252525252525252525253A%2525252525252525252525252F%2525252525252525252525252Fwww.awin1.com%2525252525252525252525252Fcread.php%2525252525252525252525253Fawinmid%2525252525252525252525253D26255%25252525252525252525252526awinaffid%2525252525252525252525253D2908587%25252525252525252525252526ued%2525252525252525252525253Dhttps%252525252525252525252525253A%252525252525252525252525252F%252525252525252525252525252Fwww.awin1.com%252525252525252525252525252Fcread.php%252525252525252525252525253Fawinmid%252525252525252525252525253D26255%2525252525252525252525252526awinaffid%252525252525252525252525253D2908587%2525252525252525252525252526ued%252525252525252525252525253Dhttps%25252525252525252525252525253A%25252525252525252525252525252F%25252525252525252525252525252Fwww.awin1.com%25252525252525252525252525252Fcread.php%25252525252525252525252525253Fawinmid%25252525252525252525252525253D26255%252525252525252525252525252526awinaffid%25252525252525252525252525253D2908587%252525252525252525252525252526ued%25252525252525252525252525253Dhttps%2525252525252525252525252525253A%2525252525252525252525252525252F%2525252525252525252525252525252Fwww.awin1.com%2525252525252525252525252525252Fcread.php%2525252525252525252525252525253Fawinmid%2525252525252525252525252525253D26255%25252525252525252525252525252526awinaffid%2525252525252525252525252525253D2908587%25252525252525252525252525252526ued%2525252525252525252525252525253Dhttps%252525252525252525252525252525253A%252525252525252525252525252525252F%252525252525252525252525252525252Fwww.atmosferasport.es%252525252525252525252525252525252Fadidas%252525252525252525252525252525252Fzapatillas-de-baloncesto-adidas-ownthegame-30-hombre-negro-negro-limluc-160464.html",
+          "url": "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.awin1.com%2Fcread.php%3Fawinmid%3D26255%26awinaffid%3D2908587%26ued%3Dhttps%253A%252F%252Fwww.awin1.com%252Fcread.php%253Fawinmid%253D26255%2526awinaffid%253D2908587%2526ued%253Dhttps%25253A%25252F%25252Fwww.awin1.com%25252Fcread.php%25253Fawinmid%25253D26255%252526awinaffid%25253D2908587%252526ued%25253Dhttps%2525253A%2525252F%2525252Fwww.awin1.com%2525252Fcread.php%2525253Fawinmid%2525253D26255%25252526awinaffid%2525253D2908587%25252526ued%2525253Dhttps%252525253A%252525252F%252525252Fwww.awin1.com%252525252Fcread.php%252525253Fawinmid%252525253D26255%2525252526awinaffid%252525253D2908587%2525252526ued%252525253Dhttps%25252525253A%25252525252F%25252525252Fwww.awin1.com%25252525252Fcread.php%25252525253Fawinmid%25252525253D26255%252525252526awinaffid%25252525253D2908587%252525252526ued%25252525253Dhttps%2525252525253A%2525252525252F%2525252525252Fwww.awin1.com%2525252525252Fcread.php%2525252525253Fawinmid%2525252525253D26255%25252525252526awinaffid%2525252525253D2908587%25252525252526ued%2525252525253Dhttps%252525252525253A%252525252525252F%252525252525252Fwww.awin1.com%252525252525252Fcread.php%252525252525253Fawinmid%252525252525253D26255%2525252525252526awinaffid%252525252525253D2908587%2525252525252526ued%252525252525253Dhttps%25252525252525253A%25252525252525252F%25252525252525252Fwww.awin1.com%25252525252525252Fcread.php%25252525252525253Fawinmid%25252525252525253D26255%252525252525252526awinaffid%25252525252525253D2908587%252525252525252526ued%25252525252525253Dhttps%2525252525252525253A%2525252525252525252F%2525252525252525252Fwww.awin1.com%2525252525252525252Fcread.php%2525252525252525253Fawinmid%2525252525252525253D26255%25252525252525252526awinaffid%2525252525252525253D2908587%25252525252525252526ued%2525252525252525253Dhttps%252525252525252525253A%252525252525252525252F%252525252525252525252Fwww.awin1.com%252525252525252525252Fcread.php%252525252525252525253Fawinmid%252525252525252525253D26255%2525252525252525252526awinaffid%252525252525252525253D2908587%2525252525252525252526ued%252525252525252525253Dhttps%25252525252525252525253A%25252525252525252525252F%25252525252525252525252Fwww.awin1.com%25252525252525252525252Fcread.php%25252525252525252525253Fawinmid%25252525252525252525253D26255%252525252525252525252526awinaffid%25252525252525252525253D2908587%252525252525252525252526ued%25252525252525252525253Dhttps%2525252525252525252525253A%2525252525252525252525252F%2525252525252525252525252Fwww.awin1.com%2525252525252525252525252Fcread.php%2525252525252525252525253Fawinmid%2525252525252525252525253D26255%25252525252525252525252526awinaffid%2525252525252525252525253D2908587%25252525252525252525252526ued%2525252525252525252525253Dhttps%252525252525252525252525253A%252525252525252525252525252F%252525252525252525252525252Fwww.awin1.com%252525252525252525252525252Fcread.php%252525252525252525252525253Fawinmid%252525252525252525252525253D26255%2525252525252525252525252526awinaffid%252525252525252525252525253D2908587%2525252525252525252525252526ued%252525252525252525252525253Dhttps%25252525252525252525252525253A%25252525252525252525252525252F%25252525252525252525252525252Fwww.awin1.com%25252525252525252525252525252Fcread.php%25252525252525252525252525253Fawinmid%25252525252525252525252525253D26255%252525252525252525252525252526awinaffid%25252525252525252525252525253D2908587%252525252525252525252525252526ued%25252525252525252525252525253Dhttps%2525252525252525252525252525253A%2525252525252525252525252525252F%2525252525252525252525252525252Fwww.awin1.com%2525252525252525252525252525252Fcread.php%2525252525252525252525252525253Fawinmid%2525252525252525252525252525253D26255%25252525252525252525252525252526awinaffid%2525252525252525252525252525253D2908587%25252525252525252525252525252526ued%2525252525252525252525252525253Dhttps%252525252525252525252525252525253A%252525252525252525252525252525252F%252525252525252525252525252525252Fwww.awin1.com%252525252525252525252525252525252Fcread.php%252525252525252525252525252525253Fawinmid%252525252525252525252525252525253D26255%2525252525252525252525252525252526awinaffid%252525252525252525252525252525253D2908587%2525252525252525252525252525252526ued%252525252525252525252525252525253Dhttps%25252525252525252525252525252525253A%25252525252525252525252525252525252F%25252525252525252525252525252525252Fwww.atmosferasport.es%25252525252525252525252525252525252Fadidas%25252525252525252525252525252525252Fzapatillas-de-baloncesto-adidas-ownthegame-30-hombre-negro-negro-limluc-160464.html",
           "precio_actual": 52,
           "disponible": true,
           "ultima_verificacion": "2026-06-12"
@@ -1452,25 +1494,25 @@
           "url": "https://www.adidas.es/zapatilla-dame-x/JP8635.html",
           "precio_actual": 42,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "footlocker_es",
           "url": "https://www.footlocker.es/es/product/adidas-dame-x-hombre-zapatillas/314109538604.html",
           "precio_actual": 89.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "amazon_es",
-          "url": "https://www.amazon.es/adidas-Lillard-Certified-Trainers-Zapatos/dp/B0CKY1K5H7/ref=sr_1_2",
-          "precio_actual": 45.37,
+          "url": "https://www.amazon.es/adidas-Lillard-Certified-Trainers-Zapatos/dp/B0CKY1K737/ref=sr_1_3",
+          "precio_actual": 40.29,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "atmosfera_sport",
-          "url": "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.awin1.com%2Fcread.php%3Fawinmid%3D26255%26awinaffid%3D2908587%26ued%3Dhttps%253A%252F%252Fwww.awin1.com%252Fcread.php%253Fawinmid%253D26255%2526awinaffid%253D2908587%2526ued%253Dhttps%25253A%25252F%25252Fwww.awin1.com%25252Fcread.php%25253Fawinmid%25253D26255%252526awinaffid%25253D2908587%252526ued%25253Dhttps%2525253A%2525252F%2525252Fwww.awin1.com%2525252Fcread.php%2525253Fawinmid%2525253D26255%25252526awinaffid%2525253D2908587%25252526ued%2525253Dhttps%252525253A%252525252F%252525252Fwww.awin1.com%252525252Fcread.php%252525253Fawinmid%252525253D26255%2525252526awinaffid%252525253D2908587%2525252526ued%252525253Dhttps%25252525253A%25252525252F%25252525252Fwww.awin1.com%25252525252Fcread.php%25252525253Fawinmid%25252525253D26255%252525252526awinaffid%25252525253D2908587%252525252526ued%25252525253Dhttps%2525252525253A%2525252525252F%2525252525252Fwww.awin1.com%2525252525252Fcread.php%2525252525253Fawinmid%2525252525253D26255%25252525252526awinaffid%2525252525253D2908587%25252525252526ued%2525252525253Dhttps%252525252525253A%252525252525252F%252525252525252Fwww.awin1.com%252525252525252Fcread.php%252525252525253Fawinmid%252525252525253D26255%2525252525252526awinaffid%252525252525253D2908587%2525252525252526ued%252525252525253Dhttps%25252525252525253A%25252525252525252F%25252525252525252Fwww.awin1.com%25252525252525252Fcread.php%25252525252525253Fawinmid%25252525252525253D26255%252525252525252526awinaffid%25252525252525253D2908587%252525252525252526ued%25252525252525253Dhttps%2525252525252525253A%2525252525252525252F%2525252525252525252Fwww.awin1.com%2525252525252525252Fcread.php%2525252525252525253Fawinmid%2525252525252525253D26255%25252525252525252526awinaffid%2525252525252525253D2908587%25252525252525252526ued%2525252525252525253Dhttps%252525252525252525253A%252525252525252525252F%252525252525252525252Fwww.awin1.com%252525252525252525252Fcread.php%252525252525252525253Fawinmid%252525252525252525253D26255%2525252525252525252526awinaffid%252525252525252525253D2908587%2525252525252525252526ued%252525252525252525253Dhttps%25252525252525252525253A%25252525252525252525252F%25252525252525252525252Fwww.awin1.com%25252525252525252525252Fcread.php%25252525252525252525253Fawinmid%25252525252525252525253D26255%252525252525252525252526awinaffid%25252525252525252525253D2908587%252525252525252525252526ued%25252525252525252525253Dhttps%2525252525252525252525253A%2525252525252525252525252F%2525252525252525252525252Fwww.awin1.com%2525252525252525252525252Fcread.php%2525252525252525252525253Fawinmid%2525252525252525252525253D26255%25252525252525252525252526awinaffid%2525252525252525252525253D2908587%25252525252525252525252526ued%2525252525252525252525253Dhttps%252525252525252525252525253A%252525252525252525252525252F%252525252525252525252525252Fwww.awin1.com%252525252525252525252525252Fcread.php%252525252525252525252525253Fawinmid%252525252525252525252525253D26255%2525252525252525252525252526awinaffid%252525252525252525252525253D2908587%2525252525252525252525252526ued%252525252525252525252525253Dhttps%25252525252525252525252525253A%25252525252525252525252525252F%25252525252525252525252525252Fwww.awin1.com%25252525252525252525252525252Fcread.php%25252525252525252525252525253Fawinmid%25252525252525252525252525253D26255%252525252525252525252525252526awinaffid%25252525252525252525252525253D2908587%252525252525252525252525252526ued%25252525252525252525252525253Dhttps%2525252525252525252525252525253A%2525252525252525252525252525252F%2525252525252525252525252525252Fwww.awin1.com%2525252525252525252525252525252Fcread.php%2525252525252525252525252525253Fawinmid%2525252525252525252525252525253D26255%25252525252525252525252525252526awinaffid%2525252525252525252525252525253D2908587%25252525252525252525252525252526ued%2525252525252525252525252525253Dhttps%252525252525252525252525252525253A%252525252525252525252525252525252F%252525252525252525252525252525252Fwww.atmosferasport.es%252525252525252525252525252525252Fadidas%252525252525252525252525252525252Fzapatillas-de-baloncesto-adidas-dame-x-negro-143979.html",
+          "url": "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.awin1.com%2Fcread.php%3Fawinmid%3D26255%26awinaffid%3D2908587%26ued%3Dhttps%253A%252F%252Fwww.awin1.com%252Fcread.php%253Fawinmid%253D26255%2526awinaffid%253D2908587%2526ued%253Dhttps%25253A%25252F%25252Fwww.awin1.com%25252Fcread.php%25253Fawinmid%25253D26255%252526awinaffid%25253D2908587%252526ued%25253Dhttps%2525253A%2525252F%2525252Fwww.awin1.com%2525252Fcread.php%2525253Fawinmid%2525253D26255%25252526awinaffid%2525253D2908587%25252526ued%2525253Dhttps%252525253A%252525252F%252525252Fwww.awin1.com%252525252Fcread.php%252525253Fawinmid%252525253D26255%2525252526awinaffid%252525253D2908587%2525252526ued%252525253Dhttps%25252525253A%25252525252F%25252525252Fwww.awin1.com%25252525252Fcread.php%25252525253Fawinmid%25252525253D26255%252525252526awinaffid%25252525253D2908587%252525252526ued%25252525253Dhttps%2525252525253A%2525252525252F%2525252525252Fwww.awin1.com%2525252525252Fcread.php%2525252525253Fawinmid%2525252525253D26255%25252525252526awinaffid%2525252525253D2908587%25252525252526ued%2525252525253Dhttps%252525252525253A%252525252525252F%252525252525252Fwww.awin1.com%252525252525252Fcread.php%252525252525253Fawinmid%252525252525253D26255%2525252525252526awinaffid%252525252525253D2908587%2525252525252526ued%252525252525253Dhttps%25252525252525253A%25252525252525252F%25252525252525252Fwww.awin1.com%25252525252525252Fcread.php%25252525252525253Fawinmid%25252525252525253D26255%252525252525252526awinaffid%25252525252525253D2908587%252525252525252526ued%25252525252525253Dhttps%2525252525252525253A%2525252525252525252F%2525252525252525252Fwww.awin1.com%2525252525252525252Fcread.php%2525252525252525253Fawinmid%2525252525252525253D26255%25252525252525252526awinaffid%2525252525252525253D2908587%25252525252525252526ued%2525252525252525253Dhttps%252525252525252525253A%252525252525252525252F%252525252525252525252Fwww.awin1.com%252525252525252525252Fcread.php%252525252525252525253Fawinmid%252525252525252525253D26255%2525252525252525252526awinaffid%252525252525252525253D2908587%2525252525252525252526ued%252525252525252525253Dhttps%25252525252525252525253A%25252525252525252525252F%25252525252525252525252Fwww.awin1.com%25252525252525252525252Fcread.php%25252525252525252525253Fawinmid%25252525252525252525253D26255%252525252525252525252526awinaffid%25252525252525252525253D2908587%252525252525252525252526ued%25252525252525252525253Dhttps%2525252525252525252525253A%2525252525252525252525252F%2525252525252525252525252Fwww.awin1.com%2525252525252525252525252Fcread.php%2525252525252525252525253Fawinmid%2525252525252525252525253D26255%25252525252525252525252526awinaffid%2525252525252525252525253D2908587%25252525252525252525252526ued%2525252525252525252525253Dhttps%252525252525252525252525253A%252525252525252525252525252F%252525252525252525252525252Fwww.awin1.com%252525252525252525252525252Fcread.php%252525252525252525252525253Fawinmid%252525252525252525252525253D26255%2525252525252525252525252526awinaffid%252525252525252525252525253D2908587%2525252525252525252525252526ued%252525252525252525252525253Dhttps%25252525252525252525252525253A%25252525252525252525252525252F%25252525252525252525252525252Fwww.awin1.com%25252525252525252525252525252Fcread.php%25252525252525252525252525253Fawinmid%25252525252525252525252525253D26255%252525252525252525252525252526awinaffid%25252525252525252525252525253D2908587%252525252525252525252525252526ued%25252525252525252525252525253Dhttps%2525252525252525252525252525253A%2525252525252525252525252525252F%2525252525252525252525252525252Fwww.awin1.com%2525252525252525252525252525252Fcread.php%2525252525252525252525252525253Fawinmid%2525252525252525252525252525253D26255%25252525252525252525252525252526awinaffid%2525252525252525252525252525253D2908587%25252525252525252525252525252526ued%2525252525252525252525252525253Dhttps%252525252525252525252525252525253A%252525252525252525252525252525252F%252525252525252525252525252525252Fwww.awin1.com%252525252525252525252525252525252Fcread.php%252525252525252525252525252525253Fawinmid%252525252525252525252525252525253D26255%2525252525252525252525252525252526awinaffid%252525252525252525252525252525253D2908587%2525252525252525252525252525252526ued%252525252525252525252525252525253Dhttps%25252525252525252525252525252525253A%25252525252525252525252525252525252F%25252525252525252525252525252525252Fwww.atmosferasport.es%25252525252525252525252525252525252Fadidas%25252525252525252525252525252525252Fzapatillas-de-baloncesto-adidas-dame-x-negro-143979.html",
           "precio_actual": 63,
           "disponible": true,
           "ultima_verificacion": "2026-07-27"
@@ -1514,10 +1556,10 @@
       "links_compra": [
         {
           "tienda": "amazon_es",
-          "url": "https://www.amazon.es/Under-Armour-Zapatillas-Baloncesto-Metallic/dp/B0BGQNXDPF/ref=sr_1_3",
-          "precio_actual": 62.24,
+          "url": "https://www.amazon.es/Under-Armour-Zapatillas-Baloncesto-Metallic/dp/B0BGQNXDPF/ref=sr_1_6",
+          "precio_actual": 61.26,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "atmosfera_sport",
@@ -1532,10 +1574,10 @@
       "links_compra": [
         {
           "tienda": "amazon_es",
-          "url": "https://www.amazon.es/NIKE-Zapatillas-Deporte-Hombre-Negro/dp/B00MAMY2T6/ref=sr_1_1",
-          "precio_actual": 79.33,
+          "url": "https://www.amazon.es/Nike-Zapatillas-correr-black-white-black/dp/B093TLWMY5/ref=sr_1_2",
+          "precio_actual": 62.25,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -1557,7 +1599,7 @@
           "url": "https://www.footlocker.es/es/product/under-armour-hovr-sonic-5-mujer-zapatillas/315242615102.html",
           "precio_actual": 80,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -1641,20 +1683,6 @@
           "precio_actual": 140,
           "disponible": true,
           "ultima_verificacion": "2026-06-12"
-        },
-        {
-          "tienda": "jd_sports_es",
-          "url": "https://www.jdsports.es/product/blanco-jordan-air-1-low/16586788_jdsportses/",
-          "precio_actual": 130,
-          "disponible": true,
-          "ultima_verificacion": "2026-07-27"
-        },
-        {
-          "tienda": "amazon_es",
-          "url": "https://www.amazon.es/Air-Jordan-Retro-Low-OG/dp/B0CZHKXTZN/ref=sr_1_1",
-          "precio_actual": 127.81,
-          "disponible": true,
-          "ultima_verificacion": "2026-07-27"
         }
       ]
     },
@@ -1662,10 +1690,10 @@
       "links_compra": [
         {
           "tienda": "amazon_es",
-          "url": "https://www.amazon.es/Reebok-Zapatillas-Unisex-Adulto-Blanco/dp/B0FD42Z5HF/ref=sr_1_1",
+          "url": "https://www.amazon.es/Reebok-Zapatillas-Unisex-Adulto-Blanco/dp/B0FD4369FG/ref=sr_1_1",
           "precio_actual": 148.76,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -1679,25 +1707,11 @@
           "ultima_verificacion": "2026-06-03"
         },
         {
-          "tienda": "amazon_es",
-          "url": "https://www.amazon.es/Converse-Taylor-Zapatillas-Unisex-adulto/dp/B002W7JKDW/ref=sr_1_1",
-          "precio_actual": 43.39,
-          "disponible": true,
-          "ultima_verificacion": "2026-07-27"
-        },
-        {
           "tienda": "footlocker_es",
           "url": "https://www.footlocker.es/es/product/converse-chuck-taylor-all-star-hi-hombre-zapatillas/314512266504.html",
           "precio_actual": 50,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
-        },
-        {
-          "tienda": "jd_sports_es",
-          "url": "https://www.jdsports.es/product/negro-converse-chuck-taylor-all-star-throwback-ox/19737052_jdsportses/",
-          "precio_actual": 80,
-          "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -1727,10 +1741,10 @@
       "links_compra": [
         {
           "tienda": "amazon_es",
-          "url": "https://www.amazon.es/AIR-JORDAN-Jordan-Zapatillas-Blanco-Verde-Gris/dp/B0BWRXJC3W/ref=sr_1_1",
+          "url": "https://www.amazon.es/AIR-JORDAN-Jordan-Zapatillas-Blanco-Verde-Gris/dp/B0BWRXJC3W/ref=sr_1_3",
           "precio_actual": 149.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -1785,14 +1799,14 @@
           "url": "https://www.adidas.es/zapatilla-top-ten-rb/GX0742.html",
           "precio_actual": 55,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/adidas-Originals-Trainers-Sneakers-Zapatos/dp/B0C3MVN4V2/ref=sr_1_1",
           "precio_actual": 83.07,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -1852,9 +1866,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011984740781.html",
-          "precio_actual": 91.56,
+          "precio_actual": 91.51,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "fuikaomar_es",
@@ -1941,7 +1955,7 @@
           "url": "https://www.adidas.es/zapatilla-pro-model-adv/IE6593.html",
           "precio_actual": 120,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -1996,7 +2010,7 @@
           "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-hali-1-unisex/313450?swatch=01",
           "precio_actual": 78,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "basketballemotion_es",
@@ -2049,7 +2063,7 @@
           "url": "https://www.footlocker.es/es/product/nike-zoom-freak-7-hombre-zapatillas/314104306304.html",
           "precio_actual": 80,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -2060,7 +2074,7 @@
           "url": "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010685068543.html",
           "precio_actual": 215,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "basketballemotion_es",
@@ -2141,13 +2155,6 @@
           "precio_actual": 81,
           "disponible": true,
           "ultima_verificacion": "2026-06-02"
-        },
-        {
-          "tienda": "amazon_es",
-          "url": "https://www.amazon.es/Under-Armour-Curry-Flow-10/dp/B0D8382V11/ref=sr_1_1",
-          "precio_actual": 143.03,
-          "disponible": true,
-          "ultima_verificacion": "2026-07-27"
         }
       ]
     },
@@ -2239,13 +2246,6 @@
           "precio_actual": 171,
           "disponible": true,
           "ultima_verificacion": "2026-06-03"
-        },
-        {
-          "tienda": "footlocker_es",
-          "url": "https://www.footlocker.es/es/product/nike-shox-r4-hombre-zapatillas/314217857904.html",
-          "precio_actual": 65,
-          "disponible": true,
-          "ultima_verificacion": "2026-07-27"
         }
       ]
     },
@@ -2278,7 +2278,7 @@
           "url": "https://www.footlocker.es/es/product/nike-a-one-hombre-zapatillas/314109489204.html",
           "precio_actual": 70,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "basketballemotion_es",
@@ -2299,7 +2299,7 @@
           "url": "https://www.nike.com/es/t/aone-stone-mauve-aja-wilson-zapatillas-de-baloncesto-O0Nb7p91/FZ8605-200",
           "precio_actual": 76.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -2383,7 +2383,7 @@
           "url": "https://www.adidas.es/zapatilla-superstar-ii/JI0079.html",
           "precio_actual": 120,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -2419,13 +2419,6 @@
     "skechers-skx-resagrip": {
       "links_compra": [
         {
-          "tienda": "amazon_es",
-          "url": "https://www.amazon.es/Skechers-Snoop-Dogg-Resagrip-Boss-hombre/dp/B0D4F9D84X/ref=sr_1_1",
-          "precio_actual": 76.48,
-          "disponible": true,
-          "ultima_verificacion": "2026-07-27"
-        },
-        {
           "tienda": "elcorteingles_es",
           "url": "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2Fbuscar%2F%3Fterm%3Dskechers%2Bresagrip",
           "precio_actual": 150,
@@ -2448,7 +2441,7 @@
           "url": "https://www.amazon.es/Skechers-baloncesto-Klutch-hombre-Blanco/dp/B0CWX18MWG/ref=sr_1_1",
           "precio_actual": 59.69,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "elcorteingles_es",
@@ -2528,10 +2521,17 @@
         },
         {
           "tienda": "adidas_es",
-          "url": "https://www.adidas.es/zapatilla-believe-that-1/JQ9475.html",
+          "url": "https://www.adidas.es/zapatilla-believe-that-1/KJ3320.html",
           "precio_actual": 100,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
+        },
+        {
+          "tienda": "amazon_es",
+          "url": "https://www.amazon.es/adidas-Unisex-ni%C3%B1os-Believe-Shoes/dp/B0FHJ82GVC/ref=sr_1_1",
+          "precio_actual": 61.94,
+          "disponible": true,
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -2875,24 +2875,10 @@
       "links_compra": [
         {
           "tienda": "aliexpress",
-          "url": "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010673040763.html",
-          "precio_actual": 76.78,
-          "disponible": true,
-          "ultima_verificacion": "2026-07-27"
-        },
-        {
-          "tienda": "aliexpress",
-          "url": "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005009817325177.html",
-          "precio_actual": 108.85,
-          "disponible": true,
-          "ultima_verificacion": "2026-07-27"
-        },
-        {
-          "tienda": "aliexpress",
           "url": "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010673521913.html",
-          "precio_actual": 87.84,
+          "precio_actual": 87.79,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "fuikaomar_es",
@@ -2906,11 +2892,11 @@
     "nike-lebron-23": {
       "links_compra": [
         {
-          "tienda": "elcorteingles_es",
-          "url": "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56003509%2F",
-          "precio_actual": 139.99,
+          "tienda": "footlocker_es",
+          "url": "https://www.footlocker.es/es/product/nike-lebron-xxiii-bubble-boy-hombre-zapatillas/314109447004.html",
+          "precio_actual": 120,
           "disponible": true,
-          "ultima_verificacion": "2026-06-29"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "basketballemotion_es",
@@ -2920,6 +2906,13 @@
           "ultima_verificacion": "2026-06-12"
         },
         {
+          "tienda": "elcorteingles_es",
+          "url": "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56003509%2F",
+          "precio_actual": 139.99,
+          "disponible": true,
+          "ultima_verificacion": "2026-06-29"
+        },
+        {
           "tienda": "basket4ballers_es",
           "url": "https://www.basket4ballers.com/es/lebron-james/57990-nike-lebron-23-bubble-boy-if0694-002.html",
           "precio_actual": 121,
@@ -2927,18 +2920,18 @@
           "ultima_verificacion": "2026-06-24"
         },
         {
-          "tienda": "footlocker_es",
-          "url": "https://www.footlocker.es/es/product/nike-lebron-xxiii-hombre-zapatillas/314104939104.html",
-          "precio_actual": 155,
-          "disponible": true,
-          "ultima_verificacion": "2026-07-27"
-        },
-        {
           "tienda": "nike_es",
           "url": "https://www.nike.com/es/t/lebron-xxiii-motor-king-zapatillas-de-baloncesto-UL9ABsK7/IB9562-102",
           "precio_actual": 139.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
+        },
+        {
+          "tienda": "aliexpress",
+          "url": "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012098378688.html",
+          "precio_actual": 176.47,
+          "disponible": true,
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -2963,7 +2956,7 @@
           "url": "https://www.adidas.es/zapatilla-anthony-edwards-2/KJ1887.html",
           "precio_actual": 130,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "atmosfera_sport",
@@ -2990,9 +2983,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010194753497.html",
-          "precio_actual": 63.89,
+          "precio_actual": 61.23,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         },
         {
           "tienda": "basketballemotion_es",
@@ -3071,7 +3064,7 @@
           "url": "https://www.nike.com/es/t/caitlin-1-zapatillas-de-baloncesto-oGRTM2xz/IH7423-400",
           "precio_actual": 139.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -3082,7 +3075,7 @@
           "url": "https://www.nike.com/es/t/atwo-apink-shoe-zapatillas-de-baloncesto-de-aja-wilson-ItyUbdSB/IH1135-600",
           "precio_actual": 139.99,
           "disponible": true,
-          "ultima_verificacion": "2026-07-27"
+          "ultima_verificacion": "2026-07-28"
         }
       ]
     },
@@ -3094,13 +3087,6 @@
           "precio_actual": 38.99,
           "disponible": true,
           "ultima_verificacion": "2026-06-29"
-        },
-        {
-          "tienda": "amazon_es",
-          "url": "https://www.amazon.es/Nike-Hustle-Childrens-Basketball-Shoes/dp/B0F7X6M71Q/ref=sr_1_3",
-          "precio_actual": 48,
-          "disponible": true,
-          "ultima_verificacion": "2026-07-27"
         }
       ]
     },
@@ -3112,13 +3098,6 @@
           "precio_actual": 50.99,
           "disponible": true,
           "ultima_verificacion": "2026-06-29"
-        },
-        {
-          "tienda": "amazon_es",
-          "url": "https://www.amazon.es/Academy-Basketballschuh-Zapatillas-b%C3%A1squetbol-Illusion/dp/B0F38Q1Z98/ref=sr_1_2",
-          "precio_actual": 83.07,
-          "disponible": true,
-          "ultima_verificacion": "2026-07-27"
         }
       ]
     },
