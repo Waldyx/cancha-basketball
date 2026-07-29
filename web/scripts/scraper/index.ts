@@ -37,6 +37,7 @@ import { ua_es } from "./stores/ua_es.js";
 import { nb_es } from "./stores/nb_es.js";
 import { reebok_es } from "./stores/reebok_es.js";
 import { kickscrew } from "./stores/generic.js";
+import { elcorteingles_es } from "./stores/elcorteingles_es.js";
 import { idealo_es, idealoSearchUrl } from "./stores/idealo.js";
 
 // Importar datos del catálogo directamente (bypasando el merge)
@@ -78,6 +79,7 @@ const SCRAPERS: Record<string, StoreScraper> = {
   nb_es,
   reebok_es,
   kickscrew,
+  elcorteingles_es,
   idealo_es,
 };
 
