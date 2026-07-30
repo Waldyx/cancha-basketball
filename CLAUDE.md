@@ -1,11 +1,77 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-07-29 (sesión 31)
+> Última actualización: 2026-07-30 (sesión 32)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
 
-## Estado actual (sesión 31) — SALUD DEL SITIO: scraper resucitado, honestidad de fechas, tipos a 0
+## Estado actual (sesión 32) — Auditoría de frescura por tienda + 2 promos nuevas
+
+Sesión corta. Todo en `master` (commit `578cf88`) y verificado en producción.
+
+### 📊 AUDITORÍA DE FRESCURA POR TIENDA (el dato que manda la prioridad)
+
+Medido el 2026-07-30 sobre el catálogo mergeado. "Frescos" = `ultima_verificacion` ≤3 días.
+**398 enlaces que monetizan, solo 117 frescos (29%).**
+
+| Tienda | Enlaces afi. | Frescos | Mediana | ¿Scraper? |
+|---|---|---|---|---|
+| amazon_es | 174 | 50 (29%) | 57 d | sí, flojo |
+| **aliexpress** | **47** | **3 (6%)** | 36 d | **sí, pero MUERTO** |
+| elcorteingles_es | 34 | 25 | 0 d | sí ✅ |
+| decathlon | 32 | 26 | 0 d | sí ✅ |
+| fuikaomar_es | 30 | 0 | 48 d | no |
+| adidas_es | 27 | 11 | 59 d | sí |
+| atmosfera_sport | 27 | 1 | 48 d | no |
+| snipes_eu | 14 | 0 | 57 d | no |
+| forumsport_es | 13 | 1 | 48 d | no |
+
+Los scrapers de ECI y Decathlon arreglados en s31 **funcionan de verdad** (mediana 0 días).
+Presupuesto de tiempo: la pasada nocturna tarda ~1h20-1h40 de los 150 min → **cabe más trabajo**.
+
+### ▶️ SIGUIENTE PASO RECOMENDADO (retomar aquí)
+**1. Arreglar el scraper de AliExpress.** Es lo más rentable por esfuerzo: 47 enlaces a la
+comisión MÁS ALTA del catálogo (7%) y solo 3 frescos. El módulo `stores/aliexpress.ts` YA existe
+→ es diagnosticar, no construir. Sospecha: los 47 van por wrapper Awin; el `unwrapAffiliateUrl()`
+de s31 arregló el wrapper pero el scraper sigue al 6%, o sea que está roto por debajo.
+Empezar reproduciendo una pasada real de esa tienda para ver dónde rompe.
+**2. Amazon**: 124 enlaces rancios (el mayor volumen). OJO al dato incómodo: en pasada local
+medimos 47% pero en CI real da 29% → antes de tocar código, averiguar por qué DIVERGE
+(probablemente bloqueo por volumen). Más trabajo y menos seguro que AliExpress.
+**3. FuikaOmar (30) + Atmósfera (27)**: scrapers nuevos, caben en el tiempo que sobra.
+
+### ✅ Completado (sesión 32)
+**2 promos nuevas** desde los correos de Awin (`promos.ts`, commit `578cf88`), verificadas en prod:
+- **ECI "Ofertas Límite en Deportes"**, hasta 60%, 30 jul 12:56 → 2 ago 23:59. La única de la
+  tanda de ECI que tocaba deportes (el resto: hogar, belleza, bebés, LEGO).
+  ⚠ El anunciante pidió por email rotularla **"Ofertas Límite"**, NO "Límite 48H".
+- **AliExpress "Día de envío local"** (antes Choice Day), 1-7 ago, códigos `ESSC02`..`ESSC60`.
+  No acumulables con otras promos pero **SÍ con los cupones PayPal** (8€/100€, 15€/150€).
+- Snipes "Flash Deal" (24 jul→7 ago) ya estaba registrada. Resto de correos: irrelevantes.
+
+### 📌 Aprendizajes / avisos (sesión 32)
+- **El aviso contextual de FICHA solo sale en promos CON código** (`codigos`/`codigo`). Las de
+  descuento directo (ECI) salen solo en la franja superior. Es por diseño, no es un bug.
+- **La franja es un CARRUSEL** (rota cada 5s entre las activas), no apila banners. Con 4 activas
+  el ciclo tarda 20s → una promo urgente tarda en verse. Si molesta, ordenar por fecha de fin
+  (cambio en `PromoBanner.astro`, no en datos). NO hecho.
+- **`deploy.yml` de GitHub Actions lleva FALLANDO desde el 26-may** (último run: failure, 32s).
+  No rompe nada —el deploy real lo hace la integración de Git de Vercel— pero deja un workflow
+  en rojo permanente que ensucia la señal. Valorar borrarlo o arreglarlo.
+- `web/api/_catalog.json` se regenera en cada build local (prebuild) → sale como modificado.
+  Es subproducto, NO commitear por inercia; Vercel lo regenera.
+- **Forum Sport (Awin) escribió el 20 jul** avisando de que nuestra actividad "ha sido baja".
+  Cuadra con el dato: 13 enlaces suyos, 1 fresco, sin scraper.
+
+### 🟡 Sigue pendiente (heredado de s31, sin tocar)
+- **4 enlaces ECI de Skechers SKX muertos** (`skechers-skx-je1/resagrip/league/float`): ECI no
+  vende esas zapas → no hay destino correcto. **Falta que el usuario decida si se borran.**
+- **ECI "Rebaja Final" hasta -50% (3-31 ago)**: los enlaces del email eran moda/hogar, no
+  deportes. Cuando arranque el día 3, comprobar si cubre deportes y añadirla si sí.
+
+---
+
+## Estado anterior (sesión 31) — SALUD DEL SITIO: scraper resucitado, honestidad de fechas, tipos a 0
 
 Sesión de auditoría ("mira cómo está la web") que descubrió que **el scraper llevaba un mes sin
 guardar nada**. Todo lo de abajo está en `master` y verificado con pasadas reales por tienda.
