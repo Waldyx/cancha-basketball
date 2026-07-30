@@ -1,11 +1,118 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-07-17 (sesión 30)
+> Última actualización: 2026-07-29 (sesión 31)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
 
-## Estado actual (sesión 30) — Herramienta de ESTADÍSTICAS personales (`/estadisticas`)
+## Estado actual (sesión 31) — SALUD DEL SITIO: scraper resucitado, honestidad de fechas, tipos a 0
+
+Sesión de auditoría ("mira cómo está la web") que descubrió que **el scraper llevaba un mes sin
+guardar nada**. Todo lo de abajo está en `master` y verificado con pasadas reales por tienda.
+
+### ✅ Completado (sesión 31)
+
+**1. El scraper estaba MUERTO desde el 2026-06-28 (causa raíz, lo más importante)**
+- Corría a diario y "terminaba", pero GitHub lo **cancelaba a los 90 min exactos**
+  (`timeout-minutes: 90`) habiendo procesado 217/234 zapas. El commit de `precios.json` es el
+  ÚLTIMO paso y el scraper escribe el fichero **una sola vez al final** → no guardaba nada.
+- Fix: `timeout-minutes: 90 → 150` en `.github/workflows/scrape-prices.yml` (commit `e1fdb56`).
+  Repo público = minutos de Actions gratis, sin coste.
+- **Verificado**: 3 noches seguidas OK (1h41m, 1h41m, 1h19m) y commits del `price-bot` de nuevo.
+- ⚠️ Si el catálogo crece mucho, vigilar que no roce los 150 min otra vez.
+
+**2. Dos MENTIRAS de datos corregidas (la marca es "sin BS", esto importa)**
+- El sello **"Precios re-verificados X"** del home/catálogo usaba `new Date()` = **fecha de build**,
+  o sea decía "hoy" aunque los precios llevaran semanas. Ahora sale de la verificación real más
+  reciente: helper `fechaVerificacionMasReciente()` en `scoring.ts` (commit `863780b`).
+- El scraper, para las tiendas **sin scraper**, copiaba el precio editorial y le estampaba
+  `ultima_verificacion: hoy` **sin comprobar nada** (193 enlaces "verificados" a diario, y encima
+  contaminaba el sello anterior). Ahora conserva la fecha original; restauradas 167 fechas reales
+  desde el editorial (commit `3bef6db`). Quedan 26 huérfanas sin fecha recuperable.
+- NO se borraron esas entradas de `precios.json` porque hay ~25 enlaces (basket4ballers,
+  manelsanchez) que **solo viven ahí** y desaparecerían del sitio.
+
+**3. `astro check`: 351 errores → 0** (commit `e56f28e`)
+- 340 eran de `estadisticas.astro`: tipos `Game/Perfil/Meta/State/Insight` + helper `$()` tipado
+  que sustituye 61 `getElementById`. **OJO**: el reemplazo masivo se comió la propia definición de
+  `$` y dejó `const $ = (id) => $(id)` → **recursión infinita** que habría roto la página; lo
+  detectó el propio tipado (ts 7023). Verificado en navegador que todo sigue funcionando.
+- `zapatilla/[slug].astro`: `ctaLink` podía ser undefined → guarda condicional en los 2 botones.
+- Datos: 2 `material_superior` en español → inglés (+`synthetic+tpu` al enum `MaterialSuperior`).
+
+**4. Scrapers arreglados — MEDIDO con pasada completa por tienda**
+
+| Tienda | Antes | Después |
+|---|---|---|
+| amazon_es | 18/174 (10%) | **82/174 (47%)** |
+| decathlon | 0/32 (0%) | **26/32 (81%)** |
+| elcorteingles_es | (no existía) | **25/34 (74%)** |
+
+Causas reales encontradas (commits `5ffd7f8`, `50be340`, `bde645e`):
+- **`matcher.ts` — números ROMANOS**: las tiendas escriben "Lebron **Xxii**", "LeBron XXIII",
+  "AJ XXXVIII"; el catálogo usa arábigos y el matcher exige que TODOS los números aparezcan
+  literales → rechazaba el producto correcto. Ahora normaliza romanos→arábigos (canónicos, 2..50,
+  excluyendo tallas tipo "XL"→40). **Es el fix de mayor impacto y aplica a TODAS las tiendas.**
+- **`matcher.ts` — sinónimos**: "Volume"→"vol"; `PHRASE_SYNONYMS` para "Anthony Edwards"→"ae"
+  (Decathlon vende la AE 1 con el nombre largo).
+- **`matcher.ts` — letra+número pegados**: "MB04"/"AE1"/"KT10" vs "MB.04"/"AE 1"/"KT 10".
+- **`matcher.ts` — `stripNoise` borraba modelos reales**: exigía `\d{3,5}` y se comía el Tarmak
+  "SE500". Ahora `\d{4,5}` (AO2372, DO1925 siguen fuera; hay test que lo blinda).
+- **`matcher.ts` — paréntesis**: "Canaveral 900 (Sarr Edition)" no casaba.
+- **WRAPPERS DE AFILIADO (importante)**: 105 enlaces (decathlon 31, aliexpress 47, adidas 27) van a
+  `awin1.com`. El scraper pedía **el wrapper**, que devuelve la página de tracking y no el HTML de
+  la tienda → Decathlon a 0%. Y **cada fetch contaba como CLICK de afiliado falso** (hunde el EPC).
+  Nuevo `unwrapAffiliateUrl()` en `matcher.ts`, aplicado en `index.ts` antes de navegar. El wrapper
+  original NO se toca en los datos: el merge (`resolveUrl`) lo reaplica.
+- **amazon_es**: no soportaba fichas `/dp/` (esperaba selectores de listado → timeout). Añadido; se
+  coge el primer precio que **parsea** porque el primer `.a-offscreen` viene vacío.
+- **decathlon**: el fetch HTTP previo recibía **403 de Cloudflare SIEMPRE** (15s perdidos por
+  enlace) → eliminado; clases nuevas `vp-price-amount`; precio del **JSON-LD**; hay que **esperar a
+  la hidratación** (leer tras `domcontentloaded` daba la página vacía); y las fichas retiradas
+  **redirigen a búsqueda**, así que el tipo de página se decide por la URL FINAL (`page.url()`).
+- **elcorteingles_es (NUEVO, `stores/elcorteingles_es.ts`)**: visita la home 1 vez por contexto
+  (si entras directo a una ficha → bucle "Challenge Validation"); el JSON-LD trae **una oferta POR
+  TALLA** con 2 precios cada una (venta y PVP) → se toma el **MENOR** y se considera disponible si
+  queda **al menos una talla InStock** (buscar `OutOfStock` daba casi todo por agotado); y hay que
+  esperar al **JSON-LD**, no al `<h1>` (el h1 se pinta antes, sin precio).
+
+**5. Datos corregidos** (commit `6f4263d`)
+- `nike-sabrina-2`: su enlace de Decathlon era una búsqueda genérica cuyo 1er resultado eran unas
+  **Adidas Cross 'Em Up**. Decathlon SÍ la vende → ficha real, colorway más barata de 7
+  ("Activate" 97,90 vs 133-238), `disponible: false → true`.
+- `adidas-ae-1`: 89,99 → **53,99** gracias al alias "Anthony Edwards".
+
+**Tests**: `npx vitest run` → **80 tests** (eran 57). Todos los fixes del matcher llevan test con
+títulos reales, incluidos los de NO-regresión (que "Anthony Edwards 2" no cuele como AE 1, etc.).
+
+### 🟡 Pendiente / requiere decisión del usuario (sesión 31)
+- **4 enlaces ECI de Skechers MUERTOS** (`skechers-skx-je1/resagrip/league/float`): usan
+  `/deportes/buscar/?term=`, ruta que ECI ya **no sirve** (redirige a la home de deportes). Y ECI
+  **no vende** las SKX de baloncesto (solo la "SKX Aero Burst" de running) → no hay destino
+  correcto posible. **El usuario tiene que decidir si se borran** (no se tocaron).
+- **Tiendas afiliadas que SIGUEN sin scraper** (siguiente golpe de valor):
+  FuikaOmar (30 enlaces, 5%), Atmósfera (27, 6%), Snipes (14, 5%), Forum Sport (13, 5%).
+- **AE 2 en Decathlon**: existe (129,99) pero `InStoreOnly` + agotada, y sería la opción MÁS CARA
+  de las 6 que ya tiene. NO se añadió a propósito. URL localizada si algún día repone:
+  `/es/p/zapatillas-de-baloncesto-adulto-anthony-edwards-ae2-rosa-coral/386555/m9030183`.
+- **Frescura real** tras limpiar las fechas falsas: ~7% ≤3d, 80% >30d. Debería mejorar solo ahora
+  que el scraper vuelve a commitear a diario.
+
+### 📌 Aprendizajes para no repetir (sesión 31)
+- **Un scraper "que corre" no es un scraper que funciona**: mirar SIEMPRE los commits del
+  `price-bot` y las fechas de `ultima_verificacion`, no solo que el workflow salga verde.
+- **Nunca scrapear un enlace de afiliado**: no devuelve el HTML de la tienda y genera clicks falsos.
+- Antes de dar por bueno un fallo de scraping, comprobar a mano si el producto existe en esa tienda:
+  buena parte de los fallos "restantes" son legítimos (Amazon no vende Anta/Li-Ning/Peak/Tarmak, ni
+  la LeBron 23 — solo lista "LeBron Witness", y rechazarla es lo CORRECTO).
+- En `page.evaluate` con tsx/esbuild, las funciones con nombre revientan con
+  `__name is not defined`: pasar el snippet **como string**.
+- Reemplazos masivos por regex: revisar que no se toquen las **definiciones** de lo que sustituyes
+  (el caso `$` recursivo).
+
+---
+
+## Estado anterior (sesión 30) — Herramienta de ESTADÍSTICAS personales (`/estadisticas`)
 
 ### ✅ Completado (sesión 30)
 
