@@ -2,6 +2,53 @@ import type { Page } from "playwright";
 import type { StoreScraper, ShoeRef, ScrapeResult } from "../types.js";
 import { matchesShoe, parsePrice, today } from "../matcher.js";
 
+/**
+ * AliExpress no sirve el precio en el HTML: la ficha es CSR (`isCSR = true`,
+ * `runParams` vacío) y lo pide por XHR a `mtop.aliexpress.pdp.pc.query`. Desde
+ * un navegador automatizado esa XHR se responde con un reto anti-bot
+ * (`_____tmd_____/punish` → reCAPTCHA Enterprise), así que el precio NO llega.
+ *
+ * Medido el 2026-07-30 sobre 3 fichas: ~9 llamadas de precio y ~20 respuestas
+ * de reto por página, 0 precios. Alguna petición se cuela (3 de 47 enlaces la
+ * noche del 30-jul), por eso NO desactivamos la tienda — pero esperar en una
+ * página ya retada es tiempo tirado.
+ *
+ * Detecta la URL del reto. Deliberadamente NO mira los scripts de `baxia`/AWSC:
+ * esos cargan también en páginas sanas y darían falso positivo, haciéndonos
+ * perder los precios que sí se obtienen.
+ */
+export function isBotChallengeUrl(url: string): boolean {
+  return /\/_____tmd_____\//i.test(url) || /\/punish[/?]/i.test(url);
+}
+
+/** Presupuesto de espera del precio. Antes eran 3s ciegos + 5s de isVisible. */
+const PRICE_WAIT_MS = 6000;
+const POLL_MS = 500;
+
+/** Extracción barata: lo que antes eran los dos primeros intentos. */
+async function precioRapido(page: Page): Promise<number | null> {
+  const content = await page.content();
+
+  // AliExpress embebe precios en JSON dentro del HTML
+  const priceMatch = content.match(/"originalPrice":\s*\{[^}]*"value":\s*([\d.]+)/);
+  if (priceMatch) {
+    const price = parseFloat(priceMatch[1]);
+    if (price > 0) return price;
+  }
+
+  // Fallback: selector visual
+  const priceEl = page
+    .locator('[class*="product-price-value"], [class*="price--currentPriceText"], .product-price-value')
+    .first();
+  if (await priceEl.isVisible({ timeout: 500 }).catch(() => false)) {
+    const priceText = await priceEl.textContent();
+    const price = parsePrice(priceText ?? "");
+    if (price) return price;
+  }
+
+  return null;
+}
+
 export const aliexpress: StoreScraper = {
   tienda: "aliexpress",
 
@@ -14,33 +61,29 @@ export const aliexpress: StoreScraper = {
       ultima_verificacion: today(),
     };
 
+    // Si salta el reto anti-bot, abandonamos ya: el precio no va a aparecer.
+    let retado = false;
+    const onResponse = (r: { url(): string }) => {
+      if (isBotChallengeUrl(r.url())) retado = true;
+    };
+    page.on("response", onResponse);
+
     try {
-      // AliExpress: los links de afiliado (s.click.aliexpress.com) redirigen a búsqueda
-      await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
-      await page.waitForTimeout(3000); // esperar JS + redirect
+      await page.goto(url, { waitUntil: "domcontentloaded", timeout: 20000 });
 
-      // Intentar extraer datos de la respuesta JSON embebida en el source
-      const content = await page.content();
-
-      // AliExpress embebe precios en JSON dentro del HTML
-      const priceMatch = content.match(/"originalPrice":\s*\{[^}]*"value":\s*([\d.]+)/);
-      if (priceMatch) {
-        const price = parseFloat(priceMatch[1]);
-        if (price > 0) return { ...base, precio_actual: price, disponible: true };
-      }
-
-      // Fallback: selector visual
-      const priceEl = page.locator(
-        '[class*="product-price-value"], [class*="price--currentPriceText"], .product-price-value'
-      ).first();
-
-      if (await priceEl.isVisible({ timeout: 5000 }).catch(() => false)) {
-        const priceText = await priceEl.textContent();
-        const price = parsePrice(priceText ?? "");
+      // Espera por CONDICIÓN, no a ojo: sale en cuanto hay precio (las páginas
+      // que funcionan van más rápido que antes) o en cuanto salta el reto.
+      const limite = Date.now() + PRICE_WAIT_MS;
+      while (Date.now() < limite) {
+        if (retado) return { ...base, disponible: false };
+        const price = await precioRapido(page);
         if (price) return { ...base, precio_actual: price, disponible: true };
+        await page.waitForTimeout(POLL_MS);
       }
+      if (retado) return { ...base, disponible: false };
 
-      // Segundo fallback: buscar en resultados de búsqueda (formato 2024/2025)
+      // Fallback: buscar en resultados de búsqueda (formato 2024/2025).
+      // Solo se llega aquí si la página cargó SIN reto y aun así no dio precio.
       const cards = await page.$$(
         '[class*="SearchCard"], [class*="list--gallery"], [class*="product-card"], ' +
         '[class*="ProductCard"], [class*="card--"]'
@@ -61,7 +104,7 @@ export const aliexpress: StoreScraper = {
         return { ...base, precio_actual: price, disponible: true };
       }
 
-      // Tercer fallback: extraer cualquier precio visible en rango razonable
+      // Último fallback: extraer cualquier precio visible en rango razonable
       const allPriceEls = await page.$$('[class*="price"], [class*="Price"]');
       const prices: number[] = [];
       for (const el of allPriceEls.slice(0, 20)) {
@@ -76,6 +119,8 @@ export const aliexpress: StoreScraper = {
       return { ...base, disponible: false };
     } catch {
       return base;
+    } finally {
+      page.off("response", onResponse);
     }
   },
 };
