@@ -195,6 +195,37 @@ export const PROMOS: Promo[] = [
     nota: "Descuento aplicado directamente en la web · artículos seleccionados · rebajas de verano",
     color: "#ff8a3d",
   },
+  {
+    id: "elcorteingles-ofertas-limite-deportes-2026-07",
+    tienda: "elcorteingles_es",
+    tiendaLabel: "El Corte Inglés",
+    titulo: "Ofertas Límite en Deportes",
+    desde: "2026-07-30T12:56:00+02:00",
+    hasta: "2026-08-02T23:59:59+02:00",
+    url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Flimite-48-horas%2Fdeportes%2F",
+    descuentoTexto: "hasta 60% en material deportivo",
+    nota: "Descuento aplicado directamente en la web · selección de artículos de deporte · solo hasta el 2 de agosto",
+    color: "#7cb342",
+  },
+  {
+    id: "aliexpress-dia-envio-local-2026-08",
+    tienda: "aliexpress",
+    tiendaLabel: "AliExpress",
+    titulo: "Día de envío local",
+    desde: "2026-08-01T00:00:00+02:00",
+    hasta: "2026-08-07T23:59:59+02:00",
+    codigos: [
+      { code: "ESSC02", descuento: 2, minCompra: 18 },
+      { code: "ESSC06", descuento: 6, minCompra: 45 },
+      { code: "ESSC11", descuento: 11, minCompra: 79 },
+      { code: "ESSC20", descuento: 20, minCompra: 149 },
+      { code: "ESSC30", descuento: 30, minCompra: 239 },
+      { code: "ESSC45", descuento: 45, minCompra: 359 },
+      { code: "ESSC60", descuento: 60, minCompra: 479 },
+    ],
+    nota: "Productos con stock local (envío desde España/UE en 3-7 días) · no válidos en productos virtuales · no acumulable con otras promos, pero SÍ con los cupones PayPal (8€ desde 100€ · 15€ desde 150€)",
+    color: "#ff4747",
+  },
 ];
 
 /** Promos activas a una fecha dada (por defecto, ahora). */
