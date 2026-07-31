@@ -25,6 +25,27 @@ export function isBotChallengeUrl(url: string): boolean {
 const PRICE_WAIT_MS = 6000;
 const POLL_MS = 500;
 
+/**
+ * Decide si el precio de una tarjeta de resultados es válido PARA ESTA zapa.
+ *
+ * Antes esta comprobación no existía: bastaba con que hubiera un título de 3+
+ * caracteres y un precio ≥20€ para aceptarlo, con el comentario "son productos
+ * de la búsqueda correcta". No lo son: la búsqueda de AliExpress devuelve otras
+ * generaciones, otras marcas y accesorios. Es la misma clase de fallo que puso
+ * unas Adidas Cross 'Em Up en la ficha de la Sabrina 2.
+ */
+export function precioDeCandidato(
+  title: string,
+  priceText: string,
+  shoe: ShoeRef
+): number | null {
+  if (title.trim().length < 3) return null;
+  const price = parsePrice(priceText);
+  if (!price || price < 20) return null;
+  if (!matchesShoe(title, shoe.marca, shoe.modelo)) return null;
+  return price;
+}
+
 /** Extracción barata: lo que antes eran los dos primeros intentos. */
 async function precioRapido(page: Page): Promise<number | null> {
   const content = await page.content();
@@ -91,29 +112,29 @@ export const aliexpress: StoreScraper = {
       for (const card of cards.slice(0, 10)) {
         const titleEl = await card.$('[class*="title"], [class*="Title"], h3, h4');
         const title = (await titleEl?.textContent()) ?? "";
-        if (title.length < 3) continue;
-
-        // Para AliExpress de marcas chinas, ser menos estricto con el match
-        // (los títulos suelen estar en inglés con nombres de modelo distintos)
         const priceEl = await card.$('[class*="price"], [class*="Price"]');
         const priceText = (await priceEl?.textContent()) ?? "";
-        const price = parsePrice(priceText);
-        if (!price || price < 20) continue;
 
-        // Si hay título razonable y precio válido, aceptar (son productos de la búsqueda correcta)
-        return { ...base, precio_actual: price, disponible: true };
+        // Solo aceptamos la tarjeta si el título ES esta zapa (ver arriba).
+        const price = precioDeCandidato(title, priceText, shoe);
+        if (price) return { ...base, precio_actual: price, disponible: true };
       }
 
-      // Último fallback: extraer cualquier precio visible en rango razonable
-      const allPriceEls = await page.$$('[class*="price"], [class*="Price"]');
-      const prices: number[] = [];
-      for (const el of allPriceEls.slice(0, 20)) {
-        const text = (await el.textContent()) ?? "";
-        const p = parsePrice(text);
-        if (p && p > 30 && p < 400) prices.push(p);
-      }
-      if (prices.length >= 2) {
-        return { ...base, precio_actual: Math.min(...prices), disponible: true };
+      // Último recurso: el precio mínimo visible en la página, SIN título contra
+      // el que contrastar. Solo es defendible en una ficha (/item/), donde la
+      // página va de un único producto. En una búsqueda cogería el mínimo de una
+      // parrilla de productos distintos — justo el error que queremos evitar.
+      if (/\/item\/\d+/.test(page.url())) {
+        const allPriceEls = await page.$$('[class*="price"], [class*="Price"]');
+        const prices: number[] = [];
+        for (const el of allPriceEls.slice(0, 20)) {
+          const text = (await el.textContent()) ?? "";
+          const p = parsePrice(text);
+          if (p && p > 30 && p < 400) prices.push(p);
+        }
+        if (prices.length >= 2) {
+          return { ...base, precio_actual: Math.min(...prices), disponible: true };
+        }
       }
 
       return { ...base, disponible: false };

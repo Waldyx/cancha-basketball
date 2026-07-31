@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { isBotChallengeUrl } from "./aliexpress";
+import { isBotChallengeUrl, precioDeCandidato } from "./aliexpress";
 
 // AliExpress responde a la XHR de precio (mtop...pdp.pc.query) con un reto
 // anti-bot en vez de con datos. Capturado en red el 2026-07-30: por cada ficha,
@@ -32,4 +32,46 @@ describe("isBotChallengeUrl — señal de reto anti-bot de AliExpress", () => {
       expect(isBotChallengeUrl(u)).toBe(false);
     });
   }
+});
+
+// El fallback de tarjetas aceptaba CUALQUIER precio con tal de que hubiera un
+// título de 3+ caracteres, sin comprobar que el producto fuese el correcto
+// (importaba matchesShoe y no lo llamaba nunca). Es la misma clase de fallo que
+// puso unas Adidas Cross 'Em Up en la ficha de la Sabrina 2 (sesión 31).
+describe("precioDeCandidato — no aceptar el precio de otro producto", () => {
+  const kt10 = { id: "anta-kt-10", marca: "Anta", modelo: "KT 10" };
+
+  it("acepta el modelo correcto", () => {
+    expect(precioDeCandidato("ANTA KT10 Klay Thompson Basketball Shoes", "89,99 €", kt10)).toBe(89.99);
+  });
+
+  it("RECHAZA otra generación de la misma saga", () => {
+    expect(precioDeCandidato("ANTA KT9 Klay Thompson Basketball Shoes", "79,99 €", kt10)).toBeNull();
+  });
+
+  it("RECHAZA un producto de otra marca aunque el precio sea válido", () => {
+    expect(precioDeCandidato("Adidas Cross 'Em Up 5 Basketball Shoes", "59,99 €", kt10)).toBeNull();
+  });
+
+  it("RECHAZA accesorios que se cuelan en la búsqueda", () => {
+    expect(precioDeCandidato("Basketball Socks for KT 10 Anta", "9,99 €", kt10)).toBeNull();
+  });
+
+  // Guardas que ya existían y que NO se deben perder al añadir el match
+  it("RECHAZA precio por debajo de 20€ (accesorio/talla infantil)", () => {
+    expect(precioDeCandidato("ANTA KT10 Klay Thompson", "12,00 €", kt10)).toBeNull();
+  });
+
+  it("RECHAZA precio no parseable", () => {
+    expect(precioDeCandidato("ANTA KT10 Klay Thompson", "", kt10)).toBeNull();
+  });
+
+  it("RECHAZA título vacío o demasiado corto", () => {
+    expect(precioDeCandidato("KT", "89,99 €", kt10)).toBeNull();
+  });
+
+  it("acepta un modelo occidental con SKU en el título (formato Marcas+)", () => {
+    const sabrina = { id: "nike-sabrina-3", marca: "Nike", modelo: "Sabrina 3" };
+    expect(precioDeCandidato("Nike Authentic Sabrina 3 EP HF2882-600", "90,99 €", sabrina)).toBe(90.99);
+  });
 });
