@@ -38,7 +38,11 @@ function stripNoise(s: string): string {
     .replace(/\b[a-z]{1,3}\d{4,5}(?:[-\s]?\d{2,3})?\b/gi, " ")
     .replace(/\b(?:eu|uk|us|talla|size)\s*\d{1,2}(?:[.,]\d)?\b/gi, " ") // "EU 45"
     .replace(/\b\d{1,2}(?:[.,]\d)?\s*(?:eu|uk|us)\b/gi, " ") // "45 EU"
-    .replace(/\(ps\)|\(gs\)|\(td\)/gi, " "); // segmentos de talla infantil
+    // (PS) preescolar y (TD) bebé son ruido: no tenemos esos segmentos.
+    .replace(/\(ps\)|\(td\)/gi, " ")
+    // (GS) en cambio SÍ es significativo: el catálogo tiene 14 zapas "… GS" y
+    // el token es obligatorio. Se conserva como palabra en vez de borrarse.
+    .replace(/\(gs\)/gi, " gs ");
 }
 
 /**
@@ -85,6 +89,12 @@ function romanToArabic(tok: string): number | null {
  */
 const PHRASE_SYNONYMS: [RegExp, string][] = [
   [/\banthony edwards\b/g, "ae"],
+  // El catálogo llama "GS" al segmento junior, pero las tiendas lo escriben
+  // "Junior" / "Jr" / "Grade School". Sin esto, las 14 zapas GS no podían
+  // emparejar con NINGUNA ficha (el token del modelo es obligatorio).
+  [/\bgrade school\b/g, "gs"],
+  [/\bjuniors?\b/g, "gs"],
+  [/\bjr\b/g, "gs"],
 ];
 
 /**

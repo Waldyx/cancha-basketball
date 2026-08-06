@@ -148,3 +148,35 @@ describe("matchesShoe — romanos y sinónimos (títulos reales de Amazon)", () 
     });
   }
 });
+
+// El catálogo llama "GS" al segmento junior (14 zapas, 20 enlaces), pero NINGUNA
+// tienda escribe "GS": usan "Junior", "Jr" o "(GS)". Como el número/token del
+// modelo es obligatorio, esas 14 zapas no podían emparejar NUNCA con nada.
+// Detectado el 2026-08-06 con fichas reales de FuikaOmar.
+describe("matchesShoe — segmento GS/junior", () => {
+  const right: [string, string, string][] = [
+    ["Zapatillas Puma MB.05 Low Fluorish Junior", "Puma", "MB.05 GS"],
+    ["adidas AE 1 Junior Basketball Shoes", "Adidas", "AE 1 GS"],
+    ["Nike Sabrina 3 (GS) Basketball", "Nike", "Sabrina 3 GS"],
+    ["Under Armour Curry 12 Jr", "Under Armour", "Curry 12 GS"],
+  ];
+  for (const [titulo, marca, modelo] of right) {
+    it(`"${titulo.slice(0, 42)}" SÍ es ${marca} ${modelo}`, () => {
+      expect(matchesShoe(titulo, marca, modelo)).toBe(true);
+    });
+  }
+
+  // Lo que NO debe pasar: que una GS se coma el precio de la de adulto. Es más
+  // barata, así que colarla sería mentir en el "desde X€".
+  const wrong: [string, string, string][] = [
+    ["Zapatillas Under Armour Curry 12 Extraterrestial", "Under Armour", "Curry 12 GS"],
+    ["Zapatillas Puma MB.05 Low Fluorish", "Puma", "MB.05 GS"],
+    // Y una GS de otra generación sigue siendo otra zapa
+    ["Zapatillas Puma MB.04 Low Junior", "Puma", "MB.05 GS"],
+  ];
+  for (const [titulo, marca, modelo] of wrong) {
+    it(`"${titulo.slice(0, 42)}" NO es ${marca} ${modelo}`, () => {
+      expect(matchesShoe(titulo, marca, modelo)).toBe(false);
+    });
+  }
+});
