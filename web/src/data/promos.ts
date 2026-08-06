@@ -220,11 +220,24 @@ export const PROMOS: Promo[] = [
       { code: "ESSC11", descuento: 11, minCompra: 79 },
       { code: "ESSC20", descuento: 20, minCompra: 149 },
       { code: "ESSC30", descuento: 30, minCompra: 239 },
-      { code: "ESSC45", descuento: 45, minCompra: 359 },
-      { code: "ESSC60", descuento: 60, minCompra: 479 },
+      // ESSC45 (45€/359€) y ESSC60 (60€/479€) RETIRADOS: AliExpress avisó el
+      // 4-ago de que están "agotados temporalmente". Mostrar un código que no
+      // funciona es justo lo que la web promete no hacer.
     ],
     nota: "Productos con stock local (envío desde España/UE en 3-7 días) · no válidos en productos virtuales · no acumulable con otras promos, pero SÍ con los cupones PayPal (8€ desde 100€ · 15€ desde 150€)",
     color: "#ff4747",
+  },
+  {
+    id: "adidas-time-to-treat-yourself-2026-08",
+    tienda: "adidas_es",
+    tiendaLabel: "adidas",
+    titulo: "Time to Treat Yourself",
+    desde: "2026-08-20T00:00:00+02:00",
+    hasta: "2026-08-25T23:59:59+02:00",
+    url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Foutlet",
+    descuentoTexto: "hasta 25% en selección",
+    nota: "Descuento aplicado directamente en la web · selección de artículos",
+    color: "#9fd0ff",
   },
 ];
 
