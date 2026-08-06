@@ -12,7 +12,7 @@
  * "Fresco" = verificado hace 3 días o menos. Ojo al leerlo: un scraper recién
  * añadido sale a 0% hasta que corre la pasada nocturna siguiente.
  */
-const { zapatillas } = await import("../src/data/zapatillas.js");
+import { zapatillas } from "../src/data/zapatillas.js";
 
 const soloAfiliados = !process.argv.includes("--todas");
 const HOY = Date.now();
