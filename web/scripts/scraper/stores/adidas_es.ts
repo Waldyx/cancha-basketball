@@ -21,10 +21,37 @@ import { matchesShoe, parsePrice, today } from "../matcher.js";
 const BASE = "https://www.adidas.es";
 
 /**
+ * Cómo rotula adidas el segmento junior: con palabra ("Niños", "para niño") o
+ * con la J final de su propia nomenclatura ("ANTHONY EDWARDS 2 J").
+ */
+export const ES_JUNIOR = /(Niñ[oa]s?|Bebé|Junior|Infantil|Adolescentes|\sJ\s*$)/i;
+
+/** ¿La ficha del catálogo es del segmento junior? ("AE 2 GS", "AE 1 Low GS") */
+export function esModeloGS(modelo: string): boolean {
+  return /\bgs\b/i.test(modelo);
+}
+
+/**
+ * Consulta de búsqueda para adidas.es.
+ *
+ * Su buscador entiende el nombre COMERCIAL, no el del catálogo:
+ *  - "gs" no lo entiende: "adidas ae 1 low gs" devuelve CERO resultados aunque
+ *    la zapatilla esté a la venta. Se traduce a "niños".
+ *  - "ae 1" tampoco: devuelve zapatillas de correr sueltas. Con "anthony
+ *    edwards 1" salen las 6 colorways, junior incluida.
+ */
+export function consultaAdidas(marca: string, modelo: string): string {
+  return `${marca} ${modelo}`
+    .toLowerCase()
+    .replace(/\bae\s+(\d+)/g, "anthony edwards $1")
+    .replace(/\bgs\b/g, "niños");
+}
+
+/**
  * Adidas usa nombres extendidos diferentes a los del catálogo. Normaliza el
  * título del producto a la nomenclatura corta del catálogo antes de matchear.
  */
-function normalizeAdidasTitle(title: string): string {
+export function normalizeAdidasTitle(title: string): string {
   return title
     // Harden Volume/Volumen N → Harden Vol N
     .replace(/Harden\s+Volum(?:e|en)\s+(\d+)/i, "Harden Vol $1")
@@ -32,7 +59,31 @@ function normalizeAdidasTitle(title: string): string {
     .replace(/Anthony\s+Edwards\s+(\d+)/i, "AE $1")
     // D.O.N. Issue / Donovan Mitchell → DON Issue
     .replace(/Donovan\s+Mitchell\s+(\d+)/i, "DON Issue $1")
-    .replace(/D\.O\.N\.\s+Issue\s+(\d+)/i, "DON Issue $1");
+    .replace(/D\.O\.N\.\s+Issue\s+(\d+)/i, "DON Issue $1")
+    // "… 2 J" → "… 2 GS": la J final es como adidas marca el junior, y el
+    // catálogo lo llama GS. Sin esto la ficha junior no se puede identificar.
+    .replace(/\s+J\s*$/, " GS");
+}
+
+interface TarjetaAdidas {
+  title: string;
+  priceText: string;
+  href: string;
+}
+
+/** Lee de una sola pasada las 15 primeras tarjetas del listado. */
+async function leerTarjetas(page: Page): Promise<TarjetaAdidas[]> {
+  return page
+    .$$eval('article[data-testid="plp-product-card"]', (els) =>
+      els.slice(0, 15).map((c) => ({
+        title: c.querySelector('[data-testid="product-card-title"]')?.textContent?.trim() ?? "",
+        priceText: c.querySelector('[data-testid="main-price"]')?.textContent?.trim() ?? "",
+        href:
+          (c.querySelector('a[data-testid="product-card-image-link"]') as HTMLAnchorElement)
+            ?.href ?? "",
+      }))
+    )
+    .catch(() => [] as TarjetaAdidas[]);
 }
 
 export const adidas_es: StoreScraper = {
@@ -48,7 +99,8 @@ export const adidas_es: StoreScraper = {
     };
 
     // URL search canónica (evita URLs Awin/historiales)
-    const searchUrl = `${BASE}/search?q=${encodeURIComponent(`${shoe.marca} ${shoe.modelo}`.toLowerCase())}`;
+    const searchUrl = `${BASE}/search?q=${encodeURIComponent(consultaAdidas(shoe.marca, shoe.modelo))}`;
+    const buscamosGS = esModeloGS(shoe.modelo);
 
     try {
       await page.goto(searchUrl, { waitUntil: "domcontentloaded", timeout: 30000 });
@@ -70,16 +122,41 @@ export const adidas_es: StoreScraper = {
         .waitForSelector('[data-testid="plp-product-card"]', { timeout: 15000 })
         .catch(() => {});
 
-      const cards = await page.$$('article[data-testid="plp-product-card"]');
+      // Las tarjetas se leen de una sola pasada. Antes se hacían 3 viajes al
+      // navegador POR TARJETA (título, precio, href) y adidas re-renderiza el
+      // listado mientras tanto: los handles quedaban obsoletos, el título salía
+      // vacío y la zapatilla se daba por no encontrada. De ahí los fallos
+      // intermitentes, que cambiaban de víctima en cada pasada.
+      let cards = await leerTarjetas(page);
 
-      for (const card of cards.slice(0, 15)) {
-        const title =
-          (await card
-            .$eval('[data-testid="product-card-title"]', (el) => el.textContent?.trim() ?? "")
-            .catch(() => "")) || "";
+      // A veces el listado no llega a hidratar y devuelve CERO tarjetas para una
+      // búsqueda que sí tiene resultados (medido: 1-2 víctimas distintas en cada
+      // pasada de 27). Una segunda oportunidad sale mucho más barata que dejar
+      // la zapatilla sin verificar 24 h.
+      if (cards.length === 0) {
+        await page.waitForTimeout(3000);
+        await page.reload({ waitUntil: "domcontentloaded", timeout: 30000 }).catch(() => {});
+        await page
+          .waitForSelector('[data-testid="plp-product-card"]', { timeout: 15000 })
+          .catch(() => {});
+        cards = await leerTarjetas(page);
+      }
+
+      // Nos quedamos con la MÁS BARATA de las que emparejan, no con la primera.
+      // adidas devuelve una tarjeta por colorway y el rango es enorme: la AE 2
+      // sale en 10 tarjetas de 70 a 130 €. Coger la primera daba un precio
+      // arbitrario — y si tocaba una de 130 €, el guardarraíl de precio la
+      // descartaba y la zapatilla se quedaba sin verificar.
+      let mejor: { precio: number; url: string } | null = null;
+
+      for (const { title, priceText, href } of cards) {
         if (!title) continue;
-        // Filtra modelos junior (la versión adulto matchearía igual y a menor precio)
-        if (/(Niñ[oa]s?|Bebé|Junior|Infantil)/i.test(title)) continue;
+        // El segmento tiene que coincidir, y en los DOS sentidos:
+        //  - buscando la de adulto, una junior colaría igual y MÁS BARATA;
+        //  - buscando la GS, el filtro de junior la hacía imposible de
+        //    encontrar (las 2 zapas GS de adidas fallaban siempre por esto,
+        //    aunque adidas.es las vende: "Niños Anthony Edwards 2", 70 €).
+        if (ES_JUNIOR.test(title) !== buscamosGS) continue;
         // Adidas usa nombres extendidos ("Harden Volume 9", "Anthony Edwards 2")
         // que normalizamos a la nomenclatura corta del catálogo ("Vol 9", "AE 2").
         const normalized = normalizeAdidasTitle(title);
@@ -88,28 +165,16 @@ export const adidas_es: StoreScraper = {
         const titleForMatch = /^adidas/i.test(normalized) ? normalized : `Adidas ${normalized}`;
         if (!matchesShoe(titleForMatch, shoe.marca, shoe.modelo)) continue;
 
-        const priceText =
-          (await card
-            .$eval('[data-testid="main-price"]', (el) => el.textContent?.trim() ?? "")
-            .catch(() => "")) || "";
         const price = parsePrice(priceText);
         if (!price || price < 20 || price > 500) continue;
 
-        const href =
-          (await card
-            .$eval(
-              'a[data-testid="product-card-image-link"]',
-              (el) => (el as HTMLAnchorElement).href
-            )
-            .catch(() => "")) || "";
         const productUrl = href || searchUrl;
 
-        return {
-          ...base,
-          url: productUrl,
-          precio_actual: price,
-          disponible: true,
-        };
+        if (!mejor || price < mejor.precio) mejor = { precio: price, url: productUrl };
+      }
+
+      if (mejor) {
+        return { ...base, url: mejor.url, precio_actual: mejor.precio, disponible: true };
       }
 
       return { ...base, disponible: false };
