@@ -125,7 +125,7 @@ function normalize(s: string): string {
     base
   );
 
-  return conSinonimos
+  const tokens = conSinonimos
     .split(" ")
     .map((tok) => {
       if (tok === "volume") return "vol";
@@ -137,7 +137,44 @@ function normalize(s: string): string {
       const m = tok.match(/^([a-z]{1,3})(\d{1,3})$/);
       return m ? `${m[1]} ${m[2]}` : tok;
     })
-    .join(" ");
+    .join(" ")
+    .split(" ");
+
+  return unirIniciales(tokens).join(" ");
+}
+
+/**
+ * Une las RACHAS de letras sueltas en una sigla: "g t cut 3" → "gt cut 3",
+ * "d o n issue 7" → "don issue 7".
+ *
+ * Hace falta porque el punto ya se ha convertido en espacio y las tiendas
+ * escriben las siglas punteadas: Amazon lista la GT Cut 3 como "G.t. Cut 3",
+ * así que el token obligatorio "gt" del catálogo no aparecía NUNCA y se
+ * rechazaba el producto correcto. Nuestro propio catálogo es inconsistente
+ * ("GT Cut 3" pero "Air Zoom G.T. Cut 4"), y esto hace converger ambos lados.
+ *
+ * Solo une rachas de 2+ letras seguidas: una letra suelta se deja como está,
+ * para no fundir la "x" de las colaboraciones ("Dame 9 x Wale") con nada.
+ */
+function unirIniciales(tokens: string[]): string[] {
+  const salida: string[] = [];
+  let racha: string[] = [];
+
+  const volcar = () => {
+    if (racha.length >= 2) salida.push(racha.join(""));
+    else salida.push(...racha);
+    racha = [];
+  };
+
+  for (const tok of tokens) {
+    if (/^[a-z]$/.test(tok)) racha.push(tok);
+    else {
+      volcar();
+      salida.push(tok);
+    }
+  }
+  volcar();
+  return salida.filter((t) => t.length > 0);
 }
 
 /** Palabras significativas (> 1 char y no stopwords de ropa deportiva) */

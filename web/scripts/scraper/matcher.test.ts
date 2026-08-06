@@ -149,6 +149,46 @@ describe("matchesShoe — romanos y sinónimos (títulos reales de Amazon)", () 
   }
 });
 
+// Las tiendas escriben las siglas punteadas ("G.t. Cut 3", "D.O.N Issue 7") y,
+// como el punto se convierte en espacio, el token obligatorio "gt" del catálogo
+// no aparecía nunca. Nuestro propio catálogo es inconsistente ("GT Cut 3" pero
+// "Air Zoom G.T. Cut 4"), así que el fix tiene que valer en los dos sentidos.
+// Títulos REALES de Amazon capturados el 2026-08-06.
+describe("matchesShoe — siglas punteadas (G.T., D.O.N.)", () => {
+  const right: [string, string, string][] = [
+    ["NIKE G.t. Cut 3, Zapatillas de básquetbol Hombre", "Nike", "GT Cut 3"],
+    ["NIKE Air Zoom G.T. Cut 4 Zapatillas de baloncesto", "Nike", "Air Zoom G.T. Cut 4"],
+    // Al revés: catálogo punteado, tienda sin puntos
+    ["Nike Air Zoom GT Cut 4 basketball", "Nike", "Air Zoom G.T. Cut 4"],
+    ["adidas D.O.N Issue 7 Zapatillas", "Adidas", "D.O.N. Issue 7"],
+    ["adidas DON Issue 7", "Adidas", "D.O.N. Issue 7"],
+  ];
+  for (const [titulo, marca, modelo] of right) {
+    it(`"${titulo.slice(0, 42)}" SÍ es ${marca} ${modelo}`, () => {
+      expect(matchesShoe(titulo, marca, modelo)).toBe(true);
+    });
+  }
+
+  const wrong: [string, string, string][] = [
+    // La generación sigue mandando
+    ["NIKE G.t. Cut 4, Zapatillas de básquetbol Hombre", "Nike", "GT Cut 3"],
+    // Y la GT Cut no es la GT Jump
+    ["NIKE Air Zoom G.T. Jump 2 Zapatillas", "Nike", "Air Zoom G.T. Cut 4"],
+  ];
+  for (const [titulo, marca, modelo] of wrong) {
+    it(`"${titulo.slice(0, 42)}" NO es ${marca} ${modelo}`, () => {
+      expect(matchesShoe(titulo, marca, modelo)).toBe(false);
+    });
+  }
+
+  // Una letra suelta NO es una sigla: la "x" de las colaboraciones se queda
+  // como está y no puede fundirse con la palabra siguiente.
+  it("no une la 'x' de colaboración con lo que venga detrás", () => {
+    expect(matchesShoe("adidas Dame 9 x Wale", "Adidas", "Dame 9")).toBe(true);
+    expect(matchesShoe("adidas Dame 9 x Wale", "Adidas", "Dame 9 XW")).toBe(false);
+  });
+});
+
 // El catálogo llama "GS" al segmento junior (14 zapas, 20 enlaces), pero NINGUNA
 // tienda escribe "GS": usan "Junior", "Jr" o "(GS)". Como el número/token del
 // modelo es obligatorio, esas 14 zapas no podían emparejar NUNCA con nada.
