@@ -95,6 +95,12 @@ const PHRASE_SYNONYMS: [RegExp, string][] = [
   [/\bgrade school\b/g, "gs"],
   [/\bjuniors?\b/g, "gs"],
   [/\bjr\b/g, "gs"],
+  // Las tiendas españolas rotulan ese mismo segmento como "niño"/"niña" (Forum
+  // Sport: "adidas Dame X rojo zapatilla baloncesto niño"). Sin esto fallaban
+  // las 3 GS que Forum Sport SÍ tiene en stock. Se aceptan las variantes sin
+  // tilde porque así vienen en los slugs de URL ("…-ninos-ownthegame-30-j-…").
+  [/\bni[ñn][oa]s?\b/g, "gs"],
+  [/\bkids\b/g, "gs"],
 ];
 
 /**

@@ -159,6 +159,13 @@ describe("matchesShoe — segmento GS/junior", () => {
     ["adidas AE 1 Junior Basketball Shoes", "Adidas", "AE 1 GS"],
     ["Nike Sabrina 3 (GS) Basketball", "Nike", "Sabrina 3 GS"],
     ["Under Armour Curry 12 Jr", "Under Armour", "Curry 12 GS"],
+    // Las tiendas españolas lo rotulan "niño"/"niña". Títulos REALES de Forum
+    // Sport (2026-08-06); las 3 estaban EN STOCK y se perdían por esto.
+    ["adidas Dame X rojo zapatilla baloncesto niño", "Adidas", "Dame X GS"],
+    ["adidas Ownthegame 3.0 azul zapatilla baloncesto niño", "Adidas", "OwnTheGame 3 GS"],
+    ["adidas D.o.n Issue 7 azul zapatilla baloncesto niño", "Adidas", "D.O.N. Issue 7 GS"],
+    // Variante sin tilde y en plural, tal y como viene en los slugs de URL.
+    ["nike zapatilla baloncesto ninos jordan luka 77 gs", "Jordan", "Luka 77 GS"],
   ];
   for (const [titulo, marca, modelo] of right) {
     it(`"${titulo.slice(0, 42)}" SÍ es ${marca} ${modelo}`, () => {
@@ -173,6 +180,10 @@ describe("matchesShoe — segmento GS/junior", () => {
     ["Zapatillas Puma MB.05 Low Fluorish", "Puma", "MB.05 GS"],
     // Y una GS de otra generación sigue siendo otra zapa
     ["Zapatillas Puma MB.04 Low Junior", "Puma", "MB.05 GS"],
+    // "niño" tampoco puede saltarse la generación
+    ["adidas D.o.n Issue 6 azul zapatilla baloncesto niño", "Adidas", "D.O.N. Issue 7 GS"],
+    // Ni la de adulto colar como GS por no llevar la marca del segmento
+    ["adidas Ownthegame 3.0 azul zapatillas baloncesto hombre", "Adidas", "OwnTheGame 3 GS"],
   ];
   for (const [titulo, marca, modelo] of wrong) {
     it(`"${titulo.slice(0, 42)}" NO es ${marca} ${modelo}`, () => {

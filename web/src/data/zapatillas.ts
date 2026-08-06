@@ -4376,7 +4376,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "reebok_es", url: "https://www.reebok.es/buscar?q=question+mid", precio_actual: 130, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
       { tienda: "zalando_es", url: "https://www.zalando.es/zapatillas/?q=reebok+question+mid", precio_actual: 115, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=reebok+question+mid", precio_actual: 120, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
-      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fc%2Fzapatillas%3Fq%3Dreebok%2Bquestion", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-26" },
+      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Freebok-question-mid-gris-17566", precio_actual: 80, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+question+mid+baloncesto&tag=canchazapa-21", precio_actual: 118, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },

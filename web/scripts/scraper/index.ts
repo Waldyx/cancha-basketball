@@ -40,6 +40,8 @@ import { kickscrew } from "./stores/generic.js";
 import { elcorteingles_es } from "./stores/elcorteingles_es.js";
 import { fuikaomar_es } from "./stores/fuikaomar_es.js";
 import { atmosfera_sport } from "./stores/atmosfera_sport.js";
+import { snipes_eu } from "./stores/snipes_eu.js";
+import { forumsport_es } from "./stores/forumsport_es.js";
 import { idealo_es, idealoSearchUrl } from "./stores/idealo.js";
 
 // Importar datos del catálogo directamente (bypasando el merge)
@@ -84,6 +86,8 @@ const SCRAPERS: Record<string, StoreScraper> = {
   elcorteingles_es,
   fuikaomar_es,
   atmosfera_sport,
+  snipes_eu,
+  forumsport_es,
   idealo_es,
 };
 
