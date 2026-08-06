@@ -5,9 +5,9 @@
 
 ---
 
-## Estado actual (sesión 34) — Snipes y Forum Sport: últimas 2 afiliadas sin scraper, cerradas
+## Estado actual (sesión 34) — Últimas 2 tiendas sin scraper + Amazon: diagnóstico y falsos positivos
 
-Todo en `master` y verificado con pasadas reales por tienda. **Tests: 114 → 137.**
+Todo en `master` y verificado con pasadas reales por tienda. **Tests: 114 → 148.**
 **Ya NO queda ninguna tienda afiliada sin scraper.**
 
 ### ✅ Completado (sesión 34)
@@ -49,13 +49,62 @@ primer producto de la página, cada búsqueda muerta devolvería unas Air Force 
   comprobar catálogo) confirma **0 resultados** para kobe, answer y AJ39. Snipes solo tiene
   retros AJ1/3/4/5/6/7/11.
 
+### ✅ Completado (sesión 34, 2ª parte) — AMAZON: diagnóstico cerrado + bug de falsos positivos
+
+**4. Por qué Amazon DIVERGE entre local y CI (la duda que venía de s32)** — commit `166a7cd`
+Comparados los 174 enlaces entre la pasada nocturna REAL de CI y una pasada local idéntica:
+- **CI 52/173 (30%) vs LOCAL 81/173 (47%)**. La divergencia es real y **estable**, no ruido.
+- **NO es un captcha**: 0 errores duros, 0 páginas de reto. Lo que cambia son las **ofertas**
+  (hay flips en las DOS direcciones en "descartado por precio implausible"): Amazon sirve
+  vendedores/precios distintos a la IP de datacenter de GitHub que a una IP española.
+- **Pero la causa dominante NO es la IP, es el TIPO DE ENLACE**: 96 de los 174 son búsquedas
+  `/s?k=` y aciertan el **8%** en CI, frente al **56%** de las fichas `/dp/`. → el arreglo no es
+  endurecer el scraper, es **fijar fichas**.
+
+**5. BUG GORDO: la búsqueda de Amazon validaba productos EQUIVOCADOS** — commit `166a7cd`
+El matcher comparaba contra el texto COMPLETO de la tarjeta de resultado, que incluye **precio,
+valoración y talla**. Para un modelo que se llama por un número, cualquier "40,00 €" o "talla 40"
+lo validaba. **Medido: 8 de 31 aciertos aparentes (26%) eran OTRO producto**:
+| Buscábamos | Era realmente |
+|---|---|
+| Air Jordan 40 | AJ1 Mid **de béisbol**, talla 40 EU |
+| Air Max CB 34 | Air Max **270**, talla 34 EU |
+| Zion 4 | Zion **3** |
+| Harden Vol 8 | Harden Volume **9** |
+- Fix: **la tarjeta solo PROPONE** (hasta 3 candidatos), **quien decide es la ficha**: se abre el
+  `/dp/` y se empareja contra el `#productTitle`, que es el nombre real sin precio ni talla
+  pegados. Verificado: los 4 falsos positivos se rechazan y los aciertos buenos siguen pasando.
+- Efecto secundario bueno: al devolver la URL `/dp/` verificada, `resolveUrl` la fija sola en el
+  merge → **los enlaces de búsqueda se auto-reparan** noche a noche.
+
+**6. Dos bugs de matcher, y el segundo lo destapó el primero** — commits `6fac805`, `fde2140`
+- **Siglas punteadas**: al normalizar, el punto se vuelve espacio, así que "G.t. Cut 3" quedaba
+  "g t cut 3" y el token OBLIGATORIO `gt` no aparecía NUNCA. `normalize()` une ahora las rachas de
+  2+ letras sueltas ("g t"→"gt", "d o n"→"don"). Una letra suelta se deja: si no, la "x" de las
+  colaboraciones ("Dame 9 x Wale") se fundiría con la palabra siguiente. Afecta a 10 modelos y hace
+  converger nuestro propio catálogo, que es **inconsistente consigo mismo** ("GT Cut 3" pero
+  "Air Zoom G.T. Cut 4").
+- **Modelos de OTRO deporte**: en cuanto empezó a encontrar `gt`, la "NIKE G.t. Cut 3 **Turbo,
+  Zapatillas de fútbol**" coló a 173,26 € como si fuera la de baloncesto — comparte marca, `gt`,
+  `cut` y el 3, así que ninguna regla de nombre podía separarlas. Guardarraíl: fútbol/football/
+  running/trail/senderismo/pádel → rechazo. ⚠ **"tenis" NO puede entrar en esa lista**: en español
+  de América es justamente como se llaman las zapatillas ("Tenis de baloncesto Curry 12", Amazon).
+
+**7. Herramientas** — commits `4cbf2e9`, `2a3648f`
+- `scripts/audit-frescura.ts`: la auditoría por tienda que se rehacía a mano cada sesión.
+- Test de invariante: **toda zapa del catálogo empareja con su propio nombre** (234/234). Si una
+  ficha no se reconoce ni a sí misma, su precio queda congelado para siempre.
+
 ### ▶️ SIGUIENTE PASO (retomar aquí)
 1. **AliExpress por API** en cuanto llegue el app_key (47 enlaces al 7%, la comisión más alta).
    Sigue siendo lo más rentable pendiente. ⏳ Depende del usuario.
-2. **Amazon**: 174 enlaces, ~120 rancios. Antes de tocar código, averiguar por qué DIVERGE
-   (local 47% vs CI ~30%), probablemente bloqueo por volumen.
-3. Medir la frescura real por tienda **una semana después** de esta sesión (aprendizaje de s33:
-   una sola noche no confirma nada).
+2. **Comprobar el efecto real de esta sesión con la pasada del 7-ago**: deberían subir Amazon
+   (fichas fijadas + fin de los falsos positivos) y aparecer por primera vez fuikaomar, atmósfera,
+   snipes y forumsport. Predicción: frescura 28% → ~45%. **Confirmar con una semana, no con una
+   noche** (aprendizaje de s33).
+3. **Quedan ~73 enlaces de búsqueda en Amazon**. De los 96, 50 no emparejaron y 15 dieron precio
+   implausible (revendedor). Repasar si merece la pena fijarlos a mano; ojo: el resolutor coge el
+   primer resultado que empareja, **no el más barato**.
 
 ### 🟡 Pendiente / requiere decisión del usuario (sesión 34)
 - **4 enlaces de Snipes MUERTOS y sin destino posible**: `nike-kobe-8-protro`,
@@ -71,6 +120,17 @@ primer producto de la página, cada búsqueda muerta devolvería unas Air Force 
   tocó: hacer que la "x" suelta valga 10 rompería los títulos con "x" de colaboración
   ("Dame 9 x Wale" pasaría a casar con Dame X). Necesita su propia pasada con cuidado.
 - `deploy.yml` lleva fallando desde el 26-may (heredado). El deploy real lo hace Vercel.
+
+### 📌 Aprendizajes (sesión 34, 2ª parte — Amazon)
+- **Un acierto del scraper puede ser un producto equivocado.** Contar "éxitos" no vale: el 26% de
+  los de Amazon eran otra zapatilla. Cuando el nombre del modelo es un NÚMERO, emparejar contra
+  texto que lleva precios y tallas es pedir un falso positivo.
+- **Emparejar siempre contra el título del producto, nunca contra el bloque que lo rodea.**
+- **Un fix del matcher puede abrir un agujero nuevo**: el de las siglas hizo colar una zapatilla de
+  fútbol. Al tocar el matcher, medir SIEMPRE contra fichas reales, no solo correr los tests.
+- **Cuidado con las sondas de diagnóstico**: dentro de un template literal `\s` colapsa a `s`, así
+  que un `page.evaluate` con `.replace(/\s+/g,' ')` mal escapado borra TODAS las eses del texto y
+  te hace "descubrir" un bug que no existe. Escapar `\\s` o usar `locator.innerText()`.
 
 ### 📌 Aprendizajes (sesión 34)
 - **Un enlace que responde 200 puede ser una 404**: Snipes sirve su página de error con status
