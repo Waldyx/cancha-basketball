@@ -192,12 +192,26 @@ function significantWords(s: string): string[] {
     .filter((w) => (w.length > 1 || /^\d$/.test(w)) && !STOP_WORDS.has(w));
 }
 
+/**
+ * Deportes que NO son el nuestro. El catálogo es 100% baloncesto, así que un
+ * título que se anuncia como otra cosa no es nuestro producto por mucho que
+ * comparta nombre de modelo.
+ *
+ * Caso real (Amazon, 2026-08-06): la "G.t. Cut 3 Turbo, Zapatillas de fútbol"
+ * comparte marca, "gt", "cut" y el 3 con la GT Cut 3 de baloncesto, y colaba
+ * a 173,26 €. OJO: "tenis" NO va en la lista — en español de América es
+ * justamente como se llaman las zapatillas ("Tenis de baloncesto Curry 12").
+ */
+const OTRO_DEPORTE = /\b(f[úu]tbol|football|running|trail|senderismo|p[áa]del)\b/i;
+
 export function matchesShoe(
   title: string,
   marca: string,
   modelo: string,
   minScore = 0.6
 ): boolean {
+  if (OTRO_DEPORTE.test(title)) return false;
+
   // Limpiar tallas/códigos ANTES de normalizar (evita números espurios)
   const tNorm = normalize(stripNoise(title));
 

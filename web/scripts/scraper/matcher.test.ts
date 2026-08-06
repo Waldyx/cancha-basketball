@@ -181,6 +181,26 @@ describe("matchesShoe — siglas punteadas (G.T., D.O.N.)", () => {
     });
   }
 
+  // El propio fix de las siglas destapó esto: al empezar a encontrar "gt",
+  // la GT Cut 3 **Turbo de fútbol** de Amazon pasó a colar a 173,26 € como si
+  // fuera la de baloncesto. Comparte marca, "gt", "cut" y el 3.
+  it("NO cuela un modelo de otro deporte que comparte nombre", () => {
+    const futbol = "NIKE G.t. Cut 3 Turbo, Zapatillas de fútbol Hombre, Venom Green";
+    expect(matchesShoe(futbol, "Nike", "GT Cut 3")).toBe(false);
+    // …y la de baloncesto con el mismo nombre punteado SÍ pasa
+    expect(
+      matchesShoe("NIKE G.t. Cut 3, Zapatillas de básquetbol Hombre", "Nike", "GT Cut 3")
+    ).toBe(true);
+  });
+
+  // "Tenis" NO puede estar en la lista de otros deportes: en español de América
+  // es justamente como se llaman las zapatillas, y Amazon lo usa.
+  it("'Tenis de baloncesto' sigue siendo baloncesto", () => {
+    expect(
+      matchesShoe("Under Armour Tenis de baloncesto Curry 12 Dub Nation", "Under Armour", "Curry 12")
+    ).toBe(true);
+  });
+
   // Una letra suelta NO es una sigla: la "x" de las colaboraciones se queda
   // como está y no puede fundirse con la palabra siguiente.
   it("no une la 'x' de colaboración con lo que venga detrás", () => {
