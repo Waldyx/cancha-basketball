@@ -1,11 +1,90 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-08-06 (sesión 33)
+> Última actualización: 2026-08-06 (sesión 34)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
 
-## Estado actual (sesión 33) — 2 scrapers nuevos (0% → 73/93%) + bug GS + AliExpress bloqueado
+## Estado actual (sesión 34) — Snipes y Forum Sport: últimas 2 afiliadas sin scraper, cerradas
+
+Todo en `master` y verificado con pasadas reales por tienda. **Tests: 114 → 137.**
+**Ya NO queda ninguna tienda afiliada sin scraper.**
+
+### ✅ Completado (sesión 34)
+
+**1. Scrapers nuevos: Snipes (6/9 fichas) y Forum Sport (9/13)** — commit `22330ab`
+27 enlaces que no se verificaban NUNCA (mediana 48-57 días). Ninguna tiene anti-bot: la
+ficha responde 200 al primer intento (**2 s Forum Sport — la más rápida de todas—, 4 s Snipes**).
+- **Las dos publican precio Y stock en el JSON-LD.** El DOM NO sirve en ninguna:
+  - Snipes repite `.product-price` para el **carrusel de recomendados** (en la AJ4 de 170 € el
+    primero marca 119,99 €).
+  - Forum Sport junta PVP tachado y precio de venta en el mismo bloque. Y ojo: sus
+    `span.size-item` **NO son stock**, son la tabla de equivalencias de tallas y salen TODOS con
+    clase `off` aunque el producto esté a la venta.
+- **Quedarse siempre con el objeto de PRIMER nivel**: el producto anida otros con sus propios
+  precios (`isSimilarTo` en Snipes, `hasVariant` en Forum Sport — la Harden Vol 9 blanca a
+  159,99 € agotada junto a la amarilla a 95,99 € disponible).
+- Bajadas que llevaban meses sin verse: AJ11 200→160, AJ3 170→140, AJ1 Low 140→70, DON Issue 7 GS
+  70,19→53,99, Dame X GS 50,73→41,99, Crossover 2 57,11→47,99, AE 2 83,84→77,99.
+- **Los 7 fallos restantes NO son bugs: los 7 son AGOTADO de verdad**, verificados uno a uno.
+
+**2. Dos arreglos de emparejamiento que afloraron al medir los fallos**
+- **`matcher.ts`: "niño"/"niña"/"kids" → gs.** Las tiendas españolas rotulan así el segmento
+  junior ("adidas Dame X rojo zapatilla baloncesto **niño**"). Va en la línea del fix de s33
+  (junior/jr/grade school) y recuperó **3 GS que SÍ tenían stock**. Se aceptan las variantes sin
+  tilde porque así vienen en los slugs de URL.
+- **`forumsport_es.ts`: el slug de la URL como identidad de último recurso** (`textoDeSlug`).
+  La AE 2 se publica como "adidas ANTHONY EDWARDS" en el `name`, el `h1` y el `<title>` — los
+  tres se comen la generación — y **solo el slug** dice cuál es. Se toma de la URL FINAL para que
+  un redirect no valide el producto que pedimos en vez del que nos han servido.
+
+**3. Las 5 URLs de búsqueda de Snipes están MUERTAS**
+`/c/zapatillas?q=…` sirve una **404 con status 200** y un carrusel de productos aleatorios; el
+`?q=` ya no filtra (`/c/zapatos-3?q=kobe` devuelve la categoría entera) y `/c/zapatillas` sin id
+tampoco existe. Por eso el scraper **exige un `Product` en el JSON-LD**: si se conformara con el
+primer producto de la página, cada búsqueda muerta devolvería unas Air Force 1 cualesquiera.
+- **Recuperada**: `reebok-question-mid` → ficha real (`/p/reebok-question-mid-gris-17566`, 80 €,
+  agotada). Retirada además su entrada rancia de `precios.json`, que la daba disponible a 120 €.
+- **NO recuperables** (ver pendientes): el sitemap `es-es/sitemap_products.xml` (8,5 MB, útil para
+  comprobar catálogo) confirma **0 resultados** para kobe, answer y AJ39. Snipes solo tiene
+  retros AJ1/3/4/5/6/7/11.
+
+### ▶️ SIGUIENTE PASO (retomar aquí)
+1. **AliExpress por API** en cuanto llegue el app_key (47 enlaces al 7%, la comisión más alta).
+   Sigue siendo lo más rentable pendiente. ⏳ Depende del usuario.
+2. **Amazon**: 174 enlaces, ~120 rancios. Antes de tocar código, averiguar por qué DIVERGE
+   (local 47% vs CI ~30%), probablemente bloqueo por volumen.
+3. Medir la frescura real por tienda **una semana después** de esta sesión (aprendizaje de s33:
+   una sola noche no confirma nada).
+
+### 🟡 Pendiente / requiere decisión del usuario (sesión 34)
+- **4 enlaces de Snipes MUERTOS y sin destino posible**: `nike-kobe-8-protro`,
+  `nike-kobe-9-high-protro`, `jordan-xxxix` (AJ39), `reebok-answer-iv`. Snipes NO vende esos
+  modelos (verificado en su sitemap), así que no hay ficha a la que repuntarlos. **Viven SOLO en
+  `precios.json`** (no están en el editorial), y allí siguen marcados `disponible: true` con
+  precio y fecha fabricados de mayo → hoy muestran precio y mandan el click a una 404. Borrarlos
+  de `precios.json` elimina la opción Snipes de esas 4 zapas. **Decidir si se borran.**
+  (Mismo caso que los 4 enlaces ECI de Skechers SKX, que siguen sin tocar.)
+- **Hueco LATENTE del matcher con los modelos de una sola letra**: en "Dame X GS" la "X" se
+  descarta por tener 1 carácter, así que el modelo NO exige generación y una ficha de "Dame 9
+  niño" colaría como Dame X GS. Es **anterior** a esta sesión (pasaba igual con "Junior"). NO se
+  tocó: hacer que la "x" suelta valga 10 rompería los títulos con "x" de colaboración
+  ("Dame 9 x Wale" pasaría a casar con Dame X). Necesita su propia pasada con cuidado.
+- `deploy.yml` lleva fallando desde el 26-may (heredado). El deploy real lo hace Vercel.
+
+### 📌 Aprendizajes (sesión 34)
+- **Un enlace que responde 200 puede ser una 404**: Snipes sirve su página de error con status
+  200. Comprobar SIEMPRE el contenido (aquí: que exista `Product` en el JSON-LD), nunca el status.
+- **El sitemap de la tienda es la forma barata de saber si stockea un modelo** antes de buscar
+  ficha a mano: `snipes.com/es-es/sitemap_products.xml` respondió en segundos y cerró 4 dudas.
+- Se confirma lo de s33: antes de tocar código, separar **agotado / no-match / enlace muerto**.
+  De 15 "fallos" iniciales, 7 eran agotados correctos, 4 eran matcher y 4 eran enlaces muertos.
+- `writePreciosJson` **FUSIONA**, no reescribe: una entrada rancia de `precios.json` no caduca
+  sola nunca y además **pisa** al editorial. Al repuntar un enlace, mirar siempre si está ahí.
+
+---
+
+## Estado anterior (sesión 33) — 2 scrapers nuevos (0% → 73/93%) + bug GS + AliExpress bloqueado
 
 Todo en `master` y verificado con pasadas reales. **Tests: 80 → 114.**
 
