@@ -1,11 +1,87 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-07-30 (sesión 32)
+> Última actualización: 2026-08-06 (sesión 33)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
 
-## Estado actual (sesión 32) — Auditoría de frescura por tienda + 2 promos nuevas
+## Estado actual (sesión 33) — 2 scrapers nuevos (0% → 73/93%) + bug GS + AliExpress bloqueado
+
+Todo en `master` y verificado con pasadas reales. **Tests: 80 → 114.**
+
+### ✅ Completado (sesión 33)
+
+**1. Scrapers nuevos: FuikaOmar (22/30) y Atmósfera (25/27)** — comm. `781946d`
+Eran las 2 tiendas afiliadas más grandes SIN scraper: 57 enlaces que no se verificaban NUNCA
+(mediana 55 días, 0% frescos). Ninguna tiene protección anti-bot.
+- **El precio limpio de ambas está en `meta[product:price:amount]`.** NO leer el texto del DOM:
+  las dos mezclan en el mismo bloque precio actual + PVP tachado + ahorro.
+- **Stock, que es donde se diferencian**:
+  - FuikaOmar (PrestaShop) publica `availability` en el JSON-LD (con las barras escapadas).
+  - Atmósfera NO (su JSON-LD es un `ProductGroup`). El stock solo está en el selector de tallas,
+    que marca las agotadas con `attribute-not-in-stock out_of_stock`. Comprable si queda ≥1 talla.
+    ⚠ El placeholder "Selecciona una talla" no lleva clase de agotado → hay que ignorarlo o das
+    por comprable un producto sin ni una talla. Hay test que lo blinda.
+- Afloran bajadas que llevaban meses sin verse: 91→78, 89,99→62,93, 52→39, 44→35,75.
+- De los 8 fallos de FuikaOmar, **6 son AGOTADO de verdad** (correcto). Los 57 enlaces dan 200,
+  no hay ninguno muerto.
+
+**2. BUG GORDO: las 14 zapas "GS" no podían emparejar con NINGUNA ficha** — commit `44aa0ca`
+El catálogo llama "GS" al segmento junior, pero ninguna tienda escribe eso: usan "Junior", "Jr",
+"Grade School" o "(GS)". Como el token del modelo es OBLIGATORIO, esas 14 zapas (20 enlaces, 17
+con afiliado) fallaban siempre, **en todas las tiendas**. Fix en `matcher.ts`: sinónimos
+junior/jr/grade school → gs, y `stripNoise` ya no borra "(GS)" (sí sigue borrando (PS) y (TD)).
+Verificado: `puma-mb05-gs` pasa de fallar a 99,90€.
+
+**3. AliExpress: diagnosticado, NO arreglable scrapeando** — commits `c31b7b9`, `41960fe`
+- **Causa raíz medida**: la ficha es CSR (`runParams` vacío) y pide el precio por XHR a
+  `mtop.aliexpress.pdp.pc.query`. Esa XHR responde con **reto anti-bot**
+  (`_____tmd_____/punish` → reCAPTCHA Enterprise). ~9 llamadas de precio y ~20 respuestas de reto
+  por ficha. Esperar más NO sirve: el HTML es idéntico a los 3s, 8s y 15s.
+- **NO se debe rodear el reto.** La vía legítima es la **API de afiliados de AliExpress**
+  (`aliexpress.affiliate.productdetail.get`, app_key desde portals.aliexpress.com).
+  **⏳ EL USUARIO ESTÁ PIDIENDO EL API KEY.** Cuando lo tenga → secrets `ALIEXPRESS_APP_KEY` /
+  `ALIEXPRESS_APP_SECRET` y reescribir `stores/aliexpress.ts` contra la API.
+- Mientras tanto: `isBotChallengeUrl()` abandona el enlace al detectar el reto (3775→1403 ms por
+  enlace). ⚠ **OJO**: el ahorro NO se notó en la pasada nocturna (1h24m17s → 1h24m29s). Y el salto
+  de frescura 3→11 que pareció mejora **NO aguantó**: una semana después está en 5. Era variación.
+- Arreglado además que el módulo **importaba `matchesShoe` y no lo llamaba nunca**: aceptaba
+  cualquier precio ≥20€ sin comprobar el producto. Ahora `precioDeCandidato()` lo valida, y el
+  último recurso (mínimo precio visible, sin título) queda limitado a fichas `/item/`.
+
+**4. Promos** — commits `578cf88`, `d3af191`
+- ECI "Ofertas Límite en Deportes" (−60%, 30 jul–2 ago) ✔ ya caducada.
+- AliExpress "Día de envío local" (1–7 ago), códigos `ESSC02`..`ESSC30`.
+  ⚠ **ESSC45 y ESSC60 RETIRADOS**: AliExpress avisó el 4-ago de que están agotados. El aviso de
+  ficha elige el código de mayor descuento que cumpla el mínimo → habríamos ofrecido uno roto.
+- adidas "Time to Treat Yourself" (hasta 25%, **20–25 ago**), date-gated: no se muestra hasta el 20,
+  respetando el embargo que pedía el anunciante.
+- **ECI "Rebaja Final" NO cubre deportes** (es hogar/papelería/electrónica, correo del 3-ago).
+  Duda cerrada, no se añade.
+
+### ▶️ SIGUIENTE PASO (retomar aquí)
+1. **AliExpress por API** en cuanto llegue el app_key (47 enlaces al 7%, la comisión más alta).
+2. **Amazon**: 174 enlaces, ~120 rancios. Antes de tocar código, averiguar por qué DIVERGE
+   (local 47% vs CI ~30%), probablemente bloqueo por volumen.
+3. **Snipes (14) y Forum Sport (13)**: siguen a 0% y sin scraper. Mismo patrón que los 2 de hoy.
+
+### 🟡 Pendiente / requiere decisión del usuario
+- **`ua-curry-12-gs`**: su enlace de FuikaOmar apunta a "Curry 12 Dub Nation", sin ninguna marca de
+  junior. O el enlace está mal o esa colorway es de adulto. NO se forzó el match. **Revisar a mano.**
+- **4 enlaces ECI de Skechers SKX muertos** (heredado de s31, sin tocar).
+- **`deploy.yml` lleva fallando desde el 26-may** (heredado). El deploy real lo hace Vercel.
+
+### 📌 Aprendizajes (sesión 33)
+- **Un "fallo" del scraper no es siempre un bug**: de los 8 de FuikaOmar, 6 eran productos
+  agotados de verdad. Antes de tocar nada, separar agotado / no-match / enlace muerto.
+- **Cuidado al celebrar una mejora con una sola noche de datos**: lo de AliExpress (3→11) parecía
+  un éxito y era ruido. Confirmar con una semana.
+- Al añadir tienda nueva: comprobar SIEMPRE si el JSON-LD trae disponibilidad; si no, el selector
+  de tallas es el sitio, y hay que excluir el placeholder.
+
+---
+
+## Estado anterior (sesión 32) — Auditoría de frescura por tienda + 2 promos nuevas
 
 Sesión corta. Todo en `master` (commit `578cf88`) y verificado en producción.
 
