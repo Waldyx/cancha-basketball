@@ -7,7 +7,7 @@
 
 ## Estado actual (sesión 34) — Últimas 2 tiendas sin scraper + Amazon: diagnóstico y falsos positivos
 
-Todo en `master` y verificado con pasadas reales por tienda. **Tests: 114 → 148.**
+Todo en `master` y verificado con pasadas reales por tienda. **Tests: 114 → 156.**
 **Ya NO queda ninguna tienda afiliada sin scraper.**
 
 ### ✅ Completado (sesión 34)
@@ -95,6 +95,24 @@ lo validaba. **Medido: 8 de 31 aciertos aparentes (26%) eran OTRO producto**:
 - Test de invariante: **toda zapa del catálogo empareja con su propio nombre** (234/234). Si una
   ficha no se reconoce ni a sí misma, su precio queda congelado para siempre.
 
+**8. adidas.es: 3 fallos distintos, 10/27 → 12/27** — commit `a80a3ce`
+- **Las 2 zapas GS eran IMPOSIBLES de encontrar**: el scraper descartaba TODO título con
+  "Niños/Junior", que es justo como adidas rotula el segmento que buscábamos. Y la consulta
+  mandaba "gs", que su buscador **no entiende** ("adidas ae 1 low gs" → CERO resultados, aunque
+  la vende como "Anthony Edwards 1 Low Basketball para niño", 58,50 €). Tampoco entiende la sigla:
+  "ae 1" da zapatillas de correr; "anthony edwards 1" da las 6 colorways. Ahora el segmento debe
+  **coincidir en los dos sentidos**, la consulta traduce `gs`→niños y `AE`→anthony edwards, y se
+  reconocen como junior la **J final** ("ANTHONY EDWARDS 2 J") y **"(Adolescentes)"**.
+- **Cogía la primera tarjeta que emparejaba, no la más barata**: adidas devuelve una tarjeta por
+  colorway con un rango enorme (la AE 2 sale en 10 tarjetas de 70 a 130 €) → el precio era
+  arbitrario, y si tocaba una de 130 € el guardarraíl de plausibilidad la descartaba.
+- **Fallos INTERMITENTES que cambiaban de víctima en cada pasada**: se hacían 3 viajes al navegador
+  POR TARJETA y adidas re-renderiza el listado mientras tanto → handles obsoletos, título vacío.
+  Ahora se leen de una sola pasada + reintento si el listado no hidrata.
+- Los **15 fallos restantes son legítimos**: adidas.es ya no vende esos modelos (Dame 8/9, Harden
+  Vol 8, Trae Young 3/4, Exhibit A/B, Stepback 4, Ownthegame 2.0, Crazy 8, Forum 84, Pro Model,
+  Cross 'Em Up) — verificado a mano, con y sin prefijo de marca.
+
 ### ▶️ SIGUIENTE PASO (retomar aquí)
 1. **AliExpress por API** en cuanto llegue el app_key (47 enlaces al 7%, la comisión más alta).
    Sigue siendo lo más rentable pendiente. ⏳ Depende del usuario.
@@ -120,6 +138,18 @@ lo validaba. **Medido: 8 de 31 aciertos aparentes (26%) eran OTRO producto**:
   tocó: hacer que la "x" suelta valga 10 rompería los títulos con "x" de colaboración
   ("Dame 9 x Wale" pasaría a casar con Dame X). Necesita su propia pasada con cuidado.
 - `deploy.yml` lleva fallando desde el 26-may (heredado). El deploy real lo hace Vercel.
+
+### 📌 Aprendizajes (sesión 34, 3ª parte — adidas)
+- **Un filtro defensivo puede volverse un muro**: el "descarta lo junior" protegía a las de adulto
+  y a la vez hacía imposibles las GS. Cuando un filtro depende del segmento, hay que compararlo
+  con el segmento que se BUSCA, no aplicarlo a ciegas.
+- **El buscador de cada tienda habla su idioma comercial**, no el del catálogo: adidas no entiende
+  "gs" ni "ae 1". Si una búsqueda da 0 resultados para algo que la tienda claramente vende, la
+  sospecha número uno es la consulta.
+- **Coger "el primero que empareja" es una decisión de precio disfrazada.** Con 10 colorways de 70
+  a 130 €, elegir el primero es elegir un precio al azar; en un comparador toca el más barato.
+- **Muchos `$eval` por tarjeta = fallos intermitentes.** Si la página re-renderiza, los handles
+  caducan a media iteración. Leer todo en un `$$eval` es más rápido y no falla.
 
 ### 📌 Aprendizajes (sesión 34, 2ª parte — Amazon)
 - **Un acierto del scraper puede ser un producto equivocado.** Contar "éxitos" no vale: el 26% de
