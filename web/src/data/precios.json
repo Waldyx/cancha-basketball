@@ -1223,13 +1223,6 @@
     "reebok-answer-iv": {
       "links_compra": [
         {
-          "tienda": "snipes_eu",
-          "url": "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fc%2Fzapatillas%3Fq%3Dreebok%2Banswer",
-          "precio_actual": 105,
-          "disponible": true,
-          "ultima_verificacion": "2026-05-26"
-        },
-        {
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/Reebok-Respuesta-Baloncesto-Vintagechalk-Vectorred/dp/B0CQRPHD2Z/ref=sr_1_2",
           "precio_actual": 89.21,
@@ -1246,28 +1239,6 @@
           "precio_actual": 47.99,
           "disponible": true,
           "ultima_verificacion": "2026-08-07"
-        }
-      ]
-    },
-    "nike-kobe-9-high-protro": {
-      "links_compra": [
-        {
-          "tienda": "snipes_eu",
-          "url": "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fc%2Fzapatillas%3Fq%3Dkobe%2B9%2Bprotro",
-          "precio_actual": 199.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-05-26"
-        }
-      ]
-    },
-    "jordan-xxxix": {
-      "links_compra": [
-        {
-          "tienda": "snipes_eu",
-          "url": "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fc%2Fzapatillas%3Fq%3Djordan%2B39",
-          "precio_actual": 200,
-          "disponible": true,
-          "ultima_verificacion": "2026-05-26"
         }
       ]
     },

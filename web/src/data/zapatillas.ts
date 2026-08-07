@@ -686,7 +686,6 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kobe+8+protro&vst=kobe+8+protro", precio_actual: 200, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/~/314109662404.html", precio_actual: 189.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
-      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fc%2Fzapatillas%3Fq%3Dkobe%2B8", precio_actual: 200, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-26" },
       { tienda: "basket_world", url: "https://basketworld.com/buscar?q=kobe+8", precio_actual: 199.95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-13" },
     ],
   },
@@ -4450,7 +4449,6 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "reebok_es", url: "https://www.reebok.es/buscar?q=answer+iv", precio_actual: 120, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
       { tienda: "zalando_es", url: "https://www.zalando.es/zapatillas/?q=reebok+answer+iv", precio_actual: 110, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=reebok+answer+iv", precio_actual: 105, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
-      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fc%2Fzapatillas%3Fq%3Dreebok%2Banswer", precio_actual: 105, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-26" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+answer+iv+baloncesto&tag=canchazapa-21", precio_actual: 100, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -9855,7 +9853,6 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 199.99,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kobe+9+protro&vst=kobe+9+protro", precio_actual: 199.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-26" },
-      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fc%2Fzapatillas%3Fq%3Dkobe%2B9%2Bprotro", precio_actual: 199.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-26" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+kobe+9+protro+baloncesto&tag=canchazapa-21", precio_actual: 199.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -10084,7 +10081,6 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0B3T928QG?tag=canchazapa-21", precio_actual: 175.57, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=air+jordan+39", precio_actual: 210, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-26" },
-      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fc%2Fzapatillas%3Fq%3Djordan%2B39", precio_actual: 200, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-26" },
     ],
   },
 
