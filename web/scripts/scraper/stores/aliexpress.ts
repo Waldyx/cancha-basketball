@@ -1,6 +1,13 @@
 import type { Page } from "playwright";
 import type { StoreScraper, ShoeRef, ScrapeResult } from "../types.js";
 import { matchesShoe, parsePrice, today } from "../matcher.js";
+import {
+  getAeCredentials,
+  extractProductId,
+  productDetail,
+  productQuery,
+  type AeCredentials,
+} from "./aliexpress_api.js";
 
 /**
  * AliExpress no sirve el precio en el HTML: la ficha es CSR (`isCSR = true`,
@@ -70,6 +77,55 @@ async function precioRapido(page: Page): Promise<number | null> {
   return null;
 }
 
+/**
+ * Camino por API (el bueno). Devuelve null solo si NO se puede decidir por API
+ * — enlace corto `s.click` sin id resoluble —, en cuyo caso se cae al navegador.
+ * Si la API responde y no hay producto, eso ES una respuesta: no está a la venta.
+ */
+export async function precioViaApi(
+  url: string,
+  shoe: ShoeRef,
+  creds: AeCredentials,
+  fetchImpl: typeof fetch = fetch
+): Promise<ScrapeResult | null> {
+  const base: ScrapeResult = {
+    tienda: "aliexpress",
+    url,
+    precio_actual: 0,
+    disponible: false,
+    ultima_verificacion: today(),
+  };
+
+  const productId = extractProductId(url);
+  if (productId) {
+    const p = await productDetail(productId, creds, fetchImpl);
+    if (!p) return { ...base, disponible: false };
+    return { ...base, precio_actual: p.price, disponible: true };
+  }
+
+  // Sin id: si el enlace es una búsqueda, preguntamos por texto y decide el
+  // matcher. Nos quedamos con el MÁS BARATO que empareje, no con el primero
+  // (aprendizaje de adidas en la s34).
+  if (/[?&](SearchText|keywords)=/i.test(url) || /\/wholesale/i.test(url)) {
+    const q = `${shoe.marca} ${shoe.modelo}`;
+    const candidatos = (await productQuery(q, creds, fetchImpl))
+      .filter((p) => matchesShoe(p.title, shoe.marca, shoe.modelo))
+      .sort((a, b) => a.price - b.price);
+    const mejor = candidatos[0];
+    if (!mejor) return { ...base, disponible: false };
+    // Devolvemos la URL de la ficha encontrada: el merge la fija sola y el
+    // enlace de búsqueda se auto-repara, como pasó con Amazon en la s34.
+    return {
+      ...base,
+      url: mejor.url || url,
+      precio_actual: mejor.price,
+      disponible: true,
+    };
+  }
+
+  return null;
+}
+
 export const aliexpress: StoreScraper = {
   tienda: "aliexpress",
 
@@ -81,6 +137,13 @@ export const aliexpress: StoreScraper = {
       disponible: false,
       ultima_verificacion: today(),
     };
+
+    // Con credenciales, la API manda: no hay reto anti-bot que valga.
+    const creds = getAeCredentials();
+    if (creds) {
+      const viaApi = await precioViaApi(url, shoe, creds).catch(() => null);
+      if (viaApi) return viaApi;
+    }
 
     // Si salta el reto anti-bot, abandonamos ya: el precio no va a aparecer.
     let retado = false;
