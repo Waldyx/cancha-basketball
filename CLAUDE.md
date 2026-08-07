@@ -1,11 +1,107 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-08-06 (sesión 34)
+> Última actualización: 2026-08-07 (sesión 35)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
 
-## Estado actual (sesión 34) — Últimas 2 tiendas sin scraper + Amazon: diagnóstico y falsos positivos
+## Estado actual (sesión 35) — API de AliExpress + bug de precio en el merge + enlaces muertos
+
+Todo en `master`. **Tests: 156 → 188.** Build OK, 336 páginas.
+
+### 📊 La pasada del 7-ago CONFIRMÓ el efecto de la sesión 34
+
+Predicción de la s34: ~45%. **Real: 51% (203/398).** Venía del 29%.
+
+| Tienda | s32 | 7-ago | Mediana |
+|---|---|---|---|
+| amazon_es | 29% | **41%** | 46d |
+| aliexpress | 6% | 15% | 45d |
+| elcorteingles_es | 74% | 71% | 1d |
+| decathlon | 81% | 72% | 1d |
+| **fuikaomar_es** | **0%** | **77%** | 1d |
+| adidas_es | 41% | 44% | 68d |
+| **atmosfera_sport** | **4%** | **93%** | 1d |
+| **snipes_eu** | **0%** | **57%** | 2d |
+| **forumsport_es** | **1** | **69%** | 1d |
+
+⚠ **AliExpress 6→15% NO es una mejora**: sigue bloqueado por el reto, es la misma variación que
+engañó en la s33 (3→11 y luego cayó a 5). Y el 51% global es UNA noche: **reconfirmar el 13-14 ago**.
+
+### ✅ Completado (sesión 35)
+
+**1. Cliente de la API de afiliados de AliExpress** — commit `2f3d8e0`
+`stores/aliexpress_api.ts` + wiring en `aliexpress.ts`. **Sin credenciales NO cambia nada**:
+`getAeCredentials()` da null y se usa el navegador de siempre.
+- **Gateway NUEVO**: `https://api-sg.aliexpress.com/sync`, firma **sha256** (hex mayúsculas).
+  NO el viejo `gw.api.taobao.com/router/rest` con md5. AliExpress migró a su Open Platform.
+  Siempre **POST**, aunque el método se llame `...get`.
+- Los **7 enlaces `wholesale?SearchText=`** (Asics, Rigorer, 361°) se resuelven por
+  `aliexpress.affiliate.product.query` + nuestro matcher, cogiendo **el más barato que empareja**.
+  Devuelve la ficha → el merge auto-repara el enlace, como pasó con Amazon en la s34.
+- Los **7 `s.click` cortos devuelven null A PROPÓSITO**: seguir el redirect para sacar el id
+  generaría un **CLICK DE AFILIADO FALSO** por pasada y hundiría el EPC (error de la s31).
+  Hay test que lo blinda. Son todos de marca china → podrían ir por búsqueda si se decide.
+- ⚠ **SIN VERIFICAR contra la API real**: la variante de firma y los params de sistema exactos.
+  Aislado en `signParams`/`buildSignedParams` por si hay que tocarlo. Si da `sign error`, es ahí.
+- **product_id recuperable: 33/47** (no 30: `unwrapAffiliateUrl` resuelve wrappers anidados).
+
+**2. BUG GORDO de precio: el merge mostraba el producto EQUIVOCADO** — commit `9d5a219`
+`mergePrices.ts` indexaba el scrape **solo por tienda** (`new Map(...[l.tienda, l])`). Si una
+tienda tiene VARIOS productos para la misma zapa, el Map se queda con el **ÚLTIMO** y se lo aplica
+a todos sus enlaces. En un comparador es el peor fallo posible.
+- Medido: **`361-joker-1` (trending) mostraba 151,40 € cuando su AliExpress más barato eran
+  57,05 €** (+94,35). `anta-kai-1-speed`: 58,09 en vez de 40,48.
+- Fix: emparejar por **PRODUCTO** (host+ruta, sin wrapper ni query) y, si no se puede identificar,
+  coger **el MÁS BARATO** — nunca el último por azar.
+- **Wrapper ANIDADO**: `setWrapperDestination` metía un wrapper dentro de otro porque precios.json
+  guarda la URL ya envuelta (enlaces Awin de ~230 chars). Se desenvuelve el destino antes de
+  envolver. Anidados **3 → 0**. Duplicados 10 → 7 (los 7 que quedan son del editorial, no del merge).
+- Nuevo `mergePrices.test.ts` (primer test de este módulo).
+
+**3. Los 4 enlaces MUERTOS de Snipes, borrados** — commit `bca381b`
+Verificado **hoy** contra la URL de destino (nunca el wrapper): `/c/zapatillas?q=` da **404**.
+El editorial ya los tenía en `disponible:false` pero **precios.json los resucitaba a `true`** con
+precio de mayo → mostrábamos 199,99/200/105 € de una tienda que no las vende, con click a 404.
+- `reebok-answer-iv` queda con **0 enlaces disponibles**, que es la verdad (s21: nadie la stockea).
+
+### ▶️ SIGUIENTE PASO (retomar aquí)
+1. **El alta de desarrollador de AliExpress está HECHA (7-ago), contestan en 2-3 días.** Cuando
+   llegue: secrets `ALIEXPRESS_APP_KEY` / `ALIEXPRESS_APP_SECRET` en GitHub y **pasada solo de
+   AliExpress** para ver si la firma va a la primera. Comprobar que el scope **Affiliate** esté
+   concedido: si está pendiente, la key existe pero `aliexpress.affiliate.*` da error de permisos
+   — NO confundirlo con un bug nuestro.
+2. **13-14 ago: reconfirmar la frescura** con una semana de datos, no con la noche del 7.
+3. **Los 7 `s.click` sin id**: decidir si se resuelven a mano (conserva el listado elegido) o se
+   dejan ir por búsqueda de la API (más barato, pero el listado puede cambiar). Todos marca china.
+
+### 🟡 Pendiente / requiere decisión del usuario (sesión 35)
+- **4 enlaces ECI de Skechers SKX**: NO se tocaron. `elcorteingles.es` responde **403** a una
+  petición automatizada (su anti-bot), lo que **no prueba** que el enlace esté muerto. Para
+  verificarlo hay que ir con Chrome: **primero la home**, luego la búsqueda (ver truco de ECI en
+  la sección de Awin). Borrarlos sobre la nota de la s31 sin comprobar sería adivinar.
+- **7 filas duplicadas** en el editorial (misma tienda + misma url) en `anta-kai-1-speed`,
+  `puma-hali-1`, `nike-giannis-freak-7`, `air-jordan-1`, `air-jordan-11`, `lining-wow-allcity-12`,
+  `361-joker-1`. Son del editorial, el merge ya no las crea. Sin tocar.
+- `deploy.yml` lleva fallando desde el 26-may (heredado). El deploy real lo hace Vercel.
+
+### 📌 Aprendizajes (sesión 35)
+- **Un bug de datos puede esconder otro más gordo.** Buscando por qué un enlace de AliExpress no
+  daba `product_id` apareció el wrapper anidado, y tirando de ahí, que el merge enseñaba un precio
+  casi 3× el real en una zapa trending. Nadie lo habría visto mirando el scraper.
+- **Indexar por tienda asume una tienda = un producto.** Es falso: AliExpress, Amazon y los
+  marketplaces tienen varios listados de la misma zapa. Al mapear scrape↔catálogo, la clave es el
+  PRODUCTO, no la tienda.
+- **Un 403 no es un enlace muerto**, es un anti-bot. Solo el 404 de Snipes justificaba borrar.
+  Nunca borrar datos sobre una nota vieja sin volver a verificar.
+- **Para verificar un enlace de afiliado, pedir SIEMPRE la URL de destino desenvuelta.** Pedir el
+  wrapper genera un click falso y ensucia el EPC (misma regla que en el scraper, s31).
+- **La vía legítima no siempre es la más lenta**: la API de AliExpress evita el reto anti-bot, es
+  más rápida que el navegador y encima resuelve los enlaces de búsqueda que nunca emparejaban.
+
+---
+
+## Estado anterior (sesión 34) — Últimas 2 tiendas sin scraper + Amazon: diagnóstico y falsos positivos
 
 Todo en `master` y verificado con pasadas reales por tienda. **Tests: 114 → 156.**
 **Ya NO queda ninguna tienda afiliada sin scraper.**
