@@ -106,6 +106,68 @@ describe("mergePricesIntoShoes — varios productos de la MISMA tienda", () => {
   });
 });
 
+describe("mergePricesIntoShoes — varios enlaces editoriales, UN solo scrape", () => {
+  const FICHA_C = "https://es.aliexpress.com/item/1005033333333333.html";
+
+  it("no aplica el scrape a TODOS: crearía filas duplicadas", () => {
+    const shoes = [
+      zapa([
+        link({ url: awin(FICHA_A), precio_actual: 96.39 }),
+        link({ url: awin(FICHA_B), precio_actual: 120.69 }),
+        link({ url: awin(FICHA_C), precio_actual: 84.87 }),
+      ]),
+    ];
+    const merged = mergePricesIntoShoes(shoes, {
+      generated_at: "2026-08-07",
+      shoes: {
+        z1: {
+          links_compra: [
+            // Un único resultado, de un producto que NO es ninguno de los tres.
+            {
+              tienda: "aliexpress",
+              url: "https://es.aliexpress.com/item/1005099999999999.html",
+              precio_actual: 70,
+              disponible: true,
+            },
+          ],
+        },
+      },
+    });
+    const urls = merged[0].links_compra.map((l) => l.url);
+    expect(new Set(urls).size).toBe(3);
+    expect(merged[0].links_compra.map((l) => l.precio_actual)).toEqual([96.39, 120.69, 84.87]);
+  });
+
+  it("pero SÍ lo aplica al enlace que identifica", () => {
+    const shoes = [zapa([link({ url: awin(FICHA_A), precio_actual: 96.39 }), link({ url: awin(FICHA_B), precio_actual: 120.69 })])];
+    const merged = mergePricesIntoShoes(shoes, {
+      generated_at: "2026-08-07",
+      shoes: {
+        z1: {
+          links_compra: [
+            { tienda: "aliexpress", url: awin(FICHA_B), precio_actual: 99, disponible: true },
+          ],
+        },
+      },
+    });
+    expect(merged[0].links_compra.map((l) => l.precio_actual)).toEqual([96.39, 99]);
+  });
+
+  it("con UN solo enlace editorial sí se permite el upgrade de URL", () => {
+    const shoes = [zapa([link({ url: awin(FICHA_A), precio_actual: 100 })])];
+    const merged = mergePricesIntoShoes(shoes, {
+      generated_at: "2026-08-07",
+      shoes: {
+        z1: {
+          links_compra: [{ tienda: "aliexpress", url: FICHA_B, precio_actual: 90, disponible: true }],
+        },
+      },
+    });
+    expect(merged[0].links_compra[0].precio_actual).toBe(90);
+    expect(unwrapWrapperUrl(merged[0].links_compra[0].url)).toBe(FICHA_B);
+  });
+});
+
 describe("mergePricesIntoShoes — wrapper de afiliado", () => {
   it("no anida el wrapper cuando precios.json ya trae la URL envuelta", () => {
     const shoes = [zapa([link({ url: awin(FICHA_A) })])];

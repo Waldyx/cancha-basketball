@@ -131,15 +131,25 @@ function identidadProducto(url: string): string | null {
  */
 export function elegirScrape<T extends { url?: string; precio_actual?: number }>(
   orig: LinkCompra,
-  candidatos: T[]
+  candidatos: T[],
+  variosEditoriales = false
 ): T | undefined {
-  if (candidatos.length <= 1) return candidatos[0];
+  if (candidatos.length === 0) return undefined;
 
   const idOrig = identidadProducto(orig.url);
   if (idOrig) {
     const exacto = candidatos.find((c) => c.url && identidadProducto(c.url) === idOrig);
     if (exacto) return exacto;
   }
+
+  // Si el catálogo tiene VARIOS enlaces de esta tienda y no sabemos a cuál
+  // corresponde el scrape, no adivinamos: aplicarlo a todos les ponía la misma
+  // URL y el mismo precio, y la ficha acababa enseñando la misma opción de
+  // compra 2 o 3 veces (pasaba en lining-wow-allcity-12, air-jordan-1...).
+  // Mejor conservar el dato editorial que inventar una correspondencia.
+  if (variosEditoriales) return undefined;
+
+  if (candidatos.length === 1) return candidatos[0];
 
   return [...candidatos].sort(
     (a, b) => (a.precio_actual ?? Infinity) - (b.precio_actual ?? Infinity)
@@ -239,9 +249,20 @@ export function mergePricesIntoShoes(
       else scrapedPorTienda.set(l.tienda as string, [l]);
     }
 
+    // Cuántos enlaces EDITORIALES hay por tienda: si hay más de uno, el scrape
+    // solo se aplica cuando podemos identificar a cuál corresponde.
+    const editorialesPorTienda = new Map<string, number>();
+    for (const l of shoe.links_compra) {
+      editorialesPorTienda.set(l.tienda, (editorialesPorTienda.get(l.tienda) ?? 0) + 1);
+    }
+
     // Tiendas editables que también existen en el scrape
     const mergedLinks: LinkCompra[] = shoe.links_compra.map((orig) => {
-      const fresh = elegirScrape(orig, scrapedPorTienda.get(orig.tienda) ?? []);
+      const fresh = elegirScrape(
+        orig,
+        scrapedPorTienda.get(orig.tienda) ?? [],
+        (editorialesPorTienda.get(orig.tienda) ?? 0) > 1
+      );
       if (!fresh) return orig;
       // Guardarraíl: si el precio scrapeado es implausible vs el editorial,
       // ignorar el override por completo y conservar la entrada editorial.
