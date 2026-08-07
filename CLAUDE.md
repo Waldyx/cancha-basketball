@@ -7,7 +7,7 @@
 
 ## Estado actual (sesión 35) — API de AliExpress + bug de precio en el merge + enlaces muertos
 
-Todo en `master`. **Tests: 156 → 188.** Build OK, 336 páginas.
+Todo en `master`. **Tests: 156 → 191.** Build OK, 336 páginas.
 
 ### 📊 La pasada del 7-ago CONFIRMÓ el efecto de la sesión 34
 
@@ -65,6 +65,29 @@ El editorial ya los tenía en `disponible:false` pero **precios.json los resucit
 precio de mayo → mostrábamos 199,99/200/105 € de una tienda que no las vende, con click a 404.
 - `reebok-answer-iv` queda con **0 enlaces disponibles**, que es la verdad (s21: nadie la stockea).
 
+**4. 14 enlaces de Basketball Emotion con wrapper MUERTO + las filas duplicadas** — commit `5c3478e`
+- Iban envueltos en `tc.tradetracker.net` campaña **35939, que es FÚTBOL Emotion**. El ticket de
+  la s27 ya cerró que basketballemotion.com NO tiene programa y que ese deeplink da error con sus
+  URLs. **El editorial ya usaba URL directa; era `precios.json` quien la PISABA** con la vieja
+  envuelta (2 de los 14, doblemente envueltos). Verificadas 3 fichas de destino: **200**.
+- **NO se borraron**: 11 de las 12 zapas tienen su enlace de BE **solo en `precios.json`**, así que
+  borrarlas quitaría la opción de compra (aviso de la s31). Se desenvuelve la URL y la entrada queda.
+- **La otra cara del bug del merge**: con VARIOS enlaces editoriales de una tienda y UNA sola
+  entrada en `precios.json`, esa entrada se aplicaba a todos → los 3 acababan con la misma URL y
+  la ficha enseñaba **la misma opción de compra 2 o 3 veces**. Ahora solo se aplica al enlace que
+  se identifica por producto; si no se sabe a cuál corresponde, se conserva el editorial.
+- Efecto: BE envueltos 14 → 0, anidados 0, **filas duplicadas 7 → 0**.
+
+**5. `scripts/audit-enlaces.ts`** — commit `932355a`
+La revisión de salud de enlaces que esta sesión hizo a mano. **No pide ni una página** (corre sobre
+el catálogo mergeado → instantáneo y sin clicks falsos). Detecta wrappers anidados, filas
+duplicadas, rutas que la tienda ya retiró, wrappers de redes que no cubren esa tienda, y zapas sin
+ninguna opción disponible. `RUTAS_MUERTAS` y `SIN_PROGRAMA` quedan escritas dentro **a propósito**:
+cada una costó una sesión descubrirla.
+- Estado hoy: **715 enlaces · 0 anidados · 0 duplicados · 0 mal envueltos**, y los 4 de ECI como
+  único hallazgo. 3 zapas con enlaces pero ninguno disponible (`reebok-question-mid`,
+  `reebok-answer-iv`, `nb-omn1s`) — correcto, nadie las stockea.
+
 ### ▶️ SIGUIENTE PASO (retomar aquí)
 1. **El alta de desarrollador de AliExpress está HECHA (7-ago), contestan en 2-3 días.** Cuando
    llegue: secrets `ALIEXPRESS_APP_KEY` / `ALIEXPRESS_APP_SECRET` en GitHub y **pasada solo de
@@ -80,9 +103,6 @@ precio de mayo → mostrábamos 199,99/200/105 € de una tienda que no las vend
   petición automatizada (su anti-bot), lo que **no prueba** que el enlace esté muerto. Para
   verificarlo hay que ir con Chrome: **primero la home**, luego la búsqueda (ver truco de ECI en
   la sección de Awin). Borrarlos sobre la nota de la s31 sin comprobar sería adivinar.
-- **7 filas duplicadas** en el editorial (misma tienda + misma url) en `anta-kai-1-speed`,
-  `puma-hali-1`, `nike-giannis-freak-7`, `air-jordan-1`, `air-jordan-11`, `lining-wow-allcity-12`,
-  `361-joker-1`. Son del editorial, el merge ya no las crea. Sin tocar.
 - `deploy.yml` lleva fallando desde el 26-may (heredado). El deploy real lo hace Vercel.
 
 ### 📌 Aprendizajes (sesión 35)
@@ -98,6 +118,14 @@ precio de mayo → mostrábamos 199,99/200/105 € de una tienda que no las vend
   wrapper genera un click falso y ensucia el EPC (misma regla que en el scraper, s31).
 - **La vía legítima no siempre es la más lenta**: la API de AliExpress evita el reto anti-bot, es
   más rápida que el navegador y encima resuelve los enlaces de búsqueda que nunca emparejaban.
+- **Antes de borrar un dato, mirar SI VIVE EN OTRO SITIO.** Los 4 de Snipes se borraron porque el
+  editorial ya los tenía; los 14 de Basketball Emotion NO, porque 11 solo existían en
+  `precios.json` y borrarlos habría quitado la opción de compra. Mismo síntoma, arreglo opuesto.
+- **`precios.json` no solo trae precios, trae URLs — y pisa las buenas.** El editorial tenía la URL
+  directa correcta de Basketball Emotion y el merge la sustituía por el wrapper viejo. Al revisar
+  una tienda, mirar SIEMPRE las dos fuentes, no solo el editorial.
+- **Un bug simétrico se arregla dos veces.** El merge fallaba con varias entradas scrapeadas por
+  tienda Y con varios enlaces editoriales por tienda. Arreglar un lado dejó el otro vivo un día.
 
 ---
 
