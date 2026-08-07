@@ -59,16 +59,41 @@ function getAmazonTag(url: string): string | null {
   }
 }
 
+const WRAPPER_KEYS = ["ued", "u", "url", "dest", "destination"];
+
+/**
+ * Devuelve la URL de TIENDA que hay dentro de un wrapper de afiliado, o la
+ * propia URL si no lo es. Resuelve wrappers anidados (wrapper dentro de wrapper).
+ */
+export function unwrapWrapperUrl(url: string): string {
+  try {
+    const parsed = new URL(url);
+    if (!/awin1\.com|tradetracker\.net|deals\./i.test(parsed.hostname)) return url;
+    for (const key of WRAPPER_KEYS) {
+      const dest = parsed.searchParams.get(key);
+      if (dest && /^https?:\/\//i.test(dest)) return unwrapWrapperUrl(dest);
+    }
+    return url;
+  } catch {
+    return url;
+  }
+}
+
 function setWrapperDestination(originalUrl: string, destinationUrl: string): string {
   try {
     const parsed = new URL(originalUrl);
 
+    // El destino puede venir YA envuelto: precios.json guarda la URL tal cual
+    // la tiene el catálogo, wrapper incluido. Si no lo desenvolvemos, metemos un
+    // wrapper dentro de otro y sale un enlace anidado de ~230 chars (pasaba en
+    // anta-kai-1-speed). Siempre queremos wrapper → URL de tienda, un solo nivel.
+    const destino = unwrapWrapperUrl(destinationUrl);
+
     // Awin uses `ued`, Tradetracker often uses `u`; keep the wrapper and swap
     // only the merchant destination.
-    const keyCandidates = ["ued", "u", "url", "dest", "destination"];
-    for (const key of keyCandidates) {
+    for (const key of WRAPPER_KEYS) {
       if (parsed.searchParams.has(key)) {
-        parsed.searchParams.set(key, destinationUrl);
+        parsed.searchParams.set(key, destino);
         return parsed.toString();
       }
     }
@@ -76,6 +101,49 @@ function setWrapperDestination(originalUrl: string, destinationUrl: string): str
     // Fall through to returning the destination.
   }
   return destinationUrl;
+}
+
+/**
+ * Identidad de producto de un enlace: host + ruta, sin query ni wrapper. Sirve
+ * para emparejar la entrada de precios.json con SU enlace editorial cuando una
+ * misma tienda tiene varios productos para la misma zapatilla.
+ */
+function identidadProducto(url: string): string | null {
+  try {
+    const u = new URL(unwrapWrapperUrl(url));
+    return `${u.hostname.replace(/^www\./i, "")}${u.pathname.replace(/\/+$/, "")}`.toLowerCase();
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Elige QUÉ entrada scrapeada corresponde a un enlace editorial.
+ *
+ * Antes esto era un `Map` indexado solo por tienda, así que cuando una tienda
+ * tenía varios productos para la misma zapa el Map se quedaba con el ÚLTIMO y
+ * se lo aplicaba a todos los enlaces de esa tienda. Medido: 361-joker-1 mostraba
+ * 151,40 € cuando su AliExpress más barato eran 57,05 €, y anta-kai-1-speed
+ * 58,09 € en vez de 40,48 €. En un comparador eso es el peor fallo posible.
+ *
+ * Ahora: se empareja por PRODUCTO, y si no hay forma de identificarlo se coge
+ * el MÁS BARATO (que es la semántica del sitio), nunca el último por azar.
+ */
+export function elegirScrape<T extends { url?: string; precio_actual?: number }>(
+  orig: LinkCompra,
+  candidatos: T[]
+): T | undefined {
+  if (candidatos.length <= 1) return candidatos[0];
+
+  const idOrig = identidadProducto(orig.url);
+  if (idOrig) {
+    const exacto = candidatos.find((c) => c.url && identidadProducto(c.url) === idOrig);
+    if (exacto) return exacto;
+  }
+
+  return [...candidatos].sort(
+    (a, b) => (a.precio_actual ?? Infinity) - (b.precio_actual ?? Infinity)
+  )[0];
 }
 
 function isSearchLikeUrl(url: string): boolean {
@@ -162,11 +230,18 @@ export function mergePricesIntoShoes(
     );
     if (validScraped.length === 0) return shoe;
 
-    const scrapedMap = new Map(validScraped.map((l) => [l.tienda, l]));
+    // Agrupado por tienda, NO indexado por tienda: una misma tienda puede tener
+    // varios productos para la misma zapatilla (ver `elegirScrape`).
+    const scrapedPorTienda = new Map<string, typeof validScraped>();
+    for (const l of validScraped) {
+      const lista = scrapedPorTienda.get(l.tienda as string);
+      if (lista) lista.push(l);
+      else scrapedPorTienda.set(l.tienda as string, [l]);
+    }
 
     // Tiendas editables que también existen en el scrape
     const mergedLinks: LinkCompra[] = shoe.links_compra.map((orig) => {
-      const fresh = scrapedMap.get(orig.tienda);
+      const fresh = elegirScrape(orig, scrapedPorTienda.get(orig.tienda) ?? []);
       if (!fresh) return orig;
       // Guardarraíl: si el precio scrapeado es implausible vs el editorial,
       // ignorar el override por completo y conservar la entrada editorial.
