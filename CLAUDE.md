@@ -208,9 +208,14 @@ Verificado: `puma-mb05-gs` pasa de fallar a 99,90€.
   (`_____tmd_____/punish` → reCAPTCHA Enterprise). ~9 llamadas de precio y ~20 respuestas de reto
   por ficha. Esperar más NO sirve: el HTML es idéntico a los 3s, 8s y 15s.
 - **NO se debe rodear el reto.** La vía legítima es la **API de afiliados de AliExpress**
-  (`aliexpress.affiliate.productdetail.get`, app_key desde portals.aliexpress.com).
-  **⏳ EL USUARIO ESTÁ PIDIENDO EL API KEY.** Cuando lo tenga → secrets `ALIEXPRESS_APP_KEY` /
-  `ALIEXPRESS_APP_SECRET` y reescribir `stores/aliexpress.ts` contra la API.
+  (`aliexpress.affiliate.productdetail.get`, app_key desde openservice.aliexpress.com).
+  **⏳ SOLICITUD ENVIADA EL 2026-08-06**, tipo de colaborador `Affiliates (individual)`, país
+  España. Estado "Under Review", tarda 2-5 días laborables → **esperar respuesta ~11-13 ago**.
+  Cuando lleguen las credenciales: el usuario las mete como secrets `ALIEXPRESS_APP_KEY` /
+  `ALIEXPRESS_APP_SECRET` (NUNCA en el chat ni en el repo) y se reescribe `stores/aliexpress.ts`
+  contra la API, leyendo de `process.env`. Los product IDs ya los tenemos: salen de las URLs
+  `es.aliexpress.com/item/ID.html` (33 de los 47 enlaces ya son de ficha).
+  ⚠ Su API exige **firma HMAC** en cada petición; es la parte tediosa de montar.
 - Mientras tanto: `isBotChallengeUrl()` abandona el enlace al detectar el reto (3775→1403 ms por
   enlace). ⚠ **OJO**: el ahorro NO se notó en la pasada nocturna (1h24m17s → 1h24m29s). Y el salto
   de frescura 3→11 que pareció mejora **NO aguantó**: una semana después está en 5. Era variación.
