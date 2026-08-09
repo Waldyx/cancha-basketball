@@ -107,8 +107,13 @@ function setWrapperDestination(originalUrl: string, destinationUrl: string): str
  * Identidad de producto de un enlace: host + ruta, sin query ni wrapper. Sirve
  * para emparejar la entrada de precios.json con SU enlace editorial cuando una
  * misma tienda tiene varios productos para la misma zapatilla.
+ *
+ * La EXPORTA también el scraper (`scripts/scraper/output.ts`) para fusionar
+ * precios.json por enlace. Lectura y escritura DEBEN usar la misma identidad:
+ * si divergen, la escritura guardaría entradas que el merge nunca sabría
+ * emparejar con su enlace editorial.
  */
-function identidadProducto(url: string): string | null {
+export function identidadProducto(url: string): string | null {
   try {
     const u = new URL(unwrapWrapperUrl(url));
     return `${u.hostname.replace(/^www\./i, "")}${u.pathname.replace(/\/+$/, "")}`.toLowerCase();

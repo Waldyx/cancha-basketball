@@ -377,7 +377,9 @@ async function main() {
   }
 
   if (!isDryRun) {
-    writePreciosJson(output);
+    // Las tiendas CON scraper se reintentan cada noche, así que sus entradas
+    // caducan; las que no lo tienen son registro permanente (ver writePreciosJson).
+    writePreciosJson(output, new Set(Object.keys(SCRAPERS)));
     console.log("💾 precios.json escrito.");
   } else {
     console.log("🔍 Dry run — no se escribió nada.");
