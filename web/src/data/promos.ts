@@ -239,6 +239,22 @@ export const PROMOS: Promo[] = [
     nota: "Descuento aplicado directamente en la web · selección de artículos",
     color: "#9fd0ff",
   },
+  {
+    id: "forumsport-flash-48h-2026-08",
+    tienda: "forumsport_es",
+    tiendaLabel: "Forum Sport",
+    titulo: "Flash 48H",
+    desde: "2026-08-09T00:00:00+02:00",
+    hasta: "2026-08-10T23:59:59+02:00",
+    // ⚠ El enlace que venía en el email de Awin llevaba awinaffid=1797816, que
+    // NO es nuestro: con ese ID la comisión se la lleva otro publisher.
+    // Reconstruido con el nuestro (2908587). Comprobar SIEMPRE el awinaffid de
+    // los enlaces que mandan por correo antes de pegarlos.
+    url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2F",
+    descuentoTexto: "7% extra en compras desde 77€",
+    nota: "Descuento extra aplicado en la web · solo el 9 y 10 de agosto · compra mínima 77€",
+    color: "#facc15",
+  },
 ];
 
 /** Promos activas a una fecha dada (por defecto, ahora). */
