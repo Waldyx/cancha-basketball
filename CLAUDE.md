@@ -98,6 +98,26 @@ cada una costó una sesión descubrirla.
 3. **Los 7 `s.click` sin id**: decidir si se resuelven a mano (conserva el listado elegido) o se
    dejan ir por búsqueda de la API (más barato, pero el listado puede cambiar). Todos marca china.
 
+### 🔴 BUG ABIERTO — adidas: el scraper da por bueno el precio de una página 404
+Detectado el 9-ago diagnosticando adidas (**no arreglado**, se paró antes).
+- `adidas-superstar` apunta a `/mallas-cortas-deportiva-adidas-originals-superstar/KT6964.html`
+  → son **MALLAS, no zapatillas**, y además el enlace está MUERTO: redirige a
+  `/mallas-originals-superstar-cortas` y sirve **`h1` = "No se encuentra la página" con status 200**
+  (mismo truco que Snipes, s34: la 404 viene con 200, hay que mirar el CONTENIDO).
+- Aun así el scraper devuelve **`→ 50€ (sin cambio)`, éxito 1/1**, y lo re-fecha como fresco cada
+  noche. O sea: mostramos precio de un enlace muerto que encima era de otro producto.
+- Faltan dos arreglos: (1) `stores/adidas_es.ts` debe rechazar la página de error, y (2) el enlace
+  del catálogo está mal de origen (mallas) → repuntar a la ficha real de la Superstar o quitarlo.
+- ⚠ Revisar si el resto de fichas de adidas tienen el mismo agujero.
+
+### 📊 adidas: el reparto de fallos está MEDIDO (9-ago)
+**Las 12 fichas van al 100% (0-2 días); las 15 búsquedas `/search?q=` van al 0% (69 días).**
+No es un scraper inestable, es un corte limpio por tipo de enlace. Y los 15 fallos de búsqueda
+**son legítimos**: comprobado que `?q=dame+9` devuelve 3 resultados que no son la Dame 9 (sale una
+"Bota con cremallera GS" a 200€) y que `?q=trae+young+3` da "sin resultados" + 1640 productos
+aleatorios. El matcher los rechaza bien. → Para subir adidas del 44% hay que **fijar fichas a mano**,
+no tocar el scraper (mismo patrón que Amazon en s34).
+
 ### 🟡 Pendiente / requiere decisión del usuario (sesión 35)
 - **4 enlaces ECI de Skechers SKX**: NO se tocaron. `elcorteingles.es` responde **403** a una
   petición automatizada (su anti-bot), lo que **no prueba** que el enlace esté muerto. Para
