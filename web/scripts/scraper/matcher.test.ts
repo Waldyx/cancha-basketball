@@ -205,6 +205,34 @@ describe("matchesShoe — siglas punteadas (G.T., D.O.N.)", () => {
     expect(matchesShoe("Zapatilla adidas Superstar II", "Adidas", "Superstar")).toBe(true);
   });
 
+  // La letra suelta del modelo ES la generación: "Dame X" ≠ "Dame 9", y
+  // "Exhibit A" ≠ "Exhibit B" (las dos están en el catálogo). Antes se caía por
+  // el filtro de "palabras de más de 1 carácter" y cualquier Dame emparejaba.
+  it("la LETRA suelta del modelo distingue la generación", () => {
+    expect(matchesShoe("adidas Exhibit B Zapatillas de baloncesto", "Adidas", "Exhibit A")).toBe(false);
+    expect(matchesShoe("adidas Exhibit A Zapatillas de baloncesto", "Adidas", "Exhibit A")).toBe(true);
+    expect(matchesShoe("adidas Dame 9 zapatilla baloncesto", "Adidas", "Dame X")).toBe(false);
+    expect(matchesShoe("adidas Dame X negro", "Adidas", "Dame X")).toBe(true);
+    expect(matchesShoe("Reebok Kamikaze II Mid", "Reebok", "Kamikaze I")).toBe(false);
+    // Si la tienda escribe la generación en arábigo, también vale
+    expect(matchesShoe("adidas Dame 10 zapatilla", "Adidas", "Dame X")).toBe(true);
+  });
+
+  // Por esto la letra se exige PEGADA a su palabra y no suelta: la "x" de las
+  // colaboraciones haría casar cualquier zapa con la Dame X.
+  it("la 'x' de una colaboración NO es la Dame X", () => {
+    expect(matchesShoe("adidas Dame 9 x Wale", "Adidas", "Dame X")).toBe(false);
+  });
+
+  // Y por esto el par se busca SIN unir iniciales: Forum Sport rotula la Dame X
+  // junior como "Dame X J", y unir "x j" en "xj" mataría un enlace que hoy sí
+  // empareja (es el único enlace de esa zapa que se verifica).
+  it("'Dame X J' de Forum Sport sigue siendo la Dame X GS", () => {
+    expect(
+      matchesShoe("adidas Zapatilla Baloncesto Niños Dame X J Rone", "Adidas", "Dame X GS")
+    ).toBe(true);
+  });
+
   // Lo que NO puede tumbar el filtro de ropa: "Top Ten" es una zapatilla del
   // catálogo (empieza por "top"), y "baloncesto" contiene "balon".
   it("el filtro de ropa no se lleva por delante Top Ten ni 'baloncesto'", () => {

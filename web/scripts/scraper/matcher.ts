@@ -110,7 +110,7 @@ const PHRASE_SYNONYMS: [RegExp, string][] = [
  *  - Romanos → arábigos:  "Lebron Xxii" → "lebron 22"  (nuestro dato: "LeBron 22")
  *  - "Volume" → "vol":    "Harden Volume 9" → "harden vol 9"
  */
-function normalize(s: string): string {
+function normalize(s: string, unir = true): string {
   const base = s
     .toLowerCase()
     .replace(/[.·]/g, " ")   // MB.04 → MB 04
@@ -140,7 +140,7 @@ function normalize(s: string): string {
     .join(" ")
     .split(" ");
 
-  return unirIniciales(tokens).join(" ");
+  return (unir ? unirIniciales(tokens) : tokens.filter((t) => t.length > 0)).join(" ");
 }
 
 /**
@@ -184,6 +184,45 @@ const STOP_WORDS = new Set([
   "zapatilla", "zapatillas", "shoe", "shoes", "sneaker", "talla",
   "size", "color", "colores", "team", "lo", "hi", "mid",
 ]);
+
+/**
+ * Las letras SUELTAS del modelo, con la palabra que las precede.
+ *
+ * `significantWords` tira los tokens de 1 carácter, así que "Dame X" se quedaba
+ * en ["dame"] y CUALQUIER Dame emparejaba: una "Dame 9" colaba como Dame X y le
+ * ponía su precio. Lo mismo con "Exhibit A" ↔ "Exhibit B", que son dos zapas
+ * distintas del catálogo, y con "Kamikaze I" ↔ "Kamikaze II".
+ *
+ * No se puede arreglar simplemente dejando pasar las letras de 1 carácter: la
+ * "x" de las colaboraciones ("Dame 9 x Wale") haría casar esa zapa con Dame X.
+ * Por eso se guarda el PAR (palabra previa + letra) y luego se exige ADYACENTE:
+ * en "dame 9 x wale" el par "dame x" no existe, y en "dame x rojo" sí.
+ */
+function letrasSueltasDelModelo(modelo: string): Array<{ letra: string; previa: string | null }> {
+  const toks = normalize(modelo).split(/\s+/).filter(Boolean);
+  const out: Array<{ letra: string; previa: string | null }> = [];
+  for (let i = 0; i < toks.length; i++) {
+    if (!/^[a-z]$/.test(toks[i])) continue;
+    out.push({ letra: toks[i], previa: i > 0 ? toks[i - 1] : null });
+  }
+  return out;
+}
+
+/** Romanos de una letra que una tienda podría escribir en arábigo ("Dame 10"). */
+const ROMANO_SUELTO: Record<string, string> = { i: "1", v: "5", x: "10" };
+
+function contienePar(titulo: string, previa: string | null, letra: string): boolean {
+  const alternativas = [letra, ROMANO_SUELTO[letra]].filter(Boolean) as string[];
+  const esc = (w: string) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  return alternativas.some((alt) => {
+    // Sin palabra previa (el modelo empieza por la letra) solo se puede exigir
+    // que la letra esté suelta en el título.
+    const patron = previa
+      ? `(^|\\s)${esc(previa)}\\s${esc(alt)}(\\s|$)`
+      : `(^|\\s)${esc(alt)}(\\s|$)`;
+    return new RegExp(patron).test(titulo);
+  });
+}
 
 function significantWords(s: string): string[] {
   return normalize(s)
@@ -257,6 +296,20 @@ export function matchesShoe(
   // limpiamos tallas/códigos, un número que quede es de verdad del modelo.
   for (const n of numeros) {
     if (!tWords.includes(n)) return false;
+  }
+
+  // ── 2a-bis. Las LETRAS SUELTAS del modelo también son obligatorias ─────────
+  // "Dame X" ≠ "Dame 9" y "Exhibit A" ≠ "Exhibit B": la letra es la generación,
+  // igual que el número. Se exige pegada a su palabra (ver letrasSueltasDelModelo).
+  const letras = letrasSueltasDelModelo(modelo);
+  if (letras.length > 0) {
+    // Ojo: aquí NO se pueden unir las iniciales. Forum Sport rotula la Dame X
+    // junior como "Dame X J", y `unirIniciales` fundiría "x j" en "xj" — el par
+    // "dame x" desaparecería y perderíamos un enlace que hoy SÍ empareja.
+    const tPlano = normalize(stripNoise(title), false);
+    for (const { letra, previa } of letras) {
+      if (!contienePar(tPlano, previa, letra)) return false;
+    }
   }
 
   // ── 2b. Score sobre las PALABRAS (sin contar números, que ya son obligatorios) ─

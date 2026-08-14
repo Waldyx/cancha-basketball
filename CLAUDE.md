@@ -121,6 +121,28 @@ Era el bug abierto del 9-ago. **La causa real NO era la que decía la nota**, oj
 - ⚠ Revisado el resto de adidas: **los otros 17 enlaces son todos `zapatilla-*` / `d.o.n.-*`**,
   ninguno más apuntaba a ropa.
 
+### ✅ CERRADO (14-ago) — el hueco de los modelos de UNA LETRA (venía de la s34)
+La s34 lo dejó anotado como "necesita su propia pasada con cuidado". Hecho.
+- `significantWords` tiraba los tokens de 1 carácter, así que **"Dame X" se quedaba en ["dame"]**
+  y cualquier Dame emparejaba. Medido antes del fix: **"adidas Dame 9" colaba como Dame X**,
+  **"Exhibit B" colaba como Exhibit A** (son dos zapas DISTINTAS del catálogo) y "Kamikaze II"
+  como Kamikaze I. Con precio ajeno, que es lo grave.
+- No se podía arreglar dejando pasar la letra suelta —lo que frenó a la s34—: la **"x" de las
+  colaboraciones** ("Dame 9 x Wale") habría casado con Dame X. La solución es exigir el **PAR
+  adyacente** palabra+letra: "dame x" existe en "dame x rojo" y NO en "dame 9 x wale".
+- Se acepta también el arábigo ("Dame 10") por si la tienda lo escribe así.
+- ⚠ El par se busca **sin unir iniciales** (`normalize(t, false)`): Forum Sport rotula la junior
+  como **"Dame X J"** y `unirIniciales` fundiría "x j" → "xj", cargándose el ÚNICO enlace que
+  verifica esa zapa. Hay test que lo blinda.
+- Modelos afectados (9): Dame X, Dame X GS, Exhibit A, Exhibit B, Kamikaze I, Engine A,
+  FUTR X Elite, FUTR X 4, Team Hustle D 12.
+- ⚠ **A VIGILAR en la pasada de mañana**: 4 de esos enlaces son de Amazon y **no se pudo
+  comprobar su título real** (amazon.es está bloqueado desde el entorno de trabajo, 403 del proxy).
+  Si el título no escribe la letra, esos enlaces pasarán a NO verificarse: `reebok-engine-a`,
+  `reebok-kamikaze-1`, `ua-futr-x-elite`, `nike-team-hustle-d-12`. Es el lado seguro del fallo
+  (precio viejo con fecha vieja, en vez de precio de otra zapatilla), pero **si caen, hay que
+  mirar el título en Amazon y decidir**: puede ser que el listado sea de verdad otra generación.
+
 ### 📊 Frescura RECONFIRMADA con una semana (14-ago)
 **394 enlaces · 192 frescos (49%)**, contra el 51% de la noche del 7 y el 29% de la s32. O sea:
 **la mejora de las s33-s35 es real**, no era la variación que engañó en la s33.
@@ -305,11 +327,9 @@ lo validaba. **Medido: 8 de 31 aciertos aparentes (26%) eran OTRO producto**:
   precio y fecha fabricados de mayo → hoy muestran precio y mandan el click a una 404. Borrarlos
   de `precios.json` elimina la opción Snipes de esas 4 zapas. **Decidir si se borran.**
   (Mismo caso que los 4 enlaces ECI de Skechers SKX, que siguen sin tocar.)
-- **Hueco LATENTE del matcher con los modelos de una sola letra**: en "Dame X GS" la "X" se
-  descarta por tener 1 carácter, así que el modelo NO exige generación y una ficha de "Dame 9
-  niño" colaría como Dame X GS. Es **anterior** a esta sesión (pasaba igual con "Junior"). NO se
-  tocó: hacer que la "x" suelta valga 10 rompería los títulos con "x" de colaboración
-  ("Dame 9 x Wale" pasaría a casar con Dame X). Necesita su propia pasada con cuidado.
+- ~~**Hueco LATENTE del matcher con los modelos de una sola letra**~~ **ARREGLADO el 14-ago**
+  (ver el bloque de la sesión 36 arriba): no se resolvió haciendo valer la "x" suelta —eso sí
+  habría roto "Dame 9 x Wale"— sino exigiendo el PAR adyacente "dame x".
 - `deploy.yml` lleva fallando desde el 26-may (heredado). El deploy real lo hace Vercel.
 
 ### 📌 Aprendizajes (sesión 34, 3ª parte — adidas)
