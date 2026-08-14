@@ -193,6 +193,27 @@ describe("matchesShoe — siglas punteadas (G.T., D.O.N.)", () => {
     ).toBe(true);
   });
 
+  // La ROPA del mismo modelo casa marca y modelo perfectamente, y encima es más
+  // barata que la zapatilla, así que pasa el guardarraíl de precio. Caso real:
+  // la ficha de la Superstar mostró meses 50 € apuntando a unas mallas.
+  it("NO cuela la ROPA que se llama igual que la zapatilla", () => {
+    const mallas = "Mallas cortas deportivas adidas Originals Superstar";
+    expect(matchesShoe(mallas, "Adidas", "Superstar")).toBe(false);
+    expect(matchesShoe("Camiseta adidas Originals Superstar", "Adidas", "Superstar")).toBe(false);
+    expect(matchesShoe("Pantalón corto Harden Volume 9", "Adidas", "Harden Vol 9")).toBe(false);
+    // …y la zapatilla de verdad SÍ pasa
+    expect(matchesShoe("Zapatilla adidas Superstar II", "Adidas", "Superstar")).toBe(true);
+  });
+
+  // Lo que NO puede tumbar el filtro de ropa: "Top Ten" es una zapatilla del
+  // catálogo (empieza por "top"), y "baloncesto" contiene "balon".
+  it("el filtro de ropa no se lleva por delante Top Ten ni 'baloncesto'", () => {
+    expect(matchesShoe("Zapatilla adidas Top Ten", "Adidas", "Top Ten")).toBe(true);
+    expect(
+      matchesShoe("adidas Ownthegame 3.0 Zapatillas de baloncesto", "Adidas", "Ownthegame 3")
+    ).toBe(true);
+  });
+
   // "Tenis" NO puede estar en la lista de otros deportes: en español de América
   // es justamente como se llaman las zapatillas, y Amazon lo usa.
   it("'Tenis de baloncesto' sigue siendo baloncesto", () => {

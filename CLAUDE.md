@@ -81,12 +81,13 @@ precio de mayo → mostrábamos 199,99/200/105 € de una tienda que no las vend
 **5. `scripts/audit-enlaces.ts`** — commit `932355a`
 La revisión de salud de enlaces que esta sesión hizo a mano. **No pide ni una página** (corre sobre
 el catálogo mergeado → instantáneo y sin clicks falsos). Detecta wrappers anidados, filas
-duplicadas, rutas que la tienda ya retiró, wrappers de redes que no cubren esa tienda, y zapas sin
-ninguna opción disponible. `RUTAS_MUERTAS` y `SIN_PROGRAMA` quedan escritas dentro **a propósito**:
-cada una costó una sesión descubrirla.
-- Estado hoy: **715 enlaces · 0 anidados · 0 duplicados · 0 mal envueltos**, y los 4 de ECI como
-  único hallazgo. 3 zapas con enlaces pero ninguno disponible (`reebok-question-mid`,
-  `reebok-answer-iv`, `nb-omn1s`) — correcto, nadie las stockea.
+duplicadas, rutas que la tienda ya retiró, wrappers de redes que no cubren esa tienda, **destinos
+que no son calzado** (añadido el 14-ago) y zapas sin ninguna opción disponible. `RUTAS_MUERTAS`,
+`SIN_PROGRAMA` y `NO_ES_CALZADO` quedan escritas dentro **a propósito**: cada una costó una sesión
+descubrirla.
+- Estado 14-ago: **715 enlaces · 0 anidados · 0 duplicados · 0 mal envueltos · 0 fuera de calzado**,
+  y los 4 de ECI como único hallazgo. 2 zapas con enlaces pero ninguno disponible
+  (`reebok-answer-iv`, `nb-omn1s`) — correcto, nadie las stockea.
 
 ### ▶️ SIGUIENTE PASO (retomar aquí)
 1. **El alta de desarrollador de AliExpress está HECHA (7-ago), contestan en 2-3 días.** Cuando
@@ -94,21 +95,49 @@ cada una costó una sesión descubrirla.
    AliExpress** para ver si la firma va a la primera. Comprobar que el scope **Affiliate** esté
    concedido: si está pendiente, la key existe pero `aliexpress.affiliate.*` da error de permisos
    — NO confundirlo con un bug nuestro.
-2. **13-14 ago: reconfirmar la frescura** con una semana de datos, no con la noche del 7.
+2. ~~**13-14 ago: reconfirmar la frescura**~~ **HECHO el 14-ago: 49%, se confirma** (ver abajo).
 3. **Los 7 `s.click` sin id**: decidir si se resuelven a mano (conserva el listado elegido) o se
    dejan ir por búsqueda de la API (más barato, pero el listado puede cambiar). Todos marca china.
 
-### 🔴 BUG ABIERTO — adidas: el scraper da por bueno el precio de una página 404
-Detectado el 9-ago diagnosticando adidas (**no arreglado**, se paró antes).
-- `adidas-superstar` apunta a `/mallas-cortas-deportiva-adidas-originals-superstar/KT6964.html`
-  → son **MALLAS, no zapatillas**, y además el enlace está MUERTO: redirige a
-  `/mallas-originals-superstar-cortas` y sirve **`h1` = "No se encuentra la página" con status 200**
-  (mismo truco que Snipes, s34: la 404 viene con 200, hay que mirar el CONTENIDO).
-- Aun así el scraper devuelve **`→ 50€ (sin cambio)`, éxito 1/1**, y lo re-fecha como fresco cada
-  noche. O sea: mostramos precio de un enlace muerto que encima era de otro producto.
-- Faltan dos arreglos: (1) `stores/adidas_es.ts` debe rechazar la página de error, y (2) el enlace
-  del catálogo está mal de origen (mallas) → repuntar a la ficha real de la Superstar o quitarlo.
-- ⚠ Revisar si el resto de fichas de adidas tienen el mismo agujero.
+### ✅ CERRADO (14-ago) — adidas Superstar: mostrábamos el precio de unas MALLAS
+Era el bug abierto del 9-ago. **La causa real NO era la que decía la nota**, ojo al releerla:
+- El scraper de adidas **nunca pide la URL del enlace**: ignora la que le pasa `index.ts` y se
+  construye su propia `/search?q=`. Así que lo de "rechazar la página de error 404-con-200" **no
+  aplicaba aquí** (sí a Snipes). No había página muerta que rechazar.
+- Lo que pasaba: buscando "adidas superstar", la tarjeta más barata que emparejaba era
+  **"Mallas cortas deportivas adidas Originals Superstar"** a 50 €. Marca ✔, modelo ✔, precio
+  dentro del rango plausible → el scraper la daba por buena, `resolveUrl` **fijaba la URL de las
+  mallas** en `precios.json` y la ficha enseñaba 50 € con el botón de compra apuntando a ropa.
+  Cada noche encontraba otra colorway de mallas (KT6964 el 10-ago, KT6965 el 14).
+- Fix (1) **`matcher.ts`: guardarraíl `NO_ES_CALZADO`** (mallas, camiseta, sudadera, pantalón,
+  mochila, gorra, calcetines…), hermano del `OTRO_DEPORTE` de la s34. Aplica a TODAS las tiendas,
+  que todas venden ropa con el nombre del modelo. ⚠ **"top" NO puede entrar** (la adidas **Top Ten**
+  es una zapatilla del catálogo) y "balón" solo con `\b` (si no, se come "baloncesto"). Hay test.
+- Fix (2) **borradas las 2 entradas de mallas de `precios.json`**. La Superstar se queda con el
+  enlace editorial `/search?q=superstar` (100 €) + Amazon 85 €, y el "desde" pasa de **50 € falsos
+  a 85 € reales**. La pasada de esta noche debería repuntarlo solo a una ficha de verdad.
+- Fix (3) **`audit-enlaces.ts` vigila el destino**: nuevo bloque "El destino NO es calzado". El
+  matcher impide que vuelva a entrar; esto detecta lo que ya esté escrito en datos.
+- ⚠ Revisado el resto de adidas: **los otros 17 enlaces son todos `zapatilla-*` / `d.o.n.-*`**,
+  ninguno más apuntaba a ropa.
+
+### 📊 Frescura RECONFIRMADA con una semana (14-ago)
+**394 enlaces · 192 frescos (49%)**, contra el 51% de la noche del 7 y el 29% de la s32. O sea:
+**la mejora de las s33-s35 es real**, no era la variación que engañó en la s33.
+| Tienda | s32 | 7-ago | 14-ago | Mediana |
+|---|---|---|---|---|
+| amazon_es | 29% | 41% | **42%** | 13d (era 46d) |
+| aliexpress | 6% | 15% | **17%** | 52d |
+| elcorteingles_es | 74% | 71% | **50%** | 6d |
+| decathlon | 81% | 72% | **66%** | 1d |
+| fuikaomar_es | 0% | 77% | **77%** | 1d |
+| adidas_es | 41% | 44% | **33%** | 75d |
+| atmosfera_sport | 4% | 93% | **93%** | 3d |
+| forumsport_es | 1 | 69% | **77%** | 1d |
+| snipes_eu | 0% | 57% | **60%** | 1d |
+Las 4 tiendas nuevas de s33/s34 aguantan arriba. **AliExpress sigue muerto** (espera la API) y
+**adidas baja al 33%** por las 15 búsquedas `/search?q=` que nunca emparejan (ver abajo).
+Scraper: 6 noches seguidas en verde, ~1h35m de los 150 min.
 
 ### 📊 adidas: el reparto de fallos está MEDIDO (9-ago)
 **Las 12 fichas van al 100% (0-2 días); las 15 búsquedas `/search?q=` van al 0% (69 días).**

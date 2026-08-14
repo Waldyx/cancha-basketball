@@ -204,6 +204,24 @@ function significantWords(s: string): string[] {
  */
 const OTRO_DEPORTE = /\b(f[úu]tbol|football|running|trail|senderismo|p[áa]del)\b/i;
 
+/**
+ * Productos que NO son calzado. Las tiendas venden ROPA con el nombre del mismo
+ * modelo, así que marca y modelo casan perfectamente y el precio (más barato que
+ * la zapatilla) pasa el guardarraíl de plausibilidad sin despeinarse.
+ *
+ * Caso real (adidas.es, 2026-08-14): buscando "adidas superstar" la primera
+ * tarjeta era "Mallas cortas deportivas adidas Originals Superstar" a 50 €.
+ * El scraper la daba por buena, fijaba SU URL en precios.json y la ficha de la
+ * Superstar llevaba meses mostrando 50 € con el botón de compra apuntando a
+ * unas mallas.
+ *
+ * OJO con lo que NO puede entrar aquí:
+ *  - "top": la adidas Top Ten es una zapatilla del catálogo.
+ *  - "balón": `\b` evita que "baloncesto" caiga, pero es un borde fino.
+ */
+const NO_ES_CALZADO =
+  /\b(mallas|leggings|camiseta|camisetas|sudadera|chaqueta|pantal[oó]n|pantalones|shorts|ch[áa]ndal|mochila|gorra|calcetines|calcet[íi]n|bal[óo]n)\b/i;
+
 export function matchesShoe(
   title: string,
   marca: string,
@@ -211,6 +229,7 @@ export function matchesShoe(
   minScore = 0.6
 ): boolean {
   if (OTRO_DEPORTE.test(title)) return false;
+  if (NO_ES_CALZADO.test(title)) return false;
 
   // Limpiar tallas/códigos ANTES de normalizar (evita números espurios)
   const tNorm = normalize(stripNoise(title));

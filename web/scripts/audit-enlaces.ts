@@ -25,6 +25,7 @@ const nested: Hallazgo[] = [];
 const duplicados: Hallazgo[] = [];
 const rutasMuertas: Hallazgo[] = [];
 const sinDestino: Hallazgo[] = [];
+const noCalzado: Hallazgo[] = [];
 const sinOpcion: string[] = [];
 
 /**
@@ -44,6 +45,15 @@ const RUTAS_MUERTAS: Array<[RegExp, string]> = [
 const SIN_PROGRAMA: Array<[string, RegExp]> = [
   ["basketballemotion_es", /tc\.tradetracker\.net/i],
 ];
+
+/**
+ * Enlaces que NO apuntan a calzado. Las tiendas venden ropa con el nombre del
+ * mismo modelo y el scraper llegó a fijar una de esas URLs: la ficha de la
+ * adidas Superstar mostró 50 € con el botón apuntando a unas MALLAS (14-ago).
+ * El matcher ya rechaza esos títulos; esto vigila lo que quedó escrito en datos.
+ */
+const NO_ES_CALZADO =
+  /\b(mallas|leggings|camiseta|sudadera|chaqueta|pantalon(?:es)?|chandal|mochila|gorra|calcetines)\b/i;
 
 for (const z of zapatillas as any[]) {
   const vistos = new Set<string>();
@@ -82,6 +92,12 @@ for (const z of zapatillas as any[]) {
         sinDestino.push({ zapa: z.id, tienda: l.tienda, detalle: "envuelto sin programa que lo pague" });
       }
     }
+
+    // 5. el destino no es calzado (ropa con el nombre del mismo modelo)
+    const slug = destino.replace(/^https?:\/\/[^/]+/i, "").replace(/[/_]/g, "-");
+    if (NO_ES_CALZADO.test(slug)) {
+      noCalzado.push({ zapa: z.id, tienda: l.tienda, detalle: `no es calzado: ${destino.slice(0, 80)}` });
+    }
   }
 
   if ((z.links_compra?.length ?? 0) > 0 && disponibles === 0) sinOpcion.push(z.id);
@@ -108,11 +124,13 @@ bloque("Wrappers ANIDADOS (wrapper dentro de wrapper)", nested);
 bloque("Filas DUPLICADAS (misma opción repetida en la ficha)", duplicados);
 bloque("Rutas que la tienda ya NO sirve", rutasMuertas);
 bloque("Envuelto en una red que no cubre esa tienda", sinDestino);
+bloque("El destino NO es calzado (ropa del mismo modelo)", noCalzado);
 
 console.log(`\n · Zapas con enlaces pero NINGUNO disponible: ${sinOpcion.length}`);
 for (const id of sinOpcion.slice(0, 25)) console.log(`     ${id}`);
 if (sinOpcion.length > 25) console.log(`     … y ${sinOpcion.length - 25} más`);
 
-const problemas = nested.length + duplicados.length + rutasMuertas.length + sinDestino.length;
+const problemas =
+  nested.length + duplicados.length + rutasMuertas.length + sinDestino.length + noCalzado.length;
 console.log("\n" + "─".repeat(60));
 console.log(problemas === 0 ? "Sin hallazgos." : `${problemas} enlaces con problema.`);
