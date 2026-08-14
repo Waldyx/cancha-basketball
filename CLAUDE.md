@@ -37,6 +37,17 @@ equivocados **y a la vez empareja más**.
 4. **La lista de revisión de 23 enlaces** necesita Chrome; los 5 que de verdad importan están
    nombrados abajo.
 
+### 🛡️ El workflow nocturno ahora corre los TESTS antes de scrapear
+`scrape-prices.yml` no ejecutaba ningún test: si alguien rompía el matcher, la pasada seguía
+escribiendo precios — del producto equivocado, como se vio hoy con Foot Locker. Añadido un paso
+`npx vitest run` **antes** del scraper: si falla, la pasada se corta.
+- Es la decisión correcta aunque cueste una noche de precios: **con el matcher roto una pasada no
+  actualiza los precios, los ESTROPEA**, y luego cuesta sesiones descubrirlo.
+- Tarda ~2 s y no pide red.
+- ⚠️ A propósito **NO se han metido asserts sobre los DATOS** (que ningún enlace apunte a ropa,
+  etc.): eso lo vigila `audit-enlaces.ts`. Si un dato malo pudiera tumbar el workflow, una sola
+  fila mala dejaría el sitio sin actualizar precios hasta que alguien lo arreglara a mano.
+
 ### ⚠️ LÍMITE DEL ENTORNO REMOTO (importante para planificar)
 En Claude Code web la política de red **BLOQUEA TODAS las tiendas** (amazon, adidas, decathlon,
 ECI, footlocker, atmósfera, fuikaomar, aliexpress → 403 del proxy). Solo hay salida a GitHub/npm.

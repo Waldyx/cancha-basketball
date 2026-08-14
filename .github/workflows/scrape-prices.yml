@@ -42,6 +42,18 @@ jobs:
         working-directory: web
         run: npm ci
 
+      # Los tests corren ANTES de scrapear, y a propósito cortan la pasada si
+      # fallan. Cubren el matcher, el merge y la invariante de que toda zapa
+      # empareja con su propio nombre — o sea, justo lo que decide QUÉ producto
+      # se da por bueno. El 14-ago se descubrió que Foot Locker llevaba quién
+      # sabe cuánto verificando 5 zapatillas equivocadas cada noche: con el
+      # matcher roto, una pasada no actualiza precios, los ESTROPEA. Perder una
+      # noche de precios sale mucho más barato que escribir el producto que no
+      # es. Tardan ~2 s y no piden red.
+      - name: 🧪 Tests (si fallan, NO se scrapea)
+        working-directory: web
+        run: npx vitest run
+
       # CloakBrowser usa su propio Chromium stealth (no el de Playwright), pero
       # necesita las librerías de sistema de Ubuntu que Chromium requiere.
       - name: 🎭 Instalar librerías de sistema (Chromium deps)
