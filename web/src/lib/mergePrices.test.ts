@@ -69,6 +69,31 @@ describe("elegirScrape", () => {
       elegirScrape(link({ url: "https://es.aliexpress.com/otra-cosa" }), candidatos)?.precio_actual
     ).toBe(60);
   });
+
+  // precios.json FUSIONA: cada noche que el scraper encuentra otra colorway se
+  // queda una entrada más, y las viejas no caducan solas hasta los 30 días. El
+  // mínimo sobre TODAS hacía ganar a una colorway que ya no se vende: medido el
+  // 14-ago, jordan-tatum-4 mostraba 90,99 € del día 12 cuando nike.es decía
+  // 129,99 € ese mismo día (9 zapas afectadas).
+  it("el barato RANCIO no le gana al de la última pasada", () => {
+    const candidatos = [
+      { url: "https://www.nike.com/es/t/tatum-4-a/HQ1", precio_actual: 90.99, ultima_verificacion: "2026-08-12" },
+      { url: "https://www.nike.com/es/t/tatum-4-b/HQ2", precio_actual: 129.99, ultima_verificacion: "2026-08-14" },
+    ];
+    expect(
+      elegirScrape(link({ url: "https://www.nike.com/es/t/tatum-4/otra" }), candidatos)?.precio_actual
+    ).toBe(129.99);
+  });
+
+  it("entre las de la MISMA pasada sigue ganando la más barata", () => {
+    const candidatos = [
+      { url: "https://www.nike.com/es/t/tatum-4-a/HQ1", precio_actual: 129.99, ultima_verificacion: "2026-08-14" },
+      { url: "https://www.nike.com/es/t/tatum-4-b/HQ2", precio_actual: 99.99, ultima_verificacion: "2026-08-14" },
+    ];
+    expect(
+      elegirScrape(link({ url: "https://www.nike.com/es/t/tatum-4/otra" }), candidatos)?.precio_actual
+    ).toBe(99.99);
+  });
 });
 
 describe("mergePricesIntoShoes — varios productos de la MISMA tienda", () => {

@@ -143,6 +143,24 @@ La s34 lo dejó anotado como "necesita su propia pasada con cuidado". Hecho.
   (precio viejo con fecha vieja, en vez de precio de otra zapatilla), pero **si caen, hay que
   mirar el título en Amazon y decidir**: puede ser que el listado sea de verdad otra generación.
 
+### ✅ CERRADO (14-ago) — 9 zapas mostraban un precio VIEJO que ya no existía
+Salió tirando del hilo de la acumulación de colorways en `precios.json`.
+- `precios.json` **fusiona**: cada noche que el scraper encuentra otra colorway se queda **una
+  entrada más** para la misma tienda (35 grupos tienda+zapa con 2-3 entradas). Cuando el enlace
+  editorial no identifica un producto concreto, `elegirScrape` cogía el **mínimo de TODAS**, así
+  que ganaba una colorway rancia que ya no se vende.
+- Medido: **9 zapas**. `jordan-tatum-4` enseñaba **90,99 € del día 12** cuando nike.es ese mismo
+  día daba 129,99. Igual `adidas-harden-vol-10` (75 → 100), `adidas-ae-1` (109,99 → 139,99),
+  `nike-air-force-1` (100 → 119,99) en Foot Locker.
+- Fix en `mergePrices.ts`: al fallback del más barato **solo se presentan las entradas de la
+  verificación más reciente de esa tienda**. El scraper vuelve a buscar cada noche y devuelve la
+  más barata que encuentra: si hoy la ha dado a 129,99, la de 90,99 **ya no está**. Entre las de
+  la misma pasada sigue ganando la más barata (que es la semántica del sitio). 2 tests nuevos.
+- **NO se tocó la escritura** (`output.ts`) a propósito: caducar ahí las entradas superadas
+  desharía el arreglo del 9-ago (conservar las que fallaron esta noche, que costó 29 entradas
+  perdidas descubrir). Con el arreglo de lectura, las viejas ya no hacen daño y caducan solas a
+  los 30 días.
+
 ### 📊 Frescura RECONFIRMADA con una semana (14-ago)
 **394 enlaces · 192 frescos (49%)**, contra el 51% de la noche del 7 y el 29% de la s32. O sea:
 **la mejora de las s33-s35 es real**, no era la variación que engañó en la s33.

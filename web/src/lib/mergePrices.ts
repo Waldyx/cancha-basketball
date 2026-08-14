@@ -132,9 +132,19 @@ export function identidadProducto(url: string): string | null {
  * 58,09 € en vez de 40,48 €. En un comparador eso es el peor fallo posible.
  *
  * Ahora: se empareja por PRODUCTO, y si no hay forma de identificarlo se coge
- * el MÁS BARATO (que es la semántica del sitio), nunca el último por azar.
+ * el MÁS BARATO **de la última pasada** (que es la semántica del sitio), nunca
+ * el último por azar ni uno rancio.
+ *
+ * Lo de "de la última pasada" no es un detalle: `precios.json` FUSIONA, así que
+ * cada noche que el scraper encuentra otra colorway se queda una entrada más, y
+ * las viejas no caducan solas. Coger el mínimo sobre todas hacía ganar a una
+ * colorway que ya no se vende. Medido el 14-ago: 9 zapas mostraban un precio
+ * que ya no existía — `jordan-tatum-4` enseñaba 90,99 € del día 12 cuando
+ * nike.es ese mismo día decía 129,99 €. El scraper vuelve a buscar cada noche y
+ * devuelve la más barata que encuentra: si hoy la ha dado a 129,99, la de 90,99
+ * ya no está.
  */
-export function elegirScrape<T extends { url?: string; precio_actual?: number }>(
+export function elegirScrape<T extends { url?: string; precio_actual?: number; ultima_verificacion?: string }>(
   orig: LinkCompra,
   candidatos: T[],
   variosEditoriales = false
@@ -156,7 +166,17 @@ export function elegirScrape<T extends { url?: string; precio_actual?: number }>
 
   if (candidatos.length === 1) return candidatos[0];
 
-  return [...candidatos].sort(
+  // Solo compiten las entradas de la verificación más reciente de esa tienda:
+  // las anteriores son colorways que la pasada de hoy ya no ha encontrado.
+  const masReciente = candidatos.reduce(
+    (max, c) => (String(c.ultima_verificacion ?? "") > max ? String(c.ultima_verificacion ?? "") : max),
+    ""
+  );
+  const vigentes = masReciente
+    ? candidatos.filter((c) => String(c.ultima_verificacion ?? "") === masReciente)
+    : candidatos;
+
+  return [...vigentes].sort(
     (a, b) => (a.precio_actual ?? Infinity) - (b.precio_actual ?? Infinity)
   )[0];
 }
