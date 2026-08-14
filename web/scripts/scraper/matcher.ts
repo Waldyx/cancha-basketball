@@ -224,6 +224,59 @@ function contienePar(titulo: string, previa: string | null, letra: string): bool
   });
 }
 
+/**
+ * Palabras de TECNOLOGÍA que las tiendas recortan a su antojo. El catálogo dice
+ * "Air Zoom G.T. Cut 4" y Foot Locker "Nike G.T. Cut 4": exigirlas hacía fallar
+ * el producto correcto, y bajar el listón para compensar (minScore 0.5) abría la
+ * puerta a que pasara CUALQUIER cosa que compartiera el prefijo. No aportan
+ * identidad — "Air" lo lleva media Nike—, así que no puntúan.
+ */
+const PREFIJO_TECNICO = new Set(["air", "zoom", "fresh", "foam"]);
+
+/**
+ * Sufijos que describen la VERSIÓN, no el modelo ("Air Jordan 5 Retro"): las
+ * tiendas los ponen y los quitan, así que no sirven como palabra obligatoria.
+ */
+const SUFIJO_GENERICO = new Set(["retro", "og", "low", "high", "se", "ep", "edition"]);
+
+/**
+ * La palabra que IDENTIFICA el modelo: la última que no es un sufijo genérico.
+ * En los nombres de zapatilla lo distintivo va al final ("Zoom **Freak** 5",
+ * "HOVR **Havoc** 5", "Cross Em Up **Speed**") y el principio es tecnología
+ * compartida. Exigirla es lo que separa la Freak 5 de la **Vomero** 5.
+ */
+function palabraDistintiva(palabras: string[]): string | null {
+  for (let i = palabras.length - 1; i >= 0; i--) {
+    if (!SUFIJO_GENERICO.has(palabras[i])) return palabras[i];
+  }
+  return null;
+}
+
+/**
+ * ¿Está la palabra distintiva en el título, aunque la tienda la ABREVIE?
+ * Amazon lista la LeBron NXXT Genisus como "Zm Lebron NXXT **Gen** Ampd". Se
+ * acepta que una sea prefijo de la otra, con 3 caracteres mínimo: con 2 pasaría
+ * cualquier cosa, y hay modelos que se llaman justo así ("BB").
+ */
+/**
+ * ¿Este texto (título o slug de URL) NO menciona la palabra que identifica al
+ * modelo? Es la señal que destapó los 5 productos equivocados de Foot Locker,
+ * y `audit-enlaces` la usa para vigilar los enlaces ya escritos en datos.
+ */
+export function faltaPalabraDistintiva(texto: string, modelo: string): boolean {
+  const distintiva = palabraDistintiva(significantWords(modelo).filter((w) => !/^\d+$/.test(w)));
+  if (!distintiva) return false;
+  return !presenteOAbreviada(distintiva, normalize(stripNoise(texto)).split(/\s+/));
+}
+
+function presenteOAbreviada(palabra: string, tWords: string[]): boolean {
+  if (tWords.includes(palabra)) return true;
+  if (palabra.length < 3) return false;
+  return tWords.some(
+    (t) => t.length >= 3 && (palabra.startsWith(t) || t.startsWith(palabra))
+  );
+}
+
 function significantWords(s: string): string[] {
   return normalize(s)
     .split(/\s+/)
@@ -316,12 +369,32 @@ export function matchesShoe(
   // Así "Air Max 1" no cuela como "Air Penny 1": comparten "air"+"1" pero falta
   // la palabra distintiva "penny" → score de palabras < umbral.
   if (palabras.length === 0) return true; // modelo solo-número y ya validado
+
+  const presente = (w: string) =>
+    new RegExp(`(^|\\s|-)${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(\\s|-|$)`, "i").test(tNorm);
+
+  // La palabra que IDENTIFICA el modelo es OBLIGATORIA, pase lo que pase con el
+  // score. Sin esto, con un minScore bajo bastaba compartir la tecnología del
+  // principio: medido el 14-ago, Foot Locker daba por buenas la Zoom **Vomero** 5
+  // (running) como Zoom Freak 5, la HOVR **Sonic** 5 como HOVR Havoc 5, la
+  // **Chuck Taylor** como All Star Pro BB, la Shox **R4** como Shox BB4 y una
+  // **Air Jordan 1 Low** como Air Pippen 1. Las 5 puntuaban exactamente 0.5.
+  const distintiva = palabraDistintiva(palabras);
+  if (distintiva && !presenteOAbreviada(distintiva, tWords)) return false;
+
+  // Ni la tecnología del principio ni el sufijo de versión puntúan: el catálogo
+  // dice "Air Zoom G.T. Cut 4" y Foot Locker "Nike G.T. Cut 4"; dice "Air Jordan
+  // 5 Retro" y Amazon "Air Jordan 5 OG". Las tiendas los ponen y los quitan.
+  // Si el modelo NO es más que eso, se puntúan igualmente para no quedarnos sin
+  // nada que comparar.
+  const puntuables = palabras.filter(
+    (w) => !PREFIJO_TECNICO.has(w) && !SUFIJO_GENERICO.has(w)
+  );
+  const aPuntuar = puntuables.length > 0 ? puntuables : palabras;
+
   let matched = 0;
-  for (const w of palabras) {
-    const re = new RegExp(`(^|\\s|-)${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(\\s|-|$)`, "i");
-    if (re.test(tNorm)) matched++;
-  }
-  return matched / palabras.length >= minScore;
+  for (const w of aPuntuar) if (presente(w)) matched++;
+  return matched / aPuntuar.length >= minScore;
 }
 
 /**

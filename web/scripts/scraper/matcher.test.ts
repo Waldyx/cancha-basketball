@@ -205,6 +205,32 @@ describe("matchesShoe — siglas punteadas (G.T., D.O.N.)", () => {
     expect(matchesShoe("Zapatilla adidas Superstar II", "Adidas", "Superstar")).toBe(true);
   });
 
+  // Foot Locker matcheaba con minScore 0.5 — la MITAD de las palabras del
+  // modelo—, y esa mitad era la tecnología compartida ("zoom", "air", "hovr",
+  // "all star"). Los 5 puntuaban exactamente 0.5 y los 5 se verificaban cada
+  // noche como si fueran la zapatilla buena.
+  it("con el listón bajo, la tecnología compartida NO basta", () => {
+    expect(matchesShoe("Nike Zoom Vomero 5", "Nike", "Zoom Freak 5", 0.5)).toBe(false);
+    expect(matchesShoe("Under Armour HOVR Sonic 5", "Under Armour", "HOVR Havoc 5", 0.5)).toBe(false);
+    expect(matchesShoe("Converse Chuck Taylor All Star Hi", "Converse", "All Star Pro BB", 0.5)).toBe(false);
+    expect(matchesShoe("Nike Shox R4", "Nike", "Shox BB4", 0.5)).toBe(false);
+    expect(matchesShoe("Nike Air Jordan 1 Low", "Nike", "Air Pippen 1", 0.5)).toBe(false);
+    expect(matchesShoe("New Balance Fresh Foam Arishi", "New Balance", "Fresh Foam BB v3")).toBe(false);
+    expect(matchesShoe("NIKE Air Max Alpha Zapatillas", "Nike", "Air Max Impact 5")).toBe(false);
+    // Una palabra de diferencia sobre cuatro también es otra zapatilla
+    expect(matchesShoe("adidas Cross Em Up Select Mid", "Adidas", "Cross 'Em Up Speed")).toBe(false);
+  });
+
+  // Y lo que ese listón bajo protegía tiene que seguir pasando: el catálogo
+  // escribe la tecnología del principio y las tiendas la recortan.
+  it("el recorte de la tecnología por parte de la tienda sigue emparejando", () => {
+    expect(matchesShoe("Nike G.T. Cut 4 Hombre Zapatillas", "Nike", "Air Zoom G.T. Cut 4", 0.5)).toBe(true);
+    expect(matchesShoe("Nike Zoom Freak 5 Cream City", "Nike", "Zoom Freak 5", 0.5)).toBe(true);
+    expect(matchesShoe("adidas Cross Em Up Select Mid", "Adidas", "Cross 'Em Up Select")).toBe(true);
+    // "Retro"/"OG" los ponen y los quitan a su antojo
+    expect(matchesShoe("Nike Air Jordan 5 OG", "Jordan", "Air Jordan 5 Retro")).toBe(true);
+  });
+
   // La letra suelta del modelo ES la generación: "Dame X" ≠ "Dame 9", y
   // "Exhibit A" ≠ "Exhibit B" (las dos están en el catálogo). Antes se caía por
   // el filtro de "palabras de más de 1 carácter" y cualquier Dame emparejaba.

@@ -595,13 +595,6 @@
     "nike-gt-cut-academy-2": {
       "links_compra": [
         {
-          "tienda": "amazon_es",
-          "url": "https://www.amazon.es/Phantom-Academy-Sneaker-Glacier-Black-Yellow/dp/B0B24ZMTX6/ref=sr_1_3?tag=canchazapa-21",
-          "precio_actual": 104.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-14"
-        },
-        {
           "tienda": "nike_es",
           "url": "https://www.nike.com/es/t/gt-cut-academy-2-zapatillas-de-baloncesto-KR3H9TWw/HV9774-001",
           "precio_actual": 99.99,
@@ -643,17 +636,6 @@
           "precio_actual": 189.99,
           "disponible": true,
           "ultima_verificacion": "2026-08-13"
-        }
-      ]
-    },
-    "nb-fresh-foam-bb-v3": {
-      "links_compra": [
-        {
-          "tienda": "amazon_es",
-          "url": "https://www.amazon.es/New-Balance-Fresh-Foam-Arishi/dp/B0CKWL6JX6/ref=sr_1_5?tag=canchazapa-21",
-          "precio_actual": 104.29,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-14"
         }
       ]
     },
@@ -1154,13 +1136,6 @@
           "ultima_verificacion": "2026-08-14"
         },
         {
-          "tienda": "footlocker_es",
-          "url": "https://www.footlocker.es/es/product/nike-zoom-vomero-5-hombre-zapatillas/314216617804.html",
-          "precio_actual": 105,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-14"
-        },
-        {
           "tienda": "basket4ballers_es",
           "url": "https://www.basket4ballers.com/es/zapatillas-de-baloncesto/44482-nike-zoom-freak-5-cream-city-dx4985-200.html",
           "precio_actual": 68.06,
@@ -1316,17 +1291,6 @@
           "precio_actual": 114.99,
           "disponible": true,
           "ultima_verificacion": "2026-08-14"
-        }
-      ]
-    },
-    "converse-all-star-pro-bb": {
-      "links_compra": [
-        {
-          "tienda": "footlocker_es",
-          "url": "https://www.footlocker.es/es/product/converse-chuck-taylor-all-star-hi-hombre-zapatillas/314550714704.html",
-          "precio_actual": 45,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-02"
         }
       ]
     },
@@ -1620,31 +1584,6 @@
         }
       ]
     },
-    "nike-air-pippen": {
-      "links_compra": [
-        {
-          "tienda": "footlocker_es",
-          "url": "https://www.footlocker.es/es/product/nike-air-max-tuned-1-hombre-zapatillas/314218246404.html",
-          "precio_actual": 150,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-10"
-        },
-        {
-          "tienda": "footlocker_es",
-          "url": "https://www.footlocker.es/es/product/nike-air-max-1-hombre-zapatillas/314217834804.html",
-          "precio_actual": 100,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-12"
-        },
-        {
-          "tienda": "footlocker_es",
-          "url": "https://www.footlocker.es/es/product/jordan-air-jordan-1-low-hombre-zapatillas/314109620204.html",
-          "precio_actual": 100,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-14"
-        }
-      ]
-    },
     "ua-futr-x-elite": {
       "links_compra": [
         {
@@ -1759,17 +1698,6 @@
         }
       ]
     },
-    "adidas-cross-em-up-speed": {
-      "links_compra": [
-        {
-          "tienda": "amazon_es",
-          "url": "https://www.amazon.es/adidas-Cross-Select-Shoes-Mid-Negro/dp/B0C2QMD1Q6/ref=sr_1_1?tag=canchazapa-21",
-          "precio_actual": 15.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-14"
-        }
-      ]
-    },
     "reebok-engine-a": {
       "links_compra": [
         {
@@ -1796,28 +1724,6 @@
           "precio_actual": 15.99,
           "disponible": true,
           "ultima_verificacion": "2026-08-08"
-        }
-      ]
-    },
-    "nike-air-max-impact-5": {
-      "links_compra": [
-        {
-          "tienda": "amazon_es",
-          "url": "https://www.amazon.es/NIKE-Air-Max-Alpha-Zapatillas/dp/B0FSRY95WM/ref=sr_1_3?tag=canchazapa-21",
-          "precio_actual": 61.16,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-14"
-        }
-      ]
-    },
-    "ua-hovr-havoc-5": {
-      "links_compra": [
-        {
-          "tienda": "footlocker_es",
-          "url": "https://www.footlocker.es/es/product/under-armour-hovr-sonic-5-mujer-zapatillas/315242615102.html",
-          "precio_actual": 80,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-14"
         }
       ]
     },
@@ -2507,13 +2413,6 @@
           "precio_actual": 171,
           "disponible": true,
           "ultima_verificacion": "2026-06-03"
-        },
-        {
-          "tienda": "footlocker_es",
-          "url": "https://www.footlocker.es/es/product/nike-shox-r4-hombre-zapatillas/314219753804.html",
-          "precio_actual": 149.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-14"
         }
       ]
     },

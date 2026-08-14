@@ -161,6 +161,41 @@ Salió tirando del hilo de la acumulación de colorways en `precios.json`.
   perdidas descubrir). Con el arreglo de lectura, las viejas ya no hacen daño y caducan solas a
   los 30 días.
 
+### ✅ CERRADO (14-ago) — Foot Locker verificaba 5 zapatillas EQUIVOCADAS cada noche
+El hallazgo más gordo del día, y salió barriendo el catálogo en busca de más casos como el de las
+mallas. **Los 5 se habían "verificado" ese mismo día:**
+| Zapa | El enlace era |
+|---|---|
+| Zoom Freak 5 | Nike Zoom **Vomero** 5 (running) |
+| HOVR Havoc 5 | UA HOVR **Sonic** 5 mujer (running) |
+| All Star Pro BB | Converse **Chuck Taylor** All Star Hi |
+| Shox BB4 | Nike Shox **R4** |
+| Air Pippen 1 | **Air Jordan 1 Low** (y las 2 noches antes, Air Max Tuned 1 y Air Max 1) |
+- **Causa**: `footlocker_es.ts` matchea con `minScore` **0.5** — la MITAD de las palabras del
+  modelo—, y esa mitad era la **tecnología compartida**: "zoom", "air", "hovr", "all star". Los 5
+  puntuaban exactamente 0.5. El 0.5 estaba puesto por una razón legítima (el catálogo dice "Air
+  Zoom G.T. Cut 4" y FL "Nike G.T. Cut 4"), pero abría la puerta a cualquier cosa de la marca.
+- **Fix en `matcher.ts`, no en el scraper** (aplica a todas las tiendas y no rompe el caso que el
+  0.5 protegía):
+  1. **La palabra que IDENTIFICA el modelo es obligatoria** — la última que no es sufijo de versión
+     ("Zoom **Freak** 5", "HOVR **Havoc** 5", "Cross Em Up **Speed**"). Es lo que separa la Freak 5
+     de la Vomero 5. Se acepta abreviada (Amazon escribe "NXXT **Gen** Ampd" por "Genisus"), con 3
+     caracteres mínimo: con 2 pasaría cualquier cosa y hay modelos que se llaman "BB".
+  2. **La tecnología del principio y el sufijo de versión NO puntúan** (`air`, `zoom`, `fresh`,
+     `foam` / `retro`, `og`, `low`, `high`, `se`, `ep`). Las tiendas los ponen y los quitan.
+- **Cazó 4 más en Amazon**, que sí monetizan: `nb-fresh-foam-bb-v3` → **Fresh Foam Arishi**
+  (running), `nike-air-max-impact-5` → **Air Max Alpha**, `nike-gt-cut-academy-2` → **Phantom
+  Academy** (fútbol), `adidas-cross-em-up-speed` → Cross Em Up **Select** (una palabra de
+  diferencia, y a **15,99 €** — un precio así distorsiona el ranking de precio/calidad).
+- **Datos**: borradas las 11 entradas erróneas de `precios.json`. Vivían SOLO ahí, y el editorial
+  conserva su URL de búsqueda → **no se pierde ninguna opción de compra** y el enlace se auto-repara.
+- **Nuevo bloque en `audit-enlaces.ts`**: "La URL no menciona el modelo — REVISAR a mano" (usa
+  `faltaPalabraDistintiva`). Es lista de REVISIÓN, no de defectos: hoy salen 25 y la mayoría son
+  slugs recortados por la tienda ("adidas Harden JR2506" para la Harden Vol 9). Merece un repaso
+  con calma: ahí dentro puede quedar algún caso real.
+- Medido que el cambio **no endurece el matcher en general**: sobre los 308 slugs descriptivos del
+  catálogo, los no-emparejados bajan de 78 a 76.
+
 ### 📊 Frescura RECONFIRMADA con una semana (14-ago)
 **394 enlaces · 192 frescos (49%)**, contra el 51% de la noche del 7 y el 29% de la s32. O sea:
 **la mejora de las s33-s35 es real**, no era la variación que engañó en la s33.

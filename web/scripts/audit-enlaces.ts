@@ -14,6 +14,30 @@
  */
 import { zapatillas } from "../src/data/zapatillas";
 import { unwrapWrapperUrl } from "../src/lib/mergePrices";
+import { faltaPalabraDistintiva } from "./scraper/matcher";
+
+/**
+ * El texto que la URL da sobre el producto, o null si no dice nada (id pelado,
+ * búsqueda, hash). Solo se puede juzgar una URL que describe lo que vende.
+ */
+function textoDescriptivo(url: string): string | null {
+  let u: URL;
+  try {
+    u = new URL(url);
+  } catch {
+    return null;
+  }
+  // Una búsqueda no promete un producto concreto: no hay nada que auditar.
+  if (u.search && /[?&](q|s|k|text|term|query|search)=/i.test(u.search)) return null;
+  if (/\/(search|buscar|w)\b/i.test(u.pathname)) return null;
+
+  const segs = u.pathname.split("/").filter(Boolean).map((s) => decodeURIComponent(s));
+  const descriptivos = segs.filter(
+    (s) => (s.match(/[a-zA-Z]{3,}/g) ?? []).length >= 3 && !/^[0-9a-f]{16,}$/i.test(s)
+  );
+  if (descriptivos.length === 0) return null;
+  return descriptivos.join(" ").replace(/[^a-zA-Z0-9]+/g, " ");
+}
 
 interface Hallazgo {
   zapa: string;
@@ -26,6 +50,7 @@ const duplicados: Hallazgo[] = [];
 const rutasMuertas: Hallazgo[] = [];
 const sinDestino: Hallazgo[] = [];
 const noCalzado: Hallazgo[] = [];
+const otroProducto: Hallazgo[] = [];
 const sinOpcion: string[] = [];
 
 /**
@@ -98,6 +123,12 @@ for (const z of zapatillas as any[]) {
     if (NO_ES_CALZADO.test(slug)) {
       noCalzado.push({ zapa: z.id, tienda: l.tienda, detalle: `no es calzado: ${destino.slice(0, 80)}` });
     }
+
+    // 6. la URL de PRODUCTO no menciona el modelo (¿otra zapatilla?)
+    const texto = textoDescriptivo(destino);
+    if (texto && faltaPalabraDistintiva(texto, z.modelo)) {
+      otroProducto.push({ zapa: z.id, tienda: l.tienda, detalle: `[${z.modelo}] → ${texto.slice(0, 70)}` });
+    }
   }
 
   if ((z.links_compra?.length ?? 0) > 0 && disponibles === 0) sinOpcion.push(z.id);
@@ -125,6 +156,10 @@ bloque("Filas DUPLICADAS (misma opción repetida en la ficha)", duplicados);
 bloque("Rutas que la tienda ya NO sirve", rutasMuertas);
 bloque("Envuelto en una red que no cubre esa tienda", sinDestino);
 bloque("El destino NO es calzado (ropa del mismo modelo)", noCalzado);
+// Lista de REVISIÓN, no de defectos: muchas tiendas recortan el nombre en el
+// slug ("adidas Harden JR2506" para la Harden Vol 9) y salen aquí sin estar mal.
+// Aun así es la señal que destapó los 5 productos equivocados de Foot Locker.
+bloque("La URL no menciona el modelo — REVISAR a mano", otroProducto, false);
 
 console.log(`\n · Zapas con enlaces pero NINGUNO disponible: ${sinOpcion.length}`);
 for (const id of sinOpcion.slice(0, 25)) console.log(`     ${id}`);
