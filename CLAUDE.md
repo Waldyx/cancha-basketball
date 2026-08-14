@@ -1,11 +1,67 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-08-07 (sesión 35)
+> Última actualización: 2026-08-14 (sesión 36)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
 
-## Estado actual (sesión 35) — API de AliExpress + bug de precio en el merge + enlaces muertos
+## Estado actual (sesión 36 — 14-ago) — cinco bugs de PRODUCTO EQUIVOCADO
+
+⚠️ **NADA DE ESTO ESTÁ EN `master`**: la sesión trabajó en la rama
+**`claude/como-va-todo-he6k80`** (6 commits). La pasada nocturna corre sobre `master`, así que
+**los arreglos no tienen efecto hasta que se mergee**. Tests 179 → **190**, build OK 336 páginas.
+
+Empezó como "el bug de adidas" y resultó ser una familia: **el matcher validaba productos
+equivocados**, y cada uno mostraba un precio real… de otra zapatilla. En un comparador es el peor
+fallo posible. Los detalles de cada uno están en los bloques `✅ CERRADO (14-ago)` de más abajo.
+
+| Bug | Alcance MEDIDO |
+|---|---|
+| La **ropa** del mismo modelo colaba como zapatilla | Superstar a 50 € apuntando a unas mallas |
+| La **letra** del modelo no contaba | "Dame 9" = Dame X · "Exhibit B" = Exhibit A · "Kamikaze II" = Kamikaze I |
+| Un precio **rancio y barato** ganaba al de hoy | **9 zapas**; tatum-4 daba 90,99 € con nike.es a 129,99 |
+| **Foot Locker** validaba con media palabra | **5 zapas verificadas ese día apuntando a otra** + 4 en Amazon |
+| El **segmento** solo se miraba en un sentido | La ficha ADULTA de Believe That 1 → listado de NIÑOS a 61,94 € |
+
+**El dato que dice que no se ha endurecido el matcher a lo bruto**: sobre los 308 slugs
+descriptivos del catálogo, los no-emparejados **bajan de 78 a 68**. Rechaza los productos
+equivocados **y a la vez empareja más**.
+
+### ▶️ SIGUIENTE PASO (retomar aquí)
+1. **Mergear la rama a `master`** para que la pasada nocturna use los arreglos.
+2. **Vigilar la primera pasada de después**: 4 enlaces de Amazon de modelos con letra
+   (`reebok-engine-a`, `reebok-kamikaze-1`, `ua-futr-x-elite`, `nike-team-hustle-d-12`) podrían
+   dejar de verificarse si su título no escribe la letra — no se pudo comprobar (ver ⚠ abajo).
+   Es el lado seguro del fallo, pero si caen hay que mirar el título y decidir.
+3. **AliExpress por API**: sigue esperando las credenciales (ver el punto 1 de la s35).
+4. **La lista de revisión de 23 enlaces** necesita Chrome; los 5 que de verdad importan están
+   nombrados abajo.
+
+### ⚠️ LÍMITE DEL ENTORNO REMOTO (importante para planificar)
+En Claude Code web la política de red **BLOQUEA TODAS las tiendas** (amazon, adidas, decathlon,
+ECI, footlocker, atmósfera, fuikaomar, aliexpress → 403 del proxy). Solo hay salida a GitHub/npm.
+→ Ahí se puede tocar scraper, matcher, merge, auditorías y datos, pero **NO verificar un enlace**.
+Todo lo que necesite ver una página real hay que hacerlo con Chrome en local.
+
+### 📌 Aprendizajes (sesión 36)
+- **"Verificado hoy" no quiere decir "correcto".** Los 5 de Foot Locker se re-verificaban cada
+  noche y los 5 eran otra zapatilla. La frescura mide que el scraper contesta, no que acierte.
+- **Un umbral bajo no es "más tolerante", es un agujero**: `minScore 0.5` significa que basta la
+  mitad de las palabras, y la mitad de un nombre de zapatilla es tecnología compartida ("air",
+  "zoom", "all star"). Lo que hay que exigir es la palabra que IDENTIFICA, no un porcentaje.
+- **Al arreglar el matcher, medir contra el catálogo entero, no contra 4 casos.** El contador de
+  no-emparejados (78 → 68) es lo que demuestra que no se ha roto nada por el otro lado.
+- **Una auditoría que grita por todo es peor que no tenerla**: `audit-affiliates` daba 30 "graves"
+  con 25 falsos y por eso nadie miraba los 4 buenos. Arreglar la señal vale tanto como el bug.
+- **Cuidado con los pendientes heredados**: `deploy.yml` llevaba 5 sesiones en la lista y el
+  workflow ya no existe en el repo desde mayo. Antes de arrastrar un pendiente, comprobar que
+  sigue vivo.
+- **La fecha de un ASIN delata un enlace**: los `B00…` son de ~2013, así que uno en una zapa de
+  2024 no puede ser el suyo. Salió el único caso del catálogo (`lining-wow-12`).
+
+---
+
+## Estado anterior (sesión 35) — API de AliExpress + bug de precio en el merge + enlaces muertos
 
 Todo en `master`. **Tests: 156 → 191.** Build OK, 336 páginas.
 
@@ -275,7 +331,10 @@ no tocar el scraper (mismo patrón que Amazon en s34).
   petición automatizada (su anti-bot), lo que **no prueba** que el enlace esté muerto. Para
   verificarlo hay que ir con Chrome: **primero la home**, luego la búsqueda (ver truco de ECI en
   la sección de Awin). Borrarlos sobre la nota de la s31 sin comprobar sería adivinar.
-- `deploy.yml` lleva fallando desde el 26-may (heredado). El deploy real lo hace Vercel.
+- ~~`deploy.yml` lleva fallando~~ **YA NO EXISTE** (comprobado el 14-ago): el fichero no está en
+  `master` y el workflow no aparece entre los 4 del repo. Su último run fue el **26-may**, o sea
+  que lo que fallaba se borró entonces. **No hay ningún workflow en rojo.** Se arrastraba como
+  pendiente desde la s31 sin comprobarlo.
 
 ### 📌 Aprendizajes (sesión 35)
 - **Un bug de datos puede esconder otro más gordo.** Buscando por qué un enlace de AliExpress no
@@ -1922,17 +1981,14 @@ FAQ | Metodología | Financiación | Privacidad
 
 ## Deploy
 
-```yaml
-# .github/workflows/deploy.yml
-on: push → master
-working-directory: web
-steps: npm ci → npx vercel --prod
-```
-Secrets en GitHub: `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`
+**Lo hace la integración de Git de Vercel**, sola, en cada push a `master`. No hay workflow de
+deploy: el viejo `.github/workflows/deploy.yml` (npm ci → `npx vercel --prod`) se borró en mayo
+tras fallar por el `VERCEL_TOKEN`, y **no hace falta recuperarlo** (comprobado el 14-ago: no está
+en `master` y su último run fue el 26-may).
 
-**Nota**: Si el deploy falla con "token not valid", renovar `VERCEL_TOKEN` en:
-- Vercel → Account → Tokens → crear nuevo
-- GitHub → Settings → Secrets → VERCEL_TOKEN → Update
+Workflows que SÍ existen hoy (4): `scrape-prices.yml` — el único que importa, la pasada nocturna —
+y tres sondas viejas (`feb-probe`, `fcbq-probe`, `prod-check`) cuyos ficheros **ya no están en
+`master`**, así que no pueden ejecutarse; la API de GitHub las sigue listando como fantasmas.
 
 ---
 
