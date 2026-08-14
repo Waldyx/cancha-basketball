@@ -3,6 +3,7 @@
 // al modelo correcto (no a búsqueda genérica ni a otro modelo).
 import { getAllZapatillas } from "../src/data/zapatillas";
 import { writeFileSync } from "node:fs";
+import { textoDescriptivo, esBusqueda } from "./lib/urlTexto";
 
 // awinmid esperado por tienda (de CLAUDE.md)
 const AWIN_MID: Record<string, string> = {
@@ -33,14 +34,17 @@ function tokens(s: string): string[] {
   return (s.toLowerCase().match(/[a-z0-9]+/g) || []).filter(t => t.length >= 2 && !/^(the|de|of|es|com|www|nike|las|los|para)$/.test(t));
 }
 
-// ¿el destino es un ID opaco (no contiene nombre de producto legible)?
+/**
+ * ¿El destino es un ID opaco (no contiene nombre de producto legible)?
+ *
+ * Antes esto era una lista de patrones por tienda (Amazon /dp/, AliExpress
+ * /item/) y se dejaba fuera al resto: las URLs de ECI `/deportes/A56001758/`
+ * caían en el saco de "la URL nombra otro producto" cuando en realidad no
+ * nombran nada. Eran ~25 de las 29 "graves" del 14-ago, y tapaban las de
+ * verdad. Ahora se decide por el TEXTO de la URL, sin lista por tienda.
+ */
 function isOpaque(dest: string): boolean {
-  const d = dest.toLowerCase();
-  // Amazon /dp/ASIN o /gp/ sin slug de nombre; AliExpress item/NNN o s.click shortlink
-  if (/s\.click\.aliexpress|aliexpress\.[a-z]+\/item\/\d+/.test(d)) return true;
-  if (/amazon\.[a-z.]+\/dp\/[a-z0-9]+\/?($|\?)/.test(d)) return true; // /dp/ASIN sin slug previo
-  if (/amazon\.[a-z.]+\/gp\//.test(d)) return true;
-  return false;
+  return textoDescriptivo(dest) === null && !esBusqueda(dest);
 }
 
 const shoes = getAllZapatillas();
@@ -80,7 +84,9 @@ for (const z of shoes) {
       issues.push({ slug: z.slug, tienda, tipo: "OPACO_VERIFICAR_NAVEGADOR", detalle: `ID opaco (ASIN/item) — no verificable por texto`, url: dest.slice(0, 110) });
     } else if (isSearch) {
       // extraer el término de búsqueda y comprobar que nombra el modelo correcto
-      const qm = dest.match(/[?&](?:k|q|query|text|term|s)=([^&]+)/);
+      // `Ntt` es el parámetro de búsqueda de Decathlon: sin él, su única búsqueda
+      // salía como "sin término legible" y parecía un enlace roto.
+      const qm = dest.match(/[?&](?:k|q|query|text|term|ntt|s)=([^&]+)/i);
       const term = qm ? decodeURIComponent(qm[1].replace(/\+/g, " ")).toLowerCase() : "";
       const termHit = allToks.filter(t => term.includes(t)).length;
       if (!term) {

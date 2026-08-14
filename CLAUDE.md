@@ -211,6 +211,22 @@ Salió repasando la lista de revisión del apartado anterior.
   **bajan de 78 a 68** — o sea, el matcher rechaza los productos equivocados y a la vez empareja
   MÁS. No es un endurecimiento.
 
+### ✅ CERRADO (14-ago) — `audit-affiliates` daba 30 "graves" y 25 eran falsos
+La lista estaba inservible, que es la peor forma de tener una auditoría: tapaba los hallazgos
+buenos. Su `isOpaque()` era una lista de patrones **por tienda** (Amazon `/dp/`, AliExpress
+`/item/`) y todo lo demás caía en "la URL nombra otro producto" — incluidas las URLs de ECI del
+tipo `/deportes/A56001758/`, que **no nombran NADA**. Ahora la opacidad se decide por el TEXTO de
+la URL, sin lista por tienda: nuevo `scripts/lib/urlTexto.ts` (`textoDescriptivo` / `esBusqueda`)
+que comparten las DOS auditorías, para que no puedan contradecirse.
+- **Graves: 30 → 3**, y las 3 que quedan son de Decathlon marketplace (slug sin marca) y ya
+  conocidas. Antes había que leerse 30 para encontrar las de verdad.
+- Añadido `Ntt` (el parámetro de búsqueda de Decathlon), que salía como "búsqueda sin término".
+- **1 enlace corregido**: `lining-wow-12` apuntaba a `/dp/B00A2G1P4W`. Los ASIN **`B00…` se
+  asignaron hasta ~2013 y la WoW 12 es de 2024**: un ASIN no puede ser anterior a su producto, y
+  encima el slug era genérico ("Li-Ning Profesionales Baloncesto Antideslizantes"). Cambiado a
+  búsqueda `?k=li+ning+way+of+wade+12` → el scraper la repuntará solo a la ficha real (s34).
+  Barrido el resto del catálogo con ese criterio: **es el único caso**.
+
 ### 🟡 LISTA DE REVISIÓN (necesita Chrome — 23 enlaces)
 `npx tsx scripts/audit-enlaces.ts` los saca. **La mayoría son slugs recortados por la tienda y NO
 están mal** — comprobado: `adidas-harden-vol-9 → "adidas Harden JR2506"` lleva el código de estilo

@@ -15,29 +15,7 @@
 import { zapatillas } from "../src/data/zapatillas";
 import { unwrapWrapperUrl } from "../src/lib/mergePrices";
 import { faltaPalabraDistintiva } from "./scraper/matcher";
-
-/**
- * El texto que la URL da sobre el producto, o null si no dice nada (id pelado,
- * búsqueda, hash). Solo se puede juzgar una URL que describe lo que vende.
- */
-function textoDescriptivo(url: string): string | null {
-  let u: URL;
-  try {
-    u = new URL(url);
-  } catch {
-    return null;
-  }
-  // Una búsqueda no promete un producto concreto: no hay nada que auditar.
-  if (u.search && /[?&](q|s|k|text|term|query|search)=/i.test(u.search)) return null;
-  if (/\/(search|buscar|w)\b/i.test(u.pathname)) return null;
-
-  const segs = u.pathname.split("/").filter(Boolean).map((s) => decodeURIComponent(s));
-  const descriptivos = segs.filter(
-    (s) => (s.match(/[a-zA-Z]{3,}/g) ?? []).length >= 3 && !/^[0-9a-f]{16,}$/i.test(s)
-  );
-  if (descriptivos.length === 0) return null;
-  return descriptivos.join(" ").replace(/[^a-zA-Z0-9]+/g, " ");
-}
+import { textoDescriptivo } from "./lib/urlTexto";
 
 interface Hallazgo {
   zapa: string;
