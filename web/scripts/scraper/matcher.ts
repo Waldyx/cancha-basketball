@@ -101,6 +101,10 @@ const PHRASE_SYNONYMS: [RegExp, string][] = [
   // tilde porque así vienen en los slugs de URL ("…-ninos-ownthegame-30-j-…").
   [/\bni[ñn][oa]s?\b/g, "gs"],
   [/\bkids\b/g, "gs"],
+  // Y Atmósfera lo rotula "infantil" ("Believe That 1 J azul infantil"), que era
+  // el único marcador de junior que no reconocíamos: ese enlace no emparejaba
+  // NUNCA y es el único de esa zapa que se puede verificar.
+  [/\binfantil(?:es)?\b/g, "gs"],
 ];
 
 /**
@@ -350,6 +354,16 @@ export function matchesShoe(
   for (const n of numeros) {
     if (!tWords.includes(n)) return false;
   }
+
+  // ── 2a-ter. El SEGMENTO tiene que coincidir en los DOS sentidos ────────────
+  // Que la GS exija "gs" ya estaba (el token es obligatorio), pero al revés no:
+  // una ficha junior colaba como adulta, y además es MÁS BARATA, así que ganaba
+  // el "desde X €". Medido el 14-ago: la ficha ADULTA de la Believe That 1
+  // apuntaba a un listado de Amazon rotulado "adidas Unisex niños Believe Shoes"
+  // a 61,94 €. Es la misma regla que el scraper de adidas aplica desde la s34,
+  // subida aquí para que valga en todas las tiendas.
+  const modeloEsGS = significantWords(modelo).includes("gs");
+  if (!modeloEsGS && tWords.includes("gs")) return false;
 
   // ── 2a-bis. Las LETRAS SUELTAS del modelo también son obligatorias ─────────
   // "Dame X" ≠ "Dame 9" y "Exhibit A" ≠ "Exhibit B": la letra es la generación,

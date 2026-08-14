@@ -196,6 +196,38 @@ mallas. **Los 5 se habían "verificado" ese mismo día:**
 - Medido que el cambio **no endurece el matcher en general**: sobre los 308 slugs descriptivos del
   catálogo, los no-emparejados bajan de 78 a 76.
 
+### ✅ CERRADO (14-ago) — el SEGMENTO solo se comprobaba en un sentido
+Salió repasando la lista de revisión del apartado anterior.
+- Que una zapa GS exija el token "gs" ya estaba. **Al revés no**: una ficha JUNIOR colaba como
+  adulta, y la junior es **más barata**, así que ganaba el "desde X €". Medido: la ficha ADULTA de
+  `adidas-believe-that-1` apuntaba a un listado de Amazon rotulado **"adidas Unisex niños Believe
+  Shoes" a 61,94 €**. Es la misma regla que el scraper de adidas aplica desde la s34, subida al
+  `matcher` para que valga en TODAS las tiendas. Entrada borrada de `precios.json` (el editorial
+  tiene su búsqueda; la opción de Amazon se conserva a 100 €).
+- **"infantil" era el único marcador de junior que no reconocíamos** (Atmósfera rotula
+  "Believe That 1 J azul infantil"). Ese enlace no emparejaba NUNCA y es el único de esa zapa que
+  se puede verificar en esa tienda. Añadido a `PHRASE_SYNONYMS`.
+- Efecto neto de TODO lo del matcher de hoy: sobre los slugs del catálogo, los no-emparejados
+  **bajan de 78 a 68** — o sea, el matcher rechaza los productos equivocados y a la vez empareja
+  MÁS. No es un endurecimiento.
+
+### 🟡 LISTA DE REVISIÓN (necesita Chrome — 23 enlaces)
+`npx tsx scripts/audit-enlaces.ts` los saca. **La mayoría son slugs recortados por la tienda y NO
+están mal** — comprobado: `adidas-harden-vol-9 → "adidas Harden JR2506"` lleva el código de estilo
+real de la Vol 9 (el enlace de Forum Sport de esa misma zapa dice `harden-volume-9-jr2506`).
+Zalando nunca pone el modelo en el slug (usa color + código), y las de Decathlon marketplace y
+Converse tampoco. **Los que SÍ merecen mirarse con Chrome** (todos de Amazon, todos monetizan):
+- `nike-lebron-nxxt-gen` → el enlace es una **NXXT AMPD**, que es otro modelo. Ojo: el catálogo
+  tiene además `nike-lebron-nxxt-genisus` y su propio resumen dice que "NXXT Gen se renombró a
+  NXXT Genisus" → hay que decidir si son 2 fichas o 3 modelos distintos.
+- `lining-wow-12` → slug sin modelo ("Li Ning Profesionales Baloncesto Antideslizantes").
+- `puma-mb03` → slug sin modelo ("PUMA Zapatos baloncesto Dorados").
+- `fila-mb` → slug sin modelo ("Zapatillas Fashion hombre negro Orange").
+- `ua-curry-12-gs` → sigue el caso de la s33 (apunta a "Curry 12 Dub Nation", sin marca de junior).
+⚠ **No se pudo verificar ninguno**: en el entorno de trabajo remoto la política de red BLOQUEA
+todas las tiendas (amazon, decathlon, adidas, ECI, footlocker, atmósfera, fuikaomar, aliexpress
+dan 403 en el proxy). Solo hay salida a GitHub/npm. Para verificar enlaces hace falta Chrome local.
+
 ### 📊 Frescura RECONFIRMADA con una semana (14-ago)
 **394 enlaces · 192 frescos (49%)**, contra el 51% de la noche del 7 y el 29% de la s32. O sea:
 **la mejora de las s33-s35 es real**, no era la variación que engañó en la s33.

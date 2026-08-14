@@ -231,6 +231,28 @@ describe("matchesShoe — siglas punteadas (G.T., D.O.N.)", () => {
     expect(matchesShoe("Nike Air Jordan 5 OG", "Jordan", "Air Jordan 5 Retro")).toBe(true);
   });
 
+  // El segmento tiene que coincidir en los DOS sentidos. Que la GS exija "gs" ya
+  // estaba; al revés no, y la junior es MÁS BARATA, así que ganaba el "desde X €".
+  it("una ficha JUNIOR no cuela como la de adulto", () => {
+    expect(matchesShoe("adidas Unisex niños Believe Shoes", "Adidas", "Believe That 1")).toBe(false);
+    expect(matchesShoe("adidas AE 2 Junior", "Adidas", "AE 2")).toBe(false);
+    expect(matchesShoe("adidas Dame X rojo zapatilla baloncesto niño", "Adidas", "Dame X")).toBe(false);
+    // y la de adulto sigue pasando
+    expect(matchesShoe("adidas Believe That 1 negro hombre", "Adidas", "Believe That 1")).toBe(true);
+  });
+
+  // "infantil" era el único marcador de junior que no reconocíamos, y por él
+  // el enlace de Atmósfera de la Believe That 1 GS no emparejaba nunca.
+  it("'infantil' también es el segmento GS", () => {
+    expect(
+      matchesShoe(
+        "Zapatillas baloncesto adidas Believe That 1 J azul infantil",
+        "Adidas",
+        "Believe That 1 GS"
+      )
+    ).toBe(true);
+  });
+
   // La letra suelta del modelo ES la generación: "Dame X" ≠ "Dame 9", y
   // "Exhibit A" ≠ "Exhibit B" (las dos están en el catálogo). Antes se caía por
   // el filtro de "palabras de más de 1 carácter" y cualquier Dame emparejaba.
