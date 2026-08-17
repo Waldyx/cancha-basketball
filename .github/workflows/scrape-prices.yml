@@ -67,6 +67,11 @@ jobs:
           npx tsx scripts/scraper/index.ts $ARGS --idealo
         env:
           NODE_ENV: production
+          # Credenciales de la API de afiliados de AliExpress. Si los secrets no
+          # están puestos llegan vacías, getAeCredentials() devuelve null y el
+          # módulo cae al navegador de siempre: no rompe nada por faltar.
+          ALIEXPRESS_APP_KEY: ${{ secrets.ALIEXPRESS_APP_KEY }}
+          ALIEXPRESS_APP_SECRET: ${{ secrets.ALIEXPRESS_APP_SECRET }}
 
       - name: 💾 Commit precios.json actualizado
         working-directory: web
