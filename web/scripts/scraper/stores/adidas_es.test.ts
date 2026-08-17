@@ -45,6 +45,15 @@ describe("adidas.es — ropa vs calzado", () => {
     expect(validas.map((c) => c.p)).toEqual([120]);
   });
 
+  // La ruta NO vale como lista blanca: de los 20 enlaces de adidas que tenemos
+  // en precios.json, 19 cuelgan de /zapatilla-… y el que falta es una zapatilla
+  // de verdad. Exigir el prefijo dejaba la DON Issue 7 sin precio.
+  it("acepta la zapatilla cuya ruta NO empieza por /zapatilla (DON Issue 7)", () => {
+    expect(
+      esCalzadoAdidas("D.O.N. Issue 7", "https://www.adidas.es/d.o.n.-issue-7/JS1301.html")
+    ).toBe(true);
+  });
+
   // Sin href (adidas a veces no renderiza el enlace) el título es el respaldo.
   it("sin href, decide el título", () => {
     expect(esCalzadoAdidas("Zapatilla Superstar II", "")).toBe(true);

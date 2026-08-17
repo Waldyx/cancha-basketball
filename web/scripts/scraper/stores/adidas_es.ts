@@ -16,7 +16,7 @@
  */
 import type { Page } from "playwright";
 import type { StoreScraper, ShoeRef, ScrapeResult } from "../types.js";
-import { matchesShoe, parsePrice, today } from "../matcher.js";
+import { matchesShoe, esPrenda, parsePrice, today } from "../matcher.js";
 
 const BASE = "https://www.adidas.es";
 
@@ -73,22 +73,27 @@ export function normalizeAdidasTitle(title: string): string {
  * modelo igual de bien, y como nos quedamos con la MÁS BARATA, ganaba la ropa:
  * la ficha de la Superstar mostraba 50 € de unas mallas (medido el 2026-08-09).
  *
- * El slug de la URL es la señal fiable — el calzado siempre cuelga de
- * `/zapatilla…`, la ropa nunca. Es la misma idea que en Forum Sport (s34): el
- * nombre comercial miente, la ruta no. Se acepta el título como respaldo solo
- * cuando adidas no ha renderizado el enlace de la tarjeta.
+ * El slug de la URL es la señal fiable — es la misma idea que en Forum Sport
+ * (s34): el nombre comercial miente, la ruta no.
+ *
+ * ⚠ Pero la ruta NO se puede usar como lista blanca: 19 de los 20 enlaces de
+ * adidas que tenemos cuelgan de `/zapatilla-…` y el que falta es una zapatilla
+ * de verdad — la DON Issue 7 vive en `/d.o.n.-issue-7/JS1301.html`. Exigir el
+ * prefijo la habría dejado sin precio. Así que solo se RECHAZA lo que se
+ * reconoce como prenda, por ruta o por título; en la duda, pasa (y luego el
+ * matcher tiene la última palabra).
  */
 export function esCalzadoAdidas(title: string, href: string): boolean {
+  let ruta = "";
   if (href) {
-    let ruta: string;
     try {
       ruta = new URL(href).pathname;
     } catch {
       ruta = href;
     }
-    return /^\/(zapatilla|zapatillas|bota|botas)[-/]/i.test(ruta);
   }
-  return /^\s*(zapatilla|zapatillas|bota|botas)\b/i.test(title);
+  if (/^\/(zapatilla|zapatillas|bota|botas)[-/]/i.test(ruta)) return true;
+  return !esPrenda(ruta) && !esPrenda(title);
 }
 
 interface TarjetaAdidas {

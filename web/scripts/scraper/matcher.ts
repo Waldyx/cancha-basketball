@@ -230,6 +230,15 @@ const NO_ES_CALZADO =
  */
 const PRENDA_MALLA = /(?<!\b(?:de|en|con)\s)\bmallas?\b/i;
 
+/**
+ * ¿El texto describe una PRENDA o un accesorio? Vale tanto para un título como
+ * para el slug de una URL (las palabras van separadas por guiones y `\b` las
+ * ve igual).
+ */
+export function esPrenda(texto: string): boolean {
+  return NO_ES_CALZADO.test(texto) || PRENDA_MALLA.test(texto);
+}
+
 export function matchesShoe(
   title: string,
   marca: string,
@@ -237,7 +246,7 @@ export function matchesShoe(
   minScore = 0.6
 ): boolean {
   if (OTRO_DEPORTE.test(title)) return false;
-  if (NO_ES_CALZADO.test(title) || PRENDA_MALLA.test(title)) return false;
+  if (esPrenda(title)) return false;
 
   // Limpiar tallas/códigos ANTES de normalizar (evita números espurios)
   const tNorm = normalize(stripNoise(title));
