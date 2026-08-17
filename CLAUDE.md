@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-08-07 (sesión 35)
+> Última actualización: 2026-08-17 (sesión 35)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
@@ -88,15 +88,32 @@ cada una costó una sesión descubrirla.
   único hallazgo. 3 zapas con enlaces pero ninguno disponible (`reebok-question-mid`,
   `reebok-answer-iv`, `nb-omn1s`) — correcto, nadie las stockea.
 
+### ✅ LA API DE ALIEXPRESS YA ESTÁ VIVA (17-ago) — funciona, pero a medias
+
+App creada en openservice.aliexpress.com (categoría **Affiliates API**, nombre `CANCHA ZAPA`
+— el punto de "CANCHA.ZAPA" lo rechaza: no admite caracteres especiales). Secrets
+`ALIEXPRESS_APP_KEY` / `ALIEXPRESS_APP_SECRET` puestos en GitHub el 17-ago.
+
+⚠ **Hizo falta un fix de CI** (`cb87d59`): el paso "Ejecutar scraper" solo exportaba `NODE_ENV`,
+así que con los secrets puestos el scraper **seguía sin verlos** y caía al navegador sin avisar.
+Si algún día se añade otra credencial, acordarse de este agujero.
+
+**MEDIDO en pasada real de CI (run 32061853281, solo AliExpress):**
+- **La firma HMAC entró A LA PRIMERA, sin `sign error`.** El gateway sha256 de `signParams` es
+  correcto; la duda de la s35 queda cerrada.
+- **17/47 (36%)**, frente a ~5-7 por navegador. 47 enlaces en **2 minutos** (antes >1 h).
+- Afloran precios que llevaban meses invisibles: 63,69→71,69 · 204,58→220,39 · 78,69→101,39.
+
 ### ▶️ SIGUIENTE PASO (retomar aquí)
-1. **El alta de desarrollador de AliExpress está HECHA (7-ago), contestan en 2-3 días.** Cuando
-   llegue: secrets `ALIEXPRESS_APP_KEY` / `ALIEXPRESS_APP_SECRET` en GitHub y **pasada solo de
-   AliExpress** para ver si la firma va a la primera. Comprobar que el scope **Affiliate** esté
-   concedido: si está pendiente, la key existe pero `aliexpress.affiliate.*` da error de permisos
-   — NO confundirlo con un bug nuestro.
-2. **13-14 ago: reconfirmar la frescura** con una semana de datos, no con la noche del 7.
-3. **Los 7 `s.click` sin id**: decidir si se resuelven a mano (conserva el listado elegido) o se
-   dejan ir por búsqueda de la API (más barato, pero el listado puede cambiar). Todos marca china.
+1. **Averiguar por qué 19 de las 33 fichas `/item/` no dan dato.** Puede ser legítimo (si el
+   producto ya no está en el catálogo de afiliados la API no devuelve nada) o un fallo nuestro.
+   **NO está diagnosticado.** Hay que llamar a la API con varios de esos IDs y ver la respuesta
+   cruda. Ojo: solo se puede en CI, las credenciales no están en local.
+   Desglose real: **ficha 14/33 · s.click 3/10 · búsqueda 0/4**.
+2. **Las 4 búsquedas `wholesale` dan CERO**: la resolución por `aliexpress.affiliate.product.query`
+   no está devolviendo nada. Revisar esa rama.
+3. **Reconfirmar la frescura con una semana**, no con una pasada (aprendizaje repetido: el salto
+   3→11 de agosto era ruido y volvió a 5).
 
 ### 🔴 BUG ABIERTO — adidas: el scraper da por bueno el precio de una página 404
 Detectado el 9-ago diagnosticando adidas (**no arreglado**, se paró antes).
