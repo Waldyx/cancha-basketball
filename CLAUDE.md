@@ -35,6 +35,13 @@ equivocados **y a la vez empareja más**.
   scope **Affiliate**. Hasta ese paso, `stores/aliexpress_api.ts` sigue devolviendo null y se usa
   el navegador de siempre (que está bloqueado por el reto anti-bot). Es lo que desbloquea los
   47 enlaces al 17% de frescura, la comisión más alta del catálogo.
+- 🔧 **Sonda nueva `scripts/aliexpress-smoke.ts`** para el momento en que existan las claves:
+  `ALIEXPRESS_APP_KEY=… ALIEXPRESS_APP_SECRET=… npx tsx scripts/aliexpress-smoke.ts`. Hace UNA
+  llamada real y dicta veredicto: **firma** (nuestro código, mirar `signParams`), **permisos**
+  (falta el scope Affiliate → trámite en la consola, NO un bug), **credencial**, **red** (la
+  petición ni salió) u **ok**. Existe porque `callAe()` se traga los errores a propósito —
+  devuelve `[]` tanto si la API falla como si no hay resultados, que está bien para la pasada
+  nocturna pero es inservible para estrenar unas claves. 7 tests con respuestas reales de la API.
 - ✅ **AliExpress "Ahorros de aranceles" AÑADIDA** (`promos.ts`): **17-ago 00:00 → 26-ago 23:59**,
   o sea que estaba corriendo y la web no la mostraba. Códigos `ESNS03`..`ESNS70` (3 €/15 € hasta
   70 €/489 €). Cada uno tiene un gemelo `DSES--` con el mismo descuento; se publica el ESNS y el
