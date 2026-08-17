@@ -104,19 +104,50 @@ Si algún día se añade otra credencial, acordarse de este agujero.
 - **17/47 (36%)**, frente a ~5-7 por navegador. 47 enlaces en **2 minutos** (antes >1 h).
 - Afloran precios que llevaban meses invisibles: 63,69→71,69 · 204,58→220,39 · 78,69→101,39.
 
-### ▶️ SIGUIENTE PASO (retomar aquí)
-1. **Averiguar por qué 19 de las 33 fichas `/item/` no dan dato.** Puede ser legítimo (si el
-   producto ya no está en el catálogo de afiliados la API no devuelve nada) o un fallo nuestro.
-   **NO está diagnosticado.** Hay que llamar a la API con varios de esos IDs y ver la respuesta
-   cruda. Ojo: solo se puede en CI, las credenciales no están en local.
-   Desglose real: **ficha 14/33 · s.click 3/10 · búsqueda 0/4**.
-2. **Las 4 búsquedas `wholesale` dan CERO**: la resolución por `aliexpress.affiliate.product.query`
-   no está devolviendo nada. Revisar esa rama.
-3. **Reconfirmar la frescura con una semana**, no con una pasada (aprendizaje repetido: el salto
-   3→11 de agosto era ruido y volvió a 5).
+### 🔬 DIAGNOSTICADO (17-ago, 2ª pasada): los fallos NO son un bug nuestro
 
-### 🔴 BUG ABIERTO — adidas: el scraper da por bueno el precio de una página 404
-Detectado el 9-ago diagnosticando adidas (**no arreglado**, se paró antes).
+Antes de diagnosticar hubo que **hacer visible el motivo**: `callAe` devolvía `[]` con un HTTP 500
+igual que con una respuesta correcta y vacía, y `parseProducts` devolvía `[]` al ver
+`error_response`. **Tres causas opuestas, un solo síntoma** ("❌ no encontrado"). Arreglado en
+`765d92f`: `callAe` devuelve `{ products, error }`, `parseAeError` lee el `error_response`
+prefiriendo `sub_code`/`sub_msg`, y el scraper imprime `API AliExpress [código] mensaje · zapa-id`.
+
+**Resultado de la pasada con el log ya hablando (run `32063586907`): CERO líneas de error.**
+Ni un `sign error`, ni permisos, ni HTTP. O sea: **la API responde bien y dice que no tiene el
+producto**. Los fallos son respuestas correctas y vacías.
+- ⇒ Los ~19 `product_id` de ficha que no dan dato **no están en el catálogo de afiliados**. La
+  acción NO es tocar código: es repuntar o quitar esos enlaces, uno a uno.
+- ⇒ El scope **Affiliate está concedido** (si no, saldría `isv.permission-deny` en cada llamada).
+- ⚠ 15/47 en esta pasada frente a 17/47 en la anterior, con el mismo código de API: **el propio
+  catálogo de AliExpress fluctúa entre pasadas**. No perseguir 2 enlaces de diferencia.
+- `page_no=1` en `product.query` (hipótesis) **NO arregló** las búsquedas: siguen a cero y **sin
+  error**, así que la API devuelve lista vacía o el matcher descarta todo. Falta separar esas dos.
+
+### ▶️ SIGUIENTE PASO (retomar aquí)
+1. **Las 4 búsquedas `wholesale` dan CERO y sin error.** Loguear cuántos candidatos devuelve
+   `productQuery` ANTES del matcher: si vienen 20 y el matcher los tira, es nuestro; si vienen 0,
+   es que la API no indexa esas marcas nicho por keywords.
+2. **Repasar a mano los ~19 enlaces de ficha que la API no reconoce** (ver arriba: no es bug).
+3. **Reconfirmar la frescura con una semana**, no con una pasada (aprendizaje repetido: el salto
+   3→11 de agosto era ruido y volvió a 5). Medido el 17-ago: total **52%**, aliexpress **38%**.
+
+### ✅ CERRADO (17-ago) — adidas colaba ROPA como si fuera la zapatilla
+Commits `fd9f72a` (filtro), `02c1768` (corrección) y `e5add8a` (datos).
+- La causa no era la página 404: el scraper de adidas **nunca visita la URL guardada**, siempre
+  reconstruye la búsqueda. Buscando "adidas superstar" adidas devuelve la línea entera (de 15
+  tarjetas solo 4 son calzado) y, como cogemos **la más barata que empareja** (s34), ganaban unas
+  mallas de 50 €. El enlace del catálogo NO estaba mal: es una búsqueda `?q=superstar`.
+- `matcher.ts`: `NO_ES_CALZADO` + `esPrenda()`, para TODAS las tiendas. Los singulares quedan
+  fuera a propósito ("malla" es el tejido del upper, "media caña" una altura).
+- ⚠ **La ruta NO vale como lista blanca**: 19 de los 20 enlaces de adidas cuelgan de
+  `/zapatilla-…` pero la **DON Issue 7 vive en `/d.o.n.-issue-7/`** y es una zapatilla real.
+  Exigir el prefijo la dejaba sin precio: cambiaba un fallo por otro. La ruta solo CONFIRMA;
+  para rechazar hay que reconocer una prenda. Hay test.
+- Datos: quitadas las 2 entradas de mallas de `adidas-superstar` (la 2ª entró el 17-ago sola —
+  el bug seguía trabajando cada noche).
+
+### 🗒️ Contexto viejo del bug de adidas (ya cerrado, se deja por el diagnóstico)
+Detectado el 9-ago diagnosticando adidas.
 - `adidas-superstar` apunta a `/mallas-cortas-deportiva-adidas-originals-superstar/KT6964.html`
   → son **MALLAS, no zapatillas**, y además el enlace está MUERTO: redirige a
   `/mallas-originals-superstar-cortas` y sirve **`h1` = "No se encuentra la página" con status 200**
