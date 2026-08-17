@@ -79,6 +79,14 @@ jobs:
           npx tsx scripts/scraper/index.ts $ARGS --idealo
         env:
           NODE_ENV: production
+          # Credenciales de la Open Platform de AliExpress. Mientras los secrets
+          # no existan llegan VACÍAS, `getAeCredentials()` devuelve null y el
+          # scraper usa el navegador de siempre — o sea que esto es inocuo hasta
+          # que se rellenen. El tracking id por defecto es "default", el mismo
+          # que usa Portals; solo hace falta el secret si algún día cambia.
+          ALIEXPRESS_APP_KEY: ${{ secrets.ALIEXPRESS_APP_KEY }}
+          ALIEXPRESS_APP_SECRET: ${{ secrets.ALIEXPRESS_APP_SECRET }}
+          ALIEXPRESS_TRACKING_ID: ${{ secrets.ALIEXPRESS_TRACKING_ID }}
 
       - name: 💾 Commit precios.json actualizado
         working-directory: web
