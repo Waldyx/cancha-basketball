@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T19:45:59.706Z",
+  "generated_at": "2026-08-17T20:05:53.694Z",
   "shoes": {
     "puma-mb-04": {
       "links_compra": [
@@ -2294,9 +2294,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005008340561587.html",
-          "precio_actual": 63.97,
+          "precio_actual": 83.25,
           "disponible": true,
-          "ultima_verificacion": "2026-08-14"
+          "ultima_verificacion": "2026-08-17"
         }
       ]
     },
