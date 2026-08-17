@@ -147,13 +147,49 @@ export function parseProducts(body: unknown): AeProduct[] {
   return out;
 }
 
+/**
+ * Un fallo de la API, ya legible. Existe porque sin esto TODOS los fallos se
+ * ven igual: `callAe` devolvía `[]` con un 500 igual que con una respuesta
+ * correcta y vacía, así que en el log de la pasada del 17-ago los 30 fallos
+ * salían como "❌ no encontrado" sin forma de saber cuáles eran culpa nuestra.
+ *
+ * Distinguir importa porque la acción es OPUESTA: si el producto ya no está en
+ * el catálogo de afiliados, lo correcto es quitar el enlace; si es un error de
+ * parámetros o de permisos, hay que arreglar el código o el scope.
+ */
+export interface AeError {
+  code: string;
+  msg: string;
+  requestId?: string;
+}
+
+/**
+ * La Open Platform pone el motivo REAL en `sub_msg` y deja en `msg` un genérico
+ * ("Invalid Arguments"), así que se prefiere el sub_ cuando viene.
+ */
+export function parseAeError(body: unknown): AeError | null {
+  if (!body || typeof body !== "object") return null;
+  const err = (body as Record<string, any>).error_response;
+  if (!err) return null;
+  return {
+    code: String(err.sub_code ?? err.code ?? "?"),
+    msg: String(err.sub_msg ?? err.msg ?? "").trim(),
+    requestId: err.request_id ? String(err.request_id) : undefined,
+  };
+}
+
+export interface AeResponse {
+  products: AeProduct[];
+  error: AeError | null;
+}
+
 /** POST firmado al gateway. Siempre POST, aunque el método se llame `...get`. */
 export async function callAe(
   method: string,
   business: Record<string, string>,
   creds: AeCredentials,
   fetchImpl: typeof fetch = fetch
-): Promise<AeProduct[]> {
+): Promise<AeResponse> {
   const params = buildSignedParams(method, business, creds);
   const res = await fetchImpl(AE_GATEWAY, {
     method: "POST",
@@ -162,8 +198,11 @@ export async function callAe(
     },
     body: new URLSearchParams(params).toString(),
   });
-  if (!res.ok) return [];
-  return parseProducts(await res.json());
+  if (!res.ok) {
+    return { products: [], error: { code: `http_${res.status}`, msg: res.statusText } };
+  }
+  const body = await res.json();
+  return { products: parseProducts(body), error: parseAeError(body) };
 }
 
 const COMUNES = {
@@ -173,19 +212,26 @@ const COMUNES = {
   ship_to_country: "ES",
 };
 
-/** Precio de una ficha concreta por su product_id. */
+/**
+ * Precio de una ficha concreta por su product_id.
+ *
+ * `onError` es opcional a propósito: quien llama decide si le interesa el
+ * motivo. Sin él, el comportamiento es el de siempre (null y a otra cosa).
+ */
 export async function productDetail(
   productId: string,
   creds: AeCredentials,
-  fetchImpl: typeof fetch = fetch
+  fetchImpl: typeof fetch = fetch,
+  onError?: (e: AeError) => void
 ): Promise<AeProduct | null> {
-  const productos = await callAe(
+  const { products, error } = await callAe(
     "aliexpress.affiliate.productdetail.get",
     { ...COMUNES, product_ids: productId, tracking_id: creds.trackingId },
     creds,
     fetchImpl
   );
-  return productos[0] ?? null;
+  if (error && onError) onError(error);
+  return products[0] ?? null;
 }
 
 /**
@@ -197,18 +243,22 @@ export async function productDetail(
 export async function productQuery(
   keywords: string,
   creds: AeCredentials,
-  fetchImpl: typeof fetch = fetch
+  fetchImpl: typeof fetch = fetch,
+  onError?: (e: AeError) => void
 ): Promise<AeProduct[]> {
-  return callAe(
+  const { products, error } = await callAe(
     "aliexpress.affiliate.product.query",
     {
       ...COMUNES,
       keywords,
       tracking_id: creds.trackingId,
+      page_no: "1",
       page_size: "20",
       sort: "SALE_PRICE_ASC",
     },
     creds,
     fetchImpl
   );
+  if (error && onError) onError(error);
+  return products;
 }

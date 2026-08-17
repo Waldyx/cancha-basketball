@@ -7,6 +7,7 @@ import {
   productDetail,
   productQuery,
   type AeCredentials,
+  type AeError,
 } from "./aliexpress_api.js";
 
 /**
@@ -86,7 +87,8 @@ export async function precioViaApi(
   url: string,
   shoe: ShoeRef,
   creds: AeCredentials,
-  fetchImpl: typeof fetch = fetch
+  fetchImpl: typeof fetch = fetch,
+  onError: (e: AeError) => void = () => {}
 ): Promise<ScrapeResult | null> {
   const base: ScrapeResult = {
     tienda: "aliexpress",
@@ -98,7 +100,7 @@ export async function precioViaApi(
 
   const productId = extractProductId(url);
   if (productId) {
-    const p = await productDetail(productId, creds, fetchImpl);
+    const p = await productDetail(productId, creds, fetchImpl, onError);
     if (!p) return { ...base, disponible: false };
     return { ...base, precio_actual: p.price, disponible: true };
   }
@@ -108,7 +110,7 @@ export async function precioViaApi(
   // (aprendizaje de adidas en la s34).
   if (/[?&](SearchText|keywords)=/i.test(url) || /\/wholesale/i.test(url)) {
     const q = `${shoe.marca} ${shoe.modelo}`;
-    const candidatos = (await productQuery(q, creds, fetchImpl))
+    const candidatos = (await productQuery(q, creds, fetchImpl, onError))
       .filter((p) => matchesShoe(p.title, shoe.marca, shoe.modelo))
       .sort((a, b) => a.price - b.price);
     const mejor = candidatos[0];
@@ -141,7 +143,19 @@ export const aliexpress: StoreScraper = {
     // Con credenciales, la API manda: no hay reto anti-bot que valga.
     const creds = getAeCredentials();
     if (creds) {
-      const viaApi = await precioViaApi(url, shoe, creds).catch(() => null);
+      // El motivo del fallo SE IMPRIME. Sin esto no se puede separar "este
+      // producto ya no está en el catálogo de afiliados" (hay que quitar el
+      // enlace) de "la llamada está mal o falta el scope" (hay que arreglarlo),
+      // y las dos salían como "❌ no encontrado" (pasada del 17-ago, 30/47).
+      const viaApi = await precioViaApi(url, shoe, creds, fetch, (e) =>
+        console.log(
+          `   ⚠️  API AliExpress [${e.code}] ${e.msg}` +
+            `${e.requestId ? ` · req ${e.requestId}` : ""} · ${shoe.id}`
+        )
+      ).catch((e) => {
+        console.log(`   ⚠️  API AliExpress reventó: ${(e as Error).message} · ${shoe.id}`);
+        return null;
+      });
       if (viaApi) return viaApi;
     }
 

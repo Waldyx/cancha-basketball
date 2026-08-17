@@ -7,6 +7,7 @@ import {
   parseProducts,
   productDetail,
   AE_GATEWAY,
+  type AeError,
 } from "./aliexpress_api.js";
 import { precioViaApi } from "./aliexpress.js";
 
@@ -175,6 +176,52 @@ describe("productDetail", () => {
   it("un HTTP no-OK no inventa precio", async () => {
     const fakeFetch = (async () => ({ ok: false, json: async () => ({}) })) as unknown as typeof fetch;
     expect(await productDetail("1", CREDS, fakeFetch)).toBeNull();
+  });
+
+  // La pasada del 17-ago dio 30 fallos indistinguibles: sin esto no se sabe
+  // cuáles son productos fuera del catálogo de afiliados (quitar el enlace) y
+  // cuáles un fallo nuestro (arreglar el código o pedir el scope).
+  it("avisa del motivo cuando la API responde error_response", async () => {
+    const fakeFetch = (async () => ({
+      ok: true,
+      json: async () => ({
+        error_response: {
+          code: "15",
+          msg: "Remote service error",
+          sub_code: "isv.permission-deny",
+          sub_msg: "no permission",
+          request_id: "abc123",
+        },
+      }),
+    })) as unknown as typeof fetch;
+
+    const errores: AeError[] = [];
+    expect(await productDetail("1", CREDS, fakeFetch, (e) => errores.push(e))).toBeNull();
+    // Gana el sub_: el `msg` de primer nivel es un genérico inútil.
+    expect(errores).toEqual([
+      { code: "isv.permission-deny", msg: "no permission", requestId: "abc123" },
+    ]);
+  });
+
+  it("un HTTP no-OK también se reporta, no se traga", async () => {
+    const fakeFetch = (async () => ({
+      ok: false,
+      status: 503,
+      statusText: "Service Unavailable",
+      json: async () => ({}),
+    })) as unknown as typeof fetch;
+
+    const errores: AeError[] = [];
+    await productDetail("1", CREDS, fakeFetch, (e) => errores.push(e));
+    expect(errores[0].code).toBe("http_503");
+  });
+
+  // Un catálogo vacío NO es un error: es la API diciendo "no lo tengo".
+  it("una respuesta correcta y vacía no reporta error", async () => {
+    const fakeFetch = (async () => ({ ok: true, json: async () => ({}) })) as unknown as typeof fetch;
+    const errores: AeError[] = [];
+    await productDetail("1", CREDS, fakeFetch, (e) => errores.push(e));
+    expect(errores).toEqual([]);
   });
 });
 
