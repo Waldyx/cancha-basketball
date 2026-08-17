@@ -65,6 +65,32 @@ export function normalizeAdidasTitle(title: string): string {
     .replace(/\s+J\s*$/, " GS");
 }
 
+/**
+ * ¿La tarjeta es CALZADO? adidas.es devuelve la línea entera para una consulta
+ * de marca+modelo: para "adidas superstar", 11 de las 15 tarjetas son ropa
+ * ("Mallas cortas … Superstar" 50 €, "Camiseta fina … Superstar" 80 €) y solo
+ * 4 son zapatillas ("Zapatilla Superstar II", 120 €). Todas emparejan marca y
+ * modelo igual de bien, y como nos quedamos con la MÁS BARATA, ganaba la ropa:
+ * la ficha de la Superstar mostraba 50 € de unas mallas (medido el 2026-08-09).
+ *
+ * El slug de la URL es la señal fiable — el calzado siempre cuelga de
+ * `/zapatilla…`, la ropa nunca. Es la misma idea que en Forum Sport (s34): el
+ * nombre comercial miente, la ruta no. Se acepta el título como respaldo solo
+ * cuando adidas no ha renderizado el enlace de la tarjeta.
+ */
+export function esCalzadoAdidas(title: string, href: string): boolean {
+  if (href) {
+    let ruta: string;
+    try {
+      ruta = new URL(href).pathname;
+    } catch {
+      ruta = href;
+    }
+    return /^\/(zapatilla|zapatillas|bota|botas)[-/]/i.test(ruta);
+  }
+  return /^\s*(zapatilla|zapatillas|bota|botas)\b/i.test(title);
+}
+
 interface TarjetaAdidas {
   title: string;
   priceText: string;
@@ -151,6 +177,9 @@ export const adidas_es: StoreScraper = {
 
       for (const { title, priceText, href } of cards) {
         if (!title) continue;
+        // Antes que nada: que sea una ZAPATILLA. adidas vende la misma línea en
+        // ropa, y la ropa es más barata que el calzado (ver esCalzadoAdidas).
+        if (!esCalzadoAdidas(title, href)) continue;
         // El segmento tiene que coincidir, y en los DOS sentidos:
         //  - buscando la de adulto, una junior colaría igual y MÁS BARATA;
         //  - buscando la GS, el filtro de junior la hacía imposible de

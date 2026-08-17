@@ -204,6 +204,32 @@ function significantWords(s: string): string[] {
  */
 const OTRO_DEPORTE = /\b(f[úu]tbol|football|running|trail|senderismo|p[áa]del)\b/i;
 
+/**
+ * Productos que NO son calzado. Las marcas venden la MISMA línea en ropa y
+ * accesorios, así que el nombre del modelo empareja igual de bien con una
+ * prenda que con la zapatilla — y la prenda suele ser MÁS BARATA, que es
+ * justo lo que el scraper elige.
+ *
+ * Caso real (adidas.es, 2026-08-09): buscando "adidas superstar", las "Mallas
+ * cortas deportiva adidas Originals Superstar" (50 €) ganaban a la zapatilla
+ * por ser la más barata que emparejaba. Resultado: la ficha de la Superstar
+ * mostraba el precio de unas mallas y mandaba el click a su página.
+ *
+ * OJO con los singulares: "malla" es el TEJIDO del upper ("parte superior de
+ * malla") y "media caña" es una altura de bota. Solo van los plurales/palabras
+ * que no pueden describir una zapatilla.
+ */
+const NO_ES_CALZADO =
+  /\b(leggings|camiseta|camisetas|camisola|sudadera|sudaderas|chaqueta|chaquetas|cazadora|ch[áa]ndal|pantal[óo]n|pantalones|shorts|bermudas?|calcetines|gorra|gorras|gorro|mochila|ri[ñn]onera|guantes|mu[ñn]equera|equipaci[óo]n|chaleco|sujetador)\b/i;
+
+/**
+ * "malla" es la palabra tramposa: en singular y precedida de "de/en/con" es el
+ * TEJIDO del upper ("parte superior de malla"), pero abriendo el título es la
+ * PRENDA ("Malla larga …", "Mallas cortas …"). adidas usa las dos formas, así
+ * que no vale ni incluirla ni excluirla del todo: se mira qué la precede.
+ */
+const PRENDA_MALLA = /(?<!\b(?:de|en|con)\s)\bmallas?\b/i;
+
 export function matchesShoe(
   title: string,
   marca: string,
@@ -211,6 +237,7 @@ export function matchesShoe(
   minScore = 0.6
 ): boolean {
   if (OTRO_DEPORTE.test(title)) return false;
+  if (NO_ES_CALZADO.test(title) || PRENDA_MALLA.test(title)) return false;
 
   // Limpiar tallas/códigos ANTES de normalizar (evita números espurios)
   const tNorm = normalize(stripNoise(title));

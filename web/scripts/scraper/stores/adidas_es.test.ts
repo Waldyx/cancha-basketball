@@ -1,6 +1,56 @@
 import { describe, it, expect } from "vitest";
-import { ES_JUNIOR, esModeloGS, consultaAdidas, normalizeAdidasTitle } from "./adidas_es";
+import {
+  ES_JUNIOR,
+  esModeloGS,
+  consultaAdidas,
+  normalizeAdidasTitle,
+  esCalzadoAdidas,
+} from "./adidas_es";
 import { matchesShoe } from "../matcher";
+
+// Listado REAL de adidas.es para "adidas superstar", capturado el 2026-08-09:
+// 15 tarjetas, de las que solo 4 son calzado. Todas emparejan marca y modelo,
+// y la ropa es MÁS BARATA que las zapatillas — que es exactamente lo que
+// rompía el "coge la más barata que empareja".
+const LISTADO_SUPERSTAR: { title: string; href: string; calzado: boolean }[] = [
+  { title: "Mallas deportivas 7/8 adidas Originals Superstar", href: "https://www.adidas.es/mallas-deportivas-7-8-adidas-originals-superstar/KT6960.html", calzado: false },
+  { title: "Zapatilla Superstar II", href: "https://www.adidas.es/zapatilla-superstar-ii/JI0079.html", calzado: true },
+  { title: "Mallas cortas deportiva adidas Originals Superstar", href: "https://www.adidas.es/mallas-cortas-deportiva-adidas-originals-superstar/KT6964.html", calzado: false },
+  { title: "Camiseta fina adidas Originals Sport Superstar", href: "https://www.adidas.es/camiseta-fina-adidas-originals-sport-superstar/KU3687.html", calzado: false },
+  { title: "Camiseta con sujetador deportivo adidas Originals Superstar", href: "https://www.adidas.es/camiseta-con-sujetador-deportivo-adidas-originals-superstar/KT6949.html", calzado: false },
+  { title: "Malla larga adidas Originals Sport Superstar", href: "https://www.adidas.es/malla-larga-adidas-originals-sport-superstar/KT7087.html", calzado: false },
+  { title: "Zapatillas CLOT Superstar By Edison Chen", href: "https://www.adidas.es/zapatillas-clot-superstar-by-edison-chen/KK1388.html", calzado: true },
+  { title: "Zapatilla infantil Superstar II", href: "https://www.adidas.es/zapatilla-infantil-superstar-ii/JH9977.html", calzado: true },
+];
+
+describe("adidas.es — ropa vs calzado", () => {
+  // El bug del 9-ago: la ficha de la Superstar mostraba 50 € de unas MALLAS y
+  // mandaba el click a su página. El scraper nunca visita la URL guardada
+  // (reconstruye la búsqueda), así que el fallo se repetía cada noche.
+  for (const { title, href, calzado } of LISTADO_SUPERSTAR) {
+    it(`${calzado ? "SÍ" : "NO"} es calzado: "${title.slice(0, 44)}"`, () => {
+      expect(esCalzadoAdidas(title, href)).toBe(calzado);
+    });
+  }
+
+  it("de las 15 tarjetas reales, la más barata que vale NO son las mallas", () => {
+    const precios = [
+      { t: "Mallas cortas deportiva adidas Originals Superstar", h: "https://www.adidas.es/mallas-cortas-deportiva-adidas-originals-superstar/KT6964.html", p: 50 },
+      { t: "Malla larga adidas Originals Sport Superstar", h: "https://www.adidas.es/malla-larga-adidas-originals-sport-superstar/KT7087.html", p: 80 },
+      { t: "Zapatilla Superstar II", h: "https://www.adidas.es/zapatilla-superstar-ii/JI0079.html", p: 120 },
+    ];
+    const validas = precios
+      .filter((c) => esCalzadoAdidas(c.t, c.h))
+      .filter((c) => matchesShoe(`Adidas ${c.t}`, "Adidas", "Superstar"));
+    expect(validas.map((c) => c.p)).toEqual([120]);
+  });
+
+  // Sin href (adidas a veces no renderiza el enlace) el título es el respaldo.
+  it("sin href, decide el título", () => {
+    expect(esCalzadoAdidas("Zapatilla Superstar II", "")).toBe(true);
+    expect(esCalzadoAdidas("Mallas cortas deportiva adidas Originals Superstar", "")).toBe(false);
+  });
+});
 
 // Títulos REALES de adidas.es capturados el 2026-08-06.
 describe("adidas.es — segmento junior", () => {

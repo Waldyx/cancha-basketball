@@ -193,6 +193,44 @@ describe("matchesShoe — siglas punteadas (G.T., D.O.N.)", () => {
     ).toBe(true);
   });
 
+  // adidas.es, 2026-08-09: buscando "adidas superstar" la tienda devuelve la
+  // línea ENTERA (ropa incluida). Las mallas emparejaban marca+modelo igual que
+  // la zapatilla y, siendo MÁS BARATAS, ganaban al "coge la más barata que
+  // empareja" → la ficha de la Superstar mostraba 50 € de unas mallas.
+  it("NO cuela una PRENDA que comparte el nombre del modelo", () => {
+    const prendas = [
+      "Mallas cortas deportiva adidas Originals Superstar",
+      // Singular y abriendo el título: es la PRENDA, no el tejido.
+      "Malla larga adidas Originals Sport Superstar",
+      "adidas Camiseta Superstar",
+      "adidas Chándal Superstar",
+      "Nike Sudadera LeBron",
+      "adidas Calcetines Superstar 3 pares",
+    ];
+    for (const p of prendas) {
+      expect(matchesShoe(p, "Adidas", "Superstar")).toBe(false);
+      expect(matchesShoe(p, "Nike", "LeBron 23")).toBe(false);
+    }
+    // …y la zapatilla de la misma línea SÍ pasa
+    expect(matchesShoe("adidas Zapatilla Superstar II", "Adidas", "Superstar")).toBe(true);
+  });
+
+  // Los SINGULARES no pueden entrar en el filtro: "malla" es el tejido del
+  // upper y "media caña" es una altura. Si se filtraran, se perderían
+  // zapatillas buenas — que es peor que el bug que arregla el filtro.
+  it("'malla' (tejido) y 'media caña' (altura) siguen siendo zapatillas", () => {
+    expect(
+      matchesShoe("adidas Dame X, parte superior de malla transpirable", "Adidas", "Dame X")
+    ).toBe(true);
+    expect(
+      matchesShoe(
+        "Kipsta Zapatillas de baloncesto de media caña Canaveral 900",
+        "Kipsta",
+        "Canaveral 900"
+      )
+    ).toBe(true);
+  });
+
   // "Tenis" NO puede estar en la lista de otros deportes: en español de América
   // es justamente como se llaman las zapatillas, y Amazon lo usa.
   it("'Tenis de baloncesto' sigue siendo baloncesto", () => {
