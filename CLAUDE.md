@@ -27,6 +27,32 @@ fallo posible. Los detalles de cada uno están en los bloques `✅ CERRADO (14-a
 descriptivos del catálogo, los no-emparejados **bajan de 78 a 68**. Rechaza los productos
 equivocados **y a la vez empareja más**.
 
+### 📬 Repaso del correo (17-ago) — el alta de AliExpress está APROBADA
+- ⭐ **`[AliExpress Open Platform] Profile Approval Granted`, 10-ago** (llevaba sin leer). **OJO al
+  matiz**: lo aprobado es el **PERFIL de desarrollador**, no una credencial. El correo dice
+  literalmente "you can now log in to start creating application development" → **todavía no hay
+  `app_key`**: hay que entrar en `openservice.aliexpress.com`, **crear la aplicación** y pedirle el
+  scope **Affiliate**. Hasta ese paso, `stores/aliexpress_api.ts` sigue devolviendo null y se usa
+  el navegador de siempre (que está bloqueado por el reto anti-bot). Es lo que desbloquea los
+  47 enlaces al 17% de frescura, la comisión más alta del catálogo.
+- ✅ **AliExpress "Ahorros de aranceles" AÑADIDA** (`promos.ts`): **17-ago 00:00 → 26-ago 23:59**,
+  o sea que estaba corriendo y la web no la mostraba. Códigos `ESNS03`..`ESNS70` (3 €/15 € hasta
+  70 €/489 €). Cada uno tiene un gemelo `DSES--` con el mismo descuento; se publica el ESNS y el
+  otro queda anotado como recambio. **`DSES110` (110 €/650 €) NO se incluye**: ninguna zapa del
+  catálogo llega a 650 € y solo ensuciaría la lista. Los cupones **PayPal SÍ acumulan**
+  (9 €/99 €, 20 €/199 €, 33 €/299 €).
+- ❌ **Basket-Center ES: solicitud RECHAZADA** (14-ago, "el anunciante…"). Estaba en la lista de
+  pendientes de Awin desde la s28 → ya no va a llegar. Pendientes reales: Joom, Sneakin, Pro:Direct
+  y Reebok.
+- ❌ **ECI "Rebaja Final" y "Vuelta al Cole" NO tocan deportes** (hogar/textil y papelería). Se
+  vuelve a confirmar lo de la s33: no se añade. Su "Rebajas de Verano" (hasta 31-ago) ya está.
+- ⏭️ **Forum Sport "Flash Night Verano" (13-14 ago) caducó sin registrarse**. Sin acción: meter una
+  promo pasada no hace nada salvo ensuciar el fichero.
+- 🚫 `brickzonehub` invitó a su programa: no es deporte, se ignora.
+- ⚠️ **Regla que salió del email del 6-ago y conviene no olvidar**: los enlaces que manda Awin por
+  correo a veces llevan **`awinaffid` de OTRO publisher** (el de Forum Sport traía 1797816). Hay que
+  reconstruirlos siempre con el nuestro, **2908587**, o la comisión se la lleva otro.
+
 ### ▶️ SIGUIENTE PASO (retomar aquí)
 1. **Mergear la rama a `master`** para que la pasada nocturna use los arreglos.
 2. **Vigilar la primera pasada de después**: 4 enlaces de Amazon de modelos con letra
@@ -157,7 +183,8 @@ descubrirla.
   (`reebok-answer-iv`, `nb-omn1s`) — correcto, nadie las stockea.
 
 ### ▶️ SIGUIENTE PASO (retomar aquí)
-1. **El alta de desarrollador de AliExpress está HECHA (7-ago), contestan en 2-3 días.** Cuando
+1. **El alta de AliExpress está APROBADA (correo del 10-ago)** — pero lo aprobado es el PERFIL, no
+   una credencial: falta crear la aplicación en openservice.aliexpress.com. Cuando
    llegue: secrets `ALIEXPRESS_APP_KEY` / `ALIEXPRESS_APP_SECRET` en GitHub y **pasada solo de
    AliExpress** para ver si la firma va a la primera. Comprobar que el scope **Affiliate** esté
    concedido: si está pendiente, la key existe pero `aliexpress.affiliate.*` da error de permisos
@@ -1855,14 +1882,14 @@ En la práctica: Nike.es y Basket World siempre son search (no tienen URLs de pr
       (`/search-nwx/?s=QUERY`) y las fichas. Ojo: `get_page_text` en el grid de resultados solo
       devuelve el 1er producto (lazy-load) → leer por **screenshots** scrolleando. Categoría básquet:
       buscar "zapatillas de baloncesto" (~947 resultados, ordenables por descuento).
-- **PENDIENTES de aprobación (5) — al 2026-06-29**:
+- **PENDIENTES de aprobación (4) — al 2026-08-17**:
   - ⏳ **Joom ES** — conv 7.65%, aprob 94%, EPC 0.30€ → desbloquea **19 links Joom** ya en BD (tiene_afiliado:false)
-  - ⏳ **Basket-Center ES** — conv 7.27%, aprob 90%
   - ⏳ **Sneakin ES** — conv 4.32%, aprob 75%
   - ⏳ **Pro:Direct ES** — conv 0.12%, aprob 100%
   - ⏳ **Reebok ES** — N/A (recién lanzado 11/12/26) → 5 links Reebok esperando
-- **Rechazados (6) — al 2026-06-18** (botón "+Unirse", reintentar en 3-6 meses con más tráfico):
-  Foot Locker ES, JD Sports ES, Sprinter ES, Foot-Store ES, **size?Official ES**, **Privé by Zalando ES**.
+- **Rechazados (7) — al 2026-08-14** (botón "+Unirse", reintentar en 3-6 meses con más tráfico):
+  Foot Locker ES, JD Sports ES, Sprinter ES, Foot-Store ES, **size?Official ES**, **Privé by Zalando ES**,
+  **Basket-Center ES** (rechazado el 14-ago; llevaba pendiente desde la s28).
   ⚠ CAMBIO s28: **Zalando y size? pasaron de PENDIENTE a RECHAZADO**. Sus enlaces (Zalando 27,
   size? 1) ya NO van a convertir → son peso muerto, tratar como "Ver precio"/podar (ver sesión 28).
 - **Formato link Awin**: `https://www.awin1.com/cread.php?awinmid=AIDID&awinaffid=2908587&ued=URL_ENCODED_URL`

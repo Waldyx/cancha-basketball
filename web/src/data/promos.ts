@@ -255,6 +255,30 @@ export const PROMOS: Promo[] = [
     nota: "Descuento extra aplicado en la web · solo el 9 y 10 de agosto · compra mínima 77€",
     color: "#facc15",
   },
+  {
+    id: "aliexpress-ahorros-aranceles-2026-08",
+    tienda: "aliexpress",
+    tiendaLabel: "AliExpress",
+    titulo: "Ahorros de aranceles",
+    desde: "2026-08-17T00:00:00+02:00",
+    hasta: "2026-08-26T23:59:59+02:00",
+    // Cada código tiene un gemelo con el mismo descuento (ESNS03 = DSES03…). Se
+    // publica el ESNS porque es el que el email lista primero; si alguno dejara
+    // de funcionar, el DSES equivalente sirve de recambio.
+    codigos: [
+      { code: "ESNS03", descuento: 3, minCompra: 15 },
+      { code: "ESNS06", descuento: 6, minCompra: 39 },
+      { code: "ESNS10", descuento: 10, minCompra: 69 },
+      { code: "ESNS20", descuento: 20, minCompra: 139 },
+      { code: "ESNS33", descuento: 33, minCompra: 229 },
+      { code: "ESNS50", descuento: 50, minCompra: 349 },
+      { code: "ESNS70", descuento: 70, minCompra: 489 },
+      // DSES110 (110€/650€) NO se incluye: no hay zapatilla en el catálogo que
+      // llegue a 650€, así que solo serviría para ensuciar la lista.
+    ],
+    nota: "Envíos a España · no válidos en productos virtuales · no acumulable con otras promos, pero SÍ con los cupones PayPal (9€ desde 99€ · 20€ desde 199€ · 33€ desde 299€) · el gemelo DSES-- del código sirve igual",
+    color: "#ff4747",
+  },
 ];
 
 /** Promos activas a una fecha dada (por defecto, ahora). */
