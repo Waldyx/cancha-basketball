@@ -296,7 +296,51 @@ describe("precioViaApi", () => {
     expect(r?.disponible).toBe(false);
   });
 
-  it("un s.click sin id devuelve null → el scraper cae al navegador", async () => {
+  // Devuelve null porque por API no se puede decidir. Antes eso significaba
+  // “cae al navegador”, y el navegador PEDÍA el s.click: un click de afiliado
+  // falso por pasada. Hoy `esRedirectOpaco` lo salta antes de navegar nada.
+  // Las 4 búsquedas `wholesale` daban CERO y SIN error, lo que tiene dos causas
+  // opuestas y arreglos opuestos. El diagnóstico las separa: dice cuántas trajo
+  // la API antes de que el matcher opine.
+  it("informa de cuántos candidatos trajo la API ANTES del matcher", async () => {
+    const fakeFetch = (async () =>
+      respuestaCon([
+        { product_id: "9", product_title: "Anta KT 9 Basketball", target_sale_price: "70.00" },
+        { product_id: "8", product_title: "Calcetines baloncesto Anta", target_sale_price: "25.00" },
+      ])) as unknown as typeof fetch;
+
+    const diag: string[] = [];
+    await precioViaApi(
+      "https://es.aliexpress.com/wholesale?SearchText=anta+kt+10",
+      shoe,
+      CREDS,
+      fakeFetch,
+      () => {},
+      (m) => diag.push(m)
+    );
+
+    expect(diag).toHaveLength(1);
+    // Lo que hay que poder leer en el log: vinieron 2, emparejó 0 → es el
+    // matcher quien descarta, no la API quien no indexa.
+    expect(diag[0]).toContain("2 de la API, 0 emparejan");
+    expect(diag[0]).toContain("Anta KT 9");
+  });
+
+  it("si la API no devuelve NADA, el diagnóstico lo dice sin listar descartes", async () => {
+    const fakeFetch = (async () => respuestaCon([])) as unknown as typeof fetch;
+    const diag: string[] = [];
+    await precioViaApi(
+      "https://es.aliexpress.com/wholesale?SearchText=rigorer+warship",
+      shoe,
+      CREDS,
+      fakeFetch,
+      () => {},
+      (m) => diag.push(m)
+    );
+    expect(diag[0]).toContain("0 de la API, 0 emparejan");
+    expect(diag[0]).not.toContain("descartados");
+  });
+  it("un s.click sin id devuelve null: por API no se puede decidir", async () => {
     const fakeFetch = (async () => respuestaCon([])) as unknown as typeof fetch;
     const r = await precioViaApi(
       "https://s.click.aliexpress.com/e/_c32FKd4H",

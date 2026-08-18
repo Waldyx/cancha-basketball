@@ -19,7 +19,7 @@ import type { BrowserContext } from "playwright-core";
 import { writePreciosJson } from "./output.js";
 import type { ScrapeResult, ShoeRef, StoreScraper } from "./types.js";
 import { getComision } from "./commissions.js";
-import { unwrapAffiliateUrl } from "./matcher.js";
+import { unwrapAffiliateUrl, esRedirectOpaco } from "./matcher.js";
 
 // Store scrapers
 import { amazon_es } from "./stores/amazon_es.js";
@@ -270,6 +270,24 @@ async function main() {
           disponible: link.disponible,
           // el ?? solo aplicaría a un link nuevo que aún no tuviera fecha
           ultima_verificacion: link.ultima_verificacion ?? new Date().toISOString().slice(0, 10),
+        });
+        continue;
+      }
+
+      // Un redirect de afiliado sin destino legible (s.click) NO se navega:
+      // seguirlo es exactamente el CLICK FALSO que evitamos en todo lo demás.
+      // Eran 10 por pasada, y ninguno daba precio desde mayo — solo clicks.
+      if (esRedirectOpaco(link.url)) {
+        console.log(
+          `  ⚠️  ${link.tienda}: enlace de afiliado opaco, no se navega (sería un click falso)`
+        );
+        results.push({
+          tienda: link.tienda,
+          url: link.url,
+          precio_actual: link.precio_actual,
+          disponible: link.disponible,
+          ultima_verificacion:
+            link.ultima_verificacion ?? new Date().toISOString().slice(0, 10),
         });
         continue;
       }

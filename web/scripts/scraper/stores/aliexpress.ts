@@ -88,7 +88,8 @@ export async function precioViaApi(
   shoe: ShoeRef,
   creds: AeCredentials,
   fetchImpl: typeof fetch = fetch,
-  onError: (e: AeError) => void = () => {}
+  onError: (e: AeError) => void = () => {},
+  onDiag?: (msg: string) => void
 ): Promise<ScrapeResult | null> {
   const base: ScrapeResult = {
     tienda: "aliexpress",
@@ -110,9 +111,26 @@ export async function precioViaApi(
   // (aprendizaje de adidas en la s34).
   if (/[?&](SearchText|keywords)=/i.test(url) || /\/wholesale/i.test(url)) {
     const q = `${shoe.marca} ${shoe.modelo}`;
-    const candidatos = (await productQuery(q, creds, fetchImpl, onError))
+    const recibidos = await productQuery(q, creds, fetchImpl, onError);
+    const candidatos = recibidos
       .filter((p) => matchesShoe(p.title, shoe.marca, shoe.modelo))
       .sort((a, b) => a.price - b.price);
+
+    // Las 4 búsquedas daban CERO y SIN error, y eso tiene dos causas OPUESTAS:
+    // que la API no indexe estas marcas nicho por keywords (no hay nada que
+    // arreglar en código → hay que quitar el enlace) o que sí las traiga y el
+    // matcher las tire (bug nuestro). Con el resultado final no se distinguen,
+    // así que se informa de cuántas vinieron y de qué se descartó.
+    onDiag?.(
+      `"${q}" → ${recibidos.length} de la API, ${candidatos.length} emparejan` +
+        (recibidos.length && !candidatos.length
+          ? ` · descartados: ${recibidos
+              .slice(0, 3)
+              .map((p) => p.title.slice(0, 60))
+              .join(" | ")}`
+          : "")
+    );
+
     const mejor = candidatos[0];
     if (!mejor) return { ...base, disponible: false };
     // Devolvemos la URL de la ficha encontrada: el merge la fija sola y el
@@ -151,7 +169,8 @@ export const aliexpress: StoreScraper = {
         console.log(
           `   ⚠️  API AliExpress [${e.code}] ${e.msg}` +
             `${e.requestId ? ` · req ${e.requestId}` : ""} · ${shoe.id}`
-        )
+        ),
+        (msg) => console.log(`   🔎 Búsqueda AliExpress ${msg} · ${shoe.id}`)
       ).catch((e) => {
         console.log(`   ⚠️  API AliExpress reventó: ${(e as Error).message} · ${shoe.id}`);
         return null;

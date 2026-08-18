@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { matchesShoe, unwrapAffiliateUrl } from "./matcher";
+import { matchesShoe, unwrapAffiliateUrl, esRedirectOpaco } from "./matcher";
 
 // Las tiendas pegan letra+número ("MB04", "AE1") donde el catálogo lo separa
 // ("MB.04", "AE 1"). Sin normalizarlo, el número obligatorio no se encontraba.
@@ -288,4 +288,47 @@ describe("matchesShoe — segmento GS/junior", () => {
       expect(matchesShoe(titulo, marca, modelo)).toBe(false);
     });
   }
+});
+
+// El scraper NUNCA debe navegar un redirect de afiliado: cada visita cuenta
+// como click y hunde el EPC. `unwrapAffiliateUrl` cubre los wrappers que
+// llevan el destino en un query param, pero los `s.click` no lo llevan en
+// ninguno: salían intactos y el fallback de navegador los pedía igual, 10 por
+// pasada nocturna, en la tienda de comisión más alta (7%).
+describe("esRedirectOpaco — no navegar lo que cuenta como click", () => {
+  const opacos = [
+    "https://s.click.aliexpress.com/e/_c32FKd4H",
+    "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1w",
+  ];
+  for (const u of opacos) {
+    it(`salta el s.click: ${u.slice(30, 60)}`, () => {
+      expect(esRedirectOpaco(u)).toBe(true);
+    });
+  }
+
+  it("un wrapper Awin BIEN formado NO es opaco: se desenvuelve y se navega el destino", () => {
+    const dest = "https://es.aliexpress.com/item/1005012511774286.html";
+    const wrap =
+      "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=" +
+      encodeURIComponent(dest);
+    expect(esRedirectOpaco(wrap)).toBe(false);
+  });
+
+  // Si el wrapper viene roto (sin destino), desenvolverlo lo deja en awin1.com.
+  // Navegarlo sería otro click falso, así que también se salta.
+  it("un wrapper Awin SIN destino se salta en vez de navegarse", () => {
+    expect(
+      esRedirectOpaco("https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587")
+    ).toBe(true);
+  });
+
+  it("una URL normal de tienda se navega con normalidad", () => {
+    expect(esRedirectOpaco("https://es.aliexpress.com/item/1005012511774286.html")).toBe(false);
+    expect(esRedirectOpaco("https://www.amazon.es/dp/B0DGTYTW9L")).toBe(false);
+  });
+
+  it("una URL basura no revienta", () => {
+    expect(esRedirectOpaco("")).toBe(false);
+    expect(esRedirectOpaco("no-soy-una-url")).toBe(false);
+  });
 });

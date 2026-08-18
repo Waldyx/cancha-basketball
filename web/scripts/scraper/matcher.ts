@@ -375,3 +375,35 @@ export function unwrapAffiliateUrl(url: string): string {
     return url;
   }
 }
+
+/**
+ * Redirects de afiliado cuyo destino NO viaja dentro de la URL: la única forma
+ * de saber a dónde apuntan es SEGUIRLOS, y seguirlos cuenta como click.
+ */
+const REDIRECT_OPACO: RegExp[] = [/(^|\.)s\.click\.aliexpress\.com$/i];
+
+/**
+ * ¿Este enlace sigue siendo un redirect de afiliado después de desenvolverlo?
+ *
+ * Existe porque `unwrapAffiliateUrl` solo sabe sacar el destino de los wrappers
+ * que lo llevan en un query param (Awin `ued`, TradeTracker `u`). Un
+ * `s.click.aliexpress.com/e/_xxx` no lo lleva en ninguno, así que salía intacto
+ * y el scraper lo navegaba: 10 CLICKS DE AFILIADO FALSOS por pasada nocturna
+ * (~300/mes) justo en la tienda de comisión más alta. La capa de API ya devolvía
+ * null para no hacerlo, pero el fallback de navegador lo hacía igual por debajo.
+ *
+ * Quien llama debe SALTARSE estos enlaces, no navegarlos.
+ */
+export function esRedirectOpaco(url: string): boolean {
+  try {
+    const host = new URL(unwrapAffiliateUrl(url ?? "")).hostname;
+    return (
+      REDIRECT_OPACO.some((r) => r.test(host)) ||
+      // Un wrapper conocido que sobrevive al unwrap es que venía mal formado:
+      // tampoco se navega, por el mismo motivo.
+      AFFILIATE_HOSTS.some(([r]) => r.test(host))
+    );
+  } catch {
+    return false;
+  }
+}
