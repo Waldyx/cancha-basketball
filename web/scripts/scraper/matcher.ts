@@ -113,7 +113,7 @@ const PHRASE_SYNONYMS: [RegExp, string][] = [
 function normalize(s: string): string {
   const base = s
     .toLowerCase()
-    .replace(/[.·]/g, " ")   // MB.04 → MB 04
+    .replace(/[.·°]/g, " ")  // MB.04 → MB 04 · 361° → 361
     .replace(/[-–—]/g, " ")  // All-Pro → All Pro
     .replace(/[''´`]/g, "")  // L'eggs → Legs
     .replace(/[()[\],/]/g, " ") // "Canaveral 900 (Sarr Edition)" → tokens limpios

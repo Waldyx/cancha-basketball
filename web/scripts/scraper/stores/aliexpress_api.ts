@@ -183,26 +183,59 @@ export interface AeResponse {
   error: AeError | null;
 }
 
-/** POST firmado al gateway. Siempre POST, aunque el método se llame `...get`. */
+/**
+ * ¿El fallo es "vas demasiado rápido"? La Open Platform lo devuelve como
+ * `ApiCallLimit` y dice en el mensaje cuánto dura el veto ("this ban will last
+ * 1 seconds"). Es un fallo TEMPORAL: no significa que el producto no exista.
+ */
+export function esLimiteDeFrecuencia(e: AeError | null): boolean {
+  if (!e) return false;
+  return /apicalllimit/i.test(e.code) || /frequency exceeds/i.test(e.msg);
+}
+
+/** Esperas entre reintentos. El veto que anuncia el gateway es de ~1 s. */
+const ESPERAS_MS = [1500, 4000];
+
+/**
+ * POST firmado al gateway. Siempre POST, aunque el método se llame `...get`.
+ *
+ * Reintenta SOLO el límite de frecuencia. En la pasada 32180930332, 3 de los 47
+ * enlaces fallaron por eso y se contaron como "no está en el catálogo", que es
+ * la conclusión opuesta a la verdadera: el producto está, solo íbamos rápido.
+ * Cualquier otro error se devuelve tal cual — reintentar una firma mala o un
+ * permiso que falta solo gasta llamadas.
+ */
 export async function callAe(
   method: string,
   business: Record<string, string>,
   creds: AeCredentials,
-  fetchImpl: typeof fetch = fetch
+  fetchImpl: typeof fetch = fetch,
+  dormir: (ms: number) => Promise<void> = (ms) =>
+    new Promise((r) => setTimeout(r, ms))
 ): Promise<AeResponse> {
-  const params = buildSignedParams(method, business, creds);
-  const res = await fetchImpl(AE_GATEWAY, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
-    },
-    body: new URLSearchParams(params).toString(),
-  });
-  if (!res.ok) {
-    return { products: [], error: { code: `http_${res.status}`, msg: res.statusText } };
+  let ultima: AeResponse = { products: [], error: null };
+
+  for (let intento = 0; intento <= ESPERAS_MS.length; intento++) {
+    // La firma incluye el timestamp, así que se re-firma en cada intento.
+    const params = buildSignedParams(method, business, creds);
+    const res = await fetchImpl(AE_GATEWAY, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8",
+      },
+      body: new URLSearchParams(params).toString(),
+    });
+    if (!res.ok) {
+      return { products: [], error: { code: `http_${res.status}`, msg: res.statusText } };
+    }
+    const body = await res.json();
+    ultima = { products: parseProducts(body), error: parseAeError(body) };
+
+    if (!esLimiteDeFrecuencia(ultima.error)) return ultima;
+    if (intento < ESPERAS_MS.length) await dormir(ESPERAS_MS[intento]);
   }
-  const body = await res.json();
-  return { products: parseProducts(body), error: parseAeError(body) };
+
+  return ultima;
 }
 
 const COMUNES = {

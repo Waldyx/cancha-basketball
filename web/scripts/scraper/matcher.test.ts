@@ -332,3 +332,34 @@ describe("esRedirectOpaco — no navegar lo que cuenta como click", () => {
     expect(esRedirectOpaco("no-soy-una-url")).toBe(false);
   });
 });
+
+// La marca del catálogo es "361°" CON el símbolo de grado, y ninguna tienda lo
+// escribe así: AliExpress traduce a "361 grados" o deja "361 °" suelto. Como
+// `normalize` no tocaba el °, la marca normalizada seguía siendo "361°" y NO
+// aparecía en ningún título → las 3 zapas de 361° no podían emparejar NUNCA,
+// en ninguna tienda. Medido en la pasada 32180930332: la API devolvía la zapa
+// correcta (8 candidatos para la Big3, 1 para la Zen 7) y el matcher los tiraba
+// todos. El test de invariante no lo veía porque el catálogo empareja consigo
+// mismo, donde el ° está en los DOS lados.
+describe("marca 361° — el símbolo de grado no puede impedir el match", () => {
+  const reales: [string, string][] = [
+    ["361 grados BIG3 6,0 Pro zapatos de baloncesto para hombre placa de carbono", "Big3 6.0 Pro"],
+    ["361 ° BIG3 6.0 Pro Zapatos de baloncesto de caña baja transpirables", "Big3 6.0 Pro"],
+    ["Zapatillas de baloncesto Zen 7 de 361 grados, Aron Gordon, zapatillas deportivas", "Zen 7"],
+  ];
+  for (const [titulo, modelo] of reales) {
+    it(`"${titulo.slice(0, 40)}" ES 361° ${modelo}`, () => {
+      expect(matchesShoe(titulo, "361°", modelo)).toBe(true);
+    });
+  }
+
+  // Quitar el ° no puede aflojar el modelo: la generación sigue mandando.
+  it("NO confunde generaciones de 361° entre sí", () => {
+    expect(matchesShoe("361 grados Zen 6 zapatillas de baloncesto", "361°", "Zen 7")).toBe(false);
+    expect(matchesShoe("361 grados BIG3 5.0 Pro baloncesto", "361°", "Big3 6.0 Pro")).toBe(false);
+  });
+
+  it("NO acepta otra marca aunque el modelo suene parecido", () => {
+    expect(matchesShoe("Anta Zen 7 zapatillas de baloncesto", "361°", "Zen 7")).toBe(false);
+  });
+});
