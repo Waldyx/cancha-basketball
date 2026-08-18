@@ -1,11 +1,123 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-08-17 (sesión 35)
+> Última actualización: 2026-08-18 (sesión 36)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
 
-## Estado actual (sesión 35) — API de AliExpress + bug de precio en el merge + enlaces muertos
+## Estado actual (sesión 36) — Clicks de afiliado FALSOS, el símbolo ° y 20 enlaces muertos
+
+Todo en `master`. **Tests: 224 → 230.** Build OK, 336 páginas, `astro check` 0 errores.
+**Frescura 52% → 55%** (204/374). Ojo al leerlo: sube en parte porque se han QUITADO 20
+enlaces que no se podían verificar nunca — el numerador no se mueve, el denominador sí.
+
+| Tienda | s35 (18-ago) | Ahora | Nota |
+|---|---|---|---|
+| **adidas_es** | 41% · **79d** | **93% · 1d** | quedan solo fichas reales (27→14 enlaces) |
+| elcorteingles_es | 53% | 60% | 34→30 (los 4 de Skechers, muertos) |
+| aliexpress | 38% | 36% | 47→44 (los 3 Asics, falsos) |
+| amazon_es | 41% | 41% | sin tocar — es el siguiente objetivo |
+
+### 1. Los enlaces `s.click` generaban un CLICK DE AFILIADO FALSO cada noche
+`aliexpress_api.ts` devuelve null para los `s.click` **a propósito** (regla s31). Pero al
+devolver null el scraper **caía al navegador**, y `index.ts` hace `goto(unwrapAffiliateUrl(url))`
+— y `unwrapAffiliateUrl` **no puede** desenvolver un `s.click`: solo saca el destino de wrappers
+que lo llevan en un query param (Awin `ued`, TradeTracker `u`). Navegaba el wrapper tal cual.
+**La protección de la capa de arriba quedaba anulada por la capa de abajo: ~10 clicks falsos por
+pasada (~300/mes) en la tienda de comisión más alta (7%)** — y a cambio de NADA: los 7 de marca
+china llevaban sin dar precio desde mayo.
+- `esRedirectOpaco()` en `matcher.ts`; el bucle los salta **conservando su fecha original**.
+  Verificado en pasada real: los 7 siguen con fecha de mayo, no se re-fechan.
+
+### 2. El símbolo `°` hacía IMPOSIBLE emparejar cualquier zapa de 361°
+La marca del catálogo es `"361°"` y `normalize` no tocaba el grado, así que la marca normalizada
+seguía siendo `361°` — cadena que **ninguna tienda escribe** (AliExpress pone "361 grados" o
+"361 °" con espacio). La comprobación de marca fallaba **siempre**, antes de mirar el modelo.
+- **No era cosa de las búsquedas**: ninguna zapa de 361° podía emparejar por título en NINGUNA
+  tienda. No se veía porque la única que daba precio (`361-joker-1`) va por `product_id`.
+- **El test de invariante de la s34 no lo detecta**: compara el catálogo consigo mismo y ahí
+  el ° está en los DOS lados. Un invariante que solo se mira a sí mismo no ve un símbolo que
+  ninguna tienda escribe. Si aparece otra marca con símbolo raro, mismo agujero.
+- Fix: `normalize` manda `°` a espacio, como ya hacía con `.` y `·`. Medido: la Big3 pasó de
+  **0/8 candidatos emparejados a 8/8**, y de 105 € rancios a **79,69 € reales**.
+
+### Las 4 búsquedas `wholesale`, CERRADAS (era la pregunta pendiente de la s35)
+Se añadió el diagnóstico que faltaba (`onDiag`: cuántos candidatos trae la API **antes** del
+matcher). La respuesta estaba **partida en dos**, con arreglos opuestos:
+- `361-big3-6-pro` → **RESUELTO**, 79,69 € y enlace auto-reparado a ficha real.
+- `361-zen-7` → ya empareja (1/1), pero su único candidato cuesta **156,99 € vs 90 €** guardados
+  y lo descarta el guardarraíl de plausibilidad. **Correcto**, no es bug. Falta decidir a mano si
+  el 90 € era irreal o si AliExpress solo tiene un listado caro.
+- `rigorer-ar1` y `rigorer-warship` → **0 candidatos de la API, sin error**. La API no indexa esas
+  marcas nicho por keywords. **No hay nada que arreglar en código**: hay que repuntar o quitar.
+
+### 3. El enlace auto-reparado apuntaba a un s.click imposible de re-verificar
+Solo se vio corriendo la pasada de verdad. Con el matcher arreglado, el merge auto-reparó la Big3
+a la **`promotion_link` de la API, que es otro `s.click`** → `awin1 → s.click` → desde la noche
+siguiente `esRedirectOpaco` lo habría saltado y el precio habría quedado congelado **para siempre**.
+Se auto-reparaba a algo muerto: peor que no repararlo.
+- `AeProduct.urlFicha` (canónica desde el `product_id`) es lo que se guarda ahora. El merge le
+  re-aplica el wrapper Awin encima → monetiza igual (cookie 30 d) y sigue siendo verificable.
+
+### 4. Reintento del límite de frecuencia de la API
+3 de 47 enlaces fallaron con `ApiCallLimit` ("this ban will last 1 seconds") y se contaban como
+"no está en el catálogo" — la conclusión **contraria** a la verdadera. `callAe` reintenta **solo**
+ese error (1,5 s y 4 s, re-firmando porque el timestamp entra en la firma). Pasada siguiente:
+**0 errores de API**.
+
+### 5. Veinte enlaces que no llevaban a ninguna parte, verificados HOY uno a uno
+La nota de la s34 decía que los 15 `search?q=` de adidas fallaban "legítimamente". Re-verificado
+con Chrome: **cierto en 13, pero NO en 2**.
+- **RECUPERADOS (2)**: `adidas-forum-84` → `/zapatilla-forum-84-low-adv/FY7998.html` y
+  `adidas-pro-model` → `/zapatilla-pro-model-adv/IE6593.html`, ambos 120 €. adidas SÍ los vende y
+  redirige la búsqueda a la ficha. Pasan de 78 días a verificarse cada noche.
+- **BORRADOS de adidas (13)**: la búsqueda devuelve otra cosa — `crazy-8`→pantalones,
+  `trae-young-3/4`→calcetines, `dame-8`→Dame X Niño, `exhibit-b`→gorra, `harden-vol-8` y
+  `stepback-4`→Vol 9/10, `dame-certified`→chaqueta, `ownthegame-2`→VL Court… Salían como
+  `disponible: true` con precio de hace 78 días. Las 13 conservan otra opción (11 con afiliado).
+- **BORRADOS de ECI (4 Skechers SKX)** — cierra el pendiente que venía de la **s31**: el 403 no
+  probaba nada; con Chrome se ve que están rotos por partida doble. La ruta
+  `/deportes/buscar/?term=` **ya no existe** (ahora `/search-nwx/`) y su buscador **ignora el
+  modelo**: "skx", "je1" y "resagrip" devuelven las **mismas 304 fichas**, todas Skechers de andar.
+  ECI no vende la línea SKX de baloncesto. Las 4 conservan Amazon con afiliado.
+- **BORRADOS de AliExpress (3 Asics)**: `unpre-ars-2`, `gelhoop-v17` y `glide-nova-ff-4`
+  compartían **literalmente el mismo `s.click`** y cada una sacaba un precio distinto de él
+  (132,39 / 119,39 / 118,39). Resuelto una vez a mano: apunta a **`best.aliexpress.com`, la home
+  promocional**, no a un producto. No era el enlace equivocado: es que no era un enlace de producto.
+- `scripts/audit-enlaces.ts`: **715 → 695 enlaces y "Sin hallazgos" por primera vez.**
+
+### Pendiente / requiere decisión del usuario (sesión 36)
+- **Los 3 Asics se quedan sin opción monetizada** (solo kickscrew, sin afiliado). Para recuperarla
+  hace falta ficha real de AliExpress **con sello Marcas+ Verificado** (Asics es marca occidental,
+  regla s28) — eso lo tiene que pasar el usuario, no se puede auto-resolver por búsqueda.
+- **Los 7 `s.click` de marca china** (peak, anta, lining) ya no se tocan: ni click falso ni datos,
+  congelados desde mayo. Se pueden pasar a búsqueda por API (son marcas chinas, la regla Marcas+
+  no aplica) o resolverlos a mano una vez y guardar el `product_id`. **Decidir.**
+- `rigorer-ar1` / `rigorer-warship`: la API no los indexa. Repuntar a mano o quitar.
+- `361-zen-7`: 156,99 € (API) vs 90 € (catálogo). ¿Cuál es el bueno?
+- `deploy.yml` lleva fallando desde el 26-may (heredado). El deploy real lo hace Vercel.
+
+### Aprendizajes (sesión 36)
+- **Una protección en una capa no protege si la capa de abajo hace lo contrario.** La API evitaba
+  el click falso devolviendo null, y ese mismo null mandaba al navegador a hacerlo. Al blindar
+  algo, seguir el camino del fallo hasta el final.
+- **Un guard que impide navegar también impide RE-verificar.** Al prohibir una forma de URL hay
+  que mirar quién la ESCRIBE, no solo quién la lee: nuestro propio merge la estaba escribiendo.
+- **Un invariante que compara el sistema consigo mismo no ve los sesgos compartidos.** El ° estaba
+  en los dos lados del test. Los invariantes hay que contrastarlos con datos REALES de tienda.
+- **Un fallo silencioso y un fallo ruidoso piden arreglos opuestos.** Hasta que el log no dijo
+  "8 de la API, 0 emparejan", "0 de la API" y "ApiCallLimit" por separado, los tres eran el mismo
+  "no encontrado" y llevaban a la conclusión equivocada.
+- **Re-verificar antes de borrar salva datos, no solo evita errores.** La nota decía que los 15 de
+  adidas estaban muertos; 2 estaban vivos. Si se hubieran borrado a ciegas se habrían perdido.
+- **Un precio "fresco" puede venir de una URL que no es de ningún producto.** Los 3 Asics tenían
+  fecha de ayer y precios distintos... salidos de la home de AliExpress.
+- **Quitar enlaces sube la frescura sin verificar nada nuevo.** Al leer el %, mirar también el
+  número de enlaces: 52%→55% es sobre todo dejar de contar lo que nunca se podía comprobar.
+
+---
+
+## Estado anterior (sesión 35) — API de AliExpress + bug de precio en el merge + enlaces muertos
 
 Todo en `master`. **Tests: 156 → 191.** Build OK, 336 páginas.
 
