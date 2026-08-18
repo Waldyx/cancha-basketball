@@ -340,6 +340,34 @@ describe("precioViaApi", () => {
     expect(diag[0]).toContain("0 de la API, 0 emparejan");
     expect(diag[0]).not.toContain("descartados");
   });
+
+  // La primera pasada con el fix del ° auto-reparo 361-big3-6-pro a la
+  // `promotion_link` que devuelve la API... que es otro `s.click`. Resultado:
+  // awin1 -> s.click, o sea un enlace que `esRedirectOpaco` salta y que ya
+  // nadie puede volver a verificar. El enlace se auto-reparaba a algo MUERTO.
+  it("auto-repara a la ficha LIMPIA, nunca a un s.click imposible de re-verificar", async () => {
+    const fakeFetch = (async () =>
+      respuestaCon([
+        {
+          product_id: "1005006543210987",
+          product_title: "Anta KT 10",
+          target_sale_price: "95.00",
+          promotion_link: "https://s.click.aliexpress.com/e/_cABC123",
+          product_detail_url: "https://es.aliexpress.com/item/1005006543210987.html",
+        },
+      ])) as unknown as typeof fetch;
+
+    const r = await precioViaApi(
+      "https://es.aliexpress.com/wholesale?SearchText=anta+kt+10",
+      shoe,
+      CREDS,
+      fakeFetch
+    );
+    expect(r?.url).toBe("https://es.aliexpress.com/item/1005006543210987.html");
+    expect(r?.url).not.toContain("s.click");
+    // Y lo que se guarda tiene que seguir siendo resoluble la proxima noche.
+    expect(extractProductId(r!.url)).toBe("1005006543210987");
+  });
   it("un s.click sin id devuelve null: por API no se puede decidir", async () => {
     const fakeFetch = (async () => respuestaCon([])) as unknown as typeof fetch;
     const r = await precioViaApi(

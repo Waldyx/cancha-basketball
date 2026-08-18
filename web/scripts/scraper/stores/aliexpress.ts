@@ -137,7 +137,8 @@ export async function precioViaApi(
     // enlace de búsqueda se auto-repara, como pasó con Amazon en la s34.
     return {
       ...base,
-      url: mejor.url || url,
+      // La ficha LIMPIA, no la promotion_link: ver AeProduct.urlFicha.
+      url: mejor.urlFicha || url,
       precio_actual: mejor.price,
       disponible: true,
     };

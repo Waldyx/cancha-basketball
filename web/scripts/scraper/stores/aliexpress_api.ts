@@ -98,7 +98,20 @@ export interface AeProduct {
   productId: string;
   title: string;
   price: number;
+  /** `promotion_link`: lleva el tracking de Portals, pero es un `s.click`. */
   url: string;
+  /**
+   * La ficha LIMPIA (`es.aliexpress.com/item/ID.html`).
+   *
+   * Es la que se guarda cuando el merge auto-repara un enlace de búsqueda. La
+   * `promotion_link` NO vale para eso: es un `s.click`, o sea un redirect
+   * opaco, y al guardarlo el enlace quedaba imposible de volver a verificar
+   * (`extractProductId` no le saca el id y el navegador no puede pedirlo sin
+   * falsear un click) → precio congelado para siempre. Con la ficha limpia el
+   * merge re-aplica nuestro wrapper de Awin encima, que es el formato que ya
+   * usa el catálogo: monetiza igual (cookie 30 d) y sigue siendo resoluble.
+   */
+  urlFicha: string;
 }
 
 /** Precio en euros de un producto de la respuesta, o null si no viene. */
@@ -141,6 +154,9 @@ export function parseProducts(body: unknown): AeProduct[] {
       title: String(raw.product_title ?? raw.product_name ?? "").trim(),
       // `promotion_link` ya lleva el tracking; si no viene, la ficha limpia.
       url: String(raw.promotion_link || raw.product_detail_url || "").trim(),
+      // Se construye desde el id en vez de fiarse de `product_detail_url`:
+      // asi es siempre la forma canonica que `extractProductId` sabe leer.
+      urlFicha: `https://es.aliexpress.com/item/${productId}.html`,
       price,
     });
   }
