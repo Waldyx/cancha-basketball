@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-18T06:02:05.206Z",
+  "generated_at": "2026-08-18T20:15:01.942Z",
   "shoes": {
     "puma-mb-04": {
       "links_compra": [
@@ -2397,7 +2397,7 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005010685068543.html",
-          "precio_actual": 220.39,
+          "precio_actual": 213.99,
           "disponible": true,
           "ultima_verificacion": "2026-08-18"
         }
@@ -2530,6 +2530,13 @@
           "precio_actual": 129.9,
           "disponible": true,
           "ultima_verificacion": "2026-08-18"
+        },
+        {
+          "tienda": "aliexpress",
+          "url": "https://s.click.aliexpress.com/e/_c3574IK9",
+          "precio_actual": 75,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-18"
         }
       ]
     },
@@ -3912,7 +3919,7 @@
       "links_compra": [
         {
           "tienda": "aliexpress",
-          "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4kuZFhjNDwVVqRuyfQW1M6UMNIi6OxEAWZw8k1Rv4FdQ06vZ0KKoyVcsaqi8XOBQw1fcJzTUyyxVbqWCZGFRAn5JcBQC44giaxzmz4T5uo71IWCMBxUse2ih5uwmgDutbMKic4bd2lQjtVOfX19yzyVLJRZxHeB4RN7DYZkU5nKLP7tSJRZ88Yl8sXnaWOHRN5xBypcVxm1oyr6i2DECzMJvy14Qvq7QzsjgkoGAdv7AS9KoeHw5bstnueFCOZQwGHtDbDVtA4GodtqqTLqvnUrhV4z9PWMjRVMT4hkF2msJGG76CY2e7CpG4d3s6YEEAFcz2PWv8z9zzlfqg3rMDFJOfk4Wzq8QIq0X7ANrqbjq9fyal5s3YVUoeHeoYRhbq6CTngB7c7Z3ozTTBl1HCjyFww4nyNMCBTiWmS4XE3hvXQC2I1lW3F63yOnFngH4MILjxO3iRKHop6D35vdv1TMSW4Do5egaCYYoTTkrt8pyRPdqUyHE10YfmAEqh9fUrANZypek66Gs4R2F7L3Mo1ZpPbAJ5eMVaJVANO7aJS7nkOqMKkmbqGlJ64zOxklyb8QF1QIDKWVbRwdbCdessRuKxwAZ0kOQPS0na1wWQjmep8gd2UL3yw3FAbfA8fmBXk8wdiA3YM9ibVDKz6rb1eLUP1JLejovebPDUD6uy4yIClTFfjzqQhJz0L8LcZOD13OOZ0jwsfRnHv",
+          "url": "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fs.click.aliexpress.com%2Fs%2FpyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4kuZFhjNDwVVqRuyfQW1M6UMNIi6OxEAWZw8k1Rv4FdQ06vZ0KKoyVcsaqi8XOBQw1fcJzTUyyxVbqWCZGFRAn5JcBQC44giaxzmz4T5uo71IWCMBxUse2ih5uwmgDutbMKic4bd2lQjtVOfX19yzyVLJRZxHeB4RN7DYZkU5nKLP7tSJRZ88Yl8sXnaWOHRN5xBypcVxm1oyr6i2DECzMJvy14Qvq7QzsjgkoGAdv7AS9KoeHw5bstnueFCOZQwGHtDbDVtA4GodtqqTLqvnUrhV4z9PWMjRVMT4hkF2msJGG76CY2e7CpG4d3s6YEEAFcz2PWv8z9zzlfqg3rMDFJOfk4Wzq8QIq0X7ANrqbjq9fyal5s3YVUoeHeoYRhbq6CTngB7c7Z3ozTTBl1HCjyFww4nyNMCBTiWmS4XE3hvXQC2I1lW3F63yOnFngH4MILjxO3iRKHop6D35vdv1TMSW4Do5egaCYYoTTkrt8pyRPdqUyHE10YfmAEqh9fUrANZypek66Gs4R2F7L3Mo1ZpPbAJ5eMVaJVANO7aJS7nkOqMKkmbqGlJ64zOxklyb8QF1QIDKWVbRwdbCdessRuKxwAZ0kOQPS0na1wWQjmep8gd2UL3yw3FAbfA8fmBXk8wdiA3YM9ibVDKz6rb1eLUP1JLejovebPDUD6uy4yIClTFfjzqQhJz0L8LcZOD13OOZ0jwsfRnHv",
           "precio_actual": 132.39,
           "disponible": true,
           "ultima_verificacion": "2026-08-17"
@@ -3923,7 +3930,7 @@
       "links_compra": [
         {
           "tienda": "aliexpress",
-          "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4mtkYxuQJoZCrB8OfuRuN160QipJBNby0Q11JeUs671VYfFa2UivblvaS6Q2hWcVFMVpEd0uNlGP7pRsC9yJPPusGlSYm5VGjFIqBc88Dd2xmz1wuH4KzD9OWaJOlkdIoDCzhrREJ5SpFUfItYw7M2W90CCcVy6YnxXyeUNf9HWjQP1TpM3wppIfNzQTxzN1i2HjfGUsZcrQe9tTuCcgYrBfQOuKhH3jXKseuZEfHRB429qqiqAWkMeZszBq0HFNpttP2UcRCpzAXkNyKYDrcPSjAQRQE8zz0r5xPAosYfSZqskyGxPDJWjr44jDIJ06cTzOyCHVkZR4A1SZcQ3uK5yREF9JbtPOZQm7aEqV6VQ8qhnzaOvHJR85IBdm4hmBQayODgmpU4j3GbdpxkOjPTVe78ocakwNDSH3u9J5pOAn0fdY8WyaHWfe8jyef7VQbcNi7Lq8CgUb3GkPXsL54LejubT8ohSHQk4CHL0RBLru0WpxURS0vmZD2N03h5eyHUolk8xamFtcXjrYp0m6jJ6SG8rmw4jYM0dgs9BTeJs0QOyYx1LtN66T7bR8Z5DwEZv7soTjXaBLckQBoCpgV3BQL3tM4KDgjusQu73XdtJ1aeU8S7RFj3CcXSn73L3ZmhgOrhHVUqzU9rMT95TMg0rmJGC7frC7f4F8tHnY4AKLqL1dfzxV9EpCGRvRpFzckEuckcENEj4pO3",
+          "url": "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fs.click.aliexpress.com%2Fs%2FpyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4mtkYxuQJoZCrB8OfuRuN160QipJBNby0Q11JeUs671VYfFa2UivblvaS6Q2hWcVFMVpEd0uNlGP7pRsC9yJPPusGlSYm5VGjFIqBc88Dd2xmz1wuH4KzD9OWaJOlkdIoDCzhrREJ5SpFUfItYw7M2W90CCcVy6YnxXyeUNf9HWjQP1TpM3wppIfNzQTxzN1i2HjfGUsZcrQe9tTuCcgYrBfQOuKhH3jXKseuZEfHRB429qqiqAWkMeZszBq0HFNpttP2UcRCpzAXkNyKYDrcPSjAQRQE8zz0r5xPAosYfSZqskyGxPDJWjr44jDIJ06cTzOyCHVkZR4A1SZcQ3uK5yREF9JbtPOZQm7aEqV6VQ8qhnzaOvHJR85IBdm4hmBQayODgmpU4j3GbdpxkOjPTVe78ocakwNDSH3u9J5pOAn0fdY8WyaHWfe8jyef7VQbcNi7Lq8CgUb3GkPXsL54LejubT8ohSHQk4CHL0RBLru0WpxURS0vmZD2N03h5eyHUolk8xamFtcXjrYp0m6jJ6SG8rmw4jYM0dgs9BTeJs0QOyYx1LtN66T7bR8Z5DwEZv7soTjXaBLckQBoCpgV3BQL3tM4KDgjusQu73XdtJ1aeU8S7RFj3CcXSn73L3ZmhgOrhHVUqzU9rMT95TMg0rmJGC7frC7f4F8tHnY4AKLqL1dfzxV9EpCGRvRpFzckEuckcENEj4pO3",
           "precio_actual": 119.39,
           "disponible": true,
           "ultima_verificacion": "2026-08-17"
@@ -3934,10 +3941,76 @@
       "links_compra": [
         {
           "tienda": "aliexpress",
-          "url": "https://s.click.aliexpress.com/s/pyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4m7Y2QpgX4EZQiJkbiHfzld9zB9fNnRNqkjpfMCOUj9V6Q8OcaRXRlZCTnCThdzcYWt32M5Hajei0tLARMHsKXRj3uxm2pa8seHXsUwmEQHTqTdlFkToyZr1JLC2YBXHXVVuHbWsDQYFW9EAodpk6UoQlfFURgaNdwZQ7WoNiVM6Pc10Qt7nAdpo6862LBc8DRDGBWq8wB6Fb6wyeDRjWT8t4b2NqAbEY1R2mPzwNYV0zlqxaCyzNjL755qTqmiMmf7cq5f4GLQmLBpaAfVBDzIe3kF3kFlJmknqsslwqYowV512uUcUIGJMoBrmKym9yuCfRRSEgIfzj3wc4qlEN9dPjChbhk5gxKW2ieOWUV6IUmG8twjp7VXs8Cfy4MIWAC83kGGtvPOPmW5FLYIcEt3oaUD1V38WlF4YmtiE7FJhGZBjL4h8MODwExcnKboEants0BhzN5zil6KOfQrRSFdJVsGDBeom0Gi58dkXZjxAeXP44k7dU6SHeWGwxXmNKrgRnomKIr8laToan6tbMsP5PGk2wVIRA1igEEmvmNB3Xy20ulzggDSdZTaNNNYx1NH0Jin01kiBQZLAn4aagogbj4xgnnjHxBMoBVEI5SY0ru4Xm1MGBNIbCCJ9tCrWwT70DUBrPpbnifljcQMyG7Lyvd5v1aJsAlGdF5f71uiNmvgGYK7T0UpCX5F18TcMQdpEmRhHpscmUx",
+          "url": "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fs.click.aliexpress.com%2Fs%2FpyFri10M6ltAv61YZY9TfrxiDaaFXRreuZWJMeLtD8jig1wPxn51K2eq59ds8iT5Wl5L3w5KJyrl7SjOO3B0oJ0Xjwnc7n8AQA7gf5qnT4sCyU05LNms9JvyWQNFHNKtzBcoBpSguMg3UBR1FOODkmGTloXosMhqhnKgzzuJPYPxewVvzupiAiKSJA5SK0iQRxmaQ7UPG0AP2HC7uLitVpvXIfjMl7RnsnN7B8FrGfP9TWP7emQeaXV90Bp9fLEiLeKHsRf9R2jgKD32Axm5na4bRJdkhGVyv3GcDgMjmYrrZWinWctR9gnPwA4m7Y2QpgX4EZQiJkbiHfzld9zB9fNnRNqkjpfMCOUj9V6Q8OcaRXRlZCTnCThdzcYWt32M5Hajei0tLARMHsKXRj3uxm2pa8seHXsUwmEQHTqTdlFkToyZr1JLC2YBXHXVVuHbWsDQYFW9EAodpk6UoQlfFURgaNdwZQ7WoNiVM6Pc10Qt7nAdpo6862LBc8DRDGBWq8wB6Fb6wyeDRjWT8t4b2NqAbEY1R2mPzwNYV0zlqxaCyzNjL755qTqmiMmf7cq5f4GLQmLBpaAfVBDzIe3kF3kFlJmknqsslwqYowV512uUcUIGJMoBrmKym9yuCfRRSEgIfzj3wc4qlEN9dPjChbhk5gxKW2ieOWUV6IUmG8twjp7VXs8Cfy4MIWAC83kGGtvPOPmW5FLYIcEt3oaUD1V38WlF4YmtiE7FJhGZBjL4h8MODwExcnKboEants0BhzN5zil6KOfQrRSFdJVsGDBeom0Gi58dkXZjxAeXP44k7dU6SHeWGwxXmNKrgRnomKIr8laToan6tbMsP5PGk2wVIRA1igEEmvmNB3Xy20ulzggDSdZTaNNNYx1NH0Jin01kiBQZLAn4aagogbj4xgnnjHxBMoBVEI5SY0ru4Xm1MGBNIbCCJ9tCrWwT70DUBrPpbnifljcQMyG7Lyvd5v1aJsAlGdF5f71uiNmvgGYK7T0UpCX5F18TcMQdpEmRhHpscmUx",
           "precio_actual": 118.39,
           "disponible": true,
           "ultima_verificacion": "2026-08-17"
+        }
+      ]
+    },
+    "peak-lou-williams-underground": {
+      "links_compra": [
+        {
+          "tienda": "aliexpress",
+          "url": "https://s.click.aliexpress.com/e/_c32FKd4H",
+          "precio_actual": 105,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-13"
+        }
+      ]
+    },
+    "anta-shock-the-game-5": {
+      "links_compra": [
+        {
+          "tienda": "aliexpress",
+          "url": "https://s.click.aliexpress.com/e/_c3G68WNT",
+          "precio_actual": 95,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-13"
+        }
+      ]
+    },
+    "anta-kt-11": {
+      "links_compra": [
+        {
+          "tienda": "aliexpress",
+          "url": "https://s.click.aliexpress.com/e/_c3AJpADb",
+          "precio_actual": 95,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-15"
+        }
+      ]
+    },
+    "lining-sonic-12": {
+      "links_compra": [
+        {
+          "tienda": "aliexpress",
+          "url": "https://s.click.aliexpress.com/e/_c39LpYQ5",
+          "precio_actual": 85,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-18"
+        }
+      ]
+    },
+    "peak-taichi-flash": {
+      "links_compra": [
+        {
+          "tienda": "aliexpress",
+          "url": "https://s.click.aliexpress.com/e/_c4tjkTxx",
+          "precio_actual": 75,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-18"
+        }
+      ]
+    },
+    "lining-yu-shuai-18": {
+      "links_compra": [
+        {
+          "tienda": "aliexpress",
+          "url": "https://s.click.aliexpress.com/e/_c4ttOCV7",
+          "precio_actual": 100,
+          "disponible": true,
+          "ultima_verificacion": "2026-05-18"
         }
       ]
     }
