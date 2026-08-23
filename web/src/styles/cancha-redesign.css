@@ -2189,8 +2189,8 @@ button { font-family: inherit; cursor: pointer; }
      de la paleta (#fb923c, el de hover): al aclararlo, gana contraste contra
      una superficie que ahora es mas clara por la transparencia. */
   --cz-accent-text: #fb923c;
-  background: rgba(var(--cz-card-rgb),0.55); border: 1px solid rgba(var(--cz-border-rgb),0.7);
-  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  background: rgba(var(--cz-card-rgb),0.45); border: 1px solid rgba(var(--cz-border-rgb),0.7);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
   padding: 18px; position: relative;
   display: flex; flex-direction: column; gap: 16px;
 }
