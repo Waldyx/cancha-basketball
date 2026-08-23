@@ -2185,11 +2185,10 @@ button { font-family: inherit; cursor: pointer; }
 
 .home-hero-panel {
   /* Panel translucido, SIN blur: se ve el video nitido por detras.
-     Sin desenfoque hay que dejar algo mas de cuerpo al fondo, porque la textura
-     del video compite directamente con el texto. 0.65 es el punto donde el
-     naranja de los precios se mantiene sobre 4,5:1 con el naranja normal de la
-     paleta — por eso ya no hace falta aclararlo a #fb923c. */
-  background: rgba(var(--cz-card-rgb),0.65); border: 1px solid rgba(var(--cz-border-rgb),0.7);
+     0.30 sale de MEDIR el video (luminancia mediana 86, no los ~180 que supuse
+     al principio): tras el scrim el fondo real queda en ~60, asi que aun a esta
+     transparencia el naranja de los precios da 4,64:1 y el blanco 13,0. */
+  background: rgba(var(--cz-card-rgb),0.3); border: 1px solid rgba(var(--cz-border-rgb),0.7);
   padding: 18px; position: relative;
   display: flex; flex-direction: column; gap: 16px;
 }
@@ -2217,7 +2216,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .home-hero-panel .stat .v small { font-size: 18px; color: var(--cz-accent-text); }
 .home-hero-panel .stat .k {
-  font-size: 10px; color: var(--cz-text-muted); font-weight: 800;
+  font-size: 10px; color: var(--cz-text-soft); /* a 0.30 el muted caia a 2,69:1 sobre el video */ font-weight: 800;
   text-transform: uppercase; letter-spacing: 0.18em; margin-top: 4px;
 }
 .home-hero-panel .t-price { color: var(--cz-accent-text); }
