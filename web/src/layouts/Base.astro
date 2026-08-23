@@ -8,6 +8,8 @@ import CookieBanner from "../components/CookieBanner.astro";
 import Analytics from "../components/Analytics.astro";
 import ChatWidget from "../components/ChatWidget.astro";
 import PromoBanner from "../components/PromoBanner.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
@@ -39,7 +41,17 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#2a2a2e" />
+    <meta name="theme-color" content="#0c0c0c" />
+
+    <!-- Tema claro/oscuro ANTES de pintar: si se aplicara después habría un
+         flash de tema oscuro en cada navegación para quien elige el claro. -->
+    <script is:inline>
+      try {
+        if (localStorage.getItem("cz-tema") === "claro") {
+          document.documentElement.setAttribute("data-cz-theme", "claro");
+        }
+      } catch (e) {}
+    </script>
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -145,8 +157,14 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro
         alt=""
         role="presentation"
         class="w-full h-full object-cover opacity-[0.18]"
+        style="filter:var(--cz-court-filter)"
       />
       <div class="cz-court-overlay absolute inset-0"></div>
+    </div>
+
+    <!-- Header global (nav + tema + menú móvil + progreso de scroll) -->
+    <div style="position:relative;z-index:20">
+      <Header />
     </div>
 
     <!-- Main content target for skip link -->
@@ -155,24 +173,7 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro
     </div>
 
     <!-- Footer global -->
-    <footer style="position:relative;z-index:10;border-top:1px solid rgba(63,63,70,0.3);padding:16px 0;margin-top:0">
-      <div style="max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
-        <p style="font-size:11px;color:var(--cz-text-dim);text-transform:uppercase;letter-spacing:.12em;font-weight:700;margin:0">
-          © 2026 CANCHA.ZAPA · Proyecto independiente
-        </p>
-        <div class="footer-links">
-          <a href="/faq">FAQ</a>
-          <a href="/metodologia">Metodología</a>
-          <a href="/financiacion">Financiación</a>
-          <a href="/privacidad">Privacidad</a>
-        </div>
-      </div>
-      <div style="max-width:1280px;margin:10px auto 0;padding:0 24px">
-        <p style="font-size:11px;color:var(--cz-text-muted);line-height:1.5;margin:0">
-          Las imágenes son orientativas y los precios se actualizan de forma periódica, por lo que pueden variar o contener algún error. Confirma color, talla y precio definitivos en la tienda al abrir el enlace. Gracias por tu comprensión.
-        </p>
-      </div>
-    </footer>
+    <Footer />
 
     <!-- Búsqueda global Cmd+K -->
     <CommandPalette />

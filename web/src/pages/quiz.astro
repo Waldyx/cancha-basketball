@@ -10,13 +10,13 @@ import "../styles/cancha-redesign.css";
 >
   <noscript>
     <div style="padding:60px 24px;text-align:center;max-width:560px;margin:0 auto">
-      <p style="font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.2em;color:#f97316;margin-bottom:14px">
+      <p style="font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.2em;color: var(--cz-accent-text);margin-bottom:14px">
         ⚠ JavaScript requerido
       </p>
       <h1 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:48px;line-height:.9;letter-spacing:-.04em;text-transform:uppercase;color:var(--cz-text);margin:0 0 14px">
         Activa JavaScript<br/>para usar el quiz
       </h1>
-      <p style="color:#a1a1aa;font-size:15px;line-height:1.55;margin:0 0 24px">
+      <p style="color:var(--cz-fg3);font-size:15px;line-height:1.55;margin:0 0 24px">
         El quiz necesita JavaScript para guardar tus respuestas. Mientras tanto, puedes
         explorar el catálogo completo de zapatillas.
       </p>
@@ -28,22 +28,6 @@ import "../styles/cancha-redesign.css";
 
   <main class="quiz-app">
 
-    <div class="cz-strip"></div>
-    <header class="cz-header">
-      <div class="shell cz-header-inner">
-        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
-        <nav class="cz-nav">
-          <a href="/quiz" class="active">Quiz</a> <a href="/comparar">Comparar</a>
-          <a href="/rankings">Rankings</a>
-          <a href="/zapatillas">Catálogo</a>
-          <a href="/calculadora">Calculadora</a>
-          <a href="/estadisticas">Stats</a>
-          <a href="/balones">Accesorios</a>
-          <a href="/blog">Blog</a>
-          <a href="/mis-zapas">♥ Mis zapas</a>
-        </nav>
-      </div>
-    </header>
 
     {/* Progress */}
     <div class="quiz-progress-bar">

@@ -32,23 +32,6 @@ const def = index.find((z) => !z.retro) ?? index[0];
   description="¿Cuánto te cuesta de verdad una zapatilla de baloncesto? Calcula el coste por partido según tu uso real. Sin BS."
 >
   <main class="app">
-    <div class="cz-strip"></div>
-    <header class="cz-header">
-      <div class="shell cz-header-inner">
-        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
-        <nav class="cz-nav">
-          <a href="/quiz">Quiz</a>
-          <a href="/comparar">Comparar</a>
-          <a href="/rankings">Rankings</a>
-          <a href="/zapatillas">Catálogo</a>
-          <a href="/calculadora" class="active" aria-current="page">Calculadora</a>
-          <a href="/estadisticas">Stats</a>
-          <a href="/balones">Accesorios</a>
-          <a href="/blog">Blog</a>
-          <a href="/mis-zapas">♥ Mis zapas</a>
-        </nav>
-      </div>
-    </header>
 
     {/* HERO */}
     <section class="doc-hero">
@@ -72,7 +55,7 @@ const def = index.find((z) => !z.retro) ?? index[0];
           {/* Controles */}
           <div class="cost-controls">
             <div class="cc-block">
-              <label class="cc-label">Tu zapa <strong style="font-size:11px;color:#71717a">{index.length} en catálogo</strong></label>
+              <label class="cc-label">Tu zapa <strong style="font-size:11px;color:var(--cz-fg4)">{index.length} en catálogo</strong></label>
               <div class="cc-combo">
                 <input
                   id="cost-search"
@@ -167,11 +150,11 @@ const def = index.find((z) => !z.retro) ?? index[0];
       const partidos6m = semana * 4.33 * 6;
       const desgaste6m = Math.min(100, Math.round((partidos6m / partidos) * 100));
 
-      const verdict = coste < 0.5 ? ["Chollo. Se amortiza sola.", "#4ade80"]
+      const verdict = coste < 0.5 ? ["Chollo. Se amortiza sola.", "var(--cz-green)"]
         : coste < 1.2 ? ["Compra sensata.", "#f97316"]
         : coste < 2.5 ? ["Cara por partido.", "#facc15"]
         : ["Solo si la exprimes.", "#ef4444"];
-      const gColor = desgaste6m < 50 ? "#4ade80" : desgaste6m < 85 ? "#facc15" : "#ef4444";
+      const gColor = desgaste6m < 50 ? "var(--cz-green)" : desgaste6m < 85 ? "#facc15" : "#ef4444";
 
       $("out-coste").textContent = coste.toFixed(2) + "€";
       $("out-coste").style.color = verdict[1];
@@ -212,7 +195,7 @@ const def = index.find((z) => !z.retro) ?? index[0];
       dropdown.innerHTML = list.map((z) => `
         <button type="button" class="cmp-pick-item${z.slug === current.slug ? " is-sel" : ""}" data-slug="${esc(z.slug)}">
           <img src="${esc(z.img)}" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
-          <span class="cpi-name"><strong>${esc(z.marca)}</strong> ${esc(z.modelo)}${z.retro ? ' <span style="color:#fbbf24">🏅</span>' : ""}</span>
+          <span class="cpi-name"><strong>${esc(z.marca)}</strong> ${esc(z.modelo)}${z.retro ? ' <span style="color:var(--cz-amber-text)">🏅</span>' : ""}</span>
         </button>`).join("");
       dropdown.querySelectorAll(".cmp-pick-item").forEach((it) => {
         it.addEventListener("mousedown", (e) => {
@@ -258,14 +241,14 @@ const def = index.find((z) => !z.retro) ?? index[0];
       gap: 8px;
       padding: 10px;
       background: #16161a;
-      border: 1px solid var(--cz-border2, #3f3f46);
+      border: 1px solid var(--cz-border2, var(--cz-fg6));
       box-shadow: 0 16px 40px rgba(0,0,0,0.55);
     }
     @media (max-width: 620px) { .cc-dropdown { grid-template-columns: repeat(2, 1fr); } }
     /* Selectores :global porque el contenido se inserta por JS (innerHTML),
        y los estilos scoped de Astro no aplican a elementos creados en runtime. */
-    :global(.cc-dropdown .cmp-pick-item.is-sel) { border-color: #f97316; background: rgba(249,115,22,0.12); }
-    :global(.cc-dd-empty) { grid-column: 1 / -1; padding: 18px; text-align: center; color: var(--cz-text-muted, #a1a1aa); font-size: 13px; }
+    :global(.cc-dropdown .cmp-pick-item.is-sel) { border-color: var(--cz-accent-text); background: rgba(249,115,22,0.12); }
+    :global(.cc-dd-empty) { grid-column: 1 / -1; padding: 18px; text-align: center; color: var(--cz-text-muted, var(--cz-fg3)); font-size: 13px; }
 
     /* Miniatura de la zapa seleccionada, debajo del buscador */
     .cc-selected {
@@ -274,8 +257,8 @@ const def = index.find((z) => !z.retro) ?? index[0];
       gap: 12px;
       margin-top: 10px;
       padding: 8px 10px;
-      border: 1px solid var(--cz-border2, #3f3f46);
-      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--cz-border2, var(--cz-fg6));
+      background: rgba(var(--cz-wm-rgb),0.02);
     }
     :global(.cc-selected) { display: flex; align-items: center; gap: 12px; }
     :global(.cc-selected img) {
@@ -295,13 +278,13 @@ const def = index.find((z) => !z.retro) ?? index[0];
       background: rgba(239,68,68,0.08);
       font-size: 13px;
       line-height: 1.55;
-      color: var(--cz-text-muted, #d4d4d8);
+      color: var(--cz-text-muted, var(--cz-fg2));
     }
-    .cr-outdoor-warn strong { color: #fff; }
+    .cr-outdoor-warn strong { color: var(--cz-text); }
     .cr-outdoor-link {
       display: inline-block;
       margin-top: 8px;
-      color: #f97316;
+      color: var(--cz-accent-text);
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: .06em;

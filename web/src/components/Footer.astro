@@ -1,0 +1,147 @@
+---
+// Footer global (rediseño s37): wordmark gigante en outline, borde superior
+// naranja y columnas de enlaces. El texto legal se conserva tal cual.
+const columnas = [
+  {
+    titulo: "Explora",
+    links: [
+      { href: "/zapatillas", label: "Catálogo" },
+      { href: "/rankings", label: "Rankings" },
+      { href: "/quiz", label: "Quiz" },
+      { href: "/comparar", label: "Comparador" },
+      { href: "/blog", label: "Blog" },
+    ],
+  },
+  {
+    titulo: "Herramientas",
+    links: [
+      { href: "/calculadora", label: "Calculadora" },
+      { href: "/estadisticas", label: "Estadísticas" },
+      { href: "/mis-zapas", label: "Mis zapas" },
+      { href: "/guia-tallas", label: "Guía de tallas" },
+      { href: "/balones", label: "Accesorios" },
+    ],
+  },
+  {
+    titulo: "El proyecto",
+    links: [
+      { href: "/faq", label: "FAQ" },
+      { href: "/metodologia", label: "Metodología" },
+      { href: "/financiacion", label: "Financiación" },
+      { href: "/privacidad", label: "Privacidad" },
+    ],
+  },
+];
+---
+
+<footer class="czf">
+  <div class="czf-inner">
+    <div class="czf-top">
+      <p class="czf-wordmark" aria-hidden="true">CANCHA<span class="czf-dot">.</span>ZAPA</p>
+      <div class="czf-cols">
+        {columnas.map((c) => (
+          <div class="czf-col">
+            <p class="czf-col-title">{c.titulo}</p>
+            {c.links.map((l) => (
+              <a href={l.href}>{l.label}</a>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+    <div class="czf-legal">
+      <p class="czf-copy">© 2026 CANCHA.ZAPA · Proyecto independiente</p>
+      <p class="czf-disclaimer">
+        Las imágenes son orientativas y los precios se actualizan de forma periódica, por lo que
+        pueden variar o contener algún error. Confirma color, talla y precio definitivos en la
+        tienda al abrir el enlace. Gracias por tu comprensión.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .czf {
+    position: relative;
+    z-index: 10;
+    background: var(--cz-footer);
+    border-top: 4px solid #f97316;
+    margin-top: 0;
+  }
+  .czf-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 24px 24px;
+  }
+  .czf-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 48px;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .czf-wordmark {
+    margin: 0;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: -0.02em;
+    font-size: clamp(56px, 11vw, 150px);
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--cz-text-dim);
+    user-select: none;
+    flex: 1 1 380px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .czf-dot {
+    color: var(--cz-accent-text);
+    -webkit-text-stroke: 0;
+  }
+  .czf-cols {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 48px;
+  }
+  .czf-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 120px;
+  }
+  .czf-col-title {
+    margin: 0 0 4px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cz-accent-text);
+  }
+  .czf-col a {
+    font-size: 13px;
+    color: var(--cz-text-2);
+    text-decoration: none;
+  }
+  .czf-col a:hover { color: var(--cz-accent-text); }
+  .czf-legal {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid var(--cz-border2);
+  }
+  .czf-copy {
+    margin: 0 0 8px;
+    font-size: 11px;
+    color: var(--cz-text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+  }
+  .czf-disclaimer {
+    margin: 0;
+    font-size: 11px;
+    color: var(--cz-text-muted);
+    line-height: 1.5;
+    max-width: 860px;
+  }
+</style>

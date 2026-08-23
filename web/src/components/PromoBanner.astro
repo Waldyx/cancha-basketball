@@ -70,10 +70,10 @@ const promosData = PROMOS.map((p) => ({
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: rgba(12, 12, 12, 0.35);
+    background: rgba(var(--cz-bg-rgb), 0.35);
     transition: background 0.2s ease;
   }
-  .cz-promo-dot.is-active { background: #0c0c0c; }
+  .cz-promo-dot.is-active { background: var(--cz-bg); }
   .cz-promo-close {
     position: absolute;
     right: 12px;

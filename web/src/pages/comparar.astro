@@ -15,8 +15,8 @@ const CAT_LABELS: Record<string, string> = {
   "balanced": "Equilibrada", "traction-king": "Tracción",
 };
 const CAT_ACCENT: Record<string, string> = {
-  "cushion-focused": "#38bdf8", "responsive": "#facc15",
-  "balanced": "#d4d4d8", "traction-king": "#fb923c",
+  "cushion-focused": "var(--cz-cat-cushion)", "responsive": "var(--cz-cat-reactiva)",
+  "balanced": "var(--cz-fg2)", "traction-king": "var(--cz-cat-traccion)",
 };
 const ATR_LABELS: Record<string, string> = {
   traccion: "Tracción", amortiguacion: "Amortiguación",
@@ -74,27 +74,11 @@ const ringFracs = [0.33, 0.66, 1];
       description="Compara hasta 3 zapatillas de baloncesto en 8 atributos, peso, drop, horma y precio. Vista lado a lado sin trampa.">
   <main class="app">
 
-    <div class="cz-strip"></div>
-    <header class="cz-header">
-      <div class="shell cz-header-inner">
-        <a href="/" class="cz-logo">CANCHA<span class="dot">.</span>ZAPA</a>
-        <nav class="cz-nav">
-          <a href="/quiz">Quiz</a> <a href="/comparar" class="active" aria-current="page">Comparar</a>
-          <a href="/rankings">Rankings</a>
-          <a href="/zapatillas">Catálogo</a>
-          <a href="/calculadora">Calculadora</a>
-          <a href="/estadisticas">Stats</a>
-          <a href="/balones">Accesorios</a>
-          <a href="/blog">Blog</a>
-          <a href="/mis-zapas">♥ Mis zapas</a>
-        </nav>
-      </div>
-    </header>
 
     <section class="cmp-hero">
       <div class="shell">
         <p class="cz-eyebrow">★ Comparador</p>
-        <h1 class="cmp-h1">Cara a cara<br/><span style="color:#f97316">sin trampa.</span></h1>
+        <h1 class="cmp-h1">Cara a cara<br/><span style="color: var(--cz-accent-text)">sin trampa.</span></h1>
         <p class="cmp-blurb">Hasta 3 zapas, 8 atributos, precio y veredicto editorial. Cambia cualquier slot clicando en el modelo.</p>
       </div>
     </section>
@@ -138,7 +122,7 @@ const ringFracs = [0.33, 0.66, 1];
               <div class="cmp-radar-wrap">
                 <svg viewBox={`0 0 ${SIZE} ${SIZE}`} width={SIZE} height={SIZE} aria-hidden="true">
                   {ringFracs.map(f => (
-                    <polygon points={ringPoints(f)} fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+                    <polygon points={ringPoints(f)} fill="none" stroke="rgba(var(--cz-wm-rgb),0.06)" stroke-width="1" />
                   ))}
                   <polygon points={radarPoints(z)} fill={CAT_ACCENT[z.categoria_principal]} fill-opacity="0.18" stroke={CAT_ACCENT[z.categoria_principal]} stroke-width="1.5" />
                 </svg>
@@ -269,7 +253,7 @@ const ringFracs = [0.33, 0.66, 1];
       // radar
       h += `<div class="cmp-cell radar lab"><span class="cmp-lab">Perfil técnico</span></div>`;
       shoes.forEach(z => {
-        const rings = RINGS.map(f => `<polygon points="${ringPoints(f)}" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"></polygon>`).join("");
+        const rings = RINGS.map(f => `<polygon points="${ringPoints(f)}" fill="none" stroke="rgba(var(--cz-wm-rgb),0.06)" stroke-width="1"></polygon>`).join("");
         h += `<div class="cmp-cell radar"><div class="cmp-radar-wrap"><svg viewBox="0 0 ${SIZE} ${SIZE}" width="${SIZE}" height="${SIZE}" aria-hidden="true">${rings}<polygon points="${radarPoints(z)}" fill="${CAT_ACCENT[z.cat]}" fill-opacity="0.18" stroke="${CAT_ACCENT[z.cat]}" stroke-width="1.5"></polygon></svg></div></div>`;
       });
 
@@ -326,7 +310,7 @@ const ringFracs = [0.33, 0.66, 1];
       return remaining.map(z => `
         <button class="cmp-pick-item" data-slug="${z.slug}">
           <img src="${esc(z.img)}" alt="" onerror="this.style.display='none'">
-          <span class="cpi-name"><strong>${esc(z.marca)}</strong> ${esc(z.modelo)}${z.es_retro ? ' <span style="color:#fbbf24">🏅</span>' : ''}</span>
+          <span class="cpi-name"><strong>${esc(z.marca)}</strong> ${esc(z.modelo)}${z.es_retro ? ' <span style="color:var(--cz-amber-text)">🏅</span>' : ''}</span>
         </button>`).join("") || `<p style="color:var(--cz-text-muted);grid-column:1/-1;padding:20px;text-align:center">Sin resultados con este filtro.</p>`;
     }
 
@@ -350,7 +334,7 @@ const ringFracs = [0.33, 0.66, 1];
           <p class="cz-eyebrow">★ Cambiar zapa ${slot + 1}</p>
           <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:32px;text-transform:uppercase;letter-spacing:-0.03em;margin:6px 0 10px">Elige otra zapa</h3>
           <div style="margin-bottom:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-            <input id="cmp-search" type="text" placeholder="Buscar marca o modelo…" autocomplete="off" style="flex:1;min-width:150px;padding:8px 12px;background:rgba(255,255,255,0.04);border:1px solid var(--cz-border2);color:var(--cz-text);font-size:13px;outline:none" />
+            <input id="cmp-search" type="text" placeholder="Buscar marca o modelo…" autocomplete="off" style="flex:1;min-width:150px;padding:8px 12px;background:rgba(var(--cz-wm-rgb),0.04);border:1px solid var(--cz-border2);color:var(--cz-text);font-size:13px;outline:none" />
             <button id="cmp-retro-chip" style="padding:7px 12px;border:1px solid var(--cz-border2);background:transparent;color:var(--cz-text-muted);font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;cursor:pointer;transition:all .15s;white-space:nowrap" type="button">🏅 Solo retro</button>
           </div>
           <div class="cmp-picker-grid" id="cmp-picker-items">${buildItems(false, "")}</div>
@@ -371,8 +355,8 @@ const ringFracs = [0.33, 0.66, 1];
       chip.addEventListener("click", (e) => {
         e.stopPropagation();
         retroOnly = !retroOnly;
-        chip.style.color = retroOnly ? "#fbbf24" : "var(--cz-text-muted)";
-        chip.style.borderColor = retroOnly ? "#fbbf24" : "var(--cz-border2)";
+        chip.style.color = retroOnly ? "var(--cz-amber-text)" : "var(--cz-text-muted)";
+        chip.style.borderColor = retroOnly ? "var(--cz-amber-text)" : "var(--cz-border2)";
         chip.style.background = retroOnly ? "rgba(251,191,36,0.08)" : "transparent";
         refresh();
       });

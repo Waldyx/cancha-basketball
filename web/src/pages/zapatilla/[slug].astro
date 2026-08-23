@@ -35,8 +35,8 @@ const CAT_LABELS: Record<string, string> = {
   "balanced": "Equilibrada", "traction-king": "Tracción",
 };
 const CAT_ACCENT: Record<string, string> = {
-  "cushion-focused": "#38bdf8", "responsive": "#facc15",
-  "balanced": "#d4d4d8", "traction-king": "#fb923c",
+  "cushion-focused": "var(--cz-cat-cushion)", "responsive": "var(--cz-cat-reactiva)",
+  "balanced": "var(--cz-fg2)", "traction-king": "var(--cz-cat-traccion)",
 };
 const ATR_LABELS: Record<string, string> = {
   traccion: "Tracción", amortiguacion: "Amortiguación",
@@ -164,14 +164,14 @@ const heroInsole = PLANTILLAS_UPSELL[_pIdx];
 
 // Helper: cuánto hace que se verificó este precio
 function verifiedAgo(fecha: string | undefined): { label: string; color: string; fresh: boolean } {
-  if (!fecha) return { label: "Sin verificar", color: "#52525b", fresh: false };
+  if (!fecha) return { label: "Sin verificar", color: "var(--cz-fg5)", fresh: false };
   const d = new Date(fecha);
   const days = Math.floor((Date.now() - d.getTime()) / 86400000);
   if (days <= 1) return { label: "Verificado hoy", color: "#4ade80", fresh: true };
   if (days <= 3) return { label: `Verificado hace ${days}d`, color: "#4ade80", fresh: true };
-  if (days <= 7) return { label: `Verificado hace ${days}d`, color: "#facc15", fresh: true };
-  if (days <= 30) return { label: `Verificado hace ${days}d`, color: "#fb923c", fresh: false };
-  return { label: "Precio editorial", color: "#52525b", fresh: false };
+  if (days <= 7) return { label: `Verificado hace ${days}d`, color: "var(--cz-cat-reactiva)", fresh: true };
+  if (days <= 30) return { label: `Verificado hace ${days}d`, color: "var(--cz-cat-traccion)", fresh: false };
+  return { label: "Precio editorial", color: "var(--cz-fg5)", fresh: false };
 }
 
 // JSON-LD Product schema
@@ -251,20 +251,6 @@ const productJsonLd = {
 >
   <main class="app">
 
-    <div class="cz-strip"></div>
-    <header class="cz-header">
-      <div class="shell cz-header-inner">
-        <a href="/" class="cz-logo">CANCHA<span class="dot">.</span>ZAPA</a>
-        <nav class="cz-nav">
-          <a href="/quiz">Quiz</a> <a href="/comparar">Comparar</a>
-          <a href="/rankings">Rankings</a>
-          <a href="/zapatillas" class="active">Catálogo</a>
-          <a href="/balones">Accesorios</a>
-          <a href="/blog">Blog</a>
-          <a href="/mis-zapas">♥ Mis zapas</a>
-        </nav>
-      </div>
-    </header>
 
     <nav class="cz-breadcrumbs">
       <div class="shell">
@@ -299,7 +285,7 @@ const productJsonLd = {
               : <>Estás viendo la <strong style="color:var(--cz-text)">versión junior (GS)</strong>. ¿Buscabas la talla adulto?</>
             }
           </span>
-          <a href={`/zapatilla/${versionLink.slug}`} style="color:#f97316;font-weight:700;text-decoration:underline">Ver {versionLink.marca} {versionLink.modelo} →</a>
+          <a href={`/zapatilla/${versionLink.slug}`} style="color: var(--cz-accent-text);font-weight:700;text-decoration:underline">Ver {versionLink.marca} {versionLink.modelo} →</a>
         </div>
       </div>
     )}
@@ -316,7 +302,7 @@ const productJsonLd = {
                 <span class="dh-cat-badge">{CAT_LABELS[z.categoria_principal]}</span>
                 {z.es_retro
                   ? <span class="dh-cat-badge" style="background:#451a03;color:#fef3c7;border-color:#92400e">🏅 Retro · {z.año_lanzamiento}</span>
-                  : z.año_lanzamiento >= 2026 && <span class="dh-cat-badge" style="background:#1a1a00;color:#fbbf24;border-color:#854d0e">★ {z.año_lanzamiento}</span>
+                  : z.año_lanzamiento >= 2026 && <span class="dh-cat-badge" style="background:rgba(250,204,21,0.18);color:var(--cz-amber-text);border-color:#854d0e">★ {z.año_lanzamiento}</span>
                 }
               </div>
               {/* Corazón favorito — esquina superior derecha */}
@@ -362,7 +348,7 @@ const productJsonLd = {
                         const r = f * (radarSize / 2 - 6);
                         return `${radarSize/2 + Math.cos(a)*r},${radarSize/2 + Math.sin(a)*r}`;
                       }).join(" ")}
-                      fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"
+                      fill="none" stroke="rgba(var(--cz-wm-rgb),0.06)" stroke-width="1"
                     />
                   ))}
                   <polygon points={radarPath} fill="#f97316" fill-opacity="0.18" stroke="#f97316" stroke-width="1.5" />
@@ -412,7 +398,7 @@ const productJsonLd = {
                   <div class="dhbp-meta">
                     {mejorMostrado
                       ? <><span class="dhbp-dot"></span>Verificado · mejor precio en <strong>{LABELS_TIENDA[mejorMostrado.tienda] || mejorMostrado.tienda}</strong></>
-                      : <><span class="dhbp-dot" style="background:#71717a"></span>Precio oficial · ver tiendas abajo</>
+                      : <><span class="dhbp-dot" style="background:var(--cz-fg4)"></span>Precio oficial · ver tiendas abajo</>
                     }
                   </div>
                 </div>
@@ -438,7 +424,7 @@ const productJsonLd = {
                         <span class="dcr-tienda">{LABELS_TIENDA[l.tienda] || l.tienda}{MARKETPLACE.has(l.tienda) && <span class="dcr-mkt">marketplace</span>}</span>
                         {mostramosPrecio(l)
                           ? <span class="dcr-price">{Math.round(l.precio_actual)}€</span>
-                          : <span class="dcr-price" style="color:#a1a1aa;font-weight:600">Ver precio →</span>
+                          : <span class="dcr-price" style="color:var(--cz-fg3);font-weight:600">Ver precio →</span>
                         }
                         {i === 0 && mostramosPrecio(l) && linksOrdenados.length > 1 && (
                           <span class="dcr-save">
@@ -463,7 +449,7 @@ const productJsonLd = {
                     hidden
                     style={`margin:14px 0 0;padding:11px 13px;border:1px solid ${fp.color}73;border-left:3px solid ${fp.color};background:${fp.color}14;font-size:12.5px;line-height:1.55;color:var(--cz-text-muted)`}
                   >
-                    <strong style="color:#fff">💸 {fp.tiendaLabel} · {fp.titulo}</strong>: {fp.texto}.
+                    <strong style="color:var(--cz-text)">💸 {fp.tiendaLabel} · {fp.titulo}</strong>: {fp.texto}.
                     <span style="display:block;margin-top:4px;font-size:11px;opacity:.85">{fp.nota} · Válido hasta el {fp.fin}.</span>
                   </div>
                 ))}
@@ -482,11 +468,11 @@ const productJsonLd = {
                   })();
                 </script>
                 {heroSock && heroInsole && (
-                  <p style="margin:12px 0 0;font-size:12px;color:#71717a;line-height:1.5">
+                  <p style="margin:12px 0 0;font-size:12px;color:var(--cz-fg4);line-height:1.5">
                     💡 Combínalas con
-                    {" "}<a href={heroSock.url} target="_blank" rel="noopener noreferrer sponsored" class="aff-btn" data-tienda={heroSock.tienda} data-zapa={z.slug} style="color:#f97316;text-decoration:underline">{heroSock.nombre}</a>
-                    {" + "}<a href={heroInsole.url} target="_blank" rel="noopener noreferrer sponsored" class="aff-btn" data-tienda={heroInsole.tienda} data-zapa={z.slug} style="color:#f97316;text-decoration:underline">{heroInsole.nombre}</a>
-                    {" "}<a href="#combina-con" style="color:#52525b;text-decoration:none">· ver kit completo ↓</a>
+                    {" "}<a href={heroSock.url} target="_blank" rel="noopener noreferrer sponsored" class="aff-btn" data-tienda={heroSock.tienda} data-zapa={z.slug} style="color: var(--cz-accent-text);text-decoration:underline">{heroSock.nombre}</a>
+                    {" + "}<a href={heroInsole.url} target="_blank" rel="noopener noreferrer sponsored" class="aff-btn" data-tienda={heroInsole.tienda} data-zapa={z.slug} style="color: var(--cz-accent-text);text-decoration:underline">{heroInsole.nombre}</a>
+                    {" "}<a href="#combina-con" style="color:var(--cz-fg5);text-decoration:none">· ver kit completo ↓</a>
                   </p>
                 )}
               </div>
@@ -507,7 +493,7 @@ const productJsonLd = {
         <div class="score-grid">
           {Object.entries(z.puntuaciones).map(([k, v]) => {
             const pct = (v / 10) * 100;
-            const col = v >= 8 ? "#f97316" : v >= 6 ? "#facc15" : "#71717a";
+            const col = v >= 8 ? "#f97316" : v >= 6 ? "var(--cz-cat-reactiva)" : "var(--cz-fg4)";
             return (
               <div class="score-bar-row">
                 <div class="sbr-head">
@@ -629,32 +615,32 @@ const productJsonLd = {
         </div>
         <p class="dh-combina-disc">
           Enlaces afiliados ({[...new Set(combinaCon.map(i => i.tienda))].join(" · ")}) · Si compras, CANCHA.ZAPA recibe una pequeña comisión sin coste extra para ti ·
-          <a href="/blog/mejores-calcetines-baloncesto" style="color:#f97316;text-decoration:underline">Guía calcetines</a> ·
-          <a href="/blog/mejores-plantillas-baloncesto" style="color:#f97316;text-decoration:underline">Guía plantillas</a>
+          <a href="/blog/mejores-calcetines-baloncesto" style="color: var(--cz-accent-text);text-decoration:underline">Guía calcetines</a> ·
+          <a href="/blog/mejores-plantillas-baloncesto" style="color: var(--cz-accent-text);text-decoration:underline">Guía plantillas</a>
         </p>
       </div>
     </section>
 
     {/* PRECIOS */}
     {linksOrdenados.length > 0 && (
-      <section class="cz-detail-price-history" style="background:rgba(15,15,15,0.5)">
+      <section class="cz-detail-price-history" style="background:rgba(var(--cz-bgalt-rgb),0.5)">
         <div class="shell">
           <div class="section-head">
             <p class="cz-eyebrow">★ Precios verificados</p>
             <h2>En {linksOrdenados.length} tienda{linksOrdenados.length > 1 ? "s" : ""}</h2>
           </div>
-          <div style="border:1px solid rgba(63,63,70,0.4)">
+          <div style="border:1px solid rgba(var(--cz-border-rgb),0.4)">
             {linksOrdenados.map((link, idx) => {
               const diffPct = link.precio_actual < z.precio_msrp_eur ? Math.round((1 - link.precio_actual / z.precio_msrp_eur) * 100) : 0;
               const verif = verifiedAgo(link.ultima_verificacion);
               return (
-                <div style={`display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;flex-wrap:wrap;${idx === 0 ? "background:rgba(249,115,22,0.05)" : ""}${idx > 0 ? "border-top:1px solid rgba(63,63,70,0.3)" : ""}`}>
+                <div style={`display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 20px;flex-wrap:wrap;${idx === 0 ? "background:rgba(249,115,22,0.05)" : ""}${idx > 0 ? "border-top:1px solid rgba(var(--cz-border-rgb),0.3)" : ""}`}>
                   <div style="display:flex;align-items:center;gap:12px">
                     {idx === 0 && <span style="padding:4px 8px;background:#facc15;color:#0c0c0c;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.18em">Mejor</span>}
                     <div>
                       <p style="font-family:'Barlow Condensed',sans-serif;font-weight:900;text-transform:uppercase;font-size:18px;margin:0;line-height:1">{LABELS_TIENDA[link.tienda] || link.tienda}</p>
                       <p style="font-size:10px;text-transform:uppercase;letter-spacing:.15em;font-weight:700;margin:4px 0 0">
-                        <span style="color:#52525b">{link.tiene_afiliado ? "★ Afiliado" : "Sin afiliación"} · </span>
+                        <span style="color:var(--cz-fg5)">{link.tiene_afiliado ? "★ Afiliado" : "Sin afiliación"} · </span>
                         <span style={`color:${verif.color}`}>{verif.fresh && "●"} {verif.label}</span>
                       </p>
                     </div>
@@ -668,12 +654,12 @@ const productJsonLd = {
                             </p>
                             {diffPct > 0 && <p style="font-size:10px;color:#4ade80;font-weight:900;letter-spacing:.06em;margin:2px 0 0">-{diffPct}% vs MSRP</p>}
                           </>
-                        : <p style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:16px;margin:0;line-height:1;color:#a1a1aa">Ver precio</p>
+                        : <p style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:16px;margin:0;line-height:1;color:var(--cz-fg3)">Ver precio</p>
                       }
                     </div>
                     <a href={link.url} target="_blank" rel={link.tiene_afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"}
                        class="aff-btn" data-tienda={LABELS_TIENDA[link.tienda]||link.tienda} data-zapa={z.slug}
-                       style="padding:10px 16px;background:#f97316;color:#0c0c0c;font-weight:900;text-transform:uppercase;letter-spacing:.14em;font-size:11px;box-shadow:3px 3px 0 0 #facc15">
+                       style="padding:10px 16px;background:#f97316;color:#0c0c0c;font-weight:900;text-transform:uppercase;letter-spacing:.14em;font-size:11px;box-shadow:3px 3px 0 0 var(--cz-cat-reactiva)">
                       Ver →
                     </a>
                   </div>
@@ -730,14 +716,14 @@ const productJsonLd = {
 
     {/* Blog articles mentioning this shoe */}
     {articulosRelacionados.length > 0 && (
-      <section style="padding:40px 0;border-top:1px solid #27272a">
+      <section style="padding:40px 0;border-top:1px solid var(--cz-elev)">
         <div class="shell">
           <p class="cz-eyebrow" style="margin-bottom:16px">★ Del blog</p>
           <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;text-transform:uppercase;letter-spacing:-.02em;color:var(--cz-text);margin:0 0 20px">Artículos sobre esta zapatilla</h2>
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px">
             {articulosRelacionados.map((art) => (
               <a href={`/blog/${art.slug}`} style="display:block;background:var(--cz-surface);border:1px solid var(--cz-border);padding:16px;text-decoration:none;transition:border-color .15s" class="art-ref-card">
-                <span style="display:block;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color:#f97316;margin-bottom:6px">{art.categoria}</span>
+                <span style="display:block;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.12em;color: var(--cz-accent-text);margin-bottom:6px">{art.categoria}</span>
                 <span style="display:block;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:-.01em;color:var(--cz-text-soft);line-height:1.2;margin-bottom:6px">{art.title}</span>
                 <span style="display:block;font-size:11px;color:var(--cz-text-dim)">{art.readMinutes} min de lectura</span>
               </a>
@@ -773,7 +759,7 @@ const productJsonLd = {
   </main>
 
   <style>
-    .art-ref-card:hover { border-color: #f97316 !important; }
+    .art-ref-card:hover { border-color: var(--cz-accent-text) !important; }
   </style>
   <script>
     const sb = document.getElementById("sticky-buy");

@@ -5,18 +5,179 @@
 
 @import "tailwindcss";
 
-/* ── Tema: variables de color (gris carbón, un toque más claro que el negro) ── */
+/* ── Tema OSCURO (por defecto) — rampa del rediseño s37 ──────────────────────
+   Los nombres viejos (--cz-surface, --cz-text-*) se conservan porque los usan
+   ~20 páginas; los nuevos (--cz-card2, --cz-fg*) vienen del handoff. Ambos
+   apuntan a la misma rampa, así que el tema claro los voltea todos a la vez. */
 :root {
-  --cz-bg: #2a2a2e;
-  --cz-surface: #333338;
-  --cz-surface2: #3d3d44;
-  --cz-border: #47474f;
-  --cz-border2: #56565f;
+  --cz-bg: #0c0c0c;
+  --cz-bg-alt: #0f0f0f;
+  --cz-band: #141414;
+  --cz-card: #161616;
+  --cz-card2: #18181b;
+  --cz-elev: #27272a;
+  --cz-footer: #09090b;
+  --cz-surface: #161616;
+  --cz-surface2: #18181b;
+  --cz-border: rgba(63, 63, 70, 0.6);
+  --cz-border2: rgba(63, 63, 70, 0.4);
   --cz-text: #ffffff;
   --cz-text-soft: #d4d4d8;
   --cz-text-2: #a1a1aa;
-  --cz-text-muted: #8a8a93;
-  --cz-text-dim: #70707a;
+  --cz-text-muted: #71717a;
+  --cz-text-dim: #52525b;
+  --cz-fg1: #ffffff;
+  --cz-fg2: #d4d4d8;
+  --cz-fg3: #a1a1aa;
+  --cz-fg4: #71717a;
+  --cz-fg5: #52525b;
+  --cz-fg6: #3f3f46;
+  --cz-watermark: rgba(255, 255, 255, 0.05);
+  --cz-chip: rgba(24, 24, 27, 0.85);
+  --cz-badge: rgba(39, 39, 42, 0.8);
+  --cz-header: rgba(12, 12, 12, 0.8);
+  --cz-cat-balanced: #d4d4d8;
+  --cz-green: #4ade80;
+  --cz-green-bg: rgba(74, 222, 128, 0.12);
+  --cz-court-filter: none;
+  --cz-court-veil: rgba(12, 12, 12, 0.55);
+  /* Canales sueltos para los cientos de rgba(...) translúcidos del design
+     system: así cada alpha individual se conserva exacta y el tema claro los
+     voltea todos de golpe, sin un token por nivel de opacidad. */
+  --cz-border-rgb: 63, 63, 70;
+  --cz-bg-rgb: 12, 12, 12;
+  --cz-bgalt-rgb: 15, 15, 15;
+  --cz-card-rgb: 22, 22, 22;
+  --cz-card2-rgb: 24, 24, 27;
+  --cz-elev-rgb: 39, 39, 42;
+  --cz-wm-rgb: 255, 255, 255;
+  /* Tinta sobre color de MARCA (naranja/amarillo/verde). Como el naranja no
+     cambia entre temas, su texto tampoco puede: es el único token que vale lo
+     mismo en los dos. Antes se usaba var(--cz-bg) para esto y funcionaba de
+     casualidad, porque el fondo era oscuro; en tema claro daba cemento sobre
+     naranja. */
+  --cz-ink: #0c0c0c;
+  /* El naranja de RELLENO no cambia entre temas, pero como TEXTO sobre cemento
+     da 1.88:1 (WCAG pide 4.5:1): ilegible. En claro se oscurece solo el texto,
+     manteniendo idéntico el naranja de fondos, bordes y chips. */
+  --cz-accent: #f97316;
+  --cz-accent-text: #f97316;
+  --cz-medal-oro: #facc15;
+  --cz-medal-plata: #cbd5e1;
+  --cz-medal-bronce: #cd7f32;
+  --cz-amber-text: #fbbf24;
+  /* Colores de categoría. Como RELLENO no cambian; como TEXTO sobre cemento el
+     cian y el amarillo bajan de 2:1, así que el tema claro usa su versión
+     oscura. */
+  --cz-cat-cushion: #38bdf8;
+  --cz-cat-reactiva: #facc15;
+  --cz-cat-traccion: #fb923c;
+  color-scheme: dark;
+}
+
+/* ── Tema CLARO "cemento" — se activa con data-cz-theme="claro" en <html> ──
+   El verde se oscurece (el #4ade80 no contrasta sobre cemento) y el SVG de
+   cancha se invierte. Naranja y amarillo NO cambian entre temas. */
+:root[data-cz-theme="claro"] {
+  --cz-bg: #d6d3d1;
+  --cz-bg-alt: #cbc8c4;
+  --cz-band: #c3c0bb;
+  --cz-card: #e7e5e4;
+  --cz-card2: #f0efee;
+  --cz-elev: #b8b5b0;
+  --cz-footer: #bab7b2;
+  --cz-surface: #e7e5e4;
+  --cz-surface2: #f0efee;
+  --cz-border: rgba(87, 83, 78, 0.35);
+  --cz-border2: rgba(87, 83, 78, 0.22);
+  --cz-text: #0c0c0c;
+  --cz-text-soft: #292524;
+  --cz-text-2: #44403c;
+  --cz-text-muted: #57534e;
+  /* El extremo tenue de la rampa se comprime respecto al handoff (#79716b y
+     #6d675f): sobre cemento daban 3.2-3.8:1 y el texto pequeño necesita 4.5:1.
+     #5f5952 pasa contra los tres fondos claros (card2 6.02 · card 5.51 · bg
+     4.64). En un tema claro los grises apagados tienen suelo de contraste. */
+  --cz-text-dim: #5f5952;
+  --cz-fg1: #0c0c0c;
+  --cz-fg2: #292524;
+  --cz-fg3: #44403c;
+  --cz-fg4: #57534e;
+  --cz-fg5: #5f5952;
+  --cz-fg6: #5f5952;
+  --cz-watermark: rgba(0, 0, 0, 0.07);
+  --cz-chip: rgba(231, 229, 228, 0.88);
+  --cz-badge: rgba(231, 229, 228, 0.85);
+  --cz-header: rgba(214, 211, 209, 0.85);
+  --cz-cat-balanced: #57534e;
+  --cz-green: #15803d;
+  --cz-green-bg: rgba(21, 128, 61, 0.14);
+  --cz-court-filter: invert(1) opacity(0.55);
+  --cz-court-veil: rgba(214, 211, 209, 0.45);
+  --cz-border-rgb: 87, 83, 78;
+  --cz-bg-rgb: 214, 211, 209;
+  --cz-bgalt-rgb: 203, 200, 196;
+  --cz-card-rgb: 231, 229, 228;
+  --cz-card2-rgb: 240, 239, 238;
+  --cz-elev-rgb: 184, 181, 176;
+  --cz-wm-rgb: 0, 0, 0;
+  --cz-accent: #f97316;
+  --cz-accent-text: #9a3412;
+  --cz-medal-oro: #a16207;
+  --cz-medal-plata: #6b7280;
+  --cz-medal-bronce: #92400e;
+  --cz-amber-text: #854d0e;
+  --cz-cat-cushion: #0369a1;
+  --cz-cat-reactiva: #854d0e;
+  --cz-cat-traccion: #9a3412;
+  color-scheme: light;
+}
+
+/* ── El HERO de la home se queda oscuro en los dos temas ──────────────────────
+   Es cinematográfico: el vídeo lleva los cuatro bordes difuminados a
+   transparente para fundirse con el fondo, y sobre cemento se lava y deja un
+   halo. En vez de tocar cada regla hija, se REDECLARAN los tokens en el propio
+   bloque: todo lo de dentro (h1, lede, panel radar, cintas) hereda la rampa
+   oscura solo. El handoff lo pide igual: "el hero queda siempre oscuro". */
+:root[data-cz-theme="claro"] .home-hero {
+  --cz-bg: #0c0c0c;
+  --cz-bg-alt: #0f0f0f;
+  --cz-band: #141414;
+  --cz-card: #161616;
+  --cz-card2: #18181b;
+  --cz-elev: #27272a;
+  --cz-surface: #161616;
+  --cz-surface2: #18181b;
+  --cz-border: rgba(63, 63, 70, 0.6);
+  --cz-border2: rgba(63, 63, 70, 0.4);
+  --cz-text: #ffffff;
+  --cz-text-soft: #d4d4d8;
+  --cz-text-2: #a1a1aa;
+  --cz-text-muted: #71717a;
+  --cz-text-dim: #52525b;
+  --cz-fg1: #ffffff;
+  --cz-fg2: #d4d4d8;
+  --cz-fg3: #a1a1aa;
+  --cz-fg4: #71717a;
+  --cz-fg5: #52525b;
+  --cz-fg6: #3f3f46;
+  --cz-watermark: rgba(255, 255, 255, 0.05);
+  --cz-chip: rgba(24, 24, 27, 0.85);
+  --cz-badge: rgba(39, 39, 42, 0.8);
+  --cz-green: #4ade80;
+  --cz-green-bg: rgba(74, 222, 128, 0.12);
+  --cz-court-filter: none;
+  --cz-border-rgb: 63, 63, 70;
+  --cz-bg-rgb: 12, 12, 12;
+  --cz-bgalt-rgb: 15, 15, 15;
+  --cz-card-rgb: 22, 22, 22;
+  --cz-card2-rgb: 24, 24, 27;
+  --cz-elev-rgb: 39, 39, 42;
+  --cz-wm-rgb: 255, 255, 255;
+  --cz-accent-text: #f97316;
+  --cz-amber-text: #fbbf24;
+  background-color: #0c0c0c;
+  color: #ffffff;
 }
 
 /* ── Tipografía global ── */
@@ -35,7 +196,7 @@ body {
 }
 
 /* ── Overlay sobre el fondo de cancha ── */
-.cz-court-overlay { background-color: rgba(42, 42, 46, 0.55); }
+.cz-court-overlay { background-color: var(--cz-court-veil); }
 
 /* ── Scrollbar sutil ── */
 ::-webkit-scrollbar { width: 6px; }

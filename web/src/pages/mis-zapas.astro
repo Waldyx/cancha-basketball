@@ -14,8 +14,8 @@ const CAT_LABELS: Record<string, string> = {
   "balanced": "Equilibrada", "traction-king": "Tracción",
 };
 const CAT_ACCENT: Record<string, string> = {
-  "cushion-focused": "#38bdf8", "responsive": "#facc15",
-  "balanced": "#d4d4d8", "traction-king": "#fb923c",
+  "cushion-focused": "var(--cz-cat-cushion)", "responsive": "var(--cz-cat-reactiva)",
+  "balanced": "var(--cz-fg2)", "traction-king": "var(--cz-cat-traccion)",
 };
 
 // Render todas las cards y dejar que JS oculte las que no son favoritas
@@ -28,22 +28,6 @@ const ordenadas = [...zapatillas].sort((a, b) => a.marca.localeCompare(b.marca))
 >
   <main class="app">
 
-    <div class="cz-strip"></div>
-    <header class="cz-header">
-      <div class="shell cz-header-inner">
-        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
-        <nav class="cz-nav">
-          <a href="/quiz">Quiz</a> <a href="/comparar">Comparar</a>
-          <a href="/rankings">Rankings</a>
-          <a href="/zapatillas">Catálogo</a>
-          <a href="/calculadora">Calculadora</a>
-          <a href="/estadisticas">Stats</a>
-          <a href="/balones">Accesorios</a>
-          <a href="/blog">Blog</a>
-          <a href="/mis-zapas" class="active" aria-current="page">♥ Mis zapas</a>
-        </nav>
-      </div>
-    </header>
 
     <section class="doc-hero">
       <div class="shell">
@@ -229,7 +213,7 @@ const ordenadas = [...zapatillas].sort((a, b) => a.marca.localeCompare(b.marca))
             badge.classList.remove("hidden");
           } else if (inQ) {
             badge.textContent = "♥ Lo quiero";
-            badge.style.cssText = "background:#7c2d1230;color:#f97316;border:1px solid #f9731640";
+            badge.style.cssText = "background:#7c2d1230;color: var(--cz-accent-text);border:1px solid #f9731640";
             badge.classList.remove("hidden");
           } else {
             badge.classList.add("hidden");
@@ -341,15 +325,15 @@ const ordenadas = [...zapatillas].sort((a, b) => a.marca.localeCompare(b.marca))
     /* Tabs */
     .mz-tabs { display: flex; gap: 6px; }
     .mz-tab {
-      padding: 7px 14px; border: 1px solid #3f3f46; background: transparent;
-      color: #71717a; font-size: 11px; font-weight: 900; text-transform: uppercase;
+      padding: 7px 14px; border: 1px solid var(--cz-fg6); background: transparent;
+      color: var(--cz-fg4); font-size: 11px; font-weight: 900; text-transform: uppercase;
       letter-spacing: 0.1em; cursor: pointer; transition: all .15s;
     }
-    .mz-tab.active[id="tab-quiero"] { color: #f97316; border-color: #f97316; background: rgba(249,115,22,0.08); }
+    .mz-tab.active[id="tab-quiero"] { color: var(--cz-accent-text); border-color: var(--cz-accent-text); background: rgba(249,115,22,0.08); }
     .mz-tab.active[id="tab-tengo"]  { color: #22c55e; border-color: #22c55e; background: rgba(34,197,94,0.08); }
     .mz-tab-count {
-      display: inline-block; margin-left: 5px; background: #27272a;
-      color: #a1a1aa; padding: 1px 6px; font-size: 10px; border-radius: 999px;
+      display: inline-block; margin-left: 5px; background: var(--cz-elev);
+      color: var(--cz-fg3); padding: 1px 6px; font-size: 10px; border-radius: 999px;
     }
     /* State badge sobre la foto */
     .mz-state-badge {
@@ -359,19 +343,19 @@ const ordenadas = [...zapatillas].sort((a, b) => a.marca.localeCompare(b.marca))
     }
     /* Checkbox comparar */
     .mz-check {
-      width: 30px; height: 30px; border: 1px solid #27272a;
-      background: transparent; color: #71717a;
+      width: 30px; height: 30px; border: 1px solid var(--cz-elev);
+      background: transparent; color: var(--cz-fg4);
       display: inline-flex; align-items: center; justify-content: center;
       font-size: 13px; cursor: pointer; user-select: none;
       transition: all 0.12s;
     }
     .mz-check input { display: none; }
     .mz-check:has(input:checked) {
-      background: #f97316; color: #0c0c0c; border-color: #f97316;
+      background: #f97316; color: #0c0c0c; border-color: var(--cz-accent-text);
     }
     .mz-card .mz-remove:hover { color: #ef4444; border-color: #ef4444; }
     .mz-card .mz-toggle:hover { color: #22c55e; border-color: #22c55e; }
     .mz-card .mz-toggle.is-tengo { color: #22c55e; border-color: #22c55e; }
-    .mz-card .mz-toggle.is-tengo:hover { color: #f97316; border-color: #f97316; }
+    .mz-card .mz-toggle.is-tengo:hover { color: var(--cz-accent-text); border-color: var(--cz-accent-text); }
   </style>
 </Base>

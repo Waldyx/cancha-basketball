@@ -7,7 +7,7 @@
 <div id="cz-cookie" class="cz-cookie hidden" role="dialog" aria-label="Aviso de cookies">
   <div class="cz-cookie-inner">
     <div class="cz-cookie-text">
-      <p class="cz-eyebrow" style="font-size:10px;color:#f97316;margin:0 0 4px">★ Cookies</p>
+      <p class="cz-eyebrow" style="font-size:10px;color: var(--cz-accent-text);margin:0 0 4px">★ Cookies</p>
       <p>
         Usamos cookies <strong>solo para enlaces de afiliado</strong> (sin tracking de personas).
         Si compras a través de nuestros enlaces, nuestras tiendas afiliadas nos pueden atribuir la venta.
@@ -50,7 +50,7 @@
 <style is:global>
   .cz-cookie {
     position: fixed; bottom: 0; left: 0; right: 0; z-index: 80;
-    background: #0c0c0c;
+    background: var(--cz-bg);
     border-top: 1px solid rgba(249,115,22,0.3);
     box-shadow: 0 -8px 24px rgba(0,0,0,0.5);
     transition: transform 0.25s cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -63,11 +63,11 @@
   }
   .cz-cookie-text { flex: 1; min-width: 260px; }
   .cz-cookie-text p:not(.cz-eyebrow) {
-    color: #a1a1aa; font-size: 13px; line-height: 1.5; margin: 0;
+    color: var(--cz-fg3); font-size: 13px; line-height: 1.5; margin: 0;
   }
-  .cz-cookie-text strong { color: #fff; font-weight: 700; }
+  .cz-cookie-text strong { color: var(--cz-text); font-weight: 700; }
   .cz-cookie-text a {
-    color: #f97316; font-weight: 700;
+    color: var(--cz-accent-text); font-weight: 700;
     border-bottom: 1px solid #f97316;
   }
   .cz-cookie-actions {
@@ -84,10 +84,10 @@
   }
   .cz-cookie-btn.primary:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 0 #facc15; }
   .cz-cookie-btn.ghost {
-    background: transparent; color: #a1a1aa;
-    border: 1px solid #27272a;
+    background: transparent; color: var(--cz-fg3);
+    border: 1px solid var(--cz-elev);
   }
-  .cz-cookie-btn.ghost:hover { color: #fff; border-color: #71717a; }
+  .cz-cookie-btn.ghost:hover { color: var(--cz-text); border-color: var(--cz-fg4); }
   @media (max-width: 560px) {
     .cz-cookie-inner { padding: 12px 14px; }
     .cz-cookie-text p:not(.cz-eyebrow) { font-size: 12px; }

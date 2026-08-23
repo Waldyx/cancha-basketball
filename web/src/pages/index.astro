@@ -59,15 +59,15 @@ const CAT_LABELS: Record<string, string> = {
   "balanced": "Equilibrada", "traction-king": "Tracción",
 };
 const CAT_ACCENT: Record<string, string> = {
-  "cushion-focused": "#38bdf8", "responsive": "#facc15",
-  "balanced": "#d4d4d8", "traction-king": "#fb923c",
+  "cushion-focused": "var(--cz-cat-cushion)", "responsive": "var(--cz-cat-reactiva)",
+  "balanced": "var(--cz-fg2)", "traction-king": "var(--cz-cat-traccion)",
 };
 
 // Fecha de la verificación de precios MÁS reciente en el catálogo (no la fecha de build).
 const _fechaVerif = fechaVerificacionMasReciente(zapatillas);
 const today = (_fechaVerif ? new Date(_fechaVerif + "T12:00:00") : new Date()).toLocaleDateString("es-ES", { day: "2-digit", month: "short" }).toUpperCase();
 const recentArticles = getAllArticles().slice(0, 3);
-const BLOG_CAT_COLOR: Record<string, string> = { "Guías": "#f97316", "Comparativas": "#facc15", "Análisis": "#38bdf8" };
+const BLOG_CAT_COLOR: Record<string, string> = { "Guías": "#f97316", "Comparativas": "var(--cz-cat-reactiva)", "Análisis": "var(--cz-cat-cushion)" };
 
 // Precio MOSTRADO del pick (solo tiendas que monetizan/pendientes; si no, MSRP). El pick
 // se sigue ELIGIENDO con el precio real (editorPick), pero el número que enseñamos es éste.
@@ -108,22 +108,6 @@ const homeJsonLd = {
       description="Quiz gratuito y comparador honesto de zapatillas de baloncesto. 5 recomendaciones a medida, precios verificados en tiendas españolas.">
   <main class="app">
 
-    <div class="cz-strip"></div>
-    <header class="cz-header">
-      <div class="shell cz-header-inner">
-        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
-        <nav class="cz-nav">
-          <a href="/quiz">Quiz</a> <a href="/comparar">Comparar</a>
-          <a href="/rankings">Rankings</a>
-          <a href="/zapatillas">Catálogo</a>
-          <a href="/calculadora">Calculadora</a>
-          <a href="/estadisticas">Stats</a>
-                  <a href="/balones">Accesorios</a>
-          <a href="/blog">Blog</a>
-          <a href="/mis-zapas">♥ Mis zapas</a>
-        </nav>
-      </div>
-    </header>
 
     {/* HERO */}
     <section class="home-hero">
@@ -251,7 +235,7 @@ const homeJsonLd = {
         <div class="home-how-grid">
           {[
             { n: "01", lab: "Tu juego", body: "Posición, peso, estilo, presupuesto, dolencias. <strong>10 preguntas</strong> en menos de un minuto.", icon: "🏀", col: "#f97316" },
-            { n: "02", lab: "Tu match", body: "Las <strong>5 zapas</strong> con mayor compatibilidad técnica, con explicación de por qué encajan contigo.", icon: "⚡", col: "#facc15" },
+            { n: "02", lab: "Tu match", body: "Las <strong>5 zapas</strong> con mayor compatibilidad técnica, con explicación de por qué encajan contigo.", icon: "⚡", col: "var(--cz-cat-reactiva)" },
             { n: "03", lab: "Tu precio", body: "Comparador lado a lado y <strong>mejor precio actual</strong> entre tiendas. Tú decides dónde comprar.", icon: "€", col: "#f97316" },
           ].map(s => (
             <article class="home-how-card" style={`--col:${s.col}`}>
@@ -387,7 +371,7 @@ const homeJsonLd = {
     </section>
 
     {/* GUÍAS POR PERFIL */}
-    <section style="padding:48px 0 64px;border-top:1px solid #27272a">
+    <section style="padding:48px 0 64px;border-top:1px solid var(--cz-elev)">
       <div class="shell">
         <p class="cz-eyebrow" style="margin-bottom:16px">★ Guías por perfil</p>
         <h2 class="home-h2-sm" style="margin-bottom:28px">
@@ -421,6 +405,6 @@ const homeJsonLd = {
   </main>
 
   <style>
-    .guide-link:hover { border-color: #f97316 !important; color: #f97316 !important; }
+    .guide-link:hover { border-color: var(--cz-accent-text) !important; color: var(--cz-accent-text) !important; }
   </style>
 </Base>

@@ -25,10 +25,10 @@ const CAT_LABELS: Record<string, string> = {
 };
 
 const CAT_ACCENT: Record<string, string> = {
-  "cushion-focused": "#38bdf8",
-  "responsive":      "#facc15",
-  "balanced":        "#d4d4d8",
-  "traction-king":   "#fb923c",
+  "cushion-focused": "var(--cz-cat-cushion)",
+  "responsive":      "var(--cz-cat-reactiva)",
+  "balanced":        "var(--cz-fg2)",
+  "traction-king":   "var(--cz-cat-traccion)",
 };
 
 const scoreOf = (z: typeof zapatillas[0]): number => scoreDisplay(z);
@@ -82,22 +82,6 @@ const ordenadas = [...zapatillas].sort(compareByScore);
 >
   <main class="app">
 
-    <div class="cz-strip"></div>
-    <header class="cz-header">
-      <div class="shell cz-header-inner">
-        <a href="/" class="cz-logo">CANCHA<span class="dot">.</span>ZAPA</a>
-        <nav class="cz-nav">
-          <a href="/quiz">Quiz</a> <a href="/comparar">Comparar</a>
-          <a href="/rankings">Rankings</a>
-          <a href="/zapatillas" class="active">Catálogo</a>
-          <a href="/calculadora">Calculadora</a>
-          <a href="/estadisticas">Stats</a>
-          <a href="/balones">Accesorios</a>
-          <a href="/blog">Blog</a>
-          <a href="/mis-zapas">♥ Mis zapas</a>
-        </nav>
-      </div>
-    </header>
 
     {/* HERO */}
     <section class="cz-hero">
@@ -233,7 +217,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
             <input type="range" class="range" id="price-range" min="40" max="250" step="10" value="250" />
             <div class="range-label">
               <span>40€</span>
-              <span id="price-label" style="color:#f97316;font-weight:900">sin tope</span>
+              <span id="price-label" style="color: var(--cz-accent-text);font-weight:900">sin tope</span>
             </div>
           </section>
 
@@ -301,7 +285,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
                         </div>
                         {mejorVista
                           ? <div class="pp-tienda"><span class="dot"></span>Verificado en {LABELS_TIENDA[mejorVista.tienda] || mejorVista.tienda}</div>
-                          : <div class="pp-tienda"><span class="dot" style="background:#71717a"></span>Precio oficial · ver tiendas</div>
+                          : <div class="pp-tienda"><span class="dot" style="background:var(--cz-fg4)"></span>Precio oficial · ver tiendas</div>
                         }
                       </div>
                       <div class="pick-actions">
@@ -392,7 +376,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
                       <div>
                         {mejorVista
                           ? <span class="price-meta"><span class="dot"></span>Verificado</span>
-                          : <span class="price-meta" style="color:#71717a"><span class="dot" style="background:#71717a"></span>Precio oficial</span>
+                          : <span class="price-meta" style="color:var(--cz-fg4)"><span class="dot" style="background:var(--cz-fg4)"></span>Precio oficial</span>
                         }
                         <span class="price">{Math.round(precioVista)}€</span>
                         {tienda && <p class="tienda">en {tienda}</p>}
@@ -500,7 +484,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
         chips.forEach((c, i) => {
           html.push(`<span class="chip">${c.lab}<button class="x" data-idx="${i}">×</button></span>`);
         });
-        html.push(`<button style="background:transparent;color:#71717a;border:1px solid #27272a;padding:5px 10px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:800;margin-left:4px" id="clear-chips">Limpiar todo</button>`);
+        html.push(`<button style="background:transparent;color:var(--cz-fg4);border:1px solid var(--cz-elev);padding:5px 10px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:800;margin-left:4px" id="clear-chips">Limpiar todo</button>`);
         html.push(`<span class="count"><strong>${visibleCount()}</strong> / ${totalAll} zapas</span>`);
         $active.innerHTML = html.join("");
         $active.querySelectorAll<HTMLButtonElement>(".x").forEach((btn) => {

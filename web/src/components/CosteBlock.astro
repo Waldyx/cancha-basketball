@@ -119,11 +119,11 @@ const uid = `cb-${slug}`;
       const partidos6m = semana * 4.33 * 6;
       const desgaste6m = Math.min(100, Math.round((partidos6m / partidos) * 100));
 
-      const verdict = coste < 0.5 ? ["Chollo. Se amortiza sola.", "#4ade80"]
+      const verdict = coste < 0.5 ? ["Chollo. Se amortiza sola.", "var(--cz-green)"]
         : coste < 1.2 ? ["Compra sensata.", "#f97316"]
         : coste < 2.5 ? ["Cara por partido.", "#facc15"]
         : ["Solo si la exprimes.", "#ef4444"];
-      const gColor = desgaste6m < 50 ? "#4ade80" : desgaste6m < 85 ? "#facc15" : "#ef4444";
+      const gColor = desgaste6m < 50 ? "var(--cz-green)" : desgaste6m < 85 ? "#facc15" : "#ef4444";
 
       $('[data-out="semana"]').textContent = semana;
       $('[data-out="outdoor"]').textContent = outdoor + "%";
@@ -161,13 +161,13 @@ const uid = `cb-${slug}`;
     background: rgba(239,68,68,0.08);
     font-size: 12.5px;
     line-height: 1.55;
-    color: var(--cz-text-muted, #d4d4d8);
+    color: var(--cz-text-muted, var(--cz-fg2));
   }
-  .cb-outdoor-warn strong { color: #fff; }
+  .cb-outdoor-warn strong { color: var(--cz-text); }
   .cb-outdoor-link {
     display: inline-block;
     margin-top: 7px;
-    color: #f97316;
+    color: var(--cz-accent-text);
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: .06em;

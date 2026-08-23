@@ -6,22 +6,6 @@ import Base from "../layouts/Base.astro";
 <Base title="Política de Privacidad — CANCHA.ZAPA"
      description="Política de privacidad de canchazapa.com. Información sobre el tratamiento de datos, cookies y enlaces de afiliado.">
 
-  <div class="cz-strip"></div>
-  <header class="cz-header">
-    <div class="shell cz-header-inner">
-      <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
-      <nav class="cz-nav">
-        <a href="/quiz">Quiz</a> <a href="/comparar">Comparar</a>
-        <a href="/rankings">Rankings</a>
-        <a href="/zapatillas">Catálogo</a>
-          <a href="/calculadora">Calculadora</a>
-          <a href="/estadisticas">Stats</a>
-        <a href="/balones">Accesorios</a>
-          <a href="/blog">Blog</a>
-          <a href="/mis-zapas">♥ Mis zapas</a>
-      </nav>
-    </div>
-  </header>
 
   <main>
     <section style="padding:60px 0 80px">
@@ -29,10 +13,10 @@ import Base from "../layouts/Base.astro";
 
         <p class="cz-eyebrow">Legal</p>
         <h1 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(36px,6vw,64px);text-transform:uppercase;line-height:1;margin:8px 0 40px">
-          Política de<br/><span style="color:#f97316">Privacidad</span>
+          Política de<br/><span style="color: var(--cz-accent-text)">Privacidad</span>
         </h1>
 
-        <p style="color:#71717a;font-size:13px;margin-bottom:48px">Última actualización: mayo 2026</p>
+        <p style="color:var(--cz-fg4);font-size:13px;margin-bottom:48px">Última actualización: mayo 2026</p>
 
         <div class="doc-content" style="display:flex;flex-direction:column;gap:40px">
 
@@ -114,14 +98,14 @@ import Base from "../layouts/Base.astro";
       padding-left: 20px;
     }
     .doc-content a {
-      color: #f97316;
+      color: var(--cz-accent-text);
     }
     .doc-content code {
       background: rgba(249,115,22,0.1);
       padding: 2px 6px;
       border-radius: 3px;
       font-size: 13px;
-      color: #f97316;
+      color: var(--cz-accent-text);
     }
   </style>
 

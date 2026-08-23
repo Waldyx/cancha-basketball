@@ -48,15 +48,15 @@ const pasos = [
 const marcas = [
   { marca: "Nike / Jordan",      horma: "Estrecha",         col: "#f97316",
     c: "Suelen ir un poco estrechos, especialmente en el antepié. Si tienes pie ancho, sube medio número o busca horma ancha (serie LeBron)." },
-  { marca: "Adidas",             horma: "Normal",           col: "#4ade80",
+  { marca: "Adidas",             horma: "Normal",           col: "var(--cz-green)",
     c: "Horma bastante estándar. Modelos con Primeknit (Harden, Dame) se sienten algo más anchos gracias al tejido elástico." },
-  { marca: "New Balance",        horma: "Ancha",            col: "#38bdf8",
+  { marca: "New Balance",        horma: "Ancha",            col: "var(--cz-cat-cushion)",
     c: "Conocida por hormas anchas y tallas generosas. Si tienes pie ancho, NB es tu mejor aliada sin subir talla." },
-  { marca: "Under Armour",       horma: "Normal-estrecha",  col: "#facc15",
+  { marca: "Under Armour",       horma: "Normal-estrecha",  col: "var(--cz-cat-reactiva)",
     c: "Depende del modelo. La línea Curry (Flow) puede ir estrecha. Sube medio número si tienes pie ancho." },
   { marca: "Puma",               horma: "Normal",           col: "#a78bfa",
     c: "Horma estándar. La línea MB (LaMelo) puede ir algo estrecha en pies anchos." },
-  { marca: "Anta / Li-Ning",     horma: "Normal-estrecha",  col: "#fb923c",
+  { marca: "Anta / Li-Ning",     horma: "Normal-estrecha",  col: "var(--cz-cat-traccion)",
     c: "Las chinas suelen ir un poco pequeñas en tallas bajas. Sube 0,5–1 número si es tu primera compra de esa marca." },
 ];
 
@@ -76,23 +76,6 @@ const jsonLd = {
 >
   <main class="app">
 
-    <div class="cz-strip"></div>
-    <header class="cz-header">
-      <div class="shell cz-header-inner">
-        <a href="/" class="cz-logo"><span class="logo">CANCHA</span><span class="dot">.</span><span class="logo">ZAPA</span></a>
-        <nav class="cz-nav">
-          <a href="/quiz">Quiz</a> <a href="/comparar">Comparar</a>
-          <a href="/rankings">Rankings</a>
-          <a href="/zapatillas">Catálogo</a>
-          <a href="/calculadora">Calculadora</a>
-          <a href="/estadisticas">Stats</a>
-          <a href="/guia-tallas" class="active" aria-current="page">Tallas</a>
-                  <a href="/balones">Accesorios</a>
-          <a href="/blog">Blog</a>
-          <a href="/mis-zapas">♥ Mis zapas</a>
-        </nav>
-      </div>
-    </header>
 
     <section class="doc-hero">
       <div class="shell">

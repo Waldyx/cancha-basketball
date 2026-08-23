@@ -196,27 +196,27 @@ export const ARTICLES: Article[] = [
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Tracción</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Amortiguación</td>
       <td style="padding:8px;text-align:center">7/10</td>
       <td style="padding:8px;text-align:center">⭐ 8/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Respuesta</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Horma</td>
       <td style="padding:8px;text-align:center">Normal</td>
       <td style="padding:8px;text-align:center">⭐ Ancha</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Peso</td>
       <td style="padding:8px;text-align:center">340g</td>
       <td style="padding:8px;text-align:center">⭐ 326g</td>
@@ -410,21 +410,21 @@ export const ARTICLES: Article[] = [
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike LeBron 23</strong></td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
       <td style="padding:8px;text-align:center">179€</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike KD 19</strong></td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">149€</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Air Jordan 40</strong></td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
@@ -537,22 +537,22 @@ export const ARTICLES: Article[] = [
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike Ja 3</strong></td>
       <td style="padding:8px;text-align:center">⭐ 8/10</td>
       <td style="padding:8px;text-align:center">135€</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Adidas AE 2</strong></td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">130€</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>ANTA Kai 2</strong></td>
       <td style="padding:8px;text-align:center">⭐ 8/10</td>
       <td style="padding:8px;text-align:center">~119€</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike LeBron 23</strong></td>
       <td style="padding:8px;text-align:center">7/10</td>
       <td style="padding:8px;text-align:center">179€</td>
@@ -777,31 +777,31 @@ export const ARTICLES: Article[] = [
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Tracción</td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Respuesta</td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">9/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Amortiguación</td>
       <td style="padding:8px;text-align:center">7/10</td>
       <td style="padding:8px;text-align:center">⭐ 8/10</td>
       <td style="padding:8px;text-align:center">7/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Horma</td>
       <td style="padding:8px;text-align:center">Estrecha</td>
       <td style="padding:8px;text-align:center">Normal</td>
       <td style="padding:8px;text-align:center">⭐ Ancha</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Peso</td>
       <td style="padding:8px;text-align:center">⭐ 310g</td>
       <td style="padding:8px;text-align:center">345g</td>
@@ -1137,27 +1137,27 @@ export const ARTICLES: Article[] = [
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Tracción</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
       <td style="padding:8px;text-align:center">8.5/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Amortiguación</td>
       <td style="padding:8px;text-align:center">7/10</td>
       <td style="padding:8px;text-align:center">⭐ 8/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Respuesta</td>
       <td style="padding:8px;text-align:center">⭐ 8.5/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Peso</td>
       <td style="padding:8px;text-align:center">⭐ 355g</td>
       <td style="padding:8px;text-align:center">370g</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Score CANCHA</td>
       <td style="padding:8px;text-align:center">⭐ 7.9/10</td>
       <td style="padding:8px;text-align:center">7.6/10</td>
@@ -1233,32 +1233,32 @@ export const ARTICLES: Article[] = [
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Tracción</td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Amortiguación</td>
       <td style="padding:8px;text-align:center">⭐ 8/10</td>
       <td style="padding:8px;text-align:center">7/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Respuesta</td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Soporte lateral</td>
       <td style="padding:8px;text-align:center">⭐ 8/10</td>
       <td style="padding:8px;text-align:center">7/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Peso</td>
       <td style="padding:8px;text-align:center">345g</td>
       <td style="padding:8px;text-align:center">⭐ 340g</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Altura</td>
       <td style="padding:8px;text-align:center">Low-top</td>
       <td style="padding:8px;text-align:center">Low-top</td>
@@ -1331,12 +1331,12 @@ export const ARTICLES: Article[] = [
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px">Tecnología</td><td style="padding:8px">Zoom Air Strobel + React foam</td></tr>
-    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px">Suela</td><td style="padding:8px">Herringbone nueva generación (goma dura)</td></tr>
-    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px">Altura</td><td style="padding:8px">Low-top</td></tr>
-    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px">Peso</td><td style="padding:8px">305g (US10)</td></tr>
-    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px">Drop</td><td style="padding:8px">7mm</td></tr>
-    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px">Horma</td><td style="padding:8px">Normal (tirando a estrecha)</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Tecnología</td><td style="padding:8px">Zoom Air Strobel + React foam</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Suela</td><td style="padding:8px">Herringbone nueva generación (goma dura)</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Altura</td><td style="padding:8px">Low-top</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Peso</td><td style="padding:8px">305g (US10)</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Drop</td><td style="padding:8px">7mm</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Horma</td><td style="padding:8px">Normal (tirando a estrecha)</td></tr>
     <tr><td style="padding:8px">Precio recomendado</td><td style="padding:8px">~160-170€</td></tr>
   </tbody>
 </table>
@@ -1377,19 +1377,19 @@ export const ARTICLES: Article[] = [
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Tracción</td>
       <td style="padding:8px;text-align:center">⭐ 10</td>
       <td style="padding:8px;text-align:center">9</td>
       <td style="padding:8px;text-align:center">8</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Respuesta</td>
       <td style="padding:8px;text-align:center">⭐ 9</td>
       <td style="padding:8px;text-align:center">9</td>
       <td style="padding:8px;text-align:center">8</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Horma ancha</td>
       <td style="padding:8px;text-align:center">❌ No</td>
       <td style="padding:8px;text-align:center">✅ Normal</td>
@@ -1622,39 +1622,39 @@ export const ARTICLES: Article[] = [
 <table style="border-collapse:collapse;width:100%;font-size:13px;margin:16px 0">
   <thead>
     <tr style="border-bottom:2px solid #f97316">
-      <th style="padding:8px;text-align:left;color:#fff">Atributo</th>
-      <th style="padding:8px;text-align:center;color:#f97316">AE 2</th>
+      <th style="padding:8px;text-align:left;color:var(--cz-text)">Atributo</th>
+      <th style="padding:8px;text-align:center;color: var(--cz-accent-text)">AE 2</th>
       <th style="padding:8px;text-align:center;color:#e4e4e7">GT Cut 4</th>
       <th style="padding:8px;text-align:center;color:#e4e4e7">Curry 13</th>
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid #27272a">
-      <td style="padding:8px;color:#a1a1aa">Tracción</td>
+    <tr style="border-bottom:1px solid var(--cz-elev)">
+      <td style="padding:8px;color:var(--cz-fg3)">Tracción</td>
       <td style="padding:8px;text-align:center;color:#4ade80">9/10</td>
       <td style="padding:8px;text-align:center;color:#4ade80">10/10</td>
       <td style="padding:8px;text-align:center;color:#4ade80">8/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
-      <td style="padding:8px;color:#a1a1aa">Cushion</td>
+    <tr style="border-bottom:1px solid var(--cz-elev)">
+      <td style="padding:8px;color:var(--cz-fg3)">Cushion</td>
       <td style="padding:8px;text-align:center;color:#facc15">7.5/10</td>
       <td style="padding:8px;text-align:center;color:#facc15">6/10</td>
       <td style="padding:8px;text-align:center;color:#facc15">8/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
-      <td style="padding:8px;color:#a1a1aa">Respuesta</td>
+    <tr style="border-bottom:1px solid var(--cz-elev)">
+      <td style="padding:8px;color:var(--cz-fg3)">Respuesta</td>
       <td style="padding:8px;text-align:center;color:#4ade80">9/10</td>
       <td style="padding:8px;text-align:center;color:#4ade80">9/10</td>
       <td style="padding:8px;text-align:center;color:#4ade80">8/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
-      <td style="padding:8px;color:#a1a1aa">Soporte lateral</td>
+    <tr style="border-bottom:1px solid var(--cz-elev)">
+      <td style="padding:8px;color:var(--cz-fg3)">Soporte lateral</td>
       <td style="padding:8px;text-align:center;color:#facc15">7.5/10</td>
       <td style="padding:8px;text-align:center;color:#facc15">7/10</td>
       <td style="padding:8px;text-align:center;color:#4ade80">8/10</td>
     </tr>
     <tr>
-      <td style="padding:8px;color:#a1a1aa">Precio</td>
+      <td style="padding:8px;color:var(--cz-fg3)">Precio</td>
       <td style="padding:8px;text-align:center;color:#e4e4e7">~130€</td>
       <td style="padding:8px;text-align:center;color:#e4e4e7">~165€</td>
       <td style="padding:8px;text-align:center;color:#e4e4e7">~150€</td>
@@ -1810,37 +1810,37 @@ export const ARTICLES: Article[] = [
 <table style="border-collapse:collapse;width:100%;font-size:13px;margin:16px 0">
   <thead>
     <tr style="border-bottom:2px solid #f97316">
-      <th style="padding:8px;text-align:left;color:#fff">Atributo</th>
-      <th style="padding:8px;text-align:center;color:#f97316">Tatum 4</th>
+      <th style="padding:8px;text-align:left;color:var(--cz-text)">Atributo</th>
+      <th style="padding:8px;text-align:center;color: var(--cz-accent-text)">Tatum 4</th>
       <th style="padding:8px;text-align:center;color:#e4e4e7">AE 2</th>
       <th style="padding:8px;text-align:center;color:#e4e4e7">Curry 13</th>
       <th style="padding:8px;text-align:center;color:#e4e4e7">GT Cut 4</th>
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid #27272a">
-      <td style="padding:8px;color:#a1a1aa">Cushion</td>
+    <tr style="border-bottom:1px solid var(--cz-elev)">
+      <td style="padding:8px;color:var(--cz-fg3)">Cushion</td>
       <td style="padding:8px;text-align:center;color:#4ade80">8.5/10</td>
       <td style="padding:8px;text-align:center;color:#facc15">7.5/10</td>
       <td style="padding:8px;text-align:center;color:#facc15">8/10</td>
       <td style="padding:8px;text-align:center;color:#fb923c">6/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
-      <td style="padding:8px;color:#a1a1aa">Soporte lateral</td>
+    <tr style="border-bottom:1px solid var(--cz-elev)">
+      <td style="padding:8px;color:var(--cz-fg3)">Soporte lateral</td>
       <td style="padding:8px;text-align:center;color:#4ade80">9/10</td>
       <td style="padding:8px;text-align:center;color:#facc15">7.5/10</td>
       <td style="padding:8px;text-align:center;color:#4ade80">8/10</td>
       <td style="padding:8px;text-align:center;color:#facc15">7/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
-      <td style="padding:8px;color:#a1a1aa">Tracción</td>
+    <tr style="border-bottom:1px solid var(--cz-elev)">
+      <td style="padding:8px;color:var(--cz-fg3)">Tracción</td>
       <td style="padding:8px;text-align:center;color:#facc15">8/10</td>
       <td style="padding:8px;text-align:center;color:#4ade80">9/10</td>
       <td style="padding:8px;text-align:center;color:#facc15">8/10</td>
       <td style="padding:8px;text-align:center;color:#4ade80">10/10</td>
     </tr>
     <tr>
-      <td style="padding:8px;color:#a1a1aa">Peso</td>
+      <td style="padding:8px;color:var(--cz-fg3)">Peso</td>
       <td style="padding:8px;text-align:center;color:#fb923c">390g</td>
       <td style="padding:8px;text-align:center;color:#4ade80">350g</td>
       <td style="padding:8px;text-align:center;color:#4ade80">330g</td>
@@ -2007,28 +2007,28 @@ export const ARTICLES: Article[] = [
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Jordan Tatum 4</strong></td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">⭐ 8/10</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
       <td style="padding:8px;text-align:center">150€</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Adidas Harden Vol 9</strong></td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
       <td style="padding:8px;text-align:center">7/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">⭐ 129€</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike KD 17</strong></td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">149€</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>UA Flow Breakthru 4</strong></td>
       <td style="padding:8px;text-align:center">7/10</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
@@ -2277,22 +2277,22 @@ export const ARTICLES: Article[] = [
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Guard explosivo, pie ancho</td>
       <td style="padding:8px;text-align:center">⭐ ANTA</td>
       <td style="padding:8px;text-align:center">Kai 2 (~119€)</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Jugador pesado (&gt;90kg) con rodillas</td>
       <td style="padding:8px;text-align:center">⭐ New Balance</td>
       <td style="padding:8px;text-align:center">Fresh Foam BB V3</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Junior / primeras zapatillas</td>
       <td style="padding:8px;text-align:center">⭐ ANTA</td>
       <td style="padding:8px;text-align:center">KT 11 (~80€)</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Alero equilibrado, pie ancho</td>
       <td style="padding:8px;text-align:center">⭐ New Balance</td>
       <td style="padding:8px;text-align:center">TWO WXY V4 (~130€)</td>
@@ -2412,28 +2412,28 @@ export const ARTICLES: Article[] = [
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike GT Cut 4</strong></td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">⭐ 310g</td>
       <td style="padding:8px;text-align:center">150€</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>UA Curry 13</strong></td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">345g</td>
       <td style="padding:8px;text-align:center">140€</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Adidas AE 2</strong></td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">340g</td>
       <td style="padding:8px;text-align:center">⭐ 130€</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>ANTA Kai 2</strong></td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
@@ -2643,28 +2643,28 @@ export const ARTICLES: Article[] = [
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike LeBron 23</strong></td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">7/10</td>
       <td style="padding:8px;text-align:center">179€</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike KD 19</strong></td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">⭐ 8/10</td>
       <td style="padding:8px;text-align:center">149€</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Jordan Luka 4</strong></td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
       <td style="padding:8px;text-align:center">7/10</td>
       <td style="padding:8px;text-align:center">145€</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Adidas Harden Vol 9</strong></td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
@@ -2759,21 +2759,21 @@ export const ARTICLES: Article[] = [
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>UA Flow</strong></td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
       <td style="padding:8px;text-align:center">7/10</td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">❌ 2/10</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>ZoomX</strong></td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">7/10*</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Max Air</strong></td>
       <td style="padding:8px;text-align:center">6/10</td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
@@ -2790,7 +2790,7 @@ export const ARTICLES: Article[] = [
   </tbody>
 </table>
 </div>
-<p style="font-size:12px;color:#52525b">*ZoomX tiene capa de goma en modelos como la Ja 3; sin goma (como en otras configuraciones) no aguanta outdoor.</p>
+<p style="font-size:12px;color:var(--cz-fg5)">*ZoomX tiene capa de goma en modelos como la Ja 3; sin goma (como en otras configuraciones) no aguanta outdoor.</p>
 
 <h2>¿Cuál es para ti?</h2>
 <ul>
@@ -2937,21 +2937,21 @@ export const ARTICLES: Article[] = [
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike Kobe 8 Protro</strong></td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">⭐ 280g</td>
       <td style="padding:8px;text-align:center">180€</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike GT Cut 4</strong></td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">310g</td>
       <td style="padding:8px;text-align:center">150€</td>
     </tr>
-    <tr style="border-bottom:1px solid #27272a">
+    <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>UA Curry 13</strong></td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
@@ -3054,10 +3054,10 @@ export const ARTICLES: Article[] = [
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px"><strong>Nike Elite Cushioned</strong></td><td style="padding:8px;text-align:center">⭐⭐⭐</td><td style="padding:8px;text-align:center">Medio</td><td style="padding:8px;text-align:center">~15€</td><td style="padding:8px">LeBron, Fresh Foam, pívots</td></tr>
-    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px"><strong>Nike Elite Lightweight</strong></td><td style="padding:8px;text-align:center">⭐</td><td style="padding:8px;text-align:center">Bajo</td><td style="padding:8px;text-align:center">~13€</td><td style="padding:8px">GT Cut 4, Kobe Protro, guards</td></tr>
-    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px"><strong>Adidas Cushioned 3pk</strong></td><td style="padding:8px;text-align:center">⭐⭐</td><td style="padding:8px;text-align:center">Medio</td><td style="padding:8px;text-align:center">~12€</td><td style="padding:8px">Zapas Adidas, uso diario</td></tr>
-    <tr style="border-bottom:1px solid #27272a"><td style="padding:8px"><strong>UA Playmaker Mid</strong></td><td style="padding:8px;text-align:center">⭐⭐</td><td style="padding:8px;text-align:center">Alto</td><td style="padding:8px;text-align:center">~12€</td><td style="padding:8px">High-tops, esguinces recurrentes</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px"><strong>Nike Elite Cushioned</strong></td><td style="padding:8px;text-align:center">⭐⭐⭐</td><td style="padding:8px;text-align:center">Medio</td><td style="padding:8px;text-align:center">~15€</td><td style="padding:8px">LeBron, Fresh Foam, pívots</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px"><strong>Nike Elite Lightweight</strong></td><td style="padding:8px;text-align:center">⭐</td><td style="padding:8px;text-align:center">Bajo</td><td style="padding:8px;text-align:center">~13€</td><td style="padding:8px">GT Cut 4, Kobe Protro, guards</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px"><strong>Adidas Cushioned 3pk</strong></td><td style="padding:8px;text-align:center">⭐⭐</td><td style="padding:8px;text-align:center">Medio</td><td style="padding:8px;text-align:center">~12€</td><td style="padding:8px">Zapas Adidas, uso diario</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px"><strong>UA Playmaker Mid</strong></td><td style="padding:8px;text-align:center">⭐⭐</td><td style="padding:8px;text-align:center">Alto</td><td style="padding:8px;text-align:center">~12€</td><td style="padding:8px">High-tops, esguinces recurrentes</td></tr>
     <tr><td style="padding:8px"><strong>Stance NBA Perf.</strong></td><td style="padding:8px;text-align:center">⭐⭐</td><td style="padding:8px;text-align:center">Medio</td><td style="padding:8px;text-align:center">~16€</td><td style="padding:8px">Cualquier zapa, máximo confort</td></tr>
   </tbody>
 </table>
@@ -3123,8 +3123,8 @@ export const ARTICLES: Article[] = [
 <p><strong>Precio:</strong> ~40€ · <a href="https://www.amazon.es/s?k=currex+supportst+plantillas+deporte&tag=canchazapa-21" target="_blank" rel="noopener noreferrer sponsored">Ver en Amazon →</a></p>
 
 <h2>Cómo elegir la tuya</h2>
-<div style="background:#18181b;border:1px solid #3f3f46;border-radius:4px;padding:20px 24px;margin:24px 0">
-  <ul style="margin:0;padding:0 0 0 16px;color:#a1a1aa;font-size:14px;line-height:2">
+<div style="background:var(--cz-card2);border:1px solid var(--cz-fg6);border-radius:4px;padding:20px 24px;margin:24px 0">
+  <ul style="margin:0;padding:0 0 0 16px;color:var(--cz-fg3);font-size:14px;line-height:2">
     <li><strong style="color:#e4e4e7">Pie plano o pronación</strong> → Superfeet Green</li>
     <li><strong style="color:#e4e4e7">Zapatilla retro o barata</strong> → Sof Sole Athlete</li>
     <li><strong style="color:#e4e4e7">Historial de lesiones tobillo/rodilla</strong> → Bauerfeind Sports</li>
@@ -3172,9 +3172,9 @@ export const ARTICLES: Article[] = [
 <p>La segunda iteración, la <strong>KB8 II</strong> — comercializada hoy como <strong>Crazy 8</strong> en los retros — es la más icónica de la era. Diseño más limpio, peso reducido, mismo herringbone agresivo, y una paleta de colores que aprovechaba el morado y dorado de los Lakers.</p>
 <p>La Crazy 8 tuvo un momento cultural importante: Kobe Bryant la llevaba cuando ganó el Slam Dunk Contest en el All-Star de 1997 con 18 años, la noche que muchos ven como el primer gran anuncio al mundo de lo que vendría.</p>
 
-<div style="background:#18181b;border:1px solid #3f3f46;border-radius:4px;padding:20px 24px;margin:24px 0">
-  <p style="margin:0 0 12px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.12em;color:#f97316">Ficha técnica — Adidas Crazy 8 (KB8 II)</p>
-  <ul style="margin:0;padding:0 0 0 16px;color:#a1a1aa;font-size:14px;line-height:1.8">
+<div style="background:var(--cz-card2);border:1px solid var(--cz-fg6);border-radius:4px;padding:20px 24px;margin:24px 0">
+  <p style="margin:0 0 12px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.12em;color: var(--cz-accent-text)">Ficha técnica — Adidas Crazy 8 (KB8 II)</p>
+  <ul style="margin:0;padding:0 0 0 16px;color:var(--cz-fg3);font-size:14px;line-height:1.8">
     <li><strong style="color:#e4e4e7">Tecnología:</strong> Adiprene cushion · Herringbone outsole</li>
     <li><strong style="color:#e4e4e7">Altura:</strong> Mid-top</li>
     <li><strong style="color:#e4e4e7">Lanzamiento original:</strong> 1998</li>
@@ -3237,9 +3237,9 @@ export const ARTICLES: Article[] = [
 </ul>
 <p>El resultado: la zapatilla más vendida de la NBA en la temporada 1994-95. Por encima del Air Jordan. El dato se menciona poco en la historia oficial del calzado deportivo, pero es verificable.</p>
 
-<div style="background:#18181b;border:1px solid #3f3f46;border-radius:4px;padding:20px 24px;margin:24px 0">
-  <p style="margin:0 0 12px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.12em;color:#f97316">Ficha técnica — FILA Grant Hill 1 (1995)</p>
-  <ul style="margin:0;padding:0 0 0 16px;color:#a1a1aa;font-size:14px;line-height:1.8">
+<div style="background:var(--cz-card2);border:1px solid var(--cz-fg6);border-radius:4px;padding:20px 24px;margin:24px 0">
+  <p style="margin:0 0 12px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.12em;color: var(--cz-accent-text)">Ficha técnica — FILA Grant Hill 1 (1995)</p>
+  <ul style="margin:0;padding:0 0 0 16px;color:var(--cz-fg3);font-size:14px;line-height:1.8">
     <li><strong style="color:#e4e4e7">Tecnología:</strong> FILA foam · Cuero premium · Herringbone</li>
     <li><strong style="color:#e4e4e7">Altura:</strong> High-top</li>
     <li><strong style="color:#e4e4e7">Lanzamiento:</strong> 1995</li>
@@ -3292,9 +3292,9 @@ export const ARTICLES: Article[] = [
 <p>La Nike Shox fue un concepto radical cuando apareció en 2000. En lugar de espuma convencional, el sistema Shox usaba <strong>columnas de elastómero</strong> en el talón — cilindros de goma sintética que comprimían bajo el impacto y rebotaban. La idea era crear un efecto de resorte mecánico que la espuma sola no podía replicar.</p>
 <p>El resultado en la práctica era una sensación de aterrizaje completamente diferente a cualquier zapatilla anterior. Muy firme al principio, luego un rebote marcado. Polarizante: o te encantaba o te incomodaba. Carter claramente la necesitaba para el tipo de aterrizajes que ejecutaba.</p>
 
-<div style="background:#18181b;border:1px solid #3f3f46;border-radius:4px;padding:20px 24px;margin:24px 0">
-  <p style="margin:0 0 12px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.12em;color:#f97316">Ficha técnica — Nike Shox BB4 (2000)</p>
-  <ul style="margin:0;padding:0 0 0 16px;color:#a1a1aa;font-size:14px;line-height:1.8">
+<div style="background:var(--cz-card2);border:1px solid var(--cz-fg6);border-radius:4px;padding:20px 24px;margin:24px 0">
+  <p style="margin:0 0 12px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.12em;color: var(--cz-accent-text)">Ficha técnica — Nike Shox BB4 (2000)</p>
+  <ul style="margin:0;padding:0 0 0 16px;color:var(--cz-fg3);font-size:14px;line-height:1.8">
     <li><strong style="color:#e4e4e7">Tecnología:</strong> Nike Shox (columnas elastómero) · Herringbone outsole</li>
     <li><strong style="color:#e4e4e7">Altura:</strong> Mid-top</li>
     <li><strong style="color:#e4e4e7">Lanzamiento:</strong> 2000</li>
@@ -3340,19 +3340,19 @@ export const ARTICLES: Article[] = [
 <h2>Los tres tipos de altura</h2>
 <p>En baloncesto existen tres alturas principales. Cada una tiene un uso diferente y ninguna es universalmente mejor — depende de tu zapatilla y tu estilo:</p>
 
-<div style="background:#18181b;border:1px solid #3f3f46;border-radius:4px;padding:20px 24px;margin:24px 0">
+<div style="background:var(--cz-card2);border:1px solid var(--cz-fg6);border-radius:4px;padding:20px 24px;margin:24px 0">
   <div style="display:grid;gap:16px">
     <div>
-      <p style="margin:0 0 4px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;color:#f97316">CORTO — Ankle / No-Show</p>
-      <p style="margin:0;color:#a1a1aa;font-size:14px;line-height:1.7">Termina al nivel o por debajo del tobillo. Máximo court feel — sientes cada movimiento del pie dentro de la zapatilla. El preferido de los bases explosivos que usan low-tops. <strong style="color:#e4e4e7">Ejemplo:</strong> Nike Elite No-Show (~12€).</p>
+      <p style="margin:0 0 4px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;color: var(--cz-accent-text)">CORTO — Ankle / No-Show</p>
+      <p style="margin:0;color:var(--cz-fg3);font-size:14px;line-height:1.7">Termina al nivel o por debajo del tobillo. Máximo court feel — sientes cada movimiento del pie dentro de la zapatilla. El preferido de los bases explosivos que usan low-tops. <strong style="color:#e4e4e7">Ejemplo:</strong> Nike Elite No-Show (~12€).</p>
     </div>
     <div>
-      <p style="margin:0 0 4px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;color:#f97316">MEDIO — Crew / Mid-Calf</p>
-      <p style="margin:0;color:#a1a1aa;font-size:14px;line-height:1.7">Llega a la mitad de la pantorrilla. El más popular en pista — equilibrio entre soporte, comodidad y protección ante abrasión. Funciona con mid-top y high-top. <strong style="color:#e4e4e7">Ejemplo:</strong> UA Playmaker Mid Crew (~12€).</p>
+      <p style="margin:0 0 4px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;color: var(--cz-accent-text)">MEDIO — Crew / Mid-Calf</p>
+      <p style="margin:0;color:var(--cz-fg3);font-size:14px;line-height:1.7">Llega a la mitad de la pantorrilla. El más popular en pista — equilibrio entre soporte, comodidad y protección ante abrasión. Funciona con mid-top y high-top. <strong style="color:#e4e4e7">Ejemplo:</strong> UA Playmaker Mid Crew (~12€).</p>
     </div>
     <div>
-      <p style="margin:0 0 4px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;color:#f97316">LARGO — Over-the-Calf / Knee</p>
-      <p style="margin:0;color:#a1a1aa;font-size:14px;line-height:1.7">Llega hasta debajo de la rodilla. Look NBA clásico de los 80-90. Añade compresión en pantorrilla — beneficioso para jugadores con historial de esguinces o que prefieren el soporte adicional. <strong style="color:#e4e4e7">Ejemplo:</strong> Stance NBA Over-the-Calf (~16€).</p>
+      <p style="margin:0 0 4px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.1em;color: var(--cz-accent-text)">LARGO — Over-the-Calf / Knee</p>
+      <p style="margin:0;color:var(--cz-fg3);font-size:14px;line-height:1.7">Llega hasta debajo de la rodilla. Look NBA clásico de los 80-90. Añade compresión en pantorrilla — beneficioso para jugadores con historial de esguinces o que prefieren el soporte adicional. <strong style="color:#e4e4e7">Ejemplo:</strong> Stance NBA Over-the-Calf (~16€).</p>
     </div>
   </div>
 </div>
