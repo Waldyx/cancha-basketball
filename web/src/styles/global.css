@@ -94,24 +94,24 @@
   --cz-text: #0c0c0c;
   --cz-text-soft: #292524;
   --cz-text-2: #44403c;
-  --cz-text-muted: #57534e;
+  --cz-text-muted: #4b4743;
   /* El extremo tenue de la rampa se comprime respecto al handoff (#79716b y
      #6d675f): sobre cemento daban 3.2-3.8:1 y el texto pequeño necesita 4.5:1.
      #5f5952 pasa contra los tres fondos claros (card2 6.02 · card 5.51 · bg
      4.64). En un tema claro los grises apagados tienen suelo de contraste. */
-  --cz-text-dim: #5f5952;
+  --cz-text-dim: #4b4743;
   --cz-fg1: #0c0c0c;
   --cz-fg2: #292524;
   --cz-fg3: #44403c;
   --cz-fg4: #57534e;
-  --cz-fg5: #5f5952;
-  --cz-fg6: #5f5952;
+  --cz-fg5: #4b4743;
+  --cz-fg6: #4b4743;
   --cz-watermark: rgba(0, 0, 0, 0.07);
   --cz-chip: rgba(231, 229, 228, 0.88);
   --cz-badge: rgba(231, 229, 228, 0.85);
   --cz-header: rgba(214, 211, 209, 0.85);
   --cz-cat-balanced: #57534e;
-  --cz-green: #15803d;
+  --cz-green: #0e5428;
   --cz-green-bg: rgba(21, 128, 61, 0.14);
   --cz-court-filter: invert(1) opacity(0.55);
   --cz-court-veil: rgba(214, 211, 209, 0.45);
@@ -123,15 +123,15 @@
   --cz-elev-rgb: 184, 181, 176;
   --cz-wm-rgb: 0, 0, 0;
   --cz-accent: #f97316;
-  --cz-accent-text: #9a3412;
+  --cz-accent-text: #812c0f;
   --cz-medal-oro: #a16207;
   --cz-medal-plata: #6b7280;
   --cz-medal-bronce: #92400e;
-  --cz-amber-text: #854d0e;
+  --cz-amber-text: #6a3e0b;
   --cz-cat-cushion: #0369a1;
   --cz-cat-reactiva: #854d0e;
   --cz-cat-traccion: #9a3412;
-  --cz-red-text: #b91c1c;
+  --cz-red-text: #901616;
   color-scheme: light;
 }
 
