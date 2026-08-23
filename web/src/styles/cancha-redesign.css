@@ -2190,7 +2190,7 @@ button { font-family: inherit; cursor: pointer; }
      una superficie que ahora es mas clara por la transparencia. */
   --cz-accent-text: #fb923c;
   background: rgba(var(--cz-card-rgb),0.45); border: 1px solid rgba(var(--cz-border-rgb),0.7);
-  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
   padding: 18px; position: relative;
   display: flex; flex-direction: column; gap: 16px;
 }
