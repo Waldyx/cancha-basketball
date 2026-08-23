@@ -2184,8 +2184,13 @@ button { font-family: inherit; cursor: pointer; }
   /* Panel en vidrio (lo pide el handoff): translucido + blur, para que se vea
      el video detras sin perder legibilidad. El blur es lo que salva el texto:
      sin el, la textura del video se cuela entre las letras. */
-  background: rgba(var(--cz-card-rgb),0.68); border: 1px solid rgba(var(--cz-border-rgb),0.7);
-  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  /* Mas transparente todavia. Para que el naranja de los precios no caiga por
+     debajo de 4,5:1 sobre el video, dentro del panel se usa el naranja claro
+     de la paleta (#fb923c, el de hover): al aclararlo, gana contraste contra
+     una superficie que ahora es mas clara por la transparencia. */
+  --cz-accent-text: #fb923c;
+  background: rgba(var(--cz-card-rgb),0.55); border: 1px solid rgba(var(--cz-border-rgb),0.7);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
   padding: 18px; position: relative;
   display: flex; flex-direction: column; gap: 16px;
 }
