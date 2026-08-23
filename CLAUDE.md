@@ -1,7 +1,65 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-08-23 (sesión 37)
+> Última actualización: 2026-08-23 (sesión 37, 3ª parte)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
+
+---
+
+## Estado actual (sesión 37, 3ª parte) — Hero de la home + contraste del tema claro
+
+9 commits, de `f296342` a `4c026de`. Build 336 págs, `astro check` 0 errores, 236 tests.
+
+### Lo hecho
+**1. El vídeo del hero, de recuadro a banda de fondo.** Era una columna de 460px con máscaras
+que se comían el 24% por cada lado: se veía una manchita en una caja negra. Ahora es una banda
+a toda altura de `min(1000px, 62vw)` centrada, con los lados desvaneciéndose en el fondo.
+- ⚠ **El vídeo es VERTICAL (540×960) y el hero muy apaisado.** A sangre completa `object-fit:
+  cover` solo deja ver el **24%** de la imagen. La tabla del compromiso (ancho → % visible):
+  600px 76% · 750px 61% · 900px 50% · **1000px 45%** · 1300px 35% · completo 24%.
+- El scrim (`.home-hero-bg::after`) necesita `z-index: 1` para quedar por encima del vídeo.
+
+**2. El panel del radar, translúcido (0.85 → 0.30) y sin blur.**
+- ⚠ **Sin `backdrop-filter`.** Se probó con blur y es contraproducente: por muy translúcido que
+  sea el panel, detrás solo se ve una mancha difuminada. Si se vuelve a tocar, el blur NO es la
+  solución para la legibilidad.
+- Al bajar a 0.30 hubo que subir dos textos que caían: `.stat .k` (2,69) y `.home-cta-foot`
+  (3,29), los dos de `--cz-text-muted` a `--cz-text-soft`.
+
+**3. El hero en tema claro: escenario acotado + degradado.** Sigue siendo oscuro (decisión s37,
+correcta), pero el negro ya no llega a los bordes: `.home-hero-bg` se centra a `min(100%, 1560px)`
+sobre fondo cemento, con fundido lateral del 9%.
+- ⚠ **El fundido solo a partir de 1600px** (`@media`). Por debajo el escenario ocupa todo el
+  viewport y el degradado caería bajo el H1: medido a 1280, el título empieza en x=24 y la zona
+  opaca en x=115 → texto blanco sobre fondo aclarado.
+- Nuevo token `--cz-page-bg` en la raíz del tema claro: copia del fondo de página que el hero NO
+  sobreescribe, para que el margen siga la paleta.
+
+**4. Contraste del tema claro (viene de la 2ª parte, seguía roto en 4 sitios)**
+- **ChatWidget invisible: 1,03:1.** Tenía su propia familia `--chat-*` fuera del tema claro: las
+  superficies aliaseaban `--cz-*` pero el texto estaba hardcodeado en `#ececee`. Afectaba a las
+  336 páginas (vive en `Base.astro`).
+- `estadisticas.astro`: 4 usos de `#f87171` como texto (2,2:1).
+- **`calculadora.astro` tenía DUPLICADA la lógica de `CosteBlock.astro`** con los mismos dos
+  fallos. Si se toca uno, mirar el otro.
+- 12 usos de `#4ade80`/`#22c55e`/`#ef4444` como texto → tokens con versión por tema.
+- **Los tokens claros fallaban sobre el footer y las bandas**: se calibraron contra `--cz-bg`
+  (#d6d3d1) pero no contra `--cz-footer` (#bab7b2). Ajustados 8 tokens para pasar 4,5:1 contra la
+  superficie MÁS oscura.
+
+### 📌 Aprendizajes (sesión 37, 3ª parte)
+- **Si el fondo es un vídeo o una imagen, MÍDELO, no supongas el peor caso.** Calculé el límite de
+  transparencia del panel contra un fondo hipotético de luminancia 100-180 y me quedé en 0.65.
+  Muestreando fotogramas a un canvas, el vídeo real da **mediana 86**: el panel podía bajar a 0.30,
+  tres veces más transparente. Dos rondas perdidas por ser conservador con un número inventado.
+- **Cambiar el tamaño de un contenedor cambia en silencio a los hijos que dependen de él en %.**
+  Al acotar el escenario a 1560px, el vídeo (`min(1000px, 62%)`) pasó a 967px solo en tema claro.
+  Se arregló con `62vw`: desacoplar es mejor que corregir el valor.
+- **Un componente puede traer su propia familia de tokens dentro** (`--chat-*`). Al barrer restos
+  para un tema nuevo no basta con rejillar por `--cz-`; buscar `--[a-z]+-`.
+- **Un mismo color con dos usos necesita dos variables** — otra vez: `gColor` pintaba el % de
+  desgaste (texto, necesita contraste) y la barra (relleno, invariante).
+- **Aplicar el umbral WCAG correcto**: 4,5:1 texto normal pero **3:1 texto grande** (≥24px, o
+  ≥18,66px en negrita). Sin eso salen falsos positivos en cada titular.
 
 ---
 
