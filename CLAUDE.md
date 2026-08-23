@@ -5,7 +5,102 @@
 
 ---
 
-## Estado actual (sesión 37) — Dos tiendas congeladas por los fixes de la s36: FuikaOmar y adidas
+## Estado actual (sesión 37, 2ª parte) — REDISEÑO: tema claro "cemento" + header/footer globales
+
+Commits `9e8b6c8` y `54fceec`, en producción. Build 336 págs, `astro check` 0 errores, 236 tests.
+
+### De dónde sale
+El usuario trajo un **handoff de rediseño** en `C:\Users\oswal\Downloads\Rediseño premium de
+CANCHA.ZAPA\design_handoff_cancha_redesign\` (README + 5 prototipos `.dc.html` + assets).
+Cubre 5 pantallas (home, catálogo, quiz, ficha, rankings) en alta fidelidad, con tokens exactos.
+**Se han hecho SOLO las fases 0 y 1** — la piel del sitio entero — porque lo que el usuario quería
+era "mejorar el diseño y poner el modo claro", y eso vive en los tokens + header + footer, no en
+las pantallas. **Las 5 pantallas rediseñadas siguen SIN implementar** (ver "siguiente paso").
+
+### Lo hecho
+**1. Header y Footer, a componentes** (`components/Header.astro`, `components/Footer.astro`)
+El header estaba **copiado en 20 páginas** y cada una marcaba su enlace activo a mano. Ahora lo
+pone `Base.astro` y el activo sale de `Astro.url.pathname`. Del handoff: sticky con blur, barra de
+progreso de scroll, **menú hamburguesa ≤860px** y el **toggle de tema**. El footer ya era global.
+
+**2. Los dos temas, por tokens** (`styles/global.css`)
+- Rampa oscura nueva (fondo `#0c0c0c`, ya no el `#2a2a2e` de la s17) y rampa clara "cemento".
+- **Canales sueltos `--cz-*-rgb`** para los ~300 `rgba()` translúcidos del design system: así cada
+  alpha individual se conserva exacta y el tema claro los voltea todos de una vez, sin inventar un
+  token por nivel de opacidad.
+- **410 colores hardcodeados → token** en 20 archivos, con script de un solo uso.
+- El tema se aplica **en `<head>` antes de pintar** (script inline que lee `localStorage`
+  `cz-tema`); si se aplicara después habría flash de oscuro en cada navegación.
+- Verificado: el sitio **no usa ni una utilidad de color de Tailwind** (`text-white`, `bg-zinc-*`…),
+  todo va por el design system propio. Eso quitó de golpe una categoría entera de riesgo.
+
+**3. Correcciones que el handoff NO traía** (medidas con WCAG en el navegador)
+El handoff dice "naranja, amarillo y chips de score no cambian entre temas". **Es cierto para
+RELLENOS y falso para TEXTO**: el naranja `#f97316` sobre cemento da **1,88:1** (WCAG pide 4,5:1).
+- `--cz-accent-text` se oscurece a `#9a3412` solo en claro; el naranja de fondos no cambia.
+- Igual con amarillo (`--cz-amber-text`), verde, rojo (`--cz-red-text`), oro/plata/bronce del podio
+  y los colores de categoría (el cian y el amarillo bajaban de 2:1).
+- La **rampa tenue del handoff** (`#79716b`/`#6d675f`) daba 3,2-3,8:1 → `#5f5952`, que pasa contra
+  los tres fondos claros. **En un tema claro los grises apagados tienen suelo de contraste**: fg5 y
+  fg6 acaban colapsando, y es correcto.
+- `--cz-ink` para la tinta sobre color de marca. Antes se usaba `var(--cz-bg)`, que funcionaba
+  **por casualidad** (el fondo era oscuro); en claro daba cemento sobre naranja.
+
+**4. `bg-court.svg` lleva su propio degradado oscuro** (`#1a1a1d`→`#09090b`)
+Como `background-image` de las fotos dejaba un **cuadro negro sobre cemento** en 4 sitios (ficha,
+pick del editor, comparador, cards magazine). Pasa a **pseudo-elemento** con
+`filter: var(--cz-court-filter)`: así se invierte sin arrastrar la foto del producto (un `filter`
+en el contenedor afectaría también al `<img>`). Además se sustituyó por el del handoff (arco de
+triples 435→609). Caché del SW a **v4**.
+
+**5. El hero de la home se queda OSCURO en los dos temas**
+Lo pide el handoff ("es cinematográfico") y se confirmó al verlo: el vídeo tiene los cuatro bordes
+difuminados a transparente para fundirse con el fondo, y sobre cemento se lava. Resuelto
+**redeclarando los tokens en `:root[data-cz-theme="claro"] .home-hero`** — todo lo de dentro
+hereda la rampa oscura solo, sin tocar ni una regla hija.
+
+### ▶️ SIGUIENTE PASO del rediseño (si se retoma)
+Las 5 pantallas del handoff, **una a una y en este orden**: home → catálogo + ficha → rankings +
+quiz. Antes de tocarlas, releer los avisos de abajo. No hay prisa: el objetivo del usuario ya está
+cumplido con lo hecho.
+
+### ⚠ AVISOS para cuando se implementen las pantallas
+- **Los datos del prototipo (`zapas-data.js`) NO son fiables**: dice "datos reales" y tiene precios
+  falsos (Harden Vol 9 a 29 €, AE 1 a 27 €, Jet 23 a 16 €). Y literales peligrosos: "234
+  zapatillas", "Precios re-verificados 23 AGO", "100%". **Todo número debe salir del catálogo**;
+  el sello de fecha ya costó la s31 (`fechaVerificacionMasReciente`, la marca es "sin BS").
+- **El diseño pinta precio en TODAS las tarjetas y filas.** Choca con la regla "Ver precio" de la
+  s28 (`mostramosPrecio`): solo se muestra precio de tiendas afiliadas/pendientes.
+- El **quiz del prototipo trae su propia fórmula de matching** (score×6 + bonus). Es lógica, no
+  diseño: se recrea la UI y se conserva la lógica real.
+- El **banner de promo del prototipo es uno fijo**; el sitio tiene `promos.ts` date-gated con
+  carrusel. Adaptar el diseño al sistema, no al revés.
+
+### 📌 Aprendizajes (sesión 37, 2ª parte)
+- **El dev server y el service worker MIENTEN al verificar CSS.** Perdí un buen rato depurando un
+  "bug" que no existía: el SW cachea assets cache-first y sirve el CSS viejo, y el dev server
+  resuelve mal los estilos con scope de Astro. **Verificar siempre contra `astro preview` del build
+  y desregistrar el SW** (`cz-cache-v*`) — y ojo: el SW se registra **por origen**, así que limpiar
+  el de :4321 no limpia el de :4322.
+- **`getComputedStyle` a través del puente del navegador puede devolver valores obsoletos.** Llegó a
+  decir que 211 títulos eran blancos cuando la captura los mostraba negros — y ni un `!important`
+  ni un `style` inline cambiaban el valor leído. **Ante la duda, la captura manda sobre el DOM.**
+- **Un token que funciona "por casualidad" se rompe al añadir un tema.** `color: var(--cz-bg)`
+  servía de tinta oscura porque el fondo era oscuro. Al hacer el fondo claro, se invirtió el
+  significado. Los tokens deben nombrar el PAPEL (`--cz-ink`), no el valor.
+- **Un color de marca tiene dos usos con reglas opuestas**: como relleno es el mismo en los dos
+  temas; como texto necesita versión propia. Si una variable sirve para las dos cosas (la barra de
+  atributos y su número), hay que partirla.
+- **Un asset puede traer su propio tema dentro.** El SVG de cancha lleva un degradado oscuro
+  incrustado: ningún token lo arregla, hay que invertirlo con `filter` — y para eso tiene que estar
+  en un elemento que no arrastre a sus hermanos.
+- **Antes de estimar el coste de un tema claro, contar los colores hardcodeados.** 488 al empezar;
+  saber que 47 eran legítimos (definiciones + generador de OG) y que no había utilidades Tailwind
+  convirtió un "quizá semanas" en una tarde.
+
+---
+
+## Estado anterior (sesión 37, 1ª parte) — Dos tiendas congeladas por los fixes de la s36: FuikaOmar y adidas
 
 Todo en `master` (commit `8e75a1b`). **Tests: 230 → 236.** Los DOS fixes de esta sesión son
 regresiones/efectos laterales destapados al auditar la semana de pasadas que pedía la s36.
