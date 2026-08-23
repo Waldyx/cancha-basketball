@@ -113,6 +113,9 @@ const homeJsonLd = {
     <section class="home-hero">
       <div class="home-hero-bg" aria-hidden="true">
         <img src="/bg-court.svg" alt="" />
+        <video src="/hero-cancha.mp4" poster="/hero-cancha-poster.jpg"
+               autoplay muted loop playsinline preload="metadata"
+               onerror="this.remove()"></video>
       </div>
       <div class="shell home-hero-inner">
         <div class="home-hero-grid">
@@ -134,12 +137,6 @@ const homeJsonLd = {
               <a href="/comparar" class="home-btn ghost">Comparar</a>
             </div>
             <p class="home-cta-foot">Gratis · sin registro · 100% honestos</p>
-          </div>
-
-          <div class="home-hero-media" aria-hidden="true">
-            <video src="/hero-cancha.mp4" poster="/hero-cancha-poster.jpg"
-                   autoplay muted loop playsinline preload="metadata"
-                   onerror="this.closest('.home-hero-media').style.display='none'"></video>
           </div>
 
           <aside class="home-hero-panel">
