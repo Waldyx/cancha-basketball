@@ -5,6 +5,7 @@ import {
   consultaAdidas,
   normalizeAdidasTitle,
   esCalzadoAdidas,
+  precioDeFichaHtml,
 } from "./adidas_es";
 import { matchesShoe } from "../matcher";
 
@@ -114,5 +115,34 @@ describe("adidas.es — segmento junior", () => {
     const adulto = `Adidas ${normalizeAdidasTitle("Zapatilla ANTHONY EDWARDS 2")}`;
     expect(matchesShoe(adulto, "Adidas", "AE 2 GS")).toBe(false);
     expect(matchesShoe(adulto, "Adidas", "AE 2")).toBe(true);
+  });
+});
+
+// La búsqueda con UN solo resultado redirige DIRECTO a la ficha (Forum 84,
+// Pro Model, AE 1 GS) y ahí no hay listado. El precio del buy box vive en el
+// estado embebido `pricing_information`; los [data-testid="main-price"] de la
+// ficha son TODOS del carrusel de recomendados (53 en la página de Forum 84).
+// Fragmentos capturados de la ficha real FY7998 el 2026-08-23.
+describe("adidas.es — precio de ficha (redirect de búsqueda)", () => {
+  const HTML_FICHA =
+    '...,"datePublished":"2026-05-31T08:40:19.000+00:00"}],"offers":{"@type":"Offer","priceCurrency":"EUR","price":84,"availability":"InStock","priceSpecification":{"@type":"UnitPriceSpecification"}},...' +
+    '...]},"pricing_information":{"currentPrice":84,"standard_price":120,"standard_price_no_vat":99.17,"sale_price":84,"sale_price_no_vat":69.42,"ecom_prior_price":78},...';
+
+  it("saca el precio rebajado del buy box (84, no el PVP 120)", () => {
+    expect(precioDeFichaHtml(HTML_FICHA)).toEqual({ price: 84, disponible: true });
+  });
+
+  it("respeta el OutOfStock del Offer", () => {
+    const html = HTML_FICHA.replace('"availability":"InStock"', '"availability":"OutOfStock"');
+    expect(precioDeFichaHtml(html)).toEqual({ price: 84, disponible: false });
+  });
+
+  it("sin pricing_information cae al precio del Offer", () => {
+    const html = HTML_FICHA.replace('"pricing_information"', '"otra_cosa"');
+    expect(precioDeFichaHtml(html)).toEqual({ price: 84, disponible: true });
+  });
+
+  it("una página sin precio no inventa nada", () => {
+    expect(precioDeFichaHtml("<html><body>hola</body></html>").price).toBe(null);
   });
 });

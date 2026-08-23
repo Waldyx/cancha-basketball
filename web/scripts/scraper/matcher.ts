@@ -340,7 +340,10 @@ export function today(): string {
 const AFFILIATE_HOSTS: [RegExp, string[]][] = [
   [/(^|\.)awin1\.com$/i, ["ued", "p"]],
   [/(^|\.)tradetracker\.net$/i, ["u", "r"]],
-  [/(^|\.)fuikaomar\.es$/i, ["u"]],
+  // Solo el subdominio del wrapper: la tienda vive en www.fuikaomar.es y un
+  // regex que matchee el dominio entero hace que esRedirectOpaco dé falso
+  // positivo sobre la URL de DESTINO ya desenvuelta (30 enlaces congelados).
+  [/^deals\.fuikaomar\.es$/i, ["u"]],
 ];
 
 /**

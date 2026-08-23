@@ -96,6 +96,26 @@ export function esCalzadoAdidas(title: string, href: string): boolean {
   return !esPrenda(ruta) && !esPrenda(title);
 }
 
+/**
+ * Precio y stock de una FICHA de adidas a partir de su HTML.
+ *
+ * En la ficha NO sirven los `[data-testid="main-price"]`: hay 53 en la página
+ * y TODOS son del carrusel de recomendados (misma trampa que Snipes, s34). El
+ * precio del buy box vive en el estado embebido `pricing_information`
+ * (currentPrice ya con rebaja aplicada) y el stock en el `Offer` del JSON-LD.
+ */
+export function precioDeFichaHtml(html: string): { price: number | null; disponible: boolean } {
+  const m = html.match(/"pricing_information":\{"currentPrice":([\d.]+)/);
+  let price = m ? parseFloat(m[1]) : null;
+  let disponible = true;
+  const av = html.match(/"offers":\{[^{}]*?"price":([\d.]+),"availability":"(\w+)"/);
+  if (av) {
+    if (price === null) price = parseFloat(av[1]);
+    disponible = av[2] === "InStock";
+  }
+  return { price, disponible };
+}
+
 interface TarjetaAdidas {
   title: string;
   priceText: string;
@@ -160,6 +180,33 @@ export const adidas_es: StoreScraper = {
       // intermitentes, que cambiaban de víctima en cada pasada.
       let cards = await leerTarjetas(page);
 
+      // Si la búsqueda tiene UN solo resultado, adidas redirige DIRECTO a la
+      // ficha (les pasa a Forum 84, Pro Model y AE 1 GS): no hay listado que
+      // leer. Se valida el producto por el título de la ficha y el precio sale
+      // del estado embebido (ver precioDeFichaHtml).
+      if (cards.length === 0 && !page.url().includes("/search")) {
+        const title = await page
+          .$eval("h1", (el) => el.textContent?.trim() ?? "")
+          .catch(() => "");
+        const normalized = normalizeAdidasTitle(title);
+        const titleForMatch = /^adidas/i.test(normalized) ? normalized : `Adidas ${normalized}`;
+        if (
+          title &&
+          ES_JUNIOR.test(title) === buscamosGS &&
+          esCalzadoAdidas(title, page.url()) &&
+          matchesShoe(titleForMatch, shoe.marca, shoe.modelo)
+        ) {
+          const { price, disponible } = precioDeFichaHtml(await page.content());
+          if (price && price >= 20 && price <= 500) {
+            return { ...base, url: page.url(), precio_actual: price, disponible };
+          }
+        }
+        console.log(
+          `     adidas_es diag: redirect a ficha "${title.slice(0, 50)}" sin precio o sin match`
+        );
+        return { ...base, disponible: false };
+      }
+
       // A veces el listado no llega a hidratar y devuelve CERO tarjetas para una
       // búsqueda que sí tiene resultados (medido: 1-2 víctimas distintas en cada
       // pasada de 27). Una segunda oportunidad sale mucho más barata que dejar
@@ -210,6 +257,16 @@ export const adidas_es: StoreScraper = {
       if (mejor) {
         return { ...base, url: mejor.url, precio_actual: mejor.precio, disponible: true };
       }
+
+      // Diagnóstico del fallo: "0 tarjetas" (bloqueo/challenge de Akamai) y
+      // "N tarjetas y ninguna empareja" (matcher/catálogo) son fallos opuestos
+      // que hasta ahora salían como el mismo "no encontrado". Desde el 20-ago
+      // los 14 enlaces fallan en CI y funcionan en local: esta línea dice cuál
+      // de los dos es en la pasada nocturna.
+      const pageTitle = await page.title().catch(() => "");
+      console.log(
+        `     adidas_es diag: ${cards.length} tarjetas · título página "${pageTitle.slice(0, 60)}"`
+      );
 
       return { ...base, disponible: false };
     } catch {

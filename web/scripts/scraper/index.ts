@@ -200,11 +200,13 @@ async function main() {
       "--no-first-run",
       "--no-default-browser-check",
     ],
-    // Opciones de contexto que no afectan al fingerprint stealth
+    // Opciones de contexto que no afectan al fingerprint stealth.
+    // ⚠ NO añadir extraHTTPHeaders aquí: el Accept-Language ya sale nativo del
+    // locale de arriba, y sobreescribirlo por CDP desalinea el fingerprint —
+    // Akamai (adidas.es) empezó a responder 403 a ese desajuste el ~19-ago-2026
+    // y los 14 enlaces de adidas se quedaron congelados. Medido por bisección:
+    // con el header 403 · 0 tarjetas; sin él 200 · 28 tarjetas, página en español.
     contextOptions: {
-      extraHTTPHeaders: {
-        "Accept-Language": "es-ES,es;q=0.9,en;q=0.8",
-      },
       // Geolocalización de España para los permisos
       geolocation: { longitude: -3.7037, latitude: 40.4168 }, // Madrid
       permissions: ["geolocation"],

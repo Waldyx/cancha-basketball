@@ -331,6 +331,24 @@ describe("esRedirectOpaco — no navegar lo que cuenta como click", () => {
     expect(esRedirectOpaco("")).toBe(false);
     expect(esRedirectOpaco("no-soy-una-url")).toBe(false);
   });
+
+  // FuikaOmar es la única red cuyo wrapper (deals.fuikaomar.es) vive en el
+  // MISMO dominio que la tienda (www.fuikaomar.es). Un regex que matchee el
+  // dominio entero hace que el destino ya desenvuelto parezca "wrapper mal
+  // formado" y se salte: los 30 enlaces quedaron congelados desde el 18-ago.
+  it("el wrapper de FuikaOmar se desenvuelve y su destino SÍ se navega", () => {
+    const dest = "https://www.fuikaomar.es/zapatillas-nike-kd-18-liquid-lime.html";
+    const wrap =
+      "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=" +
+      encodeURIComponent(dest);
+    expect(unwrapAffiliateUrl(wrap)).toBe(dest);
+    expect(esRedirectOpaco(wrap)).toBe(false);
+    expect(esRedirectOpaco(dest)).toBe(false);
+  });
+
+  it("un wrapper de FuikaOmar SIN destino se salta en vez de navegarse", () => {
+    expect(esRedirectOpaco("https://deals.fuikaomar.es/c?c=37834&m=12&a=511170")).toBe(true);
+  });
 });
 
 // La marca del catálogo es "361°" CON el símbolo de grado, y ninguna tienda lo
