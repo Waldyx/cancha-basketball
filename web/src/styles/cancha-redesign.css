@@ -2105,59 +2105,37 @@ button { font-family: inherit; cursor: pointer; }
   position: absolute; inset: 0; pointer-events: none; z-index: 0;
 }
 .home-hero-bg img {
+  position: absolute; inset: 0;
   width: 100%; height: 100%; object-fit: cover; opacity: 0.35;
   filter: var(--cz-court-filter);
 }
+/* El video es el FONDO del hero (lo pide el handoff: object-fit cover + scrim).
+   Antes era una columna de 460px del grid con mascaras en los 4 lados. */
+.home-hero-bg video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
+  opacity: 0.45;
+  animation: cz-hero-zoom 26s ease-in-out infinite alternate;
+}
+@keyframes cz-hero-zoom { from { transform: scale(1); } to { transform: scale(1.09); } }
+@media (prefers-reduced-motion: reduce) { .home-hero-bg video { animation: none; } }
 .home-hero-bg::after {
-  content: ""; position: absolute; inset: 0;
+  content: ""; position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(180deg, rgba(var(--cz-bg-rgb),0.5), rgba(var(--cz-bg-rgb),0.95));
 }
 .home-hero-inner { position: relative; z-index: 1; }
 .home-hero-grid {
-  display: grid; grid-template-columns: 1fr auto 0.7fr; gap: 20px; align-items: start;
-}
-.home-hero-media { align-self: stretch; display: flex; min-height: 0; }
-.home-hero-media img,
-.home-hero-media video {
-  width: 460px; height: 100%; max-height: 640px; object-fit: cover; object-position: center;
-  display: block;
-  /* Difuminar los 4 lados (máscaras H+V cruzadas) → sin líneas rectas visibles */
-  -webkit-mask-image:
-    linear-gradient(to right, transparent 0%, #000 24%, #000 76%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, #000 14%, #000 80%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image:
-    linear-gradient(to right, transparent 0%, #000 24%, #000 76%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, #000 14%, #000 80%, transparent 100%);
-  mask-composite: intersect;
-  opacity: 0.9;
+  display: grid; grid-template-columns: 1fr 0.7fr; gap: 20px; align-items: start;
 }
 @media (max-width: 1080px) {
-  /* Apilar en una columna y mostrar el vídeo como póster centrado bajo los botones */
+  /* El video ya es el fondo del hero: aqui solo apilamos texto y radar. */
   .home-hero-grid { grid-template-columns: 1fr; gap: 28px; }
-  .home-hero-media { justify-content: center; }
-  .home-hero-media img,
-  .home-hero-media video { width: 240px; height: auto; max-height: 380px; }
 }
 @media (max-width: 880px) {
   .home-hero-grid { gap: 24px; }
-  /* Vídeo a la derecha; texto en columna estrecha vertical a la izquierda */
-  .home-hero-inner { position: relative; }
   .home-hero-left { position: relative; z-index: 2; }
-  .home-hero-left .home-h1 { max-width: 58%; }
-  .home-hero-left .home-lede { max-width: 52%; }
-  .home-hero-left .home-cta-foot { max-width: 52%; }
-  .home-hero-media {
-    position: absolute; top: -55px; right: -4%; left: auto; transform: none;
-    z-index: 0; margin: 0; width: 52%; height: 475px; pointer-events: none;
-    justify-content: center; align-items: stretch;
-  }
-  .home-hero-media img,
-  .home-hero-media video {
-    width: 100%; height: 100%; max-height: none; object-fit: cover; object-position: center top; opacity: 0.62;
-  }
-  /* Botones por debajo del vídeo para que no se solapen */
-  .home-cta-row { margin-top: 130px; }
+  /* Ya no hace falta estrechar el texto ni empujar los botones: el video
+     esta detras de todo, no al lado. */
 }
 .home-h1 {
   font-family: "Barlow Condensed", sans-serif; font-weight: 900;
