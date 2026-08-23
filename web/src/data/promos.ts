@@ -254,6 +254,34 @@ export const PROMOS: Promo[] = [
     descuentoTexto: "7% extra en compras desde 77€",
     nota: "Descuento extra aplicado en la web · solo el 9 y 10 de agosto · compra mínima 77€",
     color: "#facc15",
+  },
+  {
+    id: "elcorteingles-ofertas-limite-deportes-2026-08",
+    tienda: "elcorteingles_es",
+    tiendaLabel: "El Corte Inglés",
+    titulo: "Ofertas Límite en Deportes",
+    desde: "2026-08-20T00:00:00+02:00",
+    hasta: "2026-08-23T23:59:59+02:00",
+    // ⚠ En el email de Awin del 20-ago esta oferta venía titulada "Juguetes".
+    // Solo el tracking link (/limite-48-horas-3/deportes/) y las condiciones
+    // ("artículos deportivos seleccionados") delatan que es de deporte. Leer
+    // SIEMPRE la URL y los términos, no el titular del correo.
+    url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Flimite-48-horas-3%2Fdeportes%2F",
+    descuentoTexto: "hasta 60% en material deportivo",
+    nota: "Descuento aplicado directamente en la web · artículos deportivos seleccionados",
+    color: "#7cb342",
+  },
+  {
+    id: "forumsport-rebajas-ultima-semana-2026-08",
+    tienda: "forumsport_es",
+    tiendaLabel: "Forum Sport",
+    titulo: "Rebajas Última Semana",
+    desde: "2026-08-23T00:00:00+02:00",
+    hasta: "2026-08-24T23:59:59+02:00",
+    url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2F",
+    descuentoTexto: "hasta 60% en selección",
+    nota: "Descuento aplicado directamente en el precio · productos seleccionados · solo domingo 23 y lunes 24",
+    color: "#facc15",
   },
 ];
 
