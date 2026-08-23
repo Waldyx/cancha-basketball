@@ -196,8 +196,21 @@
 :root[data-cz-theme="claro"] .home-hero-bg {
   left: 50%;
   transform: translateX(-50%);
-  width: min(100%, 1280px);
+  /* Mas ancho que el contenido (1280) a proposito: el degradado tiene que caer
+     en el margen sobrante, no bajo el H1. Con 1560 y un fundido del 9% (~140px
+     a 1920) el escenario ya es opaco donde empieza el texto. */
+  width: min(100%, 1560px);
   background: #0c0c0c;
+}
+/* El fundido lateral SOLO cuando hay margen de sobra. Por debajo de 1600px el
+   escenario ya ocupa todo el ancho, no hay borde visible que suavizar, y el
+   degradado caeria justo debajo del H1 dejandolo en blanco sobre claro
+   (medido a 1280: el titulo empieza en x=24 y la zona opaca en x=115). */
+@media (min-width: 1600px) {
+  :root[data-cz-theme="claro"] .home-hero-bg {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 9%, #000 91%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 9%, #000 91%, transparent 100%);
+  }
 }
 :root[data-cz-theme="claro"] .home-hero-inner {
   /* el contenido va sobre el escenario, asi que conserva la tinta clara */
