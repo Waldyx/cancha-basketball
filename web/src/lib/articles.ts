@@ -1631,27 +1631,27 @@ export const ARTICLES: Article[] = [
   <tbody>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px;color:var(--cz-fg3)">Tracción</td>
-      <td style="padding:8px;text-align:center;color:#4ade80">9/10</td>
-      <td style="padding:8px;text-align:center;color:#4ade80">10/10</td>
-      <td style="padding:8px;text-align:center;color:#4ade80">8/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">9/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">10/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">8/10</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px;color:var(--cz-fg3)">Cushion</td>
-      <td style="padding:8px;text-align:center;color:#facc15">7.5/10</td>
-      <td style="padding:8px;text-align:center;color:#facc15">6/10</td>
-      <td style="padding:8px;text-align:center;color:#facc15">8/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">7.5/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">6/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">8/10</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px;color:var(--cz-fg3)">Respuesta</td>
-      <td style="padding:8px;text-align:center;color:#4ade80">9/10</td>
-      <td style="padding:8px;text-align:center;color:#4ade80">9/10</td>
-      <td style="padding:8px;text-align:center;color:#4ade80">8/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">9/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">9/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">8/10</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px;color:var(--cz-fg3)">Soporte lateral</td>
-      <td style="padding:8px;text-align:center;color:#facc15">7.5/10</td>
-      <td style="padding:8px;text-align:center;color:#facc15">7/10</td>
-      <td style="padding:8px;text-align:center;color:#4ade80">8/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">7.5/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">7/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">8/10</td>
     </tr>
     <tr>
       <td style="padding:8px;color:var(--cz-fg3)">Precio</td>
@@ -1820,31 +1820,31 @@ export const ARTICLES: Article[] = [
   <tbody>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px;color:var(--cz-fg3)">Cushion</td>
-      <td style="padding:8px;text-align:center;color:#4ade80">8.5/10</td>
-      <td style="padding:8px;text-align:center;color:#facc15">7.5/10</td>
-      <td style="padding:8px;text-align:center;color:#facc15">8/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">8.5/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">7.5/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">8/10</td>
       <td style="padding:8px;text-align:center;color:#fb923c">6/10</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px;color:var(--cz-fg3)">Soporte lateral</td>
-      <td style="padding:8px;text-align:center;color:#4ade80">9/10</td>
-      <td style="padding:8px;text-align:center;color:#facc15">7.5/10</td>
-      <td style="padding:8px;text-align:center;color:#4ade80">8/10</td>
-      <td style="padding:8px;text-align:center;color:#facc15">7/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">9/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">7.5/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">8/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">7/10</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px;color:var(--cz-fg3)">Tracción</td>
-      <td style="padding:8px;text-align:center;color:#facc15">8/10</td>
-      <td style="padding:8px;text-align:center;color:#4ade80">9/10</td>
-      <td style="padding:8px;text-align:center;color:#facc15">8/10</td>
-      <td style="padding:8px;text-align:center;color:#4ade80">10/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">8/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">9/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">8/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">10/10</td>
     </tr>
     <tr>
       <td style="padding:8px;color:var(--cz-fg3)">Peso</td>
       <td style="padding:8px;text-align:center;color:#fb923c">390g</td>
-      <td style="padding:8px;text-align:center;color:#4ade80">350g</td>
-      <td style="padding:8px;text-align:center;color:#4ade80">330g</td>
-      <td style="padding:8px;text-align:center;color:#4ade80">305g</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">350g</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">330g</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">305g</td>
     </tr>
   </tbody>
 </table>

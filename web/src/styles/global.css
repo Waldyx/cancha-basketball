@@ -72,6 +72,7 @@
   --cz-cat-cushion: #38bdf8;
   --cz-cat-reactiva: #facc15;
   --cz-cat-traccion: #fb923c;
+  --cz-red-text: #ef4444;
   color-scheme: dark;
 }
 
@@ -130,6 +131,7 @@
   --cz-cat-cushion: #0369a1;
   --cz-cat-reactiva: #854d0e;
   --cz-cat-traccion: #9a3412;
+  --cz-red-text: #b91c1c;
   color-scheme: light;
 }
 

@@ -167,9 +167,9 @@ function verifiedAgo(fecha: string | undefined): { label: string; color: string;
   if (!fecha) return { label: "Sin verificar", color: "var(--cz-fg5)", fresh: false };
   const d = new Date(fecha);
   const days = Math.floor((Date.now() - d.getTime()) / 86400000);
-  if (days <= 1) return { label: "Verificado hoy", color: "#4ade80", fresh: true };
-  if (days <= 3) return { label: `Verificado hace ${days}d`, color: "#4ade80", fresh: true };
-  if (days <= 7) return { label: `Verificado hace ${days}d`, color: "var(--cz-cat-reactiva)", fresh: true };
+  if (days <= 1) return { label: "Verificado hoy", color: "var(--cz-green)", fresh: true };
+  if (days <= 3) return { label: `Verificado hace ${days}d`, color: "var(--cz-green)", fresh: true };
+  if (days <= 7) return { label: `Verificado hace ${days}d`, color: "var(--cz-amber-text)", fresh: true };
   if (days <= 30) return { label: `Verificado hace ${days}d`, color: "var(--cz-cat-traccion)", fresh: false };
   return { label: "Precio editorial", color: "var(--cz-fg5)", fresh: false };
 }
@@ -493,12 +493,16 @@ const productJsonLd = {
         <div class="score-grid">
           {Object.entries(z.puntuaciones).map(([k, v]) => {
             const pct = (v / 10) * 100;
+            // El RELLENO de la barra y el NÚMERO no pueden compartir color: el
+            // naranja/amarillo de relleno se lee bien como banda, pero como
+            // texto sobre cemento baja de 2:1 (ver --cz-accent-text).
             const col = v >= 8 ? "#f97316" : v >= 6 ? "var(--cz-cat-reactiva)" : "var(--cz-fg4)";
+            const colTexto = v >= 8 ? "var(--cz-accent-text)" : v >= 6 ? "var(--cz-amber-text)" : "var(--cz-fg4)";
             return (
               <div class="score-bar-row">
                 <div class="sbr-head">
                   <span class="sbr-lab">{ATR_LABELS[k] || k}</span>
-                  <span class="sbr-val" style={`color:${col}`}>{v}<small>/10</small></span>
+                  <span class="sbr-val" style={`color:${colTexto}`}>{v}<small>/10</small></span>
                 </div>
                 <div class="sbr-track">
                   <div class="sbr-fill" style={`width:${pct}%;background:${col}`}></div>
@@ -515,13 +519,13 @@ const productJsonLd = {
       <div class="shell">
         <div class="vd-grid">
           <div>
-            <p class="cz-eyebrow" style="color:#4ade80">✓ Lo que sí</p>
+            <p class="cz-eyebrow" style="color:var(--cz-green)">✓ Lo que sí</p>
             <ul class="vd-list pros">
               {z.pros.map(p => <li><span class="bull">+</span>{p}</li>)}
             </ul>
           </div>
           <div>
-            <p class="cz-eyebrow" style="color:#ef4444">✗ Lo que no</p>
+            <p class="cz-eyebrow" style="color:var(--cz-red-text)">✗ Lo que no</p>
             <ul class="vd-list contras">
               {z.contras.map(c => <li><span class="bull">−</span>{c}</li>)}
             </ul>
@@ -649,7 +653,7 @@ const productJsonLd = {
                     <div style="text-align:right">
                       {mostramosPrecio(link)
                         ? <>
-                            <p style={`font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:24px;margin:0;line-height:1;color:${idx === 0 ? "#f97316" : "var(--cz-text)"}`}>
+                            <p style={`font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:24px;margin:0;line-height:1;color:${idx === 0 ? "var(--cz-accent-text)" : "var(--cz-text)"}`}>
                               {link.precio_actual}€
                             </p>
                             {diffPct > 0 && <p style="font-size:10px;color:#4ade80;font-weight:900;letter-spacing:.06em;margin:2px 0 0">-{diffPct}% vs MSRP</p>}

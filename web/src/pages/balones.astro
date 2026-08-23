@@ -87,7 +87,9 @@ const jsonLd = {
     <section class="shell bl-grid">
       {ordenados.map((b) => {
         const score = scoreBalon(b);
-        const accent = b.terreno === "indoor" ? "#c08457" : b.terreno === "outdoor" ? "#f97316" : "#facc15";
+        // El badge usa el color como TEXTO y borde: el amarillo puro sobre
+        // cemento no contrasta, así que va por token (ver --cz-amber-text).
+        const accent = b.terreno === "indoor" ? "#c08457" : b.terreno === "outdoor" ? "var(--cz-accent-text)" : "var(--cz-amber-text)";
         return (
           <article class="bl-card" data-terreno={b.terreno}>
             <div class="bl-card-top">
