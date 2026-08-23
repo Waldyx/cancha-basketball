@@ -656,7 +656,7 @@ const productJsonLd = {
                             <p style={`font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:24px;margin:0;line-height:1;color:${idx === 0 ? "var(--cz-accent-text)" : "var(--cz-text)"}`}>
                               {link.precio_actual}€
                             </p>
-                            {diffPct > 0 && <p style="font-size:10px;color:#4ade80;font-weight:900;letter-spacing:.06em;margin:2px 0 0">-{diffPct}% vs MSRP</p>}
+                            {diffPct > 0 && <p style="font-size:10px;color:var(--cz-green);font-weight:900;letter-spacing:.06em;margin:2px 0 0">-{diffPct}% vs MSRP</p>}
                           </>
                         : <p style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:16px;margin:0;line-height:1;color:var(--cz-fg3)">Ver precio</p>
                       }
