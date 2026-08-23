@@ -2116,14 +2116,14 @@ button { font-family: inherit; cursor: pointer; }
   position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%);
   width: min(1000px, 62%); height: 100%;
   object-fit: cover; object-position: center;
-  opacity: 0.85;
+  opacity: 1;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 20%, #000 80%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, #000 20%, #000 80%, transparent 100%);
 }
 @media (prefers-reduced-motion: reduce) { .home-hero-bg video { animation: none; } }
 .home-hero-bg::after {
   content: ""; position: absolute; inset: 0; z-index: 1;
-  background: linear-gradient(180deg, rgba(var(--cz-bg-rgb),0.35), rgba(var(--cz-bg-rgb),0.92));
+  background: linear-gradient(180deg, rgba(var(--cz-bg-rgb),0.22), rgba(var(--cz-bg-rgb),0.8));
 }
 .home-hero-inner { position: relative; z-index: 1; }
 .home-hero-grid {
@@ -2177,7 +2177,10 @@ button { font-family: inherit; cursor: pointer; }
 .home-btn.ghost:hover { color: var(--cz-accent-text); border-color: var(--cz-accent-text); }
 .home-cta-foot {
   margin-top: 18px; font-size: 10px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.18em; color: var(--cz-text-muted);
+  text-transform: uppercase; letter-spacing: 0.18em; 
+  /* Un escalon mas claro que --cz-text-muted: a 10px y sobre el video (que da
+     luminancia ~86) el muted se quedaba en 3,29:1. */
+  color: var(--cz-text-soft);
 }
 
 .home-hero-panel {
