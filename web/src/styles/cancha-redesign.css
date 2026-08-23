@@ -3799,8 +3799,8 @@ button { font-family: inherit; cursor: pointer; }
   --chat-surface: var(--cz-bg);
   --chat-surface-2: var(--cz-card2);
   --chat-orange: #f97316;
-  --chat-text: #ececee;
-  --chat-muted: #9a9aa2;
+  --chat-text: var(--cz-text);
+  --chat-muted: var(--cz-fg3);
   font-family: "Inter", system-ui, sans-serif;
 }
 
