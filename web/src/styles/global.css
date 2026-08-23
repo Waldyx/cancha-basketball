@@ -81,6 +81,9 @@
    cancha se invierte. Naranja y amarillo NO cambian entre temas. */
 :root[data-cz-theme="claro"] {
   --cz-bg: #d6d3d1;
+  /* Copia del fondo de pagina que NO sobreescribe el hero, para que el
+     escenario oscuro pueda pintar sus margenes con el color del tema. */
+  --cz-page-bg: #d6d3d1;
   --cz-bg-alt: #cbc8c4;
   --cz-band: #c3c0bb;
   --cz-card: #e7e5e4;
@@ -181,6 +184,26 @@
   background-color: #0c0c0c;
   color: #ffffff;
 }
+
+/* En tema claro el hero sigue siendo oscuro (el video se lava sobre cemento,
+   decidido en la s37), pero el negro ya NO se derrama hasta los bordes de la
+   pantalla: el escenario oscuro se acota al ancho del contenido y los margenes
+   laterales siguen al tema claro. */
+:root[data-cz-theme="claro"] .home-hero {
+  background: var(--cz-page-bg, #d6d3d1);
+  border-bottom-color: rgba(87, 83, 78, 0.35);
+}
+:root[data-cz-theme="claro"] .home-hero-bg {
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, 1280px);
+  background: #0c0c0c;
+}
+:root[data-cz-theme="claro"] .home-hero-inner {
+  /* el contenido va sobre el escenario, asi que conserva la tinta clara */
+  color: #ffffff;
+}
+
 
 /* ── Tipografía global ── */
 body {
