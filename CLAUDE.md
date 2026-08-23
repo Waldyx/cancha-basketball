@@ -1795,14 +1795,14 @@ En la práctica: Nike.es y Basket World siempre son search (no tienen URLs de pr
       (`/search-nwx/?s=QUERY`) y las fichas. Ojo: `get_page_text` en el grid de resultados solo
       devuelve el 1er producto (lazy-load) → leer por **screenshots** scrolleando. Categoría básquet:
       buscar "zapatillas de baloncesto" (~947 resultados, ordenables por descuento).
-- **PENDIENTES de aprobación (5) — al 2026-06-29**:
+- **PENDIENTES de aprobación (4) — al 2026-08-23**:
   - ⏳ **Joom ES** — conv 7.65%, aprob 94%, EPC 0.30€ → desbloquea **19 links Joom** ya en BD (tiene_afiliado:false)
-  - ⏳ **Basket-Center ES** — conv 7.27%, aprob 90%
   - ⏳ **Sneakin ES** — conv 4.32%, aprob 75%
   - ⏳ **Pro:Direct ES** — conv 0.12%, aprob 100%
   - ⏳ **Reebok ES** — N/A (recién lanzado 11/12/26) → 5 links Reebok esperando
-- **Rechazados (6) — al 2026-06-18** (botón "+Unirse", reintentar en 3-6 meses con más tráfico):
-  Foot Locker ES, JD Sports ES, Sprinter ES, Foot-Store ES, **size?Official ES**, **Privé by Zalando ES**.
+- **Rechazados (7) — al 2026-08-14** (botón "+Unirse", reintentar en 3-6 meses con más tráfico):
+  Foot Locker ES, JD Sports ES, Sprinter ES, Foot-Store ES, **size?Official ES**, **Privé by Zalando ES**,
+  **Basket-Center ES** (aid 71517, rechazado el 14-ago-2026 — pasó de PENDIENTE a rechazado).
   ⚠ CAMBIO s28: **Zalando y size? pasaron de PENDIENTE a RECHAZADO**. Sus enlaces (Zalando 27,
   size? 1) ya NO van a convertir → son peso muerto, tratar como "Ver precio"/podar (ver sesión 28).
 - **Formato link Awin**: `https://www.awin1.com/cread.php?awinmid=AIDID&awinaffid=2908587&ued=URL_ENCODED_URL`
