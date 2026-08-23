@@ -1,11 +1,81 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-08-18 (sesión 36)
+> Última actualización: 2026-08-23 (sesión 37)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
 
-## Estado actual (sesión 36) — Clicks de afiliado FALSOS, el símbolo ° y 20 enlaces muertos
+## Estado actual (sesión 37) — Dos tiendas congeladas por los fixes de la s36: FuikaOmar y adidas
+
+Todo en `master` (commit `8e75a1b`). **Tests: 230 → 236.** Los DOS fixes de esta sesión son
+regresiones/efectos laterales destapados al auditar la semana de pasadas que pedía la s36.
+**Frescura medida hoy: 45%** (167/374) — la caída desde el 55% eran estas dos tiendas a 0%.
+
+### 1. FuikaOmar: los 30 enlaces CONGELADOS desde el 18-ago (regresión del guard de la s36)
+El log nocturno decía en cada uno "enlace de afiliado opaco, no se navega". Causa: el regex del
+wrapper en `AFFILIATE_HOSTS` era `/(^|\.)fuikaomar\.es$/` y **también matcheaba
+`www.fuikaomar.es`** — el dominio de la TIENDA de destino. FuikaOmar es la única red cuyo wrapper
+(`deals.fuikaomar.es`) vive en el mismo dominio que la tienda, así que la comprobación de
+`esRedirectOpaco` ("wrapper que sobrevive al unwrap = mal formado") daba falso positivo en el
+100% de sus enlaces. **Es el aprendizaje de la s36 repetido: un guard que impide navegar también
+impide re-verificar.** Fix: regex acotado a `^deals\.fuikaomar\.es$` + 2 tests. Verificado con
+pasada real: 23/30 con precio (77%, su nivel de la s35).
+
+### 2. adidas: 0% desde el ~19-ago — y NO era la IP de CI
+La s36 lo dejó al 93%·1d; desde el 20-ago los 14 fallaban en CI con "no encontrado". La primera
+hipótesis (Akamai bloquea la IP de datacenter) era FALSA — en local también fallaba 12/14. Causa
+real, encontrada por bisección de las opciones del contexto:
+- **El `extraHTTPHeaders: Accept-Language` de `index.ts`** (ahí desde el MVP de mayo). CloakBrowser
+  ya emite ese header NATIVO vía `locale: "es-ES"`; sobreescribirlo por CDP desalinea el
+  fingerprint y Akamai empezó a castigarlo con **403** hacia el 19-ago. Medido: con el header
+  403 · 0 tarjetas; sin él 200 · 28 tarjetas, página en español correcto. **Quitado** (era de
+  contexto, afectaba a todas las tiendas; sin él el fingerprint es MÁS nativo).
+- Con eso arreglado quedaban 3 fallos con una firma nueva en el diagnóstico: **adidas redirige la
+  búsqueda DIRECTO a la ficha cuando hay un único resultado** (Forum 84, Pro Model, AE 1 GS — las
+  2 primeras son justo las recuperadas en s36) y ahí no hay listado que leer. Cubierto en
+  `adidas_es.ts`: se valida el `h1` (mismos filtros: prenda, junior en los dos sentidos, matcher)
+  y el precio sale del estado embebido **`pricing_information.currentPrice`** + stock del `Offer`
+  JSON-LD. ⚠ Los `[data-testid="main-price"]` de la ficha NO sirven: hay 53 y TODOS son del
+  carrusel de recomendados (la trampa de Snipes de la s34, otra vez).
+- Resultado local: **2/14 → 14/14**. Afloran rebajas: Forum 84 120→84, Believe That 1 100→52,
+  Superstar 120→75, AE 1 GS 58,5→54.
+- Añadida línea de diagnóstico al fallar (nº tarjetas + título de página) para separar
+  bloqueo / redirect-a-ficha / no-match en el log de CI.
+
+### 3. La pasada del 19-ago fue CANCELADA a las 2h30m (timeout 150 min)
+El mismo modo de fallo que tuvo el scraper muerto un mes (s31): el commit es el último paso, así
+que esa noche no se guardó NADA. Las 4 pasadas siguientes volvieron a ~1h30 (parece puntual), pero
+**si se repite**: subir `timeout-minutes` o hacer que el scraper escriba resultados parciales.
+
+### ▶️ SIGUIENTE PASO (retomar aquí)
+1. **Mirar el log de la pasada nocturna del 24-ago**: en local todo verde, pero si Akamai además
+   penaliza la IP de GitHub, adidas puede seguir fallando en CI — la línea de diagnóstico nueva
+   dirá exactamente por qué (0 tarjetas = bloqueo; título de ficha = redirect; N tarjetas = matcher).
+2. Con FuikaOmar y adidas de vuelta, la frescura debería volver a ~55-58% en unos días.
+   Confirmar con la semana, no con una noche.
+3. **amazon_es sigue siendo el siguiente objetivo** (40%, mediana 21d, 174 enlaces).
+4. Pendientes de decisión del usuario heredados de la s36: los 7 `s.click` de marca china,
+   `rigorer-ar1`/`warship` (la API no los indexa), `361-zen-7` (156,99 vs 90), 3 Asics sin
+   opción monetizada.
+
+### 📌 Aprendizajes (sesión 37)
+- **Al escribir un guard por HOST, distinguir el host del wrapper del host de la tienda.** Si una
+  red usa el dominio de la propia tienda para el tracking, un regex de dominio entero convierte el
+  destino legítimo en "wrapper mal formado".
+- **"Funciona en local, falla en CI" no siempre es la IP.** Aquí fallaba en los dos sitios (2/14
+  local); la primera pasada local completa desmintió la hipótesis de la IP antes de perseguirla.
+- **Un header inyectado "inofensivo" es deuda de fingerprint.** Puede convivir meses con el WAF
+  hasta que el WAF aprende a verlo. Si el navegador stealth ya emite el header nativo (locale),
+  NO sobreescribirlo por CDP. Ojo si algún día se añaden `extraHTTPHeaders` para otra cosa.
+- **Un buscador puede responder con una FICHA.** Si el scraper solo sabe leer listados, el
+  resultado único (el caso más inequívoco) es justo el que falla. Y en la ficha, el selector de
+  precio "obvio" era 53 veces el carrusel: validar SIEMPRE de qué contenedor sale el precio.
+- **La bisección de opciones de contexto es barata y concluyente**: 4 sondas de un minuto
+  aislaron el header exacto que provocaba el 403.
+
+---
+
+## Estado anterior (sesión 36) — Clicks de afiliado FALSOS, el símbolo ° y 20 enlaces muertos
 
 Todo en `master`. **Tests: 224 → 230.** Build OK, 336 páginas, `astro check` 0 errores.
 **Frescura 52% → 55%** (204/374). Ojo al leerlo: sube en parte porque se han QUITADO 20
