@@ -2181,16 +2181,12 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .home-hero-panel {
-  /* Panel en vidrio (lo pide el handoff): translucido + blur, para que se vea
-     el video detras sin perder legibilidad. El blur es lo que salva el texto:
-     sin el, la textura del video se cuela entre las letras. */
-  /* Mas transparente todavia. Para que el naranja de los precios no caiga por
-     debajo de 4,5:1 sobre el video, dentro del panel se usa el naranja claro
-     de la paleta (#fb923c, el de hover): al aclararlo, gana contraste contra
-     una superficie que ahora es mas clara por la transparencia. */
-  --cz-accent-text: #fb923c;
-  background: rgba(var(--cz-card-rgb),0.45); border: 1px solid rgba(var(--cz-border-rgb),0.7);
-  -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+  /* Panel translucido, SIN blur: se ve el video nitido por detras.
+     Sin desenfoque hay que dejar algo mas de cuerpo al fondo, porque la textura
+     del video compite directamente con el texto. 0.65 es el punto donde el
+     naranja de los precios se mantiene sobre 4,5:1 con el naranja normal de la
+     paleta — por eso ya no hace falta aclararlo a #fb923c. */
+  background: rgba(var(--cz-card-rgb),0.65); border: 1px solid rgba(var(--cz-border-rgb),0.7);
   padding: 18px; position: relative;
   display: flex; flex-direction: column; gap: 16px;
 }
