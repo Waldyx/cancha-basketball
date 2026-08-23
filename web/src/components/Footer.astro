@@ -87,13 +87,17 @@ const columnas = [
     text-transform: uppercase;
     line-height: 0.9;
     letter-spacing: -0.02em;
-    font-size: clamp(56px, 11vw, 150px);
+    /* El hueco del wordmark NO crece con el viewport (lo limita la fila del
+       footer, ~728px), pero la fuente sí: a 1920px pedía 745px y partía la
+       palabra dejando la "A" sola en otra línea. Tope bajado a 138px y nunca
+       se parte. */
+    font-size: clamp(48px, 10vw, 138px);
+    white-space: nowrap;
     color: transparent;
     -webkit-text-stroke: 1.5px var(--cz-text-dim);
     user-select: none;
     flex: 1 1 380px;
     min-width: 0;
-    overflow-wrap: anywhere;
   }
   .czf-dot {
     color: var(--cz-accent-text);
