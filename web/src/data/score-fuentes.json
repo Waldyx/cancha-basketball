@@ -127,6 +127,11 @@
     "nike-sabrina-3-gs":            { "editorial": 8.3 },
     "nike-giannis-immortality-4-gs": { "editorial": 8.1 },
     "adidas-dame-x-gs":             { "editorial": 8.3 },
-    "adidas-don-issue-7-gs":        { "editorial": 8.7 }
+    "adidas-don-issue-7-gs":        { "editorial": 8.7 },
+    "_nuevas_2026": "Sesion 38 (24-ago-2026). Ja 4 = score real de WearTesters. Las otras 3 son estimacion editorial: no hay review numerica publicada. REVISAR cuando salgan.",
+    "nike-ja-4":                  { "editorial": 7.5, "wt_url": "https://weartesters.com/nike-ja-4-review/" },
+    "nike-giannis-freak-8":       { "editorial": 7.8 },
+    "jordan-41":                  { "editorial": 8.3 },
+    "adidas-ae-3":                { "editorial": 8.4 }
   }
 }

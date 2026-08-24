@@ -1390,6 +1390,7 @@ const _rawZapatillas: Zapatilla[] = [
     signature_player: "Giannis Antetokounmpo",
     tecnologia_clave: ["Cushlon 3.0", "Air Zoom", "TPU midfoot shank"],
     predecesor_id: "nike-zoom-freak-6",
+    sucesor_id: "nike-giannis-freak-8",
     peso_real_g: 391,
     altura: "mid",
     horma: "ancha",
@@ -3439,6 +3440,7 @@ const _rawZapatillas: Zapatilla[] = [
     signature_player: "Ja Morant",
     tecnologia_clave: ["Zoom Air Strobel", "React foam", "Herringbone traction"],
     predecesor_id: "nike-ja-2",
+    sucesor_id: "nike-ja-4",
 
     peso_real_g: 310,
     altura: "mid",
@@ -3517,6 +3519,7 @@ const _rawZapatillas: Zapatilla[] = [
     signature_player: "Anthony Edwards",
     tecnologia_clave: ["Lightstrike Pro 2.0", "Continental rubber", "TPU shank"],
     predecesor_id: "adidas-ae-1",
+    sucesor_id: "adidas-ae-3",
 
     peso_real_g: 428,
     altura: "mid",
@@ -5898,8 +5901,6 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 69. Adidas AE 3 — Anthony Edwards tercera edición, respuesta y agarre
-  // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€  // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 70. Jordan Luka 4 — Luka Doncic 4ª, versatilidad para guards/aleros
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
@@ -9482,7 +9483,7 @@ const _rawZapatillas: Zapatilla[] = [
     genero: "unisex",
     tecnologia_clave: ["ZoomX foam full-length", "Zoom Strobel", "6 internal webbing straps", "40° herringbone traction"],
     predecesor_id: null,
-    sucesor_id: null,
+    sucesor_id: "jordan-41",
 
     peso_real_g: 439,
     altura: "mid",
@@ -14930,6 +14931,307 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=jordan+heir+series+baloncesto&tag=canchazapa-21", precio_actual: 90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-13" },
     ],
   },
+
+  // NUEVAS 2026 (sesion 38) - sucesoras de flagships que ya estaban en catalogo.
+  // Scores: Ja 4 anclada a WearTesters 7.5; el resto estimacion editorial
+  // (sin review numerica publicada a 24-ago-2026).
+
+  // AIR JORDAN 41 - 41a signature, flagship Jordan Brand 2026-27
+  {
+    id: "jordan-41",
+    slug: "jordan-41",
+    marca: "Jordan",
+    modelo: "Air Jordan 41",
+    generacion: 41,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    tecnologia_clave: ["Cushlon 3.0", "ZoomX antepié", "Zoom Air talón", "Zoom Air Strobel full-length", "Upper tejido"],
+    predecesor_id: "jordan-40",
+    sucesor_id: null,
+
+    peso_real_g: 430,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 5,
+    tipo_cierre: "cordones",
+    material_superior: "knit",
+
+    puntuaciones: {
+      traccion: 9,
+      amortiguacion: 10,
+      respuesta: 9,
+      soporte_lateral: 9,
+      estabilidad: 8,
+      peso_score: 7,
+      durabilidad_outdoor: 6,
+      ventilacion: 8,
+    },
+    categoria_principal: "cushion-focused",
+    tags: ["signature", "tope-de-gama", "moderna"],
+
+    ideal_para: {
+      posiciones: ["alero", "escolta", "ala-pivot"],
+      peso_jugador_kg: [70, 105],
+      estilos: ["equilibrado", "explosivo", "potente"],
+      lesiones_compatibles: ["rodillas"],
+    },
+    no_recomendada_para: {
+      posiciones: ["base"],
+    },
+
+    resumen:
+      "La 41ª de la saga y el setup de amortiguación más cargado que ha llevado una Air Jordan: Cushlon 3.0 de base, ZoomX en el antepié, Zoom Air en el talón y además un Zoom Air Strobel de largo completo. Encima, upper tejido con cuello tipo bootie para bajar peso frente a la 40. Salió el 9 de julio de 2026 a 205$.",
+    pros: [
+      "El stack de amortiguación más completo de la línea (Cushlon 3.0 + ZoomX + 2 unidades Zoom)",
+      "Upper tejido y ligero para un flagship de este nivel",
+      "Cuello bootie: calce envolvente sin capas extra",
+      "Hereda la plataforma de la 40, que dejó el listón muy alto",
+    ],
+    contras: [
+      "205$ / ~210 €: de las más caras del mercado",
+      "Todavía SIN review de rendimiento publicada (WearTesters/HoopsGeek): el score es estimación",
+      "Stack alto: falta confirmar que mantiene la estabilidad que arregló la 40",
+      "A 24-ago-2026 NO se vende aún en Nike ES ni en Amazon ES",
+    ],
+    veredicto:
+      "Sobre el papel es la Jordan más protectora y completa de la saga, pero es la única de esta tanda que todavía no tiene ni review ni distribución en España. Score provisional: se revisará en cuanto WearTesters la analice.",
+
+    imagen_principal: "/shoes/jordan-41.webp",
+    imagenes: [],
+
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-08-24",
+    precio_msrp_eur: 209.99,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=air%20jordan%2041&vst=air%20jordan%2041", precio_actual: 209.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-08-24" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+41+baloncesto&tag=canchazapa-21", precio_actual: 209.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-24" },
+    ],
+  },
+
+  // NIKE JA 4 - 4a signature de Ja Morant, guard 2026
+  {
+    id: "nike-ja-4",
+    slug: "nike-ja-4",
+    marca: "Nike",
+    modelo: "Ja 4",
+    generacion: 4,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "Ja Morant",
+    tecnologia_clave: ["Cushlon 3.0 full-length", "Sockliner ZoomX", "TPU JA-Frame", "Tracción multidireccional"],
+    predecesor_id: "nike-ja-3",
+    sucesor_id: null,
+
+    peso_real_g: 345,
+    altura: "low",
+    horma: "estrecha",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "synthetic+tpu",
+
+    puntuaciones: {
+      traccion: 9,
+      amortiguacion: 6,
+      respuesta: 9,
+      soporte_lateral: 9,
+      estabilidad: 9,
+      peso_score: 8,
+      durabilidad_outdoor: 5,
+      ventilacion: 5,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "guard", "explosivo", "moderna"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [60, 90],
+      estilos: ["explosivo", "equilibrado"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot", "ala-pivot"],
+      estilos: ["potente"],
+      lesiones: ["rodillas"],
+    },
+
+    resumen:
+      "WearTesters le da 7.5/10. La Ja 4 cambia de prioridad respecto a la Ja 3: gana muchísimo en contención (TPU JA-Frame, outrigger lateral, upper de doble horma) y pierde en amortiguación, porque el ZoomX se queda solo en la plantilla y la mediasuela pasa a ser Cushlon 3.0 a secas. Más firme y más estable, menos viva.",
+    pros: [
+      "Tracción excelente en pista (nubs triangulares por toda la suela)",
+      "Salto enorme en soporte lateral y contención frente a la Ja 3",
+      "Muy estable: placa TPU de mediopié + outrigger",
+      "129,99 € en Nike ES, por debajo de lo que costaba la Ja 3",
+    ],
+    contras: [
+      "Amortiguación recortada: el ZoomX baja a plantilla, ya no va en mediasuela",
+      "Materiales poco premium para el precio",
+      "Ventilación escasa",
+      "Horma estrecha de antepié: pie ancho debe subir media talla",
+      "No recomendada para outdoor continuado",
+    ],
+    veredicto:
+      "Si buscas bloqueo lateral y sensación firme de pista, es una mejora clara sobre la Ja 3. Si lo que te gustaba de la Ja 3 era el rebote del ZoomX, ésta te va a saber a poco.",
+
+    imagen_principal: "/shoes/nike-ja-4.webp",
+    imagenes: [],
+
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-ja-4-review/", score_original: "7.5/10" },
+    ],
+    ultima_actualizacion: "2026-08-24",
+    precio_msrp_eur: 129.99,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/ja-4-nightmare-zapatillas-de-baloncesto-XqVUV1MG/IM4135-405", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-08-24" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+ja+4+baloncesto&tag=canchazapa-21", precio_actual: 129.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-24" },
+    ],
+  },
+
+  // NIKE GIANNIS FREAK 8 - 8a signature de Giannis, ReactX de largo completo
+  {
+    id: "nike-giannis-freak-8",
+    slug: "nike-giannis-freak-8",
+    marca: "Nike",
+    modelo: "Giannis Freak 8",
+    generacion: 8,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "Giannis Antetokounmpo",
+    tecnologia_clave: ["ReactX full-length", "Contrafuerte de talón reforzado", "Tracción Giannis"],
+    predecesor_id: "nike-giannis-freak-7",
+    sucesor_id: null,
+
+    peso_real_g: 375,
+    altura: "low",
+    horma: "ancha",
+    drop_mm: 6,
+    tipo_cierre: "cordones",
+    material_superior: "synthetic",
+
+    puntuaciones: {
+      traccion: 9,
+      amortiguacion: 8,
+      respuesta: 7,
+      soporte_lateral: 8,
+      estabilidad: 9,
+      peso_score: 8,
+      durabilidad_outdoor: 5,
+      ventilacion: 7,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "value", "horma-ancha", "moderna"],
+
+    ideal_para: {
+      posiciones: ["alero", "ala-pivot", "pivot"],
+      peso_jugador_kg: [75, 110],
+      estilos: ["potente", "equilibrado"],
+      lesiones_compatibles: ["rodillas"],
+    },
+    no_recomendada_para: {
+      posiciones: ["base"],
+    },
+
+    resumen:
+      "Giro de receta en la saga: la Freak 8 baja a corte low y sustituye el Cushlon + Zoom de la Freak 7 por ReactX de largo completo (13% más retorno de energía que el React clásico). Más ligera y más blanda, pero sin unidad Zoom ni placa, así que pierde chispa. Salió el 1 de agosto de 2026 a 114,99 €: sigue siendo la flagship más barata de Nike.",
+    pros: [
+      "114,99 €: relación tech/precio difícil de batir en una signature",
+      "ReactX de largo completo: más blanda que la Freak 7",
+      "Horma ancha de verdad, algo raro en el mercado",
+      "Base ancha y baja: muy estable para jugadores grandes",
+    ],
+    contras: [
+      "Sin Zoom Air ni placa: menos respuesta que la Freak 7",
+      "Baja de mid a low: menos cuello para quien buscaba el envoltorio de la saga",
+      "Goma de interior: el outdoor la castiga",
+      "Sin review de rendimiento publicada: score estimado",
+    ],
+    veredicto:
+      "El value pick de Nike para aleros y pívots que priorizan amortiguación y horma ancha por debajo de 120 €. Si lo tuyo es la respuesta, la Freak 7 (o su rebaja) sigue siendo mejor compra.",
+
+    imagen_principal: "/shoes/nike-giannis-freak-8.webp",
+    imagenes: [],
+
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-08-24",
+    precio_msrp_eur: 114.99,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/giannis-freak-8-zapatillas-de-baloncesto-txvJ3CIi/JA1403-100", precio_actual: 114.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-08-24" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+giannis+freak+8&tag=canchazapa-21", precio_actual: 114.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-24" },
+    ],
+  },
+
+  // ADIDAS AE 3 - 3a de Anthony Edwards. PROXIMAMENTE: sale el 15-sep-2026.
+  // OJO: en la sesion 26 se borro una "AE 3" fantasma que entonces NO existia.
+  // Esta si es real (adidas la anuncio en 2026). No confundir con aquella.
+  {
+    id: "adidas-ae-3",
+    slug: "adidas-ae-3",
+    proximamente: true,
+    marca: "Adidas",
+    modelo: "AE 3",
+    generacion: 3,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "Anthony Edwards",
+    tecnologia_clave: ["Hyperboost", "Placa de mediopié", "Upper mesh + jaula TPU"],
+    predecesor_id: "adidas-ae-2",
+    sucesor_id: null,
+
+    peso_real_g: 420,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 7,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+
+    puntuaciones: {
+      traccion: 9,
+      amortiguacion: 9,
+      respuesta: 9,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 8,
+      durabilidad_outdoor: 7,
+      ventilacion: 8,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "guard", "explosivo", "moderna"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [65, 100],
+      estilos: ["explosivo", "equilibrado"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+    },
+
+    resumen:
+      "La primera zapatilla de baloncesto del mercado con Hyperboost, la espuma nueva de adidas: perlas supercríticas fusionadas que dan un 22% más de retorno de energía que el Lightstrike Pro. Abandona el Lightstrike de la AE 1 y la AE 2, baja a corte low y suma placa de mediopié. Debuta el 15 de septiembre de 2026 en el colorway Cold Blooded, a 130$.",
+    pros: [
+      "Estreno de Hyperboost en baloncesto: +22% de retorno frente a Lightstrike Pro",
+      "Placa de mediopié para dar snap y torsión controlada",
+      "130$ para una flagship signature: precio contenido",
+      "La AE 1 y la AE 2 son de lo mejor puntuado del catálogo; la plataforma viene avalada",
+    ],
+    contras: [
+      "AÚN NO LANZADA (15-sep-2026): score y specs son estimación previa",
+      "Corte low: menos cuello que la AE 2, que era mid",
+      "Hyperboost pesa más que Lightstrike; el peso está por confirmar",
+      "Sin distribución ni precio verificado en España todavía",
+    ],
+    veredicto:
+      "En el papel es la sucesora lógica de una de las mejores líneas de guard del mercado, y estrena la espuma más interesante de adidas en años. Hasta que no salga y haya review, tómate el score como orientativo.",
+
+    imagen_principal: "/shoes/adidas-ae-3.webp",
+    imagenes: [],
+
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-08-24",
+    precio_msrp_eur: 130,
+    links_compra: [
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fbusqueda%3Fq%3Danthony%2Bedwards%2B3", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-24" },
+    ],
+  },
+
 ];
 
 /**
