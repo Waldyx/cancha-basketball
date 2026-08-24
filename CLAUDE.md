@@ -1,11 +1,95 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-08-23 (sesión 37, 3ª parte)
+> Última actualización: 2026-08-24 (sesión 38)
 > Para Claude: lee esto al empezar una sesión nueva. Cubre todo lo importante.
 
 ---
 
-## Estado actual (sesión 37, 3ª parte) — Hero de la home + contraste del tema claro
+## Estado actual (sesión 38) — Repaso de mercado: 21 modelos nuevos detectados, 4 en catálogo
+
+Commit `a61dd22`. Catálogo **234 → 238 zapas**, build **340 págs**, `astro check` 0 errores,
+236 tests, `audit-enlaces` "Sin hallazgos".
+
+### De dónde sale
+El usuario pidió "revisa el mercado, creo que han salido modelos nuevos". Se contrastó el
+catálogo contra las novedades reales (Hypebeast signature list 2026, WearTesters, SneakerNews,
+SneakerFiles, SoleRetriever). **Resultado: 21 modelos fuera del catálogo**, varios con meses
+en venta.
+
+### Las 4 fichas creadas (bloque 1: sucesoras de flagships que ya teníamos)
+| Ficha | Salida | Estado en España (verificado 24-ago) |
+|---|---|---|
+| `jordan-41` | 9-jul-2026 | ❌ **NO se vende** ni en Nike ES ni en Amazon ES |
+| `nike-ja-4` | 13-ago-2026 | ✅ Nike ES **129,99 €**, ficha real |
+| `nike-giannis-freak-8` | 1-ago-2026 | ✅ Nike ES **114,99 €**, ficha real |
+| `adidas-ae-3` | 15-sep-2026 | ⏳ `proximamente: true` |
+
+- **Solo la Ja 4 tiene score real** (WearTesters 7,5/10). Las otras 3 son `evaluacion-propia`:
+  a 24-ago no hay review numérica publicada de ninguna. **Revisar cuando salgan.**
+- **Los pesos son ESTIMADOS**, derivados de la predecesora + cambios de construcción. Ninguna
+  tiene dato de laboratorio publicado. Actualizar cuando RunRepeat las corte por la mitad.
+- Encadenados `predecesor_id`/`sucesor_id` en AJ 40, Ja 3, Freak 7 y AE 2.
+- ⚠ **Estas 4 no monetizan casi nada todavía**: Nike ES no es afiliado nuestro, y Amazon ES,
+  FuikaOmar, adidas ES y ECI no las stockean aún. Repuntar a ECI (6%) / Atmósfera (6%) /
+  FuikaOmar (5%) en cuanto entren.
+
+### 🔴 La AE 3 dejó de ser un fantasma
+En la s26 se borró una "AE 3" por inexistente — **era correcto entonces**. adidas la anunció
+después: sale el 15-sep-2026 y estrena **Hyperboost** (perlas supercríticas fusionadas, +22% de
+retorno frente a Lightstrike Pro; primera zapa de baloncesto que lo lleva). Efectos colaterales
+que seguían vivos y se han limpiado: un **comentario huérfano** `// 69. Adidas AE 3` sin ficha
+debajo en `zapatillas.ts`, **5 fichas que la citaban** en su texto (D. Fox 2, MB.06, Pro Vision…)
+apuntando a una zapa inexistente, y un **`adidas-ae-3.webp` huérfano** que en realidad era una
+foto de la AE 2. Sustituido por la Cold Blooded real.
+
+### ▶️ SIGUIENTE PASO — quedan 17 modelos por meter
+**Bloque 2 (el más rentable):** `361 Joker 2` / Joker 2 GT (feb-2026, $129-149, **WearTesters
+9/10**) — sucesora directa de `361-joker-1` y 361° va por AliExpress al **7%, la comisión más
+alta del catálogo**.
+
+**Bloque 3 — flagships ya a la venta:** Nike Sabrina 4 (17-jul, $135), New Balance Kawhi V
+(verano 2026, $160), Puma Stewie 5 (15-may, $125), Puma Scoot Zeros III (tenemos solo la gen 1).
+Sin lanzar aún: **Nike LeBron 24** (17-nov, $200, upper "KingKnit", la LeBron más ligera de la
+saga) y **adidas Harden Vol 11** (dic-2026, $160).
+
+**Bloque 4 — marcas nuevas que WearTesters puntúa 9/10 y no tenemos ni una:**
+`Serious Player Only Player 1.5` ($190, "el mejor drop-in del mercado") y `EQLZ 247 NXT` ($125).
+
+**Bloque 5 — nicho/chinas y femenino:** Li-Ning JB4 (Jimmy Butler), Peak AW4 (Wiggins),
+361 AG6 (Aaron Gordon, sin confirmar del todo), **Reebok Angel Reese 1** (¡en venta desde
+sept-2025!), Holo JS:01 (Jacy Sheldon, $120), LeBron NXXT Gen by JuJu, 741 Performance Rover
+(Jaylen Brown), Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
+
+### 🔴 Curry 13 es la ÚLTIMA de Under Armour — NO habrá Curry 14
+Curry y UA rompieron en **nov-2025**; la Curry 13 (13-feb-2026) es el cierre pactado, con
+colorways hasta oct-2026. Curry Brand es ya independiente y él es **agente libre de calzado**.
+→ La ficha `ua-curry-13` y los artículos de la saga Curry dan por hecha una continuidad que ya
+no existe. **Pendiente de revisar.**
+
+### 📌 Aprendizajes (sesión 38)
+- **"Ese modelo no existe" es una foto con fecha, no un hecho permanente.** El veredicto de la
+  s26 sobre la AE 3 era correcto y caducó en 8 meses. Antes de reusar una nota de "fantasma",
+  mirar cuándo se escribió. Ahora la nota vieja lleva su aviso de caducidad al lado.
+- **Al borrar una ficha quedan restos en tres sitios**: el comentario de sección, la imagen en
+  `public/shoes/` y las MENCIONES en el texto de otras fichas. Los tres sobrevivieron 8 meses.
+- **Verificar la disponibilidad en ES, no deducirla del lanzamiento global.** La AJ 41 lleva
+  desde julio en el mercado y hoy no está ni en Nike ES ni en Amazon ES. Sale con sus enlaces
+  en `disponible: false` porque se COMPROBÓ, no porque se supusiera.
+- **La búsqueda de Amazon confirma el aviso de la s34**: "air jordan 41" devuelve AJ1 y AJ4
+  sueltas. Un resultado no vacío no es un resultado correcto.
+- **Para imágenes, la portada del artículo NO sirve**: son banners con marca de agua o collages
+  (SneakerFiles/SneakerBarDetroit). Las buenas están en los artículos de **colorway individual**
+  y en `static.nike.com`. Hay que MIRARLAS una a una: de 7 descargadas, 3 eran inservibles
+  (banner con watermark, foto en mano de un revendedor, primer plano de la suela).
+- **`_catalog.json` no se commitea, y esta vez se vio por qué**: al regenerarlo en local traía
+  **38 líneas de churn de precios** ajenas al cambio. Vercel lo regenera solo.
+- **`scoreFuentes` no tiene clave `wt` numérica**: una zapa con review de WearTesters pero sin
+  HoopsGeek se registra como `editorial` + `wt_url` (igual que `lining-gamma-2`). El score sale
+  bien; la etiqueta de confianza se queda corta. Si algún día molesta, es 1 rama en
+  `scoreFuentes.ts`.
+
+---
+## Estado anterior (sesión 37, 3ª parte) — Hero de la home + contraste del tema claro
 
 9 commits, de `f296342` a `4c026de`. Build 336 págs, `astro check` 0 errores, 236 tests.
 
@@ -63,7 +147,7 @@ sobre fondo cemento, con fundido lateral del 9%.
 
 ---
 
-## Estado actual (sesión 37, 2ª parte) — REDISEÑO: tema claro "cemento" + header/footer globales
+## Estado anterior (sesión 37, 2ª parte) — REDISEÑO: tema claro "cemento" + header/footer globales
 
 Commits `9e8b6c8` y `54fceec`, en producción. Build 336 págs, `astro check` 0 errores, 236 tests.
 
@@ -1346,6 +1430,10 @@ gpt-oss-120b → gemma-4-26b. `deepseek-v4-flash:free` NO existe (404, solo de p
 
 **Fantasmas eliminados**: Adidas AE 3 y AE 1.5 NO existen (verificado adidas.es+WT, tenían URLs WT
 inventadas). Borradas; AE 3 retargeteada a AE 2 en blog/SEO/FAQ. Existen: AE 1 (mid/low) y AE 2.
+> ⚠ **CADUCADO (s38, 24-ago-2026): la AE 3 YA EXISTE** — adidas la anunció en 2026 y sale el
+> 15-sep-2026 con Hyperboost. Ficha `adidas-ae-3` recreada. La AE 1.5 sigue sin existir.
+> Lección: "no existe" es una foto con fecha, no un hecho permanente. Antes de reusar un
+> veredicto de fantasma, mirar la fecha.
 
 **Imágenes**: barrido de las 207 → solo 6 eran genéricas "on-foot baldosas" (cluster 600x400).
 Cambiadas a producto real (LeBron 23, KD 18, Witness 9, AJ38, Harden Vol 9) + Immortality 5 corregida.
