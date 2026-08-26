@@ -13988,7 +13988,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-09",
-    precio_msrp_eur: 119,
+    precio_msrp_eur: 150,
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010194753497.html", precio_actual: 113.98, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/361/joker-1-denver-blue-white", precio_actual: 105, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-24" },
@@ -14035,11 +14035,11 @@ const _rawZapatillas: Zapatilla[] = [
       "Protección de impacto de élite en el talón — para pívots que caen mucho",
       "Base ancha y plana + 3 paneles de torsión: estabilidad de las mejores del mercado",
       "Corrige el upper rígido de la Joker 1: ahora flexiona con el pie",
-      "8/10 en WearTesters y 8,6 en HoopsGeek por 129 $ de tarifa",
+      "8/10 en WearTesters y 8,6 en HoopsGeek por 150 € de tarifa oficial",
     ],
     contras: [
       "Ranuras de tracción poco profundas: se atasca de polvo y NO es para exterior",
-      "En España solo llega por importación de AliExpress, muy por encima de su tarifa",
+      "En España solo llega por importación: 184 € en AliExpress frente a 150 € de tarifa",
       "Horma más estrecha que la Joker 1 — pie ancho, media talla más",
       "390 g: sigue siendo pesada para un base puro",
     ],
@@ -14061,6 +14061,64 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 119,
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011771667705.html", precio_actual: 184.1, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-26" },
+    ],
+  },
+
+  // 361° JOKER 2 GT — tier premium de la Joker 2: supercrítica a lo largo + placa QU!KBONE
+  {
+    id: "361-joker-2-gt",
+    slug: "361-joker-2-gt",
+    marca: "361°",
+    modelo: "Joker 2 GT",
+    generacion: 2,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "Nikola Jokić",
+    tecnologia_clave: ["CQTEXTREME supercrítica de longitud completa", "QU!KLIGHT doble", "Placa QU!KBONE carbono+TPU", "DIAMOND SHELL + KPU", "Suela RPU"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 390,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 9,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 8, amortiguacion: 9, respuesta: 9,
+      soporte_lateral: 9, estabilidad: 9, peso_score: 7,
+      durabilidad_outdoor: 6, ventilacion: 7,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "china-brand", "big-man", "buque-insignia"],
+    ideal_para: {
+      posiciones: ["pivot", "ala-pivot", "alero", "escolta"],
+      peso_jugador_kg: [75, 130],
+      estilos: ["potente", "equilibrado"],
+    },
+    no_recomendada_para: { posiciones: ["base"] },
+    resumen:
+      "La GT no es un colorway de la Joker 2: es otra zapatilla. Donde la normal lleva CQT Qu!k Tech con espuma supercrítica solo en el talón, la GT monta CQTEXTREME supercrítica de longitud completa con QU!KLIGHT doble en antepié y talón, y 361° reclama un 16% más de eficiencia de propulsión. La placa QU!KBONE de carbono va fusionada con el TPU en una sola pieza (sin adhesivo) para el control de torsión, y el upper cambia a DIAMOND SHELL con exoesqueleto de KPU microinyectado. La suela pasa de la Diamond Grip de la normal a RPU de gran superficie, más resistente al desgaste.",
+    pros: [
+      "Supercrítica a lo largo de todo el pie, no solo en el talón como la normal",
+      "Placa QU!KBONE de carbono+TPU en una pieza: rigidez torsional sin peso extra",
+      "Upper DIAMOND SHELL con KPU: sujeción 3D y más ventilación que la Joker 1",
+      "En AliExpress sale a 180,69 € — por debajo de sus 200 € de tarifa oficial",
+    ],
+    contras: [
+      "200 € de tarifa: se sale del terreno value que hizo famosa a 361°",
+      "SIN review numérica publicada — el score es estimación nuestra",
+      "El peso (390 g) es dato de fabricante, no de laboratorio",
+      "Igual que la normal, no está pensada para asfalto",
+    ],
+    veredicto:
+      "Es la Joker 2 que querrías si la amortiguación de la normal se te queda corta en el antepié: misma familia, pero con supercrítica de punta a punta y placa de carbono de verdad. Ahora bien, a 200 € de tarifa compite con flagships que SÍ tienen review numérica, y esta todavía no la tiene. Si la pillas por debajo de 185 € es una compra muy razonable; a precio completo, espera a que alguien la mida.",
+    imagen_principal: "/shoes/361-joker-2-gt.webp",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-08-26",
+    precio_msrp_eur: 200,
+    links_compra: [
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012413955051.html", precio_actual: 180.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-26" },
     ],
   },
 

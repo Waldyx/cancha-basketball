@@ -107,6 +107,7 @@
 
     "361-joker-1":                { "hg": 8.8, "n": 5, "url": "https://www.thehoopsgeek.com/shoe-reviews/361-joker-1/" },
     "361-joker-2":                { "hg": 8.6, "n": 5, "url": "https://www.thehoopsgeek.com/shoe-reviews/361-joker-2/", "wt_url": "https://weartesters.com/361-joker-2-performance-review/" },
+    "361-joker-2-gt":             { "editorial": 8.7 },
     "puma-mb03":                  { "hg": 8.3, "n": 7, "url": "https://www.thehoopsgeek.com/shoe-reviews/puma-mb03/" },
     "puma-mb-04":                 { "hg": 7.9, "n": 5, "url": "https://www.thehoopsgeek.com/shoe-reviews/puma-mb04/" },
     "jordan-why-not-6":           { "hg": 7.9, "n": 5, "url": "https://www.thehoopsgeek.com/shoe-reviews/jordan-why-not-zero6/" },

@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **239 zapas · 341 páginas · 236 tests · `astro check` 0 errores** |
+| Tamaño | **240 zapas · 342 páginas · 236 tests · `astro check` 0 errores** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -42,17 +42,56 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 
 ---
 
-## ▶️ Estado actual (sesión 39, 26-ago) — Bloque 2: la 361° Joker 2 en catálogo
+## ▶️ Estado actual (sesión 39, 26-ago) — Bloque 2: Joker 2 + Joker 2 GT, y 361° vende en España
 
-CLAUDE.md partido en "lo vivo" + `docs/historial-sesiones.md`. Catálogo 238 → **239**,
-341 páginas, 236 tests, `astro check` 0 errores, `audit-enlaces` "Sin hallazgos".
+CLAUDE.md partido en "lo vivo" + `docs/historial-sesiones.md`. Catálogo 238 → **240**,
+342 páginas, 236 tests, `astro check` 0 errores, `audit-enlaces` "Sin hallazgos".
+
+### 🔥 HALLAZGO GORDO — `361sport.com` tiene tienda `/es-es`, precios en EUR y ENVÍA A ESPAÑA
+La marca vende directa. Política de envío verificada el 26-ago: *"podemos entregar a los Estados
+Unidos, Canadá, Australia, Francia, Alemania, Italia, **España** y el Reino Unido"*, 7-21 días,
+envío gratis desde 99 $. **Tarifas oficiales en €** (que hasta hoy dábamos por inexistentes):
+
+| Modelo | Tarifa oficial € | Lo que decía el catálogo |
+|---|---|---|
+| Joker 2 GT | **200 €** | no existía |
+| Joker 2 (y "Denver" Alto) | **150 €** | 119 € estimados por conversión → **CORREGIDO** |
+| Joker 1 | **140 €** | 119 € |
+| ZEN 7 | **120 €** | 90 € (y la API de AliExpress decía 156,99 €) |
+| Big3 4.0 Quick | **124 €** | — |
+
+⚠ **Ojo, el precio NO es final**: *"361Sport.com no es responsable de los impuestos de importación"*
+→ envía desde fuera de la UE sin IOSS aparente, así que el cliente paga IVA (21%) + gestión al
+recibir. Unos 150 € de tarifa salen por ~185 € reales. **Por eso AliExpress (IVA incluido y
+afiliado al 7%) sigue siendo la mejor opción de compra**, no un mal menor.
+
+**▶️ DECIDIR**: meter `361sport` como `Tienda` nueva. No le conocemos programa de afiliados, así
+que entraría como "Ver precio en 361sport" (sin número) salvo que se pida el afiliado primero.
+Toca `Tienda` en `types.ts` + `COMISIONES_TIENDA`. **No hecho: es tu llamada.**
+
+### `361-joker-2-gt` — ficha nueva (bloque 2 cerrado)
+| Dato | Valor | Fuente |
+|---|---|---|
+| Score | **8,7** confianza *editorial* | **NO hay review numérica**: anclado al 8,6 verificado de la normal + consenso cualitativo (WT y kicksown la ven "más completa") |
+| Salida | feb-2026 | 361sport / shopnings |
+| MSRP | **200 €** oficiales | 361sport `/es-es` |
+| Enlace | AliExpress **180,69 €** (`1005012413955051`, 29 vendidos) — **por debajo de tarifa** ✅ | verificado 26-ago |
+| Peso | **390 g** de FABRICANTE. ⚠ una fuente suelta dice 371 g, sin confirmar | shopnings |
+| `drop_mm: 9` | HEREDADO de la Joker 1, 361° no lo publica | — |
+
+Es **otro tier, no un colorway**: CQTEXTREME supercrítica de longitud completa (+16% propulsión)
+frente a la supercrítica solo-talón de la normal, placa **QU!KBONE** de carbono+TPU fusionada en
+una pieza, upper DIAMOND SHELL con KPU microinyectado y suela **RPU** (la normal lleva Diamond
+Grip). Por eso va con `categoria_principal: "responsive"` y la normal con `"cushion-focused"`.
+`predecesor_id: null` **a propósito**: su predecesora sería la Joker 1 GT, que no está en catálogo
+— encadenarla a `361-joker-2` sería mentir sobre la generación.
 
 ### `361-joker-2` — la ficha (verificada 26-ago)
 | Dato | Valor | Fuente |
 |---|---|---|
 | Score | **8,6** confianza *alta* | HoopsGeek 8,6 (5 análisis) + WearTesters 8/10 |
 | Salida | dic-2025 (los 6 colorways globales, feb-2026) | WT / HoopsGeek |
-| MSRP | 129,99 $ → **119 €** en ficha (no tiene precio oficial en €) | 361usa |
+| MSRP | **150 €** oficiales (corregido: eran 119 € estimados por conversión del $) | 361sport `/es-es` |
 | Peso | **390 g** — dato de FABRICANTE (US9), no de laboratorio | 361sport |
 | `drop_mm: 9` | **HEREDADO de la Joker 1**, 361° no lo publica | — |
 
@@ -65,14 +104,9 @@ Verificado tienda por tienda el 26-ago:
 - ❌ **Basketball Emotion**: 3 resultados de "joker 2" y **los 3 son Joker 1** (84-120 €).
 - ❌ **FuikaOmar**: no trabaja 361° en absoluto.
 - ✅ **AliExpress ES**: única vía. La Joker 2 Low a **184,10 €** (item `1005011771667705`),
-  es decir **+55% sobre su tarifa**. Es el único enlace de la ficha → la web muestra "desde 184 €".
-  **Decidir si compensa**: monetiza al 7% (12,9 €/venta) pero el precio es horrible para el usuario.
-
-### 🃏 La **Joker 2 GT** es otra zapatilla, no un colorway
-Tier premium: **189-199 $**, 371 g, upper DIAMOND SHELL (KPU) y CQTEXTREME supercrítico a lo
-largo (+16% de propulsión) frente al CQT Qu!k Tech + QU!KLIGHT de la normal. En AliExpress ES está
-a **180,69 €** (item `1005012413955051`, 29 vendidos) — o sea, **más barata que la normal y a su
-tarifa real**. Candidata a ficha propia; NO meterla como enlace de `361-joker-2`.
+  es decir **+23% sobre sus 150 € de tarifa** (no el +55% que parecía antes de encontrar el precio
+  oficial en €). Único enlace de la ficha → la web muestra "desde 184 €". Con el IVA de importación
+  que 361sport NO cubre, comprar en la marca sale parecido: el enlace de AliExpress se sostiene.
 
 ---
 
@@ -98,7 +132,7 @@ Commits `a61dd22` + `f327f13`. Catálogo 234 → **238**. `audit-enlaces` "Sin h
   en cuanto entren.
 
 ### ▶️ SIGUIENTE PASO — quedan 16 modelos por meter
-**Bloque 2:** ✅ `361-joker-2` hecha (s39). Queda la **Joker 2 GT** como ficha aparte (ver arriba).
+**Bloque 2:** ✅ CERRADO (s39): `361-joker-2` y `361-joker-2-gt`. Siguiente parada, el bloque 3.
 
 **Bloque 3 — flagships ya a la venta:** Nike Sabrina 4 (17-jul, $135), New Balance Kawhi V
 (verano 2026, $160), Puma Stewie 5 (15-may, $125), Puma Scoot Zeros III (tenemos solo la gen 1).
@@ -123,6 +157,8 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   Brand es independiente y él es agente libre de calzado. → La ficha `ua-curry-13` y los artículos
   de la saga dan por hecha una continuidad que ya no existe. **Pendiente de revisar.** (s38)
 - `361-zen-7`: **156,99 € (API AliExpress) vs 90 € (catálogo)**. ¿Cuál es el bueno? (s36)
+  → **Dato nuevo (s39)**: la tarifa oficial en `361sport.com/es-es` es **120 €**. Ninguno de los dos
+  la clava, pero deja el 90 € del catálogo como el sospechoso (por debajo de tarifa) más que el 156,99.
 - `rigorer-ar1` / `rigorer-warship`: la API de AliExpress **no indexa** esas marcas nicho por
   keywords (0 candidatos, sin error). No hay nada que arreglar en código: **repuntar o quitar**. (s36)
 - **Los 7 `s.click` de marca china** (peak, anta, lining): ni click falso ni datos, congelados desde
