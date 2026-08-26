@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-08-25 (sesión 39)
+> Última actualización: 2026-08-26 (sesión 39)
 > Para Claude: lee esto al empezar una sesión nueva. **Solo contiene lo vivo**: estado, reglas,
 > doctrina, afiliados, arquitectura y pendientes.
 >
@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **238 zapas · 340 páginas · 236 tests · `astro check` 0 errores** |
+| Tamaño | **239 zapas · 341 páginas · 236 tests · `astro check` 0 errores** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -42,7 +42,41 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 
 ---
 
-## ▶️ Estado actual (sesión 38, 24-ago) — Repaso de mercado: 21 modelos nuevos, 4 en catálogo
+## ▶️ Estado actual (sesión 39, 26-ago) — Bloque 2: la 361° Joker 2 en catálogo
+
+CLAUDE.md partido en "lo vivo" + `docs/historial-sesiones.md`. Catálogo 238 → **239**,
+341 páginas, 236 tests, `astro check` 0 errores, `audit-enlaces` "Sin hallazgos".
+
+### `361-joker-2` — la ficha (verificada 26-ago)
+| Dato | Valor | Fuente |
+|---|---|---|
+| Score | **8,6** confianza *alta* | HoopsGeek 8,6 (5 análisis) + WearTesters 8/10 |
+| Salida | dic-2025 (los 6 colorways globales, feb-2026) | WT / HoopsGeek |
+| MSRP | 129,99 $ → **119 €** en ficha (no tiene precio oficial en €) | 361usa |
+| Peso | **390 g** — dato de FABRICANTE (US9), no de laboratorio | 361sport |
+| `drop_mm: 9` | **HEREDADO de la Joker 1**, 361° no lo publica | — |
+
+⚠ **Dos datos de la s38 estaban mal y quedan corregidos**: no es "WearTesters 9/10" (es **8/10**;
+el 8,6 sale de HoopsGeek) y no salió en feb-2026 (**dic-2025**; en feb-2026 cayeron 6 colorways).
+
+### ⚠ La Joker 2 NO se vende en España — la premisa de "el más rentable" no se sostuvo
+Verificado tienda por tienda el 26-ago:
+- ❌ **Amazon ES**: 0 resultados reales (devuelve AE 2, Ja 3, Luka 2… ninguna 361°).
+- ❌ **Basketball Emotion**: 3 resultados de "joker 2" y **los 3 son Joker 1** (84-120 €).
+- ❌ **FuikaOmar**: no trabaja 361° en absoluto.
+- ✅ **AliExpress ES**: única vía. La Joker 2 Low a **184,10 €** (item `1005011771667705`),
+  es decir **+55% sobre su tarifa**. Es el único enlace de la ficha → la web muestra "desde 184 €".
+  **Decidir si compensa**: monetiza al 7% (12,9 €/venta) pero el precio es horrible para el usuario.
+
+### 🃏 La **Joker 2 GT** es otra zapatilla, no un colorway
+Tier premium: **189-199 $**, 371 g, upper DIAMOND SHELL (KPU) y CQTEXTREME supercrítico a lo
+largo (+16% de propulsión) frente al CQT Qu!k Tech + QU!KLIGHT de la normal. En AliExpress ES está
+a **180,69 €** (item `1005012413955051`, 29 vendidos) — o sea, **más barata que la normal y a su
+tarifa real**. Candidata a ficha propia; NO meterla como enlace de `361-joker-2`.
+
+---
+
+## Estado anterior (sesión 38, 24-ago) — Repaso de mercado: 21 modelos nuevos, 4 en catálogo
 
 Commits `a61dd22` + `f327f13`. Catálogo 234 → **238**. `audit-enlaces` "Sin hallazgos".
 
@@ -63,10 +97,8 @@ Commits `a61dd22` + `f327f13`. Catálogo 234 → **238**. `audit-enlaces` "Sin h
   adidas ES y ECI no las stockean aún. Repuntar a ECI (6%) / Atmósfera (6%) / FuikaOmar (5%)
   en cuanto entren.
 
-### ▶️ SIGUIENTE PASO — quedan 17 modelos por meter
-**Bloque 2 (el más rentable):** `361 Joker 2` / Joker 2 GT (feb-2026, $129-149, **WearTesters
-9/10**) — sucesora directa de `361-joker-1`, y 361° va por AliExpress al **7%, la comisión más
-alta del catálogo**.
+### ▶️ SIGUIENTE PASO — quedan 16 modelos por meter
+**Bloque 2:** ✅ `361-joker-2` hecha (s39). Queda la **Joker 2 GT** como ficha aparte (ver arriba).
 
 **Bloque 3 — flagships ya a la venta:** Nike Sabrina 4 (17-jul, $135), New Balance Kawhi V
 (verano 2026, $160), Puma Stewie 5 (15-may, $125), Puma Scoot Zeros III (tenemos solo la gen 1).

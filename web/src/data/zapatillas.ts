@@ -13949,7 +13949,7 @@ const _rawZapatillas: Zapatilla[] = [
     signature_player: "Nikola Jokić",
     tecnologia_clave: ["QU!KFOAM Lite", "TPU heel counter", "Carbon plate", "Herringbone outsole"],
     predecesor_id: null,
-    sucesor_id: null,
+    sucesor_id: "361-joker-2",
     peso_real_g: 420,
     altura: "mid",
     horma: "ancha",
@@ -13994,6 +13994,73 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/361/joker-1-denver-blue-white", precio_actual: 105, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-24" },
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012114784807.html", precio_actual: 146.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DSJB58JQ?tag=canchazapa-21", precio_actual: 113, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+    ],
+  },
+
+  // 361° JOKER 2 — Nikola Jokić signature 2ª gen, cushion + estabilidad torsional
+  {
+    id: "361-joker-2",
+    slug: "361-joker-2",
+    marca: "361°",
+    modelo: "Joker 2",
+    generacion: 2,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Nikola Jokić",
+    tecnologia_clave: ["CQT Qu!k Tech", "QU!KLIGHT", "Espuma supercrítica en el talón", "Diamond Grip", "3 paneles de torsión TPU"],
+    predecesor_id: "361-joker-1",
+    sucesor_id: null,
+    peso_real_g: 390,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 9,
+    tipo_cierre: "cordones",
+    material_superior: "mesh+synthetic",
+    puntuaciones: {
+      traccion: 8, amortiguacion: 9, respuesta: 8,
+      soporte_lateral: 9, estabilidad: 9, peso_score: 7,
+      durabilidad_outdoor: 5, ventilacion: 7,
+    },
+    categoria_principal: "cushion-focused",
+    tags: ["signature", "china-brand", "big-man", "value-premium"],
+    ideal_para: {
+      posiciones: ["pivot", "ala-pivot", "alero", "escolta"],
+      peso_jugador_kg: [75, 130],
+      estilos: ["potente", "equilibrado"],
+    },
+    no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
+    resumen:
+      "La 361° Joker 2 arregla lo que lastraba a la Joker 1: el upper rígido. Baja a low-top, pierde 30 g y cambia el QU!KFOAM Lite por un doble sistema CQT Qu!k Tech + QU!KLIGHT con espuma supercrítica en el talón. La suela Diamond Grip sale pegajosa de caja y los tres paneles de torsión (medial, lateral e inferior) la dejan rígida como una tabla en torsión. WearTesters la puntúa 8/10 y HoopsGeek 8,6 sobre 5 reviews expertas: es la mejor zapatilla que ha hecho 361° para jugadores grandes.",
+    pros: [
+      "Protección de impacto de élite en el talón — para pívots que caen mucho",
+      "Base ancha y plana + 3 paneles de torsión: estabilidad de las mejores del mercado",
+      "Corrige el upper rígido de la Joker 1: ahora flexiona con el pie",
+      "8/10 en WearTesters y 8,6 en HoopsGeek por 129 $ de tarifa",
+    ],
+    contras: [
+      "Ranuras de tracción poco profundas: se atasca de polvo y NO es para exterior",
+      "En España solo llega por importación de AliExpress, muy por encima de su tarifa",
+      "Horma más estrecha que la Joker 1 — pie ancho, media talla más",
+      "390 g: sigue siendo pesada para un base puro",
+    ],
+    veredicto:
+      "El salto de la Joker 1 a la Joker 2 es real: mismo colchón de pívot, mucha más flexibilidad y 30 g menos. Si juegas dentro y en pista cubierta, compite de tú a tú con la Freak 8 y la LeBron 23 por bastante menos dinero. Si juegas en asfalto, ni la mires: las ranuras se comen el polvo y la goma no está pensada para ahí.",
+    imagen_principal: "/shoes/361-joker-2.webp",
+    imagenes: [],
+    fuentes: [
+      {
+        tipo: "weartesters",
+        url: "https://weartesters.com/361-joker-2-performance-review/",
+      },
+      {
+        tipo: "hoops-geek",
+        url: "https://www.thehoopsgeek.com/shoe-reviews/361-joker-2/",
+      },
+    ],
+    ultima_actualizacion: "2026-08-26",
+    precio_msrp_eur: 119,
+    links_compra: [
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011771667705.html", precio_actual: 184.1, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-26" },
     ],
   },
 
