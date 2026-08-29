@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-08-26 (sesión 39)
+> Última actualización: 2026-08-29 (sesión 41)
 > Para Claude: lee esto al empezar una sesión nueva. **Solo contiene lo vivo**: estado, reglas,
 > doctrina, afiliados, arquitectura y pendientes.
 >
@@ -42,7 +42,26 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 
 ---
 
-## ▶️ Estado actual (sesión 39, 26-ago) — Bloque 2: Joker 2 + Joker 2 GT, y 361° vende en España
+## ▶️ Estado actual (sesión 41, 29-ago) — Sesión de PANELES: los números reales, por fin
+
+Nada de catálogo esta vez. Se abrieron los paneles de OpenRouter, Awin y Amazon Afiliados y
+**tres diagnósticos anteriores resultaron estar mal**. Detalle en *Pendientes abiertos*.
+
+1. **El chat NO estaba caído** y el "403" de la s40 no existe: son **429 por modelo**, y minimax
+   responde 200. Cadena reordenada (minimax primero) en `chat.ts` y `coach.ts`. 236 tests OK.
+2. **Los 942 clics de Decathlon de julio eran del propio scraper.** El tráfico real de la web es
+   de ~100 clics/mes, no de mil.
+3. **El riesgo de Amazon no es de tráfico, es de conversión**: 94 clics reales y 0 ventas, con el
+   **80% de los enlaces apuntando a búsquedas `/s?k=` en vez de a fichas `/dp/`** (142 vs 35).
+   Arreglarlo es la tarea de mayor valor que hay ahora mismo en el proyecto.
+4. **adidas / tracking 20-27 ago: cerrado, impacto cero** (1 clic en todo el mes).
+
+**▶️ ESPERANDO DECISIÓN DEL USUARIO**: (a) re-solicitar los 7 programas rechazados de Awin, que ya
+tienen el botón "Unirse" activo; (b) los $10 de créditos de OpenRouter.
+
+---
+
+## Estado anterior (sesión 39, 26-ago) — Bloque 2: Joker 2 + Joker 2 GT, y 361° vende en España
 
 CLAUDE.md partido en "lo vivo" + `docs/historial-sesiones.md`. Catálogo 238 → **240**,
 342 páginas, 236 tests, `astro check` 0 errores, `audit-enlaces` "Sin hallazgos".
@@ -151,18 +170,45 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ## 🔴 Pendientes abiertos
 
-### ⚠️ Afiliados — dos avisos del correo (28-ago), NO son promos
-- **AMAZON PUEDE CERRAR LA CUENTA.** Correo de `associates@amazon.es` del 23-ago: la cuenta
-  `canchazapa-21` **no ha registrado las 3 ventas** requeridas en sus primeros 3 meses, y su
-  política es **cerrar las cuentas que no llegan a 3 ventas en 180 días** desde el alta. La fecha
-  límite cae hacia **noviembre-2026**. Amazon es la tienda con MÁS enlaces del catálogo (**174**,
-  el 44%): si se cierra, dejan de monetizar todos de golpe y hay que volver a solicitar el programa.
-- **adidas perdió tracking del 20 al 27-ago.** Awin avisó el 27 de una incidencia de tracking en
-  adidas que empezó el jueves 20 y ya está corregida; están "evaluando el impacto" y prometen
-  informar de la recuperación de ventas. Justo esa semana corría nuestra promo de adidas
-  ("Time to Treat Yourself", 20-26 ago) → **si hubo ventas por adidas esos días, pueden no
-  haberse registrado**. Mirar el panel de Awin cuando publiquen la recuperación.
+### ⚠️ Afiliados — MEDIDO EN LOS PANELES (s41, 29-ago), ya no son suposiciones
 
+**Los números reales de tráfico y conversión, por fin:**
+
+| Fuente | Clics agosto | Clics julio | Ventas | Estado |
+|---|---|---|---|---|
+| Amazon ES | **94** | — | **0** (conv. 0,00%) | cuenta ACTIVA |
+| Awin (los 7 programas) | **9** | 986 ⚠ | **0** | EUR 0,00 pagable |
+
+- 🔥 **Los 942 clics de Decathlon de julio eran FALSOS, del scraper.** De los 986 clics de Awin
+  en julio, **942 fueron Decathlon** y el resto de programas sumaban 44. En agosto Decathlon tuvo
+  **1**. La causa: `unwrapAffiliateUrl(link.url)` no se añadió a `index.ts` hasta el **28-jul**
+  (commit `5ffd7f8`) — antes el scraper navegaba el wrapper de Awin cada noche. El fix los cortó
+  en seco. ⇒ **Todas las métricas de Awin anteriores al 28-jul son basura**, y el tráfico real de
+  la web es de ~100 clics/mes, no de mil.
+- ✅ **Los 94 clics de Amazon SÍ son reales**: `amazon_es.ts:43` quita el `tag=` antes de navegar,
+  así que el bot no los infla. Amazon no lleva wrapper de redirección (es `?tag=` sobre la URL
+  real), así que `unwrapAffiliateUrl` no lo protege — lo protege ese `.replace()` y solo ese.
+- ⚠️ **AMAZON PUEDE CERRAR LA CUENTA** (correo de `associates@amazon.es` del 23-ago): sin las
+  **3 ventas** requeridas, y su política es cerrar a los 180 días del alta → **límite ~nov-2026**.
+  Son **174 enlaces, el 44% del catálogo**. Pero el problema NO es falta de tráfico (94 clics/mes
+  daría 1-3 ventas a tasa normal), es que **convierten a cero**. Sospechoso principal ↓
+- 🎯 **EL 80% DE LOS ENLACES DE AMAZON SON BÚSQUEDAS, NO FICHAS**: `142` enlaces `/s?k=` frente a
+  solo `35` de tipo `/dp/` (contado en `zapatillas.ts`, s41 — el CLAUDE.md estimaba ~73, era menos
+  de la mitad de lo real). El usuario pulsa "Comprar en Amazon" y aterriza en un listado de
+  resultados en vez de en el producto. **Convertir esos 142 a fichas `/dp/` es la palanca de
+  conversión más grande que tenemos, y la única vía realista de salvar la cuenta antes de
+  noviembre.** Además arregla de paso la frescura del scraper (las `/s?k=` aciertan el 8% en CI
+  frente al 56% de las `/dp/`).
+- ✅ **adidas: el fallo de tracking del 20-27 ago da IGUAL.** Awin avisó de la incidencia y de que
+  "evaluaría el impacto", pero adidas tuvo **1 solo clic en todo agosto** → el impacto es cero.
+  **Pendiente cerrado, no hay nada que reclamar.**
+
+**Estado de las solicitudes en Awin (verificado en el panel, 29-ago):**
+- ⏳ **Pendientes (3)**: Sneakin ES, Reebok ES, Joom ES. Siguen sin resolver. Pro:Direct ES ya no
+  figura como pendiente.
+- ❌ **Rechazados (7)**: Sprinter, Foot-Store, Basket-Center, size?Official, Foot Locker, JD Sports,
+  Privé by Zalando — **los 7 tienen el botón "+ Unirse" activo**, o sea que se pueden volver a
+  solicitar. Los rechazos fueron en jun-2026, ya pasaron los 3 meses. **Decisión del usuario.**
 
 ### Datos / catálogo
 - **Curry 13 es la ÚLTIMA de Under Armour — NO habrá Curry 14.** Curry y UA rompieron en
@@ -201,14 +247,26 @@ OpenRouter (llama-3.3-70b, qwen3-next-80b, gpt-oss-120b). Arreglado y desplegado
 - El 502 ya trae `code` (`auth`/`prohibido`/`sin-saldo`/`cuota`/`lentos`/`upstream`) y `estados`
   con los status reales. El front solo lee `reply`, así que es invisible al usuario.
 
-**▶️ LO QUE FALTA, Y ES TUYO**: medido en producción, `estados=[403]`. La clave **está viva**
-(sería 401 si estuviera revocada, 402 si faltara saldo, 429 si fuera cuota). El 403 es
-*"insufficient permissions, guardrail block, or moderation flag"* → **4 de los 5 modelos tienen el
-permiso vetado para esa key**. Mirar en el panel de OpenRouter los permisos/scopes de la clave.
-Y la decisión de fondo sigue abierta: **$10 de créditos** suben el tope de **50 a 1.000
+**▶️ RESUELTO EN LA s41 — y el diagnóstico del 403 era FALSO.** Leídos los *Upstream Requests* del
+panel de OpenRouter (29-ago), no hay **ni un solo 403**. Lo que hay, en 4 peticiones reales de
+producción de la app CANCHA.ZAPA:
+
+| Modelo | Proveedor | Status | Latencia |
+|---|---|---|---|
+| gemma-4-31b | Google AI Studio | **429** | 70 ms |
+| gemma-4-26b | Google AI Studio | **429** | 60 ms |
+| glm-5.2 | Decart | **429** | 200 ms |
+| **minimax-m2.7** | GMICloud | **200 ✅** | ~1 s |
+
+**El chat NO está caído**: minimax responde y salva todas las peticiones. Y el 429 **no es el tope
+de la cuenta** —si lo fuera, minimax también rebotaría—: es rate-limit **POR MODELO**, y los tres
+primeros llevan saturados de forma persistente. Con los gemma delante, cada petición del chat
+quemaba **3 llamadas upstream rechazadas** antes de llegar al que responde. → **Cadena reordenada
+con minimax primero** en `chat.ts` y `coach.ts` (236 tests OK).
+
+La decisión de fondo sigue abierta: **$10 de créditos** suben el tope de **50 a 1.000
 peticiones/día** (los créditos NO se gastan usando modelos `:free`, basta con haberlos comprado) y
-además habilitan un eslabón de pago como último recurso. Sin eso, la cadena es en la práctica
-**de un solo modelo**.
+además habilitan un eslabón de pago como último recurso.
 
 ### Infra
 - **`deploy.yml` lleva fallando desde el 26-may** (heredado). No rompe nada —el deploy real lo hace
@@ -239,6 +297,18 @@ pantallas rediseñadas**, en este orden: home → catálogo + ficha → rankings
 Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
 
 ### Verificar antes de concluir
+- **Un código de error DEDUCIDO no es un código de error MEDIDO.** La s40 concluyó "403 = permiso
+  vetado" razonando desde fuera; el panel de OpenRouter no tenía ni un 403, tenía 429 por modelo.
+  Media sesión de hipótesis que se resuelve en un minuto **mirando el panel del proveedor**. Antes
+  de teorizar sobre un tercero, abrir su panel: casi todos tienen un log de peticiones.
+- **Una hipótesis elegante que el tooltip desmiente, se tira.** "El toggle de publish-prompts veta
+  los modelos" encajaba perfecto hasta que el proveedor puso *"Private: does not train on prompts"*.
+  Encajar no es ser cierto.
+- **Antes de leer un gráfico de panel, comprobar qué barra es qué periodo.** El dashboard de Awin
+  daba "982 clics" en agosto; el informe por anunciante daba 9. La barra grande era JULIO. Un dato
+  mal leído del panel iba camino de convertirse en un diagnóstico entero al revés.
+- **Un pico de tráfico sin ventas es sospechoso de ser tuyo.** 942 clics a Decathlon en julio y 1
+  en agosto no era estacionalidad: era el propio scraper antes del fix del 28-jul.
 - **"Ese modelo no existe" es una foto con fecha, no un hecho permanente.** El veredicto de la s26
   sobre la AE 3 era correcto y caducó en 8 meses. Antes de reusar una nota de "fantasma", mirar
   cuándo se escribió.
@@ -304,13 +374,22 @@ Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
   fechas de `ultima_verificacion`, no que el workflow salga verde.
 
 ### Servicios externos y free tiers
+- **El 429 de un free tier puede ser POR MODELO, no por cuenta.** La doctrina previa daba por hecho
+  que el tope de OpenRouter era de cuenta y compartido, así que "la cadena no lo esquiva". Falso:
+  medido el 29-ago, tres modelos daban 429 y un cuarto devolvía 200 en la misma petición. Si un
+  eslabón responde mientras otros rebotan, el límite NO es de cuenta → **la cadena sí sirve, y el
+  ORDEN importa mucho**: los eslabones muertos de delante se cobran una llamada upstream cada uno.
+- **Ordenar la cadena por calidad ESTIMADA en vez de por éxito MEDIDO sale caro.** Los dos gemma
+  iban primeros por "validados en jun-2026" y llevaban meses devolviendo 429: 3 llamadas
+  desperdiciadas por petición. El orden lo decide el log del proveedor, no el recuerdo.
 - **Un catálogo de modelos gratis CADUCA.** La cadena de OpenRouter se validó en vivo en jun-2026 y
   en ago-2026 tenía 3 de 5 modelos retirados, con el chat entero caído. Que un modelo funcionara
   hace tres meses no dice nada de hoy: `curl -s https://openrouter.ai/api/v1/models | grep ':free'`.
-- **Diversificar por PROVEEDOR no esquiva el tope de la CUENTA.** La cadena protege del rate-limit
-  *del proveedor* (Google satura Gemma → saltas a otra familia). No protege del contador de
-  OpenRouter, que es por cuenta y **compartido por todos los modelos `:free`**: cuando se agota,
-  los 5 eslabones rebotan el mismo milisegundo. Un punto único de fallo que ninguna lista arregla.
+- ⚠ **[CORREGIDO en la s41 — leer con la entrada de arriba]** "Diversificar por PROVEEDOR no
+  esquiva el tope de la CUENTA": se escribió sin medir y es falso en el caso general. OpenRouter
+  SÍ tiene un tope de cuenta para los `:free` (50/día sin créditos) y cuando ESE se agota rebotan
+  los 5 eslabones a la vez, pero eso no es lo que estaba pasando: el 429 habitual es por modelo y
+  la cadena sí lo esquiva. Distinguir los dos casos mirando si ALGÚN eslabón devuelve 200.
 - **Distinguir SIEMPRE 401 / 402 / 403 / 429.** Meterlos en un saco de "error de auth" manda a
   regenerar una clave que está perfectamente viva. 401 = clave muerta · 402 = sin saldo ·
   403 = permiso vetado a ESE modelo · 429 = cuota. Solo el 401 justifica tocar la clave.

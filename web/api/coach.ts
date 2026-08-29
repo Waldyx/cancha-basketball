@@ -132,12 +132,12 @@ export default async function handler(req: any, res: any) {
   const models = process.env.CHAT_MODEL
     ? [process.env.CHAT_MODEL]
     : [
-        // Los dos gemma primero (validados y rápidos); los de razonamiento detrás, que
-        // son lentos y agotaban el presupuesto cuando iban delante. Ver chat.ts.
+        // minimax primero: es el único que devuelve 200 en los logs de OpenRouter
+        // (29-ago-2026); los demás rebotan 429 al instante. Ver el detalle en chat.ts.
+        "minimax/minimax-m2.7:free",
         "google/gemma-4-31b-it:free",
         "google/gemma-4-26b-a4b-it:free",
         "z-ai/glm-5.2:free",
-        "minimax/minimax-m2.7:free",
         "thinkingmachines/inkling-small:free",
       ];
 

@@ -246,19 +246,22 @@ export default async function handler(req: any, res: any) {
         // ⚠ REVISAR CADA POCOS MESES. El free tier de OpenRouter ROTA: la cadena validada
         // en vivo en jun-2026 se quedó con 3 de 5 modelos retirados y el chat cayó entero
         // (ago-2026). Comprobar con: curl -s https://openrouter.ai/api/v1/models | grep ':free'
-        // Solo gemma-4-31b (1º) y gemma-4-26b (5º) están validados para español + formato
-        // [[shoe:slug]]; los tres de en medio son SUSTITUTOS SIN VALIDAR (ago-2026).
-        // Los dos gemma PRIMERO: son los únicos validados (jun-2026) para español limpio
-        // + formato [[shoe:slug]], y responden en 2-4s. Que ambos sean de Google no rompe
-        // la diversificación: si Google rate-limitea, los dos caen en ~0.3s y la cadena
-        // sigue con los otros proveedores casi sin gastar presupuesto.
+        //
+        // ORDEN MEDIDO EN LOS LOGS DE OPENROUTER (29-ago-2026), no supuesto. En 4 peticiones
+        // reales de producción: gemma-31b 429 (70ms) · gemma-26b 429 (60ms) · glm-5.2 429
+        // (200ms) · minimax-m2.7 **200 OK** (~1s). El 429 NO es el tope de la cuenta —si lo
+        // fuera, minimax también rebotaría—: es rate-limit POR MODELO, y los tres primeros
+        // llevan saturados de forma persistente. Con los gemma delante, cada petición del
+        // chat quemaba 3 llamadas upstream rechazadas antes de llegar al que responde.
+        "minimax/minimax-m2.7:free", // ÚNICO que devuelve 200 hoy (GMICloud)
+        // Los dos gemma son los únicos VALIDADOS para español limpio + formato
+        // [[shoe:slug]] (jun-2026), así que siguen en cadena: si minimax cae, son el
+        // mejor relevo conocido. Hoy contestan 429 al instante, no cuestan presupuesto.
         "google/gemma-4-31b-it:free", // 2.4s, formato OK, español limpio
         "google/gemma-4-26b-a4b-it:free", // MoE 3.8B activos, rápido
-        // Refuerzo de otras familias. SIN VALIDAR y son modelos de RAZONAMIENTO: más
-        // lentos (ago-2026: se atascaban >10s y agotaban el presupuesto cuando iban
-        // delante). Detrás cumplen su papel sin estrangular a los rápidos.
+        // Cola SIN VALIDAR, y son modelos de RAZONAMIENTO: más lentos (ago-2026: se
+        // atascaban >10s y agotaban el presupuesto cuando iban delante).
         "z-ai/glm-5.2:free",
-        "minimax/minimax-m2.7:free",
         "thinkingmachines/inkling-small:free",
       ];
 
