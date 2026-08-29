@@ -185,6 +185,31 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   `nike-kobe-1-protro` (Marcas+ > MSRP) y 3 Moolah Kicks (marca US no distribuida). Muestran
   "Ver precio" + MSRP. **NO insistir** salvo que entren en stock en una afiliada. (s28)
 
+### 🤖 IA del chat — arreglada, pero con una pieza en tu tejado (s40, 29-ago)
+`/api/chat` y `/api/coach` llevaban **caídos** (502 constante). No era la saturación del free tier
+que suponía la nota de la s25: **3 de los 5 modelos de la cadena habían sido RETIRADOS** por
+OpenRouter (llama-3.3-70b, qwen3-next-80b, gpt-oss-120b). Arreglado y desplegado:
+- Cadena nueva: los dos gemma validados delante, + glm-5.2 / minimax-m2.7 / inkling-small
+  **SIN VALIDAR** (no había clave con la que probarlos). Revisar cuando se pueda.
+- **Fallback local sin IA**: si la cadena entera falla, la función calcula la recomendación con el
+  catálogo (presupuesto, exterior/júnior/mujer, sin RETRO ni GS a adultos) y devuelve 200 con
+  marcadores `[[shoe:]]`. **Gasta 0 peticiones.** Verificado 9/9. En `coach.ts` NO hay fallback
+  a propósito: un análisis de partidos no se puede fabricar sin IA.
+- Tiempo por modelo **adaptativo** `min(15s, restante-1s)` — un tope fijo asfixiaba al único
+  modelo vivo, que necesitaba >12s para una recomendación larga.
+- **Enfriamiento 60s** de los modelos que devuelven 429, para no quemar cuota.
+- El 502 ya trae `code` (`auth`/`prohibido`/`sin-saldo`/`cuota`/`lentos`/`upstream`) y `estados`
+  con los status reales. El front solo lee `reply`, así que es invisible al usuario.
+
+**▶️ LO QUE FALTA, Y ES TUYO**: medido en producción, `estados=[403]`. La clave **está viva**
+(sería 401 si estuviera revocada, 402 si faltara saldo, 429 si fuera cuota). El 403 es
+*"insufficient permissions, guardrail block, or moderation flag"* → **4 de los 5 modelos tienen el
+permiso vetado para esa key**. Mirar en el panel de OpenRouter los permisos/scopes de la clave.
+Y la decisión de fondo sigue abierta: **$10 de créditos** suben el tope de **50 a 1.000
+peticiones/día** (los créditos NO se gastan usando modelos `:free`, basta con haberlos comprado) y
+además habilitan un eslabón de pago como último recurso. Sin eso, la cadena es en la práctica
+**de un solo modelo**.
+
 ### Infra
 - **`deploy.yml` lleva fallando desde el 26-may** (heredado). No rompe nada —el deploy real lo hace
   Vercel— pero deja un workflow en rojo. Valorar borrarlo.
@@ -277,6 +302,29 @@ Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
   a `s` y borra todas las eses).
 - **Un scraper "que corre" no es un scraper que funciona**: mirar los commits del `price-bot` y las
   fechas de `ultima_verificacion`, no que el workflow salga verde.
+
+### Servicios externos y free tiers
+- **Un catálogo de modelos gratis CADUCA.** La cadena de OpenRouter se validó en vivo en jun-2026 y
+  en ago-2026 tenía 3 de 5 modelos retirados, con el chat entero caído. Que un modelo funcionara
+  hace tres meses no dice nada de hoy: `curl -s https://openrouter.ai/api/v1/models | grep ':free'`.
+- **Diversificar por PROVEEDOR no esquiva el tope de la CUENTA.** La cadena protege del rate-limit
+  *del proveedor* (Google satura Gemma → saltas a otra familia). No protege del contador de
+  OpenRouter, que es por cuenta y **compartido por todos los modelos `:free`**: cuando se agota,
+  los 5 eslabones rebotan el mismo milisegundo. Un punto único de fallo que ninguna lista arregla.
+- **Distinguir SIEMPRE 401 / 402 / 403 / 429.** Meterlos en un saco de "error de auth" manda a
+  regenerar una clave que está perfectamente viva. 401 = clave muerta · 402 = sin saldo ·
+  403 = permiso vetado a ESE modelo · 429 = cuota. Solo el 401 justifica tocar la clave.
+- **Un fallo instantáneo y uno lento piden arreglos OPUESTOS.** 5 modelos fallando en 0,6s = los
+  rechazan. Uno fallando en 11s = se atasca. Al segundo hay que darle MÁS tiempo, no menos:
+  repartir el presupuesto a partes iguales asfixiaba al único que respondía.
+- **Un 502 opaco cuesta una sesión entera.** Si una función depende de un tercero, que diga POR QUÉ
+  falló en la propia respuesta (códigos HTTP, nada sensible). Los logs de Vercel no se miran.
+- **Ante un tercero que se cae, la red de seguridad es no depender de él.** El fallback local del
+  chat responde con el catálogo que ya está en memoria, sin gastar cuota. Lo que se puede calcular
+  en local no debería morir porque un free tier se agote.
+- **Medir contra producción consume la cuota que estás midiendo.** Cada petición de prueba dispara
+  hasta 5 llamadas; con un tope de 50/día, un rato de diagnóstico lo agota y contamina la siguiente
+  medición. Sondear poco y espaciado.
 
 ### Datos y precios
 - **`precios.json` FUSIONA, no reescribe**, y además **pisa** al editorial (misma tienda) o
