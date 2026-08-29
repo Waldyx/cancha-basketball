@@ -67,6 +67,12 @@ function rateLimited(ip: string): boolean {
 
 type Msg = { role: string; content: string };
 
+// Algunos modelos de razonamiento cuelan su cadena de pensamiento dentro del texto
+// (le pasó a nemotron en jun-2026, y por eso se descartó). Lo normal es que vaya aparte
+// en `message.reasoning`; esto quita lo que se cuele igualmente en `content`.
+const limpiarRespuesta = (t: string) =>
+  t.replace(/<think>[\s\S]*?<\/think>/gi, "").replace(/<\/?think>/gi, "").trim();
+
 export default async function handler(req: any, res: any) {
   // CORS: el sitio puede servirse en canchazapa.com o www.canchazapa.com (redirect
   // apex→www). Si el service worker sirve la página en el apex, el fetch a /api/chat
@@ -123,14 +129,19 @@ export default async function handler(req: any, res: any) {
   const models = process.env.CHAT_MODEL
     ? [process.env.CHAT_MODEL]
     : [
-        // Cadena gratuita mejor→peor, validada en vivo (jun 2026) para español + formato
-        // [[shoe:slug]] + latencia. Diversificada por PROVEEDOR: un 429 vuelve en ~0.3s,
+        // Cadena gratuita mejor→peor. Diversificada por PROVEEDOR: un 429 vuelve en ~0.3s,
         // así que saltar entre familias distintas esquiva el rate-limit compartido casi
         // sin coste de latencia.
+        //
+        // ⚠ REVISAR CADA POCOS MESES. El free tier de OpenRouter ROTA: la cadena validada
+        // en vivo en jun-2026 se quedó con 3 de 5 modelos retirados y el chat cayó entero
+        // (ago-2026). Comprobar con: curl -s https://openrouter.ai/api/v1/models | grep ':free'
+        // Solo gemma-4-31b (1º) y gemma-4-26b (5º) están validados para español + formato
+        // [[shoe:slug]]; los tres de en medio son SUSTITUTOS SIN VALIDAR (ago-2026).
         "google/gemma-4-31b-it:free", // 2.4s, formato OK, español limpio, alta disponibilidad
-        "meta-llama/llama-3.3-70b-instruct:free", // top instrucciones/multilingüe
-        "qwen/qwen3-next-80b-a3b-instruct:free", // MoE rápido, multilingüe
-        "openai/gpt-oss-120b:free", // sólido, algo más lento (reasoning aparte)
+        "z-ai/glm-5.2:free", // generalista fuerte, otro proveedor
+        "minimax/minimax-m2.7:free", // otra familia distinta, otro rate-limit
+        "thinkingmachines/inkling-small:free", // 12B activos, rápido
         "google/gemma-4-26b-a4b-it:free", // MoE rápido, último recurso
       ];
 
@@ -141,6 +152,11 @@ export default async function handler(req: any, res: any) {
       max_tokens: 500,
       temperature: 0.4,
     });
+
+  // Status de cada fallo. Si TODOS son de auth/cuota, el problema es la clave o el
+  // límite del free tier, no los modelos: hay que poder distinguirlo desde fuera sin
+  // entrar en los logs de Vercel (un 502 opaco costó una sesión entera en ago-2026).
+  const fallos: number[] = [];
 
   // Presupuesto total de tiempo. maxDuration=30s (validado por Vercel en build),
   // dejamos margen: ~25s repartidos, hasta 15s por modelo. Los free de OpenRouter
@@ -166,12 +182,13 @@ export default async function handler(req: any, res: any) {
 
       if (!r.ok) {
         const detail = await r.text().catch(() => "");
+        fallos.push(r.status);
         console.error("[api/chat]", model, r.status, detail.slice(0, 200));
         continue; // prueba el siguiente modelo de la cadena
       }
 
       const data = await r.json();
-      const reply = data?.choices?.[0]?.message?.content ?? "";
+      const reply = limpiarRespuesta(data?.choices?.[0]?.message?.content ?? "");
       if (!reply) continue;
       res.status(200).json({ reply });
       return;
@@ -181,5 +198,16 @@ export default async function handler(req: any, res: any) {
     }
   }
 
-  res.status(502).json({ reply: "Uy, no he podido responder ahora mismo. Reintenta en un momento — o usa el quiz." });
+  // Distinguir el 429 IMPORTA: el tope del free tier de OpenRouter es POR CUENTA y lo
+  // comparten TODOS los modelos :free, así que la cadena NO lo esquiva por muchos modelos
+  // que se le añadan (los 5 fallan a la vez). "upstream" sí es culpa de los modelos.
+  const todosSon = (...sts: number[]) => fallos.length > 0 && fallos.every((st) => sts.includes(st));
+  const code = todosSon(401, 403)
+    ? "auth"        // clave inválida o revocada
+    : todosSon(402)
+      ? "sin-saldo" // la cuenta se quedó sin créditos
+      : todosSon(429)
+        ? "cuota"   // tope diario del free tier agotado (50/día sin créditos comprados)
+        : "upstream"; // los modelos: saturados, retirados o caídos
+  res.status(502).json({ reply: "Uy, no he podido responder ahora mismo. Reintenta en un momento — o usa el quiz.", code });
 }

@@ -83,6 +83,12 @@ PARTIDOS (más antiguo → más reciente):
 ${tabla}`;
 }
 
+// Algunos modelos de razonamiento cuelan su cadena de pensamiento dentro del texto
+// (le pasó a nemotron en jun-2026, y por eso se descartó). Lo normal es que vaya aparte
+// en `message.reasoning`; esto quita lo que se cuele igualmente en `content`.
+const limpiarRespuesta = (t: string) =>
+  t.replace(/<think>[\s\S]*?<\/think>/gi, "").replace(/<\/?think>/gi, "").trim();
+
 export default async function handler(req: any, res: any) {
   const origin = (req.headers["origin"] || "").toString();
   if (/^https:\/\/(www\.)?canchazapa\.com$/.test(origin)) {
@@ -122,9 +128,9 @@ export default async function handler(req: any, res: any) {
     ? [process.env.CHAT_MODEL]
     : [
         "google/gemma-4-31b-it:free",
-        "meta-llama/llama-3.3-70b-instruct:free",
-        "qwen/qwen3-next-80b-a3b-instruct:free",
-        "openai/gpt-oss-120b:free",
+        "z-ai/glm-5.2:free",
+        "minimax/minimax-m2.7:free",
+        "thinkingmachines/inkling-small:free",
         "google/gemma-4-26b-a4b-it:free",
       ];
 
@@ -135,6 +141,11 @@ export default async function handler(req: any, res: any) {
       max_tokens: 500,
       temperature: 0.4,
     });
+
+  // Status de cada fallo. Si TODOS son de auth/cuota, el problema es la clave o el
+  // límite del free tier, no los modelos: hay que poder distinguirlo desde fuera sin
+  // entrar en los logs de Vercel (un 502 opaco costó una sesión entera en ago-2026).
+  const fallos: number[] = [];
 
   const deadline = Date.now() + 25000;
   for (const model of models) {
@@ -154,11 +165,12 @@ export default async function handler(req: any, res: any) {
       });
       if (!r.ok) {
         const detail = await r.text().catch(() => "");
+        fallos.push(r.status);
         console.error("[api/coach]", model, r.status, detail.slice(0, 200));
         continue;
       }
       const data = await r.json();
-      const reply = data?.choices?.[0]?.message?.content ?? "";
+      const reply = limpiarRespuesta(data?.choices?.[0]?.message?.content ?? "");
       if (!reply) continue;
       res.status(200).json({ reply });
       return;
@@ -166,5 +178,16 @@ export default async function handler(req: any, res: any) {
       console.error("[api/coach]", model, err);
     }
   }
-  res.status(502).json({ reply: "Uy, no he podido analizar ahora mismo. Reinténtalo en un momento." });
+  // Distinguir el 429 IMPORTA: el tope del free tier de OpenRouter es POR CUENTA y lo
+  // comparten TODOS los modelos :free, así que la cadena NO lo esquiva por muchos modelos
+  // que se le añadan (los 5 fallan a la vez). "upstream" sí es culpa de los modelos.
+  const todosSon = (...sts: number[]) => fallos.length > 0 && fallos.every((st) => sts.includes(st));
+  const code = todosSon(401, 403)
+    ? "auth"        // clave inválida o revocada
+    : todosSon(402)
+      ? "sin-saldo" // la cuenta se quedó sin créditos
+      : todosSon(429)
+        ? "cuota"   // tope diario del free tier agotado (50/día sin créditos comprados)
+        : "upstream"; // los modelos: saturados, retirados o caídos
+  res.status(502).json({ reply: "Uy, no he podido analizar ahora mismo. Reinténtalo en un momento.", code });
 }
