@@ -52,8 +52,10 @@ Nada de catálogo esta vez. Se abrieron los paneles de OpenRouter, Awin y Amazon
 2. **Los 942 clics de Decathlon de julio eran del propio scraper.** El tráfico real de la web es
    de ~100 clics/mes, no de mil.
 3. **El riesgo de Amazon no es de tráfico, es de conversión**: 94 clics reales y 0 ventas, con el
-   **80% de los enlaces apuntando a búsquedas `/s?k=` en vez de a fichas `/dp/`** (142 vs 35).
-   Arreglarlo es la tarea de mayor valor que hay ahora mismo en el proyecto.
+   **49% de los enlaces apuntando a búsquedas `/s?k=` en vez de a fichas `/dp/`** (87 vs 90,
+   medido post-merge). Empezado el repaso: de una muestra de 8, solo 1 era convertible porque
+   **Amazon ES apenas vende este nicho**. Quedan 79 por repasar y hay que decidir qué hacer con
+   los enlaces que no tienen ficha posible.
 4. **adidas / tracking 20-27 ago: cerrado, impacto cero** (1 clic en todo el mes).
 
 **▶️ ESPERANDO DECISIÓN DEL USUARIO**: (a) re-solicitar los 7 programas rechazados de Awin, que ya
@@ -192,13 +194,24 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   **3 ventas** requeridas, y su política es cerrar a los 180 días del alta → **límite ~nov-2026**.
   Son **174 enlaces, el 44% del catálogo**. Pero el problema NO es falta de tráfico (94 clics/mes
   daría 1-3 ventas a tasa normal), es que **convierten a cero**. Sospechoso principal ↓
-- 🎯 **EL 80% DE LOS ENLACES DE AMAZON SON BÚSQUEDAS, NO FICHAS**: `142` enlaces `/s?k=` frente a
-  solo `35` de tipo `/dp/` (contado en `zapatillas.ts`, s41 — el CLAUDE.md estimaba ~73, era menos
-  de la mitad de lo real). El usuario pulsa "Comprar en Amazon" y aterriza en un listado de
-  resultados en vez de en el producto. **Convertir esos 142 a fichas `/dp/` es la palanca de
-  conversión más grande que tenemos, y la única vía realista de salvar la cuenta antes de
-  noviembre.** Además arregla de paso la frescura del scraper (las `/s?k=` aciertan el 8% en CI
-  frente al 56% de las `/dp/`).
+- 🎯 **49% DE LOS ENLACES DE AMAZON SON BÚSQUEDAS, NO FICHAS**: **87 `/s?k=` frente a 90 `/dp/`**,
+  medido POST-MERGE (que es lo que ve el usuario). ⚠ En `zapatillas.ts` a pelo salen 142 vs 35,
+  pero **ese número NO vale**: `resolveUrl()` en `mergePrices.ts` sustituye la búsqueda por la
+  ficha que resolvió el scraper y le reaplica el `tag=`, así que 55 ya están arregladas en
+  runtime. Medir siempre sobre `zapatillas` importado, nunca sobre el fichero fuente.
+  Los 87 llevan todos su `tag=` (0 sin monetizar). **En 56 de ellos Amazon es la ÚNICA tienda
+  afiliada con ficha** → son la prioridad.
+- ⚠️ **PERO la palanca es MÁS PEQUEÑA de lo que parece: Amazon ES casi no vende este nicho.**
+  Muestra de 8 modelos comprobados a mano en Amazon (s41): **solo 1 convertible**.
+  · ✅ `jordan-luka-3` → ficha fijada `B0DC6YYJC1` a 173,67 € (4 colorways; se cogió el más barato).
+  · ❌ `nike-ja-3` (salen Ja 2 y adidas Own The Game) · `nike-gt-cut-4` (solo la línea budget
+  *G.T. Cut Academy*) · `puma-mb-06` (hay MB.03/04/05) · `nike-kd-19` (sale KD 4 y KD18) ·
+  `adidas-trae-young-4` (sale Trae Young 2) → **Amazon no tiene el modelo**.
+  · ⛔ `nike-kobe-4-protro`: único resultado a **1.204,89 €** (reventa). Enlazarlo es peor que
+  nada — encaja con la regla de no usar retros hiper-demandados.
+  ⇒ Para la mayoría de los 87 el arreglo NO es convertir a `/dp/`, es **quitar el enlace** y dejar
+  "Ver precio" + MSRP: hoy el usuario pulsa "Comprar en Amazon" y aterriza en resultados de otra
+  marca, lo cual resta credibilidad y no monetiza. **Queda por decidir y por hacer (79 sin repasar).**
 - ✅ **adidas: el fallo de tracking del 20-27 ago da IGUAL.** Awin avisó de la incidencia y de que
   "evaluaría el impacto", pero adidas tuvo **1 solo clic en todo agosto** → el impacto es cero.
   **Pendiente cerrado, no hay nada que reclamar.**
@@ -297,6 +310,10 @@ pantallas rediseñadas**, en este orden: home → catálogo + ficha → rankings
 Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
 
 ### Verificar antes de concluir
+- **Contar sobre el fichero fuente cuando hay una capa de merge da un número FALSO.** "142 de 177
+  enlaces de Amazon son búsquedas" salió de `grep` sobre `zapatillas.ts`; el número que ve el
+  usuario es 87, porque `mergePrices` sustituye la URL en runtime. Medir siempre sobre el dato
+  ya compuesto (importar `zapatillas`), no sobre el texto del que sale.
 - **Un código de error DEDUCIDO no es un código de error MEDIDO.** La s40 concluyó "403 = permiso
   vetado" razonando desde fuera; el panel de OpenRouter no tenía ni un 403, tenía 429 por modelo.
   Media sesión de hipótesis que se resuelve en un minuto **mirando el panel del proveedor**. Antes
