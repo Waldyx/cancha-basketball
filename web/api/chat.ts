@@ -300,8 +300,12 @@ export default async function handler(req: any, res: any) {
   // comparten TODOS los modelos :free, así que la cadena NO lo esquiva por muchos modelos
   // que se le añadan (los 5 fallan a la vez). "upstream" sí es culpa de los modelos.
   const todosSon = (...sts: number[]) => fallos.length > 0 && fallos.every((st) => sts.includes(st));
-  const code = todosSon(401, 403)
-    ? "auth"         // clave inválida o revocada
+  const code = todosSon(401)
+    ? "auth"         // 401: clave inválida o revocada
+    : todosSon(403)
+      ? "prohibido"  // 403: la clave es VÁLIDA pero ese modelo le está vetado
+                     // (permisos de la key, guardarraíl o moderación). NO es la clave:
+                     // confundirlo con "auth" manda a regenerar una clave que está bien.
     : todosSon(402)
       ? "sin-saldo"  // la cuenta se quedó sin créditos
       : todosSon(429)
