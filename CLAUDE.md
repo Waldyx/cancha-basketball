@@ -53,9 +53,9 @@ Nada de catálogo esta vez. Se abrieron los paneles de OpenRouter, Awin y Amazon
    de ~100 clics/mes, no de mil.
 3. **El riesgo de Amazon no es de tráfico, es de conversión**: 94 clics reales y 0 ventas, con el
    **49% de los enlaces apuntando a búsquedas `/s?k=` en vez de a fichas `/dp/`** (87 vs 90,
-   medido post-merge). Empezado el repaso: de una muestra de 8, solo 1 era convertible porque
-   **Amazon ES apenas vende este nicho**. Quedan 79 por repasar y hay que decidir qué hacer con
-   los enlaces que no tienen ficha posible.
+   medido post-merge). **Repasados a mano los 56 prioritarios: 17 fichas nuevas fijadas** (70
+   búsquedas / 107 fichas). Los ~39 restantes no tienen arreglo — **Amazon ES apenas vende este
+   nicho** — y queda decidir si se quitan.
 4. **adidas / tracking 20-27 ago: cerrado, impacto cero** (1 clic en todo el mes).
 
 **▶️ ESPERANDO DECISIÓN DEL USUARIO**: (a) re-solicitar los 7 programas rechazados de Awin, que ya
@@ -201,17 +201,31 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   runtime. Medir siempre sobre `zapatillas` importado, nunca sobre el fichero fuente.
   Los 87 llevan todos su `tag=` (0 sin monetizar). **En 56 de ellos Amazon es la ÚNICA tienda
   afiliada con ficha** → son la prioridad.
-- ⚠️ **PERO la palanca es MÁS PEQUEÑA de lo que parece: Amazon ES casi no vende este nicho.**
-  Muestra de 8 modelos comprobados a mano en Amazon (s41): **solo 1 convertible**.
-  · ✅ `jordan-luka-3` → ficha fijada `B0DC6YYJC1` a 173,67 € (4 colorways; se cogió el más barato).
-  · ❌ `nike-ja-3` (salen Ja 2 y adidas Own The Game) · `nike-gt-cut-4` (solo la línea budget
-  *G.T. Cut Academy*) · `puma-mb-06` (hay MB.03/04/05) · `nike-kd-19` (sale KD 4 y KD18) ·
-  `adidas-trae-young-4` (sale Trae Young 2) → **Amazon no tiene el modelo**.
-  · ⛔ `nike-kobe-4-protro`: único resultado a **1.204,89 €** (reventa). Enlazarlo es peor que
-  nada — encaja con la regla de no usar retros hiper-demandados.
-  ⇒ Para la mayoría de los 87 el arreglo NO es convertir a `/dp/`, es **quitar el enlace** y dejar
-  "Ver precio" + MSRP: hoy el usuario pulsa "Comprar en Amazon" y aterriza en resultados de otra
-  marca, lo cual resta credibilidad y no monetiza. **Queda por decidir y por hacer (79 sin repasar).**
+- ✅ **REPASO COMPLETO DE LOS 56 PRIORITARIOS HECHO (s41).** Comprobados uno a uno en Amazon ES.
+  Resultado: **87 búsquedas → 70**, **90 fichas → 107**. **17 fichas nuevas fijadas**, 0 sin tag.
+  `jordan-luka-3` `jordan-luka-2` `nike-giannis-immortality-3` `nike-zoom-freak-4` `nike-sabrina-1`
+  `ua-futr-x-4` `ua-hovr-havoc-5` `nike-gt-jump-1` `nike-gt-jump-2` `adidas-pro-vision`
+  `skechers-skx-league` `fila-grant-hill-2` `adidas-crazy-8` `air-jordan-12` `reebok-shaq-attaq`
+  `nike-air-flight-huarache` `nike-air-zoom-flight-95`.
+- ⚠️ **Los otros ~39 NO tienen arreglo posible: Amazon ES casi no vende este nicho.** Tres causas:
+  1. **Amazon no tiene el modelo** (la mayoría): la búsqueda devuelve otra generación u otra marca.
+     `nike-ja-3`→Ja 2 · `nike-ja-4`→AJ4 RM · `nike-gt-cut-4`→solo *G.T. Cut Academy* (budget) ·
+     `puma-mb-06`→MB.03/04/05 · `nike-kd-19`→KD 4 y KD18 · `adidas-trae-young-4`→Trae Young 2 ·
+     `nike-giannis-freak-8`→Freak 6/7 · `reebok-answer-iv`→Answer **III** · `jordan-xxxvii`→AJ1 Mid ·
+     `jordan-41`→lo lee como TALLA 41. Y sin resultados: `nb-omn1s`, `converse-shai-001`,
+     `converse-all-star-pro-bb`, `ua-embiid-1`, `puma-hali-1`, `nike-atwo`, `nike-air-penny-1`,
+     `nike-air-pippen`, `puma-sky-lx`, `reebok-blast`, `nike-shox-bb4`, `nike-air-max-cb-34`,
+     `nike-zoom-generation`, `nike-hyperdunk-2008`, `converse-larry-johnson`, `adidas-eqt-basketball`,
+     **`nike-kobe-5-protro` (0 resultados)** y **`nike-kobe-6-protro` (¡solo protectores de zapatillas!)**.
+     Los **3 Asics** (`unpre-ars-2`, `gelhoop-v17`, `glide-nova-ff-4`) confirmados sin nada.
+  2. ⛔ **Reventa** — criterio aplicado: se descarta a partir de **~2× MSRP**. `nike-kobe-4-protro`
+     **1.204,89 €** · `nike-pg-6` **420,64 €** (MSRP ~120) · `nike-kyrie-flytrap-6` **205,73 €**
+     (MSRP ~80) · `air-jordan-14` **487-840 €**.
+  3. **Segmento equivocado**: `adidas-cross-em-up-5` (el catálogo es la adulta unisex, Amazon solo
+     vende la "Cross Em Up 5 **K**" de kids) y `air-jordan-10` (el único candidato es **(GS)**).
+  ⇒ **PENDIENTE DE DECIDIR**: esos ~39 enlaces mandan hoy al usuario a un listado con productos de
+  otra marca. Resta credibilidad y no monetiza. Lo coherente con la estrategia "Ver precio" (s28)
+  es **quitarlos** y dejar MSRP. No hecho: es tu llamada.
 - ✅ **adidas: el fallo de tracking del 20-27 ago da IGUAL.** Awin avisó de la incidencia y de que
   "evaluaría el impacto", pero adidas tuvo **1 solo clic en todo agosto** → el impacto es cero.
   **Pendiente cerrado, no hay nada que reclamar.**

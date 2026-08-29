@@ -2648,7 +2648,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=zoom+freak+4&vst=zoom+freak+4", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+zoom+freak+4+baloncesto&tag=canchazapa-21", precio_actual: 80, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BSVL687Q?tag=canchazapa-21", precio_actual: 172.53, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=nike+zoom+freak+4", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+zoom+freak+4", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
@@ -2714,7 +2714,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 65,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=giannis+immortality+3&vst=giannis+immortality+3", precio_actual: 50, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+giannis+immortality+3&tag=canchazapa-21", precio_actual: 50, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CT5ZNC6Y?tag=canchazapa-21", precio_actual: 97.72, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=nike+giannis+immortality+3", precio_actual: 55, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
   },
@@ -3207,7 +3207,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 125,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=luka+2&vst=luka+2", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=jordan+luka+2+baloncesto&tag=canchazapa-21", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CTW4SKM8?tag=canchazapa-21", precio_actual: 129.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=jordan+luka+2", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=jordan+luka+2", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
@@ -3336,7 +3336,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 150,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=gt+jump+2&vst=gt+jump+2", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+air+zoom+gt+jump+2&tag=canchazapa-21", precio_actual: 95, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D2641PYR?tag=canchazapa-21", precio_actual: 279.67, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
       { tienda: "zalando_es", url: "https://www.zalando.es/buscar/?q=nike+gt+jump+2", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+gt+jump+2", precio_actual: 105, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
@@ -4880,7 +4880,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+futr+x+4&tag=canchazapa-21", precio_actual: 48, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DHDF78RW?tag=canchazapa-21", precio_actual: 67.66, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
       { tienda: "ua_es", url: "https://www.underarmour.es/es-es/p/calzado/ua_futr_x_4/3028831.html", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
     ],
   },
@@ -7580,7 +7580,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+sabrina+1&tag=canchazapa-21", precio_actual: 137.23, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CMV8D852?tag=canchazapa-21", precio_actual: 171.85, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=sabrina+1&vst=sabrina+1", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+sabrina+1", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
     ],
@@ -7803,7 +7803,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+hovr+havoc+5&tag=canchazapa-21", precio_actual: 101.20, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0C2FZD6Y6?tag=canchazapa-21", precio_actual: 151.08, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=under+armour+hovr+havoc+5", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
     ],
   },
@@ -9051,7 +9051,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-29",
     precio_msrp_eur: 200,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+air+zoom+gt+jump&tag=canchazapa-21", precio_actual: 180, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BJ2RVFVS?tag=canchazapa-21", precio_actual: 277.65, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=gt+jump&vst=gt+jump", precio_actual: 200, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-29" },
     ],
   },
@@ -9997,7 +9997,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 74.99,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+pro+vision+baloncesto&tag=canchazapa-21", precio_actual: 74.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B07HF9YN5L?tag=canchazapa-21", precio_actual: 171.09, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?q=adidas+pro+vision", precio_actual: 74.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-26" },
     ],
   },
@@ -10944,7 +10944,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 150,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Reebok+Shaq+Attaq&tag=canchazapa-21", precio_actual: 273, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B09H5D6H93?tag=canchazapa-21", precio_actual: 196.0, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
     ],
   },
 
@@ -11538,7 +11538,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 220,
     links_compra: [
       { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Air+Jordan+12+Retro", precio_actual: 220, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Air+Jordan+12+Retro&tag=canchazapa-21", precio_actual: 235, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FPJRVL47?tag=canchazapa-21", precio_actual: 244.91, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
     ],
   },
 
@@ -12290,7 +12290,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+crazy+8+kobe&tag=canchazapa-21", precio_actual: 115, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FL7WTKW8?tag=canchazapa-21", precio_actual: 106.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
     ],
   },
 
@@ -12601,7 +12601,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 130,
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+air+flight+huarache", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+air+flight+huarache&tag=canchazapa-21", precio_actual: 135, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CW5V4GFZ?tag=canchazapa-21", precio_actual: 213.57, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
     ],
   },
 
@@ -13028,7 +13028,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-28",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+air+zoom+flight+95+retro&tag=canchazapa-21", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0C1GXMH9X?tag=canchazapa-21", precio_actual: 215.53, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
     ],
   },
 
@@ -13309,7 +13309,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-08",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=fila+grant+hill+2&tag=canchazapa-21", precio_actual: 110, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-08" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CZHDWB7B?tag=canchazapa-21", precio_actual: 124.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
       { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=FILA+Grant+Hill+2", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-08" },
     ],
   },
@@ -14744,7 +14744,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-09",
     precio_msrp_eur: 95,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=skechers+skx+league+baloncesto&tag=canchazapa-21", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CWWL4MFK?tag=canchazapa-21", precio_actual: 73.73, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
     ],
   },
 
