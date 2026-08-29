@@ -49,6 +49,81 @@ REGLAS:
 CATÁLOGO (slug | marca modelo | categoría | precio | scores | altura | horma | marcadores RETRO/JUNIOR-GS/MUJER):
 ${CATALOGO}`;
 
+// ── Fallback local: responde SIN llamar a ninguna IA ───────────────────────────
+// Cuando la cadena entera falla (free tier agotado, modelos caídos) el usuario se
+// quedaba con "no he podido responder", que es justo lo que había que evitar. Esto
+// le da una recomendación real sacada del MISMO catálogo, sin gastar ni una
+// petición. No suplanta al asistente: dice claramente que no ha podido consultarlo.
+type ZapaCat = {
+  slug: string;
+  precio: number;
+  scores: Record<string, number>;
+  marcadores: string;
+};
+
+// Línea del catálogo: slug | nombre | categoría | 90€ | tracc 10 cushion 9 … | altura | horma | MARCADORES
+const ZAPAS: ZapaCat[] = CATALOGO.split("\n")
+  .filter(Boolean)
+  .map((linea) => {
+    const c = linea.split("|").map((x) => x.trim());
+    const scores: Record<string, number> = {};
+    for (const m of (c[4] ?? "").matchAll(/([a-z]+)\s+(\d+)/g)) scores[m[1]] = Number(m[2]);
+    return {
+      slug: c[0] ?? "",
+      precio: Number((c[3] ?? "").replace(/[^\d]/g, "")) || 0,
+      scores,
+      marcadores: c.slice(7).join(" "),
+    };
+  })
+  .filter((z) => z.slug);
+
+function respuestaLocal(pregunta: string): string {
+  const q = pregunta.toLowerCase();
+  const mp = q.match(/(\d{1,4})\s*(?:€|eur|euros?)/) ?? q.match(/presupuesto\D{0,12}(\d{1,4})/);
+  const presupuesto = mp ? Number(mp[1]) : 0;
+  const exterior = /exterior|outdoor|calle|asfalto|cemento|parque/.test(q);
+  const junior = /junior|jr\b|niñ|infantil|hijo|hija|grade school/.test(q);
+  const mujer = /mujer|chica|jugadora|femenin/.test(q);
+
+  // Los RETRO fuera siempre: son de coleccionismo, no de cancha (regla del prompt).
+  let cand = ZAPAS.filter((z) => !/RETRO/.test(z.marcadores));
+  // Las GS solo si piden algo júnior; y si piden júnior, solo GS.
+  cand = junior
+    ? cand.filter((z) => /JUNIOR-GS/.test(z.marcadores))
+    : cand.filter((z) => !/JUNIOR-GS/.test(z.marcadores));
+  if (mujer) {
+    const f = cand.filter((z) => /MUJER/.test(z.marcadores));
+    if (f.length >= 3) cand = f;
+  }
+  if (presupuesto > 0) cand = cand.filter((z) => z.precio > 0 && z.precio <= presupuesto);
+
+  // Nota = los 5 criterios de cancha. En exterior, la suela pesa el triple.
+  const nota = (z: ZapaCat) => {
+    const s = z.scores;
+    const base =
+      (s.tracc ?? 0) + (s.cushion ?? 0) + (s.resp ?? 0) + (s.soporte ?? 0) + (s.estab ?? 0);
+    return base + (exterior ? (s.outdoor ?? 0) * 3 : 0);
+  };
+  const top = [...cand].sort((a, b) => nota(b) - nota(a)).slice(0, 3);
+
+  if (!top.length) {
+    return "Ahora mismo no puedo consultar al asistente. Pásate por el quiz (/quiz), que filtra por presupuesto, posición y tipo de pista.";
+  }
+  const criterio = [
+    presupuesto ? `por debajo de ${presupuesto}€` : null,
+    exterior ? "buenas en exterior" : null,
+    junior ? "en tallaje júnior" : null,
+    mujer ? "para jugadora" : null,
+  ]
+    .filter(Boolean)
+    .join(", ");
+  return (
+    `Ahora mismo no puedo consultar al asistente, así que te doy directamente las mejor valoradas del catálogo${criterio ? " " + criterio : ""}:\n\n` +
+    top.map((z) => `[[shoe:${z.slug}]]`).join("\n") +
+    `\n\nPara afinar de verdad (posición, peso, lesiones), el quiz (/quiz) lo hace mejor que yo.`
+  );
+}
+
 // ── Rate limit best-effort en memoria (por instancia caliente) ─────────────────
 // Para un límite duro entre instancias haría falta Upstash/Vercel KV; esto es un
 // guardarraíl gratuito que frena abuso desde una IP en una instancia caliente.
@@ -66,6 +141,12 @@ function rateLimited(ip: string): boolean {
 }
 
 type Msg = { role: string; content: string };
+
+// Modelos que acaban de devolver 429: saltarlos ahorra latencia y no quema intentos
+// del tope diario en algo que ya sabemos que va a rebotar. Best-effort por instancia
+// caliente, igual que el rate limit de arriba.
+const enfriando = new Map<string, number>();
+const ENFRIAMIENTO_MS = 60 * 1000;
 
 // Algunos modelos de razonamiento cuelan su cadena de pensamiento dentro del texto
 // (le pasó a nemotron en jun-2026, y por eso se descartó). Lo normal es que vaya aparte
@@ -156,7 +237,7 @@ export default async function handler(req: any, res: any) {
     JSON.stringify({
       model,
       messages: [{ role: "system", content: SYSTEM }, ...messages],
-      max_tokens: 500,
+      max_tokens: 380, // el prompt pide 2-4 frases; menos tokens = completa antes
       temperature: 0.4,
     });
 
@@ -172,8 +253,14 @@ export default async function handler(req: any, res: any) {
   const deadline = Date.now() + 25000;
 
   for (const model of models) {
+    if ((enfriando.get(model) ?? 0) > Date.now()) continue; // rebotó hace nada, ni lo intentes
     const remaining = deadline - Date.now();
-    if (remaining < 2500) break; // sin tiempo útil para otro intento
+    if (remaining < 4000) break; // sin tiempo útil para otro intento
+    // Tiempo para ESTE intento. Generoso a propósito: los modelos caídos fallan al
+    // instante y no gastan presupuesto, así que repartirlo a partes iguales solo servía
+    // para asfixiar al único que responde. En ago-2026 la cadena real era de UN modelo
+    // vivo y lento, y con 8s fijos no le daba tiempo a completar una recomendación.
+    const tope = Math.min(15000, remaining - 1000);
     try {
       const r = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
@@ -184,15 +271,13 @@ export default async function handler(req: any, res: any) {
           "X-Title": "CANCHA.ZAPA",
         },
         body: payload(model),
-        // 8s y no 12s: con 25s de presupuesto, 12s dejaba llegar a 2 modelos como mucho y
-        // uno lento se comía la mitad. A 8s entran 3 intentos completos, que es lo que
-        // evita el "sin respuesta" (ago-2026). Los free sanos contestan en 2-6s.
-        signal: AbortSignal.timeout(Math.min(8000, remaining)),
+        signal: AbortSignal.timeout(tope),
       });
 
       if (!r.ok) {
         const detail = await r.text().catch(() => "");
         fallos.push(r.status);
+        if (r.status === 429) enfriando.set(model, Date.now() + ENFRIAMIENTO_MS);
         console.error("[api/chat]", model, r.status, detail.slice(0, 200));
         continue; // prueba el siguiente modelo de la cadena
       }
@@ -224,5 +309,13 @@ export default async function handler(req: any, res: any) {
         : todosSon(0)
           ? "lentos" // todos se colgaron: no fallan, se atascan (otro arreglo distinto)
           : "upstream"; // los modelos: saturados, retirados o caídos
-  res.status(502).json({ reply: "Uy, no he podido responder ahora mismo. Reintenta en un momento — o usa el quiz.", code });
+  // Ni un 502 ni un "no he podido responder": el usuario se lleva zapatillas reales del
+  // catálogo, calculadas aquí y sin gastar una sola petición de la cuota. `code` y
+  // `estados` viajan para poder diagnosticar desde fuera; el front solo lee `reply`.
+  console.error("[api/chat] cadena agotada, respondo en local:", code, fallos.join(","));
+  res.status(200).json({
+    reply: respuestaLocal(messages[messages.length - 1].content),
+    code: "local-" + code,
+    estados: fallos.join(","),
+  });
 }

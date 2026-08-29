@@ -89,6 +89,11 @@ ${tabla}`;
 const limpiarRespuesta = (t: string) =>
   t.replace(/<think>[\s\S]*?<\/think>/gi, "").replace(/<\/?think>/gi, "").trim();
 
+// Modelos que acaban de devolver 429: saltarlos ahorra latencia y no quema intentos del
+// tope diario. Best-effort por instancia caliente. Ver chat.ts.
+const enfriando = new Map<string, number>();
+const ENFRIAMIENTO_MS = 60 * 1000;
+
 export default async function handler(req: any, res: any) {
   const origin = (req.headers["origin"] || "").toString();
   if (/^https:\/\/(www\.)?canchazapa\.com$/.test(origin)) {
@@ -151,8 +156,12 @@ export default async function handler(req: any, res: any) {
 
   const deadline = Date.now() + 25000;
   for (const model of models) {
+    if ((enfriando.get(model) ?? 0) > Date.now()) continue; // rebotó hace nada, ni lo intentes
     const remaining = deadline - Date.now();
-    if (remaining < 2500) break;
+    if (remaining < 4000) break;
+    // Generoso a propósito: los caídos fallan al instante y no gastan presupuesto, así
+    // que repartirlo a partes iguales solo asfixiaba al único que responde. Ver chat.ts.
+    const tope = Math.min(15000, remaining - 1000);
     try {
       const r = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
@@ -163,14 +172,12 @@ export default async function handler(req: any, res: any) {
           "X-Title": "CANCHA.ZAPA",
         },
         body: payload(model),
-        // 8s y no 12s: con 25s de presupuesto, 12s dejaba llegar a 2 modelos como mucho y
-        // uno lento se comía la mitad. A 8s entran 3 intentos completos, que es lo que
-        // evita el "sin respuesta" (ago-2026). Los free sanos contestan en 2-6s.
-        signal: AbortSignal.timeout(Math.min(8000, remaining)),
+        signal: AbortSignal.timeout(tope),
       });
       if (!r.ok) {
         const detail = await r.text().catch(() => "");
         fallos.push(r.status);
+        if (r.status === 429) enfriando.set(model, Date.now() + ENFRIAMIENTO_MS);
         console.error("[api/coach]", model, r.status, detail.slice(0, 200));
         continue;
       }
@@ -197,5 +204,11 @@ export default async function handler(req: any, res: any) {
         : todosSon(0)
           ? "lentos" // todos se colgaron: no fallan, se atascan (otro arreglo distinto)
           : "upstream"; // los modelos: saturados, retirados o caídos
-  res.status(502).json({ reply: "Uy, no he podido analizar ahora mismo. Reinténtalo en un momento.", code });
+  // Aquí NO hay fallback local a propósito: un análisis de tus partidos no se puede
+  // fabricar sin IA y sería peor inventárselo que fallar. `estados` para diagnosticar.
+  res.status(502).json({
+    reply: "Uy, no he podido analizar ahora mismo. Reinténtalo en un momento.",
+    code,
+    estados: fallos.join(","),
+  });
 }
