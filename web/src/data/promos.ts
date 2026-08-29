@@ -283,6 +283,27 @@ export const PROMOS: Promo[] = [
     nota: "Descuento aplicado directamente en el precio · productos seleccionados · solo domingo 23 y lunes 24",
     color: "#facc15",
   },
+  {
+    id: "aliexpress-dia-envio-local-2026-09",
+    tienda: "aliexpress",
+    tiendaLabel: "AliExpress",
+    titulo: "Día de envío local",
+    desde: "2026-09-01T00:00:00+02:00",
+    hasta: "2026-09-07T23:59:59+02:00",
+    // OJO: los tramos NO son los mismos que en la edición de agosto (ESSC*).
+    // Aquí el de 12€ pide 99€ de compra y aparece uno de 18€ desde 149€.
+    codigos: [
+      { code: "ESFS02", descuento: 2, minCompra: 18 },
+      { code: "ESFS06", descuento: 6, minCompra: 45 },
+      { code: "ESFS12", descuento: 12, minCompra: 99 },
+      { code: "ESFS18", descuento: 18, minCompra: 149 },
+      { code: "ESFS30", descuento: 30, minCompra: 239 },
+      { code: "ESFS45", descuento: 45, minCompra: 359 },
+      { code: "ESFS60", descuento: 60, minCompra: 479 },
+    ],
+    nota: "Productos con stock local (envío desde España/UE) · no válidos en productos virtuales · no acumulable con otras promos, pero SÍ con los cupones PayPal (8€ desde 100€ · 15€ desde 150€)",
+    color: "#ff4747",
+  },
 ];
 
 /** Promos activas a una fecha dada (por defecto, ahora). */
