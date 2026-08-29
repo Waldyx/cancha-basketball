@@ -232,12 +232,28 @@ const productJsonLd = {
       }
     }
   } : {}),
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": score,
-    "bestRating": 10,
-    "worstRating": 1,
-    "ratingCount": z.fuentes.length || 1
+  // Reseña EDITORIAL, no valoración agregada de usuarios.
+  //
+  // Antes esto era un AggregateRating con ratingCount = z.fuentes.length, y
+  // chocaba con tres reglas de Google (endurecidas el 24-jul-2026):
+  //   1. ratingCount decia el nº de FUENTES consultadas, no de valoraciones.
+  //   2. 201 de 240 fichas declaraban ratingCount: 1 y 118 tienen score de
+  //      evaluación propia → una opinión editorial disfrazada de agregado.
+  //   3. Google prohíbe explícitamente agregar valoraciones de otras webs, y
+  //      el score sale de WearTesters / RunRepeat / HoopsGeek.
+  // Un medio reseñando el producto de un TERCERO sí es legítimo (no es
+  // "auto-servido"), y es exactamente lo que hacemos: por eso Review con
+  // author = la propia publicación.
+  "review": {
+    "@type": "Review",
+    "author": { "@type": "Organization", "name": "CANCHA.ZAPA" },
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": score,
+      "bestRating": 10,
+      "worstRating": 1
+    },
+    "reviewBody": z.resumen
   }
 };
 ---
