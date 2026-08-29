@@ -296,6 +296,25 @@ Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
 - **Regla de disponibilidad**: `disponible: false` solo afecta al botón de compra en la ficha
   individual. **NUNCA** debe excluir una zapa de rankings, editor's pick ni catálogo.
 
+### SEO y marcado estructurado
+- **Nuestro score NO es una valoración de usuarios.** Las fichas emitían `AggregateRating` con
+  `ratingCount: z.fuentes.length` — el nº de FUENTES consultadas, no de valoraciones. Con 201 de
+  240 fichas declarando `ratingCount: 1` y 118 con score de evaluación propia, era una opinión
+  editorial disfrazada de agregado. Corregido a `Review` con `author: Organization CANCHA.ZAPA`
+  (commit `0c8b611`, 29-ago).
+- **La regla de las reseñas "auto-servidas" prohíbe reseñarte A TI MISMO**, no reseñar productos
+  de terceros. Un medio analizando una zapatilla es crítica editorial y sí puede marcarse; lo que
+  Google dejó de mostrar en 2019 son las estrellas que una web se pone a sí misma
+  (`Organization`/`LocalBusiness`).
+- **Google prohíbe agregar valoraciones de otras webs** en el marcado. Nuestro score sale de
+  WearTesters / RunRepeat / HoopsGeek → no puede ir como `aggregateRating` nunca.
+- **No habrá reseñas de usuarios en Google.** `Google Business Profile` exige contacto cara a cara
+  con clientes y excluye explícitamente blogs, sitios de afiliados y webs informativas. Si algún
+  día se quieren opiniones, tiene que ser un sistema propio (necesita BD + moderación); con poco
+  tráfico una ficha con "0 opiniones" resta más que suma.
+- ⚠ Google endureció el "Review snippet" el **24-jul-2026**. Antes de tocar marcado de reseñas,
+  releer las guías: cambian.
+
 ### Front y verificación visual
 - **El dev server y el service worker MIENTEN al verificar CSS.** El SW sirve el CSS viejo
   cache-first y el dev server resuelve mal los estilos con scope de Astro. Verificar contra
