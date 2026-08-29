@@ -33,7 +33,7 @@ const SYSTEM = `Eres el experto de CANCHA.ZAPA, web independiente de zapatillas 
 
 REGLAS:
 - Tu especialidad son las ZAPATILLAS de este catálogo: NUNCA inventes modelos, specs ni precios; usa solo los datos de abajo. Si una zapa no está, dilo claro.
-- ACCESORIOS: la web SÍ tiene además una sección de accesorios con balones/pelotas, calcetines y plantillas de baloncesto. Si el usuario pregunta por ellos, NO lo niegues: dile que los tiene en la sección Accesorios (/balones). No te inventes modelos ni precios de accesorios concretos; solo redirige ahí. Tu recomendación detallada se centra en zapatillas.
+- ACCESORIOS: la web SÍ tiene además una sección de accesorios con balones/pelotas, calcetines y plantillas de baloncesto. Si el usuario pregunta por ellos, NO lo niegues: dile que los tiene en la sección Accesorios (/balones). No te inventes modelos ni precios de accesorios concretos; solo redirige ahí. Escribe SIEMPRE la ruta a secas (/balones), NUNCA una URL completa ni un dominio: te los inventas y salen enlaces rotos. Tu recomendación detallada se centra en zapatillas.
 - Si una zapa es mala para el caso del usuario, lo dices sin rodeos.
 - Los scores van de 1 a 10. Los precios son los mejores verificados en tiendas españolas.
 - Cuando recomiendes una zapa concreta, escribe su marcador EXACTO [[shoe:SLUG]] en su propia línea (el SLUG es el primer campo de cada línea del catálogo). El front lo convierte en tarjeta con foto, score y precio. Máximo 2-3 marcadores por respuesta.
@@ -138,11 +138,18 @@ export default async function handler(req: any, res: any) {
         // (ago-2026). Comprobar con: curl -s https://openrouter.ai/api/v1/models | grep ':free'
         // Solo gemma-4-31b (1º) y gemma-4-26b (5º) están validados para español + formato
         // [[shoe:slug]]; los tres de en medio son SUSTITUTOS SIN VALIDAR (ago-2026).
-        "google/gemma-4-31b-it:free", // 2.4s, formato OK, español limpio, alta disponibilidad
-        "z-ai/glm-5.2:free", // generalista fuerte, otro proveedor
-        "minimax/minimax-m2.7:free", // otra familia distinta, otro rate-limit
-        "thinkingmachines/inkling-small:free", // 12B activos, rápido
-        "google/gemma-4-26b-a4b-it:free", // MoE rápido, último recurso
+        // Los dos gemma PRIMERO: son los únicos validados (jun-2026) para español limpio
+        // + formato [[shoe:slug]], y responden en 2-4s. Que ambos sean de Google no rompe
+        // la diversificación: si Google rate-limitea, los dos caen en ~0.3s y la cadena
+        // sigue con los otros proveedores casi sin gastar presupuesto.
+        "google/gemma-4-31b-it:free", // 2.4s, formato OK, español limpio
+        "google/gemma-4-26b-a4b-it:free", // MoE 3.8B activos, rápido
+        // Refuerzo de otras familias. SIN VALIDAR y son modelos de RAZONAMIENTO: más
+        // lentos (ago-2026: se atascaban >10s y agotaban el presupuesto cuando iban
+        // delante). Detrás cumplen su papel sin estrangular a los rápidos.
+        "z-ai/glm-5.2:free",
+        "minimax/minimax-m2.7:free",
+        "thinkingmachines/inkling-small:free",
       ];
 
   const payload = (model: string) =>
@@ -177,7 +184,10 @@ export default async function handler(req: any, res: any) {
           "X-Title": "CANCHA.ZAPA",
         },
         body: payload(model),
-        signal: AbortSignal.timeout(Math.min(12000, remaining)),
+        // 8s y no 12s: con 25s de presupuesto, 12s dejaba llegar a 2 modelos como mucho y
+        // uno lento se comía la mitad. A 8s entran 3 intentos completos, que es lo que
+        // evita el "sin respuesta" (ago-2026). Los free sanos contestan en 2-6s.
+        signal: AbortSignal.timeout(Math.min(8000, remaining)),
       });
 
       if (!r.ok) {
@@ -193,6 +203,9 @@ export default async function handler(req: any, res: any) {
       res.status(200).json({ reply });
       return;
     } catch (err) {
+      // 0 = se colgó (timeout/red). Sin esto un modelo lento no dejaba rastro en `fallos`
+      // y se confundía con un error real del modelo.
+      fallos.push(0);
       console.error("[api/chat]", model, err);
       // sigue con el siguiente modelo
     }
@@ -203,11 +216,13 @@ export default async function handler(req: any, res: any) {
   // que se le añadan (los 5 fallan a la vez). "upstream" sí es culpa de los modelos.
   const todosSon = (...sts: number[]) => fallos.length > 0 && fallos.every((st) => sts.includes(st));
   const code = todosSon(401, 403)
-    ? "auth"        // clave inválida o revocada
+    ? "auth"         // clave inválida o revocada
     : todosSon(402)
-      ? "sin-saldo" // la cuenta se quedó sin créditos
+      ? "sin-saldo"  // la cuenta se quedó sin créditos
       : todosSon(429)
-        ? "cuota"   // tope diario del free tier agotado (50/día sin créditos comprados)
-        : "upstream"; // los modelos: saturados, retirados o caídos
+        ? "cuota"    // tope diario del free tier agotado (50/día sin créditos comprados)
+        : todosSon(0)
+          ? "lentos" // todos se colgaron: no fallan, se atascan (otro arreglo distinto)
+          : "upstream"; // los modelos: saturados, retirados o caídos
   res.status(502).json({ reply: "Uy, no he podido responder ahora mismo. Reintenta en un momento — o usa el quiz.", code });
 }

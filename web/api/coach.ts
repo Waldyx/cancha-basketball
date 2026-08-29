@@ -127,11 +127,13 @@ export default async function handler(req: any, res: any) {
   const models = process.env.CHAT_MODEL
     ? [process.env.CHAT_MODEL]
     : [
+        // Los dos gemma primero (validados y rápidos); los de razonamiento detrás, que
+        // son lentos y agotaban el presupuesto cuando iban delante. Ver chat.ts.
         "google/gemma-4-31b-it:free",
+        "google/gemma-4-26b-a4b-it:free",
         "z-ai/glm-5.2:free",
         "minimax/minimax-m2.7:free",
         "thinkingmachines/inkling-small:free",
-        "google/gemma-4-26b-a4b-it:free",
       ];
 
   const payload = (model: string) =>
@@ -161,7 +163,10 @@ export default async function handler(req: any, res: any) {
           "X-Title": "CANCHA.ZAPA",
         },
         body: payload(model),
-        signal: AbortSignal.timeout(Math.min(12000, remaining)),
+        // 8s y no 12s: con 25s de presupuesto, 12s dejaba llegar a 2 modelos como mucho y
+        // uno lento se comía la mitad. A 8s entran 3 intentos completos, que es lo que
+        // evita el "sin respuesta" (ago-2026). Los free sanos contestan en 2-6s.
+        signal: AbortSignal.timeout(Math.min(8000, remaining)),
       });
       if (!r.ok) {
         const detail = await r.text().catch(() => "");
@@ -175,6 +180,7 @@ export default async function handler(req: any, res: any) {
       res.status(200).json({ reply });
       return;
     } catch (err) {
+      fallos.push(0); // 0 = se colgó (timeout/red), ver chat.ts
       console.error("[api/coach]", model, err);
     }
   }
@@ -183,11 +189,13 @@ export default async function handler(req: any, res: any) {
   // que se le añadan (los 5 fallan a la vez). "upstream" sí es culpa de los modelos.
   const todosSon = (...sts: number[]) => fallos.length > 0 && fallos.every((st) => sts.includes(st));
   const code = todosSon(401, 403)
-    ? "auth"        // clave inválida o revocada
+    ? "auth"         // clave inválida o revocada
     : todosSon(402)
-      ? "sin-saldo" // la cuenta se quedó sin créditos
+      ? "sin-saldo"  // la cuenta se quedó sin créditos
       : todosSon(429)
-        ? "cuota"   // tope diario del free tier agotado (50/día sin créditos comprados)
-        : "upstream"; // los modelos: saturados, retirados o caídos
+        ? "cuota"    // tope diario del free tier agotado (50/día sin créditos comprados)
+        : todosSon(0)
+          ? "lentos" // todos se colgaron: no fallan, se atascan (otro arreglo distinto)
+          : "upstream"; // los modelos: saturados, retirados o caídos
   res.status(502).json({ reply: "Uy, no he podido analizar ahora mismo. Reinténtalo en un momento.", code });
 }
