@@ -151,6 +151,19 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ## 🔴 Pendientes abiertos
 
+### ⚠️ Afiliados — dos avisos del correo (28-ago), NO son promos
+- **AMAZON PUEDE CERRAR LA CUENTA.** Correo de `associates@amazon.es` del 23-ago: la cuenta
+  `canchazapa-21` **no ha registrado las 3 ventas** requeridas en sus primeros 3 meses, y su
+  política es **cerrar las cuentas que no llegan a 3 ventas en 180 días** desde el alta. La fecha
+  límite cae hacia **noviembre-2026**. Amazon es la tienda con MÁS enlaces del catálogo (**174**,
+  el 44%): si se cierra, dejan de monetizar todos de golpe y hay que volver a solicitar el programa.
+- **adidas perdió tracking del 20 al 27-ago.** Awin avisó el 27 de una incidencia de tracking en
+  adidas que empezó el jueves 20 y ya está corregida; están "evaluando el impacto" y prometen
+  informar de la recuperación de ventas. Justo esa semana corría nuestra promo de adidas
+  ("Time to Treat Yourself", 20-26 ago) → **si hubo ventas por adidas esos días, pueden no
+  haberse registrado**. Mirar el panel de Awin cuando publiquen la recuperación.
+
+
 ### Datos / catálogo
 - **Curry 13 es la ÚLTIMA de Under Armour — NO habrá Curry 14.** Curry y UA rompieron en
   nov-2025; la Curry 13 (13-feb-2026) es el cierre pactado, con colorways hasta oct-2026. Curry
