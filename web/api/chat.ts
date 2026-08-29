@@ -56,6 +56,7 @@ ${CATALOGO}`;
 // petición. No suplanta al asistente: dice claramente que no ha podido consultarlo.
 type ZapaCat = {
   slug: string;
+  nombre: string;
   precio: number;
   scores: Record<string, number>;
   marcadores: string;
@@ -70,12 +71,40 @@ const ZAPAS: ZapaCat[] = CATALOGO.split("\n")
     for (const m of (c[4] ?? "").matchAll(/([a-z]+)\s+(\d+)/g)) scores[m[1]] = Number(m[2]);
     return {
       slug: c[0] ?? "",
+      nombre: c[1] ?? "",
       precio: Number((c[3] ?? "").replace(/[^\d]/g, "")) || 0,
       scores,
       marcadores: c.slice(7).join(" "),
     };
   })
   .filter((z) => z.slug);
+
+// Red de seguridad del formato. Si el modelo describe zapas en texto plano y no emite
+// ningún [[shoe:slug]], el front no pinta tarjetas y se pierde foto, score y precio
+// (ago-2026: los modelos nuevos de la cadena redactan bien pero se saltan el formato).
+// Se detectan por NOMBRE EXACTO del catálogo, así que no puede inventarse ninguna: si
+// el nombre no está en el catálogo, no hay marcador.
+function asegurarMarcadores(texto: string): string {
+  if (!texto || /\[\[shoe:/.test(texto)) return texto;
+  // De más largo a más corto para que "Nike Ja 2 GS" gane a "Nike Ja 2".
+  const porLongitud = [...ZAPAS].sort((a, b) => b.nombre.length - a.nombre.length);
+  let resto = texto.toLowerCase();
+  const halladas: { slug: string; pos: number }[] = [];
+  for (const z of porLongitud) {
+    if (!z.nombre) continue;
+    const n = z.nombre.toLowerCase();
+    const i = resto.indexOf(n);
+    if (i === -1) continue;
+    halladas.push({ slug: z.slug, pos: i });
+    // Se tacha la aparición para que una zapa más corta no vuelva a casar sobre ella.
+    resto = resto.slice(0, i) + " ".repeat(n.length) + resto.slice(i + n.length);
+  }
+  if (!halladas.length) return texto;
+  // Se ordenan por DONDE aparecen en el texto, no por longitud de nombre: el modelo ya
+  // las ha priorizado al redactar ("1a opcion...") y las tarjetas deben seguir ese orden.
+  const encontradas = halladas.sort((a, b) => a.pos - b.pos).slice(0, 3).map((h) => h.slug);
+  return texto + "\n\n" + encontradas.map((s) => `[[shoe:${s}]]`).join("\n");
+}
 
 function respuestaLocal(pregunta: string): string {
   const q = pregunta.toLowerCase();
@@ -283,7 +312,7 @@ export default async function handler(req: any, res: any) {
       }
 
       const data = await r.json();
-      const reply = limpiarRespuesta(data?.choices?.[0]?.message?.content ?? "");
+      const reply = asegurarMarcadores(limpiarRespuesta(data?.choices?.[0]?.message?.content ?? ""));
       if (!reply) continue;
       res.status(200).json({ reply });
       return;
