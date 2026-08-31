@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-08-29 (sesión 41)
+> Última actualización: 2026-08-30 (sesión 41)
 > Para Claude: lee esto al empezar una sesión nueva. **Solo contiene lo vivo**: estado, reglas,
 > doctrina, afiliados, arquitectura y pendientes.
 >
@@ -58,8 +58,13 @@ Nada de catálogo esta vez. Se abrieron los paneles de OpenRouter, Awin y Amazon
    nicho** — y queda decidir si se quitan.
 4. **adidas / tracking 20-27 ago: cerrado, impacto cero** (1 clic en todo el mes).
 
+5. **Repasado el correo (30-ago)**: nada urgente. Lo único accionable es que **OpenRouter ofrece
+   el parámetro `models: [...]`** que hace la cadena server-side en UNA petición — ver *IA del chat*.
+   El Choice Day de AliExpress (1-7 sept) ya estaba cargado en `promos.ts`; la de ECI caduca el 31.
+
 **▶️ ESPERANDO DECISIÓN DEL USUARIO**: (a) re-solicitar los 7 programas rechazados de Awin, que ya
-tienen el botón "Unirse" activo; (b) los $10 de créditos de OpenRouter.
+tienen el botón "Unirse" activo; (b) los $10 de créditos de OpenRouter; (c) qué hacer con los ~39
+enlaces de Amazon sin ficha posible; (d) 361sport como Tienda nueva.
 
 ---
 
@@ -228,7 +233,8 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   es **quitarlos** y dejar MSRP. No hecho: es tu llamada.
 - ✅ **adidas: el fallo de tracking del 20-27 ago da IGUAL.** Awin avisó de la incidencia y de que
   "evaluaría el impacto", pero adidas tuvo **1 solo clic en todo agosto** → el impacto es cero.
-  **Pendiente cerrado, no hay nada que reclamar.**
+  **Pendiente cerrado, no hay nada que reclamar.** Confirmado además por correo de Awin del 27-ago
+  ("tracking incident resolved", fix desplegado).
 
 **Estado de las solicitudes en Awin (verificado en el panel, 29-ago):**
 - ⏳ **Pendientes (3)**: Sneakin ES, Reebok ES, Joom ES. Siguen sin resolver. Pro:Direct ES ya no
@@ -290,6 +296,19 @@ de la cuenta** —si lo fuera, minimax también rebotaría—: es rate-limit **P
 primeros llevan saturados de forma persistente. Con los gemma delante, cada petición del chat
 quemaba **3 llamadas upstream rechazadas** antes de llegar al que responde. → **Cadena reordenada
 con minimax primero** en `chat.ts` y `coach.ts` (236 tests OK).
+
+**▶️ MEJORA PENDIENTE — OpenRouter ya hace la cadena por nosotros** (visto en su boletín del
+18-ago, repasado el 30-ago). En vez de mandar `model` como string, se manda **`models: [...]`**:
+OpenRouter recorre la lista en ESE orden server-side y salta al siguiente ante rate-limit,
+moderación, downtime o error de context-length. Además, dentro de cada modelo ya reintenta otros
+proveedores antes de devolver error. Se factura el que responde y la respuesta trae en `model`
+cuál fue.
+⇒ Nuestra cadena hace lo mismo a mano con **hasta 5 peticiones HTTP secuenciales desde Vercel**.
+Con `models` sería **UNA sola llamada**: desaparece el reparto del presupuesto de 25 s, la latencia
+acumulada de los eslabones muertos, y deja de importar que el `Map` de `enfriando` no sobreviva
+entre invocaciones serverless (cada invocación es un proceso nuevo, así que hoy no enfría nada
+entre peticiones). Afecta a `chat.ts` y `coach.ts`. **No hecho: es un cambio de arquitectura.**
+⚠ El fallback local sin IA hay que CONSERVARLO — cubre el caso de que OpenRouter entero falle.
 
 La decisión de fondo sigue abierta: **$10 de créditos** suben el tope de **50 a 1.000
 peticiones/día** (los créditos NO se gastan usando modelos `:free`, basta con haberlos comprado) y
@@ -405,6 +424,10 @@ Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
   fechas de `ultima_verificacion`, no que el workflow salga verde.
 
 ### Servicios externos y free tiers
+- **Antes de programar un fallback a mano, mirar si el proveedor ya lo ofrece.** La cadena de
+  modelos de `chat.ts` (bucle, presupuesto de tiempo, enfriamiento, 5 peticiones HTTP) replica algo
+  que OpenRouter da con un parámetro: `models: [...]`. Costó varias sesiones de tuning. Leer los
+  docs de routing del proveedor antes de escribir el bucle.
 - **El 429 de un free tier puede ser POR MODELO, no por cuenta.** La doctrina previa daba por hecho
   que el tope de OpenRouter era de cuenta y compartido, así que "la cadena no lo esquiva". Falso:
   medido el 29-ago, tres modelos daban 429 y un cuarto devolvía 200 en la misma petición. Si un
