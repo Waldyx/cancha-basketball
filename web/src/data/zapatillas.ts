@@ -9859,6 +9859,7 @@ const _rawZapatillas: Zapatilla[] = [
   {
     id: "puma-mb-06",
     slug: "puma-mb-06",
+    proximamente: true,
     marca: "Puma",
     modelo: "MB.06",
     generacion: 6,
