@@ -408,6 +408,11 @@ Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
 - **El buscador de cada tienda habla su idioma comercial**, no el del catálogo: adidas no entiende
   "gs" ni "ae 1". Si una búsqueda da 0 resultados para algo que la tienda vende, sospechar de la
   consulta.
+- **Un parámetro de búsqueda equivocado no da error: da el catálogo ENTERO.** `footlocker.es/es/search?q=puma+mb+06`
+  devolvía "Mostrando 8177 resultados" (el sitio entero) porque Foot Locker usa **`?query=`**, no
+  `?q=`. 22 enlaces del catálogo llevaban así desde siempre, mandando al usuario a un listado
+  gigante en vez de a su modelo. El número de resultados es el chivato más fiable; el título de la
+  página también cambia con el parámetro bueno ("puma mb | Foot Locker Spain").
 - **Un filtro defensivo puede volverse un muro**: "descarta lo junior" hacía imposibles las GS.
   Comparar con el segmento que se BUSCA, no aplicar a ciegas.
 - **Un invariante que compara el sistema consigo mismo no ve los sesgos compartidos.** El símbolo `°`
