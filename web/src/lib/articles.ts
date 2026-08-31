@@ -1701,7 +1701,16 @@ export const ARTICLES: Article[] = [
     relatedShoes: ["ua-curry-13", "adidas-ae-2", "nike-gt-cut-4", "anta-kai-2", "jordan-tatum-4"],
     relatedSeoPages: ["zapatillas-reactivas", "mejor-zapatilla-base", "zapatillas-traccion"],
     body: `
-<p class="art-intro">Stephen Curry es el mejor tirador de la historia de la NBA y Under Armour lleva desde 2013 construyendo zapatillas alrededor de su estilo de juego: velocidad sin balón, cambios de dirección sin perder equilibrio, y un primer paso que descoloca defensas. La Curry 13 lleva esa filosofía al límite. ¿Pero a 150€ vale la pena frente a la AE 2 a 130€?</p>
+<p class="art-intro">Stephen Curry es el mejor tirador de la historia de la NBA y Under Armour pasó doce años, desde 2013, construyendo zapatillas alrededor de su estilo de juego: velocidad sin balón, cambios de dirección sin perder equilibrio, y un primer paso que descoloca defensas. La Curry 13 lleva esa filosofía al límite — y cierra la saga, porque es la última que firman juntos. ¿Vale la pena frente a la AE 2?</p>
+
+<h2>Contexto: la Curry 13 es la última Curry de Under Armour</h2>
+<p>Es el dato que cambia cómo hay que leer este análisis. El <strong>13 de noviembre de 2025</strong> Stephen Curry y Under Armour anunciaron su separación tras doce años juntos. La Curry 13 salió en <strong>febrero de 2026</strong> como cierre pactado de la línea, con colorways y colecciones de ropa previstos hasta <strong>octubre de 2026</strong>. <strong>No habrá Curry 14 de Under Armour.</strong></p>
+<p>Curry conserva la propiedad de Curry Brand y de sus logos (incluido el "Splash"), y a día de hoy es agente libre de calzado buscando un nuevo socio. Traducido a lo que te importa como comprador:</p>
+<ul>
+  <li><strong>No esperes una sucesora.</strong> Si te encaja la horma de la línea Curry, esta es la última oportunidad de comprarla nueva dentro del catálogo de UA.</li>
+  <li><strong>Es razonable esperar descuentos</strong> según se agote el stock a lo largo de 2026: es fin de línea, no un modelo en plena vida comercial.</li>
+  <li><strong>Nada de esto afecta al rendimiento en cancha</strong>, que es lo que analizamos abajo. La zapatilla es la misma se llame como se llame lo que venga después.</li>
+</ul>
 
 <h2>Tecnología: UA Flow y Warp</h2>
 <p>La Curry 13 usa dos tecnologías clave:</p>
@@ -1737,7 +1746,7 @@ export const ARTICLES: Article[] = [
 <h2>¿Dónde comprar la Curry 13?</h2>
 <p>La Curry 13 está disponible en Amazon ES (vendedor oficial UA), UA.com/es y JD Sports. El precio habitual es 150€, aunque algunas colorways o modelos del año anterior se encuentran entre 100-120€ en Amazon con descuento. Las versiones especiales "Splash Zone" o ediciones limitadas suben de precio.</p>
 
-<p class="art-outro">La Curry 13 es una zapatilla premium que justifica su precio para guards que buscan estabilidad y court feel por encima de cushion máximo. Si tienes dudas sobre si encaja con tu perfil, <a href="/quiz">el quiz de CANCHA.ZAPA te da las 5 más compatibles en 60 segundos</a>.</p>
+<p class="art-outro">La Curry 13 es una zapatilla premium que justifica su precio para guards que buscan estabilidad y court feel por encima de cushion máximo — y, al ser el punto final de la saga con Under Armour, la última de su estirpe. Si tienes dudas sobre si encaja con tu perfil, <a href="/quiz">el quiz de CANCHA.ZAPA te da las 5 más compatibles en 60 segundos</a>.</p>
     `,
   },
 
