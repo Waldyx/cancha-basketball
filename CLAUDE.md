@@ -330,10 +330,17 @@ por accidente (ver *Incidencia de las dos sesiones*) y eso permitió medirlo. Un
 `{"code":"local-contrato","estados":"400"}` en 13,7 s. Es decir: **OpenRouter RECHAZA la petición
 con `models` con un 400**, y el usuario acaba en el fallback local (recibe zapatillas reales del
 catálogo, pero SIN IA).
-- La forma del body es la que mandan los docs (ejemplo `fetch` de *Model Fallbacks*: `models` como
-  array y SIN `model`), así que **la causa está sin identificar**. Hipótesis no comprobadas: un tope
-  no documentado de entradas (la API de Anthropic acepta 3 como mucho y nosotros mandamos 5), o que
-  los `:free` no valgan en `models`. **No se puede reproducir en local**: no hay clave.
+- ✅ **CAUSA IDENTIFICADA (31-ago): `models` acepta 3 entradas COMO MUCHO** y mandábamos 5. El
+  error literal, capturado por el campo `detalle` nuevo en la primera petición que falló:
+  `'models' array must have 3 items or fewer.` El boletín de OpenRouter lo decía, pero en el
+  párrafo del endpoint de **Anthropic** (`fallbacks`), así que parecía no aplicar al de chat
+  completions. **Aplica igual.** Arreglado con `models.slice(0, 3)`; los 2 restantes no se pierden,
+  quedan en la cola de respaldo que los prueba de uno en uno.
+  ⚠ Los docs de *Model Fallbacks* NO mencionan el tope: el ejemplo lleva 2 entradas y nadie lo dice.
+- ⚠ **Hay un 403 en la cola.** El `estados` completo de esa petición fue `400,0,429,429,429,403`, o
+  sea que uno de los eslabones SÍ devuelve 403 (permiso vetado a ese modelo). La s40 dio el 403 por
+  hecho sin medirlo y se equivocó en el diagnóstico, pero el 403 existe. **Sin identificar cuál es**:
+  es un intento quemado en cada petición que llegue hasta él. Pendiente.
 - El `estados` traía UN solo 400, no dos → el reintento sí corrió y devolvió **200 con `content`
   vacío**. **Causa raíz MEDIDA en el panel** (Logs → Generations, 31-ago): de 4 generaciones de
   minimax, **3 cortaron con `finish_reason: length` clavadas en 380 tokens** —nuestro `max_tokens`—

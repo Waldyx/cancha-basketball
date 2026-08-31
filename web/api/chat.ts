@@ -292,8 +292,15 @@ export default async function handler(req: any, res: any) {
   //
   // Coste real: si `models` va bien, 1 petición. Si no, se degrada exactamente a lo que
   // había antes. El presupuesto de tiempo corta la cola si se alarga.
+  // ⚠ TOPE DE 3. Medido: con los 5 de la cadena, OpenRouter devolvía 400
+  // `'models' array must have 3 items or fewer.` (capturado en el campo `detalle`, 31-ago).
+  // Su boletín lo decía, pero en el párrafo del endpoint de Anthropic, así que parecía no
+  // aplicar aquí. Aplica igual. Los 2 restantes NO se pierden: quedan en la cola de
+  // respaldo de abajo, que los prueba de uno en uno.
+  const CADENA_MAX = 3;
   const intentos: { etiqueta: string; body: string }[] = [];
-  if (models.length > 1) intentos.push({ etiqueta: "cadena", body: payload({ models }) });
+  if (models.length > 1)
+    intentos.push({ etiqueta: "cadena", body: payload({ models: models.slice(0, CADENA_MAX) }) });
   for (const m of models) intentos.push({ etiqueta: m, body: payload({ model: m }) });
 
   // Status de cada fallo. Si es de auth/cuota, el problema es la clave o el límite del

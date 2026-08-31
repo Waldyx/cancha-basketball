@@ -154,8 +154,11 @@ export default async function handler(req: any, res: any) {
   // respaldo probado. El 31-ago la petición con `models` devolvió 400 en producción y la
   // causa sigue sin identificarse, así que el agente NO depende de que funcione.
   // Ver el detalle largo en chat.ts.
+  // Tope de 3 en `models`, medido contra producción. Ver chat.ts.
+  const CADENA_MAX = 3;
   const intentos: { etiqueta: string; body: string }[] = [];
-  if (models.length > 1) intentos.push({ etiqueta: "cadena", body: payload({ models }) });
+  if (models.length > 1)
+    intentos.push({ etiqueta: "cadena", body: payload({ models: models.slice(0, CADENA_MAX) }) });
   for (const m of models) intentos.push({ etiqueta: m, body: payload({ model: m }) });
 
   // Status de cada fallo. Si es de auth/cuota, el problema es la clave o el límite del
