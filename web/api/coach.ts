@@ -165,7 +165,12 @@ export default async function handler(req: any, res: any) {
   // free tier, no los modelos: hay que poder distinguirlo desde fuera sin entrar en los
   // logs de Vercel (un 502 opaco costó una sesión entera en ago-2026).
   const fallos: number[] = [];
-  let detalle = ""; // primer error de upstream, recortado. Ver chat.ts.
+  // Errores de upstream, TODOS. Al principio esto guardaba solo el primero y fue un error
+  // de diseño: cazó el 400 de la cadena y por eso nunca habría cazado el 403 que aparece
+  // al final de `estados`. Cada fallo aporta una entrada `etiqueta:status:mensaje`, que es
+  // lo que permite saber QUÉ eslabón falla y POR QUÉ sin desplegar otra vez ni mirar los
+  // logs de Vercel. No lleva nada sensible: es el texto de error de OpenRouter.
+  const detalles: string[] = [];
 
   const deadline = Date.now() + 25000;
   let data: any = null;
@@ -190,7 +195,7 @@ export default async function handler(req: any, res: any) {
       if (!r.ok) {
         const txt = await r.text().catch(() => "");
         fallos.push(r.status);
-        if (!detalle) detalle = `${intento.etiqueta}:${r.status}:${txt.slice(0, 160)}`;
+        detalles.push(`${intento.etiqueta}:${r.status}:${txt.slice(0, 140)}`);
         console.error("[api/coach]", intento.etiqueta, r.status, txt.slice(0, 200));
         continue;
       }
@@ -244,6 +249,7 @@ export default async function handler(req: any, res: any) {
     reply: "Uy, no he podido analizar ahora mismo. Reinténtalo en un momento.",
     code,
     estados: fallos.join(","),
-    detalle,
+    // Recortado por si la cadena entera falla: 6 intentos * 140 no debe inflar la respuesta.
+    detalle: detalles.join(" | ").slice(0, 900),
   });
 }

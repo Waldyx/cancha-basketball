@@ -310,7 +310,12 @@ export default async function handler(req: any, res: any) {
   // Primer mensaje de error de upstream, recortado. Sin esto, un 400 solo dice "400" y
   // no se puede diagnosticar sin desplegar otra vez. No lleva nada sensible: es el texto
   // de error de OpenRouter.
-  let detalle = "";
+  // Errores de upstream, TODOS. Al principio esto guardaba solo el primero y fue un error
+  // de diseño: cazó el 400 de la cadena y por eso nunca habría cazado el 403 que aparece
+  // al final de `estados`. Cada fallo aporta una entrada `etiqueta:status:mensaje`, que es
+  // lo que permite saber QUÉ eslabón falla y POR QUÉ sin desplegar otra vez ni mirar los
+  // logs de Vercel. No lleva nada sensible: es el texto de error de OpenRouter.
+  const detalles: string[] = [];
 
   // Presupuesto total. maxDuration=30s, dejamos ~25s.
   const deadline = Date.now() + 25000;
@@ -340,7 +345,7 @@ export default async function handler(req: any, res: any) {
       if (!r.ok) {
         const txt = await r.text().catch(() => "");
         fallos.push(r.status);
-        if (!detalle) detalle = `${intento.etiqueta}:${r.status}:${txt.slice(0, 160)}`;
+        detalles.push(`${intento.etiqueta}:${r.status}:${txt.slice(0, 140)}`);
         console.error("[api/chat]", intento.etiqueta, r.status, txt.slice(0, 200));
         continue;
       }
@@ -399,11 +404,12 @@ export default async function handler(req: any, res: any) {
   // catálogo, calculadas aquí y sin gastar una sola petición de la cuota. `code`,
   // `estados` y `detalle` viajan para poder diagnosticar desde fuera; el front solo lee
   // `reply`, así que esto es invisible para el usuario.
-  console.error("[api/chat] sin respuesta, respondo en local:", code, fallos.join(","), detalle);
+  console.error("[api/chat] sin respuesta, respondo en local:", code, fallos.join(","), detalles.join(" | "));
   res.status(200).json({
     reply: respuestaLocal(messages[messages.length - 1].content),
     code: "local-" + code,
     estados: fallos.join(","),
-    detalle,
+    // Recortado por si la cadena entera falla: 6 intentos * 140 no debe inflar la respuesta.
+    detalle: detalles.join(" | ").slice(0, 900),
   });
 }

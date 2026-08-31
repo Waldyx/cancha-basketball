@@ -337,10 +337,18 @@ catálogo, pero SIN IA).
   completions. **Aplica igual.** Arreglado con `models.slice(0, 3)`; los 2 restantes no se pierden,
   quedan en la cola de respaldo que los prueba de uno en uno.
   ⚠ Los docs de *Model Fallbacks* NO mencionan el tope: el ejemplo lleva 2 entradas y nadie lo dice.
-- ⚠ **Hay un 403 en la cola.** El `estados` completo de esa petición fue `400,0,429,429,429,403`, o
-  sea que uno de los eslabones SÍ devuelve 403 (permiso vetado a ese modelo). La s40 dio el 403 por
-  hecho sin medirlo y se equivocó en el diagnóstico, pero el 403 existe. **Sin identificar cuál es**:
-  es un intento quemado en cada petición que llegue hasta él. Pendiente.
+- ⚠ **Hay un 403 en la cola, sin identificar.** El `estados` completo fue `400,0,429,429,429,403`:
+  uno de los eslabones devuelve 403. La s40 dio un 403 por hecho sin medirlo y se equivocó entero;
+  que ahora exista uno real NO rehabilita aquel razonamiento.
+  · **Por POSICIÓN** el 403 es el 6º de 6 intentos → `thinkingmachines/inkling-small:free`. El orden
+    de `estados` no es una suposición: `fallos.push()` corre una vez por intento fallido y en orden.
+  · **Pero el panel NO lo respalda**: en Upstream Requests no hay ningún 403 ni ninguna petición a
+    inkling, y Eligibility Preview da inkling como disponible (551 ok / 2 no, que son otros). Igual
+    que el 400, encaja con un rechazo ANTES de enrutar a proveedor, que no deja rastro ahí.
+  ⇒ **NO tocar la cadena todavía.** Deducir el eslabón y actuar es justo el error que hoy ha mordido
+  dos veces. El campo `detalle` ya acumula TODOS los errores (antes solo guardaba el primero, que es
+  el motivo de que cazara el 400 y no el 403), así que la próxima petición que llegue al final trae
+  el mensaje literal. Sin gastar peticiones a propósito.
 - El `estados` traía UN solo 400, no dos → el reintento sí corrió y devolvió **200 con `content`
   vacío**. **Causa raíz MEDIDA en el panel** (Logs → Generations, 31-ago): de 4 generaciones de
   minimax, **3 cortaron con `finish_reason: length` clavadas en 380 tokens** —nuestro `max_tokens`—
