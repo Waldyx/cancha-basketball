@@ -171,12 +171,6 @@ function rateLimited(ip: string): boolean {
 
 type Msg = { role: string; content: string };
 
-// Modelos que acaban de devolver 429: saltarlos ahorra latencia y no quema intentos
-// del tope diario en algo que ya sabemos que va a rebotar. Best-effort por instancia
-// caliente, igual que el rate limit de arriba.
-const enfriando = new Map<string, number>();
-const ENFRIAMIENTO_MS = 60 * 1000;
-
 // Algunos modelos de razonamiento cuelan su cadena de pensamiento dentro del texto
 // (le pasó a nemotron en jun-2026, y por eso se descartó). Lo normal es que vaya aparte
 // en `message.reasoning`; esto quita lo que se cuele igualmente en `content`.
@@ -234,65 +228,69 @@ export default async function handler(req: any, res: any) {
     return;
   }
 
-  // Modelos gratuitos en orden de preferencia. Los free se rate-limitean upstream,
-  // así que probamos en cadena hasta que uno responda. CHAT_MODEL fuerza uno solo.
+  // Cadena de modelos gratuitos, de mejor a peor. YA NO se recorre a mano: se manda
+  // ENTERA en `models` y OpenRouter la recorre server-side en UNA sola petición
+  // (docs "Model Fallbacks", verificado 31-ago-2026). Salta al siguiente ante error de
+  // context-length, moderación, rate-limit o downtime, y dentro de cada modelo ya
+  // reintenta otros proveedores antes de rendirse. Se factura el que responde y su id
+  // llega en `model` de la respuesta.
+  //
+  // Antes esto eran hasta 5 peticiones HTTP secuenciales desde Vercel: los 3 primeros
+  // eslabones devolvían 429 al instante (medido en los logs de OpenRouter el 29-ago) y
+  // cada uno se cobraba una llamada upstream y un trozo del presupuesto de 25 s. Con
+  // `models` desaparecen el reparto de tiempo, la latencia acumulada y el `Map` de
+  // enfriamiento, que además nunca enfriaba nada: cada invocación serverless es un
+  // proceso nuevo y el Map nacía vacío.
+  //
+  // ⚠ REVISAR CADA POCOS MESES. El free tier de OpenRouter ROTA: la cadena validada en
+  // vivo en jun-2026 se quedó con 3 de 5 modelos retirados y el chat cayó entero
+  // (ago-2026). Los 5 de abajo están verificados VIVOS a 31-ago-2026 contra
+  // `curl -s https://openrouter.ai/api/v1/models`.
+  //
+  // CHAT_MODEL fuerza un único modelo (sin cadena).
   const models = process.env.CHAT_MODEL
     ? [process.env.CHAT_MODEL]
     : [
-        // Cadena gratuita mejor→peor. Diversificada por PROVEEDOR: un 429 vuelve en ~0.3s,
-        // así que saltar entre familias distintas esquiva el rate-limit compartido casi
-        // sin coste de latencia.
-        //
-        // ⚠ REVISAR CADA POCOS MESES. El free tier de OpenRouter ROTA: la cadena validada
-        // en vivo en jun-2026 se quedó con 3 de 5 modelos retirados y el chat cayó entero
-        // (ago-2026). Comprobar con: curl -s https://openrouter.ai/api/v1/models | grep ':free'
-        //
-        // ORDEN MEDIDO EN LOS LOGS DE OPENROUTER (29-ago-2026), no supuesto. En 4 peticiones
-        // reales de producción: gemma-31b 429 (70ms) · gemma-26b 429 (60ms) · glm-5.2 429
-        // (200ms) · minimax-m2.7 **200 OK** (~1s). El 429 NO es el tope de la cuenta —si lo
-        // fuera, minimax también rebotaría—: es rate-limit POR MODELO, y los tres primeros
-        // llevan saturados de forma persistente. Con los gemma delante, cada petición del
-        // chat quemaba 3 llamadas upstream rechazadas antes de llegar al que responde.
-        "minimax/minimax-m2.7:free", // ÚNICO que devuelve 200 hoy (GMICloud)
+        "minimax/minimax-m2.7:free", // el único que devolvía 200 el 29-ago (GMICloud)
         // Los dos gemma son los únicos VALIDADOS para español limpio + formato
-        // [[shoe:slug]] (jun-2026), así que siguen en cadena: si minimax cae, son el
-        // mejor relevo conocido. Hoy contestan 429 al instante, no cuestan presupuesto.
-        "google/gemma-4-31b-it:free", // 2.4s, formato OK, español limpio
-        "google/gemma-4-26b-a4b-it:free", // MoE 3.8B activos, rápido
-        // Cola SIN VALIDAR, y son modelos de RAZONAMIENTO: más lentos (ago-2026: se
-        // atascaban >10s y agotaban el presupuesto cuando iban delante).
+        // [[shoe:slug]] (jun-2026): si minimax cae, son el mejor relevo conocido.
+        "google/gemma-4-31b-it:free",
+        "google/gemma-4-26b-a4b-it:free",
+        // Cola SIN VALIDAR, y son modelos de RAZONAMIENTO (más lentos).
         "z-ai/glm-5.2:free",
         "thinkingmachines/inkling-small:free",
       ];
 
-  const payload = (model: string) =>
+  // Con cadena se manda `models` (lista de prioridad) y NO `model`; con un modelo
+  // forzado, al revés. Enviar los dos no está documentado, así que no se hace.
+  const payload = (cadena: boolean) =>
     JSON.stringify({
-      model,
+      ...(cadena && models.length > 1 ? { models } : { model: models[0] }),
       messages: [{ role: "system", content: SYSTEM }, ...messages],
       max_tokens: 380, // el prompt pide 2-4 frases; menos tokens = completa antes
       temperature: 0.4,
     });
 
-  // Status de cada fallo. Si TODOS son de auth/cuota, el problema es la clave o el
-  // límite del free tier, no los modelos: hay que poder distinguirlo desde fuera sin
-  // entrar en los logs de Vercel (un 502 opaco costó una sesión entera en ago-2026).
+  // Status de cada fallo. Si es de auth/cuota, el problema es la clave o el límite del
+  // free tier, no los modelos: hay que poder distinguirlo desde fuera sin entrar en los
+  // logs de Vercel (un 502 opaco costó una sesión entera en ago-2026).
   const fallos: number[] = [];
 
-  // Presupuesto total de tiempo. maxDuration=30s (validado por Vercel en build),
-  // dejamos margen: ~25s repartidos, hasta 15s por modelo. Los free de OpenRouter
-  // suelen contestar en 3-6s pero a veces se atascan; con este presupuesto el
-  // segundo modelo aún tiene tiempo si el primero tarda.
+  // Presupuesto total. maxDuration=30s, dejamos ~25s. Ahora es UNA sola petición, así
+  // que se le da casi todo: el reparto entre eslabones lo hace OpenRouter por dentro.
   const deadline = Date.now() + 25000;
 
-  for (const model of models) {
-    if ((enfriando.get(model) ?? 0) > Date.now()) continue; // rebotó hace nada, ni lo intentes
-    const remaining = deadline - Date.now();
-    if (remaining < 4000) break; // sin tiempo útil para otro intento
-    // Tiempo para ESTE intento. Generoso a propósito: los modelos caídos fallan al
-    // instante y no gastan presupuesto, así que repartirlo a partes iguales solo servía
-    // para asfixiar al único que responde. En ago-2026 la cadena real era de UN modelo
-    // vivo y lento, y con 8s fijos no le daba tiempo a completar una recomendación.
-    const tope = Math.min(15000, remaining - 1000);
+  let data: any = null;
+  let modeloUsado = "";
+
+  // Dos vueltas como MUCHO, y la segunda casi nunca: es la red de seguridad por si
+  // OpenRouter rechazara `models` con un 400 (parámetro retirado, cambio de contrato).
+  // Sin ella, un 400 dejaría el chat entero sin IA; con ella, se reintenta a pelo con el
+  // primer modelo de la cadena. Cualquier otro fallo NO se reintenta: no arreglaría nada.
+  for (const cadena of [true, false]) {
+    if (!cadena && fallos[fallos.length - 1] !== 400) break;
+    const restante = deadline - Date.now();
+    if (restante < 4000) break; // sin tiempo útil
     try {
       const r = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
@@ -302,35 +300,41 @@ export default async function handler(req: any, res: any) {
           "HTTP-Referer": "https://canchazapa.com",
           "X-Title": "CANCHA.ZAPA",
         },
-        body: payload(model),
-        signal: AbortSignal.timeout(tope),
+        body: payload(cadena),
+        signal: AbortSignal.timeout(restante - 1000),
       });
 
       if (!r.ok) {
         const detail = await r.text().catch(() => "");
         fallos.push(r.status);
-        if (r.status === 429) enfriando.set(model, Date.now() + ENFRIAMIENTO_MS);
-        console.error("[api/chat]", model, r.status, detail.slice(0, 200));
-        continue; // prueba el siguiente modelo de la cadena
+        console.error("[api/chat]", cadena ? "cadena" : models[0], r.status, detail.slice(0, 200));
+        continue;
       }
 
-      const data = await r.json();
-      const reply = asegurarMarcadores(limpiarRespuesta(data?.choices?.[0]?.message?.content ?? ""));
-      if (!reply) continue;
-      res.status(200).json({ reply });
-      return;
+      data = await r.json();
+      modeloUsado = String(data?.model ?? "");
+      break;
     } catch (err) {
-      // 0 = se colgó (timeout/red). Sin esto un modelo lento no dejaba rastro en `fallos`
-      // y se confundía con un error real del modelo.
+      // 0 = se colgó (timeout/red). Sin esto un modelo lento no dejaría rastro en
+      // `fallos` y se confundiría con un error real del modelo.
       fallos.push(0);
-      console.error("[api/chat]", model, err);
-      // sigue con el siguiente modelo
+      console.error("[api/chat]", cadena ? "cadena" : models[0], err);
     }
   }
 
-  // Distinguir el 429 IMPORTA: el tope del free tier de OpenRouter es POR CUENTA y lo
-  // comparten TODOS los modelos :free, así que la cadena NO lo esquiva por muchos modelos
-  // que se le añadan (los 5 fallan a la vez). "upstream" sí es culpa de los modelos.
+  const reply = asegurarMarcadores(limpiarRespuesta(data?.choices?.[0]?.message?.content ?? ""));
+  if (reply) {
+    // Qué modelo respondió DE VERDAD. Es el dato que decide el orden de la cadena en la
+    // próxima revisión: ordenarla por calidad estimada en vez de por éxito medido ya
+    // salió caro una vez (los gemma iban primeros y llevaban meses devolviendo 429).
+    console.log("[api/chat] respondió", modeloUsado || "(modelo desconocido)");
+    res.status(200).json({ reply });
+    return;
+  }
+
+  // Distinguir el status IMPORTA. 429 aquí ya NO es "un modelo saturado" —de eso se
+  // encarga OpenRouter por dentro—: si devuelve 429 con la cadena entera, es el tope de
+  // la CUENTA (50/día sin créditos comprados), que sí comparten todos los `:free`.
   const todosSon = (...sts: number[]) => fallos.length > 0 && fallos.every((st) => sts.includes(st));
   const code = todosSon(401)
     ? "auth"         // 401: clave inválida o revocada
@@ -341,14 +345,16 @@ export default async function handler(req: any, res: any) {
     : todosSon(402)
       ? "sin-saldo"  // la cuenta se quedó sin créditos
       : todosSon(429)
-        ? "cuota"    // tope diario del free tier agotado (50/día sin créditos comprados)
-        : todosSon(0)
-          ? "lentos" // todos se colgaron: no fallan, se atascan (otro arreglo distinto)
-          : "upstream"; // los modelos: saturados, retirados o caídos
+        ? "cuota"    // tope diario del free tier de la CUENTA agotado
+        : todosSon(400)
+          ? "contrato" // OpenRouter rechazó el body: `models` o el propio prompt
+          : todosSon(0)
+            ? "lentos" // se colgó: no falla, se atasca (otro arreglo distinto)
+            : "upstream"; // los modelos: saturados, retirados o caídos
   // Ni un 502 ni un "no he podido responder": el usuario se lleva zapatillas reales del
   // catálogo, calculadas aquí y sin gastar una sola petición de la cuota. `code` y
   // `estados` viajan para poder diagnosticar desde fuera; el front solo lee `reply`.
-  console.error("[api/chat] cadena agotada, respondo en local:", code, fallos.join(","));
+  console.error("[api/chat] sin respuesta, respondo en local:", code, fallos.join(","));
   res.status(200).json({
     reply: respuestaLocal(messages[messages.length - 1].content),
     code: "local-" + code,

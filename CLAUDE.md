@@ -58,8 +58,8 @@ Nada de catálogo esta vez. Se abrieron los paneles de OpenRouter, Awin y Amazon
    nicho** — y queda decidir si se quitan.
 4. **adidas / tracking 20-27 ago: cerrado, impacto cero** (1 clic en todo el mes).
 
-5. **Repasado el correo (30-ago)**: nada urgente. Lo único accionable es que **OpenRouter ofrece
-   el parámetro `models: [...]`** que hace la cadena server-side en UNA petición — ver *IA del chat*.
+5. **Repasado el correo (30-ago)**: nada urgente. Lo accionable era el parámetro **`models: [...]`**
+   de OpenRouter — **ya implementado en la s42 (31-ago)**, ver *IA del chat*.
    El Choice Day de AliExpress (1-7 sept) ya estaba cargado en `promos.ts`; la de ECI caduca el 31.
 
 **▶️ ESPERANDO DECISIÓN DEL USUARIO**: (a) re-solicitar los 7 programas rechazados de Awin, que ya
@@ -297,18 +297,24 @@ primeros llevan saturados de forma persistente. Con los gemma delante, cada peti
 quemaba **3 llamadas upstream rechazadas** antes de llegar al que responde. → **Cadena reordenada
 con minimax primero** en `chat.ts` y `coach.ts` (236 tests OK).
 
-**▶️ MEJORA PENDIENTE — OpenRouter ya hace la cadena por nosotros** (visto en su boletín del
-18-ago, repasado el 30-ago). En vez de mandar `model` como string, se manda **`models: [...]`**:
-OpenRouter recorre la lista en ESE orden server-side y salta al siguiente ante rate-limit,
-moderación, downtime o error de context-length. Además, dentro de cada modelo ya reintenta otros
-proveedores antes de devolver error. Se factura el que responde y la respuesta trae en `model`
-cuál fue.
-⇒ Nuestra cadena hace lo mismo a mano con **hasta 5 peticiones HTTP secuenciales desde Vercel**.
-Con `models` sería **UNA sola llamada**: desaparece el reparto del presupuesto de 25 s, la latencia
-acumulada de los eslabones muertos, y deja de importar que el `Map` de `enfriando` no sobreviva
-entre invocaciones serverless (cada invocación es un proceso nuevo, así que hoy no enfría nada
-entre peticiones). Afecta a `chat.ts` y `coach.ts`. **No hecho: es un cambio de arquitectura.**
-⚠ El fallback local sin IA hay que CONSERVARLO — cubre el caso de que OpenRouter entero falle.
+**✅ HECHO (s42, 31-ago) — la cadena la hace ahora OpenRouter, no nosotros.** En vez de mandar
+`model` como string y recorrer la lista a mano, se manda **`models: [...]`** entera: OpenRouter la
+recorre en ESE orden server-side y salta al siguiente ante rate-limit, moderación, downtime o error
+de context-length, y dentro de cada modelo ya reintenta otros proveedores. Se factura el que
+responde y su id llega en `model` de la respuesta → **se loguea** (`[api/chat] respondió X`), que es
+el dato que debe decidir el orden de la cadena en la próxima revisión.
+⇒ De **hasta 5 peticiones HTTP secuenciales desde Vercel a UNA sola**. Desaparecen el reparto del
+presupuesto de 25 s, la latencia acumulada de los eslabones muertos y el `Map` de `enfriando`
+(**borrado**: cada invocación serverless es un proceso nuevo, así que no enfriaba nada). Aplicado a
+`chat.ts` y `coach.ts`. El fallback local sin IA se CONSERVA intacto, y `code` gana `contrato` (400).
+⚠ **Lo único NO verificado en vivo**: no hay clave de OpenRouter en local y su API valida el auth
+ANTES que el body, así que un sondeo con clave falsa devuelve 401 en los tres casos y no distingue
+si acepta `models`. Por eso el código lleva **una red de seguridad**: si la petición con `models`
+devuelve **400**, reintenta una vez con `model` a secas (el primero de la cadena). Cualquier otro
+fallo no se reintenta. **Al desplegar, mirar los logs de Vercel**: si aparece `local-contrato`, es
+que `models` fue rechazado y hay que releer los docs.
+✅ **Los 5 modelos de la cadena verificados VIVOS el 31-ago** contra `/api/v1/models` (395 modelos,
+18 `:free`). Ninguno retirado.
 
 La decisión de fondo sigue abierta: **$10 de créditos** suben el tope de **50 a 1.000
 peticiones/día** (los créditos NO se gastan usando modelos `:free`, basta con haberlos comprado) y
@@ -667,12 +673,12 @@ presupuesto · ancho de pie · uso (auto-submit 400 ms).
 ### Serverless (`web/api/`, ESM puro, SIN bundling)
 ⚠ **Los imports deben llevar extensión** o revientan con `ERR_MODULE_NOT_FOUND`. Las funciones son
 **autocontenidas**: no importan el catálogo, leen `_catalog.json`.
-- `chat.ts` — asistente IA. Cadena de modelos gratuita de OpenRouter (mejor→peor):
-  `google/gemma-4-31b-it:free` → `meta-llama/llama-3.3-70b-instruct:free` →
-  `qwen/qwen3-next-80b-a3b-instruct:free` → `openai/gpt-oss-120b:free` → `google/gemma-4-26b-a4b-it:free`.
-  Presupuesto 25 s, 12 s máx/modelo. Fiabilidad ~90% (el resto es saturación del free tier).
+- `chat.ts` — asistente IA. Cadena gratuita de OpenRouter (mejor→peor), enviada ENTERA en el
+  parámetro `models` de UNA sola petición (s42, ver *IA del chat*): `minimax/minimax-m2.7:free` →
+  `google/gemma-4-31b-it:free` → `google/gemma-4-26b-a4b-it:free` → `z-ai/glm-5.2:free` →
+  `thinkingmachines/inkling-small:free`. Presupuesto 25 s para la petición completa.
   `OPENROUTER_API_KEY` en Vercel, **NUNCA en el repo**. ⚠ `deepseek-v4-flash:free` NO existe (404).
-- `coach.ts` — agente de estadísticas (misma cadena).
+- `coach.ts` — agente de estadísticas (misma cadena, mismo `models`).
 - `feb.ts` — importador de actas FEB: saca el JWT de `#_ctl0_token` y llama a
   `https://intrafeb.feb.es/LiveStats.API/api/v1/BoxScore/{id}`.
   ⛔ **FCBQ/Cataluña NO es accesible**: `basquetcatala.cat` protege toda la web con reCAPTCHA y su

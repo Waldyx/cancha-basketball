@@ -89,11 +89,6 @@ ${tabla}`;
 const limpiarRespuesta = (t: string) =>
   t.replace(/<think>[\s\S]*?<\/think>/gi, "").replace(/<\/?think>/gi, "").trim();
 
-// Modelos que acaban de devolver 429: saltarlos ahorra latencia y no quema intentos del
-// tope diario. Best-effort por instancia caliente. Ver chat.ts.
-const enfriando = new Map<string, number>();
-const ENFRIAMIENTO_MS = 60 * 1000;
-
 export default async function handler(req: any, res: any) {
   const origin = (req.headers["origin"] || "").toString();
   if (/^https:\/\/(www\.)?canchazapa\.com$/.test(origin)) {
@@ -129,11 +124,14 @@ export default async function handler(req: any, res: any) {
 
   const SYSTEM = buildSystem(body.perfil, body.resumen, partidos);
 
+  // Cadena gratuita, misma que /api/chat. NO se recorre a mano: se manda entera en
+  // `models` y OpenRouter la recorre server-side en UNA sola petición (docs "Model
+  // Fallbacks", verificado 31-ago-2026), saltando al siguiente ante context-length,
+  // moderación, rate-limit o downtime. Ver el detalle largo en chat.ts.
+  // Los 5 verificados VIVOS a 31-ago-2026. CHAT_MODEL fuerza uno solo.
   const models = process.env.CHAT_MODEL
     ? [process.env.CHAT_MODEL]
     : [
-        // minimax primero: es el único que devuelve 200 en los logs de OpenRouter
-        // (29-ago-2026); los demás rebotan 429 al instante. Ver el detalle en chat.ts.
         "minimax/minimax-m2.7:free",
         "google/gemma-4-31b-it:free",
         "google/gemma-4-26b-a4b-it:free",
@@ -141,27 +139,29 @@ export default async function handler(req: any, res: any) {
         "thinkingmachines/inkling-small:free",
       ];
 
-  const payload = (model: string) =>
+  // Con cadena se manda `models` y NO `model`; con un modelo forzado, al revés.
+  const payload = (cadena: boolean) =>
     JSON.stringify({
-      model,
+      ...(cadena && models.length > 1 ? { models } : { model: models[0] }),
       messages: [{ role: "system", content: SYSTEM }, ...messages],
       max_tokens: 500,
       temperature: 0.4,
     });
 
-  // Status de cada fallo. Si TODOS son de auth/cuota, el problema es la clave o el
-  // límite del free tier, no los modelos: hay que poder distinguirlo desde fuera sin
-  // entrar en los logs de Vercel (un 502 opaco costó una sesión entera en ago-2026).
+  // Status de cada fallo. Si es de auth/cuota, el problema es la clave o el límite del
+  // free tier, no los modelos: hay que poder distinguirlo desde fuera sin entrar en los
+  // logs de Vercel (un 502 opaco costó una sesión entera en ago-2026).
   const fallos: number[] = [];
 
   const deadline = Date.now() + 25000;
-  for (const model of models) {
-    if ((enfriando.get(model) ?? 0) > Date.now()) continue; // rebotó hace nada, ni lo intentes
-    const remaining = deadline - Date.now();
-    if (remaining < 4000) break;
-    // Generoso a propósito: los caídos fallan al instante y no gastan presupuesto, así
-    // que repartirlo a partes iguales solo asfixiaba al único que responde. Ver chat.ts.
-    const tope = Math.min(15000, remaining - 1000);
+  let data: any = null;
+  let modeloUsado = "";
+
+  // Segunda vuelta SOLO si OpenRouter rechaza `models` con un 400. Ver chat.ts.
+  for (const cadena of [true, false]) {
+    if (!cadena && fallos[fallos.length - 1] !== 400) break;
+    const restante = deadline - Date.now();
+    if (restante < 4000) break;
     try {
       const r = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
@@ -171,29 +171,33 @@ export default async function handler(req: any, res: any) {
           "HTTP-Referer": "https://canchazapa.com",
           "X-Title": "CANCHA.ZAPA",
         },
-        body: payload(model),
-        signal: AbortSignal.timeout(tope),
+        body: payload(cadena),
+        signal: AbortSignal.timeout(restante - 1000),
       });
       if (!r.ok) {
         const detail = await r.text().catch(() => "");
         fallos.push(r.status);
-        if (r.status === 429) enfriando.set(model, Date.now() + ENFRIAMIENTO_MS);
-        console.error("[api/coach]", model, r.status, detail.slice(0, 200));
+        console.error("[api/coach]", cadena ? "cadena" : models[0], r.status, detail.slice(0, 200));
         continue;
       }
-      const data = await r.json();
-      const reply = limpiarRespuesta(data?.choices?.[0]?.message?.content ?? "");
-      if (!reply) continue;
-      res.status(200).json({ reply });
-      return;
+      data = await r.json();
+      modeloUsado = String(data?.model ?? "");
+      break;
     } catch (err) {
       fallos.push(0); // 0 = se colgó (timeout/red), ver chat.ts
-      console.error("[api/coach]", model, err);
+      console.error("[api/coach]", cadena ? "cadena" : models[0], err);
     }
   }
-  // Distinguir el 429 IMPORTA: el tope del free tier de OpenRouter es POR CUENTA y lo
-  // comparten TODOS los modelos :free, así que la cadena NO lo esquiva por muchos modelos
-  // que se le añadan (los 5 fallan a la vez). "upstream" sí es culpa de los modelos.
+
+  const reply = limpiarRespuesta(data?.choices?.[0]?.message?.content ?? "");
+  if (reply) {
+    console.log("[api/coach] respondió", modeloUsado || "(modelo desconocido)");
+    res.status(200).json({ reply });
+    return;
+  }
+
+  // Distinguir el status IMPORTA. 429 aquí ya NO es "un modelo saturado" —de eso se
+  // encarga OpenRouter por dentro—: con la cadena entera es el tope de la CUENTA.
   const todosSon = (...sts: number[]) => fallos.length > 0 && fallos.every((st) => sts.includes(st));
   const code = todosSon(401)
     ? "auth"         // 401: clave inválida o revocada
@@ -204,10 +208,12 @@ export default async function handler(req: any, res: any) {
     : todosSon(402)
       ? "sin-saldo"  // la cuenta se quedó sin créditos
       : todosSon(429)
-        ? "cuota"    // tope diario del free tier agotado (50/día sin créditos comprados)
-        : todosSon(0)
-          ? "lentos" // todos se colgaron: no fallan, se atascan (otro arreglo distinto)
-          : "upstream"; // los modelos: saturados, retirados o caídos
+        ? "cuota"    // tope diario del free tier de la CUENTA agotado
+        : todosSon(400)
+          ? "contrato" // OpenRouter rechazó el body: `models` o el propio prompt
+          : todosSon(0)
+            ? "lentos" // se colgó: no falla, se atasca (otro arreglo distinto)
+            : "upstream"; // los modelos: saturados, retirados o caídos
   // Aquí NO hay fallback local a propósito: un análisis de tus partidos no se puede
   // fabricar sin IA y sería peor inventárselo que fallar. `estados` para diagnosticar.
   res.status(502).json({
