@@ -335,9 +335,18 @@ catálogo, pero SIN IA).
   no documentado de entradas (la API de Anthropic acepta 3 como mucho y nosotros mandamos 5), o que
   los `:free` no valgan en `models`. **No se puede reproducir en local**: no hay clave.
 - El `estados` traía UN solo 400, no dos → el reintento sí corrió y devolvió **200 con `content`
-  vacío**. Encaja con minimax-m2.7, que es de RAZONAMIENTO y se gasta los `max_tokens` pensando,
-  dejando el texto en `message.reasoning`. Al colapsar la cadena en una petición se había perdido
-  el "si viene vacío, prueba el siguiente", que el bucle viejo sí hacía.
+  vacío**. **Causa raíz MEDIDA en el panel** (Logs → Generations, 31-ago): de 4 generaciones de
+  minimax, **3 cortaron con `finish_reason: length` clavadas en 380 tokens** —nuestro `max_tokens`—
+  y la única que respondió terminó en `stop` con 352 tokens de texto. minimax-m2.7 es de
+  RAZONAMIENTO y **el razonamiento consume ese mismo presupuesto**, así que se quedaba sin tokens
+  antes de emitir la respuesta. Intermitente según cuánto razonara. El 380 estaba calibrado para
+  los gemma (que no razonan) y se heredó al poner minimax primero en la s41.
+  ⇒ **`max_tokens` subido a 1000 en `chat.ts` y a 1200 en `coach.ts`.** Es un TOPE, no un objetivo:
+  los modelos que no razonan siguen parando solos en `stop`.
+- Al colapsar la cadena en una petición se había perdido además el "si viene vacío, prueba el
+  siguiente", que el bucle viejo sí hacía. Recuperado.
+- **El 400 de `models` NO aparece en Upstream Requests**, solo los 200. OpenRouter lo rechaza en
+  VALIDACIÓN, antes de enrutar a ningún proveedor — por eso no deja rastro de proveedor.
 
 ✅ **ARREGLADO (sin desplegar aún)**: `chat.ts` y `coach.ts` construyen ahora una LISTA DE INTENTOS —
 primero la cadena entera en una petición y detrás **los 5 modelos de uno en uno**, que es el

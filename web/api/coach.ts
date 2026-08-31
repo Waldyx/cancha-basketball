@@ -144,7 +144,9 @@ export default async function handler(req: any, res: any) {
     JSON.stringify({
       ...sel,
       messages: [{ role: "system", content: SYSTEM }, ...messages],
-      max_tokens: 500,
+      // Mismo motivo que en chat.ts: 500 no daba para razonamiento + texto y minimax
+      // cortaba en `length` sin emitir respuesta. El análisis de partidos es más largo.
+      max_tokens: 1200,
       temperature: 0.4,
     });
 

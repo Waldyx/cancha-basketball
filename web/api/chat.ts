@@ -268,7 +268,15 @@ export default async function handler(req: any, res: any) {
     JSON.stringify({
       ...sel,
       messages: [{ role: "system", content: SYSTEM }, ...messages],
-      max_tokens: 380, // el prompt pide 2-4 frases; menos tokens = completa antes
+      // 380 se quedaba CORTO y era la causa real de las respuestas en blanco. Medido en
+      // el panel de OpenRouter (Logs > Generations, 31-ago): de 4 generaciones de minimax,
+      // 3 cortaron con finish_reason `length` clavadas en 380 tokens y solo respondió la que
+      // terminó en `stop` (352 tokens de texto). minimax-m2.7 es de RAZONAMIENTO: el
+      // razonamiento CONSUME este presupuesto, así que se quedaba sin tokens antes de emitir
+      // el texto final. Por eso fallaba de forma intermitente — según cuánto razonara.
+      // 380 estaba calibrado para los gemma, que no razonan, y se heredó al poner minimax
+      // primero. Es un TOPE, no un objetivo: los que no razonan paran solos en `stop`.
+      max_tokens: 1000,
       temperature: 0.4,
     });
 
