@@ -324,12 +324,28 @@ el dato que debe decidir el orden de la cadena en la próxima revisión.
 presupuesto de 25 s, la latencia acumulada de los eslabones muertos y el `Map` de `enfriando`
 (**borrado**: cada invocación serverless es un proceso nuevo, así que no enfriaba nada). Aplicado a
 `chat.ts` y `coach.ts`. El fallback local sin IA se CONSERVA intacto, y `code` gana `contrato` (400).
-⚠ **Lo único NO verificado en vivo**: no hay clave de OpenRouter en local y su API valida el auth
-ANTES que el body, así que un sondeo con clave falsa devuelve 401 en los tres casos y no distingue
-si acepta `models`. Por eso el código lleva **una red de seguridad**: si la petición con `models`
-devuelve **400**, reintenta una vez con `model` a secas (el primero de la cadena). Cualquier otro
-fallo no se reintenta. **Al desplegar, mirar los logs de Vercel**: si aparece `local-contrato`, es
-que `models` fue rechazado y hay que releer los docs.
+🔴 **MEDIDO EN PRODUCCIÓN Y SALIÓ MAL — leer esto antes que lo de arriba.** El refactor se desplegó
+por accidente (ver *Incidencia de las dos sesiones*) y eso permitió medirlo. Una petición real a
+`https://canchazapa.com/api/chat` el 31-ago devolvió:
+`{"code":"local-contrato","estados":"400"}` en 13,7 s. Es decir: **OpenRouter RECHAZA la petición
+con `models` con un 400**, y el usuario acaba en el fallback local (recibe zapatillas reales del
+catálogo, pero SIN IA).
+- La forma del body es la que mandan los docs (ejemplo `fetch` de *Model Fallbacks*: `models` como
+  array y SIN `model`), así que **la causa está sin identificar**. Hipótesis no comprobadas: un tope
+  no documentado de entradas (la API de Anthropic acepta 3 como mucho y nosotros mandamos 5), o que
+  los `:free` no valgan en `models`. **No se puede reproducir en local**: no hay clave.
+- El `estados` traía UN solo 400, no dos → el reintento sí corrió y devolvió **200 con `content`
+  vacío**. Encaja con minimax-m2.7, que es de RAZONAMIENTO y se gasta los `max_tokens` pensando,
+  dejando el texto en `message.reasoning`. Al colapsar la cadena en una petición se había perdido
+  el "si viene vacío, prueba el siguiente", que el bucle viejo sí hacía.
+
+✅ **ARREGLADO (sin desplegar aún)**: `chat.ts` y `coach.ts` construyen ahora una LISTA DE INTENTOS —
+primero la cadena entera en una petición y detrás **los 5 modelos de uno en uno**, que es el
+comportamiento clásico y probado. Si `models` funciona, 1 petición; si no, se degrada exactamente a
+lo que había antes. Un 200 con `content` vacío ya NO cuenta como respuesta: se anota como `204` y se
+pasa al siguiente intento. La respuesta añade **`detalle`** con el texto de error de upstream
+recortado, para no necesitar otro despliegue solo para saber por qué falló. Nuevos `code`:
+`contrato` (400 en todos) y `vacios` (200 sin texto en todos).
 ✅ **Los 5 modelos de la cadena verificados VIVOS el 31-ago** contra `/api/v1/models` (395 modelos,
 18 `:free`). Ninguno retirado.
 
@@ -338,6 +354,15 @@ peticiones/día** (los créditos NO se gastan usando modelos `:free`, basta con 
 además habilitan un eslabón de pago como último recurso.
 
 ### Infra
+- 🔴 **Incidencia de las dos sesiones (31-ago).** Dos sesiones de Claude trabajaron a la vez sobre
+  este repo y se pisaron. Dos consecuencias reales:
+  1. El commit `ff8e37e` (Footlocker) hizo `git add web/src/data/zapatillas.ts` con cambios de la
+     OTRA sesión sin commitear dentro → las ediciones de la ficha `ua-curry-13` viven dentro de un
+     commit cuyo mensaje habla de Foot Locker. No se perdió nada, pero el historial engaña.
+  2. Peor: al pushear `bdb0977` se **arrastró `27f91d7` a producción sin que nadie lo aprobara**.
+     Así se desplegó el refactor de OpenRouter, y así se descubrió que estaba roto.
+  ⇒ **Regla**: `git add` de ficheros concretos, NUNCA `git add -A`/`.`/`commit -a`, y antes de
+  pushear mirar `git log origin/master..HEAD` — arrastras todo lo que haya debajo, sea tuyo o no.
 - ✅ **`deploy.yml`: pendiente OBSOLETO, cerrado en la s42.** El fichero ya no existe — lo borró el
   commit `762c47f` ("eliminar workflow GitHub Actions — Vercel despliega vía integración nativa").
   El único workflow vivo es `scrape-prices.yml`. No hay ningún workflow en rojo.
@@ -453,6 +478,16 @@ Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
   fechas de `ultima_verificacion`, no que el workflow salga verde.
 
 ### Servicios externos y free tiers
+- **Que el body sea el de los docs NO garantiza que el proveedor lo acepte.** El ejemplo `fetch` de
+  *Model Fallbacks* manda `models` como array y sin `model`; copiado tal cual, OpenRouter devolvió
+  **400** en producción (31-ago). Los docs describen el caso feliz: la única prueba es una petición
+  real. Corolario: **al sustituir un mecanismo propio y probado por uno del proveedor, se conserva
+  el viejo detrás** hasta haber medido el nuevo contra producción — si no, el día que el proveedor
+  diga que no, te quedas sin las dos cosas.
+- **Un 200 con el cuerpo vacío no es un éxito.** Los modelos de RAZONAMIENTO se gastan los
+  `max_tokens` pensando y devuelven `message.content` vacío con el texto en `message.reasoning`.
+  Si el código trata "200" como "ya está", se sirve una respuesta en blanco. Validar el CONTENIDO,
+  no el status — la misma trampa que los 200 de Snipes/adidas sirviendo una 404.
 - **Antes de programar un fallback a mano, mirar si el proveedor ya lo ofrece.** La cadena de
   modelos de `chat.ts` (bucle, presupuesto de tiempo, enfriamiento, 5 peticiones HTTP) replica algo
   que OpenRouter da con un parámetro: `models: [...]`. Costó varias sesiones de tuning. Leer los

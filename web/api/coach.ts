@@ -139,29 +139,37 @@ export default async function handler(req: any, res: any) {
         "thinkingmachines/inkling-small:free",
       ];
 
-  // Con cadena se manda `models` y NO `model`; con un modelo forzado, al revés.
-  const payload = (cadena: boolean) =>
+  // Cuerpo: `models` = la lista entera (OpenRouter la recorre); `model` = uno suelto.
+  const payload = (sel: { models: string[] } | { model: string }) =>
     JSON.stringify({
-      ...(cadena && models.length > 1 ? { models } : { model: models[0] }),
+      ...sel,
       messages: [{ role: "system", content: SYSTEM }, ...messages],
       max_tokens: 500,
       temperature: 0.4,
     });
 
+  // Primero la cadena entera en una petición; detrás, los modelos de uno en uno como
+  // respaldo probado. El 31-ago la petición con `models` devolvió 400 en producción y la
+  // causa sigue sin identificarse, así que el agente NO depende de que funcione.
+  // Ver el detalle largo en chat.ts.
+  const intentos: { etiqueta: string; body: string }[] = [];
+  if (models.length > 1) intentos.push({ etiqueta: "cadena", body: payload({ models }) });
+  for (const m of models) intentos.push({ etiqueta: m, body: payload({ model: m }) });
+
   // Status de cada fallo. Si es de auth/cuota, el problema es la clave o el límite del
   // free tier, no los modelos: hay que poder distinguirlo desde fuera sin entrar en los
   // logs de Vercel (un 502 opaco costó una sesión entera en ago-2026).
   const fallos: number[] = [];
+  let detalle = ""; // primer error de upstream, recortado. Ver chat.ts.
 
   const deadline = Date.now() + 25000;
   let data: any = null;
   let modeloUsado = "";
 
-  // Segunda vuelta SOLO si OpenRouter rechaza `models` con un 400. Ver chat.ts.
-  for (const cadena of [true, false]) {
-    if (!cadena && fallos[fallos.length - 1] !== 400) break;
+  for (const intento of intentos) {
     const restante = deadline - Date.now();
     if (restante < 4000) break;
+    const tope = Math.min(15000, restante - 1000);
     try {
       const r = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
@@ -171,21 +179,31 @@ export default async function handler(req: any, res: any) {
           "HTTP-Referer": "https://canchazapa.com",
           "X-Title": "CANCHA.ZAPA",
         },
-        body: payload(cadena),
-        signal: AbortSignal.timeout(restante - 1000),
+        body: intento.body,
+        signal: AbortSignal.timeout(tope),
       });
       if (!r.ok) {
-        const detail = await r.text().catch(() => "");
+        const txt = await r.text().catch(() => "");
         fallos.push(r.status);
-        console.error("[api/coach]", cadena ? "cadena" : models[0], r.status, detail.slice(0, 200));
+        if (!detalle) detalle = `${intento.etiqueta}:${r.status}:${txt.slice(0, 160)}`;
+        console.error("[api/coach]", intento.etiqueta, r.status, txt.slice(0, 200));
         continue;
       }
-      data = await r.json();
-      modeloUsado = String(data?.model ?? "");
+      const j = await r.json();
+      const txt = limpiarRespuesta(j?.choices?.[0]?.message?.content ?? "");
+      // 200 con `content` vacío no es respuesta: los modelos de razonamiento gastan los
+      // max_tokens pensando y dejan el texto en `message.reasoning`. Sigue al siguiente.
+      if (!txt) {
+        fallos.push(204);
+        console.error("[api/coach]", intento.etiqueta, "200 con content vacío");
+        continue;
+      }
+      data = j;
+      modeloUsado = String(j?.model ?? intento.etiqueta);
       break;
     } catch (err) {
       fallos.push(0); // 0 = se colgó (timeout/red), ver chat.ts
-      console.error("[api/coach]", cadena ? "cadena" : models[0], err);
+      console.error("[api/coach]", intento.etiqueta, err);
     }
   }
 
@@ -196,8 +214,6 @@ export default async function handler(req: any, res: any) {
     return;
   }
 
-  // Distinguir el status IMPORTA. 429 aquí ya NO es "un modelo saturado" —de eso se
-  // encarga OpenRouter por dentro—: con la cadena entera es el tope de la CUENTA.
   const todosSon = (...sts: number[]) => fallos.length > 0 && fallos.every((st) => sts.includes(st));
   const code = todosSon(401)
     ? "auth"         // 401: clave inválida o revocada
@@ -210,15 +226,19 @@ export default async function handler(req: any, res: any) {
       : todosSon(429)
         ? "cuota"    // tope diario del free tier de la CUENTA agotado
         : todosSon(400)
-          ? "contrato" // OpenRouter rechazó el body: `models` o el propio prompt
-          : todosSon(0)
-            ? "lentos" // se colgó: no falla, se atasca (otro arreglo distinto)
-            : "upstream"; // los modelos: saturados, retirados o caídos
+          ? "contrato" // OpenRouter rechaza el body en TODOS los intentos
+          : todosSon(204)
+            ? "vacios" // contestan 200 pero sin texto (razonamiento sin `content`)
+            : todosSon(0)
+              ? "lentos" // se colgó: no falla, se atasca (otro arreglo distinto)
+              : "upstream"; // los modelos: saturados, retirados o caídos
   // Aquí NO hay fallback local a propósito: un análisis de tus partidos no se puede
-  // fabricar sin IA y sería peor inventárselo que fallar. `estados` para diagnosticar.
+  // fabricar sin IA y sería peor inventárselo que fallar. `estados`/`detalle` para
+  // diagnosticar desde fuera.
   res.status(502).json({
     reply: "Uy, no he podido analizar ahora mismo. Reinténtalo en un momento.",
     code,
     estados: fallos.join(","),
+    detalle,
   });
 }

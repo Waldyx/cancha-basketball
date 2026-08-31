@@ -261,36 +261,54 @@ export default async function handler(req: any, res: any) {
         "thinkingmachines/inkling-small:free",
       ];
 
-  // Con cadena se manda `models` (lista de prioridad) y NO `model`; con un modelo
-  // forzado, al revés. Enviar los dos no está documentado, así que no se hace.
-  const payload = (cadena: boolean) =>
+  // Cuerpo de la petición. `models` = la lista entera (OpenRouter la recorre por dentro);
+  // `model` = un modelo suelto. Los docs muestran `models` SIN `model`, así que se manda
+  // uno u otro, nunca los dos.
+  const payload = (sel: { models: string[] } | { model: string }) =>
     JSON.stringify({
-      ...(cadena && models.length > 1 ? { models } : { model: models[0] }),
+      ...sel,
       messages: [{ role: "system", content: SYSTEM }, ...messages],
       max_tokens: 380, // el prompt pide 2-4 frases; menos tokens = completa antes
       temperature: 0.4,
     });
 
+  // Plan de intentos. El PRIMERO es la cadena entera en una sola petición: si OpenRouter
+  // la acepta, se acabó (es el caso normal y el motivo del refactor). Detrás quedan los
+  // modelos de uno en uno, que es el comportamiento clásico y PROBADO.
+  //
+  // ⚠ Esta cola de respaldo no es decorativa: el 31-ago, ya en producción, la petición
+  // con `models` devolvió **400** (code `local-contrato`, medido contra canchazapa.com).
+  // Los docs dicen que la forma es correcta, así que la causa está sin identificar — no
+  // hay clave en local con la que reproducirlo y OpenRouter valida el auth antes que el
+  // body. Hasta saberlo, el chat NO puede depender de que `models` funcione.
+  //
+  // Coste real: si `models` va bien, 1 petición. Si no, se degrada exactamente a lo que
+  // había antes. El presupuesto de tiempo corta la cola si se alarga.
+  const intentos: { etiqueta: string; body: string }[] = [];
+  if (models.length > 1) intentos.push({ etiqueta: "cadena", body: payload({ models }) });
+  for (const m of models) intentos.push({ etiqueta: m, body: payload({ model: m }) });
+
   // Status de cada fallo. Si es de auth/cuota, el problema es la clave o el límite del
   // free tier, no los modelos: hay que poder distinguirlo desde fuera sin entrar en los
   // logs de Vercel (un 502 opaco costó una sesión entera en ago-2026).
   const fallos: number[] = [];
+  // Primer mensaje de error de upstream, recortado. Sin esto, un 400 solo dice "400" y
+  // no se puede diagnosticar sin desplegar otra vez. No lleva nada sensible: es el texto
+  // de error de OpenRouter.
+  let detalle = "";
 
-  // Presupuesto total. maxDuration=30s, dejamos ~25s. Ahora es UNA sola petición, así
-  // que se le da casi todo: el reparto entre eslabones lo hace OpenRouter por dentro.
+  // Presupuesto total. maxDuration=30s, dejamos ~25s.
   const deadline = Date.now() + 25000;
 
   let data: any = null;
   let modeloUsado = "";
 
-  // Dos vueltas como MUCHO, y la segunda casi nunca: es la red de seguridad por si
-  // OpenRouter rechazara `models` con un 400 (parámetro retirado, cambio de contrato).
-  // Sin ella, un 400 dejaría el chat entero sin IA; con ella, se reintenta a pelo con el
-  // primer modelo de la cadena. Cualquier otro fallo NO se reintenta: no arreglaría nada.
-  for (const cadena of [true, false]) {
-    if (!cadena && fallos[fallos.length - 1] !== 400) break;
+  for (const intento of intentos) {
     const restante = deadline - Date.now();
-    if (restante < 4000) break; // sin tiempo útil
+    if (restante < 4000) break; // sin tiempo útil para otro intento
+    // Generoso a propósito: los modelos caídos fallan al instante y no gastan presupuesto,
+    // así que repartirlo a partes iguales solo servía para asfixiar al único que responde.
+    const tope = Math.min(15000, restante - 1000);
     try {
       const r = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
@@ -300,25 +318,37 @@ export default async function handler(req: any, res: any) {
           "HTTP-Referer": "https://canchazapa.com",
           "X-Title": "CANCHA.ZAPA",
         },
-        body: payload(cadena),
-        signal: AbortSignal.timeout(restante - 1000),
+        body: intento.body,
+        signal: AbortSignal.timeout(tope),
       });
 
       if (!r.ok) {
-        const detail = await r.text().catch(() => "");
+        const txt = await r.text().catch(() => "");
         fallos.push(r.status);
-        console.error("[api/chat]", cadena ? "cadena" : models[0], r.status, detail.slice(0, 200));
+        if (!detalle) detalle = `${intento.etiqueta}:${r.status}:${txt.slice(0, 160)}`;
+        console.error("[api/chat]", intento.etiqueta, r.status, txt.slice(0, 200));
         continue;
       }
 
-      data = await r.json();
-      modeloUsado = String(data?.model ?? "");
+      const j = await r.json();
+      const txt = limpiarRespuesta(j?.choices?.[0]?.message?.content ?? "");
+      // Un 200 con `content` vacío NO es una respuesta. Pasa con los modelos de
+      // razonamiento, que se gastan los max_tokens pensando y devuelven el texto en
+      // `message.reasoning`. Hay que seguir con el siguiente intento, no rendirse: es
+      // justo lo que se perdió al colapsar la cadena en una sola petición.
+      if (!txt) {
+        fallos.push(204); // 204 = respondió pero vino vacío (no es un status real de OR)
+        console.error("[api/chat]", intento.etiqueta, "200 con content vacío");
+        continue;
+      }
+      data = j;
+      modeloUsado = String(j?.model ?? intento.etiqueta);
       break;
     } catch (err) {
       // 0 = se colgó (timeout/red). Sin esto un modelo lento no dejaría rastro en
       // `fallos` y se confundiría con un error real del modelo.
       fallos.push(0);
-      console.error("[api/chat]", cadena ? "cadena" : models[0], err);
+      console.error("[api/chat]", intento.etiqueta, err);
     }
   }
 
@@ -332,9 +362,6 @@ export default async function handler(req: any, res: any) {
     return;
   }
 
-  // Distinguir el status IMPORTA. 429 aquí ya NO es "un modelo saturado" —de eso se
-  // encarga OpenRouter por dentro—: si devuelve 429 con la cadena entera, es el tope de
-  // la CUENTA (50/día sin créditos comprados), que sí comparten todos los `:free`.
   const todosSon = (...sts: number[]) => fallos.length > 0 && fallos.every((st) => sts.includes(st));
   const code = todosSon(401)
     ? "auth"         // 401: clave inválida o revocada
@@ -347,17 +374,21 @@ export default async function handler(req: any, res: any) {
       : todosSon(429)
         ? "cuota"    // tope diario del free tier de la CUENTA agotado
         : todosSon(400)
-          ? "contrato" // OpenRouter rechazó el body: `models` o el propio prompt
-          : todosSon(0)
-            ? "lentos" // se colgó: no falla, se atasca (otro arreglo distinto)
-            : "upstream"; // los modelos: saturados, retirados o caídos
+          ? "contrato" // OpenRouter rechaza el body en TODOS los intentos
+          : todosSon(204)
+            ? "vacios" // contestan 200 pero sin texto (razonamiento sin `content`)
+            : todosSon(0)
+              ? "lentos" // se colgó: no falla, se atasca (otro arreglo distinto)
+              : "upstream"; // los modelos: saturados, retirados o caídos
   // Ni un 502 ni un "no he podido responder": el usuario se lleva zapatillas reales del
-  // catálogo, calculadas aquí y sin gastar una sola petición de la cuota. `code` y
-  // `estados` viajan para poder diagnosticar desde fuera; el front solo lee `reply`.
-  console.error("[api/chat] sin respuesta, respondo en local:", code, fallos.join(","));
+  // catálogo, calculadas aquí y sin gastar una sola petición de la cuota. `code`,
+  // `estados` y `detalle` viajan para poder diagnosticar desde fuera; el front solo lee
+  // `reply`, así que esto es invisible para el usuario.
+  console.error("[api/chat] sin respuesta, respondo en local:", code, fallos.join(","), detalle);
   res.status(200).json({
     reply: respuestaLocal(messages[messages.length - 1].content),
     code: "local-" + code,
     estados: fallos.join(","),
+    detalle,
   });
 }
