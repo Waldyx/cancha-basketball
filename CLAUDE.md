@@ -244,10 +244,27 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   solicitar. Los rechazos fueron en jun-2026, ya pasaron los 3 meses. **Decisión del usuario.**
 
 ### Datos / catálogo
-- **Curry 13 es la ÚLTIMA de Under Armour — NO habrá Curry 14.** Curry y UA rompieron en
-  nov-2025; la Curry 13 (13-feb-2026) es el cierre pactado, con colorways hasta oct-2026. Curry
-  Brand es independiente y él es agente libre de calzado. → La ficha `ua-curry-13` y los artículos
-  de la saga dan por hecha una continuidad que ya no existe. **Pendiente de revisar.** (s38)
+- ✅ **Curry 13 es la ÚLTIMA de Under Armour — CERRADO en la s42 (31-ago).** Curry y UA rompieron
+  el 13-nov-2025; la Curry 13 (feb-2026) es el cierre pactado, con colorways hasta oct-2026. Curry
+  Brand es independiente y él es agente libre de calzado. Re-verificado antes de tocar (ESPN, SI,
+  Yahoo, NBC). Corregidas las 4 afirmaciones que lo daban por vivo **en presente**: `seoPages`
+  marca UA ("Under Armour es la marca de Steph Curry" + "Curry Brand (filial de UA)"), `seoPages`
+  marca Nike ("Curry no, Curry es UA") y el análisis `ua-curry-13-analisis-2025` ("UA lleva desde
+  2013 construyendo…"). La ficha pasa a `año_lanzamiento: 2026` (salió en feb-2026, no en 2025) y
+  el análisis gana una sección de contexto con lo que el fin de línea significa al comprar.
+- 🔴 **NUEVO (s42): la Curry 13 se contradice a sí misma en los números.** Salió al revisar lo
+  anterior y **NO se ha tocado**: elegir un valor sin fuente sería inventárselo. **No hay review de
+  laboratorio publicada** de la 13 (RunRepeat solo llega a la 11; WearTesters, a la 12), así que lo
+  decides tú o esperamos fuente:
+  · **Peso: TRES valores distintos.** Ficha `peso_real_g: 352` · ficha `pros` "~308g" · artículo
+    "~330g en talla 44". Como mucho uno es cierto.
+  · **Drop**: ficha `drop_mm: 8` vs artículo "drop bajo (4mm)".
+  · **Scores**: el artículo cita tracción 8/10, cushion 8/10 y estabilidad 8/10; la ficha dice
+    `traccion: 10`, `amortiguacion: 9` y `soporte_lateral: 9`. La FAQ añade un tercer juego
+    (tracción 8/10, estabilidad 7,5).
+  · **Precio**: título del artículo "¿merece los 150€?" vs ficha `pros` "140€" vs `seoPages`
+    "130-140€".
+  ⇒ Lo barato es dejar la ficha como fuente única y quitar los números repetidos en prosa.
 - `361-zen-7`: **156,99 € (API AliExpress) vs 90 € (catálogo)**. ¿Cuál es el bueno? (s36)
   → **Dato nuevo (s39)**: la tarifa oficial en `361sport.com/es-es` es **120 €**. Ninguno de los dos
   la clava, pero deja el 90 € del catálogo como el sospechoso (por debajo de tarifa) más que el 156,99.
@@ -321,8 +338,9 @@ peticiones/día** (los créditos NO se gastan usando modelos `:free`, basta con 
 además habilitan un eslabón de pago como último recurso.
 
 ### Infra
-- **`deploy.yml` lleva fallando desde el 26-may** (heredado). No rompe nada —el deploy real lo hace
-  Vercel— pero deja un workflow en rojo. Valorar borrarlo.
+- ✅ **`deploy.yml`: pendiente OBSOLETO, cerrado en la s42.** El fichero ya no existe — lo borró el
+  commit `762c47f` ("eliminar workflow GitHub Actions — Vercel despliega vía integración nativa").
+  El único workflow vivo es `scrape-prices.yml`. No hay ningún workflow en rojo.
 - **Si la pasada nocturna vuelve a cancelarse por timeout** (pasó el 19-ago, 2h30m sobre 150 min):
   subir `timeout-minutes` o hacer que el scraper escriba resultados parciales. El commit es el
   ÚLTIMO paso, así que un timeout = no se guarda NADA.
