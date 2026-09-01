@@ -8,7 +8,9 @@
  *
  * Contrato (lo que envía ChatWidget.astro):
  *   POST /api/chat  { messages: [{ role: "user"|"assistant", content: "..." }, ...] }
- *   → 200 { reply: "texto con [[shoe:slug]] opcionales" }
+ *   → 200 text/plain en STREAMING: el texto tal cual, con [[shoe:slug]] opcionales.
+ *   → 200 application/json { reply, code, estados, detalle } cuando NINGÚN modelo
+ *     responde y contesta el fallback local. El front distingue por Content-Type.
  *
  * El LLM se ancla SIEMPRE al catálogo (RAG por inyección en el system prompt):
  * no inventa modelos ni specs — solo usa las ~205 zapas reales.
@@ -177,6 +179,17 @@ type Msg = { role: string; content: string };
 const limpiarRespuesta = (t: string) =>
   t.replace(/<think>[\s\S]*?<\/think>/gi, "").replace(/<\/?think>/gi, "").trim();
 
+// Versión de `limpiarRespuesta` para STREAMING. La otra no vale a medio stream: su
+// segundo `.replace(/<\/?think>/gi, "")` borra la etiqueta suelta y deja el razonamiento
+// A LA VISTA mientras el bloque sigue abierto. Aquí, si queda un `<think>` sin cerrar,
+// se corta ahí: todavía no sabemos dónde acaba, así que no se emite nada de lo que venga
+// detrás. Lo ya cerrado sí se limpia igual.
+const visibleParcial = (t: string) => {
+  const sinCerrados = t.replace(/<think>[\s\S]*?<\/think>/gi, "");
+  const abierto = sinCerrados.search(/<think>/i);
+  return (abierto >= 0 ? sinCerrados.slice(0, abierto) : sinCerrados).trimStart();
+};
+
 export default async function handler(req: any, res: any) {
   // CORS: el sitio puede servirse en canchazapa.com o www.canchazapa.com (redirect
   // apex→www). Si el service worker sirve la página en el apex, el fetch a /api/chat
@@ -278,6 +291,11 @@ export default async function handler(req: any, res: any) {
       // primero. Es un TOPE, no un objetivo: los que no razonan paran solos en `stop`.
       max_tokens: 1000,
       temperature: 0.4,
+      // Streaming. El cuello del chat es minimax RAZONANDO (10-13 s medidos en producción
+      // el 1-sep) y eso no se arregla desde aquí: lo que se arregla es la espera en blanco.
+      // El front ya lo soportaba desde siempre (ChatWidget.astro lee res.body con un
+      // reader y repinta incremental), solo que el backend nunca lo usó.
+      stream: true,
     });
 
   // Plan de intentos. El PRIMERO es la cadena entera en una sola petición: si OpenRouter
@@ -320,8 +338,22 @@ export default async function handler(req: any, res: any) {
   // Presupuesto total. maxDuration=30s, dejamos ~25s.
   const deadline = Date.now() + 25000;
 
-  let data: any = null;
+  // Texto YA enviado al cliente (limpio) y texto crudo acumulado del modelo. Se separan
+  // porque lo emitido es irreversible: una vez sale el primer byte no se puede volver al
+  // JSON de error ni cambiar de modelo.
+  let emitido = "";
+  let acumulado = "";
   let modeloUsado = "";
+
+  // Abre la respuesta como stream de texto plano. Se llama SOLO cuando ya hay contenido
+  // real que emitir: mientras no se llame, la cola de intentos sigue viva y un modelo que
+  // falle o venga vacío deja pasar al siguiente, que es lo que se arregló el 31-ago.
+  const abrirStream = () => {
+    res.setHeader("Content-Type", "text/plain; charset=utf-8");
+    res.setHeader("Cache-Control", "no-cache, no-transform");
+    res.setHeader("X-Accel-Buffering", "no"); // que ningún proxy lo bufferice
+    res.status(200);
+  };
 
   for (const intento of intentos) {
     const restante = deadline - Date.now();
@@ -350,37 +382,92 @@ export default async function handler(req: any, res: any) {
         continue;
       }
 
-      const j = await r.json();
-      const txt = limpiarRespuesta(j?.choices?.[0]?.message?.content ?? "");
-      // Un 200 con `content` vacío NO es una respuesta. Pasa con los modelos de
-      // razonamiento, que se gastan los max_tokens pensando y devuelven el texto en
-      // `message.reasoning`. Hay que seguir con el siguiente intento, no rendirse: es
-      // justo lo que se perdió al colapsar la cadena en una sola petición.
-      if (!txt) {
-        fallos.push(204); // 204 = respondió pero vino vacío (no es un status real de OR)
-        console.error("[api/chat]", intento.etiqueta, "200 con content vacío");
+      // Lectura del SSE de OpenRouter: líneas `data: {...}` y un `data: [DONE]` al final.
+      const reader = r.body?.getReader?.();
+      if (!reader) {
+        fallos.push(0);
+        detalles.push(`${intento.etiqueta}:0:sin body legible`);
         continue;
       }
-      data = j;
-      modeloUsado = String(j?.model ?? intento.etiqueta);
-      break;
+      const dec = new TextDecoder();
+      let buf = "";
+      while (true) {
+        const { value, done } = await reader.read();
+        if (done) break;
+        buf += dec.decode(value, { stream: true });
+        const lineas = buf.split("\n");
+        buf = lineas.pop() ?? ""; // la última puede venir partida
+        for (const linea of lineas) {
+          const l = linea.trim();
+          if (!l.startsWith("data:")) continue;
+          const d = l.slice(5).trim();
+          if (!d || d === "[DONE]") continue;
+          let j: any;
+          try {
+            j = JSON.parse(d);
+          } catch {
+            continue; // chunk incompleto o keep-alive
+          }
+          if (!modeloUsado) modeloUsado = String(j?.model ?? intento.etiqueta);
+          // SOLO `delta.content`. `delta.reasoning` se ignora a propósito: es la defensa
+          // buena contra los modelos de razonamiento, mejor que limpiar a posteriori.
+          const delta: string = j?.choices?.[0]?.delta?.content ?? "";
+          if (!delta) continue;
+          acumulado += delta;
+          const limpio = visibleParcial(acumulado);
+          // Solo se emite lo NUEVO, y solo si el limpio sigue siendo una extensión de lo
+          // ya emitido. Si la limpieza reescribiera hacia atrás (un `<think>` que abre),
+          // se calla y espera: el cierre de abajo manda lo que falte.
+          if (limpio.length > emitido.length && limpio.startsWith(emitido)) {
+            if (!emitido) abrirStream();
+            res.write(limpio.slice(emitido.length));
+            emitido = limpio;
+          }
+        }
+      }
+
+      // Un 200 que no emitió NI UN carácter NO es una respuesta. Pasa con los modelos de
+      // razonamiento, que se gastan los max_tokens pensando y no llegan al texto final.
+      // Como no se ha abierto el stream, todavía se puede probar el siguiente intento.
+      if (!emitido) {
+        fallos.push(204); // 204 = respondió pero vino vacío (no es un status real de OR)
+        acumulado = "";
+        console.error("[api/chat]", intento.etiqueta, "200 sin content");
+        continue;
+      }
+
+      // Cierre: `asegurarMarcadores` necesita el texto ENTERO, así que se aplica aquí y
+      // se manda solo la diferencia. El front concatena, así que las mini-cards salen igual.
+      const final = asegurarMarcadores(limpiarRespuesta(acumulado));
+      if (final.startsWith(emitido) && final.length > emitido.length) {
+        res.write(final.slice(emitido.length));
+      }
+      console.log("[api/chat] respondió", modeloUsado || "(modelo desconocido)", "(stream)");
+      res.end();
+      return;
     } catch (err) {
       // 0 = se colgó (timeout/red). Sin esto un modelo lento no dejaría rastro en
       // `fallos` y se confundiría con un error real del modelo.
       fallos.push(0);
       console.error("[api/chat]", intento.etiqueta, err);
+      // Si el stream YA estaba abierto, el fallo es TERMINAL: no se puede probar otro
+      // modelo (su texto se pegaría al del anterior y saldría una respuesta Frankenstein
+      // de dos modelos) ni volver al JSON de diagnóstico (las cabeceras ya salieron:
+      // `res.json()` reventaría con ERR_HTTP_HEADERS_SENT). Se cierra con lo emitido, que
+      // es texto útil aunque esté cortado. Caso real, no teórico: el tope de 15 s corta a
+      // minimax, que es justo el modelo lento por el que se puso el streaming.
+      if (emitido) {
+        res.end();
+        return;
+      }
     }
   }
 
-  const reply = asegurarMarcadores(limpiarRespuesta(data?.choices?.[0]?.message?.content ?? ""));
-  if (reply) {
-    // Qué modelo respondió DE VERDAD. Es el dato que decide el orden de la cadena en la
-    // próxima revisión: ordenarla por calidad estimada en vez de por éxito medido ya
-    // salió caro una vez (los gemma iban primeros y llevaban meses devolviendo 429).
-    console.log("[api/chat] respondió", modeloUsado || "(modelo desconocido)");
-    res.status(200).json({ reply });
-    return;
-  }
+  // Si se llega aquí, NINGÚN intento emitió texto: no se ha abierto el stream y la
+  // respuesta sigue pudiendo ser el JSON de diagnóstico + el fallback local de abajo.
+  // El modelo que responde se loguea arriba, al cerrar el stream: es el dato que decide
+  // el orden de la cadena en la próxima revisión (ordenarla por calidad estimada en vez
+  // de por éxito medido ya salió caro una vez con los gemma).
 
   const todosSon = (...sts: number[]) => fallos.length > 0 && fallos.every((st) => sts.includes(st));
   const code = todosSon(401)
