@@ -5259,6 +5259,83 @@ const _rawZapatillas: Zapatilla[] = [
     ],
   },
 
+  // PUMA STEWIE 5 - 5a de Breanna Stewart. Score EDITORIAL: no hay review numerada.
+  {
+    id: "puma-stewie-5",
+    slug: "puma-stewie-5",
+    marca: "Puma",
+    modelo: "Stewie 5",
+    generacion: 5,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "Breanna Stewart",
+    tecnologia_clave: ["NITRO", "ProFoam", "empeine técnico ligero"],
+    predecesor_id: "puma-stewie-4",
+    sucesor_id: null,
+
+    // Peso ESTIMADO (Puma no lo publica y no hay review de laboratorio): anclado a los
+    // 385 g de la Stewie 4 menos el empeine "ligero técnico" que anuncia Puma.
+    // altura y drop HEREDADOS de la Stewie 4: Puma no publica ninguno de los dos.
+    peso_real_g: 370,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 8,
+    tipo_cierre: "cordones",
+    material_superior: "synthetic",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 9,
+      respuesta: 9,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 8,
+      durabilidad_outdoor: 7,
+      ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["mujer", "signature", "mid-top", "cushion", "respuesta"],
+
+    ideal_para: {
+      posiciones: ["alero", "ala-pivot"],
+      peso_jugador_kg: [60, 100],
+      estilos: ["equilibrado", "potente"],
+    },
+    no_recomendada_para: {
+      posiciones: [],
+      estilos: [],
+    },
+
+    resumen:
+      "La quinta firma de Breanna Stewart combina DOS espumas en la mediasuela: NITRO para el retorno y ProFoam para la amortiguación, bajo un empeine técnico ligero. Sobre el papel corrige el punto flojo de la Stewie 4, que era el peso, sin renunciar al cushion que caracteriza la línea.",
+    pros: [
+      "Doble espuma NITRO + ProFoam: amortiguación y retorno en la misma mediasuela",
+      "Empeine técnico ligero, más liviana que la Stewie 4 según Puma",
+      "Sujeción pensada para juego de poste y contacto",
+      "120 EUR en Puma ES por una signature de gama alta",
+    ],
+    contras: [
+      "SIN review de laboratorio: nadie ha medido peso, drop ni tracción de forma independiente",
+      "Puma no es afiliado nuestro: no podemos seguirle el precio",
+      "La línea Stewie nunca ha destacado en durabilidad de exterior",
+    ],
+    veredicto:
+      "La apuesta técnica es buena y el precio en España (120 EUR) es competitivo para una signature con doble espuma. Pero su score aquí es una ESTIMACION EDITORIAL a partir de las specs oficiales, no una medición: a fecha de hoy no existe review numerada de este modelo. Si necesitas certeza antes de gastar, espera a que alguien la corte por la mitad.",
+
+    imagen_principal: "/shoes/puma-stewie-5.webp",
+    imagenes: [],
+
+    fuentes: [
+      { tipo: "evaluacion-propia", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-stewie-5-turbo-para-mujer/312745" },
+    ],
+    ultima_actualizacion: "2026-09-01",
+
+    precio_msrp_eur: 120,
+    links_compra: [
+      { tienda: "puma_es", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-stewie-5-turbo-para-mujer/312745", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-01" },
+    ],
+  },
+
   // NIKE SABRINA 4 - la 4a de Ionescu. Unica del bloque 3 con review numerada (WT 8/10).
   {
     id: "nike-sabrina-4",
@@ -5836,7 +5913,7 @@ const _rawZapatillas: Zapatilla[] = [
     signature_player: "Breanna Stewart",
     tecnologia_clave: ["Nitrofoam midsole", "outsole herringbone", "synthetic upper"],
     predecesor_id: null,
-    sucesor_id: null,
+    sucesor_id: "puma-stewie-5",
 
     peso_real_g: 385,
     altura: "mid",
