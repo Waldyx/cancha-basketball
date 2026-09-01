@@ -329,7 +329,20 @@ Buscada la adulta unisex (2023, 355 g) tienda por tienda el 1-sep: **no la vende
 adidas ES `/search?q=cross+em+up+5` → una sudadera · ECI → 14.400 resultados (su catálogo entero) y
 el primer hit es una Adizero Dropset · Amazon → solo la K Wide de kids · Decathlon → la K wide, que
 YA está en la ficha hermana `adidas-cross-em-up-5-gs`, que es su sitio.
-**▶️ DECIDIR**: dejarla así (enseña MSRP y ya) o retirar la ficha. Es catálogo, no se ha tocado.
+**✅ DECIDIDO POR EL USUARIO (1-sep): SE QUEDA COMO ESTÁ.** Ficha viva, cero enlaces, MSRP 65 € y
+sin bloque de compra. **No es un pendiente, no volver a abrirlo.** Se descartaron retirarla y
+colgarle el enlace de la hermana GS. El porqué:
+· La regla de disponibilidad ya dice que la falta de stock **NUNCA** saca una zapa de rankings,
+  quiz ni catálogo. Cero enlaces es ese mismo caso llevado al extremo.
+· *"No se vende en España"* es **una foto con fecha**, no un hecho permanente — la misma doctrina
+  que caducó el veredicto de "fantasma" de la AE 3 en 8 meses.
+· Retirarla tiraba score, specs y veredicto de un modelo reponible, y borrar una ficha deja
+  restos en tres sitios (comentario de sección, imagen y menciones en otras fichas).
+· Enlazar la GS desde la adulta reintroduce justo la confusión de segmento que quitó `75ab314`.
+
+⚠ Y **NO es un fallo** que las dos fichas compartan `imagen_principal`: es la convención del
+catálogo. **8 de las 14 fichas `-gs` usan la foto de la adulta** (believe-that-1, cross-em-up-5,
+dame-x, don-issue-7, ownthegame-3, luka-77, jet-25, lockdown-7); solo 6 tienen foto propia.
 
 ⚠ **Trampa que costó comprobarlo dos veces: el slug de una URL de Amazon MIENTE.** El enlace
 fantasma era `/adidas-Zapatillas-Unisex-**Adulto**-TMSOGR/dp/B0BGGTB5LF` y parecía la adulta.
