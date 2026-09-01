@@ -50,6 +50,19 @@ function amazonProductoEquivocado(freshUrl: string, marca: string, modelo: strin
   }
 }
 
+const AMAZON_TAG = "canchazapa-21";
+
+/** Reaplica nuestro tag de afiliado a una URL de Amazon. Sin él, el clic no monetiza. */
+function conTagAmazon(url: string): string {
+  try {
+    const parsed = new URL(url);
+    parsed.searchParams.set("tag", AMAZON_TAG);
+    return parsed.toString();
+  } catch {
+    return url;
+  }
+}
+
 function getAmazonTag(url: string): string | null {
   try {
     const parsed = new URL(url);
@@ -196,7 +209,7 @@ function resolveUrl(orig: LinkCompra, freshUrl?: string): string {
   // the destination to the fresh product URL.
   if (orig.tiene_afiliado) {
     if (isAmazonUrl(orig.url)) {
-      const tag = getAmazonTag(orig.url) ?? "canchazapa-21";
+      const tag = getAmazonTag(orig.url) ?? AMAZON_TAG;
       try {
         const parsed = new URL(freshUrl);
         if (parsed.hostname.includes("amazon.")) {
@@ -300,17 +313,30 @@ export function mergePricesIntoShoes(
     // (e.g. idealo_es como fallback automático)
     const editorialTiendas = new Set(shoe.links_compra.map((l) => l.tienda));
     for (const fresh of validScraped) {
-      if (!editorialTiendas.has(fresh.tienda as any)) {
-        mergedLinks.push({
-          tienda: fresh.tienda as any,
-          url: fresh.url ?? "",
-          precio_actual: fresh.precio_actual ?? 0,
-          disponible: true,
-          tiene_afiliado: false,
-          ultima_verificacion:
-            fresh.ultima_verificacion ?? new Date().toISOString().slice(0, 10),
-        });
-      }
+      if (editorialTiendas.has(fresh.tienda as any)) continue;
+      const url = fresh.url ?? "";
+
+      // El MISMO guardarraíl de identidad que arriba. Aquí no hay enlace editorial
+      // que conservar, así que un mal emparejamiento de Amazon entraba SIN filtro:
+      // por eso air-jordan-10 y adidas-cross-em-up-5 seguían enseñando enlaces de
+      // Amazon después de que el catálogo los quitase a propósito. Al no quedar ya
+      // enlace editorial de esa tienda, precios.json los resucitaba en cada build.
+      if (amazonProductoEquivocado(url, shoe.marca, shoe.modelo)) continue;
+
+      // Un enlace de Amazon SIN `tag=` es un clic que no monetiza. El scraper
+      // devuelve siempre la URL pelada, así que el tag se reaplica aquí igual que
+      // en resolveUrl(); para el resto de tiendas no tenemos programa, van tal cual.
+      const esAmazon = isAmazonUrl(url);
+
+      mergedLinks.push({
+        tienda: fresh.tienda as any,
+        url: esAmazon ? conTagAmazon(url) : url,
+        precio_actual: fresh.precio_actual ?? 0,
+        disponible: true,
+        tiene_afiliado: esAmazon,
+        ultima_verificacion:
+          fresh.ultima_verificacion ?? new Date().toISOString().slice(0, 10),
+      });
     }
 
     return { ...shoe, links_compra: mergedLinks };

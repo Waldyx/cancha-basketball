@@ -189,3 +189,64 @@ describe("mergePricesIntoShoes — wrapper de afiliado", () => {
     expect(url).toContain("awinaffid=2908587");
   });
 });
+
+describe("mergePricesIntoShoes — tiendas EXTRA que no estaban en el catálogo", () => {
+  const amazonFicha = "https://www.amazon.es/Anta-KAI-1-Speed/dp/B0TEST1234/ref=sr_1_1";
+
+  it("un enlace de Amazon nuevo sale CON tag de afiliado (si no, el clic no monetiza)", () => {
+    const shoes = [zapa([link({ tienda: "decathlon", url: "https://www.decathlon.es/p/x", tiene_afiliado: true })])];
+    const merged = mergePricesIntoShoes(shoes, {
+      generated_at: "2026-09-01",
+      shoes: {
+        z1: {
+          links_compra: [
+            { tienda: "amazon_es", url: amazonFicha, precio_actual: 90, disponible: true },
+          ],
+        },
+      },
+    });
+    const nuevo = merged[0].links_compra.find((l) => l.tienda === "amazon_es")!;
+    expect(nuevo.url).toContain("tag=canchazapa-21");
+    expect(nuevo.tiene_afiliado).toBe(true);
+  });
+
+  it("NO resucita un enlace de Amazon de OTRO producto que el catálogo quitó a propósito", () => {
+    // El caso real: air-jordan-10 se quedó sin su enlace editorial de Amazon (era
+    // de la versión GS), y precios.json lo volvía a meter en cada build porque el
+    // camino de "tiendas extra" no pasaba por el guardarraíl de identidad.
+    const shoes = [zapa([link({ tienda: "decathlon", url: "https://www.decathlon.es/p/x", tiene_afiliado: true })])];
+    const merged = mergePricesIntoShoes(shoes, {
+      generated_at: "2026-09-01",
+      shoes: {
+        z1: {
+          links_compra: [
+            {
+              tienda: "amazon_es",
+              url: "https://www.amazon.es/Jordan-Retro-Gran-Estilo/dp/B00OTRO123/ref=sr_1_3",
+              precio_actual: 90,
+              disponible: true,
+            },
+          ],
+        },
+      },
+    });
+    expect(merged[0].links_compra.some((l) => l.tienda === "amazon_es")).toBe(false);
+  });
+
+  it("las tiendas extra que no son Amazon entran tal cual, sin afiliado", () => {
+    const shoes = [zapa([link({ tienda: "decathlon", url: "https://www.decathlon.es/p/x", tiene_afiliado: true })])];
+    const merged = mergePricesIntoShoes(shoes, {
+      generated_at: "2026-09-01",
+      shoes: {
+        z1: {
+          links_compra: [
+            { tienda: "idealo_es", url: "https://www.idealo.es/precios/1234.html", precio_actual: 80, disponible: true },
+          ],
+        },
+      },
+    });
+    const nuevo = merged[0].links_compra.find((l) => l.tienda === "idealo_es")!;
+    expect(nuevo.url).toBe("https://www.idealo.es/precios/1234.html");
+    expect(nuevo.tiene_afiliado).toBe(false);
+  });
+});
