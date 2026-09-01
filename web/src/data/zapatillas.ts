@@ -5259,6 +5259,87 @@ const _rawZapatillas: Zapatilla[] = [
     ],
   },
 
+  // PUMA SCOOT ZEROS III - 3a de Scoot Henderson. Score EDITORIAL. Sin gen 2 en catalogo.
+  {
+    id: "puma-scoot-zeros-3",
+    slug: "puma-scoot-zeros-3",
+    marca: "Puma",
+    modelo: "Scoot Zeros III",
+    generacion: 3,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "Scoot Henderson",
+    tecnologia_clave: ["mediasuela ligera", "puntera perforada"],
+    // predecesor_id NULL A PROPOSITO: su predecesora es la Scoot Zeros II, que NO esta en
+    // catalogo. Encadenarla a la gen 1 seria mentir sobre la generacion (mismo criterio
+    // que se aplico a la 361 Joker 2 GT en la s39).
+    predecesor_id: null,
+    sucesor_id: null,
+
+    // Peso ESTIMADO: anclado a los 310 g verificados de la Scoot Zeros gen 1, que ya era
+    // ligera, menos la mediasuela "ligera" y la puntera perforada que anuncia Puma.
+    // Drop HEREDADO de la gen 1: Puma no lo publica.
+    peso_real_g: 305,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 7,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 7,
+      respuesta: 9,
+      soporte_lateral: 6,
+      estabilidad: 7,
+      peso_score: 9,
+      durabilidad_outdoor: 6,
+      ventilacion: 9,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "low-top", "ligera", "budget", "respuesta", "velocidad"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [55, 85],
+      estilos: ["explosivo", "equilibrado"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot", "ala-pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "La tercera de Scoot Henderson mantiene la receta de la línea: perfil bajo, poco peso y velocidad por encima de todo. Puma la diseñó con los reactores como referencia — puntera perforada y mediasuela ligera— y la coloca en 81 EUR, que la mete de lleno en la franja budget siendo una signature.",
+    pros: [
+      "81 EUR por una signature de la NBA: de las opciones más baratas del catálogo",
+      "Muy ligera y de perfil bajo: pensada para el primer paso y el cambio de ritmo",
+      "Puntera perforada — la línea siempre ha ventilado bien",
+      "En stock en Puma ES, no es un lanzamiento fantasma",
+    ],
+    contras: [
+      "SIN review de laboratorio: peso, drop y tracción no los ha medido nadie de forma independiente",
+      "Perfil bajo y poco peso = poca protección de impacto para jugadores grandes",
+      "El soporte lateral nunca ha sido el fuerte de la línea Scoot",
+      "Puma no es afiliado nuestro: no podemos seguirle el precio",
+    ],
+    veredicto:
+      "Si eres base o escolta y buscas lo más ligero posible por menos de 90 EUR, es de las propuestas más interesantes que hay ahora mismo. Ojo con dos cosas: su score aquí es una ESTIMACION EDITORIAL sobre specs oficiales, porque no existe review numerada; y si pesas por encima de 85 kg o juegas de espaldas al aro, este perfil bajo se te va a quedar corto.",
+
+    imagen_principal: "/shoes/puma-scoot-zeros-3.webp",
+    imagenes: [],
+
+    fuentes: [
+      { tipo: "evaluacion-propia", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-scoot-zeros-iii-unisex/312818" },
+    ],
+    ultima_actualizacion: "2026-09-01",
+
+    precio_msrp_eur: 81,
+    links_compra: [
+      { tienda: "puma_es", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-scoot-zeros-iii-unisex/312818", precio_actual: 81, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-01" },
+    ],
+  },
+
   // PUMA STEWIE 5 - 5a de Breanna Stewart. Score EDITORIAL: no hay review numerada.
   {
     id: "puma-stewie-5",
