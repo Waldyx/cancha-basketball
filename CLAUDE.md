@@ -321,6 +321,22 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   Privé by Zalando — **los 7 tienen el botón "+ Unirse" activo**, o sea que se pueden volver a
   solicitar. Los rechazos fueron en jun-2026, ya pasaron los 3 meses. **Decisión del usuario.**
 
+### ⚠ `adidas-cross-em-up-5`: la ÚNICA ficha del catálogo con CERO enlaces (s43)
+Al quitar su enlace de Amazon (grupo B: Amazon solo vende la versión de kids) se quedó con
+`links_compra: []`. **No rompe nada** — la tarjeta cae a MSRP 65 € y el bloque de compra de la
+ficha está guardado con `{mejorPrecio && ...}` — pero es un estado único en las 240.
+Buscada la adulta unisex (2023, 355 g) tienda por tienda el 1-sep: **no la vende nadie en España**.
+adidas ES `/search?q=cross+em+up+5` → una sudadera · ECI → 14.400 resultados (su catálogo entero) y
+el primer hit es una Adizero Dropset · Amazon → solo la K Wide de kids · Decathlon → la K wide, que
+YA está en la ficha hermana `adidas-cross-em-up-5-gs`, que es su sitio.
+**▶️ DECIDIR**: dejarla así (enseña MSRP y ya) o retirar la ficha. Es catálogo, no se ha tocado.
+
+⚠ **Trampa que costó comprobarlo dos veces: el slug de una URL de Amazon MIENTE.** El enlace
+fantasma era `/adidas-Zapatillas-Unisex-**Adulto**-TMSOGR/dp/B0BGGTB5LF` y parecía la adulta.
+La ficha real dice `Departamento: Unisex niños` y el título, "Cross Em Up 5 Shoes **Wide**".
+Además el precio scrapeado (29,99 €) no coincidía con el de la ficha (41,99 €). ⇒ El segmento se
+lee en el campo **Departamento** de la ficha, NUNCA en las palabras del slug.
+
 ### 🔴 Basket World ha CERRADO — 14 enlaces a un dominio muerto (s43)
 `basketworld.com` y `www.basketworld.com` sirven la **página por defecto de Plesk** ("Domain
 Default page"), o sea un servidor sin configurar, y responden **200** — la trampa de siempre.
