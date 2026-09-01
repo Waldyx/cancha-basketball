@@ -475,8 +475,43 @@ const TIENDAS_PENDIENTES = new Set([
   "joom", "reebok_es", "basket_center_es", "sneakin_es", "prodirect_es",
 ]);
 
+/**
+ * ¿El enlace apunta a un LISTADO de búsqueda en vez de a la ficha del producto?
+ *
+ * Importa para el PRECIO: el `precio_actual` de un enlace de búsqueda lo sacó el scraper
+ * de una TARJETA del listado, así que puede ser el de otro producto — de otra generación,
+ * de la versión júnior o de otra marca. Enseñarlo como precio de esta zapatilla engaña.
+ *
+ * Los enlaces que el scraper SÍ resolvió no llegan aquí como búsqueda: `resolveUrl()` en
+ * `mergePrices` ya les cambió la URL por la de la ficha, y su precio sí es de esta zapa.
+ * O sea que la regla se autocorrige según el scraper va acertando.
+ */
+export function esEnlaceDeBusqueda(link: LinkCompra): boolean {
+  let url = link.url;
+  // Los wrappers de afiliado llevan la URL real dentro (`ued=` en Awin, `u=` en TradeTracker).
+  const dentro = /[?&](?:ued|u|url)=([^&]+)/.exec(url);
+  if (dentro) {
+    try {
+      url = decodeURIComponent(dentro[1]);
+    } catch {
+      /* wrapper raro: nos quedamos con la URL tal cual */
+    }
+  }
+  try {
+    const u = new URL(url);
+    return [...u.searchParams.keys()].some((k) =>
+      /^(q|query|k|search|searchtext|term|keyword)$/i.test(k)
+    );
+  } catch {
+    return false;
+  }
+}
+
 /** ¿Mostramos el precio numérico de este enlace? (afiliado activo o pendiente) */
 export function mostramosPrecio(link: LinkCompra): boolean {
+  // Un listado de búsqueda NO tiene precio propio que enseñar, por muy afiliada que sea
+  // la tienda: el número saldría de la tarjeta de OTRO producto.
+  if (esEnlaceDeBusqueda(link)) return false;
   return link.tiene_afiliado === true || TIENDAS_PENDIENTES.has(link.tienda);
 }
 

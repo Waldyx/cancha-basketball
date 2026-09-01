@@ -3272,7 +3272,6 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=pg+6&vst=pg+6", precio_actual: 65, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+pg+6+baloncesto&tag=canchazapa-21", precio_actual: 65, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=nike+pg+6", precio_actual: 72, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
   },
@@ -7314,7 +7313,6 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 65,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+cross+em+up+5&tag=canchazapa-21", precio_actual: 41.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
 
@@ -7695,7 +7693,6 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 70,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kyrie+flytrap+6&vst=kyrie+flytrap+6", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+kyrie+flytrap+6&tag=canchazapa-21", precio_actual: 60, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
 
@@ -10751,7 +10748,6 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=kobe+4+protro", precio_actual: 175, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Kobe+4+Protro", precio_actual: 180, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Kobe+4+Protro&tag=canchazapa-21", precio_actual: 200, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
 
@@ -11606,7 +11602,6 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 210,
     links_compra: [
       { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Air+Jordan+14+Retro", precio_actual: 210, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Air+Jordan+14+Retro&tag=canchazapa-21", precio_actual: 220, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
 
@@ -12232,7 +12227,6 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 190,
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=air+jordan+10", precio_actual: 190, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+10+retro&tag=canchazapa-21", precio_actual: 200, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
 
