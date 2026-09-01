@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-08-30 (sesión 41)
+> Última actualización: 2026-09-01 (sesión 43)
 > Para Claude: lee esto al empezar una sesión nueva. **Solo contiene lo vivo**: estado, reglas,
 > doctrina, afiliados, arquitectura y pendientes.
 >
@@ -42,7 +42,49 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 
 ---
 
-## ▶️ Estado actual (sesión 41, 29-ago) — Sesión de PANELES: los números reales, por fin
+## ▶️ Estado actual (sesión 43, 1-sep) — Streaming en producción, y decisiones tomadas
+
+Sesión a DOS AGENTES (ver *Infra*): una sesión ejecuta y commitea, la otra decide con el usuario.
+
+1. ✅ **El chat responde en STREAMING** (`be208c9`, desplegado y verificado en producción).
+   El front ya lo soportaba desde siempre y nadie lo había usado (`ChatWidget.astro` línea ~252
+   ya hacía `res.body.getReader()` con repintado incremental). Solo cambió `chat.ts`.
+   · Verificado: 11 trozos entre 9.324 y 12.024 ms, `transfer-encoding: chunked`, y **Vercel NO
+     bufferiza** pese al `br` (respeta el `X-Accel-Buffering: no`). Marcadores `[[shoe:]]` intactos,
+     cero fuga de `<think>`.
+   · 🔴 **PERO el primer carácter tarda 9,3 s de los 12,3 totales.** Esos 9 s son minimax
+     RAZONANDO antes de emitir nada. Pasamos de 12 s de spinner a 9,3 s de spinner + 3 s de
+     lectura: es una mejora, pero NO la que se esperaba al pedirlo. Ver doctrina.
+   · **DECIDIDO POR EL USUARIO: se queda así.** Ni `reasoning: {effort:"low"}` ni reordenar la
+     cadena. Prefiere conservar la calidad de recomendación antes que los 9 s. **Tema cerrado.**
+
+2. ✅ **Enlaces de búsqueda de Amazon: DECIDIDO, en tres grupos.** Son **73** los que quedan (el
+   "~39" de la s41 eran solo aquellos donde Amazon es la única tienda afiliada). Desglose medido:
+   67 "Amazon no tiene el modelo" · 4 reventa · 2 segmento equivocado.
+   · **QUITAR los 4 de reventa**: `nike-kobe-4-protro` (1.204,89 €), `nike-pg-6` (420,64 € sobre
+     MSRP ~120), `nike-kyrie-flytrap-6` (205,73 € sobre ~80), `air-jordan-14` (487-840 €). Si
+     alguien compra paga 2-7× el precio justo por recomendación nuestra.
+   · **QUITAR los 2 de segmento**: `adidas-cross-em-up-5` (nuestra ficha es la adulta unisex;
+     Amazon solo vende la "Cross Em Up 5 **K**" de kids) y `air-jordan-10` (único candidato GS).
+   · **Los 67 restantes SE QUEDAN, pero SIN precio numérico.** 🔑 El motivo de conservarlos es que
+     **la cookie de Amazon dura 24 h y cubre cualquier compra posterior**, no solo el producto
+     enlazado: con 94 clics/mes son superficie real para las 3 ventas que la cuenta necesita antes
+     de nov-2026. El motivo de quitarles el precio es que su `precio_actual` salió del LISTADO de
+     búsqueda, o sea que es el precio de otro producto.
+   · Vía de implementación: `mostramosPrecio(link)` en `scoring.ts` (estrategia "Ver precio" de la
+     s28), NO editar 67 enlaces a mano. ⚠ Aplicarlo **solo en DISPLAY**: el orden del catálogo y el
+     editor's pick usan `findMejorPrecio` con el precio real y tocarlo cambiaría el orden del sitio.
+
+3. ⏳ **Auditoría de parámetros de búsqueda de TODAS las tiendas — EN CURSO.** La abrió el hallazgo
+   de Foot Locker (s42): 22 enlaces con `?q=` devolvían el catálogo entero. Avance parcial: **cuatro
+   tiendas devuelven 404** con el parámetro que usamos y **Puma redirige a una landing de categoría**
+   ignorando la búsqueda. Informe completo pendiente.
+
+4. 📧 **Joom: reclamación enviada (1-sep), esperando respuesta.** Ver *Afiliados*.
+
+---
+
+## Estado anterior (sesión 41, 29-ago) — Sesión de PANELES: los números reales, por fin
 
 Nada de catálogo esta vez. Se abrieron los paneles de OpenRouter, Awin y Amazon Afiliados y
 **tres diagnósticos anteriores resultaron estar mal**. Detalle en *Pendientes abiertos*.
@@ -237,8 +279,26 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   ("tracking incident resolved", fix desplegado).
 
 **Estado de las solicitudes en Awin (verificado en el panel, 29-ago):**
-- ⏳ **Pendientes (3)**: Sneakin ES, Reebok ES, Joom ES. Siguen sin resolver. Pro:Direct ES ya no
-  figura como pendiente.
+- ⏳ **Pendientes (3)**: Sneakin ES, Reebok ES, Joom ES. Pro:Direct ES ya no figura como pendiente.
+- 📧 **JOOM ES — RECLAMACIÓN ENVIADA EL 1-SEP, esperando respuesta.** Es el programa más
+  interesante de los tres y merece seguimiento:
+  · **AID 48435** · publisher 2908587 · **comisión por defecto 12%** (el doble que AliExpress, 4×
+    Amazon) · cookie 30 días · validación 30 días.
+  · ⚠ El 12% NO es universal: hay tarifas por categoría (vi Health & Beauty al 15%). **Falta
+    confirmar la de calzado deportivo** — se preguntó en el correo.
+  · 🔑 **El argumento de la reclamación son sus propios términos**: "we aim to either accept or
+    decline an application within 7 days… therefore if you have not received a response after 7
+    days of applying then please do let us know". Con un **97,56% de ratio de aprobación**, una
+    solicitud parada meses no es un veto: está atascada.
+  · Contacto: `viale.viviana@joom-contractors.com`. Correo enviado el 1-sep, asunto "Pending
+    publisher application - CANCHA.ZAPA (Awin ID 2908587) - Joom ES (48435)".
+  · ⚠ **Riesgo de cobro**: su estado de pago es **nivel de exposición 2** ("un anunciante que ha
+    superado su límite de crédito"), con 55 días de pago medio. No es descalificante —5 de los 7
+    programas activos están también en naranja, ECI incluido— pero conviene saberlo.
+  · Si aprueban: **desbloquea 19 enlaces en 18 fichas** (lebron-22, curry-12, sabrina-2, gt-cut-3,
+    tatum-3, kai-3, freak-7, gt-cut-4, gamma-2, kyrie-infinity, freak-6, shock-wave-5, aj3,
+    kobe-3-protro, shox-bb4, embiid-1, nxxt-genisus, curry-10). Hay que envolverlos en el wrapper
+    de Awin (`awinmid=48435`) y dar de alta `joom_es` en `COMISIONES_TIENDA`.
 - ❌ **Rechazados (7)**: Sprinter, Foot-Store, Basket-Center, size?Official, Foot Locker, JD Sports,
   Privé by Zalando — **los 7 tienen el botón "+ Unirse" activo**, o sea que se pueden volver a
   solicitar. Los rechazos fueron en jun-2026, ya pasaron los 3 meses. **Decisión del usuario.**
@@ -378,6 +438,19 @@ peticiones/día** (los créditos NO se gastan usando modelos `:free`, basta con 
 además habilitan un eslabón de pago como último recurso.
 
 ### Infra
+- 🔵 **MODO DOS AGENTES (s43).** El usuario trabaja con dos sesiones de Claude a la vez sobre este
+  repo: **una ejecuta y commitea, la otra decide con él**. Reglas que costaron un despliegue
+  accidental:
+  · `git add` de ficheros CONCRETOS. Nunca `-A`, `.` ni `commit -a`: te llevas dentro el trabajo
+    sin commitear de la otra sesión (pasó con la ficha `ua-curry-13` dentro de un commit de
+    Foot Locker).
+  · `git log origin/master..HEAD` ANTES de cada push: arrastras todo lo que haya debajo, sea tuyo
+    o no. Así se desplegó el refactor de OpenRouter sin que nadie lo aprobara.
+  · Los trámites (pushes ya autorizados, bloqueos de permisos de una sesión) se resuelven ENTRE
+    AGENTES. Al usuario solo van decisiones de producto y negocio. Textual: *"no me molesteis con
+    estas tonterias"*.
+  · Si una sesión tiene bloqueado un comando por su harness, lo pide a la otra — nunca lo esquiva
+    por otra vía (PowerShell, scripts, alias).
 - 🔴 **Incidencia de las dos sesiones (31-ago).** Dos sesiones de Claude trabajaron a la vez sobre
   este repo y se pisaron. Dos consecuencias reales:
   1. El commit `ff8e37e` (Footlocker) hizo `git add web/src/data/zapatillas.ts` con cambios de la
@@ -502,6 +575,15 @@ Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
   fechas de `ultima_verificacion`, no que el workflow salga verde.
 
 ### Servicios externos y free tiers
+- **"El streaming arregla la espera" es FALSO con un modelo de RAZONAMIENTO.** Se pidió dando por
+  hecho que partiría los 12 s de espera; medido en producción, el primer carácter llegó a los
+  9,3 s porque el modelo piensa ANTES de emitir su primer `delta.content`. Lo único que el
+  streaming paraleliza es la redacción (los últimos 3 s). Con un modelo que no razona sí habría
+  partido la espera casi desde el primer segundo. Antes de pedir streaming, mirar si el modelo
+  razona.
+- **Vercel NO bufferiza el streaming** si se manda `X-Accel-Buffering: no` y `Cache-Control:
+  no-transform`: medido el 1-sep, 11 trozos escalonados y con `content-encoding: br` activo. Era
+  la duda razonable al implementarlo y queda resuelta.
 - **Que el body sea el de los docs NO garantiza que el proveedor lo acepte.** El ejemplo `fetch` de
   *Model Fallbacks* manda `models` como array y sin `model`; copiado tal cual, OpenRouter devolvió
   **400** en producción (31-ago). Los docs describen el caso feliz: la única prueba es una petición
