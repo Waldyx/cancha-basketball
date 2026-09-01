@@ -75,10 +75,28 @@ Sesión a DOS AGENTES (ver *Infra*): una sesión ejecuta y commitea, la otra dec
      s28), NO editar 67 enlaces a mano. ⚠ Aplicarlo **solo en DISPLAY**: el orden del catálogo y el
      editor's pick usan `findMejorPrecio` con el precio real y tocarlo cambiaría el orden del sitio.
 
-3. ⏳ **Auditoría de parámetros de búsqueda de TODAS las tiendas — EN CURSO.** La abrió el hallazgo
-   de Foot Locker (s42): 22 enlaces con `?q=` devolvían el catálogo entero. Avance parcial: **cuatro
-   tiendas devuelven 404** con el parámetro que usamos y **Puma redirige a una landing de categoría**
-   ignorando la búsqueda. Informe completo pendiente.
+2b. ✅ **APLICADO (`75ab314`)**: fuera los 6 de (A)+(B) y regla nueva `esEnlaceDeBusqueda()` en
+   `scoring.ts` para (C). Medido sobre el catálogo fusionado: **75 enlaces dejan de mostrar precio**
+   (67 amazon_es + 4 reebok_es + 3 aliexpress + 1 adidas_es, que son rebote de la misma regla y por
+   el mismo motivo) y **14 zapas pasan a enseñar MSRP**, las 14 con MSRP real: ninguna se queda con
+   un hueco. Casi todos los precios ocultados estaban **por encima del MSRP** (`nike-kobe-5-protro`
+   "desde 195 €" con MSRP 175), que es la señal de que venían de la tarjeta equivocada. Cae también
+   el "desde 90 €" de `361-zen-7`, el número que ya estaba señalado como sospechoso. Un solo "desde"
+   cambia de valor: `reebok-kamikaze-1` 120 → 181,66 €. La regla **se autocorrige**: cuando el
+   scraper resuelve una búsqueda, `resolveUrl()` le pone la URL de la ficha y su precio vuelve.
+
+3. ✅ **Auditoría de parámetros de búsqueda — CERRADA (`b79379a`), 42 enlaces arreglados.**
+   15 formas distintas en 12 tiendas, cada una comprobada contra la tienda real.
+   · **Rotas y arregladas**: Zalando `/buscar/?q=` → `/catalogo/?q=` (14) · JD `/search?q=` →
+     `/products/search?q=` (10) · Puma `es.puma.com/es_ES` → `eu.puma.com/es/es/search` (7) ·
+     UA `/es-es/buscar/?q=` → `/es-es/search?q=` (6) · Reebok (4, `reebok.es` **ya no resuelve en
+     DNS**) → `reebok.eu/es-es/search?q=` · adidas `/busqueda?q=` → `/search?q=` (1, **y adidas es
+     afiliado ACTIVO**: ese enlace no monetizaba nada).
+   · **Verificadas BUENAS, no se tocan**: Amazon `/s?k=` (71) · Foot Locker `?query=` (49) ·
+     Nike `/es/w?q=&vst=` (44) · KicksCrew `/search?q=` (18) · Zalando `/zapatillas/?q=` (5).
+   · ⚠ **New Balance (6) SIN VERIFICAR**: muro anti-bot hasta con sesión real de Chrome. Un 403 no
+     es un enlace muerto, así que no hay veredicto. Lo tiene que abrir un humano.
+   · 🔴 **Basket World (14) ha CERRADO** — ver el pendiente propio más abajo.
 
 4. 📧 **Joom: reclamación enviada (1-sep), esperando respuesta.** Ver *Afiliados*.
 
@@ -302,6 +320,17 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 - ❌ **Rechazados (7)**: Sprinter, Foot-Store, Basket-Center, size?Official, Foot Locker, JD Sports,
   Privé by Zalando — **los 7 tienen el botón "+ Unirse" activo**, o sea que se pueden volver a
   solicitar. Los rechazos fueron en jun-2026, ya pasaron los 3 meses. **Decisión del usuario.**
+
+### 🔴 Basket World ha CERRADO — 14 enlaces a un dominio muerto (s43)
+`basketworld.com` y `www.basketworld.com` sirven la **página por defecto de Plesk** ("Domain
+Default page"), o sea un servidor sin configurar, y responden **200** — la trampa de siempre.
+`basketworld.es` no resuelve. La tienda física de Zaragoza cerró en **abril de 2025** tras una
+liquidación, y con ella la tienda online. No hay dominio nuevo al que apuntar.
+**No es afiliado nuestro**, así que los 14 enlaces ya salían como "Ver precio": no se pierde
+dinero, se pierde credibilidad (mandan a una página de Plesk).
+**▶️ DECIDIR**: quitarlos. Es lo coherente con la estrategia "Ver precio", pero **borrar enlaces
+es decisión del usuario y no se ha tocado nada.** Antes de quitarlos, mirar cuántas zapas se
+quedan sin ninguna opción: deben caer a "Ver precio" + MSRP, nunca a un hueco.
 
 ### Datos / catálogo
 - ✅ **Curry 13 es la ÚLTIMA de Under Armour — CERRADO en la s42 (31-ago).** Curry y UA rompieron
@@ -553,6 +582,20 @@ Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
   `?q=`. 22 enlaces del catálogo llevaban así desde siempre, mandando al usuario a un listado
   gigante en vez de a su modelo. El número de resultados es el chivato más fiable; el título de la
   página también cambia con el parámetro bueno ("puma mb | Foot Locker Spain").
+- **Un enlace de búsqueda roto se disfraza de cuatro maneras distintas, y ninguna es un error.**
+  Auditadas las 15 formas de búsqueda del catálogo (s43): Zalando servía su página "no existe"
+  con **403** por curl y **200** en navegador; adidas, un "NO SE ENCUENTRA LA PÁGINA" con carrusel
+  de Sambas; Puma **redirigía a una landing de categoría tirando la query** (el caso Foot Locker);
+  `reebok.es` **ya ni resuelve en DNS**; y `basketworld.com` devuelve **200 con la página por
+  defecto de Plesk**. ⇒ El status NO sirve para nada aquí: hay que MIRAR la página y contar
+  resultados. Y comprobar la URL final, que un redirect silencioso es indistinguible de un acierto.
+- **Antes de dar una búsqueda por rota, lanzar un CONTROL que la tienda SÍ venda.** Nike devolvía
+  chanclas de bebé para "lebron 22" y parecía el mismo fallo; con "giannis" los Giannis salen los
+  primeros. El parámetro estaba bien: lo que pasa es que Nike ya no vende esa zapa. Sin el control
+  se arregla lo que no está roto.
+- **El `SearchAction` del JSON-LD de la home dice el parámetro bueno, sin adivinar.** Un
+  `grep` de `{search_term_string}` sacó la forma correcta de UA, JD y Puma en una peticion cada una.
+  Es más fiable que probar parámetros a ojo y más barato que abrir el navegador.
 - **Un filtro defensivo puede volverse un muro**: "descarta lo junior" hacía imposibles las GS.
   Comparar con el segmento que se BUSCA, no aplicar a ciegas.
 - **Un invariante que compara el sistema consigo mismo no ve los sesgos compartidos.** El símbolo `°`
