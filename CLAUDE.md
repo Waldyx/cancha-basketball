@@ -102,6 +102,57 @@ Sesión a DOS AGENTES (ver *Infra*): una sesión ejecuta y commitea, la otra dec
 
 ---
 
+## Bloque 3 del catálogo (s43, 1-sep) — DECIDIDO: entran 4 de 6
+
+Investigados los seis, fuente por fuente, sin deducir disponibilidad del lanzamiento global.
+
+| Modelo | Salida | MSRP | Score | España (verificado 1-sep) | Decisión |
+|---|---|---|---|---|---|
+| Nike Sabrina 4 | 17-jul-2026 | $135 | **WT 8/10** verificado | Nike ES **129,99 EUR** "Superventas" | ENTRA |
+| Puma Stewie 5 | 19-may-2026 | $125 | ninguna, editorial | Puma ES **120 EUR** (Turbo) InStock | ENTRA |
+| Puma Scoot Zeros III | 6-feb-2026 | $95 | ninguna, editorial | Puma ES **81 EUR** InStock | ENTRA |
+| Nike LeBron 24 | **17-nov-2026** | $200 | imposible | sin lanzar | ENTRA `proximamente` |
+| NB Kawhi V | verano 2026 | $160 | ninguna | **NO se vende en ES** | FUERA |
+| adidas Harden Vol 11 | **dic-2026** | $160 | imposible | sin lanzar | ESPERA |
+
+Los precios de Puma salen del **JSON-LD `Product` de primer nivel** de cada ficha, no de una tarjeta
+de listado. Validan de paso el arreglo de URLs de `b79379a`: `eu.puma.com/es/es/search?q=` devuelve
+producto real donde `es.puma.com/es_ES` mandaba a una landing de categoría.
+
+**Por qué las dos Puma entran con score editorial**: tienen precio Y disponibilidad verificados, y
+una review numerada de un modelo Puma puede no llegar NUNCA — esperarla es esperar a nada. Ninguna
+de las seis aparece en el *Best Basketball Shoes 2026* de WT, que sí puntúa a 15 modelos.
+
+**Por qué la LeBron 24 sí y la Harden Vol 11 no**: la LeBron sale en dos meses y medio y su volumen
+de búsqueda es de otra liga; esa ventana de indexación no se recupera. La Harden es de diciembre
+(colorway de All-Star el 19-feb-2027) y puede entrar más tarde sin coste, con más specs publicadas.
+ATENCION: de la LeBron 24, **"KingKnit" y "la más ligera de la saga" son afirmaciones de NIKE, no
+medidas**: van atribuidas en la ficha, y el peso va ESTIMADO y marcado (igual que las 4 de la s38).
+
+### NB Kawhi V: NO se puede comprar en España — medido, no supuesto
+No es "sin verificar": es un **NO con control positivo**, que es lo que lo hace fiable.
+- `newbalance.es/search?q=kawhi` -> *"Ningún resultado encontrado para kawhi"*.
+- **Control**: `?q=baloncesto` -> **34 artículos con calzado de básquet real** (P400 140 EUR, P400
+  Low 135, P350 120). La tienda vende baloncesto y el buscador funciona: **no trabaja la Kawhi**.
+- Amazon ES: 106 resultados para "new balance kawhi 5" y **ninguno es la Kawhi V** (son 530/515/480
+  de lifestyle). El único Kawhi es una **Kawhi 1 de reventa a 379,36 EUR**, descartada por el
+  criterio de ~2x MSRP que aplicó `75ab314`.
+
+Crear la ficha sería **parir una zapa con cero enlaces a propósito**. Mantener así a
+`adidas-cross-em-up-5` (que ya existía) es una cosa; crear una así, otra. **Reabrir cuando NB ES
+la stockee.**
+
+**Doctrina nueva del matcher: el buscador de New Balance casa SUBCADENAS.** `?q=hesi` devuelve
+**14 artículos y son todos ropa *Heritage***. Una consulta corta puede dar 14 resultados no vacíos
+y ni uno relevante. Es "un resultado no vacío no es un resultado correcto" con mecanismo NUEVO:
+subcadena, no sinónimo.
+
+**Las 3 vendibles NO monetizan**: Nike ES y Puma ES no son afiliados nuestros y Puma sigue rechazado
+en CJ. Entran como "Ver precio en Nike/Puma" SIN número (estrategia s28 funcionando como debe).
+Repuntar a ECI / Atmósfera / Snipes / FuikaOmar cuando entren en stock. No ahora.
+
+---
+
 ## Estado anterior (sesión 41, 29-ago) — Sesión de PANELES: los números reales, por fin
 
 Nada de catálogo esta vez. Se abrieron los paneles de OpenRouter, Awin y Amazon Afiliados y
