@@ -5193,7 +5193,7 @@ const _rawZapatillas: Zapatilla[] = [
     signature_player: "Sabrina Ionescu",
     tecnologia_clave: ["Zoom Air strobel", "React foam", "rubber outsole"],
     predecesor_id: null,
-    sucesor_id: null,
+    sucesor_id: "nike-sabrina-4",
 
     peso_real_g: 346,
     altura: "low",
@@ -5256,6 +5256,83 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012095714336.html", precio_actual: 90.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-01" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fnike-sabrina-3-oregon-ducks-women-s%2Fc5d2d9c5-28e0-4ec1-89ad-5cd52f5d8aac%2Fc4", precio_actual: 144.29, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-01" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-sabrina-3-clay-green.html", precio_actual: 149.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-01" },
+    ],
+  },
+
+  // NIKE SABRINA 4 - la 4a de Ionescu. Unica del bloque 3 con review numerada (WT 8/10).
+  {
+    id: "nike-sabrina-4",
+    slug: "nike-sabrina-4",
+    marca: "Nike",
+    modelo: "Sabrina 4",
+    generacion: 4,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "Sabrina Ionescu",
+    tecnologia_clave: ["Cushlon 3.0 full-length", "Zoom Air en el antepié", "Flyplate TPU full-length"],
+    predecesor_id: "nike-sabrina-3",
+    sucesor_id: null,
+
+    // Peso y drop ESTIMADOS: Nike no los publica y WearTesters no los midió. Anclados a la
+    // Sabrina 3 verificada (346 g / 6 mm) + el TPU full-length que añade la 4.
+    peso_real_g: 352,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 6,
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 6,
+      amortiguacion: 7,
+      respuesta: 9,
+      soporte_lateral: 9,
+      estabilidad: 9,
+      peso_score: 8,
+      durabilidad_outdoor: 6,
+      ventilacion: 7,
+    },
+    categoria_principal: "responsive",
+    tags: ["mujer", "low-top", "signature", "placa", "respuesta"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [55, 90],
+      estilos: ["explosivo", "tirador"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "La Sabrina 4 cambia de idea respecto a la 3: mediasuela Cushlon 3.0 de longitud completa con una unidad Zoom Air en el antepié y, sobre todo, un Flyplate de TPU full-length tomado de las zapatillas de velocidad. Gana propulsión y pierde flexibilidad. WearTesters le da un 8/10 con dos peros serios: la tracción es inconsistente y la placa apaga el Zoom.",
+    pros: [
+      "Sujeción excelente de talón a puntera, con alas internas atadas a los cordones",
+      "Flyplate de TPU full-length: algo de propulsión real en el primer paso",
+      "Suela engrosada en algunas zonas frente a la Sabrina 3: aguanta más",
+      "Talla fiel y materiales cómodos desde el primer día",
+    ],
+    contras: [
+      "Tracción INCONSISTENTE: a veces agarra fuerte y a veces falla del todo (WearTesters)",
+      "La placa restringe la flexión del antepié y apaga la sensación del Zoom Air",
+      "Horma larga y puntiaguda, poco anatómica",
+      "Perfil bajo y espuma blanda: prioriza el tacto de pista sobre la protección de impacto",
+    ],
+    veredicto:
+      "Es superventas en Nike ES y aun así WearTesters la llama \"un paso en la dirección equivocada\": mantiene la sujeción y el perfil bajo de la saga, pero la tracción irregular es un problema de verdad en una zapatilla de este precio. Si lo tuyo es el primer paso explosivo y juegas en pista limpia, la placa compensa. Si necesitas agarre fiable, la Sabrina 3 sigue siendo la compra más segura.",
+
+    imagen_principal: "/shoes/nike-sabrina-4.webp",
+    imagenes: [],
+
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/nike-sabrina-4-performance-review/" },
+    ],
+    ultima_actualizacion: "2026-09-01",
+
+    precio_msrp_eur: 130,
+    links_compra: [
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=sabrina+4&vst=sabrina+4", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-01" },
     ],
   },
 
