@@ -5322,7 +5322,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Ficha de posicionamiento: sale el 17-nov-2026 y hasta entonces no hay nada medido. Lo único sólido es la fecha, el precio de 200 $ y que Nike estrena el KingKnit y promete la LeBron más ligera. Peso, drop, altura y las ocho puntuaciones son ESTIMACIONES ancladas a la LeBron 23; se actualizan cuando salga y alguien la mida. No compres a ciegas por esta ficha.",
 
-    imagen_principal: "/shoes/placeholder.webp",
+    imagen_principal: "/placeholder-shoe.svg",
     imagenes: [],
 
     fuentes: [
