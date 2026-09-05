@@ -299,6 +299,57 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ## 🔴 Pendientes abiertos
 
+### 🔴 NUEVO (s44, 5-sep): 24 fichas sin NINGÚN enlace de ficha real — solo búsquedas
+Hallazgo de rebote al arreglar el JSON-LD (`c91f57e`, ver más abajo). El fix hacía que el
+botón de compra prefiriera un enlace a FICHA sobre uno a un listado de búsqueda, y solo
+resolvió **1 de 25** casos (`converse-shai-001`: zalando_es búsqueda → footlocker_es ficha).
+Las otras 24 no tenían a dónde "ascender": **todas** sus tiendas disponibles son búsquedas,
+ninguna es una ficha de producto. No es un fallo del código, es que faltan enlaces:
+
+`nike-pg-6` (nike_es, zalando_es) · `reebok-engine-a` (zalando_es, amazon_es) ·
+`nike-sabrina-4` (nike_es) · `adidas-dame-8` (footlocker_es) ·
+`nike-air-max-impact-5` (nike_es) · `nike-kyrie-flytrap-6` (nike_es) ·
+`nb-kawhi-2` (footlocker_es) · `nike-kd-19` (nike_es, footlocker_es) ·
+`nike-kobe-4-protro` (footlocker_es, kickscrew) ·
+`nike-kobe-6-protro` (footlocker_es, kickscrew, amazon_es) ·
+`nike-zoom-generation` (kickscrew, amazon_es) · `air-jordan-14` (kickscrew) ·
+`nike-air-penny-1` (kickscrew, amazon_es) · `air-jordan-10` (footlocker_es) ·
+`nike-air-max-cb-34` (footlocker_es, amazon_es) · `puma-sky-lx` (puma_es, amazon_es) ·
+`adidas-eqt-basketball` (amazon_es) · `reebok-blast` (amazon_es) ·
+`nike-hyperdunk-2008` (amazon_es) · `converse-larry-johnson` (amazon_es) ·
+`361-zen-7` (aliexpress) · `asics-gelhoop-v17` (kickscrew) · `rigorer-ar1` (aliexpress) ·
+`rigorer-warship` (aliexpress).
+
+**Efecto medido**: como consecuencia, esas 24 fichas se quedan sin bloque `offers` en el
+JSON-LD (antes publicaban un precio que no correspondía a la URL — ver más abajo). El
+bloque `review` (autor CANCHA.ZAPA) NO se pierde, es independiente de `offers`.
+
+**Por qué se decidió omitir `offers` en vez de mantener un precio inventado (decisión del
+usuario, 5-sep)**: un desajuste precio/URL en `offers` es motivo típico de que Google
+descarte el rich result o abra revisión manual — esas 24 no tenían un snippet que
+funcionara, tenían uno que podía costar caro. Y el marcado a un buscador pesa MÁS que un
+número en pantalla, no menos: la estrategia "Ver precio" (s28) ya dice que no se enseña un
+precio que no se respalda; aplicarlo al JSON-LD es la misma regla, no una nueva.
+
+**▶️ SIGUIENTE PASO** (no hecho, es la continuación natural): buscar ficha real para estas
+24, empezando por `nike-sabrina-4` (WT real, Nike ES la vende a 129,99€, y hoy el único
+enlace es una búsqueda a una tienda que ni siquiera es afiliada) y las que ya tienen 2-3
+tiendas disponibles (`reebok-engine-a`, `nike-kd-19`, `nike-kobe-4/6-protro`,
+`nike-air-max-cb-34`) — más opciones que arreglar solo requiere fijar la URL, no encontrar
+tienda nueva. Las 3 chinas de AliExpress (`361-zen-7`, `rigorer-ar1`, `rigorer-warship`) ya
+estaban señaladas desde la s36 ("la API no indexa esas marcas por keywords"): mismo pendiente,
+ahora con impacto SEO medido además del de conversión.
+
+### ⚠️ `adidas-harden-stepback-4`: posible fantasma, SIN DECIDIR (s44, 5-sep)
+Ver el hallazgo completo en *Datos / catálogo* más abajo (sección `_sesion_44_2026`). Resumen:
+sin rastro de un "Stepback 4" en ningún sitio (HoopsGeek, RunRepeat, retail), la sub-línea
+documentada llega al 3 (ene-2022), y la ficha tiene `predecesor_id: null` pese a decir ser
+la cuarta de una serie. Menos urgente que `adidas-trae-young-4` (que SÍ se confirmó y se
+retiró en `861bbd9`): aquí su único enlace ya está `disponible: false`, no recomienda nada
+activamente. **Pendiente de verificar rastro COMERCIAL** (SKU alguna vez en adidas.es,
+Amazon o cualquier tienda) antes de decidir si se retira — es la decisión del usuario, no
+se toca hasta entonces.
+
 ### ⚠️ Afiliados — MEDIDO EN LOS PANELES (s41, 29-ago), ya no son suposiciones
 
 **Los números reales de tráfico y conversión, por fin:**
@@ -962,6 +1013,11 @@ Ordenación: **precio primero**, desempate por comisión dentro de ±0,50 €.
 - ⚠ `scoreFuentes` no tiene clave `wt` numérica: una zapa con review de WearTesters pero sin
   HoopsGeek se registra como `editorial` + `wt_url`. El score sale bien, la etiqueta de confianza se
   queda corta. Si molesta, es 1 rama en `scoreFuentes.ts`.
+- 🔑 **El corte (low/mid/high) es identidad de producto, no variante — NUEVO (s44, 5-sep).**
+  `puma-playmaker-pro-mid` tiene una review real de WearTesters, pero es de la Playmaker Pro
+  **LOW** (2022): low y mid difieren en soporte de tobillo y en peso, dos de los ocho ejes. Se
+  decidió NO anclar — sería la misma familia de error que Curry 12 ≠ 13 o Exhibit A ≠ B. Como
+  mucho se guarda el `wt_url` de contexto SIN número; ni eso si puede confundir.
 
 ---
 
