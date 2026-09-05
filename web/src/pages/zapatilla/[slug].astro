@@ -5,7 +5,7 @@
 import Base from "../../layouts/Base.astro";
 import "../../styles/cancha-redesign.css";
 import { zapatillas } from "../../data/zapatillas";
-import { findMejorPrecio, findMejorPrecioMostrado, mostramosPrecio, COMISIONES_TIENDA, scoreMeta } from "../../lib/scoring";
+import { findMejorPrecio, findMejorPrecioMostrado, mostramosPrecio, esEnlaceDeBusqueda, COMISIONES_TIENDA, scoreMeta } from "../../lib/scoring";
 import PriceAlert from "../../components/PriceAlert.astro";
 import CosteBlock from "../../components/CosteBlock.astro";
 import { ARTICLES } from "../../lib/articles";
@@ -50,7 +50,21 @@ const mejorPrecio = findMejorPrecio(z.links_compra);            // precio REAL m
 // Si no hay ninguna, mostramos el MSRP oficial y el CTA cae al más barato real.
 const mejorMostrado = findMejorPrecioMostrado(z.links_compra);
 const precioVista = mejorMostrado?.precio_actual ?? z.precio_msrp_eur;
-const ctaLink = mejorMostrado ?? mejorPrecio;                   // botón principal de compra
+// CTA: preferimos un enlace a FICHA de producto sobre uno a un listado de
+// búsqueda — un botón que aterriza en un listado no convierte. Solo caemos
+// a una búsqueda si de verdad no queda ninguna otra opción disponible.
+const mejorPrecioFicha = findMejorPrecio(z.links_compra.filter((l) => !esEnlaceDeBusqueda(l)));
+const ctaLink = mejorMostrado ?? mejorPrecioFicha ?? mejorPrecio; // botón principal de compra
+// El offer del JSON-LD tiene que describir la URL que de verdad publicamos:
+// su precio real, nunca el MSRP de otra tienda. Si el CTA acabó siendo un
+// enlace de búsqueda (última opción, sin ficha disponible) o no trae un
+// precio fiable, omitimos el bloque `offers` entero — mejor sin oferta que
+// con una que no corresponde a esa URL.
+const ofertaValida = !!ctaLink
+  && !esEnlaceDeBusqueda(ctaLink)
+  && typeof ctaLink.precio_actual === "number"
+  && ctaLink.precio_actual > 0;
+const offerPrice = ctaLink?.precio_actual;
 const sMeta = scoreMeta(z);
 const score = sMeta.score;
 const CONF_LABEL = { alta: "Verificado", media: "Contrastado", editorial: "Estimación editorial" } as const;
@@ -187,13 +201,13 @@ const productJsonLd = {
     : `https://canchazapa.com${z.imagen_principal}`,
   "url": `https://canchazapa.com/zapatilla/${z.slug}`,
   "sku": z.slug,
-  ...(ctaLink ? {
+  ...(ofertaValida ? {
     "offers": {
       "@type": "Offer",
-      "price": precioVista,
+      "price": offerPrice,
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
-      "url": ctaLink.url,
+      "url": ctaLink!.url,
       "priceValidUntil": `${new Date().getFullYear() + 1}-12-31`,
       "shippingDetails": {
         "@type": "OfferShippingDetails",
