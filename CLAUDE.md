@@ -413,6 +413,46 @@ es decisión del usuario y no se ha tocado nada.** Antes de quitarlos, mirar cu�
 quedan sin ninguna opción: deben caer a "Ver precio" + MSRP, nunca a un hueco.
 
 ### Datos / catálogo
+- 🔴 **NUEVO (s44, 5-sep): anclaje de scores — 2 fantasmas más, 4 anclas nuevas, 27 "sin review" verificadas.**
+  Encargo: de las 45 zapas con score sin fuente externa que no encajaban en ninguna excusa de la
+  metodología (retro/GS/china), anclar a HoopsGeek/WearTesters/RunRepeat una por una. Resultado:
+  · **4 ANCLADAS** (ver `score-fuentes.json`, sección `_sesion_44_2026`): `nike-gt-jump-1` HG 8,8
+    (n=8, rango 8,6-9,3) — sube desde 7,3, el ancla corrige una estimación editorial que se había
+    quedado corta. `ua-futr-x-elite` HG 8,2 (n=5). `adidas-exhibit-a` HG 8,3 (n=4) — sube 1,8 desde
+    6,5, mismo mecanismo. `nike-atwo` WearTesters 8/10 (editorial + `wt_url`, no hay HG aún).
+  · **27 CONFIRMADAS SIN REVIEW** (comprobado 5-sep-2026 contra HG/WT/RunRepeat, búsqueda dirigida
+    por modelo exacto, no genérica): las 9 líneas budget/team de Under Armour (`ua-curry-13`,
+    `ua-curry-3z-25`, `ua-spawn-7-mid`, `ua-lockdown-7`, `ua-futr-x-4`, `ua-hovr-havoc-5`,
+    `ua-jet-23`, `ua-jet-25`, `ua-flow-breakthru-4`), los 3 Asics (`asics-gelhoop-v17`,
+    `asics-glide-nova-ff-4`, `asics-unpre-ars-2`), los 4 Skechers SKX (`skechers-skx-je1`,
+    `skechers-skx-resagrip`, `skechers-skx-league`, `skechers-skx-float`), `adidas-exhibit-b`,
+    `adidas-exhibit-select`, `adidas-ownthegame-2`, `adidas-ownthegame-3`, `adidas-cross-em-up-5`,
+    `adidas-cross-em-up-speed`, `decathlon-tarmak-fast-900`, `decathlon-tarmak-se500-mid`,
+    `nike-gt-jump-academy`, `kipsta-canaveral-900` y los 3 Moolah Kicks (`moolah-neovolt-pro-v3`,
+    `moolah-evolyte-elite`, `moolah-triple-double`). Ninguna tiene fuente real: se quedan con el
+    promedio de ejes (`editorial`, ya era el fallback). **No repetir esta búsqueda salvo que algún
+    día publiquen review** — 3-4 sitios distintos, varias formas de búsqueda cada uno.
+    ⚠ `puma-playmaker-pro-mid`: WearTesters SÍ review la "Playmaker Pro" (sin "Mid") a 7/10, 2022 —
+    pero es el corte LOW, no el Mid de nuestra ficha (2023). No se ancla por no ser exactamente el
+    mismo SKU; queda anotado por si alguien decide que el cambio de altura no basta para invalidarlo.
+  · **3 SIN TOCAR por no haber salido aún** (mismo trato que Stewie 5 / Scoot Zeros III): `puma-mb-06`
+    (sale 25-sep-2026), `nike-caitlin-1` (sale 1-oct-2026) y `jordan-41` (lanzamiento exclusivo China
+    28-ago-2026, el global no llega hasta 25-oct-2026 — por eso HG/WT no la tienen todavía, no es
+    un hueco de cobertura).
+  · 🔴 **2 FANTASMAS encontrados de rebote** (no son huecos de review, son fichas de un producto que
+    no existe — la búsqueda "no aparece nada de un modelo de marca grande" fue la señal):
+    **`adidas-trae-young-4`** — contrato de Trae con adidas expiró antes de la 2024-25, la línea se
+    canceló entera (holiday-2024 + spring-2025, los 12 colorways previstos), Trae pasó a Jordan
+    Brand. **RETIRADA del catálogo en `861bbd9` (s44)** tras verificarlo el usuario: la ficha tenía
+    un enlace `disponible: true` recomendando comprar un producto que nunca existió. **`adidas-harden-stepback-4`**
+    — la sub-línea Stepback documentada llega al 3 (ene-2022, HG 8,2); ningún rastro de una "4" en
+    ningún sitio; y la ficha tiene `predecesor_id: null` pese a decir ser la cuarta de una serie
+    (si existiera la 3 en catálogo debería estar encadenada). El "Harden Vol. 4 Step Back" (2020)
+    que sí existe es OTRO producto — la trampa es la misma que el slug de Amazon de `75ab314`: el
+    nombre se parece, el modelo no es. **Menos urgente que Trae Young**: su único enlace ya está
+    `disponible: false`, no recomienda nada activamente. **Pendiente de verificar rastro COMERCIAL
+    (SKU en adidas.es/Amazon/tiendas) antes de decidir si se retira** — ausencia de prensa no es
+    ausencia de producto en un takedown budget de 2023, que es justo lo que la prensa no cubre.
 - ✅ **Curry 13 es la ÚLTIMA de Under Armour — CERRADO en la s42 (31-ago).** Curry y UA rompieron
   el 13-nov-2025; la Curry 13 (feb-2026) es el cierre pactado, con colorways hasta oct-2026. Curry
   Brand es independiente y él es agente libre de calzado. Re-verificado antes de tocar (ESPN, SI,

@@ -84,6 +84,12 @@
     "nike-lebron-nxxt-gen":       { "hg": 8.7, "url": "https://www.thehoopsgeek.com/shoe-reviews/nike-lebron-nxxt-gen/" },
     "adidas-harden-vol-8":        { "hg": 8.6, "url": "https://www.thehoopsgeek.com/shoe-reviews/adidas-harden-volume-8/" },
 
+    "_sesion_44_2026": "Anclaje de las 45 zapas sin fuente (5-sep-2026). nike-gt-jump-1 y adidas-exhibit-a suben fuerte desde el promedio de ejes: el ancla HG con n>=4 manda, no el crudo.",
+    "nike-gt-jump-1":             { "hg": 8.8, "n": 8, "rango": [8.6, 9.3], "url": "https://www.thehoopsgeek.com/shoe-reviews/nike-air-zoom-gt-jump/" },
+    "ua-futr-x-elite":            { "hg": 8.2, "n": 5, "rango": [7.0, 9.2], "url": "https://www.thehoopsgeek.com/shoe-reviews/under-armour-flow-futr-x-elite/" },
+    "adidas-exhibit-a":           { "hg": 8.3, "n": 4, "url": "https://www.thehoopsgeek.com/shoe-reviews/adidas-exhibit-a/" },
+    "nike-atwo":                  { "editorial": 8.0, "wt_url": "https://weartesters.com/nike-atwo-review/" },
+
     "adidas-ae-1":                { "rr": 91 },
     "adidas-don-issue-6":         { "rr": 92 },
     "nike-gt-cut-academy-2":      { "rr": 88 },
