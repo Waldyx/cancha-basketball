@@ -4430,7 +4430,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/search?q=answer+iv", precio_actual: 120, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+      { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/search?q=answer+iv", precio_actual: 120, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-05" },
       { tienda: "zalando_es", url: "https://www.zalando.es/zapatillas/?q=reebok+answer+iv", precio_actual: 110, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=reebok+answer+iv", precio_actual: 105, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+answer+iv+baloncesto&tag=canchazapa-21", precio_actual: 100, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
