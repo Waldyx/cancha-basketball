@@ -3355,7 +3355,7 @@ const _rawZapatillas: Zapatilla[] = [
     signature_player: "LeBron James",
     tecnologia_clave: ["ZoomX foam", "Carbon fiber plate", "Air Zoom"],
     predecesor_id: "nike-gt-jump-1",
-    sucesor_id: null,
+    sucesor_id: "nike-lebron-24",
 
     peso_real_g: 455,
     altura: "high",
@@ -5257,6 +5257,82 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fnike-sabrina-3-oregon-ducks-women-s%2Fc5d2d9c5-28e0-4ec1-89ad-5cd52f5d8aac%2Fc4", precio_actual: 144.29, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-01" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-sabrina-3-clay-green.html", precio_actual: 149.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-01" },
     ],
+  },
+
+  // NIKE LEBRON 24 - sale 17-nov-2026. proximamente: true, sin enlaces (nadie la vende aun).
+  {
+    id: "nike-lebron-24",
+    slug: "nike-lebron-24",
+    marca: "Nike",
+    modelo: "LeBron 24",
+    generacion: 24,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "LeBron James",
+    tecnologia_clave: ["KingKnit", "Zoom Air"],
+    predecesor_id: "nike-lebron-23",
+    sucesor_id: null,
+
+    // TODO peso/drop/altura son ESTIMADOS: la zapatilla NO ha salido (17-nov-2026) y no
+    // existe ninguna medicion. Nike AFIRMA que es "la mas ligera de la saga"; la saga en
+    // catalogo va de 440 g (LeBron 21) a 455 (LeBron 23), asi que la estimacion se pone
+    // por debajo de esas. Es una afirmacion de MARCA, no un dato: revisar al lanzamiento.
+    peso_real_g: 415,
+    altura: "high",
+    horma: "ancha",
+    drop_mm: 10,
+    tipo_cierre: "cordones",
+    material_superior: "knit",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 9,
+      respuesta: 7,
+      soporte_lateral: 9,
+      estabilidad: 8,
+      peso_score: 6,
+      durabilidad_outdoor: 5,
+      ventilacion: 6,
+    },
+    categoria_principal: "cushion-focused",
+    tags: ["signature", "high-top", "cushion", "proximamente"],
+
+    ideal_para: {
+      posiciones: ["alero", "ala-pivot", "pivot"],
+      peso_jugador_kg: [75, 120],
+      estilos: ["potente", "equilibrado"],
+    },
+    no_recomendada_para: {
+      posiciones: [],
+      estilos: [],
+    },
+
+    resumen:
+      "La 24 de LeBron sale el 17 de noviembre de 2026 a 200 $ y estrena un material de empeine llamado KingKnit, de textura escamada. Nike la presenta como la más ligera de la historia de la saga — una afirmación de la marca, todavía sin medición independiente que la respalde.",
+    pros: [
+      "Nike la anuncia como la más ligera de la saga, que arrastra 20 años de zapatillas pesadas",
+      "KingKnit: material de empeine nuevo, no un reciclado de la 23",
+      "La línea LeBron es de las pocas pensadas de verdad para jugadores grandes",
+    ],
+    contras: [
+      "NO HA SALIDO: todos los datos de esta ficha son estimaciones o afirmaciones de Nike",
+      "200 $ la coloca en lo más caro del mercado",
+      "La saga nunca ha destacado en durabilidad de exterior ni en ventilación",
+    ],
+    veredicto:
+      "Ficha de posicionamiento: sale el 17-nov-2026 y hasta entonces no hay nada medido. Lo único sólido es la fecha, el precio de 200 $ y que Nike estrena el KingKnit y promete la LeBron más ligera. Peso, drop, altura y las ocho puntuaciones son ESTIMACIONES ancladas a la LeBron 23; se actualizan cuando salga y alguien la mida. No compres a ciegas por esta ficha.",
+
+    imagen_principal: "/shoes/placeholder.webp",
+    imagenes: [],
+
+    fuentes: [
+      { tipo: "evaluacion-propia", url: "https://sneakernews.com/2026/08/12/nike-lebron-24-release-date/" },
+    ],
+    ultima_actualizacion: "2026-09-01",
+
+    proximamente: true,
+    precio_msrp_eur: 200,
+    links_compra: [],
   },
 
   // PUMA SCOOT ZEROS III - 3a de Scoot Henderson. Score EDITORIAL. Sin gen 2 en catalogo.
