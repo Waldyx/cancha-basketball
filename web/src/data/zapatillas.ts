@@ -8981,57 +8981,6 @@ const _rawZapatillas: Zapatilla[] = [
     ],
   },
 
-  // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // ADIDAS TRAE YOUNG 4 — sucesor del traction king
-  // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  {
-    id: "adidas-trae-young-4",
-    slug: "adidas-trae-young-4",
-    marca: "Adidas",
-    modelo: "Trae Young 4",
-    generacion: 4,
-    año_lanzamiento: 2024,
-    genero: "unisex",
-    signature_player: "Trae Young",
-    tecnologia_clave: ["custom wedge foam", "dual-pattern traction", "Torsion System"],
-    predecesor_id: "adidas-trae-young-3",
-    sucesor_id: null,
-    peso_real_g: 400,
-    altura: "low",
-    horma: "estrecha",
-    drop_mm: 8,
-    tipo_cierre: "cordones",
-    material_superior: "knit",
-    puntuaciones: {
-      traccion: 9, amortiguacion: 7, respuesta: 9,
-      soporte_lateral: 8, estabilidad: 8, peso_score: 9,
-      durabilidad_outdoor: 6, ventilacion: 8,
-    },
-    categoria_principal: "traction-king",
-    tags: ["signature", "guard", "traction", "explosivo", "indoor"],
-    ideal_para: {
-      posiciones: ["base", "escolta"],
-      peso_jugador_kg: [55, 85],
-      estilos: ["explosivo", "equilibrado"],
-    },
-    no_recomendada_para: { posiciones: ["pivot", "ala-pivot"], estilos: ["potente"] },
-    resumen: "La cuarta entrega de la firma de Trae Young mantiene la tracción dual excepcional de la serie con un foam wedge reactivo a ras del suelo. Más refinada que la Trae 3.",
-    pros: ["Tracción dual indoor excepcional", "Muy reactiva y ligera (260g)", "Lockdown de primer nivel", "Diseño más maduro que generaciones anteriores"],
-    contras: ["Poco cushion para jugadores pesados", "Durabilidad outdoor limitada", "Horma estrecha puede no adaptarse a todos"],
-    veredicto: "La mejor Trae Young de la serie. Para guards ágiles del perímetro que necesitan el máximo agarre y velocidad de reacción.",
-    imagen_principal: "/shoes/adidas-trae-young-4.webp",
-    imagenes: [],
-    fuentes: [
-      { tipo: "evaluacion-propia" },
-    ],
-    ultima_actualizacion: "2026-05-29",
-    precio_msrp_eur: 130,
-    links_compra: [
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=adidas+trae+young+4", precio_actual: 125, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+trae+young+4+baloncesto&tag=canchazapa-21", precio_actual: 115, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
-    ],
-  },
-
   // ADIDAS TRAE UNLIMITED 2 — línea budget de Trae Young, chollo con buena tracción
   {
     id: "adidas-trae-unlimited-2",
