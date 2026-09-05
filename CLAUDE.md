@@ -94,9 +94,20 @@ Sesión a DOS AGENTES (ver *Infra*): una sesión ejecuta y commitea, la otra dec
      afiliado ACTIVO**: ese enlace no monetizaba nada).
    · **Verificadas BUENAS, no se tocan**: Amazon `/s?k=` (71) · Foot Locker `?query=` (49) ·
      Nike `/es/w?q=&vst=` (44) · KicksCrew `/search?q=` (18) · Zalando `/zapatillas/?q=` (5).
-   · ⚠ **New Balance (6) SIN VERIFICAR**: muro anti-bot hasta con sesión real de Chrome. Un 403 no
-     es un enlace muerto, así que no hay veredicto. Lo tiene que abrir un humano.
-   · 🔴 **Basket World (14) ha CERRADO** — ver el pendiente propio más abajo.
+   · ✅ **New Balance (6) VERIFICADO (s44, 5-sep)**: el muro anti-bot frena `curl`/WebFetch pero NO
+     un navegador real (Claude-in-Chrome) — control positivo `?q=baloncesto` da 34 resultados reales.
+     Con eso: `/es/buscar/?q=` (4 enlaces) está **MUERTO**, sirve la 404 propia del sitio; el que
+     funciona es `/search?q=`. Pero funcionar el parámetro no basta — de los 6, solo
+     `nb-fresh-foam-bb-v3` es un match real (3 resultados exactos, precio actualizado 140→84€).
+     Los otros 5 devuelven el catálogo genérico completo (925, 207, 1.010 resultados) sin ni un
+     Kawhi ni un OMN1S ni una Two WXY real: **NB ES no vende ninguna de las tres líneas**, mismo
+     patrón ya documentado para la Kawhi V. `nb-kawhi-2`, `nb-kawhi-4` y `nb-two-wxy-v4` estaban
+     marcados `disponible: true` por error del scraper (coló el catálogo entero como "resultado");
+     corregidos a `false` — ninguna ficha se queda sin opción de compra, las tres tienen otra
+     tienda activa. `nb-kawhi-1` y `nb-omn1s` ya estaban bien.
+   · 🔴 **Basket World (14) — CERRADO Y RESUELTO (s44, 5-sep)**: los 14 enlaces se quitaron
+     (ninguna ficha se quedó sin opción de compra). Ver el pendiente propio más abajo si queda
+     alguna referencia histórica.
 
 4. 📧 **Joom: reclamación enviada (1-sep), esperando respuesta.** Ver *Afiliados*.
 
@@ -401,16 +412,14 @@ La ficha real dice `Departamento: Unisex niños` y el título, "Cross Em Up 5 Sh
 Además el precio scrapeado (29,99 €) no coincidía con el de la ficha (41,99 €). ⇒ El segmento se
 lee en el campo **Departamento** de la ficha, NUNCA en las palabras del slug.
 
-### 🔴 Basket World ha CERRADO — 14 enlaces a un dominio muerto (s43)
-`basketworld.com` y `www.basketworld.com` sirven la **página por defecto de Plesk** ("Domain
-Default page"), o sea un servidor sin configurar, y responden **200** — la trampa de siempre.
-`basketworld.es` no resuelve. La tienda física de Zaragoza cerró en **abril de 2025** tras una
-liquidación, y con ella la tienda online. No hay dominio nuevo al que apuntar.
-**No es afiliado nuestro**, así que los 14 enlaces ya salían como "Ver precio": no se pierde
-dinero, se pierde credibilidad (mandan a una página de Plesk).
-**▶️ DECIDIR**: quitarlos. Es lo coherente con la estrategia "Ver precio", pero **borrar enlaces
-es decisión del usuario y no se ha tocado nada.** Antes de quitarlos, mirar cuántas zapas se
-quedan sin ninguna opción: deben caer a "Ver precio" + MSRP, nunca a un hueco.
+### ✅ Basket World había CERRADO — 14 enlaces quitados (s43 diagnóstico, s44 resuelto)
+`basketworld.com` y `www.basketworld.com` servían la **página por defecto de Plesk** ("Domain
+Default page"), o sea un servidor sin configurar, y respondían **200** — la trampa de siempre.
+`basketworld.es` no resolvía. La tienda física de Zaragoza cerró en **abril de 2025** tras una
+liquidación, y con ella la tienda online. No había dominio nuevo al que apuntar.
+**No era afiliado nuestro**, así que no se perdía dinero, solo credibilidad (mandaban a una
+página de Plesk). **QUITADOS los 14 (5-sep, `086f6c7`)**: verificado antes de borrar que ninguna
+de las 14 zapas se quedaba sin opción de compra (quedan entre 2 y 6 tiendas activas cada una).
 
 ### Datos / catálogo
 - 🔴 **NUEVO (s44, 5-sep): anclaje de scores — 2 fantasmas más, 4 anclas nuevas, 27 "sin review" verificadas.**
