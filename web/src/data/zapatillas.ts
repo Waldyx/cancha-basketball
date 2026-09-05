@@ -1671,7 +1671,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 140,
     links_compra: [
-      { tienda: "nb_es", url: "https://www.newbalance.es/search?q=fresh+foam+bb+v3", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "nb_es", url: "https://www.newbalance.es/search?q=fresh+foam+bb+v3", precio_actual: 84, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+fresh+foam+bb+v3+baloncesto&tag=canchazapa-21", precio_actual: 139, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/products/search?q=new+balance+bb+v3", precio_actual: 144.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
     ],
@@ -3135,7 +3135,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 95,
     links_compra: [
-      { tienda: "nb_es", url: "https://www.newbalance.es/search?q=two+wxy+v4", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "nb_es", url: "https://www.newbalance.es/search?q=two+wxy+v4", precio_actual: 75, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+two+wxy+v4+baloncesto&tag=canchazapa-21", precio_actual: 72, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=new+balance+two+wxy+v4", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-new-balance-two-wxy-v4-acero.html", precio_actual: 79.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
@@ -7766,7 +7766,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 150,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+kawhi+1&tag=canchazapa-21", precio_actual: 286.7, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
-      { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar/?q=kawhi+1", precio_actual: 150, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar/?q=kawhi+1", precio_actual: 150, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-05" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=new+balance+kawhi+1", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
     ],
   },
@@ -8319,7 +8319,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar/?q=omn1s", precio_actual: 90, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar/?q=omn1s", precio_actual: 90, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+omn1s&tag=canchazapa-21", precio_actual: 80, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -8960,7 +8960,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-19",
     precio_msrp_eur: 160,
     links_compra: [
-      { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar/?q=kawhi+2", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+      { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar/?q=kawhi+2", precio_actual: 160, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-05" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=new+balance+kawhi+2", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+kawhi+2+baloncesto&tag=canchazapa-21", precio_actual: 145, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "manelsanchez_es", url: "https://www.manelsanchez.com/kawhi-ii-white-thunder.html", precio_actual: 112, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
@@ -13802,7 +13802,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 150,
     links_compra: [
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-new-balance-kawhi-4-third-eye.html", precio_actual: 129.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
-      { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar/?q=kawhi+4", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
+      { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar/?q=kawhi+4", precio_actual: 150, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+kawhi+4+basketball&tag=canchazapa-21", precio_actual: 150, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
   },
