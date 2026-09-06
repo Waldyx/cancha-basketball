@@ -3259,7 +3259,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=pg+6&vst=pg+6", precio_actual: 65, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=nike+pg+6", precio_actual: 72, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=nike+pg+6", precio_actual: 72, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
     ],
   },
 
@@ -4501,8 +4501,8 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/search?q=engine+a", precio_actual: 120, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=reebok+engine+a", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+engine+a+baloncesto&tag=canchazapa-21", precio_actual: 87.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/reebok-engine-a-pump-unisex-zapatillas-de-baloncesto-whiteblackorange-re544a0b1-q11.html", precio_actual: 164.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/Reebok-Engine-Zapatillas-Unisex-Naranja/dp/B0FBG1RW7H?tag=canchazapa-21", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
     ],
   },
 
@@ -11124,7 +11124,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 175,
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=kobe+6+protro", precio_actual: 175, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Kobe+6+Protro", precio_actual: 195, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/nike-kobe-6-protro-hollywood-3d-all-star-2026-iq3902-002", precio_actual: 253.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Kobe+6+Protro&tag=canchazapa-21", precio_actual: 200, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
@@ -11589,7 +11589,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 180,
     links_compra: [
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Nike+Zoom+Generation", precio_actual: 180, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/nike-air-zoom-generation-court-purple-suede-fj0667-500", precio_actual: 103.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Zoom+Generation+LeBron&tag=canchazapa-21", precio_actual: 200, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
@@ -11847,7 +11847,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 210,
     links_compra: [
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Air+Jordan+14+Retro", precio_actual: 210, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/air-jordan-14-black-university-blue-487471-007", precio_actual: 207.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
     ],
   },
 
@@ -12162,7 +12162,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 150,
     links_compra: [
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Nike+Air+Penny+1", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/nike-air-max-penny-1-pure-platinum-dv7220-100", precio_actual: 133.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Air+Penny+1+Hardaway&tag=canchazapa-21", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
@@ -12907,7 +12907,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 150,
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+air+max+cb+34", precio_actual: 150, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+air+max+cb+34+barkley&tag=canchazapa-21", precio_actual: 155, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+air+max+cb+34+barkley&tag=canchazapa-21", precio_actual: 155, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
     ],
   },
 
@@ -13216,8 +13216,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 85,
     links_compra: [
-      { tienda: "puma_es", url: "https://eu.puma.com/es/es/search?q=sky+lx", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+sky+lx+frazier&tag=canchazapa-21", precio_actual: 80, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "puma_es", url: "https://eu.puma.com/es/es/search?q=sky+lx", precio_actual: 85, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+sky+lx+frazier&tag=canchazapa-21", precio_actual: 80, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
     ],
   },
 
@@ -13327,7 +13327,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-28",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+eqt+basketball+93+retro&tag=canchazapa-21", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+eqt+basketball+93+retro&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
     ],
   },
 
@@ -13382,7 +13382,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-28",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+blast+retro+baloncesto&tag=canchazapa-21", precio_actual: 110, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+blast+retro+baloncesto&tag=canchazapa-21", precio_actual: 110, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
     ],
   },
 
@@ -13437,7 +13437,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-28",
     precio_msrp_eur: 150,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+hyperdunk+2008+retro&tag=canchazapa-21", precio_actual: 150, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+hyperdunk+2008+retro&tag=canchazapa-21", precio_actual: 150, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
     ],
   },
 
@@ -13492,7 +13492,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-28",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=converse+larry+johnson+all+star+retro&tag=canchazapa-21", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=converse+larry+johnson+all+star+retro&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
     ],
   },
 
@@ -14475,7 +14475,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-09",
     precio_msrp_eur: 90,
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fwholesale%3FSearchText%3D361%2Bzen%2B7%2Bbasketball", precio_actual: 90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005013092315194.html", precio_actual: 77.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=361+zen+7+baloncesto&tag=canchazapa-21", precio_actual: 95, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
     ],
   },
@@ -14646,7 +14646,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-12",
     precio_msrp_eur: 125,
     links_compra: [
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/search?q=asics+gelhoop+v17", precio_actual: 121.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/asics-gel-hoop-v17-black-1063a096-001", precio_actual: 122.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=asics+gelhoop+v17&tag=canchazapa-21", precio_actual: 140, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
@@ -14759,7 +14759,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-09",
     precio_msrp_eur: 75,
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fwholesale%3FSearchText%3Drigorer%2Bar1", precio_actual: 65, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010661844381.html", precio_actual: 69.57, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=rigorer+ar1+austin+reaves&tag=canchazapa-21", precio_actual: 85, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
     ],
   },
@@ -14816,7 +14816,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-09",
     precio_msrp_eur: 60,
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fwholesale%3FSearchText%3Drigorer%2Bwarship%2Bbasketball", precio_actual: 60, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fwholesale%3FSearchText%3Drigorer%2Bwarship%2Bbasketball", precio_actual: 60, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=rigorer+warship&tag=canchazapa-21", precio_actual: 70, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
     ],
   },
