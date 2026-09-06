@@ -3258,7 +3258,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=pg+6&vst=pg+6", precio_actual: 65, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=pg+6&vst=pg+6", precio_actual: 65, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
       { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=nike+pg+6", precio_actual: 72, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
     ],
   },
@@ -14177,7 +14177,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-09",
-    precio_msrp_eur: 150,
+    precio_msrp_eur: 140,
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010194753497.html", precio_actual: 113.98, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/361/joker-1-denver-blue-white", precio_actual: 105, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-24" },
@@ -14247,7 +14247,7 @@ const _rawZapatillas: Zapatilla[] = [
       },
     ],
     ultima_actualizacion: "2026-08-26",
-    precio_msrp_eur: 119,
+    precio_msrp_eur: 150,
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011771667705.html", precio_actual: 184.1, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-26" },
     ],
@@ -14418,7 +14418,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-09",
-    precio_msrp_eur: 90,
+    precio_msrp_eur: 120,
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005013092315194.html", precio_actual: 77.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=361+zen+7+baloncesto&tag=canchazapa-21", precio_actual: 95, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
