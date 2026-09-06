@@ -7885,61 +7885,6 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 98. ADIDAS HARDEN STEPBACK 4 — budget Harden
-  // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  {
-    id: "adidas-harden-stepback-4",
-    slug: "adidas-harden-stepback-4",
-    marca: "Adidas",
-    modelo: "Harden Stepback 4",
-    generacion: 4,
-    año_lanzamiento: 2023,
-    genero: "unisex",
-    signature_player: "James Harden",
-    tecnologia_clave: ["Bounce foam", "herringbone"],
-    predecesor_id: null,
-    sucesor_id: null,
-    peso_real_g: 370,
-    altura: "low",
-    horma: "normal",
-    drop_mm: 9,
-    tipo_cierre: "cordones",
-    material_superior: "mesh",
-    puntuaciones: {
-      traccion: 8,
-      amortiguacion: 8,
-      respuesta: 8,
-      soporte_lateral: 7,
-      estabilidad: 7,
-      peso_score: 8,
-      durabilidad_outdoor: 7,
-      ventilacion: 7,
-    },
-    categoria_principal: "balanced",
-    tags: ["signature", "budget"],
-    ideal_para: {
-      posiciones: ["escolta", "base", "alero"],
-      peso_jugador_kg: [65, 90],
-      estilos: ["tirador", "equilibrado"],
-    },
-    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
-    resumen: "La línea budget de Harden con Bounce foam y buena tracción herringbone. Pensada para escoltas y bases que quieren un modelo signature accesible.",
-    pros: ["Precio muy asequible para una signature", "Tracción sólida", "Cómoda desde el primer uso"],
-    contras: ["Cushion básico", "Estabilidad lateral limitada"],
-    veredicto: "La opción más económica para el fan de Harden. Funcional y asequible para juego perimetral.",
-    imagen_principal: "/shoes/adidas-harden-stepback-4.webp",
-    imagenes: [],
-    fuentes: [
-      { tipo: "evaluacion-propia" },
-    ],
-    ultima_actualizacion: "2026-05-29",
-    precio_msrp_eur: 80,
-    links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+harden+stepback+4&tag=canchazapa-21", precio_actual: 65, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
-    ],
-  },
-
-  // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 99. NIKE KYRIE FLYTRAP 6 — ultra budget base/escolta
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
