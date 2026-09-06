@@ -5552,7 +5552,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=sabrina+4&vst=sabrina+4", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-01" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/sabrina-4-zapatillas-de-baloncesto-iicvCrwF/II0402-300", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
     ],
   },
 
@@ -6653,7 +6653,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=adidas+dame+8", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=adidas+dame+8", precio_actual: 95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
     ],
   },
 
@@ -7261,7 +7261,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 80,
     links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=air+max+impact+5&vst=air+max+impact+5", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=air+max+impact+5&vst=air+max+impact+5", precio_actual: 80, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+air+max+impact+5&tag=canchazapa-21", precio_actual: 72, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -7989,7 +7989,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 70,
     links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kyrie+flytrap+6&vst=kyrie+flytrap+6", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kyrie+flytrap+6&vst=kyrie+flytrap+6", precio_actual: 70, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
     ],
   },
 
@@ -8961,7 +8961,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar/?q=kawhi+2", precio_actual: 160, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-05" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=new+balance+kawhi+2", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=new+balance+kawhi+2", precio_actual: 150, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+kawhi+2+baloncesto&tag=canchazapa-21", precio_actual: 145, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "manelsanchez_es", url: "https://www.manelsanchez.com/kawhi-ii-white-thunder.html", precio_actual: 112, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
     ],
@@ -9710,8 +9710,8 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 149.99,
     links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kd+19&vst=kd+19", precio_actual: 149.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=kd+19", precio_actual: 154.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/kd19-zapatillas-de-baloncesto-kHLnTNgP/IH1117-400", precio_actual: 159.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=kd+19", precio_actual: 154.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+kd+19+baloncesto&tag=canchazapa-21", precio_actual: 149.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -10992,8 +10992,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 175,
     links_compra: [
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=kobe+4+protro", precio_actual: 175, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Kobe+4+Protro", precio_actual: 180, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=kobe+4+protro", precio_actual: 175, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/nike-zoom-kobe-4-protro-black-mamba-fq3544-001", precio_actual: 152.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
     ],
   },
 
@@ -11123,7 +11123,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 175,
     links_compra: [
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=kobe+6+protro", precio_actual: 175, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=kobe+6+protro", precio_actual: 175, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
       { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Kobe+6+Protro", precio_actual: 195, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Kobe+6+Protro&tag=canchazapa-21", precio_actual: 200, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
@@ -12472,7 +12472,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 190,
     links_compra: [
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=air+jordan+10", precio_actual: 190, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=air+jordan+10", precio_actual: 190, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
     ],
   },
 
@@ -12906,7 +12906,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 150,
     links_compra: [
-      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+air+max+cb+34", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+air+max+cb+34", precio_actual: 150, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+air+max+cb+34+barkley&tag=canchazapa-21", precio_actual: 155, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
