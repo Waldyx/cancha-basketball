@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-09-01 (sesión 43)
+> Última actualización: 2026-09-09 (sesión 46)
 > Para Claude: lee esto al empezar una sesión nueva. **Solo contiene lo vivo**: estado, reglas,
 > doctrina, afiliados, arquitectura y pendientes.
 >
@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **240 zapas · 342 páginas · 236 tests · `astro check` 0 errores** |
+| Tamaño | **242 zapas · 239 tests · `astro check` 0 errores** (páginas: recontar, el 342 era de la s43 con 240 zapas) |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -203,7 +203,7 @@ envío gratis desde 99 $. **Tarifas oficiales en €** (que hasta hoy dábamos p
 | Modelo | Tarifa oficial € | Lo que decía el catálogo |
 |---|---|---|
 | Joker 2 GT | **200 €** | no existía |
-| Joker 2 (y "Denver" Alto) | **150 €** | 119 € estimados por conversión → **CORREGIDO** |
+| Joker 2 (y "Denver" Alto) | **150 €** | 119 € estimados por conversión → ⚠ se dio por CORREGIDO aquí pero **el dato no cambió hasta la s45** |
 | Joker 1 | **140 €** | 119 € |
 | ZEN 7 | **120 €** | 90 € (y la API de AliExpress decía 156,99 €) |
 | Big3 4.0 Quick | **124 €** | — |
@@ -299,7 +299,23 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ## 🔴 Pendientes abiertos
 
-### 🔴 NUEVO (s44, 5-sep): 24 fichas sin NINGÚN enlace de ficha real — solo búsquedas
+### ✅ CERRADO (s45, 6-sep): las 24 fichas sin enlace de ficha real — quedan CERO
+**Resuelto entero en `4d55a05` + `d9e957d` + `d36407c`.** De las 24: **10 fichas reales fijadas**
+(2 en Nike ES, 5 en KicksCrew, `reebok-engine-a` en Amazon Y Zalando, 2 en AliExpress) y las demás
+marcadas `disponible: false` tras verificar con navegador que la tienda NO vende el modelo —
+**enlace conservado, nada inventado**. La última en caer fue `nike-pg-6`: su búsqueda en Nike ES
+devuelve G.T. Cut 4, gomas para el pelo y calcetines.
+🔑 **Hallazgo de método**: Foot Locker ES falló en los 7 que se le pidieron, y su buscador NO está
+roto — el `?query=` es correcto (el `<title>` lo confirma) y devuelve 18-20 productos reales de su
+catálogo. Simplemente no tiene esos modelos y **rellena por similitud**: `kd 19`→Harden Vol 10,
+`kobe 4/6 protro`→Kobe X/5/9, `dame 8`→DON Issue 8, `new balance kawhi`→**Converse Shai**. Señal
+delatora: el primer resultado es una **tarjeta de regalo**. Son "falsos disponibles", mismo patrón
+que New Balance en la s44.
+⚠ **Efecto colateral que sigue abierto**: esto dejó **19 fichas con CERO enlaces disponibles** (ver
+pendiente propio más abajo). Antes era 1.
+
+<details><summary>Histórico del hallazgo (s44)</summary>
+
 Hallazgo de rebote al arreglar el JSON-LD (`c91f57e`, ver más abajo). El fix hacía que el
 botón de compra prefiriera un enlace a FICHA sobre uno a un listado de búsqueda, y solo
 resolvió **1 de 25** casos (`converse-shai-001`: zalando_es búsqueda → footlocker_es ficha).
@@ -340,15 +356,50 @@ tienda nueva. Las 3 chinas de AliExpress (`361-zen-7`, `rigorer-ar1`, `rigorer-w
 estaban señaladas desde la s36 ("la API no indexa esas marcas por keywords"): mismo pendiente,
 ahora con impacto SEO medido además del de conversión.
 
-### ⚠️ `adidas-harden-stepback-4`: posible fantasma, SIN DECIDIR (s44, 5-sep)
-Ver el hallazgo completo en *Datos / catálogo* más abajo (sección `_sesion_44_2026`). Resumen:
-sin rastro de un "Stepback 4" en ningún sitio (HoopsGeek, RunRepeat, retail), la sub-línea
-documentada llega al 3 (ene-2022), y la ficha tiene `predecesor_id: null` pese a decir ser
-la cuarta de una serie. Menos urgente que `adidas-trae-young-4` (que SÍ se confirmó y se
-retiró en `861bbd9`): aquí su único enlace ya está `disponible: false`, no recomienda nada
-activamente. **Pendiente de verificar rastro COMERCIAL** (SKU alguna vez en adidas.es,
-Amazon o cualquier tienda) antes de decidir si se retira — es la decisión del usuario, no
-se toca hasta entonces.
+</details>
+
+### ✅ CERRADO (s45, 6-sep): `adidas-harden-stepback-4` RETIRADA — era el segundo fantasma
+**Retirada en `8923af0`** por decisión del usuario, tras conseguir el rastro comercial que faltaba.
+Tres catálogos independientes, los tres con **control positivo** (venden la sub-línea a fondo, así
+que no es falta de cobertura):
+· **KicksCrew** → **32 SKUs** de Harden Stepback, generaciones 1, 2 y 3 (incluidos PS/kids y
+  colorways oscuros). **Cero de la 4.**
+· **Amazon ES** → 53 resultados y el único con "Stepback" en el título es "Harden Stepback Sport
+  Shoes", que es la gen 1 sin número.
+· **GOAT** → Stepback 'Scarlet' EH1943 (ene-2020), Stepback 2 'Oreo' FZ1545 (dic-2020) y
+  Stepback 3 'Ecru Tint' GY6415 (ago-2022). Nada más.
+Comprobado además que **NO era un renombre** de la "Harden Vol. 4 Step Back" FW3660, que sí existe:
+no cuadra (nuestra ficha decía 2023 / Bounce foam / 370 g / MSRP 80 €; la Vol. 4 Step Back es de
+2020 y monta Lightstrike). Limpiados los tres restos de la doctrina. Catálogo 243 → **242**.
+
+### ✅ El scraper está SANO (falsa alarma de la s46, 9-sep)
+Se llegó a abrir un pendiente "lleva 3 noches sin guardar precios". **Era falso.** `price-bot[bot]`
+ha commiteado todas las noches sin fallar (`bccaabb` 7-sep, `7fb7ee2` 8-sep) y el `generated_at` de
+`precios.json` va al día. La pasada del 8-sep hizo 192/601 aciertos, lo normal. **No hay nada que
+arreglar aquí.** Queda anotado por si alguien vuelve a leer mal lo mismo — ver las dos entradas de
+doctrina que salieron de este error, en *Verificar antes de concluir*.
+
+### 🔴 NUEVO (s45): 19 fichas con CERO enlaces disponibles — antes era 1
+Efecto colateral de marcar los falsos disponibles. **12 tienen motivo** (`proximamente`, sin lanzar,
+o no se venden en ES y está documentado: `nike-lebron-24`, `adidas-ae-3`, `puma-mb-06`, `jordan-41`,
+`adidas-cross-em-up-5`, `nb-kawhi-2`, `nb-omn1s`, `adidas-dame-8`, `air-jordan-10`,
+`nike-air-max-impact-5`, `nike-kyrie-flytrap-6`, `reebok-answer-iv`).
+**Las otras 7 no tienen excusa** y son retros/nicho que KicksCrew suele tener:
+`nike-air-max-cb-34` · `puma-sky-lx` · `adidas-eqt-basketball` · `reebok-blast` ·
+`nike-hyperdunk-2008` · `converse-larry-johnson` · `rigorer-warship`.
+La doctrina de `adidas-cross-em-up-5` (ficha viva, cero enlaces, MSRP) se decidió para **una**;
+diecinueve es otra conversación. **Decisión del usuario pendiente.**
+
+### 🔴 NUEVO (s45): la 361 ZEN 8 existe y no está en catálogo
+Verificado el 6-sep en `361sport.com/es-es`: **130 €**, **8 colorways** marcados "New" (BE WATER,
+Lovers' Lock, Yin Yang, Clutch, Arctic Flash, Big Winner, 24h, Golden Hour). Sucesora directa de
+nuestra `361-zen-7`. Encargada al terminal (P2).
+
+### 🔴 NUEVO (s45): dos enlaces pasan el criterio de reventa de ~2× MSRP
+Son los únicos dos del catálogo por encima del corte que aplicó `75ab314`:
+`adidas-pro-vision` **171,09 € sobre MSRP 74,99** (2,28×, amazon_es) y `lining-gamma-2`
+**282 € sobre 120** (2,35×, joom — con el agravante de que **Joom sigue sin aprobar**, así que ni
+monetiza). **Quitar enlaces es decisión del usuario**: anotado, no tocado.
 
 ### ⚠️ Afiliados — MEDIDO EN LOS PANELES (s41, 29-ago), ya no son suposiciones
 
@@ -534,9 +585,22 @@ de las 14 zapas se quedaba sin opción de compra (quedan entre 2 y 6 tiendas act
   · **Precio**: título del artículo "¿merece los 150€?" vs ficha `pros` "140€" vs `seoPages`
     "130-140€".
   ⇒ Lo barato es dejar la ficha como fuente única y quitar los números repetidos en prosa.
-- `361-zen-7`: **156,99 € (API AliExpress) vs 90 € (catálogo)**. ¿Cuál es el bueno? (s36)
-  → **Dato nuevo (s39)**: la tarifa oficial en `361sport.com/es-es` es **120 €**. Ninguno de los dos
-  la clava, pero deja el 90 € del catálogo como el sospechoso (por debajo de tarifa) más que el 156,99.
+- ✅ **CERRADO (s45, `d36407c`): las tarifas de 361° que la s39 dio por aplicadas NUNCA llegaron a
+  los datos — y encima se aplicaron a la ficha equivocada.** Re-verificado en vivo en
+  `361sport.com/es-es` el 6-sep:
+
+  | Ficha | Tarifa real | Teníamos | |
+  |---|---|---|---|
+  | `361-joker-1` | **140 €** | 150 | ✗ corregido |
+  | `361-joker-2` | **150 €** | 119 | ✗ corregido |
+  | `361-zen-7` | **120 €** | 90 | ✗ corregido |
+  | `361-joker-2-gt` | 200 € | 200 | ✓ |
+
+  El patrón delata el error: **el 150 de la Joker 2 acabó en la Joker 1**, y la Joker 2 se quedó con
+  los 119 € estimados por conversión del dólar que la propia s39 daba por malos. El 90 € de la ZEN 7
+  era el número que este mismo documento señalaba como "sospechoso por debajo de tarifa":
+  confirmado, eran 120. ⚠ **Lección**: que CLAUDE.md diga "CORREGIDO" no prueba que el dato cambiara
+  — verificar contra `zapatillas.ts`, no contra la nota.
 - `rigorer-ar1` / `rigorer-warship`: la API de AliExpress **no indexa** esas marcas nicho por
   keywords (0 candidatos, sin error). No hay nada que arreglar en código: **repuntar o quitar**. (s36)
 - **Los 7 `s.click` de marca china** (peak, anta, lining): ni click falso ni datos, congelados desde
@@ -702,6 +766,16 @@ Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
   enlaces de Amazon son búsquedas" salió de `grep` sobre `zapatillas.ts`; el número que ve el
   usuario es 87, porque `mergePrices` sustituye la URL en runtime. Medir siempre sobre el dato
   ya compuesto (importar `zapatillas`), no sobre el texto del que sale.
+- **En un log de GitHub Actions, el paso `Run` ECHA el script entero antes de ejecutarlo — s46.**
+  Se dio por hecho que el scraper llevaba 3 noches sin guardar porque el log "decía"
+  `Sin cambios en precios.json`. Esa línea era el **`echo` de la rama `else` del script**, listada
+  con el resto del bloque `##[group]Run`, no su salida. Dos líneas más abajo estaba lo que de
+  verdad pasó: `[master 7fb7ee2] chore(precios): actualizar precios`. **Las líneas con el escape
+  `^[[36;1m` son el script, no el resultado**: filtrarlas antes de concluir nada.
+- **`git log origin/master..HEAD` responde "¿qué tengo yo sin subir?", NO "¿estoy al día?" — s46.**
+  Con el remoto por delante devuelve VACÍO igual que si todo estuviera sincronizado, y eso fue lo
+  que sostuvo la falsa alarma del scraper: los commits del bot existían y no se veían. Para saber si
+  falta algo hay que mirar el sentido contrario, `HEAD..origin/master`, y con un `git fetch` delante.
 - **Un código de error DEDUCIDO no es un código de error MEDIDO.** La s40 concluyó "403 = permiso
   vetado" razonando desde fuera; el panel de OpenRouter no tenía ni un 403, tenía 429 por modelo.
   Media sesión de hipótesis que se resuelve en un minuto **mirando el panel del proveedor**. Antes
@@ -725,6 +799,23 @@ Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
   julio en el mercado y no está ni en Nike ES ni en Amazon ES.
 - **Un resultado no vacío no es un resultado correcto**: "air jordan 41" en Amazon devuelve AJ1 y
   AJ4 sueltas.
+- **Un buscador que funciona PERFECTAMENTE puede rellenar por similitud, y eso es indistinguible de
+  un acierto — s45.** Foot Locker ES falló en los 7 modelos que se le pidieron devolviendo 18-20
+  productos REALES de su catálogo, de otro modelo: `kd 19`→Harden Vol 10, `kobe 4/6 protro`→Kobe
+  X/5/9, `dame 8`→DON Issue 8, y el mejor, `new balance kawhi`→**Converse Shai**. El parámetro era
+  correcto (el `<title>` sale bien) y no devolvía el catálogo entero, o sea que **los dos chivatos
+  conocidos daban verde**. Chivato nuevo que sí sirvió: el primer resultado era una **tarjeta de
+  regalo**, que es lo que una tienda pone cuando no tiene nada que enseñar. ⇒ Con marca+modelo hay
+  que LEER los títulos devueltos, siempre.
+- **Que una nota diga "CORREGIDO" no prueba que el dato se corrigiera — s45.** Las tarifas de 361°
+  llevaban desde la s39 marcadas como aplicadas en CLAUDE.md y **tres de cuatro seguían mal** en
+  `zapatillas.ts`, con el agravante de que el valor bueno se había escrito en la ficha vecina.
+  Verificar contra el DATO, nunca contra la nota que dice que se hizo.
+- **Un `grep`/`awk` de `id: "X"` casa también con `sucesor_id: "X"` y `predecesor_id: "X"` — s45.**
+  Costó una falsa alarma de "el catálogo tiene los enlaces cruzados de otra generación": lo que
+  salía eran los enlaces de la ficha ANTERIOR. Anclar el patrón al principio de línea
+  (`^    id: "X",`). Es la misma trampa de subcadena del matcher de New Balance, pero mordiéndonos
+  en nuestras propias herramientas de medición.
 - **Antes de dar por bueno un fallo de scraping, separar agotado / no-match / enlace muerto.**
   De 15 "fallos" de Snipes, 7 eran agotados correctos, 4 matcher y 4 enlaces muertos.
 - **No celebrar una mejora con una sola noche de datos.** AliExpress 3→11 parecía éxito y era ruido
@@ -987,7 +1078,7 @@ Ordenación: **precio primero**, desempate por comisión dentro de ±0,50 €.
 
 ## Arquitectura de datos
 
-- **`web/src/data/zapatillas.ts`** — array `_rawZapatillas` con las 238 zapas. Exporta `zapatillas`,
+- **`web/src/data/zapatillas.ts`** — array `_rawZapatillas` con las 242 zapas. Exporta `zapatillas`,
   `getZapatillaBySlug()`, `getAllZapatillas()`. `mergePricesIntoShoes()` fusiona los precios del
   scraper.
 - **`web/src/data/precios.json`** — salida del scraper (CRLF). ⚠ Ver doctrina: fusiona y pisa.
@@ -1122,4 +1213,4 @@ presupuesto · ancho de pie · uso (auto-submit 400 ms).
   `cancha-quiz-respuestas` (sessionStorage).
 - **Scripts de mantenimiento**: `update-images.js`, `fix-encoding.js`, `optimize-images.mjs`,
   `gen-chat-catalog.ts`, y los `audit-*` listados arriba.
-- **Tests**: `npx vitest run` → 236.
+- **Tests**: `npx vitest run` → 239.
