@@ -404,9 +404,24 @@ solo stockea la generación ACTUAL** y rellena el resto por similitud. `lebron 2
 **`one take 5`→zapatillas de la marca On** · **`foamposite`→New Balance Fresh Foam**.
 Ninguna ficha se quedó sin opción de compra (simulado antes de tocar). Corregido de paso
 `adidas-don-issue-6`, que buscaba `query=nike+don+issue+6`.
-▶️ **QUEDAN 99 búsquedas disponibles en otras tiendas**, sin auditar: **nike_es 39** (el mismo
-patrón: `pg 6` devuelve gomas para el pelo), amazon_es 18, zalando_es 14, kickscrew 12, puma_es 7,
-ua_es 7, nb_es 1, reebok_es 1.
+### ✅ CERRADO (s46, `945afa0`): Nike ES — 38 de 39 búsquedas eran falsas
+Mismo barrido. **La única buena es `gt cut 4`** (3 colorways), y su existencia sirve de control
+positivo: el parámetro `?q=&vst=` funciona, lo que falla es el stock. Mismo mecanismo: **Nike ES
+solo vende la generación ACTUAL**. `kd 16/17/18`→KD19 · `sabrina 1/2`→Sabrina 4 · `ja 1/2`→Ja 4 ·
+`luka 1/2/3`→Luka 5 · `tatum 2/3`→Tatum 4 · `freak 4/5/6`→Freak 8 · `air jordan 37`→AJ 40 ·
+**`zion 3`→Flex Runner 4 de BEBÉ** · **`precision 7` y `why not 6`→botas de fútbol** ·
+**`don issue 6`→pantalones cortos** ("issue"→"Standard Issue").
+🔑 **Trampa nueva: REDIRECT SILENCIOSO A OTRO PAÍS.** `kobe 3/8/9 protro` acaban en **"Kobe. Nike
+UK"** y `kyrie low 5` en la landing de **Nike Basketball de EE.UU.** Cambia el dominio de país y es
+indistinguible de un acierto si solo miras que haya productos. ⇒ Comprobar SIEMPRE el `<title>` y
+la URL final, no solo que la página traiga zapatillas.
+⚠ Error de datos encontrado de paso: **`adidas-don-issue-6` tenía un enlace a `nike_es`** — una
+adidas apuntando a la tienda de Nike.
+
+▶️ **QUEDAN 60 búsquedas disponibles sin auditar**: amazon_es 18, zalando_es 14, kickscrew 12,
+puma_es 7, ua_es 7, nb_es 1, reebok_es 1. Es el siguiente barrido natural.
+⚠ **No dar por hecho que todas están mal**: en Nike salió 1 buena de 39 y en KicksCrew la s45
+encontró 5 fichas reales. Hay que comprobarlas una a una.
 
 ### 🔴 NUEVO (s46, 9-sep): VERCEL AL 100% DEL ALMACENAMIENTO — riesgo de corte
 Correo de Vercel del 7-sep: *"used 100% of the included free tier usage for Deployment Storage
