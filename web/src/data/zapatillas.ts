@@ -13162,7 +13162,8 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 85,
     links_compra: [
       { tienda: "puma_es", url: "https://eu.puma.com/es/es/search?q=sky+lx", precio_actual: 85, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+sky+lx+frazier&tag=canchazapa-21", precio_actual: 80, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+sky+lx+frazier&tag=canchazapa-21", precio_actual: 80, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-09" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/puma-sky-lx-mid-white-white-black-372874-04", precio_actual: 121.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-09" },
     ],
   },
 
@@ -13328,6 +13329,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+blast+retro+baloncesto&tag=canchazapa-21", precio_actual: 110, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/reebok-the-blast-lakers-gz9520", precio_actual: 188.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-09" },
     ],
   },
 
