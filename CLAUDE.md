@@ -395,11 +395,31 @@ Verificado el 6-sep en `361sport.com/es-es`: **130 €**, **8 colorways** marcad
 Lovers' Lock, Yin Yang, Clutch, Arctic Flash, Big Winner, 24h, Golden Hour). Sucesora directa de
 nuestra `361-zen-7`. Encargada al terminal (P2).
 
-### 🔴 NUEVO (s45): dos enlaces pasan el criterio de reventa de ~2× MSRP
-Son los únicos dos del catálogo por encima del corte que aplicó `75ab314`:
-`adidas-pro-vision` **171,09 € sobre MSRP 74,99** (2,28×, amazon_es) y `lining-gamma-2`
-**282 € sobre 120** (2,35×, joom — con el agravante de que **Joom sigue sin aprobar**, así que ni
-monetiza). **Quitar enlaces es decisión del usuario**: anotado, no tocado.
+### 🔴 NUEVO (s46, 9-sep): VERCEL AL 100% DEL ALMACENAMIENTO — riesgo de corte
+Correo de Vercel del 7-sep: *"used 100% of the included free tier usage for Deployment Storage
+(10 GB)"*, con aviso de **service disruption**. El equipo es `oswaldhs7-6948s-projects` (plan free).
+**No se puede tocar desde aquí**: el token del CLI de Vercel está caducado y `vercel login` es
+interactivo. **Hace falta que el usuario borre despliegues viejos desde el panel** — ahí está el
+grueso acumulado desde mayo (894 commits, 77 del price-bot, ~1 despliegue por push).
+✅ Lo que SÍ se hizo desde el repo (`deeb82b`): **−31% por despliegue**, ver *Front y verificación*.
+⚠ **Trampa al medir**: `du -sh web/dist` en local da 147 MB, pero **57 MB son
+`public/shoes/originals/` + `_orig_bk` + `_pre_reshoes`**, que están en `.gitignore` y NUNCA llegan
+a Vercel. El número real de despliegue era 89 MB y ahora son **61 MB**.
+
+### 🔴 NUEVO (s45, medido a fondo en s46): dos enlaces de reventa que incumplen reglas propias
+Verificados con navegador el 9-sep. **No se han quitado — es decisión del usuario** — pero los dos
+incumplen reglas que el proyecto ya tiene escritas:
+· **`adidas-pro-vision`**: su Foot Locker era otro falso disponible (devuelve **Nike React Vision** y
+  **Nike Court Vision**), corregido en `6dd5358`. Con eso su ÚNICO enlace vivo es Amazon a
+  **171,09 €** (verificado, carrito activo, Departamento "Hombre" → producto correcto) sobre MSRP
+  **74,99**: **2,28×**. Y como Amazon es afiliado y Foot Locker no, la web anuncia **"desde 171 €"
+  una zapatilla de 75**.
+· **`lining-gamma-2`**: AliExpress a **473,69 €** (precio corregido desde 491,39 en `6dd5358`;
+  producto correcto, POIZON-SPORTS, 6600+ vendidos) sobre MSRP 120 → **3,95×**. La regla de
+  AliExpress del proyecto dice literalmente que entra *"solo si su precio ≤ MSRP / precio mostrado
+  actual"*. Lo cuadruplica.
+⚠ El precio de la Gamma 2 hubo que leerlo de la **captura**: la ficha de AliExpress no trae JSON-LD
+y los selectores de precio devuelven también los del carrusel de recomendados.
 
 ### ⚠️ Afiliados — MEDIDO EN LOS PANELES (s41, 29-ago), ya no son suposiciones
 
@@ -981,6 +1001,18 @@ Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
   releer las guías: cambian.
 
 ### Front y verificación visual
+- 🔑 **Un componente en `Base.astro` con `define:vars` multiplica su payload por TODAS las páginas
+  — s46.** `CommandPalette` inlineaba el índice de búsqueda (60,7 KB) y `ChatWidget` el `SHOE_INDEX`
+  (40,5 KB): **101 KB de los 191 KB de cada ficha**, repetidos en 344 páginas. Los dos datos son
+  **bajo demanda** (nadie los necesita hasta abrir el buscador o el chat), así que pasaron a
+  endpoints estáticos (`src/pages/search-index.json.ts` y `shoe-index.json.ts`) que se piden al
+  abrir y el navegador cachea para todo el sitio (`deeb82b`). Ficha 188 → **104 KB**, despliegue
+  89 → **61 MB**. ⇒ Antes de meter `define:vars` en un componente global, multiplicar su peso por el
+  número de páginas.
+- ⚠ **Quitar `define:vars` cambia el TRATO del `<script>`, no solo sus datos — s46.** `define:vars`
+  implica `is:inline`; al quitarlo, Astro procesa y type-checkea el bloque, y saltaron **46 errores**
+  de código DOM preexistente ajeno al cambio. La solución no es arreglar los 46: es poner
+  `is:inline` explícito, que es el trato que ya tenía.
 - **El dev server y el service worker MIENTEN al verificar CSS.** El SW sirve el CSS viejo
   cache-first y el dev server resuelve mal los estilos con scope de Astro. Verificar contra
   `astro preview` del build y desregistrar el SW (`cz-cache-v*`). El SW se registra **por origen**:
