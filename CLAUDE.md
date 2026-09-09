@@ -395,6 +395,19 @@ Verificado el 6-sep en `361sport.com/es-es`: **130 €**, **8 colorways** marcad
 Lovers' Lock, Yin Yang, Clutch, Arctic Flash, Big Winner, 24h, Golden Hour). Sucesora directa de
 nuestra `361-zen-7`. Encargada al terminal (P2).
 
+### ✅ CERRADO (s46, `35402a7`): Foot Locker — los 36 enlaces de búsqueda eran falsos
+Barrido sistemático tras los 7 de la s45 y el 8º de hoy. Comprobados **los 36** con navegador:
+**36 de 36 mal**, ninguno devuelve el modelo de su ficha. Mecanismo confirmado: **Foot Locker ES
+solo stockea la generación ACTUAL** y rellena el resto por similitud. `lebron 22`→Kobe X ·
+`gt cut 3`→Cut 4 · `luka 1/2/3`→Luka 5 · `kd 16/17`→KD 18 · `ja 1/2`→Ja 3 · `sabrina 1`→Sabrina 4 ·
+`witness 8`→Witness 9 · `zion 3`→Luka 5 · `curry 11`→Immortality 5 (no trabaja UA basket) ·
+**`one take 5`→zapatillas de la marca On** · **`foamposite`→New Balance Fresh Foam**.
+Ninguna ficha se quedó sin opción de compra (simulado antes de tocar). Corregido de paso
+`adidas-don-issue-6`, que buscaba `query=nike+don+issue+6`.
+▶️ **QUEDAN 99 búsquedas disponibles en otras tiendas**, sin auditar: **nike_es 39** (el mismo
+patrón: `pg 6` devuelve gomas para el pelo), amazon_es 18, zalando_es 14, kickscrew 12, puma_es 7,
+ua_es 7, nb_es 1, reebok_es 1.
+
 ### 🔴 NUEVO (s46, 9-sep): VERCEL AL 100% DEL ALMACENAMIENTO — riesgo de corte
 Correo de Vercel del 7-sep: *"used 100% of the included free tier usage for Deployment Storage
 (10 GB)"*, con aviso de **service disruption**. El equipo es `oswaldhs7-6948s-projects` (plan free).
@@ -786,6 +799,11 @@ Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
   enlaces de Amazon son búsquedas" salió de `grep` sobre `zapatillas.ts`; el número que ve el
   usuario es 87, porque `mergePrices` sustituye la URL en runtime. Medir siempre sobre el dato
   ya compuesto (importar `zapatillas`), no sobre el texto del que sale.
+  ⚠ **Y no basta con MEDIR sobre el fusionado: hay que EDITAR sobre el mismo conjunto — s46.**
+  Se auditaron 36 búsquedas de Foot Locker sobre el catálogo fusionado y se aplicó el fix con un
+  `grep` sobre el fichero fuente: marcó **57**, porque las otras 21 eran búsquedas que el scraper
+  YA había resuelto a ficha en runtime. Medir en un conjunto y escribir en otro es la misma trampa
+  por la puerta de atrás. Revertir y emparejar por URL exacta.
 - **En un log de GitHub Actions, el paso `Run` ECHA el script entero antes de ejecutarlo — s46.**
   Se dio por hecho que el scraper llevaba 3 noches sin guardar porque el log "decía"
   `Sin cambios en precios.json`. Esa línea era el **`echo` de la rama `else` del script**, listada
