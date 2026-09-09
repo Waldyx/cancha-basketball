@@ -6,16 +6,11 @@
 
 import { zapatillas } from "../data/zapatillas";
 
-// Build index for client-side fuzzy search
-const index = zapatillas.map((z) => ({
-  slug: z.slug,
-  marca: z.marca,
-  modelo: z.modelo,
-  search: `${z.marca} ${z.modelo} ${z.slug} ${z.categoria_principal} ${z.tags.join(" ")}`.toLowerCase(),
-  precio: z.precio_msrp_eur,
-  cat: z.categoria_principal,
-  img: z.imagen_principal,
-}));
+// El índice de búsqueda NO se inlinea aquí: se sirve como `/search-index.json`
+// (ver `src/pages/search-index.json.ts`) y se pide la primera vez que se abre la
+// paleta. Este componente está en `Base.astro`, así que inlinearlo metía ~60 KB
+// del catálogo en CADA página del sitio.
+const totalZapas = zapatillas.length;
 
 // Static shortcuts (always shown when query is empty)
 const shortcuts = [
@@ -61,18 +56,33 @@ const shortcuts = [
       <span><kbd>↑↓</kbd> mover</span>
       <span><kbd>↵</kbd> abrir</span>
       <span><kbd>ESC</kbd> cerrar</span>
-      <span style="margin-left:auto">{zapatillas.length} zapas indexadas</span>
+      <span style="margin-left:auto">{totalZapas} zapas indexadas</span>
     </div>
   </div>
 </div>
 
-<script define:vars={{ index, shortcuts }}>
+<script define:vars={{ shortcuts }}>
   const $overlay = document.getElementById("cmdk");
   const $input = document.getElementById("cmdk-input");
   const $results = document.getElementById("cmdk-results");
   let active = 0;
 
+  // El índice llega bajo demanda desde /search-index.json la primera vez que se
+  // abre la paleta, y el navegador ya lo cachea para el resto del sitio.
+  let index = null;
+  let indexPromise = null;
+  function loadIndex() {
+    if (!indexPromise) {
+      indexPromise = fetch("/search-index.json")
+        .then((r) => r.json())
+        .then((d) => { index = d; return d; })
+        .catch(() => { indexPromise = null; return null; });
+    }
+    return indexPromise;
+  }
+
   function open() {
+    loadIndex();
     $overlay.classList.remove("hidden");
     $input.value = "";
     renderShortcuts();
@@ -123,6 +133,16 @@ const shortcuts = [
 
   function renderResults(q) {
     if (!q) { renderShortcuts(); return; }
+    if (!index) {
+      // Aún no ha llegado el índice: se avisa y se repinta al llegar, pero solo
+      // si el usuario no ha seguido escribiendo (si no, pisaríamos su consulta).
+      $results.innerHTML = `<div class="cmdk-empty"><p>Cargando el catálogo…</p></div>`;
+      active = -1;
+      loadIndex().then((d) => {
+        if (d && $input.value.trim() === q) renderResults(q);
+      });
+      return;
+    }
     const ql = q.toLowerCase();
     const matched = index
       .filter(z => z.search.includes(ql))

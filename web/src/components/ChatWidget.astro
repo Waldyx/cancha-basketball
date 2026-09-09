@@ -13,27 +13,9 @@
 //
 // Mini-cards: si la respuesta incluye un marcador [[shoe:<slug>]], se sustituye
 // por una card con foto + score + precio + link. Los datos de zapa se inyectan
-// desde zapatillas.ts en build time (SHOE_INDEX abajo) — sin llamadas extra.
-
-import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecioMostrado } from "../lib/scoring";
-
-// Índice mínimo para las mini-cards (todas las zapas, ~200)
-const SHOE_INDEX = Object.fromEntries(
-  zapatillas.map((z) => {
-    const vals = Object.values(z.puntuaciones);
-    const score = Math.round((vals.reduce((a, b) => a + b, 0) / vals.length) * 10) / 10;
-    const precio = (findMejorPrecioMostrado(z.links_compra)?.precio_actual) ?? z.precio_msrp_eur;
-    return [z.slug, {
-      marca: z.marca,
-      modelo: z.modelo,
-      img: z.imagen_principal,
-      score,
-      precio: Math.round(precio),
-      cat: z.categoria_principal,
-    }];
-  })
-);
+// desde `/shoe-index.json` (ver `src/pages/shoe-index.json.ts`), que se pide al
+// abrir el chat. NO se inlinea aquí: este componente está en `Base.astro`, así
+// que hacerlo metía ~40 KB del catálogo en CADA página del sitio.
 
 const SUGERENCIAS = [
   "¿Mejor zapa para base <130€?",
@@ -110,7 +92,26 @@ const SUGERENCIAS = [
   </div>
 </div>
 
-<script define:vars={{ SHOE_INDEX }}>
+<script is:inline>
+  // `is:inline` explícito: antes lo era de forma implícita por `define:vars`.
+  // Sin él, Astro procesa y type-checkea este bloque y saltan 46 errores de
+  // código DOM preexistente que no toca esta tarea.
+  //
+  // Se carga al abrir el chat. Para cuando llega una respuesta del modelo
+  // (>10 s) ya está aquí; si aun así no lo estuviera, `shoeCard` degrada a un
+  // enlace simple en vez de tragarse el marcador.
+  let SHOE_INDEX = null;
+  let shoeIndexPromise = null;
+  function loadShoeIndex() {
+    if (!shoeIndexPromise) {
+      shoeIndexPromise = fetch("/shoe-index.json")
+        .then((r) => r.json())
+        .then((d) => { SHOE_INDEX = d; return d; })
+        .catch(() => { shoeIndexPromise = null; return null; });
+    }
+    return shoeIndexPromise;
+  }
+
   const root = document.getElementById("cz-chat");
   const bubble = document.getElementById("cz-chat-bubble");
   const panel = document.getElementById("cz-chat-panel");
@@ -130,6 +131,7 @@ const SUGERENCIAS = [
     root.dataset.open = String(open);
     bubble.setAttribute("aria-expanded", String(open));
     if (open) {
+      loadShoeIndex();
       setTimeout(() => input.focus(), 240);
       try { localStorage.setItem("cz.chat.seen", "1"); } catch {}
       root.querySelector(".ccb-pulse")?.classList.add("hidden");
@@ -175,8 +177,17 @@ const SUGERENCIAS = [
   }
 
   function shoeCard(slug) {
-    const z = SHOE_INDEX[slug];
-    if (!z) return null;
+    const z = SHOE_INDEX ? SHOE_INDEX[slug] : null;
+    if (!z) {
+      // Sin índice (o slug desconocido) no se pierde la recomendación: se
+      // devuelve el enlace pelado, que es mejor que tragarse el marcador.
+      if (SHOE_INDEX) return null;
+      const link = document.createElement("a");
+      link.href = `/zapatilla/${slug}`;
+      link.className = "cc-shoe";
+      link.textContent = `Ver ${slug.replace(/-/g, " ")} →`;
+      return link;
+    }
     const a = document.createElement("a");
     a.href = `/zapatilla/${slug}`;
     a.className = "cc-shoe";
