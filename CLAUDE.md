@@ -109,7 +109,7 @@ Sesión a DOS AGENTES (ver *Infra*): una sesión ejecuta y commitea, la otra dec
      (ninguna ficha se quedó sin opción de compra). Ver el pendiente propio más abajo si queda
      alguna referencia histórica.
 
-4. 📧 **Joom: reclamación enviada (1-sep), esperando respuesta.** Ver *Afiliados*.
+4. 📧 **Joom: CONTESTÓ el 10-sep — no acepta publishers nuevos en Awin, hay que ir por Impact.** Ver *Pendientes*.
 
 ---
 
@@ -298,6 +298,37 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 ---
 
 ## 🔴 Pendientes abiertos
+
+### ▶️ PARA RETOMAR (s46, 11-sep) — decisiones que esperan al usuario, por orden
+1. **Joom: ¿sacarlo de `TIENDAS_PENDIENTES`?** (recomendado, ver bloque siguiente). 1 línea en
+   `scoring.ts`, reversible. NO hecho: el usuario dijo "mañana seguimos" antes de responder.
+2. **Joom: ¿darse de alta en Impact?** Crear la cuenta es cosa suya.
+3. **Vercel al 100%**: borrar despliegues viejos desde el panel (ver bloque propio).
+4. **Los 2 enlaces de reventa** (`adidas-pro-vision` 2,28×, `lining-gamma-2` 3,95×).
+5. **361 ZEN 8 (130 €) y AG 6 (110 €)**: fichas nuevas listas para entrar, con score editorial.
+6. Seguir el barrido de búsquedas: quedan 60 sin auditar (Amazon 18, Zalando 14, KicksCrew 12…).
+
+### 🔴 NUEVO (s46, 11-sep): JOOM NO VA POR AWIN — y hoy pone precios de titular en 15 fichas
+**Respuesta de Joom (Viviana, 10-sep) a la reclamación del 1-sep**: *"please go ahead and join our
+program on **Impact**. We don't accept new partners on AWIN."* ⇒ La solicitud de Awin **no estaba
+atascada: no se va a aprobar nunca**. La vía es **impact.com** (alta del usuario). **No contestó** a
+la pregunta de la comisión en calzado: el 12% era la cifra de Awin, en Impact está por confirmar.
+
+**Consecuencia en la web, medida el 11-sep**: `joom` está en `TIENDAS_PENDIENTES` (`scoring.ts:474`),
+o sea que su precio se enseña *porque la aprobación estaba en curso* — y esa premisa acaba de caer.
+Tiene **19 enlaces, todos disponibles**, y **pone el "desde X€" en 15 fichas**, la mayoría a la
+MITAD del MSRP: `nike-giannis-freak-7` **56 €** (MSRP 120) · `nike-lebron-22` **90 €** (200) ·
+`jordan-tatum-3` **75 €** (145) · `nike-zoom-freak-6` **77 €** (150) · `ua-embiid-1` y `ua-curry-10`
+**81 €** (160) · `nike-kobe-3-protro` 115 € (200) · `nike-lebron-nxxt-genisus` 79 € (125)…
+Una Nike signature a la mitad de precio en un marketplace es lo que la regla de AliExpress del
+proyecto llama *"sospechosamente barata = réplica"*.
+
+**Simulado qué pasa al sacarlo de pendientes** (los enlaces se quedan como "Ver precio en Joom",
+solo deja de salir su número): el "desde" cae a la siguiente tienda que SÍ monetiza o al MSRP —
+Freak 7 → 68,99 € ECI · LeBron 22 → 103,74 € Amazon · Tatum 3 → 80,24 € AliExpress · Freak 6 →
+119,90 € FuikaOmar · Curry 10 → 126,29 € Amazon · KAI 3, GT Cut 4, Shox BB4 y Embiid 1 → MSRP.
+⚠ **Efecto raro**: `lining-gamma-2` EMPEORA (282 → 473,69 €), porque sin Joom manda el AliExpress de
+reventa que ya está pendiente de decidir (punto 4). Conviene decidir los dos a la vez.
 
 ### ✅ CERRADO (s45, 6-sep): las 24 fichas sin enlace de ficha real — quedan CERO
 **Resuelto entero en `4d55a05` + `d9e957d` + `d36407c`.** De las 24: **10 fichas reales fijadas**
@@ -510,7 +541,8 @@ y los selectores de precio devuelven también los del carrusel de recomendados.
 
 **Estado de las solicitudes en Awin (verificado en el panel, 29-ago):**
 - ⏳ **Pendientes (3)**: Sneakin ES, Reebok ES, Joom ES. Pro:Direct ES ya no figura como pendiente.
-- 📧 **JOOM ES — RECLAMACIÓN ENVIADA EL 1-SEP, esperando respuesta.** Es el programa más
+- ❌ **JOOM ES — RESPONDIDO EL 10-SEP: "We don't accept new partners on AWIN", la vía es Impact.**
+  Ver el pendiente propio arriba. Lo que sigue es el histórico de la reclamación. Es el programa más
   interesante de los tres y merece seguimiento:
   · **AID 48435** · publisher 2908587 · **comisión por defecto 12%** (el doble que AliExpress, 4×
     Amazon) · cookie 30 días · validación 30 días.
@@ -1100,7 +1132,7 @@ de tiendas afiliadas/pendientes; si no hay ninguna disponible, MSRP oficial.
 | Snipes EU | 122628 | |
 | El Corte Inglés ES | 13075 | 🔥 EPC €13.99, comisión 6%. NO permite Cashback |
 
-**⏳ Pendientes**: Joom ES (desbloquea 19 links ya en BD), Sneakin ES, Pro:Direct ES, Reebok ES (5 links).
+**⏳ Pendientes**: Sneakin ES, Pro:Direct ES, Reebok ES (5 links). ~~Joom ES~~ → **no va por Awin** (10-sep), vía Impact.
 **❌ Rechazados** (reintentar en 3-6 meses): Foot Locker, JD Sports, Sprinter, Foot-Store,
 size?Official, Privé by Zalando, Basket-Center. ⚠ Zalando (27 links) y size? (1) pasaron de
 pendientes a rechazados → son peso muerto, tratar como "Ver precio".
