@@ -471,8 +471,12 @@ export function findMejorPrecio(links: LinkCompra[]): LinkCompra | undefined {
 // ─────────────────────────────────────────────────────────
 
 // Tiendas pendientes de aprobación: mostramos su precio porque convertirán pronto.
+// `joom` SALIÓ el 11-sep-2026: Joom contestó que no acepta publishers nuevos en
+// Awin (la vía es Impact), así que dejó de estar "pendiente". Además sus precios
+// ponían el "desde X€" de 15 fichas a la mitad del MSRP. Si algún día se aprueba
+// en Impact, se vuelve a meter aquí.
 const TIENDAS_PENDIENTES = new Set([
-  "joom", "reebok_es", "basket_center_es", "sneakin_es", "prodirect_es",
+  "reebok_es", "basket_center_es", "sneakin_es", "prodirect_es",
 ]);
 
 /**

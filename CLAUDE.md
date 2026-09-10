@@ -299,10 +299,27 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ## 🔴 Pendientes abiertos
 
-### ▶️ PARA RETOMAR (s46, 11-sep) — decisiones que esperan al usuario, por orden
-1. **Joom: ¿sacarlo de `TIENDAS_PENDIENTES`?** (recomendado, ver bloque siguiente). 1 línea en
-   `scoring.ts`, reversible. NO hecho: el usuario dijo "mañana seguimos" antes de responder.
+### ▶️ PARA RETOMAR (s47, 12-sep) — lo primero que hay que leer
+1. ✅ **HECHO (s47): `joom` fuera de `TIENDAS_PENDIENTES`** (`scoring.ts`), decidido en modo director
+   con delegación del usuario. Reversible: si Impact aprueba, se vuelve a meter. 239 tests OK.
+   Los 19 enlaces siguen vivos como "Ver precio en Joom"; solo deja de salir su número.
+1b. 🔴 **NUEVO (s47): 11 de los 19 enlaces de Joom llevan el TRACKING DE IMPACT DE OTRO PUBLISHER**
+   (`utm_source=impact&irgwc=1&utm_campaign=2700663`). Viven en `precios.json`, NO en
+   `zapatillas.ts` (el fuente tiene 0 `irgwc`): los metió el scraper al resolver URLs. **Nosotros no
+   estamos en Impact**, así que si alguien compra por esos enlaces la comisión se la lleva otro.
+   ⇒ Si el usuario se da de alta en Impact, hay que REGENERAR los 19 con SU campaña, no reusar estos.
+   ⇒ Aunque no se dé de alta, conviene limpiar esos parámetros (no es nuestro tráfico que regalar).
 2. **Joom: ¿darse de alta en Impact?** Crear la cuenta es cosa suya.
+2b. ⛔ **Los 2 enlaces de reventa NO se pudieron quitar en la s47: el clasificador de permisos
+   BLOQUEÓ el borrado** (quitar enlaces es decisión del usuario, y está bien que lo frene). Queda
+   preparado: viven en los DOS sitios y hay que quitarlos de ambos o el merge los reañade —
+   `zapatillas.ts` (líneas con `amazon.es/dp/B07HF9YN5L` y `1005012511374212`) **y** `precios.json`
+   (clave entera `"adidas-pro-vision"` + el objeto aliexpress de `"lining-gamma-2"`, CRLF, sin
+   round-trip `JSON.stringify`).
+2c. 🤖 **Hay un tercer trabajador: LM Studio local** (Qwen3.8 27B uncensored, 16k contexto, ~18 tok/s)
+   con API OpenAI-compatible en `http://localhost:1234/v1`. El servidor viene APAGADO: se arranca con
+   `~/.cache/lm-studio/bin/lms.exe server start`. **Solo para redacción** (prosa de fichas a partir de
+   datos ya verificados), NUNCA para datos: no navega y un modelo local sin fuentes inventa.
 3. **Vercel al 100%**: borrar despliegues viejos desde el panel (ver bloque propio).
 4. **Los 2 enlaces de reventa** (`adidas-pro-vision` 2,28×, `lining-gamma-2` 3,95×).
 5. **361 ZEN 8 (130 €) y AG 6 (110 €)**: fichas nuevas listas para entrar, con score editorial.
