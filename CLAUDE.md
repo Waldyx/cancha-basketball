@@ -303,12 +303,17 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 1. ✅ **HECHO (s47): `joom` fuera de `TIENDAS_PENDIENTES`** (`scoring.ts`), decidido en modo director
    con delegación del usuario. Reversible: si Impact aprueba, se vuelve a meter. 239 tests OK.
    Los 19 enlaces siguen vivos como "Ver precio en Joom"; solo deja de salir su número.
-1b. 🔴 **NUEVO (s47): 11 de los 19 enlaces de Joom llevan el TRACKING DE IMPACT DE OTRO PUBLISHER**
-   (`utm_source=impact&irgwc=1&utm_campaign=2700663`). Viven en `precios.json`, NO en
-   `zapatillas.ts` (el fuente tiene 0 `irgwc`): los metió el scraper al resolver URLs. **Nosotros no
-   estamos en Impact**, así que si alguien compra por esos enlaces la comisión se la lleva otro.
+1b. 🟡 **(s47, REBAJADO tras medir) 11 de los 19 enlaces de Joom llevan restos del tracking de
+   Impact de otro publisher** (`utm_source=impact&irgwc=1&utm_campaign=2700663`). Viven en
+   `precios.json`, NO en `zapatillas.ts` (el fuente tiene 0 `irgwc`).
+   · **Ninguno lleva `irclickid`**, que es el id con el que Impact atribuye la venta: son restos de
+     un enlace copiado, no una atribución viva. La primera nota ("la comisión se la lleva otro")
+     era DEDUCIDA y casi seguro falsa. Lo único que ensucian es la analítica de Joom.
+   · **Ningún scraper los toca**: no hay módulo de Joom, y los 19 tienen `ultima_verificacion` entre
+     31-may y 27-jul. Una limpieza única NO se revierte sola. (Tampoco los metió "el scraper al
+     resolver URLs", como decía la nota: no hay nada que los resuelva.)
+   ⇒ Limpiar los parámetros es de baja prioridad (encargado al terminal detrás del barrido).
    ⇒ Si el usuario se da de alta en Impact, hay que REGENERAR los 19 con SU campaña, no reusar estos.
-   ⇒ Aunque no se dé de alta, conviene limpiar esos parámetros (no es nuestro tráfico que regalar).
 2. **Joom: ¿darse de alta en Impact?** Crear la cuenta es cosa suya.
 2b. ⛔ **Los 2 enlaces de reventa NO se pudieron quitar en la s47: el clasificador de permisos
    BLOQUEÓ el borrado** (quitar enlaces es decisión del usuario, y está bien que lo frene). Queda
@@ -322,8 +327,9 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
    datos ya verificados), NUNCA para datos: no navega y un modelo local sin fuentes inventa.
 3. **Vercel al 100%**: borrar despliegues viejos desde el panel (ver bloque propio).
 4. **Los 2 enlaces de reventa** (`adidas-pro-vision` 2,28×, `lining-gamma-2` 3,95×).
-5. **361 ZEN 8 (130 €) y AG 6 (110 €)**: fichas nuevas listas para entrar, con score editorial.
-6. Seguir el barrido de búsquedas: quedan 60 sin auditar (Amazon 18, Zalando 14, KicksCrew 12…).
+5. **361 ZEN 8 (130 €) y AG 6 (110 €)**: fichas nuevas, score editorial → **encargadas al terminal**
+   (TAREA 3 de `ENCARGO.md`, detrás del barrido y de la limpieza de Joom).
+6. Seguir el barrido de búsquedas: quedan 60 sin auditar → **encargado al terminal** (TAREA 1).
 
 ### 🔴 NUEVO (s46, 11-sep): JOOM NO VA POR AWIN — y hoy pone precios de titular en 15 fichas
 **Respuesta de Joom (Viviana, 10-sep) a la reclamación del 1-sep**: *"please go ahead and join our
