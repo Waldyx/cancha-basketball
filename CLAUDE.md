@@ -325,6 +325,15 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
    con API OpenAI-compatible en `http://localhost:1234/v1`. El servidor viene APAGADO: se arranca con
    `~/.cache/lm-studio/bin/lms.exe server start`. **Solo para redacción** (prosa de fichas a partir de
    datos ya verificados), NUNCA para datos: no navega y un modelo local sin fuentes inventa.
+2d. 🤖 **Cuarto trabajador: Gemini CLI** (`gemini`, headless desde el repo, contenido por stdin). Excelente en
+   lectura masiva (auditó los 48 artículos en 61 s). Web ROTA mientras use la clave gratuita: el usuario tiene
+   Google AI Pro, falta que haga `/auth` → "Sign in with Google". Config en `GEMINI.md` + `.gemini/settings.json`.
+2e. ✅ **Cerrado el 11-sep por el terminal** (todo revisado por la dirección): barrido de 62 búsquedas (22 fijadas /
+   39 falsas) · TAREA 7 merge por ASIN (`9982f37`) · TAREA 9 "la ficha manda" + 8 reposiciones reales (AJ41 y Caitlin 1 en
+   Nike ES) · TAREA 8 `esEnlaceDeBusqueda` · Curry 13 (`6a8cc89`, tarifa UA ES 140 €) · tablas de artículos desde la
+   ficha con candado en vitest (`40d4426`). En cola: ZEN 8/AG 6 → cortes low/mid/high de 13 zapas (el quiz filtra
+   low-top a lesionados de tobillo, `scoring.ts:245`) → 7 fichas a cero. Pendiente mío: parche de pesos en prosa
+   (35 líneas; el Qwen falló la mitad, se repite con Gemini) y la fase de precios en prosa.
 3. **Vercel al 100%**: borrar despliegues viejos desde el panel (ver bloque propio).
 4. **Los 2 enlaces de reventa** (`adidas-pro-vision` 2,28×, `lining-gamma-2` 3,95×).
 5. **361 ZEN 8 (130 €) y AG 6 (110 €)**: fichas nuevas, score editorial → **encargadas al terminal**
