@@ -218,8 +218,8 @@ export const ARTICLES: Article[] = [
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Peso</td>
-      <td style="padding:8px;text-align:center">340g</td>
-      <td style="padding:8px;text-align:center">⭐ 326g</td>
+      <td style="padding:8px;text-align:center">{{peso:adidas-ae-2}}</td>
+      <td style="padding:8px;text-align:center">{{peso:nike-ja-3}}</td>
     </tr>
     <tr>
       <td style="padding:8px">Precio</td>
@@ -415,21 +415,21 @@ export const ARTICLES: Article[] = [
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
-      <td style="padding:8px;text-align:center">179€</td>
+      <td style="padding:8px;text-align:center">{{precio:nike-lebron-23}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike KD 19</strong></td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">149€</td>
+      <td style="padding:8px;text-align:center">{{precio:nike-kd-19}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Air Jordan 40</strong></td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">199€</td>
+      <td style="padding:8px;text-align:center">{{precio:jordan-40}}</td>
     </tr>
     <tr>
       <td style="padding:8px"><strong>ANTA KT 11</strong></td>
@@ -540,12 +540,12 @@ export const ARTICLES: Article[] = [
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike Ja 3</strong></td>
       <td style="padding:8px;text-align:center">⭐ 8/10</td>
-      <td style="padding:8px;text-align:center">135€</td>
+      <td style="padding:8px;text-align:center">{{precio:nike-ja-3}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Adidas AE 2</strong></td>
       <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">130€</td>
+      <td style="padding:8px;text-align:center">{{precio:adidas-ae-2}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>ANTA Kai 2</strong></td>
@@ -555,12 +555,12 @@ export const ARTICLES: Article[] = [
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike LeBron 23</strong></td>
       <td style="padding:8px;text-align:center">7/10</td>
-      <td style="padding:8px;text-align:center">179€</td>
+      <td style="padding:8px;text-align:center">{{precio:nike-lebron-23}}</td>
     </tr>
     <tr>
       <td style="padding:8px"><strong>UA Curry 13</strong></td>
       <td style="padding:8px;text-align:center">❌ 2/10</td>
-      <td style="padding:8px;text-align:center">140€</td>
+      <td style="padding:8px;text-align:center">{{precio:ua-curry-13}}</td>
     </tr>
   </tbody>
 </table>
@@ -803,15 +803,15 @@ export const ARTICLES: Article[] = [
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Peso</td>
-      <td style="padding:8px;text-align:center">⭐ 310g</td>
-      <td style="padding:8px;text-align:center">352g</td>
-      <td style="padding:8px;text-align:center">330g</td>
+      <td style="padding:8px;text-align:center">{{peso:nike-gt-cut-4}}</td>
+      <td style="padding:8px;text-align:center">{{peso:ua-curry-13}}</td>
+      <td style="padding:8px;text-align:center">{{peso:anta-kai-2}}</td>
     </tr>
     <tr>
       <td style="padding:8px">Precio</td>
-      <td style="padding:8px;text-align:center">150€</td>
-      <td style="padding:8px;text-align:center">140€</td>
-      <td style="padding:8px;text-align:center">⭐ 119€</td>
+      <td style="padding:8px;text-align:center">{{precio:nike-gt-cut-4}}</td>
+      <td style="padding:8px;text-align:center">{{precio:ua-curry-13}}</td>
+      <td style="padding:8px;text-align:center">{{precio:anta-kai-2}}</td>
     </tr>
   </tbody>
 </table>
@@ -1154,8 +1154,8 @@ export const ARTICLES: Article[] = [
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Peso</td>
-      <td style="padding:8px;text-align:center">⭐ 355g</td>
-      <td style="padding:8px;text-align:center">370g</td>
+      <td style="padding:8px;text-align:center">{{peso:puma-mb-04}}</td>
+      <td style="padding:8px;text-align:center">{{peso:puma-mb05}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Score CANCHA</td>
@@ -1255,8 +1255,8 @@ export const ARTICLES: Article[] = [
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Peso</td>
-      <td style="padding:8px;text-align:center">345g</td>
-      <td style="padding:8px;text-align:center">⭐ 340g</td>
+      <td style="padding:8px;text-align:center">{{peso:jordan-tatum-4}}</td>
+      <td style="padding:8px;text-align:center">{{peso:adidas-ae-2}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Altura</td>
@@ -1849,10 +1849,10 @@ export const ARTICLES: Article[] = [
     </tr>
     <tr>
       <td style="padding:8px;color:var(--cz-fg3)">Peso</td>
-      <td style="padding:8px;text-align:center;color:#fb923c">390g</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-green)">350g</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-green)">330g</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-green)">305g</td>
+      <td style="padding:8px;text-align:center;color:#fb923c">{{peso:jordan-tatum-4}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">{{peso:adidas-ae-2}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">{{peso:ua-curry-13}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">{{peso:nike-gt-cut-4}}</td>
     </tr>
   </tbody>
 </table>
@@ -2020,35 +2020,35 @@ export const ARTICLES: Article[] = [
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">⭐ 8/10</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
-      <td style="padding:8px;text-align:center">150€</td>
+      <td style="padding:8px;text-align:center">{{precio:jordan-tatum-4}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Adidas Harden Vol 9</strong></td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
       <td style="padding:8px;text-align:center">7/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">⭐ 129€</td>
+      <td style="padding:8px;text-align:center">{{precio:adidas-harden-vol-9}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike KD 17</strong></td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">149€</td>
+      <td style="padding:8px;text-align:center">{{precio:nike-kd-17}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>UA Flow Breakthru 4</strong></td>
       <td style="padding:8px;text-align:center">7/10</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
       <td style="padding:8px;text-align:center">7/10</td>
-      <td style="padding:8px;text-align:center">⭐ 120€</td>
+      <td style="padding:8px;text-align:center">{{precio:ua-flow-breakthru-4}}</td>
     </tr>
     <tr>
       <td style="padding:8px"><strong>Jordan Luka 4</strong></td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">7/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">145€</td>
+      <td style="padding:8px;text-align:center">{{precio:jordan-luka-4}}</td>
     </tr>
   </tbody>
 </table>
@@ -2424,36 +2424,36 @@ export const ARTICLES: Article[] = [
       <td style="padding:8px"><strong>Nike GT Cut 4</strong></td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
-      <td style="padding:8px;text-align:center">⭐ 310g</td>
-      <td style="padding:8px;text-align:center">150€</td>
+      <td style="padding:8px;text-align:center">{{peso:nike-gt-cut-4}}</td>
+      <td style="padding:8px;text-align:center">{{precio:nike-gt-cut-4}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>UA Curry 13</strong></td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">9/10</td>
-      <td style="padding:8px;text-align:center">352g</td>
-      <td style="padding:8px;text-align:center">140€</td>
+      <td style="padding:8px;text-align:center">{{peso:ua-curry-13}}</td>
+      <td style="padding:8px;text-align:center">{{precio:ua-curry-13}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Adidas AE 2</strong></td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">9/10</td>
-      <td style="padding:8px;text-align:center">340g</td>
-      <td style="padding:8px;text-align:center">⭐ 130€</td>
+      <td style="padding:8px;text-align:center">{{peso:adidas-ae-2}}</td>
+      <td style="padding:8px;text-align:center">{{precio:adidas-ae-2}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>ANTA Kai 2</strong></td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">330g</td>
-      <td style="padding:8px;text-align:center">⭐ 119€</td>
+      <td style="padding:8px;text-align:center">{{peso:anta-kai-2}}</td>
+      <td style="padding:8px;text-align:center">{{precio:anta-kai-2}}</td>
     </tr>
     <tr>
       <td style="padding:8px"><strong>Nike Ja 3</strong></td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">326g</td>
-      <td style="padding:8px;text-align:center">135€</td>
+      <td style="padding:8px;text-align:center">{{peso:nike-ja-3}}</td>
+      <td style="padding:8px;text-align:center">{{precio:nike-ja-3}}</td>
     </tr>
   </tbody>
 </table>
@@ -2656,35 +2656,35 @@ export const ARTICLES: Article[] = [
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">7/10</td>
-      <td style="padding:8px;text-align:center">179€</td>
+      <td style="padding:8px;text-align:center">{{precio:nike-lebron-23}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike KD 19</strong></td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">⭐ 8/10</td>
-      <td style="padding:8px;text-align:center">149€</td>
+      <td style="padding:8px;text-align:center">{{precio:nike-kd-19}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Jordan Luka 4</strong></td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
       <td style="padding:8px;text-align:center">7/10</td>
-      <td style="padding:8px;text-align:center">145€</td>
+      <td style="padding:8px;text-align:center">{{precio:jordan-luka-4}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Adidas Harden Vol 9</strong></td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">7/10</td>
-      <td style="padding:8px;text-align:center">⭐ 129€</td>
+      <td style="padding:8px;text-align:center">{{precio:adidas-harden-vol-9}}</td>
     </tr>
     <tr>
       <td style="padding:8px"><strong>Air Jordan 40</strong></td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">⭐ 9/10</td>
-      <td style="padding:8px;text-align:center">199€</td>
+      <td style="padding:8px;text-align:center">{{precio:jordan-40}}</td>
     </tr>
   </tbody>
 </table>
@@ -2949,29 +2949,29 @@ export const ARTICLES: Article[] = [
       <td style="padding:8px"><strong>Nike Kobe 8 Protro</strong></td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
-      <td style="padding:8px;text-align:center">⭐ 280g</td>
-      <td style="padding:8px;text-align:center">180€</td>
+      <td style="padding:8px;text-align:center">{{peso:nike-kobe-8-protro}}</td>
+      <td style="padding:8px;text-align:center">{{precio:nike-kobe-8-protro}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike GT Cut 4</strong></td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">9/10</td>
-      <td style="padding:8px;text-align:center">310g</td>
-      <td style="padding:8px;text-align:center">150€</td>
+      <td style="padding:8px;text-align:center">{{peso:nike-gt-cut-4}}</td>
+      <td style="padding:8px;text-align:center">{{precio:nike-gt-cut-4}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>UA Curry 13</strong></td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
-      <td style="padding:8px;text-align:center">352g</td>
-      <td style="padding:8px;text-align:center">140€</td>
+      <td style="padding:8px;text-align:center">{{peso:ua-curry-13}}</td>
+      <td style="padding:8px;text-align:center">{{precio:ua-curry-13}}</td>
     </tr>
     <tr>
       <td style="padding:8px"><strong>Adidas AE 2</strong></td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">340g</td>
-      <td style="padding:8px;text-align:center">130€</td>
+      <td style="padding:8px;text-align:center">{{peso:adidas-ae-2}}</td>
+      <td style="padding:8px;text-align:center">{{precio:adidas-ae-2}}</td>
     </tr>
   </tbody>
 </table>
