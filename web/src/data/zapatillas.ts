@@ -13563,7 +13563,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=fila+mb+mashburn&tag=canchazapa-21", precio_actual: 110, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=FILA+MB+Mashburn", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-08" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/fila-mb1-f12w041201fii", precio_actual: 145.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
     ],
   },
 
