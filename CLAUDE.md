@@ -472,10 +472,14 @@ la URL final, no solo que la página traiga zapatillas.
 ⚠ Error de datos encontrado de paso: **`adidas-don-issue-6` tenía un enlace a `nike_es`** — una
 adidas apuntando a la tienda de Nike.
 
-▶️ **QUEDAN 60 búsquedas disponibles sin auditar**: amazon_es 18, zalando_es 14, kickscrew 12,
-puma_es 7, ua_es 7, nb_es 1, reebok_es 1. Es el siguiente barrido natural.
-⚠ **No dar por hecho que todas están mal**: en Nike salió 1 buena de 39 y en KicksCrew la s45
-encontró 5 fichas reales. Hay que comprobarlas una a una.
+✅ **CERRADO (s47, 11-sep): las 62 búsquedas que quedaban** (eran 62, no 60: amazon 19 y una de nike_es ya
+buena). Resultado: **22 fichas reales fijadas, 39 falsas** (`disponible:false`, enlace conservado), 1 sin tocar
+(`fila-mb`, pendiente de la prueba del SKU 1BM01). **0 fichas a cero opciones** en ningún barrido. Commits
+`9b126cd` amazon · `1ffc0c5` zalando · `a7202c9` kickscrew · `9ab2ff3` puma · `57cd630` ua · `e5fde5e` nb+reebok.
+Patrones: UA ES solo tiene la Curry 13 · Puma ES no vende la All-Pro Nitro gen 1 y el scraper le había colado la
+**Nitro 2 Pikachu** · reebok.eu "kamikaze" → un chaleco de lona · fila-mb en Amazon era una running moderna "MB".
+Y dos bugs de rebote: el del merge (identidad Amazon por ruta, ver doctrina) y `esEnlaceDeBusqueda` tomando
+`?search=true` de fichas de Puma por búsqueda (2 enlaces). Los dos encargados (TAREAS 7 y 8).
 
 ### 🔴 NUEVO (s46, 9-sep): VERCEL AL 100% DEL ALMACENAMIENTO — riesgo de corte
 Correo de Vercel del 7-sep: *"used 100% of the included free tier usage for Deployment Storage
