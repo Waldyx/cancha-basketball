@@ -2823,7 +2823,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "puma_es", url: "https://eu.puma.com/es/es/search?q=mb.03+baloncesto", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "puma_es", url: "https://eu.puma.com/es/es/search?q=mb.03+baloncesto", precio_actual: 70, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+mb03+baloncesto&tag=canchazapa-21", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=puma+mb.03", precio_actual: 75, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
     ],
@@ -6599,7 +6599,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+scoot+zeros&tag=canchazapa-21", precio_actual: 58.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
-      { tienda: "puma_es", url: "https://eu.puma.com/es/es/search?q=scoot+zeros", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "puma_es", url: "https://eu.puma.com/es/es/search?q=scoot+zeros", precio_actual: 120, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=puma+scoot+zeros", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
     ],
   },
@@ -8320,7 +8320,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 90,
     links_compra: [
-      { tienda: "puma_es", url: "https://eu.puma.com/es/es/search?q=playmaker+pro+mid", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "puma_es", url: "https://eu.puma.com/es/es/search?q=playmaker+pro+mid", precio_actual: 90, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+playmaker+pro+mid+baloncesto&tag=canchazapa-21", precio_actual: 93.75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -12289,7 +12289,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 80,
     links_compra: [
-      { tienda: "puma_es", url: "https://eu.puma.com/es/es/search?q=clyde", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "puma_es", url: "https://eu.puma.com/es/es/search?q=clyde", precio_actual: 80, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Puma+Clyde+baloncesto&tag=canchazapa-21", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
