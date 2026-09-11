@@ -521,6 +521,13 @@ y los selectores de precio devuelven también los del carrusel de recomendados.
 - ✅ **Los 94 clics de Amazon SÍ son reales**: `amazon_es.ts:43` quita el `tag=` antes de navegar,
   así que el bot no los infla. Amazon no lleva wrapper de redirección (es `?tag=` sobre la URL
   real), así que `unwrapAffiliateUrl` no lo protege — lo protege ese `.replace()` y solo ese.
+- 🔴 **MEDIDO s47 (11-sep) en el panel: últimos 30 días (12-ago → 10-sep) = 20 clics, 0 pedidos.**
+  ⚠ NO comparar con los "94 de agosto" de la s41 sin saber qué periodo se leyó entonces (el selector de
+  fechas del panel no aplica "Último mes" desde la extensión, y el resumen consolidado no trae clics).
+  Con ~20 clics/mes, 3 ventas antes de ~nov-2026 es improbable ⇒ **hay que tener pensado el plan B**:
+  si Amazon cierra, los enlaces con `tag=canchazapa-21` siguen funcionando pero dejan de pagar, así que
+  el "desde X€" de Amazon pasaría a ser una tienda sin afiliado (estrategia "Ver precio"). Decisión
+  del usuario cuando llegue el correo; no hay que tocar nada antes.
 - ⚠️ **AMAZON PUEDE CERRAR LA CUENTA** (correo de `associates@amazon.es` del 23-ago): sin las
   **3 ventas** requeridas, y su política es cerrar a los 180 días del alta → **límite ~nov-2026**.
   Son **174 enlaces, el 44% del catálogo**. Pero el problema NO es falta de tráfico (94 clics/mes
