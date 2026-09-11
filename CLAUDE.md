@@ -312,7 +312,7 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
    · **Ningún scraper los toca**: no hay módulo de Joom, y los 19 tienen `ultima_verificacion` entre
      31-may y 27-jul. Una limpieza única NO se revierte sola. (Tampoco los metió "el scraper al
      resolver URLs", como decía la nota: no hay nada que los resuelva.)
-   ⇒ Limpiar los parámetros es de baja prioridad (encargado al terminal detrás del barrido).
+   ✅ **LIMPIADO (`08f0d13`, 11-sep)**: 11 URLs, 0 `irgwc` en el fichero, `variant_id` conservado. Revisado.
    ⇒ Si el usuario se da de alta en Impact, hay que REGENERAR los 19 con SU campaña, no reusar estos.
 2. **Joom: ¿darse de alta en Impact?** Crear la cuenta es cosa suya.
 2b. ⛔ **Los 2 enlaces de reventa NO se pudieron quitar en la s47: el clasificador de permisos
