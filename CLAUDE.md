@@ -689,7 +689,16 @@ de las 14 zapas se quedaba sin opción de compra (quedan entre 2 y 6 tiendas act
   `articles.ts` repite pesos/precios/notas por modelo en prosa y en ~20 tablas, y ya divergen entre
   sí: la **Tatum 4 pesa 390 g** en un artículo y **345 g** en la tabla de otro. Es la misma familia que
   el "todo número debe salir del catálogo" del rediseño. Arreglo de fondo (tablas generadas desde la
-  ficha) = cambio de código; **no hecho**, pendiente de priorizar.
+  ficha) = cambio de código.
+  **MEDIDO (s47, 11-sep)**: 51 celdas Peso/Precio en tablas de 11 artículos (16 zapas) → **37 desviadas**
+  (peso >5 %, precio >10 %). Peor caso: **GT Cut 4 305-310 g en 4 artículos vs 431 g en ficha**, y la
+  ficha es la buena (RunRepeat, laboratorio: 15,2 oz). AE 2 340/350 vs 428. En prosa, 35 líneas más con
+  pesos, varias con comparaciones que se INVIERTEN con el dato real ("✅ 310g — la más ligera del grupo"
+  para la GT Cut 4, que es de las más pesadas). Es consejo de compra falso, no un detalle.
+  ⇒ **DECIDIDO**: peso = `peso_real_g`; precio = el de la barra lateral del artículo (que ya sale del
+  catálogo, así que hoy la misma página se contradice). Tablas con marcas `{{peso:ID}}`/`{{precio:ID}}`
+  sustituidas en `blog/[slug].astro` + test candado → TAREA 5 del terminal. Prosa: la reescribe el Qwen
+  con los pesos de ficha y la reviso yo.
 - 🔴 **NUEVO (s42): la Curry 13 se contradice a sí misma en los números.** Salió al revisar lo
   anterior y **NO se ha tocado**: elegir un valor sin fuente sería inventárselo. **No hay review de
   laboratorio publicada** de la 13 (RunRepeat solo llega a la 11; WearTesters, a la 12), así que lo
