@@ -14381,7 +14381,7 @@ const _rawZapatillas: Zapatilla[] = [
     genero: "unisex",
     tecnologia_clave: ["QU!KFOAM Lite", "Rubber outsole grueso", "Mesh+TPU upper"],
     predecesor_id: null,
-    sucesor_id: null,
+    sucesor_id: "361-zen-8",
     peso_real_g: 395,
     altura: "mid",
     horma: "normal",
@@ -14406,7 +14406,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: [
       "Suela de goma gruesa — aguanta asfalto sin descomponerse",
       "Equilibrada para todas las posiciones",
-      "Precio agresivo (90€) — el mejor calidad/precio de 361°",
+      "Precio agresivo (120€) — el mejor calidad/precio de 361°",
       "Construcción mesh+TPU sólida",
     ],
     contras: [
@@ -15545,6 +15545,135 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 130,
     links_compra: [
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Danthony%2Bedwards%2B3", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-24" },
+    ],
+  },
+
+  {
+    id: "361-zen-8",
+    slug: "361-zen-8",
+    marca: "361°",
+    modelo: "Zen 8",
+    generacion: 8,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    tecnologia_clave: ["Upper de punto biomimético", "Mediasuela dual (hasta 70% de rebote)", "Suela reforzada para exterior"],
+    predecesor_id: "361-zen-7",
+    sucesor_id: null,
+
+    // ⚠ Peso ESTIMADO: 361sport.com no publica el dato en la ficha del
+    // producto. Estimación editorial a partir de la Zen 7 (395g, medida de
+    // fabricante), ajustada al alza por la mediasuela DUAL nueva (más
+    // volumen de espuma que el QU!KFOAM Lite de una sola capa).
+    peso_real_g: 400,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 9, // heredado de la Zen 7: 361° tampoco lo publica para la Zen 8
+    tipo_cierre: "cordones",
+    material_superior: "knit",
+
+    puntuaciones: {
+      traccion: 8, amortiguacion: 8, respuesta: 8,
+      soporte_lateral: 8, estabilidad: 7, peso_score: 6,
+      durabilidad_outdoor: 9, ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["china-brand", "outdoor", "value", "todas-posiciones"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero", "ala-pivot"],
+      peso_jugador_kg: [70, 100],
+      estilos: ["equilibrado", "potente"],
+    },
+    no_recomendada_para: { estilos: ["explosivo"] },
+
+    resumen:
+      "Sucesora directa de la Zen 7: sube a un upper de punto biomimético y estrena una mediasuela DUAL con hasta un 70% de rebote, sin perder la vocación todoterreno interior/exterior de la línea. 361° la vende en su tienda oficial (361sport.com/es-es) con 8 colorways de lanzamiento a 130€, pero todavía no ha llegado a ninguna tienda afiliada en España.",
+    pros: [
+      "Mediasuela DUAL con hasta 70% de rebote — mejora directa sobre el QU!KFOAM Lite de la Zen 7",
+      "Upper de punto biomimético: más transpirable que el mesh+TPU de la generación anterior",
+      "Construcción pensada para exterior, como toda la línea Zen",
+      "8 colorways de lanzamiento ya disponibles en tienda oficial",
+    ],
+    contras: [
+      "Peso ESTIMADO: 361sport no publica el dato de fábrica",
+      "Sin tienda afiliada en España todavía — solo se puede comprar en 361sport.com",
+      "Sin review independiente (WearTesters/RunRepeat/HoopsGeek), score editorial",
+    ],
+    veredicto:
+      "Si la Zen 7 te convenció por su durabilidad en exterior, la Zen 8 es una mejora directa en cushion y transpirabilidad. Sin tienda afiliada en España todavía: toca comprar en la web oficial de 361° y asumir el IVA de importación.",
+
+    imagen_principal: "/shoes/361-zen-8.webp",
+    imagenes: [],
+
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-09-11",
+    precio_msrp_eur: 130,
+    links_compra: [
+    ],
+  },
+
+  {
+    id: "361-ag-6",
+    slug: "361-ag-6",
+    marca: "361°",
+    modelo: "AG 6",
+    generacion: 6,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "Aaron Gordon",
+    tecnologia_clave: ["Suela Diamond Grip", "Zonas de rebote Soaring Area en antepié", "Mediasuela C-Flow", "Chasis TPU anti-torsión 3D"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    // ⚠ Peso ESTIMADO: 361sport.com no publica el dato en la ficha del
+    // producto, y es línea nueva (sin AG 5 en catálogo del que partir).
+    // Estimación editorial anclada al resto de modelos 361° del catálogo
+    // (Joker 1/2, Zen 7: 390-395g de fabricante).
+    peso_real_g: 390,
+    altura: "mid",
+    horma: "normal",
+    drop_mm: 9, // sin dato oficial: heredado del resto del catálogo 361° (Zen/Joker)
+    tipo_cierre: "cordones",
+
+    puntuaciones: {
+      traccion: 9, amortiguacion: 8, respuesta: 9,
+      soporte_lateral: 9, estabilidad: 8, peso_score: 6,
+      durabilidad_outdoor: 6, ventilacion: 6,
+    },
+    categoria_principal: "responsive",
+    tags: ["china-brand", "signature", "explosivo"],
+
+    ideal_para: {
+      posiciones: ["alero", "ala-pivot", "pivot"],
+      peso_jugador_kg: [80, 110],
+      estilos: ["explosivo", "potente"],
+    },
+    no_recomendada_para: { posiciones: ["base"], estilos: ["tirador"] },
+
+    resumen:
+      "Sexta signature de Aaron Gordon con 361°, que fichó a Gordon como embajador junto a Nikola Jokić. Suela Diamond Grip para paradas y cambios de dirección en toda la cancha, zonas de rebote 'Soaring Area' en el antepié pensadas para el despegue explosivo, mediasuela C-Flow que reduce el impacto en la rodilla, y chasis TPU anti-torsión 3D para estabilidad. Verificada en venta en 361sport.com/es-es (tienda oficial) a 110€, con varios colorways de lanzamiento (incluido un 'Black Mamba').",
+    pros: [
+      "Suela Diamond Grip pensada específicamente para paradas y cambios de dirección",
+      "Zonas de rebote en el antepié para el juego explosivo de Gordon",
+      "Chasis TPU anti-torsión 3D — soporte lateral fuerte sobre el papel",
+      "Precio de signature shoe contenido (110€)",
+    ],
+    contras: [
+      "Peso ESTIMADO: 361sport no publica el dato de fábrica",
+      "Sin tienda afiliada en España todavía — solo se puede comprar en 361sport.com",
+      "Sin review independiente (WearTesters/RunRepeat/HoopsGeek), score editorial",
+      "Línea nueva sin generaciones anteriores en el catálogo con las que comparar",
+    ],
+    veredicto:
+      "Con suela Diamond Grip, zonas de rebote explosivo y un chasis anti-torsión, apunta a un perfil de alero/ala-pívot potente y explosivo — coherente con el juego de Aaron Gordon. Sin review independiente todavía y sin tienda afiliada en España: toca comprar en 361sport.com y asumir el IVA de importación.",
+
+    imagen_principal: "/shoes/361-ag-6.webp",
+    imagenes: [],
+
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-09-11",
+    precio_msrp_eur: 110,
+    links_compra: [
     ],
   },
 
