@@ -2880,7 +2880,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 100,
     links_compra: [
-      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/search?q=flow+breakthru+4", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/search?q=flow+breakthru+4", precio_actual: 70, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+flow+breakthru+4+baloncesto&tag=canchazapa-21", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=under+armour+flow+breakthru+4", precio_actual: 75, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
     ],
@@ -2944,7 +2944,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 150,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/Under-Armour-Flow-Elite-multicolor/dp/B0CV98QB26?tag=canchazapa-21", precio_actual: 69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
-      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/search?q=futr+x+elite", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-29" },
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/search?q=futr+x+elite", precio_actual: 75, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
     ],
   },
 
@@ -4583,7 +4583,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57853037%2F", precio_actual: 97.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-de-baloncesto-under-armour-curry-13%2F55a21e76-05fa-4f51-b976-0530c98a637c%2Fc1c14", precio_actual: 114, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
-      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/c/hombre/zapatillas/baloncesto/?q=curry+13", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/p/curry_13/6007670.html", precio_actual: 69.97, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
     ],
   },
 
@@ -9356,7 +9356,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 160,
     links_compra: [
-      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/search?q=curry+11", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-19" },
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/search?q=curry+11", precio_actual: 130, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=curry+11", precio_actual: 140, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-09" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+curry+11+baloncesto&tag=canchazapa-21", precio_actual: 129, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
@@ -9956,7 +9956,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 119.99,
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57852858%2F", precio_actual: 90.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-30" },
-      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/search?q=d+fox+2", precio_actual: 119.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-25" },
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/search?q=d+fox+2", precio_actual: 119.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0G4J8HXXV?tag=canchazapa-21", precio_actual: 84.95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
     ],
   },
@@ -13687,7 +13687,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/68c7f7aca04d000170748283?variant_id=68c7f7aca04d009070748287", precio_actual: 81, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
-      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/search?q=embiid+1", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/search?q=embiid+1", precio_actual: 160, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+embiid+1&tag=canchazapa-21", precio_actual: 160, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
   },
@@ -13995,7 +13995,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/6952597cc263e701ec4f1b2d?variant_id=6952597cc263e7c3ec4f1b30", precio_actual: 81, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
-      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/search?q=curry+10", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
+      { tienda: "ua_es", url: "https://www.underarmour.es/es-es/search?q=curry+10", precio_actual: 160, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+curry+10&tag=canchazapa-21", precio_actual: 160, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
   },
