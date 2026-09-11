@@ -1093,6 +1093,13 @@ Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
 - **`precios.json` FUSIONA, no reescribe**, y además **pisa** al editorial (misma tienda) o
   **reañade** la tienda. Al revisar una zapa, mirar SIEMPRE las dos fuentes. Una entrada rancia no
   caduca sola nunca.
+- **Una identidad de producto que incluye ruido de la URL multiplica el producto — s47.** `identidadProducto`
+  usaba la ruta entera de Amazon (slug + `/ref=sr_1_N`): el mismo ASIN con otro `ref` era "otro producto", el
+  scraper AÑADÍA una entrada por noche (30 ASIN repetidos en 188) y el merge, al no casar ninguna con el
+  enlace editorial, cogía la más barata de TODAS aunque fuera de otro producto y de hace 3 semanas. Así una
+  ficha recién verificada a 76,99 € salía a 32,98 €. ⇒ Identidad = el id del producto (ASIN, `/item/<id>`),
+  nunca la URL. Y "si no casa, el más barato" solo vale cuando el editorial NO es ya una ficha concreta.
+  Arreglo encargado (TAREA 7).
 - **Antes de borrar un dato, mirar SI VIVE EN OTRO SITIO.** Los 4 de Snipes se borraron porque el
   editorial ya los tenía; los 14 de Basketball Emotion NO, porque 11 solo existían en `precios.json`
   y borrarlos habría quitado la opción de compra.
