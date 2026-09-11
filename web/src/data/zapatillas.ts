@@ -4518,7 +4518,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2026,
     genero: "unisex",
     signature_player: "Stephen Curry",
-    tecnologia_clave: ["UA Flow 2.0", "Warp 3.0 upper", "TPU heel counter"],
+    tecnologia_clave: ["UA HOVR+ (supercrítica)", "UA Flow outsole", "Pebax stability frame", "SPLASH cage"],
     predecesor_id: "ua-curry-12",
     // sucesor_id null DEFINITIVO: no habra Curry 14. Curry y Under Armour rompieron
     // el 13-nov-2025 y la Curry 13 es el cierre pactado de la saga. Curry Brand es
@@ -4556,12 +4556,12 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Curry 13 evoluciona la icónica línea Flow con el nuevo Warp 3.0 upper y mejoras en el soporte lateral. Mantiene el ADN de la línea: ultraligera, con court feel directo y respuesta máxima para tiradores. Es la ÚLTIMA Curry de Under Armour: la marca y Stephen Curry rompieron en noviembre de 2025 y no habrá Curry 14, aunque UA mantiene colorways y stock hasta octubre de 2026.",
+      "La Curry 13 estrena entresuela UA HOVR+ de longitud completa sobre la suela UA Flow, con chasis de TPU y estructura de Pebax para el soporte lateral. Mantiene el ADN de la línea: ultraligera, con court feel directo y respuesta máxima para tiradores. Es la ÚLTIMA Curry de Under Armour: la marca y Stephen Curry rompieron en noviembre de 2025 y no habrá Curry 14, aunque UA mantiene colorways y stock hasta octubre de 2026.",
     pros: [
       "Continuación refinada de la fórmula Flow — ligera y reactiva",
-      "Warp 3.0 upper con mejor soporte lateral que la Curry 12",
-      "Peso mínimo (~308g) para su nivel de protección",
-      "Disponible en España a 140€",
+      "Chasis de TPU 3D y estructura de Pebax: más soporte lateral que la Curry 12",
+      "Ligera para su nivel de protección (12,4 oz según Under Armour)",
+      "Suela UA Flow: court feel muy directo y agarre de primera en parquet limpio",
     ],
     contras: [
       "Suela Flow poco durable en asfalto",
@@ -4579,7 +4579,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     ultima_actualizacion: "2026-05-29",
 
-    precio_msrp_eur: 160,
+    precio_msrp_eur: 140,
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57853037%2F", precio_actual: 97.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-de-baloncesto-under-armour-curry-13%2F55a21e76-05fa-4f51-b976-0530c98a637c%2Fc1c14", precio_actual: 114, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },

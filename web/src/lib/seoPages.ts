@@ -766,7 +766,7 @@ export const SEO_PAGES: SeoPage[] = [
       { q: "¿Merece la pena Under Armour para baloncesto?",
         a: "Sí, especialmente si eres guard o escolta. Las Curry 12 y 13 tienen el mejor court feel del mercado junto a la Kobe Protro. Si priorizas respuesta, UA es la apuesta. Eso sí, la Curry 13 es la última de la línea: UA y Steph Curry se separaron en 2025, así que el catálogo Curry deja de renovarse." },
       { q: "¿Cuánto cuestan las Curry en España?",
-        a: "UA Curry 13 ronda los 130-140€ en España. Las versiones anteriores (Curry 11, 12) se encuentran a 80-110€ en outlet. Muy buen valor." },
+        a: "El precio actual de la UA Curry 13 está en su ficha, con las tiendas que la tienen. Las versiones anteriores (Curry 11, 12) suelen aparecer en outlet con descuento. Muy buen valor." },
       { q: "¿UA Flow se puede usar en exterior?",
         a: "Poco tiempo. La UA Flow sin goma adicional se desgasta en 2-3 meses de outdoor. Úsalas solo en pista cubierta." },
     ],

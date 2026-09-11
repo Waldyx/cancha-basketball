@@ -683,7 +683,7 @@ export const ARTICLES: Article[] = [
 <h2>Altura de caña: ¿low, mid o high?</h2>
 <p>Es la decisión más importante. No hay elección "correcta" universal — depende de tu historial:</p>
 <ul>
-  <li><strong>Low-top:</strong> máxima velocidad y agilidad, mínima protección lateral. Para bases sanos sin historial de tobillo. Ejemplos: Nike GT Cut 4, Adidas AE 2, UA Curry 13.</li>
+  <li><strong>Low-top:</strong> máxima velocidad y agilidad, mínima protección lateral. Para bases sanos sin historial de tobillo. Ejemplos: Nike GT Cut 4, Adidas AE 2.</li>
   <li><strong>Mid-top:</strong> el equilibrio. Cubre la parte baja del tobillo sin restringir el movimiento. La opción más versátil y la recomendada si tienes algún esguince en el historial pero no recurrente. Ejemplos: Nike LeBron 23, ANTA KT 11.</li>
   <li><strong>High-top:</strong> máxima protección, especialmente con correas o collar acolchado. Para jugadores con esguinces recurrentes o que quieran la máxima seguridad. Ejemplos: Jordan Tatum 4, Air Jordan 40.</li>
 </ul>
@@ -804,7 +804,7 @@ export const ARTICLES: Article[] = [
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Peso</td>
       <td style="padding:8px;text-align:center">⭐ 310g</td>
-      <td style="padding:8px;text-align:center">345g</td>
+      <td style="padding:8px;text-align:center">352g</td>
       <td style="padding:8px;text-align:center">330g</td>
     </tr>
     <tr>
@@ -823,7 +823,7 @@ export const ARTICLES: Article[] = [
 <p><strong>Para quién:</strong> Base o escolta con pie normal o estrecho que juega en interior limpio y prioriza el primer paso sobre cualquier otra cosa.</p>
 
 <h2>Under Armour Curry 13: el mejor equilibrio</h2>
-<p>La Curry 13 tiene UA Flow foam en toda la entresuela — una espuma sin goma en la suela que contacta directamente con el suelo. Eso le da un court feel único: sientes el parquet más que en ninguna otra zapatilla, pero con algo más de cushion que la GT Cut 4.</p>
+
 <p><strong>El problema:</strong> sin goma en la suela, la durabilidad en exterior es prácticamente nula. Una sesión en asfalto y la suela queda destruida. Son zapatillas exclusivamente de interior.</p>
 <p><strong>Para quién:</strong> Guards de 70-85kg que juegan siempre en pabellón, valoran la sensación de suelo y quieren algo más de cushion que la GT Cut. Horma normal, segura para la mayoría de pies.</p>
 
@@ -836,7 +836,7 @@ export const ARTICLES: Article[] = [
 <ul>
   <li><strong>Mejor court feel absoluto → <a href="/zapatilla/nike-gt-cut-4">GT Cut 4</a></strong> — si tu pie encaja y juegas siempre en interior.</li>
   <li><strong>Mejor equilibrio rendimiento-versatilidad → <a href="/zapatilla/ua-curry-13">Curry 13</a></strong> — para guards que valoran el cushion extra.</li>
-  <li><strong>Mejor relación calidad-precio y pie ancho → <a href="/zapatilla/anta-kai-2">Kai 2</a></strong> — 30€ menos que la Curry 13 con un 90% del rendimiento.</li>
+  <li><strong>Mejor relación calidad-precio y pie ancho → <a href="/zapatilla/anta-kai-2">Kai 2</a></strong> — horma ancha y un rendimiento muy cercano al de la Curry 13.</li>
 </ul>
 
 <p class="art-outro">¿No tienes claro cuál de las tres encaja con tu perfil específico? <a href="/comparar?slugs=nike-gt-cut-4,ua-curry-13,anta-kai-2">Compáralas aquí con todos los atributos</a> o <a href="/quiz">haz el quiz</a> para obtener tu recomendación personalizada.</p>
@@ -1686,7 +1686,7 @@ export const ARTICLES: Article[] = [
   // ── 18. UA Curry 13 análisis ─────────────────────────────────────────
   {
     slug: "ua-curry-13-analisis-2025",
-    title: "Under Armour Curry 13 análisis: ¿merece los 150€?",
+    title: "Under Armour Curry 13 análisis: ¿merece la pena?",
     metaTitle: "UA Curry 13 análisis 2025: tracción, cushion y ajuste | CANCHA.ZAPA",
     description:
       "Análisis técnico de las Under Armour Curry 13 (Stephen Curry): tecnología UA Flow, cushion, tracción y comparativa con AE 2 y GT Cut 4. ¿Vale la pena?",
@@ -1712,39 +1712,38 @@ export const ARTICLES: Article[] = [
   <li><strong>Nada de esto afecta al rendimiento en cancha</strong>, que es lo que analizamos abajo. La zapatilla es la misma se llame como se llame lo que venga después.</li>
 </ul>
 
-<h2>Tecnología: UA Flow y Warp</h2>
+<h2>Tecnología: UA HOVR+ y Flow</h2>
 <p>La Curry 13 usa dos tecnologías clave:</p>
 <ul>
-  <li><strong>UA Flow midsole:</strong> espuma sin goma exterior en el antepié. Esto significa que la midsole contacta directamente con el suelo — más court feel, más respuesta, menos peso. El inconveniente: más desgaste en outdoor y en pistas muy abrasivas.</li>
-  <li><strong>UA Warp:</strong> sistema de correas internas en el upper que distribuyen la tensión del lacado de forma más uniforme que los ojales tradicionales. El resultado es un ajuste más personalizado y una sujeción superior en los cortes.</li>
+  <li><strong>Entresuela UA HOVR+ de longitud completa:</strong> espuma supercrítica más ligera y blanda, con retorno de energía.</li>
+  <li><strong>Suela UA Flow desacoplada:</strong> da court feel y agarre en parquet. El inconveniente: se desgasta rápido en asfalto.</li>
 </ul>
-<p>La combinación de Flow + Warp hace que la Curry 13 tenga un feel único en cancha: muy pegada al suelo, muy responsiva, pero con buena protección en el antepié.</p>
+<p>La combinación de HOVR+ y Flow hace que la Curry 13 tenga un feel único en cancha: muy pegada al suelo, más responsiva y con buen agarre.</p>
 
 <h2>Tracción: consistente pero no excepcional</h2>
-<p>La tracción de la Curry 13 es buena (8/10) pero no llega a la excelencia de la GT Cut 4 o la AE 2 en superficies perfectas. El patrón multidireccional funciona bien en pabellones limpios. En pistas con polvo o ligeramente húmedas, la Curry 13 aguanta mejor que la media gracias al compuesto de goma de UA.</p>
+<p>La tracción de la Curry 13 es buena, pero no llega a la excelencia de la GT Cut 4 o la AE 2 en superficies perfectas. El patrón multidireccional funciona bien en pabellones limpios.</p>
 <p>El UA Flow sin goma en el antepié es más deslizante en surfaces no ideales que un patrón herringbone clásico. Si tu pabellón no se barre bien, considera la AE 2 o la GT Cut 4 como alternativas más fiables.</p>
 
 <h2>Cushion y protección</h2>
-<p>La midsole ofrece un cushion <strong>8/10</strong> — generosa para una zapatilla tan reactiva. No es el nivel de stack de la LeBron 22, pero protege bien para el juego de Curry: aterrizajes controlados de un guard de 86 kg que rara vez domina la pintura. Para pívots o jugadores de 90 kg+, puede quedarse corta en sesiones largas.</p>
-<p>Dato importante: la Curry 13 tiene un drop bajo (4mm), que da un feel más natural pero puede suponer un período de adaptación si vienes de zapatillas con drop alto (8-10mm). En 2-3 sesiones el cuerpo se adapta.</p>
+<p>La entresuela UA HOVR+ ofrece un cushion generoso para una zapatilla tan reactiva. No es el nivel de stack de la LeBron 22, pero protege bien para el juego de Curry: aterrizajes controlados de un guard de 86 kg que rara vez domina la pintura. Para pívots o jugadores de 90 kg+, puede quedarse corta en sesiones largas.</p>
 
 <h2>Soporte y estabilidad: el punto fuerte</h2>
-<p>Aquí la Curry 13 destaca claramente sobre sus rivales directos. El sistema Warp distribuye las fuerzas de los cortes de forma más uniforme, y la geometría del talón con el counter rígido ofrece una estabilidad lateral excepcional para un zapato low-top (8/10). Ideal para jugadores con historial leve de esguinces que no quieren renunciar a la libertad de movimiento del low-top.</p>
+<p>Aquí la Curry 13 destaca claramente sobre sus rivales directos. El chasis de TPU moldeado en 3D, la jaula SPLASH y la estructura de Pebax sujetan el pie en los cortes, y el corte mid suma algo de protección de tobillo. Ideal para jugadores con historial leve de esguinces que no quieren renunciar a la libertad de movimiento.</p>
 <p>Si compararas la Curry 13 con la AE 2 en estabilidad lateral, la Curry gana claramente. Si la comparas con un mid-top como la Tatum 4, la Tatum gana. Para la mayoría de guards con tobillos razonablemente estables, la Curry 13 ofrece más que suficiente.</p>
 
 <h2>Peso y comfort</h2>
-<p>La Curry 13 pesa <strong>~330g</strong> en talla 44, ligeramente menos que la AE 2 (~350g). El comfort general es alto desde el primer uso — el sistema Warp evita los puntos de presión comunes en zapatos con upper rígido. La lengüeta acolchada y el collar de tobillo bien acabado se notan desde el día uno.</p>
+<p>La Curry 13 pesa <strong>unos 350 g</strong> (12,4 oz según Under Armour). La comodidad general es alta desde el primer uso: la lengüeta acolchada y el collar de tobillo bien acabado se notan desde el día uno.</p>
 
 <h2>AE 2 vs Curry 13: ¿cuál elegir?</h2>
 <p>Son los dos mejores zapatos de guard de 2025 y la elección depende de tu perfil:</p>
 <ul>
   <li><strong>Elige la AE 2 si:</strong> priorizas la tracción, juegas en pabellones con polvo, tienes pie medio-ancho, o tu presupuesto es 130€</li>
-  <li><strong>Elige la Curry 13 si:</strong> priorizas estabilidad lateral y court feel, juegas en pabellones limpios, quieres el mejor ajuste customizable, o tienes historial leve de esguinces</li>
+  <li><strong>Elige la Curry 13 si:</strong> priorizas estabilidad lateral y court feel, juegas en pabellones limpios, o tienes historial leve de esguinces</li>
   <li><strong>Si tienes 90 kg+:</strong> ninguna de las dos es tu primera opción — considera la LeBron 22, Jordan Tatum 4 o Fresh Foam BB v3</li>
 </ul>
 
 <h2>¿Dónde comprar la Curry 13?</h2>
-<p>La Curry 13 está disponible en Amazon ES (vendedor oficial UA), UA.com/es y JD Sports. El precio habitual es 150€, aunque algunas colorways o modelos del año anterior se encuentran entre 100-120€ en Amazon con descuento. Las versiones especiales "Splash Zone" o ediciones limitadas suben de precio.</p>
+<p>Las tiendas y el precio actual de la Curry 13 están en el bloque de compra de su ficha. Al ser la última de la saga, algunos colores ya aparecen con descuento. Las ediciones especiales como Splash Zone suelen tener disponibilidad limitada.</p>
 
 <p class="art-outro">La Curry 13 es una zapatilla premium que justifica su precio para guards que buscan estabilidad y court feel por encima de cushion máximo — y, al ser el punto final de la saga con Under Armour, la última de su estirpe. Si tienes dudas sobre si encaja con tu perfil, <a href="/quiz">el quiz de CANCHA.ZAPA te da las 5 más compatibles en 60 segundos</a>.</p>
     `,
@@ -2432,7 +2431,7 @@ export const ARTICLES: Article[] = [
       <td style="padding:8px"><strong>UA Curry 13</strong></td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">9/10</td>
-      <td style="padding:8px;text-align:center">345g</td>
+      <td style="padding:8px;text-align:center">352g</td>
       <td style="padding:8px;text-align:center">140€</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
@@ -2964,7 +2963,7 @@ export const ARTICLES: Article[] = [
       <td style="padding:8px"><strong>UA Curry 13</strong></td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
-      <td style="padding:8px;text-align:center">345g</td>
+      <td style="padding:8px;text-align:center">352g</td>
       <td style="padding:8px;text-align:center">140€</td>
     </tr>
     <tr>
