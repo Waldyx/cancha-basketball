@@ -1432,7 +1432,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/giannis-freak-7-all-star-volt-black", precio_actual: 98, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=giannis+freak+7&vst=giannis+freak+7", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+freak+7", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+giannis+freak+7&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/Giannis-Zapatillas-b%C3%A1squetbol-Hombre-Metallic/dp/B0DYLDTQDP?tag=canchazapa-21", precio_actual: 114.17, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
     ],
   },
 
@@ -2091,7 +2091,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-dame-9-purple-bust.html", precio_actual: 59.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-adidas-dame-9-blanco-violeta-y-verde%2F372397%2Fm8968186", precio_actual: 71.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/products/search?q=adidas+dame+9+baloncesto", precio_actual: 119.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+9+baloncesto&tag=canchazapa-21", precio_actual: 124, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/adidas-Unisex-Basketball-Sneaker-Purple/dp/B0CMGHKH4T?tag=canchazapa-21", precio_actual: 134.42, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
     ],
   },
 
@@ -3565,7 +3565,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA55591290%2F", precio_actual: 90.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-anthony-edwards-2-kj4228-1001075419-p", precio_actual: 83.84, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-08" },
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-anthony-edwards-2%2FJS3508.html", precio_actual: 89.70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ae+2+baloncesto&tag=canchazapa-21", precio_actual: 135, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/adidas-Anthony-EDWARDS-OOT82-Zapatillas/dp/B0FRMZ5MMH?tag=canchazapa-21", precio_actual: 91, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/adidas-anthony-edwards-2-mid-hombre-zapatillas/314100515304.html", precio_actual: 60, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-24" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-anthony-edwards-2-rosa-negro-rojo-162864.html", precio_actual: 91, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
@@ -4360,7 +4360,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "zalando_es", url: "https://www.zalando.es/zapatillas/?q=reebok+question+mid", precio_actual: 115, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=reebok+question+mid", precio_actual: 120, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Freebok-question-mid-gris-17566", precio_actual: 80, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+question+mid+baloncesto&tag=canchazapa-21", precio_actual: 118, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/Reebok-Zapatillas-QUESTION-Cuero-Blanco-Amarillo/dp/B0DPG7Z966?tag=canchazapa-21", precio_actual: 119, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
     ],
   },
 
@@ -5743,7 +5743,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-30",
     precio_msrp_eur: 140,
     links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/t/caitlin-1-zapatillas-de-baloncesto-oGRTM2xz/IH7423-400", precio_actual: 139.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-30" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/caitlin-1-caitlin-blue-zapatillas-de-baloncesto-oGRTM2xz/IH7423-400", precio_actual: 139.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
     ],
   },
   // ─────────────────────────────────────────────────────────────────
@@ -13812,7 +13812,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-d-o-n-issue-7-ice-spida-blanco%2F373782%2Fm9010565", precio_actual: 72.49, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fd.o.n.-issue-7%2FJR9503.html", precio_actual: 69.60, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+don+issue+7&tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/adidas-N-Issue-JR9503-Talla/dp/B0GKLT9SNP?tag=canchazapa-21", precio_actual: 89, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-don-issue-7-blanco-gris-144153.html", precio_actual: 68, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-don-issue-7-all-star.html", precio_actual: 109.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
     ],
@@ -14821,7 +14821,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-09",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=skechers+je1+embiid+baloncesto&tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/Skechers-Performance-SKX-JE-baloncesto/dp/B0FWKGNPYW?tag=canchazapa-21", precio_actual: 91.23, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fskechers%2Fzapatillas-skechers-skx-je-1-hombre-blanco-negro-160188.html", precio_actual: 106.21, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
@@ -15319,7 +15319,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-08-24",
     precio_msrp_eur: 209.99,
     links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=air%20jordan%2041&vst=air%20jordan%2041", precio_actual: 209.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-08-24" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/air-jordan-41-ruby-zapatillas-de-baloncesto-7tNpGhRr/HV6474-601", precio_actual: 199.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+41+baloncesto&tag=canchazapa-21", precio_actual: 209.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-24" },
     ],
   },
