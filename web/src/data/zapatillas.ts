@@ -1671,7 +1671,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 140,
     links_compra: [
-      { tienda: "nb_es", url: "https://www.newbalance.es/search?q=fresh+foam+bb+v3", precio_actual: 84, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-05" },
+      { tienda: "nb_es", url: "https://www.newbalance.es/es/pd/fresh-foam-bb-v3/BBFRSV3-49565.html", precio_actual: 84, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+fresh+foam+bb+v3+baloncesto&tag=canchazapa-21", precio_actual: 139, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/products/search?q=new+balance+bb+v3", precio_actual: 144.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
     ],
@@ -13037,7 +13037,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/search?q=kamikaze", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/search?q=kamikaze", precio_actual: 120, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B01FUHB0VU?tag=canchazapa-21", precio_actual: 186.06, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
     ],
   },
