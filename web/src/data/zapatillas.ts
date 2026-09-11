@@ -2502,7 +2502,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=air+jordan+37&vst=air+jordan+37", precio_actual: 120, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-09" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+37+baloncesto&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=air+jordan+37", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=air+jordan+37", precio_actual: 115, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=air+jordan+37", precio_actual: 125, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-09" },
     ],
   },
@@ -2636,7 +2636,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=zoom+freak+4&vst=zoom+freak+4", precio_actual: 80, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-09" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BSVL687Q?tag=canchazapa-21", precio_actual: 172.53, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=nike+zoom+freak+4", precio_actual: 85, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=nike+zoom+freak+4", precio_actual: 85, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+zoom+freak+4", precio_actual: 90, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-09" },
     ],
   },
@@ -2702,7 +2702,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=giannis+immortality+3&vst=giannis+immortality+3", precio_actual: 50, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-09" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CT5ZNC6Y?tag=canchazapa-21", precio_actual: 97.72, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=nike+giannis+immortality+3", precio_actual: 55, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=nike+giannis+immortality+3", precio_actual: 55, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
     ],
   },
 
@@ -2760,7 +2760,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57296268%2F", precio_actual: 90.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "puma_es", url: "https://eu.puma.com/es/es/search?q=all+pro+nitro", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "amazon_es", url: "https://www.amazon.es/All-Pro-Zapatillas-Deportivas-Unisex-Adulto/dp/B0CB5V4Q6B?tag=canchazapa-21", precio_actual: 76.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=puma+all+pro+nitro", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/puma-all-pro-nitro-dress-code-zapatillas-de-baloncesto-pink-fruit-pu142a1z3-j11.html", precio_actual: 101.36, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fpuma%2Fzapatillas-de-baloncesto-puma-all-pro-nitroam-hombre-77099.html", precio_actual: 78, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
@@ -2825,7 +2825,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "puma_es", url: "https://eu.puma.com/es/es/search?q=mb.03+baloncesto", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+mb03+baloncesto&tag=canchazapa-21", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=puma+mb.03", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=puma+mb.03", precio_actual: 75, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
     ],
   },
 
@@ -2882,7 +2882,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "ua_es", url: "https://www.underarmour.es/es-es/search?q=flow+breakthru+4", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+flow+breakthru+4+baloncesto&tag=canchazapa-21", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=under+armour+flow+breakthru+4", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=under+armour+flow+breakthru+4", precio_actual: 75, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
     ],
   },
 
@@ -3010,7 +3010,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fadidas-originals-zapatilla-de-baloncesto-anthony-edwards-1-plata-41674", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-anthony-edwards-1-low%2FJQ6133.html", precio_actual: 71.50, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FJ4WKCND?tag=canchazapa-21", precio_actual: 58.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=adidas+ae+1+baloncesto", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=adidas+ae+1+baloncesto", precio_actual: 90, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=adidas+ae+1", precio_actual: 95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-ae-1-low-trainers-amarillo-143701.html", precio_actual: 60.50, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
@@ -3137,7 +3137,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "nb_es", url: "https://www.newbalance.es/search?q=two+wxy+v4", precio_actual: 75, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+two+wxy+v4+baloncesto&tag=canchazapa-21", precio_actual: 72, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=new+balance+two+wxy+v4", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=new+balance+two+wxy+v4", precio_actual: 80, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-new-balance-two-wxy-v4-acero.html", precio_actual: 79.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
     ],
   },
@@ -3195,7 +3195,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=luka+2&vst=luka+2", precio_actual: 75, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-09" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CTW4SKM8?tag=canchazapa-21", precio_actual: 129.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=jordan+luka+2", precio_actual: 80, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=jordan+luka+2", precio_actual: 80, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=jordan+luka+2", precio_actual: 85, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-09" },
     ],
   },
@@ -3323,7 +3323,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=gt+jump+2&vst=gt+jump+2", precio_actual: 95, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-09" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D2641PYR?tag=canchazapa-21", precio_actual: 279.67, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=nike+gt+jump+2", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=nike+gt+jump+2", precio_actual: 100, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+gt+jump+2", precio_actual: 105, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-09" },
     ],
   },
@@ -3928,7 +3928,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "puma_es", url: "https://eu.puma.com/es/es/search?q=mb.05+baloncesto", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0H1J3WM96?tag=canchazapa-21", precio_actual: 69.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-puma-mb05-metallic.html", precio_actual: 94.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=puma+mb.05+baloncesto", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/puma-zapatillas-de-baloncesto-dark-olivefizzy-lightblack-pu142a25f-m11.html", precio_actual: 74.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
     ],
   },
 
@@ -4061,7 +4061,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=converse+shai+001", precio_actual: 125, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=converse+shai+001+baloncesto&tag=canchazapa-21", precio_actual: 125, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=converse+shai+001", precio_actual: 128, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/catalogo/?q=converse+shai+001", precio_actual: 128, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
     ],
   },
 
@@ -10670,7 +10670,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-11-grand-finale-blanco-91854", precio_actual: 170, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-11-retro-low-university-blue-blanco-98223", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-11-retro-rare-air%2F96423715-aec3-4328-bc0b-c9b5aa3153a0%2Fc5", precio_actual: 188, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/zapatillas/?q=air+jordan+11+retro", precio_actual: 185, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/zapatillas/?q=air+jordan+11+retro", precio_actual: 185, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=air+jordan+11", precio_actual: 220, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/products/search?q=air+jordan+11", precio_actual: 220, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B08QCD8KJD?tag=canchazapa-21", precio_actual: 350, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
@@ -11854,7 +11854,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fnike-air-force-1-07-lv8-azul-92119%2F436442", precio_actual: 90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/zapatillas/?q=nike+air+force+1+mid", precio_actual: 104, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
+      { tienda: "zalando_es", url: "https://www.zalando.es/nike-sportswear-air-force-1-mid-zapatillas-altas-black-ni114d0hu-q11.html", precio_actual: 109.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B08QBFY9K8/?tag=canchazapa-21", precio_actual: 110, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B08QBB56BV/?tag=canchazapa-21", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/product/~/314102202604.html", precio_actual: 130, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
