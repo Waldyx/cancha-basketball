@@ -7317,7 +7317,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 100,
     links_compra: [
       { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c39LpYQ5", precio_actual: 85, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=li+ning+sonic+12", precio_actual: 100, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/lining-12-abau019-2", precio_actual: 72.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
     ],
   },
 
@@ -7824,7 +7824,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/6999387eb21639012998da84", precio_actual: 61, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3574IK9", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=anta+shock+wave+5", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/anta-shock-wave-5-university-red-112341106-5", precio_actual: 93.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-anta-shock-wave-5-pro-moon.html", precio_actual: 140, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
     ],
   },
@@ -8376,7 +8376,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c4ttOCV7", precio_actual: 100, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=li+ning+yu+shuai+18", precio_actual: 120, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-18" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=li+ning+yu+shuai+18", precio_actual: 120, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
     ],
   },
 
@@ -11003,7 +11003,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 175,
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=kobe+5+protro", precio_actual: 175, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Kobe+5+Protro", precio_actual: 185, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/nike-kobe-5-protro-dodgers-io6256-400", precio_actual: 247.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Kobe+5+Protro&tag=canchazapa-21", precio_actual: 195, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
     ],
   },
@@ -11601,7 +11601,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 210,
     links_compra: [
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Air+Jordan+5+Retro", precio_actual: 210, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/air-jordan-5-retro-black-university-blue-dd0587-008", precio_actual: 274.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fair-jordan-5-retro-se-craft-light-orewood-brown-taille-eu%2F7b7897ea-561b-4730-9477-e6f5e7d85b97%2Fc27c20", precio_actual: 238.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Air+Jordan+5+Retro&tag=canchazapa-21", precio_actual: 230, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
@@ -11664,7 +11664,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 200,
     links_compra: [
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Air+Jordan+7+Retro", precio_actual: 200, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/air-jordan-7-retro-miro-iq6573-100", precio_actual: 183.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Air+Jordan+7+Retro&tag=canchazapa-21", precio_actual: 210, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
@@ -11728,7 +11728,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 220,
     links_compra: [
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Air+Jordan+12+Retro", precio_actual: 220, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/air-jordan-12-retro-bucks-ct8013-103", precio_actual: 257.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FPJRVL47?tag=canchazapa-21", precio_actual: 244.91, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
     ],
   },
@@ -11982,7 +11982,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 185,
     links_compra: [
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Air+Jordan+2+Retro", precio_actual: 185, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/air-jordan-2-retro-og-chicago-dx2454-106", precio_actual: 131.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B01E8FT648?tag=canchazapa-21", precio_actual: 149.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
     ],
   },
@@ -12045,7 +12045,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 200,
     links_compra: [
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=Air+Jordan+8+Retro", precio_actual: 200, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/air-jordan-8-retro-aqua-305381-025", precio_actual: 236.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Air+Jordan+8+Retro&tag=canchazapa-21", precio_actual: 210, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
@@ -12976,7 +12976,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 130,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=fila+grant+hill+1+1995&tag=canchazapa-21", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=FILA+Grant+Hill+1", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=FILA+Grant+Hill+1", precio_actual: 140, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
     ],
   },
 
@@ -13501,7 +13501,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CZHDWB7B?tag=canchazapa-21", precio_actual: 124.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
-      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=FILA+Grant+Hill+2", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-08" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/search?q=FILA+Grant+Hill+2", precio_actual: 130, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
     ],
   },
 
