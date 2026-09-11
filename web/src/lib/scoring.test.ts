@@ -4,10 +4,11 @@ import {
   calcularPesos,
   aplicarFiltrosDuros,
   findMejorPrecio,
+  esEnlaceDeBusqueda,
   COMISIONES_TIENDA,
 } from "./scoring";
 import { zapatillas } from "../data/zapatillas";
-import type { RespuestasQuiz } from "./types";
+import type { RespuestasQuiz, LinkCompra } from "./types";
 
 // ─────────────────────────────────────────────────────────
 // Helper: perfil de quiz base, sobreescribible
@@ -172,6 +173,62 @@ describe("findMejorPrecio", () => {
     const mejor = findMejorPrecio(mockLinks);
     expect(mejor?.precio_actual).toBe(109.99);
     expect(mejor?.tienda).toBe("zalando_es");
+  });
+});
+
+// ─────────────────────────────────────────────────────────
+// esEnlaceDeBusqueda — TAREA 8: un parámetro cuenta como búsqueda solo si
+// su VALOR es texto de consulta, no un booleano de tracking
+// ─────────────────────────────────────────────────────────
+
+function linkCon(url: string): LinkCompra {
+  return {
+    tienda: "puma_es",
+    url,
+    precio_actual: 100,
+    disponible: true,
+    tiene_afiliado: false,
+    ultima_verificacion: "2026-09-11",
+  };
+}
+
+describe("esEnlaceDeBusqueda", () => {
+  it("?search=true en una ficha de Puma NO es una búsqueda (booleano de tracking)", () => {
+    expect(
+      esEnlaceDeBusqueda(
+        linkCon(
+          "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-stewie-4-most-wanted-para-mujer/312744?search=true&swatch=01"
+        )
+      )
+    ).toBe(false);
+  });
+
+  it("?q=puma+mb+05 SÍ es una búsqueda (el valor es texto de consulta)", () => {
+    expect(esEnlaceDeBusqueda(linkCon("https://eu.puma.com/es/es/search?q=puma+mb+05"))).toBe(true);
+  });
+
+  it("otros valores booleanos/vacíos del parámetro tampoco cuentan como búsqueda", () => {
+    expect(esEnlaceDeBusqueda(linkCon("https://example.com/producto?search=false"))).toBe(false);
+    expect(esEnlaceDeBusqueda(linkCon("https://example.com/producto?search=1"))).toBe(false);
+    expect(esEnlaceDeBusqueda(linkCon("https://example.com/producto?search=0"))).toBe(false);
+    expect(esEnlaceDeBusqueda(linkCon("https://example.com/producto?search="))).toBe(false);
+  });
+
+  it("los wrappers de Awin/TradeTracker siguen mirando la URL real de dentro", () => {
+    const dest = encodeURIComponent("https://eu.puma.com/es/es/search?q=mb.03+baloncesto");
+    expect(
+      esEnlaceDeBusqueda(
+        linkCon(`https://www.awin1.com/cread.php?awinmid=1&awinaffid=1&ued=${dest}`)
+      )
+    ).toBe(true);
+    const destFicha = encodeURIComponent(
+      "https://eu.puma.com/es/es/pd/algo/312744?search=true&swatch=01"
+    );
+    expect(
+      esEnlaceDeBusqueda(
+        linkCon(`https://tc.tradetracker.net/?c=1&u=${destFicha}`)
+      )
+    ).toBe(false);
   });
 });
 

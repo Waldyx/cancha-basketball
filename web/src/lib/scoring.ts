@@ -503,8 +503,14 @@ export function esEnlaceDeBusqueda(link: LinkCompra): boolean {
   }
   try {
     const u = new URL(url);
-    return [...u.searchParams.keys()].some((k) =>
-      /^(q|query|k|search|searchtext|term|keyword)$/i.test(k)
+    // Un parámetro de la lista SOLO cuenta como búsqueda si su VALOR es texto
+    // de consulta. Algunas fichas de producto reales llevan un parámetro de
+    // tracking que coincide por NOMBRE (`?search=true` en Puma) sin ser una
+    // búsqueda de verdad — un booleano/vacío no es una query.
+    return [...u.searchParams.entries()].some(
+      ([k, v]) =>
+        /^(q|query|k|search|searchtext|term|keyword)$/i.test(k) &&
+        !/^(true|false|1|0)?$/i.test(v.trim())
     );
   } catch {
     return false;
