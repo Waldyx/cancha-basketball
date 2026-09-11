@@ -675,6 +675,21 @@ de las 14 zapas se quedaba sin opción de compra (quedan entre 2 y 6 tiendas act
   marca Nike ("Curry no, Curry es UA") y el análisis `ua-curry-13-analisis-2025` ("UA lleva desde
   2013 construyendo…"). La ficha pasa a `año_lanzamiento: 2026` (salió en feb-2026, no en 2025) y
   el análisis gana una sección de contexto con lo que el fin de línea significa al comprar.
+- 🟡 **s47 (11-sep): Curry 13 — DECIDIDO en modo director, en curso.** Fuente primaria encontrada:
+  **underarmour.com** da **12,4 oz (~351 g)** → los 352 g de la ficha son el dato de FABRICANTE y valen.
+  Corte **mid** (Sportland Europe, test). Y la TECNOLOGÍA estaba mal en ficha y artículo: la 13 lleva
+  **entresuela UA HOVR+ de longitud completa** (supercrítica) + **suela UA Flow desacoplada** + chasis
+  TPU 3D + jaula SPLASH + estructura Pebax. **No lleva Warp**, y Flow NO es la entresuela.
+  Drop: nadie lo publica. Review numérica: sigue sin haber (HG/WT/RR, 11-sep).
+  ⇒ Regla aplicada: **la ficha es la fuente única**; la prosa deja de repetir precio, drop y notas x/10.
+  Redacción por el Qwen, revisada por el director, aplicación por el terminal (TAREA 4).
+  ⚠ Tarifa en € sin verificar: ficha MSRP 160 € pero UA ES la vendía a **140 €** el 16-may y el MSRP
+  de EE.UU. es $140 → el terminal la mira en underarmour.es con navegador antes de tocar precios.
+- 🔴 **NUEVO (s47): la deriva de specs escritas a mano es de TODO el sitio, no solo de la Curry 13.**
+  `articles.ts` repite pesos/precios/notas por modelo en prosa y en ~20 tablas, y ya divergen entre
+  sí: la **Tatum 4 pesa 390 g** en un artículo y **345 g** en la tabla de otro. Es la misma familia que
+  el "todo número debe salir del catálogo" del rediseño. Arreglo de fondo (tablas generadas desde la
+  ficha) = cambio de código; **no hecho**, pendiente de priorizar.
 - 🔴 **NUEVO (s42): la Curry 13 se contradice a sí misma en los números.** Salió al revisar lo
   anterior y **NO se ha tocado**: elegir un valor sin fuente sería inventárselo. **No hay review de
   laboratorio publicada** de la 13 (RunRepeat solo llega a la 11; WearTesters, a la 12), así que lo
