@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { mergePricesIntoShoes, unwrapWrapperUrl, elegirScrape } from "./mergePrices";
+import { mergePricesIntoShoes, unwrapWrapperUrl, elegirScrape, identidadProducto } from "./mergePrices";
 import type { Zapatilla, LinkCompra } from "./types";
 
 const awin = (dest: string) =>
@@ -7,6 +7,11 @@ const awin = (dest: string) =>
 
 const FICHA_A = "https://es.aliexpress.com/item/1005011111111111.html";
 const FICHA_B = "https://es.aliexpress.com/item/1005022222222222.html";
+// Una URL de AliExpress que NO es una ficha reconocible (no /item/<id>): sirve
+// para probar el mecanismo de "candidato único" / anti-anidado de wrapper sin
+// chocar con el guardarraíl de la TAREA 7 (una ficha reconocible sin match
+// exacto ya no adivina con el único candidato disponible).
+const EDITORIAL_OPACA = "https://es.aliexpress.com/store/900112233";
 
 function link(over: Partial<LinkCompra> = {}): LinkCompra {
   return {
@@ -44,10 +49,25 @@ describe("unwrapWrapperUrl", () => {
   });
 });
 
+describe("identidadProducto — Amazon por ASIN (TAREA 7, punto 1)", () => {
+  it("dos URLs del MISMO ASIN con distinto slug y distinto ref son el mismo producto", () => {
+    const a =
+      "https://www.amazon.es/PUMA-All-pro-hombre-Alerta-amarilla/dp/B0DLTF4CZ1/ref=sr_1_2?tag=canchazapa-21";
+    const b = "https://www.amazon.es/Otro-Slug-Totalmente-Distinto/dp/B0DLTF4CZ1/ref=sr_1_6";
+    expect(identidadProducto(a)).toBe(identidadProducto(b));
+  });
+
+  it("dos ASIN distintos NO son el mismo producto aunque el slug se parezca", () => {
+    const a = "https://www.amazon.es/PUMA-All-pro/dp/B0DLTF4CZ1/ref=sr_1_1";
+    const b = "https://www.amazon.es/PUMA-All-pro/dp/B0AAAAAAAA/ref=sr_1_1";
+    expect(identidadProducto(a)).not.toBe(identidadProducto(b));
+  });
+});
+
 describe("elegirScrape", () => {
-  it("con una sola entrada, esa", () => {
+  it("con una sola entrada, esa (editorial NO es una ficha reconocible)", () => {
     const c = [{ url: FICHA_B, precio_actual: 50 }];
-    expect(elegirScrape(link(), c)).toBe(c[0]);
+    expect(elegirScrape(link({ url: awin(EDITORIAL_OPACA) }), c)).toBe(c[0]);
   });
 
   it("con varias, empareja por PRODUCTO, no por posición", () => {
@@ -68,6 +88,97 @@ describe("elegirScrape", () => {
     expect(
       elegirScrape(link({ url: "https://es.aliexpress.com/otra-cosa" }), candidatos)?.precio_actual
     ).toBe(60);
+  });
+
+  it("TAREA 7 punto 2 — si el editorial YA es una ficha de Amazon reconocible y ningún candidato es SU ASIN, no adivina con el más barato", () => {
+    const editorial = link({
+      tienda: "amazon_es",
+      url: "https://www.amazon.es/PUMA-All-Pro-Nitro/dp/B0EDITORIAL1/ref=sr_1_1?tag=canchazapa-21",
+    });
+    const candidatos = [
+      // Ninguno es B0EDITORIAL1: son resultados de OTRO producto (p.ej. un
+      // ASIN de otra generación que coló en la misma búsqueda).
+      { url: "https://www.amazon.es/PUMA-x-Pokemon/dp/B0OTROASIN1/ref=sr_1_2", precio_actual: 20 },
+      { url: "https://www.amazon.es/PUMA-Otra-Cosa/dp/B0OTROASIN2/ref=sr_1_3", precio_actual: 500 },
+    ];
+    expect(elegirScrape(editorial, candidatos)).toBeUndefined();
+  });
+
+  it("con VARIOS candidatos del MISMO ASIN (duplicados de noches distintas), gana el más RECIENTE", () => {
+    const editorial = link({
+      tienda: "amazon_es",
+      url: "https://www.amazon.es/PUMA-All-Pro-Nitro/dp/B0DLTF4CZ1/ref=sr_1_1?tag=canchazapa-21",
+    });
+    const candidatos = [
+      { url: "https://www.amazon.es/PUMA-All-pro-hombre-Alerta-amarilla/dp/B0DLTF4CZ1/ref=sr_1_2", precio_actual: 106.99, ultima_verificacion: "2026-08-29" },
+      { url: "https://www.amazon.es/dp/B0DLTF4CZ1?tag=canchazapa-21", precio_actual: 64.46, ultima_verificacion: "2026-09-10" },
+    ];
+    // El más barato es el más VIEJO (29-ago); debe ganar el más reciente (10-sep), no el primero del array.
+    expect(elegirScrape(editorial, candidatos)?.precio_actual).toBe(64.46);
+  });
+
+  it("TAREA 7 punto 2 — pero SÍ resuelve cuando un candidato es el MISMO ASIN con otro slug/ref", () => {
+    const editorial = link({
+      tienda: "amazon_es",
+      url: "https://www.amazon.es/PUMA-All-Pro-Nitro/dp/B0EDITORIAL1/ref=sr_1_1?tag=canchazapa-21",
+    });
+    const candidatos = [
+      { url: "https://www.amazon.es/PUMA-All-Pro-Nitro-Alerta-Amarilla/dp/B0EDITORIAL1/ref=sr_1_4", precio_actual: 76.99 },
+      { url: "https://www.amazon.es/PUMA-Otra-Cosa/dp/B0OTROASIN2/ref=sr_1_3", precio_actual: 20 },
+    ];
+    expect(elegirScrape(editorial, candidatos)?.precio_actual).toBe(76.99);
+  });
+
+  it("el guardarraíl de ficha reconocible NO afecta a AliExpress cuando el editorial es una búsqueda/URL opaca", () => {
+    // Regresión expresa: este es el caso del test de arriba ("si no se puede
+    // identificar el producto..."), repetido para dejar constancia de que el
+    // punto 2 de la TAREA 7 es SOLO para fichas reconocibles, no para
+    // cualquier URL que no sea de búsqueda.
+    const candidatos = [
+      { url: "https://es.aliexpress.com/wholesale?SearchText=x", precio_actual: 90 },
+      { url: "https://es.aliexpress.com/wholesale?SearchText=y", precio_actual: 60 },
+    ];
+    expect(
+      elegirScrape(link({ url: "https://es.aliexpress.com/otra-cosa-sin-item" }), candidatos)
+        ?.precio_actual
+    ).toBe(60);
+  });
+
+  it("TAREA 7 punto 3 — descarta candidatos con más de 7 días de antigüedad frente al más reciente antes de coger el más barato", () => {
+    const candidatos = [
+      // Más barato, pero rancio: 20 días más viejo que el otro candidato.
+      {
+        url: "https://es.aliexpress.com/wholesale?SearchText=x",
+        precio_actual: 10,
+        ultima_verificacion: "2026-08-21",
+      },
+      {
+        url: "https://es.aliexpress.com/wholesale?SearchText=y",
+        precio_actual: 60,
+        ultima_verificacion: "2026-09-10",
+      },
+    ];
+    expect(
+      elegirScrape(link({ url: "https://es.aliexpress.com/otra-cosa" }), candidatos)?.precio_actual
+    ).toBe(60);
+  });
+
+  it("TAREA 7 punto 3 — si TODOS son igual de recientes (<=7 días), sigue ganando el más barato", () => {
+    const candidatos = [
+      {
+        url: "https://es.aliexpress.com/wholesale?SearchText=x",
+        precio_actual: 10,
+        ultima_verificacion: "2026-09-05",
+      },
+      {
+        url: "https://es.aliexpress.com/wholesale?SearchText=y",
+        precio_actual: 60,
+        ultima_verificacion: "2026-09-10",
+      },
+    ];
+    expect(
+      elegirScrape(link({ url: "https://es.aliexpress.com/otra-cosa" }), candidatos)?.precio_actual
+    ).toBe(10);
   });
 });
 
@@ -153,8 +264,8 @@ describe("mergePricesIntoShoes — varios enlaces editoriales, UN solo scrape", 
     expect(merged[0].links_compra.map((l) => l.precio_actual)).toEqual([96.39, 99]);
   });
 
-  it("con UN solo enlace editorial sí se permite el upgrade de URL", () => {
-    const shoes = [zapa([link({ url: awin(FICHA_A), precio_actual: 100 })])];
+  it("con UN solo enlace editorial (NO reconocible) sí se permite el upgrade de URL", () => {
+    const shoes = [zapa([link({ url: awin(EDITORIAL_OPACA), precio_actual: 100 })])];
     const merged = mergePricesIntoShoes(shoes, {
       generated_at: "2026-08-07",
       shoes: {
@@ -166,11 +277,26 @@ describe("mergePricesIntoShoes — varios enlaces editoriales, UN solo scrape", 
     expect(merged[0].links_compra[0].precio_actual).toBe(90);
     expect(unwrapWrapperUrl(merged[0].links_compra[0].url)).toBe(FICHA_B);
   });
+
+  it("con UN solo enlace editorial que YA es una ficha reconocible, NO se adivina un upgrade a OTRO producto", () => {
+    const shoes = [zapa([link({ url: awin(FICHA_A), precio_actual: 100 })])];
+    const merged = mergePricesIntoShoes(shoes, {
+      generated_at: "2026-08-07",
+      shoes: {
+        z1: {
+          links_compra: [{ tienda: "aliexpress", url: FICHA_B, precio_actual: 90, disponible: true }],
+        },
+      },
+    });
+    // FICHA_B es un item DISTINTO de FICHA_A: se conserva el dato editorial.
+    expect(merged[0].links_compra[0].precio_actual).toBe(100);
+    expect(unwrapWrapperUrl(merged[0].links_compra[0].url)).toBe(FICHA_A);
+  });
 });
 
 describe("mergePricesIntoShoes — wrapper de afiliado", () => {
   it("no anida el wrapper cuando precios.json ya trae la URL envuelta", () => {
-    const shoes = [zapa([link({ url: awin(FICHA_A) })])];
+    const shoes = [zapa([link({ url: awin(EDITORIAL_OPACA) })])];
     const merged = mergePricesIntoShoes(shoes, {
       generated_at: "2026-08-07",
       shoes: {

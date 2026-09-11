@@ -125,13 +125,49 @@ function setWrapperDestination(originalUrl: string, destinationUrl: string): str
  * precios.json por enlace. Lectura y escritura DEBEN usar la misma identidad:
  * si divergen, la escritura guardaría entradas que el merge nunca sabría
  * emparejar con su enlace editorial.
+ *
+ * Amazon es un caso especial: la ruta completa lleva el slug del título Y un
+ * sufijo `/ref=sr_1_N` que cambia según la posición en el listado de búsqueda.
+ * El MISMO ASIN sale con slug/ref distintos en cada pasada del scraper, así que
+ * identificar por ruta entera trataba cada aparición como "otro producto":
+ * 30 de las 188 entradas de amazon_es eran el mismo ASIN repetido con ref
+ * distinto (p.ej. B0CV9F3XZJ salía 4 veces), y `elegirScrape` nunca encontraba
+ * un match exacto para la ficha editorial. Para Amazon, la identidad es solo
+ * el ASIN de `/dp/` o `/gp/product/`.
  */
 export function identidadProducto(url: string): string | null {
   try {
     const u = new URL(unwrapWrapperUrl(url));
-    return `${u.hostname.replace(/^www\./i, "")}${u.pathname.replace(/\/+$/, "")}`.toLowerCase();
+    const host = u.hostname.replace(/^www\./i, "").toLowerCase();
+    if (/amazon\./i.test(host)) {
+      const asin = u.pathname.match(/\/(?:dp|gp\/product)\/([a-z0-9]{10})/i);
+      if (asin) return `${host}/dp/${asin[1].toLowerCase()}`;
+    }
+    return `${host}${u.pathname.replace(/\/+$/, "")}`.toLowerCase();
   } catch {
     return null;
+  }
+}
+
+/**
+ * ¿La URL identifica un producto CONCRETO (no una búsqueda, categoría, o URL
+ * opaca)? Amazon (ASIN de /dp/ o /gp/product/) y AliExpress (/item/<id>) son
+ * los dos casos reconocibles hoy. Sirve para decidir si `elegirScrape` puede
+ * caer al candidato "más barato" cuando no hay match exacto: si el editorial
+ * YA es una ficha concreta, el más barato de un scrape de búsqueda es casi
+ * seguro OTRO producto — mejor conservar el dato editorial que mezclar precios
+ * de fichas distintas (medido: puma-all-pro-nitro enseñaba 32,98€ de un ASIN
+ * ajeno en vez de sus 76,99€ verificados).
+ */
+function esFichaReconocible(url: string): boolean {
+  try {
+    const u = new URL(unwrapWrapperUrl(url));
+    const host = u.hostname.replace(/^www\./i, "").toLowerCase();
+    if (/amazon\./i.test(host)) return /\/(?:dp|gp\/product)\/[a-z0-9]{10}/i.test(u.pathname);
+    if (/aliexpress\./i.test(host)) return /\/item\/\d+/i.test(u.pathname);
+    return false;
+  } catch {
+    return false;
   }
 }
 
@@ -147,17 +183,25 @@ export function identidadProducto(url: string): string | null {
  * Ahora: se empareja por PRODUCTO, y si no hay forma de identificarlo se coge
  * el MÁS BARATO (que es la semántica del sitio), nunca el último por azar.
  */
-export function elegirScrape<T extends { url?: string; precio_actual?: number }>(
-  orig: LinkCompra,
-  candidatos: T[],
-  variosEditoriales = false
-): T | undefined {
+export function elegirScrape<
+  T extends { url?: string; precio_actual?: number; ultima_verificacion?: string }
+>(orig: LinkCompra, candidatos: T[], variosEditoriales = false): T | undefined {
   if (candidatos.length === 0) return undefined;
 
   const idOrig = identidadProducto(orig.url);
   if (idOrig) {
-    const exacto = candidatos.find((c) => c.url && identidadProducto(c.url) === idOrig);
-    if (exacto) return exacto;
+    const exactos = candidatos.filter((c) => c.url && identidadProducto(c.url) === idOrig);
+    if (exactos.length === 1) return exactos[0];
+    if (exactos.length > 1) {
+      // Con la identidad por ASIN, varias entradas de precios.json (scrapeadas
+      // en noches distintas antes de que el scraper dedupicara con esta misma
+      // función) pueden compartir identidad. Quedarnos con la MÁS RECIENTE,
+      // nunca con la primera del array por azar (el mismo fallo que motivó
+      // esta función, ahora dentro del propio match exacto).
+      return [...exactos].sort((a, b) =>
+        (b.ultima_verificacion ?? "").localeCompare(a.ultima_verificacion ?? "")
+      )[0];
+    }
   }
 
   // Si el catálogo tiene VARIOS enlaces de esta tienda y no sabemos a cuál
@@ -167,9 +211,31 @@ export function elegirScrape<T extends { url?: string; precio_actual?: number }>
   // Mejor conservar el dato editorial que inventar una correspondencia.
   if (variosEditoriales) return undefined;
 
+  // Si el editorial YA identifica un producto concreto (ASIN de Amazon, /item/
+  // de AliExpress) y ninguno de los candidatos coincidió arriba, no hay "más
+  // barato" razonable que ofrecer: son fichas de OTROS productos (una búsqueda
+  // resuelta a otro ASIN, por ejemplo). Conservamos el dato editorial en vez
+  // de mezclar el precio de un producto ajeno.
+  if (esFichaReconocible(orig.url)) return undefined;
+
   if (candidatos.length === 1) return candidatos[0];
 
-  return [...candidatos].sort(
+  // Antes de coger el más barato, descartar candidatos "viejos" frente al más
+  // reciente del grupo (más de 7 días atrás): una entrada rancia que nadie ha
+  // vuelto a verificar no debería ganarle en precio a una fresca solo por ser
+  // más barata — probablemente ya no es válida.
+  const fechas = candidatos.map((c) => c.ultima_verificacion).filter((f): f is string => !!f);
+  let pool = candidatos;
+  if (fechas.length > 0) {
+    const masReciente = fechas.reduce((a, b) => (a > b ? a : b));
+    const limite = new Date(masReciente).getTime() - 7 * 24 * 60 * 60 * 1000;
+    const frescos = candidatos.filter(
+      (c) => !c.ultima_verificacion || new Date(c.ultima_verificacion).getTime() >= limite
+    );
+    if (frescos.length > 0) pool = frescos;
+  }
+
+  return [...pool].sort(
     (a, b) => (a.precio_actual ?? Infinity) - (b.precio_actual ?? Infinity)
   )[0];
 }
