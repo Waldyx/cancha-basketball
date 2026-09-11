@@ -706,6 +706,13 @@ de las 14 zapas se quedaba sin opción de compra (quedan entre 2 y 6 tiendas act
   catálogo, así que hoy la misma página se contradice). Tablas con marcas `{{peso:ID}}`/`{{precio:ID}}`
   sustituidas en `blog/[slug].astro` + test candado → TAREA 5 del terminal. Prosa: la reescribe el Qwen
   con los pesos de ficha y la reviso yo.
+  **Siguiente fase (después de la TAREA 5): precios en PROSA.** Medido: 173 líneas con € en 37 de 48
+  artículos; **101 dan el precio de un modelo concreto** (titulares "Nike LeBron 23 — 179€", "30€ más barata
+  que…", "precio de salida 199,99€"), el resto son rangos de presupuesto genéricos (esos se quedan). Y hay
+  LISTAS DE TIENDAS en prosa ("se encuentra en Nike.es, Foot Locker ES, JD Sports…") que el barrido de la
+  s46 demostró falsas para todo lo que no sea la generación actual. Plan: precio de un modelo → marca
+  `{{precio:ID}}`; comparaciones de precio → cualitativas; tiendas → "ver bloque de compra". Lo redacta
+  el Qwen en tanda y lo reviso yo; lo aplica el terminal.
 - 🔴 **NUEVO (s42): la Curry 13 se contradice a sí misma en los números.** Salió al revisar lo
   anterior y **NO se ha tocado**: elegir un valor sin fuente sería inventárselo. **No hay review de
   laboratorio publicada** de la 13 (RunRepeat solo llega a la 11; WearTesters, a la 12), así que lo
