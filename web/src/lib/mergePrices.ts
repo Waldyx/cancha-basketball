@@ -342,6 +342,18 @@ export function mergePricesIntoShoes(
 
     // Tiendas editables que también existen en el scrape
     const mergedLinks: LinkCompra[] = shoe.links_compra.map((orig) => {
+      // La ficha manda: si el editorial dice que este enlace NO está disponible,
+      // ningún scrape lo resucita. El scraper recorre el catálogo YA fusionado
+      // (`scripts/scraper/index.ts`) y también procesa los enlaces `false`; sin
+      // este freno, un `disponible:false` decidido a propósito (retro sin venta,
+      // segmento equivocado, matcher que emparejó otro modelo) vuelve a `true`
+      // en cuanto el scraper encuentra CUALQUIER resultado para esa búsqueda —
+      // medido: 15 de 211 enlaces `false` salían vivos en la web (Air Max Impact
+      // 5 → Air Max Alpha, Shox BB4 → Shox R4 Brazil...). Una reposición real
+      // (el modelo SÍ ha vuelto a venderse) no se pierde: sale listada en
+      // `audit-enlaces.ts` → "Posibles reposiciones" para verificarla a mano.
+      if (orig.disponible === false) return orig;
+
       const fresh = elegirScrape(
         orig,
         scrapedPorTienda.get(orig.tienda) ?? [],

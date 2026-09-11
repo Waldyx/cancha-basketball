@@ -15560,6 +15560,14 @@ export const zapatillas: Zapatilla[] = mergePricesIntoShoes(
 );
 
 /**
+ * Catálogo SIN fusionar: los datos tal cual los escribió una sesión, antes del
+ * merge con precios.json. Lo usa `audit-enlaces.ts` para la sección "Posibles
+ * reposiciones" — comparar qué dice la FICHA (`disponible:false` a propósito)
+ * contra qué tiene `precios.json` sin que el merge ya haya decidido por ella.
+ */
+export const zapatillasEditorial: Zapatilla[] = _rawZapatillas;
+
+/**
  * Helper para encontrar una zapatilla por slug (usado en páginas de detalle).
  */
 export function getZapatillaBySlug(slug: string): Zapatilla | undefined {

@@ -376,3 +376,41 @@ describe("mergePricesIntoShoes — tiendas EXTRA que no estaban en el catálogo"
     expect(nuevo.tiene_afiliado).toBe(false);
   });
 });
+
+describe("mergePricesIntoShoes — TAREA 9: la ficha manda sobre disponible:false", () => {
+  it("un scrape 'disponible' del MISMO producto NO resucita un enlace que el editorial marcó false", () => {
+    const shoes = [
+      zapa([link({ url: awin(FICHA_A), precio_actual: 100, disponible: false })]),
+    ];
+    const merged = mergePricesIntoShoes(shoes, {
+      generated_at: "2026-09-11",
+      shoes: {
+        z1: {
+          links_compra: [
+            { tienda: "aliexpress", url: awin(FICHA_A), precio_actual: 80, disponible: true },
+          ],
+        },
+      },
+    });
+    expect(merged[0].links_compra[0].disponible).toBe(false);
+    expect(merged[0].links_compra[0].precio_actual).toBe(100);
+    expect(unwrapWrapperUrl(merged[0].links_compra[0].url)).toBe(FICHA_A);
+  });
+
+  it("tampoco lo resucita un scrape de un producto DISTINTO (la vía por la que salían los 15)", () => {
+    const shoes = [
+      zapa([link({ url: awin(FICHA_A), precio_actual: 100, disponible: false })]),
+    ];
+    const merged = mergePricesIntoShoes(shoes, {
+      generated_at: "2026-09-11",
+      shoes: {
+        z1: {
+          links_compra: [
+            { tienda: "aliexpress", url: awin(FICHA_B), precio_actual: 60, disponible: true },
+          ],
+        },
+      },
+    });
+    expect(merged[0].links_compra[0].disponible).toBe(false);
+  });
+});

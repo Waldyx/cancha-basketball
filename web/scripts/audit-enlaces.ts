@@ -12,8 +12,9 @@
  * es instantáneo y no genera clicks de afiliado falsos. Para comprobar si una
  * URL vive hay que pedir SIEMPRE el destino desenvuelto, nunca el wrapper.
  */
-import { zapatillas } from "../src/data/zapatillas";
-import { unwrapWrapperUrl } from "../src/lib/mergePrices";
+import { zapatillas, zapatillasEditorial } from "../src/data/zapatillas";
+import { unwrapWrapperUrl, elegirScrape } from "../src/lib/mergePrices";
+import preciosJson from "../src/data/precios.json" with { type: "json" };
 
 interface Hallazgo {
   zapa: string;
@@ -26,6 +27,7 @@ const duplicados: Hallazgo[] = [];
 const rutasMuertas: Hallazgo[] = [];
 const sinDestino: Hallazgo[] = [];
 const sinOpcion: string[] = [];
+const reposiciones: Hallazgo[] = [];
 
 /**
  * Rutas que una tienda ya NO sirve. Cada una costó una sesión descubrirla, así
@@ -87,6 +89,49 @@ for (const z of zapatillas as any[]) {
   if ((z.links_compra?.length ?? 0) > 0 && disponibles === 0) sinOpcion.push(z.id);
 }
 
+// 5. Posibles reposiciones: la ficha marca un enlace `disponible:false` a
+// propósito (retro sin venta, matcher que emparejó otro modelo, segmento
+// equivocado...), pero precios.json SÍ tiene un scrape disponible para esa
+// tienda. Desde la TAREA 9 el merge ya no lo resucita solo ("la ficha
+// manda"), así que si el modelo ha vuelto a venderse de verdad, nadie se
+// entera salvo que alguien lo mire aquí y lo verifique con navegador.
+const preciosPorZapa = (preciosJson as { shoes?: Record<string, { links_compra?: any[] }> })
+  .shoes ?? {};
+for (const z of zapatillasEditorial as any[]) {
+  const cached = preciosPorZapa[z.id];
+  if (!cached?.links_compra?.length) continue;
+  const validos = cached.links_compra.filter(
+    (l: any) => l.disponible === true && (l.precio_actual ?? 0) > 0
+  );
+  if (validos.length === 0) continue;
+
+  const porTienda = new Map<string, typeof validos>();
+  for (const l of validos) {
+    const lista = porTienda.get(l.tienda);
+    if (lista) lista.push(l);
+    else porTienda.set(l.tienda, [l]);
+  }
+  const editorialesPorTienda = new Map<string, number>();
+  for (const l of z.links_compra ?? []) {
+    editorialesPorTienda.set(l.tienda, (editorialesPorTienda.get(l.tienda) ?? 0) + 1);
+  }
+
+  for (const orig of z.links_compra ?? []) {
+    if (orig.disponible !== false) continue;
+    const fresh = elegirScrape(
+      orig,
+      porTienda.get(orig.tienda) ?? [],
+      (editorialesPorTienda.get(orig.tienda) ?? 0) > 1
+    );
+    if (!fresh) continue;
+    reposiciones.push({
+      zapa: z.id,
+      tienda: orig.tienda,
+      detalle: `precios.json tiene ${fresh.precio_actual}€ (${fresh.ultima_verificacion ?? "?"}) — verificar con navegador: ${fresh.url}`,
+    });
+  }
+}
+
 function bloque(titulo: string, hallazgos: Hallazgo[], grave = true) {
   const marca = hallazgos.length === 0 ? "OK " : grave ? "!! " : " · ";
   console.log(`\n${marca}${titulo}: ${hallazgos.length}`);
@@ -112,6 +157,12 @@ bloque("Envuelto en una red que no cubre esa tienda", sinDestino);
 console.log(`\n · Zapas con enlaces pero NINGUNO disponible: ${sinOpcion.length}`);
 for (const id of sinOpcion.slice(0, 25)) console.log(`     ${id}`);
 if (sinOpcion.length > 25) console.log(`     … y ${sinOpcion.length - 25} más`);
+
+console.log(`\n · Posibles reposiciones (ficha=false, precios.json tiene scrape disponible): ${reposiciones.length}`);
+for (const h of reposiciones.slice(0, 25)) {
+  console.log(`     ${h.zapa} · ${h.tienda} — ${h.detalle}`);
+}
+if (reposiciones.length > 25) console.log(`     … y ${reposiciones.length - 25} más`);
 
 const problemas = nested.length + duplicados.length + rutasMuertas.length + sinDestino.length;
 console.log("\n" + "─".repeat(60));
