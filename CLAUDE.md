@@ -302,7 +302,38 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ## 🔴 Pendientes abiertos
 
-### ▶️ PARA RETOMAR (s47, 12-sep) — lo primero que hay que leer
+### ▶️ PARA RETOMAR (s48) — lo primero que hay que leer
+
+**La s47 (11-sep) fue la sesión más productiva hasta ahora: 14 commits, todos revisados por la dirección.**
+Modo: director (esta sesión) + terminal (ejecuta) + dos trabajadores nuevos (Qwen local y Gemini CLI).
+
+**Cerrado y desplegado**: barrido de las 62 búsquedas (22 fichas reales fijadas, 39 falsas, 0 fichas a cero) ·
+bug del merge por identidad de Amazon (`9982f37`) · "la ficha manda": un scrape ya no resucita un
+`disponible:false` (`74bda79`) + 8 reposiciones reales verificadas (AJ41 y Caitlin 1 ya se venden en Nike ES) ·
+Curry 13 con su tecnología real (`6a8cc89`, tarifa UA ES 140 €) · tablas de artículos que sacan peso y precio de
+la ficha, con test candado (`40d4426`) · fichas `361-zen-8` y `361-ag-6` (`fe6ebfb`) · Air Max CB 34 y la
+Converse de Larry Johnson, que en realidad es la **Aero Jam** (`1f1fe41`).
+
+**⏳ LO QUE QUEDÓ A MEDIAS (por orden):**
+1. **Pesos en la PROSA de los artículos** → `ENCARGO-pesos-prosa.json` (raíz, sin commitear). 35 líneas: 7 ya
+   revisadas por la dirección, 21 propuestas del Qwen SIN revisar, 6 que el Qwen no supo redactar. Cada entrada
+   trae la línea original, los pesos reales de ficha y el estado. Ojo: varias comparaciones se INVIERTEN con el
+   dato real (la GT Cut 4 no es "la más ligera": pesa 431 g). Aplicar por texto exacto, no por número de línea.
+2. **TAREA 10 de `ENCARGO.md`: el corte (low/mid/high) de 13 zapatillas** contra RunRepeat. Lo encontró Gemini
+   auditando los 48 artículos (citas en `ENCARGO-cortes.md`): en cada una, artículo y catálogo se contradicen.
+   **Urgente porque `scoring.ts:245` es un filtro duro del quiz**: "lesión de tobillos → fuera las low-top", así
+   que un corte mal puesto recomienda una low-top a quien tiene esguinces.
+3. **TAREA 6: 7 fichas con cero opciones de compra** (quedan 5 tras cerrar CB 34 y Larry Johnson).
+4. **Precios en prosa**: 101 líneas con el precio de un modelo concreto + listas de tiendas falsas. Plan escrito
+   más abajo, en la sección de la deriva de specs.
+5. **Gemini quedó sin terminar de probar**: el usuario hizo `/auth` con su cuenta **Google AI Pro** (ya es
+   `oauth-personal`) y se le reactivó la web en `.gemini/settings.json`, pero la primera prueba web tras el
+   cambio se cortó a los 5 min sin respuesta. **Volver a probarla antes de encargarle nada con web.**
+
+**El terminal de la s47 ya no existe** (se cerró la ventana). Para seguir hace falta abrir otra sesión de Claude
+Code en el repo y pasarle `ENCARGO.md`.
+
+### Pendientes anteriores (s47)
 1. ✅ **HECHO (s47): `joom` fuera de `TIENDAS_PENDIENTES`** (`scoring.ts`), decidido en modo director
    con delegación del usuario. Reversible: si Impact aprueba, se vuelve a meter. 239 tests OK.
    Los 19 enlaces siguen vivos como "Ver precio en Joom"; solo deja de salir su número.
