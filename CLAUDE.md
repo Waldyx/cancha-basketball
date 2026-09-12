@@ -333,6 +333,33 @@ Converse de Larry Johnson, que en realidad es la **Aero Jam** (`1f1fe41`).
 **El terminal de la s47 ya no existe** (se cerró la ventana). Para seguir hace falta abrir otra sesión de Claude
 Code en el repo y pasarle `ENCARGO.md`.
 
+### ▶️ S48 (12-sep) — los tres trabajadores, y GEMINI CERRADO DEFINITIVAMENTE
+
+Sesión corta, sin tocar catálogo: se abrieron los tres trabajadores en ventana propia y se midió cada canal.
+
+1. 🔴 **GEMINI: la vía OAuth está MUERTA para el CLI. NO volver a intentar el `/auth`.** El login SÍ funciona
+   (`google_accounts.json` pasa a `"active": oswaldhs7@gmail.com`, se escribe `oauth_creds.json`) y en la
+   ventana INTERACTIVA Gemini responde. Pero:
+   · `gemini -p` con `oauth-personal` pregunta `Opening authentication page in your browser. [Y/n]:` y se
+     cuelga esperando una tecla → **4 min y salida vacía**. ⇒ lanzarlo SIEMPRE con `< /dev/null`.
+   · La vez que llegó al servidor: `IneligibleTierError: This client is no longer supported for Gemini Code
+     Assist for individuals… migrate to Antigravity`, `tierId: free-tier`. **El plan Google AI Pro del usuario
+     NO llega al CLI.** Y no se arregla actualizando: 0.59.0 es la última estable en npm.
+   · ⇒ Revertido a `gemini-api-key`, que funciona. **Límite MEDIDO en el error literal de Google:**
+     `generate_content_free_tier_requests, limit: 5, model: gemini-3.5-flash` = **5 peticiones/MINUTO**. El CLI
+     reintenta solo a los 60 s, así que una tanda seguida no falla: se arrastra a ~1 min por llamada.
+     ⇒ **encargos GRANDES y pocos**, nunca muchas preguntas cortas.
+   · `.gemini/settings.json` del proyecto vuelve a EXCLUIR `google_web_search` y `web_fetch`: estaba en
+     `exclude: []` (web abierta) mientras `GEMINI.md` decía lo contrario. Ahora config y doc coinciden.
+2. **QWEN (LM Studio)**: viene con el servidor apagado Y el modelo descargado → `lms server start` +
+   `lms load qwen3.8-27b-uncensored --context-length 16384 -y` (16 s). Ocupa **18,1 GB de RAM y las dos VRAM
+   enteras** (3070 + 3080): `lms unload --all` cuando el usuario vaya a jugar o a descargar.
+   🔑 **Corrige el número pero NO el juicio**: en la línea de la AE 2 puso el peso real (428 g) y dejó
+   escrito "que es ligera para su categoría", inventándose además una comparación. Se revisa por SENTIDO.
+3. **Terminal de Claude**: sesión nueva registrada como peer; `SendMessage` funciona en los dos sentidos.
+4. ⚠ **Sin comprobar**: Gemini contó **244** zapatillas en `zapatillas.ts` y este documento dice 242.
+5. `ENCARGO-pesos-prosa.json`: revisadas L2109 (Ja 3) y L1619 (AE 2). Quedan 21 sin revisar y 5 que falló el Qwen.
+
 ### Pendientes anteriores (s47)
 1. ✅ **HECHO (s47): `joom` fuera de `TIENDAS_PENDIENTES`** (`scoring.ts`), decidido en modo director
    con delegación del usuario. Reversible: si Impact aprueba, se vuelve a meter. 239 tests OK.
