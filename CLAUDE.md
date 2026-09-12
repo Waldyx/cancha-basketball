@@ -213,7 +213,10 @@ envío gratis desde 99 $. **Tarifas oficiales en €** (que hasta hoy dábamos p
 recibir. Unos 150 € de tarifa salen por ~185 € reales. **Por eso AliExpress (IVA incluido y
 afiliado al 7%) sigue siendo la mejor opción de compra**, no un mal menor.
 
-**▶️ DECIDIR**: meter `361sport` como `Tienda` nueva. No le conocemos programa de afiliados, así
+**▶️ DECIDIR (más urgente desde la s47)**: `361-zen-8` (130 €) y `361-ag-6` (110 €) entraron el 11-sep (`fe6ebfb`)
+con **cero enlaces**: 361sport las vende y envía a España, pero no es una `Tienda` dada de alta, y AliExpress no
+vale (ZEN 8 a 174,99 € = 1,35× MSRP; AG 6 sin resultados). NO es el caso de la NB Kawhi V (que no se vende en
+España en absoluto): aquí el hueco lo cierra dar de alta la tienda. **▶️ DECIDIR**: meter `361sport` como `Tienda` nueva. No le conocemos programa de afiliados, así
 que entraría como "Ver precio en 361sport" (sin número) salvo que se pida el afiliado primero.
 Toca `Tienda` en `types.ts` + `COMISIONES_TIENDA`. **No hecho: es tu llamada.**
 
