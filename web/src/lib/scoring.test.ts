@@ -66,8 +66,12 @@ describe("aplicarFiltrosDuros", () => {
     expect(ids).not.toContain("nike-ja-2");
     expect(ids).not.toContain("nike-kyrie-low-5");
     expect(ids).not.toContain("decathlon-tarmak-fast-900");
-    // Las mid/high deben quedar (al menos LeBron 22 high-top)
-    expect(ids).toContain("nike-lebron-22");
+    // Verificadas s48 con RunRepeat/HoopsGeek: las LeBron 22/23 y la AJ 40 son low (fuera);
+    expect(ids).not.toContain("nike-lebron-22");
+    expect(ids).not.toContain("jordan-40");
+    // y las mid verificadas se quedan
+    expect(ids).toContain("ua-curry-13");
+    expect(ids).toContain("nike-gt-hustle-3");
   });
 
   it("filtra cushion < 6 si el usuario marca rodillas", () => {

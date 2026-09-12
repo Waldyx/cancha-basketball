@@ -304,7 +304,7 @@ export const ARTICLES: Article[] = [
   <li>Respuesta: 9/10 (el ZoomX bounce es lo mejor que ofrece)</li>
   <li>Soporte lateral: 8/10 (las 6 correas hacen su trabajo)</li>
   <li>Estabilidad: 7/10 (ligera inestabilidad en el antepié con carga extrema)</li>
-  <li>Ligereza: 6/10 (395g — no es ligera)</li>
+  <li>Ligereza: 6/10 (439 g — no es ligera)</li>
   <li>Durabilidad outdoor: 6/10 (no la lleves al asfalto)</li>
 </ul>
 
@@ -361,7 +361,7 @@ export const ARTICLES: Article[] = [
   <li>✅ Max Air en talón + React en toda la entresuela: el combo de cushion más potente de Nike en baloncesto.</li>
   <li>✅ Suela de caucho multidireccional: agarre excepcional en parquet limpio y sucio.</li>
   <li>✅ Upper Flyknit reforzado: soporte lateral sólido sin rigidez excesiva.</li>
-  <li>❌ 395g — la más pesada del grupo. Se nota en las ayudas defensivas lentas.</li>
+  <li>❌ 455 g — la más pesada del grupo. Se nota en las ayudas defensivas lentas.</li>
   <li>❌ La horma estrecha de Nike no encaja bien en pies anchos.</li>
 </ul>
 
@@ -383,7 +383,7 @@ export const ARTICLES: Article[] = [
   <li>✅ Herringbone 40°: muy buena tracción en pista limpia.</li>
   <li>❌ 199€ — la más cara del grupo. Solo tiene sentido si juegas 3+ veces por semana.</li>
   <li>❌ El ZoomX atrae el polvo. En pistas sucias, la tracción baja notablemente.</li>
-  <li>❌ 395g — tan pesada como la LeBron.</li>
+  <li>❌ 439 g — casi tan pesada como la LeBron.</li>
 </ul>
 
 <h3><a href="/zapatilla/anta-kt-11">ANTA KT 11 — ~80€ (AliExpress)</a></h3>
@@ -642,7 +642,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — ancha para ser Nike</a></h3>
-<p>LeBron James tiene pie grande y la LeBron line tradicionalmente va algo más ancha que la media Nike. No es la mejor para pie ancho, pero es más permisiva que otras líneas Nike. Mid-top con más volumen interior.</p>
+<p>LeBron James tiene pie grande y la LeBron line tradicionalmente va algo más ancha que la media Nike. No es la mejor para pie ancho, pero es más permisiva que otras líneas Nike. Low-top, pero con más volumen interior.</p>
 <ul>
   <li>✅ Más espacio que otras Nike</li>
   <li>❌ Sigue siendo estrecha comparada con ANTA o Adidas</li>
@@ -684,8 +684,8 @@ export const ARTICLES: Article[] = [
 <p>Es la decisión más importante. No hay elección "correcta" universal — depende de tu historial:</p>
 <ul>
   <li><strong>Low-top:</strong> máxima velocidad y agilidad, mínima protección lateral. Para bases sanos sin historial de tobillo. Ejemplos: Nike GT Cut 4, Adidas AE 2.</li>
-  <li><strong>Mid-top:</strong> el equilibrio. Cubre la parte baja del tobillo sin restringir el movimiento. La opción más versátil y la recomendada si tienes algún esguince en el historial pero no recurrente. Ejemplos: Nike LeBron 23, ANTA KT 11.</li>
-  <li><strong>High-top:</strong> máxima protección, especialmente con correas o collar acolchado. Para jugadores con esguinces recurrentes o que quieran la máxima seguridad. Ejemplos: Jordan Tatum 4, Air Jordan 40.</li>
+  <li><strong>Mid-top:</strong> el equilibrio. Cubre la parte baja del tobillo sin restringir el movimiento. La opción más versátil y la recomendada si tienes algún esguince en el historial pero no recurrente. Ejemplos: UA Curry 13, Puma MB.04, Nike GT Hustle 3.</li>
+  <li><strong>High-top:</strong> máxima protección, especialmente con correas o collar acolchado. Para jugadores con esguinces recurrentes o que quieran la máxima seguridad. Ojo: hoy quedan pocas high-top de rendimiento; la mayoría de modelos actuales son low o mid.</li>
 </ul>
 <p><strong>Regla simple:</strong> si has tenido más de un esguince de tobillo, no uses low-top en partidos. Mid o high siempre.</p>
 
@@ -698,11 +698,12 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h2>Top 4 zapatillas para tobillo débil en 2025</h2>
+<p><strong>Aviso importante:</strong> varios de estos modelos son <strong>low-top</strong> aunque tengan fama de estables (Tatum 4, Air Jordan 40 y LeBron 23, según RunRepeat y HoopsGeek). Los mantenemos por su soporte lateral, pero si tus esguinces son recurrentes, aplica la regla de arriba y prioriza una mid como la UA Curry 13 o la Puma MB.04.</p>
 
 <h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — 150€</a></h3>
-<p>High-top con collar de espuma acolchado que envuelve el tobillo sin restringir el movimiento. Jayson Tatum tiene historial de problemas de tobillo y el calzado está diseñado con eso en mente. Soporte lateral 9/10, estabilidad sólida.</p>
+<p>Low-top, pero con un collar de espuma acolchado que envuelve el tobillo sin restringir el movimiento. Jayson Tatum tiene historial de problemas de tobillo y el calzado está diseñado con eso en mente. Soporte lateral 9/10, estabilidad sólida. Ojo: es low-top; si tus esguinces son recurrentes, busca una mid.</p>
 <ul>
-  <li>✅ High-top con el mejor collar del mercado en su precio</li>
+  <li>✅ El collar más acolchado del mercado en su precio, aunque sea low-top</li>
   <li>✅ Soporte lateral excepcional para un forward</li>
   <li>❌ No es para guards puros — algo pesada para los primeros pasos</li>
 </ul>
@@ -717,9 +718,9 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — 179€</a></h3>
-<p>Mid-top robusto con upper Flyknit reforzado que da contención sin la rigidez de un high. LeBron James tiene el tobillo más famoso del baloncesto moderno y sus zapatillas lo reflejan. Para ala-pívots que quieren protección sin renunciar a la movilidad.</p>
+<p>Low-top robusta con upper Flyknit reforzado que da contención sin la rigidez de una bota alta. LeBron James tiene el tobillo más famoso del baloncesto moderno y sus zapatillas lo reflejan. Para ala-pívots que quieren protección sin renunciar a la movilidad.</p>
 <ul>
-  <li>✅ Mid-top con excelente soporte lateral</li>
+  <li>✅ Excelente soporte lateral para ser low-top</li>
   <li>✅ Max Air en talón: amortiguación que protege también los tobillos en aterrizajes</li>
   <li>❌ Horma estrecha — incómoda si tienes pie ancho</li>
 </ul>
@@ -1048,7 +1049,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3>🥈 Air Jordan 12 Retro — La mejor Jordan retro para jugar</h3>
-<p>La Jordan del Flu Game (1997). Zoom Air completo, herringbone tracción, estructura de cuero sólida. Consigue 6.1/10 — la mejor puntuación de la saga Jordan clásica. La penaliza el peso (440g) pero si juegas sin velocidad explosiva, ofrece una experiencia sorprendentemente moderna.</p>
+<p>La Jordan del Flu Game (1997). Zoom Air completo, herringbone tracción, estructura de cuero sólida. Consigue 6.1/10 — la mejor puntuación de la saga Jordan clásica. La penaliza el peso (440 g) pero si juegas sin velocidad explosiva, ofrece una experiencia sorprendentemente moderna.</p>
 <ul>
   <li><strong>Para quién:</strong> Aleros y ala-pívots que juegan equilibrado. No para bases.</li>
   <li><strong>Historia incluida:</strong> El partido donde Jordan jugó con fiebre de 39° y ganó el anillo.</li>
@@ -1056,7 +1057,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3>🥉 Air Jordan 14 Retro — La mejor low-top Jordan histórica</h3>
-<p>El "Last Shot" de 1998 — el tiro que le dio el sexto anillo a MJ. Zoom Air real, peso contenido para ser un retro (415g) y el perfil más limpio de toda la saga. Empata con la Jordan 12 en 6.1/10 pero ofrece más movilidad al ser low-top.</p>
+<p>El "Last Shot" de 1998 — el tiro que le dio el sexto anillo a MJ. Zoom Air real, peso contenido para ser un retro (415 g) y el perfil más limpio de toda la saga. Empata con la Jordan 12 en 6.1/10 pero ofrece más movilidad al ser low-top.</p>
 <ul>
   <li><strong>Ojo:</strong> Low-top significa menos soporte de tobillo. No recomendada si tienes historial de esguinces.</li>
   <li><strong>Historia incluida:</strong> La última imagen icónica de MJ en Bulls.</li>
@@ -1076,13 +1077,13 @@ export const ARTICLES: Article[] = [
 <h2>Tier 3 — Solo para jugar casual o colección</h2>
 
 <h3>Nike Air Force 1 — Madre de todo</h3>
-<p>La primera Nike Air de la historia (1982). 5.5/10 pero su tecnología Air es básica y pesa 460g. Resistente, tracción sólida, soporte lateral excelente — pero no para correr. Para jugadores potentes que quieren el icono fundacional.</p>
+<p>La primera Nike Air de la historia (1982). 5.5/10 pero su tecnología Air es básica y pesa 460 g. Resistente, tracción sólida, soporte lateral excelente — pero no para correr. Para jugadores potentes que quieren el icono fundacional.</p>
 
 <h3>Air Jordan 1/3/4/6/7/8 — La saga completa</h3>
 <p>Scores entre 3.8 y 5.8/10. Las mejores de este grupo son la Jordan 8 (correas, tracción buena) y la Jordan 6 (la del primer anillo). Las Jordan 1, 2 y 3 son para colección — no tienen tecnología de amortiguación real para el juego moderno.</p>
 
 <h3>Reebok Shaq Attaq — El dinosaurio</h3>
-<p>La zapatilla de Shaquille O'Neal de 1992. Un honesto 4.4/10: pesa 570g, sin tecnología real, pero el pump Reebok y el perfil high-top tienen su gracia. Para el que quiere saber cómo jugaba el pivot más dominante de la historia.</p>
+<p>La zapatilla de Shaquille O'Neal de 1992. Un honesto 4.4/10: pesa 570 g, sin tecnología real, pero el pump Reebok y el perfil high-top tienen su gracia. Para el que quiere saber cómo jugaba el pivot más dominante de la historia.</p>
 
 <h2>Las que NO recomendamos para jugar</h2>
 <ul>
@@ -1184,8 +1185,8 @@ export const ARTICLES: Article[] = [
 <p><strong>Veredicto:</strong> MB.04 claramente si la tracción es tu prioridad.</p>
 
 <h2>Peso y perfil</h2>
-<p>La MB.04 pesa 355g (US9) — ligera para ser una low-cut de baloncesto. La MB.05 sube a 370g por el stack de espuma adicional. 15g de diferencia no suenan a mucho, pero en 40 minutos de partido se nota. Para jugadores que valoran la sensación de agilidad, la MB.04 gana.</p>
-<p>Ambas son <strong>low-top</strong>. Si tienes historial de esguinces, considera las Puma All-Pro Nitro 2 en versión mid o las UA Curry 13 mid que ofrecen más soporte.</p>
+<p>La MB.04 pesa 390 g. La MB.05 sube a 418 g por el stack de espuma adicional. 28 g de diferencia no suenan a mucho, pero en 40 minutos de partido se nota. Para jugadores que valoran la sensación de agilidad, la MB.04 gana.</p>
+<p>La MB.05 es <strong>low-top</strong> y la MB.04, <strong>mid</strong> (Puma vende además una MB.04 Low aparte). Si tienes historial de esguinces, de las dos quédate con la MB.04; la UA Curry 13, también mid, es otra alternativa.</p>
 
 <h2>LaMelo brand vs rendimiento</h2>
 <p>Seamos honestos: parte del precio de ambas es el nombre LaMelo Ball. Los colorways son los más llamativos del mercado — si quieres hacerte notar en la cancha, estas son las zapatillas. Pero el rendimiento técnico las justifica también: no son zapas de marketing puro.</p>
@@ -1319,7 +1320,7 @@ export const ARTICLES: Article[] = [
     relatedShoes: ["nike-gt-cut-4", "nike-gt-cut-3", "ua-curry-13", "anta-kai-2", "adidas-ae-2"],
     relatedSeoPages: ["mejor-zapatilla-base", "zapatillas-reactivas", "mejores-zapatillas-baloncesto-2025"],
     body: `
-<p class="art-intro">La Nike Air Zoom GT Cut 4 es la zapatilla de baloncesto que más se repite en la lista de deseos de guards y escoltas en 2025. Tracción 10/10, Zoom Air Strobel de última generación y solo 305g. Victor Wembanyama la escogió para la temporada NBA 25-26 — un 2,24m que usa una zapatilla de guard te dice todo lo que necesitas saber sobre su court feel.</p>
+<p class="art-intro">La Nike Air Zoom GT Cut 4 es la zapatilla de baloncesto que más se repite en la lista de deseos de guards y escoltas en 2025. Tracción 10/10 y Zoom Air Strobel de última generación, aunque no es ligera (431 g). Victor Wembanyama la escogió para la temporada NBA 25-26 — un 2,24m que usa una zapatilla de guard te dice todo lo que necesitas saber sobre su court feel.</p>
 
 <h2>Ficha técnica</h2>
 <div style="overflow-x:auto">
@@ -1539,11 +1540,11 @@ export const ARTICLES: Article[] = [
 <p>Si el presupuesto importa, la AE 2 ofrece estabilidad 7.5/10 y soporte lateral 8/10 a ~120-130€. Lightstrike Pro firme, herringbone tracción. No llega al LeBron en cushion pero sí en soporte. Para jugadores de hasta 85kg con pie plano, es suficiente.</p>
 
 <h3>5. Nike GT Hustle 3 — soporte de tobillo + pie plano</h3>
-<p>Si tienes pie plano <em>y</em> historial de esguinces, la GT Hustle 3 en versión mid-top es la solución. Estabilidad 8/10, soporte lateral 7.5/10, collar de tobillo reforzado. Más pesada que la GT Cut, pero para un jugador con problemas combinados de pie plano + tobillo débil, es la opción más segura del mercado.</p>
+<p>Si tienes pie plano <em>y</em> historial de esguinces, la GT Hustle 3, de corte mid, es la solución. Estabilidad 8/10, soporte lateral 7.5/10, collar de tobillo reforzado. Más pesada que la GT Cut, pero para un jugador con problemas combinados de pie plano + tobillo débil, es la opción más segura del mercado.</p>
 
 <h2>Lo que debes evitar</h2>
 <ul>
-  <li><strong>Zapatillas ultraligeras tipo "racing":</strong> La Kobe 8 Protro (295g), la GT Cut 4 (315g) o cualquier low-profile extremo no tiene la plataforma de soporte que necesita un pie plano. Excelentes zapatillas, pero no para este perfil.</li>
+  <li><strong>Zapatillas tipo "racing":</strong> La Kobe 8 Protro (340 g), la GT Cut 4 (431 g) o cualquier low-profile extremo no tiene la plataforma de soporte que necesita un pie plano. Excelentes zapatillas, pero no para este perfil.</li>
   <li><strong>Zapatillas con cushion excesivamente blando:</strong> Foam muy blando (algunas versiones de Nike React) crea una base inestable que empeora la pronación. Busca cushion firme, no solo abundante.</li>
   <li><strong>Horma muy estrecha:</strong> El pie plano tiende a ser más ancho cuando el arco no lo levanta. Horma estrecha crea puntos de presión. Modelos Nike con horma estrecha (muchos Kyrie) son problemáticos para este perfil.</li>
 </ul>
@@ -1616,7 +1617,7 @@ export const ARTICLES: Article[] = [
 <p>La AE 2 ofrece soporte lateral sólido (7.5/10) para un zapato low-top. El counter de talón es rígido y el midfoot shank controla el torsional. Para guards y escoltas que hacen muchos cortes, el soporte es más que suficiente. No es el zapato para un pívot de 100 kg que necesita máxima estabilidad — ahí manda el LeBron 22 o la Jordan Tatum 4.</p>
 
 <h2>Peso</h2>
-<p>La AE 2 pesa aproximadamente <strong>350g</strong> en talla 44 (US 10), que es ligera para su categoría. No llega a la ligereza extrema de la GT Cut 4 (~305g), pero la diferencia no es apreciable en cancha. Para un jugador amateur, el peso no es un factor diferencial en este rango.</p>
+<p>La AE 2 pesa <strong>428 g</strong> en talla 44 (US 10), que la coloca entre las pesadas de su categoría: está a la par de la GT Cut 4 (431 g) y muy por encima de una Curry 13 (352 g) o una Tatum 4 (351 g). Si buscas ligereza, no es tu zapatilla; si vienes de un modelo de este peso, la diferencia no la vas a notar.</p>
 
 <h2>Comparativa directa</h2>
 <table style="border-collapse:collapse;width:100%;font-size:13px;margin:16px 0">
@@ -1729,7 +1730,7 @@ export const ARTICLES: Article[] = [
 
 <h2>Soporte y estabilidad: el punto fuerte</h2>
 <p>Aquí la Curry 13 destaca claramente sobre sus rivales directos. El chasis de TPU moldeado en 3D, la jaula SPLASH y la estructura de Pebax sujetan el pie en los cortes, y el corte mid suma algo de protección de tobillo. Ideal para jugadores con historial leve de esguinces que no quieren renunciar a la libertad de movimiento.</p>
-<p>Si compararas la Curry 13 con la AE 2 en estabilidad lateral, la Curry gana claramente. Si la comparas con un mid-top como la Tatum 4, la Tatum gana. Para la mayoría de guards con tobillos razonablemente estables, la Curry 13 ofrece más que suficiente.</p>
+<p>Si compararas la Curry 13 con la AE 2 en estabilidad lateral, la Curry gana claramente. Si la comparas con la Tatum 4, la Tatum gana. Para la mayoría de guards con tobillos razonablemente estables, la Curry 13 ofrece más que suficiente.</p>
 
 <h2>Peso y comfort</h2>
 <p>La Curry 13 pesa <strong>unos 350 g</strong> (12,4 oz según Under Armour). La comodidad general es alta desde el primer uso: la lengüeta acolchada y el collar de tobillo bien acabado se notan desde el día uno.</p>
@@ -1789,15 +1790,15 @@ export const ARTICLES: Article[] = [
 <p>El patrón multidireccional de la Tatum 4 es sólido (8/10) aunque no excepcional. En pabellones limpios, agarra en todas las direcciones sin problema. En suelo con polvo, necesitas limpiar la suela con regularidad. No llega al nivel de la AE 2 o la GT Cut 4 en tracción pura, pero tampoco decepciona.</p>
 
 <h2>Soporte lateral y estabilidad: el punto diferencial</h2>
-<p>Aquí la Tatum 4 destaca sobre sus rivales más explosivos (AE 2, GT Cut 4, Curry 13). La construcción high-top ofrece soporte real de tobillo — no solo estético. El collar acolchado está diseñado para contener el tobillo en los cortes laterales sin restringir el movimiento vertical.</p>
+<p>Aquí conviene ajustar expectativas: la Tatum 4 es low-top y RunRepeat la descarta como opción para soporte de tobillo, porque apenas lleva elementos estabilizadores más allá de la plataforma baja y la copa de TPU. Con tobillos sanos cumple; si vienes de esguinces, mira antes una mid o una high.</p>
 <p>Para jugadores con historial de esguinces leves o que simplemente quieren más seguridad en los cortes, la Tatum 4 ofrece el mejor soporte lateral de la gama sin llegar al extremo restrictivo de los LeBron 22 más altos. Score: <strong>9/10</strong>.</p>
 
 <h2>Ajuste y horma</h2>
 <p>La Tatum 4 tiene horma <strong>media</strong>, ligeramente más estrecha que la LeBron 22 pero más generosa que la GT Cut 4 o la Kyrie. Para la mayoría de pies normales, encaja perfectamente en talla habitual. Los que tienen pie ancho pueden necesitar media talla más — en talla habitual el antepié puede quedar justo.</p>
 <p>El upper construido en materiales sintéticos de alta densidad es sólido pero transpira menos que el flyknit de la AE 2. Para sesiones largas o pabellones calurosos, la ventilación es un punto débil.</p>
 
-<h2>Peso: el único punto negativo</h2>
-<p>La Tatum 4 pesa aproximadamente <strong>390g</strong> en talla 44 — más que la AE 2 (350g), la Curry 13 (330g) o la GT Cut 4 (305g). Para una zapatilla de alero versátil, ese peso se nota en sesiones largas. No es un dealbreaker para jugadores de posición 3-4, pero si eres un base que necesita máxima agilidad, el peso es un factor.</p>
+<h2>Peso: uno de sus puntos fuertes</h2>
+<p>La Tatum 4 pesa 12,4 oz (unos <strong>351 g</strong>) según el laboratorio de RunRepeat: más de una onza por debajo de la media de su categoría y la Jordan de baloncesto más ligera hasta la fecha. Pesa bastante menos que la AE 2 (428 g) o la GT Cut 4 (431 g) y prácticamente lo mismo que la Curry 13 (352 g). Para una zapatilla de alero con este nivel de cushion y soporte, es una ventaja clara.</p>
 
 <h2>¿Para quién es la Jordan Tatum 4?</h2>
 <p>La Tatum 4 es perfecta para:</p>
@@ -1805,11 +1806,10 @@ export const ARTICLES: Article[] = [
   <li><strong>Aleros (posición 3):</strong> el usuario principal. Equilibrio ideal entre cushion, soporte y versatilidad para un juego de todo el campo.</li>
   <li><strong>Ala-pívots (posición 4):</strong> suficiente cushion y soporte para las posiciones interiores sin el peso extremo de un zapato de pívot.</li>
   <li><strong>Escoltas versátiles (posición 2):</strong> si juegas una gran parte del tiempo en posiciones mixtas y no eres un guard puro explosivo, la Tatum 4 es excelente.</li>
-  <li><strong>Jugadores con historial de esguinces:</strong> el soporte high-top es uno de los mejores del mercado para prevención de lesiones sin renunciar a rendimiento.</li>
 </ul>
 <p>No es ideal para:</p>
 <ul>
-  <li>Bases explosivos que necesitan ligereza máxima — usa la GT Cut 4 o la Curry 13</li>
+  <li>Bases explosivos que buscan el máximo primer paso — usa la GT Cut 4 o la Curry 13</li>
   <li>Pívots puros de 100 kg+ — el LeBron 22 o la Fresh Foam BB v3 tienen más cushion</li>
   <li>Jugadores outdoor — su suela no está optimizada para asfalto</li>
 </ul>
@@ -1869,7 +1869,7 @@ export const ARTICLES: Article[] = [
     title: "Nike LeBron 22 análisis: el tope de cushion de 2025",
     metaTitle: "Nike LeBron 22 análisis 2025: cushion, tracción, peso | CANCHA.ZAPA",
     description:
-      "Análisis técnico completo de las Nike LeBron 22 (LeBron James): Air Zoom + Cushlon, 425g, high-top. ¿Es la mejor zapatilla para pívots y jugadores pesados de 2025?",
+      "Análisis técnico completo de las Nike LeBron 22 (LeBron James): Air Zoom + Cushlon, 442 g, low-top. ¿Es la mejor zapatilla para pívots y jugadores pesados de 2025?",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
     categoria: "Análisis",
@@ -1884,7 +1884,7 @@ export const ARTICLES: Article[] = [
 <p class="art-intro">LeBron James es el jugador más dominante de la historia por volumen y longevidad. Con 39 años, sigue jugando al máximo nivel — y su zapatilla refleja esa filosofía: más protección, más soporte, más cushion. La LeBron 22 no es para todos. Es para jugadores pesados, pívots, y cualquiera que priorice la protección sobre la ligereza.</p>
 
 <h2>La filosofía LeBron: fuerza por encima de velocidad</h2>
-<p>La línea LeBron siempre ha priorizado el cushion y la estabilidad sobre la ligereza y el court feel. LeBron (2.06m, 113kg) necesita una zapatilla que absorba los impactos de décadas de juego profesional. El resultado es una zapatilla que pesa 425g — bastante más que la GT Cut 4 (305g) o la AE 2 (350g). Pero ese peso no es un defecto; es la consecuencia de un sistema de cushion genuinamente premium.</p>
+<p>La línea LeBron siempre ha priorizado el cushion y la estabilidad sobre la ligereza y el court feel. LeBron (2.06m, 113kg) necesita una zapatilla que absorba los impactos de décadas de juego profesional. El resultado es una zapatilla que pesa 442 g, apenas por encima de la GT Cut 4 (431 g) o la AE 2 (428 g). Pero ese peso no es un defecto; es la consecuencia de un sistema de cushion genuinamente premium.</p>
 
 <h2>Tecnología: Air Zoom + Cushlon 3.0</h2>
 <p>La LeBron 22 combina:</p>
@@ -1896,7 +1896,7 @@ export const ARTICLES: Article[] = [
 
 <h2>El gran trade-off: respuesta y peso</h2>
 <p>Toda esa protección tiene un coste. La LeBron 22 tiene la respuesta más baja de los modelos premium (5/10) — es una zapatilla que absorbe el impacto más que lo devuelve. Si eres un guard que vive de los primeros pasos y las carreras de transición, la LeBron 22 no es tu zapatilla. Pero si eres un ala-pívot o pívot que prioriza la protección en la pintura, ese court feel "apagado" es completamente aceptable.</p>
-<p>El peso de 425g en talla 44 es notable. En 40 minutos de partido, esa diferencia de 75-120g respecto a una zapatilla ligera se acumula. Para guards: descartada. Para pívots y jugadores de más de 95kg: justificada.</p>
+<p>El peso de 442 g es notable. En 40 minutos de partido, la diferencia de unos 90 g respecto a zapatillas ligeras como la Tatum 4 (351 g) o la Curry 13 (352 g) se acumula. Para guards: descartada. Para pívots y jugadores de más de 95 kg: justificada.</p>
 
 <h2>Tracción y soporte: excelente</h2>
 <p>La tracción es sólida (8/10) con un patrón multidireccional que funciona bien en pabellones limpios. No es la mejor en suelo con polvo (la AE 2 o la GT Cut 4 la superan), pero es más que suficiente para el 90% de pabellones españoles.</p>
@@ -1961,9 +1961,9 @@ export const ARTICLES: Article[] = [
 <p><strong>El mejor equilibrio del mercado.</strong> Jayson Tatum es el prototipo del alero moderno: defiende del 1 al 5, mete cortes, tira de tres y postea. La Tatum 4 está diseñada para eso: score 7+ en todos los ejes con cushion Zoom Air + Impact Plate para los aterrizajes.</p>
 <ul>
   <li>✅ Cushion 8 + respuesta 8: el mejor equilibrio technico del grupo</li>
-  <li>✅ High-top: máxima protección lateral para el alero que juega físico</li>
+  <li>✅ Ligera: 12,4 oz según RunRepeat, de las más ligeras del grupo</li>
   <li>✅ Horma normal-ancha: encaja con la mayoría de pies</li>
-  <li>❌ No es la más ligera (390g) — se nota si juegas de base en emergencia</li>
+  <li>❌ Low-top con poco soporte de tobillo y suela fina que se desgasta rápido en exterior (RunRepeat, HoopsGeek)</li>
 </ul>
 
 <h3><a href="/zapatilla/adidas-harden-vol-9">Adidas Harden Vol 9 — 129€</a></h3>
@@ -2105,7 +2105,7 @@ export const ARTICLES: Article[] = [
   <li>Respuesta: <strong>9/10</strong> — bounce reactivo, primer paso rápido</li>
   <li>Soporte lateral: <strong>7/10</strong> — aceptable para guard, no es su punto fuerte</li>
   <li>Estabilidad: <strong>7/10</strong> — el ZoomX es algo blando bajo carga extrema</li>
-  <li>Ligereza: <strong>8/10</strong> — 326g, una de las más ligeras del grupo con cushion</li>
+  <li>Ligereza: <strong>8/10</strong> — 310g, una de las más ligeras del grupo con cushion</li>
   <li>Durabilidad outdoor: <strong>8/10</strong> — goma completa, aguanta asfalto moderado</li>
   <li>Ventilación: <strong>7/10</strong> — malla densa, algo cálida en verano</li>
 </ul>
@@ -2119,7 +2119,7 @@ export const ARTICLES: Article[] = [
 <p>La Curry 13 tiene mejor court feel (UA Flow directo al suelo). La Ja 3 tiene mejor durabilidad outdoor y horma más fácil para pie ancho. Si juegas siempre en interior limpio: Curry 13. Si juegas ocasionalmente fuera o tienes pie ancho: Ja 3.</p>
 
 <h3>vs Nike GT Cut 4 (150€)</h3>
-<p>La GT Cut 4 es más reactiva (10/10 respuesta, 310g). La Ja 3 tiene mejor cushion y horma más ancha. Para bases con pie normal o estrecho que buscan el máximo primer paso: GT Cut 4. Para bases con pie ancho o que priorizan cushion+outdoor: Ja 3.</p>
+<p>La GT Cut 4 es más reactiva (10/10 en respuesta), aunque pesa bastante más (431 g frente a 310 g). La Ja 3 tiene mejor cushion y horma más ancha. Para bases con pie normal o estrecho que buscan el máximo primer paso: GT Cut 4. Para bases con pie ancho o que priorizan cushion+outdoor: Ja 3.</p>
 
 <h2>¿Para quién es la Ja 3?</h2>
 <p>Es el mejor match para:</p>
@@ -2183,7 +2183,7 @@ export const ARTICLES: Article[] = [
 <ul>
   <li>✅ Amortiguación 10/10 — el cushion más avanzado disponible</li>
   <li>✅ 6 correas internas: estabilidad extra en aterrizajes</li>
-  <li>❌ 199€ y 395g — la más cara y pesada del grupo</li>
+  <li>❌ 199€ y 439 g — la más cara del grupo y de las más pesadas</li>
 </ul>
 
 <h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — 179€ — Max Air para jugadores pesados</a></h3>
@@ -2361,11 +2361,11 @@ export const ARTICLES: Article[] = [
 <h2>Top 5 zapatillas para bases en 2025</h2>
 
 <h3><a href="/zapatilla/nike-gt-cut-4">Nike GT Cut 4 — 150€</a></h3>
-<p><strong>La más explosiva del mercado en 2025.</strong> El Zoom Air de la GT Cut 4 es el más reactivo que Nike fabrica para baloncesto. 310g, suela de goma dura multidireccional con tracción 10/10, court feel absolutamente exceptional. Si tu pie encaja (horma estrecha) y juegas siempre en interior limpio, no hay nada mejor en 2025.</p>
+<p><strong>La más explosiva del mercado en 2025.</strong> El Zoom Air de la GT Cut 4 es el más reactivo que Nike fabrica para baloncesto. Suela de goma dura multidireccional con tracción 10/10 y court feel absolutamente excepcional. No es ligera (431 g), pero la respuesta lo compensa. Si tu pie encaja (horma estrecha) y juegas siempre en interior limpio, no hay nada mejor en 2025.</p>
 <ul>
   <li>✅ Respuesta 10/10 — la más reactiva del grupo</li>
   <li>✅ Tracción 10/10 — herringbone de carbono</li>
-  <li>✅ 310g — la más ligera del grupo</li>
+  <li>❌ 431 g — la más pesada del grupo; lo compensa con respuesta</li>
   <li>❌ Horma muy estrecha — pie normal o estrecho únicamente</li>
   <li>❌ Solo interior — la suela se destruye en asfalto</li>
 </ul>
@@ -2381,7 +2381,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — 130€</a></h3>
-<p><strong>El mejor equilibrio precio/rendimiento para bases.</strong> Herringbone 9/10 que funciona en parquet limpio y sucio. Lightstrike Pro reactivo pero con algo más de cushion que la GT Cut 4. 340g, horma normal. Para bases que juegan en diferentes canchas y no quieren pagar el precio premium de la GT Cut 4.</p>
+<p><strong>El mejor equilibrio precio/rendimiento para bases.</strong> Herringbone 9/10 que funciona en parquet limpio y sucio. Lightstrike Pro reactivo pero con algo más de cushion que la GT Cut 4. 428 g, horma normal. Para bases que juegan en diferentes canchas y no quieren pagar el precio premium de la GT Cut 4.</p>
 <ul>
   <li>✅ Tracción 9/10 — aguanta pistas con polvo</li>
   <li>✅ Respuesta 9/10 — primer paso rápido</li>
@@ -2511,10 +2511,10 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3><a href="/zapatilla/nike-kobe-8-protro">Nike Kobe 8 Protro — 180€</a></h3>
-<p><strong>Para el escolta-tirador puro.</strong> La Kobe 8 Protro es la referencia histórica para el perfil escolta: ultra-reactiva (respuesta 10/10), ligerísima (280g) y con el court feel más bajo del mercado. Kobe Bryant era el tirador perfecto — su zapatilla lo refleja. El problema: la horma es muy estrecha y el precio alto.</p>
+<p><strong>Para el escolta-tirador puro.</strong> La Kobe 8 Protro es la referencia histórica para el perfil escolta: ultra-reactiva (respuesta 10/10), la más ligera del grupo (340 g) y con el court feel más bajo del mercado. Kobe Bryant era el tirador perfecto — su zapatilla lo refleja. El problema: la horma es muy estrecha y el precio alto.</p>
 <ul>
   <li>✅ Respuesta 10/10 — la segunda más explosiva tras la GT Cut 4</li>
-  <li>✅ 280g — la más ligera del grupo</li>
+  <li>✅ 340 g — la más ligera del grupo</li>
   <li>✅ Court feel excepcional para sentir la planta antes del tiro</li>
   <li>❌ 180€ — la más cara del grupo</li>
   <li>❌ Horma muy estrecha — pie normal o estrecho únicamente</li>
@@ -2534,15 +2534,15 @@ export const ARTICLES: Article[] = [
 <ul>
   <li>✅ Soporte lateral 9/10 — el mayor del grupo para escoltas físicos</li>
   <li>✅ Cushion 8/10 — protege bien en aterrizajes de corte y rebote</li>
-  <li>✅ High-top: seguridad extra en el tobillo para el juego físico</li>
-  <li>❌ 390g y high-top — no para escoltas que priorizan la velocidad pura</li>
+  <li>✅ Plataforma baja y copa de TPU: estable en los apoyos</li>
+  <li>❌ Prioriza cushion y versatilidad: no es la más reactiva para escoltas de velocidad pura</li>
 </ul>
 
 <h3><a href="/zapatilla/nike-gt-cut-4">Nike GT Cut 4 — 150€</a></h3>
 <p><strong>Para el escolta-base que quiere la máxima reactividad.</strong> Si tu juego de escolta es más parecido al de un base (Shai Gilgeous-Alexander, por ejemplo), la GT Cut 4 te da el mismo primer paso explosivo con algo más de estabilidad que en configuración de base puro.</p>
 <ul>
   <li>✅ Respuesta 10/10 y tracción 10/10 — el techo del mercado</li>
-  <li>✅ 310g — ligereza excepcional</li>
+  <li>❌ 431 g: no es ligera, su baza es la respuesta</li>
   <li>❌ Horma muy estrecha — solo si tu pie lo admite</li>
   <li>❌ No outdoor — solo interior limpio</li>
 </ul>
@@ -2598,7 +2598,7 @@ export const ARTICLES: Article[] = [
   <li>✅ Max Air: el cushion más duro bajo cargas extremas (>90kg)</li>
   <li>✅ React foam en toda la entresuela: bounce además de absorción</li>
   <li>✅ Suela XDR: aguanta outdoor moderado</li>
-  <li>❌ 395g y 179€ — la más pesada y cara del grupo</li>
+  <li>❌ 455 g — la más pesada del grupo, y de las más caras</li>
   <li>❌ Horma algo estrecha — problemas para pie muy ancho</li>
 </ul>
 
@@ -2634,7 +2634,7 @@ export const ARTICLES: Article[] = [
 <ul>
   <li>✅ ZoomX + Strobel: el bounce más avanzado del mercado</li>
   <li>✅ 6 correas internas: soporte lateral excepcional pese al cushion blando</li>
-  <li>❌ 199€ y 395g — precio premium para lo que es</li>
+  <li>❌ 199€ y 439 g — precio premium para lo que es</li>
   <li>❌ ZoomX atrae el polvo: tracción baja en pistas sucias</li>
 </ul>
 
@@ -2840,7 +2840,7 @@ export const ARTICLES: Article[] = [
 <ul>
   <li><strong>Bounce mayor que la MB.04:</strong> el Nitro Elite es más reactivo que el Nitro estándar de la MB.04. En los primeros pasos se nota la diferencia — hay más energía de retorno.</li>
   <li><strong>Cushion 8/10:</strong> más suave que la AE 2 (Lightstrike Pro más firme) pero menos que el ZoomX. Para un guard de 75-90kg es suficiente y protector.</li>
-  <li><strong>Ligereza:</strong> la MB.05 pesa alrededor de 330g — similar a la AE 2, más que la GT Cut 4. Para su nivel de cushion, es un peso muy competitivo.</li>
+  <li><strong>Ligereza:</strong> la MB.05 pesa 418 g, en la línea de la AE 2 (428 g) y la GT Cut 4 (431 g). No es ligera, pero para su nivel de cushion es un peso razonable.</li>
 </ul>
 
 <h2>Tracción: el punto débil de la serie</h2>
@@ -2866,7 +2866,7 @@ export const ARTICLES: Article[] = [
   <li>Respuesta: <strong>8/10</strong> — bounce notable para un guard</li>
   <li>Soporte lateral: <strong>7/10</strong> — suficiente para guard sin historial</li>
   <li>Estabilidad: <strong>7/10</strong> — aceptable, no es su punto fuerte</li>
-  <li>Ligereza: <strong>8/10</strong> — 330g, muy competitivo para su cushion</li>
+  <li>Ligereza: <strong>8/10</strong> — 418 g, razonable para su cushion</li>
   <li>Durabilidad outdoor: <strong>7/10</strong> — suela de goma aguanta outdoor moderado</li>
 </ul>
 
@@ -2891,7 +2891,7 @@ export const ARTICLES: Article[] = [
     title: "Nike Kobe 8 Protro análisis: la mejor zapatilla para tiradores en 2025",
     metaTitle: "Nike Kobe 8 Protro análisis completo 2025 | CANCHA.ZAPA",
     description:
-      "Análisis técnico de la Nike Kobe 8 Protro: la zapatilla más reactiva para escoltas y tiradores en 2025. Respuesta 10/10, 280g, court feel único. ¿Vale los 180€?",
+      "Análisis técnico de la Nike Kobe 8 Protro: la zapatilla más reactiva para escoltas y tiradores en 2025. Respuesta 10/10, 340 g, court feel único. ¿Vale los 180€?",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
     categoria: "Análisis",
@@ -2915,7 +2915,7 @@ export const ARTICLES: Article[] = [
 <p>La Kobe 8 Protro tiene la distancia suelo-pie más baja de cualquier zapatilla de baloncesto en producción. Eso significa que cuando plantas el pie para tirar, sientes exactamente dónde estás. Para tiradores de posición fija (spot-up shooters), esa información es crítica. La zapatilla "desaparece" bajo el pie — que es exactamente lo que un tirador necesita.</p>
 
 <h3>Zoom Air Strobel full-length</h3>
-<p>El Zoom Air Strobel recorre toda la longitud de la zapatilla. En la Protro, está configurado para firmeza máxima — más reactivo que cushion absorbente. Cuando saltas y aterrizas en tiro, el Strobel devuelve energía rápido. Los 280g que pesa la zapatilla tampoco ayudan a frenar ese retorno.</p>
+<p>El Zoom Air Strobel recorre toda la longitud de la zapatilla. En la Protro, está configurado para firmeza máxima — más reactivo que cushion absorbente. Cuando saltas y aterrizas en tiro, el Strobel devuelve energía rápido. Sus 340 g, ligeros para una zapatilla con Zoom Air de longitud completa, tampoco frenan ese retorno.</p>
 
 <h3>Suela herringbone de carbon</h3>
 <p>El patrón herringbone de carbono de la Kobe 8 es uno de los diseños más copiados de la historia del baloncesto. No en vano: en parquet limpio, la tracción es excepcional. El problema: en pistas con polvo o suciedad, la goma fina se desliza antes que la goma más gruesa de la GT Cut 4 o la AE 2.</p>
@@ -2927,7 +2927,7 @@ export const ARTICLES: Article[] = [
   <li>Respuesta: <strong>10/10</strong> — empatada con la GT Cut 4 como la más reactiva del mercado</li>
   <li>Soporte lateral: <strong>6/10</strong> — low-top con upper de malla: poco soporte</li>
   <li>Estabilidad: <strong>7/10</strong> — la base ancha compensa el upper bajo</li>
-  <li>Ligereza: <strong>10/10</strong> — 280g, la más ligera del mercado con Zoom Air</li>
+  <li>Ligereza: <strong>10/10</strong> — 340 g, de las más ligeras con Zoom Air</li>
   <li>Durabilidad outdoor: <strong>6/10</strong> — goma fina, no la lleves al asfalto</li>
 </ul>
 
@@ -2989,7 +2989,7 @@ export const ARTICLES: Article[] = [
 <p><strong>No es para ti si:</strong> pesas más de 90kg (el cushion no es suficiente para esos impactos), tienes pie ancho (la horma es estrecha), juegas en exterior o en pistas con polvo.</p>
 
 <h2>¿Vale los 180€?</h2>
-<p>La pregunta del millón. Mi respuesta: sí, para el perfil correcto, sí vale. La Kobe 8 Protro ofrece algo que la GT Cut 4 a 150€ no tiene: el perfil más bajo del mercado con 10/10 en respuesta y 280g. Para un tirador puro, esa diferencia se nota en cada tiro. Para el resto de jugadores, la GT Cut 4 o la AE 2 son decisiones más inteligentes.</p>
+<p>La pregunta del millón. Mi respuesta: sí, para el perfil correcto, sí vale. La Kobe 8 Protro ofrece algo que la GT Cut 4 a 150€ no tiene: el perfil más bajo del mercado con 10/10 en respuesta y 340 g. Para un tirador puro, esa diferencia se nota en cada tiro. Para el resto de jugadores, la GT Cut 4 o la AE 2 son decisiones más inteligentes.</p>
 
 <p class="art-outro">¿La Kobe 8 Protro es para tu perfil? El <a href="/quiz">quiz de CANCHA.ZAPA</a> evalúa tu posición, estilo de juego y tipo de pie para decirte si es tu match o si hay algo más adecuado. Sin ambigüedades.</p>
     `,
@@ -3370,8 +3370,8 @@ export const ARTICLES: Article[] = [
 
 <ul>
   <li><strong>Low-top</strong> (Kobe 4/5/6, Ja 3, GT Cut 4): calcetín <strong>corto o medio</strong>.</li>
-  <li><strong>Mid-top</strong> (AE 2, Curry 13, LeBron 22): calcetín <strong>medio</strong> — el más natural.</li>
-  <li><strong>High-top</strong> (Air Jordan 11, Reebok Question, Trae Young): calcetín <strong>medio o largo</strong>.</li>
+  <li><strong>Mid-top</strong> (Curry 13, Puma MB.04, GT Hustle 3): calcetín <strong>medio</strong> — el más natural.</li>
+  <li><strong>High-top</strong> (sobre todo retros, como la Air Jordan 1 o la Reebok Shaq Attaq): calcetín <strong>medio o largo</strong>.</li>
 </ul>
 
 <h2>El factor posición</h2>

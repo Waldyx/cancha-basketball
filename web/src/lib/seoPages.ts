@@ -607,7 +607,7 @@ export const SEO_PAGES: SeoPage[] = [
     ],
     faqs: [
       { q: "¿Mid-top o high-top para tobillos débiles?",
-        a: "Mid-top moderno (Kyrie, Tatum) suele ser suficiente y más cómodo. High-top (LeBron) para esguinces graves o pívots." },
+        a: "Un mid-top moderno (UA Curry 13, Puma MB.04) suele ser suficiente y más cómodo. Los high-top de rendimiento casi han desaparecido, y ojo: modelos con fama de estables como la Tatum 4 o las LeBron actuales ya son low-top." },
       { q: "¿La zapa solita evita esguinces?",
         a: "Reduce el riesgo, no lo elimina. Necesitas: zapa adecuada + fortalecimiento de tobillo en gimnasio + propiocepción. Lo que no se entrena no aguanta." },
       { q: "¿Vale la pena pagar una high-top si no he tenido esguinces?",
