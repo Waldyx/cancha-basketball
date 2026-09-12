@@ -326,9 +326,6 @@ Converse de Larry Johnson, que en realidad es la **Aero Jam** (`1f1fe41`).
 3. **TAREA 6: 7 fichas con cero opciones de compra** (quedan 5 tras cerrar CB 34 y Larry Johnson).
 4. **Precios en prosa**: 101 líneas con el precio de un modelo concreto + listas de tiendas falsas. Plan escrito
    más abajo, en la sección de la deriva de specs.
-5. **Gemini quedó sin terminar de probar**: el usuario hizo `/auth` con su cuenta **Google AI Pro** (ya es
-   `oauth-personal`) y se le reactivó la web en `.gemini/settings.json`, pero la primera prueba web tras el
-   cambio se cortó a los 5 min sin respuesta. **Volver a probarla antes de encargarle nada con web.**
 
 **El terminal de la s47 ya no existe** (se cerró la ventana). Para seguir hace falta abrir otra sesión de Claude
 Code en el repo y pasarle `ENCARGO.md`.
@@ -349,8 +346,12 @@ Sesión corta, sin tocar catálogo: se abrieron los tres trabajadores en ventana
      `generate_content_free_tier_requests, limit: 5, model: gemini-3.5-flash` = **5 peticiones/MINUTO**. El CLI
      reintenta solo a los 60 s, así que una tanda seguida no falla: se arrastra a ~1 min por llamada.
      ⇒ **encargos GRANDES y pocos**, nunca muchas preguntas cortas.
-   · `.gemini/settings.json` del proyecto vuelve a EXCLUIR `google_web_search` y `web_fetch`: estaba en
-     `exclude: []` (web abierta) mientras `GEMINI.md` decía lo contrario. Ahora config y doc coinciden.
+   · Web bloqueada con el **Policy Engine**, no con `tools.exclude` (deprecado: deja de funcionar en la 1.0).
+     Regla `deny` en `~/.gemini/policies/cancha-no-web.toml`, SOLO headless (`interactive = false`), así que
+     en la ventana interactiva el usuario conserva la web. Va en la carpeta de USUARIO y no en el repo porque
+     las políticas por proyecto no funcionan todavía (issue #18186, lo dice la propia doc). Contenido:
+     `toolName = ["google_web_search", "web_fetch"]` · `decision = "deny"` · `priority = 900` · `interactive = false`.
+     El `.gemini/settings.json` del proyecto queda en `{}`.
 2. **QWEN (LM Studio)**: viene con el servidor apagado Y el modelo descargado → `lms server start` +
    `lms load qwen3.8-27b-uncensored --context-length 16384 -y` (16 s). Ocupa **18,1 GB de RAM y las dos VRAM
    enteras** (3070 + 3080): `lms unload --all` cuando el usuario vaya a jugar o a descargar.
@@ -387,8 +388,8 @@ Sesión corta, sin tocar catálogo: se abrieron los tres trabajadores en ventana
    `~/.cache/lm-studio/bin/lms.exe server start`. **Solo para redacción** (prosa de fichas a partir de
    datos ya verificados), NUNCA para datos: no navega y un modelo local sin fuentes inventa.
 2d. 🤖 **Cuarto trabajador: Gemini CLI** (`gemini`, headless desde el repo, contenido por stdin). Excelente en
-   lectura masiva (auditó los 48 artículos en 61 s). Web ROTA mientras use la clave gratuita: el usuario tiene
-   Google AI Pro, falta que haga `/auth` → "Sign in with Google". Config en `GEMINI.md` + `.gemini/settings.json`.
+   lectura masiva (auditó los 48 artículos en 61 s). Va por clave API gratuita (5 peticiones/min) y SIN web:
+   ver bloque S48. Config en `GEMINI.md` + `~/.gemini/policies/cancha-no-web.toml`.
 2e. ✅ **Cerrado el 11-sep por el terminal** (todo revisado por la dirección): barrido de 62 búsquedas (22 fijadas /
    39 falsas) · TAREA 7 merge por ASIN (`9982f37`) · TAREA 9 "la ficha manda" + 8 reposiciones reales (AJ41 y Caitlin 1 en
    Nike ES) · TAREA 8 `esEnlaceDeBusqueda` · Curry 13 (`6a8cc89`, tarifa UA ES 140 €) · tablas de artículos desde la

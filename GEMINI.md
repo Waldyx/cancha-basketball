@@ -8,9 +8,10 @@ el encargo concreto que te den y devuelves el resultado. El contexto completo de
 - **Lectura y análisis de ficheros del repo**: auditorías de coherencia, localizar afirmaciones,
   comparar texto contra datos, resumir. Tu contexto largo es tu ventaja: puedes leer
   `web/src/lib/articles.ts` (~4.000 líneas) entero.
-- **No tienes web**: `google_web_search` y `web_fetch` están desactivadas en `.gemini/settings.json`
-  porque la clave es de capa gratuita (5 peticiones/min en `gemini-3-flash`) y una página entera la
-  agota. No inventes datos externos: si algo necesita la web, dilo y para.
+- **No tienes web**: `google_web_search` y `web_fetch` están denegadas en modo headless por una política
+  `deny` (`~/.gemini/policies/cancha-no-web.toml`) porque la clave es de capa gratuita (5 peticiones/min en
+  `gemini-3.5-flash`) y una página entera la agota. No inventes datos externos: si algo necesita la web,
+  dilo y para.
 
 ## Reglas
 1. **Solo lectura** salvo que el encargo diga explícitamente que edites. Nunca `git commit`/`push`.
