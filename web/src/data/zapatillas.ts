@@ -12853,6 +12853,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "footlocker_es", url: "https://www.footlocker.es/es/search?query=nike+air+max+cb+34", precio_actual: 150, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+air+max+cb+34+barkley&tag=canchazapa-21", precio_actual: 155, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/nike-air-max-cb-94-triple-black-2020-black-black-black-dc1411-001", precio_actual: 206.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
     ],
   },
 
@@ -13394,7 +13395,7 @@ const _rawZapatillas: Zapatilla[] = [
     slug: "converse-larry-johnson",
     es_retro: true,
     marca: "Converse",
-    modelo: "Larry Johnson All Star",
+    modelo: "Aero Jam",
     año_lanzamiento: 1993,
     genero: "unisex",
     signature_player: "Larry Johnson",
@@ -13419,7 +13420,7 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["potente", "equilibrado"],
     },
     no_recomendada_para: { lesiones: ["rodillas"], posiciones: ["base"], estilos: ["explosivo"] },
-    resumen: "La Converse Larry Johnson All Star de 1993 pertenece a la era dorada de los Charlotte Hornets — el equipo más popular del early 90s con Alonzo Mourning y Larry Johnson. La zapatilla tiene el DNA Converse All Star pero en versión performance: cuero high-top grueso, suela herringbone, horma ancha. Johnson era el ala-pívot más espectacular de la era.",
+    resumen: "La Converse Aero Jam de 1993, la signature de Larry Johnson (la de los anuncios de la Grandmama), pertenece a la era dorada de los Charlotte Hornets — el equipo más popular del early 90s con Alonzo Mourning y Larry Johnson. La zapatilla tiene el DNA Converse All Star pero en versión performance: cuero high-top grueso, suela herringbone, horma ancha. Johnson era el ala-pívot más espectacular de la era.",
     pros: [
       "Charlotte Hornets early 90s — una de las estéticas más queridas de la NBA",
       "Cuero high-top con soporte lateral real para jugadores físicos",
@@ -13439,7 +13440,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-28",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=converse+larry+johnson+all+star+retro&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=converse+aero+jam&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/converse-erx-260-hi-black-red-black-red-165079c", precio_actual: 56.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
     ],
   },
 
