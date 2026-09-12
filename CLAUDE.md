@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **242 zapas · 239 tests · `astro check` 0 errores** (páginas: recontar, el 342 era de la s43 con 240 zapas) |
+| Tamaño | **244 zapas · 257 tests · `astro check` 0 errores** (páginas: recontar, el 342 era de la s43 con 240 zapas) |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -315,15 +315,15 @@ la ficha, con test candado (`40d4426`) · fichas `361-zen-8` y `361-ag-6` (`fe6e
 Converse de Larry Johnson, que en realidad es la **Aero Jam** (`1f1fe41`).
 
 **⏳ LO QUE QUEDÓ A MEDIAS (por orden):**
-1. **Pesos en la PROSA de los artículos** → `ENCARGO-pesos-prosa.json` (raíz, sin commitear). 35 líneas: 7 ya
+1. ✅ **(HECHO s48b)** **Pesos en la PROSA de los artículos** → `ENCARGO-pesos-prosa.json` (raíz, sin commitear). 35 líneas: 7 ya
    revisadas por la dirección, 21 propuestas del Qwen SIN revisar, 6 que el Qwen no supo redactar. Cada entrada
    trae la línea original, los pesos reales de ficha y el estado. Ojo: varias comparaciones se INVIERTEN con el
    dato real (la GT Cut 4 no es "la más ligera": pesa 431 g). Aplicar por texto exacto, no por número de línea.
-2. **TAREA 10 de `ENCARGO.md`: el corte (low/mid/high) de 13 zapatillas** contra RunRepeat. Lo encontró Gemini
+2. ✅ **(HECHO s48b y ampliado a 73 zapas)** **TAREA 10 de `ENCARGO.md`: el corte (low/mid/high) de 13 zapatillas** contra RunRepeat. Lo encontró Gemini
    auditando los 48 artículos (citas en `ENCARGO-cortes.md`): en cada una, artículo y catálogo se contradicen.
    **Urgente porque `scoring.ts:245` es un filtro duro del quiz**: "lesión de tobillos → fuera las low-top", así
    que un corte mal puesto recomienda una low-top a quien tiene esguinces.
-3. **TAREA 6: 7 fichas con cero opciones de compra** (quedan 5 tras cerrar CB 34 y Larry Johnson).
+3. 🟡 **(s48b: 4 recuperadas, ver S48b)** **TAREA 6: 7 fichas con cero opciones de compra** (quedan 5 tras cerrar CB 34 y Larry Johnson).
 4. **Precios en prosa**: 101 líneas con el precio de un modelo concreto + listas de tiendas falsas. Plan escrito
    más abajo, en la sección de la deriva de specs.
 
@@ -358,8 +358,47 @@ Sesión corta, sin tocar catálogo: se abrieron los tres trabajadores en ventana
    🔑 **Corrige el número pero NO el juicio**: en la línea de la AE 2 puso el peso real (428 g) y dejó
    escrito "que es ligera para su categoría", inventándose además una comparación. Se revisa por SENTIDO.
 3. **Terminal de Claude**: sesión nueva registrada como peer; `SendMessage` funciona en los dos sentidos.
-4. ⚠ **Sin comprobar**: Gemini contó **244** zapatillas en `zapatillas.ts` y este documento dice 242.
+4. ✅ **Comprobado**: son **244** (Gemini tenía razón). El 242 no se actualizó tras meter ZEN 8 y AG 6.
 5. `ENCARGO-pesos-prosa.json`: revisadas L2109 (Ja 3) y L1619 (AE 2). Quedan 21 sin revisar y 5 que falló el Qwen.
+
+### ▶️ S48b (12-sep, modo autónomo) — CORTES: el campo `altura` estaba inflado en TODO el catálogo
+
+1. 🔴 **El corte low/mid/high del catálogo NO era fiable, y es un filtro DURO del quiz** (`scoring.ts`: lesión de
+   tobillo → fuera las `low`). Verificado contra el HTML real (`curl`) de RunRepeat (`Top: Low|Mid|High`) y HoopsGeek
+   (`Type of Cut: X Top`), NO contra los resúmenes de WebFetch:
+   · TAREA 10 (13 contradicciones artículo/catálogo): LeBron 22, LeBron 23 y AJ 40 son **low** (catálogo high/mid Y
+     artículos mid/high: mal los DOS lados) · Ja 3 low · GT Hustle 3 **mid** · MB.04 mid · Trae Young 3 low y Question Mid
+     mid (catálogo OK) · All-Pro Nitro 2 low (la "versión mid" que recomendaba un artículo no existe) · Crazy 8 (1998) → mid
+     (la Crazy 8 Low es de sept-2024) · Shox BB4 sin fuente estructurada: se queda high (es retro, no entra al quiz).
+   · **Auditoría de las 73 zapas con URL de HoopsGeek** (`score-fuentes.json`): 38 coinciden y **27 figuraban mid/high
+     siendo low**: KD 18, Curry 12 (+GS), Kai 2/3, KT 10, WoW 12, Shock Wave 5, Dame 9 y Certified, Luka 1/2/3, Freak 4/5/6/7,
+     Immortality 3, LeBron 21, AJ 39, A'One, One Take 5, Exhibit A, Why Not .6, Tatum 3, Kawhi 4, TWO WXY V4, AR3.
+     RunRepeat coincide en 8 de 9 comprobables. Corregidas en `197431a`.
+   · **8 donde HoopsGeek da un corte MÁS ALTO que el catálogo NO se tocaron** (AJ 37/38, Kawhi 1/2, OMN1S, GT Jump 1,
+     Joker 1, Kobe 3 Protro): subir un corte sin segunda fuente es la dirección peligrosa, y RunRepeat no tiene página de ninguna.
+   · 🔑 **Regla decidida: si las fuentes se contradicen, el corte MÁS BAJO** (AE 2: RR mid / HG low → low; MB.05; TWO
+     WXY V4). El quiz excluye low-top a lesionados de tobillo y el error que hace daño es recomendar como mid una low. Reversible.
+   · **Efecto medido: quiz de tobillos 112 → 79 zapas**; entra la GT Hustle 3.
+   · Artículos/FAQ/SEO: la Tatum 4, la AJ 40 y la LeBron 23 formaban el "Top 4 para tobillo débil" siendo low → aviso
+     honesto añadido; la FAQ de esguinces recomienda ahora Curry 13 y MB.04 (mid verificadas). ⚠ Ese artículo pide una
+     reescritura de verdad con mids verificadas. Test `scoring.test.ts` actualizado (usaba la LeBron 22 como high).
+2. ✅ **Pesos en prosa: CERRADO.** 33 líneas con el peso de ficha. El Qwen falló más de lo que parecía: a la AJ 40 le puso
+   el peso de la LeBron 23, dejó "310 g, la más ligera" a la GT Cut 4 (431 g) y **rompió la sintaxis** quitando la coma de un
+   `description:`. ⚠ Dos correcciones de la s47 eran INSTRUCCIONES `__REPLACE__ viejo=>nuevo`, no líneas finales: pegarlas
+   como línea mete basura en el artículo. Detectado y arreglado desde la versión de git.
+3. 🟡 **TAREA 6: 4 fichas recuperan compra** (verificado contra JSON-LD/ficha): Kobe 9 High Protro, PG 6 y Why Not .6 en
+   KicksCrew (sin afiliado → "Ver precio") y Exhibit B en Amazon a 135,96 € (1,43× MSRP, dentro de la regla de 2×).
+   Hyperdunk 08 → reventa (2,12×). EQT Basketball y Ownthegame 2 adulto → nada en España.
+   ⚠ **El "0 fichas a cero opciones" de la s47 NO se sostenía**: medido sobre el catálogo fusionado había **21** fichas con
+   cero enlaces disponibles; quedan **17**: 3 `proximamente`, 8 "no se vende en ES" documentadas, las 2 de 361 (decisión
+   361sport), EQT Basketball / Hyperdunk 08 / Ownthegame 2 (sin compra válida) y Rigorer Warship (ver abajo).
+4. **▶️ DECIDIR (usuario)**:
+   · `rigorer-warship` parece **FANTASMA**: ni en rigorer.com, ni AliExpress, ni KicksCrew, ni por su nombre chino. Mismo
+     patrón que Trae Young 4 y Stepback 4. ¿Retirar?
+   · **6 entradas de Amazon en `precios.json` son de OTRO producto** (hoy no salen gracias a "la ficha manda"): eqt-basketball
+     B07BNSG5K9 (EQT Support kids) y B072R6FR8Y (running) · exhibit-b B097TTF9PM (Exhibit A) · why-not-6 B0DYVB9JDV (GS) ·
+     ownthegame-2 B0F1XG64YW (3.0) · kobe-9-high-protro B0GDKB1P1X (Kobe 9 Low). Candidatas a purgar.
+   · `adidas-exhibit-b`: la ficha parece tener datos mal (salió jul-2022, no 2023; Lightstrike, no Lightstrike Pro). Sin tocar.
 
 ### Pendientes anteriores (s47)
 1. ✅ **HECHO (s47): `joom` fuera de `TIENDAS_PENDIENTES`** (`scoring.ts`), decidido en modo director
@@ -1318,7 +1357,7 @@ Ordenación: **precio primero**, desempate por comisión dentro de ±0,50 €.
 
 ## Arquitectura de datos
 
-- **`web/src/data/zapatillas.ts`** — array `_rawZapatillas` con las 242 zapas. Exporta `zapatillas`,
+- **`web/src/data/zapatillas.ts`** — array `_rawZapatillas` con las 244 zapas. Exporta `zapatillas`,
   `getZapatillaBySlug()`, `getAllZapatillas()`. `mergePricesIntoShoes()` fusiona los precios del
   scraper.
 - **`web/src/data/precios.json`** — salida del scraper (CRLF). ⚠ Ver doctrina: fusiona y pisa.
@@ -1453,4 +1492,4 @@ presupuesto · ancho de pie · uso (auto-submit 400 ms).
   `cancha-quiz-respuestas` (sessionStorage).
 - **Scripts de mantenimiento**: `update-images.js`, `fix-encoding.js`, `optimize-images.mjs`,
   `gen-chat-catalog.ts`, y los `audit-*` listados arriba.
-- **Tests**: `npx vitest run` → 239.
+- **Tests**: `npx vitest run` → 257.
