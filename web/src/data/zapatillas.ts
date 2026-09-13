@@ -5881,7 +5881,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     ultima_actualizacion: "2026-06-13",
 
-    precio_msrp_eur: 90,
+    precio_msrp_eur: 129.99,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/t/tatum-4-zapatillas-nino-a-0pyJTvhK/HQ4611-700", precio_actual: 66.49, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-13" },
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56002580%2F", precio_actual: 90.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },

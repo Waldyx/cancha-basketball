@@ -157,7 +157,7 @@ export const ARTICLES: Article[] = [
 <ol>
   <li><strong>Haz el quiz:</strong> 10 preguntas, menos de un minuto. Te damos las 5 más compatibles con tu perfil.</li>
   <li><strong>Lee las fichas de las top 3:</strong> Pros, contras y veredicto honesto. Sin exageración.</li>
-  <li><strong>Compara precios:</strong> El mismo modelo puede variar 20-30€ entre tiendas. Amazon ES, Foot Locker y Nike.es suelen tener los mejores precios en distintos momentos.</li>
+  <li><strong>Compara precios:</strong> El mismo modelo puede variar 20-30€ entre tiendas. Compáralo en el bloque de compra de cada ficha, con las tiendas y el precio actualizado.</li>
   <li><strong>Compra, juega, y si no encaja, devuelve:</strong> La mayoría de tiendas admiten devolución en 30 días. Úsalas en pista interior el primer día para no perder el derecho.</li>
 </ol>
 
@@ -183,7 +183,7 @@ export const ARTICLES: Article[] = [
     relatedShoes: ["adidas-ae-2", "nike-ja-3", "ua-curry-13", "nike-gt-cut-4"],
     relatedSeoPages: ["mejor-zapatilla-base", "mejor-zapatilla-escolta", "zapatillas-reactivas"],
     body: `
-<p class="art-intro">2025 tiene dos claros candidatos al trono de los guards: la Adidas AE 2 de Anthony Edwards y la Nike Ja 3 de Ja Morant. Ambas cuestan alrededor de 130€, las dos son low-top, y las dos prometen lo mismo. Aquí te decimos cuál vale realmente la pena.</p>
+<p class="art-intro">2025 tiene dos claros candidatos al trono de los guards: la Adidas AE 2 de Anthony Edwards y la Nike Ja 3 de Ja Morant. La AE 2 está desde {{precio:adidas-ae-2}} y la Ja 3 desde {{precio:nike-ja-3}}; las dos son low-top, y las dos prometen lo mismo. Aquí te decimos cuál vale realmente la pena.</p>
 
 <h2>Resumen rápido</h2>
 <div style="overflow-x:auto">
@@ -223,8 +223,8 @@ export const ARTICLES: Article[] = [
     </tr>
     <tr>
       <td style="padding:8px">Precio</td>
-      <td style="padding:8px;text-align:center">⭐ ~130€</td>
-      <td style="padding:8px;text-align:center">~135€</td>
+      <td style="padding:8px;text-align:center">{{precio:adidas-ae-2}}</td>
+      <td style="padding:8px;text-align:center">{{precio:nike-ja-3}}</td>
     </tr>
   </tbody>
 </table>
@@ -263,7 +263,7 @@ export const ARTICLES: Article[] = [
     title: "Air Jordan 40: análisis completo — ¿la mejor Jordan performance de la historia?",
     metaTitle: "Air Jordan 40 análisis completo 2025 | CANCHA.ZAPA",
     description:
-      "Análisis técnico completo de la Air Jordan 40: ZoomX + Zoom Strobel, herringbone de 40°, 6 straps internos. ¿Vale los 200€?",
+      "Análisis técnico completo de la Air Jordan 40: ZoomX + Zoom Strobel, herringbone de 40°, 6 straps internos. ¿Merece la pena su precio?",
     fecha: "2026-05-24",
     fechaLabel: "24 mayo 2026",
     categoria: "Análisis",
@@ -308,13 +308,13 @@ export const ARTICLES: Article[] = [
   <li>Durabilidad outdoor: 6/10 (no la lleves al asfalto)</li>
 </ul>
 
-<h2>¿Vale los 200€?</h2>
+<h2>¿Vale los {{precio:jordan-40}}?</h2>
 <p>Esa es la pregunta del millón. La respuesta honesta: <strong>sí, si juegas 3+ veces por semana y priorizas cushion</strong>. El ZoomX + Zoom Strobel es tecnología real que se nota en partidos largos. Para un pívot o ala-pívot que aterriza constantemente, puede hacer una diferencia real en cómo se siente el cuerpo al día siguiente.</p>
 
-<p>Si juegas recreativo o menos de 2 veces por semana, ahorra 50-70€ y compra una Jordan Tatum 4 o una Nike KD 18 — ambas ofrecen 90% del rendimiento de la Jordan 40 a menor precio.</p>
+<p>Si juegas recreativo o menos de 2 veces por semana, ahorra y compra una Jordan Tatum 4 o una Nike KD 18 — ambas ofrecen 90% del rendimiento de la Jordan 40 a menor precio.</p>
 
 <h2>Disponibilidad en España</h2>
-<p>La Jordan 40 se encuentra en Nike.es, Foot Locker ES, JD Sports ES y Amazon ES. El precio de salida fue 199.99€; en los primeros meses suele haber pequeñas rebajas en colorways específicos. Sigue el precio en nuestra <a href="/zapatilla/jordan-40">ficha de la Jordan 40</a>.</p>
+<p>El precio de salida fue 199.99€; en los primeros meses suele haber pequeñas rebajas en colorways específicos. Consulta las tiendas y el precio actualizado en nuestra <a href="/zapatilla/jordan-40">ficha de la Jordan 40</a>.</p>
 
 <p class="art-outro">¿No estás seguro si la Jordan 40 es para ti? <a href="/quiz">Haz el quiz</a> — en función de tu posición, peso y presupuesto te diremos si es tu match o si hay algo más adecuado.</p>
     `,
@@ -355,7 +355,7 @@ export const ARTICLES: Article[] = [
 
 <h2>Los 4 modelos que recomendamos en 2025</h2>
 
-<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — 179€</a></h3>
+<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — desde {{precio:nike-lebron-23}}</a></h3>
 <p><strong>Para qué perfil:</strong> Pívots y ala-pívots de 85-110kg que necesitan la máxima amortiguación posible sin perder tracción.</p>
 <ul>
   <li>✅ Max Air en talón + React en toda la entresuela: el combo de cushion más potente de Nike en baloncesto.</li>
@@ -365,31 +365,31 @@ export const ARTICLES: Article[] = [
   <li>❌ La horma estrecha de Nike no encaja bien en pies anchos.</li>
 </ul>
 
-<h3><a href="/zapatilla/nike-kd-19">Nike KD 19 — 149€</a></h3>
+<h3><a href="/zapatilla/nike-kd-19">Nike KD 19 — desde {{precio:nike-kd-19}}</a></h3>
 <p><strong>Para qué perfil:</strong> Ala-pívots más dinámicos, 80-100kg, que no quieren sacrificar velocidad por cushion.</p>
 <ul>
   <li>✅ Zoom Strobel + Cushlon 3.0: cushion reactivo, no solo absorbente. Bounce real.</li>
   <li>✅ Upper TPU con dagger-cage: soporte lateral sin peso extra.</li>
-  <li>✅ 30€ más barata que la LeBron 23 con rendimiento casi equivalente.</li>
+  <li>✅ Más barata que la LeBron 23 con rendimiento casi equivalente.</li>
   <li>❌ La amortiguación no llega al nivel Max Air para aterrizajes muy duros.</li>
   <li>❌ Horma algo estrecha en el antepié.</li>
 </ul>
 
-<h3><a href="/zapatilla/jordan-40">Air Jordan 40 — 199€</a></h3>
+<h3><a href="/zapatilla/jordan-40">Air Jordan 40 — desde {{precio:jordan-40}}</a></h3>
 <p><strong>Para qué perfil:</strong> Ala-pívots que priorizan el bounce sobre todo y pueden invertir en la opción premium.</p>
 <ul>
   <li>✅ ZoomX + Zoom Strobel: la combinación de espuma más avanzada que Jordan Brand ha puesto en baloncesto. Devuelve el 85% de la energía.</li>
   <li>✅ 6 correas internas de contención: soporte lateral excepcional a pesar de la blandura del ZoomX.</li>
   <li>✅ Herringbone 40°: muy buena tracción en pista limpia.</li>
-  <li>❌ 199€ — la más cara del grupo. Solo tiene sentido si juegas 3+ veces por semana.</li>
+  <li>❌ {{precio:jordan-40}} — precio premium. Solo tiene sentido si juegas 3+ veces por semana.</li>
   <li>❌ El ZoomX atrae el polvo. En pistas sucias, la tracción baja notablemente.</li>
   <li>❌ 439 g — casi tan pesada como la LeBron.</li>
 </ul>
 
-<h3><a href="/zapatilla/anta-kt-11">ANTA KT 11 — ~80€ (AliExpress)</a></h3>
+<h3><a href="/zapatilla/anta-kt-11">ANTA KT 11 — desde {{precio:anta-kt-11}}</a></h3>
 <p><strong>Para qué perfil:</strong> Jugadores de recreativo o junior con presupuesto ajustado que no quieren sacrificar todo el soporte.</p>
 <ul>
-  <li>✅ 80€ — la mitad que la KD 19 con soporte más que aceptable para recreativo.</li>
+  <li>✅ Más económica que la KD 19 con soporte más que aceptable para recreativo.</li>
   <li>✅ Tecnología A-Flashfoam: ligera y con cushion decente para su precio.</li>
   <li>✅ Upper malla reforzada con soporte lateral suficiente para partidos casuales.</li>
   <li>❌ La amortiguación no está al nivel de las opciones premium. Dos partidos a la semana: bien. Cuatro: las rodillas lo notarán.</li>
@@ -436,7 +436,7 @@ export const ARTICLES: Article[] = [
       <td style="padding:8px;text-align:center">6/10</td>
       <td style="padding:8px;text-align:center">6/10</td>
       <td style="padding:8px;text-align:center">7/10</td>
-      <td style="padding:8px;text-align:center">~80€</td>
+      <td style="padding:8px;text-align:center">{{precio:anta-kt-11}}</td>
     </tr>
   </tbody>
 </table>
@@ -445,9 +445,9 @@ export const ARTICLES: Article[] = [
 <h2>¿Cuál elegir?</h2>
 <ul>
   <li><strong>Si pesas más de 95kg y juegas 3+ veces/semana:</strong> Nike LeBron 23. El cushion Max Air es insustituible.</li>
-  <li><strong>Si eres ala-pívot dinámico y buscas el mejor equilibrio precio/rendimiento:</strong> Nike KD 19 a 149€.</li>
+  <li><strong>Si eres ala-pívot dinámico y buscas el mejor equilibrio precio/rendimiento:</strong> Nike KD 19, desde {{precio:nike-kd-19}}.</li>
   <li><strong>Si priorizas el bounce y puedes gastar 200€:</strong> Air Jordan 40. Es la más avanzada tecnológicamente.</li>
-  <li><strong>Si eres junior o juegas recreativo con presupuesto ajustado:</strong> ANTA KT 11. 80€ con soporte honesto.</li>
+  <li><strong>Si eres junior o juegas recreativo con presupuesto ajustado:</strong> ANTA KT 11. Desde {{precio:anta-kt-11}} con soporte honesto.</li>
 </ul>
 
 <p class="art-outro">¿Sigues sin decidirte? El <a href="/quiz">quiz de CANCHA.ZAPA</a> cruza tu peso, posición, historial de lesiones y presupuesto para darte los 5 modelos más compatibles contigo. Menos de un minuto.</p>
@@ -484,7 +484,7 @@ export const ARTICLES: Article[] = [
 
 <h2>Los 5 modelos más duraderos en exterior en 2025</h2>
 
-<h3><a href="/zapatilla/nike-ja-3">Nike Ja 3 — 135€</a></h3>
+<h3><a href="/zapatilla/nike-ja-3">Nike Ja 3 — desde {{precio:nike-ja-3}}</a></h3>
 <p>La Ja 3 tiene una de las suelas de goma más gruesas de Nike en 2025. El patrón multidireccional funciona bien tanto en parquet como en asfalto limpio, y el upper de malla densa resiste mejor que el mesh fino de otros modelos. La excepción positiva dentro de Nike para outdoor.</p>
 <ul>
   <li>✅ Suela duradera — aguanta exterior sin degradarse rápido</li>
@@ -492,7 +492,7 @@ export const ARTICLES: Article[] = [
   <li>❌ En asfalto muy húmedo la tracción baja bastante</li>
 </ul>
 
-<h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — 130€</a></h3>
+<h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — desde {{precio:adidas-ae-2}}</a></h3>
 <p>El herringbone de la AE 2 es uno de los patrones más resistentes al desgaste en asfalto. Los cantos son profundos y la goma es de dureza media-alta. Para jugadores que alternan interior y exterior, es la opción más equilibrada del mercado.</p>
 <ul>
   <li>✅ Herringbone aguanta exterior mejor que la mayoría</li>
@@ -503,7 +503,7 @@ export const ARTICLES: Article[] = [
 <h3>Under Armour Curry 13 ❌ <strong>NO OUTDOOR</strong></h3>
 <p>La Curry 13 usa tecnología UA Flow — espuma sin capa de goma que contacta directamente con el suelo. Es perfecta para parquet porque maximiza el court feel. En asfalto, es un desastre: la espuma se desgasta en semanas y la tracción desaparece. <strong>Una sesión outdoor puede arruinar la suela.</strong> Úsala solo en pabellón.</p>
 
-<h3><a href="/zapatilla/anta-kai-2">ANTA Kai 2 — ~119€</a></h3>
+<h3><a href="/zapatilla/anta-kai-2">ANTA Kai 2 — desde {{precio:anta-kai-2}}</a></h3>
 <p>La Kai 2 es la sorpresa. La marca china ha apostado por una goma de caucho gruesa y un patrón agresivo que aguanta el exterior mejor de lo esperado. Para su precio, es la mejor opción outdoor del mercado en 2025.</p>
 <ul>
   <li>✅ Goma gruesa — la más duradera de las opciones económicas</li>
@@ -511,11 +511,11 @@ export const ARTICLES: Article[] = [
   <li>❌ Upper menos refinado que las opciones premium</li>
 </ul>
 
-<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — 179€</a></h3>
+<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — desde {{precio:nike-lebron-23}}</a></h3>
 <p>La LeBron tiene suela Max Air con caucho de alta densidad. Para outdoor moderado (2-3 sesiones al mes en asfalto), aguanta bien. Para uso intensivo exterior, el precio no se justifica — la Ja 3 o la AE 2 son más inteligentes.</p>
 <ul>
   <li>✅ Suela Max Air robusta para jugadores pesados</li>
-  <li>❌ 179€ para outdoor es excesivo — existen mejores opciones por menos</li>
+  <li>❌ Precio alto para outdoor: existen mejores opciones por menos</li>
 </ul>
 
 <h2>Lo que debes evitar en outdoor</h2>
@@ -550,7 +550,7 @@ export const ARTICLES: Article[] = [
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>ANTA Kai 2</strong></td>
       <td style="padding:8px;text-align:center">⭐ 8/10</td>
-      <td style="padding:8px;text-align:center">~119€</td>
+      <td style="padding:8px;text-align:center">{{precio:anta-kai-2}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike LeBron 23</strong></td>
@@ -614,7 +614,7 @@ export const ARTICLES: Article[] = [
 <p>La firma de Kyrie Irving con ANTA tiene la horma más generosa del mercado mainstream en 2025. El antepié es amplio, hay espacio para todos los dedos y el calce no aprieta. Para pie ancho o extra-ancho, es la recomendación clara.</p>
 <ul>
   <li>✅ La horma más ancha entre las opciones de 2025</li>
-  <li>✅ Precio accesible (~119€)</li>
+  <li>✅ Precio accesible (desde {{precio:anta-kai-2}})</li>
   <li>❌ Respuesta no llega al nivel de la GT Cut 4 o Curry 13</li>
 </ul>
 
@@ -646,7 +646,7 @@ export const ARTICLES: Article[] = [
 <ul>
   <li>✅ Más espacio que otras Nike</li>
   <li>❌ Sigue siendo estrecha comparada con ANTA o Adidas</li>
-  <li>❌ 179€ — cara para ser la quinta opción</li>
+  <li>❌ Cara para ser la quinta opción</li>
 </ul>
 
 <h2>Lo que debes evitar si tienes pie ancho</h2>
@@ -700,7 +700,7 @@ export const ARTICLES: Article[] = [
 <h2>Top 4 zapatillas para tobillo débil en 2025</h2>
 <p><strong>Aviso importante:</strong> varios de estos modelos son <strong>low-top</strong> aunque tengan fama de estables (Tatum 4, Air Jordan 40 y LeBron 23, según RunRepeat y HoopsGeek). Los mantenemos por su soporte lateral, pero si tus esguinces son recurrentes, aplica la regla de arriba y prioriza una mid como la UA Curry 13 o la Puma MB.04.</p>
 
-<h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — 150€</a></h3>
+<h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — desde {{precio:jordan-tatum-4}}</a></h3>
 <p>Low-top, pero con un collar de espuma acolchado que envuelve el tobillo sin restringir el movimiento. Jayson Tatum tiene historial de problemas de tobillo y el calzado está diseñado con eso en mente. Soporte lateral 9/10, estabilidad sólida. Ojo: es low-top; si tus esguinces son recurrentes, busca una mid.</p>
 <ul>
   <li>✅ El collar más acolchado del mercado en su precio, aunque sea low-top</li>
@@ -708,16 +708,16 @@ export const ARTICLES: Article[] = [
   <li>❌ No es para guards puros — algo pesada para los primeros pasos</li>
 </ul>
 
-<h3><a href="/zapatilla/jordan-40">Air Jordan 40 — 199€</a></h3>
+<h3><a href="/zapatilla/jordan-40">Air Jordan 40 — desde {{precio:jordan-40}}</a></h3>
 <p>Las 6 correas internas que se activan con los cordones son el sistema de lockdown más avanzado disponible en baloncesto en 2025. Cada vez que atas, las correas abrazan el antepié y el tobillo. Especialmente útil para jugadores que necesitan máxima contención.</p>
 <ul>
   <li>✅ 6 correas internas: el mejor lockdown del mercado</li>
   <li>✅ Soporte lateral 9/10 pese a la blandura del ZoomX</li>
-  <li>❌ 199€ — la opción más cara. Solo si juegas mucho</li>
+  <li>❌ {{precio:jordan-40}} — precio premium. Solo si juegas mucho</li>
   <li>❌ El ZoomX atrae polvo — en pistas sucias la tracción baja</li>
 </ul>
 
-<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — 179€</a></h3>
+<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — desde {{precio:nike-lebron-23}}</a></h3>
 <p>Low-top robusta con upper Flyknit reforzado que da contención sin la rigidez de una bota alta. LeBron James tiene el tobillo más famoso del baloncesto moderno y sus zapatillas lo reflejan. Para ala-pívots que quieren protección sin renunciar a la movilidad.</p>
 <ul>
   <li>✅ Excelente soporte lateral para ser low-top</li>
@@ -725,10 +725,10 @@ export const ARTICLES: Article[] = [
   <li>❌ Horma estrecha — incómoda si tienes pie ancho</li>
 </ul>
 
-<h3><a href="/zapatilla/anta-kt-11">ANTA KT 11 — ~80€</a></h3>
+<h3><a href="/zapatilla/anta-kt-11">ANTA KT 11 — desde {{precio:anta-kt-11}}</a></h3>
 <p>La opción económica más honesta para tobillo débil. Mid-top con refuerzo de nylon y espuma en el collar. No llega al nivel de las opciones premium, pero para recreativo 2-3 veces por semana da protección más que suficiente a la mitad del precio.</p>
 <ul>
-  <li>✅ 80€ — la mejor opción presupuesto para tobillo débil</li>
+  <li>✅ Desde {{precio:anta-kt-11}} — opción económica para tobillo débil</li>
   <li>✅ Mid-top con collar acolchado y soporte lateral decente</li>
   <li>❌ Para uso muy intensivo (4+ partidos/semana), considera invertir más</li>
 </ul>
@@ -829,7 +829,7 @@ export const ARTICLES: Article[] = [
 <p><strong>Para quién:</strong> Guards de 70-85kg que juegan siempre en pabellón, valoran la sensación de suelo y quieren algo más de cushion que la GT Cut. Horma normal, segura para la mayoría de pies.</p>
 
 <h2>ANTA Kai 2: la sorpresa del año</h2>
-<p>Kyrie Irving fichó por ANTA después de salir de Nike, y la Kai 2 es su segunda zapatilla con la marca china. A 119€, ofrece un rendimiento que avergüenza a zapatillas de 150€. La tracción es sólida, la respuesta es rápida gracias a la espuma A-Flashfoam 2.0, y la horma ancha la hace la más accesible para pies normales y anchos.</p>
+<p>Kyrie Irving fichó por ANTA después de salir de Nike, y la Kai 2 es su segunda zapatilla con la marca china. Desde {{precio:anta-kai-2}}, ofrece un rendimiento que avergüenza a zapatillas más caras. La tracción es sólida, la respuesta es rápida gracias a la espuma A-Flashfoam 2.0, y la horma ancha la hace la más accesible para pies normales y anchos.</p>
 <p><strong>El problema:</strong> la respuesta no llega al nivel de la GT Cut 4 o la Curry 13. La diferencia no es enorme, pero existe. Si buscas el máximo rendimiento sin importar el precio, las otras dos ganan.</p>
 <p><strong>Para quién:</strong> Bases y escoltas con cualquier tipo de pie que buscan máxima relación calidad-precio. También la mejor opción si tu pie es ancho.</p>
 
@@ -864,23 +864,23 @@ export const ARTICLES: Article[] = [
     body: `
 <p class="art-intro">Encontrar una zapatilla de baloncesto que combine buen rendimiento, estilo y un precio asequible no es fácil, pero en 2025 el mercado español ofrece varias opciones por debajo de los 80 €. Aquí tienes un análisis de las ocho mejores alternativas para que puedas jugar sin vaciar tu cartera.</p>
 
-<h2>1. Nike Precision 8 — ~75 €</h2>
+<h2>1. Nike Precision 8</h2>
 <p>La <strong>Nike Precision 8</strong> sigue la línea de la popular Precision 7, pero con una construcción más ligera y una suela de goma de alta tracción. Su parte superior de malla transpirable mantiene los pies frescos durante todo el partido. La opción más versátil del rango: válida para interior y exterior sin sacrificar demasiado.</p>
 <ul>
   <li>Tracción excelente en ambas superficies</li>
   <li>Amortiguación básica pero funcional</li>
-  <li>Disponible en todas las tallas en Amazon ES</li>
+  <li>Tiendas y tallas en <a href="/zapatilla/nike-precision-8">su ficha</a></li>
 </ul>
 
-<h2>2. Adidas Cross-Em Up Select — ~60 €</h2>
+<h2>2. Adidas Cross-Em Up Select</h2>
 <p>Pensada para jugadores que buscan velocidad y control. El refuerzo de TPU en el talón aporta estabilidad sin añadir peso. La suela de goma Continental ofrece una tracción sorprendente para su precio.</p>
 <ul>
   <li>Suela Continental — tracción de gama alta a precio bajo</li>
   <li>Ligera y reactiva — ideal para guards</li>
-  <li>Una de las mejores opciones sub-65€ del mercado</li>
+  <li>Una de las mejores opciones económicas del mercado</li>
 </ul>
 
-<h2>3. Decathlon Tarmak Fast 900 — ~50 €</h2>
+<h2>3. Decathlon Tarmak Fast 900</h2>
 <p>Decathlon ha mejorado su línea Tarmak con la Voltzy 500, que incorpora una entresuela de espuma EVA de densidad media y una malla reforzada. La sorpresa del año en términos de relación calidad-precio — supera en durabilidad outdoor a modelos que cuestan tres veces más.</p>
 <ul>
   <li>Relación calidad-precio imbatible</li>
@@ -888,7 +888,7 @@ export const ARTICLES: Article[] = [
   <li>Disponible en tiendas Decathlon con posibilidad de probar antes</li>
 </ul>
 
-<h2>4. Adidas OwnTheGame 3 — ~70 €</h2>
+<h2>4. Adidas OwnTheGame 3</h2>
 <p>La tercera generación de la OwnTheGame mantiene la estética urbana-deportiva y añade una entresuela mejorada con mayor retorno de energía. Una de las zapas más cómodas de este rango para partidos largos.</p>
 <ul>
   <li>Comodidad excepcional para uso prolongado</li>
@@ -896,7 +896,7 @@ export const ARTICLES: Article[] = [
   <li>Build quality típico de Adidas</li>
 </ul>
 
-<h2>5. Under Armour Lockdown 7 — ~65 €</h2>
+<h2>5. Under Armour Lockdown 7</h2>
 <p>Con una parte superior de malla y refuerzos sintéticos, la <strong>Lockdown 7</strong> ofrece una sensación de segunda piel y buen soporte lateral. La suela de goma con patrón multidireccional aguanta bien en parqué.</p>
 <ul>
   <li>Gran estabilidad lateral para su rango de precio</li>
@@ -904,7 +904,7 @@ export const ARTICLES: Article[] = [
   <li>La opción UA más accesible con buen rendimiento</li>
 </ul>
 
-<h2>6. Puma Playmaker Pro Mid — ~75 €</h2>
+<h2>6. Puma Playmaker Pro Mid</h2>
 <p>La Playmaker Pro Mid ofrece altura mid-top con soporte de tobillo y entresuela ProFoam. Buena opción para jugadores que necesitan protección extra sin disparar el presupuesto.</p>
 <ul>
   <li>Mid-top — más soporte de tobillo que las low</li>
@@ -912,7 +912,7 @@ export const ARTICLES: Article[] = [
   <li>Buena para jugadores con historial leve de esguinces</li>
 </ul>
 
-<h2>7. Nike Air Zoom Crossover 2 — ~75 €</h2>
+<h2>7. Nike Air Zoom Crossover 2</h2>
 <p>Versión de entrada de la línea Zoom, con una cámara de aire básica en el antepié. Ofrece un paso por encima de la Precision 8 en amortiguación a un precio similar.</p>
 <ul>
   <li>Zoom Air básico — notablemente mejor que espuma EVA estándar</li>
@@ -920,7 +920,7 @@ export const ARTICLES: Article[] = [
   <li>Buena horma — sirve para pie normal y ancho</li>
 </ul>
 
-<h2>8. Reebok Answer IV — ~70 €</h2>
+<h2>8. Reebok Answer IV</h2>
 <p>Reebok revive el clásico de Allen Iverson con materiales modernizados. La suela de goma ofrece tracción y durabilidad, y el diseño retro es uno de los más llamativos de este rango.</p>
 <ul>
   <li>Diseño icónico — el más estético de la lista</li>
@@ -962,20 +962,20 @@ export const ARTICLES: Article[] = [
 
 <h3>Modelos clave 2025</h3>
 <ul>
-  <li><strong><a href="/zapatilla/anta-kai-2">ANTA Kai 2</a> (~119 €)</strong>: la firma de Kyrie Irving con tecnología BoostX y tracción multidireccional. Rendimiento de 150€ a menor precio. La sorpresa del año.</li>
-  <li><strong><a href="/zapatilla/anta-kt-11">ANTA KT-11</a> (~95 €)</strong>: la firma de Klay Thompson, más asequible. Buena amortiguación y durabilidad outdoor sólida.</li>
+  <li><strong><a href="/zapatilla/anta-kai-2">ANTA Kai 2</a> (desde {{precio:anta-kai-2}})</strong>: la firma de Kyrie Irving con tecnología BoostX y tracción multidireccional. Rendimiento de gama alta a menor precio. La sorpresa del año.</li>
+  <li><strong><a href="/zapatilla/anta-kt-11">ANTA KT-11</a> (desde {{precio:anta-kt-11}})</strong>: la firma de Klay Thompson, más asequible. Buena amortiguación y durabilidad outdoor sólida.</li>
 </ul>
 
 <h3>Veredicto ANTA</h3>
-<p>Si solo puedes probar una marca china, empieza por ANTA. La <a href="/zapatilla/anta-kai-2">Kai 2</a> es genuinamente una de las mejores zapatillas de 2025 por debajo de 130€, independientemente del origen.</p>
+<p>Si solo puedes probar una marca china, empieza por ANTA. La <a href="/zapatilla/anta-kai-2">Kai 2</a> es genuinamente una de las mejores zapatillas de 2025 en relación calidad-precio, independientemente del origen.</p>
 
 <h2>Li-Ning — la más innovadora</h2>
 <p>Li-Ning, fundada por el legendario gimnasta olímpico del mismo nombre, ha apostado por la innovación radical. Tienen acuerdo con Jimmy Butler y desarrollan tecnologías propias que en algunos parámetros superan a Nike Zoom.</p>
 
 <h3>Modelos clave 2025</h3>
 <ul>
-  <li><strong><a href="/zapatilla/lining-wow-allcity-13">Li-Ning WOW AllCity 13</a> (~100 €)</strong>: Cloud Foam de alta densidad con suela de goma de tracción excepcional. Una de las mejor valoradas por los análisis independientes.</li>
-  <li><strong><a href="/zapatilla/lining-sonic-12">Li-Ning Sonic 12</a> (~85 €)</strong>: la opción de velocidad — ultraligera, reactiva y con tracción de primer nivel.</li>
+  <li><strong><a href="/zapatilla/lining-wow-allcity-13">Li-Ning WOW AllCity 13</a> (desde {{precio:lining-wow-allcity-13}})</strong>: Cloud Foam de alta densidad con suela de goma de tracción excepcional. Una de las mejor valoradas por los análisis independientes.</li>
+  <li><strong><a href="/zapatilla/lining-sonic-12">Li-Ning Sonic 12</a> (desde {{precio:lining-sonic-12}})</strong>: la opción de velocidad — ultraligera, reactiva y con tracción de primer nivel.</li>
 </ul>
 
 <h3>Veredicto Li-Ning</h3>
@@ -986,7 +986,7 @@ export const ARTICLES: Article[] = [
 
 <h3>Modelos clave 2025</h3>
 <ul>
-  <li><strong><a href="/zapatilla/peak-taichi-flash">Peak Taichi Flash</a> (~90 €)</strong>: entresuela de espuma reactiva "Flash Foam" y suela de goma con tracción multidireccional. Notable ligereza para ser una zapatilla de baloncesto.</li>
+  <li><strong><a href="/zapatilla/peak-taichi-flash">Peak Taichi Flash</a> (desde {{precio:peak-taichi-flash}})</strong>: entresuela de espuma reactiva "Flash Foam" y suela de goma con tracción multidireccional. Notable ligereza para ser una zapatilla de baloncesto.</li>
 </ul>
 
 <h3>Veredicto Peak</h3>
@@ -1002,7 +1002,7 @@ export const ARTICLES: Article[] = [
 <h2>Comparativa rápida</h2>
 <p>Si tienes que elegir una sola y no sabes por dónde empezar:</p>
 <ul>
-  <li><strong>Mejor rendimiento global bajo 130€ → <a href="/zapatilla/anta-kai-2">ANTA Kai 2</a></strong></li>
+  <li><strong>Mejor rendimiento global por su precio → <a href="/zapatilla/anta-kai-2">ANTA Kai 2</a></strong></li>
   <li><strong>Mejor tracción y tecnología → <a href="/zapatilla/lining-wow-allcity-13">Li-Ning WOW AllCity 13</a></strong></li>
   <li><strong>Mejor precio entrada → <a href="/zapatilla/anta-kt-11">ANTA KT-11</a></strong></li>
 </ul>
@@ -1044,8 +1044,8 @@ export const ARTICLES: Article[] = [
 <p>Las Kobe Protros son el mejor argumento de que "retro" no significa "inferior". Nike ha actualizado las outsoles, aplicado Zoom Air moderno y mantenido el perfil bajo y reactivo que hacía a las originales tan especiales. Las Kobe 5 y 6 Protro consiguen scores de 6.6-6.7/10 — dentro del rango de zapas modernas de rango medio.</p>
 <ul>
   <li><strong>Para quién:</strong> Bases y escoltas explosivos que quieren rendimiento real + historia.</li>
-  <li><strong>Vs alternativa moderna equivalente:</strong> Nike Ja 2 (~130€) — similar rendimiento, sin el legado.</li>
-  <li><strong>Precio actual:</strong> 175-200€ en retros recientes.</li>
+  <li><strong>Vs alternativa moderna equivalente:</strong> Nike Ja 2 (desde {{precio:nike-ja-2}}) — similar rendimiento, sin el legado.</li>
+  <li><strong>Precio actual:</strong> desde {{precio:nike-kobe-5-protro}} (Kobe 5) y desde {{precio:nike-kobe-6-protro}} (Kobe 6).</li>
 </ul>
 
 <h3>🥈 Air Jordan 12 Retro — La mejor Jordan retro para jugar</h3>
@@ -1053,7 +1053,7 @@ export const ARTICLES: Article[] = [
 <ul>
   <li><strong>Para quién:</strong> Aleros y ala-pívots que juegan equilibrado. No para bases.</li>
   <li><strong>Historia incluida:</strong> El partido donde Jordan jugó con fiebre de 39° y ganó el anillo.</li>
-  <li><strong>Precio actual:</strong> 220-250€ en retros recientes.</li>
+  <li><strong>Precio actual:</strong> desde {{precio:air-jordan-12}}.</li>
 </ul>
 
 <h3>🥉 Air Jordan 14 Retro — La mejor low-top Jordan histórica</h3>
@@ -1098,7 +1098,7 @@ export const ARTICLES: Article[] = [
 <p>Depende de la Jordan. Las 11, 12 y 14 sí — tienen Zoom Air actualizado y outsoles que aguantan. Las Jordan 1, 2 y 3 son básicamente colección: cuero duro, cushion mínimo y tracción que se deteriora rápido. Para jugar con una Jordan clásica, elige la 12 o la 14.</p>
 
 <h3>¿Vale la pena pagar 200€+ por un retro cuando hay opciones modernas mejores?</h3>
-<p>Desde el punto de vista puramente técnico, no. Una Nike Ja 3 a 130€ supera en casi todos los atributos a cualquier retro por encima de 200€. Las retros se compran por historia y cultura, no solo por rendimiento.</p>
+<p>Desde el punto de vista puramente técnico, no. Una Nike Ja 3, desde {{precio:nike-ja-3}}, supera en casi todos los atributos a cualquier retro por encima de 200€. Las retros se compran por historia y cultura, no solo por rendimiento.</p>
 
 <h3>¿Cuál es la mejor zapatilla retro para un jugador amateur que quiere jugar y lucir?</h3>
 <p>La Kobe 5 o 6 Protro si priorizas rendimiento, o la Air Jordan 12 si priorizas historia. Las dos tienen ese equilibrio entre cancha y cultura.</p>
@@ -1165,8 +1165,8 @@ export const ARTICLES: Article[] = [
     </tr>
     <tr>
       <td style="padding:8px">Precio (ES)</td>
-      <td style="padding:8px;text-align:center">⭐ ~130€</td>
-      <td style="padding:8px;text-align:center">~150€</td>
+      <td style="padding:8px;text-align:center">{{precio:puma-mb-04}}</td>
+      <td style="padding:8px;text-align:center">{{precio:puma-mb05}}</td>
     </tr>
   </tbody>
 </table>
@@ -1197,7 +1197,7 @@ export const ARTICLES: Article[] = [
   <li><strong>Elige la MB.04 si:</strong> buscas mejor relación calidad-precio, priorizas tracción y respuesta, eres guard o escolta ligero (menos de 80kg).</li>
   <li><strong>Elige la MB.05 si:</strong> quieres el modelo más nuevo, priorizas cushion sobre respuesta, o pesas más de 80kg y necesitas más protección.</li>
 </ul>
-<p>En ambos casos, si las encuentras en oferta (Puma tiene promociones frecuentes), merece la pena. A precio completo, la MB.04 a ~130€ tiene mejor value que la MB.05 a ~150€.</p>
+<p>En ambos casos, si las encuentras en oferta (Puma tiene promociones frecuentes), merece la pena. A precio completo, compara: la MB.04 está desde {{precio:puma-mb-04}} y la MB.05 desde {{precio:puma-mb05}}.</p>
 
 <p class="art-outro">¿Quieres compararlas lado a lado con todos los atributos? <a href="/comparar?slugs=puma-mb-04,puma-mb05">Usa el comparador →</a>. ¿No sabes si la línea MB encaja con tu perfil? <a href="/quiz">El quiz te lo dice en 10 preguntas</a>.</p>
     `,
@@ -1266,15 +1266,15 @@ export const ARTICLES: Article[] = [
     </tr>
     <tr>
       <td style="padding:8px">Precio</td>
-      <td style="padding:8px;text-align:center">⭐ ~90€</td>
-      <td style="padding:8px;text-align:center">~130€</td>
+      <td style="padding:8px;text-align:center">⭐ {{precio:jordan-tatum-4}}</td>
+      <td style="padding:8px;text-align:center">{{precio:adidas-ae-2}}</td>
     </tr>
   </tbody>
 </table>
 </div>
 
 <h2>La sorpresa del precio: Jordan por menos que Adidas</h2>
-<p>La Jordan Tatum 4 cuesta ~90€ mientras que la Adidas AE 2 ronda los 130€ — una diferencia de 40€ que es inusual porque Jordan Brand suele estar por encima de Adidas en precio. ¿Por qué? La Tatum 4 es una línea más accesible dentro del catálogo Jordan, mientras la AE 2 es el flagship de Anthony Edwards. Si el presupuesto es tu filtro principal, la Tatum 4 gana sin duda.</p>
+<p>La Jordan Tatum 4 está desde {{precio:jordan-tatum-4}} y la Adidas AE 2 desde {{precio:adidas-ae-2}}. La Tatum 4 es una línea más accesible dentro del catálogo Jordan y la AE 2 es el flagship de Anthony Edwards, así que en precio de salida la AE 2 queda por encima. Si el presupuesto es tu filtro principal, compara el precio actual de las dos.</p>
 
 <h2>Espuma: Zoom Strobel vs Lightstrike Pro</h2>
 <p><strong>Jordan Tatum 4 — Zoom Air Strobel + React foam:</strong> el Zoom Strobel full-length da una respuesta energética directa en todo el pie. El React foam bajo añade amortiguación extra. El resultado: el cushion más generoso de las dos zapatillas. Para aleros de 80-100kg que aterrizan con impacto (fintas, rebotes), la Tatum 4 protege mejor.</p>
@@ -1286,8 +1286,8 @@ export const ARTICLES: Article[] = [
 
 <h2>¿Para qué tipo de alero es cada una?</h2>
 <ul>
-  <li><strong>Jordan Tatum 4 si:</strong> eres alero de 75-100kg que prioriza cushion, juegas tanto en el perímetro como en la pintura, tienes presupuesto ajustado (~90€), o prefieres el branding Jordan.</li>
-  <li><strong>Adidas AE 2 si:</strong> eres alero-escolta (<90kg) que prioriza explosividad y tracción, juegas en pistas con polvo, quieres el máximo rendimiento técnico disponible a 130€, o ya conoces y confías en Lightstrike Pro.</li>
+  <li><strong>Jordan Tatum 4 si:</strong> eres alero de 75-100kg que prioriza cushion, juegas tanto en el perímetro como en la pintura, tienes presupuesto ajustado (desde {{precio:jordan-tatum-4}}), o prefieres el branding Jordan.</li>
+  <li><strong>Adidas AE 2 si:</strong> eres alero-escolta (<90kg) que prioriza explosividad y tracción, juegas en pistas con polvo, quieres el máximo rendimiento técnico disponible desde {{precio:adidas-ae-2}}, o ya conoces y confías en Lightstrike Pro.</li>
 </ul>
 
 <h2>¿Y si no soy alero?</h2>
@@ -1295,8 +1295,8 @@ export const ARTICLES: Article[] = [
 <p>Si eres base explosivo, la <a href="/zapatilla/nike-gt-cut-4">Nike GT Cut 4</a> o la <a href="/zapatilla/ua-curry-13">UA Curry 13</a> son más específicas para ti que cualquiera de estas dos.</p>
 
 <h2>Veredicto final</h2>
-<p><strong>Si buscas la mejor relación calidad-precio: Jordan Tatum 4.</strong> A ~90€ ofrece un paquete técnico que avergüenza a muchas zapas de 120€. Cushion sólido, tracción competente, soporte lateral decente. Para casi todos los aleros que no tienen un perfil muy específico, es la compra más inteligente.</p>
-<p><strong>Si buscas el máximo rendimiento técnico: Adidas AE 2.</strong> Mejor tracción, mejor respuesta, más explosiva. Vale los 40€ extra si priorizas rendimiento puro sobre precio.</p>
+<p><strong>Si buscas la mejor relación calidad-precio: Jordan Tatum 4.</strong> Desde {{precio:jordan-tatum-4}} ofrece un paquete técnico que avergüenza a muchas zapas más caras. Cushion sólido, tracción competente, soporte lateral decente. Para casi todos los aleros que no tienen un perfil muy específico, es la compra más inteligente.</p>
+<p><strong>Si buscas el máximo rendimiento técnico: Adidas AE 2.</strong> Mejor tracción, mejor respuesta, más explosiva. Vale el precio extra si priorizas rendimiento puro sobre precio.</p>
 
 <p class="art-outro">¿Aún no estás seguro? <a href="/comparar?slugs=jordan-tatum-4,adidas-ae-2,nike-gt-cut-4">Compara estas tres zapatillas con todos los datos aquí</a>, o <a href="/quiz">haz el quiz en 60 segundos</a> para obtener tu recomendación personalizada.</p>
     `,
@@ -1338,7 +1338,7 @@ export const ARTICLES: Article[] = [
     <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Peso</td><td style="padding:8px">305g (US10)</td></tr>
     <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Drop</td><td style="padding:8px">7mm</td></tr>
     <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Horma</td><td style="padding:8px">Normal (tirando a estrecha)</td></tr>
-    <tr><td style="padding:8px">Precio recomendado</td><td style="padding:8px">~160-170€</td></tr>
+    <tr><td style="padding:8px">Precio recomendado</td><td style="padding:8px">170€</td></tr>
   </tbody>
 </table>
 </div>
@@ -1398,9 +1398,9 @@ export const ARTICLES: Article[] = [
     </tr>
     <tr>
       <td style="padding:8px">Precio</td>
-      <td style="padding:8px;text-align:center">~160€</td>
-      <td style="padding:8px;text-align:center">~140€</td>
-      <td style="padding:8px;text-align:center">⭐ ~119€</td>
+      <td style="padding:8px;text-align:center">{{precio:nike-gt-cut-4}}</td>
+      <td style="padding:8px;text-align:center">{{precio:ua-curry-13}}</td>
+      <td style="padding:8px;text-align:center">{{precio:anta-kai-2}}</td>
     </tr>
   </tbody>
 </table>
@@ -1449,19 +1449,19 @@ export const ARTICLES: Article[] = [
 
 <h2>Los mejores modelos junior en 2025</h2>
 
-<h3>1. Nike Precision 8 GS (~55€)</h3>
+<h3>1. Nike Precision 8 GS</h3>
 <p>La mejor opción para iniciación y nivel escolar. Disponible en tallas desde EU 35.5, con la misma suela de tracción herringbone que el modelo adulto. Buena amortiguación básica, upper de malla transpirable. La zapatilla que más veces aparece en pistas escolares en España — y con razón.</p>
 
-<h3>2. Adidas Cross-Em Up Select Kids (~45€)</h3>
-<p>Suela Continental a un precio muy bajo. Para la edad de iniciación, la tracción Continental de Adidas en una zapatilla de 45€ es una ventaja real. La horma es algo estrecha — ideal para pies normales o estrechos.</p>
+<h3>2. Adidas Cross-Em Up Select Kids</h3>
+<p>Suela Continental a un precio muy bajo. Para la edad de iniciación, la tracción Continental de Adidas en una zapatilla tan económica es una ventaja real. La horma es algo estrecha — ideal para pies normales o estrechos.</p>
 
-<h3>3. Decathlon Tarmak Fast 500 (~35€)</h3>
-<p>La opción más económica con rendimiento real. Perfecta para niños que están probando el baloncesto y aún no sabes si seguirán. La Tarmak es durable, cómoda y aguanta exterior e interior. A 35€, si el niño crece dos tallas en una temporada, no duele tanto el gasto.</p>
+<h3>3. Decathlon Tarmak Fast 500</h3>
+<p>La opción más económica con rendimiento real. Perfecta para niños que están probando el baloncesto y aún no sabes si seguirán. La Tarmak es durable, cómoda y aguanta exterior e interior. A ese precio, si el niño crece dos tallas en una temporada, no duele tanto el gasto.</p>
 
-<h3>4. Nike Giannis Immortality 5 GS (~70€)</h3>
+<h3>4. Nike Giannis Immortality 5 GS</h3>
 <p>Para adolescentes de 12-16 años que juegan en club. El Giannis Immortality ofrece amortiguación de gama media y buena estabilidad a un precio razonable. El atractivo del jugador (Giannis Antetokounmpo) añade un plus de motivación para el chaval.</p>
 
-<h3>5. Jordan Tatum 2 o 3 GS (~80-90€)</h3>
+<h3>5. Jordan Tatum 2 o 3 GS</h3>
 <p>Para jugadores cadetes con nivel federado que buscan rendimiento real. La línea Tatum tiene un cushion serio y tracción competente en un paquete que funciona para aleros y escoltas junior. La Tatum 2 a menudo la encuentras en oferta — buena opción de relación calidad-precio.</p>
 
 <h2>¿Low, mid o high para un niño?</h2>
@@ -1528,16 +1528,16 @@ export const ARTICLES: Article[] = [
 <h2>Las 5 mejores opciones para pie plano</h2>
 
 <h3>1. Nike LeBron 22 — la mejor amortiguación + estabilidad</h3>
-<p>Zoom Air en talón y antepié, plataforma ancha, estabilidad 8.5/10. El LeBron está diseñado para jugadores físicos de 100kg+ — la misma ingeniería que protege a un jugador de ese tamaño protege perfectamente a un jugador con pie plano a cualquier peso. Precio: ~160-190€.</p>
+<p>Zoom Air en talón y antepié, plataforma ancha, estabilidad 8.5/10. El LeBron está diseñado para jugadores físicos de 100kg+ — la misma ingeniería que protege a un jugador de ese tamaño protege perfectamente a un jugador con pie plano a cualquier peso. Precio: desde {{precio:nike-lebron-22}}.</p>
 
 <h3>2. Jordan Tatum 4 — balanced con soporte real</h3>
-<p>Estabilidad 8.5/10, soporte lateral 8/10, Zoom Air full-length. La Tatum es una de las zapatillas más equilibradas del mercado — no brilla en ningún atributo específico pero no falla en ninguno. Perfecta para aleros con pie plano que necesitan versatilidad. Precio: ~140-160€.</p>
+<p>Estabilidad 8.5/10, soporte lateral 8/10, Zoom Air full-length. La Tatum es una de las zapatillas más equilibradas del mercado — no brilla en ningún atributo específico pero no falla en ninguno. Perfecta para aleros con pie plano que necesitan versatilidad. Precio: desde {{precio:jordan-tatum-4}}.</p>
 
 <h3>3. UA Curry 13 — court feel con soporte</h3>
-<p>Sorprendentemente buena para pie plano: UA Flow con geometría de suela estabilizadora, soporte lateral 8/10, estabilidad 7.5/10. Más reactiva que el LeBron, ideal si eres guard con pie plano. El UA Flow actúa como una plantilla extra al ser la espuma de suela directo al suelo. Precio: ~140-160€.</p>
+<p>Sorprendentemente buena para pie plano: UA Flow con geometría de suela estabilizadora, soporte lateral 8/10, estabilidad 7.5/10. Más reactiva que el LeBron, ideal si eres guard con pie plano. El UA Flow actúa como una plantilla extra al ser la espuma de suela directo al suelo. Precio: desde {{precio:ua-curry-13}}.</p>
 
-<h3>4. Adidas AE 2 — la más accesible</h3>
-<p>Si el presupuesto importa, la AE 2 ofrece estabilidad 7.5/10 y soporte lateral 8/10 a ~120-130€. Lightstrike Pro firme, herringbone tracción. No llega al LeBron en cushion pero sí en soporte. Para jugadores de hasta 85kg con pie plano, es suficiente.</p>
+<h3>4. Adidas AE 2 — más accesible que las de gama tope</h3>
+<p>Si el presupuesto importa, la AE 2 ofrece estabilidad 7.5/10 y soporte lateral 8/10 desde {{precio:adidas-ae-2}}. Lightstrike Pro firme, herringbone tracción. No llega al LeBron en cushion pero sí en soporte. Para jugadores de hasta 85kg con pie plano, es suficiente.</p>
 
 <h3>5. Nike GT Hustle 3 — soporte de tobillo + pie plano</h3>
 <p>Si tienes pie plano <em>y</em> historial de esguinces, la GT Hustle 3, de corte mid, es la solución. Estabilidad 8/10, soporte lateral 7.5/10, collar de tobillo reforzado. Más pesada que la GT Cut, pero para un jugador con problemas combinados de pie plano + tobillo débil, es la opción más segura del mercado.</p>
@@ -1575,7 +1575,7 @@ export const ARTICLES: Article[] = [
     title: "Adidas AE 2 análisis completo: la mejor zapatilla de baloncesto de 2025",
     metaTitle: "Adidas AE 2 análisis 2025: tracción, cushion, precio | CANCHA.ZAPA",
     description:
-      "Análisis técnico completo de las Adidas AE 2 (Anthony Edwards): tracción, amortiguación, ajuste y comparativa con GT Cut 4 y Curry 13. ¿Vale la pena a 130€?",
+      "Análisis técnico completo de las Adidas AE 2 (Anthony Edwards): tracción, amortiguación, ajuste y comparativa con GT Cut 4 y Curry 13. ¿Vale la pena su precio?",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
     categoria: "Análisis",
@@ -1591,7 +1591,7 @@ export const ARTICLES: Article[] = [
 
 <h2>Contexto: Anthony Edwards y la línea AE</h2>
 <p>Anthony Edwards firmó con Adidas en 2023 y la AE 2 es el tercer modelo de su línea signature. Edwards es un escolta explosivo, potente y con un primer paso brutal — su zapatilla refleja exactamente eso: tracción y respuesta por encima de todo. Adidas metió Lightstrike Pro en el modelo, la misma tecnología de las zapatillas de élite de atletismo.</p>
-<p>La AE 2 se lanzó a <strong>~130€</strong>, un precio razonable para la tecnología que incluye. Es un escalón por debajo del precio aspiracional de Jordan y Nike (150-180€) con rendimiento comparable o superior en la mayoría de atributos.</p>
+<p>La AE 2 se lanzó a <strong>~145€</strong>, un precio razonable para la tecnología que incluye. Es un escalón por debajo del precio aspiracional de Jordan y Nike (150-180€) con rendimiento comparable o superior en la mayoría de atributos.</p>
 
 <h2>Tracción: la mejor del mercado en indoor</h2>
 <p>El patrón herringbone de la AE 2 es uno de los mejores que hemos probado en pabellón en 2025. La goma agarra en todas las direcciones — cambios de dirección laterales, arranques, paradas — sin un solo deslizamiento. En polvo de la cancha funciona bien; en suelo muy sucio (pabellones mal barridos) necesitas limpiar con regularidad, como cualquier zapatilla indoor.</p>
@@ -1656,9 +1656,9 @@ export const ARTICLES: Article[] = [
     </tr>
     <tr>
       <td style="padding:8px;color:var(--cz-fg3)">Precio</td>
-      <td style="padding:8px;text-align:center;color:#e4e4e7">~130€</td>
-      <td style="padding:8px;text-align:center;color:#e4e4e7">~165€</td>
-      <td style="padding:8px;text-align:center;color:#e4e4e7">~150€</td>
+      <td style="padding:8px;text-align:center;color:#e4e4e7">{{precio:adidas-ae-2}}</td>
+      <td style="padding:8px;text-align:center;color:#e4e4e7">{{precio:nike-gt-cut-4}}</td>
+      <td style="padding:8px;text-align:center;color:#e4e4e7">{{precio:ua-curry-13}}</td>
     </tr>
   </tbody>
 </table>
@@ -1678,7 +1678,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h2>¿Dónde comprar?</h2>
-<p>La AE 2 está disponible en Amazon ES (vendedor oficial Adidas), Adidas.es y JD Sports. Amazon suele ser el más barato con devolución en 30 días — ideal si no has probado la horma antes. Algunas colorways limitadas solo están en Adidas.es. Para pies anchos, recomendamos probar primero en tienda si tienes Foot Locker cerca.</p>
+<p>Consulta las tiendas y el precio actualizado en <a href="/zapatilla/adidas-ae-2">su ficha</a>. Si no has probado la horma antes, elige una tienda con devolución en 30 días. Para pies anchos, recomendamos probarla primero en una tienda física.</p>
 
 <p class="art-outro">La Adidas AE 2 es nuestra zapatilla más recomendada de 2025 para jugadores entre 60-85 kg sin necesidades especiales de cushion máximo. Si tienes dudas sobre si encaja con tu perfil específico, <a href="/quiz">el quiz te da las 5 más compatibles en menos de un minuto</a>.</p>
     `,
@@ -1738,7 +1738,7 @@ export const ARTICLES: Article[] = [
 <h2>AE 2 vs Curry 13: ¿cuál elegir?</h2>
 <p>Son los dos mejores zapatos de guard de 2025 y la elección depende de tu perfil:</p>
 <ul>
-  <li><strong>Elige la AE 2 si:</strong> priorizas la tracción, juegas en pabellones con polvo, tienes pie medio-ancho, o tu presupuesto es 130€</li>
+  <li><strong>Elige la AE 2 si:</strong> priorizas la tracción, juegas en pabellones con polvo, tienes pie medio-ancho, o tu presupuesto llega a {{precio:adidas-ae-2}}</li>
   <li><strong>Elige la Curry 13 si:</strong> priorizas estabilidad lateral y court feel, juegas en pabellones limpios, o tienes historial leve de esguinces</li>
   <li><strong>Si tienes 90 kg+:</strong> ninguna de las dos es tu primera opción — considera la LeBron 22, Jordan Tatum 4 o Fresh Foam BB v3</li>
 </ul>
@@ -1772,7 +1772,7 @@ export const ARTICLES: Article[] = [
 
 <h2>Contexto: Jayson Tatum y la línea Tatum</h2>
 <p>Jayson Tatum (Boston Celtics, All-Star, campeón NBA 2024) es el prototipo del alero moderno. Su juego combina explosividad, finesse y versatilidad defensiva. La línea Tatum nació en 2022 y la Tatum 4 es la evolución más madura: más cushion, mejor soporte, construcción más premium.</p>
-<p>El precio MSRP es ~140-150€, situándola en el segmento premium-accessible — por encima de la AE 2 (130€) pero por debajo de la LeBron 22 (180€) o la Nike GT Cut 4 (165€).</p>
+<p>El precio de salida en España es 129,99€, por debajo de la AE 2, la LeBron 22 o la Nike GT Cut 4.</p>
 
 <h2>Tecnología: Zoom Air + React</h2>
 <p>La Jordan Tatum 4 usa una combinación de:</p>
@@ -1858,7 +1858,7 @@ export const ARTICLES: Article[] = [
 </table>
 
 <h2>¿Dónde comprar?</h2>
-<p>La Jordan Tatum 4 está disponible en Amazon ES (vendedor oficial Nike/Jordan), JD Sports, Foot Locker ES y Nike.es. Recomendamos Amazon por la política de devolución en 30 días — útil si vas a probar la horma por primera vez. Algunas colorways limitadas (los "PE" o ediciones especiales de Boston Celtics) solo están disponibles en Nike SNKRS o stockistas selectivos.</p>
+<p>Consulta las tiendas y el precio actualizado en <a href="/zapatilla/jordan-tatum-4">su ficha</a>. Si vas a probar la horma por primera vez, elige una tienda con devolución en 30 días. Algunas colorways limitadas (los "PE" o ediciones especiales de Boston Celtics) tienen distribución selectiva.</p>
 
 <p class="art-outro">La Jordan Tatum 4 es nuestra recomendación número uno para aleros y jugadores versátiles que no quieren comprometerse entre cushion, soporte y respuesta. Si quieres ver si encaja exactamente con tu perfil, <a href="/quiz">el quiz te da las 5 más compatibles en menos de un minuto</a>.</p>
     `,
@@ -1917,8 +1917,8 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h2>Precio: ¿vale la pena?</h2>
-<p>La LeBron 22 cotiza a <strong>~180€ MSRP</strong>, el precio más alto de nuestra comparativa. En Amazon ES se encuentra a veces a 150-165€ en colorways menos populares. Para un jugador que va a usar la zapatilla 3-4 veces por semana durante una temporada completa, 180€ dividido entre 40 semanas son 4,5€ por semana de la mejor protección del mercado. Así analizado, el precio se justifica.</p>
-<p>Si el presupuesto es limitado, la Nike LeBron Witness 9 (~90€) es la versión accesible de la filosofía LeBron: menos cushion, menos soporte, pero la misma orientación hacia la protección. Para los que pueden permitirse el gasto, la LeBron 22 es la referencia absoluta en cushion 2025.</p>
+<p>La LeBron 22 cotiza a <strong>200€ MSRP</strong>, el precio más alto de nuestra comparativa. Para un jugador que va a usar la zapatilla 3-4 veces por semana durante una temporada completa, 200€ dividido entre 40 semanas son 5€ por semana de la mejor protección del mercado. Así analizado, el precio se justifica. Consulta las tiendas y el precio actualizado en <a href="/zapatilla/nike-lebron-22">su ficha</a>.</p>
+<p>Si el presupuesto es limitado, la Nike LeBron Witness 9 (desde {{precio:nike-lebron-witness-9}}) es la versión accesible de la filosofía LeBron: menos cushion, menos soporte, pero la misma orientación hacia la protección. Para los que pueden permitirse el gasto, la LeBron 22 es la referencia absoluta en cushion 2025.</p>
 
 <p class="art-outro">La LeBron 22 es la mejor zapatilla de 2025 para jugadores que priorizan cushion y soporte por encima de todo. Si no estás seguro de si tu perfil encaja, <a href="/quiz">el quiz de CANCHA.ZAPA te da las 5 más compatibles en 60 segundos</a>.</p>
     `,
@@ -1957,7 +1957,7 @@ export const ARTICLES: Article[] = [
 
 <h2>Los 5 mejores modelos para alero en 2025</h2>
 
-<h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — 150€</a></h3>
+<h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — desde {{precio:jordan-tatum-4}}</a></h3>
 <p><strong>El mejor equilibrio del mercado.</strong> Jayson Tatum es el prototipo del alero moderno: defiende del 1 al 5, mete cortes, tira de tres y postea. La Tatum 4 está diseñada para eso: score 7+ en todos los ejes con cushion Zoom Air + Impact Plate para los aterrizajes.</p>
 <ul>
   <li>✅ Cushion 8 + respuesta 8: el mejor equilibrio technico del grupo</li>
@@ -1966,16 +1966,16 @@ export const ARTICLES: Article[] = [
   <li>❌ Low-top con poco soporte de tobillo y suela fina que se desgasta rápido en exterior (RunRepeat, HoopsGeek)</li>
 </ul>
 
-<h3><a href="/zapatilla/adidas-harden-vol-9">Adidas Harden Vol 9 — 129€</a></h3>
+<h3><a href="/zapatilla/adidas-harden-vol-9">Adidas Harden Vol 9 — desde {{precio:adidas-harden-vol-9}}</a></h3>
 <p><strong>Para aleros con perfil físico que postean.</strong> James Harden es técnicamente un escolta/alero con juego de pívot — la Vol 9 refleja eso. Lightstrike Pro foam da cushion generoso sin exceso de peso. La opción si juegas media cancha más que medio campo.</p>
 <ul>
   <li>✅ Lightstrike Pro: cushion alto con bounce reactivo</li>
   <li>✅ Base ancha: estabilidad sólida en contactos laterales</li>
-  <li>✅ 30€ más barata que la Tatum 4 con rendimiento similar</li>
+  <li>✅ Rendimiento similar al de la Tatum 4</li>
   <li>❌ Respuesta algo por debajo: para cortes explosivos, la Tatum gana</li>
 </ul>
 
-<h3><a href="/zapatilla/nike-kd-17">Nike KD 17 — 149€</a></h3>
+<h3><a href="/zapatilla/nike-kd-17">Nike KD 17 — desde {{precio:nike-kd-17}}</a></h3>
 <p><strong>Para aleros que salen mucho al perímetro.</strong> Kevin Durant es el alero/pívot que más tira de tres del mercado. La KD 17 tiene Zoom Strobel full-length para el bounce que necesitas cuando aterrizas de un tres, más upper TPU que soporta los contactos.</p>
 <ul>
   <li>✅ Zoom Strobel full-length: cushion reactivo para jugadores >85kg</li>
@@ -1984,7 +1984,7 @@ export const ARTICLES: Article[] = [
   <li>❌ Horma algo estrecha en el antepié para pie ancho</li>
 </ul>
 
-<h3><a href="/zapatilla/ua-flow-breakthru-4">Under Armour Flow Breakthru 4 — ~110€</a></h3>
+<h3><a href="/zapatilla/ua-flow-breakthru-4">Under Armour Flow Breakthru 4 — desde {{precio:ua-flow-breakthru-4}}</a></h3>
 <p><strong>Para aleros dinámicos que priorizan la sensación de suelo.</strong> UA Flow sin capa de goma da un court feel diferente — más en contacto con el suelo, más reactivo. Para aleros que juegan más el uno contra uno y los cortes que el juego de poste.</p>
 <ul>
   <li>✅ UA Flow: court feel excepcional para un alero</li>
@@ -1993,7 +1993,7 @@ export const ARTICLES: Article[] = [
   <li>❌ Horma algo estrecha para pie ancho</li>
 </ul>
 
-<h3><a href="/zapatilla/jordan-luka-4">Jordan Luka 4 — 145€</a></h3>
+<h3><a href="/zapatilla/jordan-luka-4">Jordan Luka 4 — desde {{precio:jordan-luka-4}}</a></h3>
 <p><strong>Para aleros grandes o ala-pívots con juego de poste.</strong> Luka Doncic es técnicamente un base/alero, pero su zapatilla está diseñada para jugadores potentes: cushion alto, base ancha y soporte lateral extra.</p>
 <ul>
   <li>✅ Cushion Zoom Air para aterrizajes de jugadores >90kg</li>
@@ -2112,13 +2112,13 @@ export const ARTICLES: Article[] = [
 
 <h2>¿Cómo se compara con sus rivales?</h2>
 
-<h3>vs Adidas AE 2 (130€)</h3>
-<p>La AE 2 gana en tracción (herringbone 9/10 vs 8/10) y es más económica. La Ja 3 gana en cushion (ZoomX vs Lightstrike Pro) y es mejor para pie ancho. Para jugadores de 70-85kg en pistas algo sucias: AE 2. Para jugadores con pie ancho o que priorizan el cushion: Ja 3.</p>
+<h3>vs Adidas AE 2 (desde {{precio:adidas-ae-2}})</h3>
+<p>La AE 2 gana en tracción (herringbone 9/10 vs 8/10). La Ja 3 gana en cushion (ZoomX vs Lightstrike Pro) y es mejor para pie ancho. Para jugadores de 70-85kg en pistas algo sucias: AE 2. Para jugadores con pie ancho o que priorizan el cushion: Ja 3.</p>
 
-<h3>vs Under Armour Curry 13 (140€)</h3>
+<h3>vs Under Armour Curry 13 (desde {{precio:ua-curry-13}})</h3>
 <p>La Curry 13 tiene mejor court feel (UA Flow directo al suelo). La Ja 3 tiene mejor durabilidad outdoor y horma más fácil para pie ancho. Si juegas siempre en interior limpio: Curry 13. Si juegas ocasionalmente fuera o tienes pie ancho: Ja 3.</p>
 
-<h3>vs Nike GT Cut 4 (150€)</h3>
+<h3>vs Nike GT Cut 4 (desde {{precio:nike-gt-cut-4}})</h3>
 <p>La GT Cut 4 es más reactiva (10/10 en respuesta), aunque pesa bastante más (431 g frente a 310 g). La Ja 3 tiene mejor cushion y horma más ancha. Para bases con pie normal o estrecho que buscan el máximo primer paso: GT Cut 4. Para bases con pie ancho o que priorizan cushion+outdoor: Ja 3.</p>
 
 <h2>¿Para quién es la Ja 3?</h2>
@@ -2133,7 +2133,7 @@ export const ARTICLES: Article[] = [
 <p><strong>No es para ti si:</strong> tienes pie muy estrecho y prefieres lockdown máximo, o si buscas el court feel ultra-bajo de la Curry 13 o la GT Cut 4.</p>
 
 <h2>Disponibilidad y precio</h2>
-<p>La Ja 3 se vende en Nike.es, Foot Locker ES, JD Sports ES y Amazon ES. El precio de salida fue 135€ — actualmente el más competitivo del grupo (AE 2 a 130€, Curry 13 a 140€, GT Cut 4 a 150€). Para una zapatilla con ZoomX full-length, 135€ es una propuesta seria.</p>
+<p>El precio de salida fue 135€, el más competitivo del grupo. Para una zapatilla con ZoomX full-length, 135€ es una propuesta seria. Consulta las tiendas y el precio actualizado en <a href="/zapatilla/nike-ja-3">su ficha</a>.</p>
 
 <p class="art-outro">¿No sabes si la Ja 3 encaja con tu perfil? <a href="/quiz">El quiz de CANCHA.ZAPA</a> filtra por posición, peso, tipo de pie y tipo de juego para darte las 5 más compatibles en menos de un minuto.</p>
     `,
@@ -2178,15 +2178,15 @@ export const ARTICLES: Article[] = [
 
 <h2>Top 5 zapatillas para rodilla en 2025</h2>
 
-<h3><a href="/zapatilla/jordan-40">Air Jordan 40 — 199€ — La mejor cushion del mercado</a></h3>
+<h3><a href="/zapatilla/jordan-40">Air Jordan 40 — desde {{precio:jordan-40}} — La mejor cushion del mercado</a></h3>
 <p>ZoomX + Zoom Strobel full-length: la combinación de espumas más avanzada disponible en 2025. El ZoomX devuelve el 85% de la energía con bounce real, mientras el Strobel añade firmeza para que la espuma no colapse. Para pívots y ala-pívots con problemas de rodilla, es el techo tecnológico del mercado.</p>
 <ul>
   <li>✅ Amortiguación 10/10 — el cushion más avanzado disponible</li>
   <li>✅ 6 correas internas: estabilidad extra en aterrizajes</li>
-  <li>❌ 199€ y 439 g — la más cara del grupo y de las más pesadas</li>
+  <li>❌ {{precio:jordan-40}} y 439 g — de las más caras del grupo y de las más pesadas</li>
 </ul>
 
-<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — 179€ — Max Air para jugadores pesados</a></h3>
+<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — desde {{precio:nike-lebron-23}} — Max Air para jugadores pesados</a></h3>
 <p>Max Air en talón + React foam en midsole. El Max Air es una cámara de aire de alta presión que no se aplana bajo cargas extremas — especialmente eficaz para jugadores de 90-110kg. LeBron James ha tenido problemas de rodilla durante su carrera, y la LeBron line refleja ese diseño.</p>
 <ul>
   <li>✅ Max Air: el cushion que mejor aguanta bajo cargas pesadas</li>
@@ -2194,15 +2194,15 @@ export const ARTICLES: Article[] = [
   <li>❌ Horma algo estrecha — incómoda para pie ancho</li>
 </ul>
 
-<h3><a href="/zapatilla/nike-kd-19">Nike KD 19 — 149€ — El equilibrio precio/cushion</a></h3>
-<p>Zoom Strobel + Cushlon 3.0 a un precio 30-50€ por debajo de la LeBron 23 o la Jordan 40. Kevin Durant jugó con rodilla operada durante años — el KD 19 tiene cushion pensado para eso. Para ala-pívots que necesitan protección seria sin el precio top.</p>
+<h3><a href="/zapatilla/nike-kd-19">Nike KD 19 — desde {{precio:nike-kd-19}} — El equilibrio precio/cushion</a></h3>
+<p>Zoom Strobel + Cushlon 3.0 a un precio por debajo de la LeBron 23 o la Jordan 40. Kevin Durant jugó con rodilla operada durante años — el KD 19 tiene cushion pensado para eso. Para ala-pívots que necesitan protección seria sin el precio top.</p>
 <ul>
   <li>✅ Cushion 8/10 a precio razonable</li>
   <li>✅ Bounce reactivo (Strobel) además de amortiguación</li>
   <li>❌ No llega al nivel Max Air de la LeBron para jugadores >100kg</li>
 </ul>
 
-<h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — 150€ — El mejor para aleros con rodilla</a></h3>
+<h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — desde {{precio:jordan-tatum-4}} — El mejor para aleros con rodilla</a></h3>
 <p>Zoom Air + Impact Plate en la zona del antepié. El Impact Plate distribuye el impacto de los aterrizajes en tres puntos en lugar de concentrarlo, reduciendo el pico de presión en la rótula. Para aleros de 80-95kg con problemas de rodilla, es la mejor opción de la gama media.</p>
 <ul>
   <li>✅ Impact Plate: tecnología de distribución de impacto única</li>
@@ -2210,10 +2210,10 @@ export const ARTICLES: Article[] = [
   <li>❌ No está orientada a jugadores >100kg — ahí la LeBron gana</li>
 </ul>
 
-<h3><a href="/zapatilla/ua-flow-breakthru-4">Under Armour Flow Breakthru 4 — ~110€ — Para aleros que priorizan suavidad</a></h3>
-<p>UA Flow con UA Micro G foam ofrece un cushion suave y reactivo. No llega al nivel de la Jordan 40 o la LeBron, pero para jugadores de 70-85kg con molestias ligeras de rodilla es suficiente — y la más económica del grupo.</p>
+<h3><a href="/zapatilla/ua-flow-breakthru-4">Under Armour Flow Breakthru 4 — desde {{precio:ua-flow-breakthru-4}} — Para aleros que priorizan suavidad</a></h3>
+<p>UA Flow con UA Micro G foam ofrece un cushion suave y reactivo. No llega al nivel de la Jordan 40 o la LeBron, pero para jugadores de 70-85kg con molestias ligeras de rodilla es suficiente — y de las más económicas del grupo.</p>
 <ul>
-  <li>✅ Precio más accesible del grupo con cushion 7/10</li>
+  <li>✅ De las más accesibles del grupo, con cushion 7/10</li>
   <li>✅ Suave sin ser imprecisa</li>
   <li>❌ Para jugadores >90kg o con problemas serios de rodilla, el cushion no es suficiente</li>
 </ul>
@@ -2271,7 +2271,7 @@ export const ARTICLES: Article[] = [
 <p>ANTA gana ligeramente. La Kai 2 tiene suela de goma más gruesa y resistente al asfalto. La Fresh Foam BB V3 aguanta exterior moderado pero se gasta antes en uso intensivo outdoor.</p>
 
 <h3>Precio</h3>
-<p>ANTA gana claramente. La Kai 2 (~119€) y la KT 11 (~80€) están significativamente por debajo de la NB TWO WXY V4 (~130€) o la Kawhi 2 (~140€). Para el mismo nivel de rendimiento básico, ANTA da más por menos.</p>
+<p>Compara: la Kai 2 (desde {{precio:anta-kai-2}}) y la KT 11 (desde {{precio:anta-kt-11}}) frente a la NB TWO WXY V4 (desde {{precio:nb-two-wxy-v4}}) o la Kawhi 2 (desde {{precio:nb-kawhi-2}}).</p>
 
 <h2>Resumen por tipo de jugador</h2>
 
@@ -2288,7 +2288,7 @@ export const ARTICLES: Article[] = [
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Guard explosivo, pie ancho</td>
       <td style="padding:8px;text-align:center">⭐ ANTA</td>
-      <td style="padding:8px;text-align:center">Kai 2 (~119€)</td>
+      <td style="padding:8px;text-align:center">Kai 2 (desde {{precio:anta-kai-2}})</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Jugador pesado (&gt;90kg) con rodillas</td>
@@ -2298,12 +2298,12 @@ export const ARTICLES: Article[] = [
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Junior / primeras zapatillas</td>
       <td style="padding:8px;text-align:center">⭐ ANTA</td>
-      <td style="padding:8px;text-align:center">KT 11 (~80€)</td>
+      <td style="padding:8px;text-align:center">KT 11 (desde {{precio:anta-kt-11}})</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Alero equilibrado, pie ancho</td>
       <td style="padding:8px;text-align:center">⭐ New Balance</td>
-      <td style="padding:8px;text-align:center">TWO WXY V4 (~130€)</td>
+      <td style="padding:8px;text-align:center">TWO WXY V4 (desde {{precio:nb-two-wxy-v4}})</td>
     </tr>
     <tr>
       <td style="padding:8px">Exterior / outdoor frecuente</td>
@@ -2315,7 +2315,7 @@ export const ARTICLES: Article[] = [
 </div>
 
 <h2>El veredicto</h2>
-<p>Si tuviéramos que elegir una: <strong>ANTA gana en relación calidad-precio</strong>. La Kai 2 a ~119€ ofrece un rendimiento que avergüenza a zapatillas de 150€ de marcas mainstream. La tracción, la horma ancha y la respuesta están al nivel de modelos premium.</p>
+<p>Si tuviéramos que elegir una: <strong>ANTA gana en relación calidad-precio</strong>. La Kai 2, desde {{precio:anta-kai-2}}, ofrece un rendimiento que avergüenza a zapatillas más caras de marcas mainstream. La tracción, la horma ancha y la respuesta están al nivel de modelos premium.</p>
 
 <p>Pero si priorizas cushion puro o pesas más de 90kg, <strong>New Balance es la elección más inteligente</strong>. Fresh Foam da una protección articular que ANTA no iguala en ese rango de precio.</p>
 
@@ -2360,7 +2360,7 @@ export const ARTICLES: Article[] = [
 
 <h2>Top 5 zapatillas para bases en 2025</h2>
 
-<h3><a href="/zapatilla/nike-gt-cut-4">Nike GT Cut 4 — 150€</a></h3>
+<h3><a href="/zapatilla/nike-gt-cut-4">Nike GT Cut 4 — desde {{precio:nike-gt-cut-4}}</a></h3>
 <p><strong>La más explosiva del mercado en 2025.</strong> El Zoom Air de la GT Cut 4 es el más reactivo que Nike fabrica para baloncesto. Suela de goma dura multidireccional con tracción 10/10 y court feel absolutamente excepcional. No es ligera (431 g), pero la respuesta lo compensa. Si tu pie encaja (horma estrecha) y juegas siempre en interior limpio, no hay nada mejor en 2025.</p>
 <ul>
   <li>✅ Respuesta 10/10 — la más reactiva del grupo</li>
@@ -2370,7 +2370,7 @@ export const ARTICLES: Article[] = [
   <li>❌ Solo interior — la suela se destruye en asfalto</li>
 </ul>
 
-<h3><a href="/zapatilla/ua-curry-13">Under Armour Curry 13 — 140€</a></h3>
+<h3><a href="/zapatilla/ua-curry-13">Under Armour Curry 13 — desde {{precio:ua-curry-13}}</a></h3>
 <p><strong>El mejor court feel del mercado.</strong> UA Flow sin goma en la suela significa que el antepié toca directamente la espuma — el feeling más cercano al suelo que puedes tener en una zapatilla de baloncesto. Para bases que priorizan sentir la cancha, es insuperable. Cushion algo mayor que la GT Cut 4 — mejor para bases de 75-90kg.</p>
 <ul>
   <li>✅ Court feel único — el más cercano al suelo del mercado</li>
@@ -2380,25 +2380,25 @@ export const ARTICLES: Article[] = [
   <li>❌ Tracción baja en pistas con polvo (sin goma que raspa)</li>
 </ul>
 
-<h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — 130€</a></h3>
+<h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — desde {{precio:adidas-ae-2}}</a></h3>
 <p><strong>El mejor equilibrio precio/rendimiento para bases.</strong> Herringbone 9/10 que funciona en parquet limpio y sucio. Lightstrike Pro reactivo pero con algo más de cushion que la GT Cut 4. 428 g, horma normal. Para bases que juegan en diferentes canchas y no quieren pagar el precio premium de la GT Cut 4.</p>
 <ul>
   <li>✅ Tracción 9/10 — aguanta pistas con polvo</li>
   <li>✅ Respuesta 9/10 — primer paso rápido</li>
-  <li>✅ La más económica del top 3</li>
+  <li>✅ Más económica que la GT Cut 4</li>
   <li>❌ No llega al nivel de respuesta pura de la GT Cut 4</li>
 </ul>
 
-<h3><a href="/zapatilla/anta-kai-2">ANTA Kai 2 — ~119€</a></h3>
-<p><strong>La mejor relación calidad-precio del mercado + horma ancha.</strong> Kyrie Irving tiene uno de los pies más exigentes del baloncesto (ancho, con historial de tobillo) y la Kai 2 lo refleja. A-Flashfoam reactivo, tracción competente y suela que aguanta exterior moderado. Para bases con pie ancho o que no quieren gastar más de 120€, es la elección clara.</p>
+<h3><a href="/zapatilla/anta-kai-2">ANTA Kai 2 — desde {{precio:anta-kai-2}}</a></h3>
+<p><strong>La mejor relación calidad-precio del mercado + horma ancha.</strong> Kyrie Irving tiene uno de los pies más exigentes del baloncesto (ancho, con historial de tobillo) y la Kai 2 lo refleja. A-Flashfoam reactivo, tracción competente y suela que aguanta exterior moderado. Para bases con pie ancho o que no quieren gastar de más, es la elección clara.</p>
 <ul>
-  <li>✅ Precio: 30€ menos que la AE 2 con 90% del rendimiento</li>
+  <li>✅ 90% del rendimiento de la AE 2</li>
   <li>✅ Horma ancha — la mejor para pies anchos del grupo</li>
   <li>✅ Outdoor moderado — suela de goma más resistente que la Curry 13</li>
   <li>❌ Respuesta algo por debajo de GT Cut 4 y Curry 13</li>
 </ul>
 
-<h3><a href="/zapatilla/nike-ja-3">Nike Ja 3 — 135€</a></h3>
+<h3><a href="/zapatilla/nike-ja-3">Nike Ja 3 — desde {{precio:nike-ja-3}}</a></h3>
 <p><strong>La mejor opción para bases con pie ancho dentro de Nike.</strong> ZoomX full-length da un bounce excepcional para su precio. Horma más ancha que cualquier otra Nike en producción. Suela de goma que aguanta outdoor moderado. Para bases que querían Nike pero no encajaban en la GT Cut 4, la Ja 3 es la respuesta.</p>
 <ul>
   <li>✅ ZoomX full-length: cushion + bounce excepcional para un guard</li>
@@ -2501,7 +2501,7 @@ export const ARTICLES: Article[] = [
 
 <h2>Top 5 zapatillas para escoltas en 2025</h2>
 
-<h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — 130€</a></h3>
+<h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — desde {{precio:adidas-ae-2}}</a></h3>
 <p><strong>La opción más completa del mercado para el perfil escolta-creador.</strong> El herringbone de 9/10 da agarre en cualquier condición; el Lightstrike Pro da respuesta suficiente para las penetraciones sin sacrificar el cushion. Horma normal, precio competitivo. Para escoltas que juegan en diferentes canchas y no saben si van a interior o exterior.</p>
 <ul>
   <li>✅ Tracción 9/10 — el mejor herringbone del mercado para exterior moderado</li>
@@ -2510,17 +2510,17 @@ export const ARTICLES: Article[] = [
   <li>❌ No el cushion más alto — para escoltas >90kg, considera la Tatum 4</li>
 </ul>
 
-<h3><a href="/zapatilla/nike-kobe-8-protro">Nike Kobe 8 Protro — 180€</a></h3>
+<h3><a href="/zapatilla/nike-kobe-8-protro">Nike Kobe 8 Protro — desde {{precio:nike-kobe-8-protro}}</a></h3>
 <p><strong>Para el escolta-tirador puro.</strong> La Kobe 8 Protro es la referencia histórica para el perfil escolta: ultra-reactiva (respuesta 10/10), la más ligera del grupo (340 g) y con el court feel más bajo del mercado. Kobe Bryant era el tirador perfecto — su zapatilla lo refleja. El problema: la horma es muy estrecha y el precio alto.</p>
 <ul>
   <li>✅ Respuesta 10/10 — la segunda más explosiva tras la GT Cut 4</li>
   <li>✅ 340 g — la más ligera del grupo</li>
   <li>✅ Court feel excepcional para sentir la planta antes del tiro</li>
-  <li>❌ 180€ — la más cara del grupo</li>
+  <li>❌ {{precio:nike-kobe-8-protro}} — la más cara del grupo</li>
   <li>❌ Horma muy estrecha — pie normal o estrecho únicamente</li>
 </ul>
 
-<h3><a href="/zapatilla/ua-curry-13">Under Armour Curry 13 — 140€</a></h3>
+<h3><a href="/zapatilla/ua-curry-13">Under Armour Curry 13 — desde {{precio:ua-curry-13}}</a></h3>
 <p><strong>Para escoltas que priorizan el court feel y el tiro perimetral.</strong> UA Flow da la sensación de suelo más directa del mercado. Para el tirador que necesita sentir exactamente cuándo va a soltar el balón y qué tiene bajo los pies, la Curry 13 es el referente. Steph Curry es el mejor tirador de la historia — su zapatilla está diseñada para eso.</p>
 <ul>
   <li>✅ Court feel único — ideal para tiradores de posición fija</li>
@@ -2529,7 +2529,7 @@ export const ARTICLES: Article[] = [
   <li>❌ Sin goma → exclusivamente interior. Outdoor la destruye</li>
 </ul>
 
-<h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — 150€</a></h3>
+<h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — desde {{precio:jordan-tatum-4}}</a></h3>
 <p><strong>Para el escolta-alero que juega físico.</strong> Jayson Tatum es técnicamente un alero, pero muchos escoltas físicos (6'5"+) se identifican con su perfil: defiende al base del rival, mete cortes, juega en el poste bajo a veces. La Tatum 4 ofrece la mayor estabilidad lateral del grupo y cushion para los aterrizajes de esos momentos físicos.</p>
 <ul>
   <li>✅ Soporte lateral 9/10 — el mayor del grupo para escoltas físicos</li>
@@ -2538,7 +2538,7 @@ export const ARTICLES: Article[] = [
   <li>❌ Prioriza cushion y versatilidad: no es la más reactiva para escoltas de velocidad pura</li>
 </ul>
 
-<h3><a href="/zapatilla/nike-gt-cut-4">Nike GT Cut 4 — 150€</a></h3>
+<h3><a href="/zapatilla/nike-gt-cut-4">Nike GT Cut 4 — desde {{precio:nike-gt-cut-4}}</a></h3>
 <p><strong>Para el escolta-base que quiere la máxima reactividad.</strong> Si tu juego de escolta es más parecido al de un base (Shai Gilgeous-Alexander, por ejemplo), la GT Cut 4 te da el mismo primer paso explosivo con algo más de estabilidad que en configuración de base puro.</p>
 <ul>
   <li>✅ Respuesta 10/10 y tracción 10/10 — el techo del mercado</li>
@@ -2592,7 +2592,7 @@ export const ARTICLES: Article[] = [
 
 <h2>Top 5 zapatillas para ala-pívots en 2025</h2>
 
-<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — 179€</a></h3>
+<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — desde {{precio:nike-lebron-23}}</a></h3>
 <p><strong>La referencia para ala-pívots de 90kg+.</strong> Max Air en talón + React foam en toda la entresuela. LeBron James es el prototipo del 4 moderno que juega todo el campo — su zapatilla está diseñada para ese perfil. Para ala-pívots de alto impacto físico, el Max Air es el cushion más resistente bajo cargas extremas.</p>
 <ul>
   <li>✅ Max Air: el cushion más duro bajo cargas extremas (>90kg)</li>
@@ -2602,16 +2602,16 @@ export const ARTICLES: Article[] = [
   <li>❌ Horma algo estrecha — problemas para pie muy ancho</li>
 </ul>
 
-<h3><a href="/zapatilla/nike-kd-19">Nike KD 19 — 149€</a></h3>
+<h3><a href="/zapatilla/nike-kd-19">Nike KD 19 — desde {{precio:nike-kd-19}}</a></h3>
 <p><strong>Para ala-pívots dinámicos de 80-100kg.</strong> Kevin Durant es el ala-pívot más móvil de la historia — el KD 19 refleja eso: Zoom Strobel + Cushlon 3.0 da bounce reactivo sin el peso de la LeBron. Para el 4 que sale al perímetro, defiende al 2 y necesita respuesta suficiente para eso.</p>
 <ul>
   <li>✅ Zoom Strobel: bounce reactivo para el 4 dinámico</li>
-  <li>✅ 30€ más barata que la LeBron con rendimiento muy cercano</li>
+  <li>✅ Más barata que la LeBron con rendimiento muy cercano</li>
   <li>✅ TPU dagger-cage: soporte lateral sólido sin peso extra</li>
   <li>❌ Cushion algo menor que la LeBron para ala-pívots >100kg</li>
 </ul>
 
-<h3><a href="/zapatilla/jordan-luka-4">Jordan Luka 4 — 145€</a></h3>
+<h3><a href="/zapatilla/jordan-luka-4">Jordan Luka 4 — desde {{precio:jordan-luka-4}}</a></h3>
 <p><strong>Para ala-pívots con mucho juego de poste y pick-and-pop.</strong> Luka Doncic es técnicamente un base/escolta pero tiene el perfil físico de un 4 pesado. La Luka 4 tiene la base más ancha del grupo y cushion generoso para los aterrizajes del jugador que posta y sale al tres. Horma normal, precio razonable.</p>
 <ul>
   <li>✅ Base ancha: la más estable del grupo en contactos laterales</li>
@@ -2620,21 +2620,21 @@ export const ARTICLES: Article[] = [
   <li>❌ Respuesta algo menor — para el 4 que necesita mucha explosividad perimetral, considera la KD 19</li>
 </ul>
 
-<h3><a href="/zapatilla/adidas-harden-vol-9">Adidas Harden Vol 9 — 129€</a></h3>
-<p><strong>La mejor relación calidad-precio del grupo para ala-pívots medianos.</strong> James Harden juega de escolta pero tiene el perfil físico de un 4 — la Harden Vol 9 está pensada para jugadores potentes con movilidad. Lightstrike Pro foam da cushion 9/10 con bounce reactivo a 40€ menos que la LeBron 23.</p>
+<h3><a href="/zapatilla/adidas-harden-vol-9">Adidas Harden Vol 9 — desde {{precio:adidas-harden-vol-9}}</a></h3>
+<p><strong>La mejor relación calidad-precio del grupo para ala-pívots medianos.</strong> James Harden juega de escolta pero tiene el perfil físico de un 4 — la Harden Vol 9 está pensada para jugadores potentes con movilidad. Lightstrike Pro foam da cushion 9/10 con bounce reactivo por menos que la LeBron 23.</p>
 <ul>
   <li>✅ Lightstrike Pro: cushion 9/10 a precio competitivo</li>
-  <li>✅ La más económica del grupo con cushion de gama alta</li>
+  <li>✅ Cushion de gama alta por menos que la LeBron 23</li>
   <li>✅ Respuesta suficiente para el 4 que sale al perímetro</li>
   <li>❌ No llega a la estabilidad lateral de la LeBron o la Luka para juego de poste muy físico</li>
 </ul>
 
-<h3><a href="/zapatilla/jordan-40">Air Jordan 40 — 199€</a></h3>
+<h3><a href="/zapatilla/jordan-40">Air Jordan 40 — desde {{precio:jordan-40}}</a></h3>
 <p><strong>Para el ala-pívot que prioriza el bounce por encima de todo.</strong> ZoomX + Zoom Strobel es la combinación de espumas más avanzada de 2025. Si eres un 4 moderno que vive en el perímetro (tres puntos, pick-and-pop, post-fade) y valoras ese bounce en cada aterrizaje, la Jordan 40 no tiene rival. El problema: es cara, pesada y atrae el polvo.</p>
 <ul>
   <li>✅ ZoomX + Strobel: el bounce más avanzado del mercado</li>
   <li>✅ 6 correas internas: soporte lateral excepcional pese al cushion blando</li>
-  <li>❌ 199€ y 439 g — precio premium para lo que es</li>
+  <li>❌ {{precio:jordan-40}} y 439 g — precio premium para lo que es</li>
   <li>❌ ZoomX atrae el polvo: tracción baja en pistas sucias</li>
 </ul>
 
@@ -2695,7 +2695,7 @@ export const ARTICLES: Article[] = [
   <li><strong>Si pesas >90kg y juegas físico en la pintura → <a href="/zapatilla/nike-lebron-23">LeBron 23</a></strong> (Max Air insustituible para cargas extremas)</li>
   <li><strong>Si eres 4 dinámico, 80-100kg, juegas en el perímetro → <a href="/zapatilla/nike-kd-19">KD 19</a></strong> (mejor equilibrio precio/rendimiento)</li>
   <li><strong>Si juegas mucho poste y pick-and-pop → <a href="/zapatilla/jordan-luka-4">Luka 4</a></strong> (la base más estable del grupo)</li>
-  <li><strong>Si buscas la mejor relación calidad-precio → <a href="/zapatilla/adidas-harden-vol-9">Harden Vol 9</a></strong> (cushion 9/10 a 129€)</li>
+  <li><strong>Si buscas la mejor relación calidad-precio → <a href="/zapatilla/adidas-harden-vol-9">Harden Vol 9</a></strong> (cushion 9/10 desde {{precio:adidas-harden-vol-9}})</li>
   <li><strong>Si priorizas el bounce y puedes gastar 200€ → <a href="/zapatilla/jordan-40">Air Jordan 40</a></strong> (el techo tecnológico de 2025)</li>
 </ul>
 
@@ -2818,7 +2818,7 @@ export const ARTICLES: Article[] = [
     title: "Puma MB.05 análisis: ¿la firma de LaMelo Ball merece la pena en 2025?",
     metaTitle: "Puma MB.05 análisis completo 2025 | CANCHA.ZAPA",
     description:
-      "Análisis técnico completo de la Puma MB.05 de LaMelo Ball: Nitro foam, tracción y veredicto honesto. ¿Mejor que la MB.04? ¿Vale los 139€?",
+      "Análisis técnico completo de la Puma MB.05 de LaMelo Ball: Nitro foam, tracción y veredicto honesto. ¿Mejor que la MB.04? ¿Merece la pena su precio?",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
     categoria: "Análisis",
@@ -2870,16 +2870,16 @@ export const ARTICLES: Article[] = [
   <li>Durabilidad outdoor: <strong>7/10</strong> — suela de goma aguanta outdoor moderado</li>
 </ul>
 
-<h2>¿Vale los 139€?</h2>
-<p>El precio de 139€ la pone en competencia directa con la Adidas AE 2 (130€) y la UA Curry 13 (140€). Mi veredicto honesto:</p>
+<h2>¿Vale los {{precio:puma-mb05}}?</h2>
+<p>Su precio (desde {{precio:puma-mb05}}) la pone en competencia directa con la Adidas AE 2 (desde {{precio:adidas-ae-2}}) y la UA Curry 13 (desde {{precio:ua-curry-13}}). Mi veredicto honesto:</p>
 <ul>
-  <li>Si tienes la pista siempre limpia: <strong>sí, la MB.05 vale 139€</strong>. El Nitro Elite es una espuma premium y el conjunto es muy competitivo.</li>
+  <li>Si tienes la pista siempre limpia: <strong>sí, la MB.05 vale lo que cuesta</strong>. El Nitro Elite es una espuma premium y el conjunto es muy competitivo.</li>
   <li>Si juegas en pistas con polvo frecuente: elige la <strong>AE 2</strong> — la tracción herringbone es más consistente.</li>
   <li>Si priorizas el court feel y juegas solo en interior: elige la <strong>Curry 13</strong> — la UA Flow da una sensación que el Nitro Elite no puede replicar.</li>
 </ul>
 
 <h2>Disponibilidad en España</h2>
-<p>La MB.05 se vende principalmente en Puma.com y en tiendas Puma físicas. En Amazon ES y JD Sports el stock varía por colorway. El precio de salida fue 139€ y suele mantenerse estable en los primeros meses.</p>
+<p>Consulta las tiendas y el precio actualizado en <a href="/zapatilla/puma-mb05">su ficha</a>.</p>
 
 <p class="art-outro">¿Te interesan las Puma para baloncesto? Visita nuestra <a href="/mejores-zapatillas-puma">guía completa de las mejores Puma de baloncesto</a> o <a href="/quiz">haz el quiz</a> para saber si la MB.05 encaja con tu perfil específico.</p>
     `,
@@ -2891,7 +2891,7 @@ export const ARTICLES: Article[] = [
     title: "Nike Kobe 8 Protro análisis: la mejor zapatilla para tiradores en 2025",
     metaTitle: "Nike Kobe 8 Protro análisis completo 2025 | CANCHA.ZAPA",
     description:
-      "Análisis técnico de la Nike Kobe 8 Protro: la zapatilla más reactiva para escoltas y tiradores en 2025. Respuesta 10/10, 340 g, court feel único. ¿Vale los 180€?",
+      "Análisis técnico de la Nike Kobe 8 Protro: la zapatilla más reactiva para escoltas y tiradores en 2025. Respuesta 10/10, 340 g, court feel único. ¿Merece la pena su precio?",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
     categoria: "Análisis",
@@ -2988,8 +2988,8 @@ export const ARTICLES: Article[] = [
 
 <p><strong>No es para ti si:</strong> pesas más de 90kg (el cushion no es suficiente para esos impactos), tienes pie ancho (la horma es estrecha), juegas en exterior o en pistas con polvo.</p>
 
-<h2>¿Vale los 180€?</h2>
-<p>La pregunta del millón. Mi respuesta: sí, para el perfil correcto, sí vale. La Kobe 8 Protro ofrece algo que la GT Cut 4 a 150€ no tiene: el perfil más bajo del mercado con 10/10 en respuesta y 340 g. Para un tirador puro, esa diferencia se nota en cada tiro. Para el resto de jugadores, la GT Cut 4 o la AE 2 son decisiones más inteligentes.</p>
+<h2>¿Vale los {{precio:nike-kobe-8-protro}}?</h2>
+<p>La pregunta del millón. Mi respuesta: sí, para el perfil correcto, sí vale. La Kobe 8 Protro ofrece algo que la GT Cut 4 (desde {{precio:nike-gt-cut-4}}) no tiene: el perfil más bajo del mercado con 10/10 en respuesta y 340 g. Para un tirador puro, esa diferencia se nota en cada tiro. Para el resto de jugadores, la GT Cut 4 o la AE 2 son decisiones más inteligentes.</p>
 
 <p class="art-outro">¿La Kobe 8 Protro es para tu perfil? El <a href="/quiz">quiz de CANCHA.ZAPA</a> evalúa tu posición, estilo de juego y tipo de pie para decirte si es tu match o si hay algo más adecuado. Sin ambigüedades.</p>
     `,
@@ -3186,7 +3186,7 @@ export const ARTICLES: Article[] = [
     <li><strong style="color:#e4e4e7">Tecnología:</strong> Adiprene cushion · Herringbone outsole</li>
     <li><strong style="color:#e4e4e7">Altura:</strong> Mid-top</li>
     <li><strong style="color:#e4e4e7">Lanzamiento original:</strong> 1998</li>
-    <li><strong style="color:#e4e4e7">Precio retro actual:</strong> 100-160€</li>
+    <li><strong style="color:#e4e4e7">Precio retro actual:</strong> desde {{precio:adidas-crazy-8}}</li>
     <li><strong style="color:#e4e4e7">Score jugabilidad:</strong> 7.5/10 (interior)</li>
   </ul>
 </div>
@@ -3251,7 +3251,7 @@ export const ARTICLES: Article[] = [
     <li><strong style="color:#e4e4e7">Tecnología:</strong> FILA foam · Cuero premium · Herringbone</li>
     <li><strong style="color:#e4e4e7">Altura:</strong> High-top</li>
     <li><strong style="color:#e4e4e7">Lanzamiento:</strong> 1995</li>
-    <li><strong style="color:#e4e4e7">Precio retro actual:</strong> 120-160€</li>
+    <li><strong style="color:#e4e4e7">Precio retro actual:</strong> desde {{precio:fila-grant-hill-1}}</li>
     <li><strong style="color:#e4e4e7">Score jugabilidad:</strong> 7/10 (interior)</li>
   </ul>
 </div>
@@ -3306,7 +3306,7 @@ export const ARTICLES: Article[] = [
     <li><strong style="color:#e4e4e7">Tecnología:</strong> Nike Shox (columnas elastómero) · Herringbone outsole</li>
     <li><strong style="color:#e4e4e7">Altura:</strong> Mid-top</li>
     <li><strong style="color:#e4e4e7">Lanzamiento:</strong> 2000</li>
-    <li><strong style="color:#e4e4e7">Precio retro actual:</strong> 140-180€</li>
+    <li><strong style="color:#e4e4e7">Precio retro actual:</strong> desde {{precio:nike-shox-bb4}}</li>
     <li><strong style="color:#e4e4e7">Score jugabilidad:</strong> 6.5/10 (interior)</li>
   </ul>
 </div>
@@ -3750,7 +3750,7 @@ export const ARTICLES: Article[] = [
   <li><a href="/zapatilla/nike-book-2">Nike Book 2</a> estetica retro/skate que rinde en pista y vale para vestir.</li>
   <li><a href="/zapatilla/nike-giannis-freak-7">Nike Zoom Freak 7</a> transiciones rapidas y soporte brutal en el antepie.</li>
   <li><a href="/zapatilla/adidas-don-issue-7">Adidas DON Issue 7</a> la signature de Donovan Mitchell, ideal para cambios de ritmo.</li>
-  <li><a href="/zapatilla/nike-giannis-immortality-5">Nike Giannis Immortality 5</a> el rey de las baratas (bajo 90 euros) y durabilidad para exterior.</li>
+  <li><a href="/zapatilla/nike-giannis-immortality-5">Nike Giannis Immortality 5</a> el rey de las baratas (desde {{precio:nike-giannis-immortality-5}}) y durabilidad para exterior.</li>
 </ul>
 <h2>Como usar esta lista</h2>
 <p class="art-outro">El hype es un buen punto de partida, pero no compres solo por moda. Filtra el <a href="/zapatillas">catalogo</a> por tu posicion y presupuesto, contrasta la nota en <a href="/rankings">Rankings</a> y, si dudas, haz el <a href="/quiz">quiz</a>: te decimos cual encaja con tu juego. Sin sesgo de marca, sin BS.</p>
@@ -3802,7 +3802,7 @@ export const ARTICLES: Article[] = [
 <ul>
   <li><strong>Moolah Kicks (Neovolt Pro V3, Evolyte Elite, Triple Double):</strong> la única marca dedicada 100% al básquet femenino. Filón para quien busca el ajuste anatómico real. En España hay que importarla (moolahkicks.com), pero su review es justo lo que buscas si vas a comprarla.</li>
   <li><strong>Under Armour Flow Breakthru 4:</strong> horma biométrica femenina + suela UA Flow (sin goma, solo espuma al suelo): de las más ligeras del mercado. Y se compra en España (Amazon) a precio de ganga.</li>
-  <li><strong>Adidas Exhibit Select:</strong> desarrollada con mapas de presión de atletas WNBA. Bootie de neopreno, Bounce flexible desde el minuto uno, horma estrecha. También disponible en Amazon España.</li>
+  <li><strong>Adidas Exhibit Select:</strong> desarrollada con mapas de presión de atletas WNBA. Bootie de neopreno, Bounce flexible desde el minuto uno, horma estrecha. Tiendas y precio en <a href="/zapatilla/adidas-exhibit-select">su ficha</a>.</li>
 </ul>
 
 <h2>¿Cuál eliges?</h2>
@@ -3845,20 +3845,20 @@ export const ARTICLES: Article[] = [
 
 <h2>Las mejores signatures en versión GS (2026)</h2>
 <ul>
-  <li><strong>UA Curry 12 GS (~100€):</strong> la misma suela UA Flow (sin goma, súper ligera y reactiva) que la adulta de 160€. La signature premium del júnior tirador.</li>
-  <li><strong>Adidas AE 1 / AE 2 GS (~60-70€):</strong> la zapa de Anthony Edwards, la más aspiracional ahora mismo, en talla niño a precio de ganga.</li>
-  <li><strong>Puma MB.05 GS (~100€):</strong> el estilo y el Nitrofoam de LaMelo Ball para los más jóvenes.</li>
-  <li><strong>Adidas D.O.N. Issue 7 GS (~70€):</strong> Lightstrike Pro + suela Continental: cushion premium y tracción de élite indoor.</li>
-  <li><strong>Nike Giannis Immortality 4 GS (~52€):</strong> horma ancha, resistente al asfalto y baratísima. La mejor budget para el júnior interior.</li>
-  <li><strong>Jordan Luka 77 GS (~63€):</strong> React + Zoom Air, equilibrada y de las pocas que aguantan bien el outdoor.</li>
+  <li><strong>UA Curry 12 GS (desde {{precio:ua-curry-12-gs}}):</strong> la misma suela UA Flow (sin goma, súper ligera y reactiva) que la adulta (desde {{precio:ua-curry-12}}). La signature premium del júnior tirador.</li>
+  <li><strong>Adidas AE 1 / AE 2 GS (desde {{precio:adidas-ae-1-gs}} / {{precio:adidas-ae-2-gs}}):</strong> la zapa de Anthony Edwards, la más aspiracional ahora mismo, en talla niño a precio de ganga.</li>
+  <li><strong>Puma MB.05 GS (desde {{precio:puma-mb05-gs}}):</strong> el estilo y el Nitrofoam de LaMelo Ball para los más jóvenes.</li>
+  <li><strong>Adidas D.O.N. Issue 7 GS (desde {{precio:adidas-don-issue-7-gs}}):</strong> Lightstrike Pro + suela Continental: cushion premium y tracción de élite indoor.</li>
+  <li><strong>Nike Giannis Immortality 4 GS (desde {{precio:nike-giannis-immortality-4-gs}}):</strong> horma ancha, resistente al asfalto y baratísima. La mejor budget para el júnior interior.</li>
+  <li><strong>Jordan Luka 77 GS (desde {{precio:jordan-luka-77-gs}}):</strong> React + Zoom Air, equilibrada y de las pocas que aguantan bien el outdoor.</li>
 </ul>
 
 <h2>¿Y las budget puras?</h2>
 <p>Si el presupuesto es muy ajustado o es la primera zapatilla, no hace falta una signature:</p>
 <ul>
-  <li><strong>Adidas OwnTheGame 3 GS (~41€) / Dame X GS (~51€):</strong> iniciación y gama media de adidas en talla niño.</li>
-  <li><strong>UA Jet '25 GS / Lockdown 7 GS (~44€):</strong> confort y durabilidad de iniciación.</li>
-  <li><strong>Decathlon Tarmak Fast 900 NBA Junior (~55€):</strong> ligera, licencia NBA oficial, para llevar los colores del equipo favorito.</li>
+  <li><strong>Adidas OwnTheGame 3 GS (desde {{precio:adidas-ownthegame-3-gs}}) / Dame X GS (desde {{precio:adidas-dame-x-gs}}):</strong> iniciación y gama media de adidas en talla niño.</li>
+  <li><strong>UA Jet '25 GS / Lockdown 7 GS (desde {{precio:ua-jet-25-gs}} / {{precio:ua-lockdown-7-gs}}):</strong> confort y durabilidad de iniciación.</li>
+  <li><strong>Decathlon Tarmak Fast 900 NBA Junior (desde {{precio:decathlon-tarmak-fast-900-nba-junior}}):</strong> ligera, licencia NBA oficial, para llevar los colores del equipo favorito.</li>
 </ul>
 
 <h2>Cómo elegir para tu hijo</h2>
@@ -3902,9 +3902,9 @@ export const ARTICLES: Article[] = [
 
 <h2>La gama (2026)</h2>
 <ul>
-  <li><strong>Neovolt Pro V3 (~125€):</strong> el modelo performance de referencia. Equilibrada, reactiva, con cushion mejorado. La que recomendamos para empezar con la marca.</li>
-  <li><strong>Evolyte Elite (~170€):</strong> el tope de gama. Placa TPU completa y espuma de doble densidad para retorno de energía brutal en el primer paso, manteniendo el control de talón. Para la exterior ultra rápida.</li>
-  <li><strong>Triple Double (~125€):</strong> la "todoterreno". Sacrifica la placa rígida por una suela de caucho más gruesa y duradera: ideal para outdoor o entrenamientos diarios intensos.</li>
+  <li><strong>Neovolt Pro V3 (desde {{precio:moolah-neovolt-pro-v3}}):</strong> el modelo performance de referencia. Equilibrada, reactiva, con cushion mejorado. La que recomendamos para empezar con la marca.</li>
+  <li><strong>Evolyte Elite (desde {{precio:moolah-evolyte-elite}}):</strong> el tope de gama. Placa TPU completa y espuma de doble densidad para retorno de energía brutal en el primer paso, manteniendo el control de talón. Para la exterior ultra rápida.</li>
+  <li><strong>Triple Double (desde {{precio:moolah-triple-double}}):</strong> la "todoterreno". Sacrifica la placa rígida por una suela de caucho más gruesa y duradera: ideal para outdoor o entrenamientos diarios intensos.</li>
 </ul>
 
 <h2>El pero: importación</h2>
@@ -3956,7 +3956,7 @@ export const ARTICLES: Article[] = [
 <h2>¿Cuál eliges?</h2>
 <ul>
   <li><strong>Rendimiento puro en pabellón y la más vendida →</strong> Nike Sabrina 3.</li>
-  <li><strong>Juego rápido, cortante, perfil bajo →</strong> Jordan Heir Series (y a 66€ en Forum, un chollo).</li>
+  <li><strong>Juego rápido, cortante, perfil bajo →</strong> Jordan Heir Series (desde {{precio:jordan-heir-series}}).</li>
   <li><strong>Ajuste anatómico femenino real y juego dentro/fuera →</strong> UA Flow Breakthru 4.</li>
 </ul>
 
