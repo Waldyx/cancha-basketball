@@ -404,6 +404,14 @@ Sesión corta, sin tocar catálogo: se abrieron los tres trabajadores en ventana
    → bajadas con la regla (+2 GS): Luka 4/5, LeBron Witness 9, All-Pro Nitro, Shai 001, Engine A, Zion 4, D.O.N. Issue 6/7,
    Immortality 4, Precision 7, ZEN 7, AG 6. **Quiz de tobillos 79 → 64.** 2 salen MÁS ALTAS (Fresh Foam BB v3, LeBron NXXT
    Genisus): pendientes de segunda fuente junto a las 8 de antes (agente encargado).
+6. **Enlaces a OTRA VARIANTE del modelo (13-sep, `b67ebb7`)**: `puma-mb-04` → su Puma ES era la "MB.04 **Lo** Team" y
+   `adidas-ae-1` → su Foot Locker (solo en `precios.json`) era la "AE 1 **Low Mujer**". Ambos `disponible:false` fijados en la
+   ficha (la ficha manda), sin borrar nada. 🔑 Mismo patrón que el corte: low y mid del mismo modelo son productos distintos.
+   · ⚠ **Sin resolver**: `nike-precision-8` — HoopsGeek la da **mid** (así está en catálogo) pero Nike ES y Foot Locker la
+     venden como "Precision 8 **Low**". ¿Mismo producto con otro nombre o variante? No tocado.
+   · ⚠ `nike-gt-jump-2`: "desde 281,69 €" en Amazon = **1,88×** MSRP, justo bajo el umbral de reventa (2×). Su único enlace.
+   · `ua-curry-13` "desde 56 €" (ECI, verificado 31-ago) sobre MSRP 140: probablemente liquidación real (UA ES la vende a
+     69,97 € el 11-sep, fin de línea tras la ruptura con Curry), pero el dato de ECI tiene 13 días.
 
 ### Pendientes anteriores (s47)
 1. ✅ **HECHO (s47): `joom` fuera de `TIENDAS_PENDIENTES`** (`scoring.ts`), decidido en modo director
