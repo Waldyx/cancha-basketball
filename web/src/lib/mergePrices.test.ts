@@ -422,7 +422,7 @@ describe("mergePricesIntoShoes — guardarraíl de precio anclado también al MS
     ({ ...zapa(links), precio_msrp_eur: msrp }) as unknown as Zapatilla;
   const scrape = (precio: number) => ({
     generated_at: "2026-09-13",
-    shoes: { z1: { links_compra: [{ tienda: "aliexpress", url: awin(FICHA_A), precio_actual: precio, disponible: true }] } },
+    shoes: { z1: { links_compra: [{ tienda: "aliexpress" as const, url: awin(FICHA_A), precio_actual: precio, disponible: true }] } },
   });
 
   it("acepta el precio real aunque el guardado (erróneo) quede fuera de rango, si cuadra con el MSRP", () => {
