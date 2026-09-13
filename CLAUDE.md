@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **244 zapas · 257 tests · `astro check` 0 errores** (páginas: recontar, el 342 era de la s43 con 240 zapas) |
+| Tamaño | **244 zapas · 259 tests · `astro check` 0 errores** (páginas: recontar, el 342 era de la s43 con 240 zapas) |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -412,6 +412,27 @@ Sesión corta, sin tocar catálogo: se abrieron los tres trabajadores en ventana
    · ⚠ `nike-gt-jump-2`: "desde 281,69 €" en Amazon = **1,88×** MSRP, justo bajo el umbral de reventa (2×). Su único enlace.
    · `ua-curry-13` "desde 56 €" (ECI, verificado 31-ago) sobre MSRP 140: probablemente liquidación real (UA ES la vende a
      69,97 € el 11-sep, fin de línea tras la ruptura con Curry), pero el dato de ECI tiene 13 días.
+7. ✅ **Precios en prosa: CERRADO (`34207ef`).** 166 líneas de `articles.ts`: 123 → `{{precio:ID}}`, 24 comparaciones sin
+   cifra (varias se invertían con el MSRP: "la AE 2 es más económica que la Ja 3", 145 vs 135), 8 listas de tiendas →
+   bloque de compra, títulos y descripciones sin cifra (ahí las marcas no se sustituyen) y el artículo "menos de 80 €" con
+   titulares sin precio. **Tatum 4: MSRP 90 → 129,99** (`initialPrice` de su ficha de adulto en Nike ES; los 90 eran rebaja).
+8. 🔴 **Bug del scraper de Amazon — ARREGLADO pero SIN DESPLEGAR.** `leerFicha` hacía `$$eval("A, B, C, .a-price
+   .a-offscreen")` y 🔑 **un `$$eval` con selectores separados por comas devuelve los nodos en ORDEN DEL DOCUMENTO, no en el
+   de la lista**: cualquier `.a-price` anterior (otra oferta, talla o carrusel) ganaba al buybox. Medido: One Take 5 guardada a
+   31,4 € (real 75,57), Trae Young 3 44,88 (75), MB.03 44,88 (70,99), y D.O.N. Issue 7, SKX JE1, Question Mid, Stewie 4…
+   Ahora selector a selector y sin `.a-text-price`. Y el guardarraíl lo BLOQUEABA: `precioPlausible` (scraper y merge)
+   comparaba solo con el último precio guardado, el erróneo. Ahora vale también en 0,35-1,5× del MSRP. Probado en seco y con
+   test. ⚠ **No sirve de nada hasta el push**: el scraper nocturno corre en GitHub Actions sobre `master`.
+9. **Enlaces a otro producto o variante: 21 desactivados** (`b67ebb7`, `9d9cac9`, `4738c04`), todos `disponible:false`
+   fijados en la ficha: AE 1 Low (adidas, Decathlon, Atmósfera, Amazon), MB.04 Low, AJ 1/AJ 11 Low, Shaqnosis Low, Uptempo
+   Low, HOVR Sonic 5 de mujer (running) en la Havoc 5, Tatum 4 de niño, Jet '25/Superstar/Believe That 1 de niño, Dame
+   Certified 3 en la Dame Certified. ▶️ **DECIDIR: 6 fichas NO tocadas porque se quedarían a CERO**: `puma-clyde-all-pro`
+   (Amazon = All-Pro Nitro), `adidas-cross-em-up-speed` (Select de niño), `converse-pro-leather` (Pro Blaze Strap),
+   `ua-curry-11` (de niño), `adidas-forum-84` (Forum 84 Low ×2) y `puma-mb05-gs` (MB.05 Lo ×2).
+10. **Cortes, remate**: con segunda fuente independiente, Kawhi 1 y 2 → mid, AJ 38 y Kobe 3 Protro → high; Harden Vol 9
+   → low (RunRepeat). En duda: `nb-omn1s` (HG high, catálogo low y existe la OMN1S Low) y `nike-gt-jump-1`. **67 zapas sin
+   página en HoopsGeek ni RunRepeat siguen sin auditar.** Quiz de tobillos final: **65**. ⚠ `nike-kobe-3-protro` tiene
+   `año_lanzamiento: 2008` (la original) pero la ficha describe la reedición de 2025.
 
 ### Pendientes anteriores (s47)
 1. ✅ **HECHO (s47): `joom` fuera de `TIENDAS_PENDIENTES`** (`scoring.ts`), decidido en modo director
@@ -1505,4 +1526,4 @@ presupuesto · ancho de pie · uso (auto-submit 400 ms).
   `cancha-quiz-respuestas` (sessionStorage).
 - **Scripts de mantenimiento**: `update-images.js`, `fix-encoding.js`, `optimize-images.mjs`,
   `gen-chat-catalog.ts`, y los `audit-*` listados arriba.
-- **Tests**: `npx vitest run` → 257.
+- **Tests**: `npx vitest run` → 259.
