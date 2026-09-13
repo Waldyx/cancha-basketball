@@ -61,6 +61,7 @@ interface ZapatillaRaw {
   id: string;
   marca: string;
   modelo: string;
+  precio_msrp_eur?: number;
   links_compra: LinkCompraRaw[];
 }
 
@@ -107,9 +108,14 @@ const TIE_THRESHOLD = 0.5;
 const MAX_PRICE_RATIO = 1.5;
 const MIN_PRICE_RATIO = 0.35;
 
-function precioPlausible(scraped: number, ref: number): boolean {
+function precioPlausible(scraped: number, ref: number, msrp?: number): boolean {
   if (ref <= 0) return true; // sin referencia fiable → aceptar
-  return scraped <= ref * MAX_PRICE_RATIO && scraped >= ref * MIN_PRICE_RATIO;
+  const dentro = (r: number) => scraped <= r * MAX_PRICE_RATIO && scraped >= r * MIN_PRICE_RATIO;
+  // La referencia es el último precio guardado, y puede ser justo el que estaba MAL:
+  // comparado solo con él, un precio erróneo bloqueaba para siempre al bueno (s48b:
+  // One Take 5 guardada a 31,4 € descartaba sus 75,57 € reales). También vale si cae
+  // en el rango del MSRP de la ficha; el tope de 1,5× sigue dejando fuera la reventa.
+  return dentro(ref) || (msrp !== undefined && msrp > 0 && dentro(msrp));
 }
 
 /** Pausa aleatoria entre requests para evitar rate-limiting */
@@ -308,7 +314,7 @@ async function main() {
         if (
           result.disponible &&
           result.precio_actual > 0 &&
-          precioPlausible(result.precio_actual, link.precio_actual)
+          precioPlausible(result.precio_actual, link.precio_actual, shoe.precio_msrp_eur)
         ) {
           successCount++;
           shoeSuccesses++;

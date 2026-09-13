@@ -6,6 +6,19 @@ import { matchesShoe, parsePrice, today } from "../matcher.js";
 const MAX_CANDIDATOS = 3;
 
 /**
+ * Contenedores de precio de una ficha, del más fiable al más genérico. Se prueban
+ * de UNO EN UNO y en este orden: ver el comentario de `leerFicha`.
+ * `.a-text-price` es el precio tachado ("precio recomendado"), nunca el de venta.
+ */
+const SELECTORES_PRECIO = [
+  "#corePriceDisplay_desktop_feature_div .priceToPay .a-offscreen",
+  "#corePriceDisplay_desktop_feature_div .a-price:not(.a-text-price) .a-offscreen",
+  "#corePrice_feature_div .a-price:not(.a-text-price) .a-offscreen",
+  "#price_inside_buybox",
+  ".a-price:not(.a-text-price) .a-offscreen",
+];
+
+/**
  * Lee título y precio de una ficha /dp/ ya cargada.
  *
  * El precio vive en distintos contenedores según el tipo de oferta, y el primer
@@ -16,14 +29,19 @@ async function leerFicha(page: Page): Promise<{ titulo: string; precio: number |
   const titulo = await page
     .$eval("#productTitle", (el) => el.textContent?.trim() ?? "")
     .catch(() => "");
-  const candidatos = await page
-    .$$eval(
-      "#corePrice_feature_div .a-offscreen, #corePriceDisplay_desktop_feature_div .a-offscreen, #price_inside_buybox, .a-price .a-offscreen",
-      (els) => els.map((el) => el.textContent?.trim() ?? "")
-    )
-    .catch(() => [] as string[]);
-  const precio = candidatos.map((t) => parsePrice(t)).find((p): p is number => p !== null) ?? null;
-  return { titulo, precio };
+  // OJO: un `$$eval` con varios selectores separados por comas devuelve los nodos
+  // en ORDEN DEL DOCUMENTO, no en el orden en que se escriben. Con la lista
+  // mezclada, cualquier `.a-price` que viniera antes en el HTML (otra oferta, otra
+  // talla, el carrusel) le ganaba al buybox: medido el 13-sep, fichas correctas a
+  // 31-45 € cuyo precio real era 70-125 € (One Take 5, Trae Young 3, MB.03...).
+  for (const selector of SELECTORES_PRECIO) {
+    const textos = await page
+      .$$eval(selector, (els) => els.map((el) => el.textContent?.trim() ?? ""))
+      .catch(() => [] as string[]);
+    const precio = textos.map((t) => parsePrice(t)).find((p): p is number => p !== null);
+    if (precio) return { titulo, precio };
+  }
+  return { titulo, precio: null };
 }
 
 export const amazon_es: StoreScraper = {

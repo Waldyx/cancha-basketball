@@ -414,3 +414,26 @@ describe("mergePricesIntoShoes — TAREA 9: la ficha manda sobre disponible:fals
     expect(merged[0].links_compra[0].disponible).toBe(false);
   });
 });
+
+describe("mergePricesIntoShoes — guardarraíl de precio anclado también al MSRP (s48b)", () => {
+  // El editorial puede ser justo el precio que estaba MAL (el scraper de Amazon leía
+  // otra oferta): comparado solo con él, el precio bueno quedaba bloqueado para siempre.
+  const conMsrp = (links: LinkCompra[], msrp: number) =>
+    ({ ...zapa(links), precio_msrp_eur: msrp }) as unknown as Zapatilla;
+  const scrape = (precio: number) => ({
+    generated_at: "2026-09-13",
+    shoes: { z1: { links_compra: [{ tienda: "aliexpress", url: awin(FICHA_A), precio_actual: precio, disponible: true }] } },
+  });
+
+  it("acepta el precio real aunque el guardado (erróneo) quede fuera de rango, si cuadra con el MSRP", () => {
+    const shoes = [conMsrp([link({ url: awin(FICHA_A), precio_actual: 31.4 })], 110)];
+    const merged = mergePricesIntoShoes(shoes, scrape(75.57));
+    expect(merged[0].links_compra[0].precio_actual).toBe(75.57);
+  });
+
+  it("pero sigue descartando la reventa: lejos del guardado Y por encima de 1,5× el MSRP", () => {
+    const shoes = [conMsrp([link({ url: awin(FICHA_A), precio_actual: 31.4 })], 110)];
+    const merged = mergePricesIntoShoes(shoes, scrape(300));
+    expect(merged[0].links_compra[0].precio_actual).toBe(31.4);
+  });
+});

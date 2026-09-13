@@ -15,9 +15,12 @@ export interface PreciosJson {
 const MAX_PRICE_RATIO = 1.5;
 const MIN_PRICE_RATIO = 0.35;
 
-function precioPlausible(scraped: number, ref: number): boolean {
+function precioPlausible(scraped: number, ref: number, msrp?: number): boolean {
   if (ref <= 0) return true;
-  return scraped <= ref * MAX_PRICE_RATIO && scraped >= ref * MIN_PRICE_RATIO;
+  const dentro = (r: number) => scraped <= r * MAX_PRICE_RATIO && scraped >= r * MIN_PRICE_RATIO;
+  // Igual que en el scraper: el editorial puede ser el precio que estaba MAL, así que
+  // también vale si cae en el rango del MSRP de la ficha (s48b).
+  return dentro(ref) || (msrp !== undefined && msrp > 0 && dentro(msrp));
 }
 
 function isAmazonUrl(url: string): boolean {
@@ -362,7 +365,7 @@ export function mergePricesIntoShoes(
       if (!fresh) return orig;
       // Guardarraíl: si el precio scrapeado es implausible vs el editorial,
       // ignorar el override por completo y conservar la entrada editorial.
-      if (!precioPlausible(fresh.precio_actual ?? 0, orig.precio_actual)) {
+      if (!precioPlausible(fresh.precio_actual ?? 0, orig.precio_actual, shoe.precio_msrp_eur)) {
         return orig;
       }
       // Guardarraíl de identidad: si la URL de Amazon nombra OTRA zapatilla,
