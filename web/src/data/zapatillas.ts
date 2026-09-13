@@ -10822,7 +10822,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2008,
     genero: "unisex",
     signature_player: "Kobe Bryant",
-    tecnologia_clave: ["Cushlon 3.0 foam", "Zoom Strobel full-length", "Rubber cupsole", "Mid-top reforzado", "TPU midfoot plate"],
+    tecnologia_clave: ["Cushlon 3.0 foam", "Zoom Strobel full-length", "Rubber cupsole", "High-top reforzado", "TPU midfoot plate"],
     predecesor_id: "nike-kobe-1-protro",
     sucesor_id: "nike-kobe-4-protro",
 
@@ -10844,7 +10844,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 5,
     },
     categoria_principal: "balanced",
-    tags: ["signature", "retro", "mid", "kobe", "culto", "high-top"],
+    tags: ["signature", "retro", "kobe", "culto", "high-top"],
 
     ideal_para: {
       posiciones: ["escolta", "alero"],
