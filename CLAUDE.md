@@ -302,6 +302,23 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ## 🔴 Pendientes abiertos
 
+### ▶️ PARA RETOMAR (s49) — EMPIEZA AQUÍ
+
+La s48b (12-13 sep, modo autónomo con subagentes) dejó **15 commits en local SIN PUSH** (último `25da88f`). Todo el detalle
+está en el bloque **S48b** más abajo. 259 tests, `astro check` 0 errores.
+
+**▶️ Decisiones del usuario pendientes, por orden:**
+1. **Push.** El arreglo del scraper de Amazon (precio de otra oferta + guardarraíl que lo bloqueaba) no actúa hasta estar en
+   `master`. Pero Vercel sigue al 100% de almacenamiento: primero borrar despliegues viejos desde el panel.
+2. **6 fichas que se quedarían a cero** si se quita su enlace a otro producto: `puma-clyde-all-pro`, `adidas-cross-em-up-speed`,
+   `converse-pro-leather`, `ua-curry-11`, `adidas-forum-84`, `puma-mb05-gs`.
+3. **`rigorer-warship`: posible fantasma** (ni en rigorer.com, AliExpress ni KicksCrew). ¿Retirar?
+4. Artículo "menos de 80 €": incluye la Answer IV (sin enlaces, MSRP 120 €).
+5. Arrastradas: 361sport como tienda (ZEN 8 / AG 6 a cero), reventa de `adidas-pro-vision` y `lining-gamma-2`, Joom vía Impact.
+
+**Abierto sin decisión:** 67 zapas sin corte en HoopsGeek ni RunRepeat · Precision 8 (¿mid o "Low"?) y OMN1S · reescribir de
+verdad el "Top 4 para tobillo débil" con mids verificadas (Curry 13, MB.04, Sabrina 2, AE 1).
+
 ### ▶️ PARA RETOMAR (s48) — lo primero que hay que leer
 
 **La s47 (11-sep) fue la sesión más productiva hasta ahora: 14 commits, todos revisados por la dirección.**
