@@ -399,6 +399,11 @@ Sesión corta, sin tocar catálogo: se abrieron los tres trabajadores en ventana
      B07BNSG5K9 (EQT Support kids) y B072R6FR8Y (running) · exhibit-b B097TTF9PM (Exhibit A) · why-not-6 B0DYVB9JDV (GS) ·
      ownthegame-2 B0F1XG64YW (3.0) · kobe-9-high-protro B0GDKB1P1X (Kobe 9 Low). Candidatas a purgar.
    · `adidas-exhibit-b`: la ficha parece tener datos mal (salió jul-2022, no 2023; Lightstrike, no Lightstrike Pro). Sin tocar.
+5. **Auditoría AMPLIADA de cortes (13-sep)**: probadas en HoopsGeek las 104 zapas modernas sin URL guardada (slug deducido
+   del id y validado por el título). **68 sin página, que siguen sin auditar**; 21 coinciden; **13 figuraban mid siendo low**
+   → bajadas con la regla (+2 GS): Luka 4/5, LeBron Witness 9, All-Pro Nitro, Shai 001, Engine A, Zion 4, D.O.N. Issue 6/7,
+   Immortality 4, Precision 7, ZEN 7, AG 6. **Quiz de tobillos 79 → 64.** 2 salen MÁS ALTAS (Fresh Foam BB v3, LeBron NXXT
+   Genisus): pendientes de segunda fuente junto a las 8 de antes (agente encargado).
 
 ### Pendientes anteriores (s47)
 1. ✅ **HECHO (s47): `joom` fuera de `TIENDAS_PENDIENTES`** (`scoring.ts`), decidido en modo director
