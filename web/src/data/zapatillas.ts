@@ -495,7 +495,7 @@ const _rawZapatillas: Zapatilla[] = [
     sucesor_id: null,
 
     peso_real_g: 380,
-    altura: "high",
+    altura: "mid",
     horma: "normal",
     drop_mm: 12,
     tipo_cierre: "cordones",
@@ -512,7 +512,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 5,
     },
     categoria_principal: "balanced",
-    tags: ["presupuesto", "outdoor", "iniciacion", "high-top"],
+    tags: ["presupuesto", "outdoor", "iniciacion", "mid-top"],
 
     ideal_para: {
       posiciones: ["alero", "ala-pivot", "pivot"],
@@ -525,10 +525,10 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La mejor compra por debajo de €70 para juego outdoor. Goma reforzada que aguanta asfalto durante meses, high-top para tobillos delicados y un cushion Bounce básico pero fiable. Pensada para iniciación o jugadores casuales que machacan la zapa.",
+      "La mejor compra por debajo de €70 para juego outdoor. Goma reforzada que aguanta asfalto durante meses, caña media para tobillos delicados y un cushion Bounce básico pero fiable. Pensada para iniciación o jugadores casuales que machacan la zapa.",
     pros: [
       "Durabilidad outdoor excepcional — aguanta meses en asfalto",
-      "High-top con buen soporte de tobillo a este precio",
+      "Caña media con buen soporte de tobillo a este precio",
       "Estabilidad sólida para jugadores con bases pesados",
       "Precio imbatible (€60)",
     ],
@@ -955,7 +955,7 @@ const _rawZapatillas: Zapatilla[] = [
     signature_player: "Dwyane Wade",
     tecnologia_clave: ["Boom foam full-length", "GCU Rubber", "VAJRA SKIN upper", "TPU Euro Plate"],
     peso_real_g: 390,
-    altura: "mid",
+    altura: "low",
     horma: "estrecha",
     drop_mm: 8,
     tipo_cierre: "cordones",
@@ -4161,7 +4161,7 @@ const _rawZapatillas: Zapatilla[] = [
     tecnologia_clave: ["Li-Ning BOOM foam", "Carbon fiber plate", "Full-length cushion"],
 
     peso_real_g: 315,
-    altura: "mid",
+    altura: "low",
     horma: "normal",
     drop_mm: 7,
     tipo_cierre: "cordones",
@@ -4235,7 +4235,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: "anta-kt-10",
 
     peso_real_g: 400,
-    altura: "mid",
+    altura: "low",
     horma: "normal",
     drop_mm: 8,
     tipo_cierre: "cordones",
@@ -6380,7 +6380,7 @@ const _rawZapatillas: Zapatilla[] = [
     sucesor_id: null,
 
     peso_real_g: 434,
-    altura: "mid",
+    altura: "low",
     horma: "normal",
     drop_mm: 6,
     tipo_cierre: "cordones",
@@ -6397,7 +6397,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 5,
     },
     categoria_principal: "cushion-focused",
-    tags: ["mid-top", "signature", "equilibrado", "guards", "lightstrike-pro"],
+    tags: ["signature", "equilibrado", "guards", "lightstrike-pro"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -6410,10 +6410,10 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Adidas Harden Vol 10 es la décima iteración de la línea de James Harden, con Lightstrike Pro mejorado y un outsole herringbone que ofrece tracción sólida. Mid-top para soporte de tobillo. Diseñada para el guard de físico que necesita cushion y soporte sin perder respuesta. A 160€ compite en el segmento premium.",
+      "La Adidas Harden Vol 10 es la décima iteración de la línea de James Harden, con Lightstrike Pro mejorado y un outsole herringbone que ofrece tracción sólida. Corte low (así la clasifica RunRepeat; HoopsGeek la da mid). Diseñada para el guard de físico que necesita cushion y soporte sin perder respuesta. A 160€ compite en el segmento premium.",
     pros: [
       "Lightstrike Pro: una de las mejores mezclas cushion-respuesta del mercado",
-      "Mid-top con soporte lateral elevado",
+      "Soporte lateral elevado",
       "Outsole herringbone con buena tracción",
       "Diseño equilibrado para el guard de físico",
     ],
@@ -6423,7 +6423,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Estética que puede no gustar a todos",
     ],
     veredicto:
-      "La Harden 10 es la zapatilla definitiva para el guard que pesa entre 85-105 kg y busca Lightstrike Pro con soporte mid-top. Compite con la Luka 5 y la Curry 13 en el mismo rango. Si valoras el equilibrio entre cushion, respuesta y soporte lateral, la Harden 10 es una elección sólida a 160€.",
+      "La Harden 10 es la zapatilla definitiva para el guard que pesa entre 85-105 kg y busca Lightstrike Pro con buen soporte lateral. Compite con la Luka 5 y la Curry 13 en el mismo rango. Si valoras el equilibrio entre cushion, respuesta y soporte lateral, la Harden 10 es una elección sólida a 160€.",
 
     imagen_principal: "/shoes/adidas-harden-vol-10.webp",
     imagenes: [],
@@ -14564,7 +14564,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 335,
-    altura: "low",
+    altura: "mid",
     horma: "normal",
     drop_mm: 8,
     tipo_cierre: "cordones",
@@ -14619,7 +14619,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 365,
-    altura: "mid",
+    altura: "low",
     horma: "normal",
     drop_mm: 8,
     tipo_cierre: "cordones",
@@ -14792,7 +14792,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 405,
-    altura: "mid",
+    altura: "low",
     horma: "ancha",
     drop_mm: 8,
     tipo_cierre: "cordones",
@@ -14906,7 +14906,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 395,
-    altura: "mid",
+    altura: "high",
     horma: "normal",
     drop_mm: 10,
     tipo_cierre: "cordones",
@@ -14925,12 +14925,12 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { estilos: ["explosivo", "potente"] },
     resumen:
-      "La SKX League es la opción budget de Skechers Basketball: mid-top con Air-Cooled Memory Foam (la plantilla cómoda histórica de la marca). Pensada para baloncesto recreativo, entrenamientos de escuela o adolescentes empezando. Comodidad inmediata, sin pretensiones de élite.",
+      "La SKX League es la opción budget de Skechers Basketball: high-top con Air-Cooled Memory Foam (la plantilla cómoda histórica de la marca). Pensada para baloncesto recreativo, entrenamientos de escuela o adolescentes empezando. Comodidad inmediata, sin pretensiones de élite.",
     pros: [
       "Comodidad legendaria Skechers desde el primer uso",
       "Precio agresivo (95€) bajo barrera 100€",
       "Outdoor decente — suela duradera",
-      "Construcción mid-top con soporte aceptable",
+      "Construcción high-top con soporte aceptable",
     ],
     contras: [
       "Cushion no reactivo — no apta para competición",
@@ -15575,7 +15575,7 @@ const _rawZapatillas: Zapatilla[] = [
     // fabricante), ajustada al alza por la mediasuela DUAL nueva (más
     // volumen de espuma que el QU!KFOAM Lite de una sola capa).
     peso_real_g: 400,
-    altura: "mid",
+    altura: "low",
     horma: "normal",
     drop_mm: 9, // heredado de la Zen 7: 361° tampoco lo publica para la Zen 8
     tipo_cierre: "cordones",
