@@ -4836,7 +4836,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["mid-top", "reactiva", "versatil", "upper-mid"],
+    tags: ["reactiva", "versatil", "upper-mid"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
