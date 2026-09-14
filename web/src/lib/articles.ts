@@ -1900,17 +1900,17 @@ export const ARTICLES: Article[] = [
 
 <h2>Tracción y soporte: excelente</h2>
 <p>La tracción es sólida (8/10) con un patrón multidireccional que funciona bien en pabellones limpios. No es la mejor en suelo con polvo (la AE 2 o la GT Cut 4 la superan), pero es más que suficiente para el 90% de pabellones españoles.</p>
-<p>El soporte lateral del high-top es excepcional (9/10). El collar de tobillo con espuma densa bloquea la inversión lateral de forma efectiva. Para pívots que hacen contactos constantes bajo el aro, o para cualquier jugador con historial de esguinces graves, este soporte marca una diferencia real. No es solo marketing — la construcción high-top de la LeBron 22 es genuinamente protectora.</p>
+<p>El soporte lateral es excepcional (9/10): la base ancha y el collar con espuma densa sujetan bien el pie en los contactos bajo el aro. Pero ojo con un dato que se repite mal por ahí: <strong>la LeBron 22 es low-top</strong> (así la clasifican TheHoopsGeek y RunRepeat). Estabilidad lateral no es lo mismo que sujeción de tobillo: si tienes historial de esguinces graves, busca una mid.</p>
 
 <h2>¿Para quién es la LeBron 22?</h2>
 <ul>
   <li><strong>Pívots (posición 5):</strong> el usuario ideal. El cushion y el soporte compensan el peso extra.</li>
   <li><strong>Ala-pívots pesados (85-100+ kg):</strong> si pesas más de 90kg y no eres un guard puro explosivo, la LeBron 22 te protege mejor que cualquier alternativa del mercado.</li>
   <li><strong>Jugadores con rodillas sensibles:</strong> el stack de cushion más alto del mercado reducirá el estrés en tus articulaciones.</li>
-  <li><strong>Jugadores con historial de esguinces graves:</strong> el high-top ofrece el mejor soporte de tobillo disponible.</li>
 </ul>
 <p>No recomendada para:</p>
 <ul>
+  <li>Jugadores con historial de esguinces de tobillo (es low-top)</li>
   <li>Guards y escoltas que necesitan velocidad máxima</li>
   <li>Jugadores outdoor (la suela se desgasta rápido en asfalto)</li>
   <li>Jugadores ligeros (sub-75kg) — el cushion es excesivo para ese perfil</li>

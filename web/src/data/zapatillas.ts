@@ -591,7 +591,7 @@ const _rawZapatillas: Zapatilla[] = [
       posiciones: ["alero", "ala-pivot", "escolta"],
       peso_jugador_kg: [75, 105],
       estilos: ["equilibrado", "tirador", "potente"],
-      lesiones_compatibles: ["rodillas", "tobillos"],
+      lesiones_compatibles: ["rodillas"],
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
     resumen: "Sucesor continuista del KD 17 con misma plataforma pero soporte mejorado. Tracción sobresaliente y cushion de los más cómodos del mercado, aunque ha ganado peso.",
@@ -1466,7 +1466,7 @@ const _rawZapatillas: Zapatilla[] = [
       posiciones: ["escolta", "alero", "ala-pivot"],
       peso_jugador_kg: [75, 105],
       estilos: ["tirador", "equilibrado", "potente"],
-      lesiones_compatibles: ["tobillos"],
+      lesiones_compatibles: [],
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
     resumen: "Una de las shoes más completas de 2024-25. Cushion estable, soporte top y carbon plate. Necesita break-in pero luego es una bestia versátil.",
@@ -3116,7 +3116,7 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["equilibrado", "tirador"],
     },
     no_recomendada_para: { posiciones: ["pivot"] },
-    resumen: "New Balance consolida su línea de baloncesto con el Two WXY v4. FuelCell foam bien balanceado, tracción sólida y un perfil mid cómodo para partidas largas. La opción NB para quien no quiere firma de un jugador específico.",
+    resumen: "New Balance consolida su línea de baloncesto con el Two WXY v4. FuelCell foam bien balanceado, tracción sólida y un ajuste cómodo para partidas largas. La opción NB para quien no quiere firma de un jugador específico.",
     pros: [
       "FuelCell da buena relación cushion/respuesta",
       "Tracción consistente en pista indoor",
@@ -6186,7 +6186,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Estética polarizadora",
     ],
     veredicto:
-      "Si juegas de pivot o ala-pivot y pesas más de 90 kg, la Zion 4 es una de las mejores protecciones para rodillas y tobillos del mercado por ~85€. No es para correr, es para dominar la pintura. Horma ancha, React foam sólido y precio rebajado: difícil de superar para su perfil.",
+      "Si juegas de pivot o ala-pivot y pesas más de 90 kg, la Zion 4 es una de las mejores protecciones para rodillas del mercado por ~85€. No es para correr, es para dominar la pintura. Horma ancha, React foam sólido y precio rebajado: difícil de superar para su perfil.",
 
     imagen_principal: "/shoes/jordan-zion-4.webp",
     imagenes: [],
@@ -6699,7 +6699,7 @@ const _rawZapatillas: Zapatilla[] = [
       posiciones: ["ala-pivot", "pivot", "alero"],
       peso_jugador_kg: [85, 130],
       estilos: ["potente", "equilibrado"],
-      lesiones_compatibles: ["rodillas", "tobillos"],
+      lesiones_compatibles: ["rodillas"],
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
     resumen: "Diseñada para la potencia de Giannis. Base ultra ancha, soporte lateral masivo y tracción de élite. Para jugadores grandes que dominan la pintura.",
@@ -7364,7 +7364,7 @@ const _rawZapatillas: Zapatilla[] = [
       posiciones: ["pivot", "ala-pivot", "alero"],
       peso_jugador_kg: [80, 120],
       estilos: ["potente", "equilibrado"],
-      lesiones_compatibles: ["tobillos"],
+      lesiones_compatibles: [],
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
     resumen: "La línea budget de Giannis en su cuarta iteración. Misma base de horma ancha y buena tracción que la Freak, a precio mucho más asequible.",
@@ -7546,7 +7546,7 @@ const _rawZapatillas: Zapatilla[] = [
       posiciones: ["ala-pivot", "pivot", "alero"],
       peso_jugador_kg: [85, 130],
       estilos: ["potente", "equilibrado"],
-      lesiones_compatibles: ["rodillas", "tobillos"],
+      lesiones_compatibles: ["rodillas"],
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
     resumen: "Versión mejorada de la Freak 5 con mejor Zoom Air y materiales más refinados. Sigue siendo la referencia para pivots y ala-pívots de gran envergadura.",
@@ -7981,7 +7981,7 @@ const _rawZapatillas: Zapatilla[] = [
       posiciones: ["alero", "ala-pivot", "escolta"],
       peso_jugador_kg: [80, 110],
       estilos: ["potente", "equilibrado"],
-      lesiones_compatibles: ["rodillas", "tobillos"],
+      lesiones_compatibles: ["rodillas"],
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
     resumen: "La primera signature de Luka DonÄiÄ‡ sorprendió con una base ultra ancha y estabilidad excelente. Pensada para jugadores potentes y versátiles como el propio Luka.",
@@ -9481,15 +9481,14 @@ const _rawZapatillas: Zapatilla[] = [
       posiciones: ["base", "escolta"],
       peso_jugador_kg: [70, 100],
       estilos: ["explosivo", "equilibrado"],
-      lesiones_compatibles: ["tobillos"],
+      lesiones_compatibles: [],
     },
     no_recomendada_para: { posiciones: ["pivot", "ala-pivot"], estilos: ["potente"] },
 
-    resumen: "La Why Not .6 refleja el estilo de juego explosivo y sin frenos de Russell Westbrook. Zoom Air Strobel en todo el pie para máxima respuesta en cada zancada. El perfil mid ofrece soporte de tobillo extra sin perder agilidad.",
+    resumen: "La Why Not .6 refleja el estilo de juego explosivo y sin frenos de Russell Westbrook. Zoom Air Strobel en todo el pie para máxima respuesta en cada zancada. Es de corte low: prioriza agilidad, no sujeción de tobillo.",
     pros: [
       "Zoom Air Strobel: respuesta inmediata",
       "Tracción herringbone multidireccional fiable",
-      "Soporte de tobillo extra al ser mid",
       "Cushion equilibrado para el juego explosivo",
     ],
     contras: [
@@ -9497,7 +9496,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Algo pesada para ser una 'explosiva'",
       "No destaca en ninguna categoría de forma sobresaliente",
     ],
-    veredicto: "Una zapatilla sólida para bases explosivos que quieran soporte de tobillo extra. Se puede encontrar a precio reducido dado que Westbrook ya no es el nombre que era.",
+    veredicto: "Una zapatilla sólida para bases explosivos. Se puede encontrar a precio reducido dado que Westbrook ya no es el nombre que era.",
 
     imagen_principal: "/shoes/jordan-why-not-6.webp",
     imagenes: [],
@@ -9651,7 +9650,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Low-top: soporte de tobillo limitado",
     ],
     veredicto:
-      "La mejor KD en años. Si eres escolta o alero, tienes pie estrecho y priorizas respuesta y bounce, la KD 19 es una de las compras más inteligentes de 2026. Para pies anchos o si necesitas más tobillo, considera la KD 18 o la Air Jordan 40.",
+      "La mejor KD en años. Si eres escolta o alero, tienes pie estrecho y priorizas respuesta y bounce, la KD 19 es una de las compras más inteligentes de 2026. Para pies anchos, considera la KD 18 o la Air Jordan 40; si necesitas sujeción de tobillo, busca una mid.",
 
     imagen_principal: "/shoes/nike-kd-19.jpg",
     imagenes: [],
@@ -15457,7 +15456,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "Giro de receta en la saga: la Freak 8 baja a corte low y sustituye el Cushlon + Zoom de la Freak 7 por ReactX de largo completo (13% más retorno de energía que el React clásico). Más ligera y más blanda, pero sin unidad Zoom ni placa, así que pierde chispa. Salió el 1 de agosto de 2026 a 114,99 €: sigue siendo la flagship más barata de Nike.",
+      "Giro de receta en la saga: la Freak 8 sustituye el Cushlon + Zoom de la Freak 7 por ReactX de largo completo (13% más retorno de energía que el React clásico). Más ligera y más blanda, pero sin unidad Zoom ni placa, así que pierde chispa. Salió el 1 de agosto de 2026 a 114,99 €: sigue siendo la flagship más barata de Nike.",
     pros: [
       "114,99 €: relación tech/precio difícil de batir en una signature",
       "ReactX de largo completo: más blanda que la Freak 7",
@@ -15466,7 +15465,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     contras: [
       "Sin Zoom Air ni placa: menos respuesta que la Freak 7",
-      "Baja de mid a low: menos cuello para quien buscaba el envoltorio de la saga",
+      "Corte low: poca sujeción de tobillo",
       "Goma de interior: el outdoor la castiga",
       "Sin review de rendimiento publicada: score estimado",
     ],
@@ -15532,7 +15531,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La primera zapatilla de baloncesto del mercado con Hyperboost, la espuma nueva de adidas: perlas supercríticas fusionadas que dan un 22% más de retorno de energía que el Lightstrike Pro. Abandona el Lightstrike de la AE 1 y la AE 2, baja a corte low y suma placa de mediopié. Debuta el 15 de septiembre de 2026 en el colorway Cold Blooded, a 130$.",
+      "La primera zapatilla de baloncesto del mercado con Hyperboost, la espuma nueva de adidas: perlas supercríticas fusionadas que dan un 22% más de retorno de energía que el Lightstrike Pro. Abandona el Lightstrike de la AE 1 y la AE 2, va en corte low y suma placa de mediopié. Debuta el 15 de septiembre de 2026 en el colorway Cold Blooded, a 130$.",
     pros: [
       "Estreno de Hyperboost en baloncesto: +22% de retorno frente a Lightstrike Pro",
       "Placa de mediopié para dar snap y torsión controlada",
@@ -15541,7 +15540,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     contras: [
       "AÚN NO LANZADA (15-sep-2026): score y specs son estimación previa",
-      "Corte low: menos cuello que la AE 2, que era mid",
+      "Corte low: poca sujeción de tobillo",
       "Hyperboost pesa más que Lightstrike; el peso está por confirmar",
       "Sin distribución ni precio verificado en España todavía",
     ],
