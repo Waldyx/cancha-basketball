@@ -2844,7 +2844,7 @@ const _rawZapatillas: Zapatilla[] = [
     tecnologia_clave: ["Horma 100% femenina (talón estrecho)", "Flow compound sole (sin goma)", "IntelliKnit upper", "Pebax shank"],
     sucesor_id: null,
     peso_real_g: 315,
-    altura: "mid",
+    altura: "low",
     horma: "normal",
     drop_mm: 6,
     tipo_cierre: "cordones",
@@ -4819,7 +4819,7 @@ const _rawZapatillas: Zapatilla[] = [
     sucesor_id: "ua-futr-x-elite",
 
     peso_real_g: 345,
-    altura: "mid",
+    altura: "low",
     horma: "normal",
     drop_mm: 8,
     tipo_cierre: "cordones",
@@ -5766,7 +5766,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: "nike-aone",
     sucesor_id: null,
     peso_real_g: 370,
-    altura: "mid",
+    altura: "low",
     horma: "normal",
     drop_mm: 8,
     tipo_cierre: "cordones",
@@ -6064,7 +6064,7 @@ const _rawZapatillas: Zapatilla[] = [
     sucesor_id: "puma-stewie-5",
 
     peso_real_g: 385,
-    altura: "mid",
+    altura: "low",
     horma: "normal",
     drop_mm: 8,
     tipo_cierre: "cordones",
@@ -6081,7 +6081,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "cushion-focused",
-    tags: ["mujer", "mid-top", "signature", "estable", "potente", "versatil"],
+    tags: ["mujer", "signature", "estable", "potente", "versatil"],
 
     ideal_para: {
       posiciones: ["alero", "ala-pivot", "pivot"],
@@ -6094,11 +6094,11 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Puma Stewie 4 es la zapatilla signature de Breanna Stewart (MVP WNBA), ahora disponible para todos. Nitrofoam para cushion consistente, outsole herringbone para tracción en pista cubierta, y diseño mid-top para soporte de tobillo. Una opción mid-range sólida para jugadores físicos.",
+      "La Puma Stewie 4 es la zapatilla signature de Breanna Stewart (MVP WNBA), ahora disponible para todos. Nitrofoam para cushion consistente, outsole herringbone para tracción en pista cubierta, y corte low. Una opción mid-range sólida para jugadores físicos.",
     pros: [
       "Nitrofoam: cushion reactivo y duradero",
       "Outsole herringbone con buen agarre en pista cubierta",
-      "Mid-top: soporte de tobillo decente",
+      "Low-top: soporte de tobillo justo",
       "Precio competitivo a 120€ para zapatilla con Nitrofoam",
     ],
     contras: [
@@ -6113,7 +6113,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
 
     fuentes: [
-      { tipo: "weartesters", url: "https://weartesters.com/puma-stewie-3-review/" },
+      { tipo: "evaluacion-propia" },
     ],
     ultima_actualizacion: "2026-05-29",
 
@@ -7905,7 +7905,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 375,
-    altura: "mid",
+    altura: "low",
     horma: "normal",
     drop_mm: 10,
     tipo_cierre: "cordones",
@@ -8015,7 +8015,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 390,
-    altura: "mid",
+    altura: "low",
     horma: "normal",
     drop_mm: 10,
     tipo_cierre: "cordones",
@@ -9267,7 +9267,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 380,
-    altura: "mid",
+    altura: "low",
     horma: "ancha",
     drop_mm: 10,
     tipo_cierre: "cordones",
@@ -9900,7 +9900,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "De'Aaron Fox",
-    tecnologia_clave: ["Charged Cushioning", "UA Flow outsole", "Molded engineered strap", "External TPU heel counter"],
+    tecnologia_clave: ["UA Flow (entresuela y suela en una pieza)", "Molded engineered strap", "External TPU heel counter"],
     predecesor_id: null,
     sucesor_id: null,
 
@@ -9935,10 +9935,10 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La UA D. Fox 2 es la segunda zapatilla signature de De'Aaron Fox bajo el paraguas de Curry Brand (Under Armour). Combina Charged Cushioning con la suela UA Flow sin pegamento, aportando una plataforma ligera, reactiva y con excelente durabilidad. El strap moldeado de ingeniería y el TPU heel counter exterior añaden lockdown sin penalizar el peso.",
+      "La UA D. Fox 2 es la segunda zapatilla signature de De'Aaron Fox bajo el paraguas de Curry Brand (Under Armour). Monta UA Flow de largo completo, que hace de entresuela y de suela a la vez, aportando una plataforma ligera, reactiva y con excelente durabilidad. El strap moldeado de ingeniería y el TPU heel counter exterior añaden lockdown sin penalizar el peso.",
     pros: [
       "UA Flow outsole: tracción firme y durabilidad superior al promedio",
-      "Charged Cushioning: responsive y confortable para guards",
+      "UA Flow: responsive y confortable para guards",
       "Strap moldeado: lockdown y contención lateral excelentes",
       "Upper ligero y transpirable",
       "Precio razonable para un signature shoe premium",
@@ -15276,7 +15276,7 @@ const _rawZapatillas: Zapatilla[] = [
     sucesor_id: null,
 
     peso_real_g: 430,
-    altura: "mid",
+    altura: "low",
     horma: "normal",
     drop_mm: 5,
     tipo_cierre: "cordones",

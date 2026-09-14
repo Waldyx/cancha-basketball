@@ -108,7 +108,7 @@
     "lining-gamma-2":             { "editorial": 8.8, "wt_url": "https://weartesters.com/li-ning-gamma-2-performance-review/" },
     "anta-kt-11":                 { "editorial": 8.6 },
     "ua-curry-13":                { "editorial": 8.3 },
-    "nike-kd-19":                 { "editorial": 8.3 },
+    "nike-kd-19":                 { "editorial": 7.0, "wt_url": "https://weartesters.com/nike-kd-19-review/" },
     "nike-giannis-immortality-5": { "editorial": 7.3, "wt_url": "https://weartesters.com/nike-giannis-immortality-5-review/" },
 
     "361-joker-1":                { "hg": 8.8, "n": 5, "url": "https://www.thehoopsgeek.com/shoe-reviews/361-joker-1/" },
@@ -138,6 +138,11 @@
     "adidas-don-issue-7-gs":        { "editorial": 8.7 },
     "_nuevas_2026": "Sesion 38 (24-ago-2026). Ja 4 = score real de WearTesters. Las otras 3 son estimacion editorial: no hay review numerica publicada. REVISAR cuando salgan.",
     "nike-ja-4":                  { "editorial": 7.5, "wt_url": "https://weartesters.com/nike-ja-4-review/" },
+    "reebok-engine-a":            { "hg": 8.2, "n": 3, "rango": [8.0, 8.6], "url": "https://www.thehoopsgeek.com/shoe-reviews/reebok-engine-a/", "wt_url": "https://weartesters.com/reebok-engine-a/" },
+    "ua-d-fox-2":                 { "hg": 7.7, "n": 3, "rango": [7.2, 8.0], "url": "https://www.thehoopsgeek.com/shoe-reviews/under-armour-curry-fox-2/", "wt_url": "https://weartesters.com/curry-fox-2-performance-review/" },
+    "361-ag-6":                   { "hg": 8.3, "n": 4, "rango": [8.0, 8.6], "url": "https://www.thehoopsgeek.com/shoe-reviews/361-ag-6/" },
+    "nike-sabrina-4":             { "editorial": 8.0, "wt_url": "https://weartesters.com/nike-sabrina-4-performance-review/" },
+    "adidas-believe-that-1":      { "editorial": 8.0, "wt_url": "https://weartesters.com/adidas-believe-that-1-performance-review/" },
     "nike-giannis-freak-8":       { "editorial": 7.8 },
     "jordan-41":                  { "editorial": 8.3 },
     "adidas-ae-3":                { "editorial": 8.4 }
