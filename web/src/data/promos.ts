@@ -304,6 +304,26 @@ export const PROMOS: Promo[] = [
     nota: "Productos con stock local (envío desde España/UE) · no válidos en productos virtuales · no acumulable con otras promos, pero SÍ con los cupones PayPal (8€ desde 100€ · 15€ desde 150€)",
     color: "#ff4747",
   },
+  {
+    id: "aliexpress-rebajas-otono-2026-09",
+    tienda: "aliexpress",
+    tiendaLabel: "AliExpress",
+    titulo: "Rebajas de otoño",
+    desde: "2026-09-14T00:00:00+02:00",
+    hasta: "2026-09-20T23:59:59+02:00",
+    // Tramos del correo de Awin del 11-sep. OJO: prefijo FSES, distinto del ESFS de la edicion anterior.
+    codigos: [
+      { code: "FSES02", descuento: 2, minCompra: 18 },
+      { code: "FSES06", descuento: 6, minCompra: 45 },
+      { code: "FSES12", descuento: 12, minCompra: 89 },
+      { code: "FSES20", descuento: 20, minCompra: 159 },
+      { code: "FSES30", descuento: 30, minCompra: 239 },
+      { code: "FSES45", descuento: 45, minCompra: 355 },
+      { code: "FSES60", descuento: 60, minCompra: 479 },
+    ],
+    nota: "Todos los pedidos enviados a España · no válidos en productos virtuales · no acumulable con otras promos",
+    color: "#ff4747",
+  },
 ];
 
 /** Promos activas a una fecha dada (por defecto, ahora). */
