@@ -3560,7 +3560,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
 
     fuentes: [
-      { tipo: "weartesters", url: "https://weartesters.com/adidas-ae-2-performance-review/" },
+      { tipo: "weartesters", url: "https://weartesters.com/adidas-anthony-edwards-2-performance-review/" },
     ],
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 145,
@@ -3811,7 +3811,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: "adidas-ae-1-gs",
     sucesor_id: null,
     peso_real_g: 330,
-    altura: "mid",
+    altura: "low",
     horma: "normal",
     drop_mm: 7,
     tipo_cierre: "cordones",
