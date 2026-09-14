@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-09-09 (sesión 46)
+> Última actualización: 2026-09-14 (sesión 49)
 > Para Claude: lee esto al empezar una sesión nueva. **Solo contiene lo vivo**: estado, reglas,
 > doctrina, afiliados, arquitectura y pendientes.
 >
@@ -301,6 +301,39 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 ---
 
 ## 🔴 Pendientes abiertos
+
+### ▶️ PARA RETOMAR (s50) — EMPIEZA AQUÍ (s49, 14-sep, director + trabajadores en terminal)
+
+**18 commits en local SIN PUSH** (último `48291d5`). 259 tests, `astro check` 0 errores. Push pendiente de Vercel
+(100% almacenamiento; hubo un login nuevo en Vercel el 13-sep desde Barcelona: preguntar si borró despliegues).
+
+**Hecho en la s49 (todo commiteado):**
+- Cortes: ~30 zapas más corregidas con fuente (a low: A'Two, AJ41, Stewie 4, Flytrap 6, GT Jump Academy, Havoc 5,
+  Breakthru 4, FUTR X 4, All City 13, Gamma 2, KT 11, SKX JE1, Glide Nova FF 4, Harden Vol 10, ZEN 8, AE 2 GS; suben:
+  OMN1S y GT Jump 1 → high, Gelhoop V17 → mid, SKX League → high, Cross Em Up Select high → mid) + la prosa, tags,
+  FAQ y `lesiones_compatibles` que decían lo contrario. "Top 4 tobillo débil" reescrito con Kobe 9 High Protro,
+  Curry 13, Joker 1 y MB.04.
+- Scores: HG Engine A 8.2, Curry Fox 2 7.7, AG 6 8.3; WT KD 19 7.0, Sabrina 4 8.0, Believe That 1 8.0.
+- Datos: Kobe 3 Protro año 2025, Exhibit B 2022 + Lightstrike (no Pro), BB v3 año 2025, Fox 2 = UA Flow.
+- 🔑 La AE 2 "Low"/"Mid" de Foot Locker NO son modelos distintos (mismos SKU en una review): nombres de colorway.
+- Promo AliExpress Rebajas de otoño 14-20 sep (FSES*).
+
+**⏳ Trabajadores con encargo a medias (ventana `wt -w cancha-trabajadores`, ver memoria trabajadores-en-terminales):**
+- `cz-sonnet-1`: creando 4 fichas (Reebok Angel Reese 1, EQLZ 247 NXT, Li-Ning JB4, Peak AW4) en `zapatillas.ts`
+  SIN commitear. Datos en `trabajo/informe-bloques45.md`. Revisar diff antes de commitear (pesos estimados, puntuaciones).
+- `cz-sonnet-2`: 15 cortes dudosos (variantes Yu Shuai 18 / Resagrip / Float / Unpre ARS 2 / Lockdown 7…) → `trabajo/w2-cortes.tsv`.
+- `cz-sonnet-3`: prosa de articles/seoPages/faq contra los cortes nuevos, SIN commitear → `trabajo/w3-prosa-cortes.md`.
+- `cz-haiku`: URLs de reviews rotas/redirigidas → `trabajo/w4-urls.tsv`.
+- Gemini (cola `trabajo/gemini/`): atribuciones de jugador en artículos → `trabajo/gemini/hechos/firmas-jugadores/salida.txt`.
+- Agente Joom/Impact → `trabajo/joom-impact.md` (alta en impact.com: la cuenta la crea el usuario).
+- Informes previos de subagentes: `trabajo/informe-*.md`.
+
+**▶️ DECIDIR (usuario):** (1) Nike Precision 8: en España solo se vende la Low (IH1104); la ficha/reviews son la Mid
+(IH1105) → ¿ficha sin compra, pasarla a Low o ficha nueva? (2) `nike-air-max-impact-5` FANTASMA (sin rastro en Nike,
+KicksCrew, GOAT, StockX) → ¿retirar? (3) `rigorer-warship` fantasma casi seguro (0 de 377 productos en rigorer.com)
+→ ¿retirar? (4) SPO Player 1.5 (WT 9) solo importando de EE.UU. → decidir junto a 361sport. (5) `adidas-cross-em-up-speed`
+posible fantasma (en investigación). Y siguen las de la s49 de abajo.
+- Nota: El Corte Inglés (Awin) baja la cookie de 30 a 15 días desde el 14-sep.
 
 ### ▶️ PARA RETOMAR (s49) — EMPIEZA AQUÍ
 
