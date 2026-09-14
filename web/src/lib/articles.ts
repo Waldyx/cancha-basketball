@@ -675,7 +675,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Tobillo débil o esguinces",
     heroSubtitle: "Qué zapatilla te protege de verdad",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["jordan-tatum-4", "nike-lebron-23", "jordan-40", "anta-kt-11"],
+    relatedShoes: ["nike-kobe-9-high-protro", "ua-curry-13", "361-joker-1", "puma-mb-04"],
     relatedSeoPages: ["zapatillas-baloncesto-para-tobillos", "zapatillas-baloncesto-baratas", "mejor-zapatilla-pivot"],
     body: `
 <p class="art-intro">El esguince de tobillo es la lesión más frecuente en baloncesto. Cada cambio de dirección, cada aterrizaje, cada bloqueo es una oportunidad para torcerte. La zapatilla correcta no elimina el riesgo, pero lo reduce significativamente. Y la incorrecta — una low-top si tienes historial de esguinces — puede mandarte a la baja antes de acabar el primer partido.</p>
@@ -698,39 +698,37 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h2>Top 4 zapatillas para tobillo débil en 2025</h2>
-<p><strong>Aviso importante:</strong> varios de estos modelos son <strong>low-top</strong> aunque tengan fama de estables (Tatum 4, Air Jordan 40 y LeBron 23, según RunRepeat y HoopsGeek). Los mantenemos por su soporte lateral, pero si tus esguinces son recurrentes, aplica la regla de arriba y prioriza una mid como la UA Curry 13 o la Puma MB.04.</p>
 
-<h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — desde {{precio:jordan-tatum-4}}</a></h3>
-<p>Low-top, pero con un collar de espuma acolchado que envuelve el tobillo sin restringir el movimiento. Jayson Tatum tiene historial de problemas de tobillo y el calzado está diseñado con eso en mente. Soporte lateral 9/10, estabilidad sólida. Ojo: es low-top; si tus esguinces son recurrentes, busca una mid.</p>
+<h3><a href="/zapatilla/nike-kobe-9-high-protro">Nike Kobe 9 High Protro — desde {{precio:nike-kobe-9-high-protro}}</a></h3>
+<p>La única high-top real de las cuatro — el propio nombre de fábrica lo dice ("High Protro"). Soporte lateral 9/10 y estabilidad 9/10. El shank de fibra de carbono da rigidez al mediopié y el upper Flyknit sube por encima del tobillo: es la de más caña de la lista.</p>
 <ul>
-  <li>✅ El collar más acolchado del mercado en su precio, aunque sea low-top</li>
-  <li>✅ Soporte lateral excepcional para un forward</li>
-  <li>❌ No es para guards puros — algo pesada para los primeros pasos</li>
+  <li>✅ High-top real: máxima altura de caña de la lista</li>
+  <li>✅ Soporte lateral 9/10 y estabilidad 9/10</li>
+  <li>❌ Solo disponible en KicksCrew — sin tienda española con stock propio</li>
 </ul>
 
-<h3><a href="/zapatilla/jordan-40">Air Jordan 40 — desde {{precio:jordan-40}}</a></h3>
-<p>Las 6 correas internas que se activan con los cordones son el sistema de lockdown más avanzado disponible en baloncesto en 2025. Cada vez que atas, las correas abrazan el antepié y el tobillo. Especialmente útil para jugadores que necesitan máxima contención.</p>
+<h3><a href="/zapatilla/ua-curry-13">UA Curry 13 — desde {{precio:ua-curry-13}}</a></h3>
+<p>Mid-top pensada para bases y escoltas tiradores. La entresuela UA HOVR+ de longitud completa va montada sobre un chasis de estabilidad en Pebax, y el soporte lateral (9/10) y la estabilidad (9/10) igualan a los de la Kobe 9 High Protro sin renunciar a la agilidad de un corte más bajo. Es además la más fácil de encontrar: cuatro tiendas con stock en España.</p>
 <ul>
-  <li>✅ 6 correas internas: el mejor lockdown del mercado</li>
-  <li>✅ Soporte lateral 9/10 pese a la blandura del ZoomX</li>
-  <li>❌ {{precio:jordan-40}} — precio premium. Solo si juegas mucho</li>
-  <li>❌ El ZoomX atrae polvo — en pistas sucias la tracción baja</li>
+  <li>✅ Soporte lateral 9/10 y estabilidad 9/10 en un corte mid</li>
+  <li>✅ La más disponible de las cuatro: El Corte Inglés, Decathlon, UA y Basket4Ballers</li>
+  <li>❌ Horma normal — pruébatela antes si tienes el pie ancho</li>
 </ul>
 
-<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — desde {{precio:nike-lebron-23}}</a></h3>
-<p>Low-top robusta con upper Flyknit reforzado que da contención sin la rigidez de una bota alta. LeBron James tiene el tobillo más famoso del baloncesto moderno y sus zapatillas lo reflejan. Para ala-pívots que quieren protección sin renunciar a la movilidad.</p>
+<h3><a href="/zapatilla/361-joker-1">361° Joker 1 — desde {{precio:361-joker-1}}</a></h3>
+<p>Mid-top pensada para pívots y ala-pívots. El contrafuerte de talón en TPU y la placa de carbono dan el mismo soporte lateral (9/10) y estabilidad (9/10) que la Curry 13, con horma ancha. Se puede comprar en tres tiendas (AliExpress, Basketball Emotion y Amazon).</p>
 <ul>
-  <li>✅ Excelente soporte lateral para ser low-top</li>
-  <li>✅ Max Air en talón: amortiguación que protege también los tobillos en aterrizajes</li>
-  <li>❌ Horma estrecha — incómoda si tienes pie ancho</li>
+  <li>✅ Soporte lateral 9/10 y estabilidad 9/10 — igual que la Curry 13</li>
+  <li>✅ Horma ancha: mejor ajuste si tu pie no entra en tallas normales</li>
+  <li>❌ La más pesada de las cuatro — el refuerzo de carbono y TPU prioriza protección sobre ligereza</li>
 </ul>
 
-<h3><a href="/zapatilla/anta-kt-11">ANTA KT 11 — desde {{precio:anta-kt-11}}</a></h3>
-<p>La opción económica más honesta para tobillo débil. Mid-top con refuerzo de nylon y espuma en el collar. No llega al nivel de las opciones premium, pero para recreativo 2-3 veces por semana da protección más que suficiente a la mitad del precio.</p>
+<h3><a href="/zapatilla/puma-mb-04">Puma MB.04 — desde {{precio:puma-mb-04}}</a></h3>
+<p>Mid-top de LaMelo Ball pensada para bases, escoltas y aleros. Los Nitro foam pucks amortiguan sin perder la rigidez del carrier de EVA que sujeta el mediopié, y el soporte lateral (9/10) iguala al de la Curry 13 y la Joker 1. La cuarta opción de la lista, con dos tiendas afiliadas en España.</p>
 <ul>
-  <li>✅ Desde {{precio:anta-kt-11}} — opción económica para tobillo débil</li>
-  <li>✅ Mid-top con collar acolchado y soporte lateral decente</li>
-  <li>❌ Para uso muy intensivo (4+ partidos/semana), considera invertir más</li>
+  <li>✅ Soporte lateral 9/10 en un corte mid, para guards y aleros</li>
+  <li>✅ Nitro foam + carrier de EVA: amortiguación sin perder contención lateral</li>
+  <li>❌ Estabilidad 8/10 — algo por debajo de las otras tres (9/10)</li>
 </ul>
 
 <h2>Lo que NO hacer si tienes el tobillo débil</h2>
