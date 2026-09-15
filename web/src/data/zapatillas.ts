@@ -15687,6 +15687,321 @@ const _rawZapatillas: Zapatilla[] = [
     ],
   },
 
+  // ─────────────────────────────────────────────────────────
+  // 245. REEBOK ANGEL REESE 1 — Debut de signature femenina
+  // ─────────────────────────────────────────────────────────
+  {
+    id: "reebok-angel-reese-1",
+    slug: "reebok-angel-reese-1",
+    marca: "Reebok",
+    modelo: "Angel Reese 1",
+    generacion: 1,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Angel Reese",
+    tecnologia_clave: ["ERS (Energy Return System) nitrogen-infused foam", "Doble pod de amortiguación en EVA", "Herringbone modificado"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    // ⚠ Peso ESTIMADO: WearTesters no publica el dato en gramos y Reebok
+    // tampoco lo lista en ficha. Anclado a reebok-engine-a (400g, misma
+    // plataforma ERS nitrogen foam) ajustado a la baja por ser un perfil
+    // algo más bajo de caña.
+    peso_real_g: 385,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8, // sin dato oficial: heredado de reebok-engine-a, misma plataforma ERS
+    tipo_cierre: "cordones",
+    material_superior: "mesh+synthetic",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 9,
+      respuesta: 8,
+      soporte_lateral: 7,
+      estabilidad: 7,
+      peso_score: 8,
+      durabilidad_outdoor: 6,
+      ventilacion: 8,
+    },
+    categoria_principal: "cushion-focused",
+    tags: ["signature", "moderna", "reebok-performance", "angel-reese", "cushion"],
+
+    ideal_para: {
+      posiciones: ["alero", "ala-pivot", "escolta"],
+      peso_jugador_kg: [70, 100],
+      estilos: ["equilibrado", "potente"],
+    },
+    no_recomendada_para: {
+      posiciones: ["base"],
+      estilos: ["explosivo"],
+    },
+
+    resumen:
+      "Debut de Angel Reese como signature de Reebok. Monta el sistema ERS con foam infusionado en nitrógeno de la Engine A, repartido en dos grandes pods en antepié y talón, sobre una suela de estilo EVA con patrón de tracción muy similar al de la Engine A. WearTesters la valora en 9/10: la amortiguación es 'la característica estrella' del modelo, con una sensación cómoda y protegida sin sentirse blanda ni lenta.",
+    pros: [
+      "Amortiguación ERS nitrogen foam muy protegida, la mejor cualidad del modelo",
+      "Tracción fiable en pista cubierta gracias al patrón heredado de la Engine A",
+      "Upper transpirable que mezcla diseño moderno y clásico",
+      "Precio de signature contenido frente a las grandes marcas",
+    ],
+    contras: [
+      "Peso estimado: la marca no lo publica",
+      "Soporte lateral algo justo — le falta rigidez torsional según WearTesters",
+      "Calza grande: conviene bajar media talla",
+      "Goma de exterior blanda, se desgasta rápido fuera de pista cubierta",
+    ],
+    veredicto:
+      "Un debut sólido para Reebok y para Angel Reese: la cushioning ERS convence y la tracción es de fiar, aunque el soporte lateral pide un pelín más de firmeza. Buena opción para aleros y ala-pívots que priorizan comodidad y protección de impacto sobre reactividad pura.",
+
+    imagen_principal: "/shoes/reebok-angel-reese-1.webp",
+    imagenes: [],
+
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/reebok-angel-reese-1-performance-review/", score_original: "9/10" },
+    ],
+    ultima_actualizacion: "2026-09-14",
+    precio_msrp_eur: 140,
+    links_compra: [
+      { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/products/angel-reese-1-100272893-272893", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-14" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FBFY4L1M?tag=canchazapa-21", precio_actual: 140, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-14" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────
+  // 246. EQLZ 247 NXT — Marca nueva, plataforma Pebax de bajo perfil
+  // ─────────────────────────────────────────────────────────
+  {
+    id: "eqlz-247-nxt",
+    slug: "eqlz-247-nxt",
+    marca: "EQLZ",
+    modelo: "247 NXT",
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    tecnologia_clave: ["Pebax supercritical foam (EVA carrier)", "Plataforma de bajo perfil", "Goma de tracción de agarre alto"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    // ⚠ Peso ESTIMADO: ni EQLZ ni WearTesters publican el dato en gramos.
+    // Es marca nueva sin generación anterior en catálogo; estimado por
+    // categoría (low-top responsive, plataforma cercana al suelo).
+    peso_real_g: 325,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 7, // sin dato oficial: estimado por la plataforma Pebax de bajo perfil, sin generación anterior en catálogo
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 9,
+      amortiguacion: 8,
+      respuesta: 9,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 8,
+      durabilidad_outdoor: 5,
+      ventilacion: 7,
+    },
+    categoria_principal: "responsive",
+    tags: ["marca-nueva", "moderna", "value-premium", "explosivo"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [60, 90],
+      estilos: ["explosivo", "equilibrado"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "La 247 NXT de la marca emergente EQLZ mantiene el foam Pebax supercrítico con carcasa de EVA de la 247 original pero baja la plataforma para dar más sensación de pista, sin sacrificar apenas protección de impacto. WearTesters le da 9/10 y destaca 'tracción excelente' y un ajuste y soporte de primer nivel.",
+    pros: [
+      "Tracción excelente según WearTesters",
+      "Buen equilibrio entre protección de impacto y sensación de pista",
+      "Ajuste y soporte destacados para el segmento",
+      "Precio competitivo dentro de las marcas emergentes",
+    ],
+    contras: [
+      "Peso estimado: la marca no lo publica",
+      "Goma de exterior poco durable en pistas rugosas",
+      "Disponibilidad muy limitada en España — solo importación o KicksCrew",
+      "Marca sin trayectoria: sin historial de durabilidad a largo plazo",
+    ],
+    veredicto:
+      "WearTesters le da 9/10: tracción de primer nivel y un conjunto muy equilibrado para bases y escoltas que buscan reactividad. El freno es la disponibilidad — hoy solo se compra importando o vía KicksCrew.",
+
+    imagen_principal: "/shoes/eqlz-247-nxt.webp",
+    imagenes: [],
+
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/eqlz-247-nxt-performance-review/", score_original: "9/10" },
+    ],
+    ultima_actualizacion: "2026-09-14",
+    precio_msrp_eur: 104.95,
+    links_compra: [
+      { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/eqlz-247-nxt-dark-phantom-26fg24713a", precio_actual: 157.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-14" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────
+  // 247. LI-NING JB4 — Signature de Jimmy Butler, Boom + carbono
+  // ─────────────────────────────────────────────────────────
+  {
+    id: "lining-jb4",
+    slug: "lining-jb4",
+    marca: "Li-Ning",
+    modelo: "JB4",
+    generacion: 4,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Jimmy Butler",
+    tecnologia_clave: ["Li-Ning BOOM foam de longitud completa", "Placa de carbono", "Caña baja"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    // ⚠ Peso ESTIMADO: ni Li-Ning ni las tiendas publican el dato en gramos.
+    // Anclado a lining-gamma-2 (315g), misma plataforma BOOM foam + placa
+    // de carbono de longitud completa.
+    peso_real_g: 315,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 7, // sin dato oficial: heredado de lining-gamma-2, misma plataforma BOOM + carbono
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 8,
+      respuesta: 9,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 8,
+      durabilidad_outdoor: 6,
+      ventilacion: 7,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "china-brand", "moderna", "explosivo"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [65, 95],
+      estilos: ["explosivo", "equilibrado", "tirador"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "Cuarta signature de Jimmy Butler con Li-Ning. Monta BOOM foam de longitud completa con placa de carbono, la misma familia tecnológica que la Gamma 2, en un perfil de caña baja. Se vende en España en Basketball Emotion y AliExpress.",
+    pros: [
+      "BOOM foam de longitud completa + placa de carbono, tecnología de gama alta",
+      "Se vende en España con stock real (Basketball Emotion)",
+      "Precio muy competitivo para la tecnología que monta",
+      "Perfil de caña baja pensado para explosividad",
+    ],
+    contras: [
+      "Peso estimado: ni la marca ni las tiendas lo publican",
+      "Sin review independiente (WearTesters/RunRepeat/HoopsGeek), score editorial",
+      "Marca poco conocida en Europa, sin red de servicio técnico local",
+          ],
+    veredicto:
+      "Con la misma base tecnológica que hizo destacar a la Gamma 2, la JB4 apunta a bases y escoltas explosivos que quieren carbono y BOOM foam sin pagar precio de marca occidental. Sin review independiente todavía, pero se compra hoy en España sin necesidad de importar.",
+
+    imagen_principal: "/shoes/lining-jb4.webp",
+    imagenes: [],
+
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-09-14",
+    // ⚠ MSRP ESTIMADO: no hay tarifa oficial en € (1199 CNY sin confirmar
+    // en tienda oficial). Aproximado al precio real de venta en España.
+    precio_msrp_eur: 120,
+    links_compra: [
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/li-ning/jimmy-butler-4-robin-blue", precio_actual: 116.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-14" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012876628910.html", precio_actual: 122.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-14" },
+    ],
+  },
+
+  // ─────────────────────────────────────────────────────────
+  // 248. PEAK AW4 — Signature de Andrew Wiggins, plataforma TaiChi
+  // ─────────────────────────────────────────────────────────
+  {
+    id: "peak-aw4",
+    slug: "peak-aw4",
+    marca: "Peak",
+    modelo: "AW4",
+    generacion: 4,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Andrew Wiggins",
+    tecnologia_clave: ["Plataforma TaiChi de amortiguación", "Caña baja"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    // ⚠ Peso ESTIMADO: Peak no publica el dato en gramos. Anclado a
+    // peak-taichi-flash (330g, misma plataforma TaiChi) ajustado al alza
+    // por ser un signature de ala pensado para
+    // más peso/impacto que la Flash.
+    peso_real_g: 345,
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8, // sin dato oficial: heredado de peak-taichi-flash, misma plataforma TaiChi
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 8,
+      respuesta: 8,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 7,
+      durabilidad_outdoor: 6,
+      ventilacion: 7,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "china-brand", "moderna", "equilibrado"],
+
+    ideal_para: {
+      posiciones: ["alero", "escolta"],
+      peso_jugador_kg: [75, 100],
+      estilos: ["equilibrado", "explosivo"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+      estilos: ["potente"],
+    },
+
+    resumen:
+      "Cuarta signature de Andrew Wiggins con Peak, construida sobre la plataforma de amortiguación TaiChi de la marca (la misma familia de la TaiChi Flash), en un perfil de caña baja. Se compra en España a través de AliExpress (tienda oficial de Peak).",
+    pros: [
+      "Plataforma TaiChi, la tecnología de amortiguación de gama alta de Peak",
+      "Precio contenido para una signature",
+          ],
+    contras: [
+      "Peso estimado: la marca no lo publica",
+      "Sin review independiente (WearTesters/RunRepeat/HoopsGeek), score editorial",
+      "Un único vendedor (AliExpress) — sin alternativa si se agota el stock",
+      "Marca poco conocida en Europa, sin red de servicio técnico local",
+    ],
+    veredicto:
+      "Sobre la plataforma TaiChi, apunta a aleros y escoltas equilibrados que buscan reactividad sin pagar precio de marca occidental. Sin review independiente todavía y dependiente de un único vendedor en AliExpress, pero hoy se puede comprar en España.",
+
+    imagen_principal: "/shoes/peak-aw4.webp",
+    imagenes: [],
+
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-09-14",
+    // ⚠ MSRP ESTIMADO: no hay tarifa oficial en € ni en CNY. Convertido
+    // desde el rango de precio regular en tiendas de importación, $139,99-159,99.
+    precio_msrp_eur: 140,
+    links_compra: [
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005013155833508.html", precio_actual: 114.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-14" },
+    ],
+  },
+
 ];
 
 /**
