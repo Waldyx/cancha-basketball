@@ -304,7 +304,7 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ### ▶️ PARA RETOMAR (s50) — EMPIEZA AQUÍ (s49, 14-sep, director + trabajadores en terminal)
 
-**29 commits en local SIN PUSH**. 259 tests, `astro check` 0 errores. Push pendiente de Vercel
+**31 commits en local SIN PUSH**. 259 tests, `astro check` 0 errores. Push pendiente de Vercel
 (100% almacenamiento; hubo un login nuevo en Vercel el 13-sep desde Barcelona: preguntar si borró despliegues).
 
 **Hecho en la s49 (todo commiteado):**
@@ -350,6 +350,10 @@ subagentes en Sonnet/Haiku, que sí funcionan. Hechos:
   realidad es una colorway de la Taichi Flash: ¿fusionar o retirar? decisión) · Unpre ARS 2 fijada al SKU 1063A070 (ojo: la ficha
   se llama "Low 2" pero ese SKU es la ARS 2 normal, altura sin cita) · Lockdown 7: UA ES 404 → false. AE 3: 15-sep sale solo en
   EE.UU., nadie la vende en España → sigue `proximamente` (revisar en 2-3 semanas).
+  ✅ Los 7 `s.click` de marca china (`trabajo/w8-sclick.tsv`, SIN abrirlos: clic falso): Sonic 12 y Shock Wave 5 fijados a
+  su item real (`d8172ad`, cambiado en zapatillas.ts Y precios.json). Sin tocar por VARIANTE: Taichi Flash (item "media caña",
+  ficha low) y Yu Shuai 18 (item = 18 original ABAU009, ficha low). Sin item en AliExpress: Shock The Game 5 y KT 11 (sus
+  s.click siguen vivos sin verificar). Lou Williams Underground ya desactivado.
   (6) `adidas-cross-em-up-speed` FANTASMA reforzado: su único enlace es la Cross Em Up Select de niño → candidata a retirar.
 **▶️ DECIDIR (usuario):** (1) Nike Precision 8: en España solo se vende la Low (IH1104); la ficha/reviews son la Mid
 (IH1105) → ¿ficha sin compra, pasarla a Low o ficha nueva? (2) `nike-air-max-impact-5` FANTASMA (sin rastro en Nike,
