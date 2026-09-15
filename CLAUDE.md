@@ -304,7 +304,7 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ### ▶️ PARA RETOMAR (s50) — EMPIEZA AQUÍ (s49, 14-sep, director + trabajadores en terminal)
 
-**31 commits en local SIN PUSH**. 259 tests, `astro check` 0 errores. Push pendiente de Vercel
+**33 commits en local SIN PUSH**. 259 tests, `astro check` 0 errores. Push pendiente de Vercel
 (100% almacenamiento; hubo un login nuevo en Vercel el 13-sep desde Barcelona: preguntar si borró despliegues).
 
 **Hecho en la s49 (todo commiteado):**
@@ -351,7 +351,7 @@ subagentes en Sonnet/Haiku, que sí funcionan. Hechos:
   se llama "Low 2" pero ese SKU es la ARS 2 normal, altura sin cita) · Lockdown 7: UA ES 404 → false. AE 3: 15-sep sale solo en
   EE.UU., nadie la vende en España → sigue `proximamente` (revisar en 2-3 semanas).
   ✅ Los 7 `s.click` de marca china (`trabajo/w8-sclick.tsv`, SIN abrirlos: clic falso): Sonic 12 y Shock Wave 5 fijados a
-  su item real (`d8172ad`, cambiado en zapatillas.ts Y precios.json). Sin tocar por VARIANTE: Taichi Flash (item "media caña",
+  su item real (`d8172ad`, cambiado en zapatillas.ts Y precios.json). Yu Shuai 18 → item de la 18 V2 Low ABAU025 (`ad2b377`; la 18 original ABAU009 es HIGH). Sin tocar: Taichi Flash (la línea Lou Williams Flash es mid y la Taichi Flash 1-6 numerada es low: no se sabe cuál es la ficha; item "media caña",
   ficha low) y Yu Shuai 18 (item = 18 original ABAU009, ficha low). Sin item en AliExpress: Shock The Game 5 y KT 11 (sus
   s.click siguen vivos sin verificar). Lou Williams Underground ya desactivado.
   (6) `adidas-cross-em-up-speed` FANTASMA reforzado: su único enlace es la Cross Em Up Select de niño → candidata a retirar.
