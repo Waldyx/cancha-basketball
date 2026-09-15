@@ -7322,7 +7322,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 100,
     links_compra: [
-      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c39LpYQ5", precio_actual: 85, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012802290233.html", precio_actual: 75.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-15" },
       { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/lining-12-abau019-2", precio_actual: 72.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
     ],
   },
@@ -7829,7 +7829,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 90,
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/6999387eb21639012998da84", precio_actual: 61, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
-      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3574IK9", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012884085615.html", precio_actual: 67.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-15" },
       { tienda: "kickscrew", url: "https://www.kickscrew.com/en-ES/products/anta-shock-wave-5-university-red-112341106-5", precio_actual: 93.95, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-anta-shock-wave-5-pro-moon.html", precio_actual: 140, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
     ],
