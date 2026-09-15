@@ -304,7 +304,7 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ### ▶️ PARA RETOMAR (s50) — EMPIEZA AQUÍ (s49, 14-sep, director + trabajadores en terminal)
 
-**27 commits en local SIN PUSH**. 259 tests, `astro check` 0 errores. Push pendiente de Vercel
+**29 commits en local SIN PUSH**. 259 tests, `astro check` 0 errores. Push pendiente de Vercel
 (100% almacenamiento; hubo un login nuevo en Vercel el 13-sep desde Barcelona: preguntar si borró despliegues).
 
 **Hecho en la s49 (todo commiteado):**
@@ -346,6 +346,10 @@ subagentes en Sonnet/Haiku, que sí funcionan. Hechos:
   ⚠ Variantes cruzadas SIN tocar: `skechers-skx-resagrip` (ficha low-top, enlace Amazon = la Mid) · `asics-unpre-ars-2` (su enlace
   es una COLECCIÓN que mezcla ARS 2/3 y ARS Low 2/3: fijar SKU) · `peak-lou-williams-underground` (ficha gen 1/2023 pero su
   fuente es la review de la Underground 2 de 2021; no hay rastro de una "Underground 1") · enlace `ua_es` de Lockdown 7 da 404.
+  ✅ Aplicado después: Lou Williams Underground = gen 2 / 2021 / low y sin compra (su AliExpress era una búsqueda vacía; en
+  realidad es una colorway de la Taichi Flash: ¿fusionar o retirar? decisión) · Unpre ARS 2 fijada al SKU 1063A070 (ojo: la ficha
+  se llama "Low 2" pero ese SKU es la ARS 2 normal, altura sin cita) · Lockdown 7: UA ES 404 → false. AE 3: 15-sep sale solo en
+  EE.UU., nadie la vende en España → sigue `proximamente` (revisar en 2-3 semanas).
   (6) `adidas-cross-em-up-speed` FANTASMA reforzado: su único enlace es la Cross Em Up Select de niño → candidata a retirar.
 **▶️ DECIDIR (usuario):** (1) Nike Precision 8: en España solo se vende la Low (IH1104); la ficha/reviews son la Mid
 (IH1105) → ¿ficha sin compra, pasarla a Low o ficha nueva? (2) `nike-air-max-impact-5` FANTASMA (sin rastro en Nike,
