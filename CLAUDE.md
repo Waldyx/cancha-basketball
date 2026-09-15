@@ -304,7 +304,7 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ### ▶️ PARA RETOMAR (s50) — EMPIEZA AQUÍ (s49, 14-sep, director + trabajadores en terminal)
 
-**24 commits en local SIN PUSH** (último `7b02139`). 259 tests, `astro check` 0 errores. Push pendiente de Vercel
+**27 commits en local SIN PUSH**. 259 tests, `astro check` 0 errores. Push pendiente de Vercel
 (100% almacenamiento; hubo un login nuevo en Vercel el 13-sep desde Barcelona: preguntar si borró despliegues).
 
 **Hecho en la s49 (todo commiteado):**
@@ -341,6 +341,12 @@ subagentes en Sonnet/Haiku, que sí funcionan. Hechos:
   y la de la KD 19 en `fuentes` son falsas). ✅ APLICADO (`7b02139`): 17 corregidas y 6 sin review en WT pasan a `evaluacion-propia` (Dame Certified 3, MB.05, KT 11, Freak 6, Kobe 9 High Protro, AF1). Mismo commit: prosa de cortes en comparativa/FAQ/calcetines y fuera la "Altura" de la Shox BB4.
 - ⚠ La auditoría de firmas de jugador con Gemini salió basura (divagación "What about…"): descartada, no reintentar con ese prompt.
 
+- ✅ Cortes dudosos (`trabajo/w2-cortes.tsv`): `ua-lockdown-7` → mid (3 fuentes). Sin subir por falta de 2ª fuente: Curry 3Z 25,
+  Neovolt Pro v3, Triple Double. ZEN 8 sigue low con evidencia débil. Sin fuente: Scoot Zeros III, Evolyte Elite, Ownthegame 2.
+  ⚠ Variantes cruzadas SIN tocar: `skechers-skx-resagrip` (ficha low-top, enlace Amazon = la Mid) · `asics-unpre-ars-2` (su enlace
+  es una COLECCIÓN que mezcla ARS 2/3 y ARS Low 2/3: fijar SKU) · `peak-lou-williams-underground` (ficha gen 1/2023 pero su
+  fuente es la review de la Underground 2 de 2021; no hay rastro de una "Underground 1") · enlace `ua_es` de Lockdown 7 da 404.
+  (6) `adidas-cross-em-up-speed` FANTASMA reforzado: su único enlace es la Cross Em Up Select de niño → candidata a retirar.
 **▶️ DECIDIR (usuario):** (1) Nike Precision 8: en España solo se vende la Low (IH1104); la ficha/reviews son la Mid
 (IH1105) → ¿ficha sin compra, pasarla a Low o ficha nueva? (2) `nike-air-max-impact-5` FANTASMA (sin rastro en Nike,
 KicksCrew, GOAT, StockX) → ¿retirar? (3) `rigorer-warship` fantasma casi seguro (0 de 377 productos en rigorer.com)
