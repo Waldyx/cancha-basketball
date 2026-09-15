@@ -4608,7 +4608,7 @@ const _rawZapatillas: Zapatilla[] = [
     sucesor_id: null,
 
     peso_real_g: 340,
-    altura: "low",
+    altura: "mid",
     horma: "normal",
     drop_mm: 10,
     tipo_cierre: "cordones",
@@ -4625,7 +4625,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 7,
     },
     categoria_principal: "balanced",
-    tags: ["budget", "entrada-gama", "outdoor-viable", "low-top"],
+    tags: ["budget", "entrada-gama", "outdoor-viable"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
