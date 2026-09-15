@@ -761,7 +761,7 @@ export const ARTICLES: Article[] = [
     relatedShoes: ["nike-gt-cut-4", "ua-curry-13", "anta-kai-2", "adidas-ae-2"],
     relatedSeoPages: ["zapatillas-reactivas", "mejor-zapatilla-base", "mejor-zapatilla-escolta"],
     body: `
-<p class="art-intro">Si priorizas el primer paso explosivo sobre cualquier otra cosa, el mercado de 2025 tiene tres candidatos claros: la Nike GT Cut 4, la Under Armour Curry 13 y la ANTA Kai 2 de Kyrie Irving. Las tres son low-top, las tres tienen court feel excepcional — y las tres difieren significativamente en precio y en a qué tipo de jugador favorecen más.</p>
+<p class="art-intro">Si priorizas el primer paso explosivo sobre cualquier otra cosa, el mercado de 2025 tiene tres candidatos claros: la Nike GT Cut 4, la Under Armour Curry 13 y la ANTA Kai 2 de Kyrie Irving. La GT Cut 4 y la Kai 2 son low-top y la Curry 13 es mid-top, pero las tres tienen court feel excepcional — y las tres difieren significativamente en precio y en a qué tipo de jugador favorecen más.</p>
 
 <h2>Resumen en números</h2>
 
@@ -3039,7 +3039,7 @@ export const ARTICLES: Article[] = [
 
 <h3>Under Armour Playmaker Mid Crew — para caño alto</h3>
 <p>La UA Playmaker tiene el cañero más alto de esta lista — ideal para zapas high-top donde el calcetín interactúa con el collar. Tiene UA HeatGear (tejido frío en verano), cushion en zona de talón y una cinta de compresión en el arco que es notablemente buena para jugadores con pronación moderada.</p>
-<p><strong>Mejor para:</strong> zapas de caño alto (LeBron 23, Jordan Tatum 4), jugadores con historial de esguinces, cualquiera que prefiera el cañero largo.</p>
+<p><strong>Mejor para:</strong> zapas de caño alto (Kobe 9 High Protro, Nike GT Jump 1), jugadores con historial de esguinces, cualquiera que prefiera el cañero largo.</p>
 <p><strong>Precio:</strong> ~12€ · <a href="https://www.amazon.es/s?k=under+armour+playmaker+mid+crew+calcetines&tag=canchazapa-21" target="_blank" rel="noopener noreferrer sponsored">Ver en Amazon →</a></p>
 
 <h3>Stance NBA Performance Crew — la opción premium</h3>
@@ -3302,7 +3302,6 @@ export const ARTICLES: Article[] = [
   <p style="margin:0 0 12px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:0.12em;color: var(--cz-accent-text)">Ficha técnica — Nike Shox BB4 (2000)</p>
   <ul style="margin:0;padding:0 0 0 16px;color:var(--cz-fg3);font-size:14px;line-height:1.8">
     <li><strong style="color:#e4e4e7">Tecnología:</strong> Nike Shox (columnas elastómero) · Herringbone outsole</li>
-    <li><strong style="color:#e4e4e7">Altura:</strong> Mid-top</li>
     <li><strong style="color:#e4e4e7">Lanzamiento:</strong> 2000</li>
     <li><strong style="color:#e4e4e7">Precio retro actual:</strong> desde {{precio:nike-shox-bb4}}</li>
     <li><strong style="color:#e4e4e7">Score jugabilidad:</strong> 6.5/10 (interior)</li>

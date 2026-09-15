@@ -78,7 +78,7 @@ const _rawZapatillas: Zapatilla[] = [
     fuentes: [
       {
         tipo: "weartesters",
-        url: "https://weartesters.com/nike-lebron-22-performance-review/",
+        url: "https://weartesters.com/nike-lebron-22-review/",
       },
       {
         tipo: "hoops-geek",
@@ -192,7 +192,7 @@ const _rawZapatillas: Zapatilla[] = [
     fuentes: [
       {
         tipo: "weartesters",
-        url: "https://weartesters.com/under-armour-curry-12-performance-review/",
+        url: "https://weartesters.com/curry-12-review/",
       },
       {
         tipo: "hoops-geek",
@@ -340,7 +340,7 @@ const _rawZapatillas: Zapatilla[] = [
     fuentes: [
       {
         tipo: "weartesters",
-        url: "https://weartesters.com/nike-sabrina-2-performance-review/",
+        url: "https://weartesters.com/nike-sabrina-2-review/",
       },
       {
         tipo: "hoops-geek",
@@ -462,7 +462,7 @@ const _rawZapatillas: Zapatilla[] = [
     fuentes: [
       {
         tipo: "weartesters",
-        url: "https://weartesters.com/anta-kai-1-performance-review/",
+        url: "https://weartesters.com/anta-kai-1-speed-review/",
       },
       {
         tipo: "hoops-geek",
@@ -1837,7 +1837,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/adidas-dame-certified-3.jpg",
     imagenes: [],
     fuentes: [
-      { tipo: "weartesters", url: "https://weartesters.com/adidas-dame-certified-3-performance-review/" },
+      { tipo: "evaluacion-propia" },
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/adidas-dame-certified-3/" },
     ],
     ultima_actualizacion: "2026-06-12",
@@ -3924,7 +3924,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
 
     fuentes: [
-      { tipo: "weartesters", url: "https://weartesters.com/puma-mb05-performance-review/" },
+      { tipo: "evaluacion-propia" },
     ],
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 120,
@@ -4058,7 +4058,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
 
     fuentes: [
-      { tipo: "weartesters", url: "https://weartesters.com/converse-shai-001-performance-review/" },
+      { tipo: "weartesters", url: "https://weartesters.com/converse-shai-001-review/" },
     ],
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 130,
@@ -4284,7 +4284,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
 
     fuentes: [
-      { tipo: "weartesters", url: "https://weartesters.com/anta-kt-11-performance-review/" },
+      { tipo: "evaluacion-propia" },
     ],
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 110,
@@ -6489,7 +6489,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Una de las zapatillas más equilibradas del mercado. Ideal para aleros que quieren un poco de todo sin sacrificar nada.",
     imagen_principal: "/shoes/nike-kd-17.webp",
     imagenes: [],
-    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-kd-17-performance-review/" }],
+    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-kd-17-review/" }],
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 160,
     links_compra: [
@@ -6544,7 +6544,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para jugadores que priorizan el agarre y juegan tanto interior como exterior. Una de las mejores relaciones calidad-precio en signatures.",
     imagen_principal: "/shoes/adidas-don-issue-6.webp",
     imagenes: [],
-    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-don-issue-6-performance-review/" }],
+    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/adidas-don-issue-6-review/" }],
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 110,
     links_compra: [
@@ -6599,7 +6599,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "La elección perfecta para bases ligeros que buscan velocidad y respuesta. No apta para jugadores potentes.",
     imagen_principal: "/shoes/puma-scoot-zeros.webp",
     imagenes: [],
-    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/puma-scoot-zeros-performance-review/" }],
+    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/puma-scoot-zero-review/" }],
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 120,
     links_compra: [
@@ -6654,7 +6654,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Perfecta para bases tiradores que quieren velocidad y reactividad a buen precio.",
     imagen_principal: "/shoes/adidas-dame-8.webp",
     imagenes: [],
-    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/adidas-dame-8-performance-review/" }],
+    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/adidas-dame-8-review/" }],
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 120,
     links_compra: [
@@ -6708,7 +6708,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "La mejor opción para pívots y ala-pívots potentes que necesitan estabilidad máxima.",
     imagen_principal: "/shoes/nike-zoom-freak-5.webp",
     imagenes: [],
-    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-zoom-freak-5-performance-review/" }],
+    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-zoom-freak-5-review/" }],
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 140,
     links_compra: [
@@ -6925,7 +6925,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para el jugador que quiere el look y el rendimiento Jordan en una posición versátil. Premium en todo.",
     imagen_principal: "/shoes/jordan-xxxviii.jpg",
     imagenes: [],
-    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/air-jordan-xxxviii-performance-review/" }],
+    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/jordan-38-review/" }],
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 180,
     links_compra: [
@@ -7555,7 +7555,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para pívots y ala-pívots potentes que quieren la mejor protección de Nike a precio alto.",
     imagen_principal: "/shoes/nike-zoom-freak-6.webp",
     imagenes: [],
-    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-zoom-freak-6-performance-review/" }],
+    fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 150,
     links_compra: [
@@ -7767,7 +7767,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "La primera y esperada signature de Kawhi no decepciona. Para aleros que quieren tracción y cushion a partes iguales.",
     imagen_principal: "/shoes/nb-kawhi-1.webp",
     imagenes: [],
-    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/new-balance-kawhi-1-performance-review/" }],
+    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/new-balance-kawhi-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 150,
     links_compra: [
@@ -7880,7 +7880,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "La zapatilla para bases explosivos (hombre o mujer) que quieren lo más rápido del mercado Nike.",
     imagen_principal: "/shoes/nike-sabrina-1.webp",
     imagenes: [],
-    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-sabrina-1-performance-review/" }],
+    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-sabrina-1-review/" }],
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 110,
     links_compra: [
@@ -7990,7 +7990,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto: "Para el jugador al estilo Luka: potente, técnico y que necesita una base sólida. Ahora a precios de outlet muy interesantes.",
     imagen_principal: "/shoes/jordan-luka-1.webp",
     imagenes: [],
-    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/jordan-luka-1-performance-review/" }],
+    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/jordan-luka-1-review/" }],
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 140,
     links_compra: [
@@ -9656,7 +9656,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
 
     fuentes: [
-      { tipo: "weartesters", url: "https://weartesters.com/nike-kd-19-performance-review/" },
+      { tipo: "weartesters", url: "https://weartesters.com/nike-kd-19-review/" },
     ],
     ultima_actualizacion: "2026-05-25",
 
@@ -10034,7 +10034,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/nike-kobe-9-high-protro.webp",
     imagenes: [],
     fuentes: [
-      { tipo: "weartesters", url: "https://weartesters.com/nike-kobe-9-high-protro-performance-review/" },
+      { tipo: "evaluacion-propia" },
     ],
     ultima_actualizacion: "2026-05-26",
     precio_msrp_eur: 199.99,
@@ -11732,7 +11732,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/air-jordan-12.webp",
     imagenes: [],
     fuentes: [
-      { tipo: "weartesters", url: "https://weartesters.com/air-jordan-12-retro-performance-review/" },
+      { tipo: "weartesters", url: "https://weartesters.com/air-jordan-project-air-jordan-xii-retro-performance-review/" },
     ],
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 220,
@@ -11796,7 +11796,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/air-jordan-14.webp",
     imagenes: [],
     fuentes: [
-      { tipo: "weartesters", url: "https://weartesters.com/air-jordan-14-retro-performance-review/" },
+      { tipo: "weartesters", url: "https://weartesters.com/air-jordan-project-air-jordan-xiv-retro-performance-review/" },
     ],
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 210,
@@ -11857,7 +11857,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/nike-air-force-1.webp",
     imagenes: [],
     fuentes: [
-      { tipo: "weartesters", url: "https://weartesters.com/nike-air-force-1-performance-review/" },
+      { tipo: "evaluacion-propia" },
     ],
     ultima_actualizacion: "2026-06-03",
     precio_msrp_eur: 120,
