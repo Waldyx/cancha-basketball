@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **244 zapas · 259 tests · `astro check` 0 errores** (páginas: recontar, el 342 era de la s43 con 240 zapas) |
+| Tamaño | **248 zapas · 259 tests · `astro check` 0 errores** (páginas: recontar, el 342 era de la s43 con 240 zapas) |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -304,7 +304,7 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ### ▶️ PARA RETOMAR (s50) — EMPIEZA AQUÍ (s49, 14-sep, director + trabajadores en terminal)
 
-**18 commits en local SIN PUSH** (último `48291d5`). 259 tests, `astro check` 0 errores. Push pendiente de Vercel
+**21 commits en local SIN PUSH** (último `c644b1b`). 259 tests, `astro check` 0 errores. Push pendiente de Vercel
 (100% almacenamiento; hubo un login nuevo en Vercel el 13-sep desde Barcelona: preguntar si borró despliegues).
 
 **Hecho en la s49 (todo commiteado):**
@@ -327,6 +327,19 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 - Gemini (cola `trabajo/gemini/`): atribuciones de jugador en artículos → `trabajo/gemini/hechos/firmas-jugadores/salida.txt`.
 - Agente Joom/Impact → `trabajo/joom-impact.md` (alta en impact.com: la cuenta la crea el usuario).
 - Informes previos de subagentes: `trabajo/informe-*.md`.
+
+**Añadido tras el corte por límite de uso (15-sep):** las terminales de la ventana `cancha-trabajadores` murieron con el
+límite y, al relanzarlas, NO llegaron a registrarse como sesiones (procesos vivos, invisibles en ListAgents). Se siguió con
+subagentes en Sonnet/Haiku, que sí funcionan. Hechos:
+- ✅ `c644b1b`: **4 fichas nuevas** — `reebok-angel-reese-1` (reebok.eu 70 € + Amazon 140 €, WT 9), `eqlz-247-nxt` (KicksCrew,
+  WT 9), `lining-jb4` (Basketball Emotion + AliExpress), `peak-aw4` (AliExpress). **Catálogo 244 → 248.** Pesos estimados;
+  MSRP de JB4 y AW4 estimados y comentados.
+- 📋 **Joom/Impact** (`trabajo/joom-impact.md`): el programa existe y está abierto →
+  `https://app.impact.com/campaign-promo-signup/Joom.brand`. Alta gratuita, acepta particular o empresa. **Comisión y cookie NO
+  son públicas** (solo con cuenta). Formato de enlace: se genera dentro (Deep Link Generator). ▶️ Lo tiene que hacer el usuario.
+- 🔴 **23 URLs de reviews de WearTesters redirigen a la portada** (`trabajo/w4-urls.tsv`, verificado con curl: la de la LeBron 22
+  y la de la KD 19 en `fuentes` son falsas). Agente buscando las buenas → `trabajo/w5-urls-wt.tsv`. Aplicar con match por URL exacta.
+- ⚠ La auditoría de firmas de jugador con Gemini salió basura (divagación "What about…"): descartada, no reintentar con ese prompt.
 
 **▶️ DECIDIR (usuario):** (1) Nike Precision 8: en España solo se vende la Low (IH1104); la ficha/reviews son la Mid
 (IH1105) → ¿ficha sin compra, pasarla a Low o ficha nueva? (2) `nike-air-max-impact-5` FANTASMA (sin rastro en Nike,
