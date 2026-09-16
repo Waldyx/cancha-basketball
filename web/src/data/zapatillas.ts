@@ -4663,7 +4663,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 75,
     links_compra: [
-      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57852230%2F", precio_actual: 52.49, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57852230%2F", precio_actual: 52.49, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-29" }, // ECI 16-sep: todas las tallas SoldOut
       { tienda: "ua_es", url: "https://www.underarmour.es/es-es/p/calzado/ua_lockdown%C2%A07/3028512.html", precio_actual: 75, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-15" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Funder-armour%2Fzapatillas-de-baloncesto-under-armour-lockdown-7-negro-162295.html", precio_actual: 52.50, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
@@ -7041,7 +7041,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-12",
     precio_msrp_eur: 90,
     links_compra: [
-      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57852356%2F", precio_actual: 62.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57852356%2F", precio_actual: 62.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-29" }, // ECI 16-sep: 404
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Funder-armour%2Fzapatillas-de-baloncesto-under-armour-jet-25-blanco-154243.html", precio_actual: 63, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0G2YPQSLR?tag=canchazapa-21", precio_actual: 51.49, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
     ],
@@ -9962,7 +9962,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 119.99,
     links_compra: [
-      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57852858%2F", precio_actual: 90.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-30" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57852858%2F", precio_actual: 90.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-30" }, // ECI 16-sep: todas las tallas SoldOut
       { tienda: "ua_es", url: "https://www.underarmour.es/es-es/search?q=d+fox+2", precio_actual: 119.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0G4J8HXXV?tag=canchazapa-21", precio_actual: 84.95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
     ],
@@ -10414,13 +10414,13 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 180,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/Air-Jordan-Retro-Low-OG/dp/B0CZHKXTZN/ref=sr_1_1?tag=canchazapa-21", precio_actual: 126.85, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-13" },
-      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA52028803-zapatillas-de-baloncesto-de-hombre-air-jordan-1-mid-jordan%2F", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatilla/jordan/air-jordan-1-mid-sail-midnight-green-pure-platinum", precio_actual: 84, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatilla/jordan/air-jordan-1-mid-white-white-white", precio_actual: 98, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
-      { tienda: "zalando_es", url: "https://www.zalando.es/jordan-air-jordan-1-mid-zapatillas-altas-joc12n001-g14.html", precio_actual: 105, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA52028803-zapatillas-de-baloncesto-de-hombre-air-jordan-1-mid-jordan%2F", precio_actual: 70, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-29" }, // Air Jordan 1 MID: otro producto (la ficha es la 1 High)
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatilla/jordan/air-jordan-1-mid-sail-midnight-green-pure-platinum", precio_actual: 84, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" }, // Air Jordan 1 MID: otro producto (la ficha es la 1 High)
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatilla/jordan/air-jordan-1-mid-white-white-white", precio_actual: 98, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-05" }, // Air Jordan 1 MID: otro producto (la ficha es la 1 High)
+      { tienda: "zalando_es", url: "https://www.zalando.es/jordan-air-jordan-1-mid-zapatillas-altas-joc12n001-g14.html", precio_actual: 105, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-05" }, // Air Jordan 1 MID: otro producto (la ficha es la 1 High)
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-1-retro-high-og-satin-bred%2Fd458e42d-95be-4b3d-ba9d-407bfd810831%2Fc14c1", precio_actual: 117, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-1-high-og-lost-and-found%2F378773b8-208e-4fbf-88af-580b422fb96a%2Fc4", precio_actual: 252, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
-      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-1-mid-blanco-94681", precio_actual: 90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-1-mid-blanco-94681", precio_actual: 90, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" }, // Air Jordan 1 MID: otro producto (la ficha es la 1 High)
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-1-low-se-blanco-97780", precio_actual: 140, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "jd_sports_es", url: "https://www.jdsports.es/products/search?q=air+jordan+1", precio_actual: 185, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+1+retro&tag=canchazapa-21", precio_actual: 190, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
