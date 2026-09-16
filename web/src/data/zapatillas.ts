@@ -14888,7 +14888,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-09",
     precio_msrp_eur: 145,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=skechers+skx+resagrip&tag=canchazapa-21", precio_actual: 145, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=skechers+skx+resagrip&tag=canchazapa-21", precio_actual: 145, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/Skechers-Snoop-Dogg-Resagrip-Boss-hombre/dp/B0D4F9D84X/ref=sr_1_1?tag=canchazapa-21", precio_actual: 70.18, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-16" }, // es la colab Snoop Dogg "Resagrip-Boss" (lifestyle, caña media), no la SKX Resagrip 253007
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fmoda-deportiva-para-hombre%2Fzapatillas-de-baloncesto-skechers-skx-resagrip-hombre-negro-rojo-160197.html", precio_actual: 144.95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
