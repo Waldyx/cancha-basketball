@@ -4160,7 +4160,7 @@ const _rawZapatillas: Zapatilla[] = [
     genero: "unisex",
     tecnologia_clave: ["Li-Ning BOOM foam", "Carbon fiber plate", "Full-length cushion"],
 
-    peso_real_g: 315,
+    peso_real_g: 280, // WearTesters: 9.9 oz (280 g) en US9
     altura: "low",
     horma: "normal",
     drop_mm: 7,
@@ -4194,7 +4194,7 @@ const _rawZapatillas: Zapatilla[] = [
       "WearTesters la nombró 'mejor zapatilla de baloncesto de 2026 hasta la fecha'. BOOM foam + placa de carbono a 120€ es una combinación que avergüenza a muchos modelos que cuestan el doble. La mejor relación rendimiento-precio del mercado en 2026.",
     pros: [
       "BOOM foam + placa carbono a precio accesible",
-      "Una de las más ligeras del catálogo (298g)",
+      "Una de las más ligeras del catálogo (280 g)",
       "Tracción excepcional",
       "Soporte y estabilidad muy por encima de su precio",
     ],
@@ -13894,7 +13894,7 @@ const _rawZapatillas: Zapatilla[] = [
     marca: "Nike",
     modelo: "LeBron NXXT Genisus",
     generacion: 1,
-    año_lanzamiento: 2024,
+    año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "LeBron James",
     tecnologia_clave: ["Zoom Air", "Cushlon 3.0 midsole", "Rubber outsole"],
@@ -15862,9 +15862,9 @@ const _rawZapatillas: Zapatilla[] = [
     sucesor_id: null,
 
     // ⚠ Peso ESTIMADO: ni Li-Ning ni las tiendas publican el dato en gramos.
-    // Anclado a lining-gamma-2 (315g), misma plataforma BOOM foam + placa
+    // Anclado a lining-gamma-2 (280g), misma plataforma BOOM foam + placa
     // de carbono de longitud completa.
-    peso_real_g: 315,
+    peso_real_g: 280,
     altura: "low",
     horma: "normal",
     drop_mm: 7, // sin dato oficial: heredado de lining-gamma-2, misma plataforma BOOM + carbono
