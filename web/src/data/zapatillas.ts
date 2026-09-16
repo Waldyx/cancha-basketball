@@ -15021,7 +15021,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 300,
-    altura: "low",
+    altura: "mid", // moolahkicks.com: "a mid-top profile"
     horma: "estrecha",
     drop_mm: 8,
     tipo_cierre: "cordones",
@@ -15111,7 +15111,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 320,
-    altura: "mid",
+    altura: "high", // moolahkicks.com: "the high-top Triple Double"
     horma: "estrecha",
     drop_mm: 9,
     tipo_cierre: "cordones",
@@ -15130,8 +15130,8 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
     resumen:
-      "El modelo de gama media de Moolah Kicks: misma horma 100% femenina de la marca a precio más accesible, con un perfil mid equilibrado y estética llamativa. La puerta de entrada al calzado anatómico de mujer.",
-    pros: ["Horma femenina real a precio medio", "Mid-top con soporte de tobillo", "Estética versátil y llamativa", "Buena durabilidad para uso regular"],
+      "El modelo de gama media de Moolah Kicks: misma horma 100% femenina de la marca a precio más accesible, con un perfil alto y estética llamativa. La puerta de entrada al calzado anatómico de mujer.",
+    pros: ["Horma femenina real a precio medio", "High-top con soporte de tobillo", "Estética versátil y llamativa", "Buena durabilidad para uso regular"],
     contras: ["Cushion básico frente a la Neovolt/Evolyte", "Importación desde EE.UU. (sin venta ni afiliado en España)", "Horma 100% mujer: no apta para pie masculino"],
     veredicto:
       "La forma más asequible de probar la horma femenina de Moolah. Para la jugadora que quiere un ajuste pensado para su pie sin ir al tope de gama. El freno sigue siendo la importación.",
