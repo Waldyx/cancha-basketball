@@ -318,7 +318,7 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 - 🔑 La AE 2 "Low"/"Mid" de Foot Locker NO son modelos distintos (mismos SKU en una review): nombres de colorway.
 - Promo AliExpress Rebajas de otoño 14-20 sep (FSES*).
 
-**⏳ Trabajadores con encargo a medias (ventana `wt -w cancha-trabajadores`, ver memoria trabajadores-en-terminales):**
+**✅ YA RESUELTO — histórico de lo que se repartió (todo lo de esta lista quedó hecho y commiteado; ver el bloque "Añadido tras el corte" de abajo). No hay trabajadores vivos ni trabajo sin commitear:**
 - `cz-sonnet-1`: creando 4 fichas (Reebok Angel Reese 1, EQLZ 247 NXT, Li-Ning JB4, Peak AW4) en `zapatillas.ts`
   SIN commitear. Datos en `trabajo/informe-bloques45.md`. Revisar diff antes de commitear (pesos estimados, puntuaciones).
 - `cz-sonnet-2`: 15 cortes dudosos (variantes Yu Shuai 18 / Resagrip / Float / Unpre ARS 2 / Lockdown 7…) → `trabajo/w2-cortes.tsv`.
