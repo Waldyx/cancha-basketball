@@ -102,9 +102,10 @@
         {
           "tienda": "elcorteingles_es",
           "url": "https://www.elcorteingles.es/deportes/A56001758/",
-          "precio_actual": 90.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-26"
+          "precio_actual": 77.99,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-16",
+          "agotado": true
         },
         {
           "tienda": "fuikaomar_es",
@@ -128,8 +129,9 @@
           "tienda": "elcorteingles_es",
           "url": "https://www.elcorteingles.es/deportes/A56003207/",
           "precio_actual": 65.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-11"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-16",
+          "agotado": true
         },
         {
           "tienda": "forumsport_es",
@@ -290,8 +292,9 @@
           "tienda": "elcorteingles_es",
           "url": "https://www.elcorteingles.es/deportes/A53978261-negro-pr-zapatillas-de-baloncesto-de-hombre-kd18-nike/",
           "precio_actual": 95.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-05"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-16",
+          "agotado": true
         },
         {
           "tienda": "basketballemotion_es",
@@ -308,8 +311,9 @@
           "tienda": "elcorteingles_es",
           "url": "https://www.elcorteingles.es/deportes/A56002143/",
           "precio_actual": 59.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-11"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-16",
+          "agotado": true
         },
         {
           "tienda": "forumsport_es",
@@ -369,8 +373,9 @@
           "tienda": "elcorteingles_es",
           "url": "https://www.elcorteingles.es/deportes/A56002580/",
           "precio_actual": 77.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-21"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-16",
+          "agotado": true
         },
         {
           "tienda": "amazon_es",
@@ -394,8 +399,9 @@
           "tienda": "elcorteingles_es",
           "url": "https://www.elcorteingles.es/deportes/A56814362/",
           "precio_actual": 53.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-04"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-16",
+          "agotado": true
         },
         {
           "tienda": "atmosfera_sport",
@@ -419,8 +425,9 @@
           "tienda": "elcorteingles_es",
           "url": "https://www.elcorteingles.es/deportes/A56001016/",
           "precio_actual": 59.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-04"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-16",
+          "agotado": true
         }
       ]
     },
@@ -860,8 +867,9 @@
           "tienda": "elcorteingles_es",
           "url": "https://www.elcorteingles.es/deportes/A54981652/",
           "precio_actual": 53.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-14"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-16",
+          "agotado": true
         },
         {
           "tienda": "amazon_es",
@@ -885,8 +893,9 @@
           "tienda": "elcorteingles_es",
           "url": "https://www.elcorteingles.es/deportes/A56003799/",
           "precio_actual": 44.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-14"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-16",
+          "agotado": true
         },
         {
           "tienda": "atmosfera_sport",
@@ -1728,6 +1737,14 @@
           "precio_actual": 114.17,
           "disponible": true,
           "ultima_verificacion": "2026-09-16"
+        },
+        {
+          "tienda": "elcorteingles_es",
+          "url": "https://www.elcorteingles.es/deportes/A53977147/",
+          "precio_actual": 68.99,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-16",
+          "agotado": true
         }
       ]
     },
@@ -2751,8 +2768,9 @@
           "tienda": "elcorteingles_es",
           "url": "https://www.elcorteingles.es/deportes/A55064666/",
           "precio_actual": 38.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-10"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-16",
+          "agotado": true
         },
         {
           "tienda": "amazon_es",
@@ -2769,8 +2787,9 @@
           "tienda": "elcorteingles_es",
           "url": "https://www.elcorteingles.es/deportes/A53976408/",
           "precio_actual": 50.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-12"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-16",
+          "agotado": true
         },
         {
           "tienda": "amazon_es",
