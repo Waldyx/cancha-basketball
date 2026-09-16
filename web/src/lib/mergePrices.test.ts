@@ -437,3 +437,47 @@ describe("mergePricesIntoShoes — guardarraíl de precio anclado también al MS
     expect(merged[0].links_compra[0].precio_actual).toBe(31.4);
   });
 });
+
+describe("mergePricesIntoShoes — AGOTADO confirmado por la tienda", () => {
+  const ECI = "https://www.elcorteingles.es/deportes/A56001758/";
+  const eci = (over: Partial<LinkCompra> = {}) =>
+    link({ tienda: "elcorteingles_es" as LinkCompra["tienda"], url: awin(ECI), precio_actual: 90.99, ...over });
+  const json = (entries: object[]) => ({ generated_at: "", shoes: { z1: { links_compra: entries } } });
+
+  it("un agotado de SU mismo producto apaga el enlace (antes se quedaba el precio viejo como disponible)", () => {
+    const [out] = mergePricesIntoShoes(
+      [zapa([eci()])],
+      json([{ tienda: "elcorteingles_es", url: ECI, precio_actual: 77.99, disponible: false, agotado: true, ultima_verificacion: "2026-09-16" }])
+    );
+    expect(out.links_compra[0].disponible).toBe(false);
+    expect(out.links_compra[0].ultima_verificacion).toBe("2026-09-16");
+  });
+
+  it("un fallo de scraping (disponible:false SIN agotado) NO apaga el enlace", () => {
+    const [out] = mergePricesIntoShoes(
+      [zapa([eci()])],
+      json([{ tienda: "elcorteingles_es", url: ECI, precio_actual: 90.99, disponible: false, ultima_verificacion: "2026-09-16" }])
+    );
+    expect(out.links_compra[0].disponible).toBe(true);
+  });
+
+  it("un agotado de OTRO producto de la misma tienda no toca este enlace", () => {
+    const [out] = mergePricesIntoShoes(
+      [zapa([eci()])],
+      json([{ tienda: "elcorteingles_es", url: "https://www.elcorteingles.es/deportes/A99999999/", precio_actual: 50, disponible: false, agotado: true, ultima_verificacion: "2026-09-16" }])
+    );
+    expect(out.links_compra[0].disponible).toBe(true);
+  });
+
+  it("si hay un scrape disponible MÁS RECIENTE del mismo producto (repuesto), gana el disponible", () => {
+    const [out] = mergePricesIntoShoes(
+      [zapa([eci()])],
+      json([
+        { tienda: "elcorteingles_es", url: ECI, precio_actual: 77.99, disponible: false, agotado: true, ultima_verificacion: "2026-09-10" },
+        { tienda: "elcorteingles_es", url: ECI, precio_actual: 79.99, disponible: true, ultima_verificacion: "2026-09-16" },
+      ])
+    );
+    expect(out.links_compra[0].disponible).toBe(true);
+    expect(out.links_compra[0].precio_actual).toBe(79.99);
+  });
+});

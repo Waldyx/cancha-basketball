@@ -2,7 +2,7 @@ import type { Zapatilla, LinkCompra } from "./types";
 
 export interface PreciosJson {
   generated_at: string;
-  shoes: Record<string, { links_compra: Partial<LinkCompra>[] }>;
+  shoes: Record<string, { links_compra: (Partial<LinkCompra> & { agotado?: boolean })[] }>;
 }
 
 /**
@@ -325,7 +325,12 @@ export function mergePricesIntoShoes(
     const validScraped = cached.links_compra.filter(
       (l) => l.disponible === true && (l.precio_actual ?? 0) > 0
     );
-    if (validScraped.length === 0) return shoe;
+    // Agotado CONFIRMADO por la tienda (la página dice que no hay stock), que no es
+    // lo mismo que un fallo de scraping: sin esto, un producto agotado conservaba
+    // su último precio como disponible hasta caducar a los 30 días (medido 16-sep:
+    // 12 enlaces de ECI agotados enseñando "desde X €").
+    const agotados = cached.links_compra.filter((l) => l.agotado === true && l.url);
+    if (validScraped.length === 0 && agotados.length === 0) return shoe;
 
     // Agrupado por tienda, NO indexado por tienda: una misma tienda puede tener
     // varios productos para la misma zapatilla (ver `elegirScrape`).
@@ -356,6 +361,31 @@ export function mergePricesIntoShoes(
       // (el modelo SÍ ha vuelto a venderse) no se pierde: sale listada en
       // `audit-enlaces.ts` → "Posibles reposiciones" para verificarla a mano.
       if (orig.disponible === false) return orig;
+
+      // Solo por IDENTIDAD exacta de producto, y solo si no hay un scrape disponible
+      // más reciente de ese mismo producto (repuesto).
+      const idOrig = identidadProducto(orig.url);
+      const agotado = idOrig
+        ? agotados
+            .filter((a) => a.tienda === orig.tienda && identidadProducto(a.url!) === idOrig)
+            .sort((a, b) => (b.ultima_verificacion ?? "").localeCompare(a.ultima_verificacion ?? ""))[0]
+        : undefined;
+      if (agotado) {
+        const repuesto = validScraped.some(
+          (v) =>
+            v.tienda === orig.tienda &&
+            v.url &&
+            identidadProducto(v.url) === idOrig &&
+            (v.ultima_verificacion ?? "") > (agotado.ultima_verificacion ?? "")
+        );
+        if (!repuesto) {
+          return {
+            ...orig,
+            disponible: false,
+            ultima_verificacion: agotado.ultima_verificacion ?? orig.ultima_verificacion,
+          };
+        }
+      }
 
       const fresh = elegirScrape(
         orig,

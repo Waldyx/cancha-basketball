@@ -331,6 +331,9 @@ async function main() {
           );
           result.precio_actual = link.precio_actual;
           result.disponible = false;
+        } else if (result.agotado) {
+          console.log(`→ 🚫 agotado (confirmado por la tienda)`);
+          result.precio_actual = link.precio_actual;
         } else {
           failCount++;
           console.log(
@@ -385,7 +388,8 @@ async function main() {
     // Solo guardar en precios.json los resultados exitosos.
     // Los fallidos NO se escriben: la función mergePrices conservará el precio editorial.
     // Esto evita que un fallo de scraping (bot-detection, timeout) anule un precio válido.
-    const successfulResults = results.filter((r) => r.disponible && r.precio_actual > 0);
+    // Un agotado CONFIRMADO también se guarda: el merge lo usa para apagar el enlace.
+    const successfulResults = results.filter((r) => (r.disponible && r.precio_actual > 0) || r.agotado);
     const sortedResults = applyCommissionTiebreak(successfulResults);
     if (sortedResults.length > 0) {
       output[shoe.id] = { links_compra: sortedResults };

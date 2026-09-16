@@ -84,7 +84,7 @@ export const elcorteingles_es: StoreScraper = {
       // al menos una talla InStock (buscar OutOfStock daba agotado casi todo).
       const hayStock = /"availability"\s*:\s*"[^"]*InStock"/i.test(ldTexto);
       const hayDisponibilidad = /"availability"/i.test(ldTexto);
-      if (hayDisponibilidad && !hayStock) return { ...base, disponible: false };
+      if (hayDisponibilidad && !hayStock) return { ...base, disponible: false, agotado: true };
 
       // Precio de venta = el menor de los del JSON-LD (el otro es el PVP tachado).
       const precios = [...ldTexto.matchAll(/"price"\s*:\s*"?([\d.]+)/g)]
