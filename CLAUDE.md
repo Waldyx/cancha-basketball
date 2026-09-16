@@ -302,6 +302,21 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ## 🔴 Pendientes abiertos
 
+### ▶️ S50 (16-sep, autónomo, director + 4 trabajadores en terminal) — hecho y commiteado, SIN PUSH
+- 🔑 Los trabajadores en terminal SOLO se registran en `ListAgents` si se lanzan con `--remote-control <nombre>`.
+- `68b3515` Li-Ning JB4 anclada a HoopsGeek 8.7 (n=4, low) · `79ceb38` Immortality 5 → WT 8/10, Gamma 2 pesa
+  **280 g** (WT; ficha decía 315 y 298) y JB4 estimada a 280, NXXT Genisus año 2025 · `9e5d444` SKX Resagrip: los dos
+  Amazon eran la colab Snoop Dogg "Resagrip-Boss" (caña media) → `disponible:false`; queda Atmósfera (253007, low) ·
+  `f88b69d` Moolah Neovolt Pro v3 → mid y Triple Double → high (ficha de la marca, cita literal).
+- Sin tocar, con motivo: Joker 1 y AJ XXXVII (solo HG dice high) · Taichi Flash (única fuente mid = título de AliExpress;
+  analykix da 404) · Curry 3Z 25 / Scoot Zeros III / Evolyte Elite / Ownthegame 2 sin fuente · GT Jump Academy sin verificar.
+- `peak-lou-williams-underground` NO es colorway de la Taichi Flash ("Taichi" es la espuma de Peak): no fusionar.
+- AE 3 (16-sep): nadie la vende en ES; Basketball Emotion tiene ficha (KH8537, 129,99 €) en "Próximamente".
+  Precision 8: Nike ES, Foot Locker y Atmósfera solo venden la Low IH1104 (refuerza la decisión pendiente).
+- Precios anómalos (`trabajo/w11-precios-anomalos.tsv`, 32): 11 son el bug de Amazon ya arreglado → se van con el push.
+- Integridad: imágenes, ids, URLs y rangos OK. `predecesor_id`/`sucesor_id` tienen ~60 no recíprocos (p. ej. LeBron 23 →
+  predecesor `nike-gt-jump-1`), pero **ningún componente los usa** (solo `types.ts`): no se arreglan.
+
 ### ▶️ PARA RETOMAR (s50) — EMPIEZA AQUÍ (s49, 14-sep, director + trabajadores en terminal)
 
 **33 commits en local SIN PUSH**. 259 tests, `astro check` 0 errores. Push pendiente de Vercel
