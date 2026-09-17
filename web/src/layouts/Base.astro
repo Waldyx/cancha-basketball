@@ -44,7 +44,12 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro
     <meta name="theme-color" content="#0c0c0c" />
     <!-- Verificación de propiedad del dominio para impact.com (programa de Joom).
          La comprueba su bot en la home; no tocar ni quitar mientras dure el alta. -->
-    <meta name="impact-site-verification" value="5a143e51-cf6f-4d65-9203-dcbed8af1a61" />
+    <!-- El atributo es `value`, no `content`: lo pide así impact.com, y por eso
+         va con spread (los tipos de Astro no admiten `value` en un <meta>). -->
+    <meta
+      name="impact-site-verification"
+      {...{ value: "5a143e51-cf6f-4d65-9203-dcbed8af1a61" }}
+    />
 
     <!-- Tema claro/oscuro ANTES de pintar: si se aplicara después habría un
          flash de tema oscuro en cada navegación para quien elige el claro. -->
