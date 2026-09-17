@@ -8605,7 +8605,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fnew-balance%2Fzapatillas-de-baloncesto-new-balance-two-wxy-v5-team-navy-151094.html", precio_actual: 79.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
-      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-new-balance-two-wxy-azul-oscuro%2F362992%2Fc8m8967078", precio_actual: 79.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-new-balance-two-wxy-azul-oscuro%2F362992%2Fc8m8967078", precio_actual: 79.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" }, // Decathlon 17-sep: redirige a la categoria (ficha retirada)
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/new-balance/two-wxy-v5-scarlet", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+two+wxy+v5+baloncesto&tag=canchazapa-21", precio_actual: 110, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
@@ -10231,7 +10231,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA52028803-zapatillas-de-baloncesto-de-hombre-air-jordan-1-mid-jordan%2F", precio_actual: 70, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-29" }, // Air Jordan 1 MID: otro producto (la ficha es la 1 High)
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatilla/jordan/air-jordan-1-mid-sail-midnight-green-pure-platinum", precio_actual: 84, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" }, // Air Jordan 1 MID: otro producto (la ficha es la 1 High)
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatilla/jordan/air-jordan-1-mid-white-white-white", precio_actual: 98, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-05" }, // Air Jordan 1 MID: otro producto (la ficha es la 1 High)
-      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-1-retro-high-og-satin-bred%2Fd458e42d-95be-4b3d-ba9d-407bfd810831%2Fc14c1", precio_actual: 117, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-1-retro-high-og-satin-bred%2Fd458e42d-95be-4b3d-ba9d-407bfd810831%2Fc14c1", precio_actual: 117, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-05" }, // Decathlon 17-sep: redirige a la categoria (ficha retirada)
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-1-high-og-lost-and-found%2F378773b8-208e-4fbf-88af-580b422fb96a%2Fc4", precio_actual: 252, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-1-mid-blanco-94681", precio_actual: 90, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" }, // Air Jordan 1 MID: otro producto (la ficha es la 1 High)
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-1-low-se-blanco-97780", precio_actual: 140, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
@@ -10297,7 +10297,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 200,
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/69019a8fee48940191417e70", precio_actual: 137, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
-      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-3-retro-og-rare-air%2F9427ddab-16c5-46e9-a38b-b63c97f90ec4%2Fc1", precio_actual: 183, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-3-retro-og-rare-air%2F9427ddab-16c5-46e9-a38b-b63c97f90ec4%2Fc1", precio_actual: 183, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-05" }, // Decathlon 17-sep: redirige a la categoria (ficha retirada)
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0G2ZTZJ5F/?tag=canchazapa-21", precio_actual: 147, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-3-retro-og-worlds-best-dad-beige-98222", precio_actual: 170, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
     ],
@@ -10487,7 +10487,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-11-grand-finale-blanco-91854", precio_actual: 170, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-11-retro-low-university-blue-blanco-98223", precio_actual: 160, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
-      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-11-retro-rare-air%2F96423715-aec3-4328-bc0b-c9b5aa3153a0%2Fc5", precio_actual: 188, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-11-retro-rare-air%2F96423715-aec3-4328-bc0b-c9b5aa3153a0%2Fc5", precio_actual: 188, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" }, // Decathlon 17-sep: redirige a la categoria (ficha retirada)
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B08QCD8KJD?tag=canchazapa-21", precio_actual: 350, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
     ],
   },
@@ -10682,7 +10682,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 200,
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/692e4fc35077f701b634fbab", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
-      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-kobe-3-protro-halo%2Fd932e932-5e25-4d2d-b068-7c6fc8eead45%2Fc4", precio_actual: 132, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-kobe-3-protro-halo%2Fd932e932-5e25-4d2d-b068-7c6fc8eead45%2Fc4", precio_actual: 132, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-05" }, // Decathlon 17-sep: redirige a la categoria (ficha retirada)
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/kobe-3-protro-christmas-royal-pulse-chrome-white", precio_actual: 170, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+kobe+3+protro&tag=canchazapa-21", precio_actual: 220, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
     ],
@@ -13579,7 +13579,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-d-o-n-issue-7-ice-spida-blanco%2F373782%2Fm9010565", precio_actual: 72.49, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-d-o-n-issue-7-ice-spida-blanco%2F373782%2Fm9010565", precio_actual: 72.49, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-24" }, // Decathlon 17-sep: redirige a la categoria (ficha retirada)
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fd.o.n.-issue-7%2FJR9503.html", precio_actual: 69.60, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/adidas-N-Issue-JR9503-Talla/dp/B0GKLT9SNP?tag=canchazapa-21", precio_actual: 89, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-don-issue-7-blanco-gris-144153.html", precio_actual: 68, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
