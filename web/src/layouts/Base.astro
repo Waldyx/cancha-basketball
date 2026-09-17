@@ -42,6 +42,9 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#0c0c0c" />
+    <!-- Verificación de propiedad del dominio para impact.com (programa de Joom).
+         La comprueba su bot en la home; no tocar ni quitar mientras dure el alta. -->
+    <meta name="impact-site-verification" value="5a143e51-cf6f-4d65-9203-dcbed8af1a61" />
 
     <!-- Tema claro/oscuro ANTES de pintar: si se aplicara después habría un
          flash de tema oscuro en cada navegación para quien elige el claro. -->
