@@ -75,7 +75,10 @@ export const atmosfera_sport: StoreScraper = {
       // Si no hay selector, no afirmamos nada por esta vía y seguimos al precio.
       const conTallas = datos.tallas.filter((t) => /\d/.test(t.texto));
       if (conTallas.length > 0 && !hayTallaDisponible(datos.tallas)) {
-        return { ...base, disponible: false };
+        // AGOTADO confirmado por la tienda (el producto es el suyo y no queda ni
+        // una talla), no un fallo de scraping: se guarda para que el merge apague
+        // el enlace en vez de dejar vivo el último precio. Ver ScrapeResult.agotado.
+        return { ...base, disponible: false, agotado: true };
       }
 
       const precio = datos.precio ? parseFloat(datos.precio) : null;

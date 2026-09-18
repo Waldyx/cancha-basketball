@@ -72,7 +72,12 @@ export const fuikaomar_es: StoreScraper = {
 
       // Agotado explícito → no lo damos por comprable. Si no dice nada (null),
       // seguimos: hay fichas sin JSON-LD de stock y el precio sigue valiendo.
-      if (stockDeJsonLd(datos.ld) === false) return { ...base, disponible: false };
+      // La propia tienda declara OutOfStock en su JSON-LD: es un AGOTADO confirmado,
+      // no un fallo de scraping, así que se guarda (`agotado`) para que el merge
+      // apague el enlace en vez de conservar el último precio bueno.
+      if (stockDeJsonLd(datos.ld) === false) {
+        return { ...base, disponible: false, agotado: true };
+      }
 
       const precio = datos.precio ? parseFloat(datos.precio) : null;
       if (precio && Number.isFinite(precio) && precio > 0) {
