@@ -79,6 +79,18 @@ export const amazon_es: StoreScraper = {
         if (!titulo || !matchesShoe(titulo, shoe.marca, shoe.modelo)) {
           return { ...base, disponible: false };
         }
+        // El título ES el de la zapa: antes de mirar el precio, comprobamos si se
+        // puede comprar. La señal fiable es el BOTÓN de añadir al carrito, no el
+        // texto "No disponible" (sale también en páginas que sí venden: medido el
+        // 18-sep, con el texto salían 39 agotadas de 51 y con el botón, 8). Y sin
+        // botón sigue habiendo precios en la página (otras ofertas, otras tallas),
+        // así que preguntar solo por el precio no detecta el agotado: la Ja 1
+        // devolvía 29,99 € de un vendedor que ni siquiera tiene carrito.
+        const hayCarrito = await page
+          .$("#add-to-cart-button")
+          .then((el) => !!el)
+          .catch(() => false);
+        if (!hayCarrito) return { ...base, disponible: false, agotado: true };
         if (!precio) return { ...base, disponible: false };
         return { ...base, precio_actual: precio, disponible: true };
       }
