@@ -385,6 +385,28 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
    en `requires_action`). Las partes D y E del w17 las acabé yo con scripts de `curl` en background,
    que para esto es más barato que un trabajador.
 
+### ▶️ S51c (18-sep) — el scraper ya sabe decir "agotado" en las 7 tiendas afiliadas
+
+17. ✅ **`agotado` implementado en las 7 tiendas con scraper**: ECI (`5e412d0`), **Amazon** (`f08647e`),
+   **Atmósfera y FuikaOmar** (`8012f8a`), **Decathlon, Snipes y Forum Sport** (`2727441`).
+   🔑 En Amazon la señal fiable es **`#add-to-cart-button`**, y hay que mirarla ANTES del precio: la
+   página de una zapa agotada sigue enseñando precios de otros vendedores (la Ja 1 devolvía 29,99 €,
+   que es justo lo que engañaba al guardarraíl). Probado en seco: `nike-ja-1` → agotado y
+   `adidas-dame-x` → 101,56 € de control.
+18. ⚠ **Un agotado de auditoría manual hay que contrastarlo con el propio scraper** (`973450a`): de los
+   6 de Atmósfera que marcó el trabajador, **2 estaban a la venta** (`ua-jet-23` 39,95 € y
+   `nb-two-wxy-v5` 71,50 €). Los de FuikaOmar sí eran ciertos (Sabrina 2, KD 18, Ja 2, MB.04, Dame 9,
+   Uptempo, Weapon). Zapas sin compra: **57**.
+19. ✅ **AliExpress, repaso de los que están por encima del MSRP** (`400c617`): `nike-kyrie-low-5`
+   apuntaba a un item **que ya no existe** → apagado (le queda Amazon a 196 €). Los demás son el
+   producto correcto: Gamma 2 ABAV033-7 a **484,69 € (4,04× MSRP, decisión pendiente)**, Joker 2 Low
+   187,62, WoW 12 ABAV085 222,69, Rigorer AR3 100,49 y JB4 ABAV089-4 123,69.
+   ⚠ Los 3 enlaces `s.click` (Taichi Flash, Shock The Game 5, KT 11) **no se pueden auditar**: abrirlos
+   genera un clic falso de afiliado. Y las fichas de AliExpress no se pueden leer con `curl` (CSR):
+   hace falta navegador.
+20. ✅ **Promo de Amazon Prime Big Deal Days programada** para el 6 y 7 de octubre (`505dd58`), sin
+   código y avisando de que es solo para clientes Prime. Se enciende sola.
+
 ### ▶️ PARA RETOMAR (s50) — EMPIEZA AQUÍ (s49, 14-sep, director + trabajadores en terminal)
 
 **33 commits en local SIN PUSH**. 259 tests, `astro check` 0 errores. Push pendiente de Vercel
