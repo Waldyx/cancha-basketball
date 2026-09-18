@@ -4929,6 +4929,10 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56002143%2F", precio_actual: 69.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fnike-zapatilla-baloncesto-jordan-luka-77-neant-hf0806-1001053712-p", precio_actual: 59.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      // Repuesto el 18-sep: ECI y Forum Sport se quedaron agotados y la ficha se habia
+      // quedado sin compra. Nike ES la vende a 99,99 EUR (verificado con navegador); no es
+      // afiliado nuestro, asi que sale como "Ver precio en Nike", sin numero.
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/luka-77-zapatillas-de-baloncesto-BERU1e7j/IF1610-500", precio_actual: 99.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-18" },
     ],
   },
 
@@ -9578,6 +9582,10 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012501438353.html", precio_actual: 193.39, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-24" }, // 18-sep: el item ya no existe en AliExpress
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+40+baloncesto&tag=canchazapa-21", precio_actual: 199.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      // Nike ES SI la vende (199,99 EUR, verificado con navegador el 18-sep). No es afiliado
+      // nuestro, asi que sale como "Ver precio en Nike" sin numero. Se repone aqui porque al
+      // morir su item de AliExpress la ficha se quedo sin ninguna opcion de compra.
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/air-jordan-40-zapatillas-de-baloncesto-CNT7P4t3/IM8206-800", precio_actual: 199.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-18" },
     ],
   },
 
