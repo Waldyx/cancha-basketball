@@ -350,6 +350,41 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 - Integridad: imágenes, ids, URLs y rangos OK. `predecesor_id`/`sucesor_id` tienen ~60 no recíprocos (p. ej. LeBron 23 →
   predecesor `nike-gt-jump-1`), pero **ningún componente los usa** (solo `types.ts`): no se arreglan.
 
+### ▶️ S51b (18-sep) — auditoría de afiliados CERRADA, y la ficha ya no se queda muda sin stock
+
+9. ✅ **Auditoría w17 completa de los enlaces afiliados que quedan.** Amazon 1-88 (cz-sonnet-1) ·
+   FuikaOmar, Atmósfera, Forum, Snipes, Reebok y adidas (cz-sonnet-3) · **Amazon 89-175 la hice yo**
+   con `curl` leyendo `productTitle` + `Departamento` (`trabajo/w17-amazon-dp.tsv`) y una segunda
+   pasada mirando el **botón de añadir al carrito** (`w17-amazon-dp2.tsv`).
+   🔑 **El texto "No disponible" NO sirve como señal de agotado**: sale en páginas que sí venden.
+   La señal fiable es `id="add-to-cart-button"`. Con el texto salían 39 de 51 agotadas; con el botón, 8.
+   ⚠ Y otra trampa de medición propia: buscar `low` sin límites de palabra marca "Yellow" como Low.
+10. ✅ **Aplicado**: 14 enlaces de Amazon que venden OTRA variante del retro (`ed5cfbf`) — el mejor,
+   `jordan-xxxix` → "Air jordan 1 mid black fire red - **39**", donde el 39 era la TALLA — y 4 agotados
+   más + la Pro Leather, que era la Pro Blaze Strap (`4c0b314`). **Zapas sin compra: 50 → 58.**
+11. ✅ **Precios reales puestos a mano** (`b545687`): 11 entradas que arrastraban el bug del buybox
+   (Stewie 4 23,14 € cuando son 125,90 · Spawn 7 Mid 26,94 vs 99 · Question Mid 43,99 vs 119 ·
+   Curry 12 81,95 vs 212,43…) y la **Angel Reese 1, que la web anunciaba a 70 € y cuesta 140**
+   (reebok.eu, JSON-LD, 16 de 18 tallas InStock).
+12. ✅ **Reebok Engine A recupera compra** (`d49aef9`): su Amazon está agotado y la búsqueda de
+   reebok.eu no resolvía; la ficha real `/products/engine-a-shoes-100245968-4243` está a 70 € con
+   15 de 26 tallas InStock. ⚠ La "Engine A 26 SE" de esa misma búsqueda es OTRO producto (84-120 €).
+13. ✅ **Una fila por tienda en el bloque de compra** (`1a640b4`): `unaFilaPorTienda()` en `scoring.ts`
+   + 3 tests. La `anta-kai-1-speed` y la `nike-lebron-21` enseñaban CUATRO filas de AliExpress seguidas.
+   Medido en el build: 4 → 1. Afecta a 9 zapas.
+14. ✅ **Ficha sin tienda disponible** (`9a0fe74`): antes se escondía el bloque entero y la ficha se
+   quedaba **sin precio y sin explicación**. Ahora enseña el MSRP como "precio oficial" + "Ahora mismo
+   no la vende ninguna de nuestras tiendas" (o "Aún no ha salido a la venta" si es `proximamente`).
+   Son **58 fichas, el 23% del catálogo**.
+15. **Comprobado y sin cambios**: ECI no vende ninguna de las 8 zapas a cero que se le preguntaron
+   (rellena con otros modelos) · **AE 1 es MID según HoopsGeek**, así que los enlaces "AE 1 Low" son
+   de otro producto y la ficha está bien · 9 enlaces de AliExpress por encima del MSRP (gamma-2 4,04× ·
+   rigorer-ar3 1,28× · 361-joker-2 1,25× · kyrie-low-5 1,17× · wow-12 1,11×), que incumplen la regla
+   propia de AliExpress: **decisión del usuario**.
+16. 🔴 **Los tres trabajadores dejaron de responder** a mitad de tarde (idle sin escribir fichero, uno
+   en `requires_action`). Las partes D y E del w17 las acabé yo con scripts de `curl` en background,
+   que para esto es más barato que un trabajador.
+
 ### ▶️ PARA RETOMAR (s50) — EMPIEZA AQUÍ (s49, 14-sep, director + trabajadores en terminal)
 
 **33 commits en local SIN PUSH**. 259 tests, `astro check` 0 errores. Push pendiente de Vercel
