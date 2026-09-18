@@ -1082,7 +1082,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+kyrie+low+5&tag=canchazapa-21", precio_actual: 196, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012507149508.html", precio_actual: 140.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-01" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012507149508.html", precio_actual: 140.69, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-07-01" }, // 18-sep: el item de AliExpress ya no existe ("Esta pagina no existe")
     ],
   },
 
