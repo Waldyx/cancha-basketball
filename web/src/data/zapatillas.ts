@@ -4407,7 +4407,10 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/search?q=engine+a", precio_actual: 120, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
+      // Ficha real, verificada con navegador el 18-sep: 15 de 26 tallas InStock a 70 €
+      // en el JSON-LD. La búsqueda anterior no resolvía a producto. Ojo: la "Engine A 26 SE"
+      // que sale en la misma búsqueda es OTRO producto (84-120 €).
+      { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/products/engine-a-shoes-100245968-4243", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-18" },
       { tienda: "amazon_es", url: "https://www.amazon.es/Reebok-Engine-Zapatillas-Unisex-Naranja/dp/B0FBG1RW7H?tag=canchazapa-21", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
     ],
   },
