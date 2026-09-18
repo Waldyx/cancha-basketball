@@ -407,6 +407,29 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 20. ✅ **Promo de Amazon Prime Big Deal Days programada** para el 6 y 7 de octubre (`505dd58`), sin
    código y avisando de que es solo para clientes Prime. Se enciende sola.
 
+### ▶️ S51d (18-sep) — AliExpress tenía 9 items MUERTOS, y la limpieza dejó un hueco
+
+21. 🔴 **9 de los 26 enlaces de AliExpress que enseñaba la web apuntaban a un item que YA NO EXISTE**
+   (`5a184e2`): kai-1-speed 48,19 · gt-cut-3 · All City 14 · kai-2-speed · KT 10 · sabrina-3 ·
+   zion-4 · **jordan-40** · zen-7. Comprobado con navegador uno a uno (la ficha de AliExpress es CSR:
+   `curl` devuelve siempre el mismo shell de 22 KB, viva o muerta, así que el scraper tampoco lo ve).
+   De paso, 10 precios reales: **LeBron 23 125,99 → 152,69 €** es el mayor desvío.
+   ⚠ Los 3 `s.click` (Taichi Flash, Shock The Game 5, KT 11) NO se pueden auditar: abrirlos genera
+   un clic falso de afiliado.
+22. 🔑 **Hueco de la limpieza de no-afiliados**: a una zapa con afiliado se le quitó su tienda oficial;
+   cuando ese afiliado MUERE, se queda sin nada. Pasó con la **AJ 40** y la **Luka .77**, que Nike ES
+   sí vende (199,99 y 99,99 €) y con la **Luka 77 GS** (55,99). Repuestos como "Ver precio en Nike"
+   (`57b9de8`, `7087692`). ⇒ Al apagar un enlace, mirar si la ficha se queda a cero y si la marca la
+   vende en su tienda oficial.
+23. **Comprobado sin resultado** (18-sep): Nike ES no tiene Ja 2 (solo pantalones), Kyrie Flytrap 6
+   (redirige a la landing de EE.UU.), Kobe 8 Protro (redirige a Nike UK) ni Air Max Impact 5 (solo
+   Air Max de calle: refuerza que es fantasma) · ECI no tiene la AJ 40 · Amazon tampoco (su búsqueda
+   devuelve Jordan de mujer patrocinadas) · **adidas.es bloquea también al navegador**, no solo a curl.
+   **Converse ES solo vende la "SHAI 001 Lace Up"** (otra variante) y anuncia colores nuevos de la
+   SHAI 001 **a partir del 24-sep**: volver entonces.
+24. **Estado**: **58 zapas sin opción de compra** (23% del catálogo), todas con su precio oficial y el
+   aviso en la ficha. 266 tests · `astro check` 0 errores · todo desplegado.
+
 ### ▶️ PARA RETOMAR (s50) — EMPIEZA AQUÍ (s49, 14-sep, director + trabajadores en terminal)
 
 **33 commits en local SIN PUSH**. 259 tests, `astro check` 0 errores. Push pendiente de Vercel
