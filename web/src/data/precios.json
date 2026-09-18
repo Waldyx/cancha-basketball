@@ -1278,9 +1278,8 @@
           "tienda": "atmosfera_sport",
           "url": "https://www.atmosferasport.es/under-armour/zapatillas-de-baloncesto-under-armour-jet-23-negro-67594.html",
           "precio_actual": 39.95,
-          "disponible": false,
-          "ultima_verificacion": "2026-09-18",
-          "agotado": true
+          "disponible": true,
+          "ultima_verificacion": "2026-09-18"
         }
       ]
     },
@@ -1695,9 +1694,8 @@
           "tienda": "atmosfera_sport",
           "url": "https://www.atmosferasport.es/new-balance/zapatillas-de-baloncesto-new-balance-two-wxy-v5-team-navy-151094.html",
           "precio_actual": 71.5,
-          "disponible": false,
-          "ultima_verificacion": "2026-09-18",
-          "agotado": true
+          "disponible": true,
+          "ultima_verificacion": "2026-09-18"
         },
         {
           "tienda": "basketballemotion_es",
