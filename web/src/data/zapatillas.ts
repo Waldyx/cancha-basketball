@@ -10095,7 +10095,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 200,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0B3T928QG?tag=canchazapa-21", precio_actual: 175.57, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0B3T928QG?tag=canchazapa-21", precio_actual: 175.57, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" }, // w17 18-sep: es la Air Jordan 1 Mid (el 39 del titulo es la TALLA)
     ],
   },
 
@@ -10374,6 +10374,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatilla/jordan/air-jordan-4-retro-og-flight-club-sail-black-univ-red", precio_actual: 180, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-4-retro-toro-bravo-rojo-98232", precio_actual: 170, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+4+retro&tag=canchazapa-21", precio_actual: 230, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0C53QY671?tag=canchazapa-21", precio_actual: 0, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es Big Kid (GS) (lo habia resuelto el scraper)
     ],
   },
 
@@ -11017,7 +11018,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-03",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FD432JNP/?tag=canchazapa-21", precio_actual: 150, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FD432JNP/?tag=canchazapa-21", precio_actual: 150, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" }, // w17 18-sep: es la Shaqnosis LOW
       { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/products/shaqnosis-low-unisex-sneakers-100244789-2294", precio_actual: 150, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FMP_0012975_100244789-blanco-pr-zapatillas-de-baloncesto-unisex-shaqnosis-low-reebok%2F", precio_actual: 105, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-07-12" },
     ],
@@ -11413,6 +11414,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fair-jordan-5-retro-se-craft-light-orewood-brown-taille-eu%2F7b7897ea-561b-4730-9477-e6f5e7d85b97%2Fc27c20", precio_actual: 238.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Air+Jordan+5+Retro&tag=canchazapa-21", precio_actual: 230, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0B57MM4SF?tag=canchazapa-21", precio_actual: 0, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es la AJ5 Retro LOW (lo habia resuelto el scraper)
     ],
   },
 
@@ -11660,8 +11662,8 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fnike-air-force-1-07-lv8-azul-92119%2F436442", precio_actual: 90, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" }, // w17 18-sep: es otra variante (corte o segmento)
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B08QBFY9K8/?tag=canchazapa-21", precio_actual: 110, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B08QBB56BV/?tag=canchazapa-21", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B08QBFY9K8/?tag=canchazapa-21", precio_actual: 110, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" }, // w17 18-sep: es la AF1 MID
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B08QBB56BV/?tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" }, // w17 18-sep: es la AF1 MID
     ],
   },
 
@@ -11784,7 +11786,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 185,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B01E8FT648?tag=canchazapa-21", precio_actual: 149.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B01E8FT648?tag=canchazapa-21", precio_actual: 149.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" }, // w17 18-sep: es la AJ2 Retro LOW
     ],
   },
 
@@ -11847,6 +11849,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 200,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Air+Jordan+8+Retro&tag=canchazapa-21", precio_actual: 210, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BKR56DGB?tag=canchazapa-21", precio_actual: 0, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: Departamento Mujer (lo habia resuelto el scraper)
     ],
   },
 
@@ -11966,7 +11969,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 160,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DGTYTW9L/?tag=canchazapa-21", precio_actual: 153, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DGTYTW9L/?tag=canchazapa-21", precio_actual: 153, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" }, // w17 18-sep: es la Uptempo LOW
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-air-more-uptempo-low-dark-grey-light-crimson%2F8094b496-dc1b-4c51-937f-e2123b6b4bdf%2Fc14", precio_actual: 178, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-air-more-uptempo-96-olympic.html", precio_actual: 190, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
     ],
@@ -12029,6 +12032,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-forum-84-low-adv%2FFY7998.html", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-18" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Adidas+Forum+84+baloncesto&tag=canchazapa-21", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CLW3R96Z?tag=canchazapa-21", precio_actual: 0, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es la Forum 84 LOW (lo habia resuelto el scraper)
     ],
   },
 
@@ -12827,7 +12831,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/search?q=kamikaze", precio_actual: 120, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B01FUHB0VU?tag=canchazapa-21", precio_actual: 186.06, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B01FUHB0VU?tag=canchazapa-21", precio_actual: 186.06, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" }, // w17 18-sep: es la Kamikaze II Mid, otra generacion
     ],
   },
 
@@ -13407,7 +13411,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 190,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0GFJSL965?tag=canchazapa-21", precio_actual: 243.55, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0GFJSL965?tag=canchazapa-21", precio_actual: 243.55, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" }, // w17 18-sep: es la Kobe 9 Low EM Protro, no la Elite Low
     ],
   },
 
@@ -13712,7 +13716,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 125,
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/68c9ed62e0ccc2018213d7db?variant_id=68c9ed62e0ccc2358213d7de", precio_actual: 79, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D9V6CTD1?tag=canchazapa-21", precio_actual: 90.51, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D9V6CTD1?tag=canchazapa-21", precio_actual: 90.51, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" }, // w17 18-sep: es la NXXT Gen AMPD, otro modelo
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA53976764-zapatillas-de-baloncesto-hombre-lbj-nxxt-genisus-nike%2F", precio_actual: 149.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
     ],
   },
@@ -15021,7 +15025,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA54982068%2F", precio_actual: 87.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fnike-zapatilla-baloncesto-jordan-heir-series-nero-fq3858-1001068836-p", precio_actual: 65.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-13" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/NIKE-Jordan-Sneaker-Mujer-Electric/dp/B0DP2TBZ6L?tag=canchazapa-21", precio_actual: 94.56, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/NIKE-Jordan-Sneaker-Mujer-Electric/dp/B0DP2TBZ6L?tag=canchazapa-21", precio_actual: 94.56, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-11" }, // w17 18-sep: Departamento Mujer (Wmns Heir Series)
     ],
   },
 
