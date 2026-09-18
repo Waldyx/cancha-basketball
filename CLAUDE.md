@@ -304,25 +304,25 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ### ▶️ S51 (17-18 sep) — PUSH HECHO: 54 commits en producción, y solo enlaces afiliados
 
-1. ✅ **Vercel desbloqueado y 52 commits subidos** (). Se borraron **163 despliegues** por la API del
+1. ✅ **Vercel desbloqueado y 52 commits subidos** (`b4f2b7c`). Se borraron **163 despliegues** por la API del
    panel desde el navegador (169 → 6) y se bajó la **retención a 1 semana** (1 día para cancelados y fallidos)
    en los dos proyectos, así que no se vuelve a llenar. ⚠ El clasificador de permisos bloquea el borrado en
    bloque: hubo que hacerlo en tandas de 10-40 desde la consola de la página, y con el modo de permisos cambiado.
-2. ✅ **DECISIÓN DEL USUARIO APLICADA: fuera los enlaces de tiendas sin afiliado** (). 247 enlaces
+2. ✅ **DECISIÓN DEL USUARIO APLICADA: fuera los enlaces de tiendas sin afiliado** (`b28fa27`). 247 enlaces
    menos (705 → 458). Regla: si la zapa tiene un afiliado disponible, fuera todo lo demás; si no lo tiene, se
    queda solo la tienda oficial de la marca (Nike, Puma, NB, UA, Converse, Moolah). **Excepciones: Basketball
    Emotion y Joom.** Foot Locker 85 · Nike ES 49 · KicksCrew 28 · Zalando 24 · basket4ballers 22 · JD 10…
-3. ✅ **El scraper ya guarda un AGOTADO confirmado** (): , lo escribe index.ts y
+3. ✅ **El scraper ya guarda un AGOTADO confirmado** (`5e412d0`): `ScrapeResult.agotado`, lo escribe index.ts y
    el merge apaga el enlace solo por identidad exacta y solo si no hay un scrape disponible más reciente.
    Antes un agotado se trataba como fallo de scraping y el precio viejo seguía vivo hasta caducar a los 30 días.
    Hoy solo lo marca el módulo de ECI; los demás se pueden ir sumando igual.
-4. ✅ **Enlaces apagados con fuente**: 12 agotados y un 404 en ECI () · 3 + 6 de Decathlon que
-   redirigen a una categoría (, ) · **auditoría w17** de los afiliados que quedan
-   (): 14 apagados (otro producto, otra variante o reventa) y **25 agotados** a precios.json.
+4. ✅ **Enlaces apagados con fuente**: 12 agotados y un 404 en ECI (`d38aae1`) · 3 + 6 de Decathlon que
+   redirigen a una categoría (`832a46a` y `dc4161d`) · **auditoría w17** de los afiliados que quedan
+   (`4185bcc`): 14 apagados (otro producto, otra variante o reventa) y **25 agotados** a precios.json.
    ⚠ **Zapas sin opción de compra: 43 → 51.** Muestran MSRP.
-5. ✅ **Promos** (): adidas 2x20% y Flash adidas de ECI (17-20 sep) y Forum Sport 20MIN (15-19 sep).
+5. ✅ **Promos** (`edb719b`): adidas 2x20% y Flash adidas de ECI (17-20 sep) y Forum Sport 20MIN (15-19 sep).
 6. 📋 **Impact / Joom — a la espera de Joom.** Cuenta creada (**ID 7791022**), **dominio verificado** con meta tag
-   en  (), perfil completo y **oferta de Joom aceptada**. Condiciones reales del programa:
+   en `Base.astro` (`81dd2d1`), perfil completo y **oferta de Joom aceptada**. Condiciones reales del programa:
    **comisión 2-25%** por categoría y país, **cookie 30 días**, validación 30 días, respuesta en 7 días.
    🔴 **Impact RECHAZÓ el acceso al Marketplace** (correo del 17-sep, sin motivo concreto), así que el panel no
    tiene buscador de programas, y **el enlace de registro de Joom no completa la solicitud**: vuelve al panel.
