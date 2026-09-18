@@ -530,6 +530,28 @@ export function findMejorPrecioMostrado(links: LinkCompra[]): LinkCompra | undef
   return findMejorPrecio(links.filter((l) => mostramosPrecio(l)));
 }
 
+/**
+ * Una fila por TIENDA en el bloque de compra, la más barata.
+ *
+ * Una misma tienda puede tener varios enlaces de la misma zapa (colorways de
+ * AliExpress, dos vendedores de Amazon): el bloque los pintaba todos, así que
+ * `anta-kai-1-speed` enseñaba cuatro filas "AliExpress" seguidas y el usuario
+ * no podía distinguirlas. En un comparador la fila útil es la BARATA (misma
+ * regla que `findMejorPrecio`); las demás son ruido. Los enlaces sin precio
+ * ("Ver precio en X") se quedan con el primero de su tienda.
+ */
+export function unaFilaPorTienda(links: LinkCompra[]): LinkCompra[] {
+  const mejor = new Map<string, LinkCompra>();
+  for (const l of links) {
+    const prev = mejor.get(l.tienda);
+    if (!prev) { mejor.set(l.tienda, l); continue; }
+    const pPrev = prev.precio_actual > 0 ? prev.precio_actual : Infinity;
+    const pAct = l.precio_actual > 0 ? l.precio_actual : Infinity;
+    if (pAct < pPrev) mejor.set(l.tienda, l);
+  }
+  return links.filter((l) => mejor.get(l.tienda) === l);
+}
+
 // ─────────────────────────────────────────────────────────
 // 6. Razones humanas (max 3 por card)
 // ─────────────────────────────────────────────────────────

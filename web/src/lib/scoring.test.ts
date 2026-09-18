@@ -6,6 +6,7 @@ import {
   findMejorPrecio,
   esEnlaceDeBusqueda,
   COMISIONES_TIENDA,
+  unaFilaPorTienda,
 } from "./scoring";
 import { zapatillas } from "../data/zapatillas";
 import type { RespuestasQuiz, LinkCompra } from "./types";
@@ -384,5 +385,30 @@ describe("recomendar — perfiles realistas", () => {
     for (const rec of recs) {
       expect(rec.razones.length).toBeGreaterThanOrEqual(1);
     }
+  });
+});
+
+describe("unaFilaPorTienda — una fila por tienda, la más barata", () => {
+  const links = [
+    { tienda: "aliexpress", url: "https://es.aliexpress.com/item/1.html", precio_actual: 63.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-18" } as any,
+    { tienda: "aliexpress", url: "https://es.aliexpress.com/item/2.html", precio_actual: 48.19, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-18" } as any,
+    { tienda: "amazon_es", url: "https://www.amazon.es/dp/B000000001", precio_actual: 59, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-18" } as any,
+  ];
+
+  it("colapsa las 4 filas de AliExpress en la barata y conserva las demás tiendas", () => {
+    const out = unaFilaPorTienda(links);
+    expect(out).toHaveLength(2);
+    expect(out.find((l) => l.tienda === "aliexpress")!.precio_actual).toBe(48.19);
+    expect(out.some((l) => l.tienda === "amazon_es")).toBe(true);
+  });
+
+  it("conserva el orden que traía la lista", () => {
+    const out = unaFilaPorTienda(links);
+    expect(out.map((l) => l.tienda)).toEqual(["aliexpress", "amazon_es"]);
+  });
+
+  it("un enlace sin precio (Ver precio en X) no desaparece", () => {
+    const sinPrecio = [{ tienda: "nike_es", url: "https://www.nike.com/es/x", precio_actual: 0, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-18" } as any];
+    expect(unaFilaPorTienda(sinPrecio)).toHaveLength(1);
   });
 });

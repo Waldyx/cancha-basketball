@@ -5,7 +5,7 @@
 import Base from "../../layouts/Base.astro";
 import "../../styles/cancha-redesign.css";
 import { zapatillas } from "../../data/zapatillas";
-import { findMejorPrecio, findMejorPrecioMostrado, mostramosPrecio, esEnlaceDeBusqueda, COMISIONES_TIENDA, scoreMeta } from "../../lib/scoring";
+import { findMejorPrecio, findMejorPrecioMostrado, mostramosPrecio, esEnlaceDeBusqueda, COMISIONES_TIENDA, scoreMeta, unaFilaPorTienda } from "../../lib/scoring";
 import PriceAlert from "../../components/PriceAlert.astro";
 import CosteBlock from "../../components/CosteBlock.astro";
 import { ARTICLES } from "../../lib/articles";
@@ -116,8 +116,7 @@ const articulosRelacionados = ARTICLES
 // Tiendas marketplace (vendedores terceros, envío largo, autenticidad variable)
 const MARKETPLACE = new Set(["joom", "aliexpress", "kickscrew"]);
 const PRECIO_TIE = 0.5;
-const linksOrdenados = [...z.links_compra]
-  .filter(l => l.disponible)
+const linksOrdenados = unaFilaPorTienda([...z.links_compra].filter(l => l.disponible))
   .sort((a, b) => {
     const diff = a.precio_actual - b.precio_actual;
     if (Math.abs(diff) > PRECIO_TIE) return diff; // precio claramente distinto
