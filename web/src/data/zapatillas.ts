@@ -530,6 +530,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 60,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+cross+em+up+select&tag=canchazapa-21", precio_actual: 54.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/adidas-Cross-Select-Shoes-Mid-Black/dp/B0C2QLWQBH/ref=sr_1_1?tag=canchazapa-21", precio_actual: 0, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es otra variante (corte o segmento) (la ficha enlazaba una busqueda)
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatilla-cross-em-up-select%2Fa55546c0-eb8c-41d3-aa53-37e1ad5a7dfa%2Fc1c4c251", precio_actual: 51.15, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" }, // Decathlon 16-sep: es la de NINO
     ],
   },
@@ -1569,7 +1570,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 200,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/Li-Ning-Profesionales-Baloncesto-Antideslizantes-Basquetbol/dp/B00A2G1P4W?tag=canchazapa-21", precio_actual: 175, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/Li-Ning-Profesionales-Baloncesto-Antideslizantes-Basquetbol/dp/B00A2G1P4W?tag=canchazapa-21", precio_actual: 175, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-24" }, // w17 18-sep: es OTRO producto
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010685068543.html", precio_actual: 211, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-01" },
     ],
   },
@@ -1748,7 +1749,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 95,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/adidas-Zapatillas-Lillard-Certified-Unisex/dp/B0CYN6L7VK/ref=sr_1_1?tag=canchazapa-21", precio_actual: 42.58, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-13" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+certified+baloncesto&tag=canchazapa-21", precio_actual: 59.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+certified+baloncesto&tag=canchazapa-21", precio_actual: 59.90, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" }, // w17 18-sep: la busqueda no devuelve el modelo
     ],
   },
 
@@ -1915,7 +1916,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 80,
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56817360%2F", precio_actual: 74.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
-      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fnike%2Fzapatillas-de-baloncesto-nike-precision-8-low-hombre-negro-blanco-rojo-175748.html", precio_actual: 74.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fnike%2Fzapatillas-de-baloncesto-nike-precision-8-low-hombre-negro-blanco-rojo-175748.html", precio_actual: 74.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" }, // w17 18-sep: es otra variante (corte o segmento)
     ],
   },
 
@@ -2094,6 +2095,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 65,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+cross+em+up+speed+baloncesto&tag=canchazapa-21", precio_actual: 44.27, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/adidas-Cross-Select-Shoes-Mid-Negro/dp/B0C2QMD1Q6/ref=sr_1_1?tag=canchazapa-21", precio_actual: 48, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es OTRO producto (la ficha enlazaba una busqueda)
     ],
   },
 
@@ -2937,7 +2939,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-anthony-edwards-1-low-blanco-y-negro%2F373647%2Fm9007177", precio_actual: 89.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
-      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fadidas-originals-zapatilla-de-baloncesto-anthony-edwards-1-plata-41674", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
+      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fadidas-originals-zapatilla-de-baloncesto-anthony-edwards-1-plata-41674", precio_actual: 70, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-31" }, // w17 18-sep: es otra variante (corte o segmento)
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-anthony-edwards-1-low%2FJQ6133.html", precio_actual: 71.50, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FJ4WKCND?tag=canchazapa-21", precio_actual: 58.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-ae-1-low-trainers-amarillo-143701.html", precio_actual: 60.50, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
@@ -5929,6 +5931,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56001016%2F", precio_actual: 69.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+gt+cut+academy+2&tag=canchazapa-21", precio_actual: 116.71, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/Phantom-Academy-Sneaker-Glacier-Black-Yellow/dp/B0B24ZMTX6/ref=sr_1_3?tag=canchazapa-21", precio_actual: 69, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es OTRO producto (la ficha enlazaba una busqueda)
     ],
   },
 
@@ -6478,6 +6481,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+scoot+zeros&tag=canchazapa-21", precio_actual: 58.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/PUMA-Scoot-Zeros-baloncesto-Aguamarina/dp/B0DLTHGWF1/ref=sr_1_1?tag=canchazapa-21", precio_actual: 82, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es OTRO producto (la ficha enlazaba una busqueda)
     ],
   },
 
@@ -6852,7 +6856,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 75,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BGQQH4J2?tag=canchazapa-21", precio_actual: 41.95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BGQQH4J2?tag=canchazapa-21", precio_actual: 41.95, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" }, // w17 18-sep: es otra variante (corte o segmento)
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Funder-armour%2Fzapatillas-de-baloncesto-under-armour-jet-23-negro-67594.html", precio_actual: 50.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
@@ -7629,6 +7633,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 150,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+kawhi+1&tag=canchazapa-21", precio_actual: 286.7, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/New-Balance-Kawhi-Zapatos-Granate/dp/B0BM41MZZP/ref=sr_1_1?tag=canchazapa-21", precio_actual: 379, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: reventa (la ficha enlazaba una busqueda)
     ],
   },
 
@@ -8174,6 +8179,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 90,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+playmaker+pro+mid+baloncesto&tag=canchazapa-21", precio_actual: 93.75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/PUMA-Playmaker-Pro-deportivos-Gris-Lima/dp/B0B7CNKFBB/ref=sr_1_1?tag=canchazapa-21", precio_actual: 97, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es otra variante (corte o segmento) (la ficha enlazaba una busqueda)
     ],
   },
 
@@ -8964,6 +8970,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 130,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+clyde+all+pro+baloncesto&tag=canchazapa-21", precio_actual: 63.03, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/Puma-All-Pro-Nitro-Team-Zapatillas/dp/B0CV9L1VSY/ref=sr_1_7?tag=canchazapa-21", precio_actual: 70, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es OTRO producto (la ficha enlazaba una busqueda)
     ],
   },
 
@@ -9190,6 +9197,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+curry+11+baloncesto&tag=canchazapa-21", precio_actual: 129, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/Under-Armour-Tenis-baloncesto-Curry/dp/B0DNCSY6DK/ref=sr_1_1?tag=canchazapa-21", precio_actual: 0, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es otra variante (corte o segmento) (la ficha enlazaba una busqueda)
     ],
   },
 
@@ -11648,7 +11656,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-03",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fnike-air-force-1-07-lv8-azul-92119%2F436442", precio_actual: 90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+      { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fnike-air-force-1-07-lv8-azul-92119%2F436442", precio_actual: 90, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" }, // w17 18-sep: es otra variante (corte o segmento)
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B08QBFY9K8/?tag=canchazapa-21", precio_actual: 110, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B08QBB56BV/?tag=canchazapa-21", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
     ],

@@ -23,6 +23,14 @@
           "precio_actual": 184.11,
           "disponible": true,
           "ultima_verificacion": "2026-09-16"
+        },
+        {
+          "tienda": "fuikaomar_es",
+          "url": "https://www.fuikaomar.es/zapatillas-puma-mb04-love.html",
+          "precio_actual": 74.9,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -302,6 +310,14 @@
           "precio_actual": 109.99,
           "disponible": true,
           "ultima_verificacion": "2026-06-12"
+        },
+        {
+          "tienda": "fuikaomar_es",
+          "url": "https://www.fuikaomar.es/zapatillas-nike-kd-18-liquid-lime.html",
+          "precio_actual": 139.9,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -319,8 +335,9 @@
           "tienda": "forumsport_es",
           "url": "https://www.forumsport.com/es-es/nike-zapatilla-baloncesto-jordan-luka-77-neant-hf0806-1001053712-p",
           "precio_actual": 59.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-26"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -473,15 +490,17 @@
           "tienda": "atmosfera_sport",
           "url": "https://www.atmosferasport.es/adidas/zapatillas-de-baloncesto-adidas-harden-volume-9-rojo-144156.html",
           "precio_actual": 88,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-26"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         },
         {
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/adidas-Harden-JR2506-Zapatillas-baloncesto/dp/B0DTTMXG36?tag=canchazapa-21",
-          "precio_actual": 50.9,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-16"
+          "precio_actual": 0,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -529,6 +548,14 @@
           "precio_actual": 134.9,
           "disponible": true,
           "ultima_verificacion": "2026-09-17"
+        },
+        {
+          "tienda": "forumsport_es",
+          "url": "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-harden-volume-10-jq9422-1001111481-p",
+          "precio_actual": 159.99,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -585,8 +612,9 @@
           "tienda": "fuikaomar_es",
           "url": "https://www.fuikaomar.es/zapatillas-nike-ja-2-coconut.html",
           "precio_actual": 109.9,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-07"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -605,6 +633,14 @@
           "precio_actual": 134.42,
           "disponible": true,
           "ultima_verificacion": "2026-09-07"
+        },
+        {
+          "tienda": "fuikaomar_es",
+          "url": "https://www.fuikaomar.es/zapatillas-adidas-dame-9-purple-bust.html",
+          "precio_actual": 59.9,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -739,6 +775,14 @@
           "precio_actual": 44.88,
           "disponible": true,
           "ultima_verificacion": "2026-09-17"
+        },
+        {
+          "tienda": "atmosfera_sport",
+          "url": "https://www.atmosferasport.es/adidas/zapatillas-de-baloncesto-adidas-don-issue-7-blanco-gris-144153.html",
+          "precio_actual": 67.99,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -907,9 +951,10 @@
         {
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/dp/B0DLGZDKM8?tag=canchazapa-21",
-          "precio_actual": 23.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-07"
+          "precio_actual": 0,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -1123,9 +1168,10 @@
         {
           "tienda": "atmosfera_sport",
           "url": "https://www.atmosferasport.es/adidas/zapatillas-de-baloncesto-adidas-ownthegame-30-hombre-negro-negro-limluc-160464.html",
-          "precio_actual": 42.25,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-16"
+          "precio_actual": 43.99,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         },
         {
           "tienda": "amazon_es",
@@ -1156,8 +1202,9 @@
           "tienda": "atmosfera_sport",
           "url": "https://www.atmosferasport.es/adidas/zapatillas-de-baloncesto-adidas-dame-x-negro-143979.html",
           "precio_actual": 63,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-28"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -1216,9 +1263,10 @@
         {
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/Reebok-Engine-Zapatillas-Unisex-Naranja/dp/B0FBG1RW7H?tag=canchazapa-21",
-          "precio_actual": 45.71,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-15"
+          "precio_actual": 0,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -1228,8 +1276,9 @@
           "tienda": "atmosfera_sport",
           "url": "https://www.atmosferasport.es/under-armour/zapatillas-de-baloncesto-under-armour-jet-23-negro-67594.html",
           "precio_actual": 39.95,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-17"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -1492,6 +1541,14 @@
           "precio_actual": 25.87,
           "disponible": true,
           "ultima_verificacion": "2026-09-17"
+        },
+        {
+          "tienda": "fuikaomar_es",
+          "url": "https://www.fuikaomar.es/zapatillas-nike-air-more-uptempo-96-olympic.html",
+          "precio_actual": 189.9,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -1590,9 +1647,18 @@
         {
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/dp/B0DH39LSPB?tag=canchazapa-21",
-          "precio_actual": 54.49,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-21"
+          "precio_actual": 0,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
+        },
+        {
+          "tienda": "fuikaomar_es",
+          "url": "https://www.fuikaomar.es/zapatillas-nike-sabrina-2-retroed.html",
+          "precio_actual": 119.9,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -1627,8 +1693,9 @@
           "tienda": "atmosfera_sport",
           "url": "https://www.atmosferasport.es/new-balance/zapatillas-de-baloncesto-new-balance-two-wxy-v5-team-navy-151094.html",
           "precio_actual": 71.5,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-17"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         },
         {
           "tienda": "basketballemotion_es",
@@ -1932,6 +1999,14 @@
           "precio_actual": 54.92,
           "disponible": true,
           "ultima_verificacion": "2026-09-17"
+        },
+        {
+          "tienda": "fuikaomar_es",
+          "url": "https://www.fuikaomar.es/zapatillas-converse-weapon-og-mid-black-ivory.html",
+          "precio_actual": 129.9,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -2034,9 +2109,10 @@
         {
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/dp/B0D9KPGJW5?tag=canchazapa-21",
-          "precio_actual": 44.88,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-17"
+          "precio_actual": 0,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -2239,9 +2315,10 @@
         {
           "tienda": "forumsport_es",
           "url": "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-believe-that-1-jq9475-1001111484-p",
-          "precio_actual": 68.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-17"
+          "precio_actual": 99.99,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -2775,9 +2852,10 @@
         {
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/Nike-Team-Hustle-Basketball-Shoes/dp/B0F7X96LK8/ref=sr_1_2?tag=canchazapa-21",
-          "precio_actual": 58.78,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-16"
+          "precio_actual": 0,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -2794,9 +2872,10 @@
         {
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/Nike-G-T-Jump-Academy-Cordones/dp/B0DX49KR5S/ref=sr_1_1?tag=canchazapa-21",
-          "precio_actual": 25.95,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-17"
+          "precio_actual": 0,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -3000,6 +3079,14 @@
           "precio_actual": 43.99,
           "disponible": true,
           "ultima_verificacion": "2026-09-16"
+        },
+        {
+          "tienda": "snipes_eu",
+          "url": "https://www.snipes.com/es-es/p/reebok-question-mid-gris-17566",
+          "precio_actual": 80,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -3141,8 +3228,9 @@
           "tienda": "forumsport_es",
           "url": "https://www.forumsport.com/es-es/nike-zapatilla-baloncesto-ninos-jordan-luka-77-gs-azrs-ih0573-1001091579-p",
           "precio_actual": 63.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-05"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
