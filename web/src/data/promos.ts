@@ -361,6 +361,20 @@ export const PROMOS: Promo[] = [
     nota: "Compras superiores a 60€ · código 20MIN · condiciones en la web de Forum Sport",
     color: "#facc15",
   },
+  {
+    id: "amazon-prime-big-deal-days-2026-10",
+    tienda: "amazon_es",
+    tiendaLabel: "Amazon",
+    titulo: "Prime Big Deal Days",
+    desde: "2026-10-06T00:00:00+02:00",
+    hasta: "2026-10-07T23:59:59+02:00",
+    url: "https://www.amazon.es/deals?tag=canchazapa-21",
+    descuentoTexto: "48 h de ofertas",
+    // Fechas del correo de Amazon del 16-sep. No hay código: el descuento va
+    // aplicado y SOLO para clientes Prime, así que se dice en la nota.
+    nota: "Solo para clientes Prime · 6 y 7 de octubre · las ofertas cambian por producto, comprueba el precio en la ficha",
+    color: "#ff9900",
+  },
 ];
 
 /** Promos activas a una fecha dada (por defecto, ahora). */
