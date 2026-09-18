@@ -4990,6 +4990,9 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 90,
     links_compra: [
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fnike-zapatilla-baloncesto-ninos-jordan-luka-77-gs-azrs-ih0573-1001091579-p", precio_actual: 63.19, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      // Nike ES la vende como "Luka 77 Chicago - Nino/a" a 55,99 EUR (verificado con
+      // navegador el 18-sep). Sin afiliado: sale como "Ver precio en Nike", sin numero.
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/luka-77-chicago-zapatillas-de-baloncesto-nino-a-oYEv7m3u/IH0573-101", precio_actual: 55.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-18" },
     ],
   },
 
