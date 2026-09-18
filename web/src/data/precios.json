@@ -771,10 +771,11 @@
         },
         {
           "tienda": "amazon_es",
-          "url": "https://www.amazon.es/adidas-N-Issue-JR9503-Talla/dp/B0GKLT9SNP/ref=sr_1_1?tag=canchazapa-21",
+          "url": "https://www.amazon.es/dp/B0GKLT9SNP",
           "precio_actual": 44.88,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-17"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         },
         {
           "tienda": "atmosfera_sport",
@@ -1066,10 +1067,11 @@
       "links_compra": [
         {
           "tienda": "amazon_es",
-          "url": "https://www.amazon.es/dp/B09WZH67PK?tag=canchazapa-21",
+          "url": "https://www.amazon.es/dp/B09WZH67PK",
           "precio_actual": 67.46,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-31"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },
@@ -1995,10 +1997,11 @@
         },
         {
           "tienda": "amazon_es",
-          "url": "https://www.amazon.es/dp/B0F5RLM2R7/?tag=canchazapa-21",
+          "url": "https://www.amazon.es/dp/B0F5RLM2R7",
           "precio_actual": 54.92,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-17"
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         },
         {
           "tienda": "fuikaomar_es",
@@ -2757,6 +2760,14 @@
           "precio_actual": 133.99,
           "disponible": true,
           "ultima_verificacion": "2026-09-02"
+        },
+        {
+          "tienda": "amazon_es",
+          "url": "https://www.amazon.es/dp/B0DSJB58JQ",
+          "precio_actual": 0,
+          "disponible": false,
+          "ultima_verificacion": "2026-09-18",
+          "agotado": true
         }
       ]
     },

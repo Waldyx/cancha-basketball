@@ -12893,6 +12893,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 90,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=converse+pro+leather+hi&tag=canchazapa-21", precio_actual: 85, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DBRCL6HL?tag=canchazapa-21", precio_actual: 0, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es la Pro Blaze Strap, otro producto, y ademas sin stock
     ],
   },
 
