@@ -73,6 +73,16 @@ export const decathlon: StoreScraper = {
           return { ...base, disponible: false };
         }
 
+        // AGOTADO confirmado por la tienda: el JSON-LD trae `availability` y
+        // ninguna oferta está InStock. Se guarda (`agotado`) para que el merge
+        // apague el enlace en vez de conservar el último precio bueno; un fallo
+        // de scraping normal sigue devolviendo `disponible: false` a secas.
+        const hayDisponibilidad = /"availability"/i.test(ldTexto);
+        const hayStock = /"availability"\s*:\s*"[^"]*InStock"/i.test(ldTexto);
+        if (hayDisponibilidad && !hayStock) {
+          return { ...base, disponible: false, agotado: true };
+        }
+
         // 1) JSON-LD: el precio canónico del producto de esta página.
         const ldPrecio = (() => {
           for (const t of ld) {

@@ -113,7 +113,9 @@ export const snipes_eu: StoreScraper = {
         return { ...base, disponible: false };
       }
 
-      if (oferta.disponible === false) return { ...base, disponible: false };
+      // AGOTADO confirmado: su propio JSON-LD dice OutOfStock/SoldOut. Se guarda
+      // (agotado) para que el merge apague el enlace en vez de dejar el precio viejo.
+      if (oferta.disponible === false) return { ...base, disponible: false, agotado: true };
       if (oferta.precio === null) return { ...base, disponible: false };
 
       return { ...base, precio_actual: oferta.precio, disponible: true };
