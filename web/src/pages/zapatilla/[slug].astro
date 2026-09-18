@@ -412,6 +412,26 @@ const productJsonLd = {
               <div class="dhs"><div class="v" style="text-transform:capitalize">{z.horma}</div><div class="k">Horma</div></div>
             </div>
 
+            {!mejorPrecio && (
+              /* Sin ninguna tienda disponible: en vez de esconder el bloque entero
+                 (que dejaba la ficha sin ningún precio y sin explicación), enseñamos
+                 el precio OFICIAL y decimos por qué no hay botón de compra. */
+              <div class="dh-buy">
+                <div class="dh-buy-price">
+                  <div class="dhbp-row">
+                    <span class="dhbp-now">{Math.round(z.precio_msrp_eur)}€</span>
+                    <span class="dhbp-msrp">precio oficial</span>
+                  </div>
+                  <div class="dhbp-meta">
+                    <span class="dhbp-dot" style="background:var(--cz-fg4)"></span>
+                    {z.proximamente
+                      ? <>Aún no ha salido a la venta</>
+                      : <>Ahora mismo no la vende ninguna de nuestras tiendas</>}
+                  </div>
+                </div>
+              </div>
+            )}
+
             {mejorPrecio && (
               <div class="dh-buy">
                 <div class="dh-buy-price">
