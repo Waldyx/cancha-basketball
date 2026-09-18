@@ -15530,7 +15530,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-09-14",
     precio_msrp_eur: 140,
     links_compra: [
-      { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/products/angel-reese-1-100272893-272893", precio_actual: 70, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-14" },
+      { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/products/angel-reese-1-100272893-272893", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-18" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FBFY4L1M?tag=canchazapa-21", precio_actual: 140, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-14" },
     ],
   },
