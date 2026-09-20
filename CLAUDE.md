@@ -351,18 +351,35 @@ Sesión corta de infra, sin tocar catálogo. Todo MEDIDO contra la API, no deduc
    Lo bueno del mismo correo: los informes descargables pasan de **30 a 90 días** de rango personalizado
    — justo lo que faltaba para comparar periodos, que en el panel no se podía — y se pueden seleccionar
    **10 IDs de seguimiento** a la vez. Las filas de poca actividad se agruparán en «Otros».
-10. 🔴 **Impact: NO SE PUEDE ENTRAR AL PANEL. Probado el 20-sep.** El "Iniciar sesión con Google"
-   completa el OAuth en el lado de Google (sale la pantalla "Vas a volver a iniciar sesión en impact.com" y
-   la acepta) pero **impact.com devuelve a `login.user` siempre**. Probado 3 veces y también con el enlace
-   "Sign In" del propio Daily Digest: mismo rebote. No es un fallo de URL — no llega a crearse sesión.
-   ⚠ **Y el motivo del rechazo sigue sin existir**: el enlace del correo del 17-sep
-   (`displaympserviceagreement.ihtml`) es el **Partner User Agreement genérico**, el mismo para todos, no una
-   cláusula concreta. O sea que la nota de la s51 ("sin motivo concreto") era correcta.
-   Los **Daily Digest del 17 y el 19-sep** siguen marcando 2 y 1 *"Application Message"* pendientes, y ahí
-   puede estar la respuesta de Viviana sobre Joom, pero **no hay forma de leerlos sin entrar**.
-   ▶️ **PARA EL USUARIO**: intenta entrar tú (quizá con correo+contraseña en vez de Google). Si a ti también
-   te rebota, la cuenta está muerta y **Joom por Impact se acabó**: habría que escribir a soporte de Impact
-   o volver a Viviana pidiendo que la marca invite directamente.
+10. ✅ **Impact: RESUELTO. SÍ se entra, y la cuenta está VIVA.** Lo que fallaba era la URL:
+   `/secure/mediapartner/home.ihtml` **no existe** y, al pedirla, el login se quedaba en bucle devolviendo a
+   `login.user`. 🔑 **La home real es `https://app.impact.com/secure/member/home/mview.ihtml`.**
+   Confirmado dentro: `account_id=7791022`, `status=PUBLISHER`, `country=SPAIN`. La cuenta usa **SSO de Google
+   obligatorio** (al meter el correo salta directo a Google; no hay contraseña que valga).
+   ⚠ Corrección de lo que esta sesión llegó a escribir antes: no es que la cuenta estuviera muerta.
+   · **Los "Application Message" del Daily Digest están VACÍOS**: 3 notificaciones (19-sep y dos del 17-sep)
+     sin cuerpo y con el enlace deshabilitado (*"there is no link available for this notification"*). El
+     **Inbox de mensajería está a cero**: Viviana NO ha contestado por ahí.
+   · **El panel está pelado**: solo "Inicio", "Trackonomics" y "Help", y la home sale en blanco. Sin
+     Marketplace ni buscador de programas — coherente con el rechazo del 17-sep.
+   · 🔥 **PERO el alta en Joom SÍ está disponible** en `app.impact.com/campaign-promo-signup/Joom.brand`:
+     pide aceptar la oferta y ofrece **"Iniciar sesión"** para la cuenta que ya existe (antes se intentaba por
+     "Continuar con Google", que es el alta de cuenta NUEVA y por eso "volvía al panel").
+   ▶️ **Falta la decisión del usuario para darle al botón**: aceptar la oferta es firmar el contrato.
+
+10b. 💰 **CONDICIONES REALES DE JOOM, por fin** (leídas en la propia oferta del panel; llevaban desde la s46
+   como "solo con cuenta"):
+   · **España: 12% del importe del artículo.** Es el tramo por país (CH/IL 25% · GB/FR/DE… 19% · PT/NL/AT 17% ·
+     IT/PL 15% · **ES/MT/BY 12%** · resto 19%). Coincide con el 12% que decía Awin.
+   · 🔑 **El calzado NO está en las categorías especiales**, que son las que cobran 15/10/5/2% y se evaluan
+     ANTES que el país. Comprobadas las 32: móviles, portátiles, relojes, belleza, juguetes, maletas, bicis
+     eléctricas, consolas… ni una de calzado. ⇒ **nuestras zapas van al 12%**, que es **4× Amazon y ~2×**
+     lo que paga cualquier otra tienda del catálogo.
+   · **Cookie 30 días, last click**, ventana de atribución 30 días, validación 30 días, moneda **EUR**.
+   · **Cobro**: las acciones se bloquean 27 días después de acabar el mes en que se registran y se pagan 20
+     días después de bloquearse ⇒ ~2,5 meses desde la venta. Reversión hasta el 100%, a criterio del anunciante.
+   · Contacto del programa: `viale.viviana@joom.com` (ojo, **no** el `@joom-contractors.com` de Awin).
+   · Tabla completa: `docs.google.com/spreadsheets/d/1YOkmt5-HwOtaRgz9Pgk_MBEmsZUsK4qK0h29TNXKvbk`.
 11. ✅ **3 promos nuevas** (`8a23f1e`): Snipes Weekend Deal (19-21 sep), Forum Sport Flash 48H (20-21 sep) y
    AliExpress Día de marcas (21-23 sep, tramos BDES). 🔑 **Las tres que había caducaban HOY**, así que el
    banner se quedaba vacío hasta el Prime Day. ⚠ Dos avisos que van en la `nota`: el código WD-20 de Snipes
