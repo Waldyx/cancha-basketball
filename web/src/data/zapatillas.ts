@@ -1081,7 +1081,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+kyrie+low+5&tag=canchazapa-21", precio_actual: 196, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CRRVDBK6?tag=canchazapa-21", precio_actual: 197, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // s52 21-sep: era una busqueda; ficha real "Nike Kyrie Low 5 - Zapatos para hombre", Departamento Hombre, con add-to-cart-button, 197,00 EUR = 1,64x MSRP
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012507149508.html", precio_actual: 140.69, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-07-01" }, // 18-sep: el item de AliExpress ya no existe ("Esta pagina no existe")
     ],
   },
@@ -7642,7 +7642,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 150,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+kawhi+1&tag=canchazapa-21", precio_actual: 286.7, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BM3JSRHX?tag=canchazapa-21", precio_actual: 185.8, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // s52 21-sep: era una busqueda (286,70 EUR era de otra tarjeta); ficha real "New Balance Kawhi 1 - Zapatos para hombre", con add-to-cart-button, 185,80 EUR = 1,24x MSRP
       { tienda: "amazon_es", url: "https://www.amazon.es/New-Balance-Kawhi-Zapatos-Granate/dp/B0BM41MZZP/ref=sr_1_1?tag=canchazapa-21", precio_actual: 379, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: reventa (la ficha enlazaba una busqueda)
     ],
   },
@@ -8188,7 +8188,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 90,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+playmaker+pro+mid+baloncesto&tag=canchazapa-21", precio_actual: 93.75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BM9FNJ29?tag=canchazapa-21", precio_actual: 67.5, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // s52 21-sep: era una busqueda; ficha real "PUMA Playmaker Pro Mid Laser, Zapatillas de basquetbol Hombre", con add-to-cart-button, 67,50 EUR
       { tienda: "amazon_es", url: "https://www.amazon.es/PUMA-Playmaker-Pro-deportivos-Gris-Lima/dp/B0B7CNKFBB/ref=sr_1_1?tag=canchazapa-21", precio_actual: 97, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es otra variante (corte o segmento) (la ficha enlazaba una busqueda)
     ],
   },
@@ -9206,7 +9206,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 160,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+curry+11+baloncesto&tag=canchazapa-21", precio_actual: 129, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CMK2W8HH?tag=canchazapa-21", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // s52 21-sep: era una busqueda; ficha real "Under Armour Curry 11 Domaine - Tenis para hombre", con add-to-cart-button, 95,00 EUR
       { tienda: "amazon_es", url: "https://www.amazon.es/Under-Armour-Tenis-baloncesto-Curry/dp/B0DNCSY6DK/ref=sr_1_1?tag=canchazapa-21", precio_actual: 0, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es otra variante (corte o segmento) (la ficha enlazaba una busqueda)
     ],
   },

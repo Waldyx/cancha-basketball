@@ -378,7 +378,14 @@ export function mergePricesIntoShoes(
             identidadProducto(v.url) === idOrig &&
             (v.ultima_verificacion ?? "") > (agotado.ultima_verificacion ?? "")
         );
-        if (!repuesto) {
+        // Una verificacion EDITORIAL mas reciente que el agotado tambien manda: si
+        // alguien ha mirado hoy la ficha del producto y tiene boton de compra, no
+        // puede ganarle el scrape de ayer. El scraper sigue siendo la autoridad
+        // mientras nadie verifique a mano despues (s52: `nike-kyrie-low-5` se quedo
+        // sin opcion de compra por un agotado de la noche anterior que ya no valia).
+        const verificadoDespues =
+          (orig.ultima_verificacion ?? "") > (agotado.ultima_verificacion ?? "");
+        if (!repuesto && !verificadoDespues) {
           return {
             ...orig,
             disponible: false,

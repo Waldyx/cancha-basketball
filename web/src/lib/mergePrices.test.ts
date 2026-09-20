@@ -461,6 +461,22 @@ describe("mergePricesIntoShoes — AGOTADO confirmado por la tienda", () => {
     expect(out.links_compra[0].disponible).toBe(true);
   });
 
+  it("una verificacion EDITORIAL posterior al agotado gana (s52: la ficha mirada hoy manda sobre el scrape de ayer)", () => {
+    const [out] = mergePricesIntoShoes(
+      [zapa([eci({ ultima_verificacion: "2026-09-21" })])],
+      json([{ tienda: "elcorteingles_es", url: ECI, precio_actual: 77.99, disponible: false, agotado: true, ultima_verificacion: "2026-09-20" }])
+    );
+    expect(out.links_compra[0].disponible).toBe(true);
+  });
+
+  it("si la ficha es MAS VIEJA que el agotado, sigue mandando el agotado", () => {
+    const [out] = mergePricesIntoShoes(
+      [zapa([eci({ ultima_verificacion: "2026-09-01" })])],
+      json([{ tienda: "elcorteingles_es", url: ECI, precio_actual: 77.99, disponible: false, agotado: true, ultima_verificacion: "2026-09-20" }])
+    );
+    expect(out.links_compra[0].disponible).toBe(false);
+  });
+
   it("un agotado de OTRO producto de la misma tienda no toca este enlace", () => {
     const [out] = mergePricesIntoShoes(
       [zapa([eci()])],
