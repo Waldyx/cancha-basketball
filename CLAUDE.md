@@ -468,6 +468,30 @@ Sesión corta de infra, sin tocar catálogo. Todo MEDIDO contra la API, no deduc
    número. **▶️ DECIDIR**: corregir el MSRP a ojo, retirar la ficha, o reapuntarla a la SS500 (que es otro
    corte, y el corte es identidad de producto).
 
+9. ✅ **Cortes: auditadas las 171 que quedaban sin URL de HoopsGeek** (`trabajo/w22-cortes.tsv`).
+   🔑 **Cambio de método que vale para siempre**: en vez de adivinar slugs, se bajan los ÍNDICES completos
+   — el `page-sitemap.xml` de HoopsGeek (**872 reviews**) y el catálogo paginado de RunRepeat (**63 de
+   baloncesto, completo**). Con eso un `SIN_FUENTE` deja de ser "no la encontré" y pasa a ser "no existe".
+   Reparto: **46 COINCIDE · 74 SIN_FUENTE · 46 retro fuera de alcance · 3 desvíos reales**. De las 49 con
+   fuente, **44 ya estaban bien**: las sesiones previas dejaron el campo casi limpio.
+   · Aplicados (`verificados por mí antes de tocar`): **`nike-lebron-witness-8` mid → low** (RunRepeat parte
+     la zapa y dice `Top: Low`, HG dice `Mid Top` → gana el más bajo; es la más grave porque es barata y de
+     las que más se recomiendan para esguinces) · **`puma-mb05-gs` mid → low** (la adulta ya estaba en low:
+     estaban descuadradas entre sí) · **`reebok-blast` high → mid** (RunRepeat; retro, no toca el quiz).
+   · NO aplicados: `nb-two-wxy-v5` y `nike-lebron-nxxt-genisus` salen más ALTAS con una sola fuente, y subir
+     un corte necesita dos. Y se cierran dos dudas viejas: **`nike-precision-8` es `Mid Top` en HG** (el
+     catálogo acierta; lo de "Precision 8 Low" en tiendas es variante, no corte) y **`nb-fresh-foam-bb-v3`
+     se queda mid**.
+   · Reparto final del catálogo: **153 low / 56 mid / 39 high**; el quiz de tobillos admite **95 zapas**.
+
+⚠ **Tres trampas al leer HoopsGeek, medidas hoy (la tabla no es de una zapa, es una COMPARATIVA):**
+· La tabla de specs de HG tiene **6 columnas** y solo la **PRIMERA** es la zapa reseñada. "El valor que sigue
+  a `Type of Cut`" solo vale si coges esa primera celda; si no, lees el corte de otro modelo.
+· **Hay páginas con esa primera celda VACÍA** (Ja 2, KD 17, TWO WXY v5): la zapa no tiene corte publicado.
+  Coger "la primera no vacía" habría devuelto el corte de una zapatilla distinta.
+· El slug `nike-gt-cut-3` de HG es en realidad la **GT Cut 3 Turbo**, otro producto; la buena es
+  `nike-air-zoom-gt-cut-3`. Un slug plausible puede devolver 200 con OTRA zapatilla.
+
 🔑 **Doctrina nueva de método (medida hoy, las tres):**
 · **Amazon `/s?k=` con `curl` a pelo devuelve un stub de 2,3 KB** con `bm-verify` y un meta refresh, no
   resultados. **Con cookie jar SÍ funciona**: pide antes cualquier `/dp/` con `-c cj.txt` y reutiliza el
