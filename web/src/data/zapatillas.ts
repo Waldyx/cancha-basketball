@@ -3863,7 +3863,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 360,
-    altura: "mid",
+    altura: "low", // s52 21-sep: la MB.05 adulta esta en low y la GS es el mismo modelo en tallaje junior. Estaban descuadradas entre si
     horma: "normal",
     drop_mm: 6,
     tipo_cierre: "cordones",
@@ -7555,7 +7555,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: null,
     sucesor_id: "nike-lebron-witness-9",
     peso_real_g: 377,
-    altura: "mid",
+    altura: "low", // s52 21-sep: RunRepeat (corte real, parte la zapa por la mitad) dice Top: Low; HoopsGeek dice Mid Top. Se contradicen -> gana el corte mas bajo (regla del proyecto: el error que hace dano es colar una low en el quiz de tobillos)
     horma: "ancha",
     drop_mm: 9,
     tipo_cierre: "cordones",
@@ -13099,7 +13099,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 460,
-    altura: "high",
+    altura: "mid", // s52 21-sep: RunRepeat (corte real) dice Top: Mid. Es retro, no entra al quiz, pero el dato estaba mal
     horma: "ancha",
     drop_mm: 9,
     tipo_cierre: "cordones",
