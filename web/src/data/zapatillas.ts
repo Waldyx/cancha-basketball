@@ -2639,7 +2639,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/nike-giannis-immortality-3-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
-    precio_msrp_eur: 65,
+    precio_msrp_eur: 85, // s52 21-sep: eran 65, que es el precio de la GS (la Immortality 4 GS vale justo 65). HoopsGeek publica "Official Retail Price: $84.99" y la Immortality 4 adulta esta a 85 EUR en catalogo.
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CT5ZNC6Y?tag=canchazapa-21", precio_actual: 97.72, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
     ],
