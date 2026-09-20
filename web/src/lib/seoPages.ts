@@ -1050,11 +1050,11 @@ export const SEO_PAGES: SeoPage[] = [
   // ── PLANTILLAS BALONCESTO ─────────────────────────────────────────
   {
     slug: "plantillas-baloncesto",
-    title: "Mejores plantillas para zapatillas de baloncesto 2025 | CANCHA.ZAPA",
-    description: "Superfeet Green, Sof Sole Athlete, Bauerfeind Sports, Currex SupportST: las mejores plantillas técnicas para baloncesto. Cuándo y por qué añadirlas.",
+    title: "Zapatillas de baloncesto que piden plantilla | CANCHA.ZAPA",
+    description: "Modelos retro o con poca amortiguación a los que una plantilla técnica les cambia la vida, y cómo elegirla. La guía de plantillas, en el blog.",
     eyebrow: "★ Accesorios · Plantillas",
-    h1Pre: "Mejores plantillas",
-    h1Accent: "para baloncesto",
+    h1Pre: "Zapatillas que",
+    h1Accent: "piden plantilla",
     h1Post: "2025-2026",
     lede: "Las plantillas de fábrica de la mayoría de zapatillas son mediocres. Una plantilla técnica de 18-45€ puede mejorar el soporte de arco, reducir el impacto en rodillas y alargar la vida útil de la zapatilla.",
     filter: (z) => z.es_retro === true || z.puntuaciones.amortiguacion <= 6,
