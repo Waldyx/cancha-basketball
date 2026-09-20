@@ -365,7 +365,16 @@ Sesión corta de infra, sin tocar catálogo. Todo MEDIDO contra la API, no deduc
    · 🔥 **PERO el alta en Joom SÍ está disponible** en `app.impact.com/campaign-promo-signup/Joom.brand`:
      pide aceptar la oferta y ofrece **"Iniciar sesión"** para la cuenta que ya existe (antes se intentaba por
      "Continuar con Google", que es el alta de cuenta NUEVA y por eso "volvía al panel").
-   ▶️ **Falta la decisión del usuario para darle al botón**: aceptar la oferta es firmar el contrato.
+   🔴 **PROBADO CON AUTORIZACIÓN DEL USUARIO (20-sep) Y NO FUNCIONA, POR LOS DOS CAMINOS.**
+   Con sesión activa, `campaign-promo-signup/Joom.brand` sigue ofreciendo solo el alta de cuenta NUEVA:
+   · **"Iniciar sesión"** → login con Google → **te suelta en la home vacía del panel**. Sin solicitud.
+   · **"Continuar con Google"** → lo mismo. (Comprobado después: **NO creó cuenta duplicada**, el selector
+     de cuentas sigue mostrando solo la 7791022.)
+   🔑 **El mecanismo, ahora sí entendido**: ese flujo es para partners NUEVOS; con cuenta existente termina
+   en el panel. Y la vía normal para un partner que ya existe — buscar la marca y solicitar desde dentro —
+   **no existe en este panel**, porque el acceso al Marketplace es justo lo que rechazaron el 17-sep.
+   ⇒ **Es un círculo cerrado que NO se puede romper desde el navegador.** Tiene que abrirlo Impact o Joom:
+   o revisan el rechazo del Marketplace, o Joom manda una **invitación directa** al programa para la 7791022.
 
 10b. 💰 **CONDICIONES REALES DE JOOM, por fin** (leídas en la propia oferta del panel; llevaban desde la s46
    como "solo con cuenta"):
