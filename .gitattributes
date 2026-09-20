@@ -1,0 +1,2 @@
+# Los .sh tienen que llegar con LF: con CRLF, bash falla con "bad interpreter".
+*.sh text eol=lf
