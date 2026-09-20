@@ -362,6 +362,52 @@ export const PROMOS: Promo[] = [
     color: "#facc15",
   },
   {
+    id: "snipes-weekend-deal-2026-09",
+    tienda: "snipes_eu",
+    tiendaLabel: "Snipes",
+    titulo: "Weekend Deal",
+    desde: "2026-09-19T20:00:00+02:00",
+    hasta: "2026-09-21T10:00:00+02:00",
+    url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fc%2Fsale-660",
+    descuentoTexto: "hasta 20% en selección",
+    // Correo de Awin del 18-sep. El código WD-20 del correo es SOLO para Polonia:
+    // en España el descuento va aplicado, así que la promo va sin código.
+    nota: "Sin código: el descuento va aplicado · artículos seleccionados · termina el lunes a las 10:00",
+    color: "#ff8a3d",
+  },
+  {
+    id: "forumsport-flash-48h-2026-09-20",
+    tienda: "forumsport_es",
+    tiendaLabel: "Forum Sport",
+    titulo: "Flash 48H",
+    desde: "2026-09-20T00:00:00+02:00",
+    hasta: "2026-09-21T23:59:59+02:00",
+    url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2F",
+    descuentoTexto: "hasta 30% en +15.000 productos",
+    nota: "Sin código: el descuento va aplicado · solo online · productos seleccionados · no acumulable",
+    color: "#facc15",
+  },
+  {
+    id: "aliexpress-dia-de-marcas-2026-09",
+    tienda: "aliexpress",
+    tiendaLabel: "AliExpress",
+    titulo: "Día de marcas",
+    desde: "2026-09-21T00:00:00+02:00",
+    hasta: "2026-09-23T23:59:59+02:00",
+    // Tramos del correo de Awin del 18-sep. Prefijo BDES.
+    codigos: [
+      { code: "BDES04", descuento: 4, minCompra: 35 },
+      { code: "BDES06", descuento: 6, minCompra: 59 },
+      { code: "BDES10", descuento: 10, minCompra: 99 },
+      { code: "BDES15", descuento: 15, minCompra: 139 },
+      { code: "BDES30", descuento: 30, minCompra: 269 },
+    ],
+    // Restricción propia de esta edición: los códigos SOLO valen en artículos con el
+    // sello "Promo", que no son todos. Va en la nota para no prometer de más.
+    nota: "Solo en productos con el sello Promo · pedidos enviados a España · no válidos en productos virtuales · no acumulable",
+    color: "#ff4747",
+  },
+  {
     id: "amazon-prime-big-deal-days-2026-10",
     tienda: "amazon_es",
     tiendaLabel: "Amazon",
