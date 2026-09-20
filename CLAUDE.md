@@ -398,6 +398,63 @@ Sesión corta de infra, sin tocar catálogo. Todo MEDIDO contra la API, no deduc
    promos de adidas ES del 17-20 sep ya estaban cargadas.
 
 
+### ▶️ S52b (21-sep, autónomo: yo + 3 trabajadores) — 8 fichas recuperan compra y el merge tenía un hueco
+
+**Commits `5d97d6d` · `4924814` · `fda3180`.** 268 tests · `astro check` 0 errores.
+
+1. 🔑 **Zapas sin opción de compra: 60 → 52.** Ocho recuperadas, todas con `productTitle` +
+   `Departamento` + `id="add-to-cart-button"` verificados: `adidas-dame-8` (B0B6GM83PV 68,25 € —
+   **la ficha no tenía NI UN enlace**), `adidas-dame-certified` (B0BNN8MF4M 70), `nike-ja-2`
+   (B0F44BX5GY 126,85), `nike-ja-1` (B0D1S5M6LG 126,03), `air-jordan-13` (B0CZHS7L8J 271,49),
+   `fila-mb` (B0BCXJ5X33 124,90), `nike-zoom-generation` (B0CJX8KW27 245,83) y **`ua-d-fox-2` en ECI**
+   (A57852858, 129,99 €, repuesta — el 16-sep estaba SoldOut). ECI paga 6%: es la mejor de las ocho.
+   ⚠ Corrige una nota de la s47: el Amazon de `fila-mb` **NO era "una running moderna MB"**, es el FILA MB.
+2. 🔑 **Hueco del merge, encontrado y cerrado (`5d97d6d`)**: el `agotado` del scraper solo se podía
+   levantar con otro SCRAPE más reciente, **nunca con una verificación editorial**. Así `nike-kyrie-low-5`
+   se quedaba sin compra por un agotado del 20-sep cuando su ficha de Amazon tenía hoy `add-to-cart-button`,
+   `buy-now-button` y *"Sólo queda(n) 1 en stock"*. Ahora una `ultima_verificacion` de la ficha posterior al
+   agotado también manda; el scraper sigue siendo la autoridad mientras nadie mire a mano después. +2 tests.
+3. ✅ **Enlaces de Amazon, medido sobre el catálogo fusionado**: 188 en total, **109 ficha `/dp/` y 79
+   búsqueda `/s?k=`** — pero solo **16 búsquedas están `disponible`** (11 son la única opción de su ficha),
+   así que el daño real era mucho menor que el titular. Revisadas las 16 y **fijadas 4 a ficha real**:
+   `ua-curry-11` (B0CMK2W8HH 95 €), `nb-kawhi-1` (B0BM3JSRHX 185,80, los 286,70 salían de una tarjeta de
+   listado), `puma-playmaker-pro-mid` (B0BM9FNJ29 67,50) y `nike-kyrie-low-5` (B0CRRVDBK6 197).
+   · **`air-jordan-8` NO se toca**: su único candidato (B0BKR56DGB) tiene **Departamento Mujer** — la
+     auditoría w17 tenía razón. · Amazon **no vende** la GT Cut Academy **2** (solo la 1, y el resto de la
+     búsqueda son botas de fútbol: "Academy" es una línea de fútbol de Nike), ni la Clyde All-Pro gen 1,
+     ni la Cross Em Up Speed, ni la Converse Pro Leather → apagarlas dejaría esas 4 fichas a cero:
+     **decisión del usuario** (ya estaban en la lista de las 6).
+4. ✅ **Precios anómalos: 22 auditados** (`trabajo/w20-precios-anomalos.tsv`), **17 OK**. Los 6 baratos de
+   Amazon coinciden al céntimo con el `corePrice_feature_div` ⇒ **el bug del buybox está bien cerrado**.
+   Corregidos dos datos (`4924814`): el Joom de `lining-gamma-2` cuesta **640 €, no 282** (JSON-LD de primer
+   nivel, y el `variant_id` de la URL es esa talla; **ninguna** talla vale 282) = 5,33× MSRP; y el MSRP de
+   `nike-giannis-immortality-3` pasa de **65 a 85 €** — los 65 eran el precio de la GS (la Immortality 4 GS
+   vale justo 65), HoopsGeek publica *"Official Retail Price: $84.99"* y la 4 adulta está a 85. ⚠ Es una
+   inferencia bien sostenida, **no una tarifa leída en Nike ES**: revisable.
+5. ⚠ **35 de 248 fichas anuncian un "desde" POR ENCIMA de su MSRP** y los precios son REALES (mercado
+   secundario), no un fallo: `lining-gamma-2` 4,04× · `adidas-pro-vision` 2,28× · `nike-gt-jump-2` 1,68× ·
+   `air-zoom-flight-95` 1,66× · `kyrie-low-5` 1,64× · `air-flight-huarache` 1,64× · `zoom-freak-4` 1,57× ·
+   `sabrina-1` 1,56× · `gt-cut-3` 1,53× · `zion-4` 1,53×… Solo los dos primeros pasan el corte de 2× del
+   proyecto. **▶️ DECIDIR**: ¿tiene sentido anunciar "desde 289 €" una zapatilla de 190?
+
+🔑 **Doctrina nueva de método (medida hoy, las tres):**
+· **Amazon `/s?k=` con `curl` a pelo devuelve un stub de 2,3 KB** con `bm-verify` y un meta refresh, no
+  resultados. **Con cookie jar SÍ funciona**: pide antes cualquier `/dp/` con `-c cj.txt` y reutiliza el
+  fichero; entonces la búsqueda devuelve 1,5-2,2 MB. Las fichas `/dp/` nunca necesitaron cookies.
+· **ECI y Decathlon bloquean `curl`** (374 bytes y el "Just a moment..." de Cloudflare): ésas van con
+  navegador. Y **Snipes tiene redirect silencioso**: `/search?q=` te deja en la home tirando la query.
+· **El navegador propio (no el de Chrome) vale para Amazon**: acepta el banner de cookies con "Rechazar" y
+  `data-cy="title-recipe"` da el título de cada tarjeta (`h2` solo devuelve la marca).
+
+🔎 **Auditoría SEO local del build (sin Search Console, que sigue pendiente de Chrome):** 353 páginas,
+**347 en el sitemap**, robots y canonical correctos. Hallazgos menores: **1 título duplicado**
+(`/blog/mejores-plantillas-baloncesto` y `/plantillas-baloncesto` comparten `<title>` exacto) · **159
+títulos >65 chars** (118 son fichas: la plantilla `marca modelo (año) · Análisis y mejor precio |
+CANCHA.ZAPA` gasta 46 de fijo) · **las dos variantes de URL responden 200 sin redirect** (`/x` y `/x/`),
+aunque el canonical y el sitemap apuntan a la de barra final, que es lo que consolida Google · 4 huérfanas
+y todas justificadas (404, offline, /catalogo que es un redirect a /zapatillas, y la de hash). **Descartado
+un problema de contenido duplicado**: el mayor solape léxico entre páginas editoriales es 0,61 y se explica
+por el menú y el pie.
 ### ▶️ S51 (17-18 sep) — PUSH HECHO: 54 commits en producción, y solo enlaces afiliados
 
 1. ✅ **Vercel desbloqueado y 52 commits subidos** (`b4f2b7c`). Se borraron **163 despliegues** por la API del
