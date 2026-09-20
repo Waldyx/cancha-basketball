@@ -302,6 +302,46 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ## 🔴 Pendientes abiertos
 
+### ▶️ S52 (20-sep) — Gemini reconfigurado: el muro no eran 5/min, son **20 peticiones AL DÍA**
+
+Sesión corta de infra, sin tocar catálogo. Todo MEDIDO contra la API, no deducido.
+
+1. 🔑 **La cuota real del plan gratuito es `GenerateRequestsPerDayPerProjectPerModel-FreeTier`,
+   limit: 20, por modelo y día.** El "5 peticiones/min" de la s48 existe, pero es otra métrica y no es la
+   que muerde: con 20/día, Gemini da para **un encargo grande al día**, no para una tanda. Los modelos
+   **pro tienen `limit: 0`**: no están en la capa gratuita en absoluto.
+2. 🔑 **Cada `gemini -p` gastaba 3 peticiones, no 1.** Medido con `-o json`: una a
+   `gemini-3.1-flash-lite` con rol `utility_router` + dos a `gemini-3.5-flash` (una de ellas fallida).
+   **Fijando el modelo desaparece el router → 1 petición.** Es triplicar la cuota gratis. Aplicado en
+   `~/.gemini/settings.json` (`model.name`), así que no hace falta pasar `-m` a mano.
+3. ✅ **`~/.gemini/settings.json` al día** (backup en `settings.json.bak-s52`): modelo fijo,
+   `maxSessionTurns: 40` (cada turno es una petición, o sea cuota), `useRipgrep`, telemetría apagada,
+   banner oculto. Y **dos alias propios** en `modelConfigs.customAliases`, verificados:
+   · **`cz-audit`** = `gemini-3.5-flash` a **temperatura 0** — contra la divagación que echó a perder la
+     auditoría de firmas de la s49; el preset de fábrica va a temperatura 1.
+   · **`cz-barato`** = `gemini-3.1-flash-lite`, también a 0: **cuota diaria APARTE**, que es la salida
+     cuando 3.5-flash se agota a media tarde.
+4. ✅ **`gemini-cz.sh` en la raíz**: pasa un fichero de encargo por stdin (y lo cierra, así que no puede
+   colgarse esperando una tecla), **`--approval-mode plan` = solo lectura de verdad** — la regla 1 de
+   `GEMINI.md` era hasta hoy solo una frase en el prompt — y reintenta si choca con la cuota.
+   Probado en seco: se le pidió crear un fichero y buscar en la web y **las dos fueron DENEGADAS**
+   (el fichero no existe; la política `cancha-no-web.toml` sigue viva).
+5. ⚠ **`gemini-3.8-flash` existe y la clave lo acepta por API, pero el CLI 0.60.0 NO lo alcanza**: ni con
+   `-m` ni con alias propio — resuelve siempre a `gemini-3.5-flash`, porque 3.8 no está en su registro de
+   modelos. Revisar cuando el CLI se actualice.
+6. ⚠ **Ripgrep**: el CLI solo se fía de un `rg` que esté bajo `C:\Windows` o `Program Files`, o de un
+   `rg-win32-x64.exe` dentro de su propio `bundle/`. Copiado ahí el de VS Code. **Un
+   `npm i -g @google/gemini-cli` lo borra**: hay que volver a copiarlo.
+7. ⚠ **Cita bien y cuenta mal**: en la prueba acertó la línea exacta de `TIENDAS_PENDIENTES`
+   (`scoring.ts:478`) y se inventó el tamaño del fichero (dijo 526 líneas, son 770). Regla nueva en
+   `GEMINI.md`: **ningún total sin la lista que lo sostiene**.
+8. **▶️ DECIDIR (usuario): ¿se activa la facturación en el proyecto de la clave?** Es lo único que quita
+   el muro de las 20/día (Tier 1 exige una cuenta de facturación activa) y de paso desbloquea los pro.
+   Tarifa de `gemini-3.5-flash`: **1,50 $/Mtok de entrada y 9 $/Mtok de salida** → auditar `articles.ts`
+   entero (~150k tokens) sale por **~0,25 $**. `gemini-3.1-flash-lite` es 6× más barato (0,25 / 1,50 $).
+   Mientras no se active, Gemini es **un encargo grande al día y poco más**.
+
+
 ### ▶️ S51 (17-18 sep) — PUSH HECHO: 54 commits en producción, y solo enlaces afiliados
 
 1. ✅ **Vercel desbloqueado y 52 commits subidos** (`b4f2b7c`). Se borraron **163 despliegues** por la API del
