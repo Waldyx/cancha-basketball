@@ -901,6 +901,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 120,
     links_compra: [
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0F44BX5GY?tag=canchazapa-21", precio_actual: 126.85, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // s52 21-sep: "Nike Ja 2 - Tenis de baloncesto (FD7328-001)", Departamento Hombre, add-to-cart-button, 126,85 EUR
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-ja-2-coconut.html", precio_actual: 109.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
@@ -1748,6 +1749,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-28",
     precio_msrp_eur: 95,
     links_compra: [
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BNN8MF4M?tag=canchazapa-21", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // s52 21-sep: "adidas Dame Certified, Zapatillas Hombre", Departamento Hombre, add-to-cart-button, 70,00 EUR (los otros dos enlaces son otra variante / busqueda)
       { tienda: "amazon_es", url: "https://www.amazon.es/adidas-Zapatillas-Lillard-Certified-Unisex/dp/B0CYN6L7VK/ref=sr_1_1?tag=canchazapa-21", precio_actual: 42.58, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-13" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+certified+baloncesto&tag=canchazapa-21", precio_actual: 59.90, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" }, // w17 18-sep: la busqueda no devuelve el modelo
     ],
@@ -6544,6 +6546,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 120,
     links_compra: [
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0B6GM83PV?tag=canchazapa-21", precio_actual: 68.25, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // s52 21-sep: la ficha no tenia NI UN enlace. "adidas Dame 8, Zapatillas Unisex Adulto", Departamento Unisex adulto, add-to-cart-button, 68,25 EUR
     ],
   },
 
@@ -8482,6 +8485,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-19",
     precio_msrp_eur: 110,
     links_compra: [
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D1S5M6LG?tag=canchazapa-21", precio_actual: 126.03, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // s52 21-sep: el ASIN anterior (B0D9KPGJW5) esta agotado. "Nike Tenis de baloncesto Ja 1 para hombre", Departamento Hombre, add-to-cart-button, 126,03 EUR
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D9KPGJW5?tag=canchazapa-21", precio_actual: 109.16, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
     ],
   },
@@ -9804,7 +9808,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 119.99,
     links_compra: [
-      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57852858%2F", precio_actual: 90.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-30" }, // ECI 16-sep: todas las tallas SoldOut
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57852858%2F", precio_actual: 129.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // s52 21-sep: repuesta. "Zapatillas De Baloncesto De Adulto D. Fox 2 Under Armour - Coral", boton "Anadir a la cesta", 129,99 EUR (el 16-sep estaba SoldOut a 90,99)
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0G4J8HXXV?tag=canchazapa-21", precio_actual: 84.95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
     ],
   },
@@ -10571,6 +10575,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 210,
     links_compra: [
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CZHS7L8J?tag=canchazapa-21", precio_actual: 271.49, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // s52 21-sep: el ASIN anterior (B09WZH67PK) esta agotado. "Jordan Hombres 13 Retro Dune Red (DJ5982 601)", Departamento Hombre, add-to-cart-button, 271,49 EUR = 1,29x MSRP
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B09WZH67PK?tag=canchazapa-21", precio_actual: 181, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
     ],
   },
@@ -11357,7 +11362,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 180,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Zoom+Generation+LeBron&tag=canchazapa-21", precio_actual: 200, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CJX8KW27?tag=canchazapa-21", precio_actual: 245.83, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
     ],
   },
 
@@ -13363,7 +13368,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-08",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=fila+mb+mashburn&tag=canchazapa-21", precio_actual: 110, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BCXJ5X33?tag=canchazapa-21", precio_actual: 124.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
     ],
   },
 
