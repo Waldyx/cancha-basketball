@@ -341,6 +341,29 @@ Sesión corta de infra, sin tocar catálogo. Todo MEDIDO contra la API, no deduc
    entero (~150k tokens) sale por **~0,25 $**. `gemini-3.1-flash-lite` es 6× más barato (0,25 / 1,50 $).
    Mientras no se active, Gemini es **un encargo grande al día y poco más**.
 
+**Correo repasado el 20-sep** (desde el 17-sep):
+
+9. 🔴 **Amazon cambia el reporting el 22-sep, y uno de los cambios ENSUCIA nuestra métrica clave.**
+   Literal del correo: *"es posible que observes un **aumento de los clics** y el correspondiente **descenso
+   de la tasa de conversión** debido a la mejora de la cobertura de clics"*. ⇒ Los clics de Amazon van a
+   SUBIR por un cambio de medición, no porque entre más gente: **no leer ese salto como tráfico nuevo**
+   (es la misma trampa que los 942 clics de Decathlon de julio, pero al revés). Los ingresos no cambian.
+   Lo bueno del mismo correo: los informes descargables pasan de **30 a 90 días** de rango personalizado
+   — justo lo que faltaba para comparar periodos, que en el panel no se podía — y se pueden seleccionar
+   **10 IDs de seguimiento** a la vez. Las filas de poca actividad se agruparán en «Otros».
+10. ⚠ **Impact: el rechazo SÍ trae motivo, y la nota de la s51 decía que no.** El correo del 17-sep apunta a
+   `app.impact.com/content/displaympserviceagreement.ihtml`, o sea al **Media Partner Service Agreement**.
+   Sigue sin decir qué clausula falla, pero no es un rechazo mudo: es el acuerdo de marketplace.
+   Y los **Daily Digest del 17 y el 19-sep** marcan 2 y 1 *"Application Message"* pendientes en el panel:
+   ahí puede estar la respuesta a lo de Viviana/Joom. **Hay que mirarlo dentro del panel, por correo no se ve.**
+11. ✅ **3 promos nuevas** (`8a23f1e`): Snipes Weekend Deal (19-21 sep), Forum Sport Flash 48H (20-21 sep) y
+   AliExpress Día de marcas (21-23 sep, tramos BDES). 🔑 **Las tres que había caducaban HOY**, así que el
+   banner se quedaba vacío hasta el Prime Day. ⚠ Dos avisos que van en la `nota`: el código WD-20 de Snipes
+   es **solo para Polonia** (en España el descuento va aplicado) y los BDES de AliExpress **solo valen en
+   productos con el sello "Promo"**, que no son todos.
+12. **Sin nada que hacer**: Search Console validó otra vez la indexación de canchazapa.com (16-sep) y las
+   promos de adidas ES del 17-20 sep ya estaban cargadas.
+
 
 ### ▶️ S51 (17-18 sep) — PUSH HECHO: 54 commits en producción, y solo enlaces afiliados
 
