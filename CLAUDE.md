@@ -447,6 +447,19 @@ Sesión corta de infra, sin tocar catálogo. Todo MEDIDO contra la API, no deduc
 6. ✅ **Recuperar compra también arregla el JSON-LD**: verificado en producción que `adidas-dame-8` ya publica
    su bloque `offers` con el ASIN nuevo y le desaparece el aviso de "ninguna de nuestras tiendas". Es el
    pendiente de SEO que abrió la s45 (las fichas a cero se quedaban sin `offers`), cerrándose ficha a ficha.
+8. 🔥 **361sport: medido hoy, y la decisión encaja con una regla que YA tomaste.** Verificado el 21-sep
+   por JSON-LD en `361sport.com/es-es`: **AG 6 "Black Mamba" 110,00 EUR InStock** y **ZEN 8 "BE WATER"
+   130,00 EUR InStock** — justo el MSRP que tienen las dos fichas. Y hay colorways de sobra (21 resultados
+   para AG6, 168 para Zen 8), o sea que **`361-ag-6` NO es un fantasma**: esa sospecha queda descartada.
+   · **AliExpress no sirve**: la Zen 8 está a **177,39 €** (1,36× MSRP) y la regla propia de AliExpress exige
+     precio ≤ MSRP; de la AG 6 no hay **ni un** resultado. Así que la única vía es la tienda de la marca.
+   · 🔑 **Y eso ya está permitido por tu propia decisión de la s51**: "si la zapa no tiene afiliado, se queda
+     solo la tienda oficial de la marca (Nike, Puma, NB, UA, Converse, Moolah)". **361sport ES la tienda
+     oficial de 361°**, el mismo caso que Nike ES.
+   · ⚠ Lo que lo frena de verdad no es el afiliado, es el **IVA de importación**: 361sport envía desde fuera
+     de la UE sin IOSS aparente, así que sobre esos 130 € el comprador paga 21% + gestion al recibir (~160 €
+     reales). Enlazar a "130 €" sin decirlo engaña. **▶️ DECIDIR**: darla de alta (toca `Tienda` en `types.ts`
+     + `COMISIONES_TIENDA`) con el aviso del IVA en la ficha, o dejar las dos zapas sin compra.
 7. ⚠ **`decathlon-tarmak-se500-mid`: producto DESCATALOGADO y MSRP inverosímil.** Su enlace de Decathlon ya
    estaba apagado y hoy **redirige al outlet de baloncesto**, no a una ficha. Decathlon **renombró la línea
    SE500 → SS500** y hoy solo vende cortes HIGH: la "SE 500 HIGH" está a **21,99 € sin precio tachado**.
