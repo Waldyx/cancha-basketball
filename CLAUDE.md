@@ -436,6 +436,24 @@ Sesión corta de infra, sin tocar catálogo. Todo MEDIDO contra la API, no deduc
    `air-zoom-flight-95` 1,66× · `kyrie-low-5` 1,64× · `air-flight-huarache` 1,64× · `zoom-freak-4` 1,57× ·
    `sabrina-1` 1,56× · `gt-cut-3` 1,53× · `zion-4` 1,53×… Solo los dos primeros pasan el corte de 2× del
    proyecto. **▶️ DECIDIR**: ¿tiene sentido anunciar "desde 289 €" una zapatilla de 190?
+   **Simulado para que la decisión sea concreta** (`web/_umbral.ts`): bajar el corte de reventa saldría así —
+   **1,75× y 2× dan EXACTAMENTE lo mismo** (3 enlaces, 2 fichas a cero), o sea que el umbral actual es de
+   hecho 1,75× · **1,5× → 12 enlaces caen y 9 fichas se quedan sin compra** (`kyrie-low-5`, `zoom-freak-4`,
+   `gt-jump-2`, `gamma-2`, `zion-4`, `sabrina-1`, `pro-vision`, `air-flight-huarache`, `air-zoom-flight-95`) ·
+   **1,4× → 16 enlaces y 11 fichas** · **1,3× → 24 enlaces y 16 fichas**.
+   ⚠ El dato NO está mal: son precios reales de mercado secundario de modelos descatalogados. La pregunta es
+   de producto, no de datos: **¿un comparador honesto enseña el precio de reventa, o prefiere decir "ahora
+   mismo no la vende nadie a precio razonable"?** Las dos posturas se defienden; es tu llamada.
+6. ✅ **Recuperar compra también arregla el JSON-LD**: verificado en producción que `adidas-dame-8` ya publica
+   su bloque `offers` con el ASIN nuevo y le desaparece el aviso de "ninguna de nuestras tiendas". Es el
+   pendiente de SEO que abrió la s45 (las fichas a cero se quedaban sin `offers`), cerrándose ficha a ficha.
+7. ⚠ **`decathlon-tarmak-se500-mid`: producto DESCATALOGADO y MSRP inverosímil.** Su enlace de Decathlon ya
+   estaba apagado y hoy **redirige al outlet de baloncesto**, no a una ficha. Decathlon **renombró la línea
+   SE500 → SS500** y hoy solo vende cortes HIGH: la "SE 500 HIGH" está a **21,99 € sin precio tachado**.
+   Nuestra ficha dice **MSRP 80 €**, cuando en el mismo catálogo la Fast 900 (su tope de gama) vale 85 y la
+   Canaveral 900, 90. **No lo he cambiado**: no hay fuente del precio de la SE500 Mid y no se inventa un
+   número. **▶️ DECIDIR**: corregir el MSRP a ojo, retirar la ficha, o reapuntarla a la SS500 (que es otro
+   corte, y el corte es identidad de producto).
 
 🔑 **Doctrina nueva de método (medida hoy, las tres):**
 · **Amazon `/s?k=` con `curl` a pelo devuelve un stub de 2,3 KB** con `bm-verify` y un meta refresh, no
