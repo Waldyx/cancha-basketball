@@ -351,11 +351,18 @@ Sesión corta de infra, sin tocar catálogo. Todo MEDIDO contra la API, no deduc
    Lo bueno del mismo correo: los informes descargables pasan de **30 a 90 días** de rango personalizado
    — justo lo que faltaba para comparar periodos, que en el panel no se podía — y se pueden seleccionar
    **10 IDs de seguimiento** a la vez. Las filas de poca actividad se agruparán en «Otros».
-10. ⚠ **Impact: el rechazo SÍ trae motivo, y la nota de la s51 decía que no.** El correo del 17-sep apunta a
-   `app.impact.com/content/displaympserviceagreement.ihtml`, o sea al **Media Partner Service Agreement**.
-   Sigue sin decir qué clausula falla, pero no es un rechazo mudo: es el acuerdo de marketplace.
-   Y los **Daily Digest del 17 y el 19-sep** marcan 2 y 1 *"Application Message"* pendientes en el panel:
-   ahí puede estar la respuesta a lo de Viviana/Joom. **Hay que mirarlo dentro del panel, por correo no se ve.**
+10. 🔴 **Impact: NO SE PUEDE ENTRAR AL PANEL. Probado el 20-sep.** El "Iniciar sesión con Google"
+   completa el OAuth en el lado de Google (sale la pantalla "Vas a volver a iniciar sesión en impact.com" y
+   la acepta) pero **impact.com devuelve a `login.user` siempre**. Probado 3 veces y también con el enlace
+   "Sign In" del propio Daily Digest: mismo rebote. No es un fallo de URL — no llega a crearse sesión.
+   ⚠ **Y el motivo del rechazo sigue sin existir**: el enlace del correo del 17-sep
+   (`displaympserviceagreement.ihtml`) es el **Partner User Agreement genérico**, el mismo para todos, no una
+   cláusula concreta. O sea que la nota de la s51 ("sin motivo concreto") era correcta.
+   Los **Daily Digest del 17 y el 19-sep** siguen marcando 2 y 1 *"Application Message"* pendientes, y ahí
+   puede estar la respuesta de Viviana sobre Joom, pero **no hay forma de leerlos sin entrar**.
+   ▶️ **PARA EL USUARIO**: intenta entrar tú (quizá con correo+contraseña en vez de Google). Si a ti también
+   te rebota, la cuenta está muerta y **Joom por Impact se acabó**: habría que escribir a soporte de Impact
+   o volver a Viviana pidiendo que la marca invite directamente.
 11. ✅ **3 promos nuevas** (`8a23f1e`): Snipes Weekend Deal (19-21 sep), Forum Sport Flash 48H (20-21 sep) y
    AliExpress Día de marcas (21-23 sep, tramos BDES). 🔑 **Las tres que había caducaban HOY**, así que el
    banner se quedaba vacío hasta el Prime Day. ⚠ Dos avisos que van en la `nota`: el código WD-20 de Snipes
