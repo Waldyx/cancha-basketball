@@ -1,11 +1,14 @@
 ---
 // Componente: PriceAlert
-// Bloque pequeño que va en /zapatilla/[slug]. Captura un email + umbral
-// de precio y lo envía a una Vercel Function (o servicio email tipo Resend).
+// Bloque pequeño que va en /zapatilla/[slug]. Guarda un precio objetivo EN ESTE
+// NAVEGADOR (localStorage `cz.pricealerts`) y lo enseña al volver a la ficha.
 //
-// Sin backend = sin alertas. Por eso este componente es un MVP que solo
-// guarda en localStorage como reminder visual. Cuando montes el backend,
-// reemplaza el fetch del script con la llamada real.
+// ⚠ NO hay backend, así que NO se manda ningún email. Hasta la s52 este bloque
+// pedía el correo y respondía "te avisaremos cuando baje": una promesa que el
+// sitio no podía cumplir y unos emails que no salían de localStorage. Se quitó
+// el campo de email y el texto dice ahora lo que de verdad pasa.
+// Si algún día hay backend: vuelve a pedir el email, monta /api/price-alert y
+// cambia el copy — no al revés.
 
 interface Props {
   slug: string;
@@ -22,17 +25,13 @@ const sugerido = Math.round(precioActual * 0.85); // -15% sugerido por defecto
   <div class="cz-pa-head">
     <span class="cz-pa-bell" aria-hidden="true">◔</span>
     <div>
-      <p class="cz-eyebrow" style="font-size:10px">★ Alerta de precio</p>
-      <h3 class="cz-pa-title">Avísame cuando baje</h3>
+      <p class="cz-eyebrow" style="font-size:10px">★ Precio objetivo</p>
+      <h3 class="cz-pa-title">Ponle un precio objetivo</h3>
     </div>
   </div>
 
   <form id={`pa-form-${slug}`} class="cz-pa-form" novalidate>
     <div class="cz-pa-fields">
-      <label class="cz-pa-field">
-        <span>Tu email</span>
-        <input type="email" name="email" placeholder="tu@email.com" required />
-      </label>
       <label class="cz-pa-field">
         <span>Cuando baje de</span>
         <div class="cz-pa-price">
@@ -41,15 +40,15 @@ const sugerido = Math.round(precioActual * 0.85); // -15% sugerido por defecto
         </div>
       </label>
     </div>
-    <button type="submit" class="cz-pa-btn">→ Suscribirme</button>
+    <button type="submit" class="cz-pa-btn">→ Guardar objetivo</button>
     <p class="cz-pa-disclaimer">
-      Sin spam. Solo emails de bajadas reales. Puedes darte de baja con un click.
+Se guarda solo en este navegador. Todavía no mandamos emails: cuando vuelvas a esta ficha verás tu objetivo junto al precio del día.
     </p>
   </form>
 
   <div class="cz-pa-success hidden">
-    <p>✓ Suscrito a alertas de <strong>{marca} {modelo}</strong></p>
-    <p class="cz-pa-success-sub">Te avisaremos cuando baje del precio que indicaste.</p>
+    <p>✓ Objetivo guardado para <strong>{marca} {modelo}</strong></p>
+    <p class="cz-pa-success-sub">Queda en este navegador. Vuelve a la ficha para ver si el precio ya ha bajado.</p>
     <button type="button" data-undo>Deshacer</button>
   </div>
 </aside>
@@ -79,25 +78,17 @@ const sugerido = Math.round(precioActual * 0.85); // -15% sugerido por defecto
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
     const fd = new FormData(form);
-    const email = String(fd.get("email") || "");
     const umbral = Number(fd.get("umbral") || 0);
-    if (!email.includes("@") || umbral < 20) return;
+    if (umbral < 20) return;
 
-    // Guardar localmente (MVP — sin backend)
-    const next = [...loadAlerts().filter(a => a.slug !== slug), { slug, email, umbral, ts: Date.now() }];
+    // Solo local: no hay backend y no se manda ningún email (ver cabecera).
+    const next = [...loadAlerts().filter(a => a.slug !== slug), { slug, umbral, ts: Date.now() }];
     saveAlerts(next);
 
     // Telemetría (Plausible si está cargado)
     if (window.plausible) {
       window.plausible("Price Alert Subscribed", { props: { slug, umbral: String(umbral) } });
     }
-
-    // TODO · backend
-    // await fetch("/api/price-alert", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({ slug, email, umbral }),
-    // });
 
     form.classList.add("hidden");
     success?.classList.remove("hidden");
