@@ -528,6 +528,28 @@ Sesión corta de infra, sin tocar catálogo. Todo MEDIDO contra la API, no deduc
    de 293 enlaces disponibles con fecha, la **mediana tiene 1 día**, el 68% se verificó en los últimos 7 días
    y el 73% en 30. El scraper nocturno está haciendo su trabajo. **No hay nada que arreglar aquí.**
 
+15. 🔴 **EL CHAT LLEVABA SIRVIENDO SOLO EL FALLBACK LOCAL — cadena entera caída, y arreglada.**
+   Petición real a `canchazapa.com/api/chat` (21-sep): `code: local-upstream`,
+   **`estados: 429,404,429,429,429,403`**. Ningún modelo responde. El fallback funciona (devolvió 3 zapas
+   reales con marcadores en 1,5 s), pero el usuario no está hablando con una IA.
+   El campo `detalle` de la s42 dio los mensajes literales y cierra dos cosas:
+   · 🔑 **`minimax/minimax-m2.7:free` → 404**: *"This model is unavailable for free. The paid version is
+     available now - use this slug instead: minimax/minimax-m2.7"*. Era el primero de la cadena y **el
+     único que respondía desde la s41**: cuando se lo llevaron, se cayó todo.
+   · ✅ **`thinkingmachines/inkling-small:free` → 403. SE CIERRA LA DUDA DE LA s42**: el 403 sin identificar
+     era éste, exactamente el que decía su posición en `estados`. Entonces se decidió no tocarlo sin medir;
+     ahora está medido.
+   · Los otros tres (los dos gemma y glm-5.2) **siguen vivos** pero dan *"temporarily rate-limited upstream"*.
+   **Cadena nueva** (`chat.ts` y `coach.ts`): `qwen/qwen3.8-27b` + `google/gemma-4-31b-it` +
+   `nvidia/nemotron-3-super-120b-a12b`, y de cola `gemma-4-26b`, `inclusionai/ling-3.0-flash-vl` y `glm-5.2`.
+   Se mezclan familias a propósito: el 429 es POR MODELO, así que diversificar proveedor sí esquiva (s41).
+   ⚠ **Van SIN VALIDAR** (no hay clave aquí con la que probarlos). Quitar un 404 y un 403 solo puede mejorar,
+   y si fallan se degrada a lo que ya pasaba. nemotron colaba `<think>` en jun-2026 y por eso se descartó;
+   hoy `limpiarRespuesta` lo filtra, así que vuelve a entrar.
+   📏 **Solo quedan 21 modelos `:free` en todo OpenRouter.** La doctrina de "el catálogo gratis CADUCA" se
+   queda corta: no es que roten, es que **se están acabando**. Los $10 de créditos (que suben el tope de 50 a
+   1.000 peticiones/día y habilitan un eslabón de pago) dejan de ser una mejora y empiezan a ser el plan B.
+
 ⚠ **Tres trampas al leer HoopsGeek, medidas hoy (la tabla no es de una zapa, es una COMPARATIVA):**
 · La tabla de specs de HG tiene **6 columnas** y solo la **PRIMERA** es la zapa reseñada. "El valor que sigue
   a `Type of Cut`" solo vale si coges esa primera celda; si no, lees el corte de otro modelo.
