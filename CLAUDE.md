@@ -484,6 +484,23 @@ Sesión corta de infra, sin tocar catálogo. Todo MEDIDO contra la API, no deduc
      se queda mid**.
    · Reparto final del catálogo: **153 low / 56 mid / 39 high**; el quiz de tobillos admite **95 zapas**.
 
+10. ⚠ **`audit-enlaces` marca 44 "posibles reposiciones" y la muestra que compruebo sale FALSA entera.**
+   Son casos con `ficha=false` y un scrape disponible en `precios.json`. Comprobados 3 al azar, los 3 mal:
+   · `jordan-xxxix` → B0B3T928QG es **"Air jordan 1 mid black fire red - 39"**, donde el **39 es la TALLA**.
+   · `adidas-ae-1` → B0FJ4WKCND es la **"Anthony Edwards 1 Low"** y la ficha es mid.
+   · `air-jordan-1` → el de Snipes (70 €, InStock, afiliado 5%) es la **"Air Jordan 1 Low SE"** y la ficha
+     es la High.
+   Más los ya documentados (`nike-air-max-impact-5` → Air Max **Alpha**, `gt-cut-academy-2` → **Phantom
+   Academy** de fútbol, `nb-fresh-foam-bb-v3` → Fresh Foam **Arishi** de running). ⇒ **La lista de
+   reposiciones NO se aplica en bloque**: es justo el material que "la ficha manda" está conteniendo, y
+   cada fila necesita mirar el título. Sigue siendo útil como cola de trabajo, no como lista de cambios.
+11. ⚠ **`adidas-cross-em-up-select`: TRES fuentes dicen que es de NIÑO y la ficha dice `genero: unisex`**
+   (adulto). Decathlon la titula *"Zapatillas de baloncesto **niño** ADIDAS Cross 'Em Up Select Negras"* a
+   **55,60 € y con botón de compra**; en Amazon el ASIN B0C2QMD1Q6 tiene **Departamento "Unisex niños"** y
+   los demás llevan **"Kids"** en el nombre. En contra, un solo ASIN (B0CKXYQJ9Y) dice "Unisex adulto".
+   ⇒ Esto decide si su enlace de **Decathlon (afiliado, 6%)**, que ya existe en la ficha apagado, vale o no.
+   **▶️ DECIDIR**: marcarla como junior y encender ese enlace, o dejarla como adulta y sin opción real.
+
 ⚠ **Tres trampas al leer HoopsGeek, medidas hoy (la tabla no es de una zapa, es una COMPARATIVA):**
 · La tabla de specs de HG tiene **6 columnas** y solo la **PRIMERA** es la zapa reseñada. "El valor que sigue
   a `Type of Cut`" solo vale si coges esa primera celda; si no, lees el corte de otro modelo.
