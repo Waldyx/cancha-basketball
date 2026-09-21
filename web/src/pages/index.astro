@@ -71,7 +71,7 @@ const BLOG_CAT_COLOR: Record<string, string> = { "Guías": "#f97316", "Comparati
 
 // Precio MOSTRADO del pick (solo tiendas que monetizan/pendientes; si no, MSRP). El pick
 // se sigue ELIGIENDO con el precio real (editorPick), pero el número que enseñamos es éste.
-const pickMostrado = findMejorPrecioMostrado(editorPick.z.links_compra);
+const pickMostrado = findMejorPrecioMostrado(editorPick.z.links_compra, editorPick.z.precio_msrp_eur);
 const pickPrecioVista = pickMostrado?.precio_actual ?? editorPick.z.precio_msrp_eur;
 const pickAhorro = pickMostrado && pickPrecioVista < editorPick.z.precio_msrp_eur
   ? editorPick.z.precio_msrp_eur - pickPrecioVista : 0;
@@ -156,7 +156,7 @@ const homeJsonLd = {
                 <div class="ticker-row">
                   <span class="t-rank">{scoreOf(z)}</span>
                   <span class="t-name"><strong>{z.marca}</strong> {z.modelo}</span>
-                  <span class="t-price">{Math.round(findMejorPrecioMostrado(z.links_compra)?.precio_actual ?? z.precio_msrp_eur)}€</span>
+                  <span class="t-price">{Math.round(findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur)?.precio_actual ?? z.precio_msrp_eur)}€</span>
                 </div>
               ))}
               <a href="/rankings" class="panel-ranklink">Ver rankings completos →</a>
@@ -286,7 +286,7 @@ const homeJsonLd = {
 
         <div class="home-top3-grid">
           {top3.map((z, i) => {
-            const mejor = findMejorPrecioMostrado(z.links_compra);
+            const mejor = findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur);
             const precio = mejor?.precio_actual ?? z.precio_msrp_eur;
             const score = scoreOf(z);
             const cat = CAT_ACCENT[z.categoria_principal];

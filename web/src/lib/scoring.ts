@@ -526,17 +526,49 @@ export function esEnlaceDeBusqueda(link: LinkCompra): boolean {
   }
 }
 
-/** ¿Mostramos el precio numérico de este enlace? (afiliado activo o pendiente) */
-export function mostramosPrecio(link: LinkCompra): boolean {
+/**
+ * Por encima de este múltiplo del MSRP, el precio es de mercado secundario y NO se anuncia.
+ *
+ * Decidido el 21-sep-2026. El catálogo tiene modelos descatalogados cuyo único precio real
+ * hoy es de reventa, y la web los anunciaba como "desde 289 €" siendo zapatillas de 190. El
+ * dato no está MAL —es el precio real de mercado— pero un comparador que titula con él está
+ * dando una referencia de precio que no es la del producto.
+ *
+ * Se oculta el NÚMERO, no el enlace: la fila se queda como "Ver precio en X" y el "desde" cae
+ * al MSRP oficial, que es exactamente la estrategia de la s28 para las tiendas sin afiliado.
+ * Por eso **ninguna ficha se queda sin opción de compra**, que es lo que sí pasaba al apagar
+ * los enlaces (9 fichas a cero con este mismo umbral, medido).
+ *
+ * ⚠ Es DISPLAY y solo display. El orden del catálogo y el editor's pick siguen usando
+ * `findMejorPrecio` con el precio real: tocarlo cambiaría el orden del sitio entero.
+ */
+export const MAX_RATIO_MOSTRADO = 1.5;
+
+/** ¿El precio de este enlace es de reventa respecto al MSRP de su ficha? */
+export function esPrecioDeReventa(link: LinkCompra, msrp?: number): boolean {
+  if (!msrp || msrp <= 0) return false;
+  const p = link.precio_actual;
+  if (!p || p <= 0) return false;
+  return p / msrp > MAX_RATIO_MOSTRADO;
+}
+
+/**
+ * ¿Mostramos el precio numérico de este enlace? (afiliado activo o pendiente)
+ *
+ * `msrp` es opcional a propósito: sin él la función se comporta como siempre. Se le pasa
+ * desde las páginas, que son las que tienen la zapa delante.
+ */
+export function mostramosPrecio(link: LinkCompra, msrp?: number): boolean {
   // Un listado de búsqueda NO tiene precio propio que enseñar, por muy afiliada que sea
   // la tienda: el número saldría de la tarjeta de OTRO producto.
   if (esEnlaceDeBusqueda(link)) return false;
+  if (esPrecioDeReventa(link, msrp)) return false;
   return link.tiene_afiliado === true || TIENDAS_PENDIENTES.has(link.tienda);
 }
 
 /** Mejor precio entre las tiendas cuyo precio SÍ mostramos (para el "desde X€"). */
-export function findMejorPrecioMostrado(links: LinkCompra[]): LinkCompra | undefined {
-  return findMejorPrecio(links.filter((l) => mostramosPrecio(l)));
+export function findMejorPrecioMostrado(links: LinkCompra[], msrp?: number): LinkCompra | undefined {
+  return findMejorPrecio(links.filter((l) => mostramosPrecio(l, msrp)));
 }
 
 /**

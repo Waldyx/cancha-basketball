@@ -5,6 +5,10 @@ import {
   aplicarFiltrosDuros,
   findMejorPrecio,
   esEnlaceDeBusqueda,
+  mostramosPrecio,
+  findMejorPrecioMostrado,
+  esPrecioDeReventa,
+  MAX_RATIO_MOSTRADO,
   COMISIONES_TIENDA,
   unaFilaPorTienda,
 } from "./scoring";
@@ -420,5 +424,75 @@ describe("unaFilaPorTienda — una fila por tienda, la más barata", () => {
   it("un enlace sin precio (Ver precio en X) no desaparece", () => {
     const sinPrecio = [{ tienda: "nike_es", url: "https://www.nike.com/es/x", precio_actual: 0, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-18" } as any];
     expect(unaFilaPorTienda(sinPrecio)).toHaveLength(1);
+  });
+});
+
+// ─────────────────────────────────────────────────────────
+// Precio de REVENTA: se oculta el NÚMERO, nunca el enlace
+//
+// Decidido el 21-sep-2026. El catálogo tiene modelos descatalogados cuyo único precio real
+// hoy es de mercado secundario, y la web titulaba "desde 289 €" una zapatilla de 190. El
+// arreglo NO apaga el enlace —eso dejaba 9 fichas sin ninguna opción de compra, medido—
+// sino que deja de anunciar el número y cae al MSRP oficial.
+// ─────────────────────────────────────────────────────────
+
+function linkAfiliado(precio: number): LinkCompra {
+  return {
+    tienda: "amazon_es",
+    url: "https://www.amazon.es/dp/B000000000?tag=canchazapa-21",
+    precio_actual: precio,
+    disponible: true,
+    tiene_afiliado: true,
+    ultima_verificacion: "2026-09-21",
+  };
+}
+
+describe("esPrecioDeReventa", () => {
+  it("detecta el precio muy por encima del MSRP", () => {
+    expect(esPrecioDeReventa(linkAfiliado(485.39), 120)).toBe(true); // lining-gamma-2, 4,04x
+    expect(esPrecioDeReventa(linkAfiliado(279.67), 150)).toBe(true); // nike-gt-jump-2, 1,86x
+  });
+
+  it("deja pasar el precio normal y la rebaja", () => {
+    expect(esPrecioDeReventa(linkAfiliado(84.9), 140)).toBe(false);
+    expect(esPrecioDeReventa(linkAfiliado(150), 140)).toBe(false); // 1,07x: subida, no reventa
+  });
+
+  it("sin MSRP no decide nada (no se inventa un umbral)", () => {
+    expect(esPrecioDeReventa(linkAfiliado(999), undefined)).toBe(false);
+    expect(esPrecioDeReventa(linkAfiliado(999), 0)).toBe(false);
+  });
+
+  it("el umbral es exclusivo: justo en el límite todavía se muestra", () => {
+    expect(esPrecioDeReventa(linkAfiliado(100 * MAX_RATIO_MOSTRADO), 100)).toBe(false);
+    expect(esPrecioDeReventa(linkAfiliado(100 * MAX_RATIO_MOSTRADO + 0.01), 100)).toBe(true);
+  });
+});
+
+describe("mostramosPrecio con MSRP", () => {
+  it("🔑 sin MSRP se comporta como siempre (compatibilidad de las llamadas viejas)", () => {
+    expect(mostramosPrecio(linkAfiliado(485.39))).toBe(true);
+  });
+
+  it("con MSRP, el precio de reventa deja de anunciarse", () => {
+    expect(mostramosPrecio(linkAfiliado(485.39), 120)).toBe(false);
+  });
+
+  it("🔑 el enlace NO desaparece: sigue disponible, solo pierde el número", () => {
+    const l = linkAfiliado(485.39);
+    expect(l.disponible).toBe(true);
+    expect(mostramosPrecio(l, 120)).toBe(false);
+  });
+});
+
+describe("findMejorPrecioMostrado con MSRP", () => {
+  it("prefiere un precio sano aunque haya uno de reventa más barato en otra tienda", () => {
+    const caro = linkAfiliado(485.39);
+    const sano = { ...linkAfiliado(110), tienda: "decathlon" as const };
+    expect(findMejorPrecioMostrado([caro, sano], 120)?.precio_actual).toBe(110);
+  });
+
+  it("si TODO es reventa, no devuelve precio y la página cae al MSRP", () => {
+    expect(findMejorPrecioMostrado([linkAfiliado(485.39)], 120)).toBeUndefined();
   });
 });

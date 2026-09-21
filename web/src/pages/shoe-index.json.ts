@@ -16,7 +16,7 @@ export const GET: APIRoute = () =>
           const score =
             Math.round((vals.reduce((a, b) => a + b, 0) / vals.length) * 10) / 10;
           const precio =
-            findMejorPrecioMostrado(z.links_compra)?.precio_actual ?? z.precio_msrp_eur;
+            findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur)?.precio_actual ?? z.precio_msrp_eur;
           return [
             z.slug,
             {

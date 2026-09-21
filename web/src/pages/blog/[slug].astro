@@ -37,7 +37,7 @@ const articleBody = article.body.replace(
       }
       return `${z.peso_real_g}g`;
     }
-    const precio = findMejorPrecioMostrado(z.links_compra)?.precio_actual ?? z.precio_msrp_eur;
+    const precio = findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur)?.precio_actual ?? z.precio_msrp_eur;
     return `${precio}€`;
   }
 );
@@ -160,7 +160,7 @@ const CATEGORIA_COLOR: Record<string, string> = {
             <ul class="art-shoe-list">
               {relatedZapas.map((z) => {
                 if (!z) return null;
-                const mejor = findMejorPrecioMostrado(z.links_compra);
+                const mejor = findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur);
                 return (
                   <li class="art-shoe-item">
                     <a href={`/zapatilla/${z.slug}`} class="art-shoe-link">

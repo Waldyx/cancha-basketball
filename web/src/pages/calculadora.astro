@@ -17,7 +17,7 @@ const index = zapatillas.map((z) => ({
   marca: z.marca,
   modelo: z.modelo,
   dura: z.puntuaciones.durabilidad_outdoor,
-  precio: (findMejorPrecioMostrado(z.links_compra)?.precio_actual) ?? z.precio_msrp_eur,
+  precio: (findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur)?.precio_actual) ?? z.precio_msrp_eur,
   cat: z.categoria_principal,
   retro: z.tags.includes("retro"),
   img: z.imagen_principal,

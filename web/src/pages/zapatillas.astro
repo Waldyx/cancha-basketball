@@ -120,7 +120,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
                 <div class="ticker-row">
                   <span class="t-rank">{scoreOf(z)}</span>
                   <span class="t-name"><strong>{z.marca}</strong> {z.modelo}</span>
-                  <span class="t-price">{Math.round(findMejorPrecioMostrado(z.links_compra)?.precio_actual ?? z.precio_msrp_eur)}€</span>
+                  <span class="t-price">{Math.round(findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur)?.precio_actual ?? z.precio_msrp_eur)}€</span>
                 </div>
               ))}
             </div>
@@ -248,7 +248,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
               const z = editorPick.z;
               // El pick se elige con el precio real (sin tocar), pero MOSTRAMOS el precio
               // de una tienda que monetiza/pendiente; si no hay, el MSRP oficial.
-              const mejorVista = findMejorPrecioMostrado(z.links_compra);
+              const mejorVista = findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur);
               const precioVista = mejorVista?.precio_actual ?? z.precio_msrp_eur;
               const ahorro = z.precio_msrp_eur - precioVista;
               return (
@@ -301,7 +301,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
             {ordenadas.map((z, i) => {
               const mejor = minPrecioLink(z.links_compra);            // precio REAL (filtros / data-precio, no se toca)
               const precio = mejor?.precio_actual ?? z.precio_msrp_eur;
-              const mejorVista = findMejorPrecioMostrado(z.links_compra); // precio MOSTRADO (solo tiendas que monetizan/pendientes)
+              const mejorVista = findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur); // precio MOSTRADO (solo tiendas que monetizan/pendientes)
               const precioVista = mejorVista?.precio_actual ?? z.precio_msrp_eur;
               const tienda = mejorVista ? LABELS_TIENDA[mejorVista.tienda] || mejorVista.tienda : null;
               const score = scoreOf(z);
