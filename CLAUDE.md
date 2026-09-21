@@ -551,6 +551,28 @@ Sesión corta de infra, sin tocar catálogo. Todo MEDIDO contra la API, no deduc
    queda corta: no es que roten, es que **se están acabando**. Los $10 de créditos (que suben el tope de 50 a
    1.000 peticiones/día y habilitan un eslabón de pago) dejan de ser una mejora y empiezan a ser el plan B.
 
+16. 🔴 **EL QUIZ RECOMENDABA ZAPATILLAS GS (DE NIÑO) A ADULTOS — arreglado.** Medido en producción con
+   perfil *hombre, 75 kg, base, exterior, lesión de tobillo*: entre las 5 recomendaciones salía la
+   **adidas Cross Em Up 5 GS**, que es de tallaje escolar y a un adulto no le entra.
+   🔑 **El fallback del chat ya tenía la regla** (*"las GS solo si piden algo júnior; y si piden júnior,
+   solo GS"*) y el catálogo ya marca el segmento con **`genero: "gs"` (17 zapas)**. Lo que faltaba era el
+   filtro en `scoring.ts`, que solo miraba `genero === "women"`. Dos motores de recomendación en el mismo
+   sitio con reglas distintas, y el que fallaba era el principal.
+   Acotado a perfil **explícito** hombre/mujer (igual que el filtro de women que tiene justo encima): si el
+   quiz no llegó a preguntarlo, no se filtra. Medido: hombre 5 resultados y 0 GS (entra la Stewie 5 en su
+   sitio) · mujer 5 y 0 · junior 5 y sigue viendo las suyas. **Ningún perfil se queda sin resultados.**
+   Test candado nuevo → 269 tests.
+17. ✅ **Verificado end-to-end en producción lo que SÍ funciona** (para que nadie lo vuelva a mirar):
+   · **El filtro de tobillos del quiz es correcto**: las 5 recomendaciones de ese perfil son mid-top.
+   · **Las 13 fichas que recuperaron compra publican de nuevo su bloque `offers`** en el JSON-LD y pierden
+     el aviso de "ninguna de nuestras tiendas" (comprobado en `adidas-dame-8`, `kobe-8-protro`, `shai-001`).
+   · **`/api/coach` y `/api/feb` están sanos**: validan la entrada y responden 400 con mensaje útil.
+   · **Las 13 páginas principales devuelven 200** con su título correcto.
+   · **El sello "Precios re-verificados" se sostiene**: mediana de 1 día, 68% en los últimos 7 días.
+   · **La metodología no miente**: la ficha declara la confianza y las fuentes (comprobado `moolah-triple-
+     double` → "⚪ Estimación editorial" sin fuentes, y `nike-lebron-23` → "🟢 Verificado" con HoopsGeek 8.3
+     y RunRepeat 83/100).
+
 ⚠ **Tres trampas al leer HoopsGeek, medidas hoy (la tabla no es de una zapa, es una COMPARATIVA):**
 · La tabla de specs de HG tiene **6 columnas** y solo la **PRIMERA** es la zapa reseñada. "El valor que sigue
   a `Type of Cut`" solo vale si coges esa primera celda; si no, lees el corte de otro modelo.
