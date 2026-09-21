@@ -175,6 +175,12 @@ export default async function handler(req: any, res: any) {
       // cortaba en `length` sin emitir respuesta. El análisis de partidos es más largo.
       max_tokens: 1200,
       temperature: 0.4,
+      // Ver el comentario largo en `chat.ts`: los 21 modelos `:free` que quedan en
+      // OpenRouter son TODOS de razonamiento (medido el 21-sep contra /api/v1/models), y
+      // los 21 aceptan este parámetro. `enabled:false` para que no razone, `exclude:true`
+      // para que no lo devuelva si razona igual. La guarda `pareceRazonamiento` sigue
+      // detrás por si el proveedor ignora los dos.
+      reasoning: { enabled: false, exclude: true },
     });
 
   // Primero la cadena entera en una petición; detrás, los modelos de uno en uno como

@@ -335,6 +335,18 @@ export default async function handler(req: any, res: any) {
       // primero. Es un TOPE, no un objetivo: los que no razonan paran solos en `stop`.
       max_tokens: 1000,
       temperature: 0.4,
+      // 🔑 MEDIDO EL 21-sep-2026 contra /api/v1/models: los 21 modelos `:free` que quedan
+      // en OpenRouter son TODOS de razonamiento. O sea que "poner delante uno que no razone"
+      // ya no es una opción: esa palanca no existe. La que sí existe es ésta, porque los 21
+      // declaran `reasoning` en sus `supported_parameters`.
+      //   · enabled:false → que no razone (en los que permiten apagarlo).
+      //   · exclude:true  → si razona igual, que NO devuelva el razonamiento.
+      // Se mandan los dos a propósito. Y aunque el proveedor ignore ambos, la guarda
+      // `pareceRazonamiento` sigue detrás: esto reduce cuántas veces tiene que saltar, no
+      // la sustituye. ⚠ Si OpenRouter rechazara el parámetro con un 400, `detalle` lo dirá
+      // literalmente y se quita — es el mismo riesgo que el `models` de la s42, que los
+      // docs daban por bueno y producción devolvió 400.
+      reasoning: { enabled: false, exclude: true },
       // Streaming. El cuello del chat es minimax RAZONANDO (10-13 s medidos en producción
       // el 1-sep) y eso no se arregla desde aquí: lo que se arregla es la espera en blanco.
       // El front ya lo soportaba desde siempre (ChatWidget.astro lee res.body con un
