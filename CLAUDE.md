@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **248 zapas · 273 tests · `astro check` 0 errores** (páginas: recontar, el 342 era de la s43 con 240 zapas) |
+| Tamaño | **245 zapas · 287 tests · `astro check` 0 errores** (páginas: recontar, el 342 era de la s43 con 240 zapas) |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -346,6 +346,104 @@ Commits `1a262bc` + `98ec3ee`, **desplegados y verificados en producción**. 273
    depende de nemotron. Orden nuevo: gemma primero (único medido como español limpio), qwen y
    nemotron detrás. ⇒ El argumento de los **$10 de créditos** (tope de 50 → 1.000 peticiones/día y
    un eslabón de pago) ya no es una mejora: es el plan B de un servicio que hoy cuelga de un hilo.
+
+### ▶️ S53c (21-sep, noche) — DECISIONES CERRADAS: el usuario delegó y se resolvieron seis
+
+Commits `302306e` · `502d55c` · `6d769ff`, desplegados. **245 zapas · 287 tests · `astro check` 0
+errores.** Zapas sin opción de compra: **38** (empezó el día en 47, llegó a 72 por el fallo del
+scraper). **Modo: director + 3 trabajadores en terminal propio** (`cz-fantasmas`, `cz-361sport`,
+`cz-reposiciones`), lanzados con `--remote-control <nombre>` y dirigidos por `SendMessage`.
+
+**Las seis decisiones, cerradas. NO reabrir salvo que cambien los hechos:**
+
+1. 💰 **CRÉDITOS DE IA: NO, y es decisión del usuario, textual.** Ni los $10 de OpenRouter ni la
+   facturación de Gemini. *"NO VOY A PONER CREDITOS DE IA HAY MUCHISIMAS GRATUITAS."* ⇒ El chat vive
+   del catálogo gratis y el plan es hacerlo resistente, no comprar cobertura. **Quitar este tema de
+   los pendientes: ya no es una decisión abierta.**
+2. ✅ **Umbral de reventa: se OCULTA EL NÚMERO por encima de 1,5× MSRP, no se apaga el enlace**
+   (`302306e`). 10 fichas pasan a enseñar su MSRP y **ninguna se queda sin compra** (apagarlas dejaba
+   9 a cero). Ver el bloque propio más abajo.
+3. ✅ **361sport: DADA DE ALTA** (`6d769ff`). La ZEN 8 y la AG 6 recuperan compra. Ver bloque propio.
+4. ✅ **Fantasmas: RETIRADAS las 3** (`502d55c`), con control positivo en cada una. 248 → 245.
+5. ❌ **`reebok-shaqnosis`: NO se enlaza la Shaqnosis Low de reebok.eu.** Está viva (150 €, 13 de 28
+   tallas) pero la ficha es la **high** de 1995 y en el sitemap ES de Reebok solo existen colorways
+   Low. **El corte es identidad de producto**, regla propia del proyecto: sería el mismo error que
+   la AE 1 Low o la Kobe 9 Low. La ficha se queda sin compra. **Cerrado.**
+6. ❌ **`adidas-ae-1` en Amazon (209,82 €, 1,50× MSRP, una unidad): NO.** La ficha ya tiene
+   **FuikaOmar a 84,90 €**, que es 2,5× más barato y con afiliado. El enlace de Amazon no aporta
+   nada y además cae justo en el umbral nuevo. **Cerrado.**
+
+7. ✅ **`decathlon-tarmak-se500-mid` NO se retira** (decisión del director, distinta de las 3
+   fantasmas). Descatalogada ≠ inexistente: el producto EXISTIÓ, y la regla propia dice que la falta
+   de stock nunca saca una zapa del catálogo. Su MSRP de 80 € sigue sin fuente y sigue siendo
+   inverosímil — queda anotado, no inventado.
+
+8. 🔑 **Los trabajadores en terminal, cómo se lanzan de verdad** (costó dos intentos): `wt.exe` con
+   el prompt como argumento **parte el prompt por los espacios y `claude` no llega a arrancar**. Lo
+   que funciona es un **`.cmd` por trabajador** (`trabajo/_run-<nombre>.cmd`) lanzado con
+   `Start-Process cmd.exe /k`, con el encargo en un fichero y un prompt corto de arranque. Se
+   registran en `ListAgents` en unos segundos y responden a `SendMessage`.
+   ⚠ **La pestaña del panel de Terminal de la app NO sirve**: se puede abrir y leer, pero no hay
+   forma de escribir en ella, así que el trabajador nunca arranca.
+
+9. ✅ **El token de GitHub ya no está en la URL del remoto.** Movido al Credential Manager de Windows
+   (`git config --global credential.helper manager` + `git credential approve`), remoto reescrito a
+   `https://github.com/Waldyx/cancha-basketball.git` y autenticación verificada con `git ls-remote`.
+
+### 361sport — alta hecha, y el colorway anotado era el malo
+
+Verificado con navegador, JSON-LD de primer nivel + el endpoint `/products/<handle>.js` de Shopify,
+que es lo que da el stock POR TALLA (el JSON-LD no lo desglosa).
+
+| ficha | producto | precio | tallas InStock |
+|---|---|---|---|
+| `361-zen-8` | ZEN 8 "BE WATER" | **130,00 €** | **14 de 19** |
+| `361-ag-6` | AG 6 "Ión AG" | **110,00 €** | **9 de 15** |
+
+🔑 **Cambia el colorway que este documento daba por bueno**: el "Black Mamba" de la AG 6 está
+InStock y al mismo precio, **pero solo le quedan 2 tallas de 16**. *Un `InStock` no dice cuántas
+tallas quedan* — hay que pedir el `.js` de la variante. "Ión AG" tiene 9.
+
+- **Entran SIN número** ("Ver precio en 361sport"), el trato de las tiendas sin afiliado activo.
+- 🆕 **361sport SÍ tiene programa de afiliados**, y no es el de ninguna red conocida: es **propio,
+  con GoAffPro** (`361sport.goaffpro.com`), alta **self-service y gratuita**, *"Earn up to 5%
+  commission"* y la lista de productos excluidos **vacía**, o sea que el calzado entra al 5%.
+  ▶️ **DECIDIR (usuario): darse de alta.** Es un alta aparte, fuera de Awin/TradeTracker/Impact/CJ,
+  con su propio panel y su propio formato de enlace. El 5% ya está puesto en `COMISIONES_TIENDA`.
+  ⚠ Su Operating Agreement es la **plantilla genérica de GoAffPro** (jurisdicción India, GST,
+  mínimos en INR): no está reescrito para 361sport ni para la UE, así que no tomar sus cifras como
+  propias. Sí prohíbe expresamente los sitios de cupones/cashback — un comparador no encaja ahí.
+- ⚠ **IVA de importación, reconfirmado literal hoy**: *"361Sport.com no es responsable de los
+  impuestos de importación aplicados a su pedido. Todas las tarifas impuestas durante o después del
+  envío son responsabilidad del cliente"*. Sin IOSS. Sobre 130 € se acaban pagando **~160 € reales**.
+  ⇒ `LinkCompra` gana un campo **`nota`** opcional que se pinta bajo el nombre de la tienda en el
+  bloque de compra. **Se usa poco a propósito**: si cada fila lleva aviso, dejan de leerse.
+- 🆕 **El envío gratis está fijado en USD ($99), no en euros**, aunque la tienda `/es-es` muestre
+  precios en EUR. Para una unidad de cualquiera de las dos se cumple siempre.
+
+### Precios de reventa: se deja de anunciar el número (`302306e`)
+
+Regla: por encima de **1,5× el MSRP** no se enseña el precio. El enlace se queda vivo como "Ver
+precio en X" y el "desde" cae al MSRP oficial — la estrategia de la s28 aplicada a otro caso.
+
+**Por qué así y no apagando enlaces**: apagarlos dejaba **9 fichas sin ninguna opción de compra**;
+ocultar el número deja **0**. Medido, no supuesto.
+
+Las 10 afectadas: `gt-cut-3` 1,53× · `kyrie-low-5` 1,64× · `zoom-freak-4` 1,57× · `gt-jump-2` 1,86× ·
+`gamma-2` 4,04× · `zion-4` 1,53× · `sabrina-1` 1,56× · `pro-vision` 2,28× · `air-flight-huarache`
+1,64× · `air-zoom-flight-95` 1,66×.
+
+Implementación: `mostramosPrecio(link, msrp?)` y `findMejorPrecioMostrado(links, msrp?)` aceptan el
+MSRP como parámetro **opcional**, así que una llamada sin él se comporta como siempre; se propaga
+desde las 11 páginas que pintan precio. ⚠ **Es DISPLAY y solo display**: el orden del catálogo y el
+editor's pick siguen usando `findMejorPrecio` con el precio real.
+
+🔑 **Y de rebote apareció un desajuste de datos estructurados**: al dejar de anunciar el precio, el
+CTA seguía cayendo en el enlace de reventa y **el JSON-LD le decía a Google "485,39 €" mientras la
+ficha enseñaba "Ver precio" y el MSRP**. `ofertaValida` exige ahora que el precio del `offers` sea
+uno que la página esté enseñando. Verificado en el build: `gamma-2` y `gt-jump-2` quedan sin
+`offers`; `ae-1` (84,90) y `lebron-23` (126,39) lo publican. **Al cambiar lo que la página MUESTRA,
+hay que mirar si el marcado estructurado sigue diciendo lo mismo.**
 
 ### ▶️ S53b (21-sep, tarde) — el scraper de Amazon apagó 25 fichas por un fallo NUESTRO
 
@@ -1703,6 +1801,15 @@ Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
   queda sin stock a la vez, ni deja de reponer: **la asimetría es la señal, mucho antes que el
   número**. Con un cambio bidireccional habría que mirar caso a caso; con uno de un solo sentido,
   sospecha primero de tu propio código.
+- **Un `InStock` no dice cuántas TALLAS quedan — s53c.** La AG 6 "Black Mamba" figuraba como
+  disponible a 110 € y lo estaba… con **2 tallas de 16**. Otro colorway al mismo precio tenía 9.
+  Un `availability: InStock` del JSON-LD es un booleano de producto, no de surtido: para una
+  opción de compra real hay que pedir la curva de tallas (en Shopify, `/products/<handle>.js`).
+- **Al cambiar lo que la página MUESTRA, mirar si el marcado estructurado sigue diciendo lo mismo
+  — s53c.** Al dejar de anunciar los precios de reventa, la ficha pasó a enseñar "Ver precio" y el
+  MSRP mientras el JSON-LD le seguía diciendo a Google "485,39 €". Datos estructurados que no
+  coinciden con el contenido visible es justo lo que Google penaliza, y no lo ve ningún test: se ve
+  leyendo el HTML del build.
 - **Un código de error DEDUCIDO no es un código de error MEDIDO.** La s40 concluyó "403 = permiso
   vetado" razonando desde fuera; el panel de OpenRouter no tenía ni un 403, tenía 429 por modelo.
   Media sesión de hipótesis que se resuelve en un minuto **mirando el panel del proveedor**. Antes
@@ -2024,7 +2131,7 @@ Ordenación: **precio primero**, desempate por comisión dentro de ±0,50 €.
 
 ## Arquitectura de datos
 
-- **`web/src/data/zapatillas.ts`** — array `_rawZapatillas` con las 244 zapas. Exporta `zapatillas`,
+- **`web/src/data/zapatillas.ts`** — array `_rawZapatillas` con las 245 zapas. Exporta `zapatillas`,
   `getZapatillaBySlug()`, `getAllZapatillas()`. `mergePricesIntoShoes()` fusiona los precios del
   scraper.
 - **`web/src/data/precios.json`** — salida del scraper (CRLF). ⚠ Ver doctrina: fusiona y pisa.
@@ -2159,4 +2266,4 @@ presupuesto · ancho de pie · uso (auto-submit 400 ms).
   `cancha-quiz-respuestas` (sessionStorage).
 - **Scripts de mantenimiento**: `update-images.js`, `fix-encoding.js`, `optimize-images.mjs`,
   `gen-chat-catalog.ts`, y los `audit-*` listados arriba.
-- **Tests**: `npx vitest run` → 273.
+- **Tests**: `npx vitest run` → 287.
