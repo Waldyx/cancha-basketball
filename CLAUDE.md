@@ -543,9 +543,10 @@ Sesión corta de infra, sin tocar catálogo. Todo MEDIDO contra la API, no deduc
    **Cadena nueva** (`chat.ts` y `coach.ts`): `qwen/qwen3.8-27b` + `google/gemma-4-31b-it` +
    `nvidia/nemotron-3-super-120b-a12b`, y de cola `gemma-4-26b`, `inclusionai/ling-3.0-flash-vl` y `glm-5.2`.
    Se mezclan familias a propósito: el 429 es POR MODELO, así que diversificar proveedor sí esquiva (s41).
-   ⚠ **Van SIN VALIDAR** (no hay clave aquí con la que probarlos). Quitar un 404 y un 403 solo puede mejorar,
-   y si fallan se degrada a lo que ya pasaba. nemotron colaba `<think>` en jun-2026 y por eso se descartó;
-   hoy `limpiarRespuesta` lo filtra, así que vuelve a entrar.
+   ✅ **VALIDADA EN PRODUCCIÓN el mismo día**: tras el despliegue, una petición real a `/api/chat` devuelve
+   **texto de IA en streaming** (recomendó la Dame X con sus datos de ficha: 42 €, outdoor 9, low) en vez del
+   `code: local-upstream`. El chat vuelve a funcionar de verdad.
+   nemotron colaba `<think>` en jun-2026 y por eso se descartó; hoy `limpiarRespuesta` lo filtra.
    📏 **Solo quedan 21 modelos `:free` en todo OpenRouter.** La doctrina de "el catálogo gratis CADUCA" se
    queda corta: no es que roten, es que **se están acabando**. Los $10 de créditos (que suben el tope de 50 a
    1.000 peticiones/día y habilitan un eslabón de pago) dejan de ser una mejora y empiezan a ser el plan B.

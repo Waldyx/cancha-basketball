@@ -273,7 +273,8 @@ export default async function handler(req: any, res: any) {
         //   · thinkingmachines/inkling-small:free -> 403. Esto CIERRA la duda de la s42: el
         //     403 sin identificar era éste, justo el que decía la posición en `estados`.
         // Los otros tres siguen vivos, pero devolvían "temporarily rate-limited upstream".
-        // ⚠ Los nuevos van SIN VALIDAR (no hay clave con la que probarlos desde aquí). Se
+        // ✅ VALIDADA EN PRODUCCIÓN el 21-sep-2026: con esta cadena el chat vuelve a responder
+        // en streaming con texto de IA real (antes: `code: local-upstream`). Se
         // mezclan familias a propósito: el 429 de OpenRouter es POR MODELO, así que
         // diversificar proveedor sí esquiva el rate-limit (s41).
         "qwen/qwen3.8-27b:free",
