@@ -2049,62 +2049,6 @@ const _rawZapatillas: Zapatilla[] = [
   },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 25. ADIDAS CROSS 'EM UP SPEED — Presupuesto velocidad iniciación
-  // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  {
-    id: "adidas-cross-em-up-speed",
-    slug: "adidas-cross-em-up-speed",
-    marca: "Adidas",
-    modelo: "Cross 'Em Up Speed",
-    año_lanzamiento: 2024,
-    genero: "unisex",
-    tecnologia_clave: ["Cloudfoam midsole", "Synthetic upper", "Herringbone outsole"],
-    peso_real_g: 380,
-    altura: "mid",
-    horma: "normal",
-    drop_mm: 10,
-    tipo_cierre: "cordones",
-    material_superior: "synthetic",
-    puntuaciones: {
-      traccion: 7, amortiguacion: 6, respuesta: 6,
-      soporte_lateral: 7, estabilidad: 7, peso_score: 6,
-      durabilidad_outdoor: 7, ventilacion: 6,
-    },
-    categoria_principal: "balanced",
-    tags: ["presupuesto", "iniciacion"],
-    ideal_para: {
-      posiciones: ["base", "escolta", "alero"],
-      peso_jugador_kg: [55, 80],
-      estilos: ["equilibrado", "explosivo"],
-    },
-    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
-    resumen: "Variante Speed del Cross 'Em Up orientada a juventud y jugadores casuales. Cloudfoam cómodo, tracción decente y precio bajísimo.",
-    pros: [
-      "Precio muy accesible",
-      "Cloudfoam cómodo desde el primer día",
-      "Diseño limpio y juvenil",
-      "Buena durabilidad de upper",
-    ],
-    contras: [
-      "Cushion básico, sin tecnología destacable",
-      "Sin reviews profesionales detalladas",
-      "Performance genérico",
-    ],
-    veredicto: "Para iniciación o uso casual. No es para competición seria. Si presupuesto sube de 70 €, mira el Dame Certified.",
-    imagen_principal: "/shoes/adidas-cross-em-up-speed.webp",
-    imagenes: [],
-    fuentes: [
-      { tipo: "evaluacion-propia" },
-    ],
-    ultima_actualizacion: "2026-05-29",
-    precio_msrp_eur: 65,
-    links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+cross+em+up+speed+baloncesto&tag=canchazapa-21", precio_actual: 44.27, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/adidas-Cross-Select-Shoes-Mid-Negro/dp/B0C2QMD1Q6/ref=sr_1_1?tag=canchazapa-21", precio_actual: 48, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es OTRO producto (la ficha enlazaba una busqueda)
-    ],
-  },
-
-  // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 26. JORDAN ONE TAKE 6 — Presupuesto outdoor potente
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   {
@@ -7101,62 +7045,6 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fpuma-zapatilla-baloncesto-all-pro-nitro-2-312307-1001080242-p", precio_actual: 75.91, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-puma-all-pro-nitro-2-blanco-brillo-solar%2F362929%2Fm8998760", precio_actual: 104.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fpuma%2Fzapatillas-de-baloncesto-puma-all-pro-nitro-2for-all-time-red-ne-unisex-151574.html", precio_actual: 77.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
-    ],
-  },
-
-  // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  // 86. NIKE AIR MAX IMPACT 5 — presupuesto, interior básico
-  // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-  {
-    id: "nike-air-max-impact-5",
-    slug: "nike-air-max-impact-5",
-    marca: "Nike",
-    modelo: "Air Max Impact 5",
-    generacion: 5,
-    año_lanzamiento: 2024,
-    genero: "unisex",
-    tecnologia_clave: ["Air Max cushion", "multidirectional traction"],
-    predecesor_id: null,
-    sucesor_id: null,
-    peso_real_g: 400,
-    altura: "mid",
-    horma: "ancha",
-    drop_mm: 12,
-    tipo_cierre: "cordones",
-    material_superior: "mesh+tpu",
-    puntuaciones: {
-      traccion: 7,
-      amortiguacion: 7,
-      respuesta: 5,
-      soporte_lateral: 7,
-      estabilidad: 8,
-      peso_score: 5,
-      durabilidad_outdoor: 7,
-      ventilacion: 6,
-    },
-    categoria_principal: "cushion-focused",
-    tags: ["budget", "moderna"],
-    ideal_para: {
-      posiciones: ["pivot", "ala-pivot", "alero"],
-      peso_jugador_kg: [80, 120],
-      estilos: ["potente", "equilibrado"],
-      lesiones_compatibles: ["rodillas"],
-    },
-    no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
-    resumen: "La opción más accesible de Nike con Air Max. Sin ser revolucionaria, ofrece cushion decente y estabilidad para jugadores de interior con presupuesto ajustado.",
-    pros: ["Precio muy asequible", "Cushion Air Max suficiente", "Estabilidad correcta para su precio"],
-    contras: ["Pesada", "Court feel nulo", "No apta para juego explosivo"],
-    veredicto: "Para el jugador de interior que quiere cushion Nike sin gastar más de 80€. Simple y funcional.",
-    imagen_principal: "/shoes/nike-air-max-impact-5.webp",
-    imagenes: [],
-    fuentes: [
-      { tipo: "evaluacion-propia" },
-    ],
-    ultima_actualizacion: "2026-05-29",
-    precio_msrp_eur: 80,
-    links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=air+max+impact+5&vst=air+max+impact+5", precio_actual: 80, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+air+max+impact+5&tag=canchazapa-21", precio_actual: 72, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
 
@@ -14516,63 +14404,6 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010661844381.html", precio_actual: 69.57, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=rigorer+ar1+austin+reaves&tag=canchazapa-21", precio_actual: 85, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
-    ],
-  },
-
-  // RIGORER WARSHIP — Outdoor budget, suela ultra-resistente
-  {
-    id: "rigorer-warship",
-    slug: "rigorer-warship",
-    marca: "Rigorer",
-    modelo: "Warship",
-    generacion: 1,
-    año_lanzamiento: 2024,
-    genero: "unisex",
-    tecnologia_clave: ["Goma reforzada outdoor", "EVA midsole", "Refuerzo TPU"],
-    predecesor_id: null,
-    sucesor_id: null,
-    peso_real_g: 410,
-    altura: "mid",
-    horma: "normal",
-    drop_mm: 10,
-    tipo_cierre: "cordones",
-    material_superior: "mesh+tpu",
-    puntuaciones: {
-      traccion: 8, amortiguacion: 7, respuesta: 6,
-      soporte_lateral: 7, estabilidad: 7, peso_score: 6,
-      durabilidad_outdoor: 9, ventilacion: 6,
-    },
-    categoria_principal: "balanced",
-    tags: ["china-brand", "outdoor", "budget", "durable"],
-    ideal_para: {
-      posiciones: ["alero", "ala-pivot", "escolta"],
-      peso_jugador_kg: [70, 105],
-      estilos: ["equilibrado", "potente"],
-    },
-    no_recomendada_para: { estilos: ["explosivo"] },
-    resumen:
-      "La Rigorer Warship es la línea outdoor económica de la marca. Suela de goma ultra gruesa pensada específicamente para asfalto y cemento — aguanta sin desintegrarse donde Nike falla. Para quien juega a la canasta del barrio dos veces por semana y quiere algo que dure años.",
-    pros: [
-      "Suela tipo neumático — duración brutal en outdoor",
-      "Precio muy bajo (60€) — accesible",
-      "Refuerzos TPU sólidos para cambios de dirección",
-      "Mid-top con soporte adecuado para todas las posiciones",
-    ],
-    contras: [
-      "Pesada (410g) — no apta para juego rápido",
-      "Cushion básico — no compite con flagships",
-      "Estética simple — no es zapa de hype",
-    ],
-    veredicto:
-      "La elección perfecta para el jugador outdoor que prioriza durabilidad sobre todo. Si Nike se te rompe en 3 meses jugando en cemento, prueba la Warship.",
-    imagen_principal: "/shoes/rigorer-warship.webp",
-    imagenes: [],
-    fuentes: [{ tipo: "evaluacion-propia" }],
-    ultima_actualizacion: "2026-06-09",
-    precio_msrp_eur: 60,
-    links_compra: [
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fwholesale%3FSearchText%3Drigorer%2Bwarship%2Bbasketball", precio_actual: 60, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=rigorer+warship&tag=canchazapa-21", precio_actual: 70, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
     ],
   },
 

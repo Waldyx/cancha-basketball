@@ -1346,17 +1346,6 @@
         }
       ]
     },
-    "adidas-cross-em-up-speed": {
-      "links_compra": [
-        {
-          "tienda": "amazon_es",
-          "url": "https://www.amazon.es/adidas-Cross-Select-Shoes-Mid-Negro/dp/B0C2QMD1Q6/ref=sr_1_1?tag=canchazapa-21",
-          "precio_actual": 48,
-          "disponible": false,
-          "ultima_verificacion": "2026-09-21"
-        }
-      ]
-    },
     "reebok-engine-a": {
       "links_compra": [
         {
@@ -1405,31 +1394,6 @@
           "precio_actual": 39.95,
           "disponible": true,
           "ultima_verificacion": "2026-09-21"
-        }
-      ]
-    },
-    "nike-air-max-impact-5": {
-      "links_compra": [
-        {
-          "tienda": "amazon_es",
-          "url": "https://www.amazon.es/NIKE-Air-Max-Alpha-Zapatillas/dp/B0FSRY95WM/ref=sr_1_4",
-          "precio_actual": 88,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-20"
-        },
-        {
-          "tienda": "amazon_es",
-          "url": "https://www.amazon.es/NIKE-Trainer-Sneaker-Hombre-Grey-Black/dp/B0BX4BGZ6Z/ref=sr_1_1",
-          "precio_actual": 101.48,
-          "disponible": true,
-          "ultima_verificacion": "2026-09-21"
-        },
-        {
-          "tienda": "amazon_es",
-          "url": "https://www.amazon.es/NIKE-Air-Max-Alpha-Zapatillas/dp/B0FSRZ4ZHG/ref=sr_1_4",
-          "precio_actual": 99.99,
-          "disponible": true,
-          "ultima_verificacion": "2026-08-29"
         }
       ]
     },
