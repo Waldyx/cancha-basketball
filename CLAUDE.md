@@ -347,6 +347,72 @@ Commits `1a262bc` + `98ec3ee`, **desplegados y verificados en producción**. 273
    nemotron detrás. ⇒ El argumento de los **$10 de créditos** (tope de 50 → 1.000 peticiones/día y
    un eslabón de pago) ya no es una mejora: es el plan B de un servicio que hoy cuelga de un hilo.
 
+### ▶️ S53b (21-sep, tarde) — el scraper de Amazon apagó 25 fichas por un fallo NUESTRO
+
+Commits `e0ac58f` + `36c58ad`, desplegados. 278 tests · `astro check` 0 errores · `audit-enlaces`
+sin hallazgos. **Zapas sin opción de compra: 72 → 42** (eran 47 antes del scrape de anoche).
+
+1. 🔴 **El scrape del 21-sep marcó 61 enlaces de Amazon como agotados y dejó 25 fichas anunciando
+   "ahora mismo no la vende ninguna de nuestras tiendas" mientras Amazon las vendía.** Varias eran
+   justo las verificadas A MANO el 20-sep con el botón de carrito delante (`adidas-dame-8`,
+   `adidas-dame-certified`, `nike-ja-1`, `fila-mb`).
+   🔑 **El chivato de que el fallo era nuestro y no del mercado: 25 fichas perdieron la compra en
+   una noche y NINGUNA la recuperó.** Un mercado real no hace eso. La asimetría es la señal, no el
+   número.
+2. 🔑 **Causa: la regla "sin `#add-to-cart-button` ⇒ agotado" es AUSENCIA DE EVIDENCIA.** Se puso el
+   18-sep (`f08647e`) y era correcta al distinguirla del texto "No disponible", pero no al concluir
+   desde la ausencia. Con `waitUntil: "domcontentloaded"` el buybox puede no estar todavía en el DOM,
+   y la IP de CI puede recibir una página recortada. Comprobado contra Amazon ese mismo día:
+   B0B6GM83PV (Dame 8) y B0D1S5M6LG (Ja 1) tenían `add-to-cart-button` **Y** `buy-now-button`.
+3. ✅ **Arreglo (`e0ac58f`)**, que cubre las dos causas sin tener que distinguirlas: se **espera** a
+   que aparezca una de las tres señales (`#add-to-cart-button`, `#buy-now-button`, `#outOfStock`) en
+   vez de preguntar al instante por una sola · **`agotado` exige señal POSITIVA** (`#outOfStock` o el
+   texto de `#availability`) · si no aparece ninguna, el scrape es **INCONCLUYENTE**
+   (`disponible: false` SIN `agotado`), que es lo que no apaga el enlace editorial. Decisión aislada
+   en `veredictoFicha()`, pura y con 5 tests de candado.
+   ⚠ El texto de agotado se lee con `$$eval` + `some`, **no** con `$eval`: con selectores separados
+   por comas los nodos vienen en ORDEN DEL DOCUMENTO, la misma trampa del bug del buybox del 13-sep.
+4. ✅ **Las otras 6 tiendas con `agotado` están BIEN planteadas** (revisadas): ECI, Decathlon, Forum,
+   Snipes y FuikaOmar exigen que la propia tienda declare `OutOfStock` en su JSON-LD — y comprueban
+   antes que el campo `availability` exista — y Atmósfera mira las clases de talla. **Amazon era la
+   única que concluía desde la ausencia**, y es la que más enlaces tiene.
+5. ✅ **Limpieza (`36c58ad`)**: comprobados **uno a uno contra Amazon los 74 enlaces** marcados
+   agotados, leyendo `productTitle` + `add-to-cart-button` de cada `/dp/`. **55 falsos y 18 agotados
+   de verdad** (+ la Dame 8 ya verificada = 56 limpiados). **De los 61 de anoche, 48 eran falsos: el
+   79%.** Los 18 reales se conservan con su marca. Detalle por ASIN en
+   `trabajo/w24-amazon-agotados.tsv`. Editado por líneas respetando CRLF, sin round-trip de
+   `JSON.stringify`.
+6. ✅ **5 fichas recuperan compra con enlaces afiliados verificados hoy** (trabajo w24):
+   `adidas-ae-1` **FuikaOmar 84,90 €** (0,61×) + Forum Sport 95,05 € · `adidas-ae-1-gs` FuikaOmar
+   64,90 € · `jordan-xxxix` **Decathlon 176,28 €** (0,88×) · `nike-kobe-9-high-protro` Decathlon
+   274,10 € (1,37×) · `adidas-ownthegame-2` Decathlon 81,40 € (1,16×, una sola talla: opción débil).
+   🔑 **El corte de la AE 1 confirmado A TRES BANDAS** (JI0424 = MID): el título de FuikaOmar dice
+   "Mid", Forum lista la AE 1 **LOW** aparte con otro SKU (JQ6140), y el precio original de 139,99 €
+   es el MSRP de la Mid (la Low es 109,99). La descripción de Forum dice "Low" y es copy-paste que se
+   contradice con su propio título.
+7. ⚠ **`nike-precision-8` CERRADA con evidencia: la Mid no la vende nadie en España.** ECI, Atmósfera
+   y Forum titulan productos como "Precision 8" e incluso "Precision 8 **Mid**", pero **las 8
+   referencias son IH1104 = la LOW** (Forum vende con el mismo IH1104 tres artículos titulados
+   "PRECISION 8 LOW"). La Mid es IH1105. Cierra el pendiente de la s49 por SKU, no por inferencia.
+8. **Cosecha de los otros frentes, para no repetirla**: Amazon, de 18 fichas a cero, solo dio la AE 1
+   a **1,50× MSRP con una unidad** (no aplicada) y la AJ 39 a 1,94× (reventa); todo lo demás,
+   `OTRO_PRODUCTO` o `NO_VENDE` con control positivo — **361° y Rigorer no existen en Amazon ES**.
+   Basketball Emotion + tiendas oficiales de marca: **0 de 23**, con el sitemap entero cruzado por
+   sus tres rutas. Lo único que quedó a decidir ahí es `reebok-shaqnosis`: reebok.eu vende la
+   Shaqnosis **Low** a 150 € (13 de 28 tallas) y la ficha es la **high** de 1995 — por la regla del
+   corte = identidad de producto NO se aplicó.
+9. 📣 **Promo encontrada y NO commiteada a propósito**: adidas ES **MidSeason Sales, 25-sep → 13-oct,
+   hasta 30% sin código** (correo de Awin del 21-sep, adidas es afiliado activo). El correo dice
+   *"no compartir esta información hasta el lanzamiento"* y **este repo es PÚBLICO**, así que
+   commitearla hoy sería difundirla. No se pierde nada: el date-gate no la enseñaría antes del 25.
+   Queda en `trabajo/w24-promos.md`, que no sube a GitHub. **▶️ Commitearla el 25-sep.**
+   · Sigue descubierto **solo el 24-sep** (AliExpress muere el 23, adidas arranca el 25).
+   · **AliExpress Choice Day 1-7 oct** confirmado por su calendario oficial, pero **sin códigos
+     todavía**: llegan en correo dedicado 2-3 días antes (esperable 28-30 sep). No cargar hasta
+     tenerlos, que las promos de AliExpress viven de sus tramos `BDES`/`FSES`.
+10. ⚠ **El `origin` local lleva el token de GitHub incrustado en la URL del remoto.** No está
+   commiteado (es `.git/config`), pero conviene moverlo a un credential helper.
+
 ### ▶️ S52 (20-sep) — Gemini reconfigurado: el muro no eran 5/min, son **20 peticiones AL DÍA**
 
 Sesión corta de infra, sin tocar catálogo. Todo MEDIDO contra la API, no deducido.
@@ -1627,6 +1693,16 @@ Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
   pero no atribuir a ningún modelo sin desplegar otra vez; una cabecera `X-CZ-Model` en la respuesta
   buena lo resolvió en la primera petición. Si una función depende de un tercero, su respuesta debe
   decir quién la sirvió.
+- **Concluir desde la AUSENCIA de una señal es distinto de leer una señal — s53b.** El scraper de
+  Amazon daba por agotado todo lo que no tuviera `#add-to-cart-button`, y una noche apagó 25 fichas
+  que Amazon sí vendía. La regla buena es: **el estado malo exige una señal POSITIVA** (`#outOfStock`,
+  un `OutOfStock` en el JSON-LD); si no hay ni una cosa ni la otra, el scrape es **inconcluyente** y
+  no debe tocar el dato editorial. Las otras 6 tiendas ya lo hacían así y ninguna falló.
+- **Si un dato se mueve todo en la misma dirección de golpe, el fallo es tuyo — s53b.** 25 fichas
+  perdieron la opción de compra en una sola noche y NINGUNA la recuperó. Ni una tienda entera se
+  queda sin stock a la vez, ni deja de reponer: **la asimetría es la señal, mucho antes que el
+  número**. Con un cambio bidireccional habría que mirar caso a caso; con uno de un solo sentido,
+  sospecha primero de tu propio código.
 - **Un código de error DEDUCIDO no es un código de error MEDIDO.** La s40 concluyó "403 = permiso
   vetado" razonando desde fuera; el panel de OpenRouter no tenía ni un 403, tenía 429 por modelo.
   Media sesión de hipótesis que se resuelve en un minuto **mirando el panel del proveedor**. Antes
