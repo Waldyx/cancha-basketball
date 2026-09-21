@@ -367,6 +367,23 @@ Commits `1a262bc` + `98ec3ee`, **desplegados y verificados en producción**. 273
      llegan en correo dedicado 2-3 días antes (28-30 sep). No cargarla hasta tenerlos.
 3. ▶️ **DECIDIR (usuario): alta en el afiliado de 361sport** (GoAffPro, self-service, gratis, hasta
    5%). Implica crear cuenta, así que lo hace el usuario. El 5% ya está en `COMISIONES_TIENDA`.
+4. 🌙 **LO PRIMERO DE MAÑANA: comprobar la pasada nocturna del scraper.** Es la primera que corre con
+   el arreglo del `agotado` de Amazon (`e0ac58f`), y lo que se arregló fue justo algo que apagó 25
+   fichas de golpe. El arreglo es conservador —`agotado` solo con señal positiva— así que el riesgo
+   es al revés (que marque de menos), pero hay que verlo. Comprobación de un minuto, desde `web/`:
+   ```
+   npx tsx scripts/audit-enlaces.ts | head -14
+   ```
+   Si "Zapas con enlaces pero NINGUNO disponible" sube mucho por encima de **32**, mirar si los
+   `agotado` nuevos de Amazon son reales antes de dar nada por bueno. El método está en
+   `trabajo/w24-amazon-agotados.tsv`: abrir cada `/dp/` y leer `add-to-cart-button`.
+   🔑 Y la señal que delató el fallo, por si se repite: **si muchas fichas pierden compra y NINGUNA
+   la recupera, el fallo es nuestro, no del mercado.**
+
+**Estado verificado en producción al cerrar la sesión (21-sep, 22:2x):** las 7 páginas principales
+devuelven 200 · el chat responde con IA real en español (`X-CZ-Model: nvidia/nemotron-3-super-120b`)
+· las 3 fichas retiradas dan 404 · las 361 pintan su aviso de IVA · las de reventa enseñan MSRP y
+conservan sus enlaces.
 
 Commits `302306e` · `502d55c` · `6d769ff`, desplegados. **245 zapas · 287 tests · `astro check` 0
 errores.** Zapas sin opción de compra: **38** (empezó el día en 47, llegó a 72 por el fallo del
