@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **248 zapas · 259 tests · `astro check` 0 errores** (páginas: recontar, el 342 era de la s43 con 240 zapas) |
+| Tamaño | **248 zapas · 273 tests · `astro check` 0 errores** (páginas: recontar, el 342 era de la s43 con 240 zapas) |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -301,6 +301,51 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 ---
 
 ## 🔴 Pendientes abiertos
+
+### ▶️ S53 (21-sep, tarde) — EL CHAT SERVÍA EL RAZONAMIENTO DEL MODELO, y los 21 gratis razonan
+
+Commits `1a262bc` + `98ec3ee`, **desplegados y verificados en producción**. 273 tests · `astro check` 0 errores.
+
+1. 🔴 **El chat devolvía la CADENA DE PENSAMIENTO del modelo en vez de la respuesta.** Medido en
+   producción: **2 de cada 3 consultas**. Literal de una de ellas: *"We need to recommend a cheap
+   outdoor shoe under 90 euros. Must respect budget…"* — en inglés, y cortándose sin llegar a
+   responder nunca. ⚠ **La validación de la mañana del 21-sep usó UNA sola consulta y salió la
+   buena**: por eso el bloque S52b lo da por "validado en producción" y no lo estaba. Una muestra
+   de uno no valida un fallo intermitente.
+2. 🔑 **Por qué no lo paraba nada de lo que ya había** (las dos defensas existían y ninguna cubría
+   este caso): `delta.reasoning` se ignora a propósito, que es la defensa BUENA, pero solo sirve si
+   el modelo usa ese canal — éstos vuelcan el razonamiento en `delta.content`. Y `limpiarRespuesta`
+   solo quita etiquetas `<think>`, y esto viene SIN etiquetas. El comentario de la cadena ("hoy
+   limpiarRespuesta quita los `<think>`, así que nemotron vuelve a entrar") **daba por cubierto un
+   caso que no lo estaba**: el escape de nemotron de jun-2026 nunca fue de etiquetas.
+3. ✅ **Arreglo en tres piezas** (`1a262bc`): guarda `pareceRazonamiento` (el sitio responde SIEMPRE
+   en español, así que un arranque de planificación en inglés y primera persona se descarta; solo se
+   mira el arranque, no el resto) · **retención de arranque en el streaming**: no se emite hasta
+   tener 180 caracteres limpios, que es la única ventana en la que todavía se puede cambiar de
+   modelo, porque **emitir es irreversible**; si el arranque parece razonamiento se descarta el
+   intento con un `205` y sigue el siguiente · una respuesta legítima más corta que el mínimo se
+   emite igual al cerrar. 4 tests de candado con las capturas literales de producción.
+4. 🔑 **Cabecera `X-CZ-Model` con el modelo que respondió.** Hasta ahora eso solo estaba en los logs
+   de Vercel, que no se miran, y por eso el fallo se podía reproducir pero no atribuir sin desplegar
+   otra vez. Con la cabecera, la PRIMERA petición tras el despliegue ya dijo el culpable:
+   **`nvidia/nemotron-3-super-120b-a12b`**. Es la misma lección que el 502 opaco de la s40, aplicada
+   al camino feliz: **si una función depende de un tercero, que diga en su propia respuesta quién
+   contestó**, no solo por qué falló.
+5. 🔑 **HALLAZGO DE FONDO: de los 21 modelos `:free` que quedan en OpenRouter, los 21 son de
+   RAZONAMIENTO** (medido contra `/api/v1/models`, mirando `supported_parameters`). ⇒ **"Poner
+   delante uno que no razone" ya NO es una opción: esa palanca no existe.** La doctrina de "mezclar
+   familias para esquivar el 429" sigue valiendo; la de "gemma no razona" ha caducado.
+6. ✅ **La palanca que SÍ existe** (`98ec3ee`): los 21 declaran `reasoning` en sus
+   `supported_parameters`, así que se manda **`reasoning: { enabled: false, exclude: true }`** —
+   que no razone, y si razona igual, que no lo devuelva. **OpenRouter lo ACEPTA** (ni un 400 en
+   `estados`, al contrario que el `models` de la s42). Verificado en producción: nemotron responde
+   ahora en español limpio, con marcadores `[[shoe:]]` correctos y slugs que existen.
+   ⚠ La guarda del punto 3 **se queda**: esto reduce cuántas veces tiene que saltar, no la sustituye.
+7. 📏 **Estado medido de la cadena** (`estados: 205,429,429,205` antes del arreglo 6):
+   `gemma-4-31b-it` y `qwen3.8-27b` están **los dos rate-limited**, así que hoy el chat entero
+   depende de nemotron. Orden nuevo: gemma primero (único medido como español limpio), qwen y
+   nemotron detrás. ⇒ El argumento de los **$10 de créditos** (tope de 50 → 1.000 peticiones/día y
+   un eslabón de pago) ya no es una mejora: es el plan B de un servicio que hoy cuelga de un hilo.
 
 ### ▶️ S52 (20-sep) — Gemini reconfigurado: el muro no eran 5/min, son **20 peticiones AL DÍA**
 
@@ -1572,6 +1617,16 @@ Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
   Con el remoto por delante devuelve VACÍO igual que si todo estuviera sincronizado, y eso fue lo
   que sostuvo la falsa alarma del scraper: los commits del bot existían y no se veían. Para saber si
   falta algo hay que mirar el sentido contrario, `HEAD..origin/master`, y con un `git fetch` delante.
+- **Una sola consulta de prueba NO valida un fallo intermitente — s53.** El chat se dio por
+  "validado en producción" el 21-sep con una consulta que salió bien, y 2 de cada 3 devolvían la
+  cadena de pensamiento del modelo en inglés. Con un fallo que depende de qué modelo de la cadena
+  conteste, una muestra de uno no mide nada: hay que repetir hasta ver la variación, y mirar el
+  CONTENIDO, no que llegue un 200 con texto.
+- **Que el camino feliz diga QUIÉN contestó, no solo el error por qué falló — s53.** La doctrina del
+  502 opaco (s40) se había aplicado solo a los fallos. El escape de razonamiento se pudo reproducir
+  pero no atribuir a ningún modelo sin desplegar otra vez; una cabecera `X-CZ-Model` en la respuesta
+  buena lo resolvió en la primera petición. Si una función depende de un tercero, su respuesta debe
+  decir quién la sirvió.
 - **Un código de error DEDUCIDO no es un código de error MEDIDO.** La s40 concluyó "403 = permiso
   vetado" razonando desde fuera; el panel de OpenRouter no tenía ni un 403, tenía 429 por modelo.
   Media sesión de hipótesis que se resuelve en un minuto **mirando el panel del proveedor**. Antes
@@ -2028,4 +2083,4 @@ presupuesto · ancho de pie · uso (auto-submit 400 ms).
   `cancha-quiz-respuestas` (sessionStorage).
 - **Scripts de mantenimiento**: `update-images.js`, `fix-encoding.js`, `optimize-images.mjs`,
   `gen-chat-catalog.ts`, y los `audit-*` listados arriba.
-- **Tests**: `npx vitest run` → 259.
+- **Tests**: `npx vitest run` → 273.
