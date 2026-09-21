@@ -257,21 +257,34 @@ export default async function handler(req: any, res: any) {
   //
   // ⚠ REVISAR CADA POCOS MESES. El free tier de OpenRouter ROTA: la cadena validada en
   // vivo en jun-2026 se quedó con 3 de 5 modelos retirados y el chat cayó entero
-  // (ago-2026). Los 5 de abajo están verificados VIVOS a 31-ago-2026 contra
-  // `curl -s https://openrouter.ai/api/v1/models`.
+  // (ago-2026) y le volvió a pasar el 21-sep-2026. Los de abajo están verificados VIVOS
+  // a 21-sep-2026 contra `curl -s https://openrouter.ai/api/v1/models` (solo quedan 21
+  // modelos `:free` en todo OpenRouter).
   //
   // CHAT_MODEL fuerza un único modelo (sin cadena).
   const models = process.env.CHAT_MODEL
     ? [process.env.CHAT_MODEL]
     : [
-        "minimax/minimax-m2.7:free", // el único que devolvía 200 el 29-ago (GMICloud)
-        // Los dos gemma son los únicos VALIDADOS para español limpio + formato
-        // [[shoe:slug]] (jun-2026): si minimax cae, son el mejor relevo conocido.
-        "google/gemma-4-31b-it:free",
+        // 🔴 MEDIDO EN PRODUCCIÓN EL 21-sep-2026: la cadena anterior estaba ENTERA caída
+        // (`estados: 429,404,429,429,429,403`) y el chat llevaba sirviendo solo el fallback
+        // local. Los dos que se van, con su mensaje literal de OpenRouter:
+        //   · minimax/minimax-m2.7:free -> 404 "This model is unavailable for free. The paid
+        //     version is available now - use this slug instead: minimax/minimax-m2.7"
+        //   · thinkingmachines/inkling-small:free -> 403. Esto CIERRA la duda de la s42: el
+        //     403 sin identificar era éste, justo el que decía la posición en `estados`.
+        // Los otros tres siguen vivos, pero devolvían "temporarily rate-limited upstream".
+        // ⚠ Los nuevos van SIN VALIDAR (no hay clave con la que probarlos desde aquí). Se
+        // mezclan familias a propósito: el 429 de OpenRouter es POR MODELO, así que
+        // diversificar proveedor sí esquiva el rate-limit (s41).
+        "qwen/qwen3.8-27b:free",
+        "google/gemma-4-31b-it:free", // validado para español limpio + formato [[shoe:slug]]
+        // ⚠ nemotron colaba su cadena de pensamiento en `content` en jun-2026 y por eso se
+        // descartó; hoy `limpiarRespuesta` quita los <think>, así que vuelve a entrar.
+        "nvidia/nemotron-3-super-120b-a12b:free",
+        // Cola de respaldo: se prueban de uno en uno si la cadena falla.
         "google/gemma-4-26b-a4b-it:free",
-        // Cola SIN VALIDAR, y son modelos de RAZONAMIENTO (más lentos).
+        "inclusionai/ling-3.0-flash-vl:free",
         "z-ai/glm-5.2:free",
-        "thinkingmachines/inkling-small:free",
       ];
 
   // Cuerpo de la petición. `models` = la lista entera (OpenRouter la recorre por dentro);

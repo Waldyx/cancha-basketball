@@ -128,15 +128,30 @@ export default async function handler(req: any, res: any) {
   // `models` y OpenRouter la recorre server-side en UNA sola petición (docs "Model
   // Fallbacks", verificado 31-ago-2026), saltando al siguiente ante context-length,
   // moderación, rate-limit o downtime. Ver el detalle largo en chat.ts.
-  // Los 5 verificados VIVOS a 31-ago-2026. CHAT_MODEL fuerza uno solo.
+  // Verificados VIVOS a 21-sep-2026 contra /api/v1/models. CHAT_MODEL fuerza uno solo.
   const models = process.env.CHAT_MODEL
     ? [process.env.CHAT_MODEL]
     : [
-        "minimax/minimax-m2.7:free",
-        "google/gemma-4-31b-it:free",
+        // 🔴 MEDIDO EN PRODUCCIÓN EL 21-sep-2026: la cadena anterior estaba ENTERA caída
+        // (`estados: 429,404,429,429,429,403`) y el chat llevaba sirviendo solo el fallback
+        // local. Los dos que se van, con su mensaje literal de OpenRouter:
+        //   · minimax/minimax-m2.7:free -> 404 "This model is unavailable for free. The paid
+        //     version is available now - use this slug instead: minimax/minimax-m2.7"
+        //   · thinkingmachines/inkling-small:free -> 403. Esto CIERRA la duda de la s42: el
+        //     403 sin identificar era éste, justo el que decía la posición en `estados`.
+        // Los otros tres siguen vivos, pero devolvían "temporarily rate-limited upstream".
+        // ⚠ Los nuevos van SIN VALIDAR (no hay clave con la que probarlos desde aquí). Se
+        // mezclan familias a propósito: el 429 de OpenRouter es POR MODELO, así que
+        // diversificar proveedor sí esquiva el rate-limit (s41).
+        "qwen/qwen3.8-27b:free",
+        "google/gemma-4-31b-it:free", // validado para español limpio + formato [[shoe:slug]]
+        // ⚠ nemotron colaba su cadena de pensamiento en `content` en jun-2026 y por eso se
+        // descartó; hoy `limpiarRespuesta` quita los <think>, así que vuelve a entrar.
+        "nvidia/nemotron-3-super-120b-a12b:free",
+        // Cola de respaldo: se prueban de uno en uno si la cadena falla.
         "google/gemma-4-26b-a4b-it:free",
+        "inclusionai/ling-3.0-flash-vl:free",
         "z-ai/glm-5.2:free",
-        "thinkingmachines/inkling-small:free",
       ];
 
   // Cuerpo: `models` = la lista entera (OpenRouter la recorre); `model` = uno suelto.
