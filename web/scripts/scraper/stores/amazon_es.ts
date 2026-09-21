@@ -44,6 +44,24 @@ async function leerFicha(page: Page): Promise<{ titulo: string; precio: number |
   return { titulo, precio: null };
 }
 
+/**
+ * Veredicto de una ficha `/dp/` de Amazon, aislado del navegador para poder testearlo.
+ *
+ * La regla que importa: **`agotado` solo con una señal POSITIVA de que no se vende.**
+ * Si no hay botón de compra PERO tampoco hay un "no disponible", el scrape es
+ * INCONCLUYENTE y se devuelve `disponible: false` SIN `agotado` — así el merge no apaga
+ * el enlace editorial por algo que no se ha llegado a comprobar.
+ */
+export function veredictoFicha(
+  compra: boolean,
+  sinStock: boolean,
+  precio: number | null
+): { disponible: boolean; agotado?: true; precio_actual?: number } {
+  if (compra) return precio ? { disponible: true, precio_actual: precio } : { disponible: false };
+  if (sinStock) return { disponible: false, agotado: true };
+  return { disponible: false };
+}
+
 export const amazon_es: StoreScraper = {
   tienda: "amazon_es",
 
@@ -86,13 +104,45 @@ export const amazon_es: StoreScraper = {
         // botón sigue habiendo precios en la página (otras ofertas, otras tallas),
         // así que preguntar solo por el precio no detecta el agotado: la Ja 1
         // devolvía 29,99 € de un vendedor que ni siquiera tiene carrito.
-        const hayCarrito = await page
-          .$("#add-to-cart-button")
+        //
+        // 🔴 CORREGIDO EL 21-sep-2026. Lo de arriba sigue siendo cierto, pero la regla
+        // "sin botón ⇒ agotado" es AUSENCIA DE EVIDENCIA, y salió cara: la pasada de esa
+        // noche marcó 61 agotados de Amazon y dejó 25 fichas anunciando "no la vende
+        // ninguna de nuestras tiendas" mientras Amazon las vendía. Comprobado a mano:
+        // `adidas-dame-8` (B0B6GM83PV) y `nike-ja-1` (B0D1S5M6LG) tenían ese mismo día
+        // `add-to-cart-button` Y `buy-now-button`. El chivato de que era un fallo nuestro
+        // y no el mercado: 25 fichas perdieron la compra en una noche y NINGUNA la
+        // recuperó — un mercado real no hace eso.
+        // Dos causas posibles, y el arreglo cubre las dos sin tener que distinguirlas:
+        // con `domcontentloaded` el buybox puede no estar todavía en el DOM, y la IP de
+        // CI puede recibir una página recortada. Ahora:
+        //   1) se ESPERA a que aparezca una de las tres señales, en vez de preguntar al
+        //      instante por una sola;
+        //   2) `agotado` exige una señal POSITIVA de que no se vende;
+        //   3) si no aparece ninguna, el scrape es INCONCLUYENTE (`disponible: false` sin
+        //      `agotado`), que es lo que no envenena el merge ni apaga el enlace editorial.
+        await page
+          .waitForSelector("#add-to-cart-button, #buy-now-button, #outOfStock", { timeout: 6000 })
+          .catch(() => null);
+        const compra = await page
+          .$("#add-to-cart-button, #buy-now-button")
           .then((el) => !!el)
           .catch(() => false);
-        if (!hayCarrito) return { ...base, disponible: false, agotado: true };
-        if (!precio) return { ...base, disponible: false };
-        return { ...base, precio_actual: precio, disponible: true };
+        if (compra) return { ...base, ...veredictoFicha(true, false, precio) };
+        // ⚠ `$$eval` y no `$eval`: con selectores separados por comas se devuelven los
+        // nodos en ORDEN DEL DOCUMENTO, no en el de la lista (la misma trampa que costó
+        // el bug del buybox el 13-sep). Preguntando por TODOS y con un `some` da igual
+        // cuál venga antes.
+        const sinStock = await page
+          .$$eval("#outOfStock, #availability", (els) =>
+            els.some((el) =>
+              /no disponible|no est[áa] disponible|sin stock|currently unavailable/i.test(
+                el.textContent || ""
+              )
+            )
+          )
+          .catch(() => false);
+        return { ...base, ...veredictoFicha(false, sinStock, precio) };
       }
 
       // Esperar resultados de búsqueda

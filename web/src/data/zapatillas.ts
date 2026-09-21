@@ -2948,6 +2948,8 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-anthony-edwards-1-low%2FJQ6133.html", precio_actual: 71.50, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FJ4WKCND?tag=canchazapa-21", precio_actual: 58.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-ae-1-low-trainers-amarillo-143701.html", precio_actual: 60.50, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-anthony-edwards-1-mid-preloved-purple.html", precio_actual: 84.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // w24 21-sep: MID confirmado por titulo (SKU JI0424, MSRP 139,99 de la Mid; la Low es JQ6140/109,99)
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-anthony-edwards-1-ji0424-1001050639-p", precio_actual: 95.05, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // w24: mismo JI0424; Forum lista la AE 1 LOW aparte (JQ6140). Su descripcion dice "Low" pero es copy-paste
     ],
   },
   {
@@ -3010,6 +3012,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA52455477%2F", precio_actual: 89.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-29" }, // ECI 16-sep: 404
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-anthony-edwards-1-low-basketball-para-nino%2FJS1773.html", precio_actual: 63, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ae+1+low+nino+baloncesto&tag=canchazapa-21", precio_actual: 70, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-anthony-edwards-1-low-grey-junior.html", precio_actual: 64.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // w24 21-sep: Low + Junior, que es justo el segmento de esta ficha
     ],
   },
 
@@ -9428,6 +9431,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 70,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ownthegame+2.0+baloncesto&tag=canchazapa-21", precio_actual: 50, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatilla-ownthegame-2-0-talla-42-gw5483-gris%2Fc4ab000b-b12b-40a2-91b3-84c32b724b7f%2Fc1c250", precio_actual: 81.40, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // w24 21-sep: ADULTO (GW5483), no el 3.0 ni el escolar. 1,16x MSRP y SOLO talla 42: opcion debil
     ],
   },
 
@@ -9890,6 +9894,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kobe+9+protro&vst=kobe+9+protro", precio_actual: 199.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-09" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+kobe+9+protro+baloncesto&tag=canchazapa-21", precio_actual: 199.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-kobe-9-elite-protro-halo%2F7e1cd57a-44ea-4efc-b0e3-a9f70c30f270%2Fc4", precio_actual: 274.10, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // w24 21-sep: "Halo" SIN "Low" = la Elite alta; Decathlon lista la Low aparte. 1,37x MSRP, marketplace
     ],
   },
 
@@ -10115,6 +10120,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 200,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0B3T928QG?tag=canchazapa-21", precio_actual: 175.57, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" }, // w17 18-sep: es la Air Jordan 1 Mid (el 39 del titulo es la TALLA)
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-de-baloncesto-jordan-modelo-air-jordan-xxxix-noir-para-hombre%2F6f326410-da78-4abe-b31a-c87ad64c460b%2Fc1", precio_actual: 176.28, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // w24 21-sep, verificado con navegador: marketplace (Stateside), 1 unidad, SOLO talla 42.5
     ],
   },
 
