@@ -656,6 +656,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 200,
     links_compra: [
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/kobe-8-protro-siempre-mio-lt-orewood-brn-baroque-brown-summit-white-red", precio_actual: 189.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21" }, // s52 21-sep: JSON-LD "Zapatillas Nike Kobe 8 Protro Siempre Mio", InStock, 17 tallas (4-15 USA)
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kobe+8+protro&vst=kobe+8+protro", precio_actual: 200, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-09" },
     ],
   },
@@ -1021,6 +1022,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 140,
     links_compra: [
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/li-ning/wade-all-city-14-multicolor", precio_actual: 139.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21" }, // s52 21-sep: JSON-LD "Zapatillas Li - ning Wade All City 14", InStock, 5 tallas (7-9 USA)
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011540494334.html", precio_actual: 131.82, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" }, // 18-sep: el item ya no existe en AliExpress
     ],
   },
@@ -1204,6 +1206,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 90,
     links_compra: [
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/anta/kai-2-speed-blue", precio_actual: 93.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21" }, // s52 21-sep: JSON-LD "Zapatillas Anta KAI 2 Speed Blue", InStock, pero solo 4 tallas (10,5 / 13 / 14 / 15 USA)
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010621033449.html", precio_actual: 51.39, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" }, // 18-sep: el item ya no existe en AliExpress
     ],
   },
@@ -3976,6 +3979,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 130,
     links_compra: [
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/converse/shai-001-navy-into-the-void-navy", precio_actual: 124.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21" }, // s52 21-sep: JSON-LD "Zapatillas Converse Shai 001", InStock, 12 tallas (6-13 USA)
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=converse+shai+001+baloncesto&tag=canchazapa-21", precio_actual: 125, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -13428,6 +13432,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 190,
     links_compra: [
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/kobe-9-elite-low-em-protro-light-silver-steam-summit-white", precio_actual: 159.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21" }, // s52 21-sep: JSON-LD "Kobe 9 Elite Low Em Protro", SKU IH1401-003 (= Kobe 9 Elite Low Protro), InStock, 12 tallas
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0GFJSL965?tag=canchazapa-21", precio_actual: 243.55, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" }, // w17 18-sep: es la Kobe 9 Low EM Protro, no la Elite Low
     ],
   },
