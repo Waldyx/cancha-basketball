@@ -83,7 +83,11 @@ export type Tienda =
   | "footdistrict_es"
   | "converse_es"
   | "miinto_es"
-  | "moolahkicks";
+  | "moolahkicks"
+  // Tienda OFICIAL de 361 Degrees. Vende en EUR y envía a España, pero DESDE FUERA DE
+  // LA UE y sin IOSS: el IVA y la gestión aduanera los paga el comprador al recibir.
+  // Por eso sus enlaces llevan `nota`. Alta el 21-sep-2026.
+  | "361sport";
 
 export type FuenteReview =
   | "weartesters"
@@ -147,6 +151,13 @@ export interface LinkCompra {
   tiene_afiliado: boolean;
   /** Fecha ISO (YYYY-MM-DD) de la última verificación manual del precio. */
   ultima_verificacion: string;
+  /**
+   * Aviso corto que se pinta bajo el nombre de la tienda en el bloque de compra.
+   * Para lo que el precio NO dice: costes que el comprador paga aparte (IVA de
+   * importación), o una salvedad de la oferta. Se usa poco a propósito — si cada
+   * fila lleva una nota, dejan de leerse.
+   */
+  nota?: string;
 }
 
 // ─────────────────────────────────────────────────────────

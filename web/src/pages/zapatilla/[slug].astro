@@ -23,7 +23,7 @@ const LABELS_TIENDA: Record<string, string> = {
   sprinter_es: "Sprinter", basket_world: "Basket World", aliexpress: "AliExpress",
   kickscrew: "KicksCrew", basket4ballers_es: "Basket4Ballers", manelsanchez_es: "Manel Sánchez",
   fuikaomar_es: "Fuikaomar", "24segons_es": "24 Segons", idealo_es: "Idealo",
-  snipes_eu: "Snipes", atmosfera_sport: "Atmósfera Sport", joom: "Joom", basketballemotion_es: "Basketball Emotion", forumsport_es: "Forum Sport", sizeofficial_es: "size?", elcorteingles_es: "El Corte Inglés", footdistrict_es: "Foot District", converse_es: "Converse", miinto_es: "Miinto",
+  snipes_eu: "Snipes", atmosfera_sport: "Atmósfera Sport", joom: "Joom", basketballemotion_es: "Basketball Emotion", forumsport_es: "Forum Sport", sizeofficial_es: "size?", elcorteingles_es: "El Corte Inglés", footdistrict_es: "Foot District", converse_es: "Converse", miinto_es: "Miinto", moolahkicks: "Moolah Kicks", "361sport": "361sport",
 };
 const LABELS_FUENTE: Record<string, string> = {
   weartesters: "WearTesters", "hoops-geek": "TheHoopsGeek",
@@ -703,6 +703,13 @@ const productJsonLd = {
                         <span style="color:var(--cz-fg5)">{link.tiene_afiliado ? "★ Afiliado" : "Sin afiliación"} · </span>
                         <span style={`color:${verif.color}`}>{verif.fresh && "●"} {verif.label}</span>
                       </p>
+                      {/* Lo que el precio NO dice. Hoy solo 361sport (envía desde fuera de la UE
+                          sin IOSS), y a propósito: si cada fila lleva aviso, dejan de leerse. */}
+                      {link.nota && (
+                        <p style="font-size:11px;color:var(--cz-fg3);font-weight:600;margin:6px 0 0;max-width:42ch;line-height:1.35">
+                          ⚠ {link.nota}
+                        </p>
+                      )}
                     </div>
                   </div>
                   <div style="display:flex;align-items:center;gap:16px;margin-left:auto">

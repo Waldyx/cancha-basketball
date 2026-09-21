@@ -15249,6 +15249,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-09-11",
     precio_msrp_eur: 130,
     links_compra: [
+      { tienda: "361sport", url: "https://361sport.com/es-es/products/zen-8-be-water", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21", nota: "Envía desde fuera de la UE y sin IOSS: el IVA (21%) y la gestión de aduana los pagas al recibir, aparte del precio." }, // w25 21-sep: tienda oficial de la marca. JSON-LD de primer nivel, InStock, 14 de 19 tallas
     ],
   },
 
@@ -15314,6 +15315,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-09-11",
     precio_msrp_eur: 110,
     links_compra: [
+      { tienda: "361sport", url: "https://361sport.com/es-es/products/ag-6-ag-ion", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21", nota: "Envía desde fuera de la UE y sin IOSS: el IVA (21%) y la gestión de aduana los pagas al recibir, aparte del precio." }, // w25: colorway "Ion AG", 9 de 15 tallas. El "Black Mamba" vale lo mismo pero solo le quedan 2
     ],
   },
 

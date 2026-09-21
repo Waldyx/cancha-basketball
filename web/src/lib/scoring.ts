@@ -397,6 +397,10 @@ export const COMISIONES_TIENDA: Record<string, number> = {
   atmosfera_sport: 6,       // Awin Atmósfera Sport ES ~5-8%, media ~6%
   basketballemotion_es: 0,  // sin afiliado aun (TradeTracker pendiente aprobación)
   kickscrew: 5,
+  // Tienda oficial de 361°. Tiene programa propio (GoAffPro, self-service, "up to 5%"),
+  // pero NO estamos dados de alta: sus enlaces van con `tiene_afiliado: false` y sin
+  // precio numérico. El 5 queda listo para el día que se solicite.
+  "361sport": 5,
   basket_world: 5,
   puma_es: 6,           // Puma EU CJ ~4.5-6%
   reebok_es: 6,
