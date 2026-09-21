@@ -349,6 +349,25 @@ Commits `1a262bc` + `98ec3ee`, **desplegados y verificados en producción**. 273
 
 ### ▶️ S53c (21-sep, noche) — DECISIONES CERRADAS: el usuario delegó y se resolvieron seis
 
+**▶️ PARA RETOMAR (lo que queda vivo al cerrar la s53c):**
+1. 🤖 **Hay TRES trabajadores abiertos en ventana propia** (`cz-fantasmas`, `cz-361sport`,
+   `cz-reposiciones`), vivos y en `ListAgents`. Los dos primeros ya entregaron
+   (`trabajo/w25-fantasmas.md`, `trabajo/w25-361sport.md`) y se pueden cerrar.
+   🔴 **`cz-reposiciones` NO terminó**: `trabajo/w25-reposiciones.tsv` tiene solo la cabecera. Se le
+   mandó retomar por `SendMessage` y **su ventana retiene el mensaje esperando aprobación del
+   usuario** (está en otro modo de permisos). O lo aprueba en esa ventana, o se relanza.
+   Su encargo está en `trabajo/ENCARGO-w25-reposiciones.md`: auditar las ~44 "posibles reposiciones"
+   de `audit-enlaces` una a una, mirando el título de cada producto. ⚠ Esa lista **NO se aplica en
+   bloque**: la muestra comprobada salió falsa entera.
+2. 📅 **El 25-sep hay que commitear la promo de adidas MidSeason** (25-sep → 13-oct, hasta 30%, sin
+   código). Está lista en `trabajo/w24-promos.md`, que NO sube a GitHub. Ver el punto 9 de la s53b:
+   hoy no se commiteó porque el correo de Awin la manda no difundir antes y **este repo es público**.
+   · Sigue descubierto **solo el 24-sep** en el banner.
+   · **AliExpress Choice Day 1-7 oct** confirmado por su calendario oficial pero **sin códigos**:
+     llegan en correo dedicado 2-3 días antes (28-30 sep). No cargarla hasta tenerlos.
+3. ▶️ **DECIDIR (usuario): alta en el afiliado de 361sport** (GoAffPro, self-service, gratis, hasta
+   5%). Implica crear cuenta, así que lo hace el usuario. El 5% ya está en `COMISIONES_TIENDA`.
+
 Commits `302306e` · `502d55c` · `6d769ff`, desplegados. **245 zapas · 287 tests · `astro check` 0
 errores.** Zapas sin opción de compra: **38** (empezó el día en 47, llegó a 72 por el fallo del
 scraper). **Modo: director + 3 trabajadores en terminal propio** (`cz-fantasmas`, `cz-361sport`,
