@@ -89,6 +89,14 @@ ${tabla}`;
 const limpiarRespuesta = (t: string) =>
   t.replace(/<think>[\s\S]*?<\/think>/gi, "").replace(/<\/?think>/gi, "").trim();
 
+// Gemela de la de `chat.ts` (las funciones son autocontenidas, no comparten módulo).
+// 🔴 El 21-sep-2026 se midió en producción que los modelos de razonamiento de la cadena
+// vuelcan su planificación en `content` SIN etiquetas `<think>`, así que `limpiarRespuesta`
+// no la ve. El discriminante es que aquí se responde siempre en español y eso llega en
+// inglés y en primera persona. Se mira solo el arranque, que es donde vive el preámbulo.
+const RAZONAMIENTO = /\b(?:we (?:need|should|can|must|have)\b|let(?:'s| us| me)\b|i (?:need|should|will|'ll)\b|the user (?:is |wants|asked|said)|okay,? (?:the user|so)\b|first,? (?:i|we|let)\b|scanning through|looking (?:at|through) the catalog)/i;
+const pareceRazonamiento = (t: string) => RAZONAMIENTO.test(t.slice(0, 400));
+
 export default async function handler(req: any, res: any) {
   const origin = (req.headers["origin"] || "").toString();
   if (/^https:\/\/(www\.)?canchazapa\.com$/.test(origin)) {
@@ -143,10 +151,14 @@ export default async function handler(req: any, res: any) {
         // ⚠ Los nuevos van SIN VALIDAR (no hay clave con la que probarlos desde aquí). Se
         // mezclan familias a propósito: el 429 de OpenRouter es POR MODELO, así que
         // diversificar proveedor sí esquiva el rate-limit (s41).
-        "qwen/qwen3.8-27b:free",
+        // Mismo orden que `chat.ts` y por el mismo motivo medido el 21-sep: delante el
+        // único verificado como español limpio, detrás los que razonan (que siguen siendo
+        // útiles contra el 429, que es por modelo) ya con la guarda de arriba.
         "google/gemma-4-31b-it:free", // validado para español limpio + formato [[shoe:slug]]
-        // ⚠ nemotron colaba su cadena de pensamiento en `content` en jun-2026 y por eso se
-        // descartó; hoy `limpiarRespuesta` quita los <think>, así que vuelve a entrar.
+        "qwen/qwen3.8-27b:free",
+        // ⚠ nemotron colaba su razonamiento en `content` en jun-2026. Volvió a entrar el
+        // 21-sep dando por hecho que `limpiarRespuesta` lo cubría, y no lo cubre: viene sin
+        // etiquetas `<think>`. Lo que lo tapa es `pareceRazonamiento`.
         "nvidia/nemotron-3-super-120b-a12b:free",
         // Cola de respaldo: se prueban de uno en uno si la cadena falla.
         "google/gemma-4-26b-a4b-it:free",
@@ -221,6 +233,14 @@ export default async function handler(req: any, res: any) {
       if (!txt) {
         fallos.push(204);
         console.error("[api/coach]", intento.etiqueta, "200 con content vacío");
+        continue;
+      }
+      // Ni un 200 que trae el razonamiento en vez del análisis. Aquí es barato porque no
+      // hay streaming: el texto está entero antes de decidir, así que basta con descartarlo.
+      if (pareceRazonamiento(txt)) {
+        fallos.push(205); // 205 = razonamiento en content (no es un status real de OR)
+        detalles.push(`${intento.etiqueta}:205:razonamiento en content`);
+        console.error("[api/coach]", intento.etiqueta, "razonamiento en content:", txt.slice(0, 120));
         continue;
       }
       data = j;

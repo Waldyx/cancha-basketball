@@ -190,6 +190,31 @@ const visibleParcial = (t: string) => {
   return (abierto >= 0 ? sinCerrados.slice(0, abierto) : sinCerrados).trimStart();
 };
 
+// 🔴 MEDIDO EN PRODUCCIÓN EL 21-sep-2026: 2 de cada 3 consultas devolvían la CADENA DE
+// PENSAMIENTO del modelo en vez de la respuesta ("We need to recommend a cheap outdoor
+// shoe…", "Okay, the user is asking for…"), en inglés y cortándose sin llegar a responder.
+//
+// Por qué no lo paraba nada de lo que ya había:
+//   · `delta.reasoning` se ignora a propósito, que es la defensa BUENA — pero solo sirve
+//     cuando el modelo usa ese canal. Éstos vuelcan el razonamiento en `delta.content`.
+//   · `limpiarRespuesta` solo quita etiquetas `<think>`, y esto viene SIN etiquetas.
+// O sea que el comentario de la cadena ("hoy limpiarRespuesta quita los <think>, así que
+// nemotron vuelve a entrar") daba por cubierto un caso que no lo estaba.
+//
+// El discriminante es que el sitio responde SIEMPRE en español: estos arranques son
+// planificación en primera persona y en inglés. Se mira solo el ARRANQUE, que es donde
+// vive el preámbulo; un "let me" a mitad de una respuesta ya emitida no dispara nada.
+const RAZONAMIENTO = /\b(?:we (?:need|should|can|must|have)\b|let(?:'s| us| me)\b|i (?:need|should|will|'ll)\b|the user (?:is |wants|asked|said)|okay,? (?:the user|so)\b|first,? (?:i|we|let)\b|scanning through|looking (?:at|through) the catalog)/i;
+export const pareceRazonamiento = (t: string) => RAZONAMIENTO.test(t.slice(0, 400));
+
+// Cuántos caracteres limpios se retienen antes de emitir el primer byte. Existe porque
+// emitir es IRREVERSIBLE: en cuanto sale un byte ya no se puede cambiar de modelo ni
+// volver al JSON de error. Con el primer carácter no hay forma de saber si lo que viene
+// es la respuesta o el razonamiento; con este arranque, sí. No encarece la espera real:
+// el coste del chat es el modelo pensando antes de emitir nada (~9 s medidos en la s43),
+// y estos caracteres llegan en una fracción de segundo una vez el texto empieza a fluir.
+const ARRANQUE_MIN = 180;
+
 export default async function handler(req: any, res: any) {
   // CORS: el sitio puede servirse en canchazapa.com o www.canchazapa.com (redirect
   // apex→www). Si el service worker sirve la página en el apex, el fetch a /api/chat
@@ -277,10 +302,15 @@ export default async function handler(req: any, res: any) {
         // en streaming con texto de IA real (antes: `code: local-upstream`). Se
         // mezclan familias a propósito: el 429 de OpenRouter es POR MODELO, así que
         // diversificar proveedor sí esquiva el rate-limit (s41).
-        "qwen/qwen3.8-27b:free",
+        // 🔴 ORDEN CORREGIDO EL 21-sep (tarde): los de razonamiento iban delante y 2 de cada
+        // 3 consultas de producción devolvían su cadena de pensamiento en inglés. Delante va
+        // el ÚNICO medido como limpio; los que razonan quedan detrás, de red de seguridad
+        // contra el 429 (que es por modelo, s41), ya con la guarda `pareceRazonamiento`.
         "google/gemma-4-31b-it:free", // validado para español limpio + formato [[shoe:slug]]
-        // ⚠ nemotron colaba su cadena de pensamiento en `content` en jun-2026 y por eso se
-        // descartó; hoy `limpiarRespuesta` quita los <think>, así que vuelve a entrar.
+        "qwen/qwen3.8-27b:free",
+        // ⚠ nemotron colaba su cadena de pensamiento en `content` en jun-2026. Volvió a
+        // entrar el 21-sep dando por hecho que `limpiarRespuesta` lo cubría, y NO lo cubre:
+        // aquello venía sin etiquetas `<think>`. Lo que lo tapa es la guarda de arranque.
         "nvidia/nemotron-3-super-120b-a12b:free",
         // Cola de respaldo: se prueban de uno en uno si la cadena falla.
         "google/gemma-4-26b-a4b-it:free",
@@ -362,10 +392,17 @@ export default async function handler(req: any, res: any) {
   // Abre la respuesta como stream de texto plano. Se llama SOLO cuando ya hay contenido
   // real que emitir: mientras no se llame, la cola de intentos sigue viva y un modelo que
   // falle o venga vacío deja pasar al siguiente, que es lo que se arregló el 31-ago.
+  let abierto = false;
   const abrirStream = () => {
+    if (abierto) return;
+    abierto = true;
     res.setHeader("Content-Type", "text/plain; charset=utf-8");
     res.setHeader("Cache-Control", "no-cache, no-transform");
     res.setHeader("X-Accel-Buffering", "no"); // que ningún proxy lo bufferice
+    // Qué modelo respondió, en la propia respuesta. Hasta hoy solo se sabía mirando los
+    // logs de Vercel, que no se miran: por eso el escape de razonamiento del 21-sep se
+    // pudo reproducir pero no atribuir sin desplegar otra vez. El front no lo lee.
+    if (modeloUsado) res.setHeader("X-CZ-Model", modeloUsado.slice(0, 80));
     res.status(200);
   };
 
@@ -405,6 +442,7 @@ export default async function handler(req: any, res: any) {
       }
       const dec = new TextDecoder();
       let buf = "";
+      let razonando = false; // el modelo empezó a pensar en voz alta en vez de responder
       while (true) {
         const { value, done } = await reader.read();
         if (done) break;
@@ -429,25 +467,61 @@ export default async function handler(req: any, res: any) {
           if (!delta) continue;
           acumulado += delta;
           const limpio = visibleParcial(acumulado);
+          // Retención de arranque: mientras no se haya emitido nada, se espera a tener
+          // material suficiente para juzgar. Es la única ventana en la que todavía se
+          // puede descartar el modelo y probar el siguiente.
+          if (!emitido) {
+            if (limpio.length < ARRANQUE_MIN) continue;
+            if (pareceRazonamiento(limpio)) {
+              razonando = true;
+              break;
+            }
+          }
           // Solo se emite lo NUEVO, y solo si el limpio sigue siendo una extensión de lo
           // ya emitido. Si la limpieza reescribiera hacia atrás (un `<think>` que abre),
           // se calla y espera: el cierre de abajo manda lo que falte.
           if (limpio.length > emitido.length && limpio.startsWith(emitido)) {
-            if (!emitido) abrirStream();
+            abrirStream();
             res.write(limpio.slice(emitido.length));
             emitido = limpio;
           }
         }
+        if (razonando) break;
+      }
+      if (razonando) {
+        // No se ha emitido ni un byte, así que el intento se puede descartar entero.
+        await reader.cancel().catch(() => {});
+        fallos.push(205); // 205 = respondió con su razonamiento (no es un status real de OR)
+        detalles.push(`${intento.etiqueta}:205:razonamiento en content`);
+        console.error("[api/chat]", intento.etiqueta, "razonamiento en content:", visibleParcial(acumulado).slice(0, 120));
+        acumulado = "";
+        modeloUsado = "";
+        continue;
       }
 
       // Un 200 que no emitió NI UN carácter NO es una respuesta. Pasa con los modelos de
       // razonamiento, que se gastan los max_tokens pensando y no llegan al texto final.
       // Como no se ha abierto el stream, todavía se puede probar el siguiente intento.
       if (!emitido) {
-        fallos.push(204); // 204 = respondió pero vino vacío (no es un status real de OR)
-        acumulado = "";
-        console.error("[api/chat]", intento.etiqueta, "200 sin content");
-        continue;
+        // Puede ser que no dijera nada, o que la respuesta entera quepa por debajo del
+        // arranque retenido. Lo segundo es legítimo y hay que emitirlo, no descartarlo.
+        const corto = visibleParcial(acumulado);
+        if (!corto) {
+          fallos.push(204); // 204 = respondió pero vino vacío (no es un status real de OR)
+          acumulado = "";
+          modeloUsado = "";
+          console.error("[api/chat]", intento.etiqueta, "200 sin content");
+          continue;
+        }
+        if (pareceRazonamiento(corto)) {
+          fallos.push(205);
+          detalles.push(`${intento.etiqueta}:205:razonamiento en content`);
+          acumulado = "";
+          modeloUsado = "";
+          console.error("[api/chat]", intento.etiqueta, "razonamiento en content (corto)");
+          continue;
+        }
+        abrirStream(); // respuesta corta: nunca llegó al mínimo, se manda entera abajo
       }
 
       // Cierre: `asegurarMarcadores` necesita el texto ENTERO, así que se aplica aquí y
