@@ -501,6 +501,33 @@ Sesión corta de infra, sin tocar catálogo. Todo MEDIDO contra la API, no deduc
    ⇒ Esto decide si su enlace de **Decathlon (afiliado, 6%)**, que ya existe en la ficha apagado, vale o no.
    **▶️ DECIDIR**: marcarla como junior y encender ese enlace, o dejarla como adulta y sin opción real.
 
+12. ✅ **Basketball Emotion: 5 fichas más recuperan compra (52 → 47).** Cruzado por su **SITEMAP**, porque su
+   buscador devuelve 500: **4.152 URLs de producto, 714 slugs de calzado**. 🔑 **Existen las dos formas y son
+   catálogos DISTINTOS**: `/comprar/zapatillas/` (464, baloncesto de rendimiento) · `/comprar/zapatilla/`
+   (210, lifestyle) · `/comprar/sneakers/` (40). Mirar solo el singular se deja fuera casi todo lo bueno.
+   Añadidas con JSON-LD de primer nivel + curva de tallas: `nike-kobe-8-protro` 189,99 € (17 tallas) ·
+   `nike-kobe-9-elite-low-protro` 159,99 (12; SKU **IH1401-003**, que SÍ es la Elite Low Protro — el "Em" del
+   título es nomenclatura de la tienda) · `lining-wow-allcity-14` 139,99 (5) · `converse-shai-001` 124,99 (12) ·
+   `anta-kai-2-speed` 93,99 (4).
+   · **NO añadida `nike-kobe-4-protro`**: InStock a 93,99 € (0,54× MSRP) pero **solo queda la talla 4 USA**.
+     **▶️ DECIDIR**: un enlace a una zapa con una sola talla infantil, ¿vale o estorba?
+   · Descartes con **control positivo**: Kobe 6 → venden 7 generaciones de Kobe Protro y ninguna es la 6 ·
+     361 → trabajan la marca pero sus 3 productos son Joker 1 · AE 1 → 23 slugs de AE 2 y 2 de AE 3, cero AE 1 ·
+     `jordan-xxxix` → solo AJ 40. **Asics, Peak, Rigorer, EQLZ y Tarmak no existen en su sitemap.**
+   · ✅ **`nike-air-force-1` comprobado y la ficha ACIERTA**: BE tiene 26 AF1 y **todos son Low**; la nuestra es
+     la ORIGINAL de 1982, que era high-top. No es un corte inflado.
+13. 🔴 **La ficha pedía un email y prometía avisos que nadie manda — ARREGLADO.** El bloque de alerta decía
+   *"Avísame cuando baje"*, pedía el correo y al enviarlo respondía *"Suscrito a alertas"* + *"Te avisaremos
+   cuando baje del precio que indicaste"*. El propio comentario del componente lo desmentía (*"Sin backend =
+   sin alertas"*), el `fetch` a `/api/price-alert` estaba comentado y ese endpoint **no existe**. O sea: se
+   recogían correos que no salían de `localStorage` y se prometía un aviso imposible. Misma familia que el
+   sello de fecha falso de la s31. Ahora se llama **"Ponle un precio objetivo"**, **no pide email** y dice que
+   se guarda solo en ese navegador. `privacidad.astro` también decía que guardábamos el correo: corregido.
+   ⚠ Si algún día hay backend, se vuelve a pedir el email y se cambia el copy, **no al revés**.
+14. ✅ **El sello "Precios re-verificados X" SÍ se sostiene** (lo comprobé por si era otro caso del mismo tipo):
+   de 293 enlaces disponibles con fecha, la **mediana tiene 1 día**, el 68% se verificó en los últimos 7 días
+   y el 73% en 30. El scraper nocturno está haciendo su trabajo. **No hay nada que arreglar aquí.**
+
 ⚠ **Tres trampas al leer HoopsGeek, medidas hoy (la tabla no es de una zapa, es una COMPARATIVA):**
 · La tabla de specs de HG tiene **6 columnas** y solo la **PRIMERA** es la zapa reseñada. "El valor que sigue
   a `Type of Cut`" solo vale si coges esa primera celda; si no, lees el corte de otro modelo.
