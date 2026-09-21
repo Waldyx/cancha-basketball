@@ -212,6 +212,15 @@ export function aplicarFiltrosDuros(
     // ("unisex" sí aparece para todos; "women" solo para mujer/junior)
     if (respuestas.perfil === "hombre" && z.genero === "women") return false;
 
+    // Segmento GS (junior): una zapa de talla escolar no le vale a un adulto.
+    // El fallback del chat ya lo hacia ("las GS solo si piden algo junior") pero el
+    // quiz no, y recomendaba la Cross Em Up 5 GS a un perfil "hombre" (s52, medido en
+    // produccion). Se filtra por `genero`, que es el campo que marca el segmento.
+    // Solo con perfil EXPLICITO hombre/mujer: si el quiz no llego a preguntarlo, se deja
+    // pasar todo, igual que ya hace el filtro de `women` justo encima.
+    if ((respuestas.perfil === "hombre" || respuestas.perfil === "mujer") && z.genero === "gs")
+      return false;
+
     // Presupuesto: si tiene tope, el precio mínimo disponible debe encajar
     // Usamos != null (loose) para cubrir tanto null como undefined
     if (respuestas.presupuesto_max_eur != null) {

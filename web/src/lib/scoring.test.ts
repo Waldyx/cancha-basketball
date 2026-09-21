@@ -54,6 +54,16 @@ describe("aplicarFiltrosDuros", () => {
     expect(ids).not.toContain("nike-lebron-22");
   });
 
+  it("no recomienda zapatillas GS (junior) a un adulto, y a un junior si", () => {
+    const adulto = aplicarFiltrosDuros(zapatillas, perfil({ perfil: "hombre" }));
+    const mujer = aplicarFiltrosDuros(zapatillas, perfil({ perfil: "mujer" }));
+    const junior = aplicarFiltrosDuros(zapatillas, perfil({ perfil: "junior" }));
+    expect(adulto.filter((z) => z.genero === "gs")).toHaveLength(0);
+    expect(mujer.filter((z) => z.genero === "gs")).toHaveLength(0);
+    // El perfil junior SI las ve: si no, se quedaria sin su propio segmento.
+    expect(junior.filter((z) => z.genero === "gs").length).toBeGreaterThan(0);
+  });
+
   it("filtra low-top si el usuario tiene problemas de tobillo", () => {
     const filtradas = aplicarFiltrosDuros(
       zapatillas,
