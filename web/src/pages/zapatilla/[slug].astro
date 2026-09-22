@@ -4,7 +4,7 @@
 
 import Base from "../../layouts/Base.astro";
 import "../../styles/cancha-redesign.css";
-import { zapatillas } from "../../data/zapatillas";
+import { zapatillas, zapatillasTodas } from "../../data/zapatillas";
 import { findMejorPrecio, findMejorPrecioMostrado, mostramosPrecio, esEnlaceDeBusqueda, COMISIONES_TIENDA, scoreMeta, unaFilaPorTienda } from "../../lib/scoring";
 import PriceAlert from "../../components/PriceAlert.astro";
 import CosteBlock from "../../components/CosteBlock.astro";
@@ -12,7 +12,9 @@ import { ARTICLES } from "../../lib/articles";
 import { PROMOS, mejorCodigo } from "../../data/promos";
 
 export async function getStaticPaths() {
-  return zapatillas.map((z) => ({ params: { slug: z.slug }, props: { zapatilla: z } }));
+  // `zapatillasTodas` y no `zapatillas`: las ocultas conservan su ficha viva (200 +
+  // noindex) para poder rescatarlas. Lo que desaparece son los listados, no el dato.
+  return zapatillasTodas.map((z) => ({ params: { slug: z.slug }, props: { zapatilla: z } }));
 }
 const { zapatilla: z } = Astro.props;
 
@@ -284,6 +286,7 @@ const productJsonLd = {
   ogType="article"
   ogImage={`/og/${z.slug}.png`}
   jsonLd={productJsonLd}
+  noindex={z.oculto}
 >
   <main class="app">
 

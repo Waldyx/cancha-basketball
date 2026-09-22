@@ -12,7 +12,7 @@
  * es instantáneo y no genera clicks de afiliado falsos. Para comprobar si una
  * URL vive hay que pedir SIEMPRE el destino desenvuelto, nunca el wrapper.
  */
-import { zapatillas, zapatillasEditorial } from "../src/data/zapatillas";
+import { zapatillas, zapatillasEditorial, zapatillasTodas } from "../src/data/zapatillas";
 import { unwrapWrapperUrl, elegirScrape } from "../src/lib/mergePrices";
 import preciosJson from "../src/data/precios.json" with { type: "json" };
 
@@ -163,6 +163,29 @@ for (const h of reposiciones.slice(0, 25)) {
   console.log(`     ${h.zapa} · ${h.tienda} — ${h.detalle}`);
 }
 if (reposiciones.length > 25) console.log(`     … y ${reposiciones.length - 25} más`);
+
+// 6. Ocultas RESCATABLES: una zapa se oculta cuando no se puede comprar por un
+// enlace de afiliado, pero eso cambia solo (una tienda repone, el scraper resuelve
+// una búsqueda a ficha). Sin este aviso, ocultar sería una vía de sentido único y
+// la zapa se quedaría fuera del sitio para siempre sin que nadie se entere.
+const rescatables = zapatillasTodas.filter(
+  (z) =>
+    z.oculto &&
+    (z.links_compra ?? []).some((l) => l.disponible !== false && l.tiene_afiliado === true)
+);
+console.log(`
+${rescatables.length === 0 ? "OK " : "!! "}Ocultas que YA se pueden rescatar (tienen compra afiliada): ${rescatables.length}`);
+for (const z of rescatables.slice(0, 25)) {
+  const t = (z.links_compra ?? [])
+    .filter((l) => l.disponible !== false && l.tiene_afiliado === true)
+    .map((l) => `${l.tienda} ${l.precio_actual ?? "?"}€`)
+    .join(" · ");
+  console.log(`     ${z.id} — ${t}`);
+}
+if (rescatables.length > 25) console.log(`     … y ${rescatables.length - 25} más`);
+
+console.log(`
+ · Ocultas en total: ${zapatillasTodas.filter((z) => z.oculto).length} de ${zapatillasTodas.length}`);
 
 const problemas = nested.length + duplicados.length + rutasMuertas.length + sinDestino.length;
 console.log("\n" + "─".repeat(60));

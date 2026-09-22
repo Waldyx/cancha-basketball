@@ -3,7 +3,7 @@
 import Base from "../../layouts/Base.astro";
 import "../../styles/cancha-redesign.css";
 import { ARTICLES, getArticle } from "../../lib/articles";
-import { zapatillas } from "../../data/zapatillas";
+import { zapatillas, zapatillasTodas } from "../../data/zapatillas";
 import { findMejorPrecioMostrado } from "../../lib/scoring";
 import { getSeoPage } from "../../lib/seoPages";
 
@@ -25,7 +25,10 @@ const { article } = Astro.props;
 const articleBody = article.body.replace(
   /\{\{(peso|precio):([a-z0-9-]+)\}\}/g,
   (_match: string, kind: "peso" | "precio", id: string) => {
-    const z = zapatillas.find((zz) => zz.id === id);
+    // `zapatillasTodas` y no `zapatillas`: una zapa OCULTA conserva su ficha y su
+    // precio, y un artículo que la cita debe seguir dando su número en vez de
+    // romper el build. Ocultar es sacarla de los listados, no borrar el dato.
+    const z = zapatillasTodas.find((zz) => zz.id === id);
     if (!z) {
       throw new Error(
         `[blog/${article.slug}] {{${kind}:${id}}} apunta a un id que no existe en el catálogo`

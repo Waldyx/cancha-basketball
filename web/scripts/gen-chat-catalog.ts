@@ -17,7 +17,7 @@
 import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
-import { zapatillas } from "../src/data/zapatillas";
+import { zapatillas, zapatillasTodas } from "../src/data/zapatillas";
 import { findMejorPrecio } from "../src/lib/scoring";
 
 const catalogo = zapatillas
@@ -37,6 +37,16 @@ const catalogo = zapatillas
   .join("\n");
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// Slugs de las zapas ocultas, para que el sitemap no las liste. Se genera aquí y no
+// en astro.config.mjs porque la config no puede importar la cadena TS del catálogo.
+// Las fichas ocultas se siguen construyendo (200 + noindex): lo que se evita es
+// pedirle a Google que las indexe mientras no haya forma afiliada de comprarlas.
+const ocultas = zapatillasTodas.filter((z) => z.oculto).map((z) => z.slug);
+const outOcultas = resolve(__dirname, "../src/data/ocultas.json");
+writeFileSync(outOcultas, JSON.stringify(ocultas, null, 0));
+console.log(`[gen-chat-catalog] ${ocultas.length} zapas ocultas → ${outOcultas}`);
+
 const out = resolve(__dirname, "../api/_catalog.json");
 // Sin timestamp: evita que el JSON quede "sucio" en git tras cada build.
 writeFileSync(out, JSON.stringify({ catalogo, zapas: zapatillas.length }, null, 0));

@@ -20,6 +20,9 @@ interface Props {
   ogType?: "website" | "article";
   /** JSON-LD para schema.org (Product, Review, etc.). */
   jsonLd?: object;
+  /** Si true: `noindex,follow`. Lo usan las fichas ocultas, que siguen sirviéndose
+   *  a 200 para poder rescatarlas pero no deben estar en el índice de Google. */
+  noindex?: boolean;
 }
 
 const {
@@ -28,6 +31,7 @@ const {
   ogImage = "/og-default.svg",
   ogType = "website",
   jsonLd,
+  noindex = false,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
@@ -64,6 +68,7 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex,follow" />}
 
     <!-- Awin site verification -->
     <meta name="verification" content="6ca0f17e950227c10270982e58b31df4" />

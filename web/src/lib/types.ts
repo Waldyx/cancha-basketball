@@ -218,6 +218,23 @@ export interface Zapatilla {
   /** Si true: aún sin lanzar. Se oculta de catálogo/rankings y la ficha muestra "Próximamente" en vez de nota. */
   proximamente?: boolean;
 
+  /**
+   * Si true: la zapa NO aparece en NINGÚN listado del sitio (catálogo, rankings,
+   * quiz, home, comparador, buscador, índice del chat ni sitemap), pero su ficha
+   * sigue respondiendo 200 con `noindex`.
+   *
+   * Se pone cuando no se puede comprar por un enlace de afiliado: recomendar una
+   * zapa que no nos paga y que además el usuario no puede comprar bien no sirve a
+   * nadie. NO es una retirada: el dato se conserva entero para rescatarla el día
+   * que vuelva a haber una opción de compra, y `audit-enlaces.ts` avisa de las que
+   * ya se pueden rescatar.
+   *
+   * Excepción decidida por el usuario (22-sep-2026): las más buscadas/con más hype
+   * se quedan visibles con el enlace a la tienda oficial de la marca aunque no haya
+   * afiliado.
+   */
+  oculto?: boolean;
+
   // Precios
   precio_msrp_eur: number;
   links_compra: LinkCompra[];

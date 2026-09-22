@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { ARTICLES } from "./articles";
-import { zapatillas } from "../data/zapatillas";
+import { zapatillas, zapatillasTodas } from "../data/zapatillas";
 
 // ─────────────────────────────────────────────────────────
 // TAREA 5 — candado: las tablas de "Comparativa rápida" NUNCA vuelven a
@@ -46,7 +46,8 @@ describe("ARTICLES — marcas {{peso:ID}}/{{precio:ID}}", () => {
     for (const art of ARTICLES) {
       for (const m of art.body.matchAll(MARCA_RE)) {
         const [, , id] = m;
-        if (!zapatillas.some((z) => z.id === id)) {
+        // Contra TODAS, ocultas incluidas: blog/[slug].astro resuelve así.
+        if (!zapatillasTodas.some((z) => z.id === id)) {
           malas.push(`${art.slug}: {{${m[1]}:${id}}} — id inexistente`);
         }
       }
@@ -59,7 +60,7 @@ describe("ARTICLES — marcas {{peso:ID}}/{{precio:ID}}", () => {
     for (const art of ARTICLES) {
       for (const m of art.body.matchAll(MARCA_RE)) {
         if (m[1] !== "peso") continue;
-        const z = zapatillas.find((zz) => zz.id === m[2]);
+        const z = zapatillasTodas.find((zz) => zz.id === m[2]);
         if (z && !z.peso_real_g) malas.push(`${art.slug}: {{peso:${m[2]}}} — ficha sin peso_real_g`);
       }
     }

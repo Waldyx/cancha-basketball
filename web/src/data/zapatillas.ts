@@ -590,6 +590,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/nike-kd-18/" },
     ],
     ultima_actualizacion: "2026-05-13",
+    oculto: true,
     precio_msrp_eur: 170,
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA53978261-negro-pr-zapatillas-de-baloncesto-de-hombre-kd18-nike%2F", precio_actual: 95.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-01" },
@@ -1020,6 +1021,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/li-ning-way-of-wade-all-city-14/" },
     ],
     ultima_actualizacion: "2026-06-02",
+    oculto: true,
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/li-ning/wade-all-city-14-multicolor", precio_actual: 139.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21" }, // s52 21-sep: JSON-LD "Zapatillas Li - ning Wade All City 14", InStock, 5 tallas (7-9 USA)
@@ -1204,6 +1206,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "evaluacion-propia", datos: "Specs oficiales Anta + comparativa con KAI 1 Speed. Pendiente reviews HoopsGeek/WearTesters." },
     ],
     ultima_actualizacion: "2026-06-02",
+    oculto: true,
     precio_msrp_eur: 90,
     links_compra: [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/anta/kai-2-speed-blue", precio_actual: 93.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21" }, // s52 21-sep: JSON-LD "Zapatillas Anta KAI 2 Speed Blue", InStock, pero solo 4 tallas (10,5 / 13 / 14 / 15 USA)
@@ -1265,6 +1268,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/anta-kai-3/" },
     ],
     ultima_actualizacion: "2026-06-02",
+    oculto: true,
     precio_msrp_eur: 130,
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/6973cac89d658501efa7ae30?variant_id=6973cac99d658577efa7ae3a", precio_actual: 109, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
@@ -1918,6 +1922,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/nike-precision-8/" },
     ],
     ultima_actualizacion: "2026-06-03",
+    oculto: true,
     precio_msrp_eur: 80,
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56817360%2F", precio_actual: 74.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
@@ -2273,6 +2278,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/peak-lou-williams-underground-2/" },
     ],
     ultima_actualizacion: "2026-05-13",
+    oculto: true,
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c32FKd4H", precio_actual: 105, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-15" },
@@ -2393,6 +2399,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/air-jordan-37-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true,
     precio_msrp_eur: 185,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=air+jordan+37&vst=air+jordan+37", precio_actual: 120, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-09" },
@@ -3133,6 +3140,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/nike-pg-6-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true,
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=pg+6&vst=pg+6", precio_actual: 65, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
@@ -3658,6 +3666,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
+    oculto: true,
     precio_msrp_eur: 80,
     links_compra: [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-se500-mid-blancas%2F326014%2Fc4c238m8589115", precio_actual: 79.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" }, // Decathlon 16-sep: redirige al outlet (ficha retirada)
@@ -4290,6 +4299,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/reebok-answer-iv-4-retro-performance-review/" },
     ],
     ultima_actualizacion: "2026-05-15",
+    oculto: true,
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/search?q=answer+iv", precio_actual: 120, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-05" },
@@ -4940,6 +4950,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
+    oculto: true,
     precio_msrp_eur: 90,
     links_compra: [
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fnike-zapatilla-baloncesto-ninos-jordan-luka-77-gs-azrs-ih0573-1001091579-p", precio_actual: 63.19, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
@@ -5467,6 +5478,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
+    oculto: true,
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/sabrina-3-nino-sail-navy-atom-red-photo-blue", precio_actual: 109.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
@@ -7211,6 +7223,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
+    oculto: true,
     precio_msrp_eur: 65,
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56000750%2F", precio_actual: 52.49, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
@@ -7385,6 +7398,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "evaluacion-propia" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true,
     precio_msrp_eur: 65,
     links_compra: [
     ],
@@ -7703,6 +7717,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/nike-kyrie-flytrap-6-performance-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true,
     precio_msrp_eur: 70,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kyrie+flytrap+6&vst=kyrie+flytrap+6", precio_actual: 70, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
@@ -8028,6 +8043,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/new-balance-omn1s-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
+    oculto: true,
     precio_msrp_eur: 130,
     links_compra: [
       { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar/?q=omn1s", precio_actual: 90, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-05" },
@@ -8252,6 +8268,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/converse-all-star-pro-bb-performance-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true,
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=converse+all+star+pro+bb&tag=canchazapa-21", precio_actual: 110, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
@@ -8660,6 +8677,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/new-balance-kawhi-2/" },
     ],
     ultima_actualizacion: "2026-05-19",
+    oculto: true,
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "nb_es", url: "https://www.newbalance.es/es/buscar/?q=kawhi+2", precio_actual: 160, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-05" },
@@ -9247,6 +9265,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     ultima_actualizacion: "2026-05-29",
 
+    oculto: true,
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=why+not+6&vst=why+not+6", precio_actual: 90, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-09" },
@@ -10533,6 +10552,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-03",
+    oculto: true,
     precio_msrp_eur: 200,
     links_compra: [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/kobe-1-protro-81-points-white-black-court-purple", precio_actual: 160, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
@@ -10605,6 +10625,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/nike-kobe-3-protro-performance-review/" },
     ],
     ultima_actualizacion: "2026-06-05",
+    oculto: true,
     precio_msrp_eur: 200,
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/692e4fc35077f701b634fbab", precio_actual: 115, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
@@ -10673,6 +10694,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 175,
     links_compra: [
     ],
@@ -10736,6 +10758,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 175,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Kobe+5+Protro&tag=canchazapa-21", precio_actual: 195, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
@@ -10800,6 +10823,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 175,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Kobe+6+Protro&tag=canchazapa-21", precio_actual: 200, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
@@ -10930,6 +10954,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-03",
+    oculto: true,
     precio_msrp_eur: 130,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FD432JNP/?tag=canchazapa-21", precio_actual: 150, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" }, // w17 18-sep: es la Shaqnosis LOW
@@ -11513,6 +11538,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/air-jordan-project-air-jordan-xiv-retro-performance-review/" },
     ],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 210,
     links_compra: [
     ],
@@ -11573,6 +11599,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "evaluacion-propia" },
     ],
     ultima_actualizacion: "2026-06-03",
+    oculto: true,
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fnike-air-force-1-07-lv8-azul-92119%2F436442", precio_actual: 90, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" }, // w17 18-sep: es otra variante (corte o segmento)
@@ -11698,6 +11725,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 185,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B01E8FT648?tag=canchazapa-21", precio_actual: 149.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" }, // w17 18-sep: es la AJ2 Retro LOW
@@ -11822,6 +11850,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 150,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Air+Penny+1+Hardaway&tag=canchazapa-21", precio_actual: 160, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
@@ -11881,6 +11910,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DGTYTW9L/?tag=canchazapa-21", precio_actual: 153, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" }, // w17 18-sep: es la Uptempo LOW
@@ -12129,6 +12159,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 190,
     links_compra: [
     ],
@@ -12436,6 +12467,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/68f85c62278ded010e92dda1", precio_actual: 171, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-03" },
@@ -12559,6 +12591,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 150,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+air+max+cb+34+barkley&tag=canchazapa-21", precio_actual: 155, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
@@ -12620,6 +12653,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+air+pippen+scottie&tag=canchazapa-21", precio_actual: 145, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
@@ -12742,6 +12776,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/search?q=kamikaze", precio_actual: 120, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
@@ -12866,6 +12901,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 85,
     links_compra: [
       { tienda: "puma_es", url: "https://eu.puma.com/es/es/search?q=sky+lx", precio_actual: 85, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
@@ -12977,6 +13013,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-28",
+    oculto: true,
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+eqt+basketball+93+retro&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
@@ -13032,6 +13069,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-28",
+    oculto: true,
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=reebok+blast+retro+baloncesto&tag=canchazapa-21", precio_actual: 110, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
@@ -13087,6 +13125,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-28",
+    oculto: true,
     precio_msrp_eur: 150,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+hyperdunk+2008+retro&tag=canchazapa-21", precio_actual: 150, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
@@ -13142,6 +13181,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-28",
+    oculto: true,
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=converse+aero+jam&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
@@ -13324,6 +13364,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/nike-kobe-9-elite-low-protro/" },
     ],
     ultima_actualizacion: "2026-06-02",
+    oculto: true,
     precio_msrp_eur: 190,
     links_compra: [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/kobe-9-elite-low-em-protro-light-silver-steam-summit-white", precio_actual: 159.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21" }, // s52 21-sep: JSON-LD "Kobe 9 Elite Low Em Protro", SKU IH1401-003 (= Kobe 9 Elite Low Protro), InStock, 12 tallas
@@ -13385,6 +13426,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/under-armour-embiid-1/" },
     ],
     ultima_actualizacion: "2026-06-02",
+    oculto: true,
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/68c7f7aca04d000170748283?variant_id=68c7f7aca04d009070748287", precio_actual: 81, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
@@ -13691,6 +13733,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/under-armour-curry-10/" },
     ],
     ultima_actualizacion: "2026-06-02",
+    oculto: true,
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/6952597cc263e701ec4f1b2d?variant_id=6952597cc263e7c3ec4f1b30", precio_actual: 81, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
@@ -14119,6 +14162,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-09",
+    oculto: true,
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005013092315194.html", precio_actual: 77.69, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" }, // 18-sep: el item ya no existe en AliExpress
@@ -14235,6 +14279,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
+    oculto: true,
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=asics+unpre+ars+2&tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
@@ -14289,6 +14334,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
+    oculto: true,
     precio_msrp_eur: 125,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=asics+gelhoop+v17&tag=canchazapa-21", precio_actual: 140, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
@@ -14343,6 +14389,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
+    oculto: true,
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=asics+glide+nova+ff+4&tag=canchazapa-21", precio_actual: 135, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
@@ -14678,6 +14725,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
+    oculto: true,
     precio_msrp_eur: 125,
     links_compra: [
       { tienda: "moolahkicks", url: "https://moolahkicks.com/products/neovolt-pro-v3-cobalt-reign", precio_actual: 125, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
@@ -14723,6 +14771,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
+    oculto: true,
     precio_msrp_eur: 170,
     links_compra: [
       { tienda: "moolahkicks", url: "https://moolahkicks.com/products/evolyte-elite-cobalt-reign", precio_actual: 170, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
@@ -14768,6 +14817,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
+    oculto: true,
     precio_msrp_eur: 125,
     links_compra: [
       { tienda: "moolahkicks", url: "https://moolahkicks.com/products/triple-double-white-multi", precio_actual: 125, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
@@ -15471,6 +15521,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/eqlz-247-nxt-performance-review/", score_original: "9/10" },
     ],
     ultima_actualizacion: "2026-09-14",
+    oculto: true,
     precio_msrp_eur: 104.95,
     links_compra: [
     ],
@@ -15639,10 +15690,21 @@ const _rawZapatillas: Zapatilla[] = [
  * Catálogo con precios actualizados por el scraper (precios.json).
  * Si precios.json está vacío, se usan los precios editoriales de _rawZapatillas.
  */
-export const zapatillas: Zapatilla[] = mergePricesIntoShoes(
+export const zapatillasTodas: Zapatilla[] = mergePricesIntoShoes(
   _rawZapatillas,
   preciosJson as PreciosJson
 );
+
+/**
+ * Lo que el sitio ENSEÑA: el catálogo sin las ocultas (`oculto: true`, ver el
+ * campo en types.ts). El filtro va aquí, en el único sitio del que cuelgan todos
+ * los listados —catálogo, rankings, quiz, home, comparador, buscador e índice del
+ * chat—, para que ocultar una zapa no dependa de acordarse de 20 páginas.
+ *
+ * La ficha individual NO usa este export: sigue sirviéndose de `zapatillasTodas`
+ * y responde 200, que es lo que permite rescatarla sin recuperar nada.
+ */
+export const zapatillas: Zapatilla[] = zapatillasTodas.filter((z) => !z.oculto);
 
 /**
  * Catálogo SIN fusionar: los datos tal cual los escribió una sesión, antes del
@@ -15656,7 +15718,8 @@ export const zapatillasEditorial: Zapatilla[] = _rawZapatillas;
  * Helper para encontrar una zapatilla por slug (usado en páginas de detalle).
  */
 export function getZapatillaBySlug(slug: string): Zapatilla | undefined {
-  return zapatillas.find((z) => z.slug === slug);
+  // Busca también entre las ocultas: su ficha sigue viva a propósito.
+  return zapatillasTodas.find((z) => z.slug === slug);
 }
 
 /**
