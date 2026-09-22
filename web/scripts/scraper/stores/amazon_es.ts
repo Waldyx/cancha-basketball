@@ -52,6 +52,14 @@ async function leerFicha(page: Page): Promise<{ titulo: string; precio: number |
  * INCONCLUYENTE y se devuelve `disponible: false` SIN `agotado` — así el merge no apaga
  * el enlace editorial por algo que no se ha llegado a comprobar.
  */
+/**
+ * La ÚNICA señal que marca agotado en Amazon. No incluye `#availability`: su texto
+ * sale también en páginas que sí venden (medido el 18-sep y otra vez el 22-sep, cuando
+ * infló los agotados de 18 a 64 en una noche). Medido sobre las 64 páginas de ese día:
+ * `#outOfStock` y el botón de compra nunca coexisten, y ningún agotado real careció de él.
+ */
+export const SELECTOR_AGOTADO = "#outOfStock";
+
 export function veredictoFicha(
   compra: boolean,
   sinStock: boolean,
@@ -133,14 +141,22 @@ export const amazon_es: StoreScraper = {
         // nodos en ORDEN DEL DOCUMENTO, no en el de la lista (la misma trampa que costó
         // el bug del buybox el 13-sep). Preguntando por TODOS y con un `some` da igual
         // cuál venga antes.
+        // 🔴 CORREGIDO EL 22-sep-2026, segunda vez. El arreglo del 21-sep quitó bien la
+        // "ausencia de evidencia", pero dejó como señal positiva el TEXTO de
+        // `#availability` — que es justo lo que ya se había medido el 18-sep como no
+        // fiable ("No disponible" sale también en páginas que sí venden). Resultado de
+        // la primera pasada con el arreglo puesto: Amazon saltó de 18 a 64 agotados en
+        // una noche, 29 fichas perdieron la compra y NINGUNA la recuperó, mientras las
+        // otras 6 tiendas no movían ni uno. Comprobados a mano los 64 contra Amazon:
+        // 46 vendían con carrito, 7 estaban agotados de verdad y 11 no daban ninguna
+        // señal. En las 64 páginas, `#outOfStock` y el botón de compra NUNCA
+        // coexistieron, y ningún agotado real careció de `#outOfStock`.
+        // ⇒ La única señal negativa que se sostiene es la PRESENCIA de `#outOfStock`.
+        // Sin botón y sin `#outOfStock`, el scrape es INCONCLUYENTE (esos 11), que es
+        // lo que no apaga el enlace editorial.
         const sinStock = await page
-          .$$eval("#outOfStock, #availability", (els) =>
-            els.some((el) =>
-              /no disponible|no est[áa] disponible|sin stock|currently unavailable/i.test(
-                el.textContent || ""
-              )
-            )
-          )
+          .$(SELECTOR_AGOTADO)
+          .then((el) => !!el)
           .catch(() => false);
         return { ...base, ...veredictoFicha(false, sinStock, precio) };
       }

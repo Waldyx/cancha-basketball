@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { veredictoFicha } from "./amazon_es";
+import { veredictoFicha, SELECTOR_AGOTADO } from "./amazon_es";
 
 // Candado del 21-sep-2026. La regla anterior era "sin #add-to-cart-button ⇒ agotado",
 // o sea AUSENCIA DE EVIDENCIA. Esa noche marcó 61 agotados de Amazon y dejó 25 fichas
@@ -30,5 +30,20 @@ describe("veredictoFicha (Amazon)", () => {
   it("un precio suelto en la página no basta para dar por buena una zapa sin carrito", () => {
     // La Ja 1 devolvía 29,99 € de un vendedor que ni siquiera tiene carrito.
     expect(veredictoFicha(false, false, 29.99)).toEqual({ disponible: false });
+  });
+});
+
+// Candado del 22-sep-2026, el MISMO fallo por segunda vez. El arreglo del 21-sep quitó
+// la ausencia de evidencia pero dejó el TEXTO de `#availability` como señal positiva, y
+// esa primera pasada subió los agotados de Amazon de 18 a 64: 29 fichas perdieron la
+// compra y ninguna la recuperó. Comprobadas a mano las 64 contra Amazon: 46 vendían con
+// carrito, 7 estaban agotadas de verdad, 11 no daban señal.
+describe("SELECTOR_AGOTADO (Amazon)", () => {
+  it("🔑 NO mira `#availability`: su texto sale en páginas que sí venden", () => {
+    expect(SELECTOR_AGOTADO).not.toContain("availability");
+  });
+
+  it("la señal es la presencia de `#outOfStock`", () => {
+    expect(SELECTOR_AGOTADO).toBe("#outOfStock");
   });
 });
