@@ -1334,7 +1334,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/puma/hali-1-gray-echo-feather-gray", precio_actual: 52, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/puma/hali-1-opal-blissful-blue-royal-saphire", precio_actual: 78, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
-      { tienda: "puma_es", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-hali-1-unisex/313450?swatch=01", precio_actual: 104, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
+      { tienda: "puma_es", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-hali-1-unisex/313450?swatch=01", precio_actual: 104, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-05" }, // 22-sep: AGOTADO en Puma ES (JSON-LD OutOfStock + "AGOTADO" en pagina). Es el unico colorway de esta ficha alli. Le quedan los dos de Basketball Emotion.
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+hali+1+basketball&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
   },
@@ -1635,9 +1635,10 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/new-balance-fresh-foam-bb-v3/" },
     ],
     ultima_actualizacion: "2026-05-13",
+    oculto: true,
     precio_msrp_eur: 140,
     links_compra: [
-      { tienda: "nb_es", url: "https://www.newbalance.es/es/pd/fresh-foam-bb-v3/BBFRSV3-49565.html", precio_actual: 84, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
+      { tienda: "nb_es", url: "https://www.newbalance.es/es/pd/fresh-foam-bb-v3/BBFRSV3-49565.html", precio_actual: 84, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" }, // 22-sep: NB ES ya NO la vende (busqueda "fresh foam bb v3" da 5 resultados, todos running/walking/tennis de mujer). Control positivo: "baloncesto" devuelve 32 articulos con P400 a 140 EUR, o sea que la tienda sigue viva.
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+fresh+foam+bb+v3+baloncesto&tag=canchazapa-21", precio_actual: 139, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -3364,7 +3365,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/ja-3-scratch-3.0-turbo-green-university-red-black-white", precio_actual: 93.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+ja+3+basketball&tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
-      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=ja+3&vst=ja+3", precio_actual: 135, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=ja+3&vst=ja+3", precio_actual: 135, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-15" }, // 22-sep: Nike ES ya no stockea la Ja 3: la busqueda solo devuelve "Ja 3 By You" y la Ja 4, y su ficha IU6793-800 da 404. Le queda Basketball Emotion.
     ],
   },
 
@@ -5613,7 +5614,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-30",
     precio_msrp_eur: 140,
     links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/t/caitlin-1-caitlin-blue-zapatillas-de-baloncesto-oGRTM2xz/IH7423-400", precio_actual: 139.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/caitlin-1-caitlin-blue-zapatillas-de-baloncesto-oGRTM2xz/IH7423-400", precio_actual: 139.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" }, // 22-sep: en Nike ES sale como "Proximamente" con boton "Notificame": el producto es el correcto (IH7423-400) pero hoy no se puede comprar.
     ],
   },
   // ─────────────────────────────────────────────────────────────────
