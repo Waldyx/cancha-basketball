@@ -464,7 +464,10 @@ const _rawZapatillas: Zapatilla[] = [
     marca: "Adidas",
     modelo: "Cross 'Em Up Select",
     año_lanzamiento: 2023,
-    genero: "unisex",
+    // 23-sep: es un modelo de NIÑO. Las 5 publicaciones que existen (3 de Decathlon y 2 de
+    // Amazon) acaban todas en la talla 40 EU; la única que Amazon etiquetaba "Unisex adulto"
+    // (B0CKXYQJ9Y) se titula "Mid Trainers Kids" y va de la 21 a la 40.
+    genero: "gs",
     tecnologia_clave: ["Bounce cushion", "Suela de goma reforzada"],
     predecesor_id: null,
     sucesor_id: null,
@@ -487,24 +490,25 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 5,
     },
     categoria_principal: "balanced",
-    tags: ["presupuesto", "outdoor", "iniciacion", "mid-top"],
+    tags: ["presupuesto", "outdoor", "iniciacion", "mid-top", "junior"],
 
     ideal_para: {
-      posiciones: ["alero", "ala-pivot", "pivot"],
-      peso_jugador_kg: [55, 100],
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [35, 65],
       estilos: ["equilibrado", "potente"],
       lesiones_compatibles: ["tobillos"],
     },
     no_recomendada_para: {
+      posiciones: ["pivot"],
       estilos: ["explosivo"],
     },
 
     resumen:
-      "La mejor compra por debajo de €70 para juego outdoor. Goma reforzada que aguanta asfalto durante meses, caña media para tobillos delicados y un cushion Bounce básico pero fiable. Pensada para iniciación o jugadores casuales que machacan la zapa.",
+      "La mejor compra por debajo de €70 para juego outdoor. Goma reforzada que aguanta asfalto durante meses, caña media para tobillos delicados y un cushion Bounce básico pero fiable. Pensada para iniciación o jugadores casuales que machacan la zapa. Ojo: es un modelo de niño, solo existe en tallas 21-40 EU.",
     pros: [
       "Durabilidad outdoor excepcional — aguanta meses en asfalto",
       "Caña media con buen soporte de tobillo a este precio",
-      "Estabilidad sólida para jugadores con bases pesados",
+      "Estabilidad sólida para empezar",
       "Precio imbatible (€60)",
     ],
     contras: [
@@ -531,7 +535,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+cross+em+up+select&tag=canchazapa-21", precio_actual: 54.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "amazon_es", url: "https://www.amazon.es/adidas-Cross-Select-Shoes-Mid-Black/dp/B0C2QLWQBH/ref=sr_1_1?tag=canchazapa-21", precio_actual: 0, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es otra variante (corte o segmento) (la ficha enlazaba una busqueda)
-      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatilla-cross-em-up-select%2Fa55546c0-eb8c-41d3-aa53-37e1ad5a7dfa%2Fc1c4c251", precio_actual: 51.15, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" }, // Decathlon 16-sep: es la de NINO
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatilla-cross-em-up-select%2Fa55546c0-eb8c-41d3-aa53-37e1ad5a7dfa%2Fc1c4c251", precio_actual: 54.25, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-23" }, // 2026-09-23: "Zapatillas de baloncesto niño", tallas 32-40: ahora que la ficha es GS, es el producto correcto. Verificado por w27
     ],
   },
 
@@ -590,12 +594,12 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/nike-kd-18/" },
     ],
     ultima_actualizacion: "2026-05-13",
-    oculto: true,
     precio_msrp_eur: 170,
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA53978261-negro-pr-zapatillas-de-baloncesto-de-hombre-kd18-nike%2F", precio_actual: 95.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-01" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-kd-18-liquid-lime.html", precio_actual: 139.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/kd18-atomic-pink-photo-blue-lt-wild-mango", precio_actual: 109.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0GVQ1YZBK/?tag=canchazapa-21", precio_actual: 134.17, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-23" }, // 2026-09-23: Departamento Hombre, IM0634. 3 tallas (44,5-45,5). Verificado por w27
     ],
   },
 
@@ -1021,11 +1025,11 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/li-ning-way-of-wade-all-city-14/" },
     ],
     ultima_actualizacion: "2026-06-02",
-    oculto: true,
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/li-ning/wade-all-city-14-multicolor", precio_actual: 139.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21" }, // s52 21-sep: JSON-LD "Zapatillas Li - ning Wade All City 14", InStock, 5 tallas (7-9 USA)
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011540494334.html", precio_actual: 131.82, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" }, // 18-sep: el item ya no existe en AliExpress
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012802154831.html", precio_actual: 91.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-23" }, // 2026-09-23: Wade All City 14 ABAW001-3, caña baja. Verificado por w27
     ],
   },
 
@@ -1206,11 +1210,11 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "evaluacion-propia", datos: "Specs oficiales Anta + comparativa con KAI 1 Speed. Pendiente reviews HoopsGeek/WearTesters." },
     ],
     ultima_actualizacion: "2026-06-02",
-    oculto: true,
     precio_msrp_eur: 90,
     links_compra: [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/anta/kai-2-speed-blue", precio_actual: 93.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21" }, // s52 21-sep: JSON-LD "Zapatillas Anta KAI 2 Speed Blue", InStock, pero solo 4 tallas (10,5 / 13 / 14 / 15 USA)
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010621033449.html", precio_actual: 51.39, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" }, // 18-sep: el item ya no existe en AliExpress
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012834584397.html", precio_actual: 56.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-23" }, // 2026-09-23: "KAI SPEED 2" 912541114S, caña baja: el item anterior (1005010621033449) murio el 18-sep. Verificado por w27
     ],
   },
 
@@ -1268,11 +1272,11 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/anta-kai-3/" },
     ],
     ultima_actualizacion: "2026-06-02",
-    oculto: true,
     precio_msrp_eur: 130,
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/6973cac89d658501efa7ae30?variant_id=6973cac99d658577efa7ae3a", precio_actual: 109, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kai+3+baloncesto&tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005013094137186.html", precio_actual: 95.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-23" }, // 2026-09-23: KAI 3 caña baja 112631102-1. Verificado por w27
     ],
   },
 
@@ -7225,11 +7229,11 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
-    oculto: true,
     precio_msrp_eur: 65,
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56000750%2F", precio_actual: 52.49, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/giannis-immortality-4-nino-dark-raisin-total-crimson-volt-sail", precio_actual: 51.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56003244-negro-pr-zapatillas-baloncesto-de-ninos-giannis-immortality-4-gs-nike%2F", precio_actual: 56.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-23" }, // 2026-09-23: "(Gs)", Deportes>Niños. OJO solo 2 tallas (36,5 y 38). Verificado por w27
     ],
   },
 
@@ -13735,12 +13739,12 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/under-armour-curry-10/" },
     ],
     ultima_actualizacion: "2026-06-02",
-    oculto: true,
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/6952597cc263e701ec4f1b2d?variant_id=6952597cc263e7c3ec4f1b30", precio_actual: 81, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "ua_es", url: "https://www.underarmour.es/es-es/search?q=curry+10", precio_actual: 160, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+curry+10&tag=canchazapa-21", precio_actual: 160, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D8382V11/?tag=canchazapa-21", precio_actual: 140.02, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-23" }, // 2026-09-23: Departamento Hombre. "Curry Flow 10 Team" es colorway (mismo modelo 3026624). OJO solo 1 talla (47). Verificado por w27
     ],
   },
 
@@ -14164,11 +14168,11 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-09",
-    oculto: true,
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005013092315194.html", precio_actual: 77.69, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-06" }, // 18-sep: el item ya no existe en AliExpress
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=361+zen+7+baloncesto&tag=canchazapa-21", precio_actual: 95, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005013092357004.html", precio_actual: 81.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-23" }, // 2026-09-23: Zen 7 caña baja 572531101-2 (el item anterior murio el 18-sep). Verificado por w27
     ],
   },
 
