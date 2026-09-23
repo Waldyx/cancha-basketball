@@ -19,3 +19,14 @@ web/scraper-audit.log
 .specs_raw.json
 SCORES_AUDIT.md
 web/fix-joom.mjs
+
+# Carpeta de trabajo de las sesiones (encargos, auditorias, capturas). Local-only:
+# guarda material que NO puede publicarse (p. ej. promos de afiliados embargadas
+# hasta su fecha) y el repo es PUBLICO. Antes solo lo protegia no usar `git add -A`.
+trabajo/
+ENCARGO*.md
+ENCARGO*.json
+ENCARGO*.mjs
+web/_*.ts
+web/_*.mjs
+web/_*.json
