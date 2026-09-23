@@ -4531,7 +4531,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 75,
     links_compra: [
-      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57852230%2F", precio_actual: 52.49, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-29" }, // ECI 16-sep: todas las tallas SoldOut
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57852230%2F", precio_actual: 74.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-23" }, // 2026-09-23: "De Adulto", mid. OJO solo 2 de 16 tallas reales (43 y 45). Verificado por w27
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Funder-armour%2Fzapatillas-de-baloncesto-under-armour-lockdown-7-negro-162295.html", precio_actual: 52.50, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
@@ -6891,6 +6891,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57852356%2F", precio_actual: 62.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-29" }, // ECI 16-sep: 404
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Funder-armour%2Fzapatillas-de-baloncesto-under-armour-jet-25-blanco-154243.html", precio_actual: 63, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0G2YPQSLR?tag=canchazapa-21", precio_actual: 51.49, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57852354-verde-pr-zapatillas-de-baloncesto-de-adulto-ua-jet-25-under-armour%2F", precio_actual: 89.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-23" }, // 2026-09-23: "De Adulto". El ID A57852356 da 404, este es el nuevo. OJO solo 2 de 13 tallas reales. Verificado por w27
     ],
   },
   {
@@ -10241,7 +10242,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 200,
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/69019a8fee48940191417e70", precio_actual: 137, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
-      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-3-retro-og-rare-air%2F9427ddab-16c5-46e9-a38b-b63c97f90ec4%2Fc1", precio_actual: 183, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-05" }, // Decathlon 17-sep: redirige a la categoria (ficha retirada)
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-3-retro-og-rare-air%2F9427ddab-16c5-46e9-a38b-b63c97f90ec4%2Fc1", precio_actual: 187.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-23" }, // 2026-09-23: Decathlon marketplace (Limited Resell EU), "3 Retro OG Rare Air", 20 tallas 36,5-48,5, 0,94x MSRP. Verificado por w27
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0G2ZTZJ5F/?tag=canchazapa-21", precio_actual: 147, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-3-retro-og-worlds-best-dad-beige-98222", precio_actual: 170, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
     ],
@@ -10432,7 +10433,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-11-grand-finale-blanco-91854", precio_actual: 170, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-11-retro-low-university-blue-blanco-98223", precio_actual: 160, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
-      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-11-retro-rare-air%2F96423715-aec3-4328-bc0b-c9b5aa3153a0%2Fc5", precio_actual: 188, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" }, // Decathlon 17-sep: redirige a la categoria (ficha retirada)
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-11-retro-rare-air%2F96423715-aec3-4328-bc0b-c9b5aa3153a0%2Fc5", precio_actual: 184.95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-23" }, // 2026-09-23: Decathlon marketplace (Sports Lab ES), "11 Retro Rare Air", high, 8 tallas 38-48,5. Verificado por w27
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B08QCD8KJD?tag=canchazapa-21", precio_actual: 350, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
     ],
   },
