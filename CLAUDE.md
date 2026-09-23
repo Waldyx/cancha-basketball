@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-09-14 (sesión 49)
+> Última actualización: 2026-09-23 (sesión 54)
 > Para Claude: lee esto al empezar una sesión nueva. **Solo contiene lo vivo**: estado, reglas,
 > doctrina, afiliados, arquitectura y pendientes.
 >
@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **245 zapas · 287 tests · `astro check` 0 errores** (páginas: recontar, el 342 era de la s43 con 240 zapas) |
+| Tamaño | **245 zapas (52 OCULTAS, 193 visibles) · 290 tests · `astro check` 0 errores · 347 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -301,6 +301,51 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 ---
 
 ## 🔴 Pendientes abiertos
+
+### ▶️ S54 (22-23 sep, modo AUTÓNOMO: director + Sonnets) — catálogo OCULTO y Amazon sin agotado
+
+**Modo de trabajo decidido por el usuario (23-sep):** *"trabaja en modo autónomo. tú eres el cerebro y
+director de orquesta. abre un sonnet o lo que creas oportuno… tú revisas y subes"*. ⇒ Yo decido,
+reparto, reviso, commiteo y pusheo sin preguntar trámites. Los trabajadores son **subagentes Sonnet**
+(tool `Agent`, `model: sonnet`, en background): funcionan mejor que las terminales `cz-*`, que se
+quedan retenidas esperando aprobación en su ventana. El método común está en
+`trabajo/METODO-verificacion.md` y cada encargo lo manda leer primero.
+
+1. 🔑 **CATÁLOGO OCULTO** (`6968f63` + `0a69c76`). Decisión del usuario: *"todas las zapas que no se
+   puedan comprar desde nuestros enlaces de afiliado las quiero en oculto, para rescatarlas… incluidas
+   las retro. Excepción para las más importantes… esas las mantenemos en la tienda de la marca"*.
+   · Medido: **74 de 245 sin compra afiliada**. Ocultas **52**; visibles sin afiliado **19 excepciones +
+     4 `proximamente`** (éstas no se ocultan: existen para llegar indexadas al lanzamiento).
+   · Excepciones (tienda de la marca o Basketball Emotion, verificadas una a una el 22-sep): Nike ES
+     generación actual (Ja 3*, Ja 4, KD 19, Sabrina 4, Freak 8, GT Cut 4, A'Two, AJ 40, AJ 41, Luka 77),
+     Kobe 8 Protro y SHAI 001 (BE), Stewie 5, Scoot Zeros III, Hali 1*, Engine A, ZEN 8, AG 6.
+     (*) su enlace de marca murió y se sostienen por Basketball Emotion.
+   · **Mecanismo**: campo `oculto?: boolean`. `zapatillasTodas` = catálogo entero; `zapatillas` = lo que
+     se ENSEÑA (filtrado). Todos los listados cuelgan de `zapatillas`, así que no hay que tocar páginas.
+     La ficha se construye desde `zapatillasTodas`: **responde 200 con `noindex,follow`** y su MSRP.
+     Fuera del sitemap vía `src/data/ocultas.json` (lo genera el prebuild). Las marcas `{{precio:ID}}`
+     de los artículos resuelven contra `zapatillasTodas` (9 artículos citan ocultas).
+   · **Rescatar** = añadir la compra afiliada y quitar `oculto: true`. `audit-enlaces.ts` lista las
+     ocultas que YA tienen compra afiliada ("Ocultas que YA se pueden rescatar"). Herramienta de
+     aplicación: `web/_w27_aplicar.mjs <tsv>` (envuelve con el afiliado correcto, enciende o inserta, y
+     saca de ocultas; `--dry` para probar). Es local, no está en el repo.
+   · ⚠ Regla que CAMBIA: la vieja *"`disponible:false` nunca excluye una zapa de rankings ni catálogo"*
+     sigue valiendo para `disponible`; lo que excluye ahora es `oculto`, que se pone a mano.
+2. 🔴 **Amazon: el `agotado` desde CI está APAGADO** (`2f88a59` → `61295e3`). Tres noches seguidas
+   (21, 22 y 23-sep) la pasada marcó decenas de agotados falsos y dejó 23-29 fichas "sin compra" sin
+   que ninguna la recuperase. El 22 se quitó el texto de `#availability` y se dejó solo la PRESENCIA
+   de `#outOfStock`; el 23 volvió a pasar: **33 de 37 vendían con carrito vistos desde fuera**. ⇒ No es
+   el selector: **Amazon sirve a la IP de GitHub Actions una página distinta**. `AMAZON_MARCA_AGOTADO =
+   false`: sin botón, inconcluyente y manda la ficha. Los agotados reales (8) se llevan a mano.
+   ▶️ **Mañana 24-sep: comprobar la pasada** — debe ser la primera sin fichas perdiendo compra en bloque.
+   Script de comparación: `web/_w26_diff.ts` (pide `web/_precios_ayer.json` = `git show HEAD~1:...`).
+3. ✅ `.gitignore`: `trabajo/`, `ENCARGO*` y los `web/_*` ya no pueden subir por accidente (`aa0563e`).
+   La promo embargada de adidas vivía ahí sin protección en un repo público.
+4. 💡 **New Balance ES vende la P400 y la P400 Low (135-140 €)** y NO están en catálogo. En investigación.
+5. ✅ La BB v3 ya no la vende NB ES (sí el 5-sep, a 84 €): control positivo con 32 artículos de básquet.
+6. 📅 **25-sep: commitear la promo de adidas MidSeason** (`trabajo/w24-promos.md`). El banner se queda
+   vacío el 24. **26-27 sep: recordatorio a Viviana (Joom)** si sigue sin contestar (último correo suyo
+   10-sep; el nuestro del 17-sep salió a `@joom-contractors.com` con copia a `@joom.com`).
 
 ### ▶️ S53 (21-sep, tarde) — EL CHAT SERVÍA EL RAZONAMIENTO DEL MODELO, y los 21 gratis razonan
 
