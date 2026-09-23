@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **245 zapas (52 OCULTAS, 193 visibles) · 290 tests · `astro check` 0 errores · 347 páginas** |
+| Tamaño | **245 zapas (45 OCULTAS, 200 visibles) · 290 tests · `astro check` 0 errores · 347 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -341,7 +341,25 @@ quedan retenidas esperando aprobación en su ventana. El método común está en
    Script de comparación: `web/_w26_diff.ts` (pide `web/_precios_ayer.json` = `git show HEAD~1:...`).
 3. ✅ `.gitignore`: `trabajo/`, `ENCARGO*` y los `web/_*` ya no pueden subir por accidente (`aa0563e`).
    La promo embargada de adidas vivía ahí sin protección en un repo público.
-4. 💡 **New Balance ES vende la P400 y la P400 Low (135-140 €)** y NO están en catálogo. En investigación.
+4. ❌ **P400 y P400 Low de New Balance: NO se crean** (decisión del director, 23-sep). Son dos fichas
+   distintas (UFFBBV4 / UFFBLV4) pero **ninguna afiliada las vende** — entrarían ocultas, que es "parir
+   una zapa con cero enlaces a propósito" (doctrina NB Kawhi V). P400: HoopsGeek 8,6 verificado, 422 g de
+   fabricante; la Low no tiene ni una review. Datos listos en `trabajo/w27-p400.md` (local). **Reabrir
+   cuando las venda una afiliada.**
+4b. ✅ **7 ocultas RESCATADAS** (`cff59a9`): Curry 10 y KD 18 (Amazon), Kai 2 Speed, Kai 3, All City 14 y
+   ZEN 7 (AliExpress, marcas chinas), Immortality 4 GS (ECI). **Ocultas 52 → 45.** ⚠ Curry 10 (1 talla),
+   Immortality 4 GS (2) son opciones débiles. Las **22 retros**: ninguna rescatable (reventa, Low/GS o no
+   se venden, con control positivo). **"KAI SPEED 2" (912541114S) = nuestra "KAI 2 Speed"**.
+4c. ✅ **5 reposiciones** (`e0bb71e`): AJ3 y AJ11 (Decathlon marketplace), Lockdown 7 y Jet '25 (ECI; el ID
+   de la Jet cambió a A57852354). Lockdown y Jet: solo 2 tallas cada una.
+4d. 🔑 **`adidas-cross-em-up-select` ES DE NIÑO → `genero: "gs"`** (`cff59a9`). Las 5 publicaciones que
+   existen (3 Decathlon, 2 Amazon) acaban en la talla 40; la que Amazon etiquetaba "Unisex adulto"
+   (B0CKXYQJ9Y) se titula "Mid Trainers **Kids**" y va de la 21 a la 40. La ficha se la recomendaba a
+   pívots de 55-100 kg. ⚠ **`e0bb71e` dice lo contrario** ("la versión adulta existe"): era una suposición
+   no verificada del trabajador, que él mismo corrigió. **No existe versión adulta.** Cierra el punto 11
+   de la S52b.
+4e. 🔄 En curso: buscar AFILIADA a las 18 visibles que hoy solo vende la marca/BE (las más buscadas: Ja 4,
+   KD 19, Sabrina 4, AJ 40/41, Kobe 8 Protro, SHAI 001…). Hoy no generan comisión.
 5. ✅ La BB v3 ya no la vende NB ES (sí el 5-sep, a 84 €): control positivo con 32 artículos de básquet.
 6. 📅 **25-sep: commitear la promo de adidas MidSeason** (`trabajo/w24-promos.md`). El banner se queda
    vacío el 24. **26-27 sep: recordatorio a Viviana (Joom)** si sigue sin contestar (último correo suyo
