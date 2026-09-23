@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { veredictoFicha, SELECTOR_AGOTADO } from "./amazon_es";
+import { veredictoFicha, SELECTOR_AGOTADO, AMAZON_MARCA_AGOTADO } from "./amazon_es";
 
 // Candado del 21-sep-2026. La regla anterior era "sin #add-to-cart-button ⇒ agotado",
 // o sea AUSENCIA DE EVIDENCIA. Esa noche marcó 61 agotados de Amazon y dejó 25 fichas
@@ -45,5 +45,15 @@ describe("SELECTOR_AGOTADO (Amazon)", () => {
 
   it("la señal es la presencia de `#outOfStock`", () => {
     expect(SELECTOR_AGOTADO).toBe("#outOfStock");
+  });
+});
+
+// Candado del 23-sep-2026, tercera noche del mismo fallo. Con el selector ya reducido
+// a la PRESENCIA de #outOfStock, CI volvió a marcar 38 agotados nuevos y 33 de 37
+// vendían con carrito vistos desde fuera: Amazon le sirve a la IP de GitHub Actions
+// otra página. Reactivar esto sin cambiar DESDE DÓNDE se scrapea repite el fallo.
+describe("AMAZON_MARCA_AGOTADO", () => {
+  it("🔑 apagado: desde CI la señal de agotado de Amazon llega corrompida", () => {
+    expect(AMAZON_MARCA_AGOTADO).toBe(false);
   });
 });

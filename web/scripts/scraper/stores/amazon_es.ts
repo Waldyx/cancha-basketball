@@ -60,6 +60,22 @@ async function leerFicha(page: Page): Promise<{ titulo: string; precio: number |
  */
 export const SELECTOR_AGOTADO = "#outOfStock";
 
+/**
+ * 🔴 23-sep-2026, TERCERA noche: con `SELECTOR_AGOTADO` como única señal, la pasada
+ * de CI volvió a marcar 38 agotados nuevos de Amazon (7 → 45) y 23 fichas perdieron
+ * la compra sin que ninguna la recuperase. Comprobados 37 desde fuera de CI: 33
+ * vendían con carrito, 3 sin señal, 1 agotado real. Como la regla ya solo mira la
+ * PRESENCIA de `#outOfStock` —que en las 64 páginas del 22-sep nunca coexistió con el
+ * botón—, la conclusión es que **Amazon sirve a la IP de GitHub Actions una página
+ * distinta** de la que ve un usuario, y en ésa sí aparece `#outOfStock`. Ningún
+ * selector arregla una señal que llega corrompida desde el origen.
+ * ⇒ Desde CI, Amazon NO marca agotado: sin botón, el scrape es inconcluyente y manda
+ * la ficha. Los agotados reales (7-8) se cazan a mano; el coste de lo contrario eran
+ * 23-29 fichas diciendo "no la vende nadie" cada mañana.
+ * Para reactivarlo haría falta scrapear desde una IP residencial, no tocar el selector.
+ */
+export const AMAZON_MARCA_AGOTADO = false;
+
 export function veredictoFicha(
   compra: boolean,
   sinStock: boolean,
@@ -154,10 +170,12 @@ export const amazon_es: StoreScraper = {
         // ⇒ La única señal negativa que se sostiene es la PRESENCIA de `#outOfStock`.
         // Sin botón y sin `#outOfStock`, el scrape es INCONCLUYENTE (esos 11), que es
         // lo que no apaga el enlace editorial.
-        const sinStock = await page
-          .$(SELECTOR_AGOTADO)
-          .then((el) => !!el)
-          .catch(() => false);
+        const sinStock =
+          AMAZON_MARCA_AGOTADO &&
+          (await page
+            .$(SELECTOR_AGOTADO)
+            .then((el) => !!el)
+            .catch(() => false));
         return { ...base, ...veredictoFicha(false, sinStock, precio) };
       }
 
