@@ -408,6 +408,20 @@ export const PROMOS: Promo[] = [
     color: "#ff4747",
   },
   {
+    id: "snipes-deal-weeks-2026-09",
+    tienda: "snipes_eu",
+    tiendaLabel: "Snipes",
+    titulo: "Deal Weeks",
+    desde: "2026-09-25T16:00:00+02:00",
+    hasta: "2026-10-05T10:00:00+02:00",
+    // Correo de Awin del 24-sep. El enlace del correo apunta a /de-de: aquí se usa
+    // la misma sección de rebajas de la tienda española.
+    url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fc%2Fsale-660",
+    descuentoTexto: "hasta 50% en selección",
+    nota: "Sin código: el descuento va aplicado · +5% extra para miembros · algunos artículos excluidos",
+    color: "#ff8a3d",
+  },
+  {
     id: "amazon-prime-big-deal-days-2026-10",
     tienda: "amazon_es",
     tiendaLabel: "Amazon",
