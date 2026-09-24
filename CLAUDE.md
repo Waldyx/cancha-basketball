@@ -302,7 +302,16 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ## 🔴 Pendientes abiertos
 
-### ▶️ S54 (22-23 sep, modo AUTÓNOMO: director + Sonnets) — catálogo OCULTO y Amazon sin agotado
+### ▶️ S54 (22-24 sep, modo AUTÓNOMO: director + Sonnets) — catálogo OCULTO y Amazon sin agotado
+
+**▶️ PARA RETOMAR (24-sep) — EMPIEZA AQUÍ:**
+1. 🔄 **Relanzar el encargo w28 (monetizar las 18 excepciones)**: murió por límite de sesión el 23-sep.
+   Todo lo necesario está en **`trabajo/ENCARGO-w28-monetizar.md`** (cómo relanzar, trampas, salida y
+   cómo aplicar). Única fila guardada: **`jordan-luka-77` en ECI a 59,99 €, 3 de 15 tallas** — sin aplicar
+   todavía, revisarla con el resto.
+2. ✅ **Pasada del 24-sep LIMPIA**: 0 fichas pierden compra, agotados de Amazon estables en 8. Es la
+   primera en cuatro noches: `AMAZON_MARCA_AGOTADO = false` funciona. Seguir mirándolo unos días.
+3. 📅 **25-sep: promo adidas MidSeason** · **26-27 sep: recordatorio a Viviana (Joom)**.
 
 **Modo de trabajo decidido por el usuario (23-sep):** *"trabaja en modo autónomo. tú eres el cerebro y
 director de orquesta. abre un sonnet o lo que creas oportuno… tú revisas y subes"*. ⇒ Yo decido,
@@ -337,7 +346,7 @@ quedan retenidas esperando aprobación en su ventana. El método común está en
    de `#outOfStock`; el 23 volvió a pasar: **33 de 37 vendían con carrito vistos desde fuera**. ⇒ No es
    el selector: **Amazon sirve a la IP de GitHub Actions una página distinta**. `AMAZON_MARCA_AGOTADO =
    false`: sin botón, inconcluyente y manda la ficha. Los agotados reales (8) se llevan a mano.
-   ▶️ **Mañana 24-sep: comprobar la pasada** — debe ser la primera sin fichas perdiendo compra en bloque.
+   ✅ **24-sep: comprobada, limpia** (0 fichas pierden compra, 8 agotados de Amazon, igual que el 23).
    Script de comparación: `web/_w26_diff.ts` (pide `web/_precios_ayer.json` = `git show HEAD~1:...`).
 3. ✅ `.gitignore`: `trabajo/`, `ENCARGO*` y los `web/_*` ya no pueden subir por accidente (`aa0563e`).
    La promo embargada de adidas vivía ahí sin protección en un repo público.
@@ -358,8 +367,8 @@ quedan retenidas esperando aprobación en su ventana. El método común está en
    pívots de 55-100 kg. ⚠ **`e0bb71e` dice lo contrario** ("la versión adulta existe"): era una suposición
    no verificada del trabajador, que él mismo corrigió. **No existe versión adulta.** Cierra el punto 11
    de la S52b.
-4e. 🔄 En curso: buscar AFILIADA a las 18 visibles que hoy solo vende la marca/BE (las más buscadas: Ja 4,
-   KD 19, Sabrina 4, AJ 40/41, Kobe 8 Protro, SHAI 001…). Hoy no generan comisión.
+4e. ⏸ **Pendiente de relanzar** (ver "PARA RETOMAR" arriba): buscar AFILIADA a las 18 visibles que hoy
+   solo vende la marca/BE (Ja 4, KD 19, Sabrina 4, AJ 40/41, Kobe 8 Protro, SHAI 001…). No generan comisión.
 5. ✅ La BB v3 ya no la vende NB ES (sí el 5-sep, a 84 €): control positivo con 32 artículos de básquet.
 6. 📅 **25-sep: commitear la promo de adidas MidSeason** (`trabajo/w24-promos.md`). El banner se queda
    vacío el 24. **26-27 sep: recordatorio a Viviana (Joom)** si sigue sin contestar (último correo suyo
