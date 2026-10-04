@@ -302,6 +302,24 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ## 🔴 Pendientes abiertos
 
+### ▶️ S55 (4-oct) — vuelta tras 10 días: todo sano, el banner estaba vacío
+
+- ✅ Scraper 10/10 noches · web 200 · chat con IA real (`X-CZ-Model: qwen3.8-27b`) · `audit-enlaces` limpio.
+- ✅ **Promos (`5786b7c`)**: la de adidas MidSeason **nunca se cargó el 25-sep** (llevaba 9 días activa
+  sin banner). Cargadas adidas MidSeason (→13-oct), AliExpress Choice Day ESLD (1-7 oct) y Forum Sport
+  SuPRIME Day (SINIVA, 4-7 oct). Antes, Snipes Deal Weeks (`6b8c5d5`, →5-oct).
+- ✅ **Lanzamientos (`d32832e`)**: MB.06, Caitlin 1 y AE 3 fuera de `proximamente`. AE 3 en adidas ES y
+  FuikaOmar (afiliadas); Caitlin 1 y MB.06 solo marca + BE (excepciones visibles). MSRP MB.06 → 125 €.
+  OwnTheGame 3 GS recupera compra (Forum + Atmósfera). **Zapas visibles sin compra: 0.**
+- ✅ **w28 cerrado** (`trabajo/w28-monetizar-*.tsv`): ganan afiliada Freak 8, AJ 40, Luka 77, Scoot Zeros
+  III y SHAI 001. 🔑 **Regla nueva del director**: un enlace afiliado NO entra si su precio pasa a ser el
+  "desde" de la ficha y es MÁS CARO que una tienda no afiliada ya enlazada (marca/BE). Por eso fuera KD 19,
+  GT Cut 4, Kobe 8 Protro y Ja 3 (marketplace de Decathlon 1,09-1,41×), Hali 1 y Engine A. AliExpress
+  POIZON ("Authenticity Verified" en la foto) **no** se ha tomado como Marcas+: sin decidir.
+- 📧 **Recordatorio a Viviana (Joom) enviado el 4-oct** con autorización del usuario.
+- ▶️ Usuario: la app de GitHub "Claude" pide permisos nuevos (correo 30-sep).
+- 📅 AliExpress: Brand day 9-11 oct y Winter Offers 13-16 oct (esperar correo con códigos).
+
 ### ▶️ S54 (22-24 sep, modo AUTÓNOMO: director + Sonnets) — catálogo OCULTO y Amazon sin agotado
 
 **▶️ PARA RETOMAR (24-sep) — EMPIEZA AQUÍ:**
