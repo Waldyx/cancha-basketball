@@ -3942,6 +3942,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/converse/shai-001-navy-into-the-void-navy", precio_actual: 124.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21" }, // s52 21-sep: JSON-LD "Zapatillas Converse Shai 001", InStock, 12 tallas (6-13 USA)
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=converse+shai+001+baloncesto&tag=canchazapa-21", precio_actual: 125, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FMP_0071639_SHAIPABOX-zapatillas-de-baloncesto-unisex-shai-001-peek-a-boo-converse%2F", precio_actual: 129.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-04" }, // 2026-10-04: w28 ECI marketplace, Peek a Boo, 8 de 19 tallas (41-46.5)
     ],
   },
 
@@ -5276,6 +5277,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 81,
     links_compra: [
       { tienda: "puma_es", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-scoot-zeros-iii-unisex/312818", precio_actual: 81, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-01" },
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fpuma-zapatilla-baloncesto-scoot-zeros-iii-312818-1001108534-p", precio_actual: 58.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-04" }, // 2026-10-04: w28 Forum Sport, 312818, JSON-LD InStock, 6 tallas (41-46)
     ],
   },
 
