@@ -4901,6 +4901,7 @@ const _rawZapatillas: Zapatilla[] = [
       // quedado sin compra. Nike ES la vende a 99,99 EUR (verificado con navegador); no es
       // afiliado nuestro, asi que sale como "Ver precio en Nike", sin numero.
       { tienda: "nike_es", url: "https://www.nike.com/es/t/luka-77-zapatillas-de-baloncesto-BERU1e7j/IF1610-500", precio_actual: 99.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-18" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56814491-blanco-pr-zapatillas-de-baloncesto-de-hombre-jordan-luka-77-jordan%2F", precio_actual: 59.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-04" }, // 2026-10-04: w28 ECI adulto, 3 de 15 tallas (opción débil)
     ],
   },
 
@@ -9516,6 +9517,7 @@ const _rawZapatillas: Zapatilla[] = [
       // nuestro, asi que sale como "Ver precio en Nike" sin numero. Se repone aqui porque al
       // morir su item de AliExpress la ficha se quedo sin ninguna opcion de compra.
       { tienda: "nike_es", url: "https://www.nike.com/es/t/air-jordan-40-zapatillas-de-baloncesto-CNT7P4t3/IM8206-800", precio_actual: 199.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-18" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fjordan-40-dusty-rose%2Fbb604729-0161-4214-8cae-712df6278612%2Fc24", precio_actual: 155.49, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-04" }, // 2026-10-04: w28 Decathlon marketplace (W.Sneakers), Dusty Rose, 3 tallas (opción débil)
     ],
   },
 
@@ -15170,6 +15172,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/t/giannis-freak-8-zapatillas-de-baloncesto-txvJ3CIi/JA1403-100", precio_actual: 114.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-08-24" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+giannis+freak+8&tag=canchazapa-21", precio_actual: 114.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-24" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA200906839-negro-pr-zapatillas-de-baloncesto-de-hombre-giannis-freak-8-nike%2F", precio_actual: 114.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-04" }, // 2026-10-04: w28 ECI adulto, 10 de 13 tallas
     ],
   },
 
