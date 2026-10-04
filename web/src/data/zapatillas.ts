@@ -5569,14 +5569,13 @@ const _rawZapatillas: Zapatilla[] = [
   {
     id: "nike-caitlin-1",
     slug: "nike-caitlin-1",
-    proximamente: true,
     marca: "Nike",
     modelo: "Caitlin 1",
     generacion: 1,
     año_lanzamiento: 2026,
     genero: "unisex",
     signature_player: "Caitlin Clark",
-    tecnologia_clave: ["Diseño low para guards", "Tracción multidireccional", "Specs por confirmar (sin lanzar)"],
+    tecnologia_clave: ["Diseño low para guards", "Tracción multidireccional", "Specs por confirmar"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 330,
@@ -5618,7 +5617,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-30",
     precio_msrp_eur: 140,
     links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/t/caitlin-1-caitlin-blue-zapatillas-de-baloncesto-oGRTM2xz/IH7423-400", precio_actual: 139.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-11" }, // 22-sep: en Nike ES sale como "Proximamente" con boton "Notificame": el producto es el correcto (IH7423-400) pero hoy no se puede comprar.
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/caitlin-1-caitlin-blue-zapatillas-de-baloncesto-VUSxa3ht/IH7423-400", precio_actual: 139.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-04" }, // 2026-10-04: ya a la venta en Nike ES, IH7423-400 adulto, 11 de 16 tallas
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/caitlin-clark-1-racer-blue-multi-color", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-04" }, // 2026-10-04: JSON-LD InStock, SKU IH7423-400
     ],
   },
   // ─────────────────────────────────────────────────────────────────
@@ -8000,6 +8000,8 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 50,
     links_compra: [
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-ninos-ownthegame-30-j-azve-js2177-1001075273-p", precio_actual: 41.27, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-ninos-ownthegame-30-jq7939-1001087254-p", precio_actual: 40.28, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-04" }, // 2026-10-04: JQ7939 niño, JSON-LD InStock, 6 tallas (36-39 1/3); el JS2177 sigue agotado
+      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-ownthegame-30-infantil-negro-hiemet-rossho-176940.html", precio_actual: 44, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-04" }, // 2026-10-04: JQ7941 infantil, 7 tallas (28-39 1/3)
     ],
   },
 
@@ -9824,7 +9826,6 @@ const _rawZapatillas: Zapatilla[] = [
   {
     id: "puma-mb-06",
     slug: "puma-mb-06",
-    proximamente: true,
     marca: "Puma",
     modelo: "MB.06",
     generacion: 6,
@@ -9888,9 +9889,11 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "evaluacion-propia" },
     ],
     ultima_actualizacion: "2026-05-29",
-    precio_msrp_eur: 139.99,
+    precio_msrp_eur: 125, // tarifa de Puma ES el 4-oct (JSON-LD de primer nivel); antes 139,99 estimado
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+mb+06+baloncesto&tag=canchazapa-21", precio_actual: 139.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "puma_es", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-mb06-shooting-star-unisex/313624", precio_actual: 125, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-04" }, // 2026-10-04: Shooting Star unisex 313624, JSON-LD InStock, 13 de 16 tallas
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/puma/mb.06-shooting-star-dark-amethyst-lavender-alert", precio_actual: 124.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-04" }, // 2026-10-04: JSON-LD InStock, SKU 313624-01
     ],
   },
 
@@ -15176,7 +15179,6 @@ const _rawZapatillas: Zapatilla[] = [
   {
     id: "adidas-ae-3",
     slug: "adidas-ae-3",
-    proximamente: true,
     marca: "Adidas",
     modelo: "AE 3",
     generacion: 3,
@@ -15240,7 +15242,9 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-08-24",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fsearch%3Fq%3Danthony%2Bedwards%2B3", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-24" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-anthony-edwards-3%2FKH8537.html", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-04" }, // 2026-10-04: ya a la venta en adidas ES, KH8537 hombre caña baja, 9 de 25 tallas
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-anthony-edwards-3-snow-camo.html", precio_actual: 129.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-04" }, // 2026-10-04: colorway Snow Camo, caña baja, 6 tallas (41 1/3-46 2/3)
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/adidas/anthony-edwards-3-cold-blooded-sky-tint-bliss-blue-tech-grey-met.", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-04" }, // 2026-10-04: JSON-LD InStock, SKU KH8537
     ],
   },
 
