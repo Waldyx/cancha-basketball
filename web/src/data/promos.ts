@@ -408,6 +408,20 @@ export const PROMOS: Promo[] = [
     color: "#ff4747",
   },
   {
+    id: "adidas-midseason-sales-2026-09",
+    tienda: "adidas_es",
+    tiendaLabel: "adidas",
+    titulo: "MidSeason Sales",
+    // Correos de Awin del 21 y 25-sep. Dan días, no horas: 00:00 y 23:59:59 son la
+    // convención de las promos de adidas por día suelto.
+    desde: "2026-09-25T00:00:00+02:00",
+    hasta: "2026-10-13T23:59:59+02:00",
+    url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Foutlet",
+    descuentoTexto: "hasta 30% en selección",
+    nota: "Sin código: el descuento va aplicado · selección de artículos · condiciones en la web de adidas",
+    color: "#7cb342",
+  },
+  {
     id: "snipes-deal-weeks-2026-09",
     tienda: "snipes_eu",
     tiendaLabel: "Snipes",
@@ -420,6 +434,40 @@ export const PROMOS: Promo[] = [
     descuentoTexto: "hasta 50% en selección",
     nota: "Sin código: el descuento va aplicado · +5% extra para miembros · algunos artículos excluidos",
     color: "#ff8a3d",
+  },
+  {
+    id: "aliexpress-choice-day-envio-local-2026-10",
+    tienda: "aliexpress",
+    tiendaLabel: "AliExpress",
+    titulo: "Choice Day: envío local",
+    desde: "2026-10-01T00:00:00+02:00",
+    hasta: "2026-10-07T23:59:59+02:00",
+    // Tramos del correo de Awin del 28-sep. Prefijo ESLD.
+    codigos: [
+      { code: "ESLD02", descuento: 2, minCompra: 18 },
+      { code: "ESLD06", descuento: 6, minCompra: 45 },
+      { code: "ESLD11", descuento: 11, minCompra: 79 },
+      { code: "ESLD20", descuento: 20, minCompra: 159 },
+      { code: "ESLD30", descuento: 30, minCompra: 239 },
+      { code: "ESLD45", descuento: 45, minCompra: 359 },
+      { code: "ESLD60", descuento: 60, minCompra: 469 },
+    ],
+    nota: "Todos los pedidos enviados a España · no válidos en productos virtuales · no acumulable con otras promos",
+    color: "#ff4747",
+  },
+  {
+    id: "forumsport-suprime-day-2026-10",
+    tienda: "forumsport_es",
+    tiendaLabel: "Forum Sport",
+    titulo: "SuPRIME Day: sin IVA",
+    desde: "2026-10-04T00:00:00+02:00",
+    hasta: "2026-10-07T23:59:59+02:00",
+    url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2F",
+    codigo: "SINIVA",
+    descuentoTexto: "te descuentan el IVA",
+    // Correo de Awin del 2-oct: solo socios, así que la nota lo dice.
+    nota: "Solo para socios de Forum Sport · código SINIVA · productos seleccionados · sobre el precio ya rebajado · no acumulable",
+    color: "#facc15",
   },
   {
     id: "amazon-prime-big-deal-days-2026-10",
