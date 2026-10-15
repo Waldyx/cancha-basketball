@@ -314,8 +314,9 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 3. 🔎 **Mañana (16-oct)**: pedir indexación en Search Console de `/pizarra/` y `/estadisticas/` (cupo ~10/día;
    el del 15 se gastó). Revisar Search Console hacia el **29-oct**.
 4. ❓ Pendiente del usuario: ¿proyecto personal o negocio? (decide el tono del outreach) · probar pizarra y
-   estadísticas con un partido real del Premià · revisar las 5 plantillas de la pizarra (en la zona 2-3 el texto
-   dice "ala derecha" y el balón va a la izquierda vista desde arriba) · Bing Webmaster Tools (importar de GSC)
+   estadísticas con un partido real del Premià · ✅ plantilla zona 2-3 corregida (`fd0b232`: "ala izquierda del
+   ataque"; las otras 4 no nombran lados) · ⚠ minibasket: la normativa FEXB no da la distancia del tiro libre
+   (solo aro 2,60 m y zona de triple a 4 m DEL TABLERO); sigue pendiente del entrenador · Bing Webmaster Tools (importar de GSC)
    · permisos de la app Claude en GitHub · decisión Nike en AliExpress POIZON (recomendado: no).
 
 **Hecho el 15-oct (todo en producción):** modo Equipo de estadísticas (`statsEquipo.ts` + `scripts/statsEquipoUI.ts`,
