@@ -1,0 +1,61 @@
+---
+// /jugadores — página de entrada para jugadores: sus herramientas y lo que viene.
+import "../styles/cancha-redesign.css";
+import Base from "../layouts/Base.astro";
+import HubGrid from "../components/HubGrid.astro";
+
+const herramientas = [
+  { href: "/estadisticas/", tag: "Tu temporada", label: "Estadísticas", desc: "Apunta tus partidos o importa tus actas FEB y mira cómo evoluciona tu juego." },
+  { href: "/quiz/", tag: "Zapatillas", label: "Quiz de zapatilla", desc: "La zapatilla que encaja con tu posición, tu peso, tu pista y tus lesiones." },
+  { href: "/mis-zapas/", tag: "Zapatillas", label: "Mis zapas", desc: "Guarda las que te interesan y compáralas cuando quieras." },
+  { href: "/calculadora/", tag: "Zapatillas", label: "Coste por partido", desc: "Lo que te cuesta de verdad cada partido según cuánto juegas." },
+  { href: "/guia-tallas/", tag: "Zapatillas", label: "Guía de tallas", desc: "Cómo acertar con la talla en cada marca antes de comprar." },
+  { href: "/zapatillas/", tag: "Zapatillas", label: "Catálogo", desc: "Todas las zapatillas de baloncesto analizadas, con precio y puntuación." },
+];
+
+const pronto = [
+  { tag: "Entrenamiento", label: "Plan individual", desc: "Rutinas de tiro y manejo de balón con un registro de tu porcentaje por zonas, semana a semana.", pro: true, pronto: true },
+];
+---
+
+<Base
+  title="Herramientas para jugadores de baloncesto | CANCHA.ZAPA"
+  description="Herramientas gratis para jugadores de baloncesto: estadísticas de tu temporada, quiz para elegir zapatilla, coste por partido y guía de tallas. Sin registro."
+>
+  <main class="app">
+    <section class="doc-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Jugadores</p>
+        <h1 class="doc-h1">Para <span class="accent">jugadores</span></h1>
+        <p class="doc-lede">
+          Sigue tu temporada y elige bien lo que te pones en los pies. Sin registro: lo que apuntas se
+          queda en tu navegador.
+        </p>
+      </div>
+    </section>
+
+    <article class="doc-article">
+      <div class="shell">
+        <section class="doc-section">
+          <div class="doc-section-head">
+            <span class="doc-num">01</span>
+            <h2 class="doc-h2">Ya disponible</h2>
+          </div>
+          <HubGrid items={herramientas} />
+        </section>
+
+        <section class="doc-section">
+          <div class="doc-section-head">
+            <span class="doc-num">02</span>
+            <h2 class="doc-h2">En preparación</h2>
+          </div>
+          <HubGrid items={pronto} />
+        </section>
+
+        <p class="doc-body">
+          ¿Entrenas a un equipo? Mira las <a href="/entrenadores/" class="doc-link">herramientas para entrenadores →</a>
+        </p>
+      </div>
+    </article>
+  </main>
+</Base>

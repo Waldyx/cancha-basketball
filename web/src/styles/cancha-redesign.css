@@ -4013,3 +4013,57 @@ button { font-family: inherit; cursor: pointer; }
   .footer-links { gap: 12px; }
   .footer-links a { font-size: 10px; letter-spacing: .08em; }
 }
+
+/* ============================================================
+   /jugadores · /entrenadores · /clubs — páginas de entrada por público
+   ============================================================ */
+.hub-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  margin-top: 18px;
+}
+@media (max-width: 900px) { .hub-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .hub-grid { grid-template-columns: 1fr; } }
+.hub-card {
+  position: relative;
+  padding: 18px 18px 16px;
+  background: rgba(var(--cz-card-rgb),0.7);
+  border: 1px solid rgba(var(--cz-border-rgb),0.5);
+  border-bottom: 3px solid rgba(249,115,22,0.7);
+  display: flex; flex-direction: column; gap: 6px;
+  text-decoration: none;
+  transition: transform 0.18s, border-color 0.18s;
+}
+a.hub-card:hover { transform: translateY(-3px); border-color: var(--cz-accent-text); }
+.hub-card-pronto { border-bottom-color: rgba(var(--cz-border-rgb),0.8); opacity: 0.85; }
+.hub-card-top { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding-right: 22px; }
+.hub-card-tag {
+  font-size: 9px; font-weight: 900; text-transform: uppercase;
+  letter-spacing: 0.2em; color: var(--cz-accent-text);
+}
+.hub-badge {
+  font-size: 9px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.12em;
+  padding: 2px 6px; border: 1px solid var(--cz-border); color: var(--cz-text-muted);
+}
+.hub-badge-pro { border-color: var(--cz-amber-text); color: var(--cz-amber-text); }
+.hub-card-label {
+  font-family: "Barlow Condensed", sans-serif; font-weight: 900;
+  font-size: 26px; line-height: 0.95; text-transform: uppercase;
+  letter-spacing: -0.02em; color: var(--cz-text);
+}
+.hub-card-desc { font-size: 13px; line-height: 1.5; color: var(--cz-text-2); }
+.hub-card-arrow {
+  position: absolute; right: 16px; top: 14px;
+  font-size: 18px; color: var(--cz-text-dim); font-weight: 800; transition: transform 0.15s, color 0.15s;
+}
+a.hub-card:hover .hub-card-arrow { color: var(--cz-accent-text); transform: translateX(3px); }
+.hub-cta {
+  display: inline-block; margin-top: 18px;
+  background: #f97316; color: #0c0c0c; text-decoration: none;
+  font-weight: 900; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 14px 20px; box-shadow: 4px 4px 0 0 #facc15;
+}
+.hub-cta:hover { color: #0c0c0c; transform: translate(-1px,-1px); }
+.hub-list { margin: 14px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.hub-list li { color: var(--cz-text-soft); font-size: 15px; line-height: 1.55; padding-left: 20px; position: relative; }
+.hub-list li::before { content: "→"; position: absolute; left: 0; color: var(--cz-accent-text); font-weight: 900; }
+.hub-list strong { color: var(--cz-text); }

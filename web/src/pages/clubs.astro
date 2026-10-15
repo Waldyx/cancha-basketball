@@ -1,0 +1,69 @@
+---
+// /clubs — página de entrada para clubs: una licencia para todos los equipos del club,
+// en vez de que cada entrenador tenga la suya. Sin precio todavía (beta gratuita).
+import "../styles/cancha-redesign.css";
+import Base from "../layouts/Base.astro";
+
+const correo = "oswaldhs7@gmail.com";
+const asunto = encodeURIComponent("Mi club en CANCHA.ZAPA");
+---
+
+<Base
+  title="Herramientas para clubs de baloncesto | CANCHA.ZAPA"
+  description="Una licencia para todos los equipos del club: pizarra, sesiones y estadísticas Pro para cada entrenador. Los datos de los jugadores no salen de sus dispositivos. Gratis durante la beta."
+>
+  <main class="app">
+    <section class="doc-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Clubs</p>
+        <h1 class="doc-h1">Un club,<br/><span class="accent">todos sus equipos</span></h1>
+        <p class="doc-lede">
+          En vez de que cada entrenador se apañe por su cuenta, el club tiene una sola licencia y todos sus
+          equipos trabajan con las mismas herramientas Pro, desde minibasket hasta el sénior.
+        </p>
+        <a class="hub-cta" href={`mailto:${correo}?subject=${asunto}`}>Quiero probarlo en mi club →</a>
+      </div>
+    </section>
+
+    <article class="doc-article">
+      <div class="shell shell-narrow">
+        <section class="doc-section">
+          <div class="doc-section-head">
+            <span class="doc-num">01</span>
+            <h2 class="doc-h2">Qué tiene el club</h2>
+          </div>
+          <ul class="hub-list">
+            <li><strong>Todo lo Pro para cada entrenador</strong>: sesiones de entrenamiento imprimibles, modo jugador con QR, GIF de las jugadas, estadísticas de equipo y el agente de estadísticas. <a href="/entrenadores/" class="doc-link">Ver herramientas</a></li>
+            <li><strong>Una misma forma de trabajar en la escuela</strong>: las jugadas, ejercicios y sesiones se comparten por enlace entre los entrenadores del club.</li>
+            <li><strong>El escudo y los colores del club</strong> en las hojas, los PDF y los GIF de las jugadas <em>(en preparación)</em>.</li>
+            <li><strong>Informes de temporada para las familias</strong>, uno por jugador <em>(en preparación)</em>.</li>
+          </ul>
+        </section>
+
+        <section class="doc-section">
+          <div class="doc-section-head">
+            <span class="doc-num">02</span>
+            <h2 class="doc-h2">Los datos de los niños, en casa</h2>
+          </div>
+          <p class="doc-body">
+            No hay cuentas ni servidores con datos de jugadores. Las estadísticas y las jugadas se guardan en el
+            dispositivo de cada entrenador, y solo salen de ahí cuando se comparten a propósito. Para un club con
+            equipos de menores es una preocupación menos.
+          </p>
+        </section>
+
+        <section class="doc-section">
+          <div class="doc-section-head">
+            <span class="doc-num">03</span>
+            <h2 class="doc-h2">Precio</h2>
+          </div>
+          <p class="doc-body">
+            <strong>Gratis durante la beta.</strong> Buscamos clubs que lo usen de verdad y nos digan qué les falta.
+            Si quieres que tu club lo pruebe, escríbenos y lo preparamos con vosotros.
+          </p>
+          <a class="hub-cta" href={`mailto:${correo}?subject=${asunto}`}>Escríbenos →</a>
+        </section>
+      </div>
+    </article>
+  </main>
+</Base>

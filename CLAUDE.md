@@ -302,6 +302,25 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ## 🔴 Pendientes abiertos
 
+### 💼 MODELO DE NEGOCIO (decidido con el usuario, 15-oct)
+- **Freemium**: lo de zapatillas (catálogo, fichas, quiz, rankings, blog) GRATIS SIEMPRE: es el embudo SEO y
+  de afiliados. Lo de más valor (herramientas de entrenador) será **Pro**. Lo que empuja una compra de
+  zapatillas (p. ej. "Mis zapas" con desgaste) se deja gratis a propósito.
+- **Beta**: Pro gratis para todos hasta que el usuario diga lo contrario. Desbloqueo lo más fácil posible: un
+  botón "Activar Pro gratis (beta)" con el código visible en la misma pantalla; solo en el navegador.
+- **Clubs**: licencia de club para TODOS sus equipos, en vez de que cada entrenador pague lo suyo.
+- ✅ **Paso 1 hecho**: páginas `/jugadores/`, `/entrenadores/`, `/clubs/` (`HubGrid.astro`) y menú
+  `Zapatillas ▾ | Jugadores | Entrenadores | Clubs | Blog | ♥`. Las URLs de las herramientas NO cambian.
+- ▶️ **Paso 2**: mecanismo Pro (sin bloquear nada hasta que el usuario lo diga) + contador anónimo de
+  activaciones (sin datos personales). Pro previsto: sesiones, modo jugador/QR/GIF y lecturas de la pizarra,
+  modo Equipo de estadísticas y agente IA.
+- ▶️ **Paso 3, por orden**: control de minutos/cuartos (verificar normas de participación de la FCBQ) → mapa de
+  tiro → libro de jugadas con escudo del club → etiquetas de vídeo. Más ideas: informe del rival (actas FEB),
+  plan de partido, generador de sesiones con IA, evaluación de jugadores + informe a familias, tests físicos,
+  asistencia/convocatorias, plan individual de tiro (jugadores), cuadros de torneos 3x3/campus.
+- ⚠ Decisión futura: la sincronización entre dispositivos y compartir en el club choca con la regla de no tener
+  datos de menores en servidor. Para cobrar: pasarela tipo Lemon Squeezy/Paddle (gestiona el IVA) y gestor.
+
 ### ▶️ PARA RETOMAR (tras el clear del 15-oct) — EMPIEZA AQUÍ
 1. ✅ **Pizarra v2 PUBLICADA (15-oct)**: tiempo muerto + formaciones, ejercicios + minibasket, sesiones
    imprimibles, modo jugador + QR + GIF, lecturas, nombres desde `cz.team.v1`, orden de acciones, hoja de banquillo.

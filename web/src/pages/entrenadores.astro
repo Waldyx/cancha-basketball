@@ -1,0 +1,68 @@
+---
+// /entrenadores — página de entrada para entrenadores: lo que hay, lo que será Pro y lo que viene.
+import "../styles/cancha-redesign.css";
+import Base from "../layouts/Base.astro";
+import HubGrid from "../components/HubGrid.astro";
+
+const herramientas = [
+  { href: "/pizarra/", tag: "Pizarra", label: "Pizarra táctica", desc: "Dibuja jugadas en varios pasos, anímalas y compártelas por enlace. Pista FIBA o minibasket." },
+  { href: "/pizarra/", tag: "Pizarra", label: "Plantillas y ejercicios", desc: "Jugadas de ataque y defensa, contraataques y ejercicios listos para cargar y adaptar." },
+  { href: "/pizarra/", tag: "Pizarra", label: "Sesiones de entrenamiento", desc: "Planifica la sesión con minutos por ejercicio, compártela e imprímela para la pista.", pro: true },
+  { href: "/pizarra/", tag: "Pizarra", label: "Modo jugador, QR y GIF", desc: "Tus jugadores ven la jugada en su móvil con un QR, o la descargan como GIF animado.", pro: true },
+  { href: "/estadisticas/", tag: "Estadísticas", label: "Estadísticas de equipo", desc: "Tabla de temporada, líderes, tarjetas y envío de sus números a cada jugador.", pro: true },
+  { href: "/estadisticas/", tag: "Estadísticas", label: "Agente de estadísticas", desc: "Pregunta a la IA por tus partidos: tendencias, quién rinde y qué corregir.", pro: true },
+];
+
+const pronto = [
+  { tag: "Partido", label: "Control de minutos", desc: "Cuántos cuartos lleva cada jugador, con aviso si alguien no va a cumplir los mínimos de participación." },
+  { tag: "Partido", label: "Mapa de tiro", desc: "Marca en la pista dónde se tira y si entra. Mapa de calor por jugador y por equipo toda la temporada." },
+  { tag: "Rival", label: "Informe del rival", desc: "Importa las actas del rival y ve quién anota, quién comete faltas y cómo rinden por cuartos." },
+  { tag: "Club", label: "Libro de jugadas", desc: "Todas tus jugadas y sesiones en un PDF con el escudo y los colores de tu club." },
+  { tag: "Vídeo", label: "Etiquetas de vídeo", desc: "Abre el vídeo del partido sin subirlo a ningún sitio, marca momentos y salta de uno a otro." },
+].map((i) => ({ ...i, pro: true, pronto: true }));
+---
+
+<Base
+  title="Herramientas para entrenadores de baloncesto | CANCHA.ZAPA"
+  description="Pizarra táctica, plantillas, ejercicios, sesiones de entrenamiento y estadísticas de equipo para entrenadores de baloncesto. Gratis y sin registro."
+>
+  <main class="app">
+    <section class="doc-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Entrenadores</p>
+        <h1 class="doc-h1">Para <span class="accent">entrenadores</span></h1>
+        <p class="doc-lede">
+          Prepara entrenamientos, explica jugadas y sigue a tu equipo desde el móvil o la tableta. Sin
+          registro: los datos de tus jugadores no salen de tu dispositivo.
+        </p>
+      </div>
+    </section>
+
+    <article class="doc-article">
+      <div class="shell">
+        <section class="doc-section">
+          <div class="doc-section-head">
+            <span class="doc-num">01</span>
+            <h2 class="doc-h2">Ya disponible</h2>
+          </div>
+          <p class="doc-body">
+            Lo marcado como <strong>Pro</strong> será de pago más adelante. Durante la beta es gratis para todos.
+          </p>
+          <HubGrid items={herramientas} />
+        </section>
+
+        <section class="doc-section">
+          <div class="doc-section-head">
+            <span class="doc-num">02</span>
+            <h2 class="doc-h2">En preparación</h2>
+          </div>
+          <HubGrid items={pronto} />
+        </section>
+
+        <p class="doc-body">
+          ¿Lo quieres para todos los equipos de tu club? Mira la <a href="/clubs/" class="doc-link">licencia para clubs →</a>
+        </p>
+      </div>
+    </article>
+  </main>
+</Base>

@@ -1,0 +1,35 @@
+---
+// Rejilla de tarjetas de las páginas de entrada por público (/jugadores, /entrenadores, /clubs).
+// `pro` marca lo que será de pago (hoy gratis durante la beta); `pronto` lo que aún no existe:
+// se pinta sin enlace para no prometer una página que no está.
+export interface HubItem {
+  href?: string;
+  tag: string;
+  label: string;
+  desc: string;
+  pro?: boolean;
+  pronto?: boolean;
+}
+interface Props {
+  items: HubItem[];
+}
+const { items } = Astro.props;
+---
+
+<div class="hub-grid">
+  {items.map((it) => {
+    const Tag = it.href && !it.pronto ? "a" : "div";
+    return (
+      <Tag href={Tag === "a" ? it.href : undefined} class:list={["hub-card", { "hub-card-pronto": it.pronto }]}>
+        <span class="hub-card-top">
+          <span class="hub-card-tag">{it.tag}</span>
+          {it.pro && <span class="hub-badge hub-badge-pro">Pro · gratis en beta</span>}
+          {it.pronto && <span class="hub-badge">En preparación</span>}
+        </span>
+        <span class="hub-card-label">{it.label}</span>
+        <span class="hub-card-desc">{it.desc}</span>
+        {Tag === "a" && <span class="hub-card-arrow">→</span>}
+      </Tag>
+    );
+  })}
+</div>

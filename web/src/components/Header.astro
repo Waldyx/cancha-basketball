@@ -3,23 +3,30 @@
 // menú hamburguesa en móvil (≤860px) y toggle de tema claro/oscuro.
 // El enlace activo se deriva de la URL — las páginas ya no marcan su nav a mano.
 const path = Astro.url.pathname;
-const links = [
-  { href: "/quiz", label: "Quiz" },
-  { href: "/comparar", label: "Comparar" },
-  { href: "/rankings", label: "Rankings" },
+// Zapatillas agrupa todo lo de calzado en un desplegable; el resto son las páginas de entrada
+// por público. `tambien` = rutas que encienden ese enlace (la herramienta vive en su URL de siempre).
+const zapas = [
   { href: "/zapatillas", label: "Catálogo" },
+  { href: "/quiz", label: "Quiz" },
+  { href: "/rankings", label: "Rankings" },
+  { href: "/comparar", label: "Comparar" },
   { href: "/calculadora", label: "Calculadora" },
-  { href: "/pizarra", label: "Pizarra" },
-  { href: "/estadisticas", label: "Stats" },
   { href: "/balones", label: "Accesorios" },
-  { href: "/blog", label: "Blog" },
-  { href: "/mis-zapas", label: "♥ Mis zapas" },
+];
+const links = [
+  { href: "/jugadores", label: "Jugadores", tambien: ["/estadisticas"] },
+  { href: "/entrenadores", label: "Entrenadores", tambien: ["/pizarra"] },
+  { href: "/clubs", label: "Clubs", tambien: [] as string[] },
+  { href: "/blog", label: "Blog", tambien: [] as string[] },
+  { href: "/mis-zapas", label: "♥ Mis zapas", tambien: [] as string[] },
 ];
 const isActive = (href: string) =>
   path === href ||
   path.startsWith(href + "/") ||
   (href === "/zapatillas" && path.startsWith("/zapatilla/")) ||
   (href === "/quiz" && path.startsWith("/resultados"));
+const zapasActivo = zapas.some((l) => isActive(l.href));
+const linkActivo = (l: { href: string; tambien: string[] }) => isActive(l.href) || l.tambien.some(isActive);
 ---
 
 <div class="czh-progress" aria-hidden="true"></div>
@@ -30,10 +37,26 @@ const isActive = (href: string) =>
     <a href="/" class="czh-logo">CANCHA<span class="czh-dot">.</span>ZAPA</a>
 
     <nav class="czh-nav" aria-label="Principal">
+      <div class="czh-drop">
+        <a href="/zapatillas" class:list={["czh-link", { active: zapasActivo }]} aria-haspopup="true">
+          Zapatillas <span class="czh-caret" aria-hidden="true">▾</span>
+        </a>
+        <div class="czh-sub">
+          {zapas.map((l) => (
+            <a
+              href={l.href}
+              class:list={["czh-sub-link", { active: isActive(l.href) }]}
+              aria-current={isActive(l.href) ? "page" : undefined}
+            >
+              {l.label}
+            </a>
+          ))}
+        </div>
+      </div>
       {links.map((l) => (
         <a
           href={l.href}
-          class:list={["czh-link", { active: isActive(l.href) }]}
+          class:list={["czh-link", { active: linkActivo(l) }]}
           aria-current={isActive(l.href) ? "page" : undefined}
         >
           {l.label}
@@ -49,10 +72,20 @@ const isActive = (href: string) =>
   </div>
 
   <nav class="czh-panel" aria-label="Principal móvil" hidden>
+    <p class="czh-panel-group">Zapatillas</p>
+    {zapas.map((l) => (
+      <a
+        href={l.href}
+        class:list={["czh-panel-link", "czh-panel-sublink", { active: isActive(l.href) }]}
+        aria-current={isActive(l.href) ? "page" : undefined}
+      >
+        {l.label} <span class="czh-arrow">→</span>
+      </a>
+    ))}
     {links.map((l) => (
       <a
         href={l.href}
-        class:list={["czh-panel-link", { active: isActive(l.href) }]}
+        class:list={["czh-panel-link", { active: linkActivo(l) }]}
         aria-current={isActive(l.href) ? "page" : undefined}
       >
         {l.label} <span class="czh-arrow">→</span>
@@ -124,6 +157,41 @@ const isActive = (href: string) =>
   .czh-link { color: var(--cz-text-2); padding: 8px 0; text-decoration: none; transition: color 150ms; }
   .czh-link:hover { color: var(--cz-accent-text); }
   .czh-link.active { color: var(--cz-accent-text); }
+  .czh-drop { position: relative; }
+  .czh-caret { font-size: 9px; }
+  .czh-sub {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -14px;
+    min-width: 180px;
+    padding: 6px 0;
+    background: var(--cz-bg);
+    border: 1px solid var(--cz-border);
+    border-top: 3px solid #f97316;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    z-index: 60;
+  }
+  .czh-drop:hover .czh-sub,
+  .czh-drop:focus-within .czh-sub { display: block; }
+  .czh-sub-link {
+    display: block;
+    padding: 9px 14px;
+    color: var(--cz-text-2);
+    text-decoration: none;
+  }
+  .czh-sub-link:hover,
+  .czh-sub-link.active { color: var(--cz-accent-text); }
+  .czh-panel-group {
+    margin: 0;
+    padding: 14px 24px 4px;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cz-accent-text);
+  }
+  .czh-panel .czh-panel-sublink { padding-left: 40px; font-size: 19px; }
   .czh-theme {
     background: none;
     border: 1px solid var(--cz-border);
