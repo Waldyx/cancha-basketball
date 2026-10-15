@@ -166,10 +166,11 @@ describe("pasos y animación", () => {
     expect(a2.y).toBeCloseTo(5);
     // a1 no tiene línea de movimiento: se queda donde estaba
     expect(p2.piezas.find((p) => p.id === "a1")).toMatchObject({ x: 8, y: 7.5 });
-    // el balón estaba en manos de a1 y la línea de pase de a1 acaba en a2 (6,2)
+    // el balón estaba en manos de a1 y la línea de pase de a1 acaba en a2 (6,2):
+    // llega a su lado (no encima del número), a menos de 1 m de él
     const b = p2.piezas.find((p) => p.id === "b")!;
-    expect(b.x).toBeCloseTo(6);
-    expect(b.y).toBeCloseTo(2);
+    expect(Math.hypot(b.x - 6, b.y - 2)).toBeGreaterThan(0.3);
+    expect(Math.hypot(b.x - 6, b.y - 2)).toBeLessThan(1);
     expect(p2.lineas).toHaveLength(0);
   });
 

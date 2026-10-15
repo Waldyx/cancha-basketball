@@ -177,6 +177,7 @@ export function iniciarPizarra(): void {
   };
   const svg = q<HTMLElement>("svg") as unknown as SVGSVGElement;
   const selbar = q("selbar");
+  const boardEl = root.querySelector<HTMLElement>(".pz-board") ?? selbar;
   const hint = q("hint");
   const toastEl = q("toast");
   const pasosEl = q("pasos");
@@ -199,7 +200,7 @@ export function iniciarPizarra(): void {
   const inpEnlace = q<HTMLInputElement>("enlace");
   const infoEnlace = q("enlace-info");
   const fileEl = q<HTMLInputElement>("file");
-  const printEl = q("print");
+  const printEl = document.querySelector<HTMLElement>('[data-pz="print"]') ?? document.body.appendChild(document.createElement("div"));
 
   // ── estado ──────────────────────────────────────────────────────────
   const almacen = leerAlmacen();
@@ -280,6 +281,7 @@ export function iniciarPizarra(): void {
     const s = j.pasos[Math.min(paso, j.pasos.length - 1)];
     const vb = cajaVista(j.cancha, j.orient);
     svg.setAttribute("viewBox", `${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
+    boardEl.style.setProperty("--pz-ar", `${vb.w} / ${vb.h}`);
     let piezas = s.piezas;
     let lineas = s.lineas;
     let textos = s.textos;
@@ -355,6 +357,7 @@ export function iniciarPizarra(): void {
     const lblFondo = root.querySelector<HTMLElement>('[data-act="fondo"] .pz-lbl');
     if (lblFondo) lblFondo.textContent = { parquet: "Parqué", neutra: "Neutra", oscura: "Oscura" }[paleta];
     root.classList.toggle("pz-view", soloVista);
+    for (const c of [inpNombre, selCat, txtNotas, txtNotaPaso]) c.disabled = soloVista;
     root.dataset.cancha = j.cancha;
     root.dataset.orient = j.orient;
     marcarPaso();
@@ -595,9 +598,22 @@ export function iniciarPizarra(): void {
       }
     }
     const piezas = s.piezas.slice().sort((a, b) => ORDEN_PIEZA[b.tipo] - ORDEN_PIEZA[a.tipo]);
+    // 1) lo que se ve bajo el dedo/cursor (manda la pieza de encima: el balón sobre su jugador)
+    const visible = { cono: 0.6, def: RADIO_PIEZA + 0.1, atq: RADIO_PIEZA + 0.1, balon: 0.46 };
     for (const pz of piezas) {
-      if (dist(p, pz) <= Math.max(RADIO_PIEZA + 0.12, um)) return { tipo: "pieza", id: pz.id };
+      if (dist(p, pz) <= visible[pz.tipo]) return { tipo: "pieza", id: pz.id };
     }
+    // 2) margen táctil: la pieza más cercana
+    let cercana: Pieza | null = null;
+    let md = Math.max(um, 0.8);
+    for (const pz of piezas) {
+      const d = dist(p, pz);
+      if (d <= md) {
+        md = d;
+        cercana = pz;
+      }
+    }
+    if (cercana) return { tipo: "pieza", id: cercana.id };
     for (const t of s.textos.slice().reverse()) {
       const w = Math.max(1.2, t.texto.length * [0, 0.62, 0.86, 1.2][t.tam] * 0.5);
       if (Math.abs(p.x - t.x) <= w / 2 + 0.3 && Math.abs(p.y - t.y) <= 0.8) return { tipo: "texto", id: t.id };
@@ -862,6 +878,7 @@ export function iniciarPizarra(): void {
   });
 
   // ── herramientas ────────────────────────────────────────────────────
+  let hintT = 0;
   function marcarHerramienta() {
     root.querySelectorAll<HTMLButtonElement>("[data-tool]").forEach((b) => {
       const on = b.dataset.tool === herr;
@@ -869,6 +886,9 @@ export function iniciarPizarra(): void {
       b.setAttribute("aria-pressed", String(on));
     });
     hint.textContent = AYUDA[herr];
+    hint.classList.add("on");
+    window.clearTimeout(hintT);
+    hintT = window.setTimeout(() => hint.classList.remove("on"), 6000);
     svg.style.cursor = herr === "select" ? "default" : "crosshair";
   }
 
@@ -1096,12 +1116,19 @@ export function iniciarPizarra(): void {
     });
     root.querySelectorAll<HTMLElement>("[data-panel]").forEach((p) => (p.hidden = p.dataset.panel !== t));
   }
+  /** Con un panel o diálogo abierto, el botón del chat flotante sobraría encima. */
+  function estadoModal() {
+    const abierto = !shareEl.hidden || (sideEl.classList.contains("open") && window.matchMedia("(max-width: 900px)").matches);
+    document.documentElement.classList.toggle("pz-modal", abierto);
+  }
   function abrirPanelMovil(t: string) {
     elegirTab(t);
     sideEl.classList.add("open");
+    estadoModal();
   }
   function cerrarPanelMovil() {
     sideEl.classList.remove("open");
+    estadoModal();
   }
 
   // ── compartir ───────────────────────────────────────────────────────
@@ -1483,10 +1510,10 @@ export function iniciarPizarra(): void {
       case "compartir":
         shareEl.hidden = !shareEl.hidden;
         if (!shareEl.hidden) void prepararEnlace();
-        return;
+        return estadoModal();
       case "cerrar-share":
         shareEl.hidden = true;
-        return;
+        return estadoModal();
       case "guardar":
         return guardarActual();
       case "nueva": {
@@ -1542,9 +1569,11 @@ export function iniciarPizarra(): void {
         return void grabarVideo();
       case "print-jugada":
         shareEl.hidden = true;
+        estadoModal();
         return imprimir([j]);
       case "print-book":
         shareEl.hidden = true;
+        estadoModal();
         return imprimir(biblio);
       case "json-jugada":
         return exportarJson([j], j.nombre, false);
@@ -1623,8 +1652,10 @@ export function iniciarPizarra(): void {
     const escribiendo = !!t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.tagName === "SELECT" || t.isContentEditable);
     const ctrl = e.ctrlKey || e.metaKey;
     if (e.key === "Escape") {
-      if (!shareEl.hidden) shareEl.hidden = true;
-      else if (root.classList.contains("pz-fs")) pantallaCompleta();
+      if (!shareEl.hidden) {
+        shareEl.hidden = true;
+        estadoModal();
+      } else if (root.classList.contains("pz-fs")) pantallaCompleta();
       else if (sideEl.classList.contains("open")) cerrarPanelMovil();
       else if (herr !== "select") elegirHerramienta("select");
       else if (sel) seleccionar(null);

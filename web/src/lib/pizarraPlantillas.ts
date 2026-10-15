@@ -86,7 +86,7 @@ function pickAndRoll(): Jugada {
     ],
     "El 1 pasa al hombre que rueda para que finalice. Si su defensor ayuda, pase a las esquinas (2 y 4).",
     { d1: [7.2, 9.9], d5: [4.2, 8.4] },
-    [tx(2.3, 11.2, "Si hay ayuda: esquina")]
+    [tx(-0.9, 12.2, "Si hay ayuda: esquina")]
   );
   return nuevaJugada({
     id: "plantilla-pick-and-roll",
@@ -132,7 +132,7 @@ function horns(): Jugada {
       ln("tiro", "a1", [3.6, 8.6], [1.9, 7.6]),
     ],
     "El 4 pasa al 1 que acaba el corte. Si la defensa lo cambia, el 4 puede atacar o buscar al 5 abriendo a la línea de 3.",
-    { d1: [4.6, 9.2] }
+    { d1: [5.4, 8.1] }
   );
   return nuevaJugada({
     id: "plantilla-horns",
@@ -154,11 +154,11 @@ function saqueCaja(): Jugada {
       pz("a4", "atq", "4", 5.8, 5.05),
       pz("a5", "atq", "5", 5.8, 9.95),
       pz("b", "balon", "", -0.5, 3.6),
-      pz("d1", "def", "X1", 0.7, 3.9),
-      pz("d2", "def", "X2", 3.9, 5.7),
-      pz("d3", "def", "X3", 3.9, 9.3),
-      pz("d4", "def", "X4", 5.2, 5.7),
-      pz("d5", "def", "X5", 5.2, 9.3),
+      pz("d1", "def", "X1", 0.9, 4.4),
+      pz("d2", "def", "X2", 2.2, 5.7),
+      pz("d3", "def", "X3", 2.2, 9.3),
+      pz("d4", "def", "X4", 4.7, 5.8),
+      pz("d5", "def", "X5", 4.7, 9.2),
     ],
     [
       ln("bloqueo", "a4", [5.8, 5.05], [4.3, 5.05]),
@@ -174,7 +174,7 @@ function saqueCaja(): Jugada {
       ln("corte", "a1", [-1.0, 3.2], [1.6, 1.6]),
     ],
     "El 1 saca al 2 que llega al ala y entra en cancha para ocupar la esquina.",
-    { d1: [1.2, 2.8], d2: [6.2, 3.2], d4: [4.6, 5.6] }
+    { d1: [2.4, 2.9], d2: [6.1, 3.8], d4: [4.0, 6.5] }
   );
   const p3 = sig(
     p2,
@@ -183,7 +183,7 @@ function saqueCaja(): Jugada {
       ln("tiro", "a3", [2.4, 7.9], [1.9, 7.5]),
     ],
     "Segunda opción: el 2 pasa al poste bajo (3) para finalizar cerca del aro. Si el saque se bloquea, el 4 abre al otro lado.",
-    { d3: [3.0, 8.5] }
+    { d3: [3.4, 9.0] }
   );
   return nuevaJugada({
     id: "plantilla-saque-fondo-caja",
@@ -212,7 +212,7 @@ function contraataque(): Jugada {
       ln("corte", "a3", [10.5, 12.5], [19.5, 12.2]),
     ],
     "3 contra 2 en línea: el base lleva el balón por el centro y los dos aleros corren los carriles abiertos, a la altura del balón o ligeramente por delante.",
-    [tx(14, 7.5, "carril central")]
+    [tx(14, 10.4, "carril central")]
   );
   const p2 = sig(
     p1,
@@ -268,11 +268,11 @@ function zona23(): Jugada {
     p1,
     [
       ln("pase", "a1", [9.6, 7.5], [6.8, 13.0], { fin: "a3" }),
-      ln("corte", "d2", [7.0, 9.8], [7.6, 11.6]),
-      ln("corte", "d1", [7.0, 5.2], [7.0, 7.4]),
-      ln("corte", "d4", [3.0, 7.5], [3.0, 8.8]),
-      ln("corte", "d5", [3.8, 12.0], [2.3, 12.6]),
-      ln("corte", "d3", [3.8, 3.0], [3.4, 5.4]),
+      ln("corte", "d2", [7.0, 9.8], [7.9, 11.9]),
+      ln("corte", "d1", [7.0, 5.2], [7.0, 8.0]),
+      ln("corte", "d4", [3.0, 7.5], [3.2, 9.6]),
+      ln("corte", "d5", [3.8, 12.0], [2.2, 13.0]),
+      ln("corte", "d3", [3.8, 3.0], [3.2, 5.8]),
     ],
     "El balón va al ala derecha y la zona se desplaza: el guardia de ese lado (X2) sale a presionar, X1 cierra el centro, X4 se mueve hacia el balón, X5 baja a la esquina y X3 cierra la zona por el lado débil."
   );
@@ -280,11 +280,11 @@ function zona23(): Jugada {
     p2,
     [
       ln("pase", "a3", [6.8, 13.0], [9.6, 7.5], { fin: "a1" }),
-      ln("corte", "d2", [7.6, 11.6], [7.0, 9.8]),
-      ln("corte", "d1", [7.0, 7.4], [7.0, 5.2]),
-      ln("corte", "d4", [3.0, 8.8], [3.0, 7.5]),
-      ln("corte", "d5", [2.3, 12.6], [3.8, 12.0]),
-      ln("corte", "d3", [3.4, 5.4], [3.8, 3.0]),
+      ln("corte", "d2", [7.9, 11.9], [7.0, 9.8]),
+      ln("corte", "d1", [7.0, 8.0], [7.0, 5.2]),
+      ln("corte", "d4", [3.2, 9.6], [3.0, 7.5]),
+      ln("corte", "d5", [2.2, 13.0], [3.8, 12.0]),
+      ln("corte", "d3", [3.2, 5.8], [3.8, 3.0]),
     ],
     "El balón vuelve arriba: toda la defensa recupera su posición de partida. El objetivo es mover el balón más rápido que los pies de la defensa."
   );

@@ -510,6 +510,8 @@ export function quitarTexto(j: Jugada, k: number, id: string): Jugada {
 const TIPOS_MOV: TipoLinea[] = ["corte", "bote", "bloqueo"];
 /** Radio (m) en el que un balón se considera "en manos" de una pieza o línea. */
 const RADIO_BALON = 1.3;
+/** Dónde queda el balón respecto al jugador que lo tiene (para que no tape su número). */
+const BALON_JUNTO: Pt = { x: 0.5, y: 0.4 };
 
 function lineaDeMovimiento(paso: Paso, pz: Pieza): Linea | undefined {
   return paso.lineas.find((l) => l.ref === pz.id && TIPOS_MOV.includes(l.tipo) && l.pts.length >= 2);
@@ -527,7 +529,15 @@ export function trayectoria(paso: Paso, pz: Pieza): Pt[] | null {
   if (pz.tipo === "balon") {
     const cerca = (l: Linea) => dist(l.pts[0], pz) <= RADIO_BALON;
     const pase = paso.lineas.find((l) => l.tipo === "pase" && l.pts.length >= 2 && cerca(l));
-    if (pase) return conInicio(polilinea(pase), pz);
+    if (pase) {
+      const pts = polilinea(pase);
+      // el balón llega a la mano del receptor, no encima de su número
+      if (pase.fin) {
+        const u = pts[pts.length - 1];
+        pts[pts.length - 1] = { x: u.x + BALON_JUNTO.x, y: u.y + BALON_JUNTO.y };
+      }
+      return conInicio(pts, pz);
+    }
     const bote = paso.lineas.find((l) => l.tipo === "bote" && l.pts.length >= 2 && cerca(l));
     if (bote) {
       const pts = polilinea(bote);

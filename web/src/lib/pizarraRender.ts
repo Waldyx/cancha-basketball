@@ -167,8 +167,10 @@ export function geometriaLinea(l: Linea): GeomLinea {
     return { cuerpo: b, barra: [{ x: tip.x + px, y: tip.y + py }, { x: tip.x - px, y: tip.y - py }] };
   }
   const cuerpoBase = l.tipo === "bote" ? zigzag(b) : b;
-  const cuerpo = longitud(cuerpoBase) > 1.4 ? recorta(cuerpoBase, 0, 0.5) : cuerpoBase;
-  return { cuerpo, cabeza: puntaFlecha(tip, dir) };
+  // la punta se encoge en líneas cortas (un desplazamiento de 1 m no puede ser todo flecha)
+  const largo = Math.min(0.62, Math.max(0.34, longitud(b) * 0.3));
+  const cuerpo = longitud(cuerpoBase) > 1.4 ? recorta(cuerpoBase, 0, largo * 0.8) : cuerpoBase;
+  return { cuerpo, cabeza: puntaFlecha(tip, dir, largo, largo * 0.55) };
 }
 
 function lineaSvg(l: Linea, p: Paleta, o: Orient, sel: boolean, opacidad: number): string {
