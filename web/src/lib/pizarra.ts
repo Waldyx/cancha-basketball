@@ -1100,8 +1100,9 @@ export function normalizarLibro(raw: unknown): LibroNormalizado {
   return { jugadas, descartadas };
 }
 
-export function libroAJson(jugadas: Jugada[]): string {
-  return JSON.stringify({ app: ID_APP, v: 1, jugadas }, null, 1);
+/** `extra` añade más datos al archivo (las sesiones de entrenamiento) sin tocar el formato de las jugadas. */
+export function libroAJson(jugadas: Jugada[], extra: Record<string, unknown> = {}): string {
+  return JSON.stringify({ app: ID_APP, v: 1, jugadas, ...extra }, null, 1);
 }
 
 /** Lee un JSON de texto (archivo o localStorage) sin lanzar nunca. */
@@ -1267,26 +1268,27 @@ async function aflujo(bytes: Uint8Array, transform: CompressionStream | Decompre
 
 export const hayCompresion = () => typeof CompressionStream !== "undefined" && typeof DecompressionStream !== "undefined";
 
+export type TipoEnlace = "j" | "b" | "s";
+
 /**
- * Serializa jugada(s) a texto para el hash. Prefijo: `z` = deflate-raw, `r` = JSON
- * sin comprimir (navegadores sin CompressionStream). Segundo carácter: `j` jugada, `b` libro.
+ * Empaqueta cualquier JSON para el hash. Prefijo: `z` = deflate-raw, `r` = JSON sin
+ * comprimir (navegadores sin CompressionStream). Segundo carácter: `j` jugada, `b` libro
+ * de jugadas, `s` sesión de entrenamiento (con las jugadas que usa).
  */
-export async function codificarEnlace(jugadas: Jugada[], opciones: { comprimir?: boolean } = {}): Promise<string> {
-  const tipo = jugadas.length === 1 ? "j" : "b";
-  const json = JSON.stringify(jugadas.map(compactar));
-  const bytes = new TextEncoder().encode(json);
+export async function empaquetarEnlace(raw: unknown, tipo: TipoEnlace, opciones: { comprimir?: boolean } = {}): Promise<string> {
+  const bytes = new TextEncoder().encode(JSON.stringify(raw));
   if (opciones.comprimir !== false && hayCompresion()) {
     return "z" + tipo + aBase64Url(await aflujo(bytes, new CompressionStream("deflate-raw")));
   }
   return "r" + tipo + aBase64Url(bytes);
 }
 
-/** Decodifica el texto del hash. Lanza un Error de mensaje legible si es basura. */
-export async function decodificarEnlace(texto: string): Promise<CargaEnlace> {
+/** Inverso de `empaquetarEnlace`. Lanza un Error de mensaje legible si es basura. */
+export async function desempaquetarEnlace(texto: string): Promise<{ tipo: TipoEnlace; raw: unknown }> {
   if (texto.length < 3 || texto.length > 400_000) throw new Error("Enlace vacío o demasiado largo");
   const modo = texto[0];
   const tipo = texto[1];
-  if ((modo !== "z" && modo !== "r") || (tipo !== "j" && tipo !== "b")) throw new Error("Formato de enlace desconocido");
+  if ((modo !== "z" && modo !== "r") || (tipo !== "j" && tipo !== "b" && tipo !== "s")) throw new Error("Formato de enlace desconocido");
   let bytes = deBase64Url(texto.slice(2));
   if (modo === "z") {
     if (!hayCompresion()) throw new Error("Este navegador no puede abrir enlaces comprimidos");
@@ -1294,7 +1296,24 @@ export async function decodificarEnlace(texto: string): Promise<CargaEnlace> {
   } else if (bytes.length > 4_000_000) {
     throw new Error("Datos demasiado grandes");
   }
-  const raw: unknown = JSON.parse(new TextDecoder().decode(bytes));
+  return { tipo, raw: JSON.parse(new TextDecoder().decode(bytes)) as unknown };
+}
+
+/** Tipo de enlace de un payload de hash (`zj…`, `rb…`, `zs…`) sin decodificarlo. */
+export function tipoDePayload(payload: string): TipoEnlace | null {
+  const t = payload[1];
+  return t === "j" || t === "b" || t === "s" ? t : null;
+}
+
+/** Serializa jugada(s) a texto para el hash. */
+export async function codificarEnlace(jugadas: Jugada[], opciones: { comprimir?: boolean } = {}): Promise<string> {
+  return empaquetarEnlace(jugadas.map(compactar), jugadas.length === 1 ? "j" : "b", opciones);
+}
+
+/** Decodifica el texto del hash. Lanza un Error de mensaje legible si es basura. */
+export async function decodificarEnlace(texto: string): Promise<CargaEnlace> {
+  const { tipo, raw } = await desempaquetarEnlace(texto);
+  if (tipo === "s") throw new Error("Es el enlace de una sesión de entrenamiento, no de una jugada");
   if (!Array.isArray(raw)) throw new Error("Contenido no válido");
   const jugadas: Jugada[] = [];
   for (const r of raw.slice(0, LIMITES.BIBLIOTECA)) {

@@ -398,6 +398,29 @@ function tablero(j: Jugada, k: number, paleta: Paleta, extra: Partial<OpcionesTa
   return { cancha: j.cancha, orient: j.orient, piezas: s.piezas, lineas: s.lineas, textos: s.textos, zonas: s.zonas, pista: j.pista, paleta, ...extra };
 }
 
+/**
+ * Resumen de una jugada en UN solo dibujo, para miniaturas (sesiones) y hojas de banquillo:
+ *  - "ultimo": el último paso tal cual;
+ *  - "todos": los jugadores en su posición inicial y las flechas de TODOS los pasos encima.
+ */
+export type ModoResumen = "ultimo" | "todos";
+
+export function opcionesResumen(j: Jugada, modo: ModoResumen, paleta: Paleta, extra: Partial<OpcionesTablero> = {}): OpcionesTablero {
+  if (modo === "ultimo") return tablero(j, j.pasos.length - 1, paleta, extra);
+  const primero = j.pasos[0];
+  return {
+    cancha: j.cancha,
+    orient: j.orient,
+    pista: j.pista,
+    paleta,
+    piezas: primero.piezas,
+    lineas: j.pasos.flatMap((s) => s.lineas),
+    textos: primero.textos,
+    zonas: j.pasos.flatMap((s) => s.zonas ?? []).filter((z, i, todas) => todas.findIndex((o) => o.x === z.x && o.y === z.y && o.w === z.w && o.h === z.h) === i),
+    ...extra,
+  };
+}
+
 export interface Lienzo {
   svg: string;
   w: number;

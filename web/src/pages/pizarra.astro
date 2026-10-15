@@ -133,6 +133,9 @@ const jsonLd = {
           </button>
         </div>
         <div class="pz-grp pz-grp-fin" role="group" aria-label="Compartir y guardar">
+          <button type="button" class="pz-btn" data-act="ses" aria-label="Sesión de entrenamiento: plan con ejercicios y minutos" title="Sesión de entrenamiento: plan con ejercicios y minutos">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17H6zM9 4V2.500h6V4M9 10h6M9 14h6M9 18h3"/></svg><span class="pz-lbl">Sesión</span>
+          </button>
           <button type="button" class="pz-btn pz-btn-tm" data-act="tm" aria-label="Tiempo muerto: pizarra a pantalla completa (T)" title="Tiempo muerto: pantalla limpia para el banquillo (T)">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.500v4.500l3 2M9.500 3h5"/></svg><span class="pz-lbl">Tiempo muerto</span>
           </button>
@@ -330,6 +333,61 @@ const jsonLd = {
           <button type="button" class="pz-btn" data-act="panel-biblio" aria-label="Abrir mi biblioteca de jugadas">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h4v15H4zM10 5h4v15h-4zM16.500 6.500l3.500-1 3 14-3.500 1z" transform="translate(-1 0) scale(.95)"/></svg><span class="pz-lbl">Biblioteca</span>
           </button>
+        </div>
+      </div>
+
+      <div class="pz-ses" data-pz="ses" role="dialog" aria-label="Sesión de entrenamiento" hidden>
+        <div class="pz-ses-head">
+          <strong class="pz-ses-h">Sesión de entrenamiento</strong>
+          <select class="pz-inp pz-ses-sel" data-pz="ses-elegir" aria-label="Elegir sesión"></select>
+          <div class="pz-row pz-ses-hbtn" data-ses-edit>
+            <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-ses="nueva">+ Nueva</button>
+            <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-ses="duplicar">Duplicar</button>
+            <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-ses="borrar">Borrar</button>
+          </div>
+          <button type="button" class="pz-x pz-ses-x" data-ses="cerrar" aria-label="Cerrar la sesión">✕</button>
+        </div>
+        <div class="pz-ses-banner" data-pz="ses-banner" hidden>
+          <span>Sesión compartida contigo. Puedes verla y abrir sus ejercicios; para tenerla, guárdala.</span>
+          <button type="button" class="pz-bn" data-ses="guardar-compartida">Guardar en mi biblioteca</button>
+          <button type="button" class="pz-bn pz-bn-2" data-ses="descartar-compartida">Ver mis sesiones</button>
+        </div>
+        <div class="pz-ses-body">
+          <section class="pz-ses-datos" aria-label="Datos de la sesión">
+            <label class="pz-lab pz-ses-c2" for="pz-ses-titulo">Título</label>
+            <input id="pz-ses-titulo" class="pz-inp pz-ses-c2" data-pz="ses-titulo" type="text" maxlength="80" autocomplete="off" />
+            <label class="pz-lab" for="pz-ses-fecha">Fecha</label>
+            <label class="pz-lab" for="pz-ses-hora">Hora de inicio</label>
+            <input id="pz-ses-fecha" class="pz-inp" data-pz="ses-fecha" type="date" />
+            <input id="pz-ses-hora" class="pz-inp" data-pz="ses-hora" type="time" />
+            <label class="pz-lab pz-ses-c2" for="pz-ses-equipo">Equipo</label>
+            <input id="pz-ses-equipo" class="pz-inp pz-ses-c2" data-pz="ses-equipo" type="text" maxlength="40" autocomplete="off" placeholder="Ej.: Infantil masculino A" />
+            <label class="pz-lab pz-ses-c2" for="pz-ses-objetivo">Objetivo de la sesión</label>
+            <textarea id="pz-ses-objetivo" class="pz-inp pz-ses-c2" data-pz="ses-objetivo" rows="2" maxlength="400" placeholder="Qué quieres trabajar hoy"></textarea>
+          </section>
+          <section class="pz-ses-plan" aria-label="Bloques de la sesión">
+            <p class="pz-ses-total" data-pz="ses-total" aria-live="polite"></p>
+            <ol class="pz-ses-lista" data-pz="ses-bloques"></ol>
+            <div class="pz-ses-add" data-ses-edit>
+              <h3 class="pz-h3">Añadir un ejercicio o jugada</h3>
+              <div class="pz-row">
+                <select class="pz-inp pz-ses-sel" data-pz="ses-anadir" aria-label="Ejercicio o jugada que añadir"></select>
+                <button type="button" class="pz-bn" data-ses="anadir">Añadir</button>
+              </div>
+              <h3 class="pz-h3">Añadir un bloque de texto</h3>
+              <div class="pz-row" data-pz="ses-rapidos"></div>
+            </div>
+            <div class="pz-ses-fin">
+              <h3 class="pz-h3">Compartir e imprimir</h3>
+              <div class="pz-row">
+                <button type="button" class="pz-bn" data-ses="imprimir">Imprimir o PDF</button>
+                <button type="button" class="pz-bn pz-bn-2" data-ses="enlace">Copiar enlace</button>
+                <button type="button" class="pz-bn pz-bn-2" data-ses="compartir">Compartir…</button>
+              </div>
+              <p class="pz-small" data-pz="ses-info"></p>
+              <p class="pz-small">En el diálogo de impresión elige «Guardar como PDF». La hoja sale en una o dos páginas A4 con la tabla de bloques y el esquema de cada ejercicio.</p>
+            </div>
+          </section>
         </div>
       </div>
 
@@ -539,6 +597,58 @@ const jsonLd = {
   .pz-form-d { font-size: 11.5px; line-height: 1.3; color: var(--cz-text-2); }
   @media (max-height: 520px) { .pz-form-d, .pz-formaciones > .pz-small { display: none; } .pz-form-btn { min-height: 40px; } .pz-form-h { margin: 8px 0 4px; } }
 
+  /* ── sesión de entrenamiento ── */
+  .pz-ses { position: fixed; inset: 0; z-index: 280; display: flex; flex-direction: column; background: var(--cz-bg); color: var(--cz-text); }
+  .pz-ses[hidden] { display: none; }
+  .pz-ses-head { flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; padding: 10px 14px; border-bottom: 1px solid var(--cz-border); background: var(--cz-card); }
+  .pz-ses-h { font: 900 22px "Barlow Condensed", sans-serif; letter-spacing: 0.04em; text-transform: uppercase; }
+  .pz-ses-sel { width: auto; min-width: 160px; max-width: 320px; flex: 1 1 200px; }
+  .pz-ses-x { margin-left: auto; }
+  .pz-ses-hbtn { flex: none; }
+  .pz-ses-banner { flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 8px 14px; background: var(--cz-card2); border-bottom: 1px solid var(--cz-accent); font-size: 14px; }
+  .pz-ses-banner[hidden] { display: none; }
+  .pz-ses-banner span { flex: 1 1 260px; font-weight: 700; }
+  .pz-ses-body { flex: 1; min-height: 0; overflow-y: auto; display: grid; grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); gap: 16px; align-items: start; padding: 14px; max-width: 1400px; width: 100%; margin: 0 auto; }
+  .pz-ses-datos { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 8px; position: sticky; top: 0; }
+  .pz-ses-c2 { grid-column: 1 / -1; }
+  .pz-ses-total { margin: 0 0 8px; font: 800 14px "Inter", sans-serif; letter-spacing: 0.04em; color: var(--cz-accent-text); }
+  .pz-ses-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .pz-bn-sm { min-height: 32px; padding: 0 10px; font-size: 11px; }
+  .pz-bl { position: relative; display: grid; grid-template-columns: auto 52px 150px minmax(0, 1fr) auto auto; gap: 8px 10px; align-items: start; padding: 8px; border: 1px solid var(--cz-border); background: var(--cz-card); }
+  .pz-bl.pz-bl-arrastrando { z-index: 3; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45); border-color: var(--cz-accent); opacity: 0.95; }
+  .pz-bl.pz-bl-destino { border-color: var(--cz-accent); border-style: dashed; }
+  .pz-bl-ord { display: flex; flex-direction: column; gap: 3px; }
+  .pz-bl-asa { width: 34px; height: 34px; border: 1px solid var(--cz-border); background: var(--cz-bg); color: var(--cz-text-soft); font-size: 18px; line-height: 1; cursor: grab; touch-action: none; border-radius: 0; }
+  .pz-bl-btn { min-width: 34px; height: 30px; padding: 0 8px; border: 1px solid var(--cz-border); background: var(--cz-bg); color: var(--cz-text); font: 700 12px "Inter", sans-serif; cursor: pointer; border-radius: 0; }
+  .pz-bl-btn:disabled { opacity: 0.35; cursor: default; }
+  .pz-bl-del { color: var(--cz-red-text); }
+  .pz-bl-ini { padding: 4px 0; font: 900 16px "Barlow Condensed", sans-serif; letter-spacing: 0.04em; color: var(--cz-accent-text); text-align: center; }
+  .pz-bl-th { width: 150px; min-height: 40px; display: flex; align-items: center; justify-content: center; background: var(--cz-bg); border: 1px solid var(--cz-border); }
+  .pz-bl-th svg { display: block; width: 100%; height: auto; }
+  .pz-bl-th-txt { font-size: 11px; color: var(--cz-text-2); padding: 8px 4px; text-align: center; }
+  .pz-bl-main { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .pz-bl-nom { font: 800 15px "Inter", sans-serif; overflow-wrap: anywhere; }
+  .pz-bl-meta { font-size: 12px; color: var(--cz-text-2); }
+  .pz-bl-link { align-self: flex-start; padding: 0; border: 0; background: none; color: var(--cz-accent-text); font: 700 12px "Inter", sans-serif; text-decoration: underline; cursor: pointer; }
+  .pz-bl-notas, .pz-bl-material, .pz-bl-titulo { padding: 6px 8px; font-size: 13px; }
+  .pz-bl-minbox { display: flex; flex-direction: column; align-items: center; gap: 2px; font: 800 10px "Inter", sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cz-text-2); }
+  .pz-bl-min { width: 66px; text-align: center; padding: 6px 4px; }
+  .pz-bl-acc { display: flex; flex-direction: column; gap: 4px; }
+  .pz-ses-ro .pz-bl { grid-template-columns: 52px 150px minmax(0, 1fr) auto; }
+  .pz-ses-add, .pz-ses-fin { margin-top: 14px; }
+  .pz-bn.peligro, .pz-bn-2.peligro { background: var(--cz-red-text); color: #fff; border-color: var(--cz-red-text); }
+  @media (max-width: 900px) {
+    .pz-ses-body { grid-template-columns: 1fr; padding: 10px; }
+    .pz-ses-datos { position: static; }
+    .pz-bl { grid-template-columns: auto 1fr auto; }
+    .pz-bl-ini { grid-column: 2; text-align: left; }
+    .pz-bl-th { grid-column: 1 / -1; width: 100%; max-width: 260px; }
+    .pz-bl-main { grid-column: 1 / -1; }
+    .pz-bl-minbox { grid-column: 3; flex-direction: row; align-items: center; }
+    .pz-bl-acc { grid-column: 1 / -1; flex-direction: row; }
+    .pz-ses-roi .pz-bl { grid-template-columns: 1fr; }
+  }
+
   /* ── compartir ── */
   .pz-share { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 250; width: min(440px, calc(100vw - 16px)); max-height: min(88dvh, 760px); overflow-y: auto; padding: 12px; background: var(--cz-card); border: 1px solid var(--cz-accent); box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.55); }
   .pz-share[hidden] { display: none; }
@@ -613,6 +723,22 @@ const jsonLd = {
     .pz-print-svg svg { display: block; width: 100%; height: auto; border: 0.4mm solid #666; }
     .pz-print-paso figcaption { margin-top: 1.5mm; font-size: 11pt; line-height: 1.3; }
     .pz-print-pie { margin: 6mm 0 0; font-size: 9pt; color: #666; text-align: right; }
+    html.pz-printing, html.pz-printing.pz-fs-lock { overflow: visible !important; }
+    html.pz-printing .pz-ses { display: none !important; }
+    /* sesión: una o dos hojas con la tabla de bloques y el esquema de cada ejercicio */
+    .pz-print-ses { color: #000; font-family: "Barlow Condensed", Arial, sans-serif; }
+    .pz-print-ses h2 { font-size: 24pt; line-height: 1; margin: 0 0 2mm; text-transform: uppercase; font-weight: 900; }
+    .pz-print-tabla { width: 100%; border-collapse: collapse; margin-top: 3mm; font-family: Arial, sans-serif; font-size: 9.5pt; }
+    .pz-print-tabla th { text-align: left; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 0.5mm solid #000; padding: 1.2mm 2mm; }
+    .pz-print-tabla td { vertical-align: top; padding: 2mm; border-bottom: 0.2mm solid #999; }
+    .pz-print-tabla tr { break-inside: avoid; page-break-inside: avoid; }
+    .pz-print-ini { white-space: nowrap; font-weight: 700; }
+    .pz-print-nom { font-weight: 700; font-size: 11pt; width: 32%; }
+    .pz-print-bl-notas { white-space: pre-wrap; line-height: 1.3; }
+    .pz-print-bl-mat { margin-top: 1mm; color: #333; font-style: italic; }
+    .pz-print-bl-ej { margin-top: 1.5mm; font-size: 8pt; line-height: 1.25; color: #444; white-space: pre-wrap; }
+    .pz-print-esq { width: 38mm; }
+    .pz-print-esq svg { display: block; width: 38mm; height: auto; border: 0.3mm solid #666; }
   }
 </style>
 

@@ -17,6 +17,7 @@ import {
   cambiarPista,
   clonar,
   codificarEnlace,
+  compactar,
   confirmar,
   deVista,
   decodificarEnlace,
@@ -40,6 +41,7 @@ import {
   nuevaJugada,
   nuevoHistorial,
   payloadDeHash,
+  tipoDePayload,
   polilinea,
   posicionesEnTransicion,
   puestosFila,
@@ -89,6 +91,8 @@ import {
 } from "./pizarraRender";
 import { PLANTILLAS, PLANTILLAS_EJERCICIOS } from "./pizarraPlantillas";
 import { FORMACIONES, aplicarFormacion, aroDe, formacionPorId } from "./pizarraFormaciones";
+import { decodificarEnlaceSesion, normalizarSesiones, remapearJugadas, sesionesDeLibro, type Sesion } from "./pizarraSesion";
+import { iniciarSesiones, type ControlSesiones } from "./pizarraSesionUI";
 
 const CLAVE = "cz.pizarra.v1";
 const MS_DIA = 86_400_000;
@@ -175,6 +179,7 @@ const NOMBRE_LINEA: Record<TipoLinea, string> = {
 
 interface Almacen {
   jugadas: Jugada[];
+  sesiones: Sesion[];
   borrador: Jugada | null;
   ultimaCopia: number | null;
   paleta: NombrePaleta;
@@ -182,7 +187,7 @@ interface Almacen {
 }
 
 function leerAlmacen(): Almacen {
-  const vacio: Almacen = { jugadas: [], borrador: null, ultimaCopia: null, paleta: "parquet", avisoCerrado: null };
+  const vacio: Almacen = { jugadas: [], sesiones: [], borrador: null, ultimaCopia: null, paleta: "parquet", avisoCerrado: null };
   try {
     const raw = localStorage.getItem(CLAVE);
     if (!raw) return vacio;
@@ -192,6 +197,7 @@ function leerAlmacen(): Almacen {
     const num = (v: unknown) => (typeof v === "number" && Number.isFinite(v) && v > 0 ? v : null);
     return {
       jugadas: normalizarLibro(r.jugadas).jugadas,
+      sesiones: normalizarSesiones(r.sesiones).sesiones,
       borrador: r.borrador ? normalizarJugada(r.borrador) : null,
       ultimaCopia: num(r.ultimaCopia),
       paleta: r.paleta === "neutra" || r.paleta === "oscura" ? r.paleta : "parquet",
@@ -272,6 +278,8 @@ export function iniciarPizarra(): void {
   // ── estado ──────────────────────────────────────────────────────────
   const almacen = leerAlmacen();
   let biblio: Jugada[] = almacen.jugadas;
+  let sesiones: Sesion[] = almacen.sesiones;
+  let control: ControlSesiones | null = null;
   let paleta: NombrePaleta = almacen.paleta;
   let ultimaCopia = almacen.ultimaCopia;
   let avisoCerrado = almacen.avisoCerrado;
@@ -321,6 +329,7 @@ export function iniciarPizarra(): void {
     const hacer = () => {
       const ok = escribirAlmacen({
         jugadas: biblio,
+        sesiones,
         borrador: soloVista ? null : (tmReal ? tmReal.hist.presente : hist.presente),
         ultimaCopia,
         paleta,
@@ -1302,7 +1311,7 @@ export function iniciarPizarra(): void {
   function pintarAvisoCopia() {
     const ahora = Date.now();
     ultimaCopiaEl.textContent = textoUltimaCopia(ultimaCopia, ahora);
-    const toca = tocaRecordarCopia(biblio.length, ultimaCopia, ahora);
+    const toca = tocaRecordarCopia(biblio.length + sesiones.length, ultimaCopia, ahora);
     // el aviso es cerrable, pero vuelve a salir si hace falta una copia o pasó una semana
     const cerradoReciente = avisoCerrado !== null && ahora - avisoCerrado < 7 * MS_DIA;
     avisoCopia.hidden = cerradoReciente && !toca;
@@ -1644,7 +1653,9 @@ export function iniciarPizarra(): void {
   }
 
   function exportarJson(jugadas: Jugada[], nombre: string, esCopia: boolean) {
-    descargar(new Blob([libroAJson(jugadas)], { type: "application/json" }), nombreArchivo(nombre, "json"));
+    // la copia y el playbook completo llevan también las sesiones de entrenamiento
+    const extra = esCopia || jugadas.length > 1 ? { sesiones } : {};
+    descargar(new Blob([libroAJson(jugadas, extra)], { type: "application/json" }), nombreArchivo(nombre, "json"));
     if (esCopia) {
       ultimaCopia = Date.now();
       persistir(true);
@@ -1656,7 +1667,8 @@ export function iniciarPizarra(): void {
     const lista = biblio.length ? biblio : [hist.presente];
     const hoy = new Date().toISOString().slice(0, 10);
     exportarJson(lista, `copia pizarra ${hoy}`, true);
-    toast(`Copia descargada (${lista.length} ${lista.length === 1 ? "jugada" : "jugadas"}). Guárdala en tu correo, Drive o el móvil.`, 6000);
+    const ses = sesiones.length ? ` y ${sesiones.length} ${sesiones.length === 1 ? "sesión" : "sesiones"}` : "";
+    toast(`Copia descargada (${lista.length} ${lista.length === 1 ? "jugada" : "jugadas"}${ses}). Guárdala en tu correo, Drive o el móvil.`, 6000);
   }
 
   async function importarArchivo(f: File) {
@@ -1668,20 +1680,41 @@ export function iniciarPizarra(): void {
       return void toast("No se pudo leer el archivo.");
     }
     const r = leerLibroDeTexto(texto);
-    if (!r || r.jugadas.length === 0) return void toast("Ese archivo no es una copia válida de la pizarra.", 5000);
+    let ses = { sesiones: [] as Sesion[], descartadas: 0 };
+    try {
+      ses = sesionesDeLibro(JSON.parse(texto));
+    } catch {
+      /* ya lo ha dicho leerLibroDeTexto */
+    }
+    if (!r || (r.jugadas.length === 0 && ses.sesiones.length === 0)) return void toast("Ese archivo no es una copia válida de la pizarra.", 5000);
     const existentes = new Set(biblio.map((x) => x.id));
+    const mapa = new Map<string, string>();
     let n = 0;
     for (const j of r.jugadas) {
       if (biblio.length >= LIMITES.BIBLIOTECA) break;
+      const antes = j.id;
       if (existentes.has(j.id)) j.id = uid();
+      mapa.set(antes, j.id);
       biblio.unshift(j);
       existentes.add(j.id);
       n++;
     }
+    // las sesiones importadas siguen apuntando a sus jugadas aunque estas hayan cambiado de id
+    const idsSesion = new Set(sesiones.map((x) => x.id));
+    let ns = 0;
+    for (const sesion of ses.sesiones) {
+      const nueva = remapearJugadas(sesion, mapa);
+      if (idsSesion.has(nueva.id)) nueva.id = uid();
+      idsSesion.add(nueva.id);
+      sesiones.unshift(nueva);
+      ns++;
+    }
     persistir(true);
     pintarBiblioteca();
     abrirPanelMovil("biblioteca");
-    toast(`${n} ${n === 1 ? "jugada importada" : "jugadas importadas"}${r.descartadas ? ` · ${r.descartadas} descartadas por no ser válidas` : ""}`, 5000);
+    const descartadas = r.descartadas + ses.descartadas;
+    const txtSes = ns ? ` y ${ns} ${ns === 1 ? "sesión" : "sesiones"}` : "";
+    toast(`${n} ${n === 1 ? "jugada importada" : "jugadas importadas"}${txtSes}${descartadas ? ` · ${descartadas} descartadas por no ser válidas` : ""}`, 5000);
   }
 
   // ── impresión / PDF ─────────────────────────────────────────────────
@@ -1756,6 +1789,13 @@ export function iniciarPizarra(): void {
     const payload = payloadDeHash(location.hash);
     if (payload === null) return;
     try {
+      if (tipoDePayload(payload) === "s") {
+        const cs = await decodificarEnlaceSesion(payload);
+        compartidas = cs.jugadas;
+        pintarBiblioteca();
+        control?.abrirCompartida(cs);
+        return;
+      }
       const c: CargaEnlace = await decodificarEnlace(payload);
       compartidas = c.jugadas;
       cargarJugada(c.jugadas[0], { vista: true });
@@ -1906,6 +1946,8 @@ export function iniciarPizarra(): void {
   function accion(act: string, b: HTMLElement) {
     const j = hist.presente;
     switch (act) {
+      case "ses":
+        return control?.abrir();
       case "tm":
         return tm ? salirTM() : entrarTM();
       case "tm-salir":
@@ -2106,7 +2148,9 @@ export function iniciarPizarra(): void {
     const escribiendo = !!t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.tagName === "SELECT" || t.isContentEditable);
     const ctrl = e.ctrlKey || e.metaKey;
     if (e.key === "Escape") {
-      if (!formEl.hidden) {
+      if (control?.estaAbierta()) {
+        control.cerrar();
+      } else if (!formEl.hidden) {
         formEl.hidden = true;
         estadoModal();
       } else if (!shareEl.hidden) {
@@ -2161,6 +2205,61 @@ export function iniciarPizarra(): void {
   window.addEventListener("pagehide", () => persistir(true));
 
   // ── arranque ────────────────────────────────────────────────────────
+  control = iniciarSesiones({
+    root,
+    printEl,
+    biblio: () => biblio,
+    jugadasCompartidas: () => compartidas,
+    asegurarJugada: (j) => {
+      const huella = JSON.stringify(compactar(j));
+      const igual = biblio.find((x) => x.nombre === j.nombre && x.categoria === j.categoria && JSON.stringify(compactar(x)) === huella);
+      if (igual) return igual;
+      const copia = clonar(j);
+      copia.id = uid();
+      copia.actualizada = Date.now();
+      if (biblio.length < LIMITES.BIBLIOTECA) {
+        biblio.unshift(copia);
+        persistir(true);
+        pintarBiblioteca();
+      }
+      return copia;
+    },
+    guardarJugadas: (js) => {
+      const mapa = new Map<string, string>();
+      for (const j of js) {
+        const huella = JSON.stringify(compactar(j));
+        const igual = biblio.find((x) => x.nombre === j.nombre && JSON.stringify(compactar(x)) === huella);
+        if (igual) {
+          mapa.set(j.id, igual.id);
+          continue;
+        }
+        const copia = clonar(j);
+        copia.id = uid();
+        if (biblio.length < LIMITES.BIBLIOTECA) biblio.unshift(copia);
+        mapa.set(j.id, copia.id);
+      }
+      persistir(true);
+      pintarBiblioteca();
+      return mapa;
+    },
+    sesiones: () => sesiones,
+    setSesiones: (l) => {
+      sesiones = l;
+      persistir(true);
+      pintarAvisoCopia();
+    },
+    paleta: () => paleta,
+    toast,
+    abrirJugada: (j, vista) => abrir(j, false, vista),
+    copiar,
+    urlBase: () => `${location.origin}${location.pathname}`,
+    lanzarImpresion: () => {
+      shareEl.hidden = true;
+      estadoModal();
+      document.documentElement.classList.add("pz-printing");
+      window.setTimeout(() => window.print(), 60);
+    },
+  });
   pintarFormaciones();
   marcarHerramienta();
   elegirTab("jugada");
@@ -2179,7 +2278,7 @@ export function iniciarPizarra(): void {
   }
 
   if (payloadDeHash(location.hash) !== null) void abrirDesdeHash();
-  else if (tocaRecordarCopia(biblio.length, ultimaCopia, Date.now()) && (avisoCerrado === null || Date.now() - avisoCerrado > 3 * MS_DIA)) {
+  else if (tocaRecordarCopia(biblio.length + sesiones.length, ultimaCopia, Date.now()) && (avisoCerrado === null || Date.now() - avisoCerrado > 3 * MS_DIA)) {
     window.setTimeout(() => toast("Hace tiempo que no haces una copia de seguridad de tus jugadas. Hazla desde Biblioteca.", 6500), 1500);
   }
 
