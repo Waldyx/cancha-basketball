@@ -302,6 +302,27 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ## 🔴 Pendientes abiertos
 
+### ▶️ S56 (15-oct) — EL PROBLEMA ES DE INDEXACIÓN: Google tiene 6 páginas de 485
+
+🔴 **Search Console, medido el 15-oct** (por fin; sesión de Google en el navegador integrado):
+· **Indexadas 6 de 485**, así desde julio. **411 "Rastreada: actualmente sin indexar"** (Google la visita y la
+  descarta), 34 canónica alternativa, 12 × 404, 8 noindex (ocultas, a propósito), 7 robots.txt.
+· **90 días: 6 clics y 33 impresiones**, casi todo a la portada. **Enlaces externos: 0.**
+· El sitemap llevaba sin leerse desde el **1-jul** ("0 páginas descubiertas"), aunque se sirve bien (299 URLs).
+  La ficha de la Ja 4 daba "Google no reconoce esta URL".
+⇒ El cuello de botella NO es el catálogo ni el SEO técnico: es **autoridad cero** (web nueva, sin enlaces,
+cientos de fichas con plantilla). Mientras no haya enlaces entrantes, el contenido nuevo no llegará a Google.
+✅ **Hecho con autorización del usuario**: sitemap reenviado (15-oct; a los minutos la Ja 4 ya salía
+"descubierta" vía sitemap) e **indexación solicitada** para 10 URLs: Black Friday, /zapatillas, /rankings,
+/quiz, /blog y las fichas Ja 4, AE 3, LeBron 23, Sabrina 4 y KD 19. Cuota ≈10/día.
+▶️ **Siguiente**: conseguir los primeros enlaces (club Bàsquet Premià, foros/comunidades de baloncesto ES,
+blogs de baloncesto base). Si tras eso sigue sin indexar, valorar `noindex` en las fichas flojas
+(retro/GS) para concentrar. Revisar Search Console en ~2 semanas.
+✅ **Página `/black-friday-zapatillas-baloncesto`** (`seoPages.ts`): top 5 por descuento del precio MOSTRADO
+vs MSRP, sin GS ni retro, solo verificado ≤10 días y ≤55 % (por encima era un precio mal leído: Trae Young 3
+al 70 %). ⚠ El `related` de las páginas SEO lo sobrescribe un `forEach` al final del fichero.
+✅ Promos: Snipes Flash Deal (→29-oct) y AliExpress Ofertas de Invierno (WOES, 13-16 oct).
+
 ### ▶️ S55 (4-oct) — vuelta tras 10 días: todo sano, el banner estaba vacío
 
 - ✅ Scraper 10/10 noches · web 200 · chat con IA real (`X-CZ-Model: qwen3.8-27b`) · `audit-enlaces` limpio.
