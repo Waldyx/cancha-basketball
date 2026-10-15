@@ -5,6 +5,7 @@
 
 import { CATEGORIAS, type Jugada } from "./pizarra";
 import { PLANTILLAS, PLANTILLAS_EJERCICIOS } from "./pizarraPlantillas";
+import { SESIONES_POR_EDAD, crearSesionPorEdad, minutosSesionPorEdad } from "./pizarraSesionesEdad";
 import { PALETAS, opcionesResumen, renderSvgCompleto, type NombrePaleta } from "./pizarraRender";
 import {
   BLOQUES_TEXTO_TIPO,
@@ -91,6 +92,7 @@ export function iniciarSesiones(ctx: CtxSesion): ControlSesiones {
   const selAnadir = q<HTMLSelectElement>("ses-anadir");
   const rapidosEl = q("ses-rapidos");
   const infoEl = q("ses-info");
+  const edadEl = q("ses-edad");
 
   let actualId = "";
   let compartida: CargaSesion | null = null;
@@ -339,6 +341,26 @@ export function iniciarSesiones(ctx: CtxSesion): ControlSesiones {
     inpTitulo.select();
   }
 
+  function crearPorEdad(id: string) {
+    if (compartida) return;
+    const creada = crearSesionPorEdad(id);
+    if (!creada) return;
+
+    // La sesión referencia los IDs que genera la plantilla. `asegurarJugada`
+    // puede reutilizar una copia existente, así que remapeamos cada bloque al ID
+    // real antes de guardar la nueva sesión.
+    const mapa = new Map<string, string>();
+    for (const j of creada.jugadas) mapa.set(j.id, ctx.asegurarJugada(j).id);
+    for (const b of creada.sesion.bloques) {
+      if (b.jugadaId) b.jugadaId = mapa.get(b.jugadaId) ?? b.jugadaId;
+    }
+    creada.sesion.fecha = new Date().toISOString().slice(0, 10);
+    ctx.setSesiones([creada.sesion, ...ctx.sesiones()]);
+    actualId = creada.sesion.id;
+    pintarTodo();
+    ctx.toast(`${SESIONES_POR_EDAD.find((x) => x.id === id)?.etapa ?? "Sesión"} lista para editar`);
+  }
+
   function duplicar() {
     const s = actual();
     if (!s || compartida) return;
@@ -573,6 +595,28 @@ export function iniciarSesiones(ctx: CtxSesion): ControlSesiones {
       default:
     }
   });
+  edadEl.addEventListener("click", (e) => {
+    const b = (e.target as Element).closest<HTMLButtonElement>("[data-ses-edad]");
+    if (b) crearPorEdad(b.dataset.sesEdad ?? "");
+  });
+
+  function pintarSesionesEdad() {
+    edadEl.replaceChildren();
+    for (const plantilla of SESIONES_POR_EDAD) {
+      const minutos = minutosSesionPorEdad(plantilla.id);
+      const b = el("button", {
+        cls: "pz-ses-edad-btn",
+        attrs: { type: "button", "data-ses-edad": plantilla.id, title: `Crear sesión de ${plantilla.etapa}` },
+      });
+      b.append(
+        el("strong", { text: plantilla.etapa }),
+        el("span", { cls: "pz-ses-edad-meta", text: `${plantilla.edades} · ${minutos} min` }),
+        el("span", { cls: "pz-ses-edad-desc", text: plantilla.resumen })
+      );
+      edadEl.append(b);
+    }
+  }
+  pintarSesionesEdad();
 
   return { abrir, abrirCompartida, cerrar, estaAbierta: () => !hoja.hidden };
 }

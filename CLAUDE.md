@@ -321,8 +321,11 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   club (10 equipos), IVA aparte, prueba 1 mes con registro, sin plan gratis. Tracción baja (1 valoración en
   App Store, Play "100+", ~8 clubs del sureste). Fuerte en ejercicios (500+), planificación y cargas;
   débil en pizarra y estadísticas. Guarda datos de jugadores en su servidor sin mencionar menores.
-- ▶️ **Siguiente**: sesiones listas por edad (lo primero, mayor queja de entrenadores) → control de minutos
-  configurable por federación → biblioteca del club → mapa de tiro.
+- ✅ **Sesiones listas por edad (15-oct)**: cinco sesiones editables en la pizarra (Premini 6–8, Mini 9–11,
+  Infantil 12–13, Cadete 14–15 y Júnior/Sénior 16+) con ejercicios, minutos, notas y material. Al abrir una,
+  sus ejercicios se guardan o reutilizan en la biblioteca local para poder editar, imprimir y compartir igual que
+  cualquier otra sesión.
+- ▶️ **Siguiente**: control de minutos configurable por federación → biblioteca del club → mapa de tiro.
 - ▶️ **Paso 3, por orden**: control de minutos/cuartos (verificar normas de participación de la FCBQ) → mapa de
   tiro → libro de jugadas con escudo del club → etiquetas de vídeo. Más ideas: informe del rival (actas FEB),
   plan de partido, generador de sesiones con IA, evaluación de jugadores + informe a familias, tests físicos,
