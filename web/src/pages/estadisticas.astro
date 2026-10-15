@@ -8,8 +8,20 @@ import "../styles/cancha-redesign.css";
 ---
 
 <Base
-  title="Tus estadísticas de baloncesto · Agente analista | CANCHA.ZAPA"
-  description="Registra tus partidos y deja que el agente analice tu juego: TS%, eFG%, valoración, tendencias y consejos concretos. Gratis, sin cuentas, todo en tu navegador."
+  title="Estadísticas de baloncesto para jugadores y equipos | CANCHA.ZAPA"
+  description="Importa las actas de la FEB o pega la tabla del partido y analiza tu temporada o la de tu equipo: TS%, eFG%, valoración, líderes y evolución. Gratis, sin cuentas."
+  jsonLd={{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Estadísticas de baloncesto CANCHA.ZAPA",
+    url: "https://canchazapa.com/estadisticas/",
+    applicationCategory: "SportsApplication",
+    operatingSystem: "Web",
+    inLanguage: "es",
+    isAccessibleForFree: true,
+    offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+    description: "Estadísticas de baloncesto para jugadores y entrenadores: importa actas FEB, modo equipo con tabla de temporada, líderes y tarjetas para compartir. Los datos se guardan en tu navegador.",
+  }}
 >
   <main class="app">
 
