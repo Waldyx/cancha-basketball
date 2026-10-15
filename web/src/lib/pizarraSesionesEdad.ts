@@ -26,7 +26,7 @@ export const SESIONES_POR_EDAD: PlantillaSesionEdad[] = [
     edades: "6–8 años",
     titulo: "Premini · disfrutar, botar y encestar",
     objetivo: "Coordinarse con balón, mirar al aro y acabar la sesión con ganas de volver.",
-    resumen: "60 min · juego motor · botes y bandejas",
+    resumen: "juego motor · botes y bandejas",
     bloques: [
       { tipo: "texto", titulo: "Juego de bienvenida con balón", minutos: 10, notas: "Todos con balón: señales de colores, parar, cambiar de mano y protegerlo. Mucha actividad, pocas colas.", material: "1 balón por jugador, 6 conos" },
       { tipo: "ejercicio", ejercicioId: "ejercicio-rueda-bandejas", minutos: 12, notas: "Sin exigir el gesto completo: usar pasos naturales y celebrar cada finalización." },
@@ -42,7 +42,7 @@ export const SESIONES_POR_EDAD: PlantillaSesionEdad[] = [
     edades: "9–11 años",
     titulo: "Mini · pasar, correr y finalizar",
     objetivo: "Ocupar carriles, pasar antes de botar de más y defender sin hacer falta.",
-    resumen: "75 min · coordinación · transición",
+    resumen: "coordinación · transición",
     bloques: [
       { tipo: "texto", titulo: "Activación con parejas", minutos: 10, notas: "Pases en movimiento, paradas y pivotes. Cambiar pareja cada poco.", material: "1 balón por pareja" },
       { tipo: "ejercicio", ejercicioId: "ejercicio-rueda-bandejas", minutos: 12, notas: "Añadir una consigna por ronda: mano contraria, mirar al aro o parada antes de tirar." },
@@ -58,7 +58,7 @@ export const SESIONES_POR_EDAD: PlantillaSesionEdad[] = [
     edades: "12–13 años",
     titulo: "Infantil · transición y decisiones",
     objetivo: "Tomar ventaja en transición, leer al defensor y comunicar en la vuelta defensiva.",
-    resumen: "90 min · toma de decisiones · 3c2",
+    resumen: "toma de decisiones · 3c2",
     bloques: [
       { tipo: "texto", titulo: "Activación y movilidad", minutos: 10, notas: "Movilidad dinámica y pases con cambios de dirección.", material: "Balones, conos, petos" },
       { tipo: "ejercicio", ejercicioId: "ejercicio-tres-hombres", minutos: 12, notas: "Exigir pase adelantado y llegada a los tres carriles." },
@@ -75,7 +75,7 @@ export const SESIONES_POR_EDAD: PlantillaSesionEdad[] = [
     edades: "14–15 años",
     titulo: "Cadete · atacar ventajas y cerrar",
     objetivo: "Convertir una ventaja numérica en tiro claro y sostener la intensidad defensiva.",
-    resumen: "95 min · intensidad · finalizaciones",
+    resumen: "intensidad · finalizaciones",
     bloques: [
       { tipo: "texto", titulo: "Activación competitiva", minutos: 10, notas: "Movilidad, desplazamientos defensivos y pases a máxima velocidad.", material: "Balones, conos, petos" },
       { tipo: "ejercicio", ejercicioId: "ejercicio-3c2-2c1", minutos: 18, notas: "Criterio: pase al lado libre antes de que llegue la segunda ayuda." },
@@ -92,7 +92,7 @@ export const SESIONES_POR_EDAD: PlantillaSesionEdad[] = [
     edades: "16+ años",
     titulo: "Júnior/Sénior · ritmo, ventaja y ejecución",
     objetivo: "Ejecutar a ritmo de partido, decidir bajo presión y trasladarlo al 5c5.",
-    resumen: "105 min · ritmo de partido · ejecución",
+    resumen: "ritmo de partido · ejecución",
     bloques: [
       { tipo: "texto", titulo: "Activación con balón y movilidad", minutos: 12, notas: "Movilidad específica, finalizaciones y pases a velocidad de partido.", material: "Balones, conos, petos" },
       { tipo: "ejercicio", ejercicioId: "ejercicio-3c2-2c1", minutos: 18, notas: "Registrar pérdidas y decisiones tardías; repetir las situaciones que fallen." },

@@ -72,6 +72,12 @@ export interface ControlSesiones {
   estaAbierta: () => boolean;
 }
 
+/** Fecha de hoy en hora LOCAL (toISOString da la de UTC: pasada la medianoche saldría ayer). */
+const hoyLocal = () => {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+};
+
 export function iniciarSesiones(ctx: CtxSesion): ControlSesiones {
   const root = ctx.root;
   const q = <T extends HTMLElement = HTMLElement>(n: string): T => {
@@ -332,7 +338,7 @@ export function iniciarSesiones(ctx: CtxSesion): ControlSesiones {
   }
 
   function nueva() {
-    const s = nuevaSesion({ fecha: new Date().toISOString().slice(0, 10) });
+    const s = nuevaSesion({ fecha: hoyLocal() });
     ctx.setSesiones([s, ...ctx.sesiones()]);
     actualId = s.id;
     compartida = null;
@@ -354,7 +360,7 @@ export function iniciarSesiones(ctx: CtxSesion): ControlSesiones {
     for (const b of creada.sesion.bloques) {
       if (b.jugadaId) b.jugadaId = mapa.get(b.jugadaId) ?? b.jugadaId;
     }
-    creada.sesion.fecha = new Date().toISOString().slice(0, 10);
+    creada.sesion.fecha = hoyLocal();
     ctx.setSesiones([creada.sesion, ...ctx.sesiones()]);
     actualId = creada.sesion.id;
     pintarTodo();
