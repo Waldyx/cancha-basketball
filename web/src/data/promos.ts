@@ -470,6 +470,39 @@ export const PROMOS: Promo[] = [
     color: "#facc15",
   },
   {
+    id: "snipes-flash-deal-2026-10",
+    tienda: "snipes_eu",
+    tiendaLabel: "Snipes",
+    titulo: "Flash Deal",
+    // Correo de Awin del 12-oct. Da días, no horas. El enlace del correo apunta a
+    // /de-de: aquí se usa la sección de rebajas de la tienda española.
+    desde: "2026-10-12T00:00:00+02:00",
+    hasta: "2026-10-29T23:59:59+01:00",
+    url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fc%2Fsale-660",
+    descuentoTexto: "hasta 30% en selección",
+    nota: "Sin código: el descuento va aplicado · artículos seleccionados · algunos excluidos",
+    color: "#ff8a3d",
+  },
+  {
+    id: "aliexpress-ofertas-invierno-2026-10",
+    tienda: "aliexpress",
+    tiendaLabel: "AliExpress",
+    titulo: "Ofertas de Invierno",
+    desde: "2026-10-13T00:00:00+02:00",
+    hasta: "2026-10-16T23:59:59+02:00",
+    // Tramos del correo de Awin del 13-oct. Prefijo WOES.
+    codigos: [
+      { code: "WOES02", descuento: 2, minCompra: 19 },
+      { code: "WOES07", descuento: 7, minCompra: 59 },
+      { code: "WOES13", descuento: 13, minCompra: 109 },
+      { code: "WOES29", descuento: 29, minCompra: 239 },
+      { code: "WOES39", descuento: 39, minCompra: 329 },
+    ],
+    // Igual que el Día de marcas: solo en productos con la etiqueta "Promo".
+    nota: "Solo en productos con el sello Promo · pedidos enviados a España · no válidos en productos virtuales · no acumulable",
+    color: "#ff4747",
+  },
+  {
     id: "amazon-prime-big-deal-days-2026-10",
     tienda: "amazon_es",
     tiendaLabel: "Amazon",
