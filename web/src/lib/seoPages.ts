@@ -1,4 +1,5 @@
 import type { Zapatilla } from "./types";
+import { findMejorPrecioMostrado } from "./scoring";
 
 // ─────────────────────────────────────────────────────────────────────
 // Config para páginas SEO long-tail.
@@ -41,6 +42,18 @@ export interface SeoPage {
 function avg(z: Zapatilla): number {
   const v = Object.values(z.puntuaciones);
   return v.reduce((a, b) => a + b, 0) / v.length;
+}
+// Descuento (0-1) del precio MOSTRADO (solo tiendas afiliadas y sin reventa) frente al MSRP.
+// A diferencia de lowestPrice, no cuenta tiendas sin afiliado ni precios de reventa.
+// Un descuento solo cuenta si el precio se verificó hace poco y no es tan bajo que huela
+// a dato malo (por encima del 55 % casi siempre es un precio mal leído o una réplica).
+function descuentoMostrado(z: Zapatilla): number {
+  const mejor = findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur);
+  if (!mejor || !(mejor.precio_actual > 0) || !(z.precio_msrp_eur > 0)) return 0;
+  const dias = (Date.now() - new Date(mejor.ultima_verificacion).getTime()) / 86_400_000;
+  if (!(dias <= 10)) return 0;
+  const d = 1 - mejor.precio_actual / z.precio_msrp_eur;
+  return d > 0.55 ? 0 : d;
 }
 function lowestPrice(z: Zapatilla): number {
   const ps = z.links_compra
@@ -1141,6 +1154,55 @@ export const SEO_PAGES: SeoPage[] = [
     related: [],
     catalogQuery: "?año=2025",
     catalogLabel: "Ver todas las zapatillas de 2025",
+  },
+
+  // ── BLACK FRIDAY (rebajas reales de hoy, se actualizan solas con el scraper) ──
+  {
+    slug: "black-friday-zapatillas-baloncesto",
+    title: "Black Friday zapatillas de baloncesto 2026: ofertas reales",
+    description:
+      "Black Friday 2026 (27 de noviembre): las zapatillas de baloncesto con rebaja real hoy en tiendas españolas, frente al precio oficial. Cómo detectar falsos descuentos.",
+    eyebrow: "★ Black Friday 2026",
+    h1Pre: "Black Friday",
+    h1Accent: "zapatillas baloncesto",
+    h1Post: "2026",
+    lede: "El Black Friday es el 27 de noviembre y las tiendas aún no han anunciado sus ofertas. Mientras tanto, vigilamos los precios cada noche: este top 5 son las zapatillas con mayor rebaja real hoy frente a su precio oficial, y se actualiza solo.",
+    filter: (z) => z.genero !== "gs" && !z.es_retro && descuentoMostrado(z) >= 0.15,
+    sort: (a, b) => {
+      const d = descuentoMostrado(b) - descuentoMostrado(a);
+      return Math.abs(d) > 0.0001 ? d : byScoreDesc(a, b);
+    },
+    guideTitle: "Cómo cazar ofertas reales en el Black Friday",
+    guideIntro:
+      "Cada año se mezclan rebajas de verdad con descuentos de cartel. La única forma de distinguirlos es comparar con el precio oficial del modelo, no con el 'precio anterior' que muestre la tienda.",
+    guidePoints: [
+      { lab: "Compara con el precio oficial, no con el tachado", body: "Algunas tiendas suben el precio unas semanas antes para que el descuento parezca mayor. Fíjate en el precio oficial de lanzamiento y en cuánto se ha movido el precio real en las últimas semanas." },
+      { lab: "Desconfía de lo más barato que el oficial por mucho", body: "Una zapatilla de marca a la mitad de precio en un marketplace desconocido puede ser una réplica. Prioriza tiendas conocidas con devolución clara." },
+      { lab: "Ojo con la reventa", body: "En modelos descatalogados o retro, un precio por encima del oficial no es una oferta aunque lleve la etiqueta de Black Friday." },
+      { lab: "Las tallas comunes vuelan", body: "Las tallas más habituales (42-45) se agotan primero. Si una oferta ya es buena hoy y tu talla está disponible, esperar al día 27 es una apuesta." },
+      { lab: "Revisa tallas y devoluciones", body: "Cada marca calza distinto. Antes de comprar consulta nuestra guía de tallas y comprueba el plazo de devolución, que en campañas suele ampliarse." },
+    ],
+    faqs: [
+      { q: "¿Cuándo es el Black Friday 2026?",
+        a: "El viernes 27 de noviembre de 2026. El Cyber Monday cae el lunes 30 de noviembre. Muchas tiendas empiezan sus ofertas días antes y las alargan durante la semana siguiente." },
+      { q: "¿Qué descuentos habrá en zapatillas de baloncesto?",
+        a: "Todavía no lo sabemos: las tiendas no han anunciado sus ofertas de Black Friday. Lo que sí podemos decirte es qué modelos están ya rebajados de verdad hoy respecto a su precio oficial." },
+      { q: "¿Cómo sé si un descuento es real?",
+        a: "Compáralo con el precio oficial del modelo y con el histórico reciente. Si el precio 'anterior' que muestra la tienda es mayor que el oficial, el descuento está inflado. Nosotros comparamos siempre con el precio oficial." },
+      { q: "¿Compensa esperar al Black Friday o comprar ya?",
+        a: "Si el precio de hoy ya es bueno y tu talla está disponible, comprar ya es razonable: las tallas comunes se agotan y no hay garantía de que la oferta mejore. Si no tienes prisa, puedes vigilar el modelo hasta el 27." },
+      { q: "¿Cada cuánto actualizáis los precios?",
+        a: "Revisamos las tiendas que enlazamos cada noche, así que este top 5 refleja las rebajas de hoy y puede cambiar de un día para otro." },
+      { q: "¿Qué hago si la talla no me sirve?",
+        a: "Consulta la guía de tallas antes de comprar y elige tiendas con devolución sencilla. En compras de campaña, revisa el plazo de devolución antes de pagar." },
+    ],
+    related: [
+      "zapatillas-baloncesto-calidad-precio",
+      "zapatillas-baloncesto-baratas",
+      "mejores-zapatillas-baloncesto-2025",
+    ],
+    catalogQuery: "",
+    catalogLabel: "Ver catálogo completo",
   },
 ];
 
