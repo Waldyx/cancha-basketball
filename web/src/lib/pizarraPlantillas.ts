@@ -278,7 +278,7 @@ function zona23(): Jugada {
       ln("corte", "d5", [3.8, 12.0], [2.2, 13.0]),
       ln("corte", "d3", [3.8, 3.0], [3.2, 5.8]),
     ],
-    "El balón va al ala derecha y la zona se desplaza: el guardia de ese lado (X2) sale a presionar, X1 cierra el centro, X4 se mueve hacia el balón, X5 baja a la esquina y X3 cierra la zona por el lado débil."
+    "El balón va al ala izquierda del ataque y la zona se desplaza: el guardia de ese lado (X2) sale a presionar, X1 cierra el centro, X4 se mueve hacia el balón, X5 baja a la esquina y X3 cierra la zona por el lado débil."
   );
   const p3 = sig(
     p2,
