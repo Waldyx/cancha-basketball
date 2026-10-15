@@ -105,41 +105,169 @@ export const SESIONES_POR_EDAD: PlantillaSesionEdad[] = [
   },
 ];
 
+// ─── objetivo, duración y jugadores ──────────────────────────────────────
+// La plantilla de cada etapa no cambia: el foco y la organización se DEDUCEN de cada bloque
+// (por el ejercicio o por el título del bloque de texto), así no hay que mantener dos tablas.
+
+export type Foco = "tiro" | "defensa" | "transicion";
+export type ObjetivoSesion = "general" | Foco;
+
+export const OBJETIVOS_SESION: { id: ObjetivoSesion; nombre: string }[] = [
+  { id: "general", nombre: "General" },
+  { id: "tiro", nombre: "Tiro y finalización" },
+  { id: "defensa", nombre: "Defensa" },
+  { id: "transicion", nombre: "Transición" },
+];
+
+/** Duraciones que se ofrecen además de la propia de cada etapa. */
+export const DURACIONES_SESION = [45, 60, 75, 90, 105, 120] as const;
+export const JUGADORES_MIN = 4;
+export const JUGADORES_MAX = 24;
+/** Peso extra de los bloques del foco elegido al repartir los minutos. */
+const PESO_FOCO = 1.6;
+const MIN_POR_BLOQUE = 3;
+
+type Organizacion =
+  | { t: "grupos"; tam: number; uno: string; varios: string }
+  | { t: "canasta"; max: number; que: string }
+  | { t: "partido"; formato: number };
+
+const POR_EJERCICIO: Record<string, { foco?: Foco; org: Organizacion }> = {
+  "ejercicio-rueda-bandejas": { foco: "tiro", org: { t: "canasta", max: 10, que: "dos filas" } },
+  "ejercicio-tiro-rebote-pase": { foco: "tiro", org: { t: "grupos", tam: 3, uno: "trío", varios: "tríos" } },
+  "ejercicio-tiro-estrella": { foco: "tiro", org: { t: "canasta", max: 7, que: "cinco puestos" } },
+  "ejercicio-tres-hombres": { foco: "transicion", org: { t: "grupos", tam: 3, uno: "trío", varios: "tríos" } },
+  "ejercicio-3c2-2c1": { foco: "transicion", org: { t: "grupos", tam: 5, uno: "grupo de 5", varios: "grupos de 5" } },
+  "ejercicio-1c1-cierre": { foco: "defensa", org: { t: "grupos", tam: 2, uno: "pareja", varios: "parejas" } },
+};
+
+function rasgos(b: BloqueEdad): { foco?: Foco; org?: Organizacion } {
+  if (b.tipo === "ejercicio") return POR_EJERCICIO[b.ejercicioId] ?? {};
+  const t = b.titulo.toLowerCase();
+  const partido = /(\d)c\1/.exec(t);
+  return {
+    foco: /transici/.test(t) ? "transicion" : /tiro/.test(t) ? "tiro" : undefined,
+    org: partido ? { t: "partido", formato: Number(partido[1]) } : undefined,
+  };
+}
+
+/** Objetivos que tienen algún bloque en esa etapa ("general" siempre). */
+export function objetivosDisponibles(id: string): ObjetivoSesion[] {
+  const p = SESIONES_POR_EDAD.find((x) => x.id === id);
+  if (!p) return [];
+  const focos = new Set(p.bloques.map((b) => rasgos(b).foco).filter(Boolean));
+  return OBJETIVOS_SESION.map((o) => o.id).filter((o) => o === "general" || focos.has(o));
+}
+
+/**
+ * Reparte `total` minutos en proporción a `pesos`, con un mínimo por bloque y suma EXACTA:
+ * se redondea y la diferencia se compensa en los bloques más largos.
+ */
+export function repartirMinutos(pesos: number[], total: number, minimo = MIN_POR_BLOQUE): number[] {
+  if (!pesos.length) return [];
+  const suma = pesos.reduce((a, b) => a + b, 0) || 1;
+  const out = pesos.map((p) => Math.max(minimo, Math.round((p / suma) * total)));
+  let diff = total - out.reduce((a, b) => a + b, 0);
+  const orden = out.map((_, i) => i).sort((a, b) => out[b] - out[a]);
+  for (let k = 0; diff !== 0 && k < orden.length * 60; k++) {
+    const i = orden[k % orden.length];
+    if (diff > 0) {
+      out[i]++;
+      diff--;
+    } else if (out[i] > minimo) {
+      out[i]--;
+      diff++;
+    }
+  }
+  return out;
+}
+
+const plural = (n: number, uno: string, varios: string) => `${n} ${n === 1 ? uno : varios}`;
+
+/** Cómo organizar a `n` jugadores en un bloque (texto corto para las notas). */
+export function organizacion(org: Organizacion, n: number): string {
+  if (org.t === "grupos") {
+    const g = Math.floor(n / org.tam);
+    const resto = n - g * org.tam;
+    if (g === 0) return `Con ${n} jugadores no llega para ${org.varios}: hacedlo todos juntos.`;
+    // si sobran al menos medio grupo, se forma uno más pequeño en vez de tenerlos esperando
+    if (org.tam >= 3 && resto * 2 >= org.tam) return `${n} jugadores: ${g + 1} ${org.varios}, uno de ellos con ${resto}.`;
+    return `${n} jugadores: ${plural(g, org.uno, org.varios)}` + (resto ? ` y ${plural(resto, "jugador entra", "jugadores entran")} rotando.` : ".");
+  }
+  if (org.t === "canasta") {
+    const c = Math.max(1, Math.ceil(n / org.max));
+    return `${n} jugadores: ${plural(c, "canasta", "canastas")} con ${org.que}` + (c > 1 ? `, unos ${Math.ceil(n / c)} por canasta.` : ".");
+  }
+  const f = org.formato;
+  if (n >= 2 * f) {
+    const partidos = Math.floor(n / (2 * f));
+    const fuera = n - partidos * 2 * f;
+    return `${n} jugadores: ${plural(partidos, "partido", "partidos")} ${f}c${f}` + (fuera ? `; ${plural(fuera, "espera", "esperan")} y entran cada 3 min.` : ".");
+  }
+  const g = Math.max(1, Math.floor(n / 2));
+  return `Con ${n} jugadores no llega para ${f}c${f}: jugad ${g}c${g}` + (n % 2 ? " y uno rota en cada canasta." : ".");
+}
+
+export interface OpcionesSesionEdad {
+  objetivo?: ObjetivoSesion;
+  /** Minutos totales; sin indicar = los de la etapa. */
+  duracion?: number;
+  /** Jugadores disponibles; sin indicar = sin nota de organización. */
+  jugadores?: number;
+}
+
 export interface SesionPorEdadCreada {
   sesion: Sesion;
   jugadas: Jugada[];
+  /** false si el objetivo pedido no tiene bloques en esa etapa (la sesión sale equilibrada). */
+  objetivoAplicado: boolean;
 }
 
 /** Crea una copia editable y las jugadas que necesita; no toca el almacenamiento. */
-export function crearSesionPorEdad(id: string): SesionPorEdadCreada | null {
+export function crearSesionPorEdad(id: string, opciones: OpcionesSesionEdad = {}): SesionPorEdadCreada | null {
   const plantilla = SESIONES_POR_EDAD.find((x) => x.id === id);
   if (!plantilla) return null;
   const usaPistaMini = plantilla.id === "premini" || plantilla.id === "mini";
 
-  let sesion = nuevaSesion({ titulo: plantilla.titulo, objetivo: plantilla.objetivo });
+  const objetivo = opciones.objetivo ?? "general";
+  const objetivoAplicado = objetivo === "general" || objetivosDisponibles(id).includes(objetivo);
+  const base = plantilla.bloques.reduce((a, b) => a + b.minutos, 0);
+  const total = opciones.duracion && opciones.duracion > 0 ? Math.round(opciones.duracion) : base;
+  const conFoco = objetivoAplicado && objetivo !== "general";
+  const pesos = plantilla.bloques.map((b) => b.minutos * (conFoco && rasgos(b).foco === objetivo ? PESO_FOCO : 1));
+  const minutos = repartirMinutos(pesos, total);
+  const n = opciones.jugadores && opciones.jugadores > 0 ? Math.round(opciones.jugadores) : 0;
+
+  const nombreObj = OBJETIVOS_SESION.find((o) => o.id === objetivo)?.nombre ?? "";
+  const extra = [conFoco ? `Énfasis: ${nombreObj.toLowerCase()}.` : "", n ? `Planificada para ${n} jugadores.` : ""]
+    .filter(Boolean)
+    .join(" ");
+  let sesion = nuevaSesion({ titulo: plantilla.titulo, objetivo: extra ? `${plantilla.objetivo} ${extra}` : plantilla.objetivo });
   const jugadas: Jugada[] = [];
 
-  for (const bloque of plantilla.bloques) {
+  plantilla.bloques.forEach((bloque, i) => {
     if (bloque.tipo === "texto") {
-      sesion = anadirBloqueTexto(sesion, bloque.titulo, bloque.minutos);
+      sesion = anadirBloqueTexto(sesion, bloque.titulo, minutos[i]);
     } else {
       const ejercicio = PLANTILLAS_EJERCICIOS.find((x) => x.id === bloque.ejercicioId)?.crear();
-      if (!ejercicio) continue;
+      if (!ejercicio) return;
       if (usaPistaMini) ejercicio.pista = "mini";
       jugadas.push(ejercicio);
-      sesion = anadirBloqueJugada(sesion, ejercicio, bloque.minutos);
+      sesion = anadirBloqueJugada(sesion, ejercicio, minutos[i]);
     }
     const ultimo = sesion.bloques.at(-1);
     if (ultimo) {
-      ultimo.notas = bloque.notas ?? "";
+      const org = rasgos(bloque).org;
+      const nota = n && org ? `Organización: ${organizacion(org, n)}` : "";
+      ultimo.notas = [nota, bloque.notas ?? ""].filter(Boolean).join("\n");
       ultimo.material = bloque.material ?? "";
     }
-  }
+  });
 
-  return { sesion, jugadas };
+  return { sesion, jugadas, objetivoAplicado };
 }
 
-export const minutosSesionPorEdad = (id: string): number => {
-  const creada = crearSesionPorEdad(id);
+export const minutosSesionPorEdad = (id: string, opciones: OpcionesSesionEdad = {}): number => {
+  const creada = crearSesionPorEdad(id, opciones);
   return creada ? totalMinutos(creada.sesion) : 0;
 };

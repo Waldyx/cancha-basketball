@@ -5,7 +5,16 @@
 
 import { CATEGORIAS, type Jugada } from "./pizarra";
 import { PLANTILLAS, PLANTILLAS_EJERCICIOS } from "./pizarraPlantillas";
-import { SESIONES_POR_EDAD, crearSesionPorEdad, minutosSesionPorEdad } from "./pizarraSesionesEdad";
+import {
+  DURACIONES_SESION,
+  JUGADORES_MAX,
+  JUGADORES_MIN,
+  OBJETIVOS_SESION,
+  SESIONES_POR_EDAD,
+  crearSesionPorEdad,
+  minutosSesionPorEdad,
+  type OpcionesSesionEdad,
+} from "./pizarraSesionesEdad";
 import { PALETAS, opcionesResumen, renderSvgCompleto, type NombrePaleta } from "./pizarraRender";
 import {
   BLOQUES_TEXTO_TIPO,
@@ -349,7 +358,7 @@ export function iniciarSesiones(ctx: CtxSesion): ControlSesiones {
 
   function crearPorEdad(id: string) {
     if (compartida) return;
-    const creada = crearSesionPorEdad(id);
+    const creada = crearSesionPorEdad(id, opcionesEdad);
     if (!creada) return;
 
     // La sesión referencia los IDs que genera la plantilla. `asegurarJugada`
@@ -364,7 +373,9 @@ export function iniciarSesiones(ctx: CtxSesion): ControlSesiones {
     ctx.setSesiones([creada.sesion, ...ctx.sesiones()]);
     actualId = creada.sesion.id;
     pintarTodo();
-    ctx.toast(`${SESIONES_POR_EDAD.find((x) => x.id === id)?.etapa ?? "Sesión"} lista para editar`);
+    const etapa = SESIONES_POR_EDAD.find((x) => x.id === id)?.etapa ?? "Sesión";
+    const obj = OBJETIVOS_SESION.find((o) => o.id === opcionesEdad.objetivo)?.nombre.toLowerCase();
+    ctx.toast(creada.objetivoAplicado ? `${etapa} lista para editar` : `${etapa} no tiene bloques de ${obj}: se ha creado la sesión general`, 4500);
   }
 
   function duplicar() {
@@ -606,10 +617,37 @@ export function iniciarSesiones(ctx: CtxSesion): ControlSesiones {
     if (b) crearPorEdad(b.dataset.sesEdad ?? "");
   });
 
+  // Objetivo, duración y jugadores: se aplican a la sesión que se cree con los botones de etapa.
+  let opcionesEdad: OpcionesSesionEdad = {};
+  const opEl = el("div", { cls: "pz-ses-edad-op" });
+  const campo = (texto: string, control: HTMLElement) => el("label", { cls: "pz-ses-edad-campo" }, el("span", { text: texto }), control);
+  const selObj = el("select", { cls: "pz-inp", attrs: { "aria-label": "Objetivo de la sesión" } });
+  for (const o of OBJETIVOS_SESION) selObj.append(el("option", { text: o.nombre, attrs: { value: o.id } }));
+  const selDur = el("select", { cls: "pz-inp", attrs: { "aria-label": "Duración de la sesión" } });
+  selDur.append(el("option", { text: "Estándar", attrs: { value: "" } }));
+  for (const d of DURACIONES_SESION) selDur.append(el("option", { text: `${d} min`, attrs: { value: String(d) } }));
+  const inpJug = el("input", {
+    cls: "pz-inp",
+    attrs: { type: "number", min: String(JUGADORES_MIN), max: String(JUGADORES_MAX), inputmode: "numeric", placeholder: "—", "aria-label": "Jugadores disponibles" },
+  });
+  opEl.append(campo("Objetivo", selObj), campo("Duración", selDur), campo("Jugadores", inpJug));
+  const botonesEdadEl = el("div", { cls: "pz-ses-edad-btns" });
+  edadEl.append(opEl, botonesEdadEl);
+  const leerOpciones = () => {
+    const j = Number(inpJug.value);
+    opcionesEdad = {
+      objetivo: selObj.value as OpcionesSesionEdad["objetivo"],
+      duracion: Number(selDur.value) || undefined,
+      jugadores: Number.isFinite(j) && j >= JUGADORES_MIN && j <= JUGADORES_MAX ? j : undefined,
+    };
+    pintarSesionesEdad();
+  };
+  for (const c of [selObj, selDur, inpJug]) c.addEventListener("change", leerOpciones);
+
   function pintarSesionesEdad() {
-    edadEl.replaceChildren();
+    botonesEdadEl.replaceChildren();
     for (const plantilla of SESIONES_POR_EDAD) {
-      const minutos = minutosSesionPorEdad(plantilla.id);
+      const minutos = minutosSesionPorEdad(plantilla.id, opcionesEdad);
       const b = el("button", {
         cls: "pz-ses-edad-btn",
         attrs: { type: "button", "data-ses-edad": plantilla.id, title: `Crear sesión de ${plantilla.etapa}` },
@@ -619,7 +657,7 @@ export function iniciarSesiones(ctx: CtxSesion): ControlSesiones {
         el("span", { cls: "pz-ses-edad-meta", text: `${plantilla.edades} · ${minutos} min` }),
         el("span", { cls: "pz-ses-edad-desc", text: plantilla.resumen })
       );
-      edadEl.append(b);
+      botonesEdadEl.append(b);
     }
   }
   pintarSesionesEdad();
