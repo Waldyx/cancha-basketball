@@ -57,6 +57,15 @@ const jsonLd = {
           <button type="button" class="pz-btn" data-tool="cono" aria-label="Cono (K)" title="Cono (K)" aria-pressed="false">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l7.5 15h-15z" fill="currentColor" fill-opacity=".25"/><path d="M3.5 20h17"/></svg><span class="pz-lbl">Cono</span>
           </button>
+          <button type="button" class="pz-btn" data-tool="neu" aria-label="Jugador neutro de ejercicio (G)" title="Jugador neutro, verde y sin número · para ejercicios (G)" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="currentColor" fill-opacity=".45"/></svg><span class="pz-lbl">Neutro</span>
+          </button>
+          <button type="button" class="pz-btn" data-tool="ent" aria-label="Entrenador (E)" title="Entrenador (E)" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" fill="currentColor" fill-opacity=".25"/><text x="12" y="17" text-anchor="middle" font-size="12" font-weight="900" fill="currentColor" stroke="none" font-family="Inter,sans-serif">E</text></svg><span class="pz-lbl">Entren.</span>
+          </button>
+          <button type="button" class="pz-btn" data-tool="fila" aria-label="Fila de jugadores esperando turno (I)" title="Fila de jugadores con el número de cuántos hay (I)" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="3.2"/><circle cx="12.500" cy="12" r="3.200"/><circle cx="19" cy="12" r="3.200" fill="currentColor"/></svg><span class="pz-lbl">Fila</span>
+          </button>
         </div>
         <div class="pz-grp pz-edit" role="group" aria-label="Líneas de movimiento">
           <button type="button" class="pz-btn" data-tool="pase" aria-label="Pase, flecha discontinua (P)" title="Pase · flecha discontinua (P)" aria-pressed="false">
@@ -73,6 +82,15 @@ const jsonLd = {
           </button>
           <button type="button" class="pz-btn" data-tool="tiro" aria-label="Tiro (S)" title="Tiro · línea punteada (S)" aria-pressed="false">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19L17 7" stroke-dasharray=".1 3.6" stroke-width="3"/><path d="M20 4.5l-6 1 5 5.2z" fill="currentColor"/></svg><span class="pz-lbl">Tiro</span>
+          </button>
+          <button type="button" class="pz-btn" data-tool="rotacion" aria-label="Rotación: adónde va después, línea fina punteada (O)" title="Rotación · adónde va el jugador después (O)" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19L17 7" stroke-dasharray=".1 2.6" stroke-width="2"/><path d="M20 4.500l-4.500.8 3.700 3.800z" fill="currentColor"/></svg><span class="pz-lbl">Rotación</span>
+          </button>
+          <button type="button" class="pz-btn" data-tool="zona" aria-label="Zona sombreada rectangular (Z)" title="Zona sombreada: rectángulo (Z)" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="12" stroke-dasharray="3 2.200" fill="currentColor" fill-opacity=".2"/></svg><span class="pz-lbl">Zona</span>
+          </button>
+          <button type="button" class="pz-btn" data-tool="elipse" aria-label="Zona sombreada elíptica (X)" title="Zona sombreada: elipse (X)" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="8.500" ry="6" stroke-dasharray="3 2.200" fill="currentColor" fill-opacity=".2"/></svg><span class="pz-lbl">Elipse</span>
           </button>
           <button type="button" class="pz-btn" data-tool="libre" aria-label="Trazo libre (F)" title="Trazo libre (F)" aria-pressed="false">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15c2-8 4.500 5 7-2s4-7 6-3 3 4 5 1"/></svg><span class="pz-lbl">Libre</span>
@@ -98,9 +116,12 @@ const jsonLd = {
           </button>
         </div>
         <div class="pz-grp" role="group" aria-label="Vista">
-          <button type="button" class="pz-btn pz-edit" data-act="cancha" aria-label="Cambiar entre media pista y pista completa" title="Media pista / pista completa">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12"/><path d="M12 6v12"/><circle cx="12" cy="12" r="2.2"/></svg><span class="pz-lbl">Media pista</span>
-          </button>
+          <select class="pz-vel pz-edit pz-pista" data-pz="pista" aria-label="Tipo de pista y tamaño" title="Pista FIBA o de minibasket, media o completa">
+            <option value="fiba-media">FIBA · media pista</option>
+            <option value="fiba-completa">FIBA · pista completa</option>
+            <option value="mini-media">Minibasket (aro 2,60 m) · media</option>
+            <option value="mini-completa">Minibasket (aro 2,60 m) · completa</option>
+          </select>
           <button type="button" class="pz-btn pz-edit" data-act="orient" aria-label="Girar la pista (horizontal o vertical)" title="Girar la pista">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 11-3-6.200"/><path d="M20 4v5h-5"/></svg><span class="pz-lbl">Girar</span>
           </button>
@@ -224,7 +245,7 @@ const jsonLd = {
             <textarea id="pz-nota-paso" class="pz-inp" data-pz="nota-paso" rows="3" maxlength="400" placeholder="Qué pasa en este paso"></textarea>
             <details class="pz-atajos">
               <summary>Atajos de teclado</summary>
-              <p><kbd>V</kbd> mover · <kbd>A</kbd> atacante · <kbd>D</kbd> defensor · <kbd>B</kbd> balón · <kbd>K</kbd> cono · <kbd>P</kbd> pase · <kbd>R</kbd> bote · <kbd>C</kbd> corte · <kbd>L</kbd> bloqueo · <kbd>S</kbd> tiro · <kbd>F</kbd> libre · <kbd>N</kbd> texto · <kbd>T</kbd> tiempo muerto</p>
+              <p><kbd>V</kbd> mover · <kbd>A</kbd> atacante · <kbd>D</kbd> defensor · <kbd>B</kbd> balón · <kbd>K</kbd> cono · <kbd>G</kbd> neutro · <kbd>E</kbd> entrenador · <kbd>I</kbd> fila · <kbd>Z</kbd> zona · <kbd>X</kbd> elipse · <kbd>O</kbd> rotación · <kbd>P</kbd> pase · <kbd>R</kbd> bote · <kbd>C</kbd> corte · <kbd>L</kbd> bloqueo · <kbd>S</kbd> tiro · <kbd>F</kbd> libre · <kbd>N</kbd> texto · <kbd>T</kbd> tiempo muerto</p>
               <p><kbd>Ctrl</kbd>+<kbd>Z</kbd> deshacer · <kbd>Ctrl</kbd>+<kbd>Y</kbd> rehacer · <kbd>Ctrl</kbd>+<kbd>S</kbd> guardar · <kbd>Supr</kbd> borrar · <kbd>←</kbd> <kbd>→</kbd> cambiar de paso · <kbd>Espacio</kbd> reproducir · <kbd>Esc</kbd> soltar herramienta</p>
             </details>
           </div>
@@ -264,6 +285,8 @@ const jsonLd = {
             <ul class="pz-lista" data-pz="lista"></ul>
             <h3 class="pz-h3">Plantillas para empezar</h3>
             <ul class="pz-lista" data-pz="plantillas"></ul>
+            <h3 class="pz-h3">Ejercicios de entrenamiento</h3>
+            <ul class="pz-lista" data-pz="ejercicios"></ul>
           </div>
         </aside>
       </div>
@@ -470,6 +493,7 @@ const jsonLd = {
   .pz-paneles { display: none; gap: 1px; padding: 2px; border: 1px solid var(--cz-border); background: var(--cz-card); flex: none; }
 
   /* ── modo tiempo muerto ── */
+  .pz-vel.pz-pista { width: auto; max-width: 150px; height: 40px; padding: 0 4px; }
   .pz-btn-tm { background: var(--cz-accent); color: var(--cz-ink); }
   .pz-btn-tm:hover:not(:disabled) { background: var(--cz-accent); color: var(--cz-ink); filter: brightness(1.08); }
   .pz-tmbar { display: none; }

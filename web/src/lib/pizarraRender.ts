@@ -10,7 +10,9 @@ import {
   direccionFinal,
   envolverTexto,
   longitud,
+  FILA,
   polilinea,
+  puestosFila,
   puntaFlecha,
   recorta,
   trazosCancha,
@@ -20,8 +22,10 @@ import {
   type Linea,
   type Orient,
   type Pieza,
+  type Pista,
   type Pt,
   type Texto,
+  type Zona,
 } from "./pizarra";
 
 export function esc(s: string): string {
@@ -46,6 +50,11 @@ export interface Paleta {
   balon: string;
   balonBorde: string;
   cono: string;
+  neutro: string;
+  neutroTexto: string;
+  ent: string;
+  entTexto: string;
+  zona: string;
   sel: string;
   /** Fondo de hojas e imágenes con cabecera. */
   papel: string;
@@ -69,6 +78,11 @@ export const PALETAS: Record<NombrePaleta, Paleta> = {
     balon: "#ea580c",
     balonBorde: "#431407",
     cono: "#f59e0b",
+    neutro: "#15803d",
+    neutroTexto: "#ffffff",
+    ent: "#1c1917",
+    entTexto: "#ffffff",
+    zona: "#0369a1",
     sel: "#facc15",
     papel: "#f5f5f4",
     papelTexto: "#0c0c0c",
@@ -87,6 +101,11 @@ export const PALETAS: Record<NombrePaleta, Paleta> = {
     balon: "#ea580c",
     balonBorde: "#431407",
     cono: "#f59e0b",
+    neutro: "#15803d",
+    neutroTexto: "#ffffff",
+    ent: "#0f172a",
+    entTexto: "#ffffff",
+    zona: "#0369a1",
     sel: "#f59e0b",
     papel: "#ffffff",
     papelTexto: "#0c0c0c",
@@ -105,6 +124,11 @@ export const PALETAS: Record<NombrePaleta, Paleta> = {
     balon: "#fb923c",
     balonBorde: "#ffedd5",
     cono: "#fbbf24",
+    neutro: "#22c55e",
+    neutroTexto: "#06140a",
+    ent: "#f4f4f5",
+    entTexto: "#0c0c0c",
+    zona: "#38bdf8",
     sel: "#facc15",
     papel: "#0c0c0c",
     papelTexto: "#ffffff",
@@ -117,7 +141,7 @@ const GROSOR = 0.14;
 const FUENTE = "Barlow Condensed, 'Arial Narrow', Arial, sans-serif";
 
 export interface SeleccionRender {
-  tipo: "pieza" | "linea" | "texto";
+  tipo: "pieza" | "linea" | "texto" | "zona";
   id: string;
 }
 
@@ -127,6 +151,10 @@ export interface OpcionesTablero {
   piezas: Pieza[];
   lineas: Linea[];
   textos: Texto[];
+  zonas?: Zona[];
+  /** Zona que se está arrastrando para crearla. */
+  zonaBorrador?: Zona | null;
+  pista?: Pista;
   paleta: Paleta;
   seleccion?: SeleccionRender | null;
   borrador?: Linea | null;
@@ -171,7 +199,7 @@ export function geometriaLinea(l: Linea, escala = 1): GeomLinea {
   }
   const cuerpoBase = l.tipo === "bote" ? zigzag(b) : b;
   // la punta se encoge en líneas cortas (un desplazamiento de 1 m no puede ser todo flecha)
-  const largo = Math.min(0.62, Math.max(0.34, longitud(b) * 0.3));
+  const largo = l.tipo === "rotacion" ? 0.42 : Math.min(0.62, Math.max(0.34, longitud(b) * 0.3));
   const cuerpo = longitud(cuerpoBase) > 1.4 ? recorta(cuerpoBase, 0, largo * 0.8) : cuerpoBase;
   return { cuerpo, cabeza: puntaFlecha(tip, dir, largo, largo * 0.55) };
 }
@@ -189,6 +217,11 @@ function lineaSvg(l: Linea, p: Paleta, o: Orient, sel: boolean, opacidad: number
   }
   if (l.tipo === "bloqueo") grosor = 0.17;
   if (l.tipo === "tiro") cap = "round";
+  // rotación ("después va a…"): fina, punteada y con punta pequeña, distinta de las líneas de la jugada
+  if (l.tipo === "rotacion") {
+    dash = ' stroke-dasharray="0.1 0.26"';
+    grosor = 0.07;
+  }
   const op = opacidad < 1 ? ` opacity="${f(opacidad)}"` : "";
   let s = `<g${op}>`;
   const d = camino(g.cuerpo, o);
@@ -213,27 +246,96 @@ function manejadoresSvg(l: Linea, p: Paleta, o: Orient): string {
   return pt(a, 0.3, true) + pt(b, 0.3, true) + pt(medio, 0.34, false);
 }
 
+function etiquetaSvg(t: string, x: string, vy: number, e: number, color: string): string {
+  const tam = (t.length <= 1 ? 0.95 : t.length === 2 ? 0.78 : 0.6) * e;
+  return `<text x="${x}" y="${f(vy + tam * 0.34)}" font-size="${f(tam)}" font-weight="900" text-anchor="middle" fill="${color}" font-family="${FUENTE}">${esc(t)}</text>`;
+}
+
+/** Nombre corto bajo la pieza, con halo para que se lea sobre las líneas de la pista. */
+function nombreSvg(nombre: string, x: string, vy: number, R: number, p: Paleta, e: number): string {
+  const tam = 0.52 * e;
+  const y = f(vy + R + tam * 0.95);
+  const base = `x="${x}" y="${y}" font-size="${f(tam)}" font-weight="800" text-anchor="middle" font-family="${FUENTE}"`;
+  return `<text ${base} fill="${p.suelo}" stroke="${p.suelo}" stroke-width="0.2" stroke-linejoin="round">${esc(nombre)}</text><text ${base} fill="${p.tinta}">${esc(nombre)}</text>`;
+}
+
 function piezaSvg(pz: Pieza, p: Paleta, o: Orient, sel: boolean, e = 1): string {
   const v = aVista(pz, o);
   const x = f(v.x);
   const y = f(v.y);
   const R = RADIO_PIEZA * e;
   let s = "";
+  if (pz.tipo === "fila") return filaSvg(pz, p, o, sel, e);
   if (sel) s += `<circle cx="${x}" cy="${y}" r="${f(R + 0.38)}" fill="none" stroke="${p.sel}" stroke-width="0.14" stroke-opacity="0.95"/>`;
   if (pz.tipo === "atq" || pz.tipo === "def") {
     const atq = pz.tipo === "atq";
     s += `<circle cx="${x}" cy="${y}" r="${f(R)}" fill="${atq ? p.atq : p.defRelleno}" stroke="${atq ? p.defRelleno : p.def}" stroke-width="${atq ? 0.08 : 0.15}"/>`;
-    const t = pz.etiqueta;
-    if (t) {
-      const tam = (t.length <= 1 ? 0.95 : t.length === 2 ? 0.78 : 0.6) * e;
-      s += `<text x="${x}" y="${f(v.y + tam * 0.34)}" font-size="${f(tam)}" font-weight="900" text-anchor="middle" fill="${atq ? p.atqTexto : p.def}" font-family="${FUENTE}">${esc(t)}</text>`;
-    }
+    if (pz.etiqueta) s += etiquetaSvg(pz.etiqueta, x, v.y, e, atq ? p.atqTexto : p.def);
+  } else if (pz.tipo === "neu") {
+    // jugador neutro de ejercicio: verde, sin número (o con la letra que se le ponga)
+    s += `<circle cx="${x}" cy="${y}" r="${f(R)}" fill="${p.neutro}" stroke="${p.defRelleno}" stroke-width="0.08"/>`;
+    if (pz.etiqueta) s += etiquetaSvg(pz.etiqueta, x, v.y, e, p.neutroTexto);
+  } else if (pz.tipo === "ent") {
+    // entrenador: cuadrado oscuro con una E, distinto de los círculos de los jugadores
+    const h = R * 0.95;
+    s += `<rect x="${f(v.x - h)}" y="${f(v.y - h)}" width="${f(h * 2)}" height="${f(h * 2)}" fill="${p.ent}" stroke="${p.defRelleno}" stroke-width="0.08"/>`;
+    s += etiquetaSvg(pz.etiqueta || "E", x, v.y, e, p.entTexto);
   } else if (pz.tipo === "balon") {
     const r = 0.36 * e;
     s += `<circle cx="${x}" cy="${y}" r="${f(r)}" fill="${p.balon}" stroke="${p.balonBorde}" stroke-width="0.07"/>`;
     s += `<path d="M${f(v.x - r)},${y} H${f(v.x + r)} M${x},${f(v.y - r)} V${f(v.y + r)}" stroke="${p.balonBorde}" stroke-width="0.05" fill="none"/>`;
   } else {
     s += `<path d="M${x},${f(v.y - 0.5 * e)} L${f(v.x + 0.46 * e)},${f(v.y + 0.4 * e)} L${f(v.x - 0.46 * e)},${f(v.y + 0.4 * e)} Z" fill="${p.cono}" stroke="${p.balonBorde}" stroke-width="0.07" stroke-linejoin="round"/>`;
+  }
+  if (pz.nombre && pz.tipo !== "balon" && pz.tipo !== "cono") s += nombreSvg(pz.nombre, x, v.y, R, p, e);
+  return s;
+}
+
+/** Cola de jugadores: hasta 4 círculos y el número de cuántos son, al final de la cola. */
+function filaSvg(pz: Pieza, p: Paleta, o: Orient, sel: boolean, e: number): string {
+  const r = FILA.RADIO * e;
+  const puestos = puestosFila(pz);
+  const bando = pz.bando ?? "neu";
+  const relleno = bando === "atq" ? p.atq : bando === "def" ? p.defRelleno : p.neutro;
+  const borde = bando === "def" ? p.def : p.defRelleno;
+  let s = "";
+  const vs = puestos.map((q) => aVista(q, o));
+  if (sel) {
+    // la cola entera marcada: una cápsula alrededor de todos los jugadores
+    const a = vs[0];
+    const z = vs[vs.length - 1];
+    s += `<path d="M${f(a.x)},${f(a.y)} L${f(z.x)},${f(z.y)}" stroke="${p.sel}" stroke-opacity="0.6" stroke-width="${f(2 * r + 0.5)}" stroke-linecap="round" fill="none"/>`;
+  }
+  vs.forEach((q, i) => {
+    s += `<circle cx="${f(q.x)}" cy="${f(q.y)}" r="${f(r)}" fill="${relleno}" stroke="${borde}" stroke-width="${bando === "def" ? 0.13 : 0.08}"${i === 0 ? "" : ' opacity="0.95"'}/>`;
+  });
+  // el número, un paso más allá del último jugador dibujado
+  const a = ((pz.ang ?? 0) * Math.PI) / 180;
+  const n = puestos.length;
+  const cola = { x: pz.x - Math.cos(a) * (n - 1 + 1.15) * FILA.SEPARACION, y: pz.y - Math.sin(a) * (n - 1 + 1.15) * FILA.SEPARACION };
+  const vc = aVista(cola, o);
+  const tam = 0.95 * e;
+  const txt = `×${pz.cant ?? 4}`;
+  s += `<text x="${f(vc.x)}" y="${f(vc.y + tam * 0.34)}" font-size="${f(tam)}" font-weight="900" text-anchor="middle" font-family="${FUENTE}" fill="${p.suelo}" stroke="${p.suelo}" stroke-width="0.26" stroke-linejoin="round">${esc(txt)}</text>`;
+  s += `<text x="${f(vc.x)}" y="${f(vc.y + tam * 0.34)}" font-size="${f(tam)}" font-weight="900" text-anchor="middle" font-family="${FUENTE}" fill="${p.tinta}">${esc(txt)}</text>`;
+  if (pz.etiqueta) s += etiquetaSvg(pz.etiqueta, f(vs[0].x), vs[0].y, e * 0.7, bando === "def" ? p.def : p.atqTexto);
+  return s;
+}
+
+/** Zona sombreada (rectángulo o elipse) semitransparente, con su asa de tamaño si está seleccionada. */
+function zonaSvg(z: Zona, p: Paleta, o: Orient, sel: boolean, borrador = false): string {
+  const c = aVista(z, o);
+  const w = o === "v" ? z.h : z.w;
+  const h = o === "v" ? z.w : z.h;
+  const estilo = `fill="${p.zona}" fill-opacity="0.22" stroke="${p.zona}" stroke-opacity="${borrador ? 0.9 : 0.75}" stroke-width="0.1" stroke-dasharray="0.45 0.25"`;
+  let s =
+    z.forma === "rect"
+      ? `<rect x="${f(c.x - w / 2)}" y="${f(c.y - h / 2)}" width="${f(w)}" height="${f(h)}" ${estilo}/>`
+      : `<ellipse cx="${f(c.x)}" cy="${f(c.y)}" rx="${f(w / 2)}" ry="${f(h / 2)}" ${estilo}/>`;
+  if (sel) {
+    s += `<rect x="${f(c.x - w / 2 - 0.15)}" y="${f(c.y - h / 2 - 0.15)}" width="${f(w + 0.3)}" height="${f(h + 0.3)}" fill="none" stroke="${p.sel}" stroke-width="0.12" stroke-dasharray="0.3 0.2"/>`;
+    const q = aVista({ x: z.x + z.w / 2, y: z.y + z.h / 2 }, o);
+    s += `<rect x="${f(q.x - 0.3)}" y="${f(q.y - 0.3)}" width="0.6" height="0.6" fill="${p.sel}" stroke="${p.tinta}" stroke-width="0.07"/>`;
   }
   return s;
 }
@@ -258,7 +360,7 @@ export function renderTablero(o: OpcionesTablero): string {
   let s = `<rect x="${vb.x}" y="${vb.y}" width="${vb.w}" height="${vb.h}" fill="${p.suelo}"/>`;
   const rot = o.orient === "v" ? ` transform="translate(${CANCHA.ANCHO} 0) rotate(90)"` : "";
   s += `<g${rot} fill="none" stroke="${p.linea}" stroke-width="0.09" stroke-linejoin="round">`;
-  for (const t of trazosCancha(o.cancha)) {
+  for (const t of trazosCancha(o.cancha, o.pista)) {
     if (t.rol === "pintura") s += `<path d="${t.d}" fill="${p.pintura}" stroke="none"/>`;
     else if (t.rol === "discontinua") s += `<path d="${t.d}" stroke-dasharray="0.3 0.3"/>`;
     else if (t.rol === "aro") s += `<path d="${t.d}" stroke="${p.aro}" stroke-width="0.12"/>`;
@@ -266,6 +368,9 @@ export function renderTablero(o: OpcionesTablero): string {
     else s += `<path d="${t.d}"/>`;
   }
   s += "</g>";
+  // las zonas van al fondo: debajo de las líneas y las piezas
+  for (const z of o.zonas ?? []) s += zonaSvg(z, p, o.orient, o.seleccion?.tipo === "zona" && o.seleccion.id === z.id);
+  if (o.zonaBorrador) s += zonaSvg(o.zonaBorrador, p, o.orient, false, true);
   const op = o.opacidadLineas ?? 1;
   for (const l of o.lineas) s += lineaSvg(l, p, o.orient, o.seleccion?.tipo === "linea" && o.seleccion.id === l.id, op, o.escala ?? 1);
   if (o.borrador) s += lineaSvg(o.borrador, p, o.orient, false, 0.75, o.escala ?? 1);
@@ -274,7 +379,7 @@ export function renderTablero(o: OpcionesTablero): string {
     if (l) s += manejadoresSvg(l, p, o.orient);
   }
   // conos al fondo, balón arriba del todo
-  const orden = { cono: 0, def: 1, atq: 2, balon: 3 } as const;
+  const orden = { cono: 0, fila: 1, def: 2, neu: 3, ent: 4, atq: 5, balon: 6 } as const;
   const piezas = o.piezas.slice().sort((a, b) => orden[a.tipo] - orden[b.tipo]);
   for (const pz of piezas) s += piezaSvg(pz, p, o.orient, o.seleccion?.tipo === "pieza" && o.seleccion.id === pz.id, o.escala ?? 1);
   for (const t of o.textos) s += textoSvg(t, p, o.orient, o.seleccion?.tipo === "texto" && o.seleccion.id === t.id);
@@ -290,7 +395,7 @@ export function renderSvgCompleto(o: OpcionesTablero, tam: { ancho?: number; alt
 
 function tablero(j: Jugada, k: number, paleta: Paleta, extra: Partial<OpcionesTablero> = {}): OpcionesTablero {
   const s = j.pasos[k];
-  return { cancha: j.cancha, orient: j.orient, piezas: s.piezas, lineas: s.lineas, textos: s.textos, paleta, ...extra };
+  return { cancha: j.cancha, orient: j.orient, piezas: s.piezas, lineas: s.lineas, textos: s.textos, zonas: s.zonas, pista: j.pista, paleta, ...extra };
 }
 
 export interface Lienzo {

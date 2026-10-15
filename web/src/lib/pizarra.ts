@@ -23,9 +23,19 @@ export interface Pt {
 }
 
 export type Cancha = "media" | "completa";
+/** FIBA (28×15, aro a 3,05 m) o minibasket (aro a 2,60 m, sin línea de 3, tiro libre a 4 m). */
+export type Pista = "fiba" | "mini";
 export type Orient = "h" | "v";
-export type TipoPieza = "atq" | "def" | "balon" | "cono";
-export type TipoLinea = "pase" | "bote" | "corte" | "bloqueo" | "tiro" | "libre";
+/**
+ * atq/def: jugadores numerados · balon · cono · neu: jugador neutro de ejercicio (verde, sin
+ * número o con letra) · ent: entrenador · fila: cola de jugadores esperando turno.
+ * El ORDEN de este array es parte del formato del enlace: solo se añade al final.
+ */
+export type TipoPieza = "atq" | "def" | "balon" | "cono" | "neu" | "ent" | "fila";
+/** "rotacion" = adónde va el jugador DESPUÉS (no mueve a la pieza en la animación). */
+export type TipoLinea = "pase" | "bote" | "corte" | "bloqueo" | "tiro" | "libre" | "rotacion";
+export type Bando = "atq" | "def" | "neu";
+export type FormaZona = "rect" | "elipse";
 export type Categoria =
   | "ataque"
   | "defensa"
@@ -45,8 +55,11 @@ export const CATEGORIAS: { id: Categoria; label: string }[] = [
   { id: "ejercicio", label: "Ejercicio" },
 ];
 
-export const TIPOS_PIEZA: TipoPieza[] = ["atq", "def", "balon", "cono"];
-export const TIPOS_LINEA: TipoLinea[] = ["pase", "bote", "corte", "bloqueo", "tiro", "libre"];
+export const TIPOS_PIEZA: TipoPieza[] = ["atq", "def", "balon", "cono", "neu", "ent", "fila"];
+export const TIPOS_LINEA: TipoLinea[] = ["pase", "bote", "corte", "bloqueo", "tiro", "libre", "rotacion"];
+export const BANDOS: Bando[] = ["atq", "def", "neu"];
+export const FORMAS_ZONA: FormaZona[] = ["rect", "elipse"];
+export const PISTAS: Pista[] = ["fiba", "mini"];
 
 export interface Pieza {
   id: string;
@@ -54,6 +67,24 @@ export interface Pieza {
   etiqueta: string;
   x: number;
   y: number;
+  /** Nombre corto del jugador (opcional). */
+  nombre?: string;
+  /** Solo "fila": cuántos jugadores hay en la cola (se dibujan hasta 4). */
+  cant?: number;
+  /** Solo "fila": hacia dónde mira la cabeza de la cola, en grados (0 = +x canónico). */
+  ang?: number;
+  /** Solo "fila": color de los jugadores de la cola. */
+  bando?: Bando;
+}
+
+/** Espacio sombreado (rectángulo o elipse) para marcar una zona de trabajo. x,y = centro. */
+export interface Zona {
+  id: string;
+  forma: FormaZona;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
 }
 
 export interface Linea {
@@ -83,6 +114,7 @@ export interface Paso {
   lineas: Linea[];
   textos: Texto[];
   nota: string;
+  zonas?: Zona[];
 }
 
 export interface Jugada {
@@ -92,6 +124,8 @@ export interface Jugada {
   categoria: Categoria;
   notas: string;
   cancha: Cancha;
+  /** Ausente = FIBA. */
+  pista?: Pista;
   orient: Orient;
   pasos: Paso[];
   actualizada: number;
@@ -107,6 +141,9 @@ export const LIMITES = {
   NOTAS: 2000,
   NOTA_PASO: 400,
   ETIQUETA: 4,
+  ZONAS: 20,
+  NOMBRE_JUGADOR: 12,
+  FILA_MAX: 15,
   TEXTO: 120,
   BIBLIOTECA: 300,
 } as const;
@@ -181,16 +218,35 @@ export interface TrazoCancha {
 const n = (v: number) => String(redondea(v, 3));
 
 /**
+ * Medidas del MINIBASKET (U12) que dibuja la pista "mini". Decisiones y por qué:
+ *  - La pista sigue siendo de 28 × 15 m (la reglamentaria; hay pabellones de 24 × 13 a
+ *    28 × 15). No se reduce el tamaño porque todo el sistema de coordenadas (jugadas
+ *    guardadas, enlaces y plantillas) está en metros sobre 28 × 15; así una jugada se
+ *    puede pasar de FIBA a minibasket sin recolocar nada.
+ *  - Sin línea de 3 puntos: en minibasket no existe (los tiros valen 1 y 2).
+ *  - Línea de tiros libres a 4,00 m de la línea de fondo (medida desde el borde interior,
+ *    igual que los 5,80 m de FIBA) y zona de 4,90 m de ancho, el semicírculo de 1,80 m y la
+ *    zona de no carga de 1,25 m. Si tu federación mide los 4 m desde el aro, la línea
+ *    queda 1,6 m más lejos: ajusta ZONA_LARGO.
+ *  - El aro está a 2,60 m en lugar de 3,05 m: no se dibuja (es una altura), pero va en
+ *    la etiqueta del selector de pista.
+ */
+export const MINIBASKET = { ZONA_LARGO: 4.0, ALTURA_ARO: 2.6 } as const;
+
+/**
  * Trazos de la pista en coordenadas canónicas (path SVG). Medidas FIBA:
  * 28×15 m, línea de 3 a 6,75 m (esquinas a 0,90 m de la banda), zona rectangular
  * de 4,90 m × 5,80 m, semicírculo de tiro libre de 1,80 m y semicírculo de no
- * carga de 1,25 m. `completa` dibuja las dos mitades.
+ * carga de 1,25 m. `completa` dibuja las dos mitades. Con `pista = "mini"` la zona
+ * llega a 4,00 m y NO hay línea de 3 (ver MINIBASKET).
  */
-export function trazosCancha(c: Cancha): TrazoCancha[] {
+export function trazosCancha(c: Cancha, pista: Pista = "fiba"): TrazoCancha[] {
   const L = largoCancha(c);
   const t: TrazoCancha[] = [];
   const W = CANCHA.ANCHO;
   const cy = W / 2;
+  const mini = pista === "mini";
+  const zl = mini ? MINIBASKET.ZONA_LARGO : 5.8;
   t.push({ d: `M0,0 H${L} V${W} H0 Z`, rol: "linea" });
 
   if (c === "completa") {
@@ -206,19 +262,21 @@ export function trazosCancha(c: Cancha): TrazoCancha[] {
     const barrido = (s: 0 | 1) => (esp ? (s === 1 ? 0 : 1) : s);
     const ax = CANCHA.ARO_X;
     // zona (relleno) y sus líneas
-    t.push({ d: `M${f(0)},5.05 H${f(5.8)} V9.95 H${f(0)} Z`, rol: "pintura" });
-    t.push({ d: `M${f(0)},5.05 H${f(5.8)} V9.95 H${f(0)}`, rol: "linea" });
+    t.push({ d: `M${f(0)},5.05 H${f(zl)} V9.95 H${f(0)} Z`, rol: "pintura" });
+    t.push({ d: `M${f(0)},5.05 H${f(zl)} V9.95 H${f(0)}`, rol: "linea" });
     // semicírculo de tiros libres: mitad exterior continua, interior discontinua
-    t.push({ d: `M${f(5.8)},${n(cy - 1.8)} A1.8,1.8 0 0 ${barrido(1)} ${f(5.8)},${n(cy + 1.8)}`, rol: "linea" });
-    t.push({ d: `M${f(5.8)},${n(cy - 1.8)} A1.8,1.8 0 0 ${barrido(0)} ${f(5.8)},${n(cy + 1.8)}`, rol: "discontinua" });
-    // línea de 3: rectas a 0,90 m de banda + arco de 6,75 m
-    const dy = cy - 0.9;
-    const dx = Math.sqrt(6.75 * 6.75 - dy * dy);
-    const xe = ax + dx;
-    t.push({
-      d: `M${f(0)},0.9 H${f(xe)} A6.75,6.75 0 0 ${barrido(1)} ${f(xe)},${n(W - 0.9)} H${f(0)}`,
-      rol: "linea",
-    });
+    t.push({ d: `M${f(zl)},${n(cy - 1.8)} A1.8,1.8 0 0 ${barrido(1)} ${f(zl)},${n(cy + 1.8)}`, rol: "linea" });
+    t.push({ d: `M${f(zl)},${n(cy - 1.8)} A1.8,1.8 0 0 ${barrido(0)} ${f(zl)},${n(cy + 1.8)}`, rol: "discontinua" });
+    // línea de 3: rectas a 0,90 m de banda + arco de 6,75 m (no existe en minibasket)
+    if (!mini) {
+      const dy = cy - 0.9;
+      const dx = Math.sqrt(6.75 * 6.75 - dy * dy);
+      const xe = ax + dx;
+      t.push({
+        d: `M${f(0)},0.9 H${f(xe)} A6.75,6.75 0 0 ${barrido(1)} ${f(xe)},${n(W - 0.9)} H${f(0)}`,
+        rol: "linea",
+      });
+    }
     // semicírculo de no carga, unido al tablero por rectas de 0,375 m
     t.push({
       d: `M${f(1.2)},${n(cy - 1.25)} H${f(ax)} A1.25,1.25 0 0 ${barrido(1)} ${f(ax)},${n(cy + 1.25)} H${f(1.2)}`,
@@ -381,7 +439,7 @@ export function simplifica(pts: Pt[], eps = 0.12): Pt[] {
 // ─── construcción de jugadas ────────────────────────────────────────────
 
 export function pasoVacio(): Paso {
-  return { piezas: [], lineas: [], textos: [], nota: "" };
+  return { piezas: [], lineas: [], textos: [], nota: "", zonas: [] };
 }
 
 export function nuevaJugada(partes: Partial<Jugada> = {}): Jugada {
@@ -399,8 +457,9 @@ export function nuevaJugada(partes: Partial<Jugada> = {}): Jugada {
   };
 }
 
-/** Siguiente etiqueta libre: atacantes 1..N, defensores X1..XN. */
+/** Siguiente etiqueta libre: atacantes 1..N, defensores X1..XN (hasta 15 por color). */
 export function siguienteEtiqueta(paso: Paso, tipo: TipoPieza): string {
+  if (tipo === "ent") return "E";
   if (tipo !== "atq" && tipo !== "def") return "";
   const usadas = new Set(paso.piezas.filter((p) => p.tipo === tipo).map((p) => p.etiqueta));
   for (let i = 1; i <= 15; i++) {
@@ -411,17 +470,125 @@ export function siguienteEtiqueta(paso: Paso, tipo: TipoPieza): string {
 }
 
 /** Todos los pasos son piezas del MISMO id: la identidad se conserva entre pasos. */
-export function anadirPieza(j: Jugada, k: number, tipo: TipoPieza, pos: Pt, etiqueta?: string): { jugada: Jugada; id: string } {
+export function anadirPieza(
+  j: Jugada,
+  k: number,
+  tipo: TipoPieza,
+  pos: Pt,
+  etiqueta?: string,
+  extra: Partial<Pick<Pieza, "cant" | "ang" | "bando" | "nombre">> = {}
+): { jugada: Jugada; id: string } {
   const out = clonar(j);
   const id = uid();
   const p = limitaPunto(pos, out.cancha);
   const et = etiqueta ?? siguienteEtiqueta(out.pasos[k], tipo);
   for (let i = k; i < out.pasos.length; i++) {
     if (out.pasos[i].piezas.length >= LIMITES.PIEZAS) continue;
-    out.pasos[i].piezas.push({ id, tipo, etiqueta: et.slice(0, LIMITES.ETIQUETA), x: redondea(p.x), y: redondea(p.y) });
+    const pz: Pieza = { id, tipo, etiqueta: et.slice(0, LIMITES.ETIQUETA), x: redondea(p.x), y: redondea(p.y) };
+    if (tipo === "fila") {
+      pz.cant = clamp(Math.round(extra.cant ?? 4), 1, LIMITES.FILA_MAX);
+      pz.ang = normalizaAngulo(extra.ang ?? 0);
+      pz.bando = extra.bando ?? "neu";
+    }
+    if (extra.nombre) pz.nombre = limpiaTexto(extra.nombre, LIMITES.NOMBRE_JUGADOR);
+    out.pasos[i].piezas.push(pz);
   }
   return { jugada: out, id };
 }
+
+export const normalizaAngulo = (a: number): number => ((Math.round(a) % 360) + 360) % 360;
+
+/** Separación (m) entre los jugadores de una fila y radio con que se dibujan. */
+export const FILA = { SEPARACION: 1.0, RADIO: 0.45, DIBUJADOS: 4 } as const;
+
+/** Centros de los jugadores dibujados de una fila: la cabeza en la pieza y el resto detrás. */
+export function puestosFila(pz: Pieza): Pt[] {
+  const n = clamp(Math.round(pz.cant ?? 4), 1, FILA.DIBUJADOS);
+  const a = ((pz.ang ?? 0) * Math.PI) / 180;
+  const out: Pt[] = [];
+  for (let i = 0; i < n; i++) {
+    out.push({ x: pz.x - Math.cos(a) * i * FILA.SEPARACION, y: pz.y - Math.sin(a) * i * FILA.SEPARACION });
+  }
+  return out;
+}
+
+/** Cambia cualquier dato de la pieza en TODOS los pasos (identidad compartida). */
+export function ajustarPieza(j: Jugada, id: string, cambios: Partial<Pick<Pieza, "etiqueta" | "nombre" | "cant" | "ang" | "bando">>): Jugada {
+  const out = clonar(j);
+  for (const s of out.pasos) {
+    for (const p of s.piezas) {
+      if (p.id !== id) continue;
+      if (cambios.etiqueta !== undefined) p.etiqueta = limpiaTexto(cambios.etiqueta, LIMITES.ETIQUETA);
+      if (cambios.nombre !== undefined) {
+        const nm = limpiaTexto(cambios.nombre, LIMITES.NOMBRE_JUGADOR).trim();
+        if (nm) p.nombre = nm;
+        else delete p.nombre;
+      }
+      if (p.tipo === "fila") {
+        if (cambios.cant !== undefined) p.cant = clamp(Math.round(cambios.cant), 1, LIMITES.FILA_MAX);
+        if (cambios.ang !== undefined) p.ang = normalizaAngulo(cambios.ang);
+        if (cambios.bando !== undefined && BANDOS.includes(cambios.bando)) p.bando = cambios.bando;
+      }
+    }
+  }
+  return out;
+}
+
+// ─── zonas sombreadas ───────────────────────────────────────────────────
+
+export const ZONA_MIN = 0.8;
+export const ZONA_MAX = 30;
+
+export function anadirZona(j: Jugada, k: number, z: Omit<Zona, "id">): { jugada: Jugada; id: string } {
+  const out = clonar(j);
+  const id = uid();
+  const s = out.pasos[k];
+  s.zonas = s.zonas ?? [];
+  if (s.zonas.length < LIMITES.ZONAS) {
+    const c = limitaPunto(z, out.cancha);
+    s.zonas.push({
+      id,
+      forma: z.forma,
+      x: redondea(c.x),
+      y: redondea(c.y),
+      w: redondea(clamp(z.w, ZONA_MIN, ZONA_MAX)),
+      h: redondea(clamp(z.h, ZONA_MIN, ZONA_MAX)),
+    });
+  }
+  return { jugada: out, id };
+}
+
+export function quitarZona(j: Jugada, k: number, id: string): Jugada {
+  const out = clonar(j);
+  out.pasos[k].zonas = (out.pasos[k].zonas ?? []).filter((z) => z.id !== id);
+  return out;
+}
+
+/** Rectángulo (en canónico) que cubre la zona: para dibujarla y para el asa de tamaño. */
+export function cajaZona(z: Zona): { x0: number; y0: number; x1: number; y1: number } {
+  return { x0: z.x - z.w / 2, y0: z.y - z.h / 2, x1: z.x + z.w / 2, y1: z.y + z.h / 2 };
+}
+
+export function puntoEnZona(p: Pt, z: Zona): boolean {
+  const dx = Math.abs(p.x - z.x);
+  const dy = Math.abs(p.y - z.y);
+  if (z.forma === "rect") return dx <= z.w / 2 && dy <= z.h / 2;
+  return (dx / (z.w / 2)) ** 2 + (dy / (z.h / 2)) ** 2 <= 1;
+}
+
+/** Zona definida arrastrando de una esquina a la opuesta. */
+export function zonaDesdeEsquinas(forma: FormaZona, a: Pt, b: Pt): Omit<Zona, "id"> {
+  return {
+    forma,
+    x: (a.x + b.x) / 2,
+    y: (a.y + b.y) / 2,
+    w: clamp(Math.abs(b.x - a.x), ZONA_MIN, ZONA_MAX),
+    h: clamp(Math.abs(b.y - a.y), ZONA_MIN, ZONA_MAX),
+  };
+}
+
+/** Con un clic sin arrastre: tamaño por defecto centrado en el punto. */
+export const ZONA_POR_DEFECTO = { w: 4, h: 3 } as const;
 
 /** Mueve una pieza SOLO en el paso dado (muta el paso: se usa sobre un clon). */
 export function moverPiezaEn(paso: Paso, id: string, pos: Pt): void {
@@ -608,7 +775,7 @@ export function avanzarPiezas(paso: Paso): Pieza[] {
 export function insertarPaso(j: Jugada, k: number): Jugada {
   const out = clonar(j);
   if (out.pasos.length >= LIMITES.PASOS) return out;
-  const nuevo: Paso = { piezas: avanzarPiezas(out.pasos[k]), lineas: [], textos: [], nota: "" };
+  const nuevo: Paso = { piezas: avanzarPiezas(out.pasos[k]), lineas: [], textos: [], nota: "", zonas: [] };
   out.pasos.splice(k + 1, 0, nuevo);
   return out;
 }
@@ -624,7 +791,7 @@ export function duplicarPaso(j: Jugada, k: number): Jugada {
 export function quitarPaso(j: Jugada, k: number): Jugada {
   const out = clonar(j);
   if (out.pasos.length <= 1) {
-    out.pasos[0] = { ...out.pasos[0], lineas: [], textos: [], nota: "" };
+    out.pasos[0] = { ...out.pasos[0], lineas: [], textos: [], nota: "", zonas: [] };
     return out;
   }
   out.pasos.splice(k, 1);
@@ -636,6 +803,7 @@ export function limpiarPaso(j: Jugada, k: number, todo: boolean): Jugada {
   const s = out.pasos[k];
   s.lineas = [];
   s.textos = [];
+  s.zonas = [];
   if (todo) s.piezas = [];
   return out;
 }
@@ -647,11 +815,19 @@ export function cambiarCancha(j: Jugada, cancha: Cancha): Jugada {
   for (const s of out.pasos) {
     for (const p of s.piezas) Object.assign(p, limitaPunto(p, cancha));
     for (const t of s.textos) Object.assign(t, limitaPunto(t, cancha));
+    for (const z of s.zonas ?? []) Object.assign(z, limitaPunto(z, cancha));
     for (const l of s.lineas) {
       l.pts = l.pts.map((p) => limitaPunto(p, cancha));
       if (l.mid) l.mid = limitaPunto(l.mid, cancha);
     }
   }
+  return out;
+}
+
+export function cambiarPista(j: Jugada, pista: Pista): Jugada {
+  const out = clonar(j);
+  if (pista === "mini") out.pista = "mini";
+  else delete out.pista;
   return out;
 }
 
@@ -801,7 +977,17 @@ function normalizaPaso(raw: unknown, c: Cancha, mapaIds: Map<string, string>): P
       const id = idDe(rp.id);
       if (idsPaso.has(id)) continue;
       idsPaso.add(id);
-      paso.piezas.push({ id, tipo, etiqueta: limpiaTexto(rp.etiqueta, LIMITES.ETIQUETA), x: pos.x, y: pos.y });
+      const pieza: Pieza = { id, tipo, etiqueta: limpiaTexto(rp.etiqueta, LIMITES.ETIQUETA), x: pos.x, y: pos.y };
+      const nombre = limpiaTexto(rp.nombre, LIMITES.NOMBRE_JUGADOR).trim();
+      if (nombre) pieza.nombre = nombre;
+      if (tipo === "fila") {
+        const cant = numero(rp.cant, 1, LIMITES.FILA_MAX);
+        const ang = numero(rp.ang, -3600, 3600);
+        pieza.cant = cant === null ? 4 : Math.round(cant);
+        pieza.ang = ang === null ? 0 : normalizaAngulo(ang);
+        pieza.bando = BANDOS.find((b) => b === rp.bando) ?? "neu";
+      }
+      paso.piezas.push(pieza);
     }
   }
   if (Array.isArray(raw.lineas)) {
@@ -843,6 +1029,24 @@ function normalizaPaso(raw: unknown, c: Cancha, mapaIds: Map<string, string>): P
       });
     }
   }
+  if (Array.isArray(raw.zonas)) {
+    for (const rz of raw.zonas.slice(0, LIMITES.ZONAS)) {
+      if (!esObj(rz)) continue;
+      const forma = FORMAS_ZONA.find((f) => f === rz.forma);
+      const pos = punto(rz, c);
+      const w = numero(rz.w, ZONA_MIN, ZONA_MAX);
+      const h = numero(rz.h, ZONA_MIN, ZONA_MAX);
+      if (!forma || !pos || w === null || h === null) continue;
+      paso.zonas!.push({
+        id: typeof rz.id === "string" && ID_VALIDO.test(rz.id) ? rz.id : uid(),
+        forma,
+        x: pos.x,
+        y: pos.y,
+        w: redondea(w),
+        h: redondea(h),
+      });
+    }
+  }
   return paso;
 }
 
@@ -852,11 +1056,12 @@ export function normalizarJugada(raw: unknown): Jugada | null {
   if (!Array.isArray(raw.pasos) || raw.pasos.length === 0) return null;
   const cancha: Cancha = raw.cancha === "completa" ? "completa" : "media";
   const orient: Orient = raw.orient === "h" ? "h" : "v";
+  const pista: Pista = raw.pista === "mini" ? "mini" : "fiba";
   const categoria = CATEGORIAS.find((c) => c.id === raw.categoria)?.id ?? "ataque";
   const mapaIds = new Map<string, string>();
   const pasos = raw.pasos.slice(0, LIMITES.PASOS).map((p) => normalizaPaso(p, cancha, mapaIds));
   const act = numero(raw.actualizada, 0, 9e15);
-  return {
+  const j: Jugada = {
     v: 1,
     id: typeof raw.id === "string" && ID_VALIDO.test(raw.id) ? raw.id : uid(),
     nombre: limpiaTexto(raw.nombre, LIMITES.NOMBRE).trim() || "Jugada sin título",
@@ -867,6 +1072,8 @@ export function normalizarJugada(raw: unknown): Jugada | null {
     pasos,
     actualizada: act === null ? Date.now() : act,
   };
+  if (pista === "mini") j.pista = "mini";
+  return j;
 }
 
 export const ID_APP = "cancha.zapa/pizarra";
@@ -913,8 +1120,12 @@ const CATS = CATEGORIAS.map((c) => c.id);
 /**
  * Formato compacto de enlace. Jugada = [nombre, catIdx, notas, cancha(0/1),
  * orient(0/1), pasos]; paso = [nota, piezas, lineas, textos];
- * pieza = [tipoIdx, etiqueta, x, y, id]; linea = [tipoIdx, [x,y,x,y…], mid|0, ref|0, fin|0];
- * texto = [x, y, texto, tam]. El id y la fecha NO viajan: se generan al abrir.
+ * pieza = [tipoIdx, etiqueta, x, y, id, extra?] con extra = [nombre, cant, ang, bandoIdx]
+ * (solo si hace falta); linea = [tipoIdx, [x,y,x,y…], mid|0, ref|0, fin|0];
+ * texto = [x, y, texto, tam]; zona = [formaIdx, x, y, w, h] (5º elemento del paso).
+ * Los datos de la jugada que no son pasos van en un 7º elemento: [pistaIdx]. Todo lo que se
+ * añade va al FINAL de cada array, así que un enlace antiguo sigue abriéndose.
+ * El id y la fecha NO viajan: se generan al abrir.
  */
 export function compactar(j: Jugada): unknown[] {
   const f = (v: number) => redondea(v, 2);
@@ -926,7 +1137,13 @@ export function compactar(j: Jugada): unknown[] {
     j.orient === "h" ? 1 : 0,
     j.pasos.map((s) => [
       s.nota,
-      s.piezas.map((p) => [TIPOS_PIEZA.indexOf(p.tipo), p.etiqueta, f(p.x), f(p.y), p.id]),
+      s.piezas.map((p) => {
+        const base: unknown[] = [TIPOS_PIEZA.indexOf(p.tipo), p.etiqueta, f(p.x), f(p.y), p.id];
+        if (p.nombre || p.cant !== undefined || p.ang || (p.bando && p.bando !== "neu")) {
+          base.push([p.nombre ?? "", p.cant ?? 0, p.ang ?? 0, BANDOS.indexOf(p.bando ?? "neu")]);
+        }
+        return base;
+      }),
       s.lineas.map((l) => [
         TIPOS_LINEA.indexOf(l.tipo),
         l.pts.flatMap((p) => [f(p.x), f(p.y)]),
@@ -935,7 +1152,9 @@ export function compactar(j: Jugada): unknown[] {
         l.fin ?? 0,
       ]),
       s.textos.map((t) => [f(t.x), f(t.y), t.texto, t.tam]),
+      (s.zonas ?? []).map((z) => [FORMAS_ZONA.indexOf(z.forma), f(z.x), f(z.y), f(z.w), f(z.h)]),
     ]),
+    [j.pista === "mini" ? 1 : 0],
   ];
 }
 
@@ -944,20 +1163,33 @@ const arr = (v: unknown): unknown[] => (Array.isArray(v) ? v : []);
 /** Inverso de `compactar`; el resultado SIEMPRE pasa por `normalizarJugada`. */
 export function descompactar(raw: unknown): Jugada | null {
   if (!Array.isArray(raw)) return null;
-  const [nombre, cat, notas, cancha, orient, pasos] = raw;
+  const [nombre, cat, notas, cancha, orient, pasos, extras] = raw;
+  const ex = arr(extras);
   const obj = {
     nombre,
     categoria: typeof cat === "number" ? CATS[cat] : undefined,
     notas,
     cancha: cancha === 1 ? "completa" : "media",
     orient: orient === 1 ? "h" : "v",
+    pista: ex[0] === 1 ? "mini" : "fiba",
     pasos: arr(pasos).map((s) => {
-      const [nota, piezas, lineas, textos] = arr(s);
+      const [nota, piezas, lineas, textos, zonas] = arr(s);
       return {
         nota,
         piezas: arr(piezas).map((p) => {
-          const [t, et, x, y, id] = arr(p);
-          return { tipo: typeof t === "number" ? TIPOS_PIEZA[t] : undefined, etiqueta: et, x, y, id };
+          const [t, et, x, y, id, ext] = arr(p);
+          const [nombre, cant, ang, bando] = arr(ext);
+          return {
+            tipo: typeof t === "number" ? TIPOS_PIEZA[t] : undefined,
+            etiqueta: et,
+            x,
+            y,
+            id,
+            nombre,
+            cant: cant || undefined,
+            ang,
+            bando: typeof bando === "number" ? BANDOS[bando] : undefined,
+          };
         }),
         lineas: arr(lineas).map((l) => {
           const [t, flat, mid, ref, fin] = arr(l);
@@ -976,6 +1208,10 @@ export function descompactar(raw: unknown): Jugada | null {
         textos: arr(textos).map((t) => {
           const [x, y, texto, tam] = arr(t);
           return { x, y, texto, tam };
+        }),
+        zonas: arr(zonas).map((z) => {
+          const [forma, x, y, w, h] = arr(z);
+          return { forma: typeof forma === "number" ? FORMAS_ZONA[forma] : undefined, x, y, w, h };
         }),
       };
     }),
