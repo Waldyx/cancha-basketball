@@ -32,6 +32,19 @@ import "../styles/cancha-redesign.css";
     <section class="st-main">
       <div class="shell">
 
+        {/* PESTAÑAS: Jugador (lo de siempre) · Equipo (entrenadores) */}
+        <div class="st-tabs" role="tablist" aria-label="Modo">
+          <button type="button" class="st-tab active" id="tabbtn-jugador" role="tab" aria-selected="true" aria-controls="tab-jugador" data-tab="jugador">Jugador</button>
+          <button type="button" class="st-tab" id="tabbtn-equipo" role="tab" aria-selected="false" aria-controls="tab-equipo" data-tab="equipo">Equipo</button>
+        </div>
+
+        {/* Vista previa de un enlace recibido (#e=...) */}
+        <div id="st-incoming" class="st-panel st-incoming hidden" aria-live="polite"></div>
+
+        <div id="tab-jugador" role="tabpanel" aria-labelledby="tabbtn-jugador">
+
+        <div id="bk-jugador" class="st-bk"></div>
+
         {/* PERFIL + FORMULARIO + RESUMEN */}
         <div class="st-grid">
           <div class="st-col">
@@ -234,11 +247,29 @@ import "../styles/cancha-redesign.css";
           </div>
         </div>
 
+        </div>{/* /tab-jugador */}
+
+        <div id="tab-equipo" class="hidden" role="tabpanel" aria-labelledby="tabbtn-equipo">
+          <div id="bk-equipo" class="st-bk"></div>
+          <div id="eq-root"></div>
+        </div>
+
       </div>
     </section>
+
+    {/* Diálogo común del modo Equipo (enlace para compartir, tarjeta PNG) */}
+    <dialog id="eq-dialog" class="st-dialog" aria-labelledby="eq-dialog-title">
+      <div class="st-dialog-head">
+        <h2 id="eq-dialog-title" class="st-h2">—</h2>
+        <button type="button" id="eq-dialog-close" class="st-dialog-x" aria-label="Cerrar">✕</button>
+      </div>
+      <div id="eq-dialog-body"></div>
+    </dialog>
   </main>
 
   <script>
+    import { calcLinea, parsePaste, fusionarJugador } from "../lib/statsEquipo";
+    import { initEquipo, montarAvisoCopia, marcarCopia, refrescarAvisos } from "../scripts/statsEquipoUI";
     // ─── tipos + accesor DOM (script cliente; tipado para astro check) ───
     interface Game { fecha: string; rival: string; res: string; min: number; t2c: number; t2i: number; t3c: number; t3i: number; tlc: number; tli: number; ro: number; rd: number; ast: number; rob: number; tap: number; per: number; fal: number; }
     interface Perfil { nombre: string; posicion: string; }
@@ -274,18 +305,12 @@ import "../styles/cancha-redesign.css";
     };
     const save = () => localStorage.setItem(LS_KEY, JSON.stringify(state));
     let state = load();
+    // Pide al navegador que no borre estos datos por su cuenta (no es garantía).
+    try { void navigator.storage?.persist?.(); } catch { /* sin soporte */ }
 
     // ─────────────────────── métricas ────────────────────────
-    const calcGame = (g: Game) => {
-      const pts = 2 * g.t2c + 3 * g.t3c + g.tlc;
-      const fgm = g.t2c + g.t3c, fga = g.t2i + g.t3i;
-      const tsa = fga + 0.44 * g.tli; // posesiones de tiro reales
-      const ts = tsa > 0 ? (pts / (2 * tsa)) * 100 : null;
-      const efg = fga > 0 ? ((fgm + 0.5 * g.t3c) / fga) * 100 : null;
-      const reb = g.ro + g.rd;
-      const val = pts + reb + g.ast + g.rob + g.tap - (fga - fgm) - (g.tli - g.tlc) - g.per - g.fal;
-      return { pts, reb, ts, efg, val };
-    };
+    // Las fórmulas viven en lib/statsEquipo.ts (las comparte el modo Equipo).
+    const calcGame = (g: Game) => calcLinea(g);
 
     const calcSeason = (games: Game[]) => {
       const n = games.length;
@@ -594,6 +619,7 @@ import "../styles/cancha-redesign.css";
       renderMetas(s);
       renderCoachSuggest();
       $("share-card").disabled = games.length === 0;
+      refrescarAvisos(); // recordatorio de copia de seguridad
     };
 
     const renderSplits = (games: Game[]) => {
@@ -762,7 +788,7 @@ import "../styles/cancha-redesign.css";
       ctx.fillStyle = "#fff"; ctx.font = `900 84px ${BC}`;
       const nombre = (perfil?.nombre || "MI JUGADOR").toUpperCase().slice(0, 18);
       ctx.fillText(nombre, P, 300);
-      ctx.fillStyle = "var(--cz-fg3)"; ctx.font = `600 30px ${IN}`;
+      ctx.fillStyle = "#a1a1aa"; ctx.font = `600 30px ${IN}`;
       const pos = (perfil?.posicion || "").replace("-", "-");
       ctx.fillText(`${pos ? pos.charAt(0).toUpperCase() + pos.slice(1) + " · " : ""}${s.n} partido${s.n === 1 ? "" : "s"}`, P, 346);
       // 2x2 tiles grandes
@@ -928,81 +954,7 @@ import "../styles/cancha-redesign.css";
     });
 
     // ──────────── importar acta PEGADA (Cataluña / genérico) ──────────
-    // Detecta las columnas por su cabecera (catalán/castellano) → no asume orden.
-    // Sinónimos normalizados (sin acentos ni símbolos): cabecera → campo interno.
-    const COLS: Record<string, string[]> = {
-      dorsal: ["dorsal", "d", "num", "numero", "no", "n"],
-      nombre: ["jugador", "jugadora", "nom", "nombre", "name", "cognom", "cognoms", "jugadores"],
-      min: ["min", "minuts", "minutos", "m"],
-      pts: ["punts", "puntos", "pts", "pt", "p"],
-      t2: ["t2", "2p", "tir2", "tirsde2", "t2ci", "2punts", "2puntos"],
-      t2c: ["t2c", "2pc", "c2", "t2m", "t2a"],
-      t2i: ["t2i", "2pi", "i2", "t2int"],
-      t3: ["t3", "3p", "tir3", "tirsde3", "t3ci", "3punts", "3puntos"],
-      t3c: ["t3c", "3pc", "c3", "t3m"],
-      t3i: ["t3i", "3pi", "i3", "t3int"],
-      tl: ["t1", "tl", "tll", "1p", "tir1", "tirslliures", "tiroslibres", "tlci"],
-      tlc: ["t1c", "tlc", "1pc", "c1", "t1m"],
-      tli: ["t1i", "tli", "1pi", "i1", "t1int"],
-      ro: ["ro", "rebof", "rebotofensiu", "rof", "rebotesofensivos"],
-      rd: ["rd", "rebdef", "rebotdefensiu", "rdef", "rebotesdefensivos"],
-      rt: ["rt", "reb", "rebot", "rebots", "rebotes", "r", "reboundstotals"],
-      ast: ["as", "assist", "assistencies", "asistencias", "ass", "assis", "a"],
-      rob: ["br", "rec", "recuperacions", "robos", "robatoris", "recuperaciones", "recup", "rb"],
-      tap: ["tap", "taps", "tapones", "tp", "ta"],
-      per: ["pp", "perdues", "pilotesperdudes", "perdidas", "balonesperdidos", "bp", "per", "perd", "pilperdudes"],
-      fal: ["fp", "faltes", "faltas", "faltespersonals", "faltescomeses", "fc", "f"],
-    };
-    const normHead = (s: unknown) => String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "");
-    const pInt = (v: unknown) => { const m = String(v).match(/-?\d+/); const x = m ? parseInt(m[0], 10) : 0; return Number.isFinite(x) && x >= 0 ? x : 0; };
-    const splitMA = (v: unknown) => { const m = String(v).match(/(\d+)\s*[\/\-]\s*(\d+)/); return m ? [+m[1], +m[2]] : null; };
-
-    function parsePaste(raw: string) {
-      const lines = raw.replace(/\r/g, "").split("\n").map((l: string) => l.trim()).filter(Boolean);
-      if (lines.length < 2) throw new Error("Pega al menos la fila de cabecera y una de jugador.");
-      const tok = (l: string) => (l.includes("\t") ? l.split("\t") : l.split(/ {2,}|\t/)).map((x: string) => x.trim()).filter((x: string) => x !== "");
-      // Busca la cabecera: la línea (de las primeras) con más columnas reconocidas
-      let headerMap: Record<number, string> = {}, headerIdx = -1, best = 0;
-      for (let i = 0; i < Math.min(lines.length, 5); i++) {
-        const cells = tok(lines[i]); const map: Record<number, string> = {}; let score = 0;
-        cells.forEach((c: string, idx: number) => {
-          const n = normHead(c);
-          for (const field in COLS) { if (COLS[field].includes(n)) { if (!(idx in map)) { map[idx] = field; score++; } break; } }
-        });
-        if (score > best) { best = score; headerMap = map; headerIdx = i; }
-      }
-      if (best < 3) throw new Error("No reconozco las columnas. Copia también la fila de cabecera (Min, Punts, T2, T3, TL, Reb…).");
-      const jugadores = [];
-      for (let i = headerIdx + 1; i < lines.length; i++) {
-        const cells = tok(lines[i]);
-        if (!cells.length) continue;
-        const g: Record<string, any> = { nombre: "", dorsal: "", min: 0, t2c: 0, t2i: 0, t3c: 0, t3i: 0, tlc: 0, tli: 0, ro: 0, rd: 0, ast: 0, rob: 0, tap: 0, per: 0, fal: 0 };
-        let rt: number | null = null, hasStat = false;
-        cells.forEach((cell: string, idx: number) => {
-          const field = headerMap[idx];
-          if (!field) return;
-          if (field === "nombre") { g.nombre = cell; return; }
-          if (field === "dorsal") { g.dorsal = cell.replace(/[^0-9]/g, ""); return; }
-          const ma = splitMA(cell);
-          if (field === "t2") { if (ma) { g.t2c = ma[0]; g.t2i = ma[1]; hasStat = true; } return; }
-          if (field === "t3") { if (ma) { g.t3c = ma[0]; g.t3i = ma[1]; hasStat = true; } return; }
-          if (field === "tl") { if (ma) { g.tlc = ma[0]; g.tli = ma[1]; hasStat = true; } return; }
-          if (field === "rt") { rt = pInt(cell); return; }
-          if (field === "pts") { hasStat = true; return; } // pts se recalcula; solo marca fila válida
-          g[field] = pInt(cell); if (g[field]) hasStat = true;
-        });
-        // Si no hay nombre marcado, coge el primer token no numérico largo
-        if (!g.nombre) {
-          const cand = cells.find((c: string) => /[a-zà-ú]{3,}/i.test(c) && !/^\d/.test(c));
-          if (cand) g.nombre = cand;
-        }
-        // Rebotes: si solo hay total (rt) y no O/D, mételo como defensivos (preserva el total)
-        if (rt != null && g.ro === 0 && g.rd === 0) g.rd = rt;
-        if (g.nombre && hasStat) jugadores.push(g);
-      }
-      if (!jugadores.length) throw new Error("Reconocí la cabecera pero no encontré filas de jugador debajo.");
-      return jugadores;
-    }
+    // (el parser vive en lib/statsEquipo.ts: lo comparte el modo Equipo)
 
     const pasteError = $("paste-error");
     const pasteResult = $("paste-result");
@@ -1038,14 +990,16 @@ import "../styles/cancha-redesign.css";
     inPos.addEventListener("change", () => { state.perfil.posicion = inPos.value; save(); render(); });
 
     // ─────────────────── export / import / reset ─────────────
-    $("st-export").addEventListener("click", () => {
+    const exportarJugador = () => {
       const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
       const a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
-      a.download = "canchazapa-stats.json";
+      a.download = `canchazapa-stats-${new Date().toISOString().slice(0, 10)}.json`;
       a.click();
-      URL.revokeObjectURL(a.href);
-    });
+      setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+      marcarCopia("jugador"); // para el recordatorio de "última copia"
+    };
+    $("st-export").addEventListener("click", exportarJugador);
     $("st-import-file").addEventListener("change", (ev: Event) => {
       const input = ev.target as HTMLInputElement;
       const file = input.files && input.files[0];
@@ -1112,6 +1066,22 @@ import "../styles/cancha-redesign.css";
     });
 
     render();
+
+    montarAvisoCopia(document.getElementById("bk-jugador"), "jugador", () => state.partidos.length, exportarJugador);
+
+    // Pestañas Jugador/Equipo + todo el modo Equipo (src/scripts/statsEquipoUI.ts).
+    // El modo Jugador solo expone lo mínimo: sus partidos y cómo recibir los de un enlace.
+    initEquipo({
+      esc,
+      getJugador: () => ({ nombre: state.perfil.nombre, partidos: state.partidos }),
+      importarJugador: (nombre, partidos) => {
+        const r = fusionarJugador(state.partidos, partidos);
+        state.partidos = r.partidos;
+        if (nombre && !state.perfil.nombre) { state.perfil.nombre = nombre; inNombre.value = nombre; }
+        save(); render();
+        return r;
+      },
+    });
   </script>
 
   <style is:global>
@@ -1358,6 +1328,126 @@ import "../styles/cancha-redesign.css";
       background: transparent; border: none; color: var(--cz-text-dim); cursor: pointer; font-size: 13px;
     }
     .st-del:hover { color: var(--cz-red-text); }
+    /* ───────── pestañas Jugador / Equipo ───────── */
+    .st-tabs { display: flex; gap: 0; margin-bottom: 20px; border-bottom: 2px solid var(--cz-border); }
+    .st-tab {
+      flex: 1; max-width: 220px; background: transparent; border: none; border-bottom: 3px solid transparent; margin-bottom: -2px;
+      color: var(--cz-text-2); font-family: "Barlow Condensed", sans-serif; font-weight: 900; text-transform: uppercase;
+      font-size: 20px; letter-spacing: 0.04em; padding: 10px 16px; cursor: pointer; border-radius: 0;
+    }
+    .st-tab:hover { color: var(--cz-text); }
+    .st-tab.active { color: var(--cz-text); border-bottom-color: var(--cz-accent); }
+    .st-tab:focus-visible, .st-sort:focus-visible, .st-del:focus-visible { outline: 2px solid var(--cz-accent); outline-offset: 2px; }
+
+    /* ───────── aviso y copia de seguridad (Jugador y Equipo) ───────── */
+    .st-bk { margin-bottom: 16px; }
+    .st-backup { background: var(--cz-surface); border: 1px solid var(--cz-border); border-left: 3px solid var(--cz-amber-text); padding: 10px 12px; }
+    .st-backup-due { border-left-color: var(--cz-red-text); }
+    .st-backup-warn { display: flex; gap: 10px; align-items: flex-start; justify-content: space-between; margin: 0 0 10px; font-size: 12px; line-height: 1.5; color: var(--cz-text-2); }
+    .st-backup-warn strong { color: var(--cz-text); }
+    .st-backup-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; }
+    .st-backup-btn { padding: 8px 14px; }
+    .st-backup-last { font-size: 12px; color: var(--cz-text-2); }
+    .st-backup-rec { font-size: 12px; font-weight: 700; color: var(--cz-red-text); }
+    @media (max-width: 480px) { .st-backup-btn { flex: 1 1 100%; } }
+
+    /* ───────── modo Equipo ───────── */
+    #tab-equipo .st-panel, .st-incoming { margin-bottom: 20px; }
+    .st-incoming { border-left: 3px solid var(--cz-accent); }
+    .st-privacy { margin: 0 0 20px; padding: 12px 14px; background: var(--cz-surface); border: 1px solid var(--cz-border); border-left: 3px solid var(--cz-green); }
+    .st-privacy strong, .st-privacy em { color: var(--cz-text-soft); }
+    .st-eq-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+    .st-eq-head .st-h2 { margin-bottom: 10px; flex-wrap: wrap; }
+    .st-eq-switch { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+    #tab-equipo select, #st-incoming select, .st-dialog select {
+      background: var(--cz-bg); border: 1px solid var(--cz-border); color: var(--cz-text);
+      padding: 8px 10px; font-size: 13px; border-radius: 0; max-width: 100%;
+    }
+    #tab-equipo select:focus, #st-incoming select:focus { outline: 2px solid var(--cz-accent); outline-offset: -1px; }
+    #tab-equipo input:focus, .st-n:focus { outline: 2px solid var(--cz-accent); outline-offset: -1px; }
+    .st-actions { display: flex; gap: 10px; margin-top: 14px; align-items: center; }
+    .st-actions-wrap { flex-wrap: wrap; }
+    .st-merge { display: inline-flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .st-file { display: inline-block; cursor: pointer; text-align: center; }
+    .st-n {
+      width: 48px; background: var(--cz-bg); border: 1px solid var(--cz-border); color: var(--cz-text);
+      padding: 6px 2px; font-size: 13px; text-align: center; border-radius: 0; -moz-appearance: textfield; appearance: textfield;
+    }
+    .st-n::-webkit-outer-spin-button, .st-n::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    .st-plant-row { display: flex; gap: 8px; align-items: center; margin-bottom: 6px; }
+    .st-plant-row .st-dors { width: 56px; flex-shrink: 0; }
+    .st-pj-nombre {
+      flex: 1; min-width: 0; background: var(--cz-bg); border: 1px solid var(--cz-border); color: var(--cz-text);
+      padding: 7px 10px; font-size: 14px; border-radius: 0;
+    }
+    .st-plant-add { margin: 10px 0 14px; }
+    .st-plant-add .st-btn { padding: 8px 16px; }
+    .st-dorsal { color: var(--cz-accent-text); font-weight: 900; font-size: 12px; }
+    .st-feb-team { margin: 10px 8px 0 0; text-transform: none; letter-spacing: 0.02em; font-size: 13px; }
+    .st-feb-team strong { color: var(--cz-text); }
+    .st-num { text-align: right; }
+    .st-table .st-num { font-variant-numeric: tabular-nums; }
+    .st-sticky { position: sticky; left: 0; background: var(--cz-surface); z-index: 1; }
+    .st-table td.st-sticky { font-weight: 600; }
+    .st-dim td { opacity: 0.55; }
+    .st-sel td { background: var(--cz-bg); }
+    .st-total td { font-weight: 800; border-top: 2px solid var(--cz-border); color: var(--cz-text); }
+    .st-acts { white-space: nowrap; text-align: right; }
+    .st-acts .st-linkbtn { margin-right: 10px; }
+    .st-sort {
+      background: none; border: none; padding: 0; cursor: pointer; font: inherit; letter-spacing: inherit;
+      text-transform: inherit; color: inherit; border-radius: 0;
+    }
+    .st-sort:hover, .st-sort.on { color: var(--cz-accent-text); }
+    .st-draft { min-width: 760px; }
+    .st-draft th, .st-draft td { padding: 6px 4px; }
+    .st-draft-name { min-width: 150px; white-space: normal; }
+    .st-draft-name select { margin-top: 4px; width: 100%; font-size: 12px; padding: 5px 6px; }
+    .st-pair { white-space: nowrap; color: var(--cz-text-muted); }
+    .st-pair .st-n { width: 34px; }
+    .st-tiles-4 { grid-template-columns: repeat(4, 1fr); }
+    .st-legend { display: flex; gap: 16px; margin: 14px 0 6px; font-size: 12px; color: var(--cz-text-2); }
+    .eq-sw { display: inline-block; width: 18px; height: 3px; vertical-align: middle; margin-right: 6px; }
+    .eq-sw-pf { background: var(--cz-accent); }
+    .eq-sw-pc { background: var(--cz-cat-cushion); }
+    #eq-chart-wrap svg { display: block; max-width: 100%; height: auto; }
+    .eq-grid { stroke: rgba(var(--cz-wm-rgb), 0.1); stroke-width: 1; }
+    .eq-axis { fill: var(--cz-fg4); font-size: 10px; font-family: Inter, sans-serif; }
+    .eq-line-pf { stroke: var(--cz-accent); stroke-width: 2.5; stroke-linejoin: round; }
+    .eq-line-pc { stroke: var(--cz-cat-cushion); stroke-width: 2.5; stroke-linejoin: round; stroke-dasharray: 6 4; }
+    .eq-line-pf-dot { fill: var(--cz-accent); stroke: var(--cz-card); stroke-width: 2; }
+    .eq-line-pc-dot { fill: var(--cz-cat-cushion); stroke: var(--cz-card); stroke-width: 2; }
+    .st-liders { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
+    .st-lider { background: var(--cz-bg); border: 1px solid var(--cz-border); border-top: 3px solid var(--cz-medal-oro); padding: 12px; min-width: 0; }
+    .st-lider-t { display: block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--cz-text-muted); }
+    .st-lider strong { display: block; font-family: "Barlow Condensed", sans-serif; font-weight: 900; font-size: 36px; line-height: 1.1; color: var(--cz-text); }
+    .st-lider-n { display: block; font-size: 13px; color: var(--cz-text-soft); overflow-wrap: anywhere; }
+    .st-lider ol { margin: 8px 0 0; padding: 0; list-style: none; font-size: 12px; color: var(--cz-text-2); }
+    .st-lider li { display: flex; justify-content: space-between; gap: 8px; padding: 2px 0; }
+    .st-lider li em { font-style: normal; color: var(--cz-text-soft); font-weight: 700; }
+    .st-card-prev { display: block; width: 100%; max-height: 62vh; object-fit: contain; background: var(--cz-bg); border: 1px solid var(--cz-border); }
+    .st-dialog {
+      background: var(--cz-surface); color: var(--cz-text); border: 1px solid var(--cz-border);
+      padding: 18px; width: min(560px, calc(100vw - 24px)); max-height: 92vh; overflow: auto; border-radius: 0; margin: auto;
+    }
+    .st-dialog::backdrop { background: rgba(0, 0, 0, 0.65); }
+    .st-dialog-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .st-dialog-x { background: none; border: 1px solid var(--cz-border2); color: var(--cz-text-2); cursor: pointer; width: 32px; height: 32px; font-size: 14px; border-radius: 0; flex-shrink: 0; margin-bottom: 14px; }
+    .st-dialog-x:hover { color: var(--cz-text); background: var(--cz-surface2); }
+    .st-toast {
+      position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none; z-index: 9999;
+      background: var(--cz-text); color: var(--cz-bg); padding: 10px 16px; font-size: 13px; font-weight: 700;
+      max-width: calc(100vw - 32px); text-align: center; transition: opacity 0.2s, transform 0.2s;
+    }
+    .st-toast.show { opacity: 1; transform: translate(-50%, 0); }
+    @media (max-width: 700px) { .st-tiles.st-tiles-4 { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) {
+      .st-tab { font-size: 18px; padding: 10px 8px; max-width: none; }
+      .st-actions .st-btn, .st-actions-wrap .st-btn { flex: 1 1 100%; text-align: center; }
+      .st-dialog { padding: 14px; }
+      .st-eq-switch { width: 100%; }
+      .st-eq-switch > * { flex: 1; }
+    }
     /* datos */
     .st-data { margin-top: 20px; }
     .st-data-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
