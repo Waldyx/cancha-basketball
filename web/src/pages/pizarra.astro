@@ -40,6 +40,7 @@ const jsonLd = {
 
       <div class="pz-plhead" data-pz="pl-head">
         <strong class="pz-pl-nombre" data-pz="pl-nombre"></strong>
+        <div class="pz-pl-lect" data-pz="pl-lect" role="group" aria-label="Elegir lectura" hidden></div>
         <div class="pz-pl-ctl" role="group" aria-label="Reproducción">
           <button type="button" class="pz-plb" data-act="pl-prev" aria-label="Paso anterior">◀</button>
           <button type="button" class="pz-plb pz-plb-play" data-act="pl-play" data-pz="pl-play" aria-label="Pausar">❚❚</button>
@@ -189,6 +190,32 @@ const jsonLd = {
             <div data-pz="formaciones-lista"></div>
           </div>
 
+          <div class="pz-share pz-banq" data-pz="banquillo" role="dialog" aria-label="Hoja de banquillo" hidden>
+            <div class="pz-share-h">
+              <strong>Hoja de banquillo</strong>
+              <button type="button" class="pz-x" data-act="cerrar-banquillo" aria-label="Cerrar">✕</button>
+            </div>
+            <p class="pz-small">Varias jugadas por folio, compactas y con el nombre grande, para llevarlas al partido.</p>
+            <fieldset class="pz-banq-fs">
+              <legend>Jugadas por página</legend>
+              <label><input type="radio" name="banq-n" value="4" /> 4</label>
+              <label><input type="radio" name="banq-n" value="6" checked /> 6</label>
+            </fieldset>
+            <fieldset class="pz-banq-fs">
+              <legend>Dibujo de cada jugada</legend>
+              <label><input type="radio" name="banq-modo" value="todos" checked /> Todos los pasos superpuestos</label>
+              <label><input type="radio" name="banq-modo" value="ultimo" /> Solo el último paso</label>
+            </fieldset>
+            <div class="pz-row">
+              <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-act="banq-todas">Marcar todas</button>
+              <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-act="banq-ninguna">Ninguna</button>
+            </div>
+            <ul class="pz-banq-lista" data-pz="banq-lista"></ul>
+            <div class="pz-row">
+              <button type="button" class="pz-bn" data-act="banq-imprimir">Imprimir o PDF</button>
+            </div>
+          </div>
+
           <div class="pz-share pz-qr" data-pz="qr" role="dialog" aria-label="Código QR del enlace para jugadores" hidden>
             <div class="pz-share-h">
               <strong>Código QR · modo jugador</strong>
@@ -249,6 +276,7 @@ const jsonLd = {
               <div class="pz-row">
                 <button type="button" class="pz-bn pz-bn-2" data-act="print-jugada">Esta jugada</button>
                 <button type="button" class="pz-bn pz-bn-2" data-act="print-book">Todo mi playbook</button>
+                <button type="button" class="pz-bn pz-bn-2" data-act="banquillo">Hoja de banquillo</button>
               </div>
               <p class="pz-small">En el diálogo de impresión elige «Guardar como PDF». Sale una jugada por página.</p>
             </div>
@@ -287,6 +315,19 @@ const jsonLd = {
             <textarea id="pz-notas" class="pz-inp" data-pz="notas" rows="3" maxlength="2000" placeholder="Objetivo, lecturas, errores a evitar…"></textarea>
             <label class="pz-lab" for="pz-nota-paso">Nota de este paso</label>
             <textarea id="pz-nota-paso" class="pz-inp" data-pz="nota-paso" rows="3" maxlength="400" placeholder="Qué pasa en este paso"></textarea>
+            <h3 class="pz-h3 pz-edit">Orden de las acciones</h3>
+            <div class="pz-row pz-edit">
+              <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-act="numerar">Numerar las líneas del paso</button>
+              <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-act="sin-numeros">Quitar números</button>
+            </div>
+            <p class="pz-small pz-edit">Cada línea lleva un circulito con su número (1, 2, 3…) en el orden en que se dibujó. Para cambiar uno, selecciona la línea.</p>
+            <h3 class="pz-h3 pz-edit">Nombres de los jugadores</h3>
+            <select class="pz-inp pz-edit" data-pz="equipo-sel" aria-label="Equipo del que cargar la plantilla" hidden></select>
+            <div class="pz-row pz-edit">
+              <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-act="equipo-cargar">Cargar plantilla</button>
+              <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-act="equipo-quitar">Quitar nombres</button>
+            </div>
+            <p class="pz-small pz-edit" data-pz="equipo-info"></p>
             <details class="pz-atajos">
               <summary>Atajos de teclado</summary>
               <p><kbd>V</kbd> mover · <kbd>A</kbd> atacante · <kbd>D</kbd> defensor · <kbd>B</kbd> balón · <kbd>K</kbd> cono · <kbd>G</kbd> neutro · <kbd>E</kbd> entrenador · <kbd>I</kbd> fila · <kbd>Z</kbd> zona · <kbd>X</kbd> elipse · <kbd>O</kbd> rotación · <kbd>P</kbd> pase · <kbd>R</kbd> bote · <kbd>C</kbd> corte · <kbd>L</kbd> bloqueo · <kbd>S</kbd> tiro · <kbd>F</kbd> libre · <kbd>N</kbd> texto · <kbd>T</kbd> tiempo muerto</p>
@@ -307,6 +348,9 @@ const jsonLd = {
             <div class="pz-row pz-row-bib">
               <button type="button" class="pz-bn pz-bn-2" data-act="nueva">+ Nueva</button>
               <button type="button" class="pz-bn pz-bn-2" data-act="guardar">Guardar actual</button>
+            </div>
+            <div class="pz-row pz-row-bib">
+              <button type="button" class="pz-bn pz-bn-2" data-act="banquillo" title="Imprime 4 o 6 jugadas por página, con el nombre grande, para llevarlas al banquillo">Hoja de banquillo</button>
             </div>
             <div class="pz-compartidas" hidden>
               <h3 class="pz-h3">Compartidas contigo (sin guardar)</h3>
@@ -333,6 +377,13 @@ const jsonLd = {
             <ul class="pz-lista" data-pz="ejercicios"></ul>
           </div>
         </aside>
+      </div>
+
+      <div class="pz-lect" data-pz="lecturas">
+        <span class="pz-lect-t">Lecturas</span>
+        <div class="pz-lect-chips" data-pz="lect-chips"></div>
+        <button type="button" class="pz-bn pz-bn-2 pz-bn-sm pz-edit" data-act="lectura-nueva" title="Crear otra opción que sale de este paso: «si pasa por detrás», «si cambia»…">+ Lectura</button>
+        <div class="pz-lect-edit pz-edit" data-pz="lect-edit" hidden></div>
       </div>
 
       <div class="pz-bottom">
@@ -458,11 +509,19 @@ const jsonLd = {
         jugadores parten de donde acabaron sus flechas. Con <strong>Reproducir</strong> se anima toda la secuencia. Arrastra el punto central de una
         línea para curvarla. Las plantillas de la Biblioteca (pick and roll, Horns, saque de fondo en caja, contraataque 3 contra 2 y zona 2-3) sirven de punto de partida.
       </p>
+      <h3 class="pz-seo-h3">Para el banquillo y para entrenar</h3>
+      <p>
+        El botón <strong>Tiempo muerto</strong> deja la pista a pantalla completa para mover jugadores y dibujar flechas con el dedo, con formaciones de un toque
+        (1-3-1, cuernos, saques de fondo, individual, zonas y presión). La Biblioteca trae ejercicios de entrenamiento (rueda de bandejas, trenza de tres hombres,
+        3c2-2c1, Mikan, 1c1, tiro en estrella), pista de minibasket, filas de jugadores, zonas sombreadas y plan de <strong>sesión</strong> con minutos y hojas para imprimir.
+        Cada paso puede tener <strong>lecturas</strong> alternativas, y con la <strong>hoja de banquillo</strong> imprimes 4 o 6 jugadas por página.
+      </p>
       <h3 class="pz-seo-h3">Cómo compartir tus jugadas</h3>
       <ul>
         <li><strong>Enlace:</strong> la jugada completa viaja dentro del propio enlace, sin subirla a ningún servidor. Quien lo abre la ve al instante y puede guardarla.</li>
         <li><strong>Imagen:</strong> PNG del paso actual o una hoja con todos los pasos y las notas, lista para WhatsApp o para imprimir.</li>
-        <li><strong>Vídeo:</strong> la animación grabada en WebM (en navegadores compatibles).</li>
+        <li><strong>GIF y vídeo:</strong> la animación como GIF (funciona en WhatsApp de iPhone) o grabada en WebM.</li>
+        <li><strong>Modo jugador y QR:</strong> un enlace de solo ver, con la jugada en bucle y las notas, y su código QR para proyectarlo.</li>
         <li><strong>PDF:</strong> imprime una jugada por página y elige «Guardar como PDF».</li>
         <li><strong>Archivo .json:</strong> tu playbook completo, para pasarlo por correo o Drive y cargarlo en otro dispositivo.</li>
       </ul>
@@ -726,6 +785,34 @@ const jsonLd = {
   .pz-qr.pz-qr-grande { width: min(96vw, 96dvh); max-height: 98dvh; }
   .pz-qr.pz-qr-grande .pz-qr-box { width: min(100%, calc(96dvh - 170px)); }
 
+  /* ── lecturas (opciones alternativas) ── */
+  .pz-lect { flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 4px 6px; border: 1px solid var(--cz-border); background: var(--cz-card); }
+  .pz-lect[hidden] { display: none; }
+  .pz-lect-t { font: 800 11px "Inter", sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cz-text-2); }
+  .pz-lect-chips, .pz-pl-lect { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pz-pl-lect[hidden] { display: none; }
+  .pz-chip { min-height: 34px; padding: 0 12px; border: 1px solid var(--cz-border); background: var(--cz-bg); color: var(--cz-text); font: 700 13px "Inter", sans-serif; cursor: pointer; border-radius: 0; touch-action: manipulation; }
+  .pz-chip.on { background: var(--cz-accent); color: var(--cz-ink); border-color: var(--cz-accent); }
+  .pz-lect-edit { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; flex: 1 1 260px; }
+  .pz-lect-edit[hidden] { display: none; }
+  .pz-lect-inp { width: 220px; max-width: 100%; padding: 4px 8px; font-size: 13px; }
+  .pz-step-fork { position: absolute; right: 0; bottom: 0; padding: 0 5px; background: var(--cz-accent); color: var(--cz-ink); font: 900 14px/1.3 "Inter", sans-serif; }
+  .pz-step.pz-step-rama { border-color: var(--cz-amber-text); }
+  .pz-step.pz-step-rama.on { border-color: var(--cz-accent); }
+  .pz-app.pz-view .pz-lect-edit, .pz-app.pz-tm .pz-lect, .pz-app.pz-jugador .pz-lect { display: none !important; }
+  .pz-app.pz-jugador .pz-pl-lect { flex: 1 1 100%; }
+  .pz-app.pz-jugador .pz-chip { min-height: 42px; font-size: 15px; }
+
+  /* ── hoja de banquillo ── */
+  .pz-banq { width: min(480px, calc(100vw - 16px)); }
+  .pz-banq-fs { margin: 8px 0; padding: 6px 10px; border: 1px solid var(--cz-border); display: flex; flex-wrap: wrap; gap: 6px 16px; }
+  .pz-banq-fs legend { padding: 0 6px; font: 800 11px "Inter", sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cz-text-2); }
+  .pz-banq-fs label { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--cz-text); }
+  .pz-banq-lista { list-style: none; margin: 8px 0; padding: 0; max-height: 34dvh; overflow-y: auto; border: 1px solid var(--cz-border); }
+  .pz-banq-it { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; padding: 6px 8px; border-bottom: 1px solid var(--cz-border); font-size: 14px; color: var(--cz-text); }
+  .pz-banq-it label { flex: 1 1 160px; cursor: pointer; font-weight: 600; }
+  .pz-banq-it input { width: 18px; height: 18px; accent-color: var(--cz-accent); }
+
   /* ── compartir ── */
   .pz-share { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 250; width: min(440px, calc(100vw - 16px)); max-height: min(88dvh, 760px); overflow-y: auto; padding: 12px; background: var(--cz-card); border: 1px solid var(--cz-accent); box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.55); }
   .pz-share[hidden] { display: none; }
@@ -803,6 +890,18 @@ const jsonLd = {
     .pz-print-paso figcaption { margin-top: 1.5mm; font-size: 11pt; line-height: 1.3; }
     .pz-print-pie { margin: 6mm 0 0; font-size: 9pt; color: #666; text-align: right; }
     html.pz-printing, html.pz-printing.pz-fs-lock { overflow: visible !important; }
+    .pz-print-lectura { margin: 6mm 0 2mm; font-size: 14pt; font-weight: 900; text-transform: uppercase; break-after: avoid; page-break-after: avoid; }
+    /* hoja de banquillo: 4 o 6 jugadas por folio, con el nombre grande */
+    .pz-banq-pag { break-after: page; page-break-after: always; display: grid; gap: 5mm; height: 270mm; font-family: "Barlow Condensed", Arial, sans-serif; color: #000; }
+    .pz-banq-pag:last-child { break-after: auto; page-break-after: auto; }
+    .pz-banq-4 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
+    .pz-banq-6 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; }
+    .pz-banq-card { display: flex; flex-direction: column; min-height: 0; overflow: hidden; padding: 2.5mm 3mm; border: 0.4mm solid #333; break-inside: avoid; page-break-inside: avoid; }
+    .pz-banq-nom { margin: 0 0 1mm; font-size: 20pt; line-height: 1; font-weight: 900; text-transform: uppercase; overflow-wrap: anywhere; }
+    .pz-banq-meta { margin: 0 0 2mm; font-size: 9pt; font-weight: 700; color: #444; }
+    .pz-banq-svg { flex: 1; min-height: 0; }
+    .pz-banq-svg svg { display: block; width: 100%; height: 100%; border: 0.3mm solid #888; }
+    html.pz-printing .pz-banq, html.pz-printing .pz-lect { display: none !important; }
     html.pz-printing .pz-ses { display: none !important; }
     /* sesión: una o dos hojas con la tabla de bloques y el esquema de cada ejercicio */
     .pz-print-ses { color: #000; font-family: "Barlow Condensed", Arial, sans-serif; }

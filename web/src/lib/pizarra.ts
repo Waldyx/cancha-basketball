@@ -98,6 +98,8 @@ export interface Linea {
   ref?: string;
   /** Pieza a la que llega (pases). */
   fin?: string;
+  /** Orden de la acción dentro del paso (1, 2, 3…): se dibuja en un circulito sobre la línea. */
+  orden?: number;
 }
 
 export interface Texto {
@@ -115,10 +117,32 @@ export interface Paso {
   textos: Texto[];
   nota: string;
   zonas?: Zona[];
+  /** Etiqueta de la lectura PRINCIPAL que sale de este paso, si tiene lecturas alternativas. */
+  opcion?: string;
 }
 
+/**
+ * Lectura alternativa: lo que pasa DESPUÉS del paso `desde` si el jugador toma otra decisión
+ * ("Si pasa por detrás", "Si cambia"). Su primer paso parte de lo que acaba el paso `desde`;
+ * lo que va antes se comparte con la lectura principal. Las jugadas sin ramas no cambian.
+ */
+export interface Rama {
+  id: string;
+  /** Índice del paso de la jugada principal del que sale (0-based). */
+  desde: number;
+  etiqueta: string;
+  pasos: Paso[];
+}
+
+/**
+ * Versión del formato de jugada. v1: pizarra original (5 tipos de pieza, sin zonas ni pistas).
+ * v2: filas, neutros, entrenador, zonas, pista de minibasket, nombres, orden de las acciones y
+ * lecturas (ramas). Lo guardado y los enlaces v1 se migran al abrirlos (`migrarJugada`).
+ */
+export const VERSION_FORMATO = 2;
+
 export interface Jugada {
-  v: 1;
+  v: 1 | 2;
   id: string;
   nombre: string;
   categoria: Categoria;
@@ -128,6 +152,8 @@ export interface Jugada {
   pista?: Pista;
   orient: Orient;
   pasos: Paso[];
+  /** Lecturas alternativas (ausente = la jugada no tiene). */
+  ramas?: Rama[];
   actualizada: number;
 }
 
@@ -142,6 +168,10 @@ export const LIMITES = {
   NOTA_PASO: 400,
   ETIQUETA: 4,
   ZONAS: 20,
+  RAMAS: 6,
+  PASOS_RAMA: 20,
+  ETIQUETA_RAMA: 40,
+  ORDEN: 20,
   NOMBRE_JUGADOR: 12,
   FILA_MAX: 15,
   TEXTO: 120,
@@ -444,7 +474,7 @@ export function pasoVacio(): Paso {
 
 export function nuevaJugada(partes: Partial<Jugada> = {}): Jugada {
   return {
-    v: 1,
+    v: VERSION_FORMATO,
     id: uid(),
     nombre: "Jugada sin título",
     categoria: "ataque",
@@ -482,8 +512,7 @@ export function anadirPieza(
   const id = uid();
   const p = limitaPunto(pos, out.cancha);
   const et = etiqueta ?? siguienteEtiqueta(out.pasos[k], tipo);
-  for (let i = k; i < out.pasos.length; i++) {
-    if (out.pasos[i].piezas.length >= LIMITES.PIEZAS) continue;
+  const nueva = (): Pieza => {
     const pz: Pieza = { id, tipo, etiqueta: et.slice(0, LIMITES.ETIQUETA), x: redondea(p.x), y: redondea(p.y) };
     if (tipo === "fila") {
       pz.cant = clamp(Math.round(extra.cant ?? 4), 1, LIMITES.FILA_MAX);
@@ -491,7 +520,12 @@ export function anadirPieza(
       pz.bando = extra.bando ?? "neu";
     }
     if (extra.nombre) pz.nombre = limpiaTexto(extra.nombre, LIMITES.NOMBRE_JUGADOR);
-    out.pasos[i].piezas.push(pz);
+    return pz;
+  };
+  // la pieza existe desde el paso k en adelante; las lecturas que salen de ese paso o de uno posterior también la llevan
+  for (const s of pasosDesde(out, k)) {
+    if (s.piezas.length >= LIMITES.PIEZAS) continue;
+    s.piezas.push(nueva());
   }
   return { jugada: out, id };
 }
@@ -515,7 +549,7 @@ export function puestosFila(pz: Pieza): Pt[] {
 /** Cambia cualquier dato de la pieza en TODOS los pasos (identidad compartida). */
 export function ajustarPieza(j: Jugada, id: string, cambios: Partial<Pick<Pieza, "etiqueta" | "nombre" | "cant" | "ang" | "bando">>): Jugada {
   const out = clonar(j);
-  for (const s of out.pasos) {
+  for (const s of todosLosPasos(out)) {
     for (const p of s.piezas) {
       if (p.id !== id) continue;
       if (cambios.etiqueta !== undefined) p.etiqueta = limpiaTexto(cambios.etiqueta, LIMITES.ETIQUETA);
@@ -623,8 +657,7 @@ export function moverPiezaEn(paso: Paso, id: string, pos: Pt): void {
 /** Quita la pieza de este paso y de los siguientes (en los anteriores sigue existiendo). */
 export function quitarPieza(j: Jugada, k: number, id: string): Jugada {
   const out = clonar(j);
-  for (let i = k; i < out.pasos.length; i++) {
-    const s = out.pasos[i];
+  for (const s of pasosDesde(out, k)) {
     s.piezas = s.piezas.filter((p) => p.id !== id);
     for (const l of s.lineas) {
       if (l.ref === id) delete l.ref;
@@ -638,7 +671,7 @@ export function quitarPieza(j: Jugada, k: number, id: string): Jugada {
 export function renombrarPieza(j: Jugada, id: string, etiqueta: string): Jugada {
   const out = clonar(j);
   const et = limpiaTexto(etiqueta, LIMITES.ETIQUETA);
-  for (const s of out.pasos) for (const p of s.piezas) if (p.id === id) p.etiqueta = et;
+  for (const s of todosLosPasos(out)) for (const p of s.piezas) if (p.id === id) p.etiqueta = et;
   return out;
 }
 
@@ -777,13 +810,17 @@ export function insertarPaso(j: Jugada, k: number): Jugada {
   if (out.pasos.length >= LIMITES.PASOS) return out;
   const nuevo: Paso = { piezas: avanzarPiezas(out.pasos[k]), lineas: [], textos: [], nota: "", zonas: [] };
   out.pasos.splice(k + 1, 0, nuevo);
+  for (const r of out.ramas ?? []) if (r.desde > k) r.desde++;
   return out;
 }
 
 export function duplicarPaso(j: Jugada, k: number): Jugada {
   const out = clonar(j);
   if (out.pasos.length >= LIMITES.PASOS) return out;
-  out.pasos.splice(k + 1, 0, clonar(out.pasos[k]));
+  const copia = clonar(out.pasos[k]);
+  delete copia.opcion; // la etiqueta de la lectura principal se queda en el paso original
+  out.pasos.splice(k + 1, 0, copia);
+  for (const r of out.ramas ?? []) if (r.desde > k) r.desde++;
   return out;
 }
 
@@ -795,6 +832,12 @@ export function quitarPaso(j: Jugada, k: number): Jugada {
     return out;
   }
   out.pasos.splice(k, 1);
+  // las lecturas que salían del paso borrado se van con él; las posteriores se recolocan
+  if (out.ramas) {
+    out.ramas = out.ramas.filter((r) => r.desde !== k);
+    for (const r of out.ramas) if (r.desde > k) r.desde--;
+    if (out.ramas.length === 0) delete out.ramas;
+  }
   return out;
 }
 
@@ -812,7 +855,7 @@ export function limpiarPaso(j: Jugada, k: number, todo: boolean): Jugada {
 export function cambiarCancha(j: Jugada, cancha: Cancha): Jugada {
   const out = clonar(j);
   out.cancha = cancha;
-  for (const s of out.pasos) {
+  for (const s of todosLosPasos(out)) {
     for (const p of s.piezas) Object.assign(p, limitaPunto(p, cancha));
     for (const t of s.textos) Object.assign(t, limitaPunto(t, cancha));
     for (const z of s.zonas ?? []) Object.assign(z, limitaPunto(z, cancha));
@@ -822,6 +865,154 @@ export function cambiarCancha(j: Jugada, cancha: Cancha): Jugada {
     }
   }
   return out;
+}
+
+// ─── lecturas (ramas) ───────────────────────────────────────────────────
+
+/** Todos los pasos de la jugada: los de la lectura principal y los de cada lectura alternativa. */
+export function todosLosPasos(j: Jugada): Paso[] {
+  return [...j.pasos, ...(j.ramas ?? []).flatMap((r) => r.pasos)];
+}
+
+/**
+ * Pasos donde existe una pieza creada en el paso `k` de la principal: los de la principal desde
+ * `k` y todos los de las lecturas que salen de `k` o de un paso posterior.
+ */
+function pasosDesde(j: Jugada, k: number): Paso[] {
+  return [...j.pasos.slice(k), ...(j.ramas ?? []).filter((r) => r.desde >= k).flatMap((r) => r.pasos)];
+}
+
+export const ramasEn = (j: Jugada, k: number): Rama[] => (j.ramas ?? []).filter((r) => r.desde === k);
+
+/** Paso del que sale la primera lectura alternativa (o null si no hay lecturas). */
+export const puntoDeLectura = (j: Jugada): number | null =>
+  j.ramas && j.ramas.length ? Math.min(...j.ramas.map((r) => r.desde)) : null;
+
+const LETRAS = "ABCDEFGHIJ";
+
+/** Texto de la lectura para botones y avisos: su etiqueta, o «Opción A/B/C…» si no tiene. */
+export function etiquetaLectura(j: Jugada, ramaId: string | null): string {
+  if (ramaId === null) {
+    const k = puntoDeLectura(j);
+    return (k !== null && j.pasos[k]?.opcion) || "Opción A";
+  }
+  const i = (j.ramas ?? []).findIndex((r) => r.id === ramaId);
+  if (i < 0) return "Opción";
+  const r = (j.ramas ?? [])[i];
+  return r.etiqueta || `Opción ${LETRAS[i + 1] ?? i + 2}`;
+}
+
+/**
+ * Crea una lectura alternativa que sale del paso `k`: su primer paso parte de donde acaba ese
+ * paso según sus líneas. Máximo 6 lecturas por jugada.
+ */
+export function anadirRama(j: Jugada, k: number, etiqueta = ""): { jugada: Jugada; id: string } {
+  const out = clonar(j);
+  const ramas = out.ramas ?? [];
+  if (k < 0 || k >= out.pasos.length || ramas.length >= LIMITES.RAMAS) return { jugada: out, id: "" };
+  const id = uid();
+  const primero: Paso = { piezas: avanzarPiezas(out.pasos[k]), lineas: [], textos: [], nota: "", zonas: [] };
+  ramas.push({ id, desde: k, etiqueta: limpiaTexto(etiqueta, LIMITES.ETIQUETA_RAMA).trim(), pasos: [primero] });
+  out.ramas = ramas;
+  return { jugada: out, id };
+}
+
+export function quitarRama(j: Jugada, id: string): Jugada {
+  const out = clonar(j);
+  out.ramas = (out.ramas ?? []).filter((r) => r.id !== id);
+  if (out.ramas.length === 0) delete out.ramas;
+  return out;
+}
+
+export function renombrarRama(j: Jugada, id: string, etiqueta: string): Jugada {
+  const out = clonar(j);
+  const r = (out.ramas ?? []).find((x) => x.id === id);
+  if (r) r.etiqueta = limpiaTexto(etiqueta, LIMITES.ETIQUETA_RAMA).trim();
+  return out;
+}
+
+/** Etiqueta de la lectura principal (se guarda en el paso del que sale la primera lectura alternativa). */
+export function renombrarPrincipal(j: Jugada, etiqueta: string): Jugada {
+  const out = clonar(j);
+  const k = puntoDeLectura(out);
+  if (k === null) return out;
+  const et = limpiaTexto(etiqueta, LIMITES.ETIQUETA_RAMA).trim();
+  if (et) out.pasos[k].opcion = et;
+  else delete out.pasos[k].opcion;
+  return out;
+}
+
+/**
+ * La jugada tal como se reproduce, se dibuja y se edita cuando se elige una lectura: los pasos
+ * de la principal hasta el punto de salida y, a continuación, los de esa lectura. Con `null` (o
+ * una lectura que no existe) es la principal. No contiene `ramas`.
+ */
+export function jugadaLineal(j: Jugada, ramaId: string | null): Jugada {
+  const r = ramaId === null ? undefined : (j.ramas ?? []).find((x) => x.id === ramaId);
+  const { ramas: _ramas, ...resto } = j;
+  void _ramas;
+  if (!r) return { ...resto, pasos: j.pasos };
+  return { ...resto, pasos: [...j.pasos.slice(0, r.desde + 1), ...r.pasos] };
+}
+
+/**
+ * Inverso de `jugadaLineal` tras una edición: devuelve la jugada real con los pasos del tramo
+ * común y los de la lectura sustituidos, y con los datos de la jugada (nombre, pista…) del
+ * resultado. Los pasos de la principal posteriores al punto de salida no se tocan.
+ */
+export function reinyectarRama(real: Jugada, ramaId: string, lineal: Jugada): Jugada {
+  const out = clonar(real);
+  const r = (out.ramas ?? []).find((x) => x.id === ramaId);
+  if (!r) return { ...clonar(lineal), ramas: out.ramas };
+  const n = r.desde + 1;
+  const comun = clonar(lineal.pasos.slice(0, n));
+  const propios = clonar(lineal.pasos.slice(n));
+  const { pasos: _p, ramas: _r, ...meta } = lineal;
+  void _p;
+  void _r;
+  Object.assign(out, clonar(meta));
+  for (let i = 0; i < comun.length && i < out.pasos.length; i++) {
+    // la etiqueta de la lectura principal vive en el paso original y no se edita desde otra lectura
+    if (out.pasos[i].opcion) comun[i].opcion = out.pasos[i].opcion;
+    else delete comun[i].opcion;
+    out.pasos[i] = comun[i];
+  }
+  if (propios.length > 0) r.pasos = propios.slice(0, LIMITES.PASOS_RAMA);
+  return out;
+}
+
+// ─── orden de las acciones de un paso ───────────────────────────────────
+
+/** Numera las líneas del paso 1, 2, 3… en el orden en que se dibujaron (hasta 20). */
+export function numerarLineas(j: Jugada, k: number): Jugada {
+  const out = clonar(j);
+  out.pasos[k].lineas.forEach((l, i) => {
+    if (i < LIMITES.ORDEN) l.orden = i + 1;
+    else delete l.orden;
+  });
+  return out;
+}
+
+export function quitarNumeros(j: Jugada, k: number): Jugada {
+  const out = clonar(j);
+  for (const l of out.pasos[k].lineas) delete l.orden;
+  return out;
+}
+
+/** Pone o quita (null) el número de una línea. */
+export function ajustarOrden(j: Jugada, k: number, id: string, orden: number | null): Jugada {
+  const out = clonar(j);
+  const l = out.pasos[k].lineas.find((x) => x.id === id);
+  if (!l) return out;
+  if (orden === null || !Number.isFinite(orden)) delete l.orden;
+  else l.orden = clamp(Math.round(orden), 1, LIMITES.ORDEN);
+  return out;
+}
+
+/** Punto donde se dibuja el circulito del orden: la mitad de la línea. */
+export function puntoDeOrden(l: Linea): Pt {
+  const pts = polilinea(l);
+  return puntoEnLong(pts, longitud(pts) / 2);
 }
 
 export function cambiarPista(j: Jugada, pista: Pista): Jugada {
@@ -959,6 +1150,8 @@ function normalizaPaso(raw: unknown, c: Cancha, mapaIds: Map<string, string>): P
   const paso = pasoVacio();
   if (!esObj(raw)) return paso;
   paso.nota = limpiaTexto(raw.nota, LIMITES.NOTA_PASO);
+  const opcion = limpiaTexto(raw.opcion, LIMITES.ETIQUETA_RAMA).trim();
+  if (opcion) paso.opcion = opcion;
   const idsPaso = new Set<string>();
   const idDe = (v: unknown): string => {
     const s = typeof v === "string" ? v : "";
@@ -1010,6 +1203,8 @@ function normalizaPaso(raw: unknown, c: Cancha, mapaIds: Map<string, string>): P
       if (mid) l.mid = mid;
       if (typeof rl.ref === "string" && idsPaso.has(idDe(rl.ref))) l.ref = idDe(rl.ref);
       if (typeof rl.fin === "string" && idsPaso.has(idDe(rl.fin))) l.fin = idDe(rl.fin);
+      const orden = numero(rl.orden, 1, LIMITES.ORDEN);
+      if (orden !== null) l.orden = Math.round(orden);
       paso.lineas.push(l);
     }
   }
@@ -1050,8 +1245,30 @@ function normalizaPaso(raw: unknown, c: Cancha, mapaIds: Map<string, string>): P
   return paso;
 }
 
-/** Valida y NORMALIZA una jugada venida de un enlace, un archivo o localStorage. */
-export function normalizarJugada(raw: unknown): Jugada | null {
+/**
+ * Lleva una jugada de cualquier versión anterior al formato actual (v2) ANTES de validarla.
+ * v1 (la pizarra original) no tenía pista, zonas, nombres, orden ni lecturas: todo eso es
+ * opcional y se rellena con su valor por defecto, así que lo ya guardado y los enlaces ya
+ * emitidos se abren igual. Un `v` desconocido (de una versión futura) se lee como mejor se pueda.
+ */
+export function migrarJugada(raw: unknown): unknown {
+  if (!esObj(raw)) return raw;
+  const v = typeof raw.v === "number" ? raw.v : 1;
+  const out: Record<string, unknown> = { ...raw };
+  if (v < 2) {
+    out.pista = raw.pista === "mini" ? "mini" : "fiba";
+    out.ramas = [];
+    out.pasos = Array.isArray(raw.pasos)
+      ? raw.pasos.map((p) => (esObj(p) ? { ...p, zonas: Array.isArray(p.zonas) ? p.zonas : [] } : p))
+      : raw.pasos;
+  }
+  out.v = VERSION_FORMATO;
+  return out;
+}
+
+/** Valida y NORMALIZA una jugada venida de un enlace, un archivo o localStorage (migrándola a la versión actual). */
+export function normalizarJugada(entrada: unknown): Jugada | null {
+  const raw = migrarJugada(entrada);
   if (!esObj(raw)) return null;
   if (!Array.isArray(raw.pasos) || raw.pasos.length === 0) return null;
   const cancha: Cancha = raw.cancha === "completa" ? "completa" : "media";
@@ -1062,7 +1279,7 @@ export function normalizarJugada(raw: unknown): Jugada | null {
   const pasos = raw.pasos.slice(0, LIMITES.PASOS).map((p) => normalizaPaso(p, cancha, mapaIds));
   const act = numero(raw.actualizada, 0, 9e15);
   const j: Jugada = {
-    v: 1,
+    v: VERSION_FORMATO,
     id: typeof raw.id === "string" && ID_VALIDO.test(raw.id) ? raw.id : uid(),
     nombre: limpiaTexto(raw.nombre, LIMITES.NOMBRE).trim() || "Jugada sin título",
     categoria,
@@ -1073,6 +1290,26 @@ export function normalizarJugada(raw: unknown): Jugada | null {
     actualizada: act === null ? Date.now() : act,
   };
   if (pista === "mini") j.pista = "mini";
+  // lecturas alternativas: cada una sale de un paso que existe y lleva sus propios pasos
+  if (Array.isArray(raw.ramas)) {
+    const ids = new Set<string>();
+    const ramas: Rama[] = [];
+    for (const rr of raw.ramas.slice(0, LIMITES.RAMAS)) {
+      if (!esObj(rr) || !Array.isArray(rr.pasos) || rr.pasos.length === 0) continue;
+      const desde = numero(rr.desde, 0, pasos.length - 1);
+      if (desde === null) continue;
+      let id = typeof rr.id === "string" && ID_VALIDO.test(rr.id) ? rr.id : uid();
+      if (ids.has(id)) id = uid();
+      ids.add(id);
+      ramas.push({
+        id,
+        desde: Math.round(desde),
+        etiqueta: limpiaTexto(rr.etiqueta, LIMITES.ETIQUETA_RAMA).trim(),
+        pasos: rr.pasos.slice(0, LIMITES.PASOS_RAMA).map((p) => normalizaPaso(p, cancha, mapaIds)),
+      });
+    }
+    if (ramas.length) j.ramas = ramas;
+  }
   return j;
 }
 
@@ -1102,7 +1339,7 @@ export function normalizarLibro(raw: unknown): LibroNormalizado {
 
 /** `extra` añade más datos al archivo (las sesiones de entrenamiento) sin tocar el formato de las jugadas. */
 export function libroAJson(jugadas: Jugada[], extra: Record<string, unknown> = {}): string {
-  return JSON.stringify({ app: ID_APP, v: 1, jugadas, ...extra }, null, 1);
+  return JSON.stringify({ app: ID_APP, v: VERSION_FORMATO, jugadas, ...extra }, null, 1);
 }
 
 /** Lee un JSON de texto (archivo o localStorage) sin lanzar nunca. */
@@ -1120,101 +1357,122 @@ const CATS = CATEGORIAS.map((c) => c.id);
 
 /**
  * Formato compacto de enlace. Jugada = [nombre, catIdx, notas, cancha(0/1),
- * orient(0/1), pasos]; paso = [nota, piezas, lineas, textos];
+ * orient(0/1), pasos, extras]; paso = [nota, piezas, lineas, textos, zonas, opcion?];
  * pieza = [tipoIdx, etiqueta, x, y, id, extra?] con extra = [nombre, cant, ang, bandoIdx]
- * (solo si hace falta); linea = [tipoIdx, [x,y,x,y…], mid|0, ref|0, fin|0];
- * texto = [x, y, texto, tam]; zona = [formaIdx, x, y, w, h] (5º elemento del paso).
- * Los datos de la jugada que no son pasos van en un 7º elemento: [pistaIdx]. Todo lo que se
- * añade va al FINAL de cada array, así que un enlace antiguo sigue abriéndose.
+ * (solo si hace falta); linea = [tipoIdx, [x,y,x,y…], mid|0, ref|0, fin|0, orden?];
+ * texto = [x, y, texto, tam]; zona = [formaIdx, x, y, w, h].
+ * extras = [pistaIdx, ramas, version]; rama = [desde, etiqueta, pasos]. Un enlace de la versión 1
+ * no tiene `extras` o los tiene cortos: se abre y se migra. Todo lo que se añade va al FINAL de
+ * cada array, así que un enlace antiguo sigue abriéndose y uno nuevo no rompe una pizarra vieja.
  * El id y la fecha NO viajan: se generan al abrir.
  */
-export function compactar(j: Jugada): unknown[] {
+function compactaPaso(s: Paso): unknown[] {
   const f = (v: number) => redondea(v, 2);
+  const out: unknown[] = [
+    s.nota,
+    s.piezas.map((p) => {
+      const base: unknown[] = [TIPOS_PIEZA.indexOf(p.tipo), p.etiqueta, f(p.x), f(p.y), p.id];
+      if (p.nombre || p.cant !== undefined || p.ang || (p.bando && p.bando !== "neu")) {
+        base.push([p.nombre ?? "", p.cant ?? 0, p.ang ?? 0, BANDOS.indexOf(p.bando ?? "neu")]);
+      }
+      return base;
+    }),
+    s.lineas.map((l) => {
+      const base: unknown[] = [
+        TIPOS_LINEA.indexOf(l.tipo),
+        l.pts.flatMap((p) => [f(p.x), f(p.y)]),
+        l.mid ? [f(l.mid.x), f(l.mid.y)] : 0,
+        l.ref ?? 0,
+        l.fin ?? 0,
+      ];
+      if (l.orden) base.push(l.orden);
+      return base;
+    }),
+    s.textos.map((t) => [f(t.x), f(t.y), t.texto, t.tam]),
+    (s.zonas ?? []).map((z) => [FORMAS_ZONA.indexOf(z.forma), f(z.x), f(z.y), f(z.w), f(z.h)]),
+  ];
+  if (s.opcion) out.push(s.opcion);
+  return out;
+}
+
+export function compactar(j: Jugada): unknown[] {
   return [
     j.nombre,
     CATS.indexOf(j.categoria),
     j.notas,
     j.cancha === "completa" ? 1 : 0,
     j.orient === "h" ? 1 : 0,
-    j.pasos.map((s) => [
-      s.nota,
-      s.piezas.map((p) => {
-        const base: unknown[] = [TIPOS_PIEZA.indexOf(p.tipo), p.etiqueta, f(p.x), f(p.y), p.id];
-        if (p.nombre || p.cant !== undefined || p.ang || (p.bando && p.bando !== "neu")) {
-          base.push([p.nombre ?? "", p.cant ?? 0, p.ang ?? 0, BANDOS.indexOf(p.bando ?? "neu")]);
-        }
-        return base;
-      }),
-      s.lineas.map((l) => [
-        TIPOS_LINEA.indexOf(l.tipo),
-        l.pts.flatMap((p) => [f(p.x), f(p.y)]),
-        l.mid ? [f(l.mid.x), f(l.mid.y)] : 0,
-        l.ref ?? 0,
-        l.fin ?? 0,
-      ]),
-      s.textos.map((t) => [f(t.x), f(t.y), t.texto, t.tam]),
-      (s.zonas ?? []).map((z) => [FORMAS_ZONA.indexOf(z.forma), f(z.x), f(z.y), f(z.w), f(z.h)]),
-    ]),
-    [j.pista === "mini" ? 1 : 0],
+    j.pasos.map(compactaPaso),
+    [j.pista === "mini" ? 1 : 0, (j.ramas ?? []).map((r) => [r.desde, r.etiqueta, r.pasos.map(compactaPaso)]), VERSION_FORMATO],
   ];
 }
 
 const arr = (v: unknown): unknown[] => (Array.isArray(v) ? v : []);
 
-/** Inverso de `compactar`; el resultado SIEMPRE pasa por `normalizarJugada`. */
+function descompactaPaso(s: unknown) {
+  const [nota, piezas, lineas, textos, zonas, opcion] = arr(s);
+  return {
+    nota,
+    opcion,
+    piezas: arr(piezas).map((p) => {
+      const [t, et, x, y, id, ext] = arr(p);
+      const [nombre, cant, ang, bando] = arr(ext);
+      return {
+        tipo: typeof t === "number" ? TIPOS_PIEZA[t] : undefined,
+        etiqueta: et,
+        x,
+        y,
+        id,
+        nombre,
+        cant: cant || undefined,
+        ang,
+        bando: typeof bando === "number" ? BANDOS[bando] : undefined,
+      };
+    }),
+    lineas: arr(lineas).map((l) => {
+      const [t, flat, mid, ref, fin, orden] = arr(l);
+      const pts: { x: unknown; y: unknown }[] = [];
+      const fl = arr(flat);
+      for (let i = 0; i + 1 < fl.length; i += 2) pts.push({ x: fl[i], y: fl[i + 1] });
+      const m = arr(mid);
+      return {
+        tipo: typeof t === "number" ? TIPOS_LINEA[t] : undefined,
+        pts,
+        mid: m.length === 2 ? { x: m[0], y: m[1] } : undefined,
+        ref: ref || undefined,
+        fin: fin || undefined,
+        orden,
+      };
+    }),
+    textos: arr(textos).map((t) => {
+      const [x, y, texto, tam] = arr(t);
+      return { x, y, texto, tam };
+    }),
+    zonas: arr(zonas).map((z) => {
+      const [forma, x, y, w, h] = arr(z);
+      return { forma: typeof forma === "number" ? FORMAS_ZONA[forma] : undefined, x, y, w, h };
+    }),
+  };
+}
+
+/** Inverso de `compactar`; el resultado SIEMPRE pasa por `normalizarJugada` (que también migra). */
 export function descompactar(raw: unknown): Jugada | null {
   if (!Array.isArray(raw)) return null;
   const [nombre, cat, notas, cancha, orient, pasos, extras] = raw;
   const ex = arr(extras);
   const obj = {
+    // sin versión en el enlace = versión 1
+    v: typeof ex[2] === "number" ? ex[2] : 1,
     nombre,
     categoria: typeof cat === "number" ? CATS[cat] : undefined,
     notas,
     cancha: cancha === 1 ? "completa" : "media",
     orient: orient === 1 ? "h" : "v",
     pista: ex[0] === 1 ? "mini" : "fiba",
-    pasos: arr(pasos).map((s) => {
-      const [nota, piezas, lineas, textos, zonas] = arr(s);
-      return {
-        nota,
-        piezas: arr(piezas).map((p) => {
-          const [t, et, x, y, id, ext] = arr(p);
-          const [nombre, cant, ang, bando] = arr(ext);
-          return {
-            tipo: typeof t === "number" ? TIPOS_PIEZA[t] : undefined,
-            etiqueta: et,
-            x,
-            y,
-            id,
-            nombre,
-            cant: cant || undefined,
-            ang,
-            bando: typeof bando === "number" ? BANDOS[bando] : undefined,
-          };
-        }),
-        lineas: arr(lineas).map((l) => {
-          const [t, flat, mid, ref, fin] = arr(l);
-          const pts: { x: unknown; y: unknown }[] = [];
-          const fl = arr(flat);
-          for (let i = 0; i + 1 < fl.length; i += 2) pts.push({ x: fl[i], y: fl[i + 1] });
-          const m = arr(mid);
-          return {
-            tipo: typeof t === "number" ? TIPOS_LINEA[t] : undefined,
-            pts,
-            mid: m.length === 2 ? { x: m[0], y: m[1] } : undefined,
-            ref: ref || undefined,
-            fin: fin || undefined,
-          };
-        }),
-        textos: arr(textos).map((t) => {
-          const [x, y, texto, tam] = arr(t);
-          return { x, y, texto, tam };
-        }),
-        zonas: arr(zonas).map((z) => {
-          const [forma, x, y, w, h] = arr(z);
-          return { forma: typeof forma === "number" ? FORMAS_ZONA[forma] : undefined, x, y, w, h };
-        }),
-      };
+    pasos: arr(pasos).map(descompactaPaso),
+    ramas: arr(ex[1]).map((r) => {
+      const [desde, etiqueta, ps] = arr(r);
+      return { desde, etiqueta, pasos: arr(ps).map(descompactaPaso) };
     }),
   };
   return normalizarJugada(obj);

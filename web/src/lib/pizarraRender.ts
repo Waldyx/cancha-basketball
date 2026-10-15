@@ -14,6 +14,7 @@ import {
   polilinea,
   puestosFila,
   puntaFlecha,
+  puntoDeOrden,
   recorta,
   trazosCancha,
   zigzag,
@@ -322,6 +323,14 @@ function filaSvg(pz: Pieza, p: Paleta, o: Orient, sel: boolean, e: number): stri
   return s;
 }
 
+/** Circulito con el número de orden de la acción, sobre la mitad de la línea. */
+function ordenSvg(l: Linea, p: Paleta, o: Orient): string {
+  const v = aVista(puntoDeOrden(l), o);
+  const t = String(l.orden);
+  const tam = t.length > 1 ? 0.52 : 0.66;
+  return `<circle cx="${f(v.x)}" cy="${f(v.y)}" r="0.44" fill="${p.suelo}" stroke="${p.tinta}" stroke-width="0.09"/><text x="${f(v.x)}" y="${f(v.y + tam * 0.34)}" font-size="${tam}" font-weight="900" text-anchor="middle" fill="${p.tinta}" font-family="${FUENTE}">${esc(t)}</text>`;
+}
+
 /** Zona sombreada (rectángulo o elipse) semitransparente, con su asa de tamaño si está seleccionada. */
 function zonaSvg(z: Zona, p: Paleta, o: Orient, sel: boolean, borrador = false): string {
   const c = aVista(z, o);
@@ -374,6 +383,7 @@ export function renderTablero(o: OpcionesTablero): string {
   const op = o.opacidadLineas ?? 1;
   for (const l of o.lineas) s += lineaSvg(l, p, o.orient, o.seleccion?.tipo === "linea" && o.seleccion.id === l.id, op, o.escala ?? 1);
   if (o.borrador) s += lineaSvg(o.borrador, p, o.orient, false, 0.75, o.escala ?? 1);
+  for (const l of o.lineas) if (l.orden && l.pts.length >= 2) s += ordenSvg(l, p, o.orient);
   if (o.manejadores && o.seleccion?.tipo === "linea") {
     const l = o.lineas.find((x) => x.id === o.seleccion?.id);
     if (l) s += manejadoresSvg(l, p, o.orient);

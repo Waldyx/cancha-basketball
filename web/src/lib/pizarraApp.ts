@@ -7,8 +7,10 @@ import {
   CATEGORIAS,
   LIMITES,
   TIPOS_LINEA,
+  ajustarOrden,
   anadirLinea,
   anadirPieza,
+  anadirRama,
   anadirTexto,
   anadirZona,
   ajustarPieza,
@@ -25,7 +27,16 @@ import {
   dist,
   distAPolilinea,
   esModoJugador,
+  etiquetaLectura,
   hashModoJugador,
+  jugadaLineal,
+  numerarLineas,
+  quitarNumeros,
+  quitarRama,
+  ramasEn,
+  reinyectarRama,
+  renombrarPrincipal,
+  renombrarRama,
   flechaPorDefecto,
   duplicarPaso,
   estadoEnTiempo,
@@ -94,6 +105,9 @@ import {
 import { PLANTILLAS, PLANTILLAS_EJERCICIOS } from "./pizarraPlantillas";
 import { FORMACIONES, aplicarFormacion, aroDe, formacionPorId } from "./pizarraFormaciones";
 import { avisoQR, evaluarQR, svgQR } from "./pizarraQR";
+import { CLAVE_EQUIPO, asignarNombres, equiposDeTexto, mapaNombres, quitarNombres, type EquipoParaPizarra } from "./pizarraEquipo";
+import { MODOS_BANQUILLO, prepararBanquillo, type PorPagina } from "./pizarraBanquillo";
+import type { ModoResumen } from "./pizarraRender";
 import { calendarioFotogramas, crearGif, parametrosGif, retrasoFotograma } from "./pizarraGif";
 import { decodificarEnlaceSesion, normalizarSesiones, remapearJugadas, sesionesDeLibro, type Sesion } from "./pizarraSesion";
 import { iniciarSesiones, type ControlSesiones } from "./pizarraSesionUI";
@@ -274,6 +288,14 @@ export function iniciarPizarra(): void {
   const inpEnlace = q<HTMLInputElement>("enlace");
   const infoEnlace = q("enlace-info");
   const fileEl = q<HTMLInputElement>("file");
+  const lectEl = q("lecturas");
+  const lectChips = q("lect-chips");
+  const lectEdit = q("lect-edit");
+  const plLect = q("pl-lect");
+  const equipoSel = q<HTMLSelectElement>("equipo-sel");
+  const equipoInfo = q("equipo-info");
+  const banqEl = q("banquillo");
+  const banqLista = q("banq-lista");
   const qrEl = q("qr");
   const qrImgEl = q("qr-img");
   const qrAvisoEl = q("qr-aviso");
@@ -320,7 +342,7 @@ export function iniciarPizarra(): void {
   // modo tiempo muerto: trabaja sobre una copia de UN paso que no se guarda nunca
   const ESCALA_TM = 1.35;
   let tm = false;
-  let tmReal: { hist: Historial<Jugada>; paso: number } | null = null;
+  let tmReal: { hist: Historial<Jugada>; paso: number; rama: string | null } | null = null;
   let tmBase: Jugada | null = null;
   let tmGesto: TmGesto | null = null;
   let tmFlecha: string | null = null;
@@ -332,7 +354,30 @@ export function iniciarPizarra(): void {
   let jugAcum = 0;
   let ultimoGif: { blob: Blob; nombre: string } | null = null;
 
-  const actual = (): Jugada => trabajo ?? hist.presente;
+  // Lecturas (ramas). La jugada REAL (con todas sus lecturas) vive en el historial; lo que se ve, se
+  // anima y se edita es la lectura activa: la principal hasta el punto de salida y los pasos de esa
+  // lectura. `jv()` da esa vista, y `commit()` devuelve lo editado a su sitio.
+  let ramaActiva: string | null = null;
+  let vistaCache: { src: Jugada; rama: string; out: Jugada } | null = null;
+  const real = (): Jugada => hist.presente;
+  function jv(): Jugada {
+    const r = hist.presente;
+    if (ramaActiva === null) return r;
+    if (!(r.ramas ?? []).some((x) => x.id === ramaActiva)) {
+      ramaActiva = null;
+      return r;
+    }
+    if (vistaCache && vistaCache.src === r && vistaCache.rama === ramaActiva) return vistaCache.out;
+    const out = jugadaLineal(r, ramaActiva);
+    vistaCache = { src: r, rama: ramaActiva, out };
+    return out;
+  }
+  /** Paso de la principal del que sale la lectura activa (-1 si se está en la principal). */
+  const desdeActiva = (): number => (ramaActiva === null ? -1 : (real().ramas ?? []).find((x) => x.id === ramaActiva)?.desde ?? -1);
+  /** En una lectura, los pasos hasta su punto de salida son de la principal: no se les añaden ni quitan jugadores. */
+  const enTramoComun = (k: number): boolean => ramaActiva !== null && k <= desdeActiva();
+
+  const actual = (): Jugada => trabajo ?? jv();
   const escalaPiezas = () => (tm ? ESCALA_TM : jugador ? 1.15 : 1);
   /** En tiempo muerto la pista se pone apaisada si la pantalla lo es; si no, la vista guardada. */
   const orientVista = (): Orient => (tm || jugador ? (window.innerWidth >= window.innerHeight ? "h" : "v") : actual().orient);
@@ -444,6 +489,11 @@ export function iniciarPizarra(): void {
       const th = el("span", { cls: "pz-step-th" });
       th.innerHTML = mini; // SVG generado por nosotros; el texto del usuario va escapado
       b.append(th, el("span", { cls: "pz-step-n", text: String(i + 1) }));
+      // lecturas: un tenedor marca el paso del que salen; los pasos propios de la lectura activa van en otro color
+      const desde = desdeActiva();
+      if (ramaActiva !== null && i > desde) b.classList.add("pz-step-rama");
+      const sale = ramaActiva === null ? ramasEn(real(), i).length > 0 : i === desde;
+      if (sale) b.append(el("span", { cls: "pz-step-fork", text: "⑂", attrs: { title: "De aquí salen lecturas alternativas", "aria-hidden": "true" } }));
       pasosEl.append(b);
     });
     infoPaso.textContent = `Paso ${paso + 1} / ${j.pasos.length}`;
@@ -460,7 +510,7 @@ export function iniciarPizarra(): void {
   }
 
   function actualizarUI() {
-    const j = hist.presente;
+    const j = jv();
     if (document.activeElement !== inpNombre) inpNombre.value = j.nombre;
     selCat.value = j.categoria;
     if (document.activeElement !== txtNotas) txtNotas.value = j.notas;
@@ -490,6 +540,7 @@ export function iniciarPizarra(): void {
     pintar();
     pintarPasos();
     actualizarUI();
+    pintarLecturas();
   }
 
   // ── selección, barra contextual ─────────────────────────────────────
@@ -499,7 +550,7 @@ export function iniciarPizarra(): void {
       selbar.hidden = true;
       return;
     }
-    const j = hist.presente;
+    const j = jv();
     const s = j.pasos[paso];
     const eliminar = el("button", { cls: "pz-sb-btn pz-sb-del", text: "Eliminar", attrs: { type: "button", "aria-label": "Eliminar elemento seleccionado" }, on: { click: () => eliminarSel() } });
     if (sel.tipo === "pieza") {
@@ -524,16 +575,16 @@ export function iniciarPizarra(): void {
       if (pz.tipo === "atq" || pz.tipo === "def" || pz.tipo === "neu" || pz.tipo === "ent") {
         const etq = pz.tipo === "neu" ? "Letra " : pz.tipo === "ent" ? "Marca " : "Nº ";
         selbar.append(
-          el("label", { cls: "pz-sb-lab" }, etq, campo("Número, letra o marca del jugador", pz.etiqueta, LIMITES.ETIQUETA, "4", (v) => commit(ajustarPieza(hist.presente, pz.id, { etiqueta: v })))),
-          el("label", { cls: "pz-sb-lab" }, "Nombre ", campo("Nombre corto del jugador", pz.nombre ?? "", LIMITES.NOMBRE_JUGADOR, "9", (v) => commit(ajustarPieza(hist.presente, pz.id, { nombre: v }))))
+          el("label", { cls: "pz-sb-lab" }, etq, campo("Número, letra o marca del jugador", pz.etiqueta, LIMITES.ETIQUETA, "4", (v) => commitReal(ajustarPieza(real(), pz.id, { etiqueta: v })))),
+          el("label", { cls: "pz-sb-lab" }, "Nombre ", campo("Nombre corto del jugador", pz.nombre ?? "", LIMITES.NOMBRE_JUGADOR, "9", (v) => commitReal(ajustarPieza(real(), pz.id, { nombre: v }))))
         );
       } else if (pz.tipo === "fila") {
         const cant = pz.cant ?? 4;
-        const ajusta = (c: Partial<Pick<Pieza, "cant" | "ang" | "bando">>) => () => commit(ajustarPieza(hist.presente, pz.id, c));
+        const ajusta = (c: Partial<Pick<Pieza, "cant" | "ang" | "bando">>) => () => commitReal(ajustarPieza(real(), pz.id, c));
         const bandoSel = el("select", {
           cls: "pz-sb-inp",
           attrs: { "aria-label": "Color de la fila" },
-          on: { change: (e) => commit(ajustarPieza(hist.presente, pz.id, { bando: (e.target as HTMLSelectElement).value as "atq" | "def" | "neu" })) },
+          on: { change: (e) => commitReal(ajustarPieza(real(), pz.id, { bando: (e.target as HTMLSelectElement).value as "atq" | "def" | "neu" })) },
         });
         for (const [v, t] of [["neu", "Verde"], ["atq", "Azul"], ["def", "Rojo"]] as const) {
           const o = el("option", { text: t, attrs: { value: v } });
@@ -561,7 +612,7 @@ export function iniciarPizarra(): void {
           on: {
             change: (e) => {
               const v = (e.target as HTMLSelectElement).value as TipoLinea;
-              const j2 = clonar(hist.presente);
+              const j2 = clonar(jv());
               const l2 = j2.pasos[paso].lineas.find((x) => x.id === l.id);
               if (l2) l2.tipo = v;
               commit(j2);
@@ -574,6 +625,12 @@ export function iniciarPizarra(): void {
           sl.append(o);
         }
         selbar.append(sl);
+        const ord = l.orden;
+        selbar.append(
+          el("button", { cls: "pz-sb-btn", text: "−", attrs: { type: "button", "aria-label": "Número de orden menor" }, on: { click: () => commit(ajustarOrden(jv(), paso, l.id, (ord ?? 1) - 1 < 1 ? null : (ord ?? 1) - 1)) } }),
+          el("span", { cls: "pz-sb-t", text: ord ? `Nº ${ord}` : "Sin nº", attrs: { title: "Orden de esta acción dentro del paso" } }),
+          el("button", { cls: "pz-sb-btn", text: "+", attrs: { type: "button", "aria-label": "Número de orden mayor" }, on: { click: () => commit(ajustarOrden(jv(), paso, l.id, (ord ?? 0) + 1)) } })
+        );
         if (l.mid) {
           selbar.append(
             el("button", {
@@ -582,7 +639,7 @@ export function iniciarPizarra(): void {
               attrs: { type: "button" },
               on: {
                 click: () => {
-                  const j2 = clonar(hist.presente);
+                  const j2 = clonar(jv());
                   const l2 = j2.pasos[paso].lineas.find((x) => x.id === l.id);
                   if (l2) delete l2.mid;
                   commit(j2);
@@ -602,7 +659,7 @@ export function iniciarPizarra(): void {
         attrs: { "aria-label": "Forma de la zona" },
         on: {
           change: (e) => {
-            const j2 = clonar(hist.presente);
+            const j2 = clonar(jv());
             const z2 = (j2.pasos[paso].zonas ?? []).find((x) => x.id === z.id);
             if (z2) z2.forma = (e.target as HTMLSelectElement).value === "elipse" ? "elipse" : "rect";
             commit(j2);
@@ -624,7 +681,7 @@ export function iniciarPizarra(): void {
         on: {
           change: (e) => {
             const v = limpiaTexto((e.target as HTMLInputElement).value, LIMITES.TEXTO);
-            const j2 = clonar(hist.presente);
+            const j2 = clonar(jv());
             const t2 = j2.pasos[paso].textos.find((x) => x.id === t.id);
             if (t2 && v) t2.texto = v;
             commit(j2);
@@ -636,7 +693,7 @@ export function iniciarPizarra(): void {
       });
       inp.value = t.texto;
       const tam = (d: number) => () => {
-        const j2 = clonar(hist.presente);
+        const j2 = clonar(jv());
         const t2 = j2.pasos[paso].textos.find((x) => x.id === t.id);
         if (t2) t2.tam = Math.min(3, Math.max(1, t2.tam + d));
         commit(j2);
@@ -660,8 +717,9 @@ export function iniciarPizarra(): void {
 
   function eliminarSel() {
     if (!sel || soloVista) return;
-    const j = hist.presente;
+    const j = jv();
     const { tipo, id } = sel;
+    if (tipo === "pieza" && enTramoComun(paso)) return void toast("Ese jugador es de la lectura principal: para quitarlo, cámbiate a la principal (o a un paso posterior al punto de salida).", 5000);
     sel = null;
     if (tipo === "pieza") commit(quitarPieza(j, paso, id));
     else if (tipo === "linea") commit(quitarLinea(j, paso, id));
@@ -670,18 +728,25 @@ export function iniciarPizarra(): void {
   }
 
   // ── historial ───────────────────────────────────────────────────────
+  /** Confirma una edición hecha sobre la VISTA (`jv()`): la devuelve a la jugada real. */
   function commit(nueva: Jugada) {
+    const r = real();
+    commitReal(ramaActiva !== null && (r.ramas ?? []).some((x) => x.id === ramaActiva) ? reinyectarRama(r, ramaActiva, nueva) : nueva);
+  }
+
+  /** Confirma un cambio de la jugada REAL (identidad de jugadores, pista, lecturas…). */
+  function commitReal(nueva: Jugada) {
     nueva.actualizada = Date.now();
     hist = confirmar(hist, nueva);
     trabajo = null;
-    paso = Math.min(paso, nueva.pasos.length - 1);
+    paso = Math.min(paso, jv().pasos.length - 1);
     if (sel && !existe(sel)) sel = null;
     refrescarTodo();
     persistir();
   }
 
   function existe(s: Sel): boolean {
-    const st = hist.presente.pasos[paso];
+    const st = jv().pasos[paso];
     if (!st) return false;
     if (s.tipo === "pieza") return st.piezas.some((p) => p.id === s.id);
     if (s.tipo === "linea") return st.lineas.some((l) => l.id === s.id);
@@ -693,7 +758,7 @@ export function iniciarPizarra(): void {
     if (soloVista) return;
     detener();
     hist = deshacer(hist);
-    paso = Math.min(paso, hist.presente.pasos.length - 1);
+    paso = Math.min(paso, jv().pasos.length - 1);
     if (sel && !existe(sel)) sel = null;
     refrescarTodo();
     persistir();
@@ -702,7 +767,7 @@ export function iniciarPizarra(): void {
     if (soloVista) return;
     detener();
     hist = rehacer(hist);
-    paso = Math.min(paso, hist.presente.pasos.length - 1);
+    paso = Math.min(paso, jv().pasos.length - 1);
     if (sel && !existe(sel)) sel = null;
     refrescarTodo();
     persistir();
@@ -725,6 +790,8 @@ export function iniciarPizarra(): void {
     const copia = clonar(j);
     if (!opts.conservarId) copia.id = uid();
     hist = nuevoHistorial(copia);
+    ramaActiva = null;
+    vistaCache = null;
     trabajo = null;
     paso = 0;
     sel = null;
@@ -831,7 +898,7 @@ export function iniciarPizarra(): void {
     if (e.pointerType === "mouse" && e.button !== 0) return;
     if (reproduciendo || anim) detener();
     e.preventDefault();
-    const j = hist.presente;
+    const j = jv();
     const p = limitaPunto(aCanon(e), j.cancha);
     const tactil = e.pointerType !== "mouse";
     try {
@@ -882,6 +949,10 @@ export function iniciarPizarra(): void {
     }
 
     const tp = TIPO_PIEZA_DE[herr];
+    if (tp && enTramoComun(paso)) {
+      toast("Estás en una lectura: los jugadores nuevos se colocan desde un paso posterior al punto de salida. Para crearlos antes, cámbiate a la principal.", 5000);
+      return;
+    }
     if (tp) {
       // una fila nace mirando a la canasta más cercana
       const extra = tp === "fila" ? { ang: (Math.atan2(aroDe([p], j.cancha).y - p.y, aroDe([p], j.cancha).x - p.x) * 180) / Math.PI } : {};
@@ -924,7 +995,7 @@ export function iniciarPizarra(): void {
 
   // ── modo tiempo muerto: mover, flecha por toque largo, borrar línea con un toque ──
   function tmDown(e: PointerEvent, p: Pt, tactil: boolean) {
-    const s = hist.presente.pasos[0];
+    const s = jv().pasos[0];
     const pz = buscarPieza(s, p, enMetros(tactil ? 26 : 14));
     const px = { x: e.clientX, y: e.clientY };
     if (pz) {
@@ -958,7 +1029,7 @@ export function iniciarPizarra(): void {
     window.clearTimeout(g.timer);
     g.modo = "activo";
     if (!g.id) return; // arrastrar desde un hueco no hace nada
-    const j = hist.presente;
+    const j = jv();
     const st = j.pasos[0];
     const pz = st.piezas.find((x) => x.id === g.id);
     if (!pz) return;
@@ -1003,8 +1074,8 @@ export function iniciarPizarra(): void {
       } else {
         borrador = { ...borrador, pts: [borrador.pts[0], p] };
         if (tm && tmFlecha) {
-          const pz = hist.presente.pasos[0].piezas.find((x) => x.id === tmFlecha);
-          if (pz) borrador.tipo = flechaPorDefecto(hist.presente.pasos[0], pz, p).tipo;
+          const pz = jv().pasos[0].piezas.find((x) => x.id === tmFlecha);
+          if (pz) borrador.tipo = flechaPorDefecto(jv().pasos[0], pz, p).tipo;
         }
       }
       pintar();
@@ -1083,7 +1154,7 @@ export function iniciarPizarra(): void {
       const fin = b ? { x: b.x + (b.x - d.ini.x), y: b.y + (b.y - d.ini.y) } : d.ini;
       const grande = b && dist(d.ini, fin) > 0.9;
       const nueva = grande && b ? { forma: d.forma, x: b.x, y: b.y, w: b.w, h: b.h } : { forma: d.forma, x: d.ini.x, y: d.ini.y, ...ZONA_POR_DEFECTO };
-      const r = anadirZona(hist.presente, paso, nueva);
+      const r = anadirZona(jv(), paso, nueva);
       commit(r.jugada);
       seleccionar({ tipo: "zona", id: r.id });
       return;
@@ -1093,7 +1164,7 @@ export function iniciarPizarra(): void {
       borrador = null;
       libreTmp = [];
       if (cancelado || !b) return void pintar();
-      const j = hist.presente;
+      const j = jv();
       if (b.tipo === "libre") {
         const pts = simplifica(b.pts, 0.12);
         if (pts.length < 2 || dist(pts[0], pts[pts.length - 1]) + pts.length < 3) return void pintar();
@@ -1190,7 +1261,7 @@ export function iniciarPizarra(): void {
     }
     if (g.linea) {
       sel = null;
-      commit(quitarLinea(hist.presente, 0, g.linea));
+      commit(quitarLinea(jv(), 0, g.linea));
       return void toast("Línea borrada. Puedes deshacer.", 2200);
     }
     sel = null;
@@ -1446,10 +1517,11 @@ export function iniciarPizarra(): void {
       b.setAttribute("aria-selected", String(on));
     });
     root.querySelectorAll<HTMLElement>("[data-panel]").forEach((p) => (p.hidden = p.dataset.panel !== t));
+    if (t === "jugada") pintarEquipos();
   }
   /** Con un panel o diálogo abierto, el botón del chat flotante sobraría encima. */
   function estadoModal() {
-    const abierto = tm || jugador || !qrEl.hidden || !shareEl.hidden || !formEl.hidden || (sideEl.classList.contains("open") && window.matchMedia("(max-width: 900px)").matches);
+    const abierto = tm || jugador || !banqEl.hidden || !qrEl.hidden || !shareEl.hidden || !formEl.hidden || (sideEl.classList.contains("open") && window.matchMedia("(max-width: 900px)").matches);
     document.documentElement.classList.toggle("pz-modal", abierto);
   }
   function abrirPanelMovil(t: string) {
@@ -1577,7 +1649,7 @@ export function iniciarPizarra(): void {
     new Promise<Blob>((ok, ko) => c.toBlob((b) => (b ? ok(b) : ko(new Error("No se pudo crear la imagen"))), tipo));
 
   async function exportarPNG(hoja: boolean) {
-    const j = hist.presente;
+    const j = jv();
     try {
       toast("Generando imagen…", 8000);
       const l = hoja ? renderHoja(j, { paleta: PALETAS[paleta] }) : renderCuadro(j, paso, { paleta: PALETAS[paleta], ancho: 1200 });
@@ -1601,7 +1673,7 @@ export function iniciarPizarra(): void {
   async function grabarVideo() {
     const mime = videoSoportado();
     if (!mime) return void toast("Tu navegador no puede grabar vídeo de la animación (en Safari, usa Chrome o Edge). Puedes exportar imágenes.", 6000);
-    const j = clonar(hist.presente);
+    const j = clonar(jv());
     if (j.pasos.length < 2) return void toast("Crea al menos dos pasos para grabar la animación.");
     if (grabando) return;
     detener();
@@ -1753,11 +1825,27 @@ export function iniciarPizarra(): void {
         const box = el("div", { cls: "pz-print-svg" });
         box.innerHTML = renderSvgCompleto({ cancha: j.cancha, orient: j.orient, piezas: s.piezas, lineas: s.lineas, textos: s.textos, zonas: s.zonas, pista: j.pista, paleta: pal });
         const cap = el("figcaption", {}, el("strong", { text: `Paso ${i + 1}` }));
+        if (s.opcion) cap.append(` (${s.opcion})`);
         if (s.nota) cap.append(" · " + s.nota);
         fig.append(box, cap);
         grid.append(fig);
       });
       sec.append(grid);
+      // las lecturas alternativas, cada una con su título y sus pasos
+      for (const rm of j.ramas ?? []) {
+        sec.append(el("h3", { cls: "pz-print-lectura", text: `${etiquetaLectura(j, rm.id)} · sale del paso ${rm.desde + 1}` }));
+        const g2 = el("div", { cls: "pz-print-grid" + (rm.pasos.length === 1 ? " uno" : "") });
+        rm.pasos.forEach((s2, i) => {
+          const fig = el("figure", { cls: "pz-print-paso" });
+          const box = el("div", { cls: "pz-print-svg" });
+          box.innerHTML = renderSvgCompleto({ cancha: j.cancha, orient: j.orient, piezas: s2.piezas, lineas: s2.lineas, textos: s2.textos, zonas: s2.zonas, pista: j.pista, paleta: pal });
+          const cap = el("figcaption", {}, el("strong", { text: `${etiquetaLectura(j, rm.id)} · paso ${i + 1}` }));
+          if (s2.nota) cap.append(" · " + s2.nota);
+          fig.append(box, cap);
+          g2.append(fig);
+        });
+        sec.append(g2);
+      }
       sec.append(el("p", { cls: "pz-print-pie", text: "canchazapa.com/pizarra" }));
       printEl.append(sec);
     }
@@ -1862,7 +1950,7 @@ export function iniciarPizarra(): void {
   }
 
   function abrirFormaciones() {
-    const completa = hist.presente.cancha === "completa";
+    const completa = jv().cancha === "completa";
     formEspejoEl.hidden = !completa;
     formEspejoEl.querySelector("input")!.checked = formEspejo && completa;
     formEl.hidden = !formEl.hidden;
@@ -1873,7 +1961,8 @@ export function iniciarPizarra(): void {
     if (soloVista && !tm) return;
     const f = formacionPorId(id);
     if (!f) return;
-    const j = hist.presente;
+    if (enTramoComun(paso)) return void toast("Estás en una lectura: coloca la formación desde un paso posterior al punto de salida, o en la principal.", 5000);
+    const j = jv();
     if (f.id === "def-individual" && !j.pasos[paso].piezas.some((p) => p.tipo === "atq")) {
       return void toast("Coloca primero a tus atacantes (por ejemplo con una formación de ataque) y luego la defensa individual.", 5000);
     }
@@ -1888,9 +1977,11 @@ export function iniciarPizarra(): void {
   function entrarTM() {
     if (tm) return;
     detener();
-    const j = hist.presente;
+    const j = jv();
     const s = j.pasos[Math.min(paso, j.pasos.length - 1)];
-    tmReal = { hist, paso };
+    tmReal = { hist, paso, rama: ramaActiva };
+    ramaActiva = null;
+    vistaCache = null;
     tmBase = nuevaJugada({
       nombre: "Tiempo muerto",
       categoria: j.categoria,
@@ -1933,6 +2024,8 @@ export function iniciarPizarra(): void {
     tmFlecha = null;
     hist = tmReal.hist;
     paso = tmReal.paso;
+    ramaActiva = tmReal.rama;
+    vistaCache = null;
     tmReal = null;
     tmBase = null;
     tm = false;
@@ -2039,6 +2132,8 @@ export function iniciarPizarra(): void {
     cancelAnimationFrame(jugRaf);
     anim = null;
     paso = 0;
+    ramaActiva = null;
+    vistaCache = null;
     root.classList.remove("pz-jugador");
     if (!document.fullscreenElement) {
       root.classList.remove("pz-fs");
@@ -2106,7 +2201,7 @@ export function iniciarPizarra(): void {
 
   // ── GIF ─────────────────────────────────────────────────────────────
   async function exportarGif() {
-    const j = clonar(hist.presente);
+    const j = clonar(jv());
     if (j.pasos.length < 2) return void toast("Crea al menos dos pasos para exportar la animación.");
     if (grabando) return;
     detener();
@@ -2170,12 +2265,244 @@ export function iniciarPizarra(): void {
     }
   }
 
+  // ── lecturas (opciones alternativas de un paso) ─────────────────────
+  function pintarLecturas() {
+    const r = real();
+    const ramas = r.ramas ?? [];
+    lectEl.hidden = ramas.length === 0 && (soloVista || tm);
+    plLect.replaceChildren();
+    lectChips.replaceChildren();
+    const chip = (id: string | null, texto: string, extra = "") => {
+      const on = ramaActiva === id;
+      return el("button", { cls: "pz-chip" + (on ? " on" : ""), text: texto + extra, attrs: { type: "button", "data-lect": id ?? "", "aria-pressed": String(on) } });
+    };
+    if (ramas.length) {
+      lectChips.append(chip(null, etiquetaLectura(r, null)));
+      for (const rm of ramas) lectChips.append(chip(rm.id, etiquetaLectura(r, rm.id), ` · desde el paso ${rm.desde + 1}`));
+      plLect.append(chip(null, etiquetaLectura(r, null)));
+      for (const rm of ramas) plLect.append(chip(rm.id, etiquetaLectura(r, rm.id)));
+    }
+    plLect.hidden = ramas.length === 0;
+    // editar el nombre de la lectura activa y quitarla
+    lectEdit.replaceChildren();
+    lectEdit.hidden = ramas.length === 0 || soloVista;
+    if (ramas.length && !soloVista) {
+      const inp = el("input", {
+        cls: "pz-inp pz-lect-inp",
+        attrs: { type: "text", maxlength: String(LIMITES.ETIQUETA_RAMA), "aria-label": "Nombre de la lectura", placeholder: "Ej.: Si pasa por detrás", autocomplete: "off" },
+        on: {
+          change: (e) => {
+            const v = (e.target as HTMLInputElement).value;
+            commitReal(ramaActiva === null ? renombrarPrincipal(real(), v) : renombrarRama(real(), ramaActiva, v));
+          },
+          keydown: (e) => {
+            if ((e as KeyboardEvent).key === "Enter") (e.target as HTMLInputElement).blur();
+          },
+        },
+      });
+      inp.value = ramaActiva === null ? (r.pasos[Math.min(...ramas.map((x) => x.desde))]?.opcion ?? "") : (ramas.find((x) => x.id === ramaActiva)?.etiqueta ?? "");
+      lectEdit.append(el("label", { cls: "pz-sb-lab" }, "Nombre de esta lectura ", inp));
+      if (ramaActiva !== null) {
+        lectEdit.append(el("button", { cls: "pz-bn pz-bn-2 pz-bn-sm", text: "Quitar lectura", attrs: { type: "button", "data-act": "lectura-quitar" } }));
+      }
+    }
+    root.querySelectorAll<HTMLElement>('[data-act="lectura-nueva"]').forEach((b) => (b.hidden = soloVista));
+  }
+
+  function elegirLectura(id: string | null) {
+    if (id === ramaActiva && !jugador) return;
+    if (!jugador) detener();
+    ramaActiva = id;
+    vistaCache = null;
+    jv();
+    paso = Math.min(paso, jv().pasos.length - 1);
+    sel = null;
+    if (jugador) {
+      jugAcum = 0;
+      ponerPausaJugador(false);
+      refrescarTodo();
+      pintarNotasJugador();
+      bucleJugador();
+      return;
+    }
+    refrescarTodo();
+  }
+
+  function crearLectura() {
+    if (soloVista) return;
+    const r = real();
+    if ((r.ramas ?? []).length >= LIMITES.RAMAS) return void toast(`Máximo de ${LIMITES.RAMAS} lecturas alternativas por jugada.`);
+    if (ramaActiva !== null && paso > desdeActiva()) {
+      return void toast("Las lecturas salen de la jugada principal: elige un paso anterior al punto de salida o cámbiate a la principal.", 5000);
+    }
+    const k = Math.min(paso, r.pasos.length - 1);
+    const res = anadirRama(r, k);
+    if (!res.id) return;
+    res.jugada.actualizada = Date.now();
+    hist = confirmar(hist, res.jugada);
+    ramaActiva = res.id;
+    vistaCache = null;
+    paso = Math.min(k + 1, jv().pasos.length - 1);
+    sel = null;
+    refrescarTodo();
+    persistir();
+    toast(`Lectura creada desde el paso ${k + 1}. Dibuja lo que pasa si el jugador decide otra cosa; pulsa «${etiquetaLectura(real(), null)}» para volver a la principal.`, 7000);
+  }
+
+  function quitarLecturaActiva() {
+    if (ramaActiva === null || soloVista) return;
+    if (!window.confirm("¿Quitar esta lectura y sus pasos? Se puede deshacer con Ctrl+Z.")) return;
+    const id = ramaActiva;
+    ramaActiva = null;
+    vistaCache = null;
+    commitReal(quitarRama(real(), id));
+    toast("Lectura quitada. Puedes deshacer.", 3000);
+  }
+
+  // ── orden de las acciones ───────────────────────────────────────────
+  function numerarPaso(quitar: boolean) {
+    if (soloVista) return;
+    const j = jv();
+    if (j.pasos[paso].lineas.length === 0) return void toast("Este paso no tiene líneas que numerar.");
+    commit(quitar ? quitarNumeros(j, paso) : numerarLineas(j, paso));
+    toast(quitar ? "Números quitados." : "Líneas numeradas en el orden en que las dibujaste. Cambia cada número al seleccionar la línea.", 4000);
+  }
+
+  // ── nombres desde el modo Equipo ────────────────────────────────────
+  function equiposGuardados(): EquipoParaPizarra[] {
+    try {
+      return equiposDeTexto(localStorage.getItem(CLAVE_EQUIPO));
+    } catch {
+      return [];
+    }
+  }
+
+  function pintarEquipos() {
+    const eqs = equiposGuardados();
+    const previo = equipoSel.value;
+    equipoSel.replaceChildren();
+    for (const e of eqs) equipoSel.append(el("option", { text: `${e.nombre} (${e.jugadores.length})`, attrs: { value: e.id } }));
+    if (eqs.some((e) => e.id === previo)) equipoSel.value = previo;
+    equipoSel.hidden = eqs.length < 2;
+    equipoInfo.textContent = eqs.length
+      ? `Se usan los dorsales de tu equipo en Estadísticas (modo Equipo): ${eqs.map((e) => e.nombre).join(", ")}.`
+      : "Aún no tienes ningún equipo con plantilla en Estadísticas > modo Equipo. Créalo allí y vuelve.";
+  }
+
+  function cargarPlantilla() {
+    if (soloVista) return;
+    const eqs = equiposGuardados();
+    if (eqs.length === 0) {
+      pintarEquipos();
+      return void toast("No hay ningún equipo con plantilla guardado en Estadísticas > modo Equipo.", 5000);
+    }
+    const eq = eqs.find((e) => e.id === equipoSel.value) ?? eqs[0];
+    const r = asignarNombres(real(), mapaNombres(eq));
+    if (r.asignados === 0) return void toast(`Ningún número de la pizarra coincide con los dorsales de «${eq.nombre}».`, 5000);
+    commitReal(r.jugada);
+    toast(`${r.asignados} ${r.asignados === 1 ? "nombre puesto" : "nombres puestos"} con la plantilla de «${eq.nombre}».${r.sinNombre.length ? ` Sin nombre: ${r.sinNombre.join(", ")}.` : ""}`, 6000);
+  }
+
+  function quitarTodosLosNombres() {
+    if (soloVista) return;
+    const r = quitarNombres(real());
+    if (r.quitados === 0) return void toast("No hay nombres que quitar.");
+    commitReal(r.jugada);
+    toast("Nombres quitados.");
+  }
+
+  // ── hoja de banquillo ───────────────────────────────────────────────
+  /** Jugadas que se pueden poner en la hoja: la biblioteca y, si no está guardada, la actual. */
+  function jugadasParaBanquillo(): Jugada[] {
+    const act = real();
+    const hay = act.pasos.some((p) => p.piezas.length || p.lineas.length);
+    return hay && !biblio.some((j) => j.id === act.id) ? [act, ...biblio] : biblio.slice();
+  }
+
+  function abrirBanquillo() {
+    const lista = jugadasParaBanquillo();
+    banqLista.replaceChildren();
+    if (lista.length === 0) {
+      banqLista.append(el("li", { cls: "pz-vacio", text: "No hay jugadas todavía: dibuja una o guarda alguna en tu biblioteca." }));
+    }
+    for (const j of lista) {
+      const id = `pz-bq-${j.id}`;
+      const cb = el("input", { attrs: { type: "checkbox", id, "data-banq": j.id, checked: "" } });
+      cb.checked = true;
+      banqLista.append(
+        el(
+          "li",
+          { cls: "pz-banq-it" },
+          cb,
+          el("label", { attrs: { for: id }, text: j.nombre + (biblio.some((x) => x.id === j.id) ? "" : " (sin guardar)") }),
+          el("span", { cls: "pz-item-meta", text: `${CATEGORIAS.find((c) => c.id === j.categoria)?.label ?? ""} · ${j.pasos.length} ${j.pasos.length === 1 ? "paso" : "pasos"}` })
+        )
+      );
+    }
+    shareEl.hidden = true;
+    banqEl.hidden = false;
+    estadoModal();
+  }
+
+  function marcarBanquillo(v: boolean) {
+    banqLista.querySelectorAll<HTMLInputElement>("input[data-banq]").forEach((c) => (c.checked = v));
+  }
+
+  function imprimirBanquillo() {
+    const ids = new Set([...banqLista.querySelectorAll<HTMLInputElement>("input[data-banq]:checked")].map((c) => c.dataset.banq));
+    const jugadas = jugadasParaBanquillo().filter((j) => ids.has(j.id));
+    if (jugadas.length === 0) return void toast("Marca al menos una jugada para la hoja.");
+    const n = Number(banqEl.querySelector<HTMLInputElement>('input[name="banq-n"]:checked')?.value) === 4 ? 4 : 6;
+    const modoSel = banqEl.querySelector<HTMLInputElement>('input[name="banq-modo"]:checked')?.value;
+    const modo: ModoResumen = MODOS_BANQUILLO.some((m) => m.id === modoSel) ? (modoSel as ModoResumen) : "todos";
+    const hoja = prepararBanquillo(jugadas, n as PorPagina, modo);
+    printEl.replaceChildren();
+    const raiz = el("section", { cls: "pz-print-banq" });
+    for (const pagina of hoja.paginas) {
+      const pag = el("div", { cls: `pz-banq-pag pz-banq-${n}` });
+      for (const t of pagina) {
+        const caja = el("div", { cls: "pz-banq-svg" });
+        caja.innerHTML = t.svg; // SVG nuestro: el texto del usuario va escapado dentro
+        pag.append(el("article", { cls: "pz-banq-card" }, el("h3", { cls: "pz-banq-nom", text: t.nombre }), el("p", { cls: "pz-banq-meta", text: t.meta + (t.lecturas ? ` · ${t.lecturas}` : "") }), caja));
+      }
+      raiz.append(pag);
+    }
+    printEl.append(raiz);
+    banqEl.hidden = true;
+    estadoModal();
+    document.documentElement.classList.add("pz-printing");
+    window.setTimeout(() => window.print(), 60);
+  }
+
   // ── acciones (botones) ──────────────────────────────────────────────
   function accion(act: string, b: HTMLElement) {
-    const j = hist.presente;
+    const j = jv();
     switch (act) {
       case "ses":
         return control?.abrir();
+      case "lectura-nueva":
+        return crearLectura();
+      case "lectura-quitar":
+        return quitarLecturaActiva();
+      case "numerar":
+        return numerarPaso(false);
+      case "sin-numeros":
+        return numerarPaso(true);
+      case "equipo-cargar":
+        return cargarPlantilla();
+      case "equipo-quitar":
+        return quitarTodosLosNombres();
+      case "banquillo":
+        return abrirBanquillo();
+      case "cerrar-banquillo":
+        banqEl.hidden = true;
+        return estadoModal();
+      case "banq-todas":
+        return marcarBanquillo(true);
+      case "banq-ninguna":
+        return marcarBanquillo(false);
+      case "banq-imprimir":
+        return imprimirBanquillo();
       case "pl-play":
         return ponerPausaJugador(!jugPausa);
       case "pl-prev":
@@ -2264,14 +2591,18 @@ export function iniciarPizarra(): void {
       case "add-step":
         if (soloVista) return;
         if (j.pasos.length >= LIMITES.PASOS) return void toast("Máximo de pasos alcanzado.");
+        if (ramaActiva !== null && paso < desdeActiva()) return void toast("Ese paso es de la lectura principal: para añadir pasos ahí, cámbiate a la principal.", 5000);
         paso = paso + 1;
         return commit(insertarPaso(j, paso - 1));
       case "dup-step":
         if (soloVista) return;
+        if (enTramoComun(paso)) return void toast("Ese paso es de la lectura principal: para duplicarlo, cámbiate a la principal.", 5000);
         paso = paso + 1;
         return commit(duplicarPaso(j, paso - 1));
       case "del-step": {
         if (soloVista) return;
+        if (enTramoComun(paso)) return void toast("Ese paso es de la lectura principal: para borrarlo, cámbiate a la principal.", 5000);
+        if (ramaActiva !== null && j.pasos.length - 1 <= desdeActiva() + 1) return void toast("Una lectura necesita al menos un paso. Para quitarla entera usa «Quitar lectura».", 5000);
         const k = paso;
         paso = Math.max(0, k - (k === j.pasos.length - 1 ? 1 : 0));
         return commit(quitarPaso(j, k));
@@ -2352,6 +2683,8 @@ export function iniciarPizarra(): void {
     if (paso$ && pasosEl.contains(paso$)) return irAPaso(Number(paso$.dataset.paso));
     const form = t.closest<HTMLElement>("[data-form]");
     if (form) return usarFormacion(form.dataset.form ?? "");
+    const lect = t.closest<HTMLElement>("[data-lect]");
+    if (lect) return elegirLectura(lect.dataset.lect ? lect.dataset.lect : null);
     const tool = t.closest<HTMLElement>("[data-tool]");
     if (tool) return elegirHerramienta(tool.dataset.tool as Herr);
     const act = t.closest<HTMLElement>("[data-act]");
@@ -2361,7 +2694,7 @@ export function iniciarPizarra(): void {
   // metadatos de la jugada
   const meta = (fn: (j: Jugada) => void) => {
     if (soloVista) return;
-    const j = clonar(hist.presente);
+    const j = clonar(jv());
     fn(j);
     commit(j);
   };
@@ -2374,10 +2707,10 @@ export function iniciarPizarra(): void {
   selPista.addEventListener("change", () => {
     if (soloVista) return void actualizarUI();
     const [pista, cancha] = selPista.value.split("-");
-    let j = hist.presente;
+    let j = real();
     if (pista === "fiba" || pista === "mini") j = cambiarPista(j, pista);
     if (cancha === "media" || cancha === "completa") j = cambiarCancha(j, cancha);
-    commit(j);
+    commitReal(j);
   });
   selVel.addEventListener("change", () => {
     /* la velocidad se lee en cada fotograma */
@@ -2400,6 +2733,9 @@ export function iniciarPizarra(): void {
     if (e.key === "Escape") {
       if (control?.estaAbierta()) {
         control.cerrar();
+      } else if (!banqEl.hidden) {
+        banqEl.hidden = true;
+        estadoModal();
       } else if (!qrEl.hidden) {
         qrEl.hidden = true;
         estadoModal();
@@ -2548,6 +2884,6 @@ export function iniciarPizarra(): void {
 
   // para pruebas y depuración desde la consola
   (window as unknown as { __pizarra?: unknown }).__pizarra = {
-    estado: () => ({ jugada: hist.presente, paso, herr, sel, biblio: biblio.length }),
+    estado: () => ({ jugada: jv(), real: hist.presente, rama: ramaActiva, paso, herr, sel, biblio: biblio.length }),
   };
 }
