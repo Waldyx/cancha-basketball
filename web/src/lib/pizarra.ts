@@ -513,6 +513,46 @@ const RADIO_BALON = 1.3;
 /** Dónde queda el balón respecto al jugador que lo tiene (para que no tape su número). */
 const BALON_JUNTO: Pt = { x: 0.5, y: 0.4 };
 
+/** Jugador (atacante o defensor) que lleva el balón: el más cercano a menos de RADIO_BALON. */
+export function portadorDe(paso: Paso, balon: Pieza): Pieza | undefined {
+  let mejor: Pieza | undefined;
+  let md = RADIO_BALON;
+  for (const p of paso.piezas) {
+    if (p.tipo !== "atq" && p.tipo !== "def") continue;
+    const d = dist(p, balon);
+    if (d <= md) {
+      md = d;
+      mejor = p;
+    }
+  }
+  return mejor;
+}
+
+/** ¿Tiene este jugador el balón en las manos? (un balón suyo, y no de otro más cercano) */
+export function tieneBalon(paso: Paso, pz: Pieza): boolean {
+  if (pz.tipo !== "atq" && pz.tipo !== "def") return false;
+  return paso.piezas.some((b) => b.tipo === "balon" && portadorDe(paso, b)?.id === pz.id);
+}
+
+/**
+ * Línea que se dibuja por defecto al arrastrar DESDE una pieza (modo tiempo muerto):
+ * jugador con balón -> bote (o pase si suelta sobre un compañero); jugador sin balón ->
+ * desplazamiento; el propio balón -> pase, que sale de quien lo lleva.
+ */
+export function flechaPorDefecto(
+  paso: Paso,
+  pz: Pieza,
+  destino?: Pt
+): { tipo: "pase" | "bote" | "corte"; origen: Pieza } {
+  const sobreJugador = (): boolean =>
+    !!destino && paso.piezas.some((p) => p.tipo === pz.tipo && p.id !== pz.id && dist(p, destino) <= 0.95);
+  if (pz.tipo === "balon") {
+    return { tipo: "pase", origen: portadorDe(paso, pz) ?? pz };
+  }
+  if (tieneBalon(paso, pz)) return { tipo: sobreJugador() ? "pase" : "bote", origen: pz };
+  return { tipo: "corte", origen: pz };
+}
+
 function lineaDeMovimiento(paso: Paso, pz: Pieza): Linea | undefined {
   return paso.lineas.find((l) => l.ref === pz.id && TIPOS_MOV.includes(l.tipo) && l.pts.length >= 2);
 }

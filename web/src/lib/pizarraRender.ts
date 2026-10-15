@@ -134,6 +134,8 @@ export interface OpcionesTablero {
   opacidadLineas?: number;
   /** Dibuja los manejadores (inicio, final y curva) de la línea seleccionada. */
   manejadores?: boolean;
+  /** Tamaño de las piezas (1 = normal). El modo tiempo muerto las agranda. */
+  escala?: number;
 }
 
 const f = (v: number) => String(Math.round(v * 1000) / 1000);
@@ -155,10 +157,11 @@ interface GeomLinea {
   barra?: [Pt, Pt];
 }
 
-export function geometriaLinea(l: Linea): GeomLinea {
+export function geometriaLinea(l: Linea, escala = 1): GeomLinea {
   const base = polilinea(l);
   if (l.tipo === "libre" || base.length < 2) return { cuerpo: base };
-  const b = recorta(base, l.ref ? RADIO_PIEZA : 0, l.fin ? RADIO_PIEZA + 0.04 : 0);
+  const rp = RADIO_PIEZA * escala;
+  const b = recorta(base, l.ref ? rp : 0, l.fin ? rp + 0.04 : 0);
   const tip = b[b.length - 1];
   const dir = direccionFinal(b);
   if (l.tipo === "bloqueo") {
@@ -173,8 +176,8 @@ export function geometriaLinea(l: Linea): GeomLinea {
   return { cuerpo, cabeza: puntaFlecha(tip, dir, largo, largo * 0.55) };
 }
 
-function lineaSvg(l: Linea, p: Paleta, o: Orient, sel: boolean, opacidad: number): string {
-  const g = geometriaLinea(l);
+function lineaSvg(l: Linea, p: Paleta, o: Orient, sel: boolean, opacidad: number, escala = 1): string {
+  const g = geometriaLinea(l, escala);
   const color = p.tinta;
   let dash = "";
   let grosor = GROSOR;
@@ -210,25 +213,27 @@ function manejadoresSvg(l: Linea, p: Paleta, o: Orient): string {
   return pt(a, 0.3, true) + pt(b, 0.3, true) + pt(medio, 0.34, false);
 }
 
-function piezaSvg(pz: Pieza, p: Paleta, o: Orient, sel: boolean): string {
+function piezaSvg(pz: Pieza, p: Paleta, o: Orient, sel: boolean, e = 1): string {
   const v = aVista(pz, o);
   const x = f(v.x);
   const y = f(v.y);
+  const R = RADIO_PIEZA * e;
   let s = "";
-  if (sel) s += `<circle cx="${x}" cy="${y}" r="${f(RADIO_PIEZA + 0.38)}" fill="none" stroke="${p.sel}" stroke-width="0.14" stroke-opacity="0.95"/>`;
+  if (sel) s += `<circle cx="${x}" cy="${y}" r="${f(R + 0.38)}" fill="none" stroke="${p.sel}" stroke-width="0.14" stroke-opacity="0.95"/>`;
   if (pz.tipo === "atq" || pz.tipo === "def") {
     const atq = pz.tipo === "atq";
-    s += `<circle cx="${x}" cy="${y}" r="${RADIO_PIEZA}" fill="${atq ? p.atq : p.defRelleno}" stroke="${atq ? p.defRelleno : p.def}" stroke-width="${atq ? 0.08 : 0.15}"/>`;
+    s += `<circle cx="${x}" cy="${y}" r="${f(R)}" fill="${atq ? p.atq : p.defRelleno}" stroke="${atq ? p.defRelleno : p.def}" stroke-width="${atq ? 0.08 : 0.15}"/>`;
     const t = pz.etiqueta;
     if (t) {
-      const tam = t.length <= 1 ? 0.95 : t.length === 2 ? 0.78 : 0.6;
-      s += `<text x="${x}" y="${f(v.y + tam * 0.34)}" font-size="${tam}" font-weight="900" text-anchor="middle" fill="${atq ? p.atqTexto : p.def}" font-family="${FUENTE}">${esc(t)}</text>`;
+      const tam = (t.length <= 1 ? 0.95 : t.length === 2 ? 0.78 : 0.6) * e;
+      s += `<text x="${x}" y="${f(v.y + tam * 0.34)}" font-size="${f(tam)}" font-weight="900" text-anchor="middle" fill="${atq ? p.atqTexto : p.def}" font-family="${FUENTE}">${esc(t)}</text>`;
     }
   } else if (pz.tipo === "balon") {
-    s += `<circle cx="${x}" cy="${y}" r="0.36" fill="${p.balon}" stroke="${p.balonBorde}" stroke-width="0.07"/>`;
-    s += `<path d="M${f(v.x - 0.36)},${y} H${f(v.x + 0.36)} M${x},${f(v.y - 0.36)} V${f(v.y + 0.36)}" stroke="${p.balonBorde}" stroke-width="0.05" fill="none"/>`;
+    const r = 0.36 * e;
+    s += `<circle cx="${x}" cy="${y}" r="${f(r)}" fill="${p.balon}" stroke="${p.balonBorde}" stroke-width="0.07"/>`;
+    s += `<path d="M${f(v.x - r)},${y} H${f(v.x + r)} M${x},${f(v.y - r)} V${f(v.y + r)}" stroke="${p.balonBorde}" stroke-width="0.05" fill="none"/>`;
   } else {
-    s += `<path d="M${x},${f(v.y - 0.5)} L${f(v.x + 0.46)},${f(v.y + 0.4)} L${f(v.x - 0.46)},${f(v.y + 0.4)} Z" fill="${p.cono}" stroke="${p.balonBorde}" stroke-width="0.07" stroke-linejoin="round"/>`;
+    s += `<path d="M${x},${f(v.y - 0.5 * e)} L${f(v.x + 0.46 * e)},${f(v.y + 0.4 * e)} L${f(v.x - 0.46 * e)},${f(v.y + 0.4 * e)} Z" fill="${p.cono}" stroke="${p.balonBorde}" stroke-width="0.07" stroke-linejoin="round"/>`;
   }
   return s;
 }
@@ -262,8 +267,8 @@ export function renderTablero(o: OpcionesTablero): string {
   }
   s += "</g>";
   const op = o.opacidadLineas ?? 1;
-  for (const l of o.lineas) s += lineaSvg(l, p, o.orient, o.seleccion?.tipo === "linea" && o.seleccion.id === l.id, op);
-  if (o.borrador) s += lineaSvg(o.borrador, p, o.orient, false, 0.75);
+  for (const l of o.lineas) s += lineaSvg(l, p, o.orient, o.seleccion?.tipo === "linea" && o.seleccion.id === l.id, op, o.escala ?? 1);
+  if (o.borrador) s += lineaSvg(o.borrador, p, o.orient, false, 0.75, o.escala ?? 1);
   if (o.manejadores && o.seleccion?.tipo === "linea") {
     const l = o.lineas.find((x) => x.id === o.seleccion?.id);
     if (l) s += manejadoresSvg(l, p, o.orient);
@@ -271,7 +276,7 @@ export function renderTablero(o: OpcionesTablero): string {
   // conos al fondo, balón arriba del todo
   const orden = { cono: 0, def: 1, atq: 2, balon: 3 } as const;
   const piezas = o.piezas.slice().sort((a, b) => orden[a.tipo] - orden[b.tipo]);
-  for (const pz of piezas) s += piezaSvg(pz, p, o.orient, o.seleccion?.tipo === "pieza" && o.seleccion.id === pz.id);
+  for (const pz of piezas) s += piezaSvg(pz, p, o.orient, o.seleccion?.tipo === "pieza" && o.seleccion.id === pz.id, o.escala ?? 1);
   for (const t of o.textos) s += textoSvg(t, p, o.orient, o.seleccion?.tipo === "texto" && o.seleccion.id === t.id);
   return s;
 }

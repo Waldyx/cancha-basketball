@@ -77,8 +77,13 @@ const jsonLd = {
           <button type="button" class="pz-btn" data-tool="libre" aria-label="Trazo libre (F)" title="Trazo libre (F)" aria-pressed="false">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15c2-8 4.500 5 7-2s4-7 6-3 3 4 5 1"/></svg><span class="pz-lbl">Libre</span>
           </button>
-          <button type="button" class="pz-btn" data-tool="texto" aria-label="Texto o nota (T)" title="Texto o nota (T)" aria-pressed="false">
+          <button type="button" class="pz-btn" data-tool="texto" aria-label="Texto o nota (N)" title="Texto o nota (N)" aria-pressed="false">
             <svg viewBox="0 0 24 24" aria-hidden="true"><text x="12" y="17" text-anchor="middle" font-size="14" font-weight="900" fill="currentColor" stroke="none" font-family="Inter,sans-serif">Aa</text></svg><span class="pz-lbl">Texto</span>
+          </button>
+        </div>
+        <div class="pz-grp pz-edit" role="group" aria-label="Formaciones">
+          <button type="button" class="pz-btn" data-act="formaciones" aria-label="Formaciones rápidas de ataque y defensa" title="Formaciones rápidas: 1-3-1, zona 2-3, individual…">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="12" r="2.2"/><circle cx="19" cy="12" r="2.2"/><circle cx="8" cy="19" r="2.2"/><circle cx="16" cy="19" r="2.2"/></svg><span class="pz-lbl">Formaciones</span>
           </button>
         </div>
         <div class="pz-grp pz-edit" role="group" aria-label="Historial">
@@ -107,6 +112,9 @@ const jsonLd = {
           </button>
         </div>
         <div class="pz-grp pz-grp-fin" role="group" aria-label="Compartir y guardar">
+          <button type="button" class="pz-btn pz-btn-tm" data-act="tm" aria-label="Tiempo muerto: pizarra a pantalla completa (T)" title="Tiempo muerto: pantalla limpia para el banquillo (T)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.500v4.500l3 2M9.500 3h5"/></svg><span class="pz-lbl">Tiempo muerto</span>
+          </button>
           <button type="button" class="pz-btn pz-edit" data-act="guardar" aria-label="Guardar en mi biblioteca (Ctrl+S)" title="Guardar en mi biblioteca (Ctrl+S)">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M8 4v5h7V4M8 20v-6h8v6"/></svg><span class="pz-lbl">Guardar</span>
           </button>
@@ -121,8 +129,26 @@ const jsonLd = {
           <div class="pz-court" data-pz="court">
             <svg class="pz-svg" data-pz="svg" viewBox="-2 -2 19 18" role="img" aria-label="Pizarra táctica: pista de baloncesto con los jugadores y las líneas de la jugada"></svg>
           </div>
+          <div class="pz-tmbar" data-pz="tmbar" role="toolbar" aria-label="Tiempo muerto">
+            <button type="button" class="pz-tmb" data-act="formaciones">Formaciones</button>
+            <button type="button" class="pz-tmb" data-act="deshacer" aria-label="Deshacer">Deshacer</button>
+            <button type="button" class="pz-tmb" data-act="tm-goma" aria-label="Borrar todas las líneas">Goma</button>
+            <button type="button" class="pz-tmb pz-tmb-reset" data-act="tm-reset">Reset</button>
+            <button type="button" class="pz-tmb pz-tmb-x" data-act="tm-salir" aria-label="Salir del tiempo muerto">Salir ✕</button>
+            <p class="pz-tmhint">Arrastra una pieza para moverla · Mantén pulsada una pieza (o tócala) y arrastra para dibujar su flecha · Toca una línea para borrarla</p>
+          </div>
           <div class="pz-selbar" data-pz="selbar" hidden></div>
           <div class="pz-hint" data-pz="hint"></div>
+
+          <div class="pz-share pz-formaciones" data-pz="formaciones" role="dialog" aria-label="Formaciones rápidas" hidden>
+            <div class="pz-share-h">
+              <strong>Formaciones rápidas</strong>
+              <button type="button" class="pz-x" data-act="cerrar-formaciones" aria-label="Cerrar">✕</button>
+            </div>
+            <p class="pz-small">Colocan a los jugadores en el paso actual (los que ya tengas se mueven, los que falten se crean). Se pueden deshacer.</p>
+            <label class="pz-chk" data-pz="form-espejo" hidden><input type="checkbox" data-act="form-espejo" /> Atacar la canasta de la derecha</label>
+            <div data-pz="formaciones-lista"></div>
+          </div>
 
           <div class="pz-share" data-pz="share" role="dialog" aria-label="Compartir y exportar" hidden>
             <div class="pz-share-h">
@@ -198,7 +224,7 @@ const jsonLd = {
             <textarea id="pz-nota-paso" class="pz-inp" data-pz="nota-paso" rows="3" maxlength="400" placeholder="Qué pasa en este paso"></textarea>
             <details class="pz-atajos">
               <summary>Atajos de teclado</summary>
-              <p><kbd>V</kbd> mover · <kbd>A</kbd> atacante · <kbd>D</kbd> defensor · <kbd>B</kbd> balón · <kbd>K</kbd> cono · <kbd>P</kbd> pase · <kbd>R</kbd> bote · <kbd>C</kbd> corte · <kbd>L</kbd> bloqueo · <kbd>S</kbd> tiro · <kbd>F</kbd> libre · <kbd>T</kbd> texto</p>
+              <p><kbd>V</kbd> mover · <kbd>A</kbd> atacante · <kbd>D</kbd> defensor · <kbd>B</kbd> balón · <kbd>K</kbd> cono · <kbd>P</kbd> pase · <kbd>R</kbd> bote · <kbd>C</kbd> corte · <kbd>L</kbd> bloqueo · <kbd>S</kbd> tiro · <kbd>F</kbd> libre · <kbd>N</kbd> texto · <kbd>T</kbd> tiempo muerto</p>
               <p><kbd>Ctrl</kbd>+<kbd>Z</kbd> deshacer · <kbd>Ctrl</kbd>+<kbd>Y</kbd> rehacer · <kbd>Ctrl</kbd>+<kbd>S</kbd> guardar · <kbd>Supr</kbd> borrar · <kbd>←</kbd> <kbd>→</kbd> cambiar de paso · <kbd>Espacio</kbd> reproducir · <kbd>Esc</kbd> soltar herramienta</p>
             </details>
           </div>
@@ -330,7 +356,10 @@ const jsonLd = {
   .pz-app { --pz-h: calc(100dvh - 190px); position: relative; max-width: 1500px; margin: 0 auto 8px; padding: 0 12px; height: clamp(540px, var(--pz-h), 980px); display: flex; flex-direction: column; gap: 8px; }
   .pz-app.pz-fs { position: fixed; inset: 0; z-index: 300; max-width: none; height: 100dvh; margin: 0; padding: 10px; background: var(--cz-bg); }
   .pz-app:fullscreen { max-width: none; height: 100dvh; margin: 0; padding: 10px; background: var(--cz-bg); }
-  html.pz-fs-lock { overflow: hidden; }
+  html.pz-fs-lock { overflow: hidden; overscroll-behavior: none; }
+  /* sin Fullscreen API (iPhone) el overlay queda bajo la cabecera y el banner de cookies: se ocultan mientras dura */
+  html.pz-fs-lock body > *:not(#main-content) { display: none !important; }
+  html.pz-fs-lock .pz-head, html.pz-fs-lock .pz-seo { visibility: hidden; }
 
   .pz-banner { flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 8px 12px; background: var(--cz-card2); border: 1px solid var(--cz-accent); font-size: 14px; color: var(--cz-text); }
   .pz-banner[hidden] { display: none; }
@@ -439,6 +468,52 @@ const jsonLd = {
   .pz-step-n { position: absolute; left: 0; top: 0; padding: 2px 6px; background: var(--cz-accent); color: var(--cz-ink); font: 900 11px/1.2 "Inter", sans-serif; }
   .pz-stepact { display: flex; gap: 1px; padding: 2px; border: 1px solid var(--cz-border); background: var(--cz-card); flex: none; }
   .pz-paneles { display: none; gap: 1px; padding: 2px; border: 1px solid var(--cz-border); background: var(--cz-card); flex: none; }
+
+  /* ── modo tiempo muerto ── */
+  .pz-btn-tm { background: var(--cz-accent); color: var(--cz-ink); }
+  .pz-btn-tm:hover:not(:disabled) { background: var(--cz-accent); color: var(--cz-ink); filter: brightness(1.08); }
+  .pz-tmbar { display: none; }
+  .pz-app.pz-tm .pz-tmbar { display: flex; flex: none; z-index: 6; gap: 6px; align-items: stretch; padding: 6px; background: var(--cz-bg-alt); }
+  .pz-tmb { min-height: 46px; padding: 0 14px; border: 1px solid var(--cz-border); background: var(--cz-card); color: var(--cz-text); font: 800 14px "Inter", sans-serif; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; border-radius: 0; touch-action: manipulation; }
+  .pz-tmb:disabled { opacity: 0.4; }
+  .pz-tmb-reset { min-height: 56px; font-size: 18px; background: var(--cz-accent); color: var(--cz-ink); border-color: var(--cz-accent); }
+  .pz-tmhint { margin: 0; color: var(--cz-text-2); font-size: 11.5px; line-height: 1.35; }
+  /* apaisado (el caso del banquillo): barra en columna a un lado, la pista ocupa el resto */
+  @media (orientation: landscape) {
+    .pz-app.pz-tm .pz-board { flex-direction: row; }
+    .pz-app.pz-tm .pz-tmbar { order: -1; flex-direction: column; width: 152px; overflow-y: auto; }
+    .pz-tmb-x { margin-top: auto; }
+  }
+  @media (orientation: landscape) and (max-height: 520px) {
+    .pz-tmb { min-height: 38px; font-size: 12.5px; padding: 0 8px; }
+    .pz-tmb-reset { min-height: 48px; font-size: 16px; }
+    .pz-tmhint { font-size: 10.5px; line-height: 1.3; }
+  }
+  /* vertical (móvil de pie): barra arriba en una fila */
+  @media (orientation: portrait) {
+    .pz-app.pz-tm .pz-board { flex-direction: column; }
+    .pz-app.pz-tm .pz-tmbar { order: -1; flex-wrap: wrap; }
+    .pz-tmb { flex: 1 1 auto; min-height: 42px; padding: 0 10px; font-size: 12.5px; }
+    .pz-tmb-reset { min-height: 48px; }
+    .pz-tmhint { flex: 1 1 100%; }
+  }
+  .pz-app.pz-tm .pz-toolbar, .pz-app.pz-tm .pz-side, .pz-app.pz-tm .pz-bottom, .pz-app.pz-tm .pz-banner, .pz-app.pz-tm .pz-selbar, .pz-app.pz-tm .pz-hint { display: none !important; }
+  .pz-app.pz-tm { padding: 6px; gap: 0; }
+  .pz-app.pz-tm .pz-main { flex: 1; min-height: 0; }
+  .pz-app.pz-tm .pz-board { flex: 1; aspect-ratio: auto; max-height: none; border: 0; }
+  .pz-app.pz-tm .pz-hint { display: none; }
+
+  /* ── formaciones ── */
+  .pz-formaciones { width: min(720px, calc(100vw - 16px)); }
+  .pz-chk { display: flex; align-items: center; gap: 8px; margin: 6px 0; font-size: 13px; color: var(--cz-text-soft); }
+  .pz-chk[hidden] { display: none; }
+  .pz-form-h { margin: 12px 0 6px; font: 900 15px "Barlow Condensed", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cz-text); }
+  .pz-form-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 6px; }
+  .pz-form-btn { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; min-height: 56px; padding: 8px 10px; border: 1px solid var(--cz-border); background: var(--cz-bg); color: var(--cz-text); text-align: left; cursor: pointer; border-radius: 0; }
+  .pz-form-btn:hover { background: var(--cz-elev); border-color: var(--cz-accent); }
+  .pz-form-n { font: 800 14px "Inter", sans-serif; }
+  .pz-form-d { font-size: 11.5px; line-height: 1.3; color: var(--cz-text-2); }
+  @media (max-height: 520px) { .pz-form-d, .pz-formaciones > .pz-small { display: none; } .pz-form-btn { min-height: 40px; } .pz-form-h { margin: 8px 0 4px; } }
 
   /* ── compartir ── */
   .pz-share { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 250; width: min(440px, calc(100vw - 16px)); max-height: min(88dvh, 760px); overflow-y: auto; padding: 12px; background: var(--cz-card); border: 1px solid var(--cz-accent); box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.55); }

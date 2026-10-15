@@ -20,6 +20,7 @@ import {
   deshacer,
   dist,
   distAPolilinea,
+  flechaPorDefecto,
   duplicarPaso,
   estadoEnTiempo,
   hayCompresion,
@@ -56,6 +57,8 @@ import {
   type Historial,
   type Jugada,
   type Linea,
+  type Orient,
+  type Paso,
   type Pieza,
   type Pt,
   type TipoLinea,
@@ -71,6 +74,7 @@ import {
   type NombrePaleta,
 } from "./pizarraRender";
 import { PLANTILLAS } from "./pizarraPlantillas";
+import { FORMACIONES, aplicarFormacion, formacionPorId } from "./pizarraFormaciones";
 
 const CLAVE = "cz.pizarra.v1";
 const MS_DIA = 86_400_000;
@@ -83,6 +87,22 @@ type Drag =
   | { k: "texto"; id: string; off: Pt; origen: Pt; movido: boolean }
   | { k: "manej"; id: string; cual: "ini" | "fin" | "mid"; origen: Pt; movido: boolean }
   | { k: "dibujo" };
+
+/** Gesto en curso en modo tiempo muerto (antes de saber si mueve, dibuja o solo toca). */
+interface TmGesto {
+  /** Pieza bajo el dedo ("" si empezó en vacío). */
+  id: string;
+  /** Línea bajo el dedo si no había pieza. */
+  linea: string | null;
+  p0: Pt;
+  px0: { x: number; y: number };
+  /** La pieza ya estaba seleccionada al tocar: el arrastre dibuja flecha. */
+  selYa: boolean;
+  /** Toque largo cumplido: el arrastre dibuja flecha. */
+  armado: boolean;
+  modo: "pend" | "activo";
+  timer: number;
+}
 
 const TIPO_PIEZA_DE: Partial<Record<Herr, TipoPieza>> = { atq: "atq", def: "def", balon: "balon", cono: "cono" };
 const TIPO_LINEA_DE: Partial<Record<Herr, TipoLinea>> = { pase: "pase", bote: "bote", corte: "corte", bloqueo: "bloqueo", tiro: "tiro", libre: "libre" };
@@ -200,6 +220,9 @@ export function iniciarPizarra(): void {
   const inpEnlace = q<HTMLInputElement>("enlace");
   const infoEnlace = q("enlace-info");
   const fileEl = q<HTMLInputElement>("file");
+  const formEl = q("formaciones");
+  const formListaEl = q("formaciones-lista");
+  const formEspejoEl = q("form-espejo");
   const printEl = document.querySelector<HTMLElement>('[data-pz="print"]') ?? document.body.appendChild(document.createElement("div"));
 
   // ── estado ──────────────────────────────────────────────────────────
@@ -226,8 +249,19 @@ export function iniciarPizarra(): void {
   let guardadaJson = "";
   let avisoAlmacenFallo = false;
   let grabando = false;
+  // modo tiempo muerto: trabaja sobre una copia de UN paso que no se guarda nunca
+  const ESCALA_TM = 1.35;
+  let tm = false;
+  let tmReal: { hist: Historial<Jugada>; paso: number } | null = null;
+  let tmBase: Jugada | null = null;
+  let tmGesto: TmGesto | null = null;
+  let tmFlecha: string | null = null;
+  let formEspejo = false;
 
   const actual = (): Jugada => trabajo ?? hist.presente;
+  const escalaPiezas = () => (tm ? ESCALA_TM : 1);
+  /** En tiempo muerto la pista se pone apaisada si la pantalla lo es; si no, la vista guardada. */
+  const orientVista = (): Orient => (tm ? (window.innerWidth >= window.innerHeight ? "h" : "v") : actual().orient);
 
   // ── utilidades de UI ────────────────────────────────────────────────
   let toastT = 0;
@@ -242,7 +276,7 @@ export function iniciarPizarra(): void {
     const hacer = () => {
       const ok = escribirAlmacen({
         jugadas: biblio,
-        borrador: soloVista ? null : hist.presente,
+        borrador: soloVista ? null : (tmReal ? tmReal.hist.presente : hist.presente),
         ultimaCopia,
         paleta,
         avisoCerrado,
@@ -266,7 +300,7 @@ export function iniciarPizarra(): void {
     const m = svg.getScreenCTM();
     if (!m) return { x: 0, y: 0 };
     const q2 = new DOMPoint(e.clientX, e.clientY).matrixTransform(m.inverse());
-    return deVista({ x: q2.x, y: q2.y }, actual().orient);
+    return deVista({ x: q2.x, y: q2.y }, orientVista());
   }
 
   /** Píxeles de pantalla -> metros de pista (para zonas táctiles cómodas). */
@@ -279,7 +313,8 @@ export function iniciarPizarra(): void {
   function pintar() {
     const j = actual();
     const s = j.pasos[Math.min(paso, j.pasos.length - 1)];
-    const vb = cajaVista(j.cancha, j.orient);
+    const orv = orientVista();
+    const vb = cajaVista(j.cancha, orv);
     svg.setAttribute("viewBox", `${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
     boardEl.style.setProperty("--pz-ar", `${vb.w} / ${vb.h}`);
     let piezas = s.piezas;
@@ -295,7 +330,8 @@ export function iniciarPizarra(): void {
     }
     svg.innerHTML = renderTablero({
       cancha: j.cancha,
-      orient: j.orient,
+      orient: orv,
+      escala: escalaPiezas(),
       piezas,
       lineas,
       textos,
@@ -582,6 +618,26 @@ export function iniciarPizarra(): void {
   // ── hit test ────────────────────────────────────────────────────────
   const ORDEN_PIEZA = { cono: 0, def: 1, atq: 2, balon: 3 } as const;
 
+  /** Pieza bajo el dedo: primero lo que se ve (manda la de encima), luego la más cercana. */
+  function buscarPieza(s: Paso, p: Pt, um: number): Pieza | null {
+    const e = escalaPiezas();
+    const piezas = s.piezas.slice().sort((a, b) => ORDEN_PIEZA[b.tipo] - ORDEN_PIEZA[a.tipo]);
+    const visible = { cono: 0.6 * e, def: (RADIO_PIEZA + 0.1) * e, atq: (RADIO_PIEZA + 0.1) * e, balon: 0.46 * e };
+    for (const pz of piezas) {
+      if (dist(p, pz) <= visible[pz.tipo]) return pz;
+    }
+    let cercana: Pieza | null = null;
+    let md = Math.max(um, 0.8 * e);
+    for (const pz of piezas) {
+      const d = dist(p, pz);
+      if (d <= md) {
+        md = d;
+        cercana = pz;
+      }
+    }
+    return cercana;
+  }
+
   function golpe(p: Pt, tactil: boolean): Golpe | null {
     const s = actual().pasos[paso];
     const um = enMetros(tactil ? 26 : 14);
@@ -597,23 +653,8 @@ export function iniciarPizarra(): void {
         if (dist(p, b) <= r) return { tipo: "manejador", id: l.id, cual: "fin" };
       }
     }
-    const piezas = s.piezas.slice().sort((a, b) => ORDEN_PIEZA[b.tipo] - ORDEN_PIEZA[a.tipo]);
-    // 1) lo que se ve bajo el dedo/cursor (manda la pieza de encima: el balón sobre su jugador)
-    const visible = { cono: 0.6, def: RADIO_PIEZA + 0.1, atq: RADIO_PIEZA + 0.1, balon: 0.46 };
-    for (const pz of piezas) {
-      if (dist(p, pz) <= visible[pz.tipo]) return { tipo: "pieza", id: pz.id };
-    }
-    // 2) margen táctil: la pieza más cercana
-    let cercana: Pieza | null = null;
-    let md = Math.max(um, 0.8);
-    for (const pz of piezas) {
-      const d = dist(p, pz);
-      if (d <= md) {
-        md = d;
-        cercana = pz;
-      }
-    }
-    if (cercana) return { tipo: "pieza", id: cercana.id };
+    const pzHit = buscarPieza(s, p, um);
+    if (pzHit) return { tipo: "pieza", id: pzHit.id };
     for (const t of s.textos.slice().reverse()) {
       const w = Math.max(1.2, t.texto.length * [0, 0.62, 0.86, 1.2][t.tam] * 0.5);
       if (Math.abs(p.x - t.x) <= w / 2 + 0.3 && Math.abs(p.y - t.y) <= 0.8) return { tipo: "texto", id: t.id };
@@ -655,6 +696,8 @@ export function iniciarPizarra(): void {
     } catch {
       /* no pasa nada */
     }
+
+    if (tm) return tmDown(e, p, tactil);
 
     if (herr === "select") {
       const g = golpe(p, tactil);
@@ -719,7 +762,63 @@ export function iniciarPizarra(): void {
     }
   });
 
+  // ── modo tiempo muerto: mover, flecha por toque largo, borrar línea con un toque ──
+  function tmDown(e: PointerEvent, p: Pt, tactil: boolean) {
+    const s = hist.presente.pasos[0];
+    const pz = buscarPieza(s, p, enMetros(tactil ? 26 : 14));
+    const px = { x: e.clientX, y: e.clientY };
+    if (pz) {
+      const selYa = sel?.tipo === "pieza" && sel.id === pz.id;
+      const g: TmGesto = { id: pz.id, linea: null, p0: p, px0: px, selYa, armado: selYa, modo: "pend", timer: 0 };
+      if (!selYa) {
+        g.timer = window.setTimeout(() => {
+          if (tmGesto !== g || g.modo !== "pend") return;
+          g.armado = true;
+          sel = { tipo: "pieza", id: pz.id };
+          pintar();
+          try {
+            navigator.vibrate?.(25);
+          } catch {
+            /* sin vibración */
+          }
+        }, 380);
+      }
+      tmGesto = g;
+      return;
+    }
+    const dl = Math.max(0.5, enMetros(tactil ? 18 : 10));
+    const l = s.lineas.slice().reverse().find((x) => distAPolilinea(p, polilinea(x)) <= dl);
+    tmGesto = { id: "", linea: l?.id ?? null, p0: p, px0: px, selYa: false, armado: false, modo: "pend", timer: 0 };
+  }
+
+  function tmMover(e: PointerEvent) {
+    const g = tmGesto;
+    if (!g || g.modo !== "pend") return;
+    if (Math.hypot(e.clientX - g.px0.x, e.clientY - g.px0.y) < 8) return;
+    window.clearTimeout(g.timer);
+    g.modo = "activo";
+    if (!g.id) return; // arrastrar desde un hueco no hace nada
+    const j = hist.presente;
+    const st = j.pasos[0];
+    const pz = st.piezas.find((x) => x.id === g.id);
+    if (!pz) return;
+    if (g.armado) {
+      const f = flechaPorDefecto(st, pz);
+      const ini = { x: f.origen.x, y: f.origen.y };
+      tmFlecha = pz.id;
+      sel = { tipo: "pieza", id: pz.id };
+      borrador = { id: "tmp", tipo: f.tipo, pts: [ini, ini], ...(f.origen.tipo !== "balon" ? { ref: f.origen.id } : {}) };
+      drag = { k: "dibujo" };
+    } else {
+      trabajo = clonar(j);
+      sel = { tipo: "pieza", id: pz.id };
+      drag = { k: "pieza", id: pz.id, off: { x: pz.x - g.p0.x, y: pz.y - g.p0.y }, propagar: false, origen: g.p0, movido: true };
+    }
+    pintar();
+  }
+
   svg.addEventListener("pointermove", (e: PointerEvent) => {
+    if (tm && tmGesto && !drag) tmMover(e);
     if (!drag) {
       if (e.pointerType === "mouse" && herr === "select" && !anim) {
         const g = golpe(aCanon(e), false);
@@ -738,6 +837,10 @@ export function iniciarPizarra(): void {
         borrador = { ...borrador, pts: libreTmp.length > 1 ? libreTmp.slice() : [libreTmp[0], p] };
       } else {
         borrador = { ...borrador, pts: [borrador.pts[0], p] };
+        if (tm && tmFlecha) {
+          const pz = hist.presente.pasos[0].piezas.find((x) => x.id === tmFlecha);
+          if (pz) borrador.tipo = flechaPorDefecto(hist.presente.pasos[0], pz, p).tipo;
+        }
       }
       pintar();
       return;
@@ -790,6 +893,10 @@ export function iniciarPizarra(): void {
     }
     const d = drag;
     drag = null;
+    const g = tmGesto;
+    tmGesto = null;
+    if (g) window.clearTimeout(g.timer);
+    if (tm && g && !d) return void tmToque(g, cancelado);
     if (!d) return;
     if (d.k === "dibujo") {
       const b = borrador;
@@ -807,11 +914,21 @@ export function iniciarPizarra(): void {
       }
       const ini = b.pts[0];
       let fin = b.pts[1];
-      if (dist(ini, fin) < 0.8) return void pintar();
+      if (dist(ini, fin) < 0.8) {
+        tmFlecha = null;
+        if (tm) sel = null;
+        return void pintar();
+      }
+      if (tm && tmFlecha) {
+        const pz = j.pasos[0].piezas.find((x) => x.id === tmFlecha);
+        if (pz) b.tipo = flechaPorDefecto(j.pasos[0], pz, fin).tipo;
+      }
+      tmFlecha = null;
       const nueva: Omit<Linea, "id"> = { tipo: b.tipo, pts: [ini, fin] };
       if (b.ref) nueva.ref = b.ref;
       if (b.tipo === "pase" || b.tipo === "tiro") {
-        const dest = piezaCerca(fin, 0.95, ["atq", "def"], b.ref);
+        const tipoOrigen = tm && b.ref ? j.pasos[0].piezas.find((x) => x.id === b.ref)?.tipo : undefined;
+        const dest = piezaCerca(fin, 0.95, tipoOrigen === "atq" || tipoOrigen === "def" ? [tipoOrigen] : ["atq", "def"], b.ref);
         if (dest && b.tipo === "pase") {
           fin = { x: dest.x, y: dest.y };
           nueva.pts = [ini, fin];
@@ -819,6 +936,11 @@ export function iniciarPizarra(): void {
         }
       }
       const r = anadirLinea(j, paso, nueva);
+      if (tm) {
+        sel = null;
+        commit(r.jugada);
+        return;
+      }
       commit(r.jugada);
       seleccionar({ tipo: "linea", id: r.id });
       return;
@@ -861,11 +983,28 @@ export function iniciarPizarra(): void {
         }
       }
     }
+    if (tm) sel = null;
     if (d.movido) commit(j);
     else {
       trabajo = null;
       pintar();
     }
+  }
+
+  /** Toque sin arrastre en modo tiempo muerto: (des)selecciona una pieza o borra una línea. */
+  function tmToque(g: TmGesto, cancelado: boolean) {
+    if (cancelado) return void pintar();
+    if (g.id) {
+      sel = g.selYa ? null : { tipo: "pieza", id: g.id };
+      return void pintar();
+    }
+    if (g.linea) {
+      sel = null;
+      commit(quitarLinea(hist.presente, 0, g.linea));
+      return void toast("Línea borrada. Puedes deshacer.", 2200);
+    }
+    sel = null;
+    pintar();
   }
   svg.addEventListener("pointerup", (e: PointerEvent) => terminarPuntero(e, false));
   svg.addEventListener("pointercancel", (e: PointerEvent) => terminarPuntero(e, true));
@@ -973,7 +1112,7 @@ export function iniciarPizarra(): void {
 
   // ── guardar, biblioteca ─────────────────────────────────────────────
   function guardarActual() {
-    if (soloVista) return;
+    if (soloVista || tm) return;
     const j = clonar(hist.presente);
     j.actualizada = Date.now();
     const i = biblio.findIndex((x) => x.id === j.id);
@@ -1118,7 +1257,7 @@ export function iniciarPizarra(): void {
   }
   /** Con un panel o diálogo abierto, el botón del chat flotante sobraría encima. */
   function estadoModal() {
-    const abierto = !shareEl.hidden || (sideEl.classList.contains("open") && window.matchMedia("(max-width: 900px)").matches);
+    const abierto = tm || !shareEl.hidden || !formEl.hidden || (sideEl.classList.contains("open") && window.matchMedia("(max-width: 900px)").matches);
     document.documentElement.classList.toggle("pz-modal", abierto);
   }
   function abrirPanelMovil(t: string) {
@@ -1477,10 +1616,149 @@ export function iniciarPizarra(): void {
     }
   }
 
+  // ── formaciones rápidas ─────────────────────────────────────────────
+  function pintarFormaciones() {
+    formListaEl.replaceChildren();
+    for (const lado of ["ataque", "defensa"] as const) {
+      formListaEl.append(el("h4", { cls: "pz-form-h", text: lado === "ataque" ? "Ataque" : "Defensa" }));
+      const fila = el("div", { cls: "pz-form-grid" });
+      for (const f of FORMACIONES.filter((x) => x.lado === lado)) {
+        fila.append(
+          el(
+            "button",
+            { cls: "pz-form-btn", attrs: { type: "button", "data-form": f.id, title: f.descripcion } },
+            el("span", { cls: "pz-form-n", text: f.nombre }),
+            el("span", { cls: "pz-form-d", text: f.descripcion })
+          )
+        );
+      }
+      formListaEl.append(fila);
+    }
+  }
+
+  function abrirFormaciones() {
+    const completa = hist.presente.cancha === "completa";
+    formEspejoEl.hidden = !completa;
+    formEspejoEl.querySelector("input")!.checked = formEspejo && completa;
+    formEl.hidden = !formEl.hidden;
+    estadoModal();
+  }
+
+  function usarFormacion(id: string) {
+    if (soloVista && !tm) return;
+    const f = formacionPorId(id);
+    if (!f) return;
+    const j = hist.presente;
+    if (f.id === "def-individual" && !j.pasos[paso].piezas.some((p) => p.tipo === "atq")) {
+      return void toast("Coloca primero a tus atacantes (por ejemplo con una formación de ataque) y luego la defensa individual.", 5000);
+    }
+    const r = aplicarFormacion(j, paso, f, { espejo: formEspejo });
+    commit(r.jugada);
+    formEl.hidden = true;
+    estadoModal();
+    toast(`${f.nombre} colocada${r.lineasQuitadas ? ` · se quitaron ${r.lineasQuitadas} líneas que salían de esos jugadores` : ""}. Puedes deshacer.`, 4200);
+  }
+
+  // ── modo tiempo muerto ──────────────────────────────────────────────
+  function entrarTM() {
+    if (tm) return;
+    detener();
+    const j = hist.presente;
+    const s = j.pasos[Math.min(paso, j.pasos.length - 1)];
+    tmReal = { hist, paso };
+    tmBase = nuevaJugada({
+      nombre: "Tiempo muerto",
+      categoria: j.categoria,
+      cancha: j.cancha,
+      orient: j.orient,
+      pasos: [{ piezas: clonar(s.piezas), lineas: [], textos: [], nota: "" }],
+    });
+    hist = nuevoHistorial(clonar(tmBase));
+    paso = 0;
+    sel = null;
+    herr = "select";
+    tm = true;
+    root.classList.add("pz-tm", "pz-fs");
+    document.documentElement.classList.add("pz-fs-lock");
+    shareEl.hidden = true;
+    formEl.hidden = true;
+    cerrarPanelMovil();
+    // pantalla completa de verdad si el navegador la deja (iPhone no): si no, queda el modo superpuesto
+    try {
+      void root.requestFullscreen?.().catch(() => undefined);
+    } catch {
+      /* sin pantalla completa */
+    }
+    try {
+      void (screen.orientation as unknown as { lock?: (o: string) => Promise<void> })?.lock?.("landscape")?.catch(() => undefined);
+    } catch {
+      /* no se puede bloquear la orientación */
+    }
+    estadoModal();
+    refrescarTodo();
+    marcarHerramienta();
+    toast("Tiempo muerto. Arrastra para mover · toque largo y arrastra para dibujar una flecha.", 5200);
+  }
+
+  function salirTM() {
+    if (!tm || !tmReal) return;
+    window.clearTimeout(tmGesto?.timer);
+    tmGesto = null;
+    tmFlecha = null;
+    hist = tmReal.hist;
+    paso = tmReal.paso;
+    tmReal = null;
+    tmBase = null;
+    tm = false;
+    sel = null;
+    drag = null;
+    borrador = null;
+    trabajo = null;
+    formEl.hidden = true;
+    root.classList.remove("pz-tm");
+    if (document.fullscreenElement) void document.exitFullscreen().catch(() => undefined);
+    else {
+      root.classList.remove("pz-fs");
+      document.documentElement.classList.remove("pz-fs-lock");
+    }
+    try {
+      (screen.orientation as unknown as { unlock?: () => void })?.unlock?.();
+    } catch {
+      /* da igual */
+    }
+    estadoModal();
+    refrescarTodo();
+    marcarHerramienta();
+  }
+
+  function tmReset() {
+    if (!tm || !tmBase) return;
+    hist = nuevoHistorial(clonar(tmBase));
+    sel = null;
+    refrescarTodo();
+    toast("Formación inicial recuperada.", 1800);
+  }
+
   // ── acciones (botones) ──────────────────────────────────────────────
   function accion(act: string, b: HTMLElement) {
     const j = hist.presente;
     switch (act) {
+      case "tm":
+        return tm ? salirTM() : entrarTM();
+      case "tm-salir":
+        return salirTM();
+      case "tm-reset":
+        return tmReset();
+      case "tm-goma": {
+        const hay = hist.presente.pasos[0].lineas.length > 0;
+        if (!hay) return void toast("No hay líneas que borrar.", 1800);
+        return commit(limpiarPaso(hist.presente, 0, false));
+      }
+      case "formaciones":
+        return abrirFormaciones();
+      case "cerrar-formaciones":
+        formEl.hidden = true;
+        return estadoModal();
       case "deshacer":
         return deshacerAcc();
       case "rehacer":
@@ -1617,6 +1895,8 @@ export function iniciarPizarra(): void {
     if (!t) return;
     const paso$ = t.closest<HTMLElement>("[data-paso]");
     if (paso$ && pasosEl.contains(paso$)) return irAPaso(Number(paso$.dataset.paso));
+    const form = t.closest<HTMLElement>("[data-form]");
+    if (form) return usarFormacion(form.dataset.form ?? "");
     const tool = t.closest<HTMLElement>("[data-tool]");
     if (tool) return elegirHerramienta(tool.dataset.tool as Herr);
     const act = t.closest<HTMLElement>("[data-act]");
@@ -1645,6 +1925,9 @@ export function iniciarPizarra(): void {
     fileEl.value = "";
   });
   inpEnlace.addEventListener("focus", () => inpEnlace.select());
+  formEspejoEl.querySelector("input")?.addEventListener("change", (e) => {
+    formEspejo = (e.target as HTMLInputElement).checked;
+  });
 
   // teclado
   document.addEventListener("keydown", (e: KeyboardEvent) => {
@@ -1652,10 +1935,14 @@ export function iniciarPizarra(): void {
     const escribiendo = !!t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.tagName === "SELECT" || t.isContentEditable);
     const ctrl = e.ctrlKey || e.metaKey;
     if (e.key === "Escape") {
-      if (!shareEl.hidden) {
+      if (!formEl.hidden) {
+        formEl.hidden = true;
+        estadoModal();
+      } else if (!shareEl.hidden) {
         shareEl.hidden = true;
         estadoModal();
-      } else if (root.classList.contains("pz-fs")) pantallaCompleta();
+      } else if (tm) salirTM();
+      else if (root.classList.contains("pz-fs")) pantallaCompleta();
       else if (sideEl.classList.contains("open")) cerrarPanelMovil();
       else if (herr !== "select") elegirHerramienta("select");
       else if (sel) seleccionar(null);
@@ -1675,6 +1962,8 @@ export function iniciarPizarra(): void {
       return guardarActual();
     }
     if (ctrl || e.altKey) return;
+    if (e.key.toLowerCase() === "t") return tm ? salirTM() : entrarTM();
+    if (tm) return;
     if (e.key === "Delete" || e.key === "Backspace") {
       if (sel) {
         e.preventDefault();
@@ -1688,7 +1977,7 @@ export function iniciarPizarra(): void {
     }
     if (e.key === "ArrowLeft") return irAPaso(paso - 1);
     if (e.key === "ArrowRight") return irAPaso(paso + 1);
-    const mapa: Record<string, Herr> = { v: "select", a: "atq", d: "def", b: "balon", k: "cono", p: "pase", r: "bote", c: "corte", l: "bloqueo", s: "tiro", f: "libre", t: "texto" };
+    const mapa: Record<string, Herr> = { v: "select", a: "atq", d: "def", b: "balon", k: "cono", p: "pase", r: "bote", c: "corte", l: "bloqueo", s: "tiro", f: "libre", n: "texto" };
     const h = mapa[e.key.toLowerCase()];
     if (h) elegirHerramienta(h);
   });
@@ -1701,6 +1990,7 @@ export function iniciarPizarra(): void {
   window.addEventListener("pagehide", () => persistir(true));
 
   // ── arranque ────────────────────────────────────────────────────────
+  pintarFormaciones();
   marcarHerramienta();
   elegirTab("jugada");
   refrescarTodo();
