@@ -303,15 +303,11 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 ## 🔴 Pendientes abiertos
 
 ### ▶️ PARA RETOMAR (tras el clear del 15-oct) — EMPIEZA AQUÍ
-1. 🔄 **Pizarra v2 A MEDIAS** en el worktree `.claude/worktrees/agent-a8ce156f780c92bb1`, rama
-   `worktree-agent-a8ce156f780c92bb1` (SIN merge). Hechas y commiteadas las fases 1 (`dc7559a` modo tiempo
-   muerto + formaciones) y 2 (`b963e9e` ejercicios, filas, zonas, entrenador, pista minibasket). El trabajador
-   puede seguir vivo o haber muerto con el clear: mirar `git log master..worktree-agent-a8ce156f780c92bb1`.
-   Faltan, si no aparecen commits nuevos: **fase 3** plan de sesión imprimible · **fase 4** enlace "modo
-   jugador" + QR + GIF animado · **fase 5** lecturas/ramas, nombres desde la plantilla de `cz.team.v1`,
-   orden de acciones numerado, hoja de banquillo. Relanzar un subagente Sonnet EN ESE MISMO worktree con
-   esas fases. Al acabar: REVISAR (formaciones, ejercicios y medidas de minibasket son donde un entrenador ve
-   el error), merge `--no-ff` a master, tests/check/build, probar en el navegador, push y borrar el worktree.
+1. ✅ **Pizarra v2 PUBLICADA (15-oct)**: tiempo muerto + formaciones, ejercicios + minibasket, sesiones
+   imprimibles, modo jugador + QR + GIF, lecturas, nombres desde `cz.team.v1`, orden de acciones, hoja de banquillo.
+   517 tests. ⚠ **Sin verificar con el reglamento**: medidas de minibasket (`MINIBASKET.ZONA_LARGO`, tiro libre
+   a 4 m de la línea de fondo; FIBA mini lo mide desde el tablero) → confirmar con un entrenador de minibasket.
+   ⚠ La carpeta `.claude/worktrees/agent-a8ce156f780c92bb1` no se pudo borrar (bloqueada); la rama sí.
 2. 📧 **4 borradores en Gmail, en catalán, SIN ENVIAR** (AB Premià, Consell Esportiu Maresme, Ràdio Premià,
    La Clau). Enviar solo cuando el usuario lo diga; recomendado esperar a la pizarra v2 y empezar por el club.
    Lista completa de 18 objetivos en `trabajo/w30-enlaces-objetivos.md`.
