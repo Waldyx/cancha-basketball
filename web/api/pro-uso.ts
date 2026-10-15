@@ -20,6 +20,7 @@ const FUNCIONES = [
   "pizarra-lecturas",
   "stats-equipo",
   "stats-agente",
+  "minutos-rotacion",
 ];
 const EVENTOS = ["visto", "activado"];
 

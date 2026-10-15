@@ -1,0 +1,312 @@
+---
+// /minutos — control de minutos y períodos del baloncesto base: el entrenador marca quién sale
+// de inicio en cada período y la página avisa en directo de quién incumple la norma de
+// participación. Lógica pura en lib/rotaciones.ts. Todo se guarda en el navegador (cz.minutos.v1).
+import "../styles/cancha-redesign.css";
+import Base from "../layouts/Base.astro";
+import ProGate from "../components/ProGate.astro";
+import { REGLAS } from "../lib/rotaciones";
+---
+
+<Base
+  title="Control de minutos y períodos en minibasket | CANCHA.ZAPA"
+  description="Controla quién sale de inicio en cada período y cumple la norma de participación del minibasket y la passarel·la (FCBQ) o tu propia regla. Gratis, sin registro y en tu móvil."
+>
+  <main class="app">
+    <section class="doc-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Entrenadores · Partido</p>
+        <h1 class="doc-h1">Control de <span class="accent">minutos</span></h1>
+        <p class="doc-lede">
+          Marca quién sale de inicio en cada período y te avisa al momento de quién se queda corto o se pasa de la norma
+          de participación. Los nombres se quedan en tu navegador.
+        </p>
+      </div>
+    </section>
+
+    <div class="shell mn">
+      <section class="mn-panel">
+        <div class="mn-fila">
+          <label class="mn-campo">
+            <span>Norma</span>
+            <select id="mn-regla" class="mn-inp">
+              {REGLAS.map((r) => <option value={r.id}>{r.nombre} — {r.categorias}</option>)}
+              <option value="personalizada">Personalizada</option>
+            </select>
+          </label>
+          <label class="mn-campo" id="mn-equipo-campo" hidden>
+            <span>Cargar plantilla</span>
+            <select id="mn-equipo" class="mn-inp"></select>
+          </label>
+        </div>
+        <div id="mn-pers" class="mn-pers" hidden>
+          <label class="mn-campo"><span>Períodos</span><input class="mn-inp" type="number" data-p="periodos" min="2" max="10" /></label>
+          <label class="mn-campo"><span>En pista</span><input class="mn-inp" type="number" data-p="enPista" min="3" max="5" /></label>
+          <label class="mn-campo"><span>Mín. inicios</span><input class="mn-inp" type="number" data-p="minInicios" min="0" max="10" /></label>
+          <label class="mn-campo"><span>…antes del</span><input class="mn-inp" type="number" data-p="inicioHasta" min="1" max="10" title="Último período que cuenta para el mínimo" /></label>
+          <label class="mn-campo"><span>Máx. períodos</span><input class="mn-inp" type="number" data-p="maxParticipaciones" min="1" max="10" /></label>
+          <label class="mn-campo"><span>…hasta el</span><input class="mn-inp" type="number" data-p="maxHasta" min="1" max="10" title="Último período que cuenta para el máximo" /></label>
+        </div>
+        <p id="mn-nota" class="mn-nota"></p>
+        <label class="mn-campo">
+          <span>Jugadores (uno por línea)</span>
+          <textarea id="mn-jugadores" class="mn-inp mn-ta" rows="4" placeholder={"4 Laia\n7 Marc\n…"}></textarea>
+        </label>
+      </section>
+
+      <div id="mn-avisos" class="mn-avisos" role="status"></div>
+
+      <div class="mn-acciones">
+        <button type="button" id="mn-proponer" class="mn-bn" data-pro="minutos-rotacion">Proponer rotación</button>
+        <button type="button" id="mn-limpiar" class="mn-bn mn-bn-2">Borrar marcas</button>
+        <button type="button" id="mn-imprimir" class="mn-bn mn-bn-2">Imprimir</button>
+      </div>
+      <p class="mn-leyenda">Toca una casilla: <b class="mn-k mn-k-i">I</b> sale de inicio · <b class="mn-k mn-k-e">E</b> entra con el período empezado · vacía.</p>
+
+      <div class="mn-tabla-caja">
+        <table class="mn-tabla" id="mn-tabla"></table>
+      </div>
+      <p class="mn-privado">Los nombres y las marcas se guardan solo en este navegador. No se envían a ningún sitio.</p>
+    </div>
+  </main>
+  <ProGate />
+</Base>
+
+<style is:global>
+  .mn { padding-top: 20px; padding-bottom: 60px; display: flex; flex-direction: column; gap: 12px; }
+  .mn-panel { display: flex; flex-direction: column; gap: 10px; padding: 14px; background: var(--cz-card); border: 1px solid var(--cz-border); }
+  .mn-fila { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 10px; }
+  @media (max-width: 640px) { .mn-fila { grid-template-columns: 1fr; } }
+  .mn-campo { display: flex; flex-direction: column; gap: 3px; min-width: 0; font: 800 10px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--cz-text-2); }
+  .mn-inp { width: 100%; min-width: 0; min-height: 40px; padding: 6px 10px; background: var(--cz-bg); color: var(--cz-text); border: 1px solid var(--cz-border); border-radius: 0; font: 600 14px "Inter", sans-serif; text-transform: none; letter-spacing: 0; }
+  .mn-ta { min-height: 96px; resize: vertical; }
+  .mn-pers { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+  @media (max-width: 640px) { .mn-pers { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .mn-pers[hidden] { display: none; }
+  .mn-nota { margin: 0; font-size: 13px; line-height: 1.5; color: var(--cz-text-2); }
+  .mn-nota a { color: var(--cz-accent-text); }
+  .mn-avisos:empty { display: none; }
+  .mn-avisos { padding: 10px 12px; border-left: 3px solid var(--cz-amber-text); background: var(--cz-card); font-size: 13px; color: var(--cz-text); }
+  .mn-acciones { display: flex; flex-wrap: wrap; gap: 8px; }
+  .mn-bn { min-height: 42px; padding: 0 16px; background: #f97316; border: 1px solid #f97316; color: #0c0c0c; font: 900 12px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; border-radius: 0; }
+  .mn-bn-2 { background: transparent; color: var(--cz-text); border-color: var(--cz-border); }
+  .mn-leyenda { margin: 0; font-size: 12px; color: var(--cz-text-2); }
+  .mn-k { display: inline-flex; width: 18px; height: 18px; align-items: center; justify-content: center; font-size: 11px; }
+  .mn-k-i { background: #f97316; color: #0c0c0c; }
+  .mn-k-e { border: 1px solid #f97316; color: var(--cz-accent-text); }
+  .mn-tabla-caja { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--cz-border); }
+  .mn-tabla { width: 100%; border-collapse: collapse; font: 600 13px "Inter", sans-serif; }
+  .mn-tabla th, .mn-tabla td { padding: 4px; border-bottom: 1px solid var(--cz-border); text-align: center; }
+  .mn-tabla th { font: 800 11px "Inter", sans-serif; letter-spacing: .06em; color: var(--cz-text-2); background: var(--cz-card); }
+  .mn-tabla .mn-nom { text-align: left; white-space: nowrap; max-width: 160px; overflow: hidden; text-overflow: ellipsis; padding-left: 10px; color: var(--cz-text); position: sticky; left: 0; background: var(--cz-bg); z-index: 1; }
+  .mn-tabla th.mn-nom { background: var(--cz-card); }
+  .mn-tabla th.mn-ko { color: var(--cz-red-text); }
+  .mn-tabla th.mn-plazo { box-shadow: inset 0 -3px 0 #f97316; }
+  .mn-c { width: 38px; height: 38px; border: 1px solid var(--cz-border); background: transparent; color: var(--cz-text); font: 900 14px "Inter", sans-serif; cursor: pointer; border-radius: 0; }
+  .mn-c[data-m="I"] { background: #f97316; border-color: #f97316; color: #0c0c0c; }
+  .mn-c[data-m="E"] { border-color: #f97316; color: var(--cz-accent-text); }
+  .mn-est { text-align: left !important; min-width: 190px; font-size: 12px; padding-left: 8px !important; }
+  .mn-est[data-e="ok"] { color: var(--cz-green); }
+  .mn-est[data-e="tope"] { color: var(--cz-text-2); }
+  .mn-est[data-e="pendiente"] { color: var(--cz-amber-text); }
+  .mn-est[data-e="incumple"] { color: var(--cz-red-text); font-weight: 800; }
+  .mn-num { color: var(--cz-text-2); white-space: nowrap; }
+  .mn-privado { margin: 0; font-size: 12px; color: var(--cz-text-muted); }
+  @media print {
+    .mn-panel, .mn-acciones, .mn-leyenda, .mn-privado, .doc-hero p.doc-lede { display: none !important; }
+    .mn-tabla-caja { overflow: visible; border: 0; }
+  }
+</style>
+
+<script>
+  import { REGLAS, evaluar, proponerRotacion, reglaPersonalizada, LIMITES_ROTACION, type Marca, type Marcas, type ReglaParticipacion } from "../lib/rotaciones";
+  import { CLAVE_EQUIPO, equiposDeTexto } from "../lib/pizarraEquipo";
+
+  const CLAVE = "cz.minutos.v1";
+  type Estado = { regla: string; pers: Partial<ReglaParticipacion>; texto: string; marcas: Marcas };
+
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  const selRegla = $<HTMLSelectElement>("mn-regla");
+  const persEl = $("mn-pers");
+  const notaEl = $("mn-nota");
+  const txt = $<HTMLTextAreaElement>("mn-jugadores");
+  const tabla = $<HTMLTableElement>("mn-tabla");
+  const avisosEl = $("mn-avisos");
+  const selEquipo = $<HTMLSelectElement>("mn-equipo");
+
+  let st: Estado = { regla: REGLAS[0].id, pers: { periodos: 4, enPista: 5, minInicios: 1, inicioHasta: 3, maxParticipaciones: 3, maxHasta: 4 }, texto: "", marcas: {} };
+  try {
+    const raw = JSON.parse(localStorage.getItem(CLAVE) ?? "null");
+    if (raw && typeof raw === "object") st = { ...st, ...raw, marcas: raw.marcas && typeof raw.marcas === "object" ? raw.marcas : {} };
+  } catch {
+    /* sin almacenamiento o dato corrupto: se empieza de cero */
+  }
+  const guardar = () => {
+    try {
+      localStorage.setItem(CLAVE, JSON.stringify(st));
+    } catch {
+      /* sin almacenamiento: funciona igual durante la visita */
+    }
+  };
+
+  const regla = (): ReglaParticipacion => REGLAS.find((r) => r.id === st.regla) ?? reglaPersonalizada(st.pers);
+
+  /** Jugadores del textarea; el id es la propia línea, así las marcas sobreviven a reordenar. */
+  function jugadores() {
+    const vistos = new Set<string>();
+    return st.texto
+      .split("\n")
+      .map((l) => l.trim().slice(0, LIMITES_ROTACION.NOMBRE))
+      .filter((l) => l && !vistos.has(l) && vistos.add(l))
+      .slice(0, LIMITES_ROTACION.JUGADORES)
+      .map((l) => ({ id: l, nombre: l }));
+  }
+
+  function el(tag: string, cls?: string, text?: string) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  function pintar() {
+    const r = regla();
+    const js = jugadores();
+    const inf = evaluar(r, js, st.marcas);
+
+    notaEl.textContent = r.nota + " ";
+    if (r.fuente) {
+      const a = el("a", undefined, r.fuente) as HTMLAnchorElement;
+      if (r.fuenteUrl) {
+        a.href = r.fuenteUrl;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+      }
+      notaEl.append(a);
+    }
+    avisosEl.textContent = js.length ? inf.avisos.join(" ") : "Escribe la plantilla (uno por línea) o cárgala desde tu equipo.";
+
+    tabla.replaceChildren();
+    const cab = el("tr");
+    cab.append(el("th", "mn-nom", "Jugador"));
+    inf.periodos.forEach((p) => {
+      const th = el("th", undefined, `${p.periodo}.º`);
+      th.append(el("div", "mn-num", `${p.inicio}/${r.enPista}`));
+      if (!p.ok && js.length) th.classList.add("mn-ko");
+      if (p.periodo === r.inicioHasta) th.classList.add("mn-plazo");
+      th.title = p.periodo === r.inicioHasta ? `Último período que cuenta para el mínimo de inicios` : "";
+      cab.append(th);
+    });
+    cab.append(el("th", "mn-est", "Inicios · jugados · estado"));
+    tabla.append(cab);
+
+    js.forEach((j, k) => {
+      const tr = el("tr");
+      tr.append(el("td", "mn-nom", j.nombre));
+      for (let p = 0; p < r.periodos; p++) {
+        const m: Marca = st.marcas[j.id]?.[p] ?? "";
+        const b = el("button", "mn-c", m) as HTMLButtonElement;
+        b.type = "button";
+        b.dataset.j = j.id;
+        b.dataset.p = String(p);
+        b.dataset.m = m;
+        b.setAttribute("aria-label", `${j.nombre}, período ${p + 1}: ${m === "I" ? "sale de inicio" : m === "E" ? "entra empezado" : "no juega"}`);
+        const td = el("td");
+        td.append(b);
+        tr.append(td);
+      }
+      const i = inf.jugadores[k];
+      const est = el("td", "mn-est", `${i.inicios} · ${i.participaciones} · ${i.mensaje}`);
+      est.dataset.e = i.estado;
+      tr.append(est);
+      tabla.append(tr);
+    });
+  }
+
+  tabla.addEventListener("click", (e) => {
+    const b = (e.target as Element).closest<HTMLButtonElement>(".mn-c");
+    if (!b) return;
+    const id = b.dataset.j ?? "";
+    const p = Number(b.dataset.p);
+    const fila = (st.marcas[id] ??= []);
+    const sig: Record<Marca, Marca> = { "": "I", I: "E", E: "" };
+    fila[p] = sig[(fila[p] ?? "") as Marca];
+    guardar();
+    pintar();
+  });
+
+  selRegla.addEventListener("change", () => {
+    st.regla = selRegla.value;
+    persEl.hidden = st.regla !== "personalizada";
+    guardar();
+    pintar();
+  });
+  persEl.addEventListener("change", (e) => {
+    const inp = e.target as HTMLInputElement;
+    const clave = inp.dataset.p as keyof ReglaParticipacion | undefined;
+    if (!clave) return;
+    st.pers = { ...st.pers, [clave]: Number(inp.value) };
+    const r = reglaPersonalizada(st.pers); // ajusta a valores coherentes y lo refleja en los campos
+    st.pers = { periodos: r.periodos, enPista: r.enPista, minInicios: r.minInicios, inicioHasta: r.inicioHasta, maxParticipaciones: r.maxParticipaciones, maxHasta: r.maxHasta };
+    rellenarPers();
+    guardar();
+    pintar();
+  });
+  txt.addEventListener("input", () => {
+    st.texto = txt.value;
+    guardar();
+    pintar();
+  });
+  $("mn-proponer").addEventListener("click", () => {
+    const js = jugadores();
+    if (!js.length) return;
+    const tieneMarcas = js.some((j) => (st.marcas[j.id] ?? []).some(Boolean));
+    if (tieneMarcas && !confirm("La propuesta sustituye las marcas que ya has puesto. ¿Seguir?")) return;
+    st.marcas = { ...st.marcas, ...proponerRotacion(regla(), js) };
+    guardar();
+    pintar();
+  });
+  $("mn-limpiar").addEventListener("click", () => {
+    if (!confirm("¿Borrar todas las marcas de la tabla? Los jugadores se quedan.")) return;
+    st.marcas = {};
+    guardar();
+    pintar();
+  });
+  $("mn-imprimir").addEventListener("click", () => window.print());
+
+  function rellenarPers() {
+    persEl.querySelectorAll<HTMLInputElement>("input[data-p]").forEach((i) => {
+      const v = st.pers[i.dataset.p as keyof ReglaParticipacion];
+      i.value = v === undefined ? "" : String(v);
+    });
+  }
+
+  // plantilla desde el modo Equipo de /estadisticas, si existe
+  let equipos: ReturnType<typeof equiposDeTexto> = [];
+  try {
+    equipos = equiposDeTexto(localStorage.getItem(CLAVE_EQUIPO));
+  } catch {
+    /* sin almacenamiento */
+  }
+  if (equipos.length) {
+    $("mn-equipo-campo").hidden = false;
+    selEquipo.append(new Option("Elige un equipo…", ""));
+    for (const eq of equipos) selEquipo.append(new Option(eq.categoria ? `${eq.nombre} · ${eq.categoria}` : eq.nombre, eq.id));
+    selEquipo.addEventListener("change", () => {
+      const eq = equipos.find((x) => x.id === selEquipo.value);
+      if (!eq) return;
+      st.texto = eq.jugadores.map((j) => `${j.dorsal} ${j.nombre}`.trim()).join("\n");
+      txt.value = st.texto;
+      guardar();
+      pintar();
+      selEquipo.value = "";
+    });
+  }
+
+  selRegla.value = REGLAS.some((r) => r.id === st.regla) || st.regla === "personalizada" ? st.regla : REGLAS[0].id;
+  st.regla = selRegla.value;
+  persEl.hidden = st.regla !== "personalizada";
+  rellenarPers();
+  txt.value = st.texto;
+  pintar();
+</script>

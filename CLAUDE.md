@@ -330,7 +330,14 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   transición) da ×1,6 de peso a sus bloques; la duración reparte minutos con suma exacta (mín. 3/bloque); los
   jugadores añaden una nota "Organización:" por bloque (tríos, parejas, canastas, partidillo que cabe). El foco y
   la organización se DEDUCEN del ejercicio o del título del bloque (`POR_EJERCICIO` en `pizarraSesionesEdad.ts`).
-- ▶️ **Siguiente**: control de minutos configurable por federación → biblioteca del club → mapa de tiro.
+- ✅ **Control de minutos `/minutos/` (16-oct)**: rejilla jugador × período (I = sale de inicio, E = entra
+  empezado), avisos en directo y "Proponer rotación" (Pro, `minutos-rotacion`). Lógica en `lib/rotaciones.ts`.
+  Normas: **FCBQ mini** (8×6', ≥3 inicios antes del 7.º incl., máx. 5; con 12, uno hace el 3.º en el 8.º) y
+  **FCBQ passarel·la** (8×5', en los 6 primeros ≥2 inicios y máx. 4; 7.º-8.º libres) + personalizada.
+  ⚠ Fuente: Resum de reglaments FCBQ **Comunicat 1-1415** (el más reciente legible; un resumen dice que el
+  2-2223 dice lo mismo). La web de la FCBQ da 403 a las descargas: **confirmar la vigente con un entrenador**.
+  Asturias NO incluida (solo vista en un resumen de buscador). Viable mini 8-12 jugadores, passarel·la 8-15.
+- ▶️ **Siguiente**: biblioteca del club → mapa de tiro.
 - ▶️ **Paso 3, por orden**: control de minutos/cuartos (verificar normas de participación de la FCBQ) → mapa de
   tiro → libro de jugadas con escudo del club → etiquetas de vídeo. Más ideas: informe del rival (actas FEB),
   plan de partido, generador de sesiones con IA, evaluación de jugadores + informe a familias, tests físicos,
