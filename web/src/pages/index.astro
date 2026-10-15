@@ -272,6 +272,29 @@ const homeJsonLd = {
       </div>
     </section>
 
+    {/* HERRAMIENTAS para jugadores y entrenadores */}
+    <section class="home-shortcuts">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Herramientas gratis</p>
+        <h2 class="home-h2-sm">Para jugadores y entrenadores</h2>
+        <div class="home-shortcut-grid">
+          {[
+            { href: "/pizarra/",      cat: "responsive",      tag: "Entrenadores", label: "Pizarra táctica", desc: "Dibuja, anima y comparte jugadas" },
+            { href: "/estadisticas/", cat: "balanced",        tag: "Jugador · Equipo", label: "Estadísticas", desc: "Importa actas FEB y analiza la temporada" },
+            { href: "/quiz/",         cat: "cushion-focused", tag: "Jugadores", label: "Quiz de zapatilla", desc: "La tuya según posición y lesiones" },
+            { href: "/calculadora/",  cat: "traction-king",   tag: "Jugadores", label: "Coste por partido", desc: "Lo que te cuesta cada partido" },
+          ].map(({ href, cat, tag, label, desc }) => (
+            <a href={href} class="home-shortcut" style={`--cat:${CAT_ACCENT[cat]}`}>
+              <span class="hsc-cat">{tag}</span>
+              <span class="hsc-label">{label}</span>
+              <span class="hsc-desc">{desc}</span>
+              <span class="hsc-arrow">→</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
     {/* TOP 3 BBDD */}
     <section class="home-top3">
       <div class="shell">
