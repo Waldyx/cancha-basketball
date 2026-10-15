@@ -302,6 +302,35 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ## 🔴 Pendientes abiertos
 
+### ▶️ PARA RETOMAR (tras el clear del 15-oct) — EMPIEZA AQUÍ
+1. 🔄 **Pizarra v2 A MEDIAS** en el worktree `.claude/worktrees/agent-a8ce156f780c92bb1`, rama
+   `worktree-agent-a8ce156f780c92bb1` (SIN merge). Hechas y commiteadas las fases 1 (`dc7559a` modo tiempo
+   muerto + formaciones) y 2 (`b963e9e` ejercicios, filas, zonas, entrenador, pista minibasket). El trabajador
+   puede seguir vivo o haber muerto con el clear: mirar `git log master..worktree-agent-a8ce156f780c92bb1`.
+   Faltan, si no aparecen commits nuevos: **fase 3** plan de sesión imprimible · **fase 4** enlace "modo
+   jugador" + QR + GIF animado · **fase 5** lecturas/ramas, nombres desde la plantilla de `cz.team.v1`,
+   orden de acciones numerado, hoja de banquillo. Relanzar un subagente Sonnet EN ESE MISMO worktree con
+   esas fases. Al acabar: REVISAR (formaciones, ejercicios y medidas de minibasket son donde un entrenador ve
+   el error), merge `--no-ff` a master, tests/check/build, probar en el navegador, push y borrar el worktree.
+2. 📧 **4 borradores en Gmail, en catalán, SIN ENVIAR** (AB Premià, Consell Esportiu Maresme, Ràdio Premià,
+   La Clau). Enviar solo cuando el usuario lo diga; recomendado esperar a la pizarra v2 y empezar por el club.
+   Lista completa de 18 objetivos en `trabajo/w30-enlaces-objetivos.md`.
+3. 🔎 **Mañana (16-oct)**: pedir indexación en Search Console de `/pizarra/` y `/estadisticas/` (cupo ~10/día;
+   el del 15 se gastó). Revisar Search Console hacia el **29-oct**.
+4. ❓ Pendiente del usuario: ¿proyecto personal o negocio? (decide el tono del outreach) · probar pizarra y
+   estadísticas con un partido real del Premià · revisar las 5 plantillas de la pizarra (en la zona 2-3 el texto
+   dice "ala derecha" y el balón va a la izquierda vista desde arriba) · Bing Webmaster Tools (importar de GSC)
+   · permisos de la app Claude en GitHub · decisión Nike en AliExpress POIZON (recomendado: no).
+
+**Hecho el 15-oct (todo en producción):** modo Equipo de estadísticas (`statsEquipo.ts` + `scripts/statsEquipoUI.ts`,
+enlaces en el hash, enviar a jugador, tarjetas, CSV, aviso de pérdida de datos + copia de seguridad +
+`storage.persist`) · pizarra v1 en `/pizarra` (merge `1cd3dda`) · redirección `/ruta` → `/ruta/` en `vercel.json`
+(cada página respondía 200 en las dos formas) · **IndexNow**: clave `public/3bf4b75a1833c661c41f6043eb691d9b.txt`,
+301 URLs aceptadas (para reenviar: POST a `api.indexnow.org/IndexNow` con host, key, keyLocation y urlList) ·
+bloque "Para jugadores y entrenadores" en la portada · título/JSON-LD de `/estadisticas`. 363 tests.
+🔑 **Regla de producto nueva**: los datos de usuario (estadísticas, pizarra) viven solo en el navegador; nada de
+backend con datos de menores. Siempre aviso de pérdida + copia de seguridad.
+
 ### ▶️ S56 (15-oct) — EL PROBLEMA ES DE INDEXACIÓN: Google tiene 6 páginas de 485
 
 🔴 **Search Console, medido el 15-oct** (por fin; sesión de Google en el navegador integrado):
