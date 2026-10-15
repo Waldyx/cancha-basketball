@@ -38,6 +38,21 @@ const jsonLd = {
         <button type="button" class="pz-bn pz-bn-2" data-act="editar-copia">Editar una copia</button>
       </div>
 
+      <div class="pz-plhead" data-pz="pl-head">
+        <strong class="pz-pl-nombre" data-pz="pl-nombre"></strong>
+        <div class="pz-pl-ctl" role="group" aria-label="Reproducción">
+          <button type="button" class="pz-plb" data-act="pl-prev" aria-label="Paso anterior">◀</button>
+          <button type="button" class="pz-plb pz-plb-play" data-act="pl-play" data-pz="pl-play" aria-label="Pausar">❚❚</button>
+          <button type="button" class="pz-plb" data-act="pl-next" aria-label="Paso siguiente">▶</button>
+          <select class="pz-vel" data-pz="pl-vel" aria-label="Velocidad">
+            <option value="0.5">0,5×</option>
+            <option value="1" selected>1×</option>
+            <option value="1.5">1,5×</option>
+          </select>
+          <span class="pz-info pz-pl-paso" data-pz="pl-paso"></span>
+        </div>
+      </div>
+
       <div class="pz-toolbar" role="toolbar" aria-label="Herramientas de la pizarra">
         <div class="pz-grp pz-edit" role="group" aria-label="Seleccionar">
           <button type="button" class="pz-btn" data-tool="select" aria-label="Seleccionar y mover (V)" title="Seleccionar y mover (V)" aria-pressed="true">
@@ -174,6 +189,19 @@ const jsonLd = {
             <div data-pz="formaciones-lista"></div>
           </div>
 
+          <div class="pz-share pz-qr" data-pz="qr" role="dialog" aria-label="Código QR del enlace para jugadores" hidden>
+            <div class="pz-share-h">
+              <strong>Código QR · modo jugador</strong>
+              <button type="button" class="pz-x" data-act="cerrar-qr" aria-label="Cerrar">✕</button>
+            </div>
+            <div class="pz-qr-box" data-pz="qr-img"></div>
+            <p class="pz-small" data-pz="qr-aviso"></p>
+            <div class="pz-row">
+              <button type="button" class="pz-bn" data-act="qr-grande">Mostrar más grande</button>
+              <button type="button" class="pz-bn pz-bn-2" data-act="copy-link-jugador">Copiar enlace</button>
+            </div>
+          </div>
+
           <div class="pz-share" data-pz="share" role="dialog" aria-label="Compartir y exportar" hidden>
             <div class="pz-share-h">
               <strong>Compartir</strong>
@@ -190,6 +218,14 @@ const jsonLd = {
               </div>
             </div>
             <div class="pz-share-s">
+              <h3>Para tus jugadores (solo ver)</h3>
+              <div class="pz-row">
+                <button type="button" class="pz-bn" data-act="copy-link-jugador">Copiar enlace de solo ver</button>
+                <button type="button" class="pz-bn pz-bn-2" data-act="qr">Código QR</button>
+              </div>
+              <p class="pz-small">Abre la jugada a pantalla casi completa, repitiéndose en bucle y con las notas, sin las herramientas de edición. Con el QR la escanean desde la tableta o el proyector.</p>
+            </div>
+            <div class="pz-share-s">
               <h3>Imagen (WhatsApp, correo)</h3>
               <div class="pz-row">
                 <button type="button" class="pz-bn pz-bn-2" data-act="png-paso">PNG del paso actual</button>
@@ -197,11 +233,16 @@ const jsonLd = {
               </div>
             </div>
             <div class="pz-share-s">
-              <h3>Vídeo de la animación</h3>
+              <h3>Animación (GIF y vídeo)</h3>
+              <div class="pz-row">
+                <button type="button" class="pz-bn" data-act="gif">Exportar GIF</button>
+                <button type="button" class="pz-bn pz-bn-2" data-act="compartir-gif" data-pz="compartir-gif" hidden>Compartir el GIF</button>
+              </div>
+              <p class="pz-small">El GIF se ve en cualquier móvil, también en WhatsApp de iPhone.</p>
               <div class="pz-row pz-video-ok">
                 <button type="button" class="pz-bn pz-bn-2" data-act="video">Grabar vídeo (WebM)</button>
               </div>
-              <p class="pz-small pz-video-no">Tu navegador no puede grabar vídeo (pasa en Safari). Usa Chrome, Edge o Firefox para el vídeo, o comparte imágenes y el enlace.</p>
+              <p class="pz-small pz-video-no">Tu navegador no puede grabar vídeo WebM (pasa en Safari): usa el GIF, que sí funciona.</p>
             </div>
             <div class="pz-share-s">
               <h3>Imprimir o guardar como PDF</h3>
@@ -334,6 +375,15 @@ const jsonLd = {
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h4v15H4zM10 5h4v15h-4zM16.500 6.500l3.500-1 3 14-3.500 1z" transform="translate(-1 0) scale(.95)"/></svg><span class="pz-lbl">Biblioteca</span>
           </button>
         </div>
+      </div>
+
+      <div class="pz-plnotas" data-pz="pl-notas">
+        <p class="pz-pl-nota" data-pz="pl-nota-paso"></p>
+        <details class="pz-pl-det" data-pz="pl-det">
+          <summary>Notas de la jugada</summary>
+          <p data-pz="pl-notas-j"></p>
+        </details>
+        <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-act="pl-editar">Abrir en el editor</button>
       </div>
 
       <div class="pz-ses" data-pz="ses" role="dialog" aria-label="Sesión de entrenamiento" hidden>
@@ -649,6 +699,33 @@ const jsonLd = {
     .pz-ses-roi .pz-bl { grid-template-columns: 1fr; }
   }
 
+  /* ── modo jugador (solo ver) ── */
+  .pz-plhead, .pz-plnotas { display: none; }
+  .pz-app.pz-jugador { padding: 6px; gap: 6px; }
+  .pz-app.pz-jugador .pz-toolbar, .pz-app.pz-jugador .pz-side, .pz-app.pz-jugador .pz-bottom, .pz-app.pz-jugador .pz-banner, .pz-app.pz-jugador .pz-selbar, .pz-app.pz-jugador .pz-hint { display: none !important; }
+  .pz-app.pz-jugador .pz-main { flex: 1; min-height: 0; }
+  .pz-app.pz-jugador .pz-board { flex: 1; aspect-ratio: auto; max-height: none; }
+  .pz-app.pz-jugador .pz-plhead { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; padding: 4px 6px; }
+  .pz-app.pz-jugador .pz-plnotas { display: block; flex: none; max-height: 34vh; overflow-y: auto; padding: 8px 10px; background: var(--cz-card); border: 1px solid var(--cz-border); }
+  .pz-pl-nombre { flex: 1 1 200px; min-width: 0; font: 900 clamp(20px, 5vw, 30px) "Barlow Condensed", sans-serif; letter-spacing: 0.03em; text-transform: uppercase; color: var(--cz-text); overflow-wrap: anywhere; }
+  .pz-pl-ctl { display: flex; align-items: center; gap: 6px; }
+  .pz-plb { min-width: 48px; height: 44px; border: 1px solid var(--cz-border); background: var(--cz-card); color: var(--cz-text); font: 800 16px "Inter", sans-serif; cursor: pointer; border-radius: 0; touch-action: manipulation; }
+  .pz-plb-play { background: var(--cz-accent); color: var(--cz-ink); border-color: var(--cz-accent); min-width: 64px; }
+  .pz-pl-paso { padding: 0 4px; }
+  .pz-pl-nota { margin: 0 0 6px; font-size: clamp(15px, 4vw, 18px); line-height: 1.4; color: var(--cz-text); }
+  .pz-pl-nota:empty { display: none; }
+  .pz-pl-det { margin: 0 0 8px; font-size: 14px; color: var(--cz-text-soft); }
+  .pz-pl-det summary { cursor: pointer; font-weight: 700; }
+  .pz-pl-det p { margin: 6px 0 0; white-space: pre-wrap; line-height: 1.45; }
+  .pz-pl-det[hidden] { display: none; }
+
+  /* ── código QR ── */
+  .pz-qr { width: min(460px, calc(100vw - 16px)); }
+  .pz-qr-box { margin: 10px auto; width: min(340px, 100%); background: #fff; padding: 0; line-height: 0; }
+  .pz-qr-box svg { display: block; width: 100%; height: auto; }
+  .pz-qr.pz-qr-grande { width: min(96vw, 96dvh); max-height: 98dvh; }
+  .pz-qr.pz-qr-grande .pz-qr-box { width: min(100%, calc(96dvh - 170px)); }
+
   /* ── compartir ── */
   .pz-share { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 250; width: min(440px, calc(100vw - 16px)); max-height: min(88dvh, 760px); overflow-y: auto; padding: 12px; background: var(--cz-card); border: 1px solid var(--cz-accent); box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.55); }
   .pz-share[hidden] { display: none; }
@@ -702,6 +779,8 @@ const jsonLd = {
     .pz-stepact [data-act="dup-step"] { display: none; }
   }
   html.pz-modal #cz-chat { display: none !important; }
+  /* con un diálogo abierto, la pizarra pasa por ENCIMA de la cabecera y del banner de cookies (el main crea su propio apilado) */
+  html.pz-modal #main-content { z-index: 400 !important; }
 
   /* ── impresión / PDF: una jugada por página ── */
   @media print {

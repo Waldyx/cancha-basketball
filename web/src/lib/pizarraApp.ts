@@ -24,6 +24,8 @@ import {
   deshacer,
   dist,
   distAPolilinea,
+  esModoJugador,
+  hashModoJugador,
   flechaPorDefecto,
   duplicarPaso,
   estadoEnTiempo,
@@ -91,6 +93,8 @@ import {
 } from "./pizarraRender";
 import { PLANTILLAS, PLANTILLAS_EJERCICIOS } from "./pizarraPlantillas";
 import { FORMACIONES, aplicarFormacion, aroDe, formacionPorId } from "./pizarraFormaciones";
+import { avisoQR, evaluarQR, svgQR } from "./pizarraQR";
+import { calendarioFotogramas, crearGif, parametrosGif, retrasoFotograma } from "./pizarraGif";
 import { decodificarEnlaceSesion, normalizarSesiones, remapearJugadas, sesionesDeLibro, type Sesion } from "./pizarraSesion";
 import { iniciarSesiones, type ControlSesiones } from "./pizarraSesionUI";
 
@@ -270,6 +274,17 @@ export function iniciarPizarra(): void {
   const inpEnlace = q<HTMLInputElement>("enlace");
   const infoEnlace = q("enlace-info");
   const fileEl = q<HTMLInputElement>("file");
+  const qrEl = q("qr");
+  const qrImgEl = q("qr-img");
+  const qrAvisoEl = q("qr-aviso");
+  const gifCompartirEl = q("compartir-gif");
+  const plNombre = q("pl-nombre");
+  const plPaso = q("pl-paso");
+  const plNotaPaso = q("pl-nota-paso");
+  const plNotasJ = q("pl-notas-j");
+  const plDet = q("pl-det");
+  const plPlay = q("pl-play");
+  const plVel = q<HTMLSelectElement>("pl-vel");
   const formEl = q("formaciones");
   const formListaEl = q("formaciones-lista");
   const formEspejoEl = q("form-espejo");
@@ -310,11 +325,17 @@ export function iniciarPizarra(): void {
   let tmGesto: TmGesto | null = null;
   let tmFlecha: string | null = null;
   let formEspejo = false;
+  // modo jugador (solo ver): jugada a pantalla casi completa, en bucle, con las notas
+  let jugador = false;
+  let jugPausa = false;
+  let jugRaf = 0;
+  let jugAcum = 0;
+  let ultimoGif: { blob: Blob; nombre: string } | null = null;
 
   const actual = (): Jugada => trabajo ?? hist.presente;
-  const escalaPiezas = () => (tm ? ESCALA_TM : 1);
+  const escalaPiezas = () => (tm ? ESCALA_TM : jugador ? 1.15 : 1);
   /** En tiempo muerto la pista se pone apaisada si la pantalla lo es; si no, la vista guardada. */
-  const orientVista = (): Orient => (tm ? (window.innerWidth >= window.innerHeight ? "h" : "v") : actual().orient);
+  const orientVista = (): Orient => (tm || jugador ? (window.innerWidth >= window.innerHeight ? "h" : "v") : actual().orient);
 
   // ── utilidades de UI ────────────────────────────────────────────────
   let toastT = 0;
@@ -1428,7 +1449,7 @@ export function iniciarPizarra(): void {
   }
   /** Con un panel o diálogo abierto, el botón del chat flotante sobraría encima. */
   function estadoModal() {
-    const abierto = tm || !shareEl.hidden || !formEl.hidden || (sideEl.classList.contains("open") && window.matchMedia("(max-width: 900px)").matches);
+    const abierto = tm || jugador || !qrEl.hidden || !shareEl.hidden || !formEl.hidden || (sideEl.classList.contains("open") && window.matchMedia("(max-width: 900px)").matches);
     document.documentElement.classList.toggle("pz-modal", abierto);
   }
   function abrirPanelMovil(t: string) {
@@ -1797,6 +1818,7 @@ export function iniciarPizarra(): void {
         return;
       }
       const c: CargaEnlace = await decodificarEnlace(payload);
+      salirJugador(false);
       compartidas = c.jugadas;
       cargarJugada(c.jugadas[0], { vista: true });
       q("banner-texto").textContent =
@@ -1805,6 +1827,7 @@ export function iniciarPizarra(): void {
           : `Playbook compartido con ${c.jugadas.length} jugadas (se muestra la primera). Están en Biblioteca > Compartidas contigo.`;
       pintarBiblioteca();
       if (c.tipo === "libro") abrirPanelMovil("biblioteca");
+      else if (esModoJugador(location.hash)) entrarJugador();
     } catch (e) {
       toast("Este enlace no es válido o está incompleto" + (e instanceof Error && e.message ? ` (${e.message})` : "") + ".", 7000);
     }
@@ -1942,12 +1965,239 @@ export function iniciarPizarra(): void {
     toast("Formación inicial recuperada.", 1800);
   }
 
+  // ── modo jugador ────────────────────────────────────────────────────
+  const inicioDePasoJ = (k: number) => k * (PAUSA_PASO + DURACION_TRANSICION);
+
+  function pintarNotasJugador() {
+    const j = actual();
+    plNombre.textContent = j.nombre;
+    plPaso.textContent = `Paso ${paso + 1} / ${j.pasos.length}`;
+    plNotaPaso.textContent = j.pasos[Math.min(paso, j.pasos.length - 1)]?.nota ?? "";
+    plNotasJ.textContent = j.notas;
+    plDet.hidden = !j.notas;
+  }
+
+  function bucleJugador() {
+    cancelAnimationFrame(jugRaf);
+    const j = actual();
+    if (j.pasos.length < 2) {
+      paso = 0;
+      anim = null;
+      pintar();
+      pintarNotasJugador();
+      return;
+    }
+    const total = duracionTotal(j);
+    const PAUSA_FIN = 1500;
+    let t0 = performance.now();
+    let ultK = -1;
+    const f = (ahora: number) => {
+      if (!jugador) return;
+      if (!jugPausa) jugAcum += (ahora - t0) * (Number(plVel.value) || 1);
+      t0 = ahora;
+      if (jugAcum > total + PAUSA_FIN) jugAcum = 0;
+      const st = estadoEnTiempo(j, Math.min(jugAcum, total));
+      if (st.fin) {
+        anim = null;
+        paso = j.pasos.length - 1;
+      } else {
+        anim = { k: st.k, t: st.t };
+        paso = st.k;
+      }
+      pintar();
+      if (paso !== ultK) {
+        ultK = paso;
+        pintarNotasJugador();
+      }
+      jugRaf = requestAnimationFrame(f);
+    };
+    jugRaf = requestAnimationFrame(f);
+  }
+
+  function ponerPausaJugador(p: boolean) {
+    jugPausa = p;
+    plPlay.textContent = p ? "▶" : "❚❚";
+    plPlay.setAttribute("aria-label", p ? "Reproducir" : "Pausar");
+  }
+
+  function entrarJugador() {
+    detener();
+    jugador = true;
+    jugAcum = 0;
+    ponerPausaJugador(false);
+    sel = null;
+    root.classList.add("pz-jugador", "pz-fs");
+    document.documentElement.classList.add("pz-fs-lock");
+    estadoModal();
+    pintarNotasJugador();
+    bucleJugador();
+  }
+
+  function salirJugador(quitarModoDelEnlace = true) {
+    if (!jugador) return;
+    jugador = false;
+    cancelAnimationFrame(jugRaf);
+    anim = null;
+    paso = 0;
+    root.classList.remove("pz-jugador");
+    if (!document.fullscreenElement) {
+      root.classList.remove("pz-fs");
+      document.documentElement.classList.remove("pz-fs-lock");
+    }
+    if (quitarModoDelEnlace) {
+      const p = payloadDeHash(location.hash);
+      if (p) {
+        try {
+          history.replaceState(null, "", `${location.pathname}${location.search}#j=${p}`);
+        } catch {
+          /* da igual */
+        }
+      }
+    }
+    estadoModal();
+    refrescarTodo();
+  }
+
+  function pasoJugador(delta: number) {
+    const j = actual();
+    const k = Math.max(0, Math.min(j.pasos.length - 1, paso + delta));
+    ponerPausaJugador(true);
+    jugAcum = inicioDePasoJ(k);
+    paso = k;
+    anim = null;
+    pintar();
+    pintarNotasJugador();
+  }
+
+  // ── enlace para jugadores y QR ──────────────────────────────────────
+  async function urlJugador(): Promise<string> {
+    const payload = await codificarEnlace([hist.presente]);
+    return `${location.origin}${location.pathname}${hashModoJugador(payload)}`;
+  }
+
+  async function copiarEnlaceJugador() {
+    try {
+      const url = await urlJugador();
+      if (await copiar(url)) toast("Enlace de solo ver copiado: los jugadores lo abren y ven la jugada en bucle");
+      else toast("No se pudo copiar el enlace automáticamente.");
+    } catch {
+      toast("No se pudo generar el enlace.");
+    }
+  }
+
+  async function abrirQR() {
+    try {
+      const url = await urlJugador();
+      const ev = evaluarQR(url);
+      qrImgEl.replaceChildren();
+      const svgTxt = svgQR(url);
+      if (svgTxt) qrImgEl.innerHTML = svgTxt; // SVG generado por nosotros, sin texto del usuario
+      qrImgEl.hidden = !svgTxt;
+      qrAvisoEl.textContent = avisoQR(ev) || `${ev.modulos}×${ev.modulos} módulos · se lee bien incluso en un móvil pequeño.`;
+      qrAvisoEl.classList.toggle("warn", ev.lectura === "largo" || ev.lectura === "imposible");
+      qrEl.classList.remove("pz-qr-grande");
+      shareEl.hidden = true;
+      qrEl.hidden = false;
+      estadoModal();
+    } catch {
+      toast("No se pudo generar el código QR.");
+    }
+  }
+
+  // ── GIF ─────────────────────────────────────────────────────────────
+  async function exportarGif() {
+    const j = clonar(hist.presente);
+    if (j.pasos.length < 2) return void toast("Crea al menos dos pasos para exportar la animación.");
+    if (grabando) return;
+    detener();
+    grabando = true;
+    root.classList.add("pz-rec");
+    const par = parametrosGif(j);
+    const pal = PALETAS[paleta];
+    try {
+      const base = renderCuadro(j, 0, { paleta: pal, ancho: par.ancho, notas: false });
+      const canvas = document.createElement("canvas");
+      canvas.width = base.w;
+      canvas.height = base.h;
+      const c2 = canvas.getContext("2d", { willReadFrequently: true });
+      if (!c2) throw new Error("sin canvas");
+      const gif = crearGif();
+      const cal = calendarioFotogramas(j, par.fps);
+      const retraso = retrasoFotograma(par.fps);
+      for (let i = 0; i < cal.length; i++) {
+        const st = estadoEnTiempo(j, cal[i]);
+        const l = renderCuadro(j, st.k, { paleta: pal, ancho: par.ancho, notas: false, piezas: posicionesEnTransicion(j, st.k, st.t), opacidadLineas: st.t > 0 ? 0.4 : 1 });
+        const url = URL.createObjectURL(new Blob([l.svg], { type: "image/svg+xml;charset=utf-8" }));
+        try {
+          const img = new Image();
+          await new Promise<void>((ok, ko) => {
+            img.onload = () => ok();
+            img.onerror = () => ko(new Error("fotograma"));
+            img.src = url;
+          });
+          c2.drawImage(img, 0, 0, canvas.width, canvas.height);
+        } finally {
+          URL.revokeObjectURL(url);
+        }
+        gif.anadir(c2.getImageData(0, 0, canvas.width, canvas.height).data, canvas.width, canvas.height, i === cal.length - 1 ? par.pausaFinal : retraso);
+        if (i % 5 === 0) {
+          toast(`Creando el GIF… ${Math.round((i / cal.length) * 100)} %`, 3000);
+          await new Promise((r) => setTimeout(r, 0));
+        }
+      }
+      const blob = new Blob([gif.terminar() as BlobPart], { type: "image/gif" });
+      const nombre = nombreArchivo(j.nombre, "gif");
+      descargar(blob, nombre);
+      ultimoGif = { blob, nombre };
+      gifCompartirEl.hidden = typeof navigator.canShare !== "function";
+      toast(`GIF descargado (${(blob.size / 1_000_000).toFixed(1)} MB, ${cal.length} fotogramas). Se ve en WhatsApp, también en iPhone.`, 6000);
+    } catch {
+      toast("No se pudo crear el GIF en este navegador.");
+    } finally {
+      grabando = false;
+      root.classList.remove("pz-rec");
+    }
+  }
+
+  async function compartirGif() {
+    if (!ultimoGif) return void toast("Primero exporta el GIF.");
+    const f = new File([ultimoGif.blob], ultimoGif.nombre, { type: "image/gif" });
+    try {
+      if (navigator.canShare?.({ files: [f] })) await navigator.share({ files: [f], title: hist.presente.nombre });
+      else toast("Tu navegador no deja compartir archivos: usa el GIF que se ha descargado.");
+    } catch (e) {
+      if (!(e instanceof DOMException && e.name === "AbortError")) toast("No se pudo compartir el GIF.");
+    }
+  }
+
   // ── acciones (botones) ──────────────────────────────────────────────
   function accion(act: string, b: HTMLElement) {
     const j = hist.presente;
     switch (act) {
       case "ses":
         return control?.abrir();
+      case "pl-play":
+        return ponerPausaJugador(!jugPausa);
+      case "pl-prev":
+        return pasoJugador(-1);
+      case "pl-next":
+        return pasoJugador(1);
+      case "pl-editar":
+        return salirJugador();
+      case "copy-link-jugador":
+        return void copiarEnlaceJugador();
+      case "qr":
+        return void abrirQR();
+      case "cerrar-qr":
+        qrEl.hidden = true;
+        return estadoModal();
+      case "qr-grande":
+        qrEl.classList.toggle("pz-qr-grande");
+        return;
+      case "gif":
+        return void exportarGif();
+      case "compartir-gif":
+        return void compartirGif();
       case "tm":
         return tm ? salirTM() : entrarTM();
       case "tm-salir":
@@ -2150,6 +2400,11 @@ export function iniciarPizarra(): void {
     if (e.key === "Escape") {
       if (control?.estaAbierta()) {
         control.cerrar();
+      } else if (!qrEl.hidden) {
+        qrEl.hidden = true;
+        estadoModal();
+      } else if (jugador) {
+        salirJugador();
       } else if (!formEl.hidden) {
         formEl.hidden = true;
         estadoModal();
@@ -2177,6 +2432,14 @@ export function iniciarPizarra(): void {
       return guardarActual();
     }
     if (ctrl || e.altKey) return;
+    if (jugador) {
+      if (e.key === " ") {
+        e.preventDefault();
+        ponerPausaJugador(!jugPausa);
+      } else if (e.key === "ArrowLeft") pasoJugador(-1);
+      else if (e.key === "ArrowRight") pasoJugador(1);
+      return;
+    }
     if (e.key.toLowerCase() === "t") return tm ? salirTM() : entrarTM();
     if (tm) return;
     if (e.key === "Delete" || e.key === "Backspace") {
@@ -2201,6 +2464,7 @@ export function iniciarPizarra(): void {
   window.addEventListener("resize", () => pintar());
   window.addEventListener("hashchange", () => {
     if (payloadDeHash(location.hash) !== null) void abrirDesdeHash();
+    else if (jugador) salirJugador(false);
   });
   window.addEventListener("pagehide", () => persistir(true));
 

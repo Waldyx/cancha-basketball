@@ -1324,6 +1324,17 @@ export async function decodificarEnlace(texto: string): Promise<CargaEnlace> {
   return { tipo: tipo === "j" ? "jugada" : "libro", jugadas };
 }
 
+/**
+ * ¿El enlace pide el MODO JUGADOR (solo ver, a pantalla casi completa y con la animación en
+ * bucle)? Se pide con `&m=jugador` detrás del payload: `#j=zj…&m=jugador`.
+ */
+export function esModoJugador(hash: string): boolean {
+  return /(?:^#?|&)m=jugador(?:&|$)/.test(hash);
+}
+
+/** Hash completo de un enlace en modo jugador a partir de su payload. */
+export const hashModoJugador = (payload: string): string => `#j=${payload}&m=jugador`;
+
 /** Extrae el payload de `#j=…` (o null). */
 export function payloadDeHash(hash: string): string | null {
   const m = /^#?(?:.*&)?j=([^&]*)/.exec(hash);
