@@ -4,6 +4,7 @@
 // Calcula métricas avanzadas (TS%, eFG%, VAL estilo FIBA) y genera análisis automático por reglas.
 
 import Base from "../layouts/Base.astro";
+import ProGate from "../components/ProGate.astro";
 import "../styles/cancha-redesign.css";
 ---
 
@@ -47,7 +48,7 @@ import "../styles/cancha-redesign.css";
         {/* PESTAÑAS: Jugador (lo de siempre) · Equipo (entrenadores) */}
         <div class="st-tabs" role="tablist" aria-label="Modo">
           <button type="button" class="st-tab active" id="tabbtn-jugador" role="tab" aria-selected="true" aria-controls="tab-jugador" data-tab="jugador">Jugador</button>
-          <button type="button" class="st-tab" id="tabbtn-equipo" role="tab" aria-selected="false" aria-controls="tab-equipo" data-tab="equipo">Equipo</button>
+          <button type="button" class="st-tab" id="tabbtn-equipo" data-pro="stats-equipo" role="tab" aria-selected="false" aria-controls="tab-equipo" data-tab="equipo">Equipo</button>
         </div>
 
         {/* Vista previa de un enlace recibido (#e=...) */}
@@ -198,8 +199,8 @@ import "../styles/cancha-redesign.css";
           <div class="st-coach">
             <h3 class="st-coach-title">Pregúntale a tu agente</h3>
             <div id="coach-log" class="st-coach-log"></div>
-            <div id="coach-suggest" class="st-coach-suggest"></div>
-            <form id="coach-form" class="st-coach-form" autocomplete="off">
+            <div id="coach-suggest" data-pro="stats-agente" class="st-coach-suggest"></div>
+            <form id="coach-form" data-pro="stats-agente" class="st-coach-form" autocomplete="off">
               <input id="coach-in" class="st-coach-in" placeholder="¿En qué debo mejorar? ¿Cuál fue mi mejor partido?" maxlength="300" />
               <button type="submit" id="coach-send" class="st-btn">Preguntar</button>
             </form>
@@ -1472,4 +1473,5 @@ import "../styles/cancha-redesign.css";
       .st-tiles { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
+  <ProGate />
 </Base>

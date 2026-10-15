@@ -1,0 +1,196 @@
+---
+// Aviso de función Pro (beta gratuita). Intercepta en fase de CAPTURA los clics y envíos de
+// cualquier elemento con data-pro="<id>" mientras el navegador no tenga Pro activado, enseña el
+// aviso con el código de la beta y, al activar, repite la acción que el usuario había pedido.
+// Así las páginas solo tienen que marcar sus botones: su lógica no sabe nada de Pro.
+// Lógica pura y lista de funciones en lib/pro.ts.
+import { CODIGO_BETA } from "../lib/pro";
+---
+
+<div class="czp-overlay" data-czp hidden>
+  <div class="czp-box" role="dialog" aria-modal="true" aria-labelledby="czp-titulo">
+    <p class="czp-eyebrow">★ Función Pro · beta</p>
+    <h2 class="czp-titulo" id="czp-titulo" data-czp-nombre>Función Pro</h2>
+    <p class="czp-txt">
+      Será de pago más adelante. <strong>Durante la beta es gratis</strong>: actívala con un clic y se
+      desbloquean todas las funciones Pro en este navegador.
+    </p>
+    <p class="czp-codigo">Código de la beta: <strong>{CODIGO_BETA}</strong></p>
+    <div class="czp-botones">
+      <button type="button" class="czp-si" data-czp-activar>Activar Pro gratis</button>
+      <button type="button" class="czp-no" data-czp-cerrar>Ahora no</button>
+    </div>
+    <p class="czp-nota">Sin registro y sin pedirte ningún dato. <a href="/entrenadores/">Qué incluye Pro</a></p>
+  </div>
+</div>
+
+<style is:global>
+  .czp-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+  .czp-overlay[hidden] { display: none; }
+  .czp-box {
+    width: 100%;
+    max-width: 420px;
+    background: var(--cz-bg);
+    border: 1px solid var(--cz-border);
+    border-top: 4px solid #f97316;
+    padding: 22px 22px 18px;
+    box-shadow: 6px 6px 0 0 #facc15;
+  }
+  .czp-eyebrow {
+    margin: 0 0 6px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cz-amber-text);
+  }
+  .czp-titulo {
+    margin: 0 0 10px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 0.95;
+    text-transform: uppercase;
+    color: var(--cz-text);
+  }
+  .czp-txt { margin: 0 0 12px; font-size: 14px; line-height: 1.55; color: var(--cz-text-2); }
+  .czp-txt strong, .czp-codigo strong { color: var(--cz-text); }
+  .czp-codigo {
+    margin: 0 0 16px;
+    padding: 8px 10px;
+    border: 1px dashed var(--cz-border);
+    font-size: 13px;
+    color: var(--cz-text-2);
+  }
+  .czp-codigo strong { font-family: ui-monospace, monospace; letter-spacing: 0.06em; user-select: all; }
+  .czp-botones { display: flex; gap: 8px; flex-wrap: wrap; }
+  .czp-si, .czp-no {
+    min-height: 44px;
+    padding: 0 16px;
+    font: 900 13px "Inter", sans-serif;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 0;
+  }
+  .czp-si { flex: 1 1 auto; background: #f97316; border: 1px solid #f97316; color: #0c0c0c; }
+  .czp-no { background: transparent; border: 1px solid var(--cz-border); color: var(--cz-text); }
+  .czp-nota { margin: 12px 0 0; font-size: 12px; color: var(--cz-text-muted); }
+  .czp-nota a { color: var(--cz-accent-text); }
+  /* Etiqueta PRO en los botones de texto marcados (los de icono ya usan ::after para otra cosa) */
+  html:not(.cz-pro) :is(.pz-bn, .st-tab)[data-pro]::after {
+    content: "PRO";
+    margin-left: 6px;
+    padding: 1px 4px;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    border: 1px solid currentColor;
+    vertical-align: 1px;
+    opacity: 0.8;
+  }
+</style>
+
+<script>
+  import { CLAVE_PRO, CODIGO_BETA, FUNCIONES_PRO, crearEstadoPro, esFuncionPro, leerEstadoPro, type FuncionPro } from "../lib/pro";
+
+  const overlay = document.querySelector<HTMLElement>("[data-czp]");
+  const nombreEl = document.querySelector<HTMLElement>("[data-czp-nombre]");
+  const btnSi = document.querySelector<HTMLButtonElement>("[data-czp-activar]");
+
+  let pro = false;
+  try {
+    pro = leerEstadoPro(localStorage.getItem(CLAVE_PRO)) !== null;
+  } catch {
+    /* almacenamiento bloqueado: se pide activar, y la activación vale para esta visita */
+  }
+  document.documentElement.classList.toggle("cz-pro", pro);
+
+  function contar(evento: "visto" | "activado", funcion: FuncionPro) {
+    try {
+      const body = JSON.stringify({ evento, funcion });
+      const ok = navigator.sendBeacon?.("/api/pro-uso", new Blob([body], { type: "text/plain" }));
+      if (!ok) void fetch("/api/pro-uso", { method: "POST", body, keepalive: true }).catch(() => undefined);
+    } catch {
+      /* el contador nunca debe romper nada */
+    }
+  }
+
+  let pendiente: { funcion: FuncionPro; objetivo: HTMLElement; marcado: HTMLElement; tipo: string } | null = null;
+  let foco: HTMLElement | null = null;
+
+  function abrir(p: NonNullable<typeof pendiente>) {
+    if (!overlay || !nombreEl) return;
+    pendiente = p;
+    foco = document.activeElement as HTMLElement | null;
+    nombreEl.textContent = FUNCIONES_PRO[p.funcion];
+    overlay.hidden = false;
+    btnSi?.focus();
+    contar("visto", p.funcion);
+  }
+
+  function cerrar() {
+    if (!overlay) return;
+    overlay.hidden = true;
+    pendiente = null;
+    foco?.focus?.();
+  }
+
+  function activar() {
+    const p = pendiente;
+    const estado = crearEstadoPro(CODIGO_BETA, new Date());
+    try {
+      localStorage.setItem(CLAVE_PRO, JSON.stringify(estado));
+    } catch {
+      /* sin almacenamiento: vale para esta visita */
+    }
+    pro = true;
+    document.documentElement.classList.add("cz-pro");
+    cerrar();
+    if (!p) return;
+    contar("activado", p.funcion);
+    // repetir lo que el usuario había pedido
+    if (p.tipo === "submit" && p.marcado instanceof HTMLFormElement) p.marcado.requestSubmit();
+    else p.objetivo.click();
+  }
+
+  function interceptar(e: Event) {
+    if (pro) return;
+    const t = e.target as Element | null;
+    const marcado = t?.closest<HTMLElement>("[data-pro]");
+    const funcion = marcado?.dataset.pro ?? "";
+    if (!marcado || !esFuncionPro(funcion)) return;
+    const objetivo = (t?.closest<HTMLElement>("button, a, [role='tab']") ?? marcado) as HTMLElement;
+    if (objetivo instanceof HTMLButtonElement && objetivo.disabled) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    abrir({ funcion, objetivo, marcado, tipo: e.type });
+  }
+
+  document.addEventListener("click", interceptar, true);
+  document.addEventListener("submit", interceptar, true);
+  btnSi?.addEventListener("click", activar);
+  document.querySelector("[data-czp-cerrar]")?.addEventListener("click", cerrar);
+  overlay?.addEventListener("click", (e) => {
+    if (e.target === overlay) cerrar();
+  });
+  document.addEventListener(
+    "keydown",
+    (e) => {
+      if (e.key === "Escape" && overlay && !overlay.hidden) {
+        e.stopImmediatePropagation();
+        cerrar();
+      }
+    },
+    true
+  );
+</script>

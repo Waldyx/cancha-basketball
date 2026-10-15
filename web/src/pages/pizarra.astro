@@ -4,6 +4,7 @@
 // el texto SEO y el arranque. Las jugadas se guardan en localStorage del navegador
 // y se comparten por enlace (hash, nunca llega al servidor), imagen, vídeo o archivo.
 import Base from "../layouts/Base.astro";
+import ProGate from "../components/ProGate.astro";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -149,7 +150,7 @@ const jsonLd = {
           </button>
         </div>
         <div class="pz-grp pz-grp-fin" role="group" aria-label="Compartir y guardar">
-          <button type="button" class="pz-btn" data-act="ses" aria-label="Sesión de entrenamiento: plan con ejercicios y minutos" title="Sesión de entrenamiento: plan con ejercicios y minutos">
+          <button type="button" class="pz-btn" data-act="ses" data-pro="pizarra-sesiones" aria-label="Sesión de entrenamiento: plan con ejercicios y minutos" title="Sesión de entrenamiento: plan con ejercicios y minutos">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17H6zM9 4V2.500h6V4M9 10h6M9 14h6M9 18h3"/></svg><span class="pz-lbl">Sesión</span>
           </button>
           <button type="button" class="pz-btn pz-btn-tm" data-act="tm" aria-label="Tiempo muerto: pizarra a pantalla completa (T)" title="Tiempo muerto: pantalla limpia para el banquillo (T)">
@@ -225,7 +226,7 @@ const jsonLd = {
             <p class="pz-small" data-pz="qr-aviso"></p>
             <div class="pz-row">
               <button type="button" class="pz-bn" data-act="qr-grande">Mostrar más grande</button>
-              <button type="button" class="pz-bn pz-bn-2" data-act="copy-link-jugador">Copiar enlace</button>
+              <button type="button" class="pz-bn pz-bn-2" data-act="copy-link-jugador" data-pro="pizarra-jugador">Copiar enlace</button>
             </div>
           </div>
 
@@ -247,8 +248,8 @@ const jsonLd = {
             <div class="pz-share-s">
               <h3>Para tus jugadores (solo ver)</h3>
               <div class="pz-row">
-                <button type="button" class="pz-bn" data-act="copy-link-jugador">Copiar enlace de solo ver</button>
-                <button type="button" class="pz-bn pz-bn-2" data-act="qr">Código QR</button>
+                <button type="button" class="pz-bn" data-act="copy-link-jugador" data-pro="pizarra-jugador">Copiar enlace de solo ver</button>
+                <button type="button" class="pz-bn pz-bn-2" data-act="qr" data-pro="pizarra-jugador">Código QR</button>
               </div>
               <p class="pz-small">Abre la jugada a pantalla casi completa, repitiéndose en bucle y con las notas, sin las herramientas de edición. Con el QR la escanean desde la tableta o el proyector.</p>
             </div>
@@ -262,12 +263,12 @@ const jsonLd = {
             <div class="pz-share-s">
               <h3>Animación (GIF y vídeo)</h3>
               <div class="pz-row">
-                <button type="button" class="pz-bn" data-act="gif">Exportar GIF</button>
+                <button type="button" class="pz-bn" data-act="gif" data-pro="pizarra-animacion">Exportar GIF</button>
                 <button type="button" class="pz-bn pz-bn-2" data-act="compartir-gif" data-pz="compartir-gif" hidden>Compartir el GIF</button>
               </div>
               <p class="pz-small">El GIF se ve en cualquier móvil, también en WhatsApp de iPhone.</p>
               <div class="pz-row pz-video-ok">
-                <button type="button" class="pz-bn pz-bn-2" data-act="video">Grabar vídeo (WebM)</button>
+                <button type="button" class="pz-bn pz-bn-2" data-act="video" data-pro="pizarra-animacion">Grabar vídeo (WebM)</button>
               </div>
               <p class="pz-small pz-video-no">Tu navegador no puede grabar vídeo WebM (pasa en Safari): usa el GIF, que sí funciona.</p>
             </div>
@@ -382,7 +383,7 @@ const jsonLd = {
       <div class="pz-lect" data-pz="lecturas">
         <span class="pz-lect-t">Lecturas</span>
         <div class="pz-lect-chips" data-pz="lect-chips"></div>
-        <button type="button" class="pz-bn pz-bn-2 pz-bn-sm pz-edit" data-act="lectura-nueva" title="Crear otra opción que sale de este paso: «si pasa por detrás», «si cambia»…">+ Lectura</button>
+        <button type="button" class="pz-bn pz-bn-2 pz-bn-sm pz-edit" data-act="lectura-nueva" data-pro="pizarra-lecturas" title="Crear otra opción que sale de este paso: «si pasa por detrás», «si cambia»…">+ Lectura</button>
         <div class="pz-lect-edit pz-edit" data-pz="lect-edit" hidden></div>
       </div>
 
@@ -534,6 +535,7 @@ const jsonLd = {
 
     <div id="pz-print" data-pz="print" aria-hidden="true"></div>
   </main>
+  <ProGate />
 </Base>
 
 <style is:global>

@@ -311,9 +311,18 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 - **Clubs**: licencia de club para TODOS sus equipos, en vez de que cada entrenador pague lo suyo.
 - ✅ **Paso 1 hecho**: páginas `/jugadores/`, `/entrenadores/`, `/clubs/` (`HubGrid.astro`) y menú
   `Zapatillas ▾ | Jugadores | Entrenadores | Clubs | Blog | ♥`. Las URLs de las herramientas NO cambian.
-- ▶️ **Paso 2**: mecanismo Pro (sin bloquear nada hasta que el usuario lo diga) + contador anónimo de
-  activaciones (sin datos personales). Pro previsto: sesiones, modo jugador/QR/GIF y lecturas de la pizarra,
-  modo Equipo de estadísticas y agente IA.
+- ✅ **Paso 2 hecho (15-oct)**: `lib/pro.ts` + `components/ProGate.astro` (intercepta clics/envíos de
+  `data-pro="id"`, aviso con código CANCHA-BETA visible, 1 clic, repite la acción) + `api/pro-uso.ts`
+  (contador anónimo visto/activado). Pro: sesiones, modo jugador/QR, GIF/vídeo, lecturas (pizarra), pestaña
+  Equipo y agente IA (estadísticas). Los enlaces que reciben los jugadores NO se bloquean.
+  ⚠ El contador necesita un Redis de Upstash en Vercel (vars `KV_REST_API_URL`/`KV_REST_API_TOKEN`); sin
+  ellas responde 204 y no cuenta. Crearlo es acción del usuario en el panel de Vercel.
+- 🔎 **Investigación BasketIQ** en `trabajo/biq-investigacion.md` (local): 39/99 €/año entrenador, 349/499
+  club (10 equipos), IVA aparte, prueba 1 mes con registro, sin plan gratis. Tracción baja (1 valoración en
+  App Store, Play "100+", ~8 clubs del sureste). Fuerte en ejercicios (500+), planificación y cargas;
+  débil en pizarra y estadísticas. Guarda datos de jugadores en su servidor sin mencionar menores.
+- ▶️ **Siguiente**: sesiones listas por edad (lo primero, mayor queja de entrenadores) → control de minutos
+  configurable por federación → biblioteca del club → mapa de tiro.
 - ▶️ **Paso 3, por orden**: control de minutos/cuartos (verificar normas de participación de la FCBQ) → mapa de
   tiro → libro de jugadas con escudo del club → etiquetas de vídeo. Más ideas: informe del rival (actas FEB),
   plan de partido, generador de sesiones con IA, evaluación de jugadores + informe a familias, tests físicos,
