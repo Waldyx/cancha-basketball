@@ -7,19 +7,37 @@ import {
   CATEGORIAS,
   LIMITES,
   TIPOS_LINEA,
+  ajustarOrden,
   anadirLinea,
   anadirPieza,
+  anadirRama,
   anadirTexto,
+  anadirZona,
+  ajustarPieza,
   cajaVista,
   cambiarCancha,
+  cambiarPista,
   clonar,
   codificarEnlace,
+  compactar,
   confirmar,
   deVista,
   decodificarEnlace,
   deshacer,
   dist,
   distAPolilinea,
+  esModoJugador,
+  etiquetaLectura,
+  hashModoJugador,
+  jugadaLineal,
+  numerarLineas,
+  quitarNumeros,
+  quitarRama,
+  ramasEn,
+  reinyectarRama,
+  renombrarPrincipal,
+  renombrarRama,
+  flechaPorDefecto,
   duplicarPaso,
   estadoEnTiempo,
   hayCompresion,
@@ -36,9 +54,13 @@ import {
   nuevaJugada,
   nuevoHistorial,
   payloadDeHash,
+  tipoDePayload,
   polilinea,
   posicionesEnTransicion,
+  puestosFila,
+  puntoEnZona,
   quitarLinea,
+  quitarZona,
   quitarPaso,
   quitarPieza,
   quitarTexto,
@@ -48,6 +70,12 @@ import {
   textoUltimaCopia,
   tocaRecordarCopia,
   uid,
+  zonaDesdeEsquinas,
+  ZONA_POR_DEFECTO,
+  ZONA_MIN,
+  ZONA_MAX,
+  FILA,
+  MINIBASKET,
   DURACION_TRANSICION,
   PAUSA_PASO,
   duracionTotal,
@@ -56,10 +84,14 @@ import {
   type Historial,
   type Jugada,
   type Linea,
+  type Orient,
+  type Paso,
+  type FormaZona,
   type Pieza,
   type Pt,
   type TipoLinea,
   type TipoPieza,
+  type Zona,
 } from "./pizarra";
 import {
   PALETAS,
@@ -70,22 +102,67 @@ import {
   renderTablero,
   type NombrePaleta,
 } from "./pizarraRender";
-import { PLANTILLAS } from "./pizarraPlantillas";
+import { PLANTILLAS, PLANTILLAS_EJERCICIOS } from "./pizarraPlantillas";
+import { FORMACIONES, aplicarFormacion, aroDe, formacionPorId } from "./pizarraFormaciones";
+import { avisoQR, evaluarQR, svgQR } from "./pizarraQR";
+import { CLAVE_EQUIPO, asignarNombres, equiposDeTexto, mapaNombres, quitarNombres, type EquipoParaPizarra } from "./pizarraEquipo";
+import { MODOS_BANQUILLO, prepararBanquillo, type PorPagina } from "./pizarraBanquillo";
+import type { ModoResumen } from "./pizarraRender";
+import { calendarioFotogramas, crearGif, parametrosGif, retrasoFotograma } from "./pizarraGif";
+import { decodificarEnlaceSesion, normalizarSesiones, remapearJugadas, sesionesDeLibro, type Sesion } from "./pizarraSesion";
+import { iniciarSesiones, type ControlSesiones } from "./pizarraSesionUI";
 
 const CLAVE = "cz.pizarra.v1";
 const MS_DIA = 86_400_000;
 
-type Herr = "select" | "atq" | "def" | "balon" | "cono" | "pase" | "bote" | "corte" | "bloqueo" | "tiro" | "libre" | "texto";
-type Sel = { tipo: "pieza" | "linea" | "texto"; id: string };
-type Golpe = Sel | { tipo: "manejador"; id: string; cual: "ini" | "fin" | "mid" };
+type Herr =
+  | "select"
+  | "atq"
+  | "def"
+  | "balon"
+  | "cono"
+  | "neu"
+  | "ent"
+  | "fila"
+  | "pase"
+  | "bote"
+  | "corte"
+  | "bloqueo"
+  | "tiro"
+  | "libre"
+  | "rotacion"
+  | "zona"
+  | "elipse"
+  | "texto";
+type Sel = { tipo: "pieza" | "linea" | "texto" | "zona"; id: string };
+type Golpe = Sel | { tipo: "manejador"; id: string; cual: "ini" | "fin" | "mid" } | { tipo: "asa-zona"; id: string };
 type Drag =
   | { k: "pieza"; id: string; off: Pt; propagar: boolean; origen: Pt; movido: boolean }
   | { k: "texto"; id: string; off: Pt; origen: Pt; movido: boolean }
+  | { k: "zona"; id: string; off: Pt; origen: Pt; movido: boolean }
+  | { k: "zona-tam"; id: string; origen: Pt; movido: boolean }
+  | { k: "zona-nueva"; forma: FormaZona; ini: Pt }
   | { k: "manej"; id: string; cual: "ini" | "fin" | "mid"; origen: Pt; movido: boolean }
   | { k: "dibujo" };
 
-const TIPO_PIEZA_DE: Partial<Record<Herr, TipoPieza>> = { atq: "atq", def: "def", balon: "balon", cono: "cono" };
-const TIPO_LINEA_DE: Partial<Record<Herr, TipoLinea>> = { pase: "pase", bote: "bote", corte: "corte", bloqueo: "bloqueo", tiro: "tiro", libre: "libre" };
+/** Gesto en curso en modo tiempo muerto (antes de saber si mueve, dibuja o solo toca). */
+interface TmGesto {
+  /** Pieza bajo el dedo ("" si empezó en vacío). */
+  id: string;
+  /** Línea bajo el dedo si no había pieza. */
+  linea: string | null;
+  p0: Pt;
+  px0: { x: number; y: number };
+  /** La pieza ya estaba seleccionada al tocar: el arrastre dibuja flecha. */
+  selYa: boolean;
+  /** Toque largo cumplido: el arrastre dibuja flecha. */
+  armado: boolean;
+  modo: "pend" | "activo";
+  timer: number;
+}
+
+const TIPO_PIEZA_DE: Partial<Record<Herr, TipoPieza>> = { atq: "atq", def: "def", balon: "balon", cono: "cono", neu: "neu", ent: "ent", fila: "fila" };
+const TIPO_LINEA_DE: Partial<Record<Herr, TipoLinea>> = { pase: "pase", bote: "bote", corte: "corte", bloqueo: "bloqueo", tiro: "tiro", libre: "libre", rotacion: "rotacion" };
 
 const AYUDA: Record<Herr, string> = {
   select: "Toca una pieza o una línea para seleccionarla. Arrastra para moverla.",
@@ -93,6 +170,12 @@ const AYUDA: Record<Herr, string> = {
   def: "Toca la pista para colocar un defensor.",
   balon: "Toca la pista para colocar el balón.",
   cono: "Toca la pista para colocar un cono.",
+  neu: "Toca la pista para colocar un jugador neutro (verde, sin número). Su letra se cambia al seleccionarlo.",
+  ent: "Toca la pista para colocar al entrenador (E).",
+  fila: "Toca la pista para colocar una fila de jugadores. Selecciónala para cambiar cuántos son y hacia dónde mira.",
+  rotacion: "Arrastra para dibujar la rotación: adónde va el jugador después (línea punteada fina).",
+  zona: "Arrastra de una esquina a la opuesta para sombrear un rectángulo. Un toque crea uno por defecto.",
+  elipse: "Arrastra de una esquina a la opuesta para sombrear una elipse. Un toque crea una por defecto.",
   pase: "Arrastra para dibujar un pase. Empieza sobre un jugador para unirlo a él.",
   bote: "Arrastra para dibujar un bote (zigzag). Empieza sobre el jugador que bota.",
   corte: "Arrastra para dibujar un desplazamiento o corte. Empieza sobre el jugador.",
@@ -109,10 +192,12 @@ const NOMBRE_LINEA: Record<TipoLinea, string> = {
   bloqueo: "Bloqueo",
   tiro: "Tiro",
   libre: "Trazo libre",
+  rotacion: "Rotación (después va a…)",
 };
 
 interface Almacen {
   jugadas: Jugada[];
+  sesiones: Sesion[];
   borrador: Jugada | null;
   ultimaCopia: number | null;
   paleta: NombrePaleta;
@@ -120,7 +205,7 @@ interface Almacen {
 }
 
 function leerAlmacen(): Almacen {
-  const vacio: Almacen = { jugadas: [], borrador: null, ultimaCopia: null, paleta: "parquet", avisoCerrado: null };
+  const vacio: Almacen = { jugadas: [], sesiones: [], borrador: null, ultimaCopia: null, paleta: "parquet", avisoCerrado: null };
   try {
     const raw = localStorage.getItem(CLAVE);
     if (!raw) return vacio;
@@ -130,6 +215,7 @@ function leerAlmacen(): Almacen {
     const num = (v: unknown) => (typeof v === "number" && Number.isFinite(v) && v > 0 ? v : null);
     return {
       jugadas: normalizarLibro(r.jugadas).jugadas,
+      sesiones: normalizarSesiones(r.sesiones).sesiones,
       borrador: r.borrador ? normalizarJugada(r.borrador) : null,
       ultimaCopia: num(r.ultimaCopia),
       paleta: r.paleta === "neutra" || r.paleta === "oscura" ? r.paleta : "parquet",
@@ -191,6 +277,8 @@ export function iniciarPizarra(): void {
   const listaEl = q("lista");
   const compartidasEl = q("compartidas");
   const plantillasEl = q("plantillas");
+  const ejerciciosEl = q("ejercicios");
+  const selPista = q<HTMLSelectElement>("pista");
   const inpBuscar = q<HTMLInputElement>("buscar");
   const selFiltro = q<HTMLSelectElement>("filtro-cat");
   const selVel = q<HTMLSelectElement>("vel");
@@ -200,11 +288,35 @@ export function iniciarPizarra(): void {
   const inpEnlace = q<HTMLInputElement>("enlace");
   const infoEnlace = q("enlace-info");
   const fileEl = q<HTMLInputElement>("file");
+  const lectEl = q("lecturas");
+  const lectChips = q("lect-chips");
+  const lectEdit = q("lect-edit");
+  const plLect = q("pl-lect");
+  const equipoSel = q<HTMLSelectElement>("equipo-sel");
+  const equipoInfo = q("equipo-info");
+  const banqEl = q("banquillo");
+  const banqLista = q("banq-lista");
+  const qrEl = q("qr");
+  const qrImgEl = q("qr-img");
+  const qrAvisoEl = q("qr-aviso");
+  const gifCompartirEl = q("compartir-gif");
+  const plNombre = q("pl-nombre");
+  const plPaso = q("pl-paso");
+  const plNotaPaso = q("pl-nota-paso");
+  const plNotasJ = q("pl-notas-j");
+  const plDet = q("pl-det");
+  const plPlay = q("pl-play");
+  const plVel = q<HTMLSelectElement>("pl-vel");
+  const formEl = q("formaciones");
+  const formListaEl = q("formaciones-lista");
+  const formEspejoEl = q("form-espejo");
   const printEl = document.querySelector<HTMLElement>('[data-pz="print"]') ?? document.body.appendChild(document.createElement("div"));
 
   // ── estado ──────────────────────────────────────────────────────────
   const almacen = leerAlmacen();
   let biblio: Jugada[] = almacen.jugadas;
+  let sesiones: Sesion[] = almacen.sesiones;
+  let control: ControlSesiones | null = null;
   let paleta: NombrePaleta = almacen.paleta;
   let ultimaCopia = almacen.ultimaCopia;
   let avisoCerrado = almacen.avisoCerrado;
@@ -217,6 +329,7 @@ export function iniciarPizarra(): void {
   let sel: Sel | null = null;
   let drag: Drag | null = null;
   let borrador: Linea | null = null;
+  let zonaBorrador: Zona | null = null;
   let libreTmp: Pt[] = [];
   let anim: { k: number; t: number } | null = null;
   let reproduciendo = false;
@@ -226,8 +339,48 @@ export function iniciarPizarra(): void {
   let guardadaJson = "";
   let avisoAlmacenFallo = false;
   let grabando = false;
+  // modo tiempo muerto: trabaja sobre una copia de UN paso que no se guarda nunca
+  const ESCALA_TM = 1.35;
+  let tm = false;
+  let tmReal: { hist: Historial<Jugada>; paso: number; rama: string | null } | null = null;
+  let tmBase: Jugada | null = null;
+  let tmGesto: TmGesto | null = null;
+  let tmFlecha: string | null = null;
+  let formEspejo = false;
+  // modo jugador (solo ver): jugada a pantalla casi completa, en bucle, con las notas
+  let jugador = false;
+  let jugPausa = false;
+  let jugRaf = 0;
+  let jugAcum = 0;
+  let ultimoGif: { blob: Blob; nombre: string } | null = null;
 
-  const actual = (): Jugada => trabajo ?? hist.presente;
+  // Lecturas (ramas). La jugada REAL (con todas sus lecturas) vive en el historial; lo que se ve, se
+  // anima y se edita es la lectura activa: la principal hasta el punto de salida y los pasos de esa
+  // lectura. `jv()` da esa vista, y `commit()` devuelve lo editado a su sitio.
+  let ramaActiva: string | null = null;
+  let vistaCache: { src: Jugada; rama: string; out: Jugada } | null = null;
+  const real = (): Jugada => hist.presente;
+  function jv(): Jugada {
+    const r = hist.presente;
+    if (ramaActiva === null) return r;
+    if (!(r.ramas ?? []).some((x) => x.id === ramaActiva)) {
+      ramaActiva = null;
+      return r;
+    }
+    if (vistaCache && vistaCache.src === r && vistaCache.rama === ramaActiva) return vistaCache.out;
+    const out = jugadaLineal(r, ramaActiva);
+    vistaCache = { src: r, rama: ramaActiva, out };
+    return out;
+  }
+  /** Paso de la principal del que sale la lectura activa (-1 si se está en la principal). */
+  const desdeActiva = (): number => (ramaActiva === null ? -1 : (real().ramas ?? []).find((x) => x.id === ramaActiva)?.desde ?? -1);
+  /** En una lectura, los pasos hasta su punto de salida son de la principal: no se les añaden ni quitan jugadores. */
+  const enTramoComun = (k: number): boolean => ramaActiva !== null && k <= desdeActiva();
+
+  const actual = (): Jugada => trabajo ?? jv();
+  const escalaPiezas = () => (tm ? ESCALA_TM : jugador ? 1.15 : 1);
+  /** En tiempo muerto la pista se pone apaisada si la pantalla lo es; si no, la vista guardada. */
+  const orientVista = (): Orient => (tm || jugador ? (window.innerWidth >= window.innerHeight ? "h" : "v") : actual().orient);
 
   // ── utilidades de UI ────────────────────────────────────────────────
   let toastT = 0;
@@ -242,7 +395,8 @@ export function iniciarPizarra(): void {
     const hacer = () => {
       const ok = escribirAlmacen({
         jugadas: biblio,
-        borrador: soloVista ? null : hist.presente,
+        sesiones,
+        borrador: soloVista ? null : (tmReal ? tmReal.hist.presente : hist.presente),
         ultimaCopia,
         paleta,
         avisoCerrado,
@@ -266,7 +420,7 @@ export function iniciarPizarra(): void {
     const m = svg.getScreenCTM();
     if (!m) return { x: 0, y: 0 };
     const q2 = new DOMPoint(e.clientX, e.clientY).matrixTransform(m.inverse());
-    return deVista({ x: q2.x, y: q2.y }, actual().orient);
+    return deVista({ x: q2.x, y: q2.y }, orientVista());
   }
 
   /** Píxeles de pantalla -> metros de pista (para zonas táctiles cómodas). */
@@ -279,26 +433,33 @@ export function iniciarPizarra(): void {
   function pintar() {
     const j = actual();
     const s = j.pasos[Math.min(paso, j.pasos.length - 1)];
-    const vb = cajaVista(j.cancha, j.orient);
+    const orv = orientVista();
+    const vb = cajaVista(j.cancha, orv);
     svg.setAttribute("viewBox", `${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
     boardEl.style.setProperty("--pz-ar", `${vb.w} / ${vb.h}`);
     let piezas = s.piezas;
     let lineas = s.lineas;
     let textos = s.textos;
+    let zonas = s.zonas ?? [];
     let op = 1;
     if (anim) {
       const base = j.pasos[anim.k];
       piezas = posicionesEnTransicion(j, anim.k, anim.t);
       lineas = base.lineas;
       textos = base.textos;
+      zonas = base.zonas ?? [];
       op = 0.4;
     }
     svg.innerHTML = renderTablero({
       cancha: j.cancha,
-      orient: j.orient,
+      orient: orv,
+      escala: escalaPiezas(),
       piezas,
       lineas,
       textos,
+      zonas,
+      zonaBorrador,
+      pista: j.pista,
       paleta: PALETAS[paleta],
       seleccion: anim ? null : sel,
       borrador,
@@ -317,6 +478,8 @@ export function iniciarPizarra(): void {
         piezas: s.piezas,
         lineas: s.lineas,
         textos: [],
+        zonas: s.zonas,
+        pista: j.pista,
         paleta: PALETAS[paleta],
       });
       const b = el("button", {
@@ -326,6 +489,11 @@ export function iniciarPizarra(): void {
       const th = el("span", { cls: "pz-step-th" });
       th.innerHTML = mini; // SVG generado por nosotros; el texto del usuario va escapado
       b.append(th, el("span", { cls: "pz-step-n", text: String(i + 1) }));
+      // lecturas: un tenedor marca el paso del que salen; los pasos propios de la lectura activa van en otro color
+      const desde = desdeActiva();
+      if (ramaActiva !== null && i > desde) b.classList.add("pz-step-rama");
+      const sale = ramaActiva === null ? ramasEn(real(), i).length > 0 : i === desde;
+      if (sale) b.append(el("span", { cls: "pz-step-fork", text: "⑂", attrs: { title: "De aquí salen lecturas alternativas", "aria-hidden": "true" } }));
       pasosEl.append(b);
     });
     infoPaso.textContent = `Paso ${paso + 1} / ${j.pasos.length}`;
@@ -342,7 +510,7 @@ export function iniciarPizarra(): void {
   }
 
   function actualizarUI() {
-    const j = hist.presente;
+    const j = jv();
     if (document.activeElement !== inpNombre) inpNombre.value = j.nombre;
     selCat.value = j.categoria;
     if (document.activeElement !== txtNotas) txtNotas.value = j.notas;
@@ -352,8 +520,8 @@ export function iniciarPizarra(): void {
     setDis("play-prev", paso <= 0);
     setDis("play-next", paso >= j.pasos.length - 1);
     setDis("del-step", false);
-    const lblCancha = root.querySelector<HTMLElement>('[data-act="cancha"] .pz-lbl');
-    if (lblCancha) lblCancha.textContent = j.cancha === "media" ? "Media pista" : "Pista completa";
+    selPista.value = `${j.pista ?? "fiba"}-${j.cancha}`;
+    selPista.disabled = soloVista;
     const lblFondo = root.querySelector<HTMLElement>('[data-act="fondo"] .pz-lbl');
     if (lblFondo) lblFondo.textContent = { parquet: "Parqué", neutra: "Neutra", oscura: "Oscura" }[paleta];
     root.classList.toggle("pz-view", soloVista);
@@ -372,6 +540,7 @@ export function iniciarPizarra(): void {
     pintar();
     pintarPasos();
     actualizarUI();
+    pintarLecturas();
   }
 
   // ── selección, barra contextual ─────────────────────────────────────
@@ -381,30 +550,55 @@ export function iniciarPizarra(): void {
       selbar.hidden = true;
       return;
     }
-    const j = hist.presente;
+    const j = jv();
     const s = j.pasos[paso];
     const eliminar = el("button", { cls: "pz-sb-btn pz-sb-del", text: "Eliminar", attrs: { type: "button", "aria-label": "Eliminar elemento seleccionado" }, on: { click: () => eliminarSel() } });
     if (sel.tipo === "pieza") {
       const pz = s.piezas.find((p) => p.id === sel!.id);
       if (!pz) return void (selbar.hidden = true);
-      const nom = { atq: "Atacante", def: "Defensor", balon: "Balón", cono: "Cono" }[pz.tipo];
+      const nom = { atq: "Atacante", def: "Defensor", balon: "Balón", cono: "Cono", neu: "Jugador neutro", ent: "Entrenador", fila: "Fila" }[pz.tipo];
       selbar.append(el("span", { cls: "pz-sb-t", text: nom }));
-      if (pz.tipo === "atq" || pz.tipo === "def") {
+      const campo = (aria: string, valor: string, max: number, size: string, alCambiar: (v: string) => void) => {
         const inp = el("input", {
           cls: "pz-sb-inp",
-          attrs: { type: "text", maxlength: String(LIMITES.ETIQUETA), value: pz.etiqueta, "aria-label": "Número o nombre del jugador", size: "4", autocomplete: "off" },
+          attrs: { type: "text", maxlength: String(max), value: valor, "aria-label": aria, size, autocomplete: "off" },
           on: {
-            change: (e) => {
-              const v = (e.target as HTMLInputElement).value;
-              commit(renombrarPieza(hist.presente, pz.id, v));
-            },
+            change: (e) => alCambiar((e.target as HTMLInputElement).value),
             keydown: (e) => {
               if ((e as KeyboardEvent).key === "Enter") (e.target as HTMLInputElement).blur();
             },
           },
         });
-        inp.value = pz.etiqueta;
-        selbar.append(el("label", { cls: "pz-sb-lab" }, "Nº ", inp));
+        inp.value = valor;
+        return inp;
+      };
+      if (pz.tipo === "atq" || pz.tipo === "def" || pz.tipo === "neu" || pz.tipo === "ent") {
+        const etq = pz.tipo === "neu" ? "Letra " : pz.tipo === "ent" ? "Marca " : "Nº ";
+        selbar.append(
+          el("label", { cls: "pz-sb-lab" }, etq, campo("Número, letra o marca del jugador", pz.etiqueta, LIMITES.ETIQUETA, "4", (v) => commitReal(ajustarPieza(real(), pz.id, { etiqueta: v })))),
+          el("label", { cls: "pz-sb-lab" }, "Nombre ", campo("Nombre corto del jugador", pz.nombre ?? "", LIMITES.NOMBRE_JUGADOR, "9", (v) => commitReal(ajustarPieza(real(), pz.id, { nombre: v }))))
+        );
+      } else if (pz.tipo === "fila") {
+        const cant = pz.cant ?? 4;
+        const ajusta = (c: Partial<Pick<Pieza, "cant" | "ang" | "bando">>) => () => commitReal(ajustarPieza(real(), pz.id, c));
+        const bandoSel = el("select", {
+          cls: "pz-sb-inp",
+          attrs: { "aria-label": "Color de la fila" },
+          on: { change: (e) => commitReal(ajustarPieza(real(), pz.id, { bando: (e.target as HTMLSelectElement).value as "atq" | "def" | "neu" })) },
+        });
+        for (const [v, t] of [["neu", "Verde"], ["atq", "Azul"], ["def", "Rojo"]] as const) {
+          const o = el("option", { text: t, attrs: { value: v } });
+          if ((pz.bando ?? "neu") === v) o.selected = true;
+          bandoSel.append(o);
+        }
+        selbar.append(
+          el("button", { cls: "pz-sb-btn", text: "−", attrs: { type: "button", "aria-label": "Un jugador menos en la fila" }, on: { click: ajusta({ cant: cant - 1 }) } }),
+          el("span", { cls: "pz-sb-t", text: `${cant} jug.` }),
+          el("button", { cls: "pz-sb-btn", text: "+", attrs: { type: "button", "aria-label": "Un jugador más en la fila" }, on: { click: ajusta({ cant: cant + 1 }) } }),
+          el("button", { cls: "pz-sb-btn", text: "↺", attrs: { type: "button", "aria-label": "Girar la fila a la izquierda" }, on: { click: ajusta({ ang: (pz.ang ?? 0) - 45 }) } }),
+          el("button", { cls: "pz-sb-btn", text: "↻", attrs: { type: "button", "aria-label": "Girar la fila a la derecha" }, on: { click: ajusta({ ang: (pz.ang ?? 0) + 45 }) } }),
+          bandoSel
+        );
       }
     } else if (sel.tipo === "linea") {
       const l = s.lineas.find((x) => x.id === sel!.id);
@@ -418,7 +612,7 @@ export function iniciarPizarra(): void {
           on: {
             change: (e) => {
               const v = (e.target as HTMLSelectElement).value as TipoLinea;
-              const j2 = clonar(hist.presente);
+              const j2 = clonar(jv());
               const l2 = j2.pasos[paso].lineas.find((x) => x.id === l.id);
               if (l2) l2.tipo = v;
               commit(j2);
@@ -431,6 +625,12 @@ export function iniciarPizarra(): void {
           sl.append(o);
         }
         selbar.append(sl);
+        const ord = l.orden;
+        selbar.append(
+          el("button", { cls: "pz-sb-btn", text: "−", attrs: { type: "button", "aria-label": "Número de orden menor" }, on: { click: () => commit(ajustarOrden(jv(), paso, l.id, (ord ?? 1) - 1 < 1 ? null : (ord ?? 1) - 1)) } }),
+          el("span", { cls: "pz-sb-t", text: ord ? `Nº ${ord}` : "Sin nº", attrs: { title: "Orden de esta acción dentro del paso" } }),
+          el("button", { cls: "pz-sb-btn", text: "+", attrs: { type: "button", "aria-label": "Número de orden mayor" }, on: { click: () => commit(ajustarOrden(jv(), paso, l.id, (ord ?? 0) + 1)) } })
+        );
         if (l.mid) {
           selbar.append(
             el("button", {
@@ -439,7 +639,7 @@ export function iniciarPizarra(): void {
               attrs: { type: "button" },
               on: {
                 click: () => {
-                  const j2 = clonar(hist.presente);
+                  const j2 = clonar(jv());
                   const l2 = j2.pasos[paso].lineas.find((x) => x.id === l.id);
                   if (l2) delete l2.mid;
                   commit(j2);
@@ -451,6 +651,27 @@ export function iniciarPizarra(): void {
           selbar.append(el("span", { cls: "pz-sb-note", text: "Arrastra el punto central para curvarla" }));
         }
       }
+    } else if (sel.tipo === "zona") {
+      const z = (s.zonas ?? []).find((x) => x.id === sel!.id);
+      if (!z) return void (selbar.hidden = true);
+      const forma = el("select", {
+        cls: "pz-sb-inp",
+        attrs: { "aria-label": "Forma de la zona" },
+        on: {
+          change: (e) => {
+            const j2 = clonar(jv());
+            const z2 = (j2.pasos[paso].zonas ?? []).find((x) => x.id === z.id);
+            if (z2) z2.forma = (e.target as HTMLSelectElement).value === "elipse" ? "elipse" : "rect";
+            commit(j2);
+          },
+        },
+      });
+      for (const [v, t] of [["rect", "Rectángulo"], ["elipse", "Elipse"]] as const) {
+        const o = el("option", { text: t, attrs: { value: v } });
+        if (z.forma === v) o.selected = true;
+        forma.append(o);
+      }
+      selbar.append(el("span", { cls: "pz-sb-t", text: "Zona" }), forma, el("span", { cls: "pz-sb-note", text: "Arrastra el cuadrado de la esquina para cambiar el tamaño" }));
     } else {
       const t = s.textos.find((x) => x.id === sel!.id);
       if (!t) return void (selbar.hidden = true);
@@ -460,7 +681,7 @@ export function iniciarPizarra(): void {
         on: {
           change: (e) => {
             const v = limpiaTexto((e.target as HTMLInputElement).value, LIMITES.TEXTO);
-            const j2 = clonar(hist.presente);
+            const j2 = clonar(jv());
             const t2 = j2.pasos[paso].textos.find((x) => x.id === t.id);
             if (t2 && v) t2.texto = v;
             commit(j2);
@@ -472,7 +693,7 @@ export function iniciarPizarra(): void {
       });
       inp.value = t.texto;
       const tam = (d: number) => () => {
-        const j2 = clonar(hist.presente);
+        const j2 = clonar(jv());
         const t2 = j2.pasos[paso].textos.find((x) => x.id === t.id);
         if (t2) t2.tam = Math.min(3, Math.max(1, t2.tam + d));
         commit(j2);
@@ -496,30 +717,40 @@ export function iniciarPizarra(): void {
 
   function eliminarSel() {
     if (!sel || soloVista) return;
-    const j = hist.presente;
+    const j = jv();
     const { tipo, id } = sel;
+    if (tipo === "pieza" && enTramoComun(paso)) return void toast("Ese jugador es de la lectura principal: para quitarlo, cámbiate a la principal (o a un paso posterior al punto de salida).", 5000);
     sel = null;
     if (tipo === "pieza") commit(quitarPieza(j, paso, id));
     else if (tipo === "linea") commit(quitarLinea(j, paso, id));
+    else if (tipo === "zona") commit(quitarZona(j, paso, id));
     else commit(quitarTexto(j, paso, id));
   }
 
   // ── historial ───────────────────────────────────────────────────────
+  /** Confirma una edición hecha sobre la VISTA (`jv()`): la devuelve a la jugada real. */
   function commit(nueva: Jugada) {
+    const r = real();
+    commitReal(ramaActiva !== null && (r.ramas ?? []).some((x) => x.id === ramaActiva) ? reinyectarRama(r, ramaActiva, nueva) : nueva);
+  }
+
+  /** Confirma un cambio de la jugada REAL (identidad de jugadores, pista, lecturas…). */
+  function commitReal(nueva: Jugada) {
     nueva.actualizada = Date.now();
     hist = confirmar(hist, nueva);
     trabajo = null;
-    paso = Math.min(paso, nueva.pasos.length - 1);
+    paso = Math.min(paso, jv().pasos.length - 1);
     if (sel && !existe(sel)) sel = null;
     refrescarTodo();
     persistir();
   }
 
   function existe(s: Sel): boolean {
-    const st = hist.presente.pasos[paso];
+    const st = jv().pasos[paso];
     if (!st) return false;
     if (s.tipo === "pieza") return st.piezas.some((p) => p.id === s.id);
     if (s.tipo === "linea") return st.lineas.some((l) => l.id === s.id);
+    if (s.tipo === "zona") return (st.zonas ?? []).some((z) => z.id === s.id);
     return st.textos.some((t) => t.id === s.id);
   }
 
@@ -527,7 +758,7 @@ export function iniciarPizarra(): void {
     if (soloVista) return;
     detener();
     hist = deshacer(hist);
-    paso = Math.min(paso, hist.presente.pasos.length - 1);
+    paso = Math.min(paso, jv().pasos.length - 1);
     if (sel && !existe(sel)) sel = null;
     refrescarTodo();
     persistir();
@@ -536,7 +767,7 @@ export function iniciarPizarra(): void {
     if (soloVista) return;
     detener();
     hist = rehacer(hist);
-    paso = Math.min(paso, hist.presente.pasos.length - 1);
+    paso = Math.min(paso, jv().pasos.length - 1);
     if (sel && !existe(sel)) sel = null;
     refrescarTodo();
     persistir();
@@ -559,6 +790,8 @@ export function iniciarPizarra(): void {
     const copia = clonar(j);
     if (!opts.conservarId) copia.id = uid();
     hist = nuevoHistorial(copia);
+    ramaActiva = null;
+    vistaCache = null;
     trabajo = null;
     paso = 0;
     sel = null;
@@ -580,7 +813,32 @@ export function iniciarPizarra(): void {
   };
 
   // ── hit test ────────────────────────────────────────────────────────
-  const ORDEN_PIEZA = { cono: 0, def: 1, atq: 2, balon: 3 } as const;
+  const ORDEN_PIEZA = { cono: 0, fila: 1, def: 2, neu: 3, ent: 4, atq: 5, balon: 6 } as const;
+
+  /** Distancia del punto a la pieza (a la más cercana de sus jugadores si es una fila). */
+  const distAPieza = (p: Pt, pz: Pieza): number =>
+    pz.tipo === "fila" ? Math.min(...puestosFila(pz).map((q) => dist(p, q))) : dist(p, pz);
+
+  /** Pieza bajo el dedo: primero lo que se ve (manda la de encima), luego la más cercana. */
+  function buscarPieza(s: Paso, p: Pt, um: number): Pieza | null {
+    const e = escalaPiezas();
+    const piezas = s.piezas.slice().sort((a, b) => ORDEN_PIEZA[b.tipo] - ORDEN_PIEZA[a.tipo]);
+    const jug = (RADIO_PIEZA + 0.1) * e;
+    const visible = { cono: 0.6 * e, def: jug, atq: jug, neu: jug, ent: jug, balon: 0.46 * e, fila: (FILA.RADIO + 0.12) * e };
+    for (const pz of piezas) {
+      if (distAPieza(p, pz) <= visible[pz.tipo]) return pz;
+    }
+    let cercana: Pieza | null = null;
+    let md = Math.max(um, 0.8 * e);
+    for (const pz of piezas) {
+      const d = distAPieza(p, pz);
+      if (d <= md) {
+        md = d;
+        cercana = pz;
+      }
+    }
+    return cercana;
+  }
 
   function golpe(p: Pt, tactil: boolean): Golpe | null {
     const s = actual().pasos[paso];
@@ -597,23 +855,12 @@ export function iniciarPizarra(): void {
         if (dist(p, b) <= r) return { tipo: "manejador", id: l.id, cual: "fin" };
       }
     }
-    const piezas = s.piezas.slice().sort((a, b) => ORDEN_PIEZA[b.tipo] - ORDEN_PIEZA[a.tipo]);
-    // 1) lo que se ve bajo el dedo/cursor (manda la pieza de encima: el balón sobre su jugador)
-    const visible = { cono: 0.6, def: RADIO_PIEZA + 0.1, atq: RADIO_PIEZA + 0.1, balon: 0.46 };
-    for (const pz of piezas) {
-      if (dist(p, pz) <= visible[pz.tipo]) return { tipo: "pieza", id: pz.id };
+    if (sel?.tipo === "zona") {
+      const z = (s.zonas ?? []).find((x) => x.id === sel!.id);
+      if (z && dist(p, { x: z.x + z.w / 2, y: z.y + z.h / 2 }) <= Math.max(0.6, um)) return { tipo: "asa-zona", id: z.id };
     }
-    // 2) margen táctil: la pieza más cercana
-    let cercana: Pieza | null = null;
-    let md = Math.max(um, 0.8);
-    for (const pz of piezas) {
-      const d = dist(p, pz);
-      if (d <= md) {
-        md = d;
-        cercana = pz;
-      }
-    }
-    if (cercana) return { tipo: "pieza", id: cercana.id };
+    const pzHit = buscarPieza(s, p, um);
+    if (pzHit) return { tipo: "pieza", id: pzHit.id };
     for (const t of s.textos.slice().reverse()) {
       const w = Math.max(1.2, t.texto.length * [0, 0.62, 0.86, 1.2][t.tam] * 0.5);
       if (Math.abs(p.x - t.x) <= w / 2 + 0.3 && Math.abs(p.y - t.y) <= 0.8) return { tipo: "texto", id: t.id };
@@ -621,6 +868,10 @@ export function iniciarPizarra(): void {
     const dl = Math.max(0.42, enMetros(tactil ? 16 : 10));
     for (const l of s.lineas.slice().reverse()) {
       if (distAPolilinea(p, polilinea(l)) <= dl) return { tipo: "linea", id: l.id };
+    }
+    // las zonas son un fondo: lo último que se toca
+    for (const z of (s.zonas ?? []).slice().reverse()) {
+      if (puntoEnZona(p, z)) return { tipo: "zona", id: z.id };
     }
     return null;
   }
@@ -647,7 +898,7 @@ export function iniciarPizarra(): void {
     if (e.pointerType === "mouse" && e.button !== 0) return;
     if (reproduciendo || anim) detener();
     e.preventDefault();
-    const j = hist.presente;
+    const j = jv();
     const p = limitaPunto(aCanon(e), j.cancha);
     const tactil = e.pointerType !== "mouse";
     try {
@@ -655,6 +906,8 @@ export function iniciarPizarra(): void {
     } catch {
       /* no pasa nada */
     }
+
+    if (tm) return tmDown(e, p, tactil);
 
     if (herr === "select") {
       const g = golpe(p, tactil);
@@ -667,7 +920,17 @@ export function iniciarPizarra(): void {
         drag = { k: "manej", id: g.id, cual: g.cual, origen: p, movido: false };
         return;
       }
+      if (g.tipo === "asa-zona") {
+        trabajo = clonar(j);
+        drag = { k: "zona-tam", id: g.id, origen: p, movido: false };
+        return;
+      }
       seleccionar({ tipo: g.tipo, id: g.id });
+      if (g.tipo === "zona") {
+        const z = (j.pasos[paso].zonas ?? []).find((x) => x.id === g.id)!;
+        trabajo = clonar(j);
+        drag = { k: "zona", id: g.id, off: { x: z.x - p.x, y: z.y - p.y }, origen: p, movido: false };
+      }
       if (g.tipo === "pieza") {
         const pz = j.pasos[paso].piezas.find((x) => x.id === g.id)!;
         trabajo = clonar(j);
@@ -680,9 +943,20 @@ export function iniciarPizarra(): void {
       return;
     }
 
+    if (herr === "zona" || herr === "elipse") {
+      drag = { k: "zona-nueva", forma: herr === "zona" ? "rect" : "elipse", ini: p };
+      return;
+    }
+
     const tp = TIPO_PIEZA_DE[herr];
+    if (tp && enTramoComun(paso)) {
+      toast("Estás en una lectura: los jugadores nuevos se colocan desde un paso posterior al punto de salida. Para crearlos antes, cámbiate a la principal.", 5000);
+      return;
+    }
     if (tp) {
-      const r = anadirPieza(j, paso, tp, p);
+      // una fila nace mirando a la canasta más cercana
+      const extra = tp === "fila" ? { ang: (Math.atan2(aroDe([p], j.cancha).y - p.y, aroDe([p], j.cancha).x - p.x) * 180) / Math.PI } : {};
+      const r = anadirPieza(j, paso, tp, p, undefined, extra);
       trabajo = r.jugada;
       sel = { tipo: "pieza", id: r.id };
       drag = { k: "pieza", id: r.id, off: { x: 0, y: 0 }, propagar: true, origen: p, movido: true };
@@ -719,7 +993,63 @@ export function iniciarPizarra(): void {
     }
   });
 
+  // ── modo tiempo muerto: mover, flecha por toque largo, borrar línea con un toque ──
+  function tmDown(e: PointerEvent, p: Pt, tactil: boolean) {
+    const s = jv().pasos[0];
+    const pz = buscarPieza(s, p, enMetros(tactil ? 26 : 14));
+    const px = { x: e.clientX, y: e.clientY };
+    if (pz) {
+      const selYa = sel?.tipo === "pieza" && sel.id === pz.id;
+      const g: TmGesto = { id: pz.id, linea: null, p0: p, px0: px, selYa, armado: selYa, modo: "pend", timer: 0 };
+      if (!selYa) {
+        g.timer = window.setTimeout(() => {
+          if (tmGesto !== g || g.modo !== "pend") return;
+          g.armado = true;
+          sel = { tipo: "pieza", id: pz.id };
+          pintar();
+          try {
+            navigator.vibrate?.(25);
+          } catch {
+            /* sin vibración */
+          }
+        }, 380);
+      }
+      tmGesto = g;
+      return;
+    }
+    const dl = Math.max(0.5, enMetros(tactil ? 18 : 10));
+    const l = s.lineas.slice().reverse().find((x) => distAPolilinea(p, polilinea(x)) <= dl);
+    tmGesto = { id: "", linea: l?.id ?? null, p0: p, px0: px, selYa: false, armado: false, modo: "pend", timer: 0 };
+  }
+
+  function tmMover(e: PointerEvent) {
+    const g = tmGesto;
+    if (!g || g.modo !== "pend") return;
+    if (Math.hypot(e.clientX - g.px0.x, e.clientY - g.px0.y) < 8) return;
+    window.clearTimeout(g.timer);
+    g.modo = "activo";
+    if (!g.id) return; // arrastrar desde un hueco no hace nada
+    const j = jv();
+    const st = j.pasos[0];
+    const pz = st.piezas.find((x) => x.id === g.id);
+    if (!pz) return;
+    if (g.armado) {
+      const f = flechaPorDefecto(st, pz);
+      const ini = { x: f.origen.x, y: f.origen.y };
+      tmFlecha = pz.id;
+      sel = { tipo: "pieza", id: pz.id };
+      borrador = { id: "tmp", tipo: f.tipo, pts: [ini, ini], ...(f.origen.tipo !== "balon" ? { ref: f.origen.id } : {}) };
+      drag = { k: "dibujo" };
+    } else {
+      trabajo = clonar(j);
+      sel = { tipo: "pieza", id: pz.id };
+      drag = { k: "pieza", id: pz.id, off: { x: pz.x - g.p0.x, y: pz.y - g.p0.y }, propagar: false, origen: g.p0, movido: true };
+    }
+    pintar();
+  }
+
   svg.addEventListener("pointermove", (e: PointerEvent) => {
+    if (tm && tmGesto && !drag) tmMover(e);
     if (!drag) {
       if (e.pointerType === "mouse" && herr === "select" && !anim) {
         const g = golpe(aCanon(e), false);
@@ -730,6 +1060,11 @@ export function iniciarPizarra(): void {
     const d = drag;
     const j = trabajo;
     const p = limitaPunto(aCanon(e), actual().cancha);
+    if (d.k === "zona-nueva") {
+      zonaBorrador = { id: "tmp", ...zonaDesdeEsquinas(d.forma, d.ini, p) };
+      pintar();
+      return;
+    }
     if (d.k === "dibujo") {
       if (!borrador) return;
       if (borrador.tipo === "libre") {
@@ -738,6 +1073,10 @@ export function iniciarPizarra(): void {
         borrador = { ...borrador, pts: libreTmp.length > 1 ? libreTmp.slice() : [libreTmp[0], p] };
       } else {
         borrador = { ...borrador, pts: [borrador.pts[0], p] };
+        if (tm && tmFlecha) {
+          const pz = jv().pasos[0].piezas.find((x) => x.id === tmFlecha);
+          if (pz) borrador.tipo = flechaPorDefecto(jv().pasos[0], pz, p).tipo;
+        }
       }
       pintar();
       return;
@@ -765,6 +1104,19 @@ export function iniciarPizarra(): void {
         t.x = Math.round(np.x * 100) / 100;
         t.y = Math.round(np.y * 100) / 100;
       }
+    } else if (d.k === "zona") {
+      const z = (st.zonas ?? []).find((x) => x.id === d.id);
+      if (z) {
+        const np = limitaPunto({ x: p.x + d.off.x, y: p.y + d.off.y }, j.cancha);
+        z.x = Math.round(np.x * 100) / 100;
+        z.y = Math.round(np.y * 100) / 100;
+      }
+    } else if (d.k === "zona-tam") {
+      const z = (st.zonas ?? []).find((x) => x.id === d.id);
+      if (z) {
+        z.w = Math.round(Math.min(ZONA_MAX, Math.max(ZONA_MIN, 2 * Math.abs(p.x - z.x))) * 100) / 100;
+        z.h = Math.round(Math.min(ZONA_MAX, Math.max(ZONA_MIN, 2 * Math.abs(p.y - z.y))) * 100) / 100;
+      }
     } else if (d.k === "manej") {
       const l = st.lineas.find((x) => x.id === d.id);
       if (l) {
@@ -790,13 +1142,29 @@ export function iniciarPizarra(): void {
     }
     const d = drag;
     drag = null;
+    const g = tmGesto;
+    tmGesto = null;
+    if (g) window.clearTimeout(g.timer);
+    if (tm && g && !d) return void tmToque(g, cancelado);
     if (!d) return;
+    if (d.k === "zona-nueva") {
+      const b = zonaBorrador;
+      zonaBorrador = null;
+      if (cancelado) return void pintar();
+      const fin = b ? { x: b.x + (b.x - d.ini.x), y: b.y + (b.y - d.ini.y) } : d.ini;
+      const grande = b && dist(d.ini, fin) > 0.9;
+      const nueva = grande && b ? { forma: d.forma, x: b.x, y: b.y, w: b.w, h: b.h } : { forma: d.forma, x: d.ini.x, y: d.ini.y, ...ZONA_POR_DEFECTO };
+      const r = anadirZona(jv(), paso, nueva);
+      commit(r.jugada);
+      seleccionar({ tipo: "zona", id: r.id });
+      return;
+    }
     if (d.k === "dibujo") {
       const b = borrador;
       borrador = null;
       libreTmp = [];
       if (cancelado || !b) return void pintar();
-      const j = hist.presente;
+      const j = jv();
       if (b.tipo === "libre") {
         const pts = simplifica(b.pts, 0.12);
         if (pts.length < 2 || dist(pts[0], pts[pts.length - 1]) + pts.length < 3) return void pintar();
@@ -807,11 +1175,21 @@ export function iniciarPizarra(): void {
       }
       const ini = b.pts[0];
       let fin = b.pts[1];
-      if (dist(ini, fin) < 0.8) return void pintar();
+      if (dist(ini, fin) < 0.8) {
+        tmFlecha = null;
+        if (tm) sel = null;
+        return void pintar();
+      }
+      if (tm && tmFlecha) {
+        const pz = j.pasos[0].piezas.find((x) => x.id === tmFlecha);
+        if (pz) b.tipo = flechaPorDefecto(j.pasos[0], pz, fin).tipo;
+      }
+      tmFlecha = null;
       const nueva: Omit<Linea, "id"> = { tipo: b.tipo, pts: [ini, fin] };
       if (b.ref) nueva.ref = b.ref;
       if (b.tipo === "pase" || b.tipo === "tiro") {
-        const dest = piezaCerca(fin, 0.95, ["atq", "def"], b.ref);
+        const tipoOrigen = tm && b.ref ? j.pasos[0].piezas.find((x) => x.id === b.ref)?.tipo : undefined;
+        const dest = piezaCerca(fin, 0.95, tipoOrigen === "atq" || tipoOrigen === "def" ? [tipoOrigen] : ["atq", "def"], b.ref);
         if (dest && b.tipo === "pase") {
           fin = { x: dest.x, y: dest.y };
           nueva.pts = [ini, fin];
@@ -819,6 +1197,11 @@ export function iniciarPizarra(): void {
         }
       }
       const r = anadirLinea(j, paso, nueva);
+      if (tm) {
+        sel = null;
+        commit(r.jugada);
+        return;
+      }
       commit(r.jugada);
       seleccionar({ tipo: "linea", id: r.id });
       return;
@@ -861,11 +1244,28 @@ export function iniciarPizarra(): void {
         }
       }
     }
+    if (tm) sel = null;
     if (d.movido) commit(j);
     else {
       trabajo = null;
       pintar();
     }
+  }
+
+  /** Toque sin arrastre en modo tiempo muerto: (des)selecciona una pieza o borra una línea. */
+  function tmToque(g: TmGesto, cancelado: boolean) {
+    if (cancelado) return void pintar();
+    if (g.id) {
+      sel = g.selYa ? null : { tipo: "pieza", id: g.id };
+      return void pintar();
+    }
+    if (g.linea) {
+      sel = null;
+      commit(quitarLinea(jv(), 0, g.linea));
+      return void toast("Línea borrada. Puedes deshacer.", 2200);
+    }
+    sel = null;
+    pintar();
   }
   svg.addEventListener("pointerup", (e: PointerEvent) => terminarPuntero(e, false));
   svg.addEventListener("pointercancel", (e: PointerEvent) => terminarPuntero(e, true));
@@ -973,7 +1373,7 @@ export function iniciarPizarra(): void {
 
   // ── guardar, biblioteca ─────────────────────────────────────────────
   function guardarActual() {
-    if (soloVista) return;
+    if (soloVista || tm) return;
     const j = clonar(hist.presente);
     j.actualizada = Date.now();
     const i = biblio.findIndex((x) => x.id === j.id);
@@ -1003,7 +1403,7 @@ export function iniciarPizarra(): void {
   function pintarAvisoCopia() {
     const ahora = Date.now();
     ultimaCopiaEl.textContent = textoUltimaCopia(ultimaCopia, ahora);
-    const toca = tocaRecordarCopia(biblio.length, ultimaCopia, ahora);
+    const toca = tocaRecordarCopia(biblio.length + sesiones.length, ultimaCopia, ahora);
     // el aviso es cerrable, pero vuelve a salir si hace falta una copia o pasó una semana
     const cerradoReciente = avisoCerrado !== null && ahora - avisoCerrado < 7 * MS_DIA;
     avisoCopia.hidden = cerradoReciente && !toca;
@@ -1074,19 +1474,21 @@ export function iniciarPizarra(): void {
       listaEl.append(el("li", { cls: "pz-item" + (actualMarca ? " on" : "") }, abrirB, dupB, borrarB));
     }
 
-    plantillasEl.replaceChildren();
-    for (const p of PLANTILLAS) {
-      plantillasEl.append(
-        el(
-          "li",
-          { cls: "pz-item" },
+    for (const [ul, lista] of [[plantillasEl, PLANTILLAS], [ejerciciosEl, PLANTILLAS_EJERCICIOS]] as const) {
+      ul.replaceChildren();
+      for (const p of lista) {
+        ul.append(
           el(
-            "button",
-            { cls: "pz-item-main", attrs: { type: "button", "aria-label": `Cargar plantilla ${p.nombre}` }, on: { click: () => abrir(p.crear(), true) } },
-            el("span", { cls: "pz-item-info" }, el("span", { cls: "pz-item-nom", text: p.nombre }), el("span", { cls: "pz-item-meta", text: p.descripcion }))
+            "li",
+            { cls: "pz-item" },
+            el(
+              "button",
+              { cls: "pz-item-main", attrs: { type: "button", "aria-label": `Cargar plantilla ${p.nombre}` }, on: { click: () => abrir(p.crear(), true) } },
+              el("span", { cls: "pz-item-info" }, el("span", { cls: "pz-item-nom", text: p.nombre }), el("span", { cls: "pz-item-meta", text: p.descripcion }))
+            )
           )
-        )
-      );
+        );
+      }
     }
 
     compartidasEl.replaceChildren();
@@ -1115,10 +1517,11 @@ export function iniciarPizarra(): void {
       b.setAttribute("aria-selected", String(on));
     });
     root.querySelectorAll<HTMLElement>("[data-panel]").forEach((p) => (p.hidden = p.dataset.panel !== t));
+    if (t === "jugada") pintarEquipos();
   }
   /** Con un panel o diálogo abierto, el botón del chat flotante sobraría encima. */
   function estadoModal() {
-    const abierto = !shareEl.hidden || (sideEl.classList.contains("open") && window.matchMedia("(max-width: 900px)").matches);
+    const abierto = tm || jugador || !banqEl.hidden || !qrEl.hidden || !shareEl.hidden || !formEl.hidden || (sideEl.classList.contains("open") && window.matchMedia("(max-width: 900px)").matches);
     document.documentElement.classList.toggle("pz-modal", abierto);
   }
   function abrirPanelMovil(t: string) {
@@ -1246,7 +1649,7 @@ export function iniciarPizarra(): void {
     new Promise<Blob>((ok, ko) => c.toBlob((b) => (b ? ok(b) : ko(new Error("No se pudo crear la imagen"))), tipo));
 
   async function exportarPNG(hoja: boolean) {
-    const j = hist.presente;
+    const j = jv();
     try {
       toast("Generando imagen…", 8000);
       const l = hoja ? renderHoja(j, { paleta: PALETAS[paleta] }) : renderCuadro(j, paso, { paleta: PALETAS[paleta], ancho: 1200 });
@@ -1270,7 +1673,7 @@ export function iniciarPizarra(): void {
   async function grabarVideo() {
     const mime = videoSoportado();
     if (!mime) return void toast("Tu navegador no puede grabar vídeo de la animación (en Safari, usa Chrome o Edge). Puedes exportar imágenes.", 6000);
-    const j = clonar(hist.presente);
+    const j = clonar(jv());
     if (j.pasos.length < 2) return void toast("Crea al menos dos pasos para grabar la animación.");
     if (grabando) return;
     detener();
@@ -1343,7 +1746,9 @@ export function iniciarPizarra(): void {
   }
 
   function exportarJson(jugadas: Jugada[], nombre: string, esCopia: boolean) {
-    descargar(new Blob([libroAJson(jugadas)], { type: "application/json" }), nombreArchivo(nombre, "json"));
+    // la copia y el playbook completo llevan también las sesiones de entrenamiento
+    const extra = esCopia || jugadas.length > 1 ? { sesiones } : {};
+    descargar(new Blob([libroAJson(jugadas, extra)], { type: "application/json" }), nombreArchivo(nombre, "json"));
     if (esCopia) {
       ultimaCopia = Date.now();
       persistir(true);
@@ -1355,7 +1760,8 @@ export function iniciarPizarra(): void {
     const lista = biblio.length ? biblio : [hist.presente];
     const hoy = new Date().toISOString().slice(0, 10);
     exportarJson(lista, `copia pizarra ${hoy}`, true);
-    toast(`Copia descargada (${lista.length} ${lista.length === 1 ? "jugada" : "jugadas"}). Guárdala en tu correo, Drive o el móvil.`, 6000);
+    const ses = sesiones.length ? ` y ${sesiones.length} ${sesiones.length === 1 ? "sesión" : "sesiones"}` : "";
+    toast(`Copia descargada (${lista.length} ${lista.length === 1 ? "jugada" : "jugadas"}${ses}). Guárdala en tu correo, Drive o el móvil.`, 6000);
   }
 
   async function importarArchivo(f: File) {
@@ -1367,20 +1773,41 @@ export function iniciarPizarra(): void {
       return void toast("No se pudo leer el archivo.");
     }
     const r = leerLibroDeTexto(texto);
-    if (!r || r.jugadas.length === 0) return void toast("Ese archivo no es una copia válida de la pizarra.", 5000);
+    let ses = { sesiones: [] as Sesion[], descartadas: 0 };
+    try {
+      ses = sesionesDeLibro(JSON.parse(texto));
+    } catch {
+      /* ya lo ha dicho leerLibroDeTexto */
+    }
+    if (!r || (r.jugadas.length === 0 && ses.sesiones.length === 0)) return void toast("Ese archivo no es una copia válida de la pizarra.", 5000);
     const existentes = new Set(biblio.map((x) => x.id));
+    const mapa = new Map<string, string>();
     let n = 0;
     for (const j of r.jugadas) {
       if (biblio.length >= LIMITES.BIBLIOTECA) break;
+      const antes = j.id;
       if (existentes.has(j.id)) j.id = uid();
+      mapa.set(antes, j.id);
       biblio.unshift(j);
       existentes.add(j.id);
       n++;
     }
+    // las sesiones importadas siguen apuntando a sus jugadas aunque estas hayan cambiado de id
+    const idsSesion = new Set(sesiones.map((x) => x.id));
+    let ns = 0;
+    for (const sesion of ses.sesiones) {
+      const nueva = remapearJugadas(sesion, mapa);
+      if (idsSesion.has(nueva.id)) nueva.id = uid();
+      idsSesion.add(nueva.id);
+      sesiones.unshift(nueva);
+      ns++;
+    }
     persistir(true);
     pintarBiblioteca();
     abrirPanelMovil("biblioteca");
-    toast(`${n} ${n === 1 ? "jugada importada" : "jugadas importadas"}${r.descartadas ? ` · ${r.descartadas} descartadas por no ser válidas` : ""}`, 5000);
+    const descartadas = r.descartadas + ses.descartadas;
+    const txtSes = ns ? ` y ${ns} ${ns === 1 ? "sesión" : "sesiones"}` : "";
+    toast(`${n} ${n === 1 ? "jugada importada" : "jugadas importadas"}${txtSes}${descartadas ? ` · ${descartadas} descartadas por no ser válidas` : ""}`, 5000);
   }
 
   // ── impresión / PDF ─────────────────────────────────────────────────
@@ -1396,13 +1823,29 @@ export function iniciarPizarra(): void {
       j.pasos.forEach((s, i) => {
         const fig = el("figure", { cls: "pz-print-paso" });
         const box = el("div", { cls: "pz-print-svg" });
-        box.innerHTML = renderSvgCompleto({ cancha: j.cancha, orient: j.orient, piezas: s.piezas, lineas: s.lineas, textos: s.textos, paleta: pal });
+        box.innerHTML = renderSvgCompleto({ cancha: j.cancha, orient: j.orient, piezas: s.piezas, lineas: s.lineas, textos: s.textos, zonas: s.zonas, pista: j.pista, paleta: pal });
         const cap = el("figcaption", {}, el("strong", { text: `Paso ${i + 1}` }));
+        if (s.opcion) cap.append(` (${s.opcion})`);
         if (s.nota) cap.append(" · " + s.nota);
         fig.append(box, cap);
         grid.append(fig);
       });
       sec.append(grid);
+      // las lecturas alternativas, cada una con su título y sus pasos
+      for (const rm of j.ramas ?? []) {
+        sec.append(el("h3", { cls: "pz-print-lectura", text: `${etiquetaLectura(j, rm.id)} · sale del paso ${rm.desde + 1}` }));
+        const g2 = el("div", { cls: "pz-print-grid" + (rm.pasos.length === 1 ? " uno" : "") });
+        rm.pasos.forEach((s2, i) => {
+          const fig = el("figure", { cls: "pz-print-paso" });
+          const box = el("div", { cls: "pz-print-svg" });
+          box.innerHTML = renderSvgCompleto({ cancha: j.cancha, orient: j.orient, piezas: s2.piezas, lineas: s2.lineas, textos: s2.textos, zonas: s2.zonas, pista: j.pista, paleta: pal });
+          const cap = el("figcaption", {}, el("strong", { text: `${etiquetaLectura(j, rm.id)} · paso ${i + 1}` }));
+          if (s2.nota) cap.append(" · " + s2.nota);
+          fig.append(box, cap);
+          g2.append(fig);
+        });
+        sec.append(g2);
+      }
       sec.append(el("p", { cls: "pz-print-pie", text: "canchazapa.com/pizarra" }));
       printEl.append(sec);
     }
@@ -1455,7 +1898,15 @@ export function iniciarPizarra(): void {
     const payload = payloadDeHash(location.hash);
     if (payload === null) return;
     try {
+      if (tipoDePayload(payload) === "s") {
+        const cs = await decodificarEnlaceSesion(payload);
+        compartidas = cs.jugadas;
+        pintarBiblioteca();
+        control?.abrirCompartida(cs);
+        return;
+      }
       const c: CargaEnlace = await decodificarEnlace(payload);
+      salirJugador(false);
       compartidas = c.jugadas;
       cargarJugada(c.jugadas[0], { vista: true });
       q("banner-texto").textContent =
@@ -1464,6 +1915,7 @@ export function iniciarPizarra(): void {
           : `Playbook compartido con ${c.jugadas.length} jugadas (se muestra la primera). Están en Biblioteca > Compartidas contigo.`;
       pintarBiblioteca();
       if (c.tipo === "libro") abrirPanelMovil("biblioteca");
+      else if (esModoJugador(location.hash)) entrarJugador();
     } catch (e) {
       toast("Este enlace no es válido o está incompleto" + (e instanceof Error && e.message ? ` (${e.message})` : "") + ".", 7000);
     }
@@ -1477,10 +1929,618 @@ export function iniciarPizarra(): void {
     }
   }
 
+  // ── formaciones rápidas ─────────────────────────────────────────────
+  function pintarFormaciones() {
+    formListaEl.replaceChildren();
+    for (const lado of ["ataque", "defensa"] as const) {
+      formListaEl.append(el("h4", { cls: "pz-form-h", text: lado === "ataque" ? "Ataque" : "Defensa" }));
+      const fila = el("div", { cls: "pz-form-grid" });
+      for (const f of FORMACIONES.filter((x) => x.lado === lado)) {
+        fila.append(
+          el(
+            "button",
+            { cls: "pz-form-btn", attrs: { type: "button", "data-form": f.id, title: f.descripcion } },
+            el("span", { cls: "pz-form-n", text: f.nombre }),
+            el("span", { cls: "pz-form-d", text: f.descripcion })
+          )
+        );
+      }
+      formListaEl.append(fila);
+    }
+  }
+
+  function abrirFormaciones() {
+    const completa = jv().cancha === "completa";
+    formEspejoEl.hidden = !completa;
+    formEspejoEl.querySelector("input")!.checked = formEspejo && completa;
+    formEl.hidden = !formEl.hidden;
+    estadoModal();
+  }
+
+  function usarFormacion(id: string) {
+    if (soloVista && !tm) return;
+    const f = formacionPorId(id);
+    if (!f) return;
+    if (enTramoComun(paso)) return void toast("Estás en una lectura: coloca la formación desde un paso posterior al punto de salida, o en la principal.", 5000);
+    const j = jv();
+    if (f.id === "def-individual" && !j.pasos[paso].piezas.some((p) => p.tipo === "atq")) {
+      return void toast("Coloca primero a tus atacantes (por ejemplo con una formación de ataque) y luego la defensa individual.", 5000);
+    }
+    const r = aplicarFormacion(j, paso, f, { espejo: formEspejo });
+    commit(r.jugada);
+    formEl.hidden = true;
+    estadoModal();
+    toast(`${f.nombre} colocada${r.lineasQuitadas ? ` · se quitaron ${r.lineasQuitadas} líneas que salían de esos jugadores` : ""}. Puedes deshacer.`, 4200);
+  }
+
+  // ── modo tiempo muerto ──────────────────────────────────────────────
+  function entrarTM() {
+    if (tm) return;
+    detener();
+    const j = jv();
+    const s = j.pasos[Math.min(paso, j.pasos.length - 1)];
+    tmReal = { hist, paso, rama: ramaActiva };
+    ramaActiva = null;
+    vistaCache = null;
+    tmBase = nuevaJugada({
+      nombre: "Tiempo muerto",
+      categoria: j.categoria,
+      cancha: j.cancha,
+      orient: j.orient,
+      ...(j.pista ? { pista: j.pista } : {}),
+      pasos: [{ piezas: clonar(s.piezas), lineas: [], textos: [], nota: "", zonas: clonar(s.zonas ?? []) }],
+    });
+    hist = nuevoHistorial(clonar(tmBase));
+    paso = 0;
+    sel = null;
+    herr = "select";
+    tm = true;
+    root.classList.add("pz-tm", "pz-fs");
+    document.documentElement.classList.add("pz-fs-lock");
+    shareEl.hidden = true;
+    formEl.hidden = true;
+    cerrarPanelMovil();
+    // pantalla completa de verdad si el navegador la deja (iPhone no): si no, queda el modo superpuesto
+    try {
+      void root.requestFullscreen?.().catch(() => undefined);
+    } catch {
+      /* sin pantalla completa */
+    }
+    try {
+      void (screen.orientation as unknown as { lock?: (o: string) => Promise<void> })?.lock?.("landscape")?.catch(() => undefined);
+    } catch {
+      /* no se puede bloquear la orientación */
+    }
+    estadoModal();
+    refrescarTodo();
+    marcarHerramienta();
+    toast("Tiempo muerto. Arrastra para mover · toque largo y arrastra para dibujar una flecha.", 5200);
+  }
+
+  function salirTM() {
+    if (!tm || !tmReal) return;
+    window.clearTimeout(tmGesto?.timer);
+    tmGesto = null;
+    tmFlecha = null;
+    hist = tmReal.hist;
+    paso = tmReal.paso;
+    ramaActiva = tmReal.rama;
+    vistaCache = null;
+    tmReal = null;
+    tmBase = null;
+    tm = false;
+    sel = null;
+    drag = null;
+    borrador = null;
+    trabajo = null;
+    formEl.hidden = true;
+    root.classList.remove("pz-tm");
+    if (document.fullscreenElement) void document.exitFullscreen().catch(() => undefined);
+    else {
+      root.classList.remove("pz-fs");
+      document.documentElement.classList.remove("pz-fs-lock");
+    }
+    try {
+      (screen.orientation as unknown as { unlock?: () => void })?.unlock?.();
+    } catch {
+      /* da igual */
+    }
+    estadoModal();
+    refrescarTodo();
+    marcarHerramienta();
+  }
+
+  function tmReset() {
+    if (!tm || !tmBase) return;
+    hist = nuevoHistorial(clonar(tmBase));
+    sel = null;
+    refrescarTodo();
+    toast("Formación inicial recuperada.", 1800);
+  }
+
+  // ── modo jugador ────────────────────────────────────────────────────
+  const inicioDePasoJ = (k: number) => k * (PAUSA_PASO + DURACION_TRANSICION);
+
+  function pintarNotasJugador() {
+    const j = actual();
+    plNombre.textContent = j.nombre;
+    plPaso.textContent = `Paso ${paso + 1} / ${j.pasos.length}`;
+    plNotaPaso.textContent = j.pasos[Math.min(paso, j.pasos.length - 1)]?.nota ?? "";
+    plNotasJ.textContent = j.notas;
+    plDet.hidden = !j.notas;
+  }
+
+  function bucleJugador() {
+    cancelAnimationFrame(jugRaf);
+    const j = actual();
+    if (j.pasos.length < 2) {
+      paso = 0;
+      anim = null;
+      pintar();
+      pintarNotasJugador();
+      return;
+    }
+    const total = duracionTotal(j);
+    const PAUSA_FIN = 1500;
+    let t0 = performance.now();
+    let ultK = -1;
+    const f = (ahora: number) => {
+      if (!jugador) return;
+      if (!jugPausa) jugAcum += (ahora - t0) * (Number(plVel.value) || 1);
+      t0 = ahora;
+      if (jugAcum > total + PAUSA_FIN) jugAcum = 0;
+      const st = estadoEnTiempo(j, Math.min(jugAcum, total));
+      if (st.fin) {
+        anim = null;
+        paso = j.pasos.length - 1;
+      } else {
+        anim = { k: st.k, t: st.t };
+        paso = st.k;
+      }
+      pintar();
+      if (paso !== ultK) {
+        ultK = paso;
+        pintarNotasJugador();
+      }
+      jugRaf = requestAnimationFrame(f);
+    };
+    jugRaf = requestAnimationFrame(f);
+  }
+
+  function ponerPausaJugador(p: boolean) {
+    jugPausa = p;
+    plPlay.textContent = p ? "▶" : "❚❚";
+    plPlay.setAttribute("aria-label", p ? "Reproducir" : "Pausar");
+  }
+
+  function entrarJugador() {
+    detener();
+    jugador = true;
+    jugAcum = 0;
+    ponerPausaJugador(false);
+    sel = null;
+    root.classList.add("pz-jugador", "pz-fs");
+    document.documentElement.classList.add("pz-fs-lock");
+    estadoModal();
+    pintarNotasJugador();
+    bucleJugador();
+  }
+
+  function salirJugador(quitarModoDelEnlace = true) {
+    if (!jugador) return;
+    jugador = false;
+    cancelAnimationFrame(jugRaf);
+    anim = null;
+    paso = 0;
+    ramaActiva = null;
+    vistaCache = null;
+    root.classList.remove("pz-jugador");
+    if (!document.fullscreenElement) {
+      root.classList.remove("pz-fs");
+      document.documentElement.classList.remove("pz-fs-lock");
+    }
+    if (quitarModoDelEnlace) {
+      const p = payloadDeHash(location.hash);
+      if (p) {
+        try {
+          history.replaceState(null, "", `${location.pathname}${location.search}#j=${p}`);
+        } catch {
+          /* da igual */
+        }
+      }
+    }
+    estadoModal();
+    refrescarTodo();
+  }
+
+  function pasoJugador(delta: number) {
+    const j = actual();
+    const k = Math.max(0, Math.min(j.pasos.length - 1, paso + delta));
+    ponerPausaJugador(true);
+    jugAcum = inicioDePasoJ(k);
+    paso = k;
+    anim = null;
+    pintar();
+    pintarNotasJugador();
+  }
+
+  // ── enlace para jugadores y QR ──────────────────────────────────────
+  async function urlJugador(): Promise<string> {
+    const payload = await codificarEnlace([hist.presente]);
+    return `${location.origin}${location.pathname}${hashModoJugador(payload)}`;
+  }
+
+  async function copiarEnlaceJugador() {
+    try {
+      const url = await urlJugador();
+      if (await copiar(url)) toast("Enlace de solo ver copiado: los jugadores lo abren y ven la jugada en bucle");
+      else toast("No se pudo copiar el enlace automáticamente.");
+    } catch {
+      toast("No se pudo generar el enlace.");
+    }
+  }
+
+  async function abrirQR() {
+    try {
+      const url = await urlJugador();
+      const ev = evaluarQR(url);
+      qrImgEl.replaceChildren();
+      const svgTxt = svgQR(url);
+      if (svgTxt) qrImgEl.innerHTML = svgTxt; // SVG generado por nosotros, sin texto del usuario
+      qrImgEl.hidden = !svgTxt;
+      qrAvisoEl.textContent = avisoQR(ev) || `${ev.modulos}×${ev.modulos} módulos · se lee bien incluso en un móvil pequeño.`;
+      qrAvisoEl.classList.toggle("warn", ev.lectura === "largo" || ev.lectura === "imposible");
+      qrEl.classList.remove("pz-qr-grande");
+      shareEl.hidden = true;
+      qrEl.hidden = false;
+      estadoModal();
+    } catch {
+      toast("No se pudo generar el código QR.");
+    }
+  }
+
+  // ── GIF ─────────────────────────────────────────────────────────────
+  async function exportarGif() {
+    const j = clonar(jv());
+    if (j.pasos.length < 2) return void toast("Crea al menos dos pasos para exportar la animación.");
+    if (grabando) return;
+    detener();
+    grabando = true;
+    root.classList.add("pz-rec");
+    const par = parametrosGif(j);
+    const pal = PALETAS[paleta];
+    try {
+      const base = renderCuadro(j, 0, { paleta: pal, ancho: par.ancho, notas: false });
+      const canvas = document.createElement("canvas");
+      canvas.width = base.w;
+      canvas.height = base.h;
+      const c2 = canvas.getContext("2d", { willReadFrequently: true });
+      if (!c2) throw new Error("sin canvas");
+      const gif = crearGif();
+      const cal = calendarioFotogramas(j, par.fps);
+      const retraso = retrasoFotograma(par.fps);
+      for (let i = 0; i < cal.length; i++) {
+        const st = estadoEnTiempo(j, cal[i]);
+        const l = renderCuadro(j, st.k, { paleta: pal, ancho: par.ancho, notas: false, piezas: posicionesEnTransicion(j, st.k, st.t), opacidadLineas: st.t > 0 ? 0.4 : 1 });
+        const url = URL.createObjectURL(new Blob([l.svg], { type: "image/svg+xml;charset=utf-8" }));
+        try {
+          const img = new Image();
+          await new Promise<void>((ok, ko) => {
+            img.onload = () => ok();
+            img.onerror = () => ko(new Error("fotograma"));
+            img.src = url;
+          });
+          c2.drawImage(img, 0, 0, canvas.width, canvas.height);
+        } finally {
+          URL.revokeObjectURL(url);
+        }
+        gif.anadir(c2.getImageData(0, 0, canvas.width, canvas.height).data, canvas.width, canvas.height, i === cal.length - 1 ? par.pausaFinal : retraso);
+        if (i % 5 === 0) {
+          toast(`Creando el GIF… ${Math.round((i / cal.length) * 100)} %`, 3000);
+          await new Promise((r) => setTimeout(r, 0));
+        }
+      }
+      const blob = new Blob([gif.terminar() as BlobPart], { type: "image/gif" });
+      const nombre = nombreArchivo(j.nombre, "gif");
+      descargar(blob, nombre);
+      ultimoGif = { blob, nombre };
+      gifCompartirEl.hidden = typeof navigator.canShare !== "function";
+      toast(`GIF descargado (${(blob.size / 1_000_000).toFixed(1)} MB, ${cal.length} fotogramas). Se ve en WhatsApp, también en iPhone.`, 6000);
+    } catch {
+      toast("No se pudo crear el GIF en este navegador.");
+    } finally {
+      grabando = false;
+      root.classList.remove("pz-rec");
+    }
+  }
+
+  async function compartirGif() {
+    if (!ultimoGif) return void toast("Primero exporta el GIF.");
+    const f = new File([ultimoGif.blob], ultimoGif.nombre, { type: "image/gif" });
+    try {
+      if (navigator.canShare?.({ files: [f] })) await navigator.share({ files: [f], title: hist.presente.nombre });
+      else toast("Tu navegador no deja compartir archivos: usa el GIF que se ha descargado.");
+    } catch (e) {
+      if (!(e instanceof DOMException && e.name === "AbortError")) toast("No se pudo compartir el GIF.");
+    }
+  }
+
+  // ── lecturas (opciones alternativas de un paso) ─────────────────────
+  function pintarLecturas() {
+    const r = real();
+    const ramas = r.ramas ?? [];
+    lectEl.hidden = ramas.length === 0 && (soloVista || tm);
+    plLect.replaceChildren();
+    lectChips.replaceChildren();
+    const chip = (id: string | null, texto: string, extra = "") => {
+      const on = ramaActiva === id;
+      return el("button", { cls: "pz-chip" + (on ? " on" : ""), text: texto + extra, attrs: { type: "button", "data-lect": id ?? "", "aria-pressed": String(on) } });
+    };
+    if (ramas.length) {
+      lectChips.append(chip(null, etiquetaLectura(r, null)));
+      for (const rm of ramas) lectChips.append(chip(rm.id, etiquetaLectura(r, rm.id), ` · desde el paso ${rm.desde + 1}`));
+      plLect.append(chip(null, etiquetaLectura(r, null)));
+      for (const rm of ramas) plLect.append(chip(rm.id, etiquetaLectura(r, rm.id)));
+    }
+    plLect.hidden = ramas.length === 0;
+    // editar el nombre de la lectura activa y quitarla
+    lectEdit.replaceChildren();
+    lectEdit.hidden = ramas.length === 0 || soloVista;
+    if (ramas.length && !soloVista) {
+      const inp = el("input", {
+        cls: "pz-inp pz-lect-inp",
+        attrs: { type: "text", maxlength: String(LIMITES.ETIQUETA_RAMA), "aria-label": "Nombre de la lectura", placeholder: "Ej.: Si pasa por detrás", autocomplete: "off" },
+        on: {
+          change: (e) => {
+            const v = (e.target as HTMLInputElement).value;
+            commitReal(ramaActiva === null ? renombrarPrincipal(real(), v) : renombrarRama(real(), ramaActiva, v));
+          },
+          keydown: (e) => {
+            if ((e as KeyboardEvent).key === "Enter") (e.target as HTMLInputElement).blur();
+          },
+        },
+      });
+      inp.value = ramaActiva === null ? (r.pasos[Math.min(...ramas.map((x) => x.desde))]?.opcion ?? "") : (ramas.find((x) => x.id === ramaActiva)?.etiqueta ?? "");
+      lectEdit.append(el("label", { cls: "pz-sb-lab" }, "Nombre de esta lectura ", inp));
+      if (ramaActiva !== null) {
+        lectEdit.append(el("button", { cls: "pz-bn pz-bn-2 pz-bn-sm", text: "Quitar lectura", attrs: { type: "button", "data-act": "lectura-quitar" } }));
+      }
+    }
+    root.querySelectorAll<HTMLElement>('[data-act="lectura-nueva"]').forEach((b) => (b.hidden = soloVista));
+  }
+
+  function elegirLectura(id: string | null) {
+    if (id === ramaActiva && !jugador) return;
+    if (!jugador) detener();
+    ramaActiva = id;
+    vistaCache = null;
+    jv();
+    paso = Math.min(paso, jv().pasos.length - 1);
+    sel = null;
+    if (jugador) {
+      jugAcum = 0;
+      ponerPausaJugador(false);
+      refrescarTodo();
+      pintarNotasJugador();
+      bucleJugador();
+      return;
+    }
+    refrescarTodo();
+  }
+
+  function crearLectura() {
+    if (soloVista) return;
+    const r = real();
+    if ((r.ramas ?? []).length >= LIMITES.RAMAS) return void toast(`Máximo de ${LIMITES.RAMAS} lecturas alternativas por jugada.`);
+    if (ramaActiva !== null && paso > desdeActiva()) {
+      return void toast("Las lecturas salen de la jugada principal: elige un paso anterior al punto de salida o cámbiate a la principal.", 5000);
+    }
+    const k = Math.min(paso, r.pasos.length - 1);
+    const res = anadirRama(r, k);
+    if (!res.id) return;
+    res.jugada.actualizada = Date.now();
+    hist = confirmar(hist, res.jugada);
+    ramaActiva = res.id;
+    vistaCache = null;
+    paso = Math.min(k + 1, jv().pasos.length - 1);
+    sel = null;
+    refrescarTodo();
+    persistir();
+    toast(`Lectura creada desde el paso ${k + 1}. Dibuja lo que pasa si el jugador decide otra cosa; pulsa «${etiquetaLectura(real(), null)}» para volver a la principal.`, 7000);
+  }
+
+  function quitarLecturaActiva() {
+    if (ramaActiva === null || soloVista) return;
+    if (!window.confirm("¿Quitar esta lectura y sus pasos? Se puede deshacer con Ctrl+Z.")) return;
+    const id = ramaActiva;
+    ramaActiva = null;
+    vistaCache = null;
+    commitReal(quitarRama(real(), id));
+    toast("Lectura quitada. Puedes deshacer.", 3000);
+  }
+
+  // ── orden de las acciones ───────────────────────────────────────────
+  function numerarPaso(quitar: boolean) {
+    if (soloVista) return;
+    const j = jv();
+    if (j.pasos[paso].lineas.length === 0) return void toast("Este paso no tiene líneas que numerar.");
+    commit(quitar ? quitarNumeros(j, paso) : numerarLineas(j, paso));
+    toast(quitar ? "Números quitados." : "Líneas numeradas en el orden en que las dibujaste. Cambia cada número al seleccionar la línea.", 4000);
+  }
+
+  // ── nombres desde el modo Equipo ────────────────────────────────────
+  function equiposGuardados(): EquipoParaPizarra[] {
+    try {
+      return equiposDeTexto(localStorage.getItem(CLAVE_EQUIPO));
+    } catch {
+      return [];
+    }
+  }
+
+  function pintarEquipos() {
+    const eqs = equiposGuardados();
+    const previo = equipoSel.value;
+    equipoSel.replaceChildren();
+    for (const e of eqs) equipoSel.append(el("option", { text: `${e.nombre} (${e.jugadores.length})`, attrs: { value: e.id } }));
+    if (eqs.some((e) => e.id === previo)) equipoSel.value = previo;
+    equipoSel.hidden = eqs.length < 2;
+    equipoInfo.textContent = eqs.length
+      ? `Se usan los dorsales de tu equipo en Estadísticas (modo Equipo): ${eqs.map((e) => e.nombre).join(", ")}.`
+      : "Aún no tienes ningún equipo con plantilla en Estadísticas > modo Equipo. Créalo allí y vuelve.";
+  }
+
+  function cargarPlantilla() {
+    if (soloVista) return;
+    const eqs = equiposGuardados();
+    if (eqs.length === 0) {
+      pintarEquipos();
+      return void toast("No hay ningún equipo con plantilla guardado en Estadísticas > modo Equipo.", 5000);
+    }
+    const eq = eqs.find((e) => e.id === equipoSel.value) ?? eqs[0];
+    const r = asignarNombres(real(), mapaNombres(eq));
+    if (r.asignados === 0) return void toast(`Ningún número de la pizarra coincide con los dorsales de «${eq.nombre}».`, 5000);
+    commitReal(r.jugada);
+    toast(`${r.asignados} ${r.asignados === 1 ? "nombre puesto" : "nombres puestos"} con la plantilla de «${eq.nombre}».${r.sinNombre.length ? ` Sin nombre: ${r.sinNombre.join(", ")}.` : ""}`, 6000);
+  }
+
+  function quitarTodosLosNombres() {
+    if (soloVista) return;
+    const r = quitarNombres(real());
+    if (r.quitados === 0) return void toast("No hay nombres que quitar.");
+    commitReal(r.jugada);
+    toast("Nombres quitados.");
+  }
+
+  // ── hoja de banquillo ───────────────────────────────────────────────
+  /** Jugadas que se pueden poner en la hoja: la biblioteca y, si no está guardada, la actual. */
+  function jugadasParaBanquillo(): Jugada[] {
+    const act = real();
+    const hay = act.pasos.some((p) => p.piezas.length || p.lineas.length);
+    return hay && !biblio.some((j) => j.id === act.id) ? [act, ...biblio] : biblio.slice();
+  }
+
+  function abrirBanquillo() {
+    const lista = jugadasParaBanquillo();
+    banqLista.replaceChildren();
+    if (lista.length === 0) {
+      banqLista.append(el("li", { cls: "pz-vacio", text: "No hay jugadas todavía: dibuja una o guarda alguna en tu biblioteca." }));
+    }
+    for (const j of lista) {
+      const id = `pz-bq-${j.id}`;
+      const cb = el("input", { attrs: { type: "checkbox", id, "data-banq": j.id, checked: "" } });
+      cb.checked = true;
+      banqLista.append(
+        el(
+          "li",
+          { cls: "pz-banq-it" },
+          cb,
+          el("label", { attrs: { for: id }, text: j.nombre + (biblio.some((x) => x.id === j.id) ? "" : " (sin guardar)") }),
+          el("span", { cls: "pz-item-meta", text: `${CATEGORIAS.find((c) => c.id === j.categoria)?.label ?? ""} · ${j.pasos.length} ${j.pasos.length === 1 ? "paso" : "pasos"}` })
+        )
+      );
+    }
+    shareEl.hidden = true;
+    banqEl.hidden = false;
+    estadoModal();
+  }
+
+  function marcarBanquillo(v: boolean) {
+    banqLista.querySelectorAll<HTMLInputElement>("input[data-banq]").forEach((c) => (c.checked = v));
+  }
+
+  function imprimirBanquillo() {
+    const ids = new Set([...banqLista.querySelectorAll<HTMLInputElement>("input[data-banq]:checked")].map((c) => c.dataset.banq));
+    const jugadas = jugadasParaBanquillo().filter((j) => ids.has(j.id));
+    if (jugadas.length === 0) return void toast("Marca al menos una jugada para la hoja.");
+    const n = Number(banqEl.querySelector<HTMLInputElement>('input[name="banq-n"]:checked')?.value) === 4 ? 4 : 6;
+    const modoSel = banqEl.querySelector<HTMLInputElement>('input[name="banq-modo"]:checked')?.value;
+    const modo: ModoResumen = MODOS_BANQUILLO.some((m) => m.id === modoSel) ? (modoSel as ModoResumen) : "todos";
+    const hoja = prepararBanquillo(jugadas, n as PorPagina, modo);
+    printEl.replaceChildren();
+    const raiz = el("section", { cls: "pz-print-banq" });
+    for (const pagina of hoja.paginas) {
+      const pag = el("div", { cls: `pz-banq-pag pz-banq-${n}` });
+      for (const t of pagina) {
+        const caja = el("div", { cls: "pz-banq-svg" });
+        caja.innerHTML = t.svg; // SVG nuestro: el texto del usuario va escapado dentro
+        pag.append(el("article", { cls: "pz-banq-card" }, el("h3", { cls: "pz-banq-nom", text: t.nombre }), el("p", { cls: "pz-banq-meta", text: t.meta + (t.lecturas ? ` · ${t.lecturas}` : "") }), caja));
+      }
+      raiz.append(pag);
+    }
+    printEl.append(raiz);
+    banqEl.hidden = true;
+    estadoModal();
+    document.documentElement.classList.add("pz-printing");
+    window.setTimeout(() => window.print(), 60);
+  }
+
   // ── acciones (botones) ──────────────────────────────────────────────
   function accion(act: string, b: HTMLElement) {
-    const j = hist.presente;
+    const j = jv();
     switch (act) {
+      case "ses":
+        return control?.abrir();
+      case "lectura-nueva":
+        return crearLectura();
+      case "lectura-quitar":
+        return quitarLecturaActiva();
+      case "numerar":
+        return numerarPaso(false);
+      case "sin-numeros":
+        return numerarPaso(true);
+      case "equipo-cargar":
+        return cargarPlantilla();
+      case "equipo-quitar":
+        return quitarTodosLosNombres();
+      case "banquillo":
+        return abrirBanquillo();
+      case "cerrar-banquillo":
+        banqEl.hidden = true;
+        return estadoModal();
+      case "banq-todas":
+        return marcarBanquillo(true);
+      case "banq-ninguna":
+        return marcarBanquillo(false);
+      case "banq-imprimir":
+        return imprimirBanquillo();
+      case "pl-play":
+        return ponerPausaJugador(!jugPausa);
+      case "pl-prev":
+        return pasoJugador(-1);
+      case "pl-next":
+        return pasoJugador(1);
+      case "pl-editar":
+        return salirJugador();
+      case "copy-link-jugador":
+        return void copiarEnlaceJugador();
+      case "qr":
+        return void abrirQR();
+      case "cerrar-qr":
+        qrEl.hidden = true;
+        return estadoModal();
+      case "qr-grande":
+        qrEl.classList.toggle("pz-qr-grande");
+        return;
+      case "gif":
+        return void exportarGif();
+      case "compartir-gif":
+        return void compartirGif();
+      case "tm":
+        return tm ? salirTM() : entrarTM();
+      case "tm-salir":
+        return salirTM();
+      case "tm-reset":
+        return tmReset();
+      case "tm-goma": {
+        const hay = hist.presente.pasos[0].lineas.length > 0;
+        if (!hay) return void toast("No hay líneas que borrar.", 1800);
+        return commit(limpiarPaso(hist.presente, 0, false));
+      }
+      case "formaciones":
+        return abrirFormaciones();
+      case "cerrar-formaciones":
+        formEl.hidden = true;
+        return estadoModal();
       case "deshacer":
         return deshacerAcc();
       case "rehacer":
@@ -1531,14 +2591,18 @@ export function iniciarPizarra(): void {
       case "add-step":
         if (soloVista) return;
         if (j.pasos.length >= LIMITES.PASOS) return void toast("Máximo de pasos alcanzado.");
+        if (ramaActiva !== null && paso < desdeActiva()) return void toast("Ese paso es de la lectura principal: para añadir pasos ahí, cámbiate a la principal.", 5000);
         paso = paso + 1;
         return commit(insertarPaso(j, paso - 1));
       case "dup-step":
         if (soloVista) return;
+        if (enTramoComun(paso)) return void toast("Ese paso es de la lectura principal: para duplicarlo, cámbiate a la principal.", 5000);
         paso = paso + 1;
         return commit(duplicarPaso(j, paso - 1));
       case "del-step": {
         if (soloVista) return;
+        if (enTramoComun(paso)) return void toast("Ese paso es de la lectura principal: para borrarlo, cámbiate a la principal.", 5000);
+        if (ramaActiva !== null && j.pasos.length - 1 <= desdeActiva() + 1) return void toast("Una lectura necesita al menos un paso. Para quitarla entera usa «Quitar lectura».", 5000);
         const k = paso;
         paso = Math.max(0, k - (k === j.pasos.length - 1 ? 1 : 0));
         return commit(quitarPaso(j, k));
@@ -1617,6 +2681,10 @@ export function iniciarPizarra(): void {
     if (!t) return;
     const paso$ = t.closest<HTMLElement>("[data-paso]");
     if (paso$ && pasosEl.contains(paso$)) return irAPaso(Number(paso$.dataset.paso));
+    const form = t.closest<HTMLElement>("[data-form]");
+    if (form) return usarFormacion(form.dataset.form ?? "");
+    const lect = t.closest<HTMLElement>("[data-lect]");
+    if (lect) return elegirLectura(lect.dataset.lect ? lect.dataset.lect : null);
     const tool = t.closest<HTMLElement>("[data-tool]");
     if (tool) return elegirHerramienta(tool.dataset.tool as Herr);
     const act = t.closest<HTMLElement>("[data-act]");
@@ -1626,7 +2694,7 @@ export function iniciarPizarra(): void {
   // metadatos de la jugada
   const meta = (fn: (j: Jugada) => void) => {
     if (soloVista) return;
-    const j = clonar(hist.presente);
+    const j = clonar(jv());
     fn(j);
     commit(j);
   };
@@ -1636,6 +2704,14 @@ export function iniciarPizarra(): void {
   txtNotaPaso.addEventListener("change", () => meta((j) => (j.pasos[paso].nota = limpiaTexto(txtNotaPaso.value, LIMITES.NOTA_PASO))));
   inpBuscar.addEventListener("input", pintarBiblioteca);
   selFiltro.addEventListener("change", pintarBiblioteca);
+  selPista.addEventListener("change", () => {
+    if (soloVista) return void actualizarUI();
+    const [pista, cancha] = selPista.value.split("-");
+    let j = real();
+    if (pista === "fiba" || pista === "mini") j = cambiarPista(j, pista);
+    if (cancha === "media" || cancha === "completa") j = cambiarCancha(j, cancha);
+    commitReal(j);
+  });
   selVel.addEventListener("change", () => {
     /* la velocidad se lee en cada fotograma */
   });
@@ -1645,6 +2721,9 @@ export function iniciarPizarra(): void {
     fileEl.value = "";
   });
   inpEnlace.addEventListener("focus", () => inpEnlace.select());
+  formEspejoEl.querySelector("input")?.addEventListener("change", (e) => {
+    formEspejo = (e.target as HTMLInputElement).checked;
+  });
 
   // teclado
   document.addEventListener("keydown", (e: KeyboardEvent) => {
@@ -1652,10 +2731,24 @@ export function iniciarPizarra(): void {
     const escribiendo = !!t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.tagName === "SELECT" || t.isContentEditable);
     const ctrl = e.ctrlKey || e.metaKey;
     if (e.key === "Escape") {
-      if (!shareEl.hidden) {
+      if (control?.estaAbierta()) {
+        control.cerrar();
+      } else if (!banqEl.hidden) {
+        banqEl.hidden = true;
+        estadoModal();
+      } else if (!qrEl.hidden) {
+        qrEl.hidden = true;
+        estadoModal();
+      } else if (jugador) {
+        salirJugador();
+      } else if (!formEl.hidden) {
+        formEl.hidden = true;
+        estadoModal();
+      } else if (!shareEl.hidden) {
         shareEl.hidden = true;
         estadoModal();
-      } else if (root.classList.contains("pz-fs")) pantallaCompleta();
+      } else if (tm) salirTM();
+      else if (root.classList.contains("pz-fs")) pantallaCompleta();
       else if (sideEl.classList.contains("open")) cerrarPanelMovil();
       else if (herr !== "select") elegirHerramienta("select");
       else if (sel) seleccionar(null);
@@ -1675,6 +2768,16 @@ export function iniciarPizarra(): void {
       return guardarActual();
     }
     if (ctrl || e.altKey) return;
+    if (jugador) {
+      if (e.key === " ") {
+        e.preventDefault();
+        ponerPausaJugador(!jugPausa);
+      } else if (e.key === "ArrowLeft") pasoJugador(-1);
+      else if (e.key === "ArrowRight") pasoJugador(1);
+      return;
+    }
+    if (e.key.toLowerCase() === "t") return tm ? salirTM() : entrarTM();
+    if (tm) return;
     if (e.key === "Delete" || e.key === "Backspace") {
       if (sel) {
         e.preventDefault();
@@ -1688,7 +2791,7 @@ export function iniciarPizarra(): void {
     }
     if (e.key === "ArrowLeft") return irAPaso(paso - 1);
     if (e.key === "ArrowRight") return irAPaso(paso + 1);
-    const mapa: Record<string, Herr> = { v: "select", a: "atq", d: "def", b: "balon", k: "cono", p: "pase", r: "bote", c: "corte", l: "bloqueo", s: "tiro", f: "libre", t: "texto" };
+    const mapa: Record<string, Herr> = { v: "select", a: "atq", d: "def", b: "balon", k: "cono", g: "neu", e: "ent", i: "fila", z: "zona", x: "elipse", o: "rotacion", p: "pase", r: "bote", c: "corte", l: "bloqueo", s: "tiro", f: "libre", n: "texto" };
     const h = mapa[e.key.toLowerCase()];
     if (h) elegirHerramienta(h);
   });
@@ -1697,10 +2800,67 @@ export function iniciarPizarra(): void {
   window.addEventListener("resize", () => pintar());
   window.addEventListener("hashchange", () => {
     if (payloadDeHash(location.hash) !== null) void abrirDesdeHash();
+    else if (jugador) salirJugador(false);
   });
   window.addEventListener("pagehide", () => persistir(true));
 
   // ── arranque ────────────────────────────────────────────────────────
+  control = iniciarSesiones({
+    root,
+    printEl,
+    biblio: () => biblio,
+    jugadasCompartidas: () => compartidas,
+    asegurarJugada: (j) => {
+      const huella = JSON.stringify(compactar(j));
+      const igual = biblio.find((x) => x.nombre === j.nombre && x.categoria === j.categoria && JSON.stringify(compactar(x)) === huella);
+      if (igual) return igual;
+      const copia = clonar(j);
+      copia.id = uid();
+      copia.actualizada = Date.now();
+      if (biblio.length < LIMITES.BIBLIOTECA) {
+        biblio.unshift(copia);
+        persistir(true);
+        pintarBiblioteca();
+      }
+      return copia;
+    },
+    guardarJugadas: (js) => {
+      const mapa = new Map<string, string>();
+      for (const j of js) {
+        const huella = JSON.stringify(compactar(j));
+        const igual = biblio.find((x) => x.nombre === j.nombre && JSON.stringify(compactar(x)) === huella);
+        if (igual) {
+          mapa.set(j.id, igual.id);
+          continue;
+        }
+        const copia = clonar(j);
+        copia.id = uid();
+        if (biblio.length < LIMITES.BIBLIOTECA) biblio.unshift(copia);
+        mapa.set(j.id, copia.id);
+      }
+      persistir(true);
+      pintarBiblioteca();
+      return mapa;
+    },
+    sesiones: () => sesiones,
+    setSesiones: (l) => {
+      sesiones = l;
+      persistir(true);
+      pintarAvisoCopia();
+    },
+    paleta: () => paleta,
+    toast,
+    abrirJugada: (j, vista) => abrir(j, false, vista),
+    copiar,
+    urlBase: () => `${location.origin}${location.pathname}`,
+    lanzarImpresion: () => {
+      shareEl.hidden = true;
+      estadoModal();
+      document.documentElement.classList.add("pz-printing");
+      window.setTimeout(() => window.print(), 60);
+    },
+  });
+  pintarFormaciones();
   marcarHerramienta();
   elegirTab("jugada");
   refrescarTodo();
@@ -1718,12 +2878,12 @@ export function iniciarPizarra(): void {
   }
 
   if (payloadDeHash(location.hash) !== null) void abrirDesdeHash();
-  else if (tocaRecordarCopia(biblio.length, ultimaCopia, Date.now()) && (avisoCerrado === null || Date.now() - avisoCerrado > 3 * MS_DIA)) {
+  else if (tocaRecordarCopia(biblio.length + sesiones.length, ultimaCopia, Date.now()) && (avisoCerrado === null || Date.now() - avisoCerrado > 3 * MS_DIA)) {
     window.setTimeout(() => toast("Hace tiempo que no haces una copia de seguridad de tus jugadas. Hazla desde Biblioteca.", 6500), 1500);
   }
 
   // para pruebas y depuración desde la consola
   (window as unknown as { __pizarra?: unknown }).__pizarra = {
-    estado: () => ({ jugada: hist.presente, paso, herr, sel, biblio: biblio.length }),
+    estado: () => ({ jugada: jv(), real: hist.presente, rama: ramaActiva, paso, herr, sel, biblio: biblio.length }),
   };
 }

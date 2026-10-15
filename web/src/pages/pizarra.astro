@@ -38,6 +38,22 @@ const jsonLd = {
         <button type="button" class="pz-bn pz-bn-2" data-act="editar-copia">Editar una copia</button>
       </div>
 
+      <div class="pz-plhead" data-pz="pl-head">
+        <strong class="pz-pl-nombre" data-pz="pl-nombre"></strong>
+        <div class="pz-pl-lect" data-pz="pl-lect" role="group" aria-label="Elegir lectura" hidden></div>
+        <div class="pz-pl-ctl" role="group" aria-label="Reproducción">
+          <button type="button" class="pz-plb" data-act="pl-prev" aria-label="Paso anterior">◀</button>
+          <button type="button" class="pz-plb pz-plb-play" data-act="pl-play" data-pz="pl-play" aria-label="Pausar">❚❚</button>
+          <button type="button" class="pz-plb" data-act="pl-next" aria-label="Paso siguiente">▶</button>
+          <select class="pz-vel" data-pz="pl-vel" aria-label="Velocidad">
+            <option value="0.5">0,5×</option>
+            <option value="1" selected>1×</option>
+            <option value="1.5">1,5×</option>
+          </select>
+          <span class="pz-info pz-pl-paso" data-pz="pl-paso"></span>
+        </div>
+      </div>
+
       <div class="pz-toolbar" role="toolbar" aria-label="Herramientas de la pizarra">
         <div class="pz-grp pz-edit" role="group" aria-label="Seleccionar">
           <button type="button" class="pz-btn" data-tool="select" aria-label="Seleccionar y mover (V)" title="Seleccionar y mover (V)" aria-pressed="true">
@@ -57,6 +73,15 @@ const jsonLd = {
           <button type="button" class="pz-btn" data-tool="cono" aria-label="Cono (K)" title="Cono (K)" aria-pressed="false">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l7.5 15h-15z" fill="currentColor" fill-opacity=".25"/><path d="M3.5 20h17"/></svg><span class="pz-lbl">Cono</span>
           </button>
+          <button type="button" class="pz-btn" data-tool="neu" aria-label="Jugador neutro de ejercicio (G)" title="Jugador neutro, verde y sin número · para ejercicios (G)" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="currentColor" fill-opacity=".45"/></svg><span class="pz-lbl">Neutro</span>
+          </button>
+          <button type="button" class="pz-btn" data-tool="ent" aria-label="Entrenador (E)" title="Entrenador (E)" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" fill="currentColor" fill-opacity=".25"/><text x="12" y="17" text-anchor="middle" font-size="12" font-weight="900" fill="currentColor" stroke="none" font-family="Inter,sans-serif">E</text></svg><span class="pz-lbl">Entren.</span>
+          </button>
+          <button type="button" class="pz-btn" data-tool="fila" aria-label="Fila de jugadores esperando turno (I)" title="Fila de jugadores con el número de cuántos hay (I)" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="3.2"/><circle cx="12.500" cy="12" r="3.200"/><circle cx="19" cy="12" r="3.200" fill="currentColor"/></svg><span class="pz-lbl">Fila</span>
+          </button>
         </div>
         <div class="pz-grp pz-edit" role="group" aria-label="Líneas de movimiento">
           <button type="button" class="pz-btn" data-tool="pase" aria-label="Pase, flecha discontinua (P)" title="Pase · flecha discontinua (P)" aria-pressed="false">
@@ -74,11 +99,25 @@ const jsonLd = {
           <button type="button" class="pz-btn" data-tool="tiro" aria-label="Tiro (S)" title="Tiro · línea punteada (S)" aria-pressed="false">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19L17 7" stroke-dasharray=".1 3.6" stroke-width="3"/><path d="M20 4.5l-6 1 5 5.2z" fill="currentColor"/></svg><span class="pz-lbl">Tiro</span>
           </button>
+          <button type="button" class="pz-btn" data-tool="rotacion" aria-label="Rotación: adónde va después, línea fina punteada (O)" title="Rotación · adónde va el jugador después (O)" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19L17 7" stroke-dasharray=".1 2.6" stroke-width="2"/><path d="M20 4.500l-4.500.8 3.700 3.800z" fill="currentColor"/></svg><span class="pz-lbl">Rotación</span>
+          </button>
+          <button type="button" class="pz-btn" data-tool="zona" aria-label="Zona sombreada rectangular (Z)" title="Zona sombreada: rectángulo (Z)" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="12" stroke-dasharray="3 2.200" fill="currentColor" fill-opacity=".2"/></svg><span class="pz-lbl">Zona</span>
+          </button>
+          <button type="button" class="pz-btn" data-tool="elipse" aria-label="Zona sombreada elíptica (X)" title="Zona sombreada: elipse (X)" aria-pressed="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="8.500" ry="6" stroke-dasharray="3 2.200" fill="currentColor" fill-opacity=".2"/></svg><span class="pz-lbl">Elipse</span>
+          </button>
           <button type="button" class="pz-btn" data-tool="libre" aria-label="Trazo libre (F)" title="Trazo libre (F)" aria-pressed="false">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15c2-8 4.500 5 7-2s4-7 6-3 3 4 5 1"/></svg><span class="pz-lbl">Libre</span>
           </button>
-          <button type="button" class="pz-btn" data-tool="texto" aria-label="Texto o nota (T)" title="Texto o nota (T)" aria-pressed="false">
+          <button type="button" class="pz-btn" data-tool="texto" aria-label="Texto o nota (N)" title="Texto o nota (N)" aria-pressed="false">
             <svg viewBox="0 0 24 24" aria-hidden="true"><text x="12" y="17" text-anchor="middle" font-size="14" font-weight="900" fill="currentColor" stroke="none" font-family="Inter,sans-serif">Aa</text></svg><span class="pz-lbl">Texto</span>
+          </button>
+        </div>
+        <div class="pz-grp pz-edit" role="group" aria-label="Formaciones">
+          <button type="button" class="pz-btn" data-act="formaciones" aria-label="Formaciones rápidas de ataque y defensa" title="Formaciones rápidas: 1-3-1, zona 2-3, individual…">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="12" r="2.2"/><circle cx="19" cy="12" r="2.2"/><circle cx="8" cy="19" r="2.2"/><circle cx="16" cy="19" r="2.2"/></svg><span class="pz-lbl">Formaciones</span>
           </button>
         </div>
         <div class="pz-grp pz-edit" role="group" aria-label="Historial">
@@ -93,9 +132,12 @@ const jsonLd = {
           </button>
         </div>
         <div class="pz-grp" role="group" aria-label="Vista">
-          <button type="button" class="pz-btn pz-edit" data-act="cancha" aria-label="Cambiar entre media pista y pista completa" title="Media pista / pista completa">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12"/><path d="M12 6v12"/><circle cx="12" cy="12" r="2.2"/></svg><span class="pz-lbl">Media pista</span>
-          </button>
+          <select class="pz-vel pz-edit pz-pista" data-pz="pista" aria-label="Tipo de pista y tamaño" title="Pista FIBA o de minibasket, media o completa">
+            <option value="fiba-media">FIBA · media pista</option>
+            <option value="fiba-completa">FIBA · pista completa</option>
+            <option value="mini-media">Minibasket (aro 2,60 m) · media</option>
+            <option value="mini-completa">Minibasket (aro 2,60 m) · completa</option>
+          </select>
           <button type="button" class="pz-btn pz-edit" data-act="orient" aria-label="Girar la pista (horizontal o vertical)" title="Girar la pista">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 11-3-6.200"/><path d="M20 4v5h-5"/></svg><span class="pz-lbl">Girar</span>
           </button>
@@ -107,6 +149,12 @@ const jsonLd = {
           </button>
         </div>
         <div class="pz-grp pz-grp-fin" role="group" aria-label="Compartir y guardar">
+          <button type="button" class="pz-btn" data-act="ses" aria-label="Sesión de entrenamiento: plan con ejercicios y minutos" title="Sesión de entrenamiento: plan con ejercicios y minutos">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17H6zM9 4V2.500h6V4M9 10h6M9 14h6M9 18h3"/></svg><span class="pz-lbl">Sesión</span>
+          </button>
+          <button type="button" class="pz-btn pz-btn-tm" data-act="tm" aria-label="Tiempo muerto: pizarra a pantalla completa (T)" title="Tiempo muerto: pantalla limpia para el banquillo (T)">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.500v4.500l3 2M9.500 3h5"/></svg><span class="pz-lbl">Tiempo muerto</span>
+          </button>
           <button type="button" class="pz-btn pz-edit" data-act="guardar" aria-label="Guardar en mi biblioteca (Ctrl+S)" title="Guardar en mi biblioteca (Ctrl+S)">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5z"/><path d="M8 4v5h7V4M8 20v-6h8v6"/></svg><span class="pz-lbl">Guardar</span>
           </button>
@@ -121,8 +169,65 @@ const jsonLd = {
           <div class="pz-court" data-pz="court">
             <svg class="pz-svg" data-pz="svg" viewBox="-2 -2 19 18" role="img" aria-label="Pizarra táctica: pista de baloncesto con los jugadores y las líneas de la jugada"></svg>
           </div>
+          <div class="pz-tmbar" data-pz="tmbar" role="toolbar" aria-label="Tiempo muerto">
+            <button type="button" class="pz-tmb" data-act="formaciones">Formaciones</button>
+            <button type="button" class="pz-tmb" data-act="deshacer" aria-label="Deshacer">Deshacer</button>
+            <button type="button" class="pz-tmb" data-act="tm-goma" aria-label="Borrar todas las líneas">Goma</button>
+            <button type="button" class="pz-tmb pz-tmb-reset" data-act="tm-reset">Reset</button>
+            <button type="button" class="pz-tmb pz-tmb-x" data-act="tm-salir" aria-label="Salir del tiempo muerto">Salir ✕</button>
+            <p class="pz-tmhint">Arrastra una pieza para moverla · Mantén pulsada una pieza (o tócala) y arrastra para dibujar su flecha · Toca una línea para borrarla</p>
+          </div>
           <div class="pz-selbar" data-pz="selbar" hidden></div>
           <div class="pz-hint" data-pz="hint"></div>
+
+          <div class="pz-share pz-formaciones" data-pz="formaciones" role="dialog" aria-label="Formaciones rápidas" hidden>
+            <div class="pz-share-h">
+              <strong>Formaciones rápidas</strong>
+              <button type="button" class="pz-x" data-act="cerrar-formaciones" aria-label="Cerrar">✕</button>
+            </div>
+            <p class="pz-small">Colocan a los jugadores en el paso actual (los que ya tengas se mueven, los que falten se crean). Se pueden deshacer.</p>
+            <label class="pz-chk" data-pz="form-espejo" hidden><input type="checkbox" data-act="form-espejo" /> Atacar la canasta de la derecha</label>
+            <div data-pz="formaciones-lista"></div>
+          </div>
+
+          <div class="pz-share pz-banq" data-pz="banquillo" role="dialog" aria-label="Hoja de banquillo" hidden>
+            <div class="pz-share-h">
+              <strong>Hoja de banquillo</strong>
+              <button type="button" class="pz-x" data-act="cerrar-banquillo" aria-label="Cerrar">✕</button>
+            </div>
+            <p class="pz-small">Varias jugadas por folio, compactas y con el nombre grande, para llevarlas al partido.</p>
+            <fieldset class="pz-banq-fs">
+              <legend>Jugadas por página</legend>
+              <label><input type="radio" name="banq-n" value="4" /> 4</label>
+              <label><input type="radio" name="banq-n" value="6" checked /> 6</label>
+            </fieldset>
+            <fieldset class="pz-banq-fs">
+              <legend>Dibujo de cada jugada</legend>
+              <label><input type="radio" name="banq-modo" value="todos" checked /> Todos los pasos superpuestos</label>
+              <label><input type="radio" name="banq-modo" value="ultimo" /> Solo el último paso</label>
+            </fieldset>
+            <div class="pz-row">
+              <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-act="banq-todas">Marcar todas</button>
+              <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-act="banq-ninguna">Ninguna</button>
+            </div>
+            <ul class="pz-banq-lista" data-pz="banq-lista"></ul>
+            <div class="pz-row">
+              <button type="button" class="pz-bn" data-act="banq-imprimir">Imprimir o PDF</button>
+            </div>
+          </div>
+
+          <div class="pz-share pz-qr" data-pz="qr" role="dialog" aria-label="Código QR del enlace para jugadores" hidden>
+            <div class="pz-share-h">
+              <strong>Código QR · modo jugador</strong>
+              <button type="button" class="pz-x" data-act="cerrar-qr" aria-label="Cerrar">✕</button>
+            </div>
+            <div class="pz-qr-box" data-pz="qr-img"></div>
+            <p class="pz-small" data-pz="qr-aviso"></p>
+            <div class="pz-row">
+              <button type="button" class="pz-bn" data-act="qr-grande">Mostrar más grande</button>
+              <button type="button" class="pz-bn pz-bn-2" data-act="copy-link-jugador">Copiar enlace</button>
+            </div>
+          </div>
 
           <div class="pz-share" data-pz="share" role="dialog" aria-label="Compartir y exportar" hidden>
             <div class="pz-share-h">
@@ -140,6 +245,14 @@ const jsonLd = {
               </div>
             </div>
             <div class="pz-share-s">
+              <h3>Para tus jugadores (solo ver)</h3>
+              <div class="pz-row">
+                <button type="button" class="pz-bn" data-act="copy-link-jugador">Copiar enlace de solo ver</button>
+                <button type="button" class="pz-bn pz-bn-2" data-act="qr">Código QR</button>
+              </div>
+              <p class="pz-small">Abre la jugada a pantalla casi completa, repitiéndose en bucle y con las notas, sin las herramientas de edición. Con el QR la escanean desde la tableta o el proyector.</p>
+            </div>
+            <div class="pz-share-s">
               <h3>Imagen (WhatsApp, correo)</h3>
               <div class="pz-row">
                 <button type="button" class="pz-bn pz-bn-2" data-act="png-paso">PNG del paso actual</button>
@@ -147,17 +260,23 @@ const jsonLd = {
               </div>
             </div>
             <div class="pz-share-s">
-              <h3>Vídeo de la animación</h3>
+              <h3>Animación (GIF y vídeo)</h3>
+              <div class="pz-row">
+                <button type="button" class="pz-bn" data-act="gif">Exportar GIF</button>
+                <button type="button" class="pz-bn pz-bn-2" data-act="compartir-gif" data-pz="compartir-gif" hidden>Compartir el GIF</button>
+              </div>
+              <p class="pz-small">El GIF se ve en cualquier móvil, también en WhatsApp de iPhone.</p>
               <div class="pz-row pz-video-ok">
                 <button type="button" class="pz-bn pz-bn-2" data-act="video">Grabar vídeo (WebM)</button>
               </div>
-              <p class="pz-small pz-video-no">Tu navegador no puede grabar vídeo (pasa en Safari). Usa Chrome, Edge o Firefox para el vídeo, o comparte imágenes y el enlace.</p>
+              <p class="pz-small pz-video-no">Tu navegador no puede grabar vídeo WebM (pasa en Safari): usa el GIF, que sí funciona.</p>
             </div>
             <div class="pz-share-s">
               <h3>Imprimir o guardar como PDF</h3>
               <div class="pz-row">
                 <button type="button" class="pz-bn pz-bn-2" data-act="print-jugada">Esta jugada</button>
                 <button type="button" class="pz-bn pz-bn-2" data-act="print-book">Todo mi playbook</button>
+                <button type="button" class="pz-bn pz-bn-2" data-act="banquillo">Hoja de banquillo</button>
               </div>
               <p class="pz-small">En el diálogo de impresión elige «Guardar como PDF». Sale una jugada por página.</p>
             </div>
@@ -196,9 +315,22 @@ const jsonLd = {
             <textarea id="pz-notas" class="pz-inp" data-pz="notas" rows="3" maxlength="2000" placeholder="Objetivo, lecturas, errores a evitar…"></textarea>
             <label class="pz-lab" for="pz-nota-paso">Nota de este paso</label>
             <textarea id="pz-nota-paso" class="pz-inp" data-pz="nota-paso" rows="3" maxlength="400" placeholder="Qué pasa en este paso"></textarea>
+            <h3 class="pz-h3 pz-edit">Orden de las acciones</h3>
+            <div class="pz-row pz-edit">
+              <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-act="numerar">Numerar las líneas del paso</button>
+              <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-act="sin-numeros">Quitar números</button>
+            </div>
+            <p class="pz-small pz-edit">Cada línea lleva un circulito con su número (1, 2, 3…) en el orden en que se dibujó. Para cambiar uno, selecciona la línea.</p>
+            <h3 class="pz-h3 pz-edit">Nombres de los jugadores</h3>
+            <select class="pz-inp pz-edit" data-pz="equipo-sel" aria-label="Equipo del que cargar la plantilla" hidden></select>
+            <div class="pz-row pz-edit">
+              <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-act="equipo-cargar">Cargar plantilla</button>
+              <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-act="equipo-quitar">Quitar nombres</button>
+            </div>
+            <p class="pz-small pz-edit" data-pz="equipo-info"></p>
             <details class="pz-atajos">
               <summary>Atajos de teclado</summary>
-              <p><kbd>V</kbd> mover · <kbd>A</kbd> atacante · <kbd>D</kbd> defensor · <kbd>B</kbd> balón · <kbd>K</kbd> cono · <kbd>P</kbd> pase · <kbd>R</kbd> bote · <kbd>C</kbd> corte · <kbd>L</kbd> bloqueo · <kbd>S</kbd> tiro · <kbd>F</kbd> libre · <kbd>T</kbd> texto</p>
+              <p><kbd>V</kbd> mover · <kbd>A</kbd> atacante · <kbd>D</kbd> defensor · <kbd>B</kbd> balón · <kbd>K</kbd> cono · <kbd>G</kbd> neutro · <kbd>E</kbd> entrenador · <kbd>I</kbd> fila · <kbd>Z</kbd> zona · <kbd>X</kbd> elipse · <kbd>O</kbd> rotación · <kbd>P</kbd> pase · <kbd>R</kbd> bote · <kbd>C</kbd> corte · <kbd>L</kbd> bloqueo · <kbd>S</kbd> tiro · <kbd>F</kbd> libre · <kbd>N</kbd> texto · <kbd>T</kbd> tiempo muerto</p>
               <p><kbd>Ctrl</kbd>+<kbd>Z</kbd> deshacer · <kbd>Ctrl</kbd>+<kbd>Y</kbd> rehacer · <kbd>Ctrl</kbd>+<kbd>S</kbd> guardar · <kbd>Supr</kbd> borrar · <kbd>←</kbd> <kbd>→</kbd> cambiar de paso · <kbd>Espacio</kbd> reproducir · <kbd>Esc</kbd> soltar herramienta</p>
             </details>
           </div>
@@ -216,6 +348,9 @@ const jsonLd = {
             <div class="pz-row pz-row-bib">
               <button type="button" class="pz-bn pz-bn-2" data-act="nueva">+ Nueva</button>
               <button type="button" class="pz-bn pz-bn-2" data-act="guardar">Guardar actual</button>
+            </div>
+            <div class="pz-row pz-row-bib">
+              <button type="button" class="pz-bn pz-bn-2" data-act="banquillo" title="Imprime 4 o 6 jugadas por página, con el nombre grande, para llevarlas al banquillo">Hoja de banquillo</button>
             </div>
             <div class="pz-compartidas" hidden>
               <h3 class="pz-h3">Compartidas contigo (sin guardar)</h3>
@@ -238,8 +373,17 @@ const jsonLd = {
             <ul class="pz-lista" data-pz="lista"></ul>
             <h3 class="pz-h3">Plantillas para empezar</h3>
             <ul class="pz-lista" data-pz="plantillas"></ul>
+            <h3 class="pz-h3">Ejercicios de entrenamiento</h3>
+            <ul class="pz-lista" data-pz="ejercicios"></ul>
           </div>
         </aside>
+      </div>
+
+      <div class="pz-lect" data-pz="lecturas">
+        <span class="pz-lect-t">Lecturas</span>
+        <div class="pz-lect-chips" data-pz="lect-chips"></div>
+        <button type="button" class="pz-bn pz-bn-2 pz-bn-sm pz-edit" data-act="lectura-nueva" title="Crear otra opción que sale de este paso: «si pasa por detrás», «si cambia»…">+ Lectura</button>
+        <div class="pz-lect-edit pz-edit" data-pz="lect-edit" hidden></div>
       </div>
 
       <div class="pz-bottom">
@@ -284,6 +428,70 @@ const jsonLd = {
         </div>
       </div>
 
+      <div class="pz-plnotas" data-pz="pl-notas">
+        <p class="pz-pl-nota" data-pz="pl-nota-paso"></p>
+        <details class="pz-pl-det" data-pz="pl-det">
+          <summary>Notas de la jugada</summary>
+          <p data-pz="pl-notas-j"></p>
+        </details>
+        <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-act="pl-editar">Abrir en el editor</button>
+      </div>
+
+      <div class="pz-ses" data-pz="ses" role="dialog" aria-label="Sesión de entrenamiento" hidden>
+        <div class="pz-ses-head">
+          <strong class="pz-ses-h">Sesión de entrenamiento</strong>
+          <select class="pz-inp pz-ses-sel" data-pz="ses-elegir" aria-label="Elegir sesión"></select>
+          <div class="pz-row pz-ses-hbtn" data-ses-edit>
+            <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-ses="nueva">+ Nueva</button>
+            <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-ses="duplicar">Duplicar</button>
+            <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-ses="borrar">Borrar</button>
+          </div>
+          <button type="button" class="pz-x pz-ses-x" data-ses="cerrar" aria-label="Cerrar la sesión">✕</button>
+        </div>
+        <div class="pz-ses-banner" data-pz="ses-banner" hidden>
+          <span>Sesión compartida contigo. Puedes verla y abrir sus ejercicios; para tenerla, guárdala.</span>
+          <button type="button" class="pz-bn" data-ses="guardar-compartida">Guardar en mi biblioteca</button>
+          <button type="button" class="pz-bn pz-bn-2" data-ses="descartar-compartida">Ver mis sesiones</button>
+        </div>
+        <div class="pz-ses-body">
+          <section class="pz-ses-datos" aria-label="Datos de la sesión">
+            <label class="pz-lab pz-ses-c2" for="pz-ses-titulo">Título</label>
+            <input id="pz-ses-titulo" class="pz-inp pz-ses-c2" data-pz="ses-titulo" type="text" maxlength="80" autocomplete="off" />
+            <label class="pz-lab" for="pz-ses-fecha">Fecha</label>
+            <label class="pz-lab" for="pz-ses-hora">Hora de inicio</label>
+            <input id="pz-ses-fecha" class="pz-inp" data-pz="ses-fecha" type="date" />
+            <input id="pz-ses-hora" class="pz-inp" data-pz="ses-hora" type="time" />
+            <label class="pz-lab pz-ses-c2" for="pz-ses-equipo">Equipo</label>
+            <input id="pz-ses-equipo" class="pz-inp pz-ses-c2" data-pz="ses-equipo" type="text" maxlength="40" autocomplete="off" placeholder="Ej.: Infantil masculino A" />
+            <label class="pz-lab pz-ses-c2" for="pz-ses-objetivo">Objetivo de la sesión</label>
+            <textarea id="pz-ses-objetivo" class="pz-inp pz-ses-c2" data-pz="ses-objetivo" rows="2" maxlength="400" placeholder="Qué quieres trabajar hoy"></textarea>
+          </section>
+          <section class="pz-ses-plan" aria-label="Bloques de la sesión">
+            <p class="pz-ses-total" data-pz="ses-total" aria-live="polite"></p>
+            <ol class="pz-ses-lista" data-pz="ses-bloques"></ol>
+            <div class="pz-ses-add" data-ses-edit>
+              <h3 class="pz-h3">Añadir un ejercicio o jugada</h3>
+              <div class="pz-row">
+                <select class="pz-inp pz-ses-sel" data-pz="ses-anadir" aria-label="Ejercicio o jugada que añadir"></select>
+                <button type="button" class="pz-bn" data-ses="anadir">Añadir</button>
+              </div>
+              <h3 class="pz-h3">Añadir un bloque de texto</h3>
+              <div class="pz-row" data-pz="ses-rapidos"></div>
+            </div>
+            <div class="pz-ses-fin">
+              <h3 class="pz-h3">Compartir e imprimir</h3>
+              <div class="pz-row">
+                <button type="button" class="pz-bn" data-ses="imprimir">Imprimir o PDF</button>
+                <button type="button" class="pz-bn pz-bn-2" data-ses="enlace">Copiar enlace</button>
+                <button type="button" class="pz-bn pz-bn-2" data-ses="compartir">Compartir…</button>
+              </div>
+              <p class="pz-small" data-pz="ses-info"></p>
+              <p class="pz-small">En el diálogo de impresión elige «Guardar como PDF». La hoja sale en una o dos páginas A4 con la tabla de bloques y el esquema de cada ejercicio.</p>
+            </div>
+          </section>
+        </div>
+      </div>
+
       <div class="pz-toast" data-pz="toast" role="status" aria-live="polite"></div>
       <input type="file" data-pz="file" accept=".json,application/json" hidden />
     </div>
@@ -301,11 +509,19 @@ const jsonLd = {
         jugadores parten de donde acabaron sus flechas. Con <strong>Reproducir</strong> se anima toda la secuencia. Arrastra el punto central de una
         línea para curvarla. Las plantillas de la Biblioteca (pick and roll, Horns, saque de fondo en caja, contraataque 3 contra 2 y zona 2-3) sirven de punto de partida.
       </p>
+      <h3 class="pz-seo-h3">Para el banquillo y para entrenar</h3>
+      <p>
+        El botón <strong>Tiempo muerto</strong> deja la pista a pantalla completa para mover jugadores y dibujar flechas con el dedo, con formaciones de un toque
+        (1-3-1, cuernos, saques de fondo, individual, zonas y presión). La Biblioteca trae ejercicios de entrenamiento (rueda de bandejas, trenza de tres hombres,
+        3c2-2c1, Mikan, 1c1, tiro en estrella), pista de minibasket, filas de jugadores, zonas sombreadas y plan de <strong>sesión</strong> con minutos y hojas para imprimir.
+        Cada paso puede tener <strong>lecturas</strong> alternativas, y con la <strong>hoja de banquillo</strong> imprimes 4 o 6 jugadas por página.
+      </p>
       <h3 class="pz-seo-h3">Cómo compartir tus jugadas</h3>
       <ul>
         <li><strong>Enlace:</strong> la jugada completa viaja dentro del propio enlace, sin subirla a ningún servidor. Quien lo abre la ve al instante y puede guardarla.</li>
         <li><strong>Imagen:</strong> PNG del paso actual o una hoja con todos los pasos y las notas, lista para WhatsApp o para imprimir.</li>
-        <li><strong>Vídeo:</strong> la animación grabada en WebM (en navegadores compatibles).</li>
+        <li><strong>GIF y vídeo:</strong> la animación como GIF (funciona en WhatsApp de iPhone) o grabada en WebM.</li>
+        <li><strong>Modo jugador y QR:</strong> un enlace de solo ver, con la jugada en bucle y las notas, y su código QR para proyectarlo.</li>
         <li><strong>PDF:</strong> imprime una jugada por página y elige «Guardar como PDF».</li>
         <li><strong>Archivo .json:</strong> tu playbook completo, para pasarlo por correo o Drive y cargarlo en otro dispositivo.</li>
       </ul>
@@ -330,7 +546,10 @@ const jsonLd = {
   .pz-app { --pz-h: calc(100dvh - 190px); position: relative; max-width: 1500px; margin: 0 auto 8px; padding: 0 12px; height: clamp(540px, var(--pz-h), 980px); display: flex; flex-direction: column; gap: 8px; }
   .pz-app.pz-fs { position: fixed; inset: 0; z-index: 300; max-width: none; height: 100dvh; margin: 0; padding: 10px; background: var(--cz-bg); }
   .pz-app:fullscreen { max-width: none; height: 100dvh; margin: 0; padding: 10px; background: var(--cz-bg); }
-  html.pz-fs-lock { overflow: hidden; }
+  html.pz-fs-lock { overflow: hidden; overscroll-behavior: none; }
+  /* sin Fullscreen API (iPhone) el overlay queda bajo la cabecera y el banner de cookies: se ocultan mientras dura */
+  html.pz-fs-lock body > *:not(#main-content) { display: none !important; }
+  html.pz-fs-lock .pz-head, html.pz-fs-lock .pz-seo { visibility: hidden; }
 
   .pz-banner { flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 8px 12px; background: var(--cz-card2); border: 1px solid var(--cz-accent); font-size: 14px; color: var(--cz-text); }
   .pz-banner[hidden] { display: none; }
@@ -440,6 +659,160 @@ const jsonLd = {
   .pz-stepact { display: flex; gap: 1px; padding: 2px; border: 1px solid var(--cz-border); background: var(--cz-card); flex: none; }
   .pz-paneles { display: none; gap: 1px; padding: 2px; border: 1px solid var(--cz-border); background: var(--cz-card); flex: none; }
 
+  /* ── modo tiempo muerto ── */
+  .pz-vel.pz-pista { width: auto; max-width: 150px; height: 40px; padding: 0 4px; }
+  .pz-btn-tm { background: var(--cz-accent); color: var(--cz-ink); }
+  .pz-btn-tm:hover:not(:disabled) { background: var(--cz-accent); color: var(--cz-ink); filter: brightness(1.08); }
+  .pz-tmbar { display: none; }
+  .pz-app.pz-tm .pz-tmbar { display: flex; flex: none; z-index: 6; gap: 6px; align-items: stretch; padding: 6px; background: var(--cz-bg-alt); }
+  .pz-tmb { min-height: 46px; padding: 0 14px; border: 1px solid var(--cz-border); background: var(--cz-card); color: var(--cz-text); font: 800 14px "Inter", sans-serif; letter-spacing: 0.04em; text-transform: uppercase; cursor: pointer; border-radius: 0; touch-action: manipulation; }
+  .pz-tmb:disabled { opacity: 0.4; }
+  .pz-tmb-reset { min-height: 56px; font-size: 18px; background: var(--cz-accent); color: var(--cz-ink); border-color: var(--cz-accent); }
+  .pz-tmhint { margin: 0; color: var(--cz-text-2); font-size: 11.5px; line-height: 1.35; }
+  /* apaisado (el caso del banquillo): barra en columna a un lado, la pista ocupa el resto */
+  @media (orientation: landscape) {
+    .pz-app.pz-tm .pz-board { flex-direction: row; }
+    .pz-app.pz-tm .pz-tmbar { order: -1; flex-direction: column; width: 152px; overflow-y: auto; }
+    .pz-tmb-x { margin-top: auto; }
+  }
+  @media (orientation: landscape) and (max-height: 520px) {
+    .pz-tmb { min-height: 38px; font-size: 12.5px; padding: 0 8px; }
+    .pz-tmb-reset { min-height: 48px; font-size: 16px; }
+    .pz-tmhint { font-size: 10.5px; line-height: 1.3; }
+  }
+  /* vertical (móvil de pie): barra arriba en una fila */
+  @media (orientation: portrait) {
+    .pz-app.pz-tm .pz-board { flex-direction: column; }
+    .pz-app.pz-tm .pz-tmbar { order: -1; flex-wrap: wrap; }
+    .pz-tmb { flex: 1 1 auto; min-height: 42px; padding: 0 10px; font-size: 12.5px; }
+    .pz-tmb-reset { min-height: 48px; }
+    .pz-tmhint { flex: 1 1 100%; }
+  }
+  .pz-app.pz-tm .pz-toolbar, .pz-app.pz-tm .pz-side, .pz-app.pz-tm .pz-bottom, .pz-app.pz-tm .pz-banner, .pz-app.pz-tm .pz-selbar, .pz-app.pz-tm .pz-hint { display: none !important; }
+  .pz-app.pz-tm { padding: 6px; gap: 0; }
+  .pz-app.pz-tm .pz-main { flex: 1; min-height: 0; }
+  .pz-app.pz-tm .pz-board { flex: 1; aspect-ratio: auto; max-height: none; border: 0; }
+  .pz-app.pz-tm .pz-hint { display: none; }
+
+  /* ── formaciones ── */
+  .pz-formaciones { width: min(720px, calc(100vw - 16px)); }
+  .pz-chk { display: flex; align-items: center; gap: 8px; margin: 6px 0; font-size: 13px; color: var(--cz-text-soft); }
+  .pz-chk[hidden] { display: none; }
+  .pz-form-h { margin: 12px 0 6px; font: 900 15px "Barlow Condensed", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; color: var(--cz-text); }
+  .pz-form-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 6px; }
+  .pz-form-btn { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; min-height: 56px; padding: 8px 10px; border: 1px solid var(--cz-border); background: var(--cz-bg); color: var(--cz-text); text-align: left; cursor: pointer; border-radius: 0; }
+  .pz-form-btn:hover { background: var(--cz-elev); border-color: var(--cz-accent); }
+  .pz-form-n { font: 800 14px "Inter", sans-serif; }
+  .pz-form-d { font-size: 11.5px; line-height: 1.3; color: var(--cz-text-2); }
+  @media (max-height: 520px) { .pz-form-d, .pz-formaciones > .pz-small { display: none; } .pz-form-btn { min-height: 40px; } .pz-form-h { margin: 8px 0 4px; } }
+
+  /* ── sesión de entrenamiento ── */
+  .pz-ses { position: fixed; inset: 0; z-index: 280; display: flex; flex-direction: column; background: var(--cz-bg); color: var(--cz-text); }
+  .pz-ses[hidden] { display: none; }
+  .pz-ses-head { flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; padding: 10px 14px; border-bottom: 1px solid var(--cz-border); background: var(--cz-card); }
+  .pz-ses-h { font: 900 22px "Barlow Condensed", sans-serif; letter-spacing: 0.04em; text-transform: uppercase; }
+  .pz-ses-sel { width: auto; min-width: 160px; max-width: 320px; flex: 1 1 200px; }
+  .pz-ses-x { margin-left: auto; }
+  .pz-ses-hbtn { flex: none; }
+  .pz-ses-banner { flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 8px 14px; background: var(--cz-card2); border-bottom: 1px solid var(--cz-accent); font-size: 14px; }
+  .pz-ses-banner[hidden] { display: none; }
+  .pz-ses-banner span { flex: 1 1 260px; font-weight: 700; }
+  .pz-ses-body { flex: 1; min-height: 0; overflow-y: auto; display: grid; grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); gap: 16px; align-items: start; padding: 14px; max-width: 1400px; width: 100%; margin: 0 auto; }
+  .pz-ses-datos { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 8px; position: sticky; top: 0; }
+  .pz-ses-c2 { grid-column: 1 / -1; }
+  .pz-ses-total { margin: 0 0 8px; font: 800 14px "Inter", sans-serif; letter-spacing: 0.04em; color: var(--cz-accent-text); }
+  .pz-ses-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .pz-bn-sm { min-height: 32px; padding: 0 10px; font-size: 11px; }
+  .pz-bl { position: relative; display: grid; grid-template-columns: auto 52px 150px minmax(0, 1fr) auto auto; gap: 8px 10px; align-items: start; padding: 8px; border: 1px solid var(--cz-border); background: var(--cz-card); }
+  .pz-bl.pz-bl-arrastrando { z-index: 3; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45); border-color: var(--cz-accent); opacity: 0.95; }
+  .pz-bl.pz-bl-destino { border-color: var(--cz-accent); border-style: dashed; }
+  .pz-bl-ord { display: flex; flex-direction: column; gap: 3px; }
+  .pz-bl-asa { width: 34px; height: 34px; border: 1px solid var(--cz-border); background: var(--cz-bg); color: var(--cz-text-soft); font-size: 18px; line-height: 1; cursor: grab; touch-action: none; border-radius: 0; }
+  .pz-bl-btn { min-width: 34px; height: 30px; padding: 0 8px; border: 1px solid var(--cz-border); background: var(--cz-bg); color: var(--cz-text); font: 700 12px "Inter", sans-serif; cursor: pointer; border-radius: 0; }
+  .pz-bl-btn:disabled { opacity: 0.35; cursor: default; }
+  .pz-bl-del { color: var(--cz-red-text); }
+  .pz-bl-ini { padding: 4px 0; font: 900 16px "Barlow Condensed", sans-serif; letter-spacing: 0.04em; color: var(--cz-accent-text); text-align: center; }
+  .pz-bl-th { width: 150px; min-height: 40px; display: flex; align-items: center; justify-content: center; background: var(--cz-bg); border: 1px solid var(--cz-border); }
+  .pz-bl-th svg { display: block; width: 100%; height: auto; }
+  .pz-bl-th-txt { font-size: 11px; color: var(--cz-text-2); padding: 8px 4px; text-align: center; }
+  .pz-bl-main { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+  .pz-bl-nom { font: 800 15px "Inter", sans-serif; overflow-wrap: anywhere; }
+  .pz-bl-meta { font-size: 12px; color: var(--cz-text-2); }
+  .pz-bl-link { align-self: flex-start; padding: 0; border: 0; background: none; color: var(--cz-accent-text); font: 700 12px "Inter", sans-serif; text-decoration: underline; cursor: pointer; }
+  .pz-bl-notas, .pz-bl-material, .pz-bl-titulo { padding: 6px 8px; font-size: 13px; }
+  .pz-bl-minbox { display: flex; flex-direction: column; align-items: center; gap: 2px; font: 800 10px "Inter", sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cz-text-2); }
+  .pz-bl-min { width: 66px; text-align: center; padding: 6px 4px; }
+  .pz-bl-acc { display: flex; flex-direction: column; gap: 4px; }
+  .pz-ses-ro .pz-bl { grid-template-columns: 52px 150px minmax(0, 1fr) auto; }
+  .pz-ses-add, .pz-ses-fin { margin-top: 14px; }
+  .pz-bn.peligro, .pz-bn-2.peligro { background: var(--cz-red-text); color: #fff; border-color: var(--cz-red-text); }
+  @media (max-width: 900px) {
+    .pz-ses-body { grid-template-columns: 1fr; padding: 10px; }
+    .pz-ses-datos { position: static; }
+    .pz-bl { grid-template-columns: auto 1fr auto; }
+    .pz-bl-ini { grid-column: 2; text-align: left; }
+    .pz-bl-th { grid-column: 1 / -1; width: 100%; max-width: 260px; }
+    .pz-bl-main { grid-column: 1 / -1; }
+    .pz-bl-minbox { grid-column: 3; flex-direction: row; align-items: center; }
+    .pz-bl-acc { grid-column: 1 / -1; flex-direction: row; }
+    .pz-ses-roi .pz-bl { grid-template-columns: 1fr; }
+  }
+
+  /* ── modo jugador (solo ver) ── */
+  .pz-plhead, .pz-plnotas { display: none; }
+  .pz-app.pz-jugador { padding: 6px; gap: 6px; }
+  .pz-app.pz-jugador .pz-toolbar, .pz-app.pz-jugador .pz-side, .pz-app.pz-jugador .pz-bottom, .pz-app.pz-jugador .pz-banner, .pz-app.pz-jugador .pz-selbar, .pz-app.pz-jugador .pz-hint { display: none !important; }
+  .pz-app.pz-jugador .pz-main { flex: 1; min-height: 0; }
+  .pz-app.pz-jugador .pz-board { flex: 1; aspect-ratio: auto; max-height: none; }
+  .pz-app.pz-jugador .pz-plhead { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; padding: 4px 6px; }
+  .pz-app.pz-jugador .pz-plnotas { display: block; flex: none; max-height: 34vh; overflow-y: auto; padding: 8px 10px; background: var(--cz-card); border: 1px solid var(--cz-border); }
+  .pz-pl-nombre { flex: 1 1 200px; min-width: 0; font: 900 clamp(20px, 5vw, 30px) "Barlow Condensed", sans-serif; letter-spacing: 0.03em; text-transform: uppercase; color: var(--cz-text); overflow-wrap: anywhere; }
+  .pz-pl-ctl { display: flex; align-items: center; gap: 6px; }
+  .pz-plb { min-width: 48px; height: 44px; border: 1px solid var(--cz-border); background: var(--cz-card); color: var(--cz-text); font: 800 16px "Inter", sans-serif; cursor: pointer; border-radius: 0; touch-action: manipulation; }
+  .pz-plb-play { background: var(--cz-accent); color: var(--cz-ink); border-color: var(--cz-accent); min-width: 64px; }
+  .pz-pl-paso { padding: 0 4px; }
+  .pz-pl-nota { margin: 0 0 6px; font-size: clamp(15px, 4vw, 18px); line-height: 1.4; color: var(--cz-text); }
+  .pz-pl-nota:empty { display: none; }
+  .pz-pl-det { margin: 0 0 8px; font-size: 14px; color: var(--cz-text-soft); }
+  .pz-pl-det summary { cursor: pointer; font-weight: 700; }
+  .pz-pl-det p { margin: 6px 0 0; white-space: pre-wrap; line-height: 1.45; }
+  .pz-pl-det[hidden] { display: none; }
+
+  /* ── código QR ── */
+  .pz-qr { width: min(460px, calc(100vw - 16px)); }
+  .pz-qr-box { margin: 10px auto; width: min(340px, 100%); background: #fff; padding: 0; line-height: 0; }
+  .pz-qr-box svg { display: block; width: 100%; height: auto; }
+  .pz-qr.pz-qr-grande { width: min(96vw, 96dvh); max-height: 98dvh; }
+  .pz-qr.pz-qr-grande .pz-qr-box { width: min(100%, calc(96dvh - 170px)); }
+
+  /* ── lecturas (opciones alternativas) ── */
+  .pz-lect { flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; padding: 4px 6px; border: 1px solid var(--cz-border); background: var(--cz-card); }
+  .pz-lect[hidden] { display: none; }
+  .pz-lect-t { font: 800 11px "Inter", sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cz-text-2); }
+  .pz-lect-chips, .pz-pl-lect { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pz-pl-lect[hidden] { display: none; }
+  .pz-chip { min-height: 34px; padding: 0 12px; border: 1px solid var(--cz-border); background: var(--cz-bg); color: var(--cz-text); font: 700 13px "Inter", sans-serif; cursor: pointer; border-radius: 0; touch-action: manipulation; }
+  .pz-chip.on { background: var(--cz-accent); color: var(--cz-ink); border-color: var(--cz-accent); }
+  .pz-lect-edit { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; flex: 1 1 260px; }
+  .pz-lect-edit[hidden] { display: none; }
+  .pz-lect-inp { width: 220px; max-width: 100%; padding: 4px 8px; font-size: 13px; }
+  .pz-step-fork { position: absolute; right: 0; bottom: 0; padding: 0 5px; background: var(--cz-accent); color: var(--cz-ink); font: 900 14px/1.3 "Inter", sans-serif; }
+  .pz-step.pz-step-rama { border-color: var(--cz-amber-text); }
+  .pz-step.pz-step-rama.on { border-color: var(--cz-accent); }
+  .pz-app.pz-view .pz-lect-edit, .pz-app.pz-tm .pz-lect, .pz-app.pz-jugador .pz-lect { display: none !important; }
+  .pz-app.pz-jugador .pz-pl-lect { flex: 1 1 100%; }
+  .pz-app.pz-jugador .pz-chip { min-height: 42px; font-size: 15px; }
+
+  /* ── hoja de banquillo ── */
+  .pz-banq { width: min(480px, calc(100vw - 16px)); }
+  .pz-banq-fs { margin: 8px 0; padding: 6px 10px; border: 1px solid var(--cz-border); display: flex; flex-wrap: wrap; gap: 6px 16px; }
+  .pz-banq-fs legend { padding: 0 6px; font: 800 11px "Inter", sans-serif; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cz-text-2); }
+  .pz-banq-fs label { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--cz-text); }
+  .pz-banq-lista { list-style: none; margin: 8px 0; padding: 0; max-height: 34dvh; overflow-y: auto; border: 1px solid var(--cz-border); }
+  .pz-banq-it { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; padding: 6px 8px; border-bottom: 1px solid var(--cz-border); font-size: 14px; color: var(--cz-text); }
+  .pz-banq-it label { flex: 1 1 160px; cursor: pointer; font-weight: 600; }
+  .pz-banq-it input { width: 18px; height: 18px; accent-color: var(--cz-accent); }
+
   /* ── compartir ── */
   .pz-share { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 250; width: min(440px, calc(100vw - 16px)); max-height: min(88dvh, 760px); overflow-y: auto; padding: 12px; background: var(--cz-card); border: 1px solid var(--cz-accent); box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.55); }
   .pz-share[hidden] { display: none; }
@@ -493,6 +866,8 @@ const jsonLd = {
     .pz-stepact [data-act="dup-step"] { display: none; }
   }
   html.pz-modal #cz-chat { display: none !important; }
+  /* con un diálogo abierto, la pizarra pasa por ENCIMA de la cabecera y del banner de cookies (el main crea su propio apilado) */
+  html.pz-modal #main-content { z-index: 400 !important; }
 
   /* ── impresión / PDF: una jugada por página ── */
   @media print {
@@ -514,6 +889,34 @@ const jsonLd = {
     .pz-print-svg svg { display: block; width: 100%; height: auto; border: 0.4mm solid #666; }
     .pz-print-paso figcaption { margin-top: 1.5mm; font-size: 11pt; line-height: 1.3; }
     .pz-print-pie { margin: 6mm 0 0; font-size: 9pt; color: #666; text-align: right; }
+    html.pz-printing, html.pz-printing.pz-fs-lock { overflow: visible !important; }
+    .pz-print-lectura { margin: 6mm 0 2mm; font-size: 14pt; font-weight: 900; text-transform: uppercase; break-after: avoid; page-break-after: avoid; }
+    /* hoja de banquillo: 4 o 6 jugadas por folio, con el nombre grande */
+    .pz-banq-pag { break-after: page; page-break-after: always; display: grid; gap: 5mm; height: 270mm; font-family: "Barlow Condensed", Arial, sans-serif; color: #000; }
+    .pz-banq-pag:last-child { break-after: auto; page-break-after: auto; }
+    .pz-banq-4 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
+    .pz-banq-6 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; }
+    .pz-banq-card { display: flex; flex-direction: column; min-height: 0; overflow: hidden; padding: 2.5mm 3mm; border: 0.4mm solid #333; break-inside: avoid; page-break-inside: avoid; }
+    .pz-banq-nom { margin: 0 0 1mm; font-size: 20pt; line-height: 1; font-weight: 900; text-transform: uppercase; overflow-wrap: anywhere; }
+    .pz-banq-meta { margin: 0 0 2mm; font-size: 9pt; font-weight: 700; color: #444; }
+    .pz-banq-svg { flex: 1; min-height: 0; }
+    .pz-banq-svg svg { display: block; width: 100%; height: 100%; border: 0.3mm solid #888; }
+    html.pz-printing .pz-banq, html.pz-printing .pz-lect { display: none !important; }
+    html.pz-printing .pz-ses { display: none !important; }
+    /* sesión: una o dos hojas con la tabla de bloques y el esquema de cada ejercicio */
+    .pz-print-ses { color: #000; font-family: "Barlow Condensed", Arial, sans-serif; }
+    .pz-print-ses h2 { font-size: 24pt; line-height: 1; margin: 0 0 2mm; text-transform: uppercase; font-weight: 900; }
+    .pz-print-tabla { width: 100%; border-collapse: collapse; margin-top: 3mm; font-family: Arial, sans-serif; font-size: 9.5pt; }
+    .pz-print-tabla th { text-align: left; font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 0.5mm solid #000; padding: 1.2mm 2mm; }
+    .pz-print-tabla td { vertical-align: top; padding: 2mm; border-bottom: 0.2mm solid #999; }
+    .pz-print-tabla tr { break-inside: avoid; page-break-inside: avoid; }
+    .pz-print-ini { white-space: nowrap; font-weight: 700; }
+    .pz-print-nom { font-weight: 700; font-size: 11pt; width: 32%; }
+    .pz-print-bl-notas { white-space: pre-wrap; line-height: 1.3; }
+    .pz-print-bl-mat { margin-top: 1mm; color: #333; font-style: italic; }
+    .pz-print-bl-ej { margin-top: 1.5mm; font-size: 8pt; line-height: 1.25; color: #444; white-space: pre-wrap; }
+    .pz-print-esq { width: 38mm; }
+    .pz-print-esq svg { display: block; width: 38mm; height: auto; border: 0.3mm solid #666; }
   }
 </style>
 
