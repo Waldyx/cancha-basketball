@@ -1526,12 +1526,12 @@ async function aflujo(bytes: Uint8Array, transform: CompressionStream | Decompre
 
 export const hayCompresion = () => typeof CompressionStream !== "undefined" && typeof DecompressionStream !== "undefined";
 
-export type TipoEnlace = "j" | "b" | "s";
+export type TipoEnlace = "j" | "b" | "s" | "c";
 
 /**
  * Empaqueta cualquier JSON para el hash. Prefijo: `z` = deflate-raw, `r` = JSON sin
  * comprimir (navegadores sin CompressionStream). Segundo carácter: `j` jugada, `b` libro
- * de jugadas, `s` sesión de entrenamiento (con las jugadas que usa).
+ * de jugadas, `s` sesión de entrenamiento (con las jugadas que usa), `c` biblioteca del club.
  */
 export async function empaquetarEnlace(raw: unknown, tipo: TipoEnlace, opciones: { comprimir?: boolean } = {}): Promise<string> {
   const bytes = new TextEncoder().encode(JSON.stringify(raw));
@@ -1546,7 +1546,7 @@ export async function desempaquetarEnlace(texto: string): Promise<{ tipo: TipoEn
   if (texto.length < 3 || texto.length > 400_000) throw new Error("Enlace vacío o demasiado largo");
   const modo = texto[0];
   const tipo = texto[1];
-  if ((modo !== "z" && modo !== "r") || (tipo !== "j" && tipo !== "b" && tipo !== "s")) throw new Error("Formato de enlace desconocido");
+  if ((modo !== "z" && modo !== "r") || (tipo !== "j" && tipo !== "b" && tipo !== "s" && tipo !== "c")) throw new Error("Formato de enlace desconocido");
   let bytes = deBase64Url(texto.slice(2));
   if (modo === "z") {
     if (!hayCompresion()) throw new Error("Este navegador no puede abrir enlaces comprimidos");
@@ -1560,7 +1560,7 @@ export async function desempaquetarEnlace(texto: string): Promise<{ tipo: TipoEn
 /** Tipo de enlace de un payload de hash (`zj…`, `rb…`, `zs…`) sin decodificarlo. */
 export function tipoDePayload(payload: string): TipoEnlace | null {
   const t = payload[1];
-  return t === "j" || t === "b" || t === "s" ? t : null;
+  return t === "j" || t === "b" || t === "s" || t === "c" ? t : null;
 }
 
 /** Serializa jugada(s) a texto para el hash. */
@@ -1572,6 +1572,7 @@ export async function codificarEnlace(jugadas: Jugada[], opciones: { comprimir?:
 export async function decodificarEnlace(texto: string): Promise<CargaEnlace> {
   const { tipo, raw } = await desempaquetarEnlace(texto);
   if (tipo === "s") throw new Error("Es el enlace de una sesión de entrenamiento, no de una jugada");
+  if (tipo === "c") throw new Error("Es el enlace de una biblioteca de club, no de una jugada");
   if (!Array.isArray(raw)) throw new Error("Contenido no válido");
   const jugadas: Jugada[] = [];
   for (const r of raw.slice(0, LIMITES.BIBLIOTECA)) {

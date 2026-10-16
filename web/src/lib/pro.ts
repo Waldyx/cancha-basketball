@@ -15,6 +15,7 @@ export const FUNCIONES_PRO = {
   "stats-equipo": "Estadísticas de equipo",
   "stats-agente": "Agente de estadísticas",
   "minutos-rotacion": "Propuesta de rotación",
+  "pizarra-club": "Biblioteca del club",
 } as const;
 
 export type FuncionPro = keyof typeof FUNCIONES_PRO;

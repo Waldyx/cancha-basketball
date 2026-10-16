@@ -357,6 +357,19 @@ const jsonLd = {
               <h3 class="pz-h3">Compartidas contigo (sin guardar)</h3>
               <ul class="pz-lista" data-pz="compartidas"></ul>
             </div>
+            <div class="pz-club">
+              <h3 class="pz-h3">Biblioteca del club</h3>
+              <p class="pz-small" data-pz="club-info"></p>
+              <details class="pz-club-det">
+                <summary>Soy coordinador: compartir mi biblioteca con el club</summary>
+                <p class="pz-small">Se comparten todas tus jugadas y sesiones con el nombre del club. Cuando envíes una versión nueva, a cada entrenador se le sustituye la anterior y no se toca lo suyo.</p>
+                <input type="text" class="pz-inp" data-pz="club-nombre" maxlength="60" placeholder="Nombre del club" aria-label="Nombre del club" autocomplete="off" />
+                <div class="pz-row">
+                  <button type="button" class="pz-bn" data-act="club-enlace" data-pro="pizarra-club">Copiar enlace</button>
+                  <button type="button" class="pz-bn pz-bn-2" data-act="club-archivo" data-pro="pizarra-club">Descargar archivo</button>
+                </div>
+              </details>
+            </div>
             <h3 class="pz-h3">Mis jugadas</h3>
             <div class="pz-filtros">
               <input type="search" class="pz-inp" data-pz="buscar" placeholder="Buscar…" aria-label="Buscar jugadas" autocomplete="off" />
@@ -369,6 +382,7 @@ const jsonLd = {
                 <option value="contraataque">Contraataque</option>
                 <option value="presion">Presión</option>
                 <option value="ejercicio">Ejercicio</option>
+                <option value="__club" hidden>Del club</option>
               </select>
             </div>
             <ul class="pz-lista" data-pz="lista"></ul>
@@ -723,6 +737,12 @@ const jsonLd = {
   .pz-ses-body { flex: 1; min-height: 0; overflow-y: auto; display: grid; grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); gap: 16px; align-items: start; padding: 14px; max-width: 1400px; width: 100%; margin: 0 auto; }
   .pz-ses-datos { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 8px; position: sticky; top: 0; }
   .pz-ses-c2 { grid-column: 1 / -1; }
+  .pz-club { display: flex; flex-direction: column; gap: 6px; padding: 8px 10px; border: 1px solid var(--cz-border); background: var(--cz-card2); }
+  .pz-club .pz-h3 { margin: 0; }
+  .pz-club-det { display: flex; flex-direction: column; gap: 6px; }
+  .pz-club-det summary { cursor: pointer; font: 800 12px "Inter", sans-serif; color: var(--cz-accent-text); }
+  .pz-club-det[open] { display: flex; }
+  .pz-club-det[open] > * + * { margin-top: 6px; }
   .pz-ses-edad { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 8px; border: 1px solid var(--cz-border); background: var(--cz-card2); }
   .pz-ses-edad-op { display: grid; grid-template-columns: 1.4fr 1.2fr 0.8fr; gap: 5px; }
   .pz-ses-edad-campo { display: flex; min-width: 0; flex-direction: column; gap: 2px; font: 800 10px "Inter", sans-serif; letter-spacing: .06em; text-transform: uppercase; color: var(--cz-text-2); }

@@ -109,7 +109,19 @@ import { CLAVE_EQUIPO, asignarNombres, equiposDeTexto, mapaNombres, quitarNombre
 import { MODOS_BANQUILLO, prepararBanquillo, type PorPagina } from "./pizarraBanquillo";
 import type { ModoResumen } from "./pizarraRender";
 import { calendarioFotogramas, crearGif, parametrosGif, retrasoFotograma } from "./pizarraGif";
-import { decodificarEnlaceSesion, normalizarSesiones, remapearJugadas, sesionesDeLibro, type Sesion } from "./pizarraSesion";
+import { LIMITES_SESION, decodificarEnlaceSesion, normalizarSesiones, remapearJugadas, sesionesDeLibro, type Sesion } from "./pizarraSesion";
+import {
+  CLAVE_CLUB,
+  codificarPaqueteClub,
+  compactarPaquete,
+  decodificarPaqueteClub,
+  leerEstadoClub,
+  nombreClub,
+  paqueteDeArchivo,
+  planActualizacion,
+  type EstadoClub,
+  type PaqueteClub,
+} from "./pizarraClub";
 import { iniciarSesiones, type ControlSesiones } from "./pizarraSesionUI";
 
 const CLAVE = "cz.pizarra.v1";
@@ -288,6 +300,8 @@ export function iniciarPizarra(): void {
   const inpEnlace = q<HTMLInputElement>("enlace");
   const infoEnlace = q("enlace-info");
   const fileEl = q<HTMLInputElement>("file");
+  const inpClub = q<HTMLInputElement>("club-nombre");
+  const clubInfoEl = q("club-info");
   const lectEl = q("lecturas");
   const lectChips = q("lect-chips");
   const lectEdit = q("lect-edit");
@@ -336,6 +350,13 @@ export function iniciarPizarra(): void {
   let raf = 0;
   let soloVista = false;
   let compartidas: Jugada[] = [];
+  // biblioteca del club: qué jugadas y sesiones vinieron del último paquete guardado
+  let clubEstado: EstadoClub | null = null;
+  try {
+    clubEstado = leerEstadoClub(localStorage.getItem(CLAVE_CLUB));
+  } catch {
+    /* sin almacenamiento */
+  }
   let guardadaJson = "";
   let avisoAlmacenFallo = false;
   let grabando = false;
@@ -1418,7 +1439,17 @@ export function iniciarPizarra(): void {
     const texto = sinTildes(inpBuscar.value.trim());
     const cat = selFiltro.value;
     listaEl.replaceChildren();
-    const filtradas = biblio.filter((j) => (!cat || j.categoria === cat) && (!texto || sinTildes(j.nombre + " " + j.notas).includes(texto)));
+    const delClub = new Set(clubEstado?.jugadaIds ?? []);
+    const optClub = selFiltro.querySelector<HTMLOptionElement>('option[value="__club"]');
+    if (optClub) {
+      optClub.hidden = !clubEstado;
+      optClub.textContent = clubEstado ? `Del club · ${clubEstado.club}` : "Del club";
+    }
+    clubInfoEl.textContent = clubEstado
+      ? `Tienes la biblioteca de «${clubEstado.club}»${clubEstado.fecha ? ` del ${clubEstado.fecha.split("-").reverse().join("/")}` : ""}: ${delClub.size} jugadas y ${clubEstado.sesionIds.length} sesiones. Fíltrala con «Del club».`
+      : "Si tu club te pasa su biblioteca (enlace o archivo), aparecerá aquí.";
+    if (!inpClub.value && clubEstado) inpClub.value = clubEstado.club;
+    const filtradas = biblio.filter((j) => (!cat || (cat === "__club" ? delClub.has(j.id) : j.categoria === cat)) && (!texto || sinTildes(j.nombre + " " + j.notas).includes(texto)));
     if (biblio.length === 0) {
       listaEl.append(el("li", { cls: "pz-vacio", text: "Aún no has guardado ninguna jugada. Pulsa «Guardar» para añadir la actual." }));
     } else if (filtradas.length === 0) {
@@ -1426,7 +1457,7 @@ export function iniciarPizarra(): void {
     }
     for (const j of filtradas) {
       const actualMarca = j.id === hist.presente.id;
-      const info = el("span", { cls: "pz-item-info" }, el("span", { cls: "pz-item-nom", text: j.nombre }), el("span", { cls: "pz-item-meta", text: `${CATEGORIAS.find((c) => c.id === j.categoria)?.label ?? ""} · ${j.pasos.length} ${j.pasos.length === 1 ? "paso" : "pasos"}` }));
+      const info = el("span", { cls: "pz-item-info" }, el("span", { cls: "pz-item-nom", text: j.nombre }), el("span", { cls: "pz-item-meta", text: `${delClub.has(j.id) ? "Club · " : ""}${CATEGORIAS.find((c) => c.id === j.categoria)?.label ?? ""} · ${j.pasos.length} ${j.pasos.length === 1 ? "paso" : "pasos"}` }));
       const abrirB = el("button", { cls: "pz-item-main", attrs: { type: "button", "aria-label": `Abrir ${j.nombre}` }, on: { click: () => abrir(j, false) } }, info);
       let borrarT = 0;
       const borrarB = el("button", {
@@ -1772,6 +1803,14 @@ export function iniciarPizarra(): void {
     } catch {
       return void toast("No se pudo leer el archivo.");
     }
+    let crudo: unknown = null;
+    try {
+      crudo = JSON.parse(texto);
+    } catch {
+      /* lo dice leerLibroDeTexto */
+    }
+    const paqueteClub = paqueteDeArchivo(crudo);
+    if (paqueteClub) return ofrecerClub(paqueteClub);
     const r = leerLibroDeTexto(texto);
     let ses = { sesiones: [] as Sesion[], descartadas: 0 };
     try {
@@ -1893,11 +1932,104 @@ export function iniciarPizarra(): void {
     window.setTimeout(pintar, 60);
   });
 
+  // ── biblioteca del club ─────────────────────────────────────────────
+  const hoyLocal = () => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  };
+
+  function guardarClubEstado() {
+    try {
+      if (clubEstado) localStorage.setItem(CLAVE_CLUB, JSON.stringify(clubEstado));
+    } catch {
+      /* sin almacenamiento: vale para esta visita */
+    }
+  }
+
+  /** Guarda el paquete: si es del mismo club que el anterior, sustituye aquella versión. */
+  function incorporarClub(p: PaqueteClub) {
+    const plan = planActualizacion(clubEstado, p);
+    if (plan.sustituye) {
+      biblio = biblio.filter((j) => !plan.quitarJugadas.has(j.id));
+      sesiones = sesiones.filter((x) => !plan.quitarSesiones.has(x.id));
+    }
+    const mapa = new Map<string, string>();
+    const nuevasJ: Jugada[] = [];
+    for (const j of p.jugadas) {
+      if (biblio.length + nuevasJ.length >= LIMITES.BIBLIOTECA) break;
+      const c = clonar(j);
+      c.id = uid();
+      mapa.set(j.id, c.id);
+      nuevasJ.push(c);
+    }
+    const nuevasS: Sesion[] = [];
+    for (const x of p.sesiones) {
+      if (sesiones.length + nuevasS.length >= LIMITES_SESION.SESIONES) break;
+      const r = remapearJugadas(x, mapa);
+      r.id = uid();
+      nuevasS.push(r);
+    }
+    biblio = [...nuevasJ, ...biblio];
+    sesiones = [...nuevasS, ...sesiones];
+    clubEstado = { club: p.club, fecha: p.fecha, jugadaIds: nuevasJ.map((j) => j.id), sesionIds: nuevasS.map((x) => x.id) };
+    guardarClubEstado();
+    persistir(true);
+    selFiltro.value = "__club";
+    pintarBiblioteca();
+    abrirPanelMovil("biblioteca");
+    const fuera = p.jugadas.length - nuevasJ.length + p.sesiones.length - nuevasS.length;
+    toast(
+      `Biblioteca de «${p.club}» ${plan.sustituye ? "actualizada" : "guardada"}: ${nuevasJ.length} ${nuevasJ.length === 1 ? "jugada" : "jugadas"} y ${nuevasS.length} ${nuevasS.length === 1 ? "sesión" : "sesiones"}` +
+        (fuera ? ` (${fuera} no caben: tu biblioteca está llena).` : "."),
+      6000
+    );
+  }
+
+  function ofrecerClub(p: PaqueteClub) {
+    const plan = planActualizacion(clubEstado, p);
+    const version = p.fecha ? ` (versión del ${p.fecha.split("-").reverse().join("/")})` : "";
+    const aviso = plan.sustituye
+      ? "\n\nSustituye a la versión que ya tenías de este club. Si has cambiado alguna de sus jugadas o sesiones, duplícala antes para conservarla."
+      : clubEstado
+        ? `\n\nLo que tenías del club «${clubEstado.club}» se queda en tu biblioteca como tuyo.`
+        : "";
+    if (window.confirm(`Biblioteca del club «${p.club}»${version}: ${p.jugadas.length} jugadas y ${p.sesiones.length} sesiones.\n\n¿Guardarla en tu pizarra?${aviso}`)) incorporarClub(p);
+    else toast("No se ha guardado nada.");
+  }
+
+  /** El coordinador comparte su biblioteca (jugadas y sesiones) como la del club. */
+  async function compartirClub(modo: "enlace" | "archivo") {
+    const club = nombreClub(inpClub.value);
+    if (!club) {
+      inpClub.focus();
+      return void toast("Escribe el nombre del club.");
+    }
+    if (!biblio.length && !sesiones.length) return void toast("Tu biblioteca está vacía.");
+    const p: PaqueteClub = { club, fecha: hoyLocal(), jugadas: biblio, sesiones };
+    if (modo === "archivo") {
+      descargar(new Blob([libroAJson([], { club: compactarPaquete(p) })], { type: "application/json" }), nombreArchivo(`biblioteca ${club} ${p.fecha}`, "json"));
+      return void toast("Archivo descargado. Envíalo a tus entrenadores: lo abren en la pizarra con «Importar .json».", 6000);
+    }
+    try {
+      const url = `${location.origin}${location.pathname}#j=${await codificarPaqueteClub(p)}`;
+      if (await copiar(url))
+        toast(url.length > 8000 ? `Enlace copiado (${url.length} caracteres: si alguna app lo corta, envía el archivo).` : "Enlace de la biblioteca del club copiado. Envíalo a tus entrenadores.", 6000);
+      else toast("No se pudo copiar el enlace: envía el archivo.");
+    } catch {
+      toast("No se pudo generar el enlace: envía el archivo.");
+    }
+  }
+
   // ── jugada compartida (hash) ────────────────────────────────────────
   async function abrirDesdeHash() {
     const payload = payloadDeHash(location.hash);
     if (payload === null) return;
     try {
+      if (tipoDePayload(payload) === "c") {
+        const p = await decodificarPaqueteClub(payload);
+        limpiarHash();
+        return ofrecerClub(p);
+      }
       if (tipoDePayload(payload) === "s") {
         const cs = await decodificarEnlaceSesion(payload);
         compartidas = cs.jugadas;
@@ -2643,6 +2775,10 @@ export function iniciarPizarra(): void {
         return exportarJson([j], j.nombre, false);
       case "backup":
         return copiaDeSeguridad();
+      case "club-enlace":
+        return void compartirClub("enlace");
+      case "club-archivo":
+        return void compartirClub("archivo");
       case "restaurar":
       case "importar":
         return fileEl.click();

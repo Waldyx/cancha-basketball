@@ -337,7 +337,13 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   ⚠ Fuente: Resum de reglaments FCBQ **Comunicat 1-1415** (el más reciente legible; un resumen dice que el
   2-2223 dice lo mismo). La web de la FCBQ da 403 a las descargas: **confirmar la vigente con un entrenador**.
   Asturias NO incluida (solo vista en un resumen de buscador). Viable mini 8-12 jugadores, passarel·la 8-15.
-- ▶️ **Siguiente**: biblioteca del club → mapa de tiro.
+- ✅ **Biblioteca del club (16-oct)**: en la pizarra, Biblioteca → "Soy coordinador" comparte TODAS sus jugadas y
+  sesiones con nombre de club, por enlace (`#j=zc…`, tipo de enlace nuevo `c`) o archivo .json (campo `club`). El
+  entrenador lo guarda tras un `confirm`; `cz.pizarra.club.v1` recuerda qué ids vinieron del club, y otra versión
+  del MISMO club (sin mayúsculas/tildes) sustituye la anterior sin tocar lo suyo. Filtro "Del club" + marca "Club ·".
+  Compartir es Pro (`pizarra-club`); recibir, gratis. Lógica en `lib/pizarraClub.ts`. Medido: 9 jugadas + 5 sesiones
+  = enlace de 6.630 caracteres; si pasa de 8.000 se avisa de usar el archivo.
+- ▶️ **Siguiente**: mapa de tiro.
 - ▶️ **Paso 3, por orden**: control de minutos/cuartos (verificar normas de participación de la FCBQ) → mapa de
   tiro → libro de jugadas con escudo del club → etiquetas de vídeo. Más ideas: informe del rival (actas FEB),
   plan de partido, generador de sesiones con IA, evaluación de jugadores + informe a familias, tests físicos,
