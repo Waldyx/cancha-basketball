@@ -368,6 +368,10 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   vídeo = nombre|tamaño|duración en `cz.video.v1`. 🔑 Los WebM grabados desde un navegador traen duración = Infinity:
   se trata como 0 (desconocida) y `formatoTiempo` devuelve "—". `lib/videoEtiquetas.ts`.
 - ✅ `/entrenadores/` ya no tiene sección "En preparación": todo lo que prometía está hecho.
+- ✅ **Asistencia y convocatorias `/asistencia/` (17-oct)**: pasar lista (✓/✗/J, % = vino÷(vino+faltó), la justificada
+  no cuenta en contra) y mensaje de convocatoria para WhatsApp (copiar/compartir). GRATIS a propósito (uso semanal).
+  `lib/asistencia.ts`, `cz.asistencia.v1`. + JSON-LD WebApplication en las 6 herramientas nuevas e IndexNow enviado
+  (17-oct, 8 URLs, 200).
 - ▶️ **Ideas siguientes** (sin prometer en la web): generador de sesiones con IA, evaluación de jugadores, tests
   físicos, asistencia/convocatorias, plan individual de tiro para jugadores, cuadros de torneos 3x3.
 - ▶️ **Paso 3, por orden**: control de minutos/cuartos (verificar normas de participación de la FCBQ) → mapa de
