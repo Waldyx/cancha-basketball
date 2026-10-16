@@ -1,0 +1,353 @@
+---
+// /rival — informe del rival: junta las actas de los partidos de un rival (FEB o pegadas, p. ej.
+// de la FCBQ) y saca sus medias por jugador y pistas para preparar el partido. Lógica pura en
+// lib/informeRival.ts. Todo se guarda en el navegador (cz.rival.v1).
+import "../styles/cancha-redesign.css";
+import Base from "../layouts/Base.astro";
+import ProGate from "../components/ProGate.astro";
+---
+
+<Base
+  title="Informe del rival de baloncesto: scouting con las actas | CANCHA.ZAPA"
+  description="Junta las actas de los partidos de tu próximo rival (FEB o copiadas de tu federación) y mira quién anota, quién tira de tres, quién se carga de faltas y cómo juegan. Gratis y sin registro."
+>
+  <main class="app">
+    <section class="doc-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Entrenadores · Rival</p>
+        <h1 class="doc-h1">Informe del <span class="accent">rival</span></h1>
+        <p class="doc-lede">
+          Añade las actas de los últimos partidos de tu próximo rival y mira quién anota, quién tira de tres y quién se
+          carga de faltas. Todo se guarda en tu navegador.
+        </p>
+      </div>
+    </section>
+
+    <div class="shell rv">
+      <section class="rv-panel">
+        <div class="rv-fila">
+          <label class="rv-campo">
+            <span>Rival</span>
+            <select id="rv-rival" class="rv-inp"></select>
+          </label>
+          <button type="button" id="rv-borrar-rival" class="rv-bn rv-bn-2 rv-bn-sm">Borrar rival</button>
+        </div>
+        <details id="rv-nuevo" class="rv-det">
+          <summary>+ Nuevo rival</summary>
+          <div class="rv-fila">
+            <label class="rv-campo"><span>Nombre del equipo</span><input id="rv-nombre" class="rv-inp" maxlength="60" placeholder="CB Mataró" autocomplete="off" /></label>
+            <button type="button" id="rv-crear" class="rv-bn">Crear</button>
+          </div>
+        </details>
+      </section>
+
+      <section class="rv-panel" id="rv-anadir">
+        <h2 class="rv-h2">Añadir un partido del rival</h2>
+        <div class="rv-fila">
+          <label class="rv-campo">
+            <span>Enlace o número del acta de la FEB</span>
+            <input id="rv-feb" class="rv-inp" placeholder="baloncestoenvivo.feb.es/partido/…" autocomplete="off" />
+          </label>
+          <button type="button" id="rv-importar" class="rv-bn">Importar</button>
+        </div>
+        <div id="rv-elegir" class="rv-elegir" hidden></div>
+        <details class="rv-det">
+          <summary>Pegar un acta (FCBQ u otra federación)</summary>
+          <p class="rv-ayuda">Copia la tabla de estadísticas del rival con su fila de cabecera (Min, Punts, T2, T3, TL…) y pégala aquí.</p>
+          <textarea id="rv-pegar" class="rv-inp rv-ta" rows="6"></textarea>
+          <div class="rv-fila rv-fila-4">
+            <label class="rv-campo"><span>Fecha</span><input id="rv-fecha" type="date" class="rv-inp" /></label>
+            <label class="rv-campo"><span>Contra</span><input id="rv-contra" class="rv-inp" maxlength="60" autocomplete="off" /></label>
+            <label class="rv-campo"><span>Pts rival</span><input id="rv-ptsr" type="number" min="0" class="rv-inp" /></label>
+            <label class="rv-campo"><span>Pts contrario</span><input id="rv-ptsc" type="number" min="0" class="rv-inp" /></label>
+          </div>
+          <button type="button" id="rv-leer" class="rv-bn">Leer acta pegada</button>
+        </details>
+        <p id="rv-estado" class="rv-estado" role="status"></p>
+        <ul id="rv-actas" class="rv-actas"></ul>
+      </section>
+
+      <section id="rv-informe" class="rv-informe"></section>
+      <div class="rv-fila rv-acc">
+        <button type="button" id="rv-imprimir" class="rv-bn rv-bn-2 rv-bn-sm">Imprimir</button>
+      </div>
+      <p class="rv-privado">Las actas se guardan solo en este navegador. Las pistas salen de reglas sencillas sobre los números: revísalas antes de usarlas.</p>
+    </div>
+  </main>
+  <ProGate />
+</Base>
+
+<style is:global>
+  .rv { padding-top: 20px; padding-bottom: 60px; display: flex; flex-direction: column; gap: 14px; }
+  .rv-panel { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; background: var(--cz-card); border: 1px solid var(--cz-border); }
+  .rv-h2 { margin: 0; font: 900 20px "Barlow Condensed", sans-serif; text-transform: uppercase; color: var(--cz-text); }
+  .rv-fila { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; }
+  .rv-fila > .rv-campo { flex: 1 1 220px; }
+  .rv-fila-4 > .rv-campo { flex: 1 1 120px; }
+  .rv-campo { display: flex; flex-direction: column; gap: 3px; min-width: 0; font: 800 10px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--cz-text-2); }
+  .rv-inp { width: 100%; min-width: 0; min-height: 40px; padding: 6px 10px; background: var(--cz-bg); color: var(--cz-text); border: 1px solid var(--cz-border); border-radius: 0; font: 600 14px "Inter", sans-serif; text-transform: none; letter-spacing: 0; }
+  .rv-ta { min-height: 110px; resize: vertical; font-family: ui-monospace, monospace; font-size: 12px; }
+  .rv-det summary { cursor: pointer; font: 800 13px "Inter", sans-serif; color: var(--cz-accent-text); padding: 4px 0; }
+  .rv-det[open] > :not(summary) { margin-top: 8px; }
+  .rv-ayuda { margin: 0; font-size: 13px; color: var(--cz-text-2); }
+  .rv-bn { min-height: 42px; padding: 0 16px; background: #f97316; border: 1px solid #f97316; color: #0c0c0c; font: 900 12px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; border-radius: 0; }
+  .rv-bn-2 { background: transparent; color: var(--cz-text); border-color: var(--cz-border); }
+  .rv-bn-sm { min-height: 36px; padding: 0 12px; font-size: 11px; }
+  .rv-elegir { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font-size: 13px; color: var(--cz-text); }
+  .rv-elegir[hidden] { display: none; }
+  .rv-estado { margin: 0; font-size: 13px; color: var(--cz-text-2); min-height: 1em; }
+  .rv-estado.error { color: var(--cz-red-text); }
+  .rv-actas { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+  .rv-actas li { display: flex; justify-content: space-between; gap: 8px; align-items: center; padding: 6px 8px; border: 1px solid var(--cz-border); font-size: 13px; color: var(--cz-text); }
+  .rv-actas button { background: none; border: 0; color: var(--cz-red-text); font: 800 11px "Inter", sans-serif; text-transform: uppercase; cursor: pointer; }
+  .rv-informe { display: flex; flex-direction: column; gap: 12px; }
+  .rv-informe:empty { display: none; }
+  .rv-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  @media (max-width: 640px) { .rv-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .rv-kpi { padding: 10px; background: var(--cz-card); border: 1px solid var(--cz-border); }
+  .rv-kpi b { display: block; font: 900 26px "Barlow Condensed", sans-serif; color: var(--cz-text); }
+  .rv-kpi span { font: 800 10px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--cz-text-2); }
+  .rv-claves { margin: 0; padding: 10px 12px 10px 28px; border-left: 3px solid #f97316; background: var(--cz-card); display: flex; flex-direction: column; gap: 6px; font-size: 14px; line-height: 1.5; color: var(--cz-text); }
+  .rv-tabla-caja { overflow-x: auto; border: 1px solid var(--cz-border); }
+  .rv-tabla { width: 100%; border-collapse: collapse; font: 600 13px "Inter", sans-serif; }
+  .rv-tabla th, .rv-tabla td { padding: 6px 8px; border-bottom: 1px solid var(--cz-border); text-align: right; white-space: nowrap; }
+  .rv-tabla th { font: 800 10px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--cz-text-2); background: var(--cz-card); }
+  .rv-tabla th:first-child, .rv-tabla td:first-child { text-align: left; position: sticky; left: 0; background: var(--cz-bg); }
+  .rv-tabla th:first-child { background: var(--cz-card); }
+  .rv-privado { margin: 0; font-size: 12px; color: var(--cz-text-muted); }
+  @media print {
+    .rv-panel, .rv-acc, .rv-privado, .doc-hero .doc-lede { display: none !important; }
+    .rv-tabla-caja { overflow: visible; }
+  }
+</style>
+
+<script>
+  import { actaDeFeb, actaPegada, equipoDelRival, informe, normalizarStoreRival, LIMITES_RIVAL, type ActaFeb, type JugadorActa, type Rival, type StoreRival } from "../lib/informeRival";
+  import { fechaCorta, parsePaste, uid } from "../lib/statsEquipo";
+
+  const CLAVE = "cz.rival.v1";
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  const selRival = $<HTMLSelectElement>("rv-rival");
+  const estadoEl = $("rv-estado");
+  const elegirEl = $("rv-elegir");
+  const btnImportar = $<HTMLButtonElement>("rv-importar");
+  const btnLeer = $<HTMLButtonElement>("rv-leer");
+
+  let st: StoreRival = { v: 1, activo: "", rivales: [] };
+  try {
+    st = normalizarStoreRival(JSON.parse(localStorage.getItem(CLAVE) ?? "null"));
+  } catch {
+    /* sin almacenamiento o dato corrupto */
+  }
+  const guardar = () => {
+    try {
+      localStorage.setItem(CLAVE, JSON.stringify(st));
+    } catch {
+      /* sin almacenamiento: vale para esta visita */
+    }
+  };
+  const activo = (): Rival | undefined => st.rivales.find((r) => r.id === st.activo);
+
+  function estado(msg: string, error = false) {
+    estadoEl.textContent = msg;
+    estadoEl.classList.toggle("error", error);
+  }
+
+  function el(tag: string, cls?: string, text?: string) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  /** Un partido es gratis; juntar varios es Pro. */
+  function marcarPro() {
+    const r = activo();
+    for (const b of [btnImportar, btnLeer]) {
+      if (r && r.actas.length >= 1) b.dataset.pro = "rival-varios";
+      else delete b.dataset.pro;
+    }
+  }
+
+  function anadirActa(a: ReturnType<typeof actaPegada>) {
+    const r = activo();
+    if (!r) return;
+    if (r.actas.some((x) => x.id === a.id)) return estado("Ese partido ya estaba añadido.", true);
+    if (r.actas.length >= LIMITES_RIVAL.ACTAS) return estado(`Como mucho ${LIMITES_RIVAL.ACTAS} partidos por rival.`, true);
+    r.actas.push(a);
+    r.actas.sort((x, y) => (y.fecha || "").localeCompare(x.fecha || ""));
+    guardar();
+    estado(`Partido añadido: ${a.jugadores.length} jugadores del rival.`);
+    pintar();
+  }
+
+  // ── importar de la FEB ───────────────────────────────────────────────
+  btnImportar.addEventListener("click", async () => {
+    const r = activo();
+    const v = $<HTMLInputElement>("rv-feb").value.trim();
+    if (!r) return estado("Crea primero el rival.", true);
+    if (!/\d{5,10}/.test(v)) return estado("Pega el enlace o el número del acta de la FEB.", true);
+    btnImportar.disabled = true;
+    estado("Leyendo el acta…");
+    elegirEl.hidden = true;
+    try {
+      const res = await fetch(`/api/feb?partido=${encodeURIComponent(v)}`);
+      const data = (await res.json()) as ActaFeb & { error?: string };
+      if (!res.ok) throw new Error(data.error || `Error ${res.status}`);
+      const i = equipoDelRival(data, r.nombre);
+      if (i >= 0) {
+        anadirActa(actaDeFeb(data, i));
+        $<HTMLInputElement>("rv-feb").value = "";
+      } else {
+        // no se sabe cuál es el rival: que lo elija el entrenador
+        elegirEl.replaceChildren(el("span", undefined, "¿Cuál de los dos es tu rival?"));
+        data.equipos.forEach((e, k) => {
+          const b = el("button", "rv-bn rv-bn-2 rv-bn-sm", e.nombre) as HTMLButtonElement;
+          b.type = "button";
+          b.addEventListener("click", () => {
+            elegirEl.hidden = true;
+            anadirActa(actaDeFeb(data, k));
+            $<HTMLInputElement>("rv-feb").value = "";
+          });
+          elegirEl.append(b);
+        });
+        elegirEl.hidden = false;
+        estado("");
+      }
+    } catch (e) {
+      estado(e instanceof Error ? e.message : "No se pudo leer el acta.", true);
+    } finally {
+      btnImportar.disabled = false;
+    }
+  });
+
+  // ── acta pegada ──────────────────────────────────────────────────────
+  btnLeer.addEventListener("click", () => {
+    if (!activo()) return estado("Crea primero el rival.", true);
+    try {
+      const jugadores = parsePaste($<HTMLTextAreaElement>("rv-pegar").value) as unknown as JugadorActa[];
+      const num = (id: string) => {
+        const v = $<HTMLInputElement>(id).value;
+        return v === "" ? null : Math.max(0, Math.round(Number(v)));
+      };
+      anadirActa(
+        actaPegada(jugadores, {
+          fecha: $<HTMLInputElement>("rv-fecha").value,
+          contra: $<HTMLInputElement>("rv-contra").value.trim().slice(0, 60),
+          ptsRival: num("rv-ptsr"),
+          ptsContra: num("rv-ptsc"),
+        })
+      );
+      $<HTMLTextAreaElement>("rv-pegar").value = "";
+    } catch (e) {
+      estado(e instanceof Error ? e.message : "No se pudo leer el acta.", true);
+    }
+  });
+
+  // ── pintar ───────────────────────────────────────────────────────────
+  const n1 = (v: number | null) => (v === null ? "—" : String(v).replace(".", ","));
+  const pc = (v: number | null) => (v === null ? "—" : `${v} %`);
+
+  function pintar() {
+    selRival.replaceChildren(...st.rivales.map((r) => new Option(`${r.nombre} (${r.actas.length})`, r.id)));
+    selRival.value = st.activo;
+    $("rv-anadir").hidden = !activo();
+    marcarPro();
+
+    const lista = $("rv-actas");
+    lista.replaceChildren();
+    const r = activo();
+    const out = $("rv-informe");
+    out.replaceChildren();
+    if (!r) {
+      ($("rv-nuevo") as HTMLDetailsElement).open = true;
+      return;
+    }
+    for (const a of r.actas) {
+      const li = el("li");
+      const marcador = a.ptsRival !== null && a.ptsContra !== null ? ` · ${a.ptsRival}-${a.ptsContra}` : "";
+      li.append(el("span", undefined, `${a.fecha ? fechaCorta(a.fecha) : "Sin fecha"} · vs ${a.contra || "?"}${marcador} · ${a.origen === "feb" ? "FEB" : "pegada"}`));
+      const q = el("button", undefined, "Quitar") as HTMLButtonElement;
+      q.type = "button";
+      q.addEventListener("click", () => {
+        r.actas = r.actas.filter((x) => x.id !== a.id);
+        guardar();
+        pintar();
+      });
+      li.append(q);
+      lista.append(li);
+    }
+    if (!r.actas.length) return;
+
+    const inf = informe(r.actas);
+    out.append(el("h2", "rv-h2", `${r.nombre} · ${inf.partidos} ${inf.partidos === 1 ? "partido" : "partidos"}`));
+    const kpis = el("div", "rv-kpis");
+    const kpi = (valor: string, texto: string) => {
+      const d = el("div", "rv-kpi");
+      d.append(el("b", undefined, valor), el("span", undefined, texto));
+      kpis.append(d);
+    };
+    kpi(inf.victorias + inf.derrotas ? `${inf.victorias}-${inf.derrotas}` : "—", "Balance");
+    kpi(n1(inf.ptsFavor), "Puntos a favor");
+    kpi(n1(inf.ptsContra), "Puntos en contra");
+    kpi(pc(inf.equipo.pct3), `Triples (${n1(inf.equipo.t3i)} intentos)`);
+    kpi(pc(inf.equipo.pct2), "Tiros de 2");
+    kpi(pc(inf.equipo.pctTl), "Tiros libres");
+    kpi(n1(inf.equipo.per), "Pérdidas por partido");
+    kpi(n1(inf.equipo.fal), "Faltas por partido");
+    out.append(kpis);
+
+    if (inf.claves.length) {
+      out.append(el("h2", "rv-h2", "Pistas para el partido"));
+      const ul = el("ul", "rv-claves");
+      for (const c of inf.claves) ul.append(el("li", undefined, c));
+      out.append(ul);
+    }
+
+    out.append(el("h2", "rv-h2", "Jugadores (medias por partido)"));
+    const caja = el("div", "rv-tabla-caja");
+    const t = el("table", "rv-tabla");
+    const cab = el("tr");
+    for (const h of ["Jugador", "PJ", "Min", "Pts", "T2 %", "T3", "T3 %", "TL %", "Reb", "Ast", "Faltas"]) cab.append(el("th", undefined, h));
+    t.append(cab);
+    for (const j of inf.jugadores) {
+      const tr = el("tr");
+      for (const v of [`${j.dorsal ? j.dorsal + " " : ""}${j.nombre}`, String(j.pj), n1(j.min), n1(j.pts), pc(j.pct2), `${j.total.t3c}/${j.total.t3i}`, pc(j.pct3), pc(j.pctTl), n1(j.reb), n1(j.ast), n1(j.fal)]) tr.append(el("td", undefined, v));
+      t.append(tr);
+    }
+    caja.append(t);
+    out.append(caja);
+  }
+
+  // ── rivales ──────────────────────────────────────────────────────────
+  $("rv-crear").addEventListener("click", () => {
+    const nombre = $<HTMLInputElement>("rv-nombre").value.trim().slice(0, 60);
+    if (!nombre) return estado("Escribe el nombre del rival.", true);
+    const r: Rival = { id: uid(), nombre, actas: [] };
+    st.rivales.unshift(r);
+    st.rivales = st.rivales.slice(0, LIMITES_RIVAL.RIVALES);
+    st.activo = r.id;
+    $<HTMLInputElement>("rv-nombre").value = "";
+    ($("rv-nuevo") as HTMLDetailsElement).open = false;
+    guardar();
+    estado("");
+    pintar();
+  });
+  selRival.addEventListener("change", () => {
+    st.activo = selRival.value;
+    guardar();
+    estado("");
+    pintar();
+  });
+  $("rv-borrar-rival").addEventListener("click", () => {
+    const r = activo();
+    if (!r || !confirm(`¿Borrar el rival «${r.nombre}» y sus ${r.actas.length} actas?`)) return;
+    st.rivales = st.rivales.filter((x) => x.id !== r.id);
+    st.activo = st.rivales[0]?.id ?? "";
+    guardar();
+    pintar();
+  });
+  $("rv-imprimir").addEventListener("click", () => window.print());
+
+  pintar();
+</script>

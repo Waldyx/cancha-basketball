@@ -347,7 +347,13 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   (arco 6,75 m, esquinas a 0,90 m; minibasket todo 2) y zonas (pintura, media, triple de esquina, frontal). Tablas por
   zona y por jugador (TC, T3, puntos, eFG). "Toda la temporada" es Pro (`tiro-temporada`). Lógica en `lib/mapaTiro.ts`,
   pista = `renderTablero` de la pizarra en vertical. Datos en `cz.tiro.v1` (solo navegador).
-- ▶️ **Siguiente**: informe del rival (actas FEB) → libro de jugadas con escudo → etiquetas de vídeo.
+- ✅ **Informe del rival `/rival/` (17-oct)**: actas de la FEB (`/api/feb`, el rival se identifica por nombre; si es
+  ambiguo, el entrenador elige) o pegadas (`parsePaste` de estadísticas, vale para FCBQ). Balance, KPIs de equipo,
+  tabla por jugador y pistas por reglas (máx. 2 por tipo; tirador exige ≥4 intentos). 1 partido gratis, varios = Pro
+  (`rival-varios`). Lógica en `lib/informeRival.ts`, datos en `cz.rival.v1`. Probado con actas reales de Tercera FEB.
+- 🔧 `scoring.test.ts` asumía que la LeBron 22 nunca baja de 80 € (Amazon la puso a 78,35 € el 16-oct): quitada esa
+  aserción de datos; el filtro de presupuesto se sigue comprobando con el bucle del mismo test.
+- ▶️ **Siguiente**: libro de jugadas con escudo → etiquetas de vídeo.
 - ▶️ **Paso 3, por orden**: control de minutos/cuartos (verificar normas de participación de la FCBQ) → mapa de
   tiro → libro de jugadas con escudo del club → etiquetas de vídeo. Más ideas: informe del rival (actas FEB),
   plan de partido, generador de sesiones con IA, evaluación de jugadores + informe a familias, tests físicos,

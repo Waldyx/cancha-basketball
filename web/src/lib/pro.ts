@@ -17,6 +17,7 @@ export const FUNCIONES_PRO = {
   "minutos-rotacion": "Propuesta de rotación",
   "pizarra-club": "Biblioteca del club",
   "tiro-temporada": "Mapa de tiro de toda la temporada",
+  "rival-varios": "Informe del rival con varios partidos",
 } as const;
 
 export type FuncionPro = keyof typeof FUNCIONES_PRO;
