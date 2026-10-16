@@ -207,6 +207,8 @@ const jsonLd = {
       const res = await fetch(`/api/feb?partido=${encodeURIComponent(v)}`);
       const data = (await res.json()) as ActaFeb & { error?: string };
       if (!res.ok) throw new Error(data.error || `Error ${res.status}`);
+      // un acta en directo es parcial (y su marcador contaría en el balance): mejor esperar al final
+      if (data.finalizado === false) throw new Error("Ese partido aún no ha terminado: impórtalo cuando acabe.");
       const i = equipoDelRival(data, r.nombre);
       if (i >= 0) {
         anadirActa(actaDeFeb(data, i));

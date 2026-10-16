@@ -166,9 +166,10 @@ const jsonLd = {
 
 <script>
   import { CLAVE_EQUIPO, equiposDeTexto } from "../lib/pizarraEquipo";
+  import { lineasPlantilla } from "../lib/plantillaTexto";
   import { cajaVista, deVista, aVista, uid, type Pt } from "../lib/pizarra";
   import { PALETAS, renderTablero } from "../lib/pizarraRender";
-  import { ZONAS_TIRO, campo, limitarPunto, normalizarStore, nuevoPartido, pct, resumir, type PartidoTiro, type StoreTiro } from "../lib/mapaTiro";
+  import { LIMITES_TIRO, ZONAS_TIRO, campo, limitarPunto, normalizarStore, nuevoPartido, pct, resumir, type PartidoTiro, type StoreTiro } from "../lib/mapaTiro";
 
   const CLAVE = "cz.tiro.v1";
   const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -201,13 +202,8 @@ const jsonLd = {
     const d = new Date();
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
   };
-  const jugadores = () => {
-    const vistos = new Set<string>();
-    return st.jugadores
-      .split("\n")
-      .map((l) => l.trim().slice(0, 30))
-      .filter((l) => l && !vistos.has(l) && vistos.add(l));
-  };
+  // un nombre repetido no se descarta (sus tiros se mezclarían): el segundo «Pau» pasa a «Pau (2)»
+  const jugadores = () => lineasPlantilla(st.jugadores, 30, 30);
   const activo = (): PartidoTiro | undefined => st.partidos.find((p) => p.id === st.activo);
   const fechaCorta = (f: string) => (f ? f.split("-").reverse().slice(0, 2).join("/") : "");
   const etiquetaPartido = (p: PartidoTiro) => [fechaCorta(p.fecha), p.rival ? `vs ${p.rival}` : "Partido", p.pista === "mini" ? "mini" : ""].filter(Boolean).join(" · ");
@@ -339,6 +335,12 @@ const jsonLd = {
     if (!b) return;
     if (b.dataset.ok && pendiente) {
       asegurarPartido();
+      if (activo()!.tiros.length >= LIMITES_TIRO.TIROS) {
+        alert(`Como mucho ${LIMITES_TIRO.TIROS} tiros por partido.`);
+        pendiente = null;
+        marcarEl.hidden = true;
+        return pintar();
+      }
       activo()!.tiros.push({ id: uid(), j: tirador, ...pendiente, ok: b.dataset.ok === "1" });
       guardar();
     }
@@ -371,7 +373,11 @@ const jsonLd = {
   $("tr-crear").addEventListener("click", () => {
     const p = nuevoPartido($<HTMLInputElement>("tr-rival").value, hoy(), $<HTMLSelectElement>("tr-pista").value === "mini" ? "mini" : "fiba");
     st.partidos.unshift(p);
-    st.partidos = st.partidos.slice(0, 60);
+    if (st.partidos.length > LIMITES_TIRO.PARTIDOS && !confirm(`Se guardan ${LIMITES_TIRO.PARTIDOS} partidos como mucho: se borrará el más antiguo. ¿Seguir?`)) {
+      st.partidos.shift();
+      return;
+    }
+    st.partidos = st.partidos.slice(0, LIMITES_TIRO.PARTIDOS);
     st.activo = p.id;
     $<HTMLInputElement>("tr-rival").value = "";
     ($("tr-nuevo") as HTMLDetailsElement).open = false;

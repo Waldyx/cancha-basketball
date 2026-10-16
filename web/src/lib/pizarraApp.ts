@@ -122,7 +122,7 @@ import {
   type EstadoClub,
   type PaqueteClub,
 } from "./pizarraClub";
-import { CLAVE_MARCA, leerMarca, medidasReducidas, normalizarMarca, type MarcaClub } from "./pizarraMarca";
+import { CLAVE_MARCA, escudoValido, leerMarca, medidasReducidas, normalizarMarca, type MarcaClub } from "./pizarraMarca";
 import { iniciarSesiones, type ControlSesiones } from "./pizarraSesionUI";
 
 const CLAVE = "cz.pizarra.v1";
@@ -1964,7 +1964,11 @@ export function iniciarPizarra(): void {
   /** Guarda el paquete: si es del mismo club que el anterior, sustituye aquella versión. */
   function incorporarClub(p: PaqueteClub) {
     const plan = planActualizacion(clubEstado, p);
+    // nombre de cada jugada del club que se va a sustituir: las sesiones PROPIAS del entrenador que la
+    // usaban se reenganchan a la jugada nueva con el mismo nombre (o pasan a bloque de texto)
+    const nombreViejo = new Map<string, string>();
     if (plan.sustituye) {
+      for (const j of biblio) if (plan.quitarJugadas.has(j.id)) nombreViejo.set(j.id, j.nombre);
       biblio = biblio.filter((j) => !plan.quitarJugadas.has(j.id));
       sesiones = sesiones.filter((x) => !plan.quitarSesiones.has(x.id));
     }
@@ -1983,6 +1987,19 @@ export function iniciarPizarra(): void {
       const r = remapearJugadas(x, mapa);
       r.id = uid();
       nuevasS.push(r);
+    }
+    if (nombreViejo.size) {
+      const porNombre = new Map(nuevasJ.map((j) => [j.nombre, j.id]));
+      for (const x of sesiones)
+        for (const b of x.bloques) {
+          if (b.tipo !== "jugada" || !b.jugadaId || !nombreViejo.has(b.jugadaId)) continue;
+          const nuevo = porNombre.get(nombreViejo.get(b.jugadaId)!);
+          if (nuevo) b.jugadaId = nuevo;
+          else {
+            b.tipo = "texto";
+            delete b.jugadaId;
+          }
+        }
     }
     biblio = [...nuevasJ, ...biblio];
     sesiones = [...nuevasS, ...sesiones];
@@ -2020,15 +2037,16 @@ export function iniciarPizarra(): void {
       return void toast("Escribe el nombre del club.");
     }
     if (!biblio.length && !sesiones.length) return void toast("Tu biblioteca está vacía.");
-    const p: PaqueteClub = { club, fecha: hoyLocal(), jugadas: biblio, sesiones };
+    // sin los nombres de los jugadores: el paquete sale hacia otros entrenadores (regla de los menores)
+    const p: PaqueteClub = { club, fecha: hoyLocal(), jugadas: biblio.map((j) => quitarNombres(j).jugada), sesiones };
     if (modo === "archivo") {
       descargar(new Blob([libroAJson([], { club: compactarPaquete(p) })], { type: "application/json" }), nombreArchivo(`biblioteca ${club} ${p.fecha}`, "json"));
-      return void toast("Archivo descargado. Envíalo a tus entrenadores: lo abren en la pizarra con «Importar .json».", 6000);
+      return void toast("Archivo descargado, sin los nombres de tus jugadores. Envíalo a tus entrenadores: lo abren en la pizarra con «Importar .json».", 7000);
     }
     try {
       const url = `${location.origin}${location.pathname}#j=${await codificarPaqueteClub(p)}`;
       if (await copiar(url))
-        toast(url.length > 8000 ? `Enlace copiado (${url.length} caracteres: si alguna app lo corta, envía el archivo).` : "Enlace de la biblioteca del club copiado. Envíalo a tus entrenadores.", 6000);
+        toast(url.length > 8000 ? `Enlace copiado, sin los nombres de tus jugadores (${url.length} caracteres: si alguna app lo corta, envía el archivo).` : "Enlace copiado, sin los nombres de tus jugadores. Envíalo a tus entrenadores.", 6000);
       else toast("No se pudo copiar el enlace: envía el archivo.");
     } catch {
       toast("No se pudo generar el enlace: envía el archivo.");
@@ -2083,6 +2101,7 @@ export function iniciarPizarra(): void {
   }
 
   function guardarMarca() {
+    if (escudoPendiente && !escudoValido(escudoPendiente)) return void toast("El escudo es demasiado pesado: prueba con una imagen más sencilla.");
     const nueva = normalizarMarca({ nombre: marcaNombre.value, color: marcaColor.value, escudo: escudoPendiente ?? marca?.escudo ?? "" });
     if (!nueva) return void toast("Pon al menos el nombre o el escudo del club.");
     if ((escudoPendiente ?? "") && !nueva.escudo) return void toast("El escudo es demasiado pesado: prueba con una imagen más sencilla.");

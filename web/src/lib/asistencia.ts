@@ -2,6 +2,8 @@
 // sesión y prepara el mensaje de la convocatoria para el grupo de WhatsApp. Todo vive en su
 // navegador (cz.asistencia.v1); el mensaje solo sale si él lo copia o lo comparte. Lógica pura.
 
+import { lineasPlantilla } from "./plantillaTexto";
+
 export type EstadoAsistencia = "" | "si" | "no" | "just";
 
 export interface Sesion {
@@ -31,12 +33,7 @@ export interface FilaAsistencia {
 
 /** Lista de jugadores de la plantilla escrita (una línea por jugador, sin repetir). */
 export function plantilla(texto: string): string[] {
-  const vistos = new Set<string>();
-  return texto
-    .split("\n")
-    .map((l) => l.trim().slice(0, 40))
-    .filter((l) => l && !vistos.has(l) && vistos.add(l))
-    .slice(0, LIMITES_ASISTENCIA.JUGADORES);
+  return lineasPlantilla(texto, LIMITES_ASISTENCIA.JUGADORES, 40);
 }
 
 export function resumen(jugadores: string[], sesiones: Sesion[]): FilaAsistencia[] {

@@ -376,6 +376,14 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   ✓/✗ por puesto + "Deshacer último" (en iPhone no hay clic derecho), evolución por sesión y % por puesto pintado en la
   pista. Test que comprueba que los 5 puestos de triple están fuera del arco y los 5 de media dentro. `lib/planTiro.ts`.
   `/jugadores/` ya no tiene "En preparación".
+- ✅ **Revisión de la noche (subagente, `trabajo/revision-noche-17oct.md`) y sus 11 arreglos**: el paquete del club sale
+  SIN nombres de jugadores (`quitarNombres`) · al actualizar el club, las sesiones propias se reenganchan a la jugada nueva
+  con el mismo nombre (o pasan a texto) — probado en navegador · nombres repetidos ya no desaparecen: «Pau (2)»
+  (`lib/plantillaTexto.ts`, en minutos, tiro y asistencia) · /minutos valida su estado · /rival rechaza actas sin terminar
+  · familias: frase del mejor partido bien formada y gráfica solo si ha ido a más · /video limpia el estado al cambiar de
+  archivo · /tiro avisa de los topes · escudo pesado bien avisado · trampa de foco en el aviso Pro · CSV sin fórmulas.
+  🔑 Al probar coordinador y entrenador en el MISMO navegador, el `pagehide` de la pizarra reescribe `cz.pizarra.v1` al
+  recargar: escribir en localStorage a mano y recargar NO sirve para preparar pruebas (crea falsos duplicados).
 - ▶️ **Ideas siguientes** (sin prometer en la web): generador de sesiones con IA, evaluación de jugadores, tests
   físicos, cuadros de torneos 3x3.
 - ▶️ **Paso 3, por orden**: control de minutos/cuartos (verificar normas de participación de la FCBQ) → mapa de

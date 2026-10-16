@@ -245,9 +245,13 @@ const jsonLd = {
     sec.append(el("h2", "fm-h2", "Lo mejor de su temporada"));
     const ul = el("ul");
     for (const f of inf.puntosFuertes) ul.append(el("li", undefined, f));
-    if (inf.mejor && inf.pj > 1) ul.append(el("li", undefined, `Su mejor partido: ${inf.mejor.rival ? "contra " + inf.mejor.rival : ""}${inf.mejor.fecha ? ` (${fechaCorta(inf.mejor.fecha)})` : ""}, con ${inf.mejor.pts} puntos, ${inf.mejor.reb} rebotes y ${inf.mejor.ast} asistencias.`));
+    const m = inf.mejor;
+    if (m && inf.pj > 1 && m.pts + m.reb + m.ast > 0) {
+      const cuando = [m.rival ? `contra ${m.rival}` : "", m.fecha ? `(${fechaCorta(m.fecha)})` : ""].filter(Boolean).join(" ");
+      ul.append(el("li", undefined, `Su mejor partido${cuando ? ": " + cuando : ""}, con ${m.pts} puntos, ${m.reb} rebotes y ${m.ast} asistencias.`));
+    }
     sec.append(ul);
-    if (inf.serie.length >= 3) {
+    if (inf.serie.length >= 3 && inf.mejora) {
       sec.append(el("h2", "fm-h2", "Sus puntos, partido a partido"));
       const caja = el("div", "fm-serie");
       caja.innerHTML = `<svg viewBox="-2 -2 204 44" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><polyline points="${puntosSerie(inf.serie, 200, 40)}" fill="none" stroke="#f97316" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>`;

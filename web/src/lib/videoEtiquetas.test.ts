@@ -31,6 +31,10 @@ describe("etiquetas de vídeo", () => {
     expect(aTexto(ls, TIPOS_POR_DEFECTO)).toBe('1:05 · Pérdida — pase "malo"; lento\n2:10 · Canasta · Laia — contraataque');
   });
 
+  it("una nota que empieza por = no se convierte en fórmula al abrir el CSV", () => {
+    expect(aCsv([e("f", 5, "revisar", "", "=SUMA(A1)")], TIPOS_POR_DEFECTO).split("\n")[1]).toBe("0:05;Revisar;;'=SUMA(A1)");
+  });
+
   it("valida lo guardado y deja renombrar los tipos", () => {
     const st = normalizarStoreVideo({
       tipos: [{ id: "jugada", nombre: "Horns" }, { id: "inventado", nombre: "X" }],

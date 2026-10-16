@@ -39,6 +39,8 @@ export const LIMITES_RIVAL = { RIVALES: 30, ACTAS: 30, JUGADORES: 20, TEXTO: 60 
 export interface ActaFeb {
   partido?: string;
   fecha?: string;
+  /** false mientras el partido se está jugando: su acta todavía cambia. */
+  finalizado?: boolean;
   equipos: { nombre: string; pts: number; jugadores: JugadorActa[] }[];
 }
 

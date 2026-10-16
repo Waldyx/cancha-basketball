@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 import { SIGUIENTE, fechaHumana, normalizarStoreAsistencia, plantilla, resumen, textoConvocatoria, type Sesion } from "./asistencia";
 
 describe("asistencia", () => {
-  it("lee la plantilla sin repetir ni líneas vacías", () => {
-    expect(plantilla("4 Laia\n\n7 Marc\n4 Laia\n  9 Nora  ")).toEqual(["4 Laia", "7 Marc", "9 Nora"]);
+  it("lee la plantilla sin líneas vacías y sin perder a quien repite nombre", () => {
+    expect(plantilla("4 Laia\n\n7 Marc\n4 Laia\n  9 Nora  ")).toEqual(["4 Laia", "7 Marc", "4 Laia (2)", "9 Nora"]);
   });
 
   it("calcula el % de asistencia sin que las faltas justificadas cuenten en contra", () => {

@@ -83,7 +83,11 @@ export function clipsDe(etiquetas: Etiqueta[], duracion: number, antes = 6, desp
   return out;
 }
 
-const csvCampo = (v: string) => (/[;"\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v);
+const csvCampo = (v0: string) => {
+  // una celda que empieza por = + - @ la interpreta Excel como fórmula: se neutraliza con un apóstrofo
+  const v = /^[=+\-@]/.test(v0) ? `'${v0}` : v0;
+  return /[;"\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v;
+};
 
 /** CSV con punto y coma (lo que abre bien Excel en España). */
 export function aCsv(etiquetas: Etiqueta[], tipos: TipoEtiqueta[]): string {

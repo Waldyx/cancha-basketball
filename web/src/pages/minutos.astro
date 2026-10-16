@@ -134,6 +134,7 @@ const jsonLd = {
 <script>
   import { REGLAS, evaluar, proponerRotacion, reglaPersonalizada, LIMITES_ROTACION, type Marca, type Marcas, type ReglaParticipacion } from "../lib/rotaciones";
   import { CLAVE_EQUIPO, equiposDeTexto } from "../lib/pizarraEquipo";
+  import { lineasPlantilla } from "../lib/plantillaTexto";
 
   const CLAVE = "cz.minutos.v1";
   type Estado = { regla: string; pers: Partial<ReglaParticipacion>; texto: string; marcas: Marcas };
@@ -150,7 +151,13 @@ const jsonLd = {
   let st: Estado = { regla: REGLAS[0].id, pers: { periodos: 4, enPista: 5, minInicios: 1, inicioHasta: 3, maxParticipaciones: 3, maxHasta: 4 }, texto: "", marcas: {} };
   try {
     const raw = JSON.parse(localStorage.getItem(CLAVE) ?? "null");
-    if (raw && typeof raw === "object") st = { ...st, ...raw, marcas: raw.marcas && typeof raw.marcas === "object" ? raw.marcas : {} };
+    // campo a campo y con su tipo: un dato corrupto no puede dejar la página muerta
+    if (raw && typeof raw === "object") {
+      if (typeof raw.regla === "string") st.regla = raw.regla;
+      if (raw.pers && typeof raw.pers === "object" && !Array.isArray(raw.pers)) st.pers = raw.pers;
+      if (typeof raw.texto === "string") st.texto = raw.texto.slice(0, 2000);
+      if (raw.marcas && typeof raw.marcas === "object" && !Array.isArray(raw.marcas)) st.marcas = raw.marcas;
+    }
   } catch {
     /* sin almacenamiento o dato corrupto: se empieza de cero */
   }
@@ -166,13 +173,8 @@ const jsonLd = {
 
   /** Jugadores del textarea; el id es la propia línea, así las marcas sobreviven a reordenar. */
   function jugadores() {
-    const vistos = new Set<string>();
-    return st.texto
-      .split("\n")
-      .map((l) => l.trim().slice(0, LIMITES_ROTACION.NOMBRE))
-      .filter((l) => l && !vistos.has(l) && vistos.add(l))
-      .slice(0, LIMITES_ROTACION.JUGADORES)
-      .map((l) => ({ id: l, nombre: l }));
+    // un nombre repetido no se descarta: el segundo «Pau» pasa a «Pau (2)»
+    return lineasPlantilla(st.texto, LIMITES_ROTACION.JUGADORES, LIMITES_ROTACION.NOMBRE).map((l) => ({ id: l, nombre: l }));
   }
 
   function el(tag: string, cls?: string, text?: string) {

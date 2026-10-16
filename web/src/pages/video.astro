@@ -170,6 +170,10 @@ const jsonLd = {
   $<HTMLInputElement>("vd-archivo").addEventListener("change", (e) => {
     const f = (e.target as HTMLInputElement).files?.[0];
     if (!f) return;
+    // nada del vídeo anterior: ni clips en marcha ni etiquetas que caigan en el que ya no se ve
+    parar();
+    clave = "";
+    $("vd-app").hidden = true;
     if (urlVideo) URL.revokeObjectURL(urlVideo);
     urlVideo = URL.createObjectURL(f);
     video.src = urlVideo;

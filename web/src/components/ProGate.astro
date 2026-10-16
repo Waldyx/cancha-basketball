@@ -190,6 +190,13 @@ import { CODIGO_BETA } from "../lib/pro";
         e.stopImmediatePropagation();
         cerrar();
       }
+      // trampa de foco: con el aviso abierto, Tab solo recorre sus dos botones
+      if (e.key === "Tab" && overlay && !overlay.hidden) {
+        const bs = [...overlay.querySelectorAll<HTMLElement>("button, a[href]")];
+        const i = bs.indexOf(document.activeElement as HTMLElement);
+        e.preventDefault();
+        bs[(i + (e.shiftKey ? -1 : 1) + bs.length) % bs.length]?.focus();
+      }
     },
     true
   );
