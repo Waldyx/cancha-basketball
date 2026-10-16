@@ -6,11 +6,24 @@ import "../styles/cancha-redesign.css";
 import Base from "../layouts/Base.astro";
 import ProGate from "../components/ProGate.astro";
 import { REGLAS } from "../lib/rotaciones";
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Control de minutos de baloncesto CANCHA.ZAPA",
+  url: "https://canchazapa.com/minutos/",
+  applicationCategory: "SportsApplication",
+  operatingSystem: "Any",
+  inLanguage: "es",
+  isAccessibleForFree: true,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  description: "Controla quién sale de inicio en cada período y cumple la norma de participación del minibasket y la passarel·la, con avisos en directo y propuesta de rotación.",
+};
 ---
 
 <Base
   title="Control de minutos y períodos en minibasket | CANCHA.ZAPA"
   description="Controla quién sale de inicio en cada período y cumple la norma de participación del minibasket y la passarel·la (FCBQ) o tu propia regla. Gratis, sin registro y en tu móvil."
+  jsonLd={jsonLd}
 >
   <main class="app">
     <section class="doc-hero">

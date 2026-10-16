@@ -5,11 +5,24 @@
 import "../styles/cancha-redesign.css";
 import Base from "../layouts/Base.astro";
 import ProGate from "../components/ProGate.astro";
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Etiquetas de vídeo de baloncesto CANCHA.ZAPA",
+  url: "https://canchazapa.com/video/",
+  applicationCategory: "SportsApplication",
+  operatingSystem: "Any",
+  inLanguage: "es",
+  isAccessibleForFree: true,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  description: "Abre el vídeo del partido desde tu dispositivo, marca momentos con un toque y míralos seguidos. El vídeo no se sube a ningún sitio.",
+};
 ---
 
 <Base
   title="Analizar el vídeo del partido: etiqueta jugadas gratis | CANCHA.ZAPA"
   description="Abre el vídeo de tu partido, marca canastas, pérdidas o jugadas con un toque y salta de una a otra o míralas seguidas. El vídeo no se sube a ningún sitio. Gratis y sin registro."
+  jsonLd={jsonLd}
 >
   <main class="app">
     <section class="doc-hero">

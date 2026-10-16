@@ -5,11 +5,24 @@
 import "../styles/cancha-redesign.css";
 import Base from "../layouts/Base.astro";
 import ProGate from "../components/ProGate.astro";
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Mapa de tiro de baloncesto CANCHA.ZAPA",
+  url: "https://canchazapa.com/tiro/",
+  applicationCategory: "SportsApplication",
+  operatingSystem: "Any",
+  inLanguage: "es",
+  isAccessibleForFree: true,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  description: "Marca cada tiro en la pista durante el partido y consulta el porcentaje por jugador y por zona, con la geometría FIBA y de minibasket.",
+};
 ---
 
 <Base
   title="Mapa de tiro de baloncesto: dónde tira tu equipo | CANCHA.ZAPA"
   description="Marca cada tiro en la pista durante el partido y mira el porcentaje por jugador y por zona: zona, media distancia, triple de esquina y frontal. Gratis, sin registro y en tu móvil."
+  jsonLd={jsonLd}
 >
   <main class="app">
     <section class="doc-hero">

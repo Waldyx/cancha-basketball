@@ -5,11 +5,24 @@
 import "../styles/cancha-redesign.css";
 import Base from "../layouts/Base.astro";
 import ProGate from "../components/ProGate.astro";
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Informe del rival de baloncesto CANCHA.ZAPA",
+  url: "https://canchazapa.com/rival/",
+  applicationCategory: "SportsApplication",
+  operatingSystem: "Any",
+  inLanguage: "es",
+  isAccessibleForFree: true,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  description: "Junta las actas de los partidos de tu próximo rival y consulta sus medias por jugador y pistas para preparar el partido.",
+};
 ---
 
 <Base
   title="Informe del rival de baloncesto: scouting con las actas | CANCHA.ZAPA"
   description="Junta las actas de los partidos de tu próximo rival (FEB o copiadas de tu federación) y mira quién anota, quién tira de tres, quién se carga de faltas y cómo juegan. Gratis y sin registro."
+  jsonLd={jsonLd}
 >
   <main class="app">
     <section class="doc-hero">

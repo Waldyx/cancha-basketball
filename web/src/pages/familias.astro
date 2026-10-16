@@ -5,11 +5,24 @@
 import "../styles/cancha-redesign.css";
 import Base from "../layouts/Base.astro";
 import ProGate from "../components/ProGate.astro";
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Informe de temporada para familias CANCHA.ZAPA",
+  url: "https://canchazapa.com/familias/",
+  applicationCategory: "SportsApplication",
+  operatingSystem: "Any",
+  inLanguage: "es",
+  isAccessibleForFree: true,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  description: "Genera una hoja por jugador con su temporada en positivo para entregar a las familias, a partir de las estadísticas del equipo.",
+};
 ---
 
 <Base
   title="Informe de temporada para las familias de tus jugadores | CANCHA.ZAPA"
   description="Una hoja por jugador con su temporada en positivo: números, evolución, puntos fuertes y tu comentario, con el escudo del club. Sale de tus estadísticas de equipo, sin subir nada a ningún servidor."
+  jsonLd={jsonLd}
 >
   <main class="app" id="fm-main">
     <section class="doc-hero">
