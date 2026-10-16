@@ -276,13 +276,17 @@ const homeJsonLd = {
     <section class="home-shortcuts">
       <div class="shell">
         <p class="cz-eyebrow">★ Herramientas gratis</p>
-        <h2 class="home-h2-sm">Para jugadores y entrenadores</h2>
+        <h2 class="home-h2-sm">Para jugadores, entrenadores y clubs</h2>
         <div class="home-shortcut-grid">
           {[
             { href: "/pizarra/",      cat: "responsive",      tag: "Entrenadores", label: "Pizarra táctica", desc: "Dibuja, anima y comparte jugadas" },
+            { href: "/minutos/",      cat: "responsive",      tag: "Entrenadores", label: "Control de minutos", desc: "Cumple la norma de participación" },
+            { href: "/tiro/",         cat: "responsive",      tag: "Entrenadores", label: "Mapa de tiro", desc: "Dónde tira tu equipo y con qué acierto" },
+            { href: "/rival/",        cat: "responsive",      tag: "Entrenadores", label: "Informe del rival", desc: "Prepara el partido con sus actas" },
             { href: "/estadisticas/", cat: "balanced",        tag: "Jugador · Equipo", label: "Estadísticas", desc: "Importa actas FEB y analiza la temporada" },
             { href: "/quiz/",         cat: "cushion-focused", tag: "Jugadores", label: "Quiz de zapatilla", desc: "La tuya según posición y lesiones" },
             { href: "/calculadora/",  cat: "traction-king",   tag: "Jugadores", label: "Coste por partido", desc: "Lo que te cuesta cada partido" },
+            { href: "/clubs/",        cat: "balanced",        tag: "Clubs", label: "Para tu club", desc: "Todos los equipos con lo mismo" },
           ].map(({ href, cat, tag, label, desc }) => (
             <a href={href} class="home-shortcut" style={`--cat:${CAT_ACCENT[cat]}`}>
               <span class="hsc-cat">{tag}</span>
