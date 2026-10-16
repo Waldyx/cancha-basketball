@@ -2445,10 +2445,15 @@ Ordenación: **precio primero**, desempate por comisión dentro de ±0,50 €.
 | Calculadora coste/partido · Estadísticas personales | `/calculadora` `/estadisticas` |
 | Blog (31 artículos) · SEO pages (34) · Accesorios | `/blog` `/blog/[slug]` · `/balones` |
 | FAQ (43) · Metodología · Financiación · Privacidad · Guía de tallas · 404 | |
+| Entrada por público: Jugadores · Entrenadores · Clubs | `/jugadores/` `/entrenadores/` `/clubs/` |
+| Herramientas de entrenador: Pizarra · Control de minutos · Mapa de tiro · Informe del rival · Informe para familias · Etiquetas de vídeo | `/pizarra/` `/minutos/` `/tiro/` `/rival/` `/familias/` `/video/` |
 
-**Nav**: `Quiz | Comparar | Rankings | Catálogo | Calculadora | Stats | Accesorios | Blog | ♥ Mis zapas`
+**Nav** (desde el 15-oct): `Zapatillas ▾ (Catálogo, Quiz, Rankings, Comparar, Calculadora, Accesorios) | Jugadores | Entrenadores | Clubs | Blog | ♥ Mis zapas`
 (lo pone `Header.astro` desde `Base.astro`; el activo sale de `Astro.url.pathname`).
-**Footer global**: FAQ | Metodología | Financiación | Privacidad.
+**Footer global**: columnas Explora · Herramientas · Entrenadores (las 7 herramientas + clubs) · El proyecto.
+**Pro** (beta gratis, `lib/pro.ts` + `ProGate.astro`): basta `data-pro="<id>"` en un botón o formulario. Ids hoy: pizarra-sesiones,
+pizarra-jugador, pizarra-animacion, pizarra-lecturas, pizarra-club, pizarra-marca, stats-equipo, stats-agente, minutos-rotacion,
+tiro-temporada, rival-varios, familias-informe, video-clips. Al añadir uno: `FUNCIONES_PRO` y la lista de `api/pro-uso.ts`.
 
 ### Quiz — 10 pasos
 perfil · posición · peso · estilo · cancha · lesiones (multi, auto-avance 700 ms) · prioridad ·
