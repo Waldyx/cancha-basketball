@@ -22,6 +22,7 @@ const FUNCIONES = [
   "stats-agente",
   "minutos-rotacion",
   "pizarra-club",
+  "tiro-temporada",
 ];
 const EVENTOS = ["visto", "activado"];
 

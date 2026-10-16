@@ -343,7 +343,11 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   del MISMO club (sin mayúsculas/tildes) sustituye la anterior sin tocar lo suyo. Filtro "Del club" + marca "Club ·".
   Compartir es Pro (`pizarra-club`); recibir, gratis. Lógica en `lib/pizarraClub.ts`. Medido: 9 jugadas + 5 sesiones
   = enlace de 6.630 caracteres; si pasa de 8.000 se avisa de usar el archivo.
-- ▶️ **Siguiente**: mapa de tiro.
+- ✅ **Mapa de tiro `/tiro/` (16-oct)**: tocar la media pista + ✓/✗, por jugador; clasifica 2/3 con la geometría FIBA
+  (arco 6,75 m, esquinas a 0,90 m; minibasket todo 2) y zonas (pintura, media, triple de esquina, frontal). Tablas por
+  zona y por jugador (TC, T3, puntos, eFG). "Toda la temporada" es Pro (`tiro-temporada`). Lógica en `lib/mapaTiro.ts`,
+  pista = `renderTablero` de la pizarra en vertical. Datos en `cz.tiro.v1` (solo navegador).
+- ▶️ **Siguiente**: informe del rival (actas FEB) → libro de jugadas con escudo → etiquetas de vídeo.
 - ▶️ **Paso 3, por orden**: control de minutos/cuartos (verificar normas de participación de la FCBQ) → mapa de
   tiro → libro de jugadas con escudo del club → etiquetas de vídeo. Más ideas: informe del rival (actas FEB),
   plan de partido, generador de sesiones con IA, evaluación de jugadores + informe a familias, tests físicos,

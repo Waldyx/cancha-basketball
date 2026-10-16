@@ -1,0 +1,418 @@
+---
+// /tiro — mapa de tiro: el entrenador marca en la media pista dónde se tira y si entra, y ve
+// porcentajes por jugador y por zona. Lógica pura en lib/mapaTiro.ts; la pista es la misma que
+// dibuja la pizarra. Todo se guarda en el navegador (cz.tiro.v1).
+import "../styles/cancha-redesign.css";
+import Base from "../layouts/Base.astro";
+import ProGate from "../components/ProGate.astro";
+---
+
+<Base
+  title="Mapa de tiro de baloncesto: dónde tira tu equipo | CANCHA.ZAPA"
+  description="Marca cada tiro en la pista durante el partido y mira el porcentaje por jugador y por zona: zona, media distancia, triple de esquina y frontal. Gratis, sin registro y en tu móvil."
+>
+  <main class="app">
+    <section class="doc-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Entrenadores · Partido</p>
+        <h1 class="doc-h1">Mapa de <span class="accent">tiro</span></h1>
+        <p class="doc-lede">
+          Toca en la pista dónde se ha tirado y marca si entra. Al momento ves los porcentajes de cada jugador y de cada
+          zona. Todo se guarda en tu navegador.
+        </p>
+      </div>
+    </section>
+
+    <div class="shell tr">
+      <section class="tr-panel">
+        <div class="tr-fila">
+          <label class="tr-campo">
+            <span>Partido</span>
+            <select id="tr-partido" class="tr-inp"></select>
+          </label>
+          <button type="button" id="tr-borrar-partido" class="tr-bn tr-bn-2 tr-bn-sm">Borrar partido</button>
+        </div>
+        <details id="tr-nuevo" class="tr-det">
+          <summary>+ Nuevo partido</summary>
+          <div class="tr-fila tr-fila-3">
+            <label class="tr-campo"><span>Rival</span><input id="tr-rival" class="tr-inp" maxlength="40" placeholder="CB Mataró" autocomplete="off" /></label>
+            <label class="tr-campo">
+              <span>Pista</span>
+              <select id="tr-pista" class="tr-inp">
+                <option value="fiba">FIBA (con triple)</option>
+                <option value="mini">Minibasket (sin triple)</option>
+              </select>
+            </label>
+            <button type="button" id="tr-crear" class="tr-bn">Crear</button>
+          </div>
+        </details>
+        <details class="tr-det">
+          <summary>Jugadores</summary>
+          <label class="tr-campo" id="tr-equipo-campo" hidden>
+            <span>Cargar plantilla</span>
+            <select id="tr-equipo" class="tr-inp"></select>
+          </label>
+          <label class="tr-campo">
+            <span>Uno por línea</span>
+            <textarea id="tr-jugadores" class="tr-inp tr-ta" rows="4" placeholder={"4 Laia\n7 Marc\n…"}></textarea>
+          </label>
+        </details>
+      </section>
+
+      <div class="tr-juego">
+        <div class="tr-izq">
+          <p class="tr-ayuda">¿Quién tira?</p>
+          <div id="tr-tiradores" class="tr-chips" role="radiogroup" aria-label="Jugador que tira"></div>
+          <div class="tr-pista-caja">
+            <svg id="tr-svg" class="tr-svg" role="img" aria-label="Media pista: toca donde se ha tirado"></svg>
+            <div id="tr-marcar" class="tr-marcar" hidden>
+              <button type="button" class="tr-bn tr-si" data-ok="1">✓ Dentro</button>
+              <button type="button" class="tr-bn tr-no" data-ok="0">✗ Fuera</button>
+              <button type="button" class="tr-bn tr-bn-2" data-ok="">Cancelar</button>
+            </div>
+          </div>
+          <div class="tr-fila tr-acc">
+            <button type="button" id="tr-deshacer" class="tr-bn tr-bn-2 tr-bn-sm">Deshacer último</button>
+            <button type="button" id="tr-imprimir" class="tr-bn tr-bn-2 tr-bn-sm">Imprimir</button>
+          </div>
+        </div>
+
+        <div class="tr-der">
+          <div class="tr-fila tr-filtros">
+            <div class="tr-seg" role="group" aria-label="Qué tiros ver">
+              <button type="button" class="tr-segb on" data-ambito="partido">Este partido</button>
+              <button type="button" class="tr-segb" data-ambito="temporada" data-pro="tiro-temporada">Toda la temporada</button>
+            </div>
+            <label class="tr-campo tr-ver">
+              <span>Ver</span>
+              <select id="tr-ver" class="tr-inp"></select>
+            </label>
+          </div>
+          <p id="tr-resumen" class="tr-resumen"></p>
+          <table class="tr-tabla" id="tr-zonas"></table>
+          <table class="tr-tabla" id="tr-jugs"></table>
+          <p class="tr-leyenda"><span class="tr-k tr-k-ok"></span> anotado · <span class="tr-k tr-k-ko">✕</span> fallado</p>
+          <p class="tr-privado">Los nombres y los tiros se guardan solo en este navegador. No se envían a ningún sitio.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <ProGate />
+</Base>
+
+<style is:global>
+  .tr { padding-top: 20px; padding-bottom: 60px; display: flex; flex-direction: column; gap: 14px; }
+  .tr-panel { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; background: var(--cz-card); border: 1px solid var(--cz-border); }
+  .tr-fila { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; }
+  .tr-fila > .tr-campo { flex: 1 1 200px; }
+  .tr-fila-3 > .tr-campo { flex: 1 1 160px; }
+  .tr-campo { display: flex; flex-direction: column; gap: 3px; min-width: 0; font: 800 10px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--cz-text-2); }
+  .tr-inp { width: 100%; min-width: 0; min-height: 40px; padding: 6px 10px; background: var(--cz-bg); color: var(--cz-text); border: 1px solid var(--cz-border); border-radius: 0; font: 600 14px "Inter", sans-serif; text-transform: none; letter-spacing: 0; }
+  .tr-ta { min-height: 90px; resize: vertical; }
+  .tr-det summary { cursor: pointer; font: 800 13px "Inter", sans-serif; color: var(--cz-accent-text); padding: 4px 0; }
+  .tr-det[open] > :not(summary) { margin-top: 8px; }
+  .tr-bn { min-height: 42px; padding: 0 16px; background: #f97316; border: 1px solid #f97316; color: #0c0c0c; font: 900 12px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; border-radius: 0; }
+  .tr-bn-2 { background: transparent; color: var(--cz-text); border-color: var(--cz-border); }
+  .tr-bn-sm { min-height: 36px; padding: 0 12px; font-size: 11px; }
+  .tr-juego { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+  @media (max-width: 820px) { .tr-juego { grid-template-columns: 1fr; } }
+  .tr-izq, .tr-der { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .tr-ayuda { margin: 0; font: 800 10px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--cz-text-2); }
+  .tr-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tr-chip { min-height: 36px; padding: 0 10px; background: var(--cz-bg); border: 1px solid var(--cz-border); color: var(--cz-text); font: 700 13px "Inter", sans-serif; cursor: pointer; border-radius: 0; max-width: 160px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tr-chip[aria-checked="true"] { background: #f97316; border-color: #f97316; color: #0c0c0c; }
+  .tr-pista-caja { position: relative; }
+  .tr-svg { display: block; width: 100%; height: auto; max-height: 72vh; touch-action: manipulation; cursor: crosshair; background: #e3bd7e; }
+  .tr-marcar { position: absolute; left: 0; right: 0; bottom: 0; display: flex; gap: 6px; padding: 8px; background: rgba(12, 12, 12, 0.88); }
+  .tr-marcar[hidden] { display: none; }
+  .tr-marcar .tr-bn { flex: 1; min-height: 52px; font-size: 14px; }
+  .tr-si { background: #16a34a; border-color: #16a34a; color: #fff; }
+  .tr-no { background: #dc2626; border-color: #dc2626; color: #fff; }
+  .tr-seg { display: inline-flex; border: 1px solid var(--cz-border); }
+  .tr-segb { min-height: 38px; padding: 0 12px; background: transparent; border: 0; color: var(--cz-text-2); font: 800 12px "Inter", sans-serif; cursor: pointer; }
+  .tr-segb.on { background: #f97316; color: #0c0c0c; }
+  .tr-ver { flex: 1 1 160px; }
+  .tr-resumen { margin: 0; font: 800 15px "Inter", sans-serif; color: var(--cz-text); }
+  .tr-tabla { width: 100%; border-collapse: collapse; font: 600 13px "Inter", sans-serif; }
+  .tr-tabla th, .tr-tabla td { padding: 6px 8px; border-bottom: 1px solid var(--cz-border); text-align: right; }
+  .tr-tabla th { font: 800 10px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--cz-text-2); }
+  .tr-tabla th:first-child, .tr-tabla td:first-child { text-align: left; }
+  .tr-tabla td:first-child { max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tr-tabla tr.tr-total td { font-weight: 900; }
+  .tr-leyenda { margin: 0; font-size: 12px; color: var(--cz-text-2); display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+  .tr-k { display: inline-flex; width: 12px; height: 12px; align-items: center; justify-content: center; font-weight: 900; }
+  .tr-k-ok { background: #16a34a; border-radius: 50%; }
+  .tr-k-ko { color: #dc2626; }
+  .tr-privado { margin: 0; font-size: 12px; color: var(--cz-text-muted); }
+  @media print {
+    .tr-panel, .tr-acc, .tr-filtros, .tr-chips, .tr-ayuda, .tr-privado, .doc-hero .doc-lede, .tr-marcar { display: none !important; }
+    .tr-juego { grid-template-columns: 1fr 1fr; }
+    .tr-svg { max-height: none; }
+  }
+</style>
+
+<script>
+  import { CLAVE_EQUIPO, equiposDeTexto } from "../lib/pizarraEquipo";
+  import { cajaVista, deVista, aVista, uid, type Pt } from "../lib/pizarra";
+  import { PALETAS, renderTablero } from "../lib/pizarraRender";
+  import { ZONAS_TIRO, campo, limitarPunto, normalizarStore, nuevoPartido, pct, resumir, type PartidoTiro, type StoreTiro } from "../lib/mapaTiro";
+
+  const CLAVE = "cz.tiro.v1";
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  const svg = document.getElementById("tr-svg") as unknown as SVGSVGElement;
+  const selPartido = $<HTMLSelectElement>("tr-partido");
+  const selVer = $<HTMLSelectElement>("tr-ver");
+  const txt = $<HTMLTextAreaElement>("tr-jugadores");
+  const marcarEl = $("tr-marcar");
+  const tiradoresEl = $("tr-tiradores");
+
+  let st: StoreTiro = { v: 1, jugadores: "", activo: "", partidos: [] };
+  try {
+    st = normalizarStore(JSON.parse(localStorage.getItem(CLAVE) ?? "null"));
+  } catch {
+    /* sin almacenamiento o dato corrupto */
+  }
+  const guardar = () => {
+    try {
+      localStorage.setItem(CLAVE, JSON.stringify(st));
+    } catch {
+      /* sin almacenamiento: vale para esta visita */
+    }
+  };
+
+  let tirador = "";
+  let ambito: "partido" | "temporada" = "partido";
+  let pendiente: Pt | null = null;
+
+  const hoy = () => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  };
+  const jugadores = () => {
+    const vistos = new Set<string>();
+    return st.jugadores
+      .split("\n")
+      .map((l) => l.trim().slice(0, 30))
+      .filter((l) => l && !vistos.has(l) && vistos.add(l));
+  };
+  const activo = (): PartidoTiro | undefined => st.partidos.find((p) => p.id === st.activo);
+  const fechaCorta = (f: string) => (f ? f.split("-").reverse().slice(0, 2).join("/") : "");
+  const etiquetaPartido = (p: PartidoTiro) => [fechaCorta(p.fecha), p.rival ? `vs ${p.rival}` : "Partido", p.pista === "mini" ? "mini" : ""].filter(Boolean).join(" · ");
+
+  function asegurarPartido() {
+    if (!activo()) {
+      const p = nuevoPartido("", hoy(), "fiba");
+      st.partidos.unshift(p);
+      st.activo = p.id;
+      guardar();
+    }
+  }
+
+  function el(tag: string, cls?: string, text?: string) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  function tirosVisibles() {
+    const lista = ambito === "temporada" ? st.partidos : [activo()].filter(Boolean) as PartidoTiro[];
+    const ver = selVer.value;
+    return lista.flatMap((p) => p.tiros.filter((t) => !ver || t.j === ver).map((tiro) => ({ tiro, pista: p.pista })));
+  }
+
+  function pintarPista() {
+    const p = activo();
+    const vb = cajaVista("media", "v");
+    svg.setAttribute("viewBox", `${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
+    let s = renderTablero({ cancha: "media", orient: "v", pista: p?.pista ?? "fiba", paleta: PALETAS.parquet, piezas: [], lineas: [], textos: [] });
+    for (const { tiro } of tirosVisibles()) {
+      const v = aVista(tiro, "v");
+      s += tiro.ok
+        ? `<circle cx="${v.x}" cy="${v.y}" r="0.26" fill="#16a34a" stroke="#fff" stroke-width="0.06"/>`
+        : `<path d="M${v.x - 0.22},${v.y - 0.22}L${v.x + 0.22},${v.y + 0.22}M${v.x + 0.22},${v.y - 0.22}L${v.x - 0.22},${v.y + 0.22}" stroke="#dc2626" stroke-width="0.12" stroke-linecap="round"/>`;
+    }
+    if (pendiente) {
+      const v = aVista(pendiente, "v");
+      s += `<circle cx="${v.x}" cy="${v.y}" r="0.4" fill="none" stroke="#0c0c0c" stroke-width="0.1" stroke-dasharray="0.15 0.1"/>`;
+    }
+    svg.innerHTML = s;
+  }
+
+  const fmt = (c: { intentos: number; anotados: number }) => `${c.anotados}/${c.intentos}`;
+  const fmtPct = (n: number | null) => (n === null ? "—" : `${n}%`);
+
+  function pintarStats() {
+    const visibles = tirosVisibles();
+    const r = resumir(visibles);
+    const c = campo(r);
+    $("tr-resumen").textContent = c.tc.intentos
+      ? `${fmt(c.tc)} en tiros de campo (${fmtPct(pct(c.tc))}) · ${r.puntos} puntos · eFG ${fmtPct(c.efg)}`
+      : "Aún no hay tiros: elige quién tira y toca en la pista.";
+
+    const zonas = $<HTMLTableElement>("tr-zonas");
+    zonas.replaceChildren();
+    const cab = el("tr");
+    for (const h of ["Zona", "Tiros", "%"]) cab.append(el("th", undefined, h));
+    zonas.append(cab);
+    const mini = visibles.length > 0 && visibles.every((v) => v.pista === "mini");
+    for (const z of ZONAS_TIRO) {
+      if (mini && (z.id === "esquina" || z.id === "triple")) continue;
+      const k = r.porZona[z.id];
+      const tr = el("tr");
+      tr.append(el("td", undefined, z.nombre), el("td", undefined, fmt(k)), el("td", undefined, fmtPct(pct(k))));
+      zonas.append(tr);
+    }
+
+    // por jugador, con el mismo ámbito pero sin el filtro de "Ver"
+    const lista = ambito === "temporada" ? st.partidos : ([activo()].filter(Boolean) as PartidoTiro[]);
+    const porJ = new Map<string, { tiro: (typeof visibles)[number]["tiro"]; pista: (typeof visibles)[number]["pista"] }[]>();
+    for (const p of lista) for (const t of p.tiros) (porJ.get(t.j) ?? porJ.set(t.j, []).get(t.j)!).push({ tiro: t, pista: p.pista });
+    const jugs = $<HTMLTableElement>("tr-jugs");
+    jugs.replaceChildren();
+    if (!porJ.size) return;
+    const cab2 = el("tr");
+    for (const h of ["Jugador", "TC", "%", "T3", "Pts", "eFG"]) cab2.append(el("th", undefined, h));
+    jugs.append(cab2);
+    const orden = [...porJ.keys()].sort((a, b) => resumir(porJ.get(b)!).puntos - resumir(porJ.get(a)!).puntos);
+    const fila = (nombre: string, rr: ReturnType<typeof resumir>, total = false) => {
+      const cc = campo(rr);
+      const tr = el("tr", total ? "tr-total" : undefined);
+      tr.append(el("td", undefined, nombre), el("td", undefined, fmt(cc.tc)), el("td", undefined, fmtPct(pct(cc.tc))), el("td", undefined, fmt(rr.t3)), el("td", undefined, String(rr.puntos)), el("td", undefined, fmtPct(cc.efg)));
+      jugs.append(tr);
+    };
+    for (const j of orden) fila(j || "Sin asignar", resumir(porJ.get(j)!));
+    fila("Equipo", resumir([...porJ.values()].flat()), true);
+  }
+
+  function pintarControles() {
+    selPartido.replaceChildren(...st.partidos.map((p) => new Option(`${etiquetaPartido(p)} (${p.tiros.length})`, p.id)));
+    selPartido.value = st.activo;
+    const js = jugadores();
+    tiradoresEl.replaceChildren();
+    for (const j of ["", ...js]) {
+      const b = el("button", "tr-chip", j || "Sin asignar");
+      b.setAttribute("role", "radio");
+      b.setAttribute("aria-checked", String(j === tirador));
+      b.dataset.j = j;
+      tiradoresEl.append(b);
+    }
+    const ver = selVer.value;
+    selVer.replaceChildren(new Option("Todo el equipo", ""), ...js.map((j) => new Option(j, j)));
+    selVer.value = js.includes(ver) ? ver : "";
+    document.querySelectorAll<HTMLButtonElement>(".tr-segb").forEach((b) => b.classList.toggle("on", b.dataset.ambito === ambito));
+  }
+
+  function pintar() {
+    pintarControles();
+    pintarPista();
+    pintarStats();
+  }
+
+  // ── tocar la pista ───────────────────────────────────────────────────
+  svg.addEventListener("click", (e) => {
+    const m = svg.getScreenCTM();
+    if (!m) return;
+    const pt = svg.createSVGPoint();
+    pt.x = e.clientX;
+    pt.y = e.clientY;
+    const v = pt.matrixTransform(m.inverse());
+    pendiente = limitarPunto(deVista({ x: v.x, y: v.y }, "v"));
+    marcarEl.hidden = false;
+    pintarPista();
+  });
+  marcarEl.addEventListener("click", (e) => {
+    const b = (e.target as Element).closest<HTMLButtonElement>("[data-ok]");
+    if (!b) return;
+    if (b.dataset.ok && pendiente) {
+      asegurarPartido();
+      activo()!.tiros.push({ id: uid(), j: tirador, ...pendiente, ok: b.dataset.ok === "1" });
+      guardar();
+    }
+    pendiente = null;
+    marcarEl.hidden = true;
+    pintar();
+  });
+
+  tiradoresEl.addEventListener("click", (e) => {
+    const b = (e.target as Element).closest<HTMLButtonElement>(".tr-chip");
+    if (!b) return;
+    tirador = b.dataset.j ?? "";
+    pintarControles();
+  });
+  document.querySelector(".tr-seg")!.addEventListener("click", (e) => {
+    const b = (e.target as Element).closest<HTMLButtonElement>(".tr-segb");
+    if (!b) return;
+    ambito = b.dataset.ambito === "temporada" ? "temporada" : "partido";
+    pintar();
+  });
+  selVer.addEventListener("change", () => {
+    pintarPista();
+    pintarStats();
+  });
+  selPartido.addEventListener("change", () => {
+    st.activo = selPartido.value;
+    guardar();
+    pintar();
+  });
+  $("tr-crear").addEventListener("click", () => {
+    const p = nuevoPartido($<HTMLInputElement>("tr-rival").value, hoy(), $<HTMLSelectElement>("tr-pista").value === "mini" ? "mini" : "fiba");
+    st.partidos.unshift(p);
+    st.partidos = st.partidos.slice(0, 60);
+    st.activo = p.id;
+    $<HTMLInputElement>("tr-rival").value = "";
+    ($("tr-nuevo") as HTMLDetailsElement).open = false;
+    ambito = "partido";
+    guardar();
+    pintar();
+  });
+  $("tr-borrar-partido").addEventListener("click", () => {
+    const p = activo();
+    if (!p || !confirm(`¿Borrar el partido «${etiquetaPartido(p)}» y sus ${p.tiros.length} tiros?`)) return;
+    st.partidos = st.partidos.filter((x) => x.id !== p.id);
+    st.activo = st.partidos[0]?.id ?? "";
+    guardar();
+    pintar();
+  });
+  $("tr-deshacer").addEventListener("click", () => {
+    const p = activo();
+    if (!p?.tiros.length) return;
+    p.tiros.pop();
+    guardar();
+    pintar();
+  });
+  $("tr-imprimir").addEventListener("click", () => window.print());
+  txt.addEventListener("input", () => {
+    st.jugadores = txt.value;
+    guardar();
+    pintarControles();
+    pintarStats();
+  });
+
+  // plantilla desde el modo Equipo de /estadisticas
+  let equipos: ReturnType<typeof equiposDeTexto> = [];
+  try {
+    equipos = equiposDeTexto(localStorage.getItem(CLAVE_EQUIPO));
+  } catch {
+    /* sin almacenamiento */
+  }
+  if (equipos.length) {
+    const sel = $<HTMLSelectElement>("tr-equipo");
+    $("tr-equipo-campo").hidden = false;
+    sel.append(new Option("Elige un equipo…", ""), ...equipos.map((eq) => new Option(eq.categoria ? `${eq.nombre} · ${eq.categoria}` : eq.nombre, eq.id)));
+    sel.addEventListener("change", () => {
+      const eq = equipos.find((x) => x.id === sel.value);
+      if (!eq) return;
+      st.jugadores = eq.jugadores.map((j) => `${j.dorsal} ${j.nombre}`.trim()).join("\n");
+      txt.value = st.jugadores;
+      guardar();
+      pintar();
+      sel.value = "";
+    });
+  }
+
+  asegurarPartido();
+  txt.value = st.jugadores;
+  if (!st.jugadores) ($("tr-jugadores").closest("details") as HTMLDetailsElement).open = true;
+  pintar();
+</script>

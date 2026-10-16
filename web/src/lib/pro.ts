@@ -16,6 +16,7 @@ export const FUNCIONES_PRO = {
   "stats-agente": "Agente de estadísticas",
   "minutos-rotacion": "Propuesta de rotación",
   "pizarra-club": "Biblioteca del club",
+  "tiro-temporada": "Mapa de tiro de toda la temporada",
 } as const;
 
 export type FuncionPro = keyof typeof FUNCIONES_PRO;
