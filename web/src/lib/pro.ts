@@ -19,6 +19,7 @@ export const FUNCIONES_PRO = {
   "tiro-temporada": "Mapa de tiro de toda la temporada",
   "rival-varios": "Informe del rival con varios partidos",
   "pizarra-marca": "Escudo y colores del club",
+  "familias-informe": "Informes para las familias",
 } as const;
 
 export type FuncionPro = keyof typeof FUNCIONES_PRO;

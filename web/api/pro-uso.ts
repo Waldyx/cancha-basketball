@@ -25,6 +25,7 @@ const FUNCIONES = [
   "tiro-temporada",
   "rival-varios",
   "pizarra-marca",
+  "familias-informe",
 ];
 const EVENTOS = ["visto", "activado"];
 

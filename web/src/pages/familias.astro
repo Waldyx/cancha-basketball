@@ -1,0 +1,286 @@
+---
+// /familias — informe de temporada para las familias: una hoja por jugador, en positivo, a partir
+// del modo Equipo de /estadisticas (cz.team.v1). El comentario del entrenador se guarda en el
+// navegador (cz.familias.v1). Lógica pura en lib/informeFamilias.ts.
+import "../styles/cancha-redesign.css";
+import Base from "../layouts/Base.astro";
+import ProGate from "../components/ProGate.astro";
+---
+
+<Base
+  title="Informe de temporada para las familias de tus jugadores | CANCHA.ZAPA"
+  description="Una hoja por jugador con su temporada en positivo: números, evolución, puntos fuertes y tu comentario, con el escudo del club. Sale de tus estadísticas de equipo, sin subir nada a ningún servidor."
+>
+  <main class="app" id="fm-main">
+    <section class="doc-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Entrenadores · Familias</p>
+        <h1 class="doc-h1">Informe para las <span class="accent">familias</span></h1>
+        <p class="doc-lede">
+          Una hoja por jugador con su temporada contada en positivo: sus números, cómo ha ido a más, lo mejor que ha hecho y
+          unas palabras tuyas. Sale de tus estadísticas de equipo y no se sube a ningún sitio.
+        </p>
+      </div>
+    </section>
+
+    <div class="shell fm">
+      <div id="fm-vacio" class="fm-panel" hidden>
+        <p>Primero necesitas tu equipo con sus partidos en <a href="/estadisticas/" class="doc-link">Estadísticas → Equipo</a>. En cuanto tengas alguno, vuelve aquí.</p>
+      </div>
+      <div id="fm-app" hidden>
+        <section class="fm-panel">
+          <div class="fm-fila">
+            <label class="fm-campo">
+              <span>Equipo</span>
+              <select id="fm-equipo" class="fm-inp"></select>
+            </label>
+            <label class="fm-campo">
+              <span>Temporada</span>
+              <input id="fm-temporada" class="fm-inp" maxlength="20" placeholder="2026-27" autocomplete="off" />
+            </label>
+          </div>
+          <div class="fm-fila">
+            <button type="button" id="fm-todos" class="fm-bn fm-bn-2 fm-bn-sm">Marcar todos</button>
+            <button type="button" id="fm-imprimir" class="fm-bn" data-pro="familias-informe">Imprimir informes</button>
+          </div>
+          <p class="fm-ayuda">Una hoja por jugador marcado. En el diálogo de impresión puedes elegir «Guardar como PDF» y mandárselo a cada familia.</p>
+        </section>
+        <ul id="fm-lista" class="fm-lista"></ul>
+      </div>
+      <p class="fm-privado">Los informes se hacen en tu navegador con los datos que ya tienes guardados. Nada de los jugadores sale de tu dispositivo.</p>
+    </div>
+  </main>
+  <div id="fm-print" aria-hidden="true"></div>
+  <ProGate />
+</Base>
+
+<style is:global>
+  .fm { padding-top: 20px; padding-bottom: 60px; display: flex; flex-direction: column; gap: 14px; }
+  .fm-panel { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; background: var(--cz-card); border: 1px solid var(--cz-border); color: var(--cz-text); }
+  .fm-panel[hidden], #fm-app[hidden] { display: none; }
+  .fm-fila { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; }
+  .fm-fila > .fm-campo { flex: 1 1 200px; }
+  .fm-campo { display: flex; flex-direction: column; gap: 3px; min-width: 0; font: 800 10px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--cz-text-2); }
+  .fm-inp { width: 100%; min-width: 0; min-height: 40px; padding: 6px 10px; background: var(--cz-bg); color: var(--cz-text); border: 1px solid var(--cz-border); border-radius: 0; font: 600 14px "Inter", sans-serif; text-transform: none; letter-spacing: 0; }
+  .fm-bn { min-height: 42px; padding: 0 16px; background: #f97316; border: 1px solid #f97316; color: #0c0c0c; font: 900 12px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; border-radius: 0; }
+  .fm-bn-2 { background: transparent; color: var(--cz-text); border-color: var(--cz-border); }
+  .fm-bn-sm { min-height: 36px; padding: 0 12px; font-size: 11px; }
+  .fm-ayuda, .fm-privado { margin: 0; font-size: 12px; color: var(--cz-text-2); }
+  .fm-lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 10px; }
+  .fm-card { display: flex; flex-direction: column; gap: 6px; padding: 12px; background: var(--cz-card); border: 1px solid var(--cz-border); }
+  .fm-card-top { display: flex; align-items: center; gap: 8px; }
+  .fm-card-top input { width: 18px; height: 18px; }
+  .fm-card-nom { font: 900 20px "Barlow Condensed", sans-serif; text-transform: uppercase; color: var(--cz-text); }
+  .fm-card-meta { font-size: 12px; color: var(--cz-text-2); }
+  .fm-card ul { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.45; color: var(--cz-text); }
+  .fm-card textarea { min-height: 70px; resize: vertical; font-size: 13px; }
+  #fm-print { display: none; }
+  @media print {
+    @page { size: A4; margin: 14mm; }
+    html.fm-printing body > *:not(#fm-print) { display: none !important; }
+    html.fm-printing #fm-print { display: block !important; }
+    html.fm-printing body { background: #fff !important; }
+    .fm-hoja { break-after: page; page-break-after: always; color: #000; font-family: Arial, sans-serif; }
+    .fm-hoja:last-child { break-after: auto; page-break-after: auto; }
+    .fm-marca { display: flex; align-items: center; gap: 3mm; margin: 0 0 6mm; padding-bottom: 2mm; border-bottom: 1.2mm solid #f97316; font-family: "Barlow Condensed", Arial, sans-serif; }
+    .fm-marca img { height: 14mm; width: auto; max-width: 30mm; object-fit: contain; }
+    .fm-marca span { font-size: 15pt; font-weight: 900; text-transform: uppercase; }
+    .fm-hoja h1 { margin: 0 0 1mm; font: 900 30pt "Barlow Condensed", Arial, sans-serif; text-transform: uppercase; line-height: 1; }
+    .fm-sub { margin: 0 0 6mm; font-size: 11pt; color: #444; }
+    .fm-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; margin-bottom: 5mm; }
+    .fm-kpi { border: 0.4mm solid #999; padding: 3mm; text-align: center; }
+    .fm-kpi b { display: block; font: 900 22pt "Barlow Condensed", Arial, sans-serif; }
+    .fm-kpi span { font-size: 8.5pt; text-transform: uppercase; letter-spacing: 0.05em; color: #444; }
+    .fm-h2 { margin: 5mm 0 2mm; font: 900 14pt "Barlow Condensed", Arial, sans-serif; text-transform: uppercase; }
+    .fm-hoja ul { margin: 0; padding-left: 5mm; font-size: 11.5pt; line-height: 1.5; }
+    .fm-serie svg { display: block; width: 100%; height: 30mm; border-bottom: 0.3mm solid #999; }
+    .fm-texto { font-size: 11.5pt; line-height: 1.5; white-space: pre-wrap; }
+    .fm-comentario { border-left: 1.2mm solid #f97316; padding: 2mm 4mm; background: #f6f6f6; }
+    .fm-pie { margin-top: 8mm; font-size: 8.5pt; color: #777; text-align: right; }
+  }
+</style>
+
+<script>
+  import { informeJugador, puntosSerie, type InformeJugador } from "../lib/informeFamilias";
+  import { CLAVE_MARCA, leerMarca } from "../lib/pizarraMarca";
+  import { fechaCorta, normalizarStore, type Equipo } from "../lib/statsEquipo";
+
+  const CLAVE = "cz.familias.v1";
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  // al imprimir solo se enseña lo que cuelga directamente de <body>: la hoja va ahí
+  document.body.append($("fm-print"));
+  const lee = (k: string) => {
+    try {
+      return localStorage.getItem(k);
+    } catch {
+      return null;
+    }
+  };
+
+  let equipos: Equipo[] = [];
+  let activoId = "";
+  try {
+    const st = normalizarStore(JSON.parse(lee("cz.team.v1") ?? "null"));
+    equipos = st.equipos.filter((e) => e.partidos.length > 0);
+    activoId = equipos.some((e) => e.id === st.activo) ? st.activo : (equipos[0]?.id ?? "");
+  } catch {
+    /* sin equipo */
+  }
+  // comentarios del entrenador y temporada, por equipo
+  type Notas = Record<string, { temporada?: string; comentarios?: Record<string, string>; fuera?: string[] }>;
+  let notas: Notas = {};
+  try {
+    const raw = JSON.parse(lee(CLAVE) ?? "{}");
+    if (raw && typeof raw === "object") notas = raw;
+  } catch {
+    /* empezar de cero */
+  }
+  const guardar = () => {
+    try {
+      localStorage.setItem(CLAVE, JSON.stringify(notas));
+    } catch {
+      /* sin almacenamiento */
+    }
+  };
+  const notasEq = () => (notas[activoId] ??= {});
+  const equipo = () => equipos.find((e) => e.id === activoId);
+
+  function el(tag: string, cls?: string, text?: string) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+  const n1 = (v: number) => String(v).replace(".", ",");
+
+  function pintar() {
+    $("fm-vacio").hidden = equipos.length > 0;
+    $("fm-app").hidden = equipos.length === 0;
+    const eq = equipo();
+    if (!eq) return;
+    const sel = $<HTMLSelectElement>("fm-equipo");
+    sel.replaceChildren(...equipos.map((e) => new Option(e.categoria ? `${e.nombre} · ${e.categoria}` : e.nombre, e.id)));
+    sel.value = activoId;
+    $<HTMLInputElement>("fm-temporada").value = notasEq().temporada ?? "";
+    const fuera = new Set(notasEq().fuera ?? []);
+    const lista = $("fm-lista");
+    lista.replaceChildren();
+    for (const j of eq.jugadores) {
+      const inf = informeJugador(eq, j.id);
+      if (!inf || !inf.pj) continue;
+      const li = el("li", "fm-card");
+      const top = el("label", "fm-card-top");
+      const cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.checked = !fuera.has(j.id);
+      cb.addEventListener("change", () => {
+        const f = new Set(notasEq().fuera ?? []);
+        if (cb.checked) f.delete(j.id);
+        else f.add(j.id);
+        notasEq().fuera = [...f];
+        guardar();
+      });
+      top.append(cb, el("span", "fm-card-nom", `${j.dorsal ? j.dorsal + " · " : ""}${j.nombre}`));
+      li.append(top, el("span", "fm-card-meta", `${inf.pj} ${inf.pj === 1 ? "partido" : "partidos"} · ${n1(inf.medias.pts)} pts · ${n1(inf.medias.reb)} reb`));
+      const ul = el("ul");
+      for (const f of inf.puntosFuertes) ul.append(el("li", undefined, f));
+      li.append(ul);
+      const ta = document.createElement("textarea");
+      ta.className = "fm-inp";
+      ta.maxLength = 600;
+      ta.placeholder = "Unas palabras tuyas para su familia (opcional)";
+      ta.value = notasEq().comentarios?.[j.id] ?? "";
+      ta.addEventListener("input", () => {
+        (notasEq().comentarios ??= {})[j.id] = ta.value.slice(0, 600);
+        guardar();
+      });
+      li.append(ta);
+      lista.append(li);
+    }
+  }
+
+  function hoja(eq: Equipo, inf: InformeJugador): HTMLElement {
+    const sec = el("section", "fm-hoja");
+    const marca = leerMarca(lee(CLAVE_MARCA));
+    if (marca) {
+      const m = el("div", "fm-marca");
+      m.style.borderColor = marca.color;
+      if (marca.escudo) {
+        const img = document.createElement("img");
+        img.src = marca.escudo;
+        img.alt = "";
+        m.append(img);
+      }
+      if (marca.nombre) m.append(el("span", undefined, marca.nombre));
+      sec.append(m);
+    }
+    sec.append(el("h1", undefined, `${inf.nombre}${inf.dorsal ? " · #" + inf.dorsal : ""}`));
+    const temporada = notasEq().temporada?.trim();
+    sec.append(el("p", "fm-sub", [temporada ? `Temporada ${temporada}` : "Resumen de temporada", eq.nombre, eq.categoria, `${inf.pj} ${inf.pj === 1 ? "partido" : "partidos"}`].filter(Boolean).join(" · ")));
+    const kpis = el("div", "fm-kpis");
+    for (const [v, t] of [
+      [n1(inf.medias.pts), "Puntos por partido"],
+      [n1(inf.medias.reb), "Rebotes"],
+      [n1(inf.medias.ast), "Asistencias"],
+      [n1(inf.medias.min), "Minutos"],
+    ]) {
+      const k = el("div", "fm-kpi");
+      k.append(el("b", undefined, v), el("span", undefined, t));
+      kpis.append(k);
+    }
+    sec.append(kpis);
+    sec.append(el("h2", "fm-h2", "Lo mejor de su temporada"));
+    const ul = el("ul");
+    for (const f of inf.puntosFuertes) ul.append(el("li", undefined, f));
+    if (inf.mejor && inf.pj > 1) ul.append(el("li", undefined, `Su mejor partido: ${inf.mejor.rival ? "contra " + inf.mejor.rival : ""}${inf.mejor.fecha ? ` (${fechaCorta(inf.mejor.fecha)})` : ""}, con ${inf.mejor.pts} puntos, ${inf.mejor.reb} rebotes y ${inf.mejor.ast} asistencias.`));
+    sec.append(ul);
+    if (inf.serie.length >= 3) {
+      sec.append(el("h2", "fm-h2", "Sus puntos, partido a partido"));
+      const caja = el("div", "fm-serie");
+      caja.innerHTML = `<svg viewBox="-2 -2 204 44" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><polyline points="${puntosSerie(inf.serie, 200, 40)}" fill="none" stroke="#f97316" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>`;
+      sec.append(caja);
+    }
+    const [t2, t3, tl] = [inf.tiro.t2, inf.tiro.t3, inf.tiro.tl];
+    const tiro = [t2[1] ? `tiros de 2: ${t2[0]}/${t2[1]}` : "", t3[1] ? `triples: ${t3[0]}/${t3[1]}` : "", tl[1] ? `tiros libres: ${tl[0]}/${tl[1]}` : ""].filter(Boolean).join(" · ");
+    if (tiro) sec.append(el("p", "fm-texto", `Su tiro en la temporada: ${tiro}.`));
+    const com = notasEq().comentarios?.[inf.jid]?.trim();
+    if (com) {
+      sec.append(el("h2", "fm-h2", "Unas palabras del entrenador"));
+      sec.append(el("p", "fm-texto fm-comentario", com));
+    }
+    sec.append(el("p", "fm-pie", "Hecho con canchazapa.com"));
+    return sec;
+  }
+
+  $("fm-imprimir").addEventListener("click", () => {
+    const eq = equipo();
+    if (!eq) return;
+    const fuera = new Set(notasEq().fuera ?? []);
+    const out = $("fm-print");
+    out.replaceChildren();
+    for (const j of eq.jugadores) {
+      if (fuera.has(j.id)) continue;
+      const inf = informeJugador(eq, j.id);
+      if (inf && inf.pj) out.append(hoja(eq, inf));
+    }
+    if (!out.childElementCount) return;
+    document.documentElement.classList.add("fm-printing");
+    window.setTimeout(() => window.print(), 60);
+  });
+  window.addEventListener("afterprint", () => document.documentElement.classList.remove("fm-printing"));
+  $("fm-todos").addEventListener("click", () => {
+    notasEq().fuera = [];
+    guardar();
+    pintar();
+  });
+  $<HTMLSelectElement>("fm-equipo").addEventListener("change", (e) => {
+    activoId = (e.target as HTMLSelectElement).value;
+    pintar();
+  });
+  $<HTMLInputElement>("fm-temporada").addEventListener("input", (e) => {
+    notasEq().temporada = (e.target as HTMLInputElement).value.slice(0, 20);
+    guardar();
+  });
+
+  pintar();
+</script>
