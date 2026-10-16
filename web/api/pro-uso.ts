@@ -27,6 +27,7 @@ const FUNCIONES = [
   "pizarra-marca",
   "familias-informe",
   "video-clips",
+  "evaluacion-fichas",
 ];
 const EVENTOS = ["visto", "activado"];
 

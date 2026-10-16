@@ -1,0 +1,504 @@
+---
+// /evaluacion — evaluación de jugadores por niveles (no notas), dos o tres veces por temporada, con
+// su evolución. Lógica pura en lib/evaluacion.ts. Todo en el navegador (cz.evaluacion.v1): son
+// datos de menores y no salen del dispositivo del entrenador. Las fichas imprimibles son Pro.
+import "../styles/cancha-redesign.css";
+import Base from "../layouts/Base.astro";
+import ProGate from "../components/ProGate.astro";
+import { AREAS, CRITERIOS, NIVELES } from "../lib/evaluacion";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Evaluación de jugadores de baloncesto CANCHA.ZAPA",
+  url: "https://canchazapa.com/evaluacion/",
+  applicationCategory: "SportsApplication",
+  operatingSystem: "Any",
+  inLanguage: "es",
+  isAccessibleForFree: true,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  description: "Valora a tus jugadores en técnica, juego y actitud por niveles, compara cada evaluación con la anterior e imprime una ficha por jugador.",
+};
+const areas = Object.entries(AREAS) as [keyof typeof AREAS, string][];
+---
+
+<Base
+  title="Evaluación de jugadores de baloncesto: técnica, juego y actitud | CANCHA.ZAPA"
+  description="Valora a cada jugador por niveles en 12 criterios de técnica, juego y actitud, mira cómo evoluciona de una evaluación a otra e imprime su ficha. Gratis, sin registro y sin subir datos."
+  jsonLd={jsonLd}
+>
+  <main class="app">
+    <section class="doc-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Entrenadores · Equipo</p>
+        <h1 class="doc-h1">Evaluación de <span class="accent">jugadores</span></h1>
+        <p class="doc-lede">
+          Valora a cada jugador por niveles —no con notas— en técnica, juego y actitud, dos o tres veces por temporada, y mira
+          qué ha mejorado. Los datos se quedan en tu navegador.
+        </p>
+      </div>
+    </section>
+
+    <div class="shell ev">
+      <details class="ev-panel ev-det" id="ev-plantilla-det">
+        <summary>Jugadores</summary>
+        <label class="ev-campo" id="ev-equipo-campo" hidden>
+          <span>Cargar plantilla</span>
+          <select id="ev-equipo" class="ev-inp"></select>
+        </label>
+        <label class="ev-campo">
+          <span>Uno por línea</span>
+          <textarea id="ev-jugadores" class="ev-inp ev-ta" rows="5" placeholder={"4 Laia\n7 Marc\n…"}></textarea>
+        </label>
+      </details>
+
+      <section class="ev-panel">
+        <div class="ev-fila">
+          <label class="ev-campo"><span>Evaluación</span><select id="ev-sel" class="ev-inp"></select></label>
+          <label class="ev-campo"><span>Nueva</span><input id="ev-nombre" class="ev-inp" maxlength="40" placeholder="1.ª evaluación" /></label>
+          <label class="ev-campo ev-campo-f"><span>Fecha</span><input id="ev-fecha" type="date" class="ev-inp" /></label>
+          <button type="button" id="ev-crear" class="ev-bn">Crear</button>
+        </div>
+        <div class="ev-fila">
+          <button type="button" id="ev-borrar" class="ev-bn ev-bn-2 ev-bn-sm">Borrar evaluación</button>
+          <button type="button" id="ev-imprimir" class="ev-bn ev-bn-sm" data-pro="evaluacion-fichas">Imprimir fichas</button>
+        </div>
+        <p class="ev-ayuda">
+          Niveles: {Object.values(NIVELES).map((n, i) => <><b>{i + 1}</b> {n}{i < 3 ? " · " : ""}</>)}. Toca otra vez el nivel marcado para quitarlo.
+        </p>
+      </section>
+
+      <p id="ev-aviso" class="ev-panel ev-ayuda" hidden></p>
+
+      <div class="ev-cols" id="ev-app" hidden>
+        <nav class="ev-panel ev-lista" id="ev-lista" aria-label="Jugadores"></nav>
+        <section class="ev-panel" id="ev-ficha">
+          <h2 class="ev-h2" id="ev-quien"></h2>
+          {
+            areas.map(([area, nombre]) => (
+              <fieldset class="ev-area">
+                <legend>{nombre}</legend>
+                {CRITERIOS.filter((c) => c.area === area).map((c) => (
+                  <div class="ev-crit" data-crit={c.id}>
+                    <div class="ev-crit-txt">
+                      <b>{c.nombre}</b>
+                      <small>{c.pista}</small>
+                    </div>
+                    <div class="ev-niveles" role="group" aria-label={c.nombre}>
+                      {[1, 2, 3, 4].map((n) => (
+                        <button type="button" class="ev-n" data-n={n} title={NIVELES[n as 1]} aria-pressed="false">
+                          {n}
+                        </button>
+                      ))}
+                    </div>
+                    <span class="ev-antes" data-antes></span>
+                  </div>
+                ))}
+              </fieldset>
+            ))
+          }
+          <label class="ev-campo">
+            <span>Comentario del entrenador</span>
+            <textarea id="ev-comentario" class="ev-inp" rows="3" maxlength="600" placeholder="Lo que ha avanzado, en qué se tiene que fijar…"></textarea>
+          </label>
+          <div id="ev-resumen" class="ev-resumen"></div>
+        </section>
+      </div>
+
+      <section class="ev-panel" id="ev-equipo-tabla-sec" hidden>
+        <h2 class="ev-h2">El equipo</h2>
+        <div class="ev-scroll"><table class="ev-tabla" id="ev-tabla"></table></div>
+      </section>
+      <p class="ev-ayuda">Los nombres y las valoraciones se guardan solo en este navegador. Nada sale de tu dispositivo.</p>
+    </div>
+  </main>
+  <div id="ev-print" aria-hidden="true"></div>
+  <ProGate />
+</Base>
+
+<style is:global>
+  .ev { padding-top: 20px; padding-bottom: 60px; display: flex; flex-direction: column; gap: 14px; }
+  .ev-panel { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; background: var(--cz-card); border: 1px solid var(--cz-border); min-width: 0; color: var(--cz-text); }
+  .ev-panel[hidden], .ev-cols[hidden] { display: none; }
+  .ev-cols { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 14px; align-items: start; }
+  @media (max-width: 760px) { .ev-cols { grid-template-columns: 1fr; } }
+  .ev-h2 { margin: 0; font: 900 22px "Barlow Condensed", sans-serif; text-transform: uppercase; color: var(--cz-text); }
+  .ev-det summary { cursor: pointer; font: 800 13px "Inter", sans-serif; color: var(--cz-accent-text); }
+  .ev-det[open] > :not(summary) { margin-top: 8px; }
+  .ev-fila { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; }
+  .ev-fila > .ev-campo { flex: 1 1 160px; }
+  .ev-fila > .ev-campo-f { flex: 0 1 160px; }
+  .ev-campo { display: flex; flex-direction: column; gap: 3px; min-width: 0; font: 800 10px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--cz-text-2); }
+  .ev-inp { width: 100%; min-width: 0; min-height: 40px; padding: 6px 10px; background: var(--cz-bg); color: var(--cz-text); border: 1px solid var(--cz-border); border-radius: 0; font: 600 14px "Inter", sans-serif; text-transform: none; letter-spacing: 0; }
+  .ev-ta { min-height: 100px; resize: vertical; }
+  .ev-bn { min-height: 42px; padding: 0 16px; background: #f97316; border: 1px solid #f97316; color: #0c0c0c; font: 900 12px "Inter", sans-serif; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; border-radius: 0; }
+  .ev-bn-2 { background: transparent; color: var(--cz-text); border-color: var(--cz-border); }
+  .ev-bn-sm { min-height: 36px; padding: 0 12px; font-size: 11px; }
+  .ev-ayuda { margin: 0; font-size: 12px; color: var(--cz-text-2); }
+  .ev-lista { gap: 4px; }
+  .ev-j { display: flex; justify-content: space-between; gap: 6px; min-height: 40px; align-items: center; padding: 4px 10px; background: var(--cz-bg); border: 1px solid var(--cz-border); color: var(--cz-text); font: 700 13px "Inter", sans-serif; text-align: left; cursor: pointer; border-radius: 0; }
+  .ev-j[aria-current="true"] { border-color: #f97316; box-shadow: inset 4px 0 0 #f97316; }
+  .ev-j small { font-weight: 600; color: var(--cz-text-2); white-space: nowrap; }
+  .ev-area { margin: 0; padding: 6px 0 0; border: 0; border-top: 1px solid var(--cz-border); }
+  .ev-area legend { padding: 0 6px 0 0; font: 900 12px "Inter", sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--cz-amber-text); }
+  .ev-crit { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "txt niv" "ant ant"; gap: 2px 10px; padding: 6px 0; align-items: center; }
+  .ev-crit-txt { grid-area: txt; display: flex; flex-direction: column; min-width: 0; }
+  .ev-crit-txt b { font-size: 14px; }
+  .ev-crit-txt small { font-size: 11.5px; color: var(--cz-text-2); }
+  .ev-niveles { grid-area: niv; display: flex; gap: 4px; }
+  .ev-n { width: 40px; height: 40px; background: var(--cz-bg); border: 1px solid var(--cz-border); color: var(--cz-text); font: 900 15px "Inter", sans-serif; cursor: pointer; border-radius: 0; }
+  .ev-n[aria-pressed="true"] { background: #f97316; border-color: #f97316; color: #0c0c0c; }
+  .ev-antes { grid-area: ant; font-size: 11.5px; color: var(--cz-text-2); }
+  .ev-antes:empty { display: none; }
+  .ev-antes.sube { color: #16a34a; font-weight: 700; }
+  .ev-resumen { display: flex; flex-direction: column; gap: 4px; font-size: 13px; }
+  .ev-resumen p { margin: 0; }
+  .ev-scroll { overflow-x: auto; }
+  .ev-tabla { width: 100%; border-collapse: collapse; font: 600 13px "Inter", sans-serif; }
+  .ev-tabla th, .ev-tabla td { padding: 5px 8px; border-bottom: 1px solid var(--cz-border); text-align: right; white-space: nowrap; }
+  .ev-tabla th { font: 800 10px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--cz-text-2); }
+  .ev-tabla th:first-child, .ev-tabla td:first-child { text-align: left; }
+  #ev-print { display: none; }
+  @media print {
+    @page { size: A4; margin: 14mm; }
+    html.ev-printing body > *:not(#ev-print) { display: none !important; }
+    html.ev-printing #ev-print { display: block !important; }
+    html.ev-printing body { background: #fff !important; }
+    .ev-hoja { break-after: page; page-break-after: always; color: #000; font-family: Arial, sans-serif; }
+    .ev-hoja:last-child { break-after: auto; page-break-after: auto; }
+    .ev-marca { display: flex; align-items: center; gap: 3mm; margin: 0 0 6mm; padding-bottom: 2mm; border-bottom: 1.2mm solid #f97316; }
+    .ev-marca img { height: 14mm; width: auto; max-width: 30mm; object-fit: contain; }
+    .ev-marca span { font: 900 15pt "Barlow Condensed", Arial, sans-serif; text-transform: uppercase; }
+    .ev-hoja h1 { margin: 0 0 1mm; font: 900 28pt "Barlow Condensed", Arial, sans-serif; text-transform: uppercase; line-height: 1; }
+    .ev-sub { margin: 0 0 5mm; font-size: 11pt; color: #444; }
+    .ev-ptabla { width: 100%; border-collapse: collapse; font-size: 10.5pt; margin-bottom: 4mm; }
+    .ev-ptabla th, .ev-ptabla td { padding: 1.4mm 2mm; border-bottom: 0.3mm solid #bbb; text-align: left; }
+    .ev-ptabla th { font-size: 8.5pt; text-transform: uppercase; letter-spacing: .05em; color: #555; }
+    .ev-ptabla .ev-parea td { padding-top: 3mm; font-weight: 900; text-transform: uppercase; font-size: 9pt; letter-spacing: .08em; color: #c2410c; border-bottom: 0.5mm solid #c2410c; }
+    .ev-barra { display: inline-flex; gap: 0.8mm; vertical-align: middle; margin-right: 2mm; }
+    .ev-barra i { width: 5mm; height: 2.6mm; border: 0.3mm solid #999; }
+    .ev-barra i.on { background: #f97316; border-color: #f97316; }
+    .ev-ph2 { margin: 4mm 0 1.5mm; font: 900 13pt "Barlow Condensed", Arial, sans-serif; text-transform: uppercase; }
+    .ev-hoja ul { margin: 0; padding-left: 5mm; font-size: 11pt; line-height: 1.45; }
+    .ev-com { font-size: 11pt; line-height: 1.5; white-space: pre-wrap; border-left: 1.2mm solid #f97316; padding: 2mm 4mm; background: #f6f6f6; }
+    .ev-pie { margin-top: 6mm; font-size: 8.5pt; color: #777; text-align: right; }
+  }
+</style>
+
+<script>
+  import { CLAVE_EQUIPO, equiposDeTexto } from "../lib/pizarraEquipo";
+  import { CLAVE_MARCA, leerMarca } from "../lib/pizarraMarca";
+  import {
+    AREAS,
+    CRITERIOS,
+    LIMITES_EVALUACION,
+    NIVELES,
+    anteriorDe,
+    cronologico,
+    media,
+    normalizarStoreEvaluacion,
+    plantilla,
+    resumirJugador,
+    valorados,
+    type Evaluacion,
+    type Nivel,
+    type StoreEvaluacion,
+  } from "../lib/evaluacion";
+
+  const CLAVE = "cz.evaluacion.v1";
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  document.body.append($("ev-print"));
+  const lee = (k: string) => {
+    try {
+      return localStorage.getItem(k);
+    } catch {
+      return null;
+    }
+  };
+  let st: StoreEvaluacion = normalizarStoreEvaluacion(null);
+  try {
+    st = normalizarStoreEvaluacion(JSON.parse(lee(CLAVE) ?? "null"));
+  } catch {
+    /* empezar de cero */
+  }
+  const guardar = () => {
+    try {
+      localStorage.setItem(CLAVE, JSON.stringify(st));
+    } catch {
+      /* sin almacenamiento */
+    }
+  };
+  const hoy = () => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  };
+  const fechaCorta = (f: string) => f.split("-").reverse().join("/");
+  const el = (tag: string, cls?: string, text?: string) => {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  };
+
+  let activaId = st.evaluaciones[st.evaluaciones.length - 1]?.id ?? "";
+  let jugador = "";
+  const activa = (): Evaluacion | undefined => st.evaluaciones.find((e) => e.id === activaId);
+  const nombreEv = (e: Evaluacion) => `${e.nombre} · ${fechaCorta(e.fecha)}`;
+
+  // ── evaluaciones ────────────────────────────────────────────────────
+  function pintarSelector() {
+    const sel = $<HTMLSelectElement>("ev-sel");
+    sel.replaceChildren(...cronologico(st.evaluaciones).reverse().map((e) => new Option(nombreEv(e), e.id)));
+    sel.value = activaId;
+    ($("ev-borrar") as HTMLButtonElement).disabled = !activa();
+  }
+  $("ev-crear").addEventListener("click", () => {
+    if (st.evaluaciones.length >= LIMITES_EVALUACION.EVALUACIONES) return void alert(`Como mucho ${LIMITES_EVALUACION.EVALUACIONES} evaluaciones: borra alguna antigua.`);
+    const nombre = $<HTMLInputElement>("ev-nombre").value.trim().slice(0, 40) || `${st.evaluaciones.length + 1}.ª evaluación`;
+    const e: Evaluacion = { id: Math.random().toString(36).slice(2, 10), nombre, fecha: $<HTMLInputElement>("ev-fecha").value || hoy(), notas: {}, comentarios: {} };
+    st.evaluaciones = cronologico([...st.evaluaciones, e]);
+    activaId = e.id;
+    $<HTMLInputElement>("ev-nombre").value = "";
+    guardar();
+    pintarTodo();
+  });
+  $<HTMLSelectElement>("ev-sel").addEventListener("change", (e) => {
+    activaId = (e.target as HTMLSelectElement).value;
+    pintarTodo();
+  });
+  $("ev-borrar").addEventListener("click", () => {
+    const e = activa();
+    if (!e || !confirm(`¿Borrar «${nombreEv(e)}» con todas sus valoraciones?`)) return;
+    st.evaluaciones = st.evaluaciones.filter((x) => x.id !== e.id);
+    activaId = st.evaluaciones[st.evaluaciones.length - 1]?.id ?? "";
+    guardar();
+    pintarTodo();
+  });
+
+  // ── ficha del jugador ───────────────────────────────────────────────
+  function pintarLista() {
+    const e = activa();
+    const js = plantilla(st.jugadores);
+    const aviso = $("ev-aviso");
+    aviso.hidden = !!(e && js.length);
+    aviso.textContent = !js.length ? "Escribe primero los jugadores (arriba, en «Jugadores»)." : "Crea una evaluación con su nombre y su fecha para empezar.";
+    $("ev-app").hidden = !(e && js.length);
+    if (!e || !js.length) return;
+    if (!js.includes(jugador)) jugador = js[0];
+    const lista = $("ev-lista");
+    lista.replaceChildren(
+      ...js.map((j) => {
+        const b = el("button", "ev-j") as HTMLButtonElement;
+        b.type = "button";
+        b.setAttribute("aria-current", String(j === jugador));
+        b.append(el("span", undefined, j), el("small", undefined, `${valorados(e.notas[j])}/${CRITERIOS.length}`));
+        b.addEventListener("click", () => {
+          jugador = j;
+          pintarLista();
+          pintarFicha();
+          if (window.matchMedia("(max-width: 760px)").matches) $("ev-ficha").scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+        return b;
+      })
+    );
+  }
+
+  function pintarFicha() {
+    const e = activa();
+    if (!e || !jugador) return;
+    $("ev-quien").textContent = jugador;
+    const notas = e.notas[jugador] ?? {};
+    const ant = anteriorDe(st.evaluaciones, e, jugador);
+    const notasAnt = ant?.notas[jugador];
+    for (const fila of document.querySelectorAll<HTMLElement>(".ev-crit")) {
+      const c = fila.dataset.crit!;
+      const n = notas[c] ?? 0;
+      for (const b of fila.querySelectorAll<HTMLButtonElement>(".ev-n")) b.setAttribute("aria-pressed", String(+b.dataset.n! === n));
+      const a = notasAnt?.[c] ?? 0;
+      const sp = fila.querySelector<HTMLElement>("[data-antes]")!;
+      sp.className = "ev-antes" + (a && n > a ? " sube" : "");
+      sp.textContent = a ? `${ant!.nombre}: ${NIVELES[a as 1]}${n > a ? " → ha subido" : ""}` : "";
+    }
+    $<HTMLTextAreaElement>("ev-comentario").value = e.comentarios[jugador] ?? "";
+    // resumen
+    const r = resumirJugador(notas, notasAnt);
+    const out = $("ev-resumen");
+    out.replaceChildren();
+    const linea = (t: string, xs: string[]) => xs.length && out.append(el("p", undefined, `${t}: ${xs.join(", ")}.`));
+    const m = media(notas);
+    if (m !== null) out.append(el("p", undefined, `Media: ${m.toLocaleString("es-ES")} (${valorados(notas)} de ${CRITERIOS.length} criterios valorados).`));
+    linea("Puntos fuertes", r.fuertes.map((c) => c.nombre));
+    linea("Para trabajar", r.trabajar.map((c) => c.nombre));
+    if (ant) linea(`Ha mejorado desde «${ant.nombre}»`, r.mejoras.map((x) => x.criterio.nombre));
+  }
+
+  for (const fila of document.querySelectorAll<HTMLElement>(".ev-crit")) {
+    const c = fila.dataset.crit!;
+    fila.addEventListener("click", (ev) => {
+      const b = (ev.target as Element).closest<HTMLButtonElement>(".ev-n");
+      const e = activa();
+      if (!b || !e || !jugador) return;
+      const n = +b.dataset.n! as Nivel;
+      const ns = (e.notas[jugador] ??= {});
+      if (ns[c] === n) delete ns[c];
+      else ns[c] = n;
+      if (!Object.keys(ns).length) delete e.notas[jugador];
+      guardar();
+      pintarLista();
+      pintarFicha();
+      pintarTabla();
+    });
+  }
+  $<HTMLTextAreaElement>("ev-comentario").addEventListener("input", (ev) => {
+    const e = activa();
+    if (!e || !jugador) return;
+    const t = (ev.target as HTMLTextAreaElement).value.slice(0, LIMITES_EVALUACION.COMENTARIO);
+    if (t.trim()) e.comentarios[jugador] = t;
+    else delete e.comentarios[jugador];
+    guardar();
+  });
+
+  // ── tabla del equipo ────────────────────────────────────────────────
+  function pintarTabla() {
+    const e = activa();
+    const js = plantilla(st.jugadores);
+    const sec = $("ev-equipo-tabla-sec");
+    const conDatos = e ? js.filter((j) => valorados(e.notas[j]) > 0) : [];
+    sec.hidden = !conDatos.length;
+    if (!e || !conDatos.length) return;
+    const t = $<HTMLTableElement>("ev-tabla");
+    t.replaceChildren();
+    const cab = el("tr");
+    for (const h of ["Jugador", ...Object.values(AREAS), "Media", "Cambio"]) cab.append(el("th", undefined, h));
+    t.append(cab);
+    const f1 = (v: number | null) => (v === null ? "—" : v.toLocaleString("es-ES", { minimumFractionDigits: 1, maximumFractionDigits: 1 }));
+    for (const j of conDatos) {
+      const tr = el("tr");
+      const n = e.notas[j];
+      const ant = anteriorDe(st.evaluaciones, e, j);
+      const m = media(n);
+      const ma = ant ? media(ant.notas[j]) : null;
+      const dif = m !== null && ma !== null ? Math.round((m - ma) * 10) / 10 : null;
+      const cambio = dif === null ? "—" : dif > 0 ? `▲ ${f1(dif)}` : dif < 0 ? `▼ ${f1(-dif)}` : "=";
+      for (const v of [j, ...(Object.keys(AREAS) as (keyof typeof AREAS)[]).map((a) => f1(media(n, a))), f1(m), cambio]) tr.append(el("td", undefined, v));
+      t.append(tr);
+    }
+  }
+
+  // ── fichas imprimibles (Pro) ────────────────────────────────────────
+  function hoja(e: Evaluacion, j: string): HTMLElement {
+    const sec = el("section", "ev-hoja");
+    const marca = leerMarca(lee(CLAVE_MARCA));
+    if (marca) {
+      const m = el("div", "ev-marca");
+      m.style.borderColor = marca.color;
+      if (marca.escudo) {
+        const img = document.createElement("img");
+        img.src = marca.escudo;
+        img.alt = "";
+        m.append(img);
+      }
+      if (marca.nombre) m.append(el("span", undefined, marca.nombre));
+      sec.append(m);
+    }
+    sec.append(el("h1", undefined, j), el("p", "ev-sub", `Evaluación: ${nombreEv(e)}`));
+    const notas = e.notas[j] ?? {};
+    const ant = anteriorDe(st.evaluaciones, e, j);
+    const t = el("table", "ev-ptabla");
+    const cab = el("tr");
+    for (const h of ["Criterio", "Nivel", ant ? `En «${ant.nombre}»` : ""]) cab.append(el("th", undefined, h));
+    t.append(cab);
+    for (const [area, nombre] of Object.entries(AREAS)) {
+      const fa = el("tr", "ev-parea");
+      const td = el("td", undefined, nombre);
+      td.setAttribute("colspan", "3");
+      fa.append(td);
+      t.append(fa);
+      for (const c of CRITERIOS.filter((x) => x.area === area)) {
+        const n = notas[c.id] ?? 0;
+        const tr = el("tr");
+        tr.append(el("td", undefined, c.nombre));
+        const tdn = el("td");
+        if (n) {
+          const barra = el("span", "ev-barra");
+          for (let k = 1; k <= 4; k++) barra.append(el("i", k <= n ? "on" : ""));
+          tdn.append(barra, NIVELES[n as 1]);
+        } else tdn.textContent = "—";
+        tr.append(tdn);
+        const a = ant?.notas[j]?.[c.id] ?? 0;
+        tr.append(el("td", undefined, a ? NIVELES[a as 1] + (n > a ? " ▲" : "") : ""));
+        t.append(tr);
+      }
+    }
+    sec.append(t);
+    const r = resumirJugador(notas, ant?.notas[j]);
+    const lista = (titulo: string, xs: string[]) => {
+      if (!xs.length) return;
+      sec.append(el("h2", "ev-ph2", titulo));
+      const ul = el("ul");
+      for (const x of xs) ul.append(el("li", undefined, x));
+      sec.append(ul);
+    };
+    lista("Sus puntos fuertes", r.fuertes.map((c) => c.nombre));
+    if (ant) lista(`Lo que ha mejorado desde «${ant.nombre}»`, r.mejoras.map((x) => `${x.criterio.nombre}: de «${NIVELES[x.antes as 1]}» a «${NIVELES[x.ahora as 1]}»`));
+    lista("En lo que vamos a trabajar", r.trabajar.map((c) => `${c.nombre} — ${c.pista}`));
+    const com = e.comentarios[j]?.trim();
+    if (com) {
+      sec.append(el("h2", "ev-ph2", "Unas palabras del entrenador"));
+      sec.append(el("p", "ev-com", com));
+    }
+    sec.append(el("p", "ev-pie", "Niveles: Empezando · En progreso · Lo consigue · Destaca — Hecho con canchazapa.com"));
+    return sec;
+  }
+  $("ev-imprimir").addEventListener("click", () => {
+    const e = activa();
+    if (!e) return;
+    const js = plantilla(st.jugadores).filter((j) => valorados(e.notas[j]) > 0);
+    if (!js.length) return void alert("Valora al menos a un jugador para imprimir su ficha.");
+    const out = $("ev-print");
+    out.replaceChildren(...js.map((j) => hoja(e, j)));
+    document.documentElement.classList.add("ev-printing");
+    window.setTimeout(() => window.print(), 60);
+  });
+  window.addEventListener("afterprint", () => document.documentElement.classList.remove("ev-printing"));
+
+  // ── plantilla ───────────────────────────────────────────────────────
+  function pintarTodo() {
+    pintarSelector();
+    pintarLista();
+    pintarFicha();
+    pintarTabla();
+  }
+  const txt = $<HTMLTextAreaElement>("ev-jugadores");
+  txt.value = st.jugadores;
+  txt.addEventListener("input", () => {
+    st.jugadores = txt.value.slice(0, 2000);
+    guardar();
+    pintarLista();
+    pintarFicha();
+    pintarTabla();
+  });
+  try {
+    const eqs = equiposDeTexto(lee(CLAVE_EQUIPO));
+    if (eqs.length) {
+      const sel = $<HTMLSelectElement>("ev-equipo");
+      $("ev-equipo-campo").hidden = false;
+      sel.append(new Option("Elige un equipo…", ""), ...eqs.map((q) => new Option(q.categoria ? `${q.nombre} · ${q.categoria}` : q.nombre, q.id)));
+      sel.addEventListener("change", () => {
+        const eq = eqs.find((x) => x.id === sel.value);
+        if (!eq) return;
+        if (st.jugadores.trim() && !confirm("¿Sustituir la lista de jugadores? Las valoraciones de los nombres que cambien dejarán de verse.")) return void (sel.value = "");
+        st.jugadores = eq.jugadores.map((p) => `${p.dorsal} ${p.nombre}`.trim()).join("\n");
+        txt.value = st.jugadores;
+        guardar();
+        pintarTodo();
+        sel.value = "";
+      });
+    }
+  } catch {
+    /* sin equipo */
+  }
+  $<HTMLInputElement>("ev-fecha").value = hoy();
+  if (!st.jugadores) ($("ev-plantilla-det") as HTMLDetailsElement).open = true;
+  pintarTodo();
+</script>
