@@ -362,7 +362,14 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   SIEMPRE en positivo (puntos fuertes frente a la media del equipo sin nombrar a nadie, "ha ido a más" solo si es
   verdad, frase neutra para quien apenas juega), mejor partido, gráfica de puntos, comentario del entrenador
   (`cz.familias.v1`) y escudo del club. Imprimir es Pro (`familias-informe`). `lib/informeFamilias.ts`.
-- ▶️ **Siguiente**: etiquetas de vídeo.
+- ✅ **Etiquetas de vídeo `/video/` (17-oct)**: el vídeo se abre desde el dispositivo (object URL, no se sube), 9 botones
+  con teclas 1-9 (nombres editables), jugador opcional (datalist de `cz.team.v1`), lista con salto y nota, filtro,
+  "Ver seguidas" (clips −6/+3 s unidos si se solapan) y CSV = Pro (`video-clips`); copiar lista, gratis. Etiquetas por
+  vídeo = nombre|tamaño|duración en `cz.video.v1`. 🔑 Los WebM grabados desde un navegador traen duración = Infinity:
+  se trata como 0 (desconocida) y `formatoTiempo` devuelve "—". `lib/videoEtiquetas.ts`.
+- ✅ `/entrenadores/` ya no tiene sección "En preparación": todo lo que prometía está hecho.
+- ▶️ **Ideas siguientes** (sin prometer en la web): generador de sesiones con IA, evaluación de jugadores, tests
+  físicos, asistencia/convocatorias, plan individual de tiro para jugadores, cuadros de torneos 3x3.
 - ▶️ **Paso 3, por orden**: control de minutos/cuartos (verificar normas de participación de la FCBQ) → mapa de
   tiro → libro de jugadas con escudo del club → etiquetas de vídeo. Más ideas: informe del rival (actas FEB),
   plan de partido, generador de sesiones con IA, evaluación de jugadores + informe a familias, tests físicos,

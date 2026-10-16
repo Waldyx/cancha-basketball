@@ -16,11 +16,9 @@ const herramientas = [
   { href: "/tiro/", tag: "Partido", label: "Mapa de tiro", desc: "Toca en la pista dónde se tira y si entra: porcentaje por jugador y por zona. La temporada entera, en Pro." },
   { href: "/rival/", tag: "Rival", label: "Informe del rival", desc: "Junta las actas de tu próximo rival (FEB o pegadas de tu federación): quién anota, quién tira de tres y quién se carga de faltas." },
   { href: "/familias/", tag: "Familias", label: "Informe para las familias", desc: "Una hoja por jugador con su temporada en positivo: números, evolución, puntos fuertes y tus palabras.", pro: true },
+  { href: "/video/", tag: "Vídeo", label: "Etiquetas de vídeo", desc: "Abre el vídeo del partido sin subirlo a ningún sitio, marca momentos con un toque y salta de uno a otro. Verlos seguidos, en Pro." },
 ];
 
-const pronto = [
-  { tag: "Vídeo", label: "Etiquetas de vídeo", desc: "Abre el vídeo del partido sin subirlo a ningún sitio, marca momentos y salta de uno a otro." },
-].map((i) => ({ ...i, pro: true, pronto: true }));
 ---
 
 <Base
@@ -50,14 +48,6 @@ const pronto = [
             Lo marcado como <strong>Pro</strong> será de pago más adelante. Durante la beta es gratis para todos.
           </p>
           <HubGrid items={herramientas} />
-        </section>
-
-        <section class="doc-section">
-          <div class="doc-section-head">
-            <span class="doc-num">02</span>
-            <h2 class="doc-h2">En preparación</h2>
-          </div>
-          <HubGrid items={pronto} />
         </section>
 
         <p class="doc-body">

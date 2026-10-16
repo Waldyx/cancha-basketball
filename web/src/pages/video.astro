@@ -1,0 +1,372 @@
+---
+// /video — etiquetas de vídeo: el entrenador abre el vídeo del partido desde su dispositivo (no se
+// sube a ningún sitio), marca momentos con un toque o con las teclas 1-9, salta de uno a otro y los
+// ve seguidos. Lógica pura en lib/videoEtiquetas.ts; etiquetas en el navegador (cz.video.v1).
+import "../styles/cancha-redesign.css";
+import Base from "../layouts/Base.astro";
+import ProGate from "../components/ProGate.astro";
+---
+
+<Base
+  title="Analizar el vídeo del partido: etiqueta jugadas gratis | CANCHA.ZAPA"
+  description="Abre el vídeo de tu partido, marca canastas, pérdidas o jugadas con un toque y salta de una a otra o míralas seguidas. El vídeo no se sube a ningún sitio. Gratis y sin registro."
+>
+  <main class="app">
+    <section class="doc-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Entrenadores · Vídeo</p>
+        <h1 class="doc-h1">Etiquetas de <span class="accent">vídeo</span></h1>
+        <p class="doc-lede">
+          Abre el vídeo del partido, marca los momentos con un toque y luego salta de uno a otro o míralos seguidos. El vídeo
+          no sale de tu dispositivo.
+        </p>
+      </div>
+    </section>
+
+    <div class="shell vd">
+      <section class="vd-panel">
+        <label class="vd-bn vd-abrir">Abrir vídeo del partido… <input id="vd-archivo" type="file" accept="video/*" hidden /></label>
+        <p id="vd-info" class="vd-ayuda">Elige el archivo de vídeo de tu móvil u ordenador. Si vuelves a abrir el mismo vídeo, recuperas sus etiquetas.</p>
+      </section>
+
+      <div id="vd-app" class="vd-app" hidden>
+        <div class="vd-izq">
+          <video id="vd-video" class="vd-video" controls playsinline preload="metadata"></video>
+          <div class="vd-ctrl">
+            <button type="button" class="vd-bn vd-bn-2 vd-bn-sm" data-salto="-10">−10 s</button>
+            <button type="button" class="vd-bn vd-bn-2 vd-bn-sm" data-salto="-3">−3 s</button>
+            <button type="button" class="vd-bn vd-bn-sm" id="vd-play">▶︎ / ❚❚</button>
+            <button type="button" class="vd-bn vd-bn-2 vd-bn-sm" data-salto="3">+3 s</button>
+            <button type="button" class="vd-bn vd-bn-2 vd-bn-sm" data-salto="10">+10 s</button>
+            <select id="vd-vel" class="vd-inp vd-vel" aria-label="Velocidad">
+              <option value="0.5">0,5×</option><option value="1" selected>1×</option><option value="1.5">1,5×</option><option value="2">2×</option>
+            </select>
+          </div>
+          <label class="vd-campo">
+            <span>Jugador (opcional)</span>
+            <input id="vd-jugador" class="vd-inp" list="vd-plantilla" maxlength="40" placeholder="Escribe o elige" autocomplete="off" />
+            <datalist id="vd-plantilla"></datalist>
+          </label>
+          <div id="vd-tipos" class="vd-tipos" role="group" aria-label="Marcar momento"></div>
+          <p class="vd-ayuda">Teclas: <b>1-9</b> marcan · <b>espacio</b> reproduce o pausa · <b>← →</b> 3 segundos.</p>
+          <details class="vd-det">
+            <summary>Cambiar los nombres de los botones</summary>
+            <div id="vd-nombres" class="vd-nombres"></div>
+          </details>
+        </div>
+
+        <div class="vd-der">
+          <div class="vd-fila">
+            <label class="vd-campo">
+              <span>Ver</span>
+              <select id="vd-filtro" class="vd-inp"></select>
+            </label>
+            <button type="button" id="vd-seguidas" class="vd-bn" data-pro="video-clips">Ver seguidas</button>
+            <button type="button" id="vd-parar" class="vd-bn vd-bn-2" hidden>Parar</button>
+          </div>
+          <p id="vd-resumen" class="vd-ayuda"></p>
+          <ol id="vd-lista" class="vd-lista"></ol>
+          <div class="vd-fila">
+            <button type="button" id="vd-copiar" class="vd-bn vd-bn-2 vd-bn-sm">Copiar lista</button>
+            <button type="button" id="vd-csv" class="vd-bn vd-bn-2 vd-bn-sm" data-pro="video-clips">Descargar CSV</button>
+            <button type="button" id="vd-borrar" class="vd-bn vd-bn-2 vd-bn-sm">Borrar etiquetas</button>
+          </div>
+        </div>
+      </div>
+      <p class="vd-privado">El vídeo se reproduce desde tu dispositivo y no se sube a ningún sitio. Las etiquetas se guardan solo en este navegador.</p>
+    </div>
+  </main>
+  <ProGate />
+</Base>
+
+<style is:global>
+  .vd { padding-top: 20px; padding-bottom: 60px; display: flex; flex-direction: column; gap: 14px; }
+  .vd-panel { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 12px 14px; background: var(--cz-card); border: 1px solid var(--cz-border); }
+  .vd-app { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 16px; align-items: start; }
+  .vd-app[hidden] { display: none; }
+  @media (max-width: 900px) { .vd-app { grid-template-columns: 1fr; } }
+  .vd-izq, .vd-der { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .vd-video { width: 100%; max-height: 62vh; background: #000; }
+  .vd-ctrl, .vd-fila { display: flex; flex-wrap: wrap; gap: 6px; align-items: flex-end; }
+  .vd-fila > .vd-campo { flex: 1 1 160px; }
+  .vd-campo { display: flex; flex-direction: column; gap: 3px; min-width: 0; font: 800 10px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--cz-text-2); }
+  .vd-inp { width: 100%; min-width: 0; min-height: 38px; padding: 6px 10px; background: var(--cz-bg); color: var(--cz-text); border: 1px solid var(--cz-border); border-radius: 0; font: 600 14px "Inter", sans-serif; text-transform: none; letter-spacing: 0; }
+  .vd-vel { width: auto; }
+  .vd-bn { min-height: 42px; padding: 0 16px; background: #f97316; border: 1px solid #f97316; color: #0c0c0c; font: 900 12px "Inter", sans-serif; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; border-radius: 0; display: inline-flex; align-items: center; }
+  .vd-bn-2 { background: transparent; color: var(--cz-text); border-color: var(--cz-border); }
+  .vd-bn-sm { min-height: 36px; padding: 0 12px; font-size: 11px; }
+  .vd-abrir { cursor: pointer; }
+  .vd-ayuda, .vd-privado { margin: 0; font-size: 12px; color: var(--cz-text-2); }
+  .vd-tipos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .vd-tipo { min-height: 48px; padding: 4px 8px; border: 1px solid var(--cz-border); border-left: 6px solid var(--c); background: var(--cz-card); color: var(--cz-text); font: 800 13px "Inter", sans-serif; text-align: left; cursor: pointer; border-radius: 0; }
+  .vd-tipo:active { background: var(--cz-elev); }
+  .vd-tipo kbd { float: right; font: 800 11px "Inter", sans-serif; color: var(--cz-text-2); }
+  .vd-det summary { cursor: pointer; font: 800 12px "Inter", sans-serif; color: var(--cz-accent-text); }
+  .vd-nombres { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin-top: 6px; }
+  .vd-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; max-height: 60vh; overflow-y: auto; }
+  .vd-item { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 6px; align-items: center; padding: 4px 6px; border: 1px solid var(--cz-border); border-left: 5px solid var(--c); background: var(--cz-bg); }
+  .vd-item.on { outline: 2px solid #f97316; }
+  .vd-t { font: 800 13px ui-monospace, monospace; color: var(--cz-accent-text); background: none; border: 0; cursor: pointer; padding: 4px; }
+  .vd-desc { display: flex; flex-direction: column; min-width: 0; font-size: 13px; color: var(--cz-text); }
+  .vd-desc input { margin-top: 2px; min-height: 28px; padding: 2px 6px; font-size: 12px; }
+  .vd-x { background: none; border: 0; color: var(--cz-red-text); font-weight: 900; cursor: pointer; font-size: 16px; }
+</style>
+
+<script>
+  import { CLAVE_EQUIPO, equiposDeTexto } from "../lib/pizarraEquipo";
+  import { CLAVE_VIDEO, LIMITES_VIDEO, aCsv, aTexto, claveVideo, clipsDe, formatoTiempo, normalizarStoreVideo, type Clip, type Etiqueta, type StoreVideo } from "../lib/videoEtiquetas";
+
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  const video = $<HTMLVideoElement>("vd-video");
+  const filtro = $<HTMLSelectElement>("vd-filtro");
+  const lista = $("vd-lista");
+  const inpJugador = $<HTMLInputElement>("vd-jugador");
+
+  let st: StoreVideo = normalizarStoreVideo(null);
+  try {
+    st = normalizarStoreVideo(JSON.parse(localStorage.getItem(CLAVE_VIDEO) ?? "null"));
+  } catch {
+    /* empezar de cero */
+  }
+  const guardar = () => {
+    try {
+      localStorage.setItem(CLAVE_VIDEO, JSON.stringify(st));
+    } catch {
+      /* sin almacenamiento: vale para esta visita */
+    }
+  };
+
+  let clave = "";
+  let urlVideo = "";
+  const etiquetas = (): Etiqueta[] => (clave ? st.videos[clave]?.etiquetas ?? [] : []);
+  const tipo = (id: string) => st.tipos.find((t) => t.id === id);
+  /** Duración conocida o 0: los WebM grabados desde un navegador no la traen (Infinity). */
+  const duracion = () => (Number.isFinite(video.duration) ? video.duration : 0);
+
+  function el(tag: string, cls?: string, text?: string) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+  function aviso(msg: string) {
+    $("vd-resumen").textContent = msg;
+  }
+
+  // ── abrir el vídeo (no se sube: se reproduce desde un object URL) ─────
+  $<HTMLInputElement>("vd-archivo").addEventListener("change", (e) => {
+    const f = (e.target as HTMLInputElement).files?.[0];
+    if (!f) return;
+    if (urlVideo) URL.revokeObjectURL(urlVideo);
+    urlVideo = URL.createObjectURL(f);
+    video.src = urlVideo;
+    video.onloadedmetadata = () => {
+      clave = claveVideo(f.name, f.size, duracion());
+      if (!st.videos[clave]) {
+        // si hay demasiados vídeos guardados, se olvida el más antiguo
+        const claves = Object.keys(st.videos);
+        if (claves.length >= LIMITES_VIDEO.VIDEOS) {
+          const viejo = claves.sort((a, b) => st.videos[a].actualizado - st.videos[b].actualizado)[0];
+          delete st.videos[viejo];
+        }
+        st.videos[clave] = { nombre: f.name, etiquetas: [], actualizado: Date.now() };
+      }
+      $("vd-app").hidden = false;
+      const n = etiquetas().length;
+      $("vd-info").textContent = [f.name, duracion() ? formatoTiempo(duracion()) : "", n ? `${n} etiquetas recuperadas` : ""].filter(Boolean).join(" · ");
+      pintar();
+    };
+    video.onerror = () => {
+      $("vd-info").textContent = "Este navegador no puede reproducir ese vídeo. Prueba con un MP4 (H.264).";
+    };
+  });
+
+  // ── marcar ──────────────────────────────────────────────────────────
+  function marcar(tipoId: string) {
+    if (!clave) return;
+    const v = st.videos[clave];
+    if (v.etiquetas.length >= LIMITES_VIDEO.ETIQUETAS) return aviso(`Como mucho ${LIMITES_VIDEO.ETIQUETAS} etiquetas por vídeo.`);
+    v.etiquetas.push({ id: Math.random().toString(36).slice(2, 10), t: Math.round(video.currentTime * 10) / 10, tipo: tipoId, jugador: inpJugador.value.trim().slice(0, 40), nota: "" });
+    v.actualizado = Date.now();
+    guardar();
+    pintar();
+    const b = document.querySelector<HTMLElement>(`.vd-tipo[data-tipo="${tipoId}"]`);
+    b?.animate?.([{ background: "var(--c)" }, { background: "var(--cz-card)" }], 350);
+  }
+
+  function pintarTipos() {
+    const cont = $("vd-tipos");
+    cont.replaceChildren();
+    st.tipos.forEach((t, i) => {
+      const b = el("button", "vd-tipo") as HTMLButtonElement;
+      b.type = "button";
+      b.dataset.tipo = t.id;
+      b.style.setProperty("--c", t.color);
+      b.append(el("kbd", undefined, String(i + 1)), t.nombre);
+      b.addEventListener("click", () => marcar(t.id));
+      cont.append(b);
+    });
+    const nombres = $("vd-nombres");
+    nombres.replaceChildren();
+    for (const t of st.tipos) {
+      const inp = el("input", "vd-inp") as HTMLInputElement;
+      inp.value = t.nombre;
+      inp.maxLength = 24;
+      inp.setAttribute("aria-label", `Nombre del botón ${t.nombre}`);
+      inp.addEventListener("change", () => {
+        t.nombre = inp.value.trim().slice(0, 24) || t.nombre;
+        guardar();
+        pintarTipos();
+        pintar();
+      });
+      nombres.append(inp);
+    }
+    const f = filtro.value;
+    filtro.replaceChildren(new Option("Todas", ""), ...st.tipos.map((t) => new Option(t.nombre, t.id)));
+    filtro.value = f;
+  }
+
+  const visibles = () => etiquetas().filter((e) => !filtro.value || e.tipo === filtro.value).sort((a, b) => a.t - b.t);
+
+  function pintar() {
+    const ls = visibles();
+    lista.replaceChildren();
+    for (const e of ls) {
+      const t = tipo(e.tipo);
+      const li = el("li", "vd-item");
+      li.dataset.id = e.id;
+      li.style.setProperty("--c", t?.color ?? "#999");
+      const bt = el("button", "vd-t", formatoTiempo(e.t)) as HTMLButtonElement;
+      bt.type = "button";
+      bt.title = "Ir a este momento";
+      bt.addEventListener("click", () => {
+        video.currentTime = Math.max(0, e.t - 3);
+        void video.play();
+      });
+      const desc = el("div", "vd-desc");
+      desc.append(el("span", undefined, `${t?.nombre ?? e.tipo}${e.jugador ? " · " + e.jugador : ""}`));
+      const nota = el("input", "vd-inp") as HTMLInputElement;
+      nota.value = e.nota;
+      nota.maxLength = 80;
+      nota.placeholder = "Nota";
+      nota.addEventListener("change", () => {
+        e.nota = nota.value.trim().slice(0, 80);
+        guardar();
+      });
+      desc.append(nota);
+      const x = el("button", "vd-x", "×") as HTMLButtonElement;
+      x.type = "button";
+      x.setAttribute("aria-label", "Quitar etiqueta");
+      x.addEventListener("click", () => {
+        const v = st.videos[clave];
+        v.etiquetas = v.etiquetas.filter((y) => y.id !== e.id);
+        guardar();
+        pintar();
+      });
+      li.append(bt, desc, x);
+      lista.append(li);
+    }
+    const total = etiquetas().length;
+    aviso(total ? `${ls.length} de ${total} etiquetas${filtro.value ? ` (${tipo(filtro.value)?.nombre})` : ""} · ${clipsDe(ls, duracion()).length} clips para ver seguidos` : "Aún no hay etiquetas: dale al play y toca un botón cuando pase algo.");
+  }
+
+  // ── ver seguidas ─────────────────────────────────────────────────────
+  let clips: Clip[] = [];
+  let ci = -1;
+  function parar() {
+    ci = -1;
+    clips = [];
+    video.pause();
+    $("vd-parar").hidden = true;
+    lista.querySelectorAll(".vd-item.on").forEach((x) => x.classList.remove("on"));
+  }
+  function irAClip(i: number) {
+    ci = i;
+    if (i >= clips.length) return parar();
+    video.currentTime = clips[i].desde;
+    void video.play();
+    lista.querySelectorAll(".vd-item").forEach((x) => x.classList.toggle("on", clips[i].etiquetas.includes((x as HTMLElement).dataset.id ?? "")));
+  }
+  video.addEventListener("timeupdate", () => {
+    if (ci >= 0 && clips[ci] && video.currentTime >= clips[ci].hasta) irAClip(ci + 1);
+  });
+  $("vd-seguidas").addEventListener("click", () => {
+    clips = clipsDe(visibles(), duracion());
+    if (!clips.length) return aviso("No hay etiquetas que ver con este filtro.");
+    $("vd-parar").hidden = false;
+    irAClip(0);
+  });
+  $("vd-parar").addEventListener("click", parar);
+
+  // ── controles y teclado ─────────────────────────────────────────────
+  document.querySelectorAll<HTMLButtonElement>("[data-salto]").forEach((b) =>
+    b.addEventListener("click", () => {
+      const t = video.currentTime + Number(b.dataset.salto);
+      video.currentTime = Math.max(0, duracion() ? Math.min(duracion(), t) : t);
+    })
+  );
+  const playPausa = () => (video.paused ? void video.play() : video.pause());
+  $("vd-play").addEventListener("click", playPausa);
+  $<HTMLSelectElement>("vd-vel").addEventListener("change", (e) => {
+    video.playbackRate = Number((e.target as HTMLSelectElement).value) || 1;
+  });
+  document.addEventListener("keydown", (e) => {
+    const t = e.target as HTMLElement;
+    if (!clave || e.ctrlKey || e.metaKey || e.altKey || t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.tagName === "SELECT") return;
+    if (/^[1-9]$/.test(e.key)) {
+      const ti = st.tipos[Number(e.key) - 1];
+      if (ti) {
+        e.preventDefault();
+        marcar(ti.id);
+      }
+    } else if (e.key === " " && t.tagName !== "VIDEO" && t.tagName !== "BUTTON") {
+      e.preventDefault();
+      playPausa();
+    } else if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+      if (t.tagName === "VIDEO") return; // el reproductor ya lo hace
+      e.preventDefault();
+      video.currentTime = Math.max(0, video.currentTime + (e.key === "ArrowLeft" ? -3 : 3));
+    }
+  });
+  filtro.addEventListener("change", () => {
+    parar();
+    pintar();
+  });
+
+  // ── exportar ────────────────────────────────────────────────────────
+  $("vd-copiar").addEventListener("click", async () => {
+    const texto = `${st.videos[clave]?.nombre ?? "Vídeo"}\n${aTexto(visibles(), st.tipos)}`;
+    try {
+      await navigator.clipboard.writeText(texto);
+      aviso("Lista copiada: pégala en WhatsApp o en un correo.");
+    } catch {
+      aviso("No se pudo copiar la lista.");
+    }
+  });
+  $("vd-csv").addEventListener("click", () => {
+    const blob = new Blob(["﻿" + aCsv(visibles(), st.tipos)], { type: "text/csv;charset=utf-8" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `${(st.videos[clave]?.nombre ?? "video").replace(/\.[^.]+$/, "")}-etiquetas.csv`;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  });
+  $("vd-borrar").addEventListener("click", () => {
+    if (!clave || !confirm("¿Borrar todas las etiquetas de este vídeo?")) return;
+    st.videos[clave].etiquetas = [];
+    guardar();
+    parar();
+    pintar();
+  });
+
+  // plantilla del modo Equipo para el campo de jugador
+  try {
+    const eqs = equiposDeTexto(localStorage.getItem(CLAVE_EQUIPO));
+    const dl = $("vd-plantilla");
+    for (const eq of eqs) for (const j of eq.jugadores) dl.append(new Option(`${j.dorsal} ${j.nombre}`.trim()));
+  } catch {
+    /* sin equipo */
+  }
+
+  pintarTipos();
+</script>

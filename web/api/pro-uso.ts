@@ -26,6 +26,7 @@ const FUNCIONES = [
   "rival-varios",
   "pizarra-marca",
   "familias-informe",
+  "video-clips",
 ];
 const EVENTOS = ["visto", "activado"];
 

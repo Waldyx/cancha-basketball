@@ -20,6 +20,7 @@ export const FUNCIONES_PRO = {
   "rival-varios": "Informe del rival con varios partidos",
   "pizarra-marca": "Escudo y colores del club",
   "familias-informe": "Informes para las familias",
+  "video-clips": "Clips seguidos y exportar etiquetas de vídeo",
 } as const;
 
 export type FuncionPro = keyof typeof FUNCIONES_PRO;
