@@ -1,0 +1,407 @@
+---
+// /torneo — organizar un torneo de un día (3x3, campus, triangular de club): liga o grupos,
+// calendario por pistas y horas, clasificación con desempate FIBA y cruces que se rellenan solos.
+// Lógica pura en lib/torneo.ts. Se guarda en el navegador (cz.torneo.v1) y se comparte por enlace
+// con todo en el # (no pasa por ningún servidor).
+import "../styles/cancha-redesign.css";
+import Base from "../layouts/Base.astro";
+import { FORMATOS } from "../lib/torneo";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Organizador de torneos de baloncesto CANCHA.ZAPA",
+  url: "https://canchazapa.com/torneo/",
+  applicationCategory: "SportsApplication",
+  operatingSystem: "Any",
+  inLanguage: "es",
+  isAccessibleForFree: true,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  description: "Organiza un torneo de baloncesto o de 3x3: grupos, calendario por pistas y horas, clasificación y cruces automáticos, y un enlace para que equipos y familias lo sigan.",
+};
+---
+
+<Base
+  title="Organizador de torneos de baloncesto y 3x3: grupos, horarios y cuadro | CANCHA.ZAPA"
+  description="Monta un torneo de baloncesto o de 3x3 en un minuto: grupos, calendario por pistas y horas, clasificación con desempate FIBA y cruces que se rellenan solos. Compártelo por enlace. Gratis y sin registro."
+  jsonLd={jsonLd}
+>
+  <main class="app">
+    <section class="doc-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Clubs · Torneos</p>
+        <h1 class="doc-h1">Organizador de <span class="accent">torneos</span></h1>
+        <p class="doc-lede">
+          Para el 3x3 de las fiestas, el campus o el triangular del club: escribe los equipos, elige el formato y sale el
+          calendario por pistas y horas. Metes los resultados y la clasificación y los cruces se hacen solos.
+        </p>
+      </div>
+    </section>
+
+    <div class="shell tn">
+      <p id="tn-compartido" class="tn-panel tn-aviso" hidden>
+        Estás viendo un torneo que te han pasado por enlace.
+        <button type="button" id="tn-copia" class="tn-bn tn-bn-sm">Guardar una copia para editarlo</button>
+      </p>
+
+      <details class="tn-panel tn-det" id="tn-config">
+        <summary>Equipos y formato</summary>
+        <div class="tn-grid">
+          <label class="tn-campo tn-ancho"><span>Nombre del torneo</span><input id="tn-nombre" class="tn-inp" maxlength="60" placeholder="3x3 Fiesta Mayor" /></label>
+          <label class="tn-campo tn-ancho">
+            <span>Equipos, uno por línea (del más fuerte al más flojo, si lo sabes)</span>
+            <textarea id="tn-equipos" class="tn-inp tn-ta" rows="6" placeholder={"Leones\nTigres\nHalcones\n…"}></textarea>
+          </label>
+          <label class="tn-campo tn-ancho">
+            <span>Formato</span>
+            <select id="tn-formato" class="tn-inp">
+              {Object.entries(FORMATOS).map(([id, f]) => <option value={id}>{f.nombre}</option>)}
+            </select>
+          </label>
+          <label class="tn-campo"><span>Pistas</span><input id="tn-pistas" type="number" min="1" max="8" value="2" class="tn-inp" /></label>
+          <label class="tn-campo"><span>Empieza a las</span><input id="tn-inicio" type="time" value="10:00" class="tn-inp" /></label>
+          <label class="tn-campo"><span>Minutos por partido</span><input id="tn-duracion" type="number" min="5" max="120" value="15" class="tn-inp" /></label>
+          <label class="tn-campo"><span>Descanso entre partidos</span><input id="tn-descanso" type="number" min="0" max="60" value="5" class="tn-inp" /></label>
+        </div>
+        <div class="tn-fila">
+          <button type="button" id="tn-generar" class="tn-bn">Generar calendario</button>
+          <span id="tn-error" class="tn-error" role="alert"></span>
+        </div>
+        <p class="tn-ayuda">Con grupos, los equipos se reparten en serpiente: si los escribes ordenados por nivel, cada grupo queda equilibrado.</p>
+      </details>
+
+      <div id="tn-app" hidden>
+        <div class="tn-fila tn-barra">
+          <button type="button" id="tn-enlace" class="tn-bn">Copiar enlace para compartir</button>
+          <button type="button" id="tn-imprimir" class="tn-bn tn-bn-2">Imprimir</button>
+          <button type="button" id="tn-reiniciar" class="tn-bn tn-bn-2">Borrar resultados</button>
+          <span id="tn-estado" class="tn-ayuda" role="status"></span>
+        </div>
+        <div id="tn-imprimible">
+          <h2 class="tn-titulo" id="tn-titulo"></h2>
+          <div class="tn-cols">
+            <section class="tn-panel">
+              <h2 class="tn-h2">Calendario</h2>
+              <div id="tn-calendario" class="tn-cal"></div>
+            </section>
+            <div class="tn-lado">
+              <section class="tn-panel" id="tn-clasif-sec">
+                <h2 class="tn-h2">Clasificación</h2>
+                <div id="tn-clasif"></div>
+              </section>
+              <section class="tn-panel" id="tn-cuadro-sec" hidden>
+                <h2 class="tn-h2">Cuadro</h2>
+                <div id="tn-cuadro" class="tn-cuadro"></div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="tn-ayuda">El torneo se guarda en este navegador. El enlace lleva todo dentro (equipos y resultados): quien lo abre ve la foto del momento en que lo copiaste.</p>
+    </div>
+  </main>
+</Base>
+
+<style is:global>
+  .tn { padding-top: 20px; padding-bottom: 60px; display: flex; flex-direction: column; gap: 14px; }
+  .tn-panel { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; background: var(--cz-card); border: 1px solid var(--cz-border); min-width: 0; color: var(--cz-text); }
+  .tn-panel[hidden], #tn-app[hidden] { display: none; }
+  .tn-aviso { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 10px; border-left: 4px solid #f97316; font-size: 14px; }
+  .tn-det summary { cursor: pointer; font: 800 13px "Inter", sans-serif; color: var(--cz-accent-text); }
+  .tn-det[open] > :not(summary) { margin-top: 8px; }
+  .tn-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .tn-ancho { grid-column: 1 / -1; }
+  @media (max-width: 640px) { .tn-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .tn-fila { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .tn-campo { display: flex; flex-direction: column; gap: 3px; min-width: 0; font: 800 10px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--cz-text-2); }
+  .tn-inp { width: 100%; min-width: 0; min-height: 40px; padding: 6px 10px; background: var(--cz-bg); color: var(--cz-text); border: 1px solid var(--cz-border); border-radius: 0; font: 600 14px "Inter", sans-serif; text-transform: none; letter-spacing: 0; }
+  .tn-ta { min-height: 120px; resize: vertical; }
+  .tn-bn { min-height: 42px; padding: 0 16px; background: #f97316; border: 1px solid #f97316; color: #0c0c0c; font: 900 12px "Inter", sans-serif; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; border-radius: 0; }
+  .tn-bn-2 { background: transparent; color: var(--cz-text); border-color: var(--cz-border); }
+  .tn-bn-sm { min-height: 36px; padding: 0 12px; font-size: 11px; }
+  .tn-ayuda { margin: 0; font-size: 12px; color: var(--cz-text-2); }
+  .tn-error { font-size: 13px; font-weight: 700; color: #dc2626; }
+  .tn-titulo { margin: 0 0 10px; font: 900 30px "Barlow Condensed", sans-serif; text-transform: uppercase; color: var(--cz-text); }
+  .tn-titulo:empty { display: none; }
+  .tn-h2 { margin: 0; font: 900 20px "Barlow Condensed", sans-serif; text-transform: uppercase; color: var(--cz-text); }
+  .tn-cols { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+  @media (max-width: 900px) { .tn-cols { grid-template-columns: 1fr; } }
+  .tn-lado { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+  .tn-cal { display: flex; flex-direction: column; gap: 10px; }
+  .tn-hora { font: 900 13px "Inter", sans-serif; color: var(--cz-amber-text); letter-spacing: .06em; }
+  .tn-p { display: grid; grid-template-columns: 54px minmax(0, 1fr) 46px 10px 46px minmax(0, 1fr); gap: 6px; align-items: center; padding: 4px 0; border-bottom: 1px solid var(--cz-border); font-size: 14px; }
+  @media (max-width: 520px) {
+    .tn-p { grid-template-columns: minmax(0, 1fr) 46px 10px 46px minmax(0, 1fr); }
+    .tn-p-info { grid-column: 1 / -1; }
+  }
+  .tn-p-info { font: 700 10.5px "Inter", sans-serif; color: var(--cz-text-2); text-transform: uppercase; letter-spacing: .04em; line-height: 1.2; }
+  .tn-eq { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; }
+  .tn-eq.a { text-align: right; }
+  .tn-eq.gana { color: #16a34a; }
+  .tn-eq.pend { font-weight: 600; font-style: italic; color: var(--cz-text-2); }
+  .tn-res { width: 46px; min-height: 38px; padding: 4px; text-align: center; background: var(--cz-bg); color: var(--cz-text); border: 1px solid var(--cz-border); border-radius: 0; font: 800 15px "Inter", sans-serif; -moz-appearance: textfield; }
+  .tn-res::-webkit-inner-spin-button, .tn-res::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+  .tn-res:disabled { opacity: 1; color: var(--cz-text); }
+  .tn-res.empate { border-color: #dc2626; }
+  .tn-guion { text-align: center; color: var(--cz-text-2); }
+  .tn-tabla { width: 100%; border-collapse: collapse; font: 600 13px "Inter", sans-serif; margin-bottom: 8px; }
+  .tn-tabla caption { text-align: left; font: 900 12px "Inter", sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--cz-amber-text); padding: 2px 0 4px; }
+  .tn-tabla th, .tn-tabla td { padding: 4px 6px; border-bottom: 1px solid var(--cz-border); text-align: right; }
+  .tn-tabla th { font: 800 10px "Inter", sans-serif; letter-spacing: .06em; text-transform: uppercase; color: var(--cz-text-2); }
+  .tn-tabla th:nth-child(2), .tn-tabla td:nth-child(2) { text-align: left; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .tn-tabla tr.pasa td:first-child { box-shadow: inset 3px 0 0 #f97316; }
+  .tn-cuadro { display: flex; flex-direction: column; gap: 10px; }
+  .tn-ronda h3 { margin: 0 0 4px; font: 900 12px "Inter", sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--cz-amber-text); }
+  .tn-cruce { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 8px; padding: 6px 8px; margin-bottom: 4px; background: var(--cz-bg); border: 1px solid var(--cz-border); font-size: 13.5px; }
+  .tn-campeon { padding: 10px; text-align: center; font: 900 22px "Barlow Condensed", sans-serif; text-transform: uppercase; color: #0c0c0c; background: #facc15; }
+  @media print {
+    @page { size: A4; margin: 12mm; }
+    html.tn-printing body * { visibility: hidden !important; }
+    html.tn-printing #tn-imprimible, html.tn-printing #tn-imprimible * { visibility: visible !important; color: #000 !important; }
+    html.tn-printing #tn-imprimible { position: absolute; left: 0; top: 0; width: 100%; }
+    html.tn-printing .tn-panel { background: #fff !important; border-color: #999 !important; break-inside: avoid; }
+    html.tn-printing .tn-cols { grid-template-columns: 1fr; }
+    html.tn-printing .tn-res { border: 0.3mm solid #999 !important; background: #fff !important; }
+  }
+</style>
+
+<script>
+  import {
+    FORMATOS,
+    LETRAS,
+    aEnlace,
+    clasificacion,
+    deEnlace,
+    equiposDeTexto,
+    etiqueta,
+    fotoCruces,
+    horaDe,
+    jugado,
+    limpiarCruces,
+    nombreRonda,
+    normalizarTorneo,
+    problemaFormato,
+    resolver,
+    type Formato,
+    type Partido,
+    type Torneo,
+  } from "../lib/torneo";
+
+  const CLAVE = "cz.torneo.v1";
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  const el = (tag: string, cls?: string, text?: string) => {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  };
+
+  let t: Torneo | null = null;
+  let soloVer = false;
+  const hash = /^#t=([A-Za-z0-9_-]+)$/.exec(location.hash);
+  if (hash) {
+    t = deEnlace(hash[1]);
+    soloVer = !!t;
+  }
+  if (!t)
+    try {
+      t = normalizarTorneo(JSON.parse(localStorage.getItem(CLAVE) ?? "null"));
+    } catch {
+      /* empezar de cero */
+    }
+  const guardar = () => {
+    if (!t || soloVer) return;
+    try {
+      localStorage.setItem(CLAVE, JSON.stringify(t));
+    } catch {
+      /* sin almacenamiento */
+    }
+  };
+
+  // ── configuración ───────────────────────────────────────────────────
+  const inp = <T extends HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(id: string) => $<T>(id);
+  function rellenarConfig() {
+    if (!t) return;
+    inp<HTMLInputElement>("tn-nombre").value = t.nombre;
+    inp<HTMLTextAreaElement>("tn-equipos").value = t.equipos.join("\n");
+    inp<HTMLSelectElement>("tn-formato").value = t.formato;
+    inp<HTMLInputElement>("tn-pistas").value = String(t.pistas);
+    inp<HTMLInputElement>("tn-inicio").value = t.inicio;
+    inp<HTMLInputElement>("tn-duracion").value = String(t.duracion);
+    inp<HTMLInputElement>("tn-descanso").value = String(t.descanso);
+  }
+  $("tn-generar").addEventListener("click", () => {
+    const equipos = equiposDeTexto(inp<HTMLTextAreaElement>("tn-equipos").value);
+    const formato = inp<HTMLSelectElement>("tn-formato").value as Formato;
+    const error = problemaFormato(equipos.length, formato);
+    $("tn-error").textContent = error ?? "";
+    if (error) return;
+    if (t && t.partidos.some((p) => p.pa !== null) && !confirm("Se va a rehacer el calendario y se perderán los resultados metidos. ¿Seguir?")) return;
+    const nuevo = normalizarTorneo({
+      nombre: inp<HTMLInputElement>("tn-nombre").value,
+      equipos,
+      formato,
+      pistas: +inp<HTMLInputElement>("tn-pistas").value,
+      inicio: inp<HTMLInputElement>("tn-inicio").value,
+      duracion: +inp<HTMLInputElement>("tn-duracion").value,
+      descanso: +inp<HTMLInputElement>("tn-descanso").value,
+    });
+    if (!nuevo) return;
+    t = nuevo;
+    guardar();
+    rellenarConfig();
+    ($("tn-config") as HTMLDetailsElement).open = false;
+    pintar();
+    $("tn-app").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  // ── calendario ──────────────────────────────────────────────────────
+  function infoPartido(tt: Torneo, p: Partido): string {
+    if (p.g !== undefined) return FORMATOS[tt.formato].grupos > 1 ? `Grupo ${LETRAS[p.g]}` : "Liga";
+    const rondas = new Set(tt.partidos.filter((x) => x.r !== undefined).map((x) => x.r)).size;
+    return nombreRonda(p.r!, rondas);
+  }
+  function filaPartido(tt: Torneo, p: Partido): HTMLElement {
+    const fila = el("div", "tn-p");
+    fila.append(el("span", "tn-p-info", `Pista ${p.pista + 1} · ${infoPartido(tt, p)}`));
+    const ea = resolver(tt, p.a);
+    const eb = resolver(tt, p.b);
+    const ok = jugado(p);
+    const na = el("span", "tn-eq a" + (ea === null ? " pend" : "") + (ok && p.pa! > p.pb! ? " gana" : ""), etiqueta(tt, p.a));
+    const nb = el("span", "tn-eq" + (eb === null ? " pend" : "") + (ok && p.pb! > p.pa! ? " gana" : ""), etiqueta(tt, p.b));
+    const caja = (lado: "pa" | "pb") => {
+      const i = document.createElement("input");
+      i.type = "number";
+      i.inputMode = "numeric";
+      i.min = "0";
+      i.max = "999";
+      i.className = "tn-res" + (p.pa !== null && p.pa === p.pb ? " empate" : "");
+      i.value = p[lado] === null ? "" : String(p[lado]);
+      i.disabled = soloVer || ea === null || eb === null;
+      i.setAttribute("aria-label", `Puntos de ${lado === "pa" ? etiqueta(tt, p.a) : etiqueta(tt, p.b)}`);
+      if (p.pa !== null && p.pa === p.pb) i.title = "En baloncesto no hay empate: falta la prórroga.";
+      i.addEventListener("change", () => {
+        const antes = fotoCruces(tt);
+        const v = i.value.trim() === "" ? null : Math.max(0, Math.min(999, Math.round(+i.value)));
+        p[lado] = Number.isFinite(v as number) ? v : null;
+        limpiarCruces(tt, antes);
+        guardar();
+        pintar();
+      });
+      return i;
+    };
+    fila.append(na, caja("pa"), el("span", "tn-guion", "–"), caja("pb"), nb);
+    return fila;
+  }
+  function pintarCalendario(tt: Torneo) {
+    const cal = $("tn-calendario");
+    cal.replaceChildren();
+    const slots = [...new Set(tt.partidos.map((p) => p.slot))].sort((a, b) => a - b);
+    for (const s of slots) {
+      const bloque = el("div");
+      bloque.append(el("div", "tn-hora", horaDe(tt, s)));
+      for (const p of tt.partidos.filter((x) => x.slot === s).sort((a, b) => a.pista - b.pista)) bloque.append(filaPartido(tt, p));
+      cal.append(bloque);
+    }
+  }
+
+  // ── clasificación y cuadro ──────────────────────────────────────────
+  function pintarClasificacion(tt: Torneo) {
+    const { grupos, pasan } = FORMATOS[tt.formato];
+    const out = $("tn-clasif");
+    out.replaceChildren();
+    for (let g = 0; g < grupos; g++) {
+      const tabla = el("table", "tn-tabla");
+      if (grupos > 1) tabla.append(el("caption", undefined, `Grupo ${LETRAS[g]}`));
+      const cab = el("tr");
+      for (const h of ["#", "Equipo", "PJ", "G", "P", "PF", "PC", "Dif"]) cab.append(el("th", undefined, h));
+      tabla.append(cab);
+      clasificacion(tt, g).forEach((f, i) => {
+        const tr = el("tr", i < pasan ? "pasa" : "");
+        const d = f.pf - f.pc;
+        for (const v of [String(i + 1), tt.equipos[f.e], String(f.pj), String(f.g), String(f.p), String(f.pf), String(f.pc), d > 0 ? `+${d}` : String(d)]) tr.append(el("td", undefined, v));
+        tabla.append(tr);
+      });
+      out.append(tabla);
+    }
+    if (pasan) out.append(el("p", "tn-ayuda", `Pasan ${pasan === 1 ? "los primeros" : `los ${pasan} primeros`}${grupos > 1 ? " de cada grupo" : ""}. Desempate: partidos entre los empatados, después diferencia de puntos y puntos a favor.`));
+    // ¿alguien lo ha ganado ya?
+    const cruces = tt.partidos.filter((p) => p.r !== undefined);
+    const sec = $("tn-cuadro-sec");
+    sec.hidden = !cruces.length;
+    const cuadro = $("tn-cuadro");
+    cuadro.replaceChildren();
+    const rondas = new Set(cruces.map((p) => p.r)).size;
+    for (let r = 0; r < rondas; r++) {
+      const div = el("div", "tn-ronda");
+      div.append(el("h3", undefined, nombreRonda(r, rondas)));
+      for (const p of cruces.filter((x) => x.r === r)) {
+        const c = el("div", "tn-cruce");
+        const ok = jugado(p);
+        c.append(el("span", ok && p.pa! > p.pb! ? "tn-eq gana" : "tn-eq", etiqueta(tt, p.a)), el("b", undefined, ok ? String(p.pa) : ""));
+        c.append(el("span", ok && p.pb! > p.pa! ? "tn-eq gana" : "tn-eq", etiqueta(tt, p.b)), el("b", undefined, ok ? String(p.pb) : ""));
+        div.append(c);
+      }
+      cuadro.append(div);
+    }
+    const final = cruces.find((p) => p.r === rondas - 1);
+    if (final && jugado(final)) cuadro.append(el("div", "tn-campeon", `🏆 ${etiqueta(tt, final.pa! > final.pb! ? final.a : final.b)}`));
+    else if (!cruces.length && tt.partidos.every(jugado)) {
+      const primero = clasificacion(tt, 0)[0];
+      if (primero) out.prepend(el("div", "tn-campeon", `🏆 ${tt.equipos[primero.e]}`));
+    }
+  }
+
+  function pintar() {
+    $("tn-app").hidden = !t;
+    $("tn-compartido").hidden = !soloVer;
+    for (const id of ["tn-reiniciar", "tn-enlace"]) ($(id) as HTMLButtonElement).hidden = soloVer;
+    ($("tn-config") as HTMLDetailsElement).hidden = soloVer;
+    if (!t) return;
+    $("tn-titulo").textContent = t.nombre;
+    pintarCalendario(t);
+    pintarClasificacion(t);
+  }
+
+  // ── acciones ────────────────────────────────────────────────────────
+  $("tn-enlace").addEventListener("click", async () => {
+    if (!t) return;
+    const url = `${location.origin}/torneo/#t=${aEnlace(t)}`;
+    try {
+      await navigator.clipboard.writeText(url);
+      $("tn-estado").textContent = "Enlace copiado: pégalo en el grupo. Si cambian resultados, cópialo otra vez.";
+    } catch {
+      prompt("Copia este enlace:", url);
+    }
+  });
+  $("tn-imprimir").addEventListener("click", () => {
+    document.documentElement.classList.add("tn-printing");
+    window.setTimeout(() => window.print(), 60);
+  });
+  window.addEventListener("afterprint", () => document.documentElement.classList.remove("tn-printing"));
+  $("tn-reiniciar").addEventListener("click", () => {
+    if (!t || !confirm("¿Borrar todos los resultados? Los equipos y el calendario se quedan.")) return;
+    for (const p of t.partidos) (p.pa = null), (p.pb = null);
+    guardar();
+    pintar();
+  });
+  $("tn-copia").addEventListener("click", () => {
+    if (!t) return;
+    let hay = false;
+    try {
+      hay = !!localStorage.getItem(CLAVE);
+    } catch {
+      /* nada */
+    }
+    if (hay && !confirm("Ya tienes un torneo guardado en este navegador. ¿Sustituirlo por este?")) return;
+    soloVer = false;
+    guardar();
+    history.replaceState(null, "", location.pathname);
+    rellenarConfig();
+    pintar();
+  });
+
+  if (t) rellenarConfig();
+  else ($("tn-config") as HTMLDetailsElement).open = true;
+  pintar();
+</script>
