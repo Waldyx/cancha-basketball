@@ -43,6 +43,8 @@ import {
 export interface CtxSesion {
   root: HTMLElement;
   printEl: HTMLElement;
+  /** Cabecera con la marca del club para lo impreso (o null). */
+  marca?: () => HTMLElement | null;
   biblio: () => Jugada[];
   /** Jugadas que llegaron por enlace y aún no se han guardado. */
   jugadasCompartidas: () => Jugada[];
@@ -507,6 +509,8 @@ export function iniciarSesiones(ctx: CtxSesion): ControlSesiones {
     const p = ctx.printEl;
     p.replaceChildren();
     const sec = el("section", { cls: "pz-print-ses" });
+    const cab = ctx.marca?.();
+    if (cab) sec.append(cab);
     sec.append(el("h2", { text: s.titulo }));
     const fecha = fechaLarga(s.fecha);
     const meta = [fecha, s.equipo, s.hora ? `Inicio ${s.hora}` : ""].filter(Boolean).join(" · ");

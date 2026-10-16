@@ -122,6 +122,7 @@ import {
   type EstadoClub,
   type PaqueteClub,
 } from "./pizarraClub";
+import { CLAVE_MARCA, leerMarca, medidasReducidas, normalizarMarca, type MarcaClub } from "./pizarraMarca";
 import { iniciarSesiones, type ControlSesiones } from "./pizarraSesionUI";
 
 const CLAVE = "cz.pizarra.v1";
@@ -302,6 +303,10 @@ export function iniciarPizarra(): void {
   const fileEl = q<HTMLInputElement>("file");
   const inpClub = q<HTMLInputElement>("club-nombre");
   const clubInfoEl = q("club-info");
+  const marcaNombre = q<HTMLInputElement>("marca-nombre");
+  const marcaColor = q<HTMLInputElement>("marca-color");
+  const marcaArchivo = q<HTMLInputElement>("marca-escudo");
+  const marcaVista = q<HTMLImageElement>("marca-vista");
   const lectEl = q("lecturas");
   const lectChips = q("lect-chips");
   const lectEdit = q("lect-edit");
@@ -352,6 +357,14 @@ export function iniciarPizarra(): void {
   let compartidas: Jugada[] = [];
   // biblioteca del club: qué jugadas y sesiones vinieron del último paquete guardado
   let clubEstado: EstadoClub | null = null;
+  // marca del club en lo que se imprime (nombre, color y escudo)
+  let marca: MarcaClub | null = null;
+  try {
+    marca = leerMarca(localStorage.getItem(CLAVE_MARCA));
+  } catch {
+    /* sin almacenamiento */
+  }
+  let escudoPendiente: string | null = null;
   try {
     clubEstado = leerEstadoClub(localStorage.getItem(CLAVE_CLUB));
   } catch {
@@ -1855,6 +1868,8 @@ export function iniciarPizarra(): void {
     const pal = PALETAS.neutra;
     for (const j of jugadas) {
       const sec = el("section", { cls: "pz-print-play" });
+      const cab = cabeceraMarca();
+      if (cab) sec.append(cab);
       sec.append(el("h2", { text: j.nombre }));
       sec.append(el("p", { cls: "pz-print-meta", text: `${CATEGORIAS.find((c) => c.id === j.categoria)?.label ?? ""} · ${j.pasos.length} ${j.pasos.length === 1 ? "paso" : "pasos"}` }));
       if (j.notas) sec.append(el("p", { cls: "pz-print-notas", text: j.notas }));
@@ -2018,6 +2033,81 @@ export function iniciarPizarra(): void {
     } catch {
       toast("No se pudo generar el enlace: envía el archivo.");
     }
+  }
+
+  // ── marca del club en las impresiones ───────────────────────────────
+  /** Cabecera con escudo y nombre del club para lo impreso, o null si no hay marca. */
+  function cabeceraMarca(): HTMLElement | null {
+    if (!marca) return null;
+    const d = el("div", { cls: "pz-print-marca" });
+    d.style.borderColor = marca.color;
+    if (marca.escudo) {
+      const img = document.createElement("img");
+      img.src = marca.escudo;
+      img.alt = "";
+      d.append(img);
+    }
+    if (marca.nombre) d.append(el("span", { text: marca.nombre }));
+    return d;
+  }
+
+  function pintarMarca() {
+    marcaNombre.value = marca?.nombre ?? "";
+    marcaColor.value = marca?.color ?? "#f97316";
+    const src = escudoPendiente ?? marca?.escudo ?? "";
+    marcaVista.hidden = !src;
+    if (src) marcaVista.src = src;
+  }
+
+  /** Reduce la imagen a 200 px en el navegador antes de guardarla (no se sube a ningún sitio). */
+  function leerEscudo(f: File) {
+    if (!/^image\/(png|jpeg|webp)$/.test(f.type)) return void toast("El escudo tiene que ser PNG, JPG o WebP.");
+    if (f.size > 8_000_000) return void toast("La imagen es demasiado grande.");
+    const url = URL.createObjectURL(f);
+    const img = new Image();
+    img.onload = () => {
+      const { w, h } = medidasReducidas(img.naturalWidth, img.naturalHeight);
+      const c = document.createElement("canvas");
+      c.width = w;
+      c.height = h;
+      c.getContext("2d")?.drawImage(img, 0, 0, w, h);
+      URL.revokeObjectURL(url);
+      escudoPendiente = c.toDataURL(f.type === "image/jpeg" ? "image/jpeg" : "image/png", 0.9);
+      pintarMarca();
+    };
+    img.onerror = () => {
+      URL.revokeObjectURL(url);
+      toast("No se pudo leer la imagen.");
+    };
+    img.src = url;
+  }
+
+  function guardarMarca() {
+    const nueva = normalizarMarca({ nombre: marcaNombre.value, color: marcaColor.value, escudo: escudoPendiente ?? marca?.escudo ?? "" });
+    if (!nueva) return void toast("Pon al menos el nombre o el escudo del club.");
+    if ((escudoPendiente ?? "") && !nueva.escudo) return void toast("El escudo es demasiado pesado: prueba con una imagen más sencilla.");
+    marca = nueva;
+    escudoPendiente = null;
+    try {
+      localStorage.setItem(CLAVE_MARCA, JSON.stringify(marca));
+    } catch {
+      /* sin almacenamiento: vale para esta visita */
+    }
+    pintarMarca();
+    toast("Marca del club guardada: saldrá en el playbook, la hoja de banquillo y las sesiones que imprimas.", 5500);
+  }
+
+  function quitarMarca() {
+    marca = null;
+    escudoPendiente = null;
+    try {
+      localStorage.removeItem(CLAVE_MARCA);
+    } catch {
+      /* da igual */
+    }
+    marcaArchivo.value = "";
+    pintarMarca();
+    toast("Marca del club quitada.");
   }
 
   // ── jugada compartida (hash) ────────────────────────────────────────
@@ -2592,6 +2682,12 @@ export function iniciarPizarra(): void {
     const raiz = el("section", { cls: "pz-print-banq" });
     for (const pagina of hoja.paginas) {
       const pag = el("div", { cls: `pz-banq-pag pz-banq-${n}` });
+      const cab = cabeceraMarca();
+      if (cab) {
+        cab.classList.add("pz-banq-marca");
+        pag.classList.add("con-marca");
+        pag.append(cab);
+      }
       for (const t of pagina) {
         const caja = el("div", { cls: "pz-banq-svg" });
         caja.innerHTML = t.svg; // SVG nuestro: el texto del usuario va escapado dentro
@@ -2775,6 +2871,10 @@ export function iniciarPizarra(): void {
         return exportarJson([j], j.nombre, false);
       case "backup":
         return copiaDeSeguridad();
+      case "marca-guardar":
+        return guardarMarca();
+      case "marca-quitar":
+        return quitarMarca();
       case "club-enlace":
         return void compartirClub("enlace");
       case "club-archivo":
@@ -2857,6 +2957,10 @@ export function iniciarPizarra(): void {
     fileEl.value = "";
   });
   inpEnlace.addEventListener("focus", () => inpEnlace.select());
+  marcaArchivo.addEventListener("change", () => {
+    const f = marcaArchivo.files?.[0];
+    if (f) leerEscudo(f);
+  });
   formEspejoEl.querySelector("input")?.addEventListener("change", (e) => {
     formEspejo = (e.target as HTMLInputElement).checked;
   });
@@ -2985,6 +3089,7 @@ export function iniciarPizarra(): void {
       pintarAvisoCopia();
     },
     paleta: () => paleta,
+    marca: cabeceraMarca,
     toast,
     abrirJugada: (j, vista) => abrir(j, false, vista),
     copiar,
@@ -2997,6 +3102,7 @@ export function iniciarPizarra(): void {
     },
   });
   pintarFormaciones();
+  pintarMarca();
   marcarHerramienta();
   elegirTab("jugada");
   refrescarTodo();

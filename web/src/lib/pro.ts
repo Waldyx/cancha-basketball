@@ -18,6 +18,7 @@ export const FUNCIONES_PRO = {
   "pizarra-club": "Biblioteca del club",
   "tiro-temporada": "Mapa de tiro de toda la temporada",
   "rival-varios": "Informe del rival con varios partidos",
+  "pizarra-marca": "Escudo y colores del club",
 } as const;
 
 export type FuncionPro = keyof typeof FUNCIONES_PRO;

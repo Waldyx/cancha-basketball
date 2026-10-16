@@ -24,6 +24,7 @@ const FUNCIONES = [
   "pizarra-club",
   "tiro-temporada",
   "rival-varios",
+  "pizarra-marca",
 ];
 const EVENTOS = ["visto", "activado"];
 

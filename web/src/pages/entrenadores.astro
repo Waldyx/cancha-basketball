@@ -7,6 +7,7 @@ import HubGrid from "../components/HubGrid.astro";
 const herramientas = [
   { href: "/pizarra/", tag: "Pizarra", label: "Pizarra táctica", desc: "Dibuja jugadas en varios pasos, anímalas y compártelas por enlace. Pista FIBA o minibasket." },
   { href: "/pizarra/", tag: "Pizarra", label: "Plantillas y ejercicios", desc: "Jugadas de ataque y defensa, contraataques y ejercicios listos para cargar y adaptar." },
+  { href: "/pizarra/", tag: "Club", label: "Playbook con tu escudo", desc: "Imprime o guarda en PDF tus jugadas, la hoja de banquillo y las sesiones con el escudo y el color de tu club.", pro: true },
   { href: "/pizarra/", tag: "Pizarra", label: "Sesiones de entrenamiento", desc: "Planifica la sesión con minutos por ejercicio, compártela e imprímela para la pista.", pro: true },
   { href: "/pizarra/", tag: "Pizarra", label: "Modo jugador, QR y GIF", desc: "Tus jugadores ven la jugada en su móvil con un QR, o la descargan como GIF animado.", pro: true },
   { href: "/estadisticas/", tag: "Estadísticas", label: "Estadísticas de equipo", desc: "Tabla de temporada, líderes, tarjetas y envío de sus números a cada jugador.", pro: true },
@@ -17,7 +18,6 @@ const herramientas = [
 ];
 
 const pronto = [
-  { tag: "Club", label: "Libro de jugadas", desc: "Todas tus jugadas y sesiones en un PDF con el escudo y los colores de tu club." },
   { tag: "Vídeo", label: "Etiquetas de vídeo", desc: "Abre el vídeo del partido sin subirlo a ningún sitio, marca momentos y salta de uno a otro." },
 ].map((i) => ({ ...i, pro: true, pronto: true }));
 ---

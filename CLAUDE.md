@@ -353,7 +353,12 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   (`rival-varios`). Lógica en `lib/informeRival.ts`, datos en `cz.rival.v1`. Probado con actas reales de Tercera FEB.
 - 🔧 `scoring.test.ts` asumía que la LeBron 22 nunca baja de 80 € (Amazon la puso a 78,35 € el 16-oct): quitada esa
   aserción de datos; el filtro de presupuesto se sigue comprobando con el bucle del mismo test.
-- ▶️ **Siguiente**: libro de jugadas con escudo → etiquetas de vídeo.
+- ✅ **Marca del club en lo impreso (17-oct)**: Biblioteca → "Escudo y colores del club": nombre, color y escudo
+  (PNG/JPG/WebP reducido a 200 px en el navegador, data URL ≤120 KB; SVG fuera a propósito). Cabecera en el playbook,
+  la hoja de banquillo y la sesión impresa. Guardar es Pro (`pizarra-marca`). `lib/pizarraMarca.ts`, `cz.pizarra.marca.v1`.
+  ⚠ Comprobado que las 3 impresiones llevan la cabecera (DOM), NO visto en una vista previa de impresión real.
+- ✅ Footer con columna "Entrenadores" (pizarra, minutos, tiro, rival, clubs): enlaces internos a las herramientas.
+- ▶️ **Siguiente**: etiquetas de vídeo · informe de temporada para familias (prometido en /clubs como "en preparación").
 - ▶️ **Paso 3, por orden**: control de minutos/cuartos (verificar normas de participación de la FCBQ) → mapa de
   tiro → libro de jugadas con escudo del club → etiquetas de vídeo. Más ideas: informe del rival (actas FEB),
   plan de partido, generador de sesiones con IA, evaluación de jugadores + informe a familias, tests físicos,

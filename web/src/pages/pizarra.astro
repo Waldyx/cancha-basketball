@@ -370,6 +370,20 @@ const jsonLd = {
                 </div>
               </details>
             </div>
+            <details class="pz-club pz-club-det pz-marca">
+              <summary>Escudo y colores del club en lo que imprimes</summary>
+              <p class="pz-small">Salen arriba del playbook, de la hoja de banquillo y de las sesiones. El escudo se guarda solo en este navegador.</p>
+              <input type="text" class="pz-inp" data-pz="marca-nombre" maxlength="60" placeholder="Nombre del club" aria-label="Nombre del club para lo impreso" autocomplete="off" />
+              <div class="pz-row">
+                <label class="pz-small pz-marca-color">Color <input type="color" data-pz="marca-color" value="#f97316" aria-label="Color del club" /></label>
+                <label class="pz-bn pz-bn-2 pz-bn-sm pz-marca-file">Escudo… <input type="file" data-pz="marca-escudo" accept="image/png,image/jpeg,image/webp" hidden /></label>
+                <img data-pz="marca-vista" class="pz-marca-vista" alt="Escudo del club" hidden />
+              </div>
+              <div class="pz-row">
+                <button type="button" class="pz-bn" data-act="marca-guardar" data-pro="pizarra-marca">Guardar marca</button>
+                <button type="button" class="pz-bn pz-bn-2" data-act="marca-quitar">Quitar</button>
+              </div>
+            </details>
             <h3 class="pz-h3">Mis jugadas</h3>
             <div class="pz-filtros">
               <input type="search" class="pz-inp" data-pz="buscar" placeholder="Buscar…" aria-label="Buscar jugadas" autocomplete="off" />
@@ -739,6 +753,11 @@ const jsonLd = {
   .pz-ses-c2 { grid-column: 1 / -1; }
   .pz-club { display: flex; flex-direction: column; gap: 6px; padding: 8px 10px; border: 1px solid var(--cz-border); background: var(--cz-card2); }
   .pz-club .pz-h3 { margin: 0; }
+  .pz-marca > summary { cursor: pointer; font: 800 12px "Inter", sans-serif; color: var(--cz-accent-text); }
+  .pz-marca-color { display: inline-flex; align-items: center; gap: 6px; }
+  .pz-marca-color input { width: 38px; height: 32px; padding: 0; border: 1px solid var(--cz-border); background: none; }
+  .pz-marca-file { display: inline-flex; align-items: center; cursor: pointer; }
+  .pz-marca-vista { width: 36px; height: 36px; object-fit: contain; background: #fff; border: 1px solid var(--cz-border); }
   .pz-club-det { display: flex; flex-direction: column; gap: 6px; }
   .pz-club-det summary { cursor: pointer; font: 800 12px "Inter", sans-serif; color: var(--cz-accent-text); }
   .pz-club-det[open] { display: flex; }
@@ -924,6 +943,13 @@ const jsonLd = {
     .pz-print-svg svg { display: block; width: 100%; height: auto; border: 0.4mm solid #666; }
     .pz-print-paso figcaption { margin-top: 1.5mm; font-size: 11pt; line-height: 1.3; }
     .pz-print-pie { margin: 6mm 0 0; font-size: 9pt; color: #666; text-align: right; }
+    /* marca del club: escudo + nombre con una franja de su color */
+    .pz-print-marca { display: flex; align-items: center; gap: 3mm; margin: 0 0 4mm; padding-bottom: 2mm; border-bottom: 1.2mm solid #f97316; font-family: "Barlow Condensed", Arial, sans-serif; color: #000; }
+    .pz-print-marca img { height: 13mm; width: auto; max-width: 30mm; object-fit: contain; }
+    .pz-print-marca span { font-size: 15pt; font-weight: 900; text-transform: uppercase; letter-spacing: 0.02em; }
+    .pz-banq-marca { grid-column: 1 / -1; margin: 0; }
+    .pz-banq-4.con-marca { grid-template-rows: auto 1fr 1fr; }
+    .pz-banq-6.con-marca { grid-template-rows: auto 1fr 1fr 1fr; }
     html.pz-printing, html.pz-printing.pz-fs-lock { overflow: visible !important; }
     .pz-print-lectura { margin: 6mm 0 2mm; font-size: 14pt; font-weight: 900; text-transform: uppercase; break-after: avoid; page-break-after: avoid; }
     /* hoja de banquillo: 4 o 6 jugadas por folio, con el nombre grande */
