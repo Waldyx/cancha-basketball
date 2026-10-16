@@ -5,6 +5,7 @@ import Base from "../layouts/Base.astro";
 import HubGrid from "../components/HubGrid.astro";
 
 const herramientas = [
+  { href: "/plan-tiro/", tag: "Entrenamiento", label: "Plan de tiro", desc: "Rutinas por puestos: apunta anotados e intentos y mira cómo mejora tu porcentaje semana a semana." },
   { href: "/estadisticas/", tag: "Tu temporada", label: "Estadísticas", desc: "Apunta tus partidos o importa tus actas FEB y mira cómo evoluciona tu juego." },
   { href: "/quiz/", tag: "Zapatillas", label: "Quiz de zapatilla", desc: "La zapatilla que encaja con tu posición, tu peso, tu pista y tus lesiones." },
   { href: "/mis-zapas/", tag: "Zapatillas", label: "Mis zapas", desc: "Guarda las que te interesan y compáralas cuando quieras." },
@@ -13,9 +14,6 @@ const herramientas = [
   { href: "/zapatillas/", tag: "Zapatillas", label: "Catálogo", desc: "Todas las zapatillas de baloncesto analizadas, con precio y puntuación." },
 ];
 
-const pronto = [
-  { tag: "Entrenamiento", label: "Plan individual", desc: "Rutinas de tiro y manejo de balón con un registro de tu porcentaje por zonas, semana a semana.", pro: true, pronto: true },
-];
 ---
 
 <Base
@@ -44,13 +42,6 @@ const pronto = [
           <HubGrid items={herramientas} />
         </section>
 
-        <section class="doc-section">
-          <div class="doc-section-head">
-            <span class="doc-num">02</span>
-            <h2 class="doc-h2">En preparación</h2>
-          </div>
-          <HubGrid items={pronto} />
-        </section>
 
         <p class="doc-body">
           ¿Entrenas a un equipo? Mira las <a href="/entrenadores/" class="doc-link">herramientas para entrenadores →</a>

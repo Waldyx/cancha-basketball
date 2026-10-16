@@ -372,8 +372,12 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   no cuenta en contra) y mensaje de convocatoria para WhatsApp (copiar/compartir). GRATIS a propósito (uso semanal).
   `lib/asistencia.ts`, `cz.asistencia.v1`. + JSON-LD WebApplication en las 6 herramientas nuevas e IndexNow enviado
   (17-oct, 8 URLs, 200).
+- ✅ **Plan de tiro `/plan-tiro/` (17-oct, para JUGADORES, gratis)**: 4 rutinas (libres, media ×5, triples ×5, completa),
+  ✓/✗ por puesto + "Deshacer último" (en iPhone no hay clic derecho), evolución por sesión y % por puesto pintado en la
+  pista. Test que comprueba que los 5 puestos de triple están fuera del arco y los 5 de media dentro. `lib/planTiro.ts`.
+  `/jugadores/` ya no tiene "En preparación".
 - ▶️ **Ideas siguientes** (sin prometer en la web): generador de sesiones con IA, evaluación de jugadores, tests
-  físicos, asistencia/convocatorias, plan individual de tiro para jugadores, cuadros de torneos 3x3.
+  físicos, cuadros de torneos 3x3.
 - ▶️ **Paso 3, por orden**: control de minutos/cuartos (verificar normas de participación de la FCBQ) → mapa de
   tiro → libro de jugadas con escudo del club → etiquetas de vídeo. Más ideas: informe del rival (actas FEB),
   plan de partido, generador de sesiones con IA, evaluación de jugadores + informe a familias, tests físicos,

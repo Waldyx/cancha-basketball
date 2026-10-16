@@ -1,0 +1,271 @@
+---
+// /plan-tiro — plan individual de tiro para jugadores: rutina por puestos, anotados e intentos con un
+// toque y evolución sesión a sesión. Lógica pura en lib/planTiro.ts; la pista es la de la pizarra.
+// Todo en el navegador (cz.plantiro.v1).
+import "../styles/cancha-redesign.css";
+import Base from "../layouts/Base.astro";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Plan de tiro de baloncesto CANCHA.ZAPA",
+  url: "https://canchazapa.com/plan-tiro/",
+  applicationCategory: "SportsApplication",
+  operatingSystem: "Any",
+  inLanguage: "es",
+  isAccessibleForFree: true,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  description: "Rutinas de tiro por puestos (tiros libres, media distancia y triples): apunta anotados e intentos y mira cómo mejora tu porcentaje.",
+};
+---
+
+<Base
+  title="Plan de tiro de baloncesto: mejora tu porcentaje | CANCHA.ZAPA"
+  description="Rutinas de tiro por puestos para entrenar solo: tiros libres, media distancia y triples. Apunta anotados e intentos con un toque y mira cómo mejora tu porcentaje semana a semana."
+  jsonLd={jsonLd}
+>
+  <main class="app">
+    <section class="doc-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Jugadores · Entrenamiento</p>
+        <h1 class="doc-h1">Plan de <span class="accent">tiro</span></h1>
+        <p class="doc-lede">
+          Elige una rutina, apunta tus anotados e intentos en cada puesto y mira cómo mejora tu porcentaje semana a semana.
+          Se guarda en tu navegador.
+        </p>
+      </div>
+    </section>
+
+    <div class="shell pt">
+      <div class="pt-cols">
+        <section class="pt-panel">
+          <h2 class="pt-h2">Sesión de hoy</h2>
+          <label class="pt-campo">
+            <span>Rutina</span>
+            <select id="pt-rutina" class="pt-inp"></select>
+          </label>
+          <p id="pt-guia" class="pt-ayuda"></p>
+          <ul id="pt-puestos" class="pt-puestos"></ul>
+          <p id="pt-total" class="pt-total"></p>
+          <div class="pt-fila">
+            <button type="button" id="pt-guardar" class="pt-bn">Guardar sesión</button>
+            <button type="button" id="pt-deshacer" class="pt-bn pt-bn-2 pt-bn-sm">Deshacer último</button>
+            <button type="button" id="pt-vaciar" class="pt-bn pt-bn-2 pt-bn-sm">Empezar de cero</button>
+          </div>
+          <p id="pt-estado" class="pt-ayuda" role="status"></p>
+        </section>
+
+        <section class="pt-panel">
+          <h2 class="pt-h2">Tu evolución</h2>
+          <label class="pt-campo">
+            <span>Ver</span>
+            <select id="pt-ver" class="pt-inp"></select>
+          </label>
+          <div id="pt-grafica" class="pt-grafica"></div>
+          <svg id="pt-pista" class="pt-pista" role="img" aria-label="Porcentaje de acierto por puesto"></svg>
+          <ol id="pt-historial" class="pt-historial"></ol>
+        </section>
+      </div>
+      <p class="pt-privado">Tus sesiones se guardan solo en este navegador.</p>
+    </div>
+  </main>
+</Base>
+
+<style is:global>
+  .pt { padding-top: 20px; padding-bottom: 60px; display: flex; flex-direction: column; gap: 14px; }
+  .pt-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+  @media (max-width: 860px) { .pt-cols { grid-template-columns: 1fr; } }
+  .pt-panel { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; background: var(--cz-card); border: 1px solid var(--cz-border); min-width: 0; }
+  .pt-h2 { margin: 0; font: 900 20px "Barlow Condensed", sans-serif; text-transform: uppercase; color: var(--cz-text); }
+  .pt-campo { display: flex; flex-direction: column; gap: 3px; font: 800 10px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--cz-text-2); }
+  .pt-inp { width: 100%; min-height: 40px; padding: 6px 10px; background: var(--cz-bg); color: var(--cz-text); border: 1px solid var(--cz-border); border-radius: 0; font: 600 14px "Inter", sans-serif; text-transform: none; letter-spacing: 0; }
+  .pt-ayuda, .pt-privado { margin: 0; font-size: 12px; color: var(--cz-text-2); }
+  .pt-puestos { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .pt-puesto { display: grid; grid-template-columns: minmax(0, 1fr) auto auto auto; gap: 6px; align-items: center; padding: 6px 8px; border: 1px solid var(--cz-border); background: var(--cz-bg); }
+  .pt-nom { font: 700 13px "Inter", sans-serif; color: var(--cz-text); }
+  .pt-cuenta { font: 800 15px ui-monospace, monospace; color: var(--cz-text); min-width: 64px; text-align: center; }
+  .pt-mas { min-width: 48px; min-height: 44px; border: 0; font: 900 18px "Inter", sans-serif; color: #fff; cursor: pointer; border-radius: 0; }
+  .pt-mas.si { background: #16a34a; }
+  .pt-mas.no { background: #dc2626; }
+  .pt-total { margin: 0; font: 800 15px "Inter", sans-serif; color: var(--cz-text); }
+  .pt-fila { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pt-bn { min-height: 42px; padding: 0 16px; background: #f97316; border: 1px solid #f97316; color: #0c0c0c; font: 900 12px "Inter", sans-serif; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; border-radius: 0; }
+  .pt-bn-2 { background: transparent; color: var(--cz-text); border-color: var(--cz-border); }
+  .pt-bn-sm { min-height: 36px; padding: 0 12px; font-size: 11px; }
+  .pt-grafica svg { display: block; width: 100%; height: 120px; background: var(--cz-bg); border: 1px solid var(--cz-border); }
+  .pt-pista { display: block; width: 100%; max-width: 360px; height: auto; margin: 0 auto; background: #e3bd7e; }
+  .pt-historial { margin: 0; padding-left: 18px; font-size: 13px; color: var(--cz-text); display: flex; flex-direction: column; gap: 3px; max-height: 220px; overflow-y: auto; }
+  .pt-historial button { background: none; border: 0; color: var(--cz-red-text); cursor: pointer; font-weight: 900; }
+</style>
+
+<script>
+  import { aVista, cajaVista } from "../lib/pizarra";
+  import { PALETAS, renderTablero } from "../lib/pizarraRender";
+  import { LIMITE_SESIONES_TIRO, PUESTOS, RUTINAS, evolucion, normalizarStorePlan, pctDe, porPuesto, sumar, totalSesion, type Cuenta, type StorePlanTiro } from "../lib/planTiro";
+
+  const CLAVE = "cz.plantiro.v1";
+  const BORRADOR = "cz.plantiro.borrador";
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  let st: StorePlanTiro = normalizarStorePlan(null);
+  try {
+    st = normalizarStorePlan(JSON.parse(localStorage.getItem(CLAVE) ?? "null"));
+  } catch {
+    /* empezar de cero */
+  }
+  // la sesión en curso también se guarda, por si se cierra la pestaña a mitad de la rutina
+  let rutina = RUTINAS[1].id;
+  let actual: Record<string, Cuenta> = {};
+  try {
+    const b = JSON.parse(localStorage.getItem(BORRADOR) ?? "null");
+    if (b && RUTINAS.some((r) => r.id === b.rutina)) {
+      rutina = b.rutina;
+      actual = normalizarStorePlan({ sesiones: [{ fecha: "2000-01-01", rutina: b.rutina, tiros: b.tiros }] }).sesiones[0]?.tiros ?? {};
+    }
+  } catch {
+    /* sin borrador */
+  }
+  const guardarTodo = () => {
+    try {
+      localStorage.setItem(CLAVE, JSON.stringify(st));
+      localStorage.setItem(BORRADOR, JSON.stringify({ rutina, tiros: actual }));
+    } catch {
+      /* sin almacenamiento */
+    }
+  };
+  const hoy = () => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  };
+  const nombre = (id: string) => PUESTOS.find((p) => p.id === id)?.nombre ?? id;
+  const fmt = (c: Cuenta) => `${c[0]}/${c[1]}`;
+  const pc = (c: Cuenta) => (pctDe(c) === null ? "—" : `${pctDe(c)} %`);
+
+  function el(tag: string, cls?: string, text?: string) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  }
+
+  function pintarSesion() {
+    const r = RUTINAS.find((x) => x.id === rutina)!;
+    $<HTMLSelectElement>("pt-rutina").value = rutina;
+    $("pt-guia").textContent = `Unos ${r.porPuesto} tiros por puesto. Toca ✓ si entra y ✗ si no. ¿Te has equivocado? «Deshacer último».`;
+    const ul = $("pt-puestos");
+    ul.replaceChildren();
+    for (const p of r.puestos) {
+      const li = el("li", "pt-puesto");
+      const c = actual[p] ?? [0, 0];
+      const cuenta = el("span", "pt-cuenta", `${fmt(c)}`);
+      const boton = (dentro: boolean) => {
+        const b = el("button", `pt-mas ${dentro ? "si" : "no"}`, dentro ? "✓" : "✗") as HTMLButtonElement;
+        b.type = "button";
+        b.setAttribute("aria-label", `${dentro ? "Anotado" : "Fallado"} en ${nombre(p)}`);
+        b.addEventListener("click", () => cambiar(p, dentro, 1));
+        b.addEventListener("contextmenu", (e) => {
+          e.preventDefault();
+          cambiar(p, dentro, -1);
+        });
+        return b;
+      };
+      li.append(el("span", "pt-nom", nombre(p)), boton(true), boton(false), cuenta);
+      ul.append(li);
+    }
+    const tot = totalSesion({ id: "", fecha: "", rutina, tiros: actual });
+    $("pt-total").textContent = tot[1] ? `Hoy: ${fmt(tot)} · ${pc(tot)}` : "";
+  }
+
+  // pila de lo apuntado en esta sesión, para «Deshacer último» (en iPhone no hay clic derecho)
+  const hechos: { p: string; dentro: boolean }[] = [];
+  function cambiar(p: string, dentro: boolean, delta: 1 | -1) {
+    if (delta === 1) hechos.push({ p, dentro });
+    actual[p] = sumar(actual[p], dentro, delta);
+    guardarTodo();
+    pintarSesion();
+  }
+
+  function pintarEvolucion() {
+    const ver = $<HTMLSelectElement>("pt-ver").value;
+    const serie = evolucion(st.sesiones, ver || undefined);
+    const g = $("pt-grafica");
+    if (serie.length < 2) {
+      g.replaceChildren(el("p", "pt-ayuda", serie.length ? "Guarda otra sesión para ver tu evolución." : "Aún no hay sesiones guardadas."));
+    } else {
+      const w = 300;
+      const h = 100;
+      const paso = w / (serie.length - 1);
+      const pts = serie.map((s, i) => `${Math.round(i * paso)},${Math.round(h - (s.pct / 100) * h)}`).join(" ");
+      const ult = serie[serie.length - 1];
+      g.innerHTML = `<svg viewBox="-10 -10 ${w + 20} ${h + 20}" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="${h / 2}" x2="${w}" y2="${h / 2}" stroke="currentColor" stroke-opacity=".2"/><polyline points="${pts}" fill="none" stroke="#f97316" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg>`;
+      g.append(el("p", "pt-ayuda", `Primera sesión: ${serie[0].pct} % · última: ${ult.pct} % (la línea gris es el 50 %)`));
+    }
+    // pista con el % acumulado de cada puesto
+    const svg = $("pt-pista") as unknown as SVGSVGElement;
+    const vb = cajaVista("media", "v");
+    svg.setAttribute("viewBox", `${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
+    let s = renderTablero({ cancha: "media", orient: "v", pista: "fiba", paleta: PALETAS.parquet, piezas: [], lineas: [], textos: [] });
+    const acc = porPuesto(st.sesiones);
+    for (const p of PUESTOS) {
+      const c = acc[p.id];
+      if (!c || !c[1]) continue;
+      const v = aVista(p, "v");
+      const pct = pctDe(c)!;
+      const color = pct >= 50 ? "#16a34a" : pct >= 35 ? "#ca8a04" : "#dc2626";
+      s += `<circle cx="${v.x}" cy="${v.y}" r="0.9" fill="${color}" stroke="#fff" stroke-width="0.08"/><text x="${v.x}" y="${v.y + 0.3}" font-size="0.75" font-weight="700" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif">${pct}%</text>`;
+    }
+    svg.innerHTML = s;
+    // historial
+    const ol = $("pt-historial");
+    ol.replaceChildren();
+    for (const ses of st.sesiones.slice().sort((a, b) => b.fecha.localeCompare(a.fecha))) {
+      const t = totalSesion(ses);
+      const li = el("li", undefined, `${ses.fecha.split("-").reverse().join("/")} · ${RUTINAS.find((r) => r.id === ses.rutina)?.nombre.split(" ·")[0]} · ${fmt(t)} (${pc(t)}) `);
+      const x = el("button", undefined, "×") as HTMLButtonElement;
+      x.type = "button";
+      x.setAttribute("aria-label", "Borrar sesión");
+      x.addEventListener("click", () => {
+        if (!confirm("¿Borrar esta sesión?")) return;
+        st.sesiones = st.sesiones.filter((y) => y.id !== ses.id);
+        guardarTodo();
+        pintarEvolucion();
+      });
+      li.append(x);
+      ol.append(li);
+    }
+  }
+
+  $<HTMLSelectElement>("pt-rutina").replaceChildren(...RUTINAS.map((r) => new Option(r.nombre, r.id)));
+  $<HTMLSelectElement>("pt-ver").replaceChildren(new Option("Todos los tiros", ""), ...PUESTOS.map((p) => new Option(p.nombre, p.id)));
+  $<HTMLSelectElement>("pt-rutina").addEventListener("change", (e) => {
+    rutina = (e.target as HTMLSelectElement).value;
+    guardarTodo();
+    pintarSesion();
+  });
+  $<HTMLSelectElement>("pt-ver").addEventListener("change", pintarEvolucion);
+  $("pt-guardar").addEventListener("click", () => {
+    const r = RUTINAS.find((x) => x.id === rutina)!;
+    const tiros: Record<string, Cuenta> = {};
+    for (const p of r.puestos) if (actual[p]?.[1]) tiros[p] = actual[p];
+    if (!Object.keys(tiros).length) return void ($("pt-estado").textContent = "Apunta algún tiro antes de guardar.");
+    if (st.sesiones.length >= LIMITE_SESIONES_TIRO) st.sesiones.sort((a, b) => a.fecha.localeCompare(b.fecha)).shift();
+    st.sesiones.push({ id: Math.random().toString(36).slice(2, 10), fecha: hoy(), rutina, tiros });
+    actual = {};
+    guardarTodo();
+    $("pt-estado").textContent = "Sesión guardada.";
+    pintarSesion();
+    pintarEvolucion();
+  });
+  $("pt-deshacer").addEventListener("click", () => {
+    const u = hechos.pop();
+    if (u) cambiar(u.p, u.dentro, -1);
+  });
+  $("pt-vaciar").addEventListener("click", () => {
+    hechos.length = 0;
+    actual = {};
+    guardarTodo();
+    pintarSesion();
+  });
+
+  pintarSesion();
+  pintarEvolucion();
+</script>
