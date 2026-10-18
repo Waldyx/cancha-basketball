@@ -401,6 +401,19 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   de la sesión) y balón medicinal. Entrada estación por estación (Intro salta al siguiente), rangos plausibles por prueba,
   marca anterior con ▲/▼ según si es mejor más o menos, media del grupo, CSV con coma decimal y evolución por jugador.
   SIN rankings entre niños. Fichas imprimibles = Pro (`tests-fichas`). `lib/testsFisicos.ts`, `cz.tests.v1`.
+- ✅ **Revisión del 18-oct (Sonnet, `trabajo/revision-18oct.md`) aplicada**: torneo — filas que se actualizan en su sitio
+  (antes el repintado mataba el foco y en móvil cerraba el teclado), desempate FIBA RECURSIVO (si la mini-liga deja a dos
+  empatados decide su cara a cara; difería en el 2-24 % de grupos), horario hueco a hueco que llena todas las pistas
+  (4 eq./2 pistas: 3 huecos, antes 5) y prefiere dar descanso, avisos de equipos repetidos/recortados (`leerEquipos`,
+  nombre hasta 40), corregir un marcador no vacía el cuadro (foto de cruces hasta que el partido vuelve a tener
+  resultado), renombrar no borra resultados, `hashchange`, horas «(+1 d)». 🔑 El ORDEN de `partidos` es el de creación y
+  hay test-instantánea: los enlaces guardan resultados por posición. Evaluación/tests: ids que ordenan por creación,
+  `lib/huerfanosUI.ts` (datos que cuelgan de un nombre viejo → pasarlos o borrarlos; también en tests físicos),
+  «Cambio» solo con criterios comunes. Claves de jugador hasta 48 car. (antes 40 rompía «nombre de 40 (2)»).
+- ✅ **3 guías para entrenadores en el blog (18-oct, redactadas por Sonnet y revisadas)**: torneo 3x3 (reglas FIBA 3x3
+  verificadas en about.fiba.basketball y fiba.basketball; el PDF de fiba3x3.com da 403, por eso faltan faltas/tiempos
+  muertos), tests físicos y evaluar sin nota. Enlace en los dos sentidos con su herramienta. Portada: el torneo sustituye
+  a «Coste por partido» en herramientas y enlace a todas.
 - ▶️ **Ideas siguientes** (sin prometer en la web): generador de sesiones con IA.
 - ▶️ **Paso 3, por orden**: control de minutos/cuartos (verificar normas de participación de la FCBQ) → mapa de
   tiro → libro de jugadas con escudo del club → etiquetas de vídeo. Más ideas: informe del rival (actas FEB),

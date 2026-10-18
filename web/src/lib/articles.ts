@@ -3960,6 +3960,189 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">¿Sigues sin decidirte? <a href="/comparar?slugs=nike-sabrina-3,jordan-heir-series,ua-flow-breakthru-4">Compáralas cara a cara</a> con sus 8 atributos, o filtra el <a href="/zapatillas?mujer=1">catálogo de mujer</a>.</p>
 `,
   },
+
+  // ── Torneos 3x3 / triangulares ──────────────────────────────────────
+  {
+    slug: "organizar-torneo-3x3-baloncesto-paso-a-paso",
+    title: "Cómo organizar un torneo 3x3 de baloncesto (o un triangular) paso a paso",
+    metaTitle: "Organizar un torneo 3x3 de baloncesto paso a paso | CANCHA.ZAPA",
+    description:
+      "Cómo montar un torneo 3x3 o un triangular: reglas básicas de FIBA 3x3, formatos, grupos, horario por pistas, desempates y calendario para compartir.",
+    fecha: "2026-10-18",
+    fechaLabel: "18 octubre 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Entrenadores · Torneos",
+    heroTitle: "Cómo organizar un torneo 3x3 paso a paso",
+    heroSubtitle: "Reglas FIBA 3x3, formatos, horarios por pista y desempates · Para 3x3, campus y triangulares",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: [],
+    relatedSeoPages: ["zapatillas-outdoor", "zapatillas-indoor"],
+    body: `
+<p class="art-intro">Un 3x3 de fiestas, un campus de verano o el triangular de pretemporada del club tienen el mismo problema: veinte cosas pequeñas que, si no están decididas antes, se resuelven a gritos en mitad de la pista. Esta guía ordena esas decisiones, resume las reglas básicas del 3x3 oficial y te enseña a sacar el calendario en un minuto.</p>
+
+<h2>1. Decide qué reglas vais a usar</h2>
+<p>Lo primero es avisar a los equipos de si se juega con el reglamento oficial de FIBA 3x3 o con una versión adaptada. Las reglas básicas del 3x3 oficial, según las páginas de FIBA, son estas:</p>
+<ul>
+  <li><strong>Pista y equipos:</strong> una sola canasta y media pista. Cada equipo lleva tres jugadores en pista y uno suplente; los tres tienen que estar en la pista para empezar.</li>
+  <li><strong>Duración:</strong> 10 minutos de juego, con el reloj parado en balón muerto. Gana quien llegue antes a 21 puntos si lo consigue antes de que se acabe el tiempo; si no, gana quien tenga más puntos al final.</li>
+  <li><strong>Puntuación:</strong> 1 punto por canasta dentro del arco y por cada tiro libre, 2 puntos por canasta desde fuera del arco.</li>
+  <li><strong>Reloj de posesión:</strong> 12 segundos para intentar un tiro; si se agota sin tirar, la posesión pasa al rival.</li>
+  <li><strong>Prórroga:</strong> si hay empate al final, se juega una prórroga sin tiempo y gana el primero que anota 2 puntos.</li>
+  <li><strong>Inicio y reanudaciones:</strong> la defensa pasa el balón al ataque para empezar o reanudar el juego. Tras canasta, el equipo que no ha anotado saca el balón desde debajo del aro y lo lleva fuera del arco.</li>
+  <li><strong>Cambios:</strong> solo con balón muerto, entrando por detrás de la línea de fondo opuesta a la canasta y tocando al compañero que sale.</li>
+  <li><strong>Balón:</strong> en los eventos oficiales se usa un balón del número 6.</li>
+</ul>
+<p>Para pachangas, FIBA indica que se puede jugar a 3, 7, 9, 15 o 21 puntos. Si juegas con categorías de base, acorta el tiempo o los puntos si hace falta, pero dilo por escrito antes de empezar, no durante el torneo.</p>
+
+<h2>2. Cuenta equipos y pistas</h2>
+<p>Estos dos números mandan sobre todo lo demás. Cada equipo debería inscribirse con cuatro jugadores (tres en pista y un suplente). Con pocos equipos, una liga a una vuelta es la opción más justa: un <strong>triangular</strong> son solo tres partidos y cada equipo juega dos. Con más equipos, grupos y fase final. Cuantas más pistas tengas, más partidos a la vez; con una sola pista, los partidos van uno detrás de otro y el día se alarga.</p>
+
+<h2>3. Monta el calendario con la herramienta</h2>
+<p>El <a href="/torneo/">organizador de torneos</a> de CANCHA.ZAPA hace el trabajo pesado y es gratis, sin registro. Escribes los equipos, uno por línea, y eliges entre siete formatos: liga, liga con final, liga con semifinales, dos grupos con final o semifinales, y cuatro grupos con semifinales o con cuartos. Admite hasta 32 equipos y hasta 8 pistas.</p>
+<ul>
+  <li><strong>Reparto en serpiente:</strong> si escribes los equipos del más fuerte al más flojo, cada grupo recibe uno de arriba y uno de abajo, y los grupos quedan equilibrados.</li>
+  <li><strong>Horario por pistas:</strong> indicas la hora de inicio, los minutos por partido y el descanso entre partidos. La herramienta reparte los partidos por pista y hora, llena todas las pistas, nunca pone a un equipo en dos partidos a la vez y, cuando se puede, da descanso a quien acaba de jugar.</li>
+  <li><strong>Cruces automáticos:</strong> al acabar la fase de grupos, los cruces se rellenan solos con los clasificados. Si luego corriges un resultado y cambia quién pasa, el resultado de ese cruce se vacía.</li>
+</ul>
+<p>Un detalle práctico: el reloj del 3x3 se para en balón muerto, así que un partido de 10 minutos de juego dura más que 10 minutos en la pared. Prueba el primer partido con un cronómetro y ajusta los minutos por partido antes de generar el calendario definitivo.</p>
+
+<h2>4. Que el desempate no sea una discusión</h2>
+<p>Comunica antes cómo se desempata. La clasificación de la herramienta cuenta victorias; si hay empate a victorias, mira los partidos entre los equipos empatados (victorias y diferencia de puntos); si aun así quedan dos empatados, decide el partido entre ellos, y si no, la diferencia y los puntos a favor de todo el grupo. Además, un resultado empatado no cuenta: en baloncesto no hay empate, así que la herramienta lo marca en rojo y lo avisa hasta que metas el resultado de la prórroga.</p>
+
+<h2>5. Lo que se olvida siempre</h2>
+<ul>
+  <li><strong>Mesa y árbitros:</strong> como mínimo, alguien al cronómetro y alguien al reloj de posesión por pista, además de quien arbitra. Si no hay reloj de posesión, decidid antes si lo usáis.</li>
+  <li><strong>Inscripción:</strong> pide nombre del equipo, un responsable con teléfono y la lista de jugadores. Cierra la inscripción antes de generar el calendario.</li>
+  <li><strong>Categorías:</strong> no mezcles edades muy distintas en el mismo grupo; mejor un cuadro por categoría.</li>
+  <li><strong>Calzado y suelo:</strong> si juegas en cemento, avisa a los jugadores. El agarre y el desgaste cambian mucho entre pista exterior y parquet; en nuestras guías hay <a href="/zapatillas-outdoor/">zapatillas para exterior</a> y <a href="/zapatillas-indoor/">para pabellón</a>.</li>
+</ul>
+
+<h2>6. Comparte y guarda</h2>
+<p>El calendario se imprime con un botón. También puedes copiar un enlace que lleva todo dentro (equipos y resultados): quien lo abre ve la foto del momento en que lo copiaste, así que vuelve a copiarlo cuando haya resultados nuevos. Quien lo recibe puede guardar una copia para editarla. El torneo se guarda en tu navegador y el enlace no pasa por ningún servidor.</p>
+
+<p class="art-outro">¿Tienes ya los equipos? <a href="/torneo/">Genera el calendario de tu torneo</a> en un minuto, gratis y sin registro.</p>
+`,
+  },
+
+  // ── Tests físicos ───────────────────────────────────────────────────
+  {
+    slug: "tests-fisicos-baloncesto-formacion",
+    title: "Tests físicos en baloncesto de formación: cuáles pasar y cómo hacerlo bien",
+    metaTitle: "Tests físicos en baloncesto base: cuáles y cómo | CANCHA.ZAPA",
+    description:
+      "Qué tests físicos pasar a tus jugadores de base (velocidad, agilidad, saltos, Course Navette), cómo hacerlos bien y seguir la evolución de cada uno.",
+    fecha: "2026-10-18",
+    fechaLabel: "18 octubre 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Entrenadores · Preparación física",
+    heroTitle: "Tests físicos en baloncesto de formación",
+    heroSubtitle: "Qué pasar, cómo hacerlo bien y por qué no comparar a unos niños con otros",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: [],
+    relatedSeoPages: ["zapatillas-baloncesto-junior", "zapatillas-reactivas"],
+    body: `
+<p class="art-intro">Pasar tests físicos a un equipo de base sirve para una sola cosa: saber si cada jugador mejora respecto a sí mismo. No sirve para hacer un ranking de niños ni para decidir quién juega. Con esa idea clara, una batería sencilla pasada dos o tres veces por temporada te da información útil sin complicarte la vida.</p>
+
+<h2>La regla de oro: cada jugador, contra sí mismo</h2>
+<p>A estas edades dos chicos de la misma edad pueden estar en momentos de crecimiento muy distintos. Comparar sus números no mide el trabajo ni el talento; mide, sobre todo, quién se ha desarrollado antes. Por eso no publiques tablas ordenadas ni los pegues en el vestuario. Lo que sí tiene sentido es ver que Marc ha mejorado su salto respecto a octubre, o la media del grupo respecto a la sesión anterior. En esta guía no encontrarás baremos por edad: no damos valores de referencia que no podamos respaldar.</p>
+
+<h2>Las pruebas de la batería</h2>
+<p>La herramienta de <a href="/tests-fisicos/">tests físicos</a> de CANCHA.ZAPA incluye seis pruebas con este protocolo:</p>
+<ul>
+  <li><strong>Velocidad 20 m:</strong> salida parada a 0,5 m de la línea. Se anota el mejor de dos intentos.</li>
+  <li><strong>Agilidad 5-10-5:</strong> desde el centro, 5 m a un lado, 10 m al otro y 5 m de vuelta, tocando cada línea. Mejor de dos.</li>
+  <li><strong>Salto vertical:</strong> marca de pie con el brazo estirado y marca en el salto, contra la pared; el resultado es la diferencia. Mejor de tres.</li>
+  <li><strong>Salto horizontal:</strong> pies juntos, sin carrerilla, midiendo hasta el talón más atrasado. Mejor de dos.</li>
+  <li><strong>Course Navette:</strong> 20 m de ida y vuelta al ritmo de la grabación, que empieza a 8,5 km/h y sube 0,5 cada minuto. Se anota el último palier completado.</li>
+  <li><strong>Lanzamiento de balón medicinal:</strong> a dos manos desde el pecho, sentado o de pie. Siempre con el mismo peso de balón, que conviene anotar en la sesión. Mejor de dos.</li>
+</ul>
+<p>No hace falta pasarlas todas siempre. Elige las que respondan a lo que estás trabajando, pero repite exactamente las mismas en cada sesión.</p>
+
+<h2>Cómo hacerlo bien para que los números valgan</h2>
+<ul>
+  <li><strong>Mismas condiciones:</strong> misma pista, mismo tipo de calzado y, si puedes, mismo momento del día. Si cambia el suelo, el resultado no es comparable. En la sesión puedes dejar una nota con el balón, la pista y el calzado.</li>
+  <li><strong>Calienta antes:</strong> un calentamiento general y unas repeticiones suaves de cada prueba. Empezar a sprintar o saltar en frío no es buena idea.</li>
+  <li><strong>Mismo protocolo para todos:</strong> explica y demuestra cada prueba, deja un intento de prueba y cuenta los intentos que marca el protocolo.</li>
+  <li><strong>Orden sensato:</strong> deja la Course Navette para el final, porque deja a todos cansados y falsearía las demás pruebas.</li>
+  <li><strong>Estación por estación:</strong> monta una zona por prueba y rota a los jugadores. Todos hacen lo mismo y tú apuntas con el móvil en la mano.</li>
+  <li><strong>Dos o tres veces por temporada:</strong> al inicio, a mitad y al final. Más a menudo quita tiempo de entreno.</li>
+  <li><strong>Sin lesionados:</strong> quien tiene una molestia o está enfermo no hace la prueba; ya habrá otra sesión.</li>
+</ul>
+
+<h2>VO2máx estimado: orientativo, no clínico</h2>
+<p>Con la Course Navette, la herramienta calcula un VO2máx estimado usando las ecuaciones de Léger y colaboradores de 1988: una para menores de 18 años, que usa la edad, y otra para adultos. Para eso pides una edad media del grupo en la sesión. Es una estimación de campo a partir del último palier, no una medida de laboratorio, y como usa una edad media común, conviene mirar su tendencia en cada jugador más que el valor exacto.</p>
+
+<h2>Anota, compara y no te obsesiones</h2>
+<p>Escribes la marca de cada jugador y pulsas Intro para pasar al siguiente; la sesión se guarda sola. En cada prueba ves la marca anterior y si ha mejorado, teniendo en cuenta que en los tiempos mejor es menos y en las distancias, más. También verás la media del grupo y la evolución de cada jugador a lo largo de la temporada. Puedes descargar un CSV de la sesión.</p>
+<p>Los nombres y las marcas se guardan solo en tu navegador: nada sale de tu dispositivo, algo importante cuando son datos de menores. Imprimir una ficha por jugador es una función Pro, gratis durante la beta.</p>
+
+<p class="art-outro">¿Empiezas la temporada? Crea tu primera sesión en <a href="/tests-fisicos/">Tests físicos</a> y deja la referencia de cada jugador anotada desde el principio. Gratis y sin registro.</p>
+`,
+  },
+
+  // ── Evaluación sin notas ────────────────────────────────────────────
+  {
+    slug: "evaluar-jugadores-baloncesto-base-sin-notas",
+    title: "Cómo evaluar a tus jugadores de baloncesto base sin ponerles nota",
+    metaTitle: "Evaluar a jugadores de base sin ponerles nota | CANCHA.ZAPA",
+    description:
+      "Evalúa a tus jugadores de baloncesto base por niveles y no con notas: 12 criterios de técnica, juego y actitud, su evolución y un informe en positivo.",
+    fecha: "2026-10-18",
+    fechaLabel: "18 octubre 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Entrenadores · Equipo",
+    heroTitle: "Evaluar a tus jugadores de base sin ponerles nota",
+    heroSubtitle: "Niveles en lugar de números, 12 criterios y un informe en positivo para las familias",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: [],
+    relatedSeoPages: ["zapatillas-baloncesto-junior", "zapatillas-baloncesto-calidad-precio"],
+    body: `
+<p class="art-intro">Decirle a un niño de nueve años que tiene un 4 sobre 10 en tiro no le ayuda a tirar mejor. Le dice dónde está en una escala que no entiende y le compara con los demás. En baloncesto de base conviene evaluar para orientar el trabajo, no para puntuar. Esta guía propone una forma de hacerlo por niveles, con criterios claros y sin ranking.</p>
+
+<h2>Por qué mejor niveles que notas</h2>
+<p>Una nota numérica invita a comparar y a quedarse con el número. Un nivel describe en qué punto del aprendizaje está el jugador. En la herramienta de <a href="/evaluacion/">evaluación</a> de CANCHA.ZAPA hay cuatro niveles. Esta es una forma práctica de interpretarlos:</p>
+<ul>
+  <li><strong>1 · Empezando:</strong> todavía no lo hace con regularidad.</li>
+  <li><strong>2 · En progreso:</strong> lo hace a veces y mejora.</li>
+  <li><strong>3 · Lo consigue:</strong> lo hace bien de forma habitual.</li>
+  <li><strong>4 · Destaca:</strong> lo hace muy bien y con claridad; es un punto fuerte.</li>
+</ul>
+<p>Puedes dejar un criterio sin valorar y volver a tocar el nivel marcado para quitarlo: es preferible no valorar algo que no has visto bien que poner un nivel por cumplir.</p>
+
+<h2>Doce criterios en tres áreas</h2>
+<p>La herramienta evalúa lo que se entrena de verdad, dividido en tres áreas:</p>
+<ul>
+  <li><strong>Técnica:</strong> bote, pase, tiro, entrada a canasta y juego de pies.</li>
+  <li><strong>Juego:</strong> lectura del juego, juego sin balón, defensa y rebote.</li>
+  <li><strong>Actitud:</strong> esfuerzo, compañerismo, y escucha y aprendizaje.</li>
+</ul>
+<p>Cada criterio lleva una pista de qué mirar. Por ejemplo, en bote: con las dos manos, sin mirar el balón y protegiéndolo. Esa pista importa más de lo que parece: sirve para que dos entrenadores del mismo club valoren lo mismo y para que tú mismo seas consistente de una evaluación a otra.</p>
+
+<h2>Cuándo y cómo evaluar</h2>
+<ul>
+  <li><strong>Dos o tres veces por temporada:</strong> al principio, a mitad y al final. Más a menudo es ruido y menos no te deja ver la evolución.</li>
+  <li><strong>Evalúa lo observado en partidos y entrenos</strong>, no lo que recuerdas de un día. Si dudas, deja el criterio en blanco.</li>
+  <li><strong>Una sentada por evaluación:</strong> valorar a todos el mismo día y con la misma pista de cada criterio hace que sean comparables entre sí las evaluaciones del mismo jugador.</li>
+  <li><strong>Comentario del entrenador:</strong> añade unas líneas por jugador, lo que ha avanzado y en qué debe fijarse (hasta 600 caracteres).</li>
+</ul>
+
+<h2>Compara con la evaluación anterior, no con el compañero</h2>
+<p>Al valorar a un jugador, la herramienta te enseña a la vista el nivel que tenía en cada criterio en la evaluación anterior y resume lo que ha mejorado. El resumen está pensado para no engañar: los puntos fuertes salen solo desde el nivel «Lo consigue», y lo que conviene trabajar solo aparece cuando está por debajo de ese nivel. Así una hoja nunca presenta como «lo mejor» algo que todavía está flojo. Además hay una tabla del equipo por áreas, para ver dónde reforzar los entrenos del grupo. Es para ti: no la repartas entre jugadores ni familias.</p>
+
+<h2>Cómo contarlo a las familias</h2>
+<p>La ficha imprimible de cada jugador, con el escudo del club, resume sus niveles y su comentario. Imprimir fichas es una función Pro, gratis durante la beta.</p>
+<p>Aparte, si llevas las estadísticas del equipo, el <a href="/familias/">informe para las familias</a> genera una hoja por jugador con su temporada, y siempre en positivo: sus números, un mejor partido, la gráfica de puntos y tu comentario. Solo habla de puntos fuertes frente a la media del equipo sin nombrar a nadie, y solo señala que ha ido a más cuando es verdad. Si un jugador apenas ha jugado, el texto usa una frase neutra en vez de darle una lista vacía.</p>
+<p>Los dos documentos cumplen la misma idea: la familia ve el progreso de su hijo o hija, no una clasificación del equipo.</p>
+
+<h2>Una nota sobre los datos</h2>
+<p>Las valoraciones y los nombres son datos de menores. En estas herramientas se guardan solo en el navegador del entrenador y no se suben a ningún servidor: si cambias de ordenador o borras los datos del navegador, los pierdes, así que conviene imprimir o guardar en PDF lo que vayas a conservar.</p>
+
+<p class="art-outro">Prueba el método con tu equipo: crea la primera evaluación en <a href="/evaluacion/">Evaluación de jugadores</a> y, cuando termines la temporada, prepara el <a href="/familias/">informe para las familias</a>. Gratis y sin registro.</p>
+`,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
