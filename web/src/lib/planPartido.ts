@@ -43,8 +43,16 @@ export function planVacio(id: string): PlanPartido {
   return { id, rival: "", rivalId: "", fecha: "", hora: "", lugar: "", objetivos: "", claves: "", ataque: "", defensa: "", especiales: "", emparejamientos: [], jugadas: [] };
 }
 
-/** "#7" si hay dorsal; si no, el nombre. */
-export const etiquetaRival = (nombre: string, dorsal: string) => (dorsal ? `#${dorsal}` : nombre);
+/** "#7" si hay dorsal; si no, sus iniciales («P. R.»): el nombre de un niño rival nunca sale tal cual. */
+export const etiquetaRival = (nombre: string, dorsal: string) =>
+  dorsal
+    ? `#${dorsal}`
+    : nombre
+        .replace(/,/g, " ")
+        .split(/\s+/)
+        .filter(Boolean)
+        .map((p) => `${p[0].toUpperCase()}.`)
+        .join(" ");
 
 /** Jugadores del rival ordenados por puntos por partido, con la etiqueta que se usa en el plan. */
 export function jugadoresRival(r: Rival): { etiqueta: string; nombre: string; pts: number }[] {
@@ -60,11 +68,11 @@ const escRe = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
  */
 export function clavesDelRival(r: Rival): string {
   const inf = informe(r.actas);
-  const js = [...inf.jugadores].filter((j) => j.dorsal).sort((a, b) => b.nombre.length - a.nombre.length);
+  const js = [...inf.jugadores].sort((a, b) => b.nombre.length - a.nombre.length);
   return inf.claves
     .map((c) => {
       let t = c;
-      for (const j of js) t = t.replace(new RegExp(`(^|[^\\p{L}])${escRe(j.nombre)}(?![\\p{L}])`, "gu"), `$1#${j.dorsal}`);
+      for (const j of js) t = t.replace(new RegExp(`(^|[^\\p{L}'-])${escRe(j.nombre)}(?![\\p{L}'-])`, "gu"), `$1${etiquetaRival(j.nombre, j.dorsal)}`);
       return t;
     })
     .join("\n");

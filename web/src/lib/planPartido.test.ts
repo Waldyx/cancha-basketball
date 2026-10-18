@@ -14,7 +14,7 @@ const rival: Rival = {
 
 describe("plan de partido", () => {
   it("usa el dorsal del rival y no su nombre", () => {
-    expect(jugadoresRival(rival).map((x) => x.etiqueta)).toEqual(["#7", "#10", "Pau"]);
+    expect(jugadoresRival(rival).map((x) => x.etiqueta)).toEqual(["#7", "#10", "P."]);
     const claves = clavesDelRival(rival);
     expect(claves).toContain("#7");
     expect(claves).not.toContain("Pau Ruiz");

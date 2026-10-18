@@ -283,9 +283,11 @@ const jsonLd = {
       const r = rivales.find((x) => x.id === sel.value);
       if (!r) return;
       const p = plan();
+      // otro rival: las claves del anterior no pueden quedarse con el nombre del nuevo
+      if (p.rivalId !== r.id && p.claves.trim() && !confirm("Las claves escritas no son de este rival. ¿Sustituirlas por las suyas?")) return void (sel.value = p.rivalId);
+      if (p.rivalId !== r.id || !p.claves.trim()) p.claves = clavesDelRival(r);
       p.rival = r.nombre;
       p.rivalId = r.id;
-      if (!p.claves.trim()) p.claves = clavesDelRival(r);
       guardar();
       pintarTodo();
     });
