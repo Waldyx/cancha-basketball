@@ -22,6 +22,7 @@ export const FUNCIONES_PRO = {
   "familias-informe": "Informes para las familias",
   "video-clips": "Clips seguidos y exportar etiquetas de vídeo",
   "evaluacion-fichas": "Fichas de evaluación imprimibles",
+  "tests-fichas": "Fichas de tests físicos imprimibles",
 } as const;
 
 export type FuncionPro = keyof typeof FUNCIONES_PRO;

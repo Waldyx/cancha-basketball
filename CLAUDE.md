@@ -396,7 +396,12 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   diferencia → puntos a favor) y cruces que se rellenan solos; si cambia quién juega un cruce, su resultado se vacía.
   Enlace de solo ver con TODO en el `#t=` (~300 caracteres para 8 equipos) y «Guardar una copia para editarlo».
   Gratis a propósito: es lo que más se comparte con familias de fuera del club (adquisición). `lib/torneo.ts`, `cz.torneo.v1`.
-- ▶️ **Ideas siguientes** (sin prometer en la web): generador de sesiones con IA, tests físicos.
+- ✅ **Tests físicos `/tests-fisicos/` (18-oct)**: velocidad 20 m, agilidad 5-10-5, salto vertical y horizontal, Course
+  Navette (palier → VO2máx ESTIMADO con Léger 1988: fórmula con edad de 6 a 17, la de adultos desde 18; usa la edad media
+  de la sesión) y balón medicinal. Entrada estación por estación (Intro salta al siguiente), rangos plausibles por prueba,
+  marca anterior con ▲/▼ según si es mejor más o menos, media del grupo, CSV con coma decimal y evolución por jugador.
+  SIN rankings entre niños. Fichas imprimibles = Pro (`tests-fichas`). `lib/testsFisicos.ts`, `cz.tests.v1`.
+- ▶️ **Ideas siguientes** (sin prometer en la web): generador de sesiones con IA.
 - ▶️ **Paso 3, por orden**: control de minutos/cuartos (verificar normas de participación de la FCBQ) → mapa de
   tiro → libro de jugadas con escudo del club → etiquetas de vídeo. Más ideas: informe del rival (actas FEB),
   plan de partido, generador de sesiones con IA, evaluación de jugadores + informe a familias, tests físicos,
@@ -2473,14 +2478,14 @@ Ordenación: **precio primero**, desempate por comisión dentro de ±0,50 €.
 | Blog (31 artículos) · SEO pages (34) · Accesorios | `/blog` `/blog/[slug]` · `/balones` |
 | FAQ (43) · Metodología · Financiación · Privacidad · Guía de tallas · 404 | |
 | Entrada por público: Jugadores · Entrenadores · Clubs | `/jugadores/` `/entrenadores/` `/clubs/` |
-| Herramientas de entrenador: Pizarra · Control de minutos · Mapa de tiro · Informe del rival · Asistencia · Evaluación · Informe para familias · Etiquetas de vídeo · Torneos | `/pizarra/` `/minutos/` `/tiro/` `/rival/` `/asistencia/` `/evaluacion/` `/familias/` `/video/` `/torneo/` |
+| Herramientas de entrenador: Pizarra · Control de minutos · Mapa de tiro · Informe del rival · Asistencia · Evaluación · Tests físicos · Informe para familias · Etiquetas de vídeo · Torneos | `/pizarra/` `/minutos/` `/tiro/` `/rival/` `/asistencia/` `/evaluacion/` `/tests-fisicos/` `/familias/` `/video/` `/torneo/` |
 
 **Nav** (desde el 15-oct): `Zapatillas ▾ (Catálogo, Quiz, Rankings, Comparar, Calculadora, Accesorios) | Jugadores | Entrenadores | Clubs | Blog | ♥ Mis zapas`
 (lo pone `Header.astro` desde `Base.astro`; el activo sale de `Astro.url.pathname`).
-**Footer global**: columnas Explora · Herramientas · Entrenadores (las 9 herramientas + clubs) · El proyecto.
+**Footer global**: columnas Explora · Herramientas · Entrenadores (las 10 herramientas + clubs) · El proyecto.
 **Pro** (beta gratis, `lib/pro.ts` + `ProGate.astro`): basta `data-pro="<id>"` en un botón o formulario. Ids hoy: pizarra-sesiones,
 pizarra-jugador, pizarra-animacion, pizarra-lecturas, pizarra-club, pizarra-marca, stats-equipo, stats-agente, minutos-rotacion,
-tiro-temporada, rival-varios, familias-informe, video-clips, evaluacion-fichas. Al añadir uno: `FUNCIONES_PRO` y la lista de `api/pro-uso.ts`.
+tiro-temporada, rival-varios, familias-informe, video-clips, evaluacion-fichas, tests-fichas. Al añadir uno: `FUNCIONES_PRO` y la lista de `api/pro-uso.ts`.
 
 ### Quiz — 10 pasos
 perfil · posición · peso · estilo · cancha · lesiones (multi, auto-avance 700 ms) · prioridad ·

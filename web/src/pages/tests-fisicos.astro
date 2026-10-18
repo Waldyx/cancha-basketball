@@ -1,0 +1,540 @@
+---
+// /tests-fisicos — batería de tests físicos por sesiones (velocidad, agilidad, saltos, Course
+// Navette con VO2máx estimado y balón medicinal), estación por estación y con la evolución de cada
+// jugador. Sin rankings entre niños. Lógica pura en lib/testsFisicos.ts; datos en cz.tests.v1.
+// Las fichas imprimibles son Pro.
+import "../styles/cancha-redesign.css";
+import Base from "../layouts/Base.astro";
+import ProGate from "../components/ProGate.astro";
+import { PRUEBAS } from "../lib/testsFisicos";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Tests físicos de baloncesto CANCHA.ZAPA",
+  url: "https://canchazapa.com/tests-fisicos/",
+  applicationCategory: "SportsApplication",
+  operatingSystem: "Any",
+  inLanguage: "es",
+  isAccessibleForFree: true,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  description: "Registra los tests físicos de tu equipo (velocidad 20 m, agilidad 5-10-5, saltos, Course Navette y balón medicinal) y mira la evolución de cada jugador.",
+};
+---
+
+<Base
+  title="Tests físicos para baloncesto: velocidad, saltos y Course Navette | CANCHA.ZAPA"
+  description="Pasa los tests físicos de tu equipo estación por estación: velocidad 20 m, agilidad 5-10-5, salto vertical y horizontal, Course Navette con VO2máx estimado y balón medicinal. Evolución de cada jugador, sin rankings. Gratis y sin registro."
+  jsonLd={jsonLd}
+>
+  <main class="app">
+    <section class="doc-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Entrenadores · Preparación física</p>
+        <h1 class="doc-h1">Tests <span class="accent">físicos</span></h1>
+        <p class="doc-lede">
+          Pasa la batería estación por estación con el móvil en la mano y mira cómo evoluciona cada jugador de un test al
+          siguiente. Sin rankings: cada uno se compara consigo mismo. Los datos se quedan en tu navegador.
+        </p>
+      </div>
+    </section>
+
+    <div class="shell tf">
+      <details class="tf-panel tf-det" id="tf-plantilla-det">
+        <summary>Jugadores</summary>
+        <label class="tf-campo" id="tf-equipo-campo" hidden>
+          <span>Cargar plantilla</span>
+          <select id="tf-equipo" class="tf-inp"></select>
+        </label>
+        <label class="tf-campo">
+          <span>Uno por línea</span>
+          <textarea id="tf-jugadores" class="tf-inp tf-ta" rows="5" placeholder={"4 Laia\n7 Marc\n…"}></textarea>
+        </label>
+      </details>
+
+      <section class="tf-panel">
+        <div class="tf-fila">
+          <label class="tf-campo"><span>Sesión de tests</span><select id="tf-sel" class="tf-inp"></select></label>
+          <label class="tf-campo"><span>Nueva</span><input id="tf-nombre" class="tf-inp" maxlength="40" placeholder="Inicio de temporada" /></label>
+          <label class="tf-campo tf-corto"><span>Fecha</span><input id="tf-fecha" type="date" class="tf-inp" /></label>
+          <label class="tf-campo tf-corto"><span>Edad media</span><input id="tf-edad" type="number" min="6" max="60" class="tf-inp" placeholder="12" /></label>
+          <button type="button" id="tf-crear" class="tf-bn">Crear</button>
+        </div>
+        <label class="tf-campo" id="tf-nota-campo" hidden>
+          <span>Notas de la sesión (peso del balón, pista, calzado…)</span>
+          <input id="tf-nota" class="tf-inp" maxlength="200" />
+        </label>
+        <div class="tf-fila">
+          <button type="button" id="tf-borrar" class="tf-bn tf-bn-2 tf-bn-sm">Borrar sesión</button>
+        </div>
+      </section>
+
+      <p id="tf-aviso" class="tf-panel tf-ayuda" hidden></p>
+
+      <div id="tf-app" hidden>
+        <section class="tf-panel">
+          <h2 class="tf-h2">Pasar una prueba</h2>
+          <div class="tf-chips" id="tf-pruebas" role="tablist">
+            {PRUEBAS.map((p, i) => <button type="button" class="tf-chip" role="tab" data-p={p.id} aria-selected={i === 0 ? "true" : "false"}>{p.nombre}</button>)}
+          </div>
+          <p class="tf-ayuda" id="tf-como"></p>
+          <div id="tf-lista" class="tf-lista"></div>
+          <p class="tf-ayuda">Escribe la marca y pulsa Intro para pasar al siguiente. Se guarda sola.</p>
+        </section>
+
+        <section class="tf-panel">
+          <h2 class="tf-h2">Resultados de la sesión</h2>
+          <div class="tf-scroll"><table class="tf-tabla" id="tf-tabla"></table></div>
+          <p class="tf-ayuda" id="tf-vo2-nota" hidden>VO2máx: estimación de campo a partir del último palier de la Course Navette y la edad media (ecuaciones de Léger, 1988). Orientativo, no es una prueba de laboratorio.</p>
+          <div class="tf-fila">
+            <button type="button" id="tf-csv" class="tf-bn tf-bn-2 tf-bn-sm">Descargar CSV</button>
+            <button type="button" id="tf-imprimir" class="tf-bn tf-bn-sm" data-pro="tests-fichas">Imprimir fichas</button>
+          </div>
+        </section>
+
+        <section class="tf-panel">
+          <h2 class="tf-h2">Evolución de un jugador</h2>
+          <label class="tf-campo"><span>Jugador</span><select id="tf-quien" class="tf-inp"></select></label>
+          <div id="tf-evolucion" class="tf-evol"></div>
+        </section>
+      </div>
+      <p class="tf-ayuda">Los nombres y las marcas se guardan solo en este navegador. Nada sale de tu dispositivo.</p>
+    </div>
+  </main>
+  <div id="tf-print" aria-hidden="true"></div>
+  <ProGate />
+</Base>
+
+<style is:global>
+  .tf { padding-top: 20px; padding-bottom: 60px; display: flex; flex-direction: column; gap: 14px; }
+  #tf-app { display: flex; flex-direction: column; gap: 14px; }
+  #tf-app[hidden], .tf-panel[hidden], .tf-campo[hidden] { display: none; }
+  .tf-panel { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; background: var(--cz-card); border: 1px solid var(--cz-border); min-width: 0; color: var(--cz-text); }
+  .tf-det summary { cursor: pointer; font: 800 13px "Inter", sans-serif; color: var(--cz-accent-text); }
+  .tf-det[open] > :not(summary) { margin-top: 8px; }
+  .tf-h2 { margin: 0; font: 900 20px "Barlow Condensed", sans-serif; text-transform: uppercase; color: var(--cz-text); }
+  .tf-fila { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; }
+  .tf-fila > .tf-campo { flex: 1 1 170px; }
+  .tf-fila > .tf-corto { flex: 0 1 120px; }
+  .tf-campo { display: flex; flex-direction: column; gap: 3px; min-width: 0; font: 800 10px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--cz-text-2); }
+  .tf-inp { width: 100%; min-width: 0; min-height: 40px; padding: 6px 10px; background: var(--cz-bg); color: var(--cz-text); border: 1px solid var(--cz-border); border-radius: 0; font: 600 14px "Inter", sans-serif; text-transform: none; letter-spacing: 0; }
+  .tf-ta { min-height: 100px; resize: vertical; }
+  .tf-bn { min-height: 42px; padding: 0 16px; background: #f97316; border: 1px solid #f97316; color: #0c0c0c; font: 900 12px "Inter", sans-serif; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; border-radius: 0; }
+  .tf-bn-2 { background: transparent; color: var(--cz-text); border-color: var(--cz-border); }
+  .tf-bn-sm { min-height: 36px; padding: 0 12px; font-size: 11px; }
+  .tf-ayuda { margin: 0; font-size: 12px; color: var(--cz-text-2); }
+  .tf-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tf-chip { min-height: 36px; padding: 0 12px; background: var(--cz-bg); border: 1px solid var(--cz-border); color: var(--cz-text); font: 800 12px "Inter", sans-serif; cursor: pointer; border-radius: 0; }
+  .tf-chip[aria-selected="true"] { background: #f97316; border-color: #f97316; color: #0c0c0c; }
+  .tf-lista { display: flex; flex-direction: column; }
+  .tf-j { display: grid; grid-template-columns: minmax(0, 1fr) 96px minmax(0, 0.9fr); gap: 8px; align-items: center; padding: 5px 0; border-bottom: 1px solid var(--cz-border); font-size: 14px; }
+  .tf-j-nom { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; }
+  .tf-j input { width: 96px; min-height: 40px; padding: 4px 8px; text-align: right; background: var(--cz-bg); color: var(--cz-text); border: 1px solid var(--cz-border); border-radius: 0; font: 800 16px "Inter", sans-serif; }
+  .tf-j input.mal { border-color: #dc2626; }
+  .tf-j-ant { font-size: 12px; color: var(--cz-text-2); }
+  .tf-mejor { color: #16a34a; font-weight: 800; }
+  .tf-peor { color: #dc2626; font-weight: 800; }
+  .tf-scroll { overflow-x: auto; }
+  .tf-tabla { width: 100%; border-collapse: collapse; font: 600 13px "Inter", sans-serif; }
+  .tf-tabla th, .tf-tabla td { padding: 5px 8px; border-bottom: 1px solid var(--cz-border); text-align: right; white-space: nowrap; }
+  .tf-tabla th { font: 800 10px "Inter", sans-serif; letter-spacing: .06em; text-transform: uppercase; color: var(--cz-text-2); vertical-align: bottom; }
+  .tf-tabla th:first-child, .tf-tabla td:first-child { text-align: left; }
+  .tf-tabla tr.tf-media td { font-weight: 900; border-top: 2px solid var(--cz-border); }
+  .tf-tabla small { display: block; font-size: 10.5px; color: var(--cz-text-2); }
+  .tf-evol { display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+  .tf-evol p { margin: 0; }
+  #tf-print { display: none; }
+  @media print {
+    @page { size: A4; margin: 14mm; }
+    html.tf-printing body > *:not(#tf-print) { display: none !important; }
+    html.tf-printing #tf-print { display: block !important; }
+    html.tf-printing body { background: #fff !important; }
+    .tf-hoja { break-after: page; page-break-after: always; color: #000; font-family: Arial, sans-serif; }
+    .tf-hoja:last-child { break-after: auto; page-break-after: auto; }
+    .tf-marca { display: flex; align-items: center; gap: 3mm; margin: 0 0 6mm; padding-bottom: 2mm; border-bottom: 1.2mm solid #f97316; }
+    .tf-marca img { height: 14mm; width: auto; max-width: 30mm; object-fit: contain; }
+    .tf-marca span { font: 900 15pt "Barlow Condensed", Arial, sans-serif; text-transform: uppercase; }
+    .tf-hoja h1 { margin: 0 0 1mm; font: 900 28pt "Barlow Condensed", Arial, sans-serif; text-transform: uppercase; line-height: 1; }
+    .tf-sub { margin: 0 0 5mm; font-size: 11pt; color: #444; }
+    .tf-ptabla { width: 100%; border-collapse: collapse; font-size: 11pt; }
+    .tf-ptabla th, .tf-ptabla td { padding: 2mm; border-bottom: 0.3mm solid #bbb; text-align: left; }
+    .tf-ptabla th { font-size: 8.5pt; text-transform: uppercase; letter-spacing: .05em; color: #555; }
+    .tf-pnota { margin-top: 5mm; font-size: 10pt; color: #444; }
+    .tf-pie { margin-top: 6mm; font-size: 8.5pt; color: #777; text-align: right; }
+  }
+</style>
+
+<script>
+  import { CLAVE_EQUIPO, equiposDeTexto } from "../lib/pizarraEquipo";
+  import { CLAVE_MARCA, leerMarca as leerMarcaClub } from "../lib/pizarraMarca";
+  import {
+    LIMITES_TESTS,
+    PRUEBAS,
+    aCsv,
+    cronologico,
+    formatoMarca,
+    leerMarca,
+    marcaAnterior,
+    mediaGrupo,
+    normalizarStoreTests,
+    plantilla,
+    prueba,
+    sentido,
+    serie,
+    vo2Navette,
+    type SesionTests,
+    type StoreTests,
+  } from "../lib/testsFisicos";
+
+  const CLAVE = "cz.tests.v1";
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  document.body.append($("tf-print"));
+  const lee = (k: string) => {
+    try {
+      return localStorage.getItem(k);
+    } catch {
+      return null;
+    }
+  };
+  let st: StoreTests = normalizarStoreTests(null);
+  try {
+    st = normalizarStoreTests(JSON.parse(lee(CLAVE) ?? "null"));
+  } catch {
+    /* empezar de cero */
+  }
+  const guardar = () => {
+    try {
+      localStorage.setItem(CLAVE, JSON.stringify(st));
+    } catch {
+      /* sin almacenamiento */
+    }
+  };
+  const hoy = () => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  };
+  const fechaCorta = (f: string) => f.split("-").reverse().join("/");
+  const el = (tag: string, cls?: string, text?: string) => {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  };
+
+  let activaId = st.sesiones[st.sesiones.length - 1]?.id ?? "";
+  let pruebaId = PRUEBAS[0].id;
+  let quien = "";
+  const activa = (): SesionTests | undefined => st.sesiones.find((s) => s.id === activaId);
+  const nombreSes = (s: SesionTests) => `${s.nombre} · ${fechaCorta(s.fecha)}`;
+  const cambioTxt = (pid: string, antes: number, ahora: number) => {
+    const p = prueba(pid)!;
+    const d = Math.abs(ahora - antes);
+    const sgn = sentido(p, antes, ahora);
+    return { sgn, txt: sgn === 0 ? "igual" : `${sgn > 0 ? "▲ mejora" : "▼"} ${formatoMarca(p, d)} ${p.unidad}` };
+  };
+
+  // ── sesiones ────────────────────────────────────────────────────────
+  function pintarSesiones() {
+    const sel = $<HTMLSelectElement>("tf-sel");
+    sel.replaceChildren(...cronologico(st.sesiones).reverse().map((s) => new Option(nombreSes(s), s.id)));
+    sel.value = activaId;
+    const s = activa();
+    ($("tf-borrar") as HTMLButtonElement).disabled = !s;
+    $("tf-nota-campo").hidden = !s;
+    $<HTMLInputElement>("tf-nota").value = s?.nota ?? "";
+  }
+  $("tf-crear").addEventListener("click", () => {
+    if (st.sesiones.length >= LIMITES_TESTS.SESIONES) return void alert(`Como mucho ${LIMITES_TESTS.SESIONES} sesiones: borra alguna antigua.`);
+    const edad = Math.round(+$<HTMLInputElement>("tf-edad").value);
+    const s: SesionTests = {
+      id: Math.random().toString(36).slice(2, 10),
+      nombre: $<HTMLInputElement>("tf-nombre").value.trim().slice(0, 40) || `Tests ${st.sesiones.length + 1}`,
+      fecha: $<HTMLInputElement>("tf-fecha").value || hoy(),
+      edad: edad >= 6 && edad <= 60 ? edad : null,
+      nota: "",
+      marcas: {},
+    };
+    st.sesiones = cronologico([...st.sesiones, s]);
+    activaId = s.id;
+    $<HTMLInputElement>("tf-nombre").value = "";
+    guardar();
+    pintarTodo();
+  });
+  $<HTMLSelectElement>("tf-sel").addEventListener("change", (e) => {
+    activaId = (e.target as HTMLSelectElement).value;
+    pintarTodo();
+  });
+  $("tf-borrar").addEventListener("click", () => {
+    const s = activa();
+    if (!s || !confirm(`¿Borrar «${nombreSes(s)}» con todas sus marcas?`)) return;
+    st.sesiones = st.sesiones.filter((x) => x.id !== s.id);
+    activaId = st.sesiones[st.sesiones.length - 1]?.id ?? "";
+    guardar();
+    pintarTodo();
+  });
+  $<HTMLInputElement>("tf-nota").addEventListener("input", (e) => {
+    const s = activa();
+    if (!s) return;
+    s.nota = (e.target as HTMLInputElement).value.slice(0, 200);
+    guardar();
+  });
+
+  // ── pasar una prueba ────────────────────────────────────────────────
+  function pintarLista() {
+    const s = activa();
+    const js = plantilla(st.jugadores);
+    const aviso = $("tf-aviso");
+    aviso.hidden = !!(s && js.length);
+    aviso.textContent = !js.length ? "Escribe primero los jugadores (arriba, en «Jugadores»)." : "Crea una sesión de tests con su nombre y su fecha para empezar.";
+    $("tf-app").hidden = !(s && js.length);
+    if (!s || !js.length) return;
+    const p = prueba(pruebaId)!;
+    for (const b of document.querySelectorAll<HTMLElement>(".tf-chip")) b.setAttribute("aria-selected", String(b.dataset.p === pruebaId));
+    $("tf-como").textContent = `${p.como} Unidad: ${p.unidad}.`;
+    const lista = $("tf-lista");
+    lista.replaceChildren();
+    const inputs: HTMLInputElement[] = [];
+    js.forEach((j, i) => {
+      const fila = el("div", "tf-j");
+      const inp = document.createElement("input");
+      inp.inputMode = "decimal";
+      inp.autocomplete = "off";
+      inp.setAttribute("aria-label", `${p.nombre} de ${j}`);
+      const v = s.marcas[j]?.[p.id];
+      inp.value = v === undefined ? "" : formatoMarca(p, v);
+      const ant = el("span", "tf-j-ant");
+      const pintarAnt = () => {
+        ant.replaceChildren();
+        const a = marcaAnterior(st.sesiones, s, j, p.id);
+        const ahora = s.marcas[j]?.[p.id];
+        if (!a) return;
+        ant.append(`Antes ${formatoMarca(p, a.valor)} `);
+        if (ahora !== undefined) {
+          const c = cambioTxt(p.id, a.valor, ahora);
+          ant.append(el("span", c.sgn > 0 ? "tf-mejor" : c.sgn < 0 ? "tf-peor" : "", c.txt));
+        }
+      };
+      inp.addEventListener("change", () => {
+        const t = inp.value.trim();
+        if (!t) {
+          delete s.marcas[j]?.[p.id];
+          if (s.marcas[j] && !Object.keys(s.marcas[j]).length) delete s.marcas[j];
+          inp.classList.remove("mal");
+        } else {
+          const m = leerMarca(p, t);
+          inp.classList.toggle("mal", m === null);
+          if (m === null) {
+            inp.title = `Entre ${formatoMarca(p, p.min)} y ${formatoMarca(p, p.max)} ${p.unidad}`;
+            return;
+          }
+          (s.marcas[j] ??= {})[p.id] = m;
+          inp.value = formatoMarca(p, m);
+        }
+        guardar();
+        pintarAnt();
+        pintarTabla();
+        pintarEvolucion();
+      });
+      inp.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter") return;
+        e.preventDefault();
+        inp.dispatchEvent(new Event("change"));
+        inputs[i + 1]?.focus();
+      });
+      inputs.push(inp);
+      pintarAnt();
+      fila.append(el("span", "tf-j-nom", j), inp, ant);
+      lista.append(fila);
+    });
+  }
+  $("tf-pruebas").addEventListener("click", (e) => {
+    const b = (e.target as Element).closest<HTMLElement>(".tf-chip");
+    if (!b?.dataset.p) return;
+    pruebaId = b.dataset.p;
+    pintarLista();
+  });
+
+  // ── tabla de la sesión ──────────────────────────────────────────────
+  function pintarTabla() {
+    const s = activa();
+    const js = plantilla(st.jugadores);
+    const t = $<HTMLTableElement>("tf-tabla");
+    t.replaceChildren();
+    if (!s) return;
+    const cab = el("tr");
+    cab.append(el("th", undefined, "Jugador"));
+    for (const p of PRUEBAS) {
+      const th = el("th", undefined, p.nombre);
+      th.append(el("small", undefined, p.unidad));
+      cab.append(th);
+    }
+    t.append(cab);
+    let hayVo2 = false;
+    for (const j of js) {
+      const tr = el("tr");
+      tr.append(el("td", undefined, j));
+      for (const p of PRUEBAS) {
+        const v = s.marcas[j]?.[p.id];
+        const td = el("td", undefined, v === undefined ? "—" : formatoMarca(p, v));
+        if (v !== undefined) {
+          const a = marcaAnterior(st.sesiones, s, j, p.id);
+          if (a) {
+            const sg = sentido(p, a.valor, v);
+            if (sg) td.append(el("span", sg > 0 ? "tf-mejor" : "tf-peor", sg > 0 ? " ▲" : " ▼"));
+          }
+          if (p.id === "navette") {
+            const vo2 = vo2Navette(v, s.edad);
+            if (vo2 !== null) {
+              hayVo2 = true;
+              td.append(el("small", undefined, `VO2 ≈ ${vo2.toLocaleString("es-ES")}`));
+            }
+          }
+        }
+        tr.append(td);
+      }
+      t.append(tr);
+    }
+    const media = el("tr", "tf-media");
+    media.append(el("td", undefined, "Media del grupo"));
+    for (const p of PRUEBAS) {
+      const m = mediaGrupo(s, p.id, js);
+      media.append(el("td", undefined, m === null ? "—" : formatoMarca(p, m)));
+    }
+    t.append(media);
+    $("tf-vo2-nota").hidden = !hayVo2;
+  }
+  $("tf-csv").addEventListener("click", () => {
+    const s = activa();
+    if (!s) return;
+    const blob = new Blob(["﻿" + aCsv(s, plantilla(st.jugadores))], { type: "text/csv;charset=utf-8" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `tests-${s.fecha}.csv`;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  });
+
+  // ── evolución ───────────────────────────────────────────────────────
+  function lineasEvolucion(j: string): { p: (typeof PRUEBAS)[number]; texto: string; sgn: number }[] {
+    const out: { p: (typeof PRUEBAS)[number]; texto: string; sgn: number }[] = [];
+    for (const p of PRUEBAS) {
+      const sr = serie(st.sesiones, j, p.id);
+      if (!sr.length) continue;
+      const valores = sr.map((x) => formatoMarca(p, x.valor)).join(" → ");
+      const sgn = sr.length > 1 ? sentido(p, sr[0].valor, sr[sr.length - 1].valor) : 0;
+      out.push({ p, texto: `${p.nombre}: ${valores} ${p.unidad}`, sgn });
+    }
+    return out;
+  }
+  function pintarEvolucion() {
+    const js = plantilla(st.jugadores);
+    const sel = $<HTMLSelectElement>("tf-quien");
+    if (!js.includes(quien)) quien = js[0] ?? "";
+    sel.replaceChildren(...js.map((j) => new Option(j, j)));
+    sel.value = quien;
+    const out = $("tf-evolucion");
+    out.replaceChildren();
+    const ls = lineasEvolucion(quien);
+    if (!ls.length) return void out.append(el("p", "tf-ayuda", "Todavía no tiene marcas."));
+    for (const l of ls) {
+      const p = el("p", undefined, l.texto);
+      if (l.sgn) p.append(el("span", l.sgn > 0 ? "tf-mejor" : "tf-peor", l.sgn > 0 ? "  ▲ ha mejorado" : "  ▼"));
+      out.append(p);
+    }
+  }
+  $<HTMLSelectElement>("tf-quien").addEventListener("change", (e) => {
+    quien = (e.target as HTMLSelectElement).value;
+    pintarEvolucion();
+  });
+
+  // ── fichas imprimibles (Pro) ────────────────────────────────────────
+  function hoja(s: SesionTests, j: string): HTMLElement {
+    const sec = el("section", "tf-hoja");
+    const marca = leerMarcaClub(lee(CLAVE_MARCA));
+    if (marca) {
+      const m = el("div", "tf-marca");
+      m.style.borderColor = marca.color;
+      if (marca.escudo) {
+        const img = document.createElement("img");
+        img.src = marca.escudo;
+        img.alt = "";
+        m.append(img);
+      }
+      if (marca.nombre) m.append(el("span", undefined, marca.nombre));
+      sec.append(m);
+    }
+    sec.append(el("h1", undefined, j), el("p", "tf-sub", `Tests físicos: ${nombreSes(s)}`));
+    const t = el("table", "tf-ptabla");
+    const cab = el("tr");
+    for (const h of ["Prueba", "Marca", "Anterior", "Cambio"]) cab.append(el("th", undefined, h));
+    t.append(cab);
+    for (const p of PRUEBAS) {
+      const v = s.marcas[j]?.[p.id];
+      if (v === undefined) continue;
+      const a = marcaAnterior(st.sesiones, s, j, p.id);
+      const tr = el("tr");
+      let marcaTxt = `${formatoMarca(p, v)} ${p.unidad}`;
+      if (p.id === "navette") {
+        const vo2 = vo2Navette(v, s.edad);
+        if (vo2 !== null) marcaTxt += ` (VO2máx ≈ ${vo2.toLocaleString("es-ES")})`;
+      }
+      tr.append(el("td", undefined, p.nombre), el("td", undefined, marcaTxt), el("td", undefined, a ? `${formatoMarca(p, a.valor)} (${fechaCorta(a.sesion.fecha)})` : "—"), el("td", undefined, a ? cambioTxt(p.id, a.valor, v).txt : "—"));
+      t.append(tr);
+    }
+    sec.append(t);
+    if (s.nota.trim()) sec.append(el("p", "tf-pnota", `Notas: ${s.nota.trim()}`));
+    if (s.marcas[j]?.navette !== undefined && s.edad) sec.append(el("p", "tf-pnota", "VO2máx: estimación de campo con las ecuaciones de Léger (1988). Orientativa."));
+    sec.append(el("p", "tf-pie", "Cada jugador se compara consigo mismo — hecho con canchazapa.com"));
+    return sec;
+  }
+  $("tf-imprimir").addEventListener("click", () => {
+    const s = activa();
+    if (!s) return;
+    const js = plantilla(st.jugadores).filter((j) => s.marcas[j] && Object.keys(s.marcas[j]).length);
+    if (!js.length) return void alert("Anota al menos una marca para imprimir las fichas.");
+    $("tf-print").replaceChildren(...js.map((j) => hoja(s, j)));
+    document.documentElement.classList.add("tf-printing");
+    window.setTimeout(() => window.print(), 60);
+  });
+  window.addEventListener("afterprint", () => document.documentElement.classList.remove("tf-printing"));
+
+  // ── plantilla ───────────────────────────────────────────────────────
+  function pintarTodo() {
+    pintarSesiones();
+    pintarLista();
+    pintarTabla();
+    pintarEvolucion();
+  }
+  const txt = $<HTMLTextAreaElement>("tf-jugadores");
+  txt.value = st.jugadores;
+  txt.addEventListener("input", () => {
+    st.jugadores = txt.value.slice(0, 2000);
+    guardar();
+    pintarLista();
+    pintarTabla();
+    pintarEvolucion();
+  });
+  try {
+    const eqs = equiposDeTexto(lee(CLAVE_EQUIPO));
+    if (eqs.length) {
+      const sel = $<HTMLSelectElement>("tf-equipo");
+      $("tf-equipo-campo").hidden = false;
+      sel.append(new Option("Elige un equipo…", ""), ...eqs.map((q) => new Option(q.categoria ? `${q.nombre} · ${q.categoria}` : q.nombre, q.id)));
+      sel.addEventListener("change", () => {
+        const eq = eqs.find((x) => x.id === sel.value);
+        if (!eq) return;
+        if (st.jugadores.trim() && !confirm("¿Sustituir la lista de jugadores? Las marcas de los nombres que cambien dejarán de verse.")) return void (sel.value = "");
+        st.jugadores = eq.jugadores.map((p) => `${p.dorsal} ${p.nombre}`.trim()).join("\n");
+        txt.value = st.jugadores;
+        guardar();
+        pintarTodo();
+        sel.value = "";
+      });
+    }
+  } catch {
+    /* sin equipo */
+  }
+  $<HTMLInputElement>("tf-fecha").value = hoy();
+  if (!st.jugadores) ($("tf-plantilla-det") as HTMLDetailsElement).open = true;
+  pintarTodo();
+</script>
