@@ -29,6 +29,7 @@ const FUNCIONES = [
   "video-clips",
   "evaluacion-fichas",
   "tests-fichas",
+  "plan-partido",
 ];
 const EVENTOS = ["visto", "activado"];
 

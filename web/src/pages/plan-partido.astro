@@ -1,0 +1,476 @@
+---
+// /plan-partido — el plan del próximo partido en una hoja: claves del rival (desde el informe del
+// rival), objetivos, ataque, defensa, emparejamientos, jugadas de la pizarra con su dibujo y
+// situaciones especiales. Texto para el grupo del equipo (gratis) e impresión con escudo (Pro).
+// Lógica pura en lib/planPartido.ts; datos en cz.planpartido.v1.
+import "../styles/cancha-redesign.css";
+import Base from "../layouts/Base.astro";
+import ProGate from "../components/ProGate.astro";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Plan de partido de baloncesto CANCHA.ZAPA",
+  url: "https://canchazapa.com/plan-partido/",
+  applicationCategory: "SportsApplication",
+  operatingSystem: "Any",
+  inLanguage: "es",
+  isAccessibleForFree: true,
+  offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+  description: "Prepara el plan del próximo partido: claves del rival, objetivos, ataque, defensa, emparejamientos y jugadas de tu pizarra, en una hoja y en un mensaje para el equipo.",
+};
+---
+
+<Base
+  title="Plan de partido de baloncesto: claves del rival, emparejamientos y jugadas | CANCHA.ZAPA"
+  description="Prepara el plan del próximo partido en una hoja: claves del rival desde sus actas, objetivos, ataque, defensa, emparejamientos y las jugadas de tu pizarra con su dibujo. Gratis y sin registro."
+  jsonLd={jsonLd}
+>
+  <main class="app">
+    <section class="doc-hero">
+      <div class="shell">
+        <p class="cz-eyebrow">★ Entrenadores · Partido</p>
+        <h1 class="doc-h1">Plan de <span class="accent">partido</span></h1>
+        <p class="doc-lede">
+          Todo lo que quieres que tu equipo tenga claro el día del partido, en una hoja: las claves del rival, los objetivos,
+          qué hacer en ataque y en defensa, quién defiende a quién y las jugadas de tu pizarra. Se guarda en tu navegador.
+        </p>
+      </div>
+    </section>
+
+    <div class="shell pp">
+      <section class="pp-panel">
+        <div class="pp-fila">
+          <label class="pp-campo"><span>Plan</span><select id="pp-sel" class="pp-inp"></select></label>
+          <button type="button" id="pp-nuevo" class="pp-bn pp-bn-2">Nuevo plan</button>
+          <button type="button" id="pp-borrar" class="pp-bn pp-bn-2">Borrar</button>
+        </div>
+      </section>
+
+      <div id="pp-app" class="pp-cols">
+        <div class="pp-col">
+          <section class="pp-panel">
+            <h2 class="pp-h2">El partido</h2>
+            <label class="pp-campo" id="pp-rival-sel-campo" hidden>
+              <span>Rival de tu informe del rival</span>
+              <select id="pp-rival-sel" class="pp-inp"></select>
+            </label>
+            <label class="pp-campo"><span>Rival</span><input id="pp-rival" class="pp-inp" maxlength="60" data-k="rival" /></label>
+            <div class="pp-grid3">
+              <label class="pp-campo"><span>Fecha</span><input id="pp-fecha" type="date" class="pp-inp" data-k="fecha" /></label>
+              <label class="pp-campo"><span>Hora</span><input id="pp-hora" type="time" class="pp-inp" data-k="hora" /></label>
+              <label class="pp-campo"><span>Lugar</span><input id="pp-lugar" class="pp-inp" maxlength="60" data-k="lugar" /></label>
+            </div>
+          </section>
+
+          <section class="pp-panel">
+            <h2 class="pp-h2">Objetivos</h2>
+            <textarea class="pp-inp pp-ta" data-k="objetivos" rows="3" maxlength="1200" placeholder={"Una idea por línea, p. ej.:\nMenos de 12 pérdidas\nCerrar el rebote defensivo"}></textarea>
+          </section>
+
+          <section class="pp-panel">
+            <h2 class="pp-h2">Claves del rival</h2>
+            <textarea id="pp-claves" class="pp-inp pp-ta" data-k="claves" rows="4" maxlength="1200" placeholder="Una por línea"></textarea>
+            <div class="pp-fila">
+              <button type="button" id="pp-traer" class="pp-bn pp-bn-2 pp-bn-sm" hidden>Traer del informe del rival</button>
+              <a href="/rival/" class="pp-ayuda doc-link">Preparar el informe del rival →</a>
+            </div>
+          </section>
+
+          <section class="pp-panel">
+            <h2 class="pp-h2">En ataque</h2>
+            <textarea class="pp-inp pp-ta" data-k="ataque" rows="3" maxlength="1200" placeholder={"Correr tras rebote\nBuscar el pase interior"}></textarea>
+            <h2 class="pp-h2">En defensa</h2>
+            <textarea class="pp-inp pp-ta" data-k="defensa" rows="3" maxlength="1200" placeholder={"Individual, ayudas desde el lado débil\nNo dejar tirar al #7"}></textarea>
+          </section>
+        </div>
+
+        <div class="pp-col">
+          <section class="pp-panel">
+            <h2 class="pp-h2">Emparejamientos</h2>
+            <div id="pp-emp" class="pp-emp"></div>
+            <button type="button" id="pp-emp-mas" class="pp-bn pp-bn-2 pp-bn-sm">Añadir emparejamiento</button>
+            <datalist id="pp-dl-rival"></datalist>
+            <datalist id="pp-dl-nuestros"></datalist>
+          </section>
+
+          <section class="pp-panel">
+            <h2 class="pp-h2">Jugadas</h2>
+            <div id="pp-jugadas" class="pp-jugadas"></div>
+            <p class="pp-ayuda" id="pp-jugadas-ayuda"></p>
+          </section>
+
+          <section class="pp-panel">
+            <h2 class="pp-h2">Situaciones especiales</h2>
+            <textarea class="pp-inp pp-ta" data-k="especiales" rows="3" maxlength="1200" placeholder={"Último ataque: Horns\nSi nos presionan: Contra presión 2-2-1\nTiempo muerto si encajan un parcial de 8-0"}></textarea>
+          </section>
+
+          <section class="pp-panel">
+            <h2 class="pp-h2">Para el equipo</h2>
+            <textarea id="pp-texto" class="pp-inp pp-ta pp-texto" rows="10" readonly></textarea>
+            <div class="pp-fila">
+              <button type="button" id="pp-copiar" class="pp-bn">Copiar</button>
+              <button type="button" id="pp-compartir" class="pp-bn pp-bn-2">Compartir…</button>
+              <button type="button" id="pp-imprimir" class="pp-bn pp-bn-2" data-pro="plan-partido">Imprimir plan</button>
+            </div>
+            <p id="pp-estado" class="pp-ayuda" role="status"></p>
+          </section>
+        </div>
+      </div>
+      <p class="pp-ayuda">El plan se guarda solo en este navegador. Del rival se usa su dorsal, no su nombre: es lo que se dice en pista.</p>
+    </div>
+  </main>
+  <div id="pp-print" aria-hidden="true"></div>
+  <ProGate />
+</Base>
+
+<style is:global>
+  .pp { padding-top: 20px; padding-bottom: 60px; display: flex; flex-direction: column; gap: 14px; }
+  .pp-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+  @media (max-width: 860px) { .pp-cols { grid-template-columns: 1fr; } }
+  .pp-col { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+  .pp-panel { display: flex; flex-direction: column; gap: 8px; padding: 12px 14px; background: var(--cz-card); border: 1px solid var(--cz-border); min-width: 0; color: var(--cz-text); }
+  .pp-campo[hidden], .pp-bn[hidden] { display: none; }
+  .pp-h2 { margin: 4px 0 0; font: 900 20px "Barlow Condensed", sans-serif; text-transform: uppercase; color: var(--cz-text); }
+  .pp-fila { display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-end; }
+  .pp-fila > .pp-campo { flex: 1 1 200px; }
+  .pp-grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  @media (max-width: 480px) { .pp-grid3 { grid-template-columns: 1fr 1fr; } .pp-grid3 > :last-child { grid-column: 1 / -1; } }
+  .pp-campo { display: flex; flex-direction: column; gap: 3px; min-width: 0; font: 800 10px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--cz-text-2); }
+  .pp-inp { width: 100%; min-width: 0; min-height: 40px; padding: 6px 10px; background: var(--cz-bg); color: var(--cz-text); border: 1px solid var(--cz-border); border-radius: 0; font: 600 14px "Inter", sans-serif; text-transform: none; letter-spacing: 0; }
+  .pp-ta { min-height: 80px; resize: vertical; line-height: 1.45; }
+  .pp-texto { min-height: 180px; font-size: 13px; }
+  .pp-bn { min-height: 42px; padding: 0 16px; background: #f97316; border: 1px solid #f97316; color: #0c0c0c; font: 900 12px "Inter", sans-serif; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; border-radius: 0; }
+  .pp-bn-2 { background: transparent; color: var(--cz-text); border-color: var(--cz-border); }
+  .pp-bn-sm { min-height: 36px; padding: 0 12px; font-size: 11px; align-self: flex-start; }
+  .pp-ayuda { margin: 0; font-size: 12px; color: var(--cz-text-2); }
+  .pp-emp { display: flex; flex-direction: column; gap: 6px; }
+  .pp-emp-fila { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.2fr) 36px; gap: 6px; align-items: center; }
+  @media (max-width: 480px) { .pp-emp-fila { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 36px; } .pp-emp-fila .pp-emp-nota { grid-column: 1 / 3; grid-row: 2; } }
+  .pp-emp-x { width: 36px; height: 36px; background: transparent; border: 1px solid var(--cz-border); color: var(--cz-text); cursor: pointer; border-radius: 0; font-weight: 900; }
+  .pp-jugadas { display: flex; flex-direction: column; gap: 4px; }
+  .pp-jug { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+  .pp-jug input { width: 18px; height: 18px; }
+  .pp-jug small { color: var(--cz-text-2); }
+  #pp-print { display: none; }
+  @media print {
+    @page { size: A4; margin: 12mm; }
+    html.pp-printing body > *:not(#pp-print) { display: none !important; }
+    html.pp-printing #pp-print { display: block !important; }
+    html.pp-printing body { background: #fff !important; }
+    .pp-hoja { color: #000; font-family: Arial, sans-serif; }
+    .pp-marca { display: flex; align-items: center; gap: 3mm; margin: 0 0 4mm; padding-bottom: 2mm; border-bottom: 1.2mm solid #f97316; }
+    .pp-marca img { height: 12mm; width: auto; max-width: 30mm; object-fit: contain; }
+    .pp-marca span { font: 900 14pt "Barlow Condensed", Arial, sans-serif; text-transform: uppercase; }
+    .pp-hoja h1 { margin: 0; font: 900 26pt "Barlow Condensed", Arial, sans-serif; text-transform: uppercase; line-height: 1; }
+    .pp-sub { margin: 1mm 0 4mm; font-size: 11pt; color: #333; }
+    .pp-secs { columns: 2; column-gap: 7mm; }
+    .pp-sec { break-inside: avoid; margin: 0 0 4mm; }
+    .pp-sec h2 { margin: 0 0 1mm; font: 900 12pt "Barlow Condensed", Arial, sans-serif; text-transform: uppercase; color: #c2410c; border-bottom: 0.4mm solid #c2410c; }
+    .pp-sec ul { margin: 0; padding-left: 4.5mm; font-size: 10.5pt; line-height: 1.4; }
+    .pp-dib { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; margin-top: 2mm; }
+    .pp-dib figure { margin: 0; border: 0.3mm solid #999; padding: 1.5mm; break-inside: avoid; }
+    .pp-dib figcaption { font: 900 10pt "Barlow Condensed", Arial, sans-serif; text-transform: uppercase; margin-bottom: 1mm; }
+    .pp-dib svg { display: block; width: 100%; height: auto; max-height: 55mm; }
+    .pp-pie { margin-top: 4mm; font-size: 8pt; color: #777; text-align: right; }
+  }
+</style>
+
+<script>
+  import { normalizarStoreRival, type Rival } from "../lib/informeRival";
+  import { CATEGORIAS, normalizarLibro, type Jugada } from "../lib/pizarra";
+  import { tarjeta } from "../lib/pizarraBanquillo";
+  import { CLAVE_EQUIPO, equiposDeTexto } from "../lib/pizarraEquipo";
+  import { CLAVE_MARCA, leerMarca } from "../lib/pizarraMarca";
+  import { LIMITES_PLAN, cabecera, clavesDelRival, jugadoresRival, normalizarStorePlan, planVacio, secciones, textoParaEquipo, type PlanPartido, type StorePlan } from "../lib/planPartido";
+
+  const CLAVE = "cz.planpartido.v1";
+  const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
+  document.body.append($("pp-print"));
+  const lee = (k: string) => {
+    try {
+      return localStorage.getItem(k);
+    } catch {
+      return null;
+    }
+  };
+  const json = (k: string) => {
+    try {
+      return JSON.parse(lee(k) ?? "null");
+    } catch {
+      return null;
+    }
+  };
+  const el = (tag: string, cls?: string, text?: string) => {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  };
+  const nuevoId = () => Date.now().toString(36).padStart(9, "0") + Math.random().toString(36).slice(2, 5);
+
+  let st: StorePlan = normalizarStorePlan(json(CLAVE));
+  if (!st.planes.length) {
+    const p = planVacio(nuevoId());
+    st.planes.push(p);
+    st.activo = p.id;
+  }
+  const guardar = () => {
+    try {
+      localStorage.setItem(CLAVE, JSON.stringify(st));
+    } catch {
+      /* sin almacenamiento */
+    }
+  };
+  const plan = (): PlanPartido => st.planes.find((p) => p.id === st.activo) ?? st.planes[0];
+
+  // lo que ya tiene el entrenador en este navegador
+  const rivales: Rival[] = normalizarStoreRival(json("cz.rival.v1")).rivales.filter((r) => r.actas.length);
+  const jugadasPizarra: Jugada[] = normalizarLibro(json("cz.pizarra.v1")?.jugadas).jugadas;
+  const nuestros: string[] = [...new Set(equiposDeTexto(lee(CLAVE_EQUIPO)).flatMap((e) => e.jugadores.map((j) => `${j.dorsal} ${j.nombre}`.trim())))];
+  const rivalDe = (p: PlanPartido) => rivales.find((r) => r.id === p.rivalId);
+  const nombresJugadas = (p: PlanPartido) => p.jugadas.map((id) => jugadasPizarra.find((j) => j.id === id)?.nombre).filter((n): n is string => !!n);
+
+  // ── selector de planes ──────────────────────────────────────────────
+  const etiquetaPlan = (p: PlanPartido) => [p.rival.trim() || "Sin rival", p.fecha ? p.fecha.split("-").reverse().join("/") : ""].filter(Boolean).join(" · ");
+  function pintarSelector() {
+    const sel = $<HTMLSelectElement>("pp-sel");
+    sel.replaceChildren(...st.planes.map((p) => new Option(etiquetaPlan(p), p.id)));
+    sel.value = st.activo;
+  }
+  $<HTMLSelectElement>("pp-sel").addEventListener("change", (e) => {
+    st.activo = (e.target as HTMLSelectElement).value;
+    guardar();
+    pintarTodo();
+  });
+  $("pp-nuevo").addEventListener("click", () => {
+    if (st.planes.length >= LIMITES_PLAN.PLANES) return void alert(`Como mucho ${LIMITES_PLAN.PLANES} planes: borra alguno antiguo.`);
+    const p = planVacio(nuevoId());
+    st.planes.unshift(p);
+    st.activo = p.id;
+    guardar();
+    pintarTodo();
+  });
+  $("pp-borrar").addEventListener("click", () => {
+    const p = plan();
+    if (!confirm(`¿Borrar el plan «${etiquetaPlan(p)}»?`)) return;
+    st.planes = st.planes.filter((x) => x.id !== p.id);
+    if (!st.planes.length) st.planes.push(planVacio(nuevoId()));
+    st.activo = st.planes[0].id;
+    guardar();
+    pintarTodo();
+  });
+
+  // ── campos de texto (se guardan al escribir; no se repinta nada) ─────
+  const campos = [...document.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>("[data-k]")];
+  type CampoTexto = "rival" | "fecha" | "hora" | "lugar" | "objetivos" | "claves" | "ataque" | "defensa" | "especiales";
+  for (const c of campos)
+    c.addEventListener("input", () => {
+      const k = c.dataset.k as CampoTexto;
+      plan()[k] = c.value.slice(0, k === "fecha" || k === "hora" ? 10 : c.maxLength > 0 ? c.maxLength : LIMITES_PLAN.TEXTO);
+      if (k === "rival") plan().rivalId = rivales.find((r) => r.nombre === c.value)?.id ?? "";
+      guardar();
+      pintarSalida();
+      if (k === "rival" || k === "fecha") pintarSelector();
+    });
+
+  // ── rival desde el informe del rival ────────────────────────────────
+  if (rivales.length) {
+    $("pp-rival-sel-campo").hidden = false;
+    const sel = $<HTMLSelectElement>("pp-rival-sel");
+    sel.append(new Option("Elige un rival…", ""), ...rivales.map((r) => new Option(`${r.nombre} (${r.actas.length} ${r.actas.length === 1 ? "partido" : "partidos"})`, r.id)));
+    sel.addEventListener("change", () => {
+      const r = rivales.find((x) => x.id === sel.value);
+      if (!r) return;
+      const p = plan();
+      p.rival = r.nombre;
+      p.rivalId = r.id;
+      if (!p.claves.trim()) p.claves = clavesDelRival(r);
+      guardar();
+      pintarTodo();
+    });
+  }
+  $("pp-traer").addEventListener("click", () => {
+    const r = rivalDe(plan());
+    if (!r) return;
+    if (plan().claves.trim() && !confirm("¿Sustituir las claves escritas por las del informe del rival?")) return;
+    plan().claves = clavesDelRival(r);
+    guardar();
+    pintarTodo();
+  });
+
+  // ── emparejamientos ─────────────────────────────────────────────────
+  function pintarEmparejamientos() {
+    const p = plan();
+    const r = rivalDe(p);
+    $("pp-dl-rival").replaceChildren(...(r ? jugadoresRival(r) : []).map((j) => new Option(j.etiqueta)));
+    $("pp-dl-nuestros").replaceChildren(...nuestros.map((n) => new Option(n)));
+    const cont = $("pp-emp");
+    cont.replaceChildren();
+    if (!p.emparejamientos.length) cont.append(el("p", "pp-ayuda", "Quién defiende a quién: tu jugador y el dorsal del rival."));
+    p.emparejamientos.forEach((e, i) => {
+      const fila = el("div", "pp-emp-fila");
+      const campo = (k: "nuestro" | "rival" | "nota", ph: string, lista?: string) => {
+        const inp = document.createElement("input");
+        inp.className = "pp-inp" + (k === "nota" ? " pp-emp-nota" : "");
+        inp.maxLength = LIMITES_PLAN.CORTO;
+        inp.placeholder = ph;
+        inp.value = e[k];
+        inp.setAttribute("aria-label", ph);
+        if (lista) inp.setAttribute("list", lista);
+        inp.addEventListener("input", () => {
+          e[k] = inp.value.slice(0, LIMITES_PLAN.CORTO);
+          guardar();
+          pintarSalida();
+        });
+        return inp;
+      };
+      const x = el("button", "pp-emp-x", "✕") as HTMLButtonElement;
+      x.type = "button";
+      x.setAttribute("aria-label", "Quitar emparejamiento");
+      x.addEventListener("click", () => {
+        p.emparejamientos.splice(i, 1);
+        guardar();
+        pintarEmparejamientos();
+        pintarSalida();
+      });
+      fila.append(campo("nuestro", "Tu jugador", "pp-dl-nuestros"), campo("rival", "Rival (#dorsal)", "pp-dl-rival"), campo("nota", "Nota: negarle el balón…"), x);
+      cont.append(fila);
+    });
+    ($("pp-emp-mas") as HTMLButtonElement).disabled = p.emparejamientos.length >= LIMITES_PLAN.EMPAREJAMIENTOS;
+  }
+  $("pp-emp-mas").addEventListener("click", () => {
+    const p = plan();
+    if (p.emparejamientos.length >= LIMITES_PLAN.EMPAREJAMIENTOS) return;
+    p.emparejamientos.push({ nuestro: "", rival: "", nota: "" });
+    guardar();
+    pintarEmparejamientos();
+    $("pp-emp").querySelector<HTMLInputElement>(".pp-emp-fila:last-child input")?.focus();
+  });
+
+  // ── jugadas de la pizarra ───────────────────────────────────────────
+  function pintarJugadas() {
+    const p = plan();
+    const cont = $("pp-jugadas");
+    cont.replaceChildren();
+    // las que ya no existen en la pizarra se quitan del plan
+    p.jugadas = p.jugadas.filter((id) => jugadasPizarra.some((j) => j.id === id));
+    $("pp-jugadas-ayuda").textContent = jugadasPizarra.length
+      ? `Marca hasta ${LIMITES_PLAN.JUGADAS}: salen con su dibujo en la hoja impresa.`
+      : "Aún no tienes jugadas guardadas en la pizarra de este navegador.";
+    if (!jugadasPizarra.length) {
+      const a = el("a", "doc-link", "Dibujar jugadas en la pizarra →") as HTMLAnchorElement;
+      a.href = "/pizarra/";
+      cont.append(a);
+      return;
+    }
+    for (const j of jugadasPizarra) {
+      const l = el("label", "pp-jug");
+      const cb = document.createElement("input");
+      cb.type = "checkbox";
+      cb.checked = p.jugadas.includes(j.id);
+      cb.addEventListener("change", () => {
+        if (cb.checked) {
+          if (p.jugadas.length >= LIMITES_PLAN.JUGADAS) {
+            cb.checked = false;
+            return void alert(`Como mucho ${LIMITES_PLAN.JUGADAS} jugadas por plan.`);
+          }
+          p.jugadas.push(j.id);
+        } else p.jugadas = p.jugadas.filter((x) => x !== j.id);
+        guardar();
+        pintarSalida();
+      });
+      l.append(cb, j.nombre, el("small", undefined, CATEGORIAS.find((c) => c.id === j.categoria)?.label ?? ""));
+      cont.append(l);
+    }
+  }
+
+  // ── salida: texto para el equipo ────────────────────────────────────
+  function pintarSalida() {
+    $<HTMLTextAreaElement>("pp-texto").value = textoParaEquipo(plan(), nombresJugadas(plan()));
+  }
+  $("pp-copiar").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText($<HTMLTextAreaElement>("pp-texto").value);
+      $("pp-estado").textContent = "Copiado: pégalo en el grupo del equipo.";
+    } catch {
+      $<HTMLTextAreaElement>("pp-texto").select();
+      $("pp-estado").textContent = "Selecciona el texto y cópialo (Ctrl+C).";
+    }
+  });
+  $("pp-compartir").addEventListener("click", async () => {
+    const text = $<HTMLTextAreaElement>("pp-texto").value;
+    if (typeof navigator.share === "function") {
+      try {
+        await navigator.share({ text });
+      } catch {
+        /* cancelado */
+      }
+    } else $("pp-estado").textContent = "Este navegador no puede compartir directamente: usa «Copiar».";
+  });
+
+  // ── hoja imprimible (Pro) ───────────────────────────────────────────
+  $("pp-imprimir").addEventListener("click", () => {
+    const p = plan();
+    const hoja = el("section", "pp-hoja");
+    const marca = leerMarca(lee(CLAVE_MARCA));
+    if (marca) {
+      const m = el("div", "pp-marca");
+      m.style.borderColor = marca.color;
+      if (marca.escudo) {
+        const img = document.createElement("img");
+        img.src = marca.escudo;
+        img.alt = "";
+        m.append(img);
+      }
+      if (marca.nombre) m.append(el("span", undefined, marca.nombre));
+      hoja.append(m);
+    }
+    hoja.append(el("h1", undefined, "Plan de partido"), el("p", "pp-sub", cabecera(p)));
+    const secs = el("div", "pp-secs");
+    for (const s of secciones(p).filter((x) => x.titulo !== "Jugadas")) {
+      const sec = el("div", "pp-sec");
+      sec.append(el("h2", undefined, s.titulo));
+      const ul = el("ul");
+      for (const i of s.items) ul.append(el("li", undefined, i));
+      sec.append(ul);
+      secs.append(sec);
+    }
+    hoja.append(secs);
+    const elegidas = p.jugadas.map((id) => jugadasPizarra.find((j) => j.id === id)).filter((j): j is Jugada => !!j);
+    if (elegidas.length) {
+      const sec = el("div", "pp-sec");
+      sec.append(el("h2", undefined, "Jugadas"));
+      const dib = el("div", "pp-dib");
+      for (const j of elegidas) {
+        const t = tarjeta(j, "todos");
+        const fig = el("figure");
+        fig.append(el("figcaption", undefined, t.nombre));
+        const caja = el("div");
+        caja.innerHTML = t.svg; // SVG nuestro: renderSvgCompleto escapa todo el texto del usuario
+        fig.append(caja);
+        dib.append(fig);
+      }
+      sec.append(dib);
+      hoja.append(sec);
+    }
+    if (!hoja.querySelector(".pp-sec")) return void alert("El plan está vacío: escribe algo antes de imprimirlo.");
+    hoja.append(el("p", "pp-pie", "Hecho con canchazapa.com"));
+    $("pp-print").replaceChildren(hoja);
+    document.documentElement.classList.add("pp-printing");
+    void Promise.all([...hoja.querySelectorAll("img")].map((i) => i.decode().catch(() => undefined))).then(() => window.print());
+  });
+  window.addEventListener("afterprint", () => document.documentElement.classList.remove("pp-printing"));
+
+  function pintarTodo() {
+    const p = plan();
+    pintarSelector();
+    for (const c of campos) c.value = p[c.dataset.k as CampoTexto] ?? "";
+    if (rivales.length) $<HTMLSelectElement>("pp-rival-sel").value = rivalDe(p)?.id ?? "";
+    ($("pp-traer") as HTMLButtonElement).hidden = !rivalDe(p);
+    pintarEmparejamientos();
+    pintarJugadas();
+    pintarSalida();
+  }
+  pintarTodo();
+</script>
