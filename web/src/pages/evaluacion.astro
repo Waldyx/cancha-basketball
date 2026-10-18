@@ -51,6 +51,7 @@ const areas = Object.entries(AREAS) as [keyof typeof AREAS, string][];
           <textarea id="ev-jugadores" class="ev-inp ev-ta" rows="5" placeholder={"4 Laia\n7 Marc\n…"}></textarea>
         </label>
       </details>
+      <div id="ev-huerfanos" class="ev-panel hf" hidden></div>
 
       <section class="ev-panel">
         <div class="ev-fila">
@@ -86,7 +87,7 @@ const areas = Object.entries(AREAS) as [keyof typeof AREAS, string][];
                     </div>
                     <div class="ev-niveles" role="group" aria-label={c.nombre}>
                       {[1, 2, 3, 4].map((n) => (
-                        <button type="button" class="ev-n" data-n={n} title={NIVELES[n as 1]} aria-pressed="false">
+                        <button type="button" class="ev-n" data-n={n} title={NIVELES[n as 1]} aria-label={`${n} · ${NIVELES[n as 1]}`} aria-pressed="false">
                           {n}
                         </button>
                       ))}
@@ -188,12 +189,14 @@ const areas = Object.entries(AREAS) as [keyof typeof AREAS, string][];
 <script>
   import { CLAVE_EQUIPO, equiposDeTexto } from "../lib/pizarraEquipo";
   import { CLAVE_MARCA, leerMarca } from "../lib/pizarraMarca";
+  import { pintarHuerfanos } from "../lib/huerfanosUI";
   import {
     AREAS,
     CRITERIOS,
     LIMITES_EVALUACION,
     NIVELES,
     anteriorDe,
+    cambios,
     cronologico,
     media,
     normalizarStoreEvaluacion,
@@ -255,7 +258,7 @@ const areas = Object.entries(AREAS) as [keyof typeof AREAS, string][];
   $("ev-crear").addEventListener("click", () => {
     if (st.evaluaciones.length >= LIMITES_EVALUACION.EVALUACIONES) return void alert(`Como mucho ${LIMITES_EVALUACION.EVALUACIONES} evaluaciones: borra alguna antigua.`);
     const nombre = $<HTMLInputElement>("ev-nombre").value.trim().slice(0, 40) || `${st.evaluaciones.length + 1}.ª evaluación`;
-    const e: Evaluacion = { id: Math.random().toString(36).slice(2, 10), nombre, fecha: $<HTMLInputElement>("ev-fecha").value || hoy(), notas: {}, comentarios: {} };
+    const e: Evaluacion = { id: Date.now().toString(36).padStart(9, "0") + Math.random().toString(36).slice(2, 5), nombre, fecha: $<HTMLInputElement>("ev-fecha").value || hoy(), notas: {}, comentarios: {} };
     st.evaluaciones = cronologico([...st.evaluaciones, e]);
     activaId = e.id;
     $<HTMLInputElement>("ev-nombre").value = "";
@@ -286,6 +289,7 @@ const areas = Object.entries(AREAS) as [keyof typeof AREAS, string][];
     if (!e || !js.length) return;
     if (!js.includes(jugador)) jugador = js[0];
     const lista = $("ev-lista");
+    const conFoco = lista.contains(document.activeElement);
     lista.replaceChildren(
       ...js.map((j) => {
         const b = el("button", "ev-j") as HTMLButtonElement;
@@ -301,6 +305,7 @@ const areas = Object.entries(AREAS) as [keyof typeof AREAS, string][];
         return b;
       })
     );
+    if (conFoco) lista.querySelector<HTMLElement>('[aria-current="true"]')?.focus();
   }
 
   function pintarFicha() {
@@ -339,7 +344,7 @@ const areas = Object.entries(AREAS) as [keyof typeof AREAS, string][];
       const e = activa();
       if (!b || !e || !jugador) return;
       const n = +b.dataset.n! as Nivel;
-      const ns = (e.notas[jugador] ??= {});
+      const ns = Object.hasOwn(e.notas, jugador) ? e.notas[jugador] : (e.notas[jugador] = {});
       if (ns[c] === n) delete ns[c];
       else ns[c] = n;
       if (!Object.keys(ns).length) delete e.notas[jugador];
@@ -377,8 +382,8 @@ const areas = Object.entries(AREAS) as [keyof typeof AREAS, string][];
       const n = e.notas[j];
       const ant = anteriorDe(st.evaluaciones, e, j);
       const m = media(n);
-      const ma = ant ? media(ant.notas[j]) : null;
-      const dif = m !== null && ma !== null ? Math.round((m - ma) * 10) / 10 : null;
+      const comunes = ant ? cambios(ant.notas[j], n) : [];
+      const dif = comunes.length ? Math.round((10 * comunes.reduce((s, x) => s + x.ahora - x.antes, 0)) / comunes.length) / 10 : null;
       const cambio = dif === null ? "—" : dif > 0 ? `▲ ${f1(dif)}` : dif < 0 ? `▼ ${f1(-dif)}` : "=";
       for (const v of [j, ...(Object.keys(AREAS) as (keyof typeof AREAS)[]).map((a) => f1(media(n, a))), f1(m), cambio]) tr.append(el("td", undefined, v));
       t.append(tr);
@@ -458,12 +463,26 @@ const areas = Object.entries(AREAS) as [keyof typeof AREAS, string][];
     const out = $("ev-print");
     out.replaceChildren(...js.map((j) => hoja(e, j)));
     document.documentElement.classList.add("ev-printing");
-    window.setTimeout(() => window.print(), 60);
+    // el escudo tiene que estar decodificado antes de imprimir
+    void Promise.all([...out.querySelectorAll("img")].map((i) => i.decode().catch(() => undefined))).then(() => window.print());
   });
   window.addEventListener("afterprint", () => document.documentElement.classList.remove("ev-printing"));
 
   // ── plantilla ───────────────────────────────────────────────────────
+  function pintarAvisos() {
+    pintarHuerfanos($("ev-huerfanos"), {
+      texto: st.jugadores,
+      jugadores: plantilla(st.jugadores),
+      registros: st.evaluaciones.flatMap((e) => [e.notas, e.comentarios]),
+      que: "valoraciones",
+      alCambiar: () => {
+        guardar();
+        pintarTodo();
+      },
+    });
+  }
   function pintarTodo() {
+    pintarAvisos();
     pintarSelector();
     pintarLista();
     pintarFicha();
@@ -474,6 +493,7 @@ const areas = Object.entries(AREAS) as [keyof typeof AREAS, string][];
   txt.addEventListener("input", () => {
     st.jugadores = txt.value.slice(0, 2000);
     guardar();
+    pintarAvisos();
     pintarLista();
     pintarFicha();
     pintarTabla();

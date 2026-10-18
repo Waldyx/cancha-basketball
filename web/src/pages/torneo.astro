@@ -83,6 +83,7 @@ const jsonLd = {
             <section class="tn-panel">
               <h2 class="tn-h2">Calendario</h2>
               <div id="tn-calendario" class="tn-cal"></div>
+              <p id="tn-empates" class="tn-error" role="status" hidden>Hay un empate: en baloncesto falta la prórroga. Ese partido no cuenta (ni cierra su grupo) hasta que metas el resultado final.</p>
             </section>
             <div class="tn-lado">
               <section class="tn-panel" id="tn-clasif-sec">
@@ -133,6 +134,7 @@ const jsonLd = {
   @media (max-width: 520px) {
     .tn-p { grid-template-columns: minmax(0, 1fr) 46px 10px 46px minmax(0, 1fr); }
     .tn-p-info { grid-column: 1 / -1; }
+    .tn-eq { white-space: normal; overflow-wrap: anywhere; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-height: 1.2; }
   }
   .tn-p-info { font: 700 10.5px "Inter", sans-serif; color: var(--cz-text-2); text-transform: uppercase; letter-spacing: .04em; line-height: 1.2; }
   .tn-eq { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; }
@@ -172,7 +174,7 @@ const jsonLd = {
     aEnlace,
     clasificacion,
     deEnlace,
-    equiposDeTexto,
+    leerEquipos,
     etiqueta,
     fotoCruces,
     horaDe,
@@ -231,17 +233,22 @@ const jsonLd = {
     inp<HTMLInputElement>("tn-descanso").value = String(t.descanso);
   }
   $("tn-generar").addEventListener("click", () => {
-    const equipos = equiposDeTexto(inp<HTMLTextAreaElement>("tn-equipos").value);
+    const { equipos, avisos } = leerEquipos(inp<HTMLTextAreaElement>("tn-equipos").value);
     const formato = inp<HTMLSelectElement>("tn-formato").value as Formato;
+    const pistas = +inp<HTMLInputElement>("tn-pistas").value;
     const error = problemaFormato(equipos.length, formato);
-    $("tn-error").textContent = error ?? "";
+    $("tn-error").textContent = [error, ...avisos].filter(Boolean).join(" ");
     if (error) return;
-    if (t && t.partidos.some((p) => p.pa !== null) && !confirm("Se va a rehacer el calendario y se perderán los resultados metidos. ¿Seguir?")) return;
+    // mismos equipos (en número), formato y pistas = mismo cuadro: corregir un nombre o la hora no
+    // borra los resultados
+    const mismo = !!t && t.equipos.length === equipos.length && t.formato === formato && t.pistas === Math.max(1, Math.min(8, Math.round(pistas) || 1));
+    if (t && !mismo && t.partidos.some((p) => p.pa !== null) && !confirm("Se va a rehacer el calendario y se perderán los resultados metidos. ¿Seguir?")) return;
     const nuevo = normalizarTorneo({
+      partidos: mismo ? t!.partidos : [],
       nombre: inp<HTMLInputElement>("tn-nombre").value,
       equipos,
       formato,
-      pistas: +inp<HTMLInputElement>("tn-pistas").value,
+      pistas,
       inicio: inp<HTMLInputElement>("tn-inicio").value,
       duracion: +inp<HTMLInputElement>("tn-duracion").value,
       descanso: +inp<HTMLInputElement>("tn-descanso").value,
@@ -261,41 +268,73 @@ const jsonLd = {
     const rondas = new Set(tt.partidos.filter((x) => x.r !== undefined).map((x) => x.r)).size;
     return nombreRonda(p.r!, rondas);
   }
+  // Cada fila se construye UNA vez y luego se actualiza en su sitio: repintar el calendario entero
+  // destruía la caja a la que iba el foco (Tab, o el toque en móvil cerraba el teclado).
+  let refrescos: (() => void)[] = [];
+  // foto de los cruces antes de empezar a corregir un partido: mientras está a medias (un solo
+  // número o empate) no se vacía nada; se compara con la foto cuando vuelve a tener resultado
+  const fotos = new Map<string, (number | null)[][]>();
   function filaPartido(tt: Torneo, p: Partido): HTMLElement {
     const fila = el("div", "tn-p");
     fila.append(el("span", "tn-p-info", `Pista ${p.pista + 1} · ${infoPartido(tt, p)}`));
-    const ea = resolver(tt, p.a);
-    const eb = resolver(tt, p.b);
-    const ok = jugado(p);
-    const na = el("span", "tn-eq a" + (ea === null ? " pend" : "") + (ok && p.pa! > p.pb! ? " gana" : ""), etiqueta(tt, p.a));
-    const nb = el("span", "tn-eq" + (eb === null ? " pend" : "") + (ok && p.pb! > p.pa! ? " gana" : ""), etiqueta(tt, p.b));
+    const na = el("span", "tn-eq a");
+    const nb = el("span", "tn-eq");
     const caja = (lado: "pa" | "pb") => {
       const i = document.createElement("input");
       i.type = "number";
       i.inputMode = "numeric";
       i.min = "0";
       i.max = "999";
-      i.className = "tn-res" + (p.pa !== null && p.pa === p.pb ? " empate" : "");
-      i.value = p[lado] === null ? "" : String(p[lado]);
-      i.disabled = soloVer || ea === null || eb === null;
-      i.setAttribute("aria-label", `Puntos de ${lado === "pa" ? etiqueta(tt, p.a) : etiqueta(tt, p.b)}`);
-      if (p.pa !== null && p.pa === p.pb) i.title = "En baloncesto no hay empate: falta la prórroga.";
       i.addEventListener("change", () => {
-        const antes = fotoCruces(tt);
+        const antes = fotos.get(p.id) ?? fotoCruces(tt);
         const v = i.value.trim() === "" ? null : Math.max(0, Math.min(999, Math.round(+i.value)));
         p[lado] = Number.isFinite(v as number) ? v : null;
-        limpiarCruces(tt, antes);
+        const aMedias = (p.pa === null) !== (p.pb === null) || (p.pa !== null && p.pa === p.pb);
+        if (aMedias) fotos.set(p.id, antes);
+        else {
+          fotos.delete(p.id);
+          limpiarCruces(tt, antes);
+        }
         guardar();
-        pintar();
+        refrescar();
       });
       return i;
     };
-    fila.append(na, caja("pa"), el("span", "tn-guion", "–"), caja("pb"), nb);
+    const ia = caja("pa");
+    const ib = caja("pb");
+    refrescos.push(() => {
+      const ea = resolver(tt, p.a);
+      const eb = resolver(tt, p.b);
+      const ok = jugado(p);
+      const empate = p.pa !== null && p.pa === p.pb;
+      na.textContent = etiqueta(tt, p.a);
+      nb.textContent = etiqueta(tt, p.b);
+      na.title = na.textContent;
+      nb.title = nb.textContent;
+      na.className = "tn-eq a" + (ea === null ? " pend" : "") + (ok && p.pa! > p.pb! ? " gana" : "");
+      nb.className = "tn-eq" + (eb === null ? " pend" : "") + (ok && p.pb! > p.pa! ? " gana" : "");
+      for (const [i, lado, nom] of [[ia, "pa", na.textContent], [ib, "pb", nb.textContent]] as const) {
+        i.className = "tn-res" + (empate ? " empate" : "");
+        if (document.activeElement !== i) i.value = p[lado] === null ? "" : String(p[lado]);
+        i.disabled = soloVer || ea === null || eb === null;
+        i.setAttribute("aria-label", `Puntos de ${nom}`);
+        i.title = empate ? "En baloncesto no hay empate: falta la prórroga." : "";
+      }
+    });
+    fila.append(na, ia, el("span", "tn-guion", "–"), ib, nb);
     return fila;
+  }
+  function refrescar() {
+    if (!t) return;
+    for (const r of refrescos) r();
+    $("tn-empates").hidden = !t.partidos.some((p) => p.pa !== null && p.pa === p.pb);
+    pintarClasificacion(t);
   }
   function pintarCalendario(tt: Torneo) {
     const cal = $("tn-calendario");
     cal.replaceChildren();
+    refrescos = [];
+    fotos.clear();
     const slots = [...new Set(tt.partidos.map((p) => p.slot))].sort((a, b) => a - b);
     for (const s of slots) {
       const bloque = el("div");
@@ -337,7 +376,8 @@ const jsonLd = {
       div.append(el("h3", undefined, nombreRonda(r, rondas)));
       for (const p of cruces.filter((x) => x.r === r)) {
         const c = el("div", "tn-cruce");
-        const ok = jugado(p);
+        // un resultado de cruce solo vale si se sabe quién lo jugó (mientras se corrige un partido previo, no)
+        const ok = jugado(p) && resolver(tt, p.a) !== null && resolver(tt, p.b) !== null;
         c.append(el("span", ok && p.pa! > p.pb! ? "tn-eq gana" : "tn-eq", etiqueta(tt, p.a)), el("b", undefined, ok ? String(p.pa) : ""));
         c.append(el("span", ok && p.pb! > p.pa! ? "tn-eq gana" : "tn-eq", etiqueta(tt, p.b)), el("b", undefined, ok ? String(p.pb) : ""));
         div.append(c);
@@ -345,7 +385,7 @@ const jsonLd = {
       cuadro.append(div);
     }
     const final = cruces.find((p) => p.r === rondas - 1);
-    if (final && jugado(final)) cuadro.append(el("div", "tn-campeon", `🏆 ${etiqueta(tt, final.pa! > final.pb! ? final.a : final.b)}`));
+    if (final && jugado(final) && resolver(tt, final.a) !== null && resolver(tt, final.b) !== null) cuadro.append(el("div", "tn-campeon", `🏆 ${etiqueta(tt, final.pa! > final.pb! ? final.a : final.b)}`));
     else if (!cruces.length && tt.partidos.every(jugado)) {
       const primero = clasificacion(tt, 0)[0];
       if (primero) out.prepend(el("div", "tn-campeon", `🏆 ${tt.equipos[primero.e]}`));
@@ -360,7 +400,7 @@ const jsonLd = {
     if (!t) return;
     $("tn-titulo").textContent = t.nombre;
     pintarCalendario(t);
-    pintarClasificacion(t);
+    refrescar();
   }
 
   // ── acciones ────────────────────────────────────────────────────────
@@ -401,6 +441,8 @@ const jsonLd = {
     pintar();
   });
 
+  // otro enlace pegado en la misma pestaña: el hash cambia pero la página no se recarga sola
+  window.addEventListener("hashchange", () => location.reload());
   if (t) rellenarConfig();
   else ($("tn-config") as HTMLDetailsElement).open = true;
   pintar();

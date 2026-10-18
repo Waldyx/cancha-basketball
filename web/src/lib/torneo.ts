@@ -42,7 +42,7 @@ export interface Torneo {
   partidos: Partido[];
 }
 
-export const LIMITES_TORNEO = { EQUIPOS: 32, PISTAS: 8, NOMBRE: 30 } as const;
+export const LIMITES_TORNEO = { EQUIPOS: 32, PISTAS: 8, NOMBRE: 40 } as const;
 
 export const LETRAS = "ABCDEFGH";
 
@@ -84,7 +84,9 @@ export function problemaFormato(n: number, f: Formato): string | null {
   const minGrupo = Math.floor(n / grupos);
   if (minGrupo < 2) return `Con ${grupos} grupos hacen falta al menos ${grupos * 2} equipos.`;
   if (pasan && minGrupo <= pasan && grupos > 1) return `Para que pasen ${pasan} por grupo, cada grupo necesita al menos ${pasan + 1} equipos.`;
-  if (pasan > n) return `Para ese formato hacen falta al menos ${pasan + 1} equipos.`;
+  // una final entre los dos únicos equipos repetiría el partido de liga
+  const minimo = f === "liga-final" ? 3 : pasan;
+  if (grupos === 1 && n < minimo) return `Para ese formato hacen falta al menos ${minimo} equipos.`;
   return null;
 }
 
@@ -103,51 +105,70 @@ export function primeraRonda(grupos: number, pasan: number): [Ref, Ref][] {
   return [...parejas.map(([x, y]): [Ref, Ref] => [{ g: x, p: 1 }, { g: y, p: 2 }]), ...parejas.map(([x, y]): [Ref, Ref] => [{ g: y, p: 1 }, { g: x, p: 2 }])];
 }
 
-/** Monta grupos, jornadas, cruces y el horario (cada partido en un hueco y una pista). */
+/**
+ * Monta grupos, jornadas, cruces y el horario (cada partido en un hueco y una pista).
+ * El ORDEN del array (y los ids) es el de creación: jornada a jornada y luego el cuadro. Los enlaces
+ * guardan los resultados por posición, así que ese orden no puede cambiar (hay test).
+ */
 export function generar(t: Omit<Torneo, "partidos">): Partido[] {
   const { grupos, pasan } = FORMATOS[t.formato];
   const gs = repartirGrupos(t.equipos.length, grupos);
   const porGrupo = gs.map(jornadas);
   const pistas = Math.max(1, Math.min(LIMITES_TORNEO.PISTAS, Math.round(t.pistas) || 1));
   const partidos: Partido[] = [];
+  const jornadaDe = new Map<Partido, number>();
   let n = 0;
-  // horario: huecos de `pistas` partidos; un equipo no juega dos veces en el mismo hueco y,
-  // si se puede, tampoco en dos huecos seguidos
-  const ocupados: number[][] = []; // por hueco: equipos que juegan
-  const ultimo = new Map<number, number>();
-  const colocar = (p: Omit<Partido, "slot" | "pista">, desde: number, equipos: number[]) => {
-    // sin jugar seguido solo hasta el primer hueco libre: más allá dejaría pistas vacías
-    const frontera = Math.max(desde, ...partidos.map((x) => x.slot + 1));
-    for (const permitirSeguido of [false, true])
-      for (let s = desde; s <= (permitirSeguido ? desde + 400 : frontera); s++) {
-        const occ = (ocupados[s] ??= []);
-        const pista = partidos.filter((x) => x.slot === s).length;
-        if (pista >= pistas) continue;
-        if (equipos.some((e) => occ.includes(e))) continue;
-        if (!permitirSeguido && equipos.some((e) => ultimo.get(e) === s - 1)) continue;
-        occ.push(...equipos);
-        for (const e of equipos) ultimo.set(e, s);
-        partidos.push({ ...p, slot: s, pista });
-        return;
-      }
-  };
   // jornada a jornada, intercalando los grupos
   const maxJ = Math.max(...porGrupo.map((j) => j.length));
   for (let j = 0; j < maxJ; j++)
     for (let g = 0; g < grupos; g++)
-      for (const [a, b] of porGrupo[g][j] ?? []) colocar({ id: `p${n++}`, g, a: { e: a }, b: { e: b }, pa: null, pb: null }, 0, [a, b]);
+      for (const [a, b] of porGrupo[g][j] ?? []) {
+        const p: Partido = { id: `p${n++}`, g, a: { e: a }, b: { e: b }, pa: null, pb: null, slot: 0, pista: 0 };
+        partidos.push(p);
+        jornadaDe.set(p, j);
+      }
+  // horario de grupos, hueco a hueco: se llenan TODAS las pistas que se pueda (un equipo nunca juega
+  // dos a la vez) y, entre los partidos de las dos primeras jornadas pendientes, primero los de
+  // equipos que no jugaron en el hueco anterior. Así no se queda una pista vacía para dar descanso.
+  const eq = (p: Partido) => [(p.a as { e: number }).e, (p.b as { e: number }).e];
+  const pendientes = [...partidos];
+  let slot = 0;
+  let antes = new Set<number>();
+  while (pendientes.length) {
+    const ahora = new Set<number>();
+    const tope = jornadaDe.get(pendientes[0])! + 1;
+    let pista = 0;
+    for (const descansados of [true, false])
+      for (let i = 0; i < pendientes.length && pista < pistas; ) {
+        const p = pendientes[i];
+        const [a, b] = eq(p);
+        const libre = !ahora.has(a) && !ahora.has(b);
+        const ok = libre && (!descansados || (jornadaDe.get(p)! <= tope && !antes.has(a) && !antes.has(b)));
+        if (!ok) {
+          i++;
+          continue;
+        }
+        p.slot = slot;
+        p.pista = pista++;
+        ahora.add(a);
+        ahora.add(b);
+        pendientes.splice(i, 1);
+      }
+    antes = ahora;
+    slot++;
+  }
   if (pasan) {
     let ronda: Ref[][] = primeraRonda(grupos, pasan);
     let r = 0;
-    let desde = partidos.length ? Math.max(...partidos.map((p) => p.slot)) + 1 : 0;
+    let desde = slot;
     for (;;) {
       const ids: string[] = [];
-      for (const [a, b] of ronda) {
-        const id = `c${r}-${ids.length}`;
+      ronda.forEach(([a, b], i) => {
+        const id = `c${r}-${i}`;
         ids.push(id);
-        colocar({ id, r, a, b, pa: null, pb: null }, desde, []);
-      }
-      desde = Math.max(...partidos.map((p) => p.slot)) + 1;
+        partidos.push({ id, r, a, b, pa: null, pb: null, slot: desde + Math.floor(i / pistas), pista: i % pistas });
+      });
+      desde += Math.ceil(ronda.length / pistas);
       if (ids.length === 1) break;
       ronda = [];
       for (let i = 0; i < ids.length; i += 2) ronda.push([{ w: ids[i] }, { w: ids[i + 1] }]);
@@ -165,7 +186,8 @@ export function horaDe(t: Pick<Torneo, "inicio" | "duracion" | "descanso">, slot
   const m = /^(\d{1,2}):(\d{2})$/.exec(t.inicio);
   if (!m) return "";
   const min = +m[1] * 60 + +m[2] + slot * (t.duracion + t.descanso);
-  return `${String(Math.floor(min / 60) % 24).padStart(2, "0")}:${String(min % 60).padStart(2, "0")}`;
+  const dia = Math.floor(min / 1440);
+  return `${String(Math.floor(min / 60) % 24).padStart(2, "0")}:${String(min % 60).padStart(2, "0")}${dia ? ` (+${dia} d)` : ""}`;
 }
 
 export const jugado = (p: Partido) => p.pa !== null && p.pb !== null && p.pa !== p.pb;
@@ -199,8 +221,10 @@ function sumar(filas: Map<number, Fila>, ps: Partido[]) {
 }
 
 /**
- * Clasificación de un grupo. Desempate a la FIBA: victorias; si empatan, victorias y diferencia
- * en los partidos ENTRE los empatados; después diferencia y puntos a favor de todo el grupo.
+ * Clasificación de un grupo. Desempate como el de FIBA: victorias; si empatan, victorias y después
+ * diferencia en los partidos ENTRE los empatados, y si eso separa a unos pero deja a otros aún
+ * empatados, se vuelve a empezar SOLO con ellos (así un empate a dos acaba en su cara a cara);
+ * si ya no separa a nadie, diferencia y puntos a favor de todo el grupo.
  */
 export function clasificacion(t: Torneo, g: number): Fila[] {
   const { grupos } = FORMATOS[t.formato];
@@ -212,25 +236,22 @@ export function clasificacion(t: Torneo, g: number): Fila[] {
   const dif = (f: Fila) => f.pf - f.pc;
   const porVictorias = new Map<number, Fila[]>();
   for (const f of total) porVictorias.set(f.g, [...(porVictorias.get(f.g) ?? []), f]);
-  const out: Fila[] = [];
-  for (const v of [...porVictorias.keys()].sort((a, b) => b - a)) {
-    const empatados = porVictorias.get(v)!;
-    if (empatados.length === 1) {
-      out.push(empatados[0]);
-      continue;
-    }
-    const set = new Set(empatados.map((f) => f.e));
-    const mini = new Map(empatados.map((f) => [f.e, filaVacia(f.e)]));
+  const ordenar = (emp: Fila[]): Fila[] => {
+    if (emp.length < 2) return emp;
+    const set = new Set(emp.map((f) => f.e));
+    const mini = new Map(emp.map((f) => [f.e, filaVacia(f.e)]));
     sumar(mini, ps.filter((p) => "e" in p.a && "e" in p.b && set.has(p.a.e) && set.has(p.b.e)));
-    out.push(
-      ...[...empatados].sort((x, y) => {
-        const mx = mini.get(x.e)!;
-        const my = mini.get(y.e)!;
-        return my.g - mx.g || dif(my) - dif(mx) || dif(y) - dif(x) || y.pf - x.pf || x.e - y.e;
-      })
-    );
-  }
-  return out;
+    for (const clave of [(m: Fila) => m.g, dif]) {
+      const trozos = new Map<number, Fila[]>();
+      for (const f of emp) {
+        const k = clave(mini.get(f.e)!);
+        trozos.set(k, [...(trozos.get(k) ?? []), f]);
+      }
+      if (trozos.size > 1) return [...trozos.keys()].sort((a, b) => b - a).flatMap((k) => ordenar(trozos.get(k)!));
+    }
+    return [...emp].sort((x, y) => dif(y) - dif(x) || y.pf - x.pf || x.e - y.e);
+  };
+  return [...porVictorias.keys()].sort((a, b) => b - a).flatMap((v) => ordenar(porVictorias.get(v)!));
 }
 
 /** ¿Ha terminado la fase de grupos de este grupo? */
@@ -277,18 +298,31 @@ export function limpiarCruces(t: Torneo, antes: (number | null)[][]): void {
 export const fotoCruces = (t: Torneo) => t.partidos.filter((p) => p.r !== undefined).map((p) => [resolver(t, p.a), resolver(t, p.b)]);
 
 /** Equipos de la lista escrita (una línea por equipo, sin vacíos ni repetidos). */
-export function equiposDeTexto(texto: string): string[] {
+export const equiposDeTexto = (texto: string): string[] => leerEquipos(texto).equipos;
+
+/** Igual, y además qué líneas se han quedado fuera o recortadas, para avisar (nada desaparece en silencio). */
+export function leerEquipos(texto: string): { equipos: string[]; avisos: string[] } {
   const vistos = new Set<string>();
   const out: string[] = [];
+  const avisos: string[] = [];
   for (const l of texto.split("\n")) {
-    const n = l.trim().slice(0, LIMITES_TORNEO.NOMBRE);
+    const bruto = l.trim();
+    if (!bruto) continue;
+    if (out.length >= LIMITES_TORNEO.EQUIPOS) {
+      avisos.push(`Como mucho ${LIMITES_TORNEO.EQUIPOS} equipos: desde «${bruto}» se quedan fuera.`);
+      break;
+    }
+    const n = bruto.slice(0, LIMITES_TORNEO.NOMBRE);
+    if (n !== bruto) avisos.push(`«${bruto}» es muy largo: queda como «${n}».`);
     const k = n.toLowerCase();
-    if (!n || vistos.has(k)) continue;
+    if (vistos.has(k)) {
+      avisos.push(`«${n}» está repetido: cuenta una sola vez.`);
+      continue;
+    }
     vistos.add(k);
     out.push(n);
-    if (out.length >= LIMITES_TORNEO.EQUIPOS) break;
   }
-  return out;
+  return { equipos: out, avisos };
 }
 
 // ── enlace para compartir ─────────────────────────────────────────────
@@ -341,7 +375,7 @@ export function normalizarTorneo(raw: unknown): Torneo | null {
     equipos,
     formato,
     pistas: entero(raw.pistas, 1, LIMITES_TORNEO.PISTAS, 1),
-    inicio: typeof raw.inicio === "string" && /^\d{2}:\d{2}$/.test(raw.inicio) ? raw.inicio : "10:00",
+    inicio: typeof raw.inicio === "string" && /^([01]\d|2[0-3]):[0-5]\d$/.test(raw.inicio) ? raw.inicio : "10:00",
     duracion: entero(raw.duracion, 5, 120, 15),
     descanso: entero(raw.descanso, 0, 60, 5),
   };

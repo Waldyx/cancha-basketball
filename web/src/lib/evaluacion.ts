@@ -134,11 +134,11 @@ export function normalizarStoreEvaluacion(raw: unknown): StoreEvaluacion {
         if (!esObj(ns)) continue;
         const fila: Record<string, Nivel> = {};
         for (const [c, n] of Object.entries(ns)) if (IDS.has(c) && Number.isInteger(n) && (n as number) >= 1 && (n as number) <= 4) fila[c] = n as Nivel;
-        if (Object.keys(fila).length) notas[j.slice(0, 40)] = fila;
+        if (Object.keys(fila).length) notas[j.slice(0, 48)] = fila;
       }
     const comentarios: Record<string, string> = {};
     if (esObj(re.comentarios))
-      for (const [j, t] of Object.entries(re.comentarios)) if (typeof t === "string" && t.trim()) comentarios[j.slice(0, 40)] = t.slice(0, LIMITES_EVALUACION.COMENTARIO);
+      for (const [j, t] of Object.entries(re.comentarios)) if (typeof t === "string" && t.trim()) comentarios[j.slice(0, 48)] = t.slice(0, LIMITES_EVALUACION.COMENTARIO);
     st.evaluaciones.push({
       id,
       nombre: typeof re.nombre === "string" && re.nombre.trim() ? re.nombre.trim().slice(0, 40) : "Evaluación",

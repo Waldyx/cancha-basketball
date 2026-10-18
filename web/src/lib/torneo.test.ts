@@ -15,6 +15,7 @@ import {
   repartirGrupos,
   resolver,
   type Formato,
+  leerEquipos,
   type Torneo,
 } from "./torneo";
 
@@ -111,6 +112,42 @@ describe("torneo", () => {
     if (JSON.stringify(fotoCruces(t)) !== JSON.stringify(antes)) expect(final.pa).toBeNull();
   });
 
+  it("desempate: si la mini-liga deja a dos empatados, decide su cara a cara (FIBA)", () => {
+    // caso de la revisión del 18-oct: E0, E1 y E2 a 2 victorias en ciclo; E2 sale primero por diferencia
+    // entre los tres y E0/E1 siguen empatados: E1 ganó a E0, así que va delante aunque su diferencia global sea peor
+    const t = base(4, "liga", 2);
+    const res: Record<string, [number, number]> = { "0-3": [15, 11], "1-2": [10, 15], "2-0": [13, 14], "1-3": [15, 12], "0-1": [10, 13], "2-3": [15, 13] };
+    for (const p of t.partidos) {
+      const [a, b] = [(p.a as { e: number }).e, (p.b as { e: number }).e];
+      const r = res[`${a}-${b}`] ?? (res[`${b}-${a}`] ? ([res[`${b}-${a}`][1], res[`${b}-${a}`][0]] as [number, number]) : null);
+      if (r) (p.pa = r[0]), (p.pb = r[1]);
+    }
+    expect(clasificacion(t, 0).map((f) => f.e)).toEqual([2, 1, 0, 3]);
+  });
+
+  it("el horario llena las pistas: el mínimo de huecos posible en los casos típicos", () => {
+    for (const [n, pistas] of [[4, 2], [5, 2], [6, 3], [8, 4], [6, 2]] as const) {
+      const t = base(n, "liga", pistas);
+      const huecos = new Set(t.partidos.map((p) => p.slot)).size;
+      expect(huecos, `${n} equipos, ${pistas} pistas`).toBe(Math.max(Math.ceil(t.partidos.length / pistas), n % 2 ? n : n - 1));
+    }
+  });
+
+  it("el orden de los partidos (y sus ids) no cambia: los enlaces guardan los resultados por posición", () => {
+    const ids = (n: number, f: Formato) => base(n, f, 2).partidos.map((p) => [p.id, "e" in p.a ? p.a.e : JSON.stringify(p.a), "e" in p.b ? p.b.e : JSON.stringify(p.b)].join(":")).join(" ");
+    expect(ids(6, "liga")).toBe("p0:0:5 p1:1:4 p2:2:3 p3:4:0 p4:3:5 p5:2:1 p6:0:3 p7:4:2 p8:5:1 p9:2:0 p10:1:3 p11:5:4 p12:0:1 p13:2:5 p14:3:4");
+    expect(ids(8, "g2-semis")).toBe(
+      'p0:0:7 p1:3:4 p2:1:6 p3:2:5 p4:4:0 p5:3:7 p6:5:1 p7:2:6 p8:0:3 p9:4:7 p10:1:2 p11:5:6 c0-0:{"g":0,"p":1}:{"g":1,"p":2} c0-1:{"g":1,"p":1}:{"g":0,"p":2} c1-0:{"w":"c0-0"}:{"w":"c0-1"}'
+    );
+  });
+
+  it("avisa de los equipos repetidos, recortados o que no caben", () => {
+    const r = leerEquipos("Club Bàsquet Vilassar de Mar Cadet Femení A\nCB Premià\ncb premià\nTigres");
+    expect(r.equipos).toEqual(["Club Bàsquet Vilassar de Mar Cadet Femen", "CB Premià", "Tigres"]);
+    expect(r.avisos).toHaveLength(2);
+    expect(leerEquipos("A\nB").avisos).toEqual([]);
+  });
+
   it("calcula la hora de cada hueco", () => {
     expect(horaDe({ inicio: "09:30", duracion: 20, descanso: 5 }, 3)).toBe("10:45");
   });
@@ -121,6 +158,9 @@ describe("torneo", () => {
     expect(problemaFormato(8, "g4-cuartos")).toMatch(/3 equipos/);
     expect(problemaFormato(12, "g4-cuartos")).toBeNull();
     expect(problemaFormato(4, "liga-semis")).toBeNull();
+    expect(problemaFormato(3, "liga-semis")).toMatch(/al menos 4/);
+    expect(problemaFormato(2, "liga-final")).toMatch(/al menos 3/);
+    expect(horaDe({ inicio: "22:00", duracion: 50, descanso: 10 }, 3)).toBe("01:00 (+1 d)");
   });
 
   it("lee los equipos sin repetidos ni vacíos", () => {

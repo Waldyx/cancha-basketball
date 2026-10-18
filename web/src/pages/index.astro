@@ -285,7 +285,7 @@ const homeJsonLd = {
             { href: "/rival/",        cat: "responsive",      tag: "Entrenadores", label: "Informe del rival", desc: "Prepara el partido con sus actas" },
             { href: "/estadisticas/", cat: "balanced",        tag: "Jugador · Equipo", label: "Estadísticas", desc: "Importa actas FEB y analiza la temporada" },
             { href: "/quiz/",         cat: "cushion-focused", tag: "Jugadores", label: "Quiz de zapatilla", desc: "La tuya según posición y lesiones" },
-            { href: "/calculadora/",  cat: "traction-king",   tag: "Jugadores", label: "Coste por partido", desc: "Lo que te cuesta cada partido" },
+            { href: "/torneo/",       cat: "traction-king",   tag: "Clubs", label: "Organizador de torneos", desc: "Grupos, horarios y cuadro para tu 3x3" },
             { href: "/clubs/",        cat: "balanced",        tag: "Clubs", label: "Para tu club", desc: "Todos los equipos con lo mismo" },
           ].map(({ href, cat, tag, label, desc }) => (
             <a href={href} class="home-shortcut" style={`--cat:${CAT_ACCENT[cat]}`}>
@@ -296,6 +296,7 @@ const homeJsonLd = {
             </a>
           ))}
         </div>
+        <p class="home-shortcut-mas"><a href="/entrenadores/">Ver todas las herramientas para entrenadores →</a></p>
       </div>
     </section>
 

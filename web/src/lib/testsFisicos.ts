@@ -141,7 +141,7 @@ export function normalizarStoreTests(raw: unknown): StoreTests {
           const p = prueba(pid);
           if (p && typeof v === "number" && Number.isFinite(v) && v >= p.min && v <= p.max) fila[pid] = v;
         }
-        if (Object.keys(fila).length) marcas[j.slice(0, 40)] = fila;
+        if (Object.keys(fila).length) marcas[j.slice(0, 48)] = fila;
       }
     const edad = typeof rs.edad === "number" && rs.edad >= 6 && rs.edad <= 60 ? Math.round(rs.edad) : null;
     st.sesiones.push({

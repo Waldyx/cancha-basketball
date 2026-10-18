@@ -51,6 +51,7 @@ const jsonLd = {
           <textarea id="tf-jugadores" class="tf-inp tf-ta" rows="5" placeholder={"4 Laia\n7 Marc\n…"}></textarea>
         </label>
       </details>
+      <div id="tf-huerfanos" class="tf-panel hf" hidden></div>
 
       <section class="tf-panel">
         <div class="tf-fila">
@@ -167,6 +168,7 @@ const jsonLd = {
 <script>
   import { CLAVE_EQUIPO, equiposDeTexto } from "../lib/pizarraEquipo";
   import { CLAVE_MARCA, leerMarca as leerMarcaClub } from "../lib/pizarraMarca";
+  import { pintarHuerfanos } from "../lib/huerfanosUI";
   import {
     LIMITES_TESTS,
     PRUEBAS,
@@ -247,7 +249,7 @@ const jsonLd = {
     if (st.sesiones.length >= LIMITES_TESTS.SESIONES) return void alert(`Como mucho ${LIMITES_TESTS.SESIONES} sesiones: borra alguna antigua.`);
     const edad = Math.round(+$<HTMLInputElement>("tf-edad").value);
     const s: SesionTests = {
-      id: Math.random().toString(36).slice(2, 10),
+      id: Date.now().toString(36).padStart(9, "0") + Math.random().toString(36).slice(2, 5),
       nombre: $<HTMLInputElement>("tf-nombre").value.trim().slice(0, 40) || `Tests ${st.sesiones.length + 1}`,
       fecha: $<HTMLInputElement>("tf-fecha").value || hoy(),
       edad: edad >= 6 && edad <= 60 ? edad : null,
@@ -327,7 +329,7 @@ const jsonLd = {
             inp.title = `Entre ${formatoMarca(p, p.min)} y ${formatoMarca(p, p.max)} ${p.unidad}`;
             return;
           }
-          (s.marcas[j] ??= {})[p.id] = m;
+          (Object.hasOwn(s.marcas, j) ? s.marcas[j] : (s.marcas[j] = {}))[p.id] = m;
           inp.value = formatoMarca(p, m);
         }
         guardar();
@@ -494,12 +496,26 @@ const jsonLd = {
     if (!js.length) return void alert("Anota al menos una marca para imprimir las fichas.");
     $("tf-print").replaceChildren(...js.map((j) => hoja(s, j)));
     document.documentElement.classList.add("tf-printing");
-    window.setTimeout(() => window.print(), 60);
+    // el escudo tiene que estar decodificado antes de imprimir
+    void Promise.all([...$("tf-print").querySelectorAll("img")].map((i) => i.decode().catch(() => undefined))).then(() => window.print());
   });
   window.addEventListener("afterprint", () => document.documentElement.classList.remove("tf-printing"));
 
   // ── plantilla ───────────────────────────────────────────────────────
+  function pintarAvisos() {
+    pintarHuerfanos($("tf-huerfanos"), {
+      texto: st.jugadores,
+      jugadores: plantilla(st.jugadores),
+      registros: st.sesiones.map((s) => s.marcas),
+      que: "marcas",
+      alCambiar: () => {
+        guardar();
+        pintarTodo();
+      },
+    });
+  }
   function pintarTodo() {
+    pintarAvisos();
     pintarSesiones();
     pintarLista();
     pintarTabla();
@@ -510,6 +526,7 @@ const jsonLd = {
   txt.addEventListener("input", () => {
     st.jugadores = txt.value.slice(0, 2000);
     guardar();
+    pintarAvisos();
     pintarLista();
     pintarTabla();
     pintarEvolucion();

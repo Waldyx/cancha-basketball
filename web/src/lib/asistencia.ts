@@ -103,7 +103,7 @@ export function normalizarStoreAsistencia(raw: unknown): StoreAsistencia {
   for (const rs of (Array.isArray(raw.sesiones) ? raw.sesiones : []).slice(0, LIMITES_ASISTENCIA.SESIONES)) {
     if (!esObj(rs) || typeof rs.fecha !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(rs.fecha)) continue;
     const lista: Record<string, EstadoAsistencia> = {};
-    if (esObj(rs.lista)) for (const [k, v] of Object.entries(rs.lista)) if (typeof v === "string" && ESTADOS.has(v)) lista[k.slice(0, 40)] = v as EstadoAsistencia;
+    if (esObj(rs.lista)) for (const [k, v] of Object.entries(rs.lista)) if (typeof v === "string" && ESTADOS.has(v)) lista[k.slice(0, 48)] = v as EstadoAsistencia;
     st.sesiones.push({ id: typeof rs.id === "string" && rs.id ? rs.id.slice(0, 40) : `s${st.sesiones.length}`, fecha: rs.fecha, lista });
   }
   st.sesiones.sort((a, b) => b.fecha.localeCompare(a.fecha));

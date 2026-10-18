@@ -2320,6 +2320,16 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ── Shortcuts (by position) ── */
 .home-shortcuts { padding: 60px 0; border-bottom: 1px solid rgba(var(--cz-border-rgb),0.3); }
+/* aviso de datos huérfanos / nombres repetidos (lib/huerfanosUI.ts) */
+.hf[hidden] { display: none !important; }
+.hf { border-left: 4px solid #f97316 !important; }
+.hf-aviso { margin: 0; font-size: 13px; color: var(--cz-text); }
+.hf-fila { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: var(--cz-text); }
+.hf-sel { min-height: 36px; padding: 4px 8px; background: var(--cz-bg); color: var(--cz-text); border: 1px solid var(--cz-border); border-radius: 0; font: 600 13px "Inter", sans-serif; }
+.hf-bn { min-height: 36px; padding: 0 12px; background: transparent; color: var(--cz-text); border: 1px solid var(--cz-border); border-radius: 0; font: 900 11px "Inter", sans-serif; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+.home-shortcut-mas { margin: 16px 0 0; font: 800 13px "Inter", sans-serif; }
+.home-shortcut-mas a { color: var(--cz-accent-text); text-decoration: none; }
+.home-shortcut-mas a:hover { text-decoration: underline; }
 .home-shortcut-grid {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
   margin-top: 24px;
