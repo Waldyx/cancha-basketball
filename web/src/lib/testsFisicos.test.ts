@@ -19,8 +19,10 @@ describe("tests físicos", () => {
     expect(velocidadNavette(6)).toBe(11);
     // 12 años, palier 6 (11 km/h): 31,025 + 3,238·11 − 3,248·12 + 0,1536·11·12 = 47,9
     expect(vo2Navette(6, 12)).toBe(47.9);
-    // adulto, palier 10 (13 km/h): −24,4 + 6·13 = 53,6
-    expect(vo2Navette(10, 25)).toBe(53.6);
+    // adulto: la misma ecuación con la edad fija en 18 (Léger 1988). Palier 10 (13 km/h) → 50,6
+    expect(vo2Navette(10, 25)).toBe(50.6);
+    expect(vo2Navette(10, 18)).toBe(50.6);
+    expect(vo2Navette(10, 17)).toBe(51.8); // sin salto al cumplir 18: baja de forma continua
     expect(vo2Navette(6, null)).toBeNull();
   });
 

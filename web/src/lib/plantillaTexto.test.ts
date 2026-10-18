@@ -1,11 +1,21 @@
 import { describe, expect, it } from "vitest";
-import { borrarDatos, hayRepetidos, huerfanos, lineasPlantilla, pasarDatos, sinDatos } from "./plantillaTexto";
+import { borrarDatos, fechaValida, hayRepetidos, lineasConNombre, huerfanos, lineasPlantilla, pasarDatos, sinDatos } from "./plantillaTexto";
 
 describe("plantilla escrita", () => {
   it("no pierde a quien repite nombre: el segundo pasa a «(2)»", () => {
     expect(lineasPlantilla("Pau\nMarc\n\nPau\n Pau ")).toEqual(["Pau", "Marc", "Pau (2)", "Pau (3)"]);
     expect(hayRepetidos("Pau\nMarc\nPau")).toBe(true);
     expect(hayRepetidos("Pau\nMarc")).toBe(false);
+    // quien desambigua a mano con «(2)» no choca con el sufijo automático
+    expect(lineasPlantilla("Pau\nPau (2)\nPau")).toEqual(["Pau", "Pau (2)", "Pau (3)"]);
+  });
+
+  it("valida fechas y cuenta líneas", () => {
+    expect(fechaValida("2026-10-19")).toBe(true);
+    expect(fechaValida("20261-10-19")).toBe(false);
+    expect(fechaValida("2026-02-30")).toBe(false);
+    expect(fechaValida("1999-01-01")).toBe(false);
+    expect(lineasConNombre("a\n\n b \n")).toBe(2);
   });
 
   it("respeta el máximo de jugadores y el largo del nombre", () => {

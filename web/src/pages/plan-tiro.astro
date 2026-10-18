@@ -72,6 +72,7 @@ const jsonLd = {
 </Base>
 
 <style is:global>
+  .pt-mas { touch-action: manipulation; }
   .pt { padding-top: 20px; padding-bottom: 60px; display: flex; flex-direction: column; gap: 14px; }
   .pt-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; align-items: start; }
   @media (max-width: 860px) { .pt-cols { grid-template-columns: 1fr; } }
@@ -152,6 +153,7 @@ const jsonLd = {
     $<HTMLSelectElement>("pt-rutina").value = rutina;
     $("pt-guia").textContent = `Unos ${r.porPuesto} tiros por puesto. Toca ✓ si entra y ✗ si no. ¿Te has equivocado? «Deshacer último».`;
     const ul = $("pt-puestos");
+    const conFoco = ul.contains(document.activeElement) ? (document.activeElement as HTMLElement).getAttribute("aria-label") : null;
     ul.replaceChildren();
     for (const p of r.puestos) {
       const li = el("li", "pt-puesto");
@@ -164,6 +166,9 @@ const jsonLd = {
         b.addEventListener("click", () => cambiar(p, dentro, 1));
         b.addEventListener("contextmenu", (e) => {
           e.preventDefault();
+          // solo con ratón: en el móvil una pulsación larga es un toque lento, no «restar»
+          const tipo = (e as PointerEvent).pointerType;
+          if (tipo && tipo !== "mouse") return;
           cambiar(p, dentro, -1);
         });
         return b;
@@ -171,7 +176,9 @@ const jsonLd = {
       li.append(el("span", "pt-nom", nombre(p)), boton(true), boton(false), cuenta);
       ul.append(li);
     }
-    const tot = totalSesion({ id: "", fecha: "", rutina, tiros: actual });
+    if (conFoco) ul.querySelector<HTMLElement>(`[aria-label="${CSS.escape(conFoco)}"]`)?.focus();
+    const deLaRutina = Object.fromEntries(Object.entries(actual).filter(([k]) => r.puestos.includes(k)));
+    const tot = totalSesion({ id: "", fecha: "", rutina, tiros: deLaRutina });
     $("pt-total").textContent = tot[1] ? `Hoy: ${fmt(tot)} · ${pc(tot)}` : "";
   }
 
@@ -179,6 +186,7 @@ const jsonLd = {
   const hechos: { p: string; dentro: boolean }[] = [];
   function cambiar(p: string, dentro: boolean, delta: 1 | -1) {
     if (delta === 1) hechos.push({ p, dentro });
+    $("pt-estado").textContent = "";
     actual[p] = sumar(actual[p], dentro, delta);
     guardarTodo();
     pintarSesion();
@@ -208,10 +216,11 @@ const jsonLd = {
     for (const p of PUESTOS) {
       const c = acc[p.id];
       if (!c || !c[1]) continue;
-      const v = aVista(p, "v");
+      // el tiro libre (4,2 m) y la media frontal (4,5 m) casi coinciden: el del libre se pinta 1,3 m hacia el aro
+      const v = aVista(p.id === "tl" ? { x: p.x - 1.3, y: p.y } : p, "v");
       const pct = pctDe(c)!;
-      const color = pct >= 50 ? "#16a34a" : pct >= 35 ? "#ca8a04" : "#dc2626";
-      s += `<circle cx="${v.x}" cy="${v.y}" r="0.9" fill="${color}" stroke="#fff" stroke-width="0.08"/><text x="${v.x}" y="${v.y + 0.3}" font-size="0.75" font-weight="700" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif">${pct}%</text>`;
+      const color = pct >= 50 ? "#15803d" : pct >= 35 ? "#a16207" : "#dc2626";
+      s += `<circle cx="${v.x}" cy="${v.y}" r="0.78" fill="${color}" stroke="#fff" stroke-width="0.08"/><text x="${v.x}" y="${v.y + 0.22}" font-size="0.6" font-weight="700" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif">${p.id === "tl" ? "TL " : ""}${pct}%</text>`;
     }
     svg.innerHTML = s;
     // historial
@@ -237,7 +246,17 @@ const jsonLd = {
   $<HTMLSelectElement>("pt-rutina").replaceChildren(...RUTINAS.map((r) => new Option(r.nombre, r.id)));
   $<HTMLSelectElement>("pt-ver").replaceChildren(new Option("Todos los tiros", ""), ...PUESTOS.map((p) => new Option(p.nombre, p.id)));
   $<HTMLSelectElement>("pt-rutina").addEventListener("change", (e) => {
-    rutina = (e.target as HTMLSelectElement).value;
+    const sel = e.target as HTMLSelectElement;
+    const nueva = RUTINAS.find((x) => x.id === sel.value)!;
+    const fuera = Object.entries(actual).filter(([k, c]) => !nueva.puestos.includes(k) && c[1] > 0);
+    const n = fuera.reduce((s, [, c]) => s + c[1], 0);
+    if (n && !confirm(`Llevas ${n} ${n === 1 ? "tiro" : "tiros"} en puestos que «${nueva.nombre}» no tiene: si cambias de rutina se borran. ¿Seguir?`)) {
+      sel.value = rutina;
+      return;
+    }
+    for (const [k] of fuera) delete actual[k];
+    rutina = sel.value;
+    hechos.length = 0;
     guardarTodo();
     pintarSesion();
   });
@@ -250,6 +269,7 @@ const jsonLd = {
     if (st.sesiones.length >= LIMITE_SESIONES_TIRO) st.sesiones.sort((a, b) => a.fecha.localeCompare(b.fecha)).shift();
     st.sesiones.push({ id: Math.random().toString(36).slice(2, 10), fecha: hoy(), rutina, tiros });
     actual = {};
+    hechos.length = 0;
     guardarTodo();
     $("pt-estado").textContent = "Sesión guardada.";
     pintarSesion();
@@ -258,8 +278,10 @@ const jsonLd = {
   $("pt-deshacer").addEventListener("click", () => {
     const u = hechos.pop();
     if (u) cambiar(u.p, u.dentro, -1);
+    else $("pt-estado").textContent = "No hay nada que deshacer: solo se recuerda lo apuntado desde que abriste la página.";
   });
   $("pt-vaciar").addEventListener("click", () => {
+    if (Object.values(actual).some((c) => c[1] > 0) && !confirm("¿Empezar de cero? Se borran los tiros de hoy que no has guardado.")) return;
     hechos.length = 0;
     actual = {};
     guardarTodo();

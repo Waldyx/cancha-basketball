@@ -3,17 +3,29 @@
 // fuera de la rotación sin avisar. El segundo pasa a ser «Pau (2)».
 
 export function lineasPlantilla(texto: string, max = 30, largo = 30): string[] {
-  const vistos = new Map<string, number>();
+  const usados = new Set<string>();
   const out: string[] = [];
   for (const bruto of texto.split("\n")) {
     const l = bruto.trim().slice(0, largo);
     if (!l) continue;
-    const n = (vistos.get(l) ?? 0) + 1;
-    vistos.set(l, n);
-    out.push(n === 1 ? l : `${l} (${n})`);
+    let nombre = l;
+    for (let n = 2; usados.has(nombre); n++) nombre = `${l} (${n})`;
+    usados.add(nombre);
+    out.push(nombre);
     if (out.length >= max) break;
   }
   return out;
+}
+
+/** Cuántas líneas con nombre hay (para avisar si pasan del máximo). */
+export const lineasConNombre = (texto: string) => texto.split("\n").filter((l) => l.trim()).length;
+
+/** Fecha AAAA-MM-DD real y razonable. Un <input type="date"> deja teclear un año de 5 cifras. */
+export function fechaValida(f: string): boolean {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(f);
+  if (!m || +m[1] < 2000 || +m[1] > 2100) return false;
+  const d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+  return d.getUTCMonth() === +m[2] - 1 && d.getUTCDate() === +m[3];
 }
 
 /** ¿Hay nombres repetidos? (para avisar de que conviene añadir el dorsal o el apellido). */

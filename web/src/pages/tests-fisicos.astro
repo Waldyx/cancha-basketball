@@ -61,10 +61,16 @@ const jsonLd = {
           <label class="tf-campo tf-corto"><span>Edad media</span><input id="tf-edad" type="number" min="6" max="60" class="tf-inp" placeholder="12" /></label>
           <button type="button" id="tf-crear" class="tf-bn">Crear</button>
         </div>
-        <label class="tf-campo" id="tf-nota-campo" hidden>
-          <span>Notas de la sesión (peso del balón, pista, calzado…)</span>
-          <input id="tf-nota" class="tf-inp" maxlength="200" />
-        </label>
+        <div class="tf-fila" id="tf-nota-campo" hidden>
+          <label class="tf-campo">
+            <span>Notas de la sesión (peso del balón, pista, calzado…)</span>
+            <input id="tf-nota" class="tf-inp" maxlength="200" />
+          </label>
+          <label class="tf-campo tf-corto">
+            <span>Edad media</span>
+            <input id="tf-edad-ses" type="number" min="6" max="60" class="tf-inp" placeholder="—" />
+          </label>
+        </div>
         <div class="tf-fila">
           <button type="button" id="tf-borrar" class="tf-bn tf-bn-2 tf-bn-sm">Borrar sesión</button>
         </div>
@@ -86,7 +92,8 @@ const jsonLd = {
         <section class="tf-panel">
           <h2 class="tf-h2">Resultados de la sesión</h2>
           <div class="tf-scroll"><table class="tf-tabla" id="tf-tabla"></table></div>
-          <p class="tf-ayuda" id="tf-vo2-nota" hidden>VO2máx: estimación de campo a partir del último palier de la Course Navette y la edad media (ecuaciones de Léger, 1988). Orientativo, no es una prueba de laboratorio.</p>
+          <p class="tf-ayuda" id="tf-vo2-nota" hidden>VO2máx: estimación de campo a partir del último palier de la Course Navette y la edad media (ecuación de Léger, 1988; para adultos, con la edad fija en 18). Orientativo, no es una prueba de laboratorio.</p>
+          <p class="tf-ayuda" id="tf-vo2-falta" hidden>Pon la edad media de la sesión (arriba) para ver el VO2máx estimado de la Course Navette.</p>
           <div class="tf-fila">
             <button type="button" id="tf-csv" class="tf-bn tf-bn-2 tf-bn-sm">Descargar CSV</button>
             <button type="button" id="tf-imprimir" class="tf-bn tf-bn-sm" data-pro="tests-fichas">Imprimir fichas</button>
@@ -130,11 +137,13 @@ const jsonLd = {
   .tf-chip[aria-selected="true"] { background: #f97316; border-color: #f97316; color: #0c0c0c; }
   .tf-lista { display: flex; flex-direction: column; }
   .tf-j { display: grid; grid-template-columns: minmax(0, 1fr) 96px minmax(0, 0.9fr); gap: 8px; align-items: center; padding: 5px 0; border-bottom: 1px solid var(--cz-border); font-size: 14px; }
-  .tf-j-nom { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 700; }
+  .tf-j-nom { min-width: 0; overflow-wrap: anywhere; line-height: 1.25; font-weight: 700; }
   .tf-j input { width: 96px; min-height: 40px; padding: 4px 8px; text-align: right; background: var(--cz-bg); color: var(--cz-text); border: 1px solid var(--cz-border); border-radius: 0; font: 800 16px "Inter", sans-serif; }
   .tf-j input.mal { border-color: #dc2626; }
   .tf-j-ant { font-size: 12px; color: var(--cz-text-2); }
   .tf-mejor { color: #16a34a; font-weight: 800; }
+  :root[data-cz-theme="claro"] .tf-mejor { color: #166534; }
+  :root[data-cz-theme="claro"] .tf-peor { color: #b91c1c; }
   .tf-peor { color: #dc2626; font-weight: 800; }
   .tf-scroll { overflow-x: auto; }
   .tf-tabla { width: 100%; border-collapse: collapse; font: 600 13px "Inter", sans-serif; }
@@ -170,6 +179,7 @@ const jsonLd = {
   import { CLAVE_EQUIPO, equiposDeTexto } from "../lib/pizarraEquipo";
   import { CLAVE_MARCA, leerMarca as leerMarcaClub } from "../lib/pizarraMarca";
   import { pintarHuerfanos } from "../lib/huerfanosUI";
+  import { fechaValida } from "../lib/plantillaTexto";
   import {
     LIMITES_TESTS,
     PRUEBAS,
@@ -228,7 +238,7 @@ const jsonLd = {
   let pruebaId = PRUEBAS[0].id;
   let quien = "";
   const activa = (): SesionTests | undefined => st.sesiones.find((s) => s.id === activaId);
-  const nombreSes = (s: SesionTests) => `${s.nombre} · ${fechaCorta(s.fecha)}`;
+  const nombreSes = (s: SesionTests) => `${s.nombre} · ${fechaCorta(s.fecha)}${s.edad ? ` · ${s.edad} años` : ""}`;
   const cambioTxt = (pid: string, antes: number, ahora: number) => {
     const p = prueba(pid)!;
     const d = Math.abs(ahora - antes);
@@ -245,14 +255,27 @@ const jsonLd = {
     ($("tf-borrar") as HTMLButtonElement).disabled = !s;
     $("tf-nota-campo").hidden = !s;
     $<HTMLInputElement>("tf-nota").value = s?.nota ?? "";
+    $<HTMLInputElement>("tf-edad-ses").value = s?.edad ? String(s.edad) : "";
   }
+  $<HTMLInputElement>("tf-edad-ses").addEventListener("change", (e) => {
+    const s = activa();
+    if (!s) return;
+    const v = Math.round(+(e.target as HTMLInputElement).value);
+    s.edad = v >= 6 && v <= 60 ? v : null;
+    (e.target as HTMLInputElement).value = s.edad ? String(s.edad) : "";
+    guardar();
+    pintarSesiones();
+    pintarTabla();
+  });
   $("tf-crear").addEventListener("click", () => {
     if (st.sesiones.length >= LIMITES_TESTS.SESIONES) return void alert(`Como mucho ${LIMITES_TESTS.SESIONES} sesiones: borra alguna antigua.`);
+    const valorFecha = $<HTMLInputElement>("tf-fecha").value;
+    if (valorFecha && !fechaValida(valorFecha)) return void alert("Esa fecha no es válida: revisa el año.");
     const edad = Math.round(+$<HTMLInputElement>("tf-edad").value);
     const s: SesionTests = {
       id: Date.now().toString(36).padStart(9, "0") + Math.random().toString(36).slice(2, 5),
       nombre: $<HTMLInputElement>("tf-nombre").value.trim().slice(0, 40) || `Tests ${st.sesiones.length + 1}`,
-      fecha: $<HTMLInputElement>("tf-fecha").value || hoy(),
+      fecha: valorFecha || hoy(),
       edad: edad >= 6 && edad <= 60 ? edad : null,
       nota: "",
       marcas: {},
@@ -308,6 +331,7 @@ const jsonLd = {
       const ant = el("span", "tf-j-ant");
       const pintarAnt = () => {
         ant.replaceChildren();
+        if (ant.dataset.error) return void ant.append(el("span", "tf-peor", ant.dataset.error));
         const a = marcaAnterior(st.sesiones, s, j, p.id);
         const ahora = s.marcas[j]?.[p.id];
         if (!a) return;
@@ -319,17 +343,24 @@ const jsonLd = {
       };
       inp.addEventListener("change", () => {
         const t = inp.value.trim();
+        const marcarError = (msg: string) => {
+          inp.classList.toggle("mal", !!msg);
+          inp.setAttribute("aria-invalid", String(!!msg));
+          inp.title = msg;
+          ant.dataset.error = msg;
+          pintarAnt();
+        };
         if (!t) {
           delete s.marcas[j]?.[p.id];
           if (s.marcas[j] && !Object.keys(s.marcas[j]).length) delete s.marcas[j];
-          inp.classList.remove("mal");
+          marcarError("");
         } else {
           const m = leerMarca(p, t);
-          inp.classList.toggle("mal", m === null);
           if (m === null) {
-            inp.title = `Entre ${formatoMarca(p, p.min)} y ${formatoMarca(p, p.max)} ${p.unidad}`;
-            return;
+            const v = s.marcas[j]?.[p.id];
+            return marcarError(`No vale: entre ${formatoMarca(p, p.min)} y ${formatoMarca(p, p.max)} ${p.unidad}.${v !== undefined ? ` Se queda ${formatoMarca(p, v)}.` : ""}`);
           }
+          marcarError("");
           (Object.hasOwn(s.marcas, j) ? s.marcas[j] : (s.marcas[j] = {}))[p.id] = m;
           inp.value = formatoMarca(p, m);
         }
@@ -346,7 +377,10 @@ const jsonLd = {
       });
       inputs.push(inp);
       pintarAnt();
-      fila.append(el("span", "tf-j-nom", j), inp, ant);
+      const nom = el("span", "tf-j-nom", j);
+      nom.title = j;
+      inp.enterKeyHint = "next";
+      fila.append(nom, inp, ant);
       lista.append(fila);
     });
   }
@@ -405,6 +439,7 @@ const jsonLd = {
     }
     t.append(media);
     $("tf-vo2-nota").hidden = !hayVo2;
+    $("tf-vo2-falta").hidden = !(!s.edad && js.some((j) => s.marcas[j]?.navette !== undefined));
   }
   $("tf-csv").addEventListener("click", () => {
     const s = activa();
@@ -412,7 +447,7 @@ const jsonLd = {
     const blob = new Blob(["﻿" + aCsv(s, plantilla(st.jugadores))], { type: "text/csv;charset=utf-8" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = `tests-${s.fecha}.csv`;
+    a.download = `tests-${s.fecha}-${s.nombre.toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}.csv`;
     a.click();
     setTimeout(() => URL.revokeObjectURL(a.href), 1000);
   });
@@ -486,7 +521,7 @@ const jsonLd = {
     }
     sec.append(t);
     if (s.nota.trim()) sec.append(el("p", "tf-pnota", `Notas: ${s.nota.trim()}`));
-    if (s.marcas[j]?.navette !== undefined && s.edad) sec.append(el("p", "tf-pnota", "VO2máx: estimación de campo con las ecuaciones de Léger (1988). Orientativa."));
+    if (s.marcas[j]?.navette !== undefined && s.edad) sec.append(el("p", "tf-pnota", "VO2máx: estimación de campo con la ecuación de Léger (1988). Orientativa."));
     sec.append(el("p", "tf-pie", "Cada jugador se compara consigo mismo — hecho con canchazapa.com"));
     return sec;
   }

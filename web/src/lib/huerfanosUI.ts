@@ -3,7 +3,7 @@
 // colgando del nombre viejo. Aquí se ofrece pasárselos a un jugador de la lista o borrarlos.
 // También avisa de nombres repetidos. Lógica pura en plantillaTexto.ts.
 
-import { borrarDatos, hayRepetidos, huerfanos, pasarDatos, sinDatos } from "./plantillaTexto";
+import { borrarDatos, hayRepetidos, huerfanos, lineasConNombre, pasarDatos, sinDatos } from "./plantillaTexto";
 
 export function pintarHuerfanos(cont: HTMLElement, opts: { texto: string; jugadores: string[]; registros: Record<string, unknown>[]; que: string; alCambiar: () => void }) {
   const { texto, jugadores, registros, que, alCambiar } = opts;
@@ -14,6 +14,8 @@ export function pintarHuerfanos(cont: HTMLElement, opts: { texto: string; jugado
     if (txt !== undefined) e.textContent = txt;
     return e;
   };
+  const sobran = lineasConNombre(texto) - jugadores.length;
+  if (sobran > 0) cont.append(el("p", "hf-aviso", `Solo caben ${jugadores.length} jugadores: ${sobran === 1 ? "el último no sale" : `los ${sobran} últimos no salen`}.`));
   if (hayRepetidos(texto)) cont.append(el("p", "hf-aviso", `Hay nombres repetidos en la lista: añade el dorsal o el apellido para no mezclar sus ${que}.`));
   const libres = sinDatos(registros, jugadores);
   for (const h of huerfanos(registros, jugadores)) {

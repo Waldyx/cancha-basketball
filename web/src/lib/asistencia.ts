@@ -17,7 +17,13 @@ export interface StoreAsistencia {
   v: 1;
   jugadores: string;
   sesiones: Sesion[];
+  /** lo escrito en la convocatoria y quién NO va, para no perderlo al cerrar la página */
+  conv: ConvGuardada;
 }
+
+export type ConvGuardada = Omit<Convocatoria, "convocados"> & { fuera: string[] };
+export const CAMPOS_CONV = ["equipo", "rival", "fecha", "hora", "quedada", "lugar", "equipacion", "notas"] as const;
+const convVacia = (): ConvGuardada => ({ equipo: "", rival: "", fecha: "", hora: "", quedada: "", lugar: "", equipacion: "", notas: "", fuera: [] });
 
 export const LIMITES_ASISTENCIA = { SESIONES: 200, JUGADORES: 30 } as const;
 export const SIGUIENTE: Record<EstadoAsistencia, EstadoAsistencia> = { "": "si", si: "no", no: "just", just: "" };
@@ -97,8 +103,15 @@ const ESTADOS = new Set(["si", "no", "just"]);
 
 /** Valida lo leído de localStorage. Nunca lanza. */
 export function normalizarStoreAsistencia(raw: unknown): StoreAsistencia {
-  const st: StoreAsistencia = { v: 1, jugadores: "", sesiones: [] };
+  const st: StoreAsistencia = { v: 1, jugadores: "", sesiones: [], conv: convVacia() };
   if (!esObj(raw)) return st;
+  if (esObj(raw.conv)) {
+    for (const k of CAMPOS_CONV) {
+      const v = raw.conv[k];
+      if (typeof v === "string") st.conv[k] = v.slice(0, k === "notas" ? 300 : 80);
+    }
+    if (Array.isArray(raw.conv.fuera)) st.conv.fuera = raw.conv.fuera.filter((x): x is string => typeof x === "string").slice(0, 60).map((x) => x.slice(0, 48));
+  }
   st.jugadores = typeof raw.jugadores === "string" ? raw.jugadores.slice(0, 2000) : "";
   for (const rs of (Array.isArray(raw.sesiones) ? raw.sesiones : []).slice(0, LIMITES_ASISTENCIA.SESIONES)) {
     if (!esObj(rs) || typeof rs.fecha !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(rs.fecha)) continue;

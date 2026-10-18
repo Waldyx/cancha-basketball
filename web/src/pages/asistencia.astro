@@ -48,6 +48,7 @@ const jsonLd = {
           <textarea id="as-jugadores" class="as-inp as-ta" rows="5" placeholder={"4 Laia\n7 Marc\n…"}></textarea>
         </label>
       </details>
+      <div id="as-huerfanos" class="as-panel hf" hidden></div>
 
       <div class="as-cols">
         <section class="as-panel">
@@ -113,11 +114,11 @@ const jsonLd = {
   .as-bn-sm { min-height: 36px; padding: 0 12px; font-size: 11px; }
   .as-ayuda, .as-privado { margin: 0; font-size: 12px; color: var(--cz-text-2); }
   .as-k { display: inline-flex; width: 18px; height: 18px; align-items: center; justify-content: center; font-size: 11px; color: #fff; }
-  .as-k.si, .as-j[data-e="si"] { background: #16a34a; border-color: #16a34a; color: #fff; }
+  .as-k.si, .as-j[data-e="si"] { background: #15803d; border-color: #15803d; color: #fff; }
   .as-k.no, .as-j[data-e="no"] { background: #dc2626; border-color: #dc2626; color: #fff; }
-  .as-k.just, .as-j[data-e="just"] { background: #ca8a04; border-color: #ca8a04; color: #fff; }
+  .as-k.just, .as-j[data-e="just"] { background: #a16207; border-color: #a16207; color: #fff; }
   .as-lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 6px; }
-  .as-j { min-height: 44px; padding: 4px 8px; text-align: left; background: var(--cz-bg); border: 1px solid var(--cz-border); color: var(--cz-text); font: 700 13px "Inter", sans-serif; cursor: pointer; border-radius: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .as-j { min-height: 44px; padding: 4px 8px; text-align: left; background: var(--cz-bg); border: 1px solid var(--cz-border); color: var(--cz-text); font: 700 13px "Inter", sans-serif; cursor: pointer; border-radius: 0; overflow-wrap: anywhere; line-height: 1.25; }
   .as-j::before { content: "–  "; font-weight: 900; }
   .as-j[data-e="si"]::before { content: "✓  "; }
   .as-j[data-e="no"]::before { content: "✗  "; }
@@ -126,6 +127,7 @@ const jsonLd = {
   .as-tabla th, .as-tabla td { padding: 5px 8px; border-bottom: 1px solid var(--cz-border); text-align: right; }
   .as-tabla th { font: 800 10px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--cz-text-2); }
   .as-tabla th:first-child, .as-tabla td:first-child { text-align: left; }
+  .as-tabla td:last-child { white-space: nowrap; }
   .as-chips { display: flex; flex-wrap: wrap; gap: 5px; }
   .as-chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border: 1px solid var(--cz-border); font-size: 13px; color: var(--cz-text); cursor: pointer; }
   .as-chip input { width: 16px; height: 16px; }
@@ -133,7 +135,9 @@ const jsonLd = {
 
 <script>
   import { CLAVE_EQUIPO, equiposDeTexto } from "../lib/pizarraEquipo";
-  import { SIGUIENTE, normalizarStoreAsistencia, plantilla, resumen, textoConvocatoria, LIMITES_ASISTENCIA, type StoreAsistencia } from "../lib/asistencia";
+  import { pintarHuerfanos } from "../lib/huerfanosUI";
+  import { fechaValida } from "../lib/plantillaTexto";
+  import { CAMPOS_CONV, SIGUIENTE, normalizarStoreAsistencia, plantilla, resumen, textoConvocatoria, LIMITES_ASISTENCIA, type StoreAsistencia } from "../lib/asistencia";
 
   const CLAVE = "cz.asistencia.v1";
   const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -172,6 +176,7 @@ const jsonLd = {
     sel.replaceChildren(...st.sesiones.map((s) => new Option(fechaCorta(s.fecha), s.id)));
     sel.value = activa;
     const lista = $("as-lista");
+    const conFoco = lista.contains(document.activeElement) ? (document.activeElement as HTMLElement).dataset.j : undefined;
     lista.replaceChildren();
     const s = sesion();
     if (!js.length) lista.append(el("p", "as-ayuda", "Escribe primero los jugadores (arriba, en «Jugadores»)."));
@@ -181,6 +186,9 @@ const jsonLd = {
         const b = el("button", "as-j", j) as HTMLButtonElement;
         b.type = "button";
         b.dataset.e = s.lista[j] ?? "";
+        b.dataset.j = j;
+        b.title = j;
+        b.setAttribute("aria-label", `${j}: ${ESTADO_TXT[s.lista[j] ?? ""]}`);
         b.addEventListener("click", () => {
           const n = SIGUIENTE[s.lista[j] ?? ""];
           if (n) s.lista[j] = n;
@@ -190,6 +198,7 @@ const jsonLd = {
         });
         lista.append(b);
       }
+    if (conFoco !== undefined) [...lista.querySelectorAll<HTMLElement>(".as-j")].find((x) => x.dataset.j === conFoco)?.focus();
     // resumen de la temporada
     const t = $<HTMLTableElement>("as-resumen");
     t.replaceChildren();
@@ -205,7 +214,9 @@ const jsonLd = {
   }
 
   $("as-nueva").addEventListener("click", () => {
-    const fecha = $<HTMLInputElement>("as-fecha").value || hoy();
+    const valor = $<HTMLInputElement>("as-fecha").value;
+    if (valor && !fechaValida(valor)) return void alert("Esa fecha no es válida: revisa el año.");
+    const fecha = valor || hoy();
     const ya = st.sesiones.find((s) => s.fecha === fecha);
     if (ya) activa = ya.id;
     else {
@@ -225,7 +236,8 @@ const jsonLd = {
   $("as-todos").addEventListener("click", () => {
     const s = sesion();
     if (!s) return;
-    for (const j of plantilla(st.jugadores)) s.lista[j] = "si";
+    // solo a quien está sin marcar: no pisa las faltas ya apuntadas
+    for (const j of plantilla(st.jugadores)) if (!s.lista[j]) s.lista[j] = "si";
     guardar();
     pintarLista();
   });
@@ -239,7 +251,14 @@ const jsonLd = {
   });
 
   // ── convocatoria ────────────────────────────────────────────────────
-  const fuera = new Set<string>();
+  const fuera = new Set<string>(st.conv.fuera);
+  const ESTADO_TXT: Record<string, string> = { "": "sin marcar", si: "ha venido", no: "falta", just: "falta justificada" };
+  for (const k of CAMPOS_CONV) ($(`cv-${k}`) as HTMLInputElement).value = st.conv[k];
+  const guardarConv = () => {
+    for (const k of CAMPOS_CONV) st.conv[k] = ($(`cv-${k}`) as HTMLInputElement).value.slice(0, k === "notas" ? 300 : 80);
+    st.conv.fuera = [...fuera];
+    guardar();
+  };
   const v = (id: string) => ($(id) as HTMLInputElement).value.trim();
   function pintarConvocatoria() {
     const js = plantilla(st.jugadores);
@@ -253,6 +272,7 @@ const jsonLd = {
       cb.addEventListener("change", () => {
         if (cb.checked) fuera.delete(j);
         else fuera.add(j);
+        guardarConv();
         textoCv();
       });
       l.append(cb, j);
@@ -273,7 +293,11 @@ const jsonLd = {
       convocados: plantilla(st.jugadores).filter((j) => !fuera.has(j)),
     });
   }
-  for (const id of ["cv-equipo", "cv-rival", "cv-fecha", "cv-hora", "cv-quedada", "cv-lugar", "cv-equipacion", "cv-notas"]) $(id).addEventListener("input", textoCv);
+  for (const k of CAMPOS_CONV)
+    $(`cv-${k}`).addEventListener("input", () => {
+      guardarConv();
+      textoCv();
+    });
   $("cv-copiar").addEventListener("click", async () => {
     try {
       await navigator.clipboard.writeText($<HTMLTextAreaElement>("cv-texto").value);
@@ -300,6 +324,7 @@ const jsonLd = {
   txt.addEventListener("input", () => {
     st.jugadores = txt.value.slice(0, 2000);
     guardar();
+    pintarAvisos();
     pintarLista();
     pintarConvocatoria();
   });
@@ -312,10 +337,12 @@ const jsonLd = {
       sel.addEventListener("change", () => {
         const eq = eqs.find((x) => x.id === sel.value);
         if (!eq) return;
+        if (st.jugadores.trim() && !confirm("¿Sustituir la lista de jugadores? La asistencia de los nombres que cambien dejará de verse.")) return void (sel.value = "");
         st.jugadores = eq.jugadores.map((j) => `${j.dorsal} ${j.nombre}`.trim()).join("\n");
         txt.value = st.jugadores;
         if (!v("cv-equipo")) ($("cv-equipo") as HTMLInputElement).value = eq.nombre;
         guardar();
+        pintarAvisos();
         pintarLista();
         pintarConvocatoria();
         sel.value = "";
@@ -325,6 +352,20 @@ const jsonLd = {
     /* sin equipo */
   }
 
+  function pintarAvisos() {
+    pintarHuerfanos($("as-huerfanos"), {
+      texto: st.jugadores,
+      jugadores: plantilla(st.jugadores),
+      registros: st.sesiones.map((x) => x.lista),
+      que: "asistencias",
+      alCambiar: () => {
+        guardar();
+        pintarAvisos();
+        pintarLista();
+      },
+    });
+  }
+  pintarAvisos();
   ($("as-fecha") as HTMLInputElement).value = hoy();
   if (!st.jugadores) ($("as-plantilla-det") as HTMLDetailsElement).open = true;
   pintarLista();

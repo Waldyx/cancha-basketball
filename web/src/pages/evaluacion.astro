@@ -191,6 +191,7 @@ const areas = Object.entries(AREAS) as [keyof typeof AREAS, string][];
   import { CLAVE_EQUIPO, equiposDeTexto } from "../lib/pizarraEquipo";
   import { CLAVE_MARCA, leerMarca } from "../lib/pizarraMarca";
   import { pintarHuerfanos } from "../lib/huerfanosUI";
+  import { fechaValida } from "../lib/plantillaTexto";
   import {
     AREAS,
     CRITERIOS,
@@ -259,7 +260,9 @@ const areas = Object.entries(AREAS) as [keyof typeof AREAS, string][];
   $("ev-crear").addEventListener("click", () => {
     if (st.evaluaciones.length >= LIMITES_EVALUACION.EVALUACIONES) return void alert(`Como mucho ${LIMITES_EVALUACION.EVALUACIONES} evaluaciones: borra alguna antigua.`);
     const nombre = $<HTMLInputElement>("ev-nombre").value.trim().slice(0, 40) || `${st.evaluaciones.length + 1}.ª evaluación`;
-    const e: Evaluacion = { id: Date.now().toString(36).padStart(9, "0") + Math.random().toString(36).slice(2, 5), nombre, fecha: $<HTMLInputElement>("ev-fecha").value || hoy(), notas: {}, comentarios: {} };
+    const valorFecha = $<HTMLInputElement>("ev-fecha").value;
+    if (valorFecha && !fechaValida(valorFecha)) return void alert("Esa fecha no es válida: revisa el año.");
+    const e: Evaluacion = { id: Date.now().toString(36).padStart(9, "0") + Math.random().toString(36).slice(2, 5), nombre, fecha: valorFecha || hoy(), notas: {}, comentarios: {} };
     st.evaluaciones = cronologico([...st.evaluaciones, e]);
     activaId = e.id;
     $<HTMLInputElement>("ev-nombre").value = "";

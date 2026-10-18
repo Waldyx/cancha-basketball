@@ -4072,7 +4072,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h2>VO2máx estimado: orientativo, no clínico</h2>
-<p>Con la Course Navette, la herramienta calcula un VO2máx estimado usando las ecuaciones de Léger y colaboradores de 1988: una para menores de 18 años, que usa la edad, y otra para adultos. Para eso pides una edad media del grupo en la sesión. Es una estimación de campo a partir del último palier, no una medida de laboratorio, y como usa una edad media común, conviene mirar su tendencia en cada jugador más que el valor exacto.</p>
+<p>Con la Course Navette, la herramienta calcula un VO2máx estimado con la ecuación de Léger y colaboradores de 1988, que usa la edad; para adultos, el propio artículo indica usarla con la edad fija en 18 años. Para eso pides una edad media del grupo en la sesión. Es una estimación de campo a partir del último palier, no una medida de laboratorio, y como usa una edad media común, conviene mirar su tendencia en cada jugador más que el valor exacto.</p>
 
 <h2>Anota, compara y no te obsesiones</h2>
 <p>Escribes la marca de cada jugador y pulsas Intro para pasar al siguiente; la sesión se guarda sola. En cada prueba ves la marca anterior y si ha mejorado, teniendo en cuenta que en los tiempos mejor es menos y en las distancias, más. También verás la media del grupo y la evolución de cada jugador a lo largo de la temporada. Puedes descargar un CSV de la sesión.</p>

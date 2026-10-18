@@ -64,13 +64,16 @@ export const formatoMarca = (p: Prueba, v: number) => v.toLocaleString("es-ES", 
 export const velocidadNavette = (palier: number) => 8 + 0.5 * palier;
 
 /**
- * VO2máx estimado (ml/kg/min) con las ecuaciones de Léger et al. (1988): de 6 a 18 años la que usa
- * la edad; a partir de 18, la de adultos. Es una ESTIMACIÓN de campo, no una medida.
+ * VO2máx estimado (ml/kg/min) con la ecuación de Léger et al. (1988, J Sports Sci 6:93-101), que usa
+ * la velocidad del último palier y la edad. Para adultos el propio artículo indica usar la MISMA
+ * ecuación con la edad fija en 18 (por eso no hay salto al cumplirlos). Validada de 8 a 19 años; aquí
+ * se admite desde los 6. Es una ESTIMACIÓN de campo, no una medida.
  */
 export function vo2Navette(palier: number, edad: number | null): number | null {
   if (!edad || edad < 6 || palier <= 0) return null;
   const s = velocidadNavette(palier);
-  const v = edad >= 18 ? -24.4 + 6 * s : 31.025 + 3.238 * s - 3.248 * edad + 0.1536 * s * edad;
+  const a = Math.min(edad, 18);
+  const v = 31.025 + 3.238 * s - 3.248 * a + 0.1536 * s * a;
   return Math.round(v * 10) / 10;
 }
 

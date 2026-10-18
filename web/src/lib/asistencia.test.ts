@@ -2,6 +2,13 @@ import { describe, expect, it } from "vitest";
 import { SIGUIENTE, fechaHumana, normalizarStoreAsistencia, plantilla, resumen, textoConvocatoria, type Sesion } from "./asistencia";
 
 describe("asistencia", () => {
+  it("guarda la convocatoria y descarta lo raro", () => {
+    const st = normalizarStoreAsistencia({ conv: { rival: "CB X", notas: "n".repeat(400), hora: 5, fuera: ["Pau", 3] } });
+    expect(st.conv).toMatchObject({ rival: "CB X", hora: "", fuera: ["Pau"] });
+    expect(st.conv.notas).toHaveLength(300);
+    expect(normalizarStoreAsistencia(null).conv.fuera).toEqual([]);
+  });
+
   it("lee la plantilla sin líneas vacías y sin perder a quien repite nombre", () => {
     expect(plantilla("4 Laia\n\n7 Marc\n4 Laia\n  9 Nora  ")).toEqual(["4 Laia", "7 Marc", "4 Laia (2)", "9 Nora"]);
   });
@@ -41,6 +48,6 @@ describe("asistencia", () => {
     const st = normalizarStoreAsistencia({ jugadores: "4 Laia", sesiones: [{ id: "a", fecha: "2026-10-01", lista: { "4 Laia": "si", x: "quizá" } }, { fecha: "ayer" }, { id: "b", fecha: "2026-10-05", lista: {} }] });
     expect(st.sesiones.map((s) => s.id)).toEqual(["b", "a"]);
     expect(st.sesiones[1].lista).toEqual({ "4 Laia": "si" });
-    expect(normalizarStoreAsistencia(7)).toEqual({ v: 1, jugadores: "", sesiones: [] });
+    expect(normalizarStoreAsistencia(7)).toMatchObject({ v: 1, jugadores: "", sesiones: [] });
   });
 });
