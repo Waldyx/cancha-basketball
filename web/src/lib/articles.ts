@@ -4143,6 +4143,208 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">Prueba el método con tu equipo: crea la primera evaluación en <a href="/evaluacion/">Evaluación de jugadores</a> y, cuando termines la temporada, prepara el <a href="/familias/">informe para las familias</a>. Gratis y sin registro.</p>
 `,
   },
+
+  // ── Scouting con el informe del rival ───────────────────────────────
+  {
+    slug: "preparar-partido-informe-rival-scouting-baloncesto-base",
+    title: "Cómo preparar un partido con el informe del rival (scouting en baloncesto base)",
+    metaTitle: "Preparar un partido con el informe del rival | CANCHA.ZAPA",
+    description:
+      "Cómo preparar un partido en baloncesto base con el informe del rival: importar actas, qué pistas da la herramienta y cómo contárselo al equipo sin saturar.",
+    fecha: "2026-10-19",
+    fechaLabel: "19 octubre 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Entrenadores · Rival",
+    heroTitle: "Preparar un partido con el informe del rival",
+    heroSubtitle: "Qué mirar en las actas, qué pistas da la herramienta y cómo contárselo a tu equipo en tres ideas",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: [],
+    relatedSeoPages: ["zapatillas-indoor", "zapatillas-baloncesto-calidad-precio"],
+    body: `
+<p class="art-intro">En baloncesto de base, preparar un partido no es llenar una libreta de números. Es llegar con dos o tres ideas claras que tus jugadores puedan recordar en plena pista. Los números sirven para elegir bien esas ideas, y el informe del rival de CANCHA.ZAPA los junta a partir de las actas de los últimos partidos del equipo que te toca. Esta guía explica qué calcula de verdad, qué pistas da y cómo convertirlo en un mensaje corto.</p>
+
+<h2>1. De dónde salen los datos</h2>
+<p>En el <a href="/rival/">informe del rival</a> creas el equipo con su nombre y le añades partidos de dos maneras:</p>
+<ul>
+  <li><strong>Acta de la FEB:</strong> pegas el enlace del partido (baloncestoenvivo.feb.es) o su número y pulsas Importar. La herramienta busca cuál de los dos equipos es tu rival por el nombre y, si no lo tiene claro, te pregunta. Solo importa partidos terminados: un acta en directo todavía cambia.</li>
+  <li><strong>Acta pegada:</strong> sirve para la FCBQ u otra federación. Copias la tabla de estadísticas del rival con su fila de cabecera (Min, Punts, T2, T3, TL…) y la pegas. Añades la fecha, contra quién jugó y, si quieres que salga el balance de victorias, el marcador.</li>
+</ul>
+<p>Puedes juntar varios partidos del mismo rival, quitar el que no quieras y volver a consultarlo cuando lo necesites. Un partido es gratis; juntar varios es una función Pro, gratis durante la beta.</p>
+
+<h2>2. Qué calcula</h2>
+<p>Con los partidos añadidos, el informe te da una fila de datos del equipo: balance de victorias y derrotas (solo en los partidos con marcador), puntos a favor y en contra de media, porcentaje de triples con sus intentos por partido, porcentaje de tiros de 2 y de tiros libres, y pérdidas y faltas por partido. Debajo, una tabla por jugador con sus medias por partido (minutos, puntos, acierto en 2, triples, tiros libres, rebotes, asistencias y faltas), de más a menos puntos. Las fórmulas son las del modo Equipo de <a href="/estadisticas/">estadísticas</a>.</p>
+
+<h2>3. Las pistas automáticas y sus umbrales</h2>
+<p>La herramienta añade unas frases sencillas, calculadas con reglas fijas. No son un análisis: son una forma de que el ojo se vaya a lo importante. Estas son, con sus umbrales:</p>
+<ul>
+  <li><strong>Anotador principal:</strong> siempre sale, con sus puntos por partido y el porcentaje de los puntos del equipo que pone. Te dice cuánto depende el rival de una persona.</li>
+  <li><strong>Tirador de tres:</strong> al menos 4 triples intentados en total, 1,5 o más por partido y un 33 % o más de acierto.</li>
+  <li><strong>Cargado de faltas:</strong> 3,5 o más por partido.</li>
+  <li><strong>Falla libres yendo mucho a la línea:</strong> 3 o más intentos por partido y menos de un 60 % de acierto.</li>
+  <li><strong>Rebote ofensivo:</strong> 3 o más por partido.</li>
+  <li><strong>De equipo:</strong> un 35 % o más de sus puntos en triples, tiros libres por debajo del 60 % o 15 o más pérdidas por partido.</li>
+</ul>
+<p>De cada tipo salen como mucho dos jugadores, para que la lista no se convierta en ruido.</p>
+
+<h2>4. Cómo leerlo sin engañarte</h2>
+<ul>
+  <li><strong>Pocos partidos, pocas conclusiones:</strong> con dos actas, un 4 de 10 en triples es una anécdota, no una tendencia. Los umbrales piden un mínimo de intentos, pero eso es un filtro, no una garantía.</li>
+  <li><strong>Los niños cambian rápido:</strong> un jugador que crece o gana confianza puede no parecerse a su acta de hace dos meses. Da más peso a lo reciente y quita lo antiguo.</li>
+  <li><strong>El acta no cuenta cómo juegan:</strong> no dice si defienden en zona, si corren o si bloquean bien. Si puedes ver un partido o un vídeo, usa los números para confirmar lo que ves.</li>
+  <li><strong>Sin triple, sin esas pistas:</strong> en categorías sin línea de triple, las pistas de tiradores no aparecerán, y es lo normal.</li>
+</ul>
+
+<h2>5. Cómo contárselo al equipo sin saturar</h2>
+<ul>
+  <li><strong>Tres ideas como máximo:</strong> una de defensa, una de ataque y una sobre vosotros. Más no se recuerda en un tiempo muerto.</li>
+  <li><strong>Acciones, no estadísticas:</strong> en vez de «su 7 mete un 38 % de triples», di «el 7 no recibe solo en el perímetro». El jugador tiene que saber qué hacer, no cuánto acierta el rival.</li>
+  <li><strong>Antes del partido, pocos minutos:</strong> las ideas en el entrenamiento previo y una frase corta para repetir en el vestuario.</li>
+  <li><strong>No enseñes la tabla:</strong> el informe es para ti. Puedes imprimirlo para el banquillo, pero no lo repartas: son datos de otros niños.</li>
+  <li><strong>Que lo vuestro pese más:</strong> en base, lo que aprenden los tuyos importa más que anular a un rival. Si el plan de partido te obliga a dejar de hacer lo que estáis trabajando, probablemente sobra.</li>
+</ul>
+<p>Para pasar esas ideas a limpio, el <a href="/plan-partido/">plan de partido</a> trae las claves del informe con el dorsal de cada rival en vez de su nombre, y las junta con tus objetivos, los emparejamientos y las jugadas de tu pizarra en una hoja y en un mensaje para el grupo del equipo.</p>
+<p>Si en tu competición hay normas de participación, el jugador clave del rival tampoco estará siempre en pista. Puedes ver cómo se reparten los minutos en la herramienta de <a href="/minutos/">control de minutos</a>.</p>
+
+<h2>6. Una nota sobre los datos</h2>
+<p>Los rivales, las actas y los nombres se guardan solo en tu navegador. Para importar de la FEB, la web pide el acta pública a la federación, pero el informe que construyes no se sube a ningún servidor. Si borras los datos del navegador o cambias de dispositivo, tendrás que volver a añadir los partidos.</p>
+
+<p class="art-outro">¿Tienes ya a tu próximo rival? Crea su ficha en el <a href="/rival/">informe del rival</a>, añade sus últimos partidos y quédate con tres ideas. Gratis y sin registro.</p>
+`,
+  },
+
+  // ── Rutina de tiro para jugadores ───────────────────────────────────
+  {
+    slug: "rutina-de-tiro-baloncesto-entrenar-solo-medir-mejora",
+    title: "Rutina de tiro para jugadores: cómo entrenar el tiro solo y medir si mejoras",
+    metaTitle: "Rutina de tiro: entrena solo y mide si mejoras | CANCHA.ZAPA",
+    description:
+      "Rutina de tiro para jugadores jóvenes: libres, media distancia y triples por puestos, cómo apuntar anotados e intentos y cómo leer tu evolución sesión a sesión.",
+    fecha: "2026-10-19",
+    fechaLabel: "19 octubre 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Jugadores · Entrenamiento",
+    heroTitle: "Rutina de tiro para entrenar solo",
+    heroSubtitle: "Puestos, constancia y un registro sencillo para saber si de verdad mejoras",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: [],
+    relatedSeoPages: ["zapatillas-outdoor", "zapatillas-baloncesto-junior", "zapatillas-baloncesto-calidad-precio"],
+    body: `
+<p class="art-intro">Tirar solo en la pista del barrio o en el pabellón es la mejor manera de coger confianza con el tiro, pero tiene un problema: si no apuntas nada, no sabes si estás mejorando o solo te lo parece. Esta guía propone una rutina sencilla para jugadores jóvenes y te enseña a medirla con el plan de tiro de CANCHA.ZAPA: un toque por tiro, un porcentaje por sesión y una gráfica de cómo evolucionas.</p>
+
+<h2>1. Antes de tirar: el gesto, con prudencia</h2>
+<p>No hay una mecánica única, y si tu entrenador te ha corregido algo, hazle caso a él antes que a cualquier guía. Dicho esto, hay ideas que casi todos los entrenadores repiten y que te sirven de lista de comprobación:</p>
+<ul>
+  <li><strong>Base estable:</strong> pies cómodos, mirando al aro, con las rodillas ligeramente flexionadas.</li>
+  <li><strong>Mirada al aro,</strong> no al balón.</li>
+  <li><strong>Codo debajo del balón</strong> y alineado con la canasta.</li>
+  <li><strong>Acabar el gesto:</strong> brazo estirado, muñeca suelta y mantener la posición un instante tras soltar.</li>
+</ul>
+<p>Una regla práctica para la distancia: tira desde donde puedas repetir el mismo gesto, no desde donde tengas que lanzar con todo el cuerpo. Si cambias tu mecánica para llegar al aro, todavía estás demasiado lejos. Calienta unos minutos antes (muñecas, hombros y piernas) y, si algo te duele, para.</p>
+
+<h2>2. Las cuatro rutinas del plan</h2>
+<p>El <a href="/plan-tiro/">plan de tiro</a> ofrece cuatro rutinas por puestos. Los tiros por puesto son orientativos: puedes hacer más o menos.</p>
+<ul>
+  <li><strong>Tiros libres:</strong> 25 tiros desde la línea.</li>
+  <li><strong>Media distancia:</strong> 5 puestos por 10 tiros: las dos esquinas, las dos alas y el frontal, a unos 4,5 metros del aro.</li>
+  <li><strong>Triples:</strong> 5 puestos por 10 tiros, con la misma distribución. Los puestos están a 7,1 metros del aro, algo por fuera de la línea de 6,75 metros de FIBA para que ningún tiro sea dudoso, y las esquinas van junto a la banda.</li>
+  <li><strong>Completa:</strong> los 11 puestos (media, triples y libres) a 5 tiros cada uno, 55 en total.</li>
+</ul>
+<p>Si juegas en minibasket, que no tiene triple, quédate con libres y media distancia.</p>
+
+<h2>3. Cómo apuntar sin perder el ritmo</h2>
+<p>Eliges la rutina y, tras cada tiro, tocas ✓ si entra o ✗ si no en el puesto donde estás. Verás los anotados y los intentos de cada puesto y el total de la sesión. Tres hábitos que hacen que el registro valga:</p>
+<ul>
+  <li><strong>Apunta todos los tiros,</strong> también los fallos. No vale repetir un tiro ni quitar los malos: el porcentaje solo sirve si es honesto.</li>
+  <li><strong>Deshacer último</strong> corrige un toque equivocado. Ojo: recuerda lo que has apuntado desde que abriste la página; si la recargas, ya no puede deshacerlo.</li>
+  <li><strong>Si cierras la pestaña a mitad,</strong> la sesión en curso se conserva. «Empezar de cero» la borra (te pide confirmación), y si cambias de rutina a mitad te avisa antes de borrar los tiros de puestos que la nueva no tiene. Al terminar, pulsa Guardar sesión: se guarda con la fecha de hoy, y no deja guardar una sesión sin tiros.</li>
+</ul>
+
+<h2>4. Cómo leer tu evolución</h2>
+<p>En «Tu evolución» puedes ver todos tus tiros o un puesto concreto. Con dos sesiones guardadas aparece la gráfica del porcentaje de cada sesión, con una línea gris en el 50 %. Debajo, una media pista pinta el porcentaje acumulado de cada puesto en verde, ámbar o rojo, y un historial te deja borrar una sesión si te equivocaste al apuntarla.</p>
+<ul>
+  <li><strong>Mira tendencias, no sesiones sueltas:</strong> con 10 tiros por puesto, un solo tiro cambia mucho el porcentaje. Una mala tarde no dice nada; tres semanas seguidas, sí.</li>
+  <li><strong>Compara lo comparable:</strong> misma rutina, mismo número de tiros y, si puedes, la misma pista y el mismo balón.</li>
+  <li><strong>Usa el mapa para decidir:</strong> el puesto más flojo es el que más te puede dar, pero no abandones el resto.</li>
+</ul>
+
+<h2>5. Constancia mejor que maratón</h2>
+<p>Tres sesiones cortas a la semana rinden más que una larga el domingo, y una sesión de 20 o 30 minutos con la mente puesta en cada tiro vale más que 200 tiros por inercia. Cambia de puesto cuando termines los tiros previstos, no cuando te canses de fallar, y acaba siempre con algo que te salga bien.</p>
+
+<h2>6. Del entrenamiento al partido</h2>
+<p>Cuando tengas un entrenador o un familiar con ganas, el <a href="/tiro/">mapa de tiro</a> hace lo mismo en partido: marca en la pista dónde se tira y si entra, y calcula tiros de campo, triples, puntos y el eFG por jugador y por zona (zona, media distancia, triple de esquina y triple frontal). Ver toda la temporada es una función Pro, gratis durante la beta. No esperes el mismo porcentaje que en tu rutina: en partido hay defensor, cansancio y presión. Úsalo para ver desde qué zonas tiras de verdad.</p>
+
+<h2>Una nota sobre los datos</h2>
+<p>Tus sesiones se guardan solo en este navegador y no se suben a ningún servidor. Si borras los datos del navegador o cambias de móvil, empezarás de cero. Si eres menor, no hace falta que compartas tus números con nadie.</p>
+
+<p class="art-outro">¿Listo para la primera sesión? Abre el <a href="/plan-tiro/">plan de tiro</a>, elige una rutina y apunta tus primeros 25 tiros. Gratis y sin registro.</p>
+`,
+  },
+
+  // ── Asistencia y convocatorias ──────────────────────────────────────
+  {
+    slug: "asistencia-convocatorias-equipo-baloncesto-base",
+    title: "Asistencia y convocatorias: cómo organizar tu equipo de base sin perder la cabeza",
+    metaTitle: "Asistencia y convocatorias en un equipo de base | CANCHA.ZAPA",
+    description:
+      "Pasa lista en cada entrenamiento, calcula el porcentaje de asistencia y prepara la convocatoria para WhatsApp. Guía para entrenadores de baloncesto base.",
+    fecha: "2026-10-19",
+    fechaLabel: "19 octubre 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Entrenadores · Equipo",
+    heroTitle: "Asistencia y convocatorias sin perder la cabeza",
+    heroSubtitle: "Pasar lista con un toque, entender el porcentaje y enviar la convocatoria a las familias",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: [],
+    relatedSeoPages: ["zapatillas-baloncesto-junior", "zapatillas-baloncesto-calidad-precio"],
+    body: `
+<p class="art-intro">Quien entrena a un equipo de base sabe que el baloncesto es lo fácil. Lo que desgasta es quién viene el martes, a quién convocas el sábado y que todos sepan la hora de quedada. Esta guía propone una forma ordenada de llevar la asistencia a los entrenamientos y preparar la convocatoria con la herramienta de <a href="/asistencia/">asistencia y convocatorias</a>, y cómo cruzarla con el control de minutos.</p>
+
+<h2>1. Empieza por la plantilla</h2>
+<p>En el apartado «Jugadores» escribes uno por línea, con el formato que prefieras (por ejemplo, «4 Laia»). Admite hasta 30. Dos consejos:</p>
+<ul>
+  <li><strong>Escribe solo lo que quieras que aparezca en el grupo:</strong> la convocatoria usa esas líneas tal cual, así que mejor nombre de pila o dorsal que apellidos completos.</li>
+  <li><strong>Si ya tienes un equipo</strong> creado en el modo Equipo de <a href="/estadisticas/">estadísticas</a>, la herramienta te deja cargarlo y no tienes que escribir a nadie dos veces.</li>
+</ul>
+
+<h2>2. Pasar lista en cada entrenamiento</h2>
+<p>Creas el entrenamiento con su fecha (por defecto, hoy; si ya existe uno de esa fecha, se abre ese). Después tocas a cada jugador y su estado cambia en este orden: ✓ ha venido, ✗ falta, J falta justificada, y vuelta a vacío. Hay un botón «Todos presentes» para el caso habitual: marca a los que estén sin marcar y respeta las faltas que ya hayas puesto.</p>
+<p>Hazlo siempre en el mismo momento, por ejemplo al terminar el calentamiento; si lo dejas para luego, acabarás apuntando de memoria.</p>
+
+<h2>3. Qué significa el porcentaje</h2>
+<p>La tabla de la temporada muestra, por jugador, los ✓, los ✗, las J y un porcentaje. El cálculo es: veces que vino, dividido entre las veces que vino más las que faltó sin justificar. Las faltas justificadas no cuentan en contra, y un entrenamiento en el que no marcas a un jugador no cuenta para él. Un ejemplo: 8 ✓, 2 ✗ y 3 J dan un 80 %. Si aún no hay datos, aparece un guion.</p>
+<ul>
+  <li><strong>Úsalo para hablar, no para castigar:</strong> si a un jugador le sale un 50 %, lo útil es preguntar qué pasa, no sentarlo.</li>
+  <li><strong>No lo publiques:</strong> es información para ti. Un ranking de asistencia entre niños no motiva a nadie.</li>
+  <li><strong>Marca a todos:</strong> lo que dejas en blanco no cuenta ni a favor ni en contra, así que un porcentaje con huecos engaña. Lo más cómodo es pulsar «Todos presentes» y corregir solo las faltas.</li>
+</ul>
+
+<h2>4. La convocatoria para WhatsApp</h2>
+<p>En la columna de convocatoria rellenas el equipo, el rival, la fecha, la hora del partido, la hora de quedada, la equipación, el lugar y unas notas (hasta 300 caracteres). Todos los jugadores aparecen marcados como convocados y desmarcas a quien no va. La herramienta compone el mensaje con el formato de WhatsApp: título en negrita, partido, lugar, hora de quedada, equipación, lista de convocados con su número y tus notas.</p>
+<p>Lo copias con un botón o, en el móvil, lo compartes directamente con el menú de tu teléfono. Un truco: pon en las notas lo que siempre se olvida (agua, calzado de pabellón) y te ahorrarás mensajes de aclaración.</p>
+<p>Lo que escribes en la convocatoria también se queda guardado en tu navegador: si cierras la página a medias, al volver sigue ahí.</p>
+
+<h2>5. Cruza la asistencia con el control de minutos</h2>
+<p>Antes de decidir a quién convocas, mira la asistencia, y antes del partido mira los minutos. La herramienta de <a href="/minutos/">control de minutos</a> te deja marcar quién sale de inicio en cada período (I) y quién entra con el período empezado (E), y te avisa en directo de quién cumple, a quién le falta un inicio y quién ha llegado al máximo.</p>
+<p>Trae dos normas ya cargadas, ambas de la FCBQ: minibasket (8 períodos de 6 minutos) y passarel·la (8 períodos de 5 minutos), y una opción personalizada donde fijas tú los períodos, los jugadores en pista y los mínimos y máximos. Con la norma elegida, un botón «Proponer rotación» (función Pro, gratis durante la beta) reparte los inicios para que se cumpla. Avisa también si con el número de jugadores que has escrito la norma no se puede cumplir.</p>
+<p>Ojo: esas normas son las que implementa la herramienta, basadas en un resumen de reglamentos de la FCBQ que puede estar desfasado, y cada competición puede tener las suyas. Confirma siempre la normativa vigente con la federación de tu competición o con el club antes de fiarte de los avisos, y usa la opción personalizada si la tuya es distinta.</p>
+
+<h2>6. Una rutina de semana que funciona</h2>
+<ul>
+  <li><strong>En cada entrenamiento:</strong> pasa lista al empezar.</li>
+  <li><strong>Dos días antes del partido:</strong> revisa la asistencia y decide la lista.</li>
+  <li><strong>El día anterior:</strong> envía la convocatoria con hora de quedada, lugar y equipación.</li>
+  <li><strong>Antes del partido:</strong> abre minutos, comprueba la norma y marca la rotación prevista.</li>
+</ul>
+
+<h2>Una nota sobre los datos</h2>
+<p>Los nombres, las listas de asistencia y las marcas son datos de menores. En estas herramientas se guardan solo en el navegador del entrenador y no se suben a ningún servidor. El mensaje de la convocatoria solo sale de aquí si tú lo copias o lo compartes. Si cambias de ordenador o borras los datos del navegador, los pierdes.</p>
+
+<p class="art-outro">Empieza por lo sencillo: escribe tu plantilla en <a href="/asistencia/">Asistencia y convocatorias</a> y pasa lista en el próximo entrenamiento. Gratis y sin registro.</p>
+`,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────

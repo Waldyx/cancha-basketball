@@ -420,6 +420,15 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   pizarra (`cz.pizarra.v1`) con su dibujo (`tarjeta` de la hoja de banquillo) y situaciones especiales. Texto para
   WhatsApp gratis; hoja A4 con escudo = Pro (`plan-partido`). Campos que se guardan al escribir sin repintar.
   `lib/planPartido.ts`, `cz.planpartido.v1`.
+- ✅ **Revisión del 19-oct (Sonnet, `trabajo/revision-19oct.md`) aplicada**: 🔑 VO2máx de ADULTOS mal: Léger 1988 (resumen en
+  PubMed 3184250) dice usar la MISMA ecuación con la edad fija en 18, no `−24,4 + 6·X` (daba ~3 ml/kg/min de más y un salto
+  a los 18) · plan de tiro: cambiar de rutina borraba tiros en silencio (ahora avisa), «Empezar de cero» confirma,
+  pulsación larga en táctil ya no resta, marcador del TL dibujado 1,3 m hacia el aro (tapaba la media frontal) ·
+  asistencia: la CONVOCATORIA se guarda (`conv` en `cz.asistencia.v1`), «Todos presentes» no pisa faltas, aviso de
+  huérfanos/repetidos/sobran · `fechaValida` (un input date deja teclear años de 5 cifras y la sesión se perdía al
+  recargar) en tests, asistencia y evaluación · `lineasPlantilla` ya no repite «Pau (2)».
+- ✅ **3 guías más (19-oct)**: scouting con el informe del rival, rutina de tiro para jugadores, asistencia y convocatorias.
+  Enlaces de vuelta desde `/rival/`, `/plan-tiro/` y `/asistencia/`; `/rival/` enlaza también al plan de partido.
 - ▶️ **Ideas siguientes** (sin prometer en la web): generador de sesiones con IA.
 - ▶️ **Paso 3, por orden**: control de minutos/cuartos (verificar normas de participación de la FCBQ) → mapa de
   tiro → libro de jugadas con escudo del club → etiquetas de vídeo. Más ideas: informe del rival (actas FEB),
