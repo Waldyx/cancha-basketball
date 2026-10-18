@@ -484,6 +484,19 @@ export const PROMOS: Promo[] = [
     color: "#ff8a3d",
   },
   {
+    id: "forumsport-flash-48h-2026-10",
+    tienda: "forumsport_es",
+    tiendaLabel: "Forum Sport",
+    titulo: "Flash 48H",
+    // Correo de Awin del 16-oct (horario de París). Enlace del correo con nuestro awinaffid.
+    desde: "2026-10-18T00:00:00+02:00",
+    hasta: "2026-10-19T23:59:59+02:00",
+    url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2F",
+    descuentoTexto: "hasta 30% extra",
+    nota: "Descuento aplicado directamente en el precio final · productos seleccionados · solo el 18 y 19 de octubre",
+    color: "#facc15",
+  },
+  {
     id: "aliexpress-ofertas-invierno-2026-10",
     tienda: "aliexpress",
     tiendaLabel: "AliExpress",
