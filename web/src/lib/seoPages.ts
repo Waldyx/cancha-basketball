@@ -329,7 +329,7 @@ export const SEO_PAGES: SeoPage[] = [
     ],
     faqs: [
       { q: "¿Qué zapatillas duran en asfalto?",
-        a: "Las que tienen score de durabilidad outdoor 7+. Top: Anta KAI 1 Speed, Adidas Cross 'Em Up Select, Nike Precision 7, Tarmak Voltzy 500." },
+        a: "Las de goma dura y surcos profundos: en el catálogo, las que tienen durabilidad en exterior 7 o más. Entre las asequibles, Nike Precision 7, Jordan Luka .77, Adidas Dame Certified y Anta Shock Wave 5." },
       { q: "¿Cuánto duran las zapas en asfalto?",
         a: "Depende del modelo. Una zapa premium con suela XDR: 6-12 meses. Una zapa standard sin XDR: 2-4 meses. Una zapa reactiva (Curry, GT Cut): 1-3 meses." },
       { q: "¿Vale la pena comprar caro para outdoor?",
@@ -378,7 +378,7 @@ export const SEO_PAGES: SeoPage[] = [
     ],
     faqs: [
       { q: "¿Qué zapa tiene más cushion del mercado?",
-        a: "Nike LeBron 22 con doble cámara Air Max + Zoom. Score 9/10. New Balance Fresh Foam BB v3 le sigue muy de cerca." },
+        a: "Las de amortiguación más alta del catálogo son la Nike LeBron 22 (Air Zoom y Cushlon 3.0), la LeBron 23 (ZoomX con Air Zoom) y la KD 19 (Zoom Strobel y Cushlon 3.0)." },
       { q: "¿Cushion alto sirve para guards rápidos?",
         a: "No. Pierdes court feel y velocidad. Para guards, prioriza respuesta sobre cushion." },
       { q: "¿Cuándo el cushion es demasiado?",
@@ -459,18 +459,18 @@ export const SEO_PAGES: SeoPage[] = [
     lede: "Sub-80€ no significa malas. Estas 5 cumplen y se notan. Sin marketing, solo lo que aguanta y agarra por el precio.",
     intro: "Por debajo de 80€ pierdes algunas cosas: las espumas premium (Air Zoom, Boost), los uppers de tejido avanzado. Pero ganas en relación calidad-precio. Y un junior o jugador recreativo no necesita lo demás.",
     points: [
-      { lab: "Decathlon es rey", body: "Tarmak Voltzy 500 (~50€) supera en outdoor a muchas de 150€. Sin broma." },
+      { lab: "Las baratas también aguantan", body: "Una Nike Precision 7 o una Jordan Luka .77 aguantan el exterior mejor que muchas zapatillas de 150 €: lo que manda es la goma, no el precio." },
       { lab: "Modelos antiguos descontados", body: "La Curry 10 en outlet a 60€ es mejor que cualquier zapa nueva de 80€." },
       { lab: "Asume sin tope-de-gama", body: "Cushion básico, materiales sintéticos. Está bien, solo gestiona expectativas." },
       { lab: "Lo que NO compres", body: "Marcas blancas sin tracción testeada. Mejor un modelo antiguo de marca conocida." },
     ],
     faqs: [
       { q: "¿Hay zapas de baloncesto buenas por menos de 50€?",
-        a: "Sí. Tarmak Voltzy 500 (~50€), Adidas Ownthegame 2.0 (~55€). Son básicas pero cumplen para recreativo o junior." },
+        a: "Sí. La Decathlon Tarmak Fast 900 y la Adidas Ownthegame 3 son básicas pero cumplen para jugar de forma recreativa, y a menudo hay gamas altas de temporadas pasadas rebajadas a ese precio. El precio de hoy está en cada ficha." },
       { q: "¿Vale la pena gastar más de 80€?",
         a: "Depende. Si juegas federado 2+ veces por semana, los 100-130€ se justifican (cushion + tracción premium). Para recreativo casual, sub-80€ sobra." },
       { q: "¿Las baratas duran menos?",
-        a: "No necesariamente. Las Voltzy 500 duran más en asfalto que muchas premium. La durabilidad depende del modelo, no del precio." },
+        a: "No necesariamente. Una Nike Precision 7 dura más en asfalto que muchas premium. La durabilidad depende de la goma, no del precio." },
     ],
     filter: (z) => lowestPrice(z) < 80,
     sort: byThenScore(byPriceAsc),
@@ -592,7 +592,7 @@ export const SEO_PAGES: SeoPage[] = [
     ],
     faqs: [
       { q: "¿Qué zapa protege mejor las rodillas?",
-        a: "Nike LeBron 22 (cushion 9), New Balance Fresh Foam BB v3 (cushion 9), Jordan Luka 3 (cushion 8). Estas tres son referencia para rodillas sensibles." },
+        a: "La Nike LeBron 22, la LeBron 23 y la KD 19 son las de amortiguación más alta del catálogo, y la LeBron Witness 9 es la alternativa más barata. Son la referencia para rodillas sensibles." },
       { q: "¿Cushion alto soluciona el dolor de rodillas?",
         a: "Lo reduce, no lo elimina. Si tienes condromalacia rotuliana, tendinitis o lesión previa, la zapa ayuda pero no sustituye el tratamiento médico." },
       { q: "¿Puedo jugar con dolor leve de rodilla?",
@@ -642,7 +642,7 @@ export const SEO_PAGES: SeoPage[] = [
     intro: "Nike/Jordan tienden a horma estrecha; New Balance, Adidas, y algunas Nike de la línea LeBron son más anchas. La trampa es que muchas marcas dicen \"true to size\" cuando no lo son.",
     points: [
       { lab: "Horma ancha o normal", body: "Filtra por horma. Las marcadas \"estrecha\" se descartan." },
-      { lab: "New Balance es referencia", body: "BB v3 tiene la horma más ancha del mercado entre las premium." },
+      { lab: "Mira la línea, no la marca", body: "Dentro de Nike, la LeBron y la KD dan espacio en el antepié; la Zion, la Ja o las Kobe Protro van estrechas. Anta suele ir ceñida." },
       { lab: "Sube media talla si dudas", body: "Mejor un poco grande que apretada — apretada te causa problemas de fascia." },
       { lab: "Knit upper se adapta", body: "Los uppers de Primeknit/Flyknit ceden más que mesh + TPU." },
     ],
@@ -902,7 +902,7 @@ export const SEO_PAGES: SeoPage[] = [
     ],
     faqs: [
       { q: "¿Son buenas las Puma para baloncesto real?",
-        a: "Sí. La línea Nitro tiene tecnología de espuma real, no marketing. El MB.04 y la All-Pro Nitro 2 compiten técnicamente con Nike AE 2 y Adidas Trae Young en sus rangos de precio." },
+        a: "Sí. La línea Nitro tiene tecnología de espuma real, no marketing. El MB.04 y la All-Pro Nitro 2 compiten técnicamente con la Adidas AE 2 y la Trae Young en sus rangos de precio." },
       { q: "¿Qué diferencia hay entre MB.04 y MB.05?",
         a: "MB.04 es más reactiva y ligera (355g), MB.05 tiene más cushion (370g). Para guards explosivos: MB.04. Para jugadores más pesados que necesitan más protección: MB.05." },
       { q: "¿Dónde comprar Puma baloncesto en España?",
@@ -924,7 +924,7 @@ export const SEO_PAGES: SeoPage[] = [
       { lab: "Talla y ajuste", body: "Anta suele ir ceñida, con ajuste de guante (Kai 2, Kai 3, KT 10): con pie ancho, prueba media talla más. Comprueba siempre la guía de tallas de cada modelo." },
     ],
     faqs: [
-      { q: "¿Son buenas las zapatillas Anta para baloncesto?", a: "Sí, especialmente para el precio. La KAI 2 compite técnicamente con la Nike AE 2 a 30€ menos. La marca invierte en tecnología real, no solo en marketing." },
+      { q: "¿Son buenas las zapatillas Anta para baloncesto?", a: "Sí, especialmente para el precio. La KAI 2 compite técnicamente con la Adidas AE 2 y suele costar menos. La marca invierte en tecnología real, no solo en marketing." },
       { q: "¿Merece la pena la Anta KAI 2 de Kyrie Irving?", a: "Sí. Tracción 8/10, respuesta 9/10, horma ancha, 119€. Para bases o escoltas con pie normal o ancho que buscan rendimiento sin gastar 150€+, es la mejor compra de 2025." },
       { q: "¿Dónde comprar Anta en España?", a: "Amazon ES es la principal fuente de Anta en España, con vendedores oficiales y devolución fácil. AliExpress tiene más colorways pero tarda más. Pocas tiendas físicas en España tienen stock." },
     ],
@@ -946,27 +946,27 @@ export const SEO_PAGES: SeoPage[] = [
     faqs: [
       { q: "¿Es buena Li-Ning para baloncesto?", a: "Sí, y está subestimada en Europa. La WoW AllCity 13 compite con las mejores Adidas y Nike en el mismo rango de precio. La marca invierte en I+D real: BOOM foam, suelas multidireccionales propias." },
       { q: "¿Qué tecnología usa Li-Ning en sus zapatillas?", a: "BOOM foam (espuma ultra-ligera y reactiva), CLOUD foam (cushion suave para jugadores pesados), li-ning ARC (placa de carbono en modelos premium). Todo I+D propio, no licenciado." },
-      { q: "¿Dónde comprar Li-Ning en España?", a: "Amazon ES es la opción más cómoda con devolución garantizada. Li-Ning no tiene tiendas físicas en España. AliExpress tiene el catálogo completo pero los plazos de entrega son más largos (2-4 semanas)." },
+      { q: "¿Dónde comprar Li-Ning en España?", a: "AliExpress tiene el catálogo más amplio (envío de 2 a 4 semanas) y Basketball Emotion trae algunos modelos con envío desde España. Li-Ning no tiene tiendas físicas en España." },
     ],
   }),
 
   // ── MARCA: New Balance ─────────────────────────────────────────────
   marca("New Balance", {
     title: "Mejores zapatillas de baloncesto New Balance 2026 | CANCHA.ZAPA",
-    description: "Las 5 mejores New Balance de baloncesto: Fresh Foam BB v3, Two WXY v6, Kawhi 2. Technología FuelCell y Fresh Foam en la cancha.",
+    description: "Las mejores New Balance de baloncesto que se compran en España: TWO WXY v5 y v4, Kawhi 4 y Kawhi 1. Espumas FuelCell y Fresh Foam en la cancha.",
     eyebrow: "★ Por marca · New Balance",
-    lede: "New Balance volvió al baloncesto con Kawhi Leonard y Jamal Murray. Su Fresh Foam BB v3 es la mejor zapatilla de cushion para pívots en 2025 a precio razonable.",
+    lede: "New Balance volvió al baloncesto con Kawhi Leonard. Su TWO WXY v5 está entre las mejor valoradas del catálogo y, además, aguanta bien el exterior.",
     intro: "New Balance abandonó el baloncesto en los 90 y volvió con fuerza en 2018 firmando a Kawhi Leonard. Desde entonces, la marca ha lanzado la línea Two WXY (guards), la línea Kawhi (aleros/pívots) y la OMN1S (legacy de Kawhi). Tecnología FuelCell y Fresh Foam son sus propuestas de espuma.",
     points: [
-      { lab: "Fresh Foam BB v3 = cushion pívots", body: "La Fresh Foam BB v3 tiene el stack de cushion más alto de NB. Para pívots y jugadores pesados que necesitan máxima protección. Score de amortiguación 9/10." },
-      { lab: "Two WXY v5/v6 = guards", body: "La línea Two WXY (WXY = \"why not?\") es para guards: ligera, reactiva, buen soporte de tobillo. FuelCell foam responsivo." },
-      { lab: "Kawhi = aleros/3D", body: "Las líneas Kawhi (1, 2) están diseñadas para el juego versátil de Leonard: potencia, control, cortes. Horma media, ideal para aleros de todo tipo." },
-      { lab: "Horma inglesa = cómoda", body: "NB tiene fama de horma cómoda. Su D (normal) y EE (ancha) ofrecen opciones para pies más anchos que no encajan en Nike o Adidas." },
+      { lab: "Kawhi 4 = cushion", body: "La Kawhi 4 lleva FuelCell con una de las amortiguaciones más altas del catálogo: para aleros y jugadores grandes. Es de interior: su goma dura poco en la calle." },
+      { lab: "TWO WXY = todoterreno", body: "La línea TWO WXY es la más completa de New Balance: FuelCell reactiva, buen agarre y una goma dura que aguanta el exterior. La v5 está entre las mejor valoradas del catálogo." },
+      { lab: "Kawhi 1 = mid y resistente", body: "La primera Kawhi es mid y con una goma dura que se defiende fuera, para aleros que quieren algo más de sujeción. Es más antigua y difícil de encontrar a buen precio." },
+      { lab: "Hay versión ancha", body: "Algunas TWO WXY se han vendido en ancho normal y en versión ancha, algo poco habitual en baloncesto: útil si no te entra una Nike." },
     ],
     faqs: [
-      { q: "¿New Balance es buena para baloncesto?", a: "Sí, aunque subestimada. La Fresh Foam BB v3 es la mejor zapatilla de cushion para pívots de su rango de precio. La Two WXY v6 compite con la Ja 3 y la AE 2 para guards." },
-      { q: "¿Merece la pena la New Balance Fresh Foam BB v3?", a: "Para pívots con rodillas sensibles o jugadores de más de 90kg: sí. El stack de cushion es de los más generosos del mercado y el precio (~130€) es competitivo frente a Nike LeBron o Jordan Tatum." },
-      { q: "¿Dónde comprar New Balance de baloncesto en España?", a: "Amazon ES y NewBalance.es tienen el catálogo completo. Foot Locker ES también tiene algo de stock. Evita comprar en webs de terceros no verificados." },
+      { q: "¿New Balance es buena para baloncesto?", a: "Sí, aunque subestimada. La TWO WXY v5 está entre las mejor valoradas del catálogo y aguanta bien el exterior, y la Kawhi 4 es de las de más amortiguación." },
+      { q: "¿Qué New Balance elegir si soy pívot o pesado?", a: "La Kawhi 4, por su FuelCell con mucha amortiguación. La Fresh Foam BB v3, que era la referencia de la marca para pívots, ya no la vende ninguna de nuestras tiendas en España." },
+      { q: "¿Dónde comprar New Balance de baloncesto en España?", a: "New Balance España apenas vende baloncesto. Las TWO WXY se encuentran en Atmósfera Sport y FuikaOmar, la Kawhi 4 en FuikaOmar y la Kawhi 1 en Amazon. El precio de hoy de cada una está en su ficha." },
     ],
   }),
 
