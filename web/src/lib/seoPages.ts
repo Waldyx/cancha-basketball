@@ -904,7 +904,7 @@ export const SEO_PAGES: SeoPage[] = [
       { q: "¿Son buenas las Puma para baloncesto real?",
         a: "Sí. La línea Nitro tiene tecnología de espuma real, no marketing. El MB.04 y la All-Pro Nitro 2 compiten técnicamente con la Adidas AE 2 y la Trae Young en sus rangos de precio." },
       { q: "¿Qué diferencia hay entre MB.04 y MB.05?",
-        a: "MB.04 es más reactiva y ligera (355g), MB.05 tiene más cushion (370g). Para guards explosivos: MB.04. Para jugadores más pesados que necesitan más protección: MB.05." },
+        a: "En nuestra ficha la MB.05 gana en tracción, respuesta y ligereza, y empatan en amortiguación. La MB.04 es mid y sujeta algo más el tobillo. Para guards rápidos: MB.05. Si quieres más sujeción: MB.04." },
       { q: "¿Dónde comprar Puma baloncesto en España?",
         a: "Amazon ES, Sprinter y Foot Locker ES suelen tener stock completo de la línea MB. Puma.com tiene a veces colorways exclusivos. JD Sports menos fiable para baloncesto Puma." },
     ],
@@ -918,7 +918,7 @@ export const SEO_PAGES: SeoPage[] = [
     lede: "Anta tiene a Kyrie Irving (línea KAI) y Klay Thompson (línea KT). En 2025, la KAI 2 es la zapatilla china con mejor relación calidad-precio del mercado europeo.",
     intro: "Anta es la marca deportiva número 1 en China y ha conquistado el baloncesto internacional con endorsements de peso: Kyrie Irving abandonó Nike para firmar con Anta, y Klay Thompson lleva la línea KT desde 2014. El resultado es tecnología competitiva a precios más asequibles que Nike/Adidas.",
     points: [
-      { lab: "KAI 2 = la sorpresa del año", body: "La KAI 2 de Kyrie Irving ofrece tracción y respuesta de 150€ a solo 119€. A-Flashfoam 2.0 y herringbone multidireccional. La mejor relación calidad-precio de 2025." },
+      { lab: "KAI 2 = la sorpresa del año", body: "La KAI 2 de Kyrie Irving ofrece tracción y respuesta de gama alta a precio medio. Espuma Nitro Edge y herringbone multidireccional. La mejor relación calidad-precio de 2025." },
       { lab: "KT 10/11 = para tiradores", body: "La línea KT de Klay Thompson prioriza estabilidad lateral y cushion sólido. Perfecta para tiradores de posición media que necesitan soporte en plant-and-shoot." },
       { lab: "Shock Game = segmento medio", body: "Para jugadores sin patrocinado favorito que buscan una Anta genérica de calidad. Precio más bajo, tecnología mid-range pero sólida." },
       { lab: "Talla y ajuste", body: "Anta suele ir ceñida, con ajuste de guante (Kai 2, Kai 3, KT 10): con pie ancho, prueba media talla más. Comprueba siempre la guía de tallas de cada modelo." },

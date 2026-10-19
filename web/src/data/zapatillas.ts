@@ -677,7 +677,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 5,
     año_lanzamiento: 2026,
     genero: "unisex",
-    signature_player: "Luka DonÄiÄ‡",
+    signature_player: "Luka Dončić",
     tecnologia_clave: ["Full-length Zoom Strobel", "Cushlon 3.0", "ISOband"],
     peso_real_g: 400,
     altura: "low",
@@ -1479,7 +1479,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 3,
     año_lanzamiento: 2024,
     genero: "unisex",
-    signature_player: "Luka DonÄiÄ‡",
+    signature_player: "Luka Dončić",
     tecnologia_clave: ["Formula 23 foam", "IsoPlate", "Multidirectional traction"],
     sucesor_id: "jordan-luka-5",
     peso_real_g: 384,
@@ -3225,7 +3225,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "LeBron James",
-    tecnologia_clave: ["ZoomX foam", "Carbon fiber plate", "Air Zoom"],
+    tecnologia_clave: ["ZoomX foam", "Cushlon", "Carbon fiber plate"],
     predecesor_id: "nike-gt-jump-1",
     sucesor_id: "nike-lebron-24",
 
@@ -3306,7 +3306,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Ja Morant",
-    tecnologia_clave: ["Zoom Air Strobel", "React foam", "Herringbone traction"],
+    tecnologia_clave: ["Caged ZoomX foam", "Herringbone traction"],
     predecesor_id: "nike-ja-2",
     sucesor_id: "nike-ja-4",
 
@@ -3341,11 +3341,11 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "El primer zapato de Ja diseñado completamente desde cero. Más ligero y más reactivo que el Ja 2, con tracción herringbone brutalmente agresiva y un Zoom Air Strobel que conecta con el suelo de forma directa. El zapato de los guards explosivos de 2025.",
+      "El primer zapato de Ja diseñado completamente desde cero. Más ligero y más reactivo que el Ja 2, con tracción herringbone brutalmente agresiva y una entresuela de ZoomX enjaulada. El zapato de los guards explosivos de 2025.",
     pros: [
       "Tracción herringbone entre las mejores del año",
       "Extremadamente ligera para su nivel de tech",
-      "Zoom Air Strobel muy responsivo",
+      "ZoomX muy reactivo",
       "Ventilación superior",
     ],
     contras: [
@@ -3750,7 +3750,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "LaMelo Ball",
-    tecnologia_clave: ["Nitrofoam SQD", "Engineered mesh upper"],
+    tecnologia_clave: ["Nitrofoam", "Engineered mesh upper"],
 
     peso_real_g: 418,
     altura: "low",
@@ -3783,9 +3783,9 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La quinta entrega de LaMelo actualiza el Nitrofoam a la versión SQD (más compacta y reactiva) con un upper de mesh engineered inspirado en el número 1 de LaMelo. La más ligera y responsiva de la línea MB hasta la fecha.",
+      "La quinta entrega de LaMelo monta Nitrofoam con un upper de mesh engineered inspirado en el número 1 de LaMelo. La más ligera y responsiva de la línea MB hasta la fecha.",
     pros: [
-      "Nitrofoam SQD más reactivo que versiones anteriores",
+      "Nitrofoam con foco en el antepié",
       "Muy ligera (305g)",
       "Upper engineered transpirable",
       "Diseño atrevido característico de LaMelo",
@@ -3822,7 +3822,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "gs",
     signature_player: "LaMelo Ball",
-    tecnologia_clave: ["Nitrofoam SQD", "Engineered mesh upper"],
+    tecnologia_clave: ["Nitrofoam", "Engineered mesh upper"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 360,
@@ -3845,9 +3845,9 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
     resumen:
-      "Versión junior (Grade School) de la MB.05 de LaMelo Ball, con el mismo Nitrofoam SQD reactivo y upper de mesh del modelo adulto en tallaje niño. La signature MB más ligera y divertida, ahora para el junior que quiere el estilo LaMelo de verdad.",
+      "Versión junior (Grade School) de la MB.05 de LaMelo Ball, con el mismo Nitrofoam y upper de mesh del modelo adulto en tallaje niño. La signature MB más ligera y divertida, ahora para el junior que quiere el estilo LaMelo de verdad.",
     pros: [
-      "Mismo Nitrofoam SQD que la adulta",
+      "Mismo Nitrofoam que la adulta",
       "Muy ligera y reactiva para guards junior",
       "Estética llamativa LaMelo",
       "Signature real a precio junior",
@@ -3956,7 +3956,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 4,
     año_lanzamiento: 2025,
     genero: "unisex",
-    tecnologia_clave: ["Zoom Air Strobel", "React foam", "Herringbone traction"],
+    tecnologia_clave: ["Full-length Zoom Air Strobel", "ZoomX drop-in", "Herringbone traction"],
     predecesor_id: "nike-gt-cut-3",
 
     peso_real_g: 431,
@@ -4833,8 +4833,8 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 1,
     año_lanzamiento: 2025,
     genero: "unisex",
-    signature_player: "Luka DonÄiÄ‡",
-    tecnologia_clave: ["React foam", "Zoom Air heel", "knit upper"],
+    signature_player: "Luka Dončić",
+    tecnologia_clave: ["Dual-density foam", "Forefoot Zoom Air unit"],
     predecesor_id: null,
     sucesor_id: null,
 
@@ -4869,9 +4869,9 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Nike Luka 77 es la primera zapatilla de Luka DonÄiÄ‡ bajo Nike Brand (no Jordan Brand), el número 77 hace referencia a su dorsal en Eslovenia. React + Zoom Air en el talón, upper knit y outsole herringbone. Gama media con acabado premium y estética minimalista.",
+      "La Nike Luka 77 es la primera zapatilla de Luka Dončić bajo Nike Brand (no Jordan Brand), el número 77 hace referencia a su dorsal en Eslovenia. Espuma de doble densidad con Zoom Air en el antepié y outsole herringbone. Gama media con acabado premium y estética minimalista.",
     pros: [
-      "Combinación React + Zoom Air ofrece buen cushion y algo de respuesta",
+      "Espuma de doble densidad + Zoom Air en el antepié: buen cushion y algo de respuesta",
       "Knit upper cómodo y transpirable desde el primer uso",
       "Estética limpia, fácil de combinar",
       "Precio competitivo para zapatilla signature",
@@ -5698,7 +5698,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2026,
     genero: "unisex",
     signature_player: "Jayson Tatum",
-    tecnologia_clave: ["Zoom Air strobel", "React midsole", "knit upper"],
+    tecnologia_clave: ["Full-length Cushlon 3.0", "Forefoot Zoom Air unit", "Synthetic upper"],
     predecesor_id: "jordan-tatum-3",
     sucesor_id: null,
 
@@ -5707,7 +5707,7 @@ const _rawZapatillas: Zapatilla[] = [
     horma: "normal",
     drop_mm: 8,
     tipo_cierre: "cordones",
-    material_superior: "knit",
+    material_superior: "synthetic",
 
     puntuaciones: {
       traccion: 8,
@@ -5733,7 +5733,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Jordan Tatum 4 es la zapatilla signature más madura de Jayson Tatum. Zoom Air strobel para cushion reactivo en todo el pie, React foam para durabilidad, knit upper preciso. La combinación perfecta para aleros que necesitan un calzado versátil sin renunciar al cushion.",
+      "La Jordan Tatum 4 es la zapatilla signature más madura de Jayson Tatum. Zoom Air en el antepié sobre Cushlon 3.0 de longitud completa y un upper sintético preciso. La combinación perfecta para aleros que necesitan un calzado versátil sin renunciar al cushion.",
     pros: [
       "Zoom Air strobel full-length — cushion reactivo en todo el pie",
       "Knit upper: sujeción precisa sin puntos de presión",
@@ -6322,7 +6322,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2024,
     genero: "unisex",
     signature_player: "Kevin Durant",
-    tecnologia_clave: ["Zoom Air", "knit upper"],
+    tecnologia_clave: ["Forefoot Zoom Air", "Air Strobel heel", "Engineered mesh upper with plastic overlays"],
     predecesor_id: null,
     sucesor_id: "nike-kd-18",
     peso_real_g: 391,
@@ -6330,7 +6330,7 @@ const _rawZapatillas: Zapatilla[] = [
     horma: "normal",
     drop_mm: 6,
     tipo_cierre: "cordones",
-    material_superior: "knit",
+    material_superior: "mesh+tpu",
     puntuaciones: {
       traccion: 10,
       amortiguacion: 9,
@@ -6350,7 +6350,7 @@ const _rawZapatillas: Zapatilla[] = [
       lesiones_compatibles: ["rodillas"],
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: [] },
-    resumen: "La penúltima signature de Kevin Durant combina Zoom Air con un upper de knit muy cómodo. Muy equilibrada en todos los parámetros, perfecta para aleros versátiles.",
+    resumen: "La penúltima signature de Kevin Durant combina Zoom Air en el antepié y Air Strobel en el talón con un upper de malla y refuerzos de plástico. Muy equilibrada en todos los parámetros, perfecta para aleros versátiles.",
     pros: ["Muy equilibrada en todas las métricas", "Ligera para su cushion", "Cómoda desde el primer día"],
     contras: ["Durabilidad outdoor limitada", "Tracción puede perder agarre con polvo"],
     veredicto: "Una de las zapatillas más equilibradas del mercado. Ideal para aleros que quieren un poco de todo sin sacrificar nada.",
@@ -7581,7 +7581,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 5,
     año_lanzamiento: 2024,
     genero: "unisex",
-    tecnologia_clave: ["A-Flashfoam", "herringbone"],
+    tecnologia_clave: ["Nitrogen-based foam", "Carbon fiber plate", "Double shank"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 385,
@@ -7608,7 +7608,7 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["equilibrado", "potente"],
     },
     no_recomendada_para: { posiciones: [], estilos: ["explosivo"] },
-    resumen: "Anta Shock Wave 5 con A-Flashfoam: la mejor zapatilla de exterior de la marca china. Durabilidad outdoor excepcional y tracción constante en cualquier superficie.",
+    resumen: "Anta Shock Wave 5 con espuma de nitrógeno y placa de carbono: la mejor zapatilla de exterior de la marca china. Durabilidad outdoor excepcional y tracción constante en cualquier superficie.",
     pros: ["Durabilidad outdoor líder en su precio", "Tracción constante en exterior", "Buena relación calidad-precio"],
     contras: ["No destaca en rendimiento indoor premium", "Difícil de encontrar en tiendas físicas"],
     veredicto: "La zapatilla ideal para quien juega principalmente en pistas exteriores y quiere durabilidad máxima a precio razonable.",
@@ -7746,8 +7746,8 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 1,
     año_lanzamiento: 2022,
     genero: "unisex",
-    signature_player: "Luka DonÄiÄ‡",
-    tecnologia_clave: ["Zoom Air", "wide base", "herringbone"],
+    signature_player: "Luka Dončić",
+    tecnologia_clave: ["Formula 23 foam (Phylon carrier)", "wide base", "herringbone"],
     predecesor_id: null,
     sucesor_id: "jordan-luka-2",
     peso_real_g: 368,
@@ -7775,7 +7775,7 @@ const _rawZapatillas: Zapatilla[] = [
       lesiones_compatibles: ["rodillas"],
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
-    resumen: "La primera signature de Luka DonÄiÄ‡ sorprendió con una base ultra ancha y estabilidad excelente. Pensada para jugadores potentes y versátiles como el propio Luka.",
+    resumen: "La primera signature de Luka Dončić sorprendió con una base ultra ancha y estabilidad excelente. Pensada para jugadores potentes y versátiles como el propio Luka.",
     pros: ["Estabilidad excepcional", "Horma ancha muy cómoda", "Cushion sólido"],
     contras: ["Pesada", "Respuesta baja para un alero ágil"],
     veredicto: "Para el jugador al estilo Luka: potente, técnico y que necesita una base sólida. Ahora a precios de outlet muy interesantes.",
@@ -11187,7 +11187,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 1996,
     genero: "unisex",
     signature_player: "Penny Hardaway",
-    tecnologia_clave: ["Zoom Air", "Foamposite-lite upper", "Strap de sujeción", "Carbon fiber"],
+    tecnologia_clave: ["Max Air heel", "Zoom Air forefoot", "Strap de sujeción", "Carbon fiber midfoot shank"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 420,
@@ -11217,11 +11217,11 @@ const _rawZapatillas: Zapatilla[] = [
       lesiones: ["rodillas"],
       posiciones: ["pivot"],
     },
-    resumen: "La Air Penny 2 de 1996 fue la segunda de la saga de Anfernee 'Penny' Hardaway. El upper con elementos de Foamposite-lite, el strap de sujeción y el Zoom Air la convirtieron en una de las zapatillas más técnicas de su año. Penny era el favorito para suceder a Jordan — y sus zapas lo reflejaban.",
+    resumen: "La Air Penny 2 de 1996 fue la segunda de la saga de Anfernee 'Penny' Hardaway. El Max Air en el talón, el Zoom Air en el antepié y el strap de sujeción la convirtieron en una de las zapatillas más técnicas de su año. Penny era el favorito para suceder a Jordan — y sus zapas lo reflejaban.",
     pros: [
       "Zoom Air: buena responsividad para guards de su época",
       "Strap de empeine: lockdown real sin ser high-top",
-      "Upper Foamposite-lite: más ligero y transpirable que la Foamposite One",
+      "Max Air en el talón y Zoom Air en el antepié",
       "Outsole con herringbone decente — tracción fiable",
     ],
     contras: [
@@ -13895,7 +13895,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2024,
     genero: "unisex",
     signature_player: "Nikola Jokić",
-    tecnologia_clave: ["QU!KFOAM Lite", "TPU heel counter", "Carbon plate", "Herringbone outsole"],
+    tecnologia_clave: ["CQT foam", "Plastic shank", "Herringbone outsole"],
     predecesor_id: null,
     sucesor_id: "361-joker-2",
     peso_real_g: 420,
@@ -13918,11 +13918,11 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
     resumen:
-      "La 361° Joker 1 es la firma debut de Nikola Jokić (MVP NBA) con la marca china. QU!KFOAM Lite + placa de carbono para empuje, TPU heel counter para soporte máximo del pívot. Pensada para jugadores grandes que castigan la zapatilla: aleros pesados y pívots móviles. Precio brutal para llevar la signature del MVP.",
+      "La 361° Joker 1 es la firma debut de Nikola Jokić (MVP NBA) con la marca china. Espuma CQT + shank de plástico y un talón firme para el pívot. Pensada para jugadores grandes que castigan la zapatilla: aleros pesados y pívots móviles. Precio brutal para llevar la signature del MVP.",
     pros: [
       "Signature de Nikola Jokić — el MVP NBA",
       "Carbon plate + QU!KFOAM Lite = empuje real",
-      "TPU heel counter da estabilidad de élite para pívots",
+      "Talón firme y shank de plástico: estabilidad para pívots",
       "Precio competitivo (119€) frente a flagship Nike/Adidas (170€+)",
     ],
     contras: [

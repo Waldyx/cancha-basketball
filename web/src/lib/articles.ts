@@ -358,9 +358,9 @@ export const ARTICLES: Article[] = [
 <h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — desde {{precio:nike-lebron-23}}</a></h3>
 <p><strong>Para qué perfil:</strong> Pívots y ala-pívots de 85-110kg que necesitan la máxima amortiguación posible sin perder tracción.</p>
 <ul>
-  <li>✅ Max Air en talón + React en toda la entresuela: el combo de cushion más potente de Nike en baloncesto.</li>
+  <li>✅ ZoomX de longitud completa con Cushlon y placa de carbono: el combo de cushion más potente de Nike en baloncesto.</li>
   <li>✅ Suela de caucho multidireccional: agarre excepcional en parquet limpio y sucio.</li>
-  <li>✅ Upper Flyknit reforzado: soporte lateral sólido sin rigidez excesiva.</li>
+  <li>✅ Upper de punto (knit) con refuerzos: soporte lateral sólido sin rigidez excesiva.</li>
   <li>❌ 455 g — la más pesada del grupo. Se nota en las ayudas defensivas lentas.</li>
   <li>✅ Horma amable con el pie ancho, aunque el talón va algo estrecho.</li>
 </ul>
@@ -371,7 +371,7 @@ export const ARTICLES: Article[] = [
   <li>✅ Zoom Strobel + Cushlon 3.0: cushion reactivo, no solo absorbente. Bounce real.</li>
   <li>✅ Upper TPU con dagger-cage: soporte lateral sin peso extra.</li>
   <li>✅ Más barata que la LeBron 23 con rendimiento casi equivalente.</li>
-  <li>❌ La amortiguación no llega al nivel Max Air para aterrizajes muy duros.</li>
+  <li>❌ La amortiguación queda algo por debajo de la LeBron 23 para aterrizajes muy duros.</li>
   <li>❌ Horma algo estrecha en el antepié.</li>
 </ul>
 
@@ -444,7 +444,7 @@ export const ARTICLES: Article[] = [
 
 <h2>¿Cuál elegir?</h2>
 <ul>
-  <li><strong>Si pesas más de 95kg y juegas 3+ veces/semana:</strong> Nike LeBron 23. El cushion Max Air es insustituible.</li>
+  <li><strong>Si pesas más de 95kg y juegas 3+ veces/semana:</strong> Nike LeBron 23. Su amortiguación (ZoomX + Cushlon) es de las más protectoras del catálogo.</li>
   <li><strong>Si eres ala-pívot dinámico y buscas el mejor equilibrio precio/rendimiento:</strong> Nike KD 19, desde {{precio:nike-kd-19}}.</li>
   <li><strong>Si priorizas el bounce y puedes gastar 200€:</strong> Air Jordan 40. Es la más avanzada tecnológicamente.</li>
   <li><strong>Si eres junior o juegas recreativo con presupuesto ajustado:</strong> ANTA KT 11. Desde {{precio:anta-kt-11}} con soporte honesto.</li>
@@ -708,11 +708,11 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3><a href="/zapatilla/361-joker-1">361° Joker 1 — desde {{precio:361-joker-1}}</a></h3>
-<p>Mid-top pensada para pívots y ala-pívots. El contrafuerte de talón en TPU y la placa de carbono dan el mismo soporte lateral ({{nota:361-joker-1:soporte_lateral}}) y estabilidad ({{nota:361-joker-1:estabilidad}}) que la Curry 13, con horma normal. Se puede comprar en tres tiendas (AliExpress, Basketball Emotion y Amazon).</p>
+<p>Mid-top pensada para pívots y ala-pívots. La espuma CQT y el shank de plástico, con un talón firme, dan el mismo soporte lateral ({{nota:361-joker-1:soporte_lateral}}) y estabilidad ({{nota:361-joker-1:estabilidad}}) que la Curry 13, con horma normal. Se puede comprar en tres tiendas (AliExpress, Basketball Emotion y Amazon).</p>
 <ul>
   <li>✅ Soporte lateral {{nota:361-joker-1:soporte_lateral}} y estabilidad {{nota:361-joker-1:estabilidad}} — igual que la Curry 13</li>
   <li>❌ Ajuste ceñido: con pie ancho, sube media talla</li>
-  <li>❌ La más pesada de las cuatro — el refuerzo de carbono y TPU prioriza protección sobre ligereza</li>
+  <li>❌ La más pesada de las cuatro — prioriza protección sobre ligereza</li>
 </ul>
 
 <h3><a href="/zapatilla/puma-mb-04">Puma MB.04 — desde {{precio:puma-mb-04}}</a></h3>
@@ -819,7 +819,7 @@ export const ARTICLES: Article[] = [
 <p><strong>Para quién:</strong> Guards de 70-85kg que juegan siempre en pabellón, valoran la sensación de suelo y quieren algo más de cushion que la GT Cut. Horma normal, segura para la mayoría de pies.</p>
 
 <h2>ANTA Kai 2: la sorpresa del año</h2>
-<p>Kyrie Irving fichó por ANTA después de salir de Nike, y la Kai 2 es su segunda zapatilla con la marca china. Desde {{precio:anta-kai-2}}, ofrece un rendimiento que avergüenza a zapatillas más caras. La tracción es sólida, la respuesta es rápida gracias a la espuma A-Flashfoam 2.0, y su ajuste de guante la hace cómoda para la mayoría de pies normales.</p>
+<p>Kyrie Irving fichó por ANTA después de salir de Nike, y la Kai 2 es su segunda zapatilla con la marca china. Desde {{precio:anta-kai-2}}, ofrece un rendimiento que avergüenza a zapatillas más caras. La tracción es sólida, la respuesta es rápida gracias a la espuma Nitro Edge, y su ajuste de guante la hace cómoda para la mayoría de pies normales.</p>
 <p><strong>El problema:</strong> la respuesta ({{nota:anta-kai-2:respuesta}}) queda un punto por debajo de la Curry 13 ({{nota:ua-curry-13:respuesta}}), aunque por encima de la GT Cut 4 ({{nota:nike-gt-cut-4:respuesta}}). Si buscas la máxima respuesta, la Curry 13 gana.</p>
 <p><strong>Para quién:</strong> Bases y escoltas con pie normal o estrecho que buscan máxima relación calidad-precio.</p>
 
@@ -877,7 +877,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h2>4. Jordan Luka 1 — desde {{precio:jordan-luka-1}}</h2>
-<p>La primera de Luka Doncic: Zoom Air, base ancha y una horma que las reviews describen como permisiva con el pie ancho. Una signature de gama alta de hace dos temporadas a precio de gama baja.</p>
+<p>La primera de Luka Doncic: espuma Formula 23, base ancha y una horma que las reviews describen como permisiva con el pie ancho. Una signature de gama alta de hace dos temporadas a precio de gama baja.</p>
 <ul>
   <li>Buena opción si tienes el pie ancho</li>
   <li>Estable gracias a su base ancha</li>
@@ -891,7 +891,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h2>6. Jordan Luka .77 — desde {{precio:jordan-luka-77}}</h2>
-<p>La versión asequible de la línea de Luka: React con Zoom Air en el talón, mucho soporte y una suela construida para exterior. De las más completas de esta lista para quien juega dentro y fuera.</p>
+<p>La versión asequible de la línea de Luka: espuma de doble densidad con Zoom Air en el antepié, mucho soporte y una suela construida para exterior. De las más completas de esta lista para quien juega dentro y fuera.</p>
 <ul>
   <li>Muy completa para su precio</li>
   <li>Suela pensada para la calle</li>
@@ -945,7 +945,7 @@ export const ARTICLES: Article[] = [
 
 <h3>Modelos clave 2025</h3>
 <ul>
-  <li><strong><a href="/zapatilla/anta-kai-2">ANTA Kai 2</a> (desde {{precio:anta-kai-2}})</strong>: la firma de Kyrie Irving con tecnología BoostX y tracción multidireccional. Rendimiento de gama alta a menor precio. La sorpresa del año.</li>
+  <li><strong><a href="/zapatilla/anta-kai-2">ANTA Kai 2</a> (desde {{precio:anta-kai-2}})</strong>: la firma de Kyrie Irving con espuma Nitro Edge y tracción multidireccional. Rendimiento de gama alta a menor precio. La sorpresa del año.</li>
   <li><strong><a href="/zapatilla/anta-kt-11">ANTA KT-11</a> (desde {{precio:anta-kt-11}})</strong>: la firma de Klay Thompson, más asequible. Buena amortiguación y durabilidad outdoor sólida.</li>
 </ul>
 
@@ -957,7 +957,7 @@ export const ARTICLES: Article[] = [
 
 <h3>Modelos clave 2025</h3>
 <ul>
-  <li><strong><a href="/zapatilla/lining-wow-allcity-13">Li-Ning WOW AllCity 13</a> (desde {{precio:lining-wow-allcity-13}})</strong>: Cloud Foam de alta densidad con suela de goma de tracción excepcional. Una de las mejor valoradas por los análisis independientes.</li>
+  <li><strong><a href="/zapatilla/lining-wow-allcity-13">Li-Ning WOW AllCity 13</a> (desde {{precio:lining-wow-allcity-13}})</strong>: espuma Boom de longitud completa con suela de goma de tracción excepcional. Una de las mejor valoradas por los análisis independientes.</li>
   <li><strong><a href="/zapatilla/lining-sonic-12">Li-Ning Sonic 12</a> (desde {{precio:lining-sonic-12}})</strong>: la opción de velocidad — ultraligera, reactiva y con tracción de primer nivel.</li>
 </ul>
 
@@ -969,7 +969,7 @@ export const ARTICLES: Article[] = [
 
 <h3>Modelos clave 2025</h3>
 <ul>
-  <li><strong><a href="/zapatilla/peak-taichi-flash">Peak Taichi Flash</a> (desde {{precio:peak-taichi-flash}})</strong>: entresuela de espuma reactiva "Flash Foam" y suela de goma con tracción multidireccional. Notable ligereza para ser una zapatilla de baloncesto.</li>
+  <li><strong><a href="/zapatilla/peak-taichi-flash">Peak Taichi Flash</a> (desde {{precio:peak-taichi-flash}})</strong>: entresuela con espuma TaiChi y suela de goma con tracción multidireccional. Notable ligereza para ser una zapatilla de baloncesto.</li>
 </ul>
 
 <h3>Veredicto Peak</h3>
@@ -1016,7 +1016,7 @@ export const ARTICLES: Article[] = [
 <h2>Primero lo importante: qué significa "retro jugable"</h2>
 <p>No todas las retros son iguales. Hay una diferencia enorme entre:</p>
 <ul>
-  <li><strong>Retros que puedes jugar:</strong> Kobe Protros, Air Jordan 11/12/14, Reebok Question. Tecnología actualizada (Zoom Air real, outsoles nuevas) en cuerpos clásicos.</li>
+  <li><strong>Retros que puedes jugar:</strong> Kobe Protros, Air Jordan 12/14, Reebok Question. Tecnología actualizada (Zoom Air real, outsoles nuevas) en cuerpos clásicos.</li>
   <li><strong>Retros que SON históricas:</strong> Air Force 1, Chuck Taylor, Converse Weapon, Puma Clyde. Puedes jugar con ellas pero son básicamente museísticas. No las recomendamos para alto rendimiento.</li>
 </ul>
 <p>Esta guía te dice cuáles son cuáles y por qué.</p>
@@ -1052,10 +1052,10 @@ export const ARTICLES: Article[] = [
 <p>Allen Iverson cruzó a MJ con la Question Mid y ganó con la Answer IV en las Finales 2001 contra los Lakers. Consiguen {{score:reebok-question-mid}} (Question Mid) y {{score:reebok-answer-iv}} (Answer IV) — mejor de lo esperado para 1996-2001. Tracción de cuero pegajosa y soporte lateral sólido. Limitadas en cushion pero jugables para estilos pausados.</p>
 
 <h3>Nike Air Penny 2 — El zapato de Penny Hardaway</h3>
-<p>La primera gran rival de Jordan en los 90s. Foamposite parcial, Zoom Air, perfil mid. {{score:nike-air-penny-2}} — más baja que las Kobe Protro pero aceptable si no buscas velocidad explosiva. Diseño casi futurista para ser de 1996.</p>
+<p>La primera gran rival de Jordan en los 90s. Max Air en el talón, Zoom Air en el antepié y shank de carbono, perfil mid. {{score:nike-air-penny-2}} — más baja que las Kobe Protro pero aceptable si no buscas velocidad explosiva. Diseño casi futurista para ser de 1996.</p>
 
 <h3>Air Jordan 11 — La más elegante</h3>
-<p>La Jordan con lacado de patente negro. Un score de {{score:air-jordan-11}} refleja su Zoom Air básico y peso elevado, pero es la Jordan retro que más se viste fuera de la cancha con credibilidad. Para el coleccionista que también quiere jugar casualmente.</p>
+<p>La Jordan con lacado de patente negro. Un score de {{score:air-jordan-11}} refleja su amortiguación Air-Sole básica y su peso elevado, pero es la Jordan retro que más se viste fuera de la cancha con credibilidad. Para el coleccionista que también quiere jugar casualmente.</p>
 
 <h2>Tier 3 — Solo para jugar casual o colección</h2>
 
@@ -1078,7 +1078,7 @@ export const ARTICLES: Article[] = [
 <h2>Preguntas frecuentes sobre retros</h2>
 
 <h3>¿Se pueden jugar las Jordan retro de verdad?</h3>
-<p>Depende de la Jordan. Las 11, 12 y 14 sí — tienen Zoom Air actualizado y outsoles que aguantan. Las Jordan 1, 2 y 3 son básicamente colección: cuero duro, cushion mínimo y tracción que se deteriora rápido. Para jugar con una Jordan clásica, elige la 12 o la 14.</p>
+<p>Depende de la Jordan. Las 12 y 14 sí — tienen Zoom Air actualizado y outsoles que aguantan. Las Jordan 1, 2 y 3 son básicamente colección: cuero duro, cushion mínimo y tracción que se deteriora rápido. Para jugar con una Jordan clásica, elige la 12 o la 14.</p>
 
 <h3>¿Vale la pena pagar 200€+ por un retro cuando hay opciones modernas mejores?</h3>
 <p>Desde el punto de vista puramente técnico, no. Una Nike Ja 3, desde {{precio:nike-ja-3}}, supera en casi todos los atributos a cualquier retro por encima de 200€. Las retros se compran por historia y cultura, no solo por rendimiento.</p>
@@ -1158,7 +1158,7 @@ export const ARTICLES: Article[] = [
 <h2>Espuma: Nitro en ambas, pero diferente stack</h2>
 <p>Ambas usan Nitro foam de Puma, la tecnología de nitrógeno inyectado que caracteriza la línea MB. Sin embargo, la disposición cambia:</p>
 <ul>
-  <li><strong>MB.04:</strong> Nitro Elite en el talón y Nitro en el antepié. El resultado es una zapa más reactiva y firme — más court feel, menos amortiguación blanda.</li>
+  <li><strong>MB.04:</strong> Nitrofoam. El resultado es una zapa más reactiva y firme — más court feel, menos amortiguación blanda.</li>
   <li><strong>MB.05:</strong> Nitro full-length con mayor volumen de espuma. Más protección de impactos, especialmente en aterrizajes. Ligeramente menos "snap" que la MB.04.</li>
 </ul>
 <p><strong>Veredicto espuma:</strong> MB.04 si eres un guard explosivo que necesita primer paso rápido. MB.05 si pesas más de 80kg o necesitas más protección en rodillas.</p>
@@ -1260,7 +1260,7 @@ export const ARTICLES: Article[] = [
 <p>La Jordan Tatum 4 está desde {{precio:jordan-tatum-4}} y la Adidas AE 2 desde {{precio:adidas-ae-2}}. La Tatum 4 es una línea más accesible dentro del catálogo Jordan y la AE 2 es el flagship de Anthony Edwards, así que en precio de salida la AE 2 queda por encima. Si el presupuesto es tu filtro principal, compara el precio actual de las dos.</p>
 
 <h2>Espuma: Zoom Strobel vs Lightstrike Pro</h2>
-<p><strong>Jordan Tatum 4 — Zoom Air Strobel + React foam:</strong> el Zoom Strobel full-length da una respuesta energética directa en todo el pie. El React foam bajo añade amortiguación extra. El resultado: una amortiguación de {{nota:jordan-tatum-4:amortiguacion}} en nuestra ficha, justo por debajo de la {{nota:adidas-ae-2:amortiguacion}} de la AE 2.</p>
+<p><strong>Jordan Tatum 4 — Zoom Air + Cushlon 3.0:</strong> una unidad Zoom Air de gran volumen en el antepié sobre Cushlon 3.0 de longitud completa da respuesta y amortiguación. El resultado: una amortiguación de {{nota:jordan-tatum-4:amortiguacion}} en nuestra ficha, justo por debajo de la {{nota:adidas-ae-2:amortiguacion}} de la AE 2.</p>
 <p><strong>Adidas AE 2 — Lightstrike Pro:</strong> la espuma signature de Adidas es más firme y reactiva que el React de Nike. La energía de retorno es superior — lo notas en los saltos y en el primer paso.</p>
 <p><strong>Veredicto espuma:</strong> en nuestra ficha la AE 2 gana en las dos, amortiguación ({{nota:adidas-ae-2:amortiguacion}} frente a {{nota:jordan-tatum-4:amortiguacion}}) y respuesta ({{nota:adidas-ae-2:respuesta}} frente a {{nota:jordan-tatum-4:respuesta}}).</p>
 
@@ -1315,7 +1315,7 @@ export const ARTICLES: Article[] = [
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Tecnología</td><td style="padding:8px">Zoom Air Strobel + React foam</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Tecnología</td><td style="padding:8px">Zoom Air Strobel de longitud completa + ZoomX</td></tr>
     <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Suela</td><td style="padding:8px">Herringbone nueva generación (goma dura)</td></tr>
     <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Altura</td><td style="padding:8px">Low-top</td></tr>
     <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Peso</td><td style="padding:8px">305g (US10)</td></tr>
@@ -1335,7 +1335,7 @@ export const ARTICLES: Article[] = [
 <p>Para un guard de 70-85kg que hace cortes cortos y cambios de dirección rápidos, es suficiente. Pero si comparas con la Nike LeBron 22 o la Jordan Tatum 4 en cushion puro, la diferencia es notable.</p>
 
 <h2>Respuesta y court feel</h2>
-<p>Aquí es donde la GT Cut 4 juega su baza ({{nota:nike-gt-cut-4:respuesta}} en nuestra ficha). El Zoom Air Strobel tiene un retorno de energía casi instantáneo — pisas y recuperas energía en menos de 20ms según las pruebas de Nike. Combinado con el drop de 7mm y la suela fina, obtienes una sensación de contacto directo con el parquet que pocas zapatillas replican.</p>
+<p>Aquí es donde la GT Cut 4 juega su baza ({{nota:nike-gt-cut-4:respuesta}} en nuestra ficha). El Zoom Air Strobel tiene un retorno de energía casi instantáneo — el pie va muy pegado al suelo. Combinado con el drop de 7mm y la suela fina, obtienes una sensación de contacto directo con el parquet que pocas zapatillas replican.</p>
 <p>Es la zapatilla que más se acerca a jugar descalzo sobre parquet — en el buen sentido. Sabes exactamente dónde está tu pie en cada momento.</p>
 
 <h2>Horma y ajuste</h2>
@@ -1595,7 +1595,7 @@ export const ARTICLES: Article[] = [
 
 <h2>Ajuste y horma</h2>
 <p>La AE 2 tiene una horma <strong>normal</strong>, más generosa que la GT Cut 4 (estrecha) y más estrecha que la LeBron 22 (ancha). Para la mayoría de pies normales, encaja perfectamente en talla habitual. Algunos usuarios con pie muy ancho suben media talla.</p>
-<p>El upper en flyknit estructurado ofrece un ajuste ceñido pero sin puntos de presión. El collar de tobillo está bien acolchado. No hay historial de rozaduras en el talón en la AE 2, un problema que sí afecta a algunos usuarios de la GT Cut 4.</p>
+<p>El upper textil ligero y sintético ofrece un ajuste ceñido pero sin puntos de presión. El collar de tobillo está bien acolchado. No hay historial de rozaduras en el talón en la AE 2, un problema que sí afecta a algunos usuarios de la GT Cut 4.</p>
 
 <h2>Soporte y estabilidad</h2>
 <p>La AE 2 ofrece soporte lateral sólido ({{nota:adidas-ae-2:soporte_lateral}}) para un zapato low-top. El counter de talón es rígido y el midfoot shank controla el torsional. Para guards y escoltas que hacen muchos cortes, el soporte es más que suficiente. No es el zapato para un pívot de 100 kg que necesita máxima estabilidad — ahí manda el LeBron 22 o la Jordan Tatum 4.</p>
@@ -1758,13 +1758,13 @@ export const ARTICLES: Article[] = [
 <p>Jayson Tatum (Boston Celtics, All-Star, campeón NBA 2024) es el prototipo del alero moderno. Su juego combina explosividad, finesse y versatilidad defensiva. La línea Tatum nació en 2022 y la Tatum 4 es la evolución más madura: más cushion, mejor soporte, construcción más premium.</p>
 <p>El precio de salida en España es 129,99€, por debajo de la AE 2, la LeBron 22 o la Nike GT Cut 4.</p>
 
-<h2>Tecnología: Zoom Air + React</h2>
+<h2>Tecnología: Zoom Air + Cushlon 3.0</h2>
 <p>La Jordan Tatum 4 usa una combinación de:</p>
 <ul>
   <li><strong>Zoom Air en el antepié:</strong> proporciona respuesta rápida y court feel. La misma unidad que ves en muchas zapas Nike de performance.</li>
-  <li><strong>React foam en el talón:</strong> mayor stack de cushion, más suave y protector para aterrizajes desde el poste o rebotes.</li>
+  <li><strong>Cushlon 3.0 de longitud completa:</strong> espuma blanda que protege los aterrizajes desde el poste o rebotes.</li>
 </ul>
-<p>La combinación Zoom + React es la más versátil de Nike — más cushion que solo Zoom (como la GT Cut 4) y más respuesta que solo React (como la LeBron 22). Para un alero que hace de todo, es el compromiso perfecto.</p>
+<p>La combinación Zoom Air + Cushlon 3.0 es equilibrada: el Zoom del antepié da respuesta y el Cushlon, amortiguación. Para un alero que hace de todo, es el compromiso perfecto.</p>
 
 <h2>Cushion: uno de los mejores del mercado en su segmento</h2>
 <p>Con Zoom Air y React, la Tatum 4 protege bien en todas las situaciones. En aterrizajes desde el aro, contactos en la pintura y partidos de 40+ minutos, el nivel de cushion es más que suficiente para jugadores hasta 95 kg. Para pívots de 100 kg+, la LeBron 22 o la LeBron 23 tienen aún más amortiguación.</p>
@@ -1873,7 +1873,7 @@ export const ARTICLES: Article[] = [
 <h2>Tecnología: Air Zoom + Cushlon 3.0</h2>
 <p>La LeBron 22 combina:</p>
 <ul>
-  <li><strong>Air Zoom Strobel full-length:</strong> unidad de aire de longitud completa bajo el pie. La presión del aire en el antepié ofrece respuesta rápida en el despegue. Es la misma tecnología que LeBron lleva usando desde las LeBron 19.</li>
+  <li><strong>Unidades Zoom Air apiladas:</strong> bajo el pie, con respuesta rápida en el despegue desde el antepié.</li>
   <li><strong>Cushlon 3.0 en el talón:</strong> espuma de alta densidad que absorbe los impactos de aterrizajes. Para un jugador de más de 90kg que aterriza desde el aro decenas de veces por partido, este talón hace una diferencia real a largo plazo.</li>
 </ul>
 <p>El resultado es la nota de amortiguación más alta de nuestra ficha, empatada con la LeBron 23 y la KD 19. Si tienes rodillas sensibles o pesas más de 90kg, ninguna otra zapatilla te protegerá mejor.</p>
@@ -1942,7 +1942,7 @@ export const ARTICLES: Article[] = [
 <h2>Los 5 mejores modelos para alero en 2025</h2>
 
 <h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — desde {{precio:jordan-tatum-4}}</a></h3>
-<p><strong>El mejor equilibrio del mercado.</strong> Jayson Tatum es el prototipo del alero moderno: defiende del 1 al 5, mete cortes, tira de tres y postea. La Tatum 4 está diseñada para eso: score 7+ en casi todos los ejes (la durabilidad outdoor es {{nota:jordan-tatum-4:durabilidad_outdoor}}) con cushion Zoom Air + Impact Plate para los aterrizajes.</p>
+<p><strong>El mejor equilibrio del mercado.</strong> Jayson Tatum es el prototipo del alero moderno: defiende del 1 al 5, mete cortes, tira de tres y postea. La Tatum 4 está diseñada para eso: score 7+ en casi todos los ejes (la durabilidad outdoor es {{nota:jordan-tatum-4:durabilidad_outdoor}}) con cushion Zoom Air + Cushlon 3.0 para los aterrizajes.</p>
 <ul>
   <li>✅ Cushion 8 + respuesta 8: el mejor equilibrio technico del grupo</li>
   <li>✅ Ligera: 12,4 oz según RunRepeat, de las más ligeras del grupo</li>
@@ -1951,19 +1951,19 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3><a href="/zapatilla/adidas-harden-vol-9">Adidas Harden Vol 9 — desde {{precio:adidas-harden-vol-9}}</a></h3>
-<p><strong>Para aleros con perfil físico que postean.</strong> James Harden es técnicamente un escolta/alero con juego de pívot — la Vol 9 refleja eso. Lightstrike Pro foam da cushion generoso sin exceso de peso. La opción si juegas media cancha más que medio campo.</p>
+<p><strong>Para aleros con perfil físico que postean.</strong> James Harden es técnicamente un escolta/alero con juego de pívot — la Vol 9 refleja eso. La combinación Boost + Lightstrike da cushion generoso. La opción si juegas media cancha más que medio campo.</p>
 <ul>
-  <li>✅ Lightstrike Pro: cushion alto con bounce reactivo</li>
+  <li>✅ Boost + Lightstrike: cushion alto con bounce reactivo</li>
   <li>✅ Base ancha: estabilidad sólida en contactos laterales</li>
   <li>✅ Rendimiento similar al de la Tatum 4</li>
   <li>❌ Respuesta algo por debajo: para cortes explosivos, la Tatum gana</li>
 </ul>
 
 <h3><a href="/zapatilla/nike-kd-17">Nike KD 17 — desde {{precio:nike-kd-17}}</a></h3>
-<p><strong>Para aleros que salen mucho al perímetro.</strong> Kevin Durant es el alero/pívot que más tira de tres del mercado. La KD 17 tiene Zoom Strobel full-length para el bounce que necesitas cuando aterrizas de un tres, más upper TPU que soporta los contactos.</p>
+<p><strong>Para aleros que salen mucho al perímetro.</strong> Kevin Durant es el alero/pívot que más tira de tres del mercado. La KD 17 combina Zoom Air en el antepié y un Strobel con Air en el talón, con un shank en el antepié.</p>
 <ul>
-  <li>✅ Zoom Strobel full-length: cushion reactivo para jugadores >85kg</li>
-  <li>✅ Upper de TPU: soporte estructural sin peso extra</li>
+  <li>✅ Zoom Air en el antepié y Strobel con Air en el talón: cushion protector</li>
+  <li>✅ Upper de malla con refuerzos de plástico</li>
   <li>✅ Score equilibrado — ningún punto débil destacado</li>
   <li>❌ Va algo larga y con volumen extra en el antepié: puede quedar holgada si tu pie es estrecho</li>
 </ul>
@@ -2042,7 +2042,7 @@ export const ARTICLES: Article[] = [
 <ul>
   <li><strong>Si juegas un juego equilibrado (cortes, tiros, contacto):</strong> Jordan Tatum 4. El mejor equilibrio del mercado para el alero completo.</li>
   <li><strong>Si juegas con potencia y posteas:</strong> Adidas Harden Vol 9. Cushion alto a precio razonable.</li>
-  <li><strong>Si eres alero-tirador y pesas >85kg:</strong> Nike KD 17. El Zoom Strobel da el bounce que necesitas en aterrizajes de tiro.</li>
+  <li><strong>Si eres alero-tirador y pesas >85kg:</strong> Nike KD 17. El Zoom Air del antepié da el bounce que necesitas en aterrizajes de tiro.</li>
   <li><strong>Si priorizas el court feel y juegas solo en interior:</strong> UA Flow Breakthru 4. La más reactiva del grupo.</li>
   <li><strong>Si eres alero grande o ala-pívot:</strong> Jordan Luka 4. La base más estable del grupo para jugadores físicos.</li>
 </ul>
@@ -2074,7 +2074,7 @@ export const ARTICLES: Article[] = [
 <h2>La tecnología que la define</h2>
 
 <h3>ZoomX foam full-length</h3>
-<p>La Ja 3 es la primera zapatilla de guard de Nike con ZoomX full-length — la espuma de los Vaporfly de running que devuelve el 85% de la energía de cada pisada. Antes de la Ja 3, el ZoomX solo aparecía en modelos de pívot o alero (Jordan 40). En una zapatilla de guard, el resultado es un bounce notablemente superior a cualquier Zoom Air clásico.</p>
+<p>La Ja 3 lleva una entresuela de ZoomX enjaulada — la espuma de los Vaporfly de running que devuelve el 85% de la energía de cada pisada. En una zapatilla de guard, el resultado es un bounce notablemente superior a cualquier Zoom Air clásico.</p>
 
 <h3>Suela de goma completa (diferencia con la Curry 13)</h3>
 <p>A diferencia de la Under Armour Curry 13 (que usa UA Flow sin capa de goma), la Ja 3 sí tiene suela de goma completa. Eso significa dos cosas: tracción más consistente y durabilidad outdoor real. Puedes llevar la Ja 3 al asfalto de vez en cuando sin destruirla — algo que la Curry 13 no puede decir.</p>
@@ -2170,11 +2170,11 @@ export const ARTICLES: Article[] = [
   <li>❌ {{precio:jordan-40}} y 439 g — de las más caras del grupo y de las más pesadas</li>
 </ul>
 
-<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — desde {{precio:nike-lebron-23}} — Max Air para jugadores pesados</a></h3>
-<p>Max Air en talón + React foam en midsole. El Max Air es una cámara de aire de alta presión que no se aplana bajo cargas extremas — especialmente eficaz para jugadores de 90-110kg. LeBron James ha tenido problemas de rodilla durante su carrera, y la LeBron line refleja ese diseño.</p>
+<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — desde {{precio:nike-lebron-23}} — ZoomX + Cushlon para jugadores pesados</a></h3>
+<p>ZoomX de longitud completa con Cushlon y placa de carbono: una amortiguación blanda pero protectora, pensada para jugadores de 90-110kg. LeBron James ha tenido problemas de rodilla durante su carrera, y la LeBron line refleja ese diseño.</p>
 <ul>
-  <li>✅ Max Air: el cushion que mejor aguanta bajo cargas pesadas</li>
-  <li>✅ React foam: cushion extra en toda la entresuela</li>
+  <li>✅ ZoomX + Cushlon: blando y protector bajo cargas pesadas</li>
+  <li>✅ Placa de carbono: aporta rigidez bajo el pie</li>
   <li>✅ Horma amable con el pie ancho (el talón va algo estrecho)</li>
 </ul>
 
@@ -2183,19 +2183,19 @@ export const ARTICLES: Article[] = [
 <ul>
   <li>✅ Cushion {{nota:nike-kd-19:amortiguacion}} a precio razonable</li>
   <li>✅ Bounce reactivo (Strobel) además de amortiguación</li>
-  <li>❌ No llega al nivel Max Air de la LeBron para jugadores >100kg</li>
+  <li>❌ No llega a la amortiguación de la LeBron para jugadores >100kg</li>
 </ul>
 
 <h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — desde {{precio:jordan-tatum-4}} — El mejor para aleros con rodilla</a></h3>
-<p>Zoom Air + Impact Plate en la zona del antepié. El Impact Plate distribuye el impacto de los aterrizajes en tres puntos en lugar de concentrarlo, reduciendo el pico de presión en la rótula. Para aleros de 80-95kg con problemas de rodilla, es la mejor opción de la gama media.</p>
+<p>Zoom Air de gran volumen en el antepié sobre Cushlon 3.0 de longitud completa. Para aleros de 80-95kg con problemas de rodilla, es la mejor opción de la gama media.</p>
 <ul>
-  <li>✅ Impact Plate: tecnología de distribución de impacto única</li>
+  <li>✅ Cushlon 3.0: espuma blanda de longitud completa</li>
   <li>✅ Cushion {{nota:jordan-tatum-4:amortiguacion}} con soporte lateral {{nota:jordan-tatum-4:soporte_lateral}}</li>
   <li>❌ No está orientada a jugadores >100kg — ahí la LeBron gana</li>
 </ul>
 
 <h3><a href="/zapatilla/ua-flow-breakthru-4">Under Armour Flow Breakthru 4 — desde {{precio:ua-flow-breakthru-4}} — Para aleros que priorizan suavidad</a></h3>
-<p>UA Flow con UA Micro G foam ofrece un cushion suave y reactivo. No llega al nivel de la Jordan 40 o la LeBron, pero para jugadores de 70-85kg con molestias ligeras de rodilla es suficiente — y de las más económicas del grupo.</p>
+<p>UA Flow ofrece un cushion suave y reactivo. No llega al nivel de la Jordan 40 o la LeBron, pero para jugadores de 70-85kg con molestias ligeras de rodilla es suficiente — y de las más económicas del grupo.</p>
 <ul>
   <li>✅ De las más accesibles del grupo, con cushion {{nota:ua-flow-breakthru-4:amortiguacion}}</li>
   <li>✅ Suave sin ser imprecisa</li>
@@ -2348,7 +2348,7 @@ export const ARTICLES: Article[] = [
 <p><strong>Court feel excepcional y primer paso rápido en 2025.</strong> Suela de goma dura multidireccional con tracción {{nota:nike-gt-cut-4:traccion}} y court feel absolutamente excepcional. No es ligera ({{peso:nike-gt-cut-4}}). Si tu pie encaja (horma estrecha) y juegas siempre en interior limpio, encaja bien.</p>
 <ul>
   <li>❌ Respuesta {{nota:nike-gt-cut-4:respuesta}} — la más baja de las cinco, aunque con court feel excepcional</li>
-  <li>✅ Tracción {{nota:nike-gt-cut-4:traccion}} — herringbone de carbono</li>
+  <li>✅ Tracción {{nota:nike-gt-cut-4:traccion}} — herringbone</li>
   <li>❌ {{peso:nike-gt-cut-4}} — la más pesada del grupo</li>
   <li>❌ Horma muy estrecha — pie normal o estrecho únicamente</li>
   <li>❌ Solo interior — la suela se destruye en asfalto</li>
@@ -2374,7 +2374,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3><a href="/zapatilla/anta-kai-2">ANTA Kai 2 — desde {{precio:anta-kai-2}}</a></h3>
-<p><strong>La mejor relación calidad-precio del mercado.</strong> El ajuste es ceñido, tipo guante. A-Flashfoam reactivo, tracción competente y suela que aguanta exterior moderado. Para bases que no quieren gastar de más, es la elección clara.</p>
+<p><strong>La mejor relación calidad-precio del mercado.</strong> El ajuste es ceñido, tipo guante. Nitro Edge reactivo, tracción competente y suela que aguanta exterior moderado. Para bases que no quieren gastar de más, es la elección clara.</p>
 <ul>
   <li>✅ 90% del rendimiento de la AE 2</li>
   <li>✅ Ajuste de guante, sin deslizamiento de talón para la mayoría</li>
@@ -2577,11 +2577,11 @@ export const ARTICLES: Article[] = [
 <h2>Top 5 zapatillas para ala-pívots en 2025</h2>
 
 <h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — desde {{precio:nike-lebron-23}}</a></h3>
-<p><strong>La referencia para ala-pívots de 90kg+.</strong> Max Air en talón + React foam en toda la entresuela. LeBron James es el prototipo del 4 moderno que juega todo el campo — su zapatilla está diseñada para ese perfil. Para ala-pívots de alto impacto físico, el Max Air es el cushion más resistente bajo cargas extremas.</p>
+<p><strong>La referencia para ala-pívots de 90kg+.</strong> ZoomX de longitud completa con Cushlon y placa de carbono. LeBron James es el prototipo del 4 moderno que juega todo el campo — su zapatilla está diseñada para ese perfil. Para ala-pívots de alto impacto físico, su amortiguación ZoomX + Cushlon es de las más protectoras.</p>
 <ul>
-  <li>✅ Max Air: el cushion más duro bajo cargas extremas (>90kg)</li>
-  <li>✅ React foam en toda la entresuela: bounce además de absorción</li>
-  <li>✅ Suela XDR: aguanta outdoor moderado</li>
+  <li>✅ ZoomX + Cushlon: amortiguación protectora para >90kg</li>
+  <li>✅ Placa de carbono: rigidez y retorno bajo el pie</li>
+  <li>✅ Exterior: solo ocasional ({{exterior:nike-lebron-23}})</li>
   <li>❌ 455 g — la más pesada del grupo, y de las más caras</li>
   <li>✅ Horma amable con el pie ancho (el talón va algo estrecho)</li>
 </ul>
@@ -2605,9 +2605,9 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3><a href="/zapatilla/adidas-harden-vol-9">Adidas Harden Vol 9 — desde {{precio:adidas-harden-vol-9}}</a></h3>
-<p><strong>La mejor relación calidad-precio del grupo para ala-pívots medianos.</strong> James Harden juega de escolta pero tiene el perfil físico de un 4 — la Harden Vol 9 está pensada para jugadores potentes con movilidad. Lightstrike Pro foam da cushion {{nota:adidas-harden-vol-9:amortiguacion}} con bounce reactivo por menos que la LeBron 23.</p>
+<p><strong>La mejor relación calidad-precio del grupo para ala-pívots medianos.</strong> James Harden juega de escolta pero tiene el perfil físico de un 4 — la Harden Vol 9 está pensada para jugadores potentes con movilidad. La combinación Boost + Lightstrike da cushion {{nota:adidas-harden-vol-9:amortiguacion}} con bounce reactivo por menos que la LeBron 23.</p>
 <ul>
-  <li>✅ Lightstrike Pro: cushion {{nota:adidas-harden-vol-9:amortiguacion}} a precio competitivo</li>
+  <li>✅ Boost + Lightstrike: cushion {{nota:adidas-harden-vol-9:amortiguacion}} a precio competitivo</li>
   <li>✅ Cushion de gama alta por menos que la LeBron 23</li>
   <li>✅ Respuesta suficiente para el 4 que sale al perímetro</li>
   <li>❌ No llega a la estabilidad lateral de la LeBron o la Luka para juego de poste muy físico</li>
@@ -2676,7 +2676,7 @@ export const ARTICLES: Article[] = [
 
 <h2>¿Cuál elegir?</h2>
 <ul>
-  <li><strong>Si pesas >90kg y juegas físico en la pintura → <a href="/zapatilla/nike-lebron-23">LeBron 23</a></strong> (ZoomX con Air Zoom: de las de más amortiguación del catálogo)</li>
+  <li><strong>Si pesas >90kg y juegas físico en la pintura → <a href="/zapatilla/nike-lebron-23">LeBron 23</a></strong> (ZoomX con Cushlon: de las de más amortiguación del catálogo)</li>
   <li><strong>Si eres 4 dinámico, 80-100kg, juegas en el perímetro → <a href="/zapatilla/nike-kd-19">KD 19</a></strong> (mejor equilibrio precio/rendimiento)</li>
   <li><strong>Si juegas mucho poste y pick-and-pop → <a href="/zapatilla/jordan-luka-4">Luka 4</a></strong> (la base más estable del grupo)</li>
   <li><strong>Si buscas la mejor relación calidad-precio → <a href="/zapatilla/adidas-harden-vol-9">Harden Vol 9</a></strong> (cushion {{nota:adidas-harden-vol-9:amortiguacion}} desde {{precio:adidas-harden-vol-9}})</li>
@@ -2724,17 +2724,17 @@ export const ARTICLES: Article[] = [
 <p><strong>Puntuación relativa:</strong> Respuesta 9/10 · Cushion 9/10 · Estabilidad 6/10 (solo ZoomX)</p>
 
 <h3>Max Air (Nike)</h3>
-<p><strong>Qué es:</strong> Una cámara de aire de alta presión con unidades de aire visibles en el talón. No es una espuma, sino una tecnología de amortiguación por cámara de aire. Nike la usa en la línea LeBron desde la LeBron 1.</p>
+<p><strong>Qué es:</strong> Una cámara de aire de alta presión con unidades de aire visibles en el talón. No es una espuma, sino una tecnología de amortiguación por cámara de aire.</p>
 <p><strong>Cómo se siente:</strong> El cushion más "seguro" del mercado. No colapsa bajo cargas extremas — está diseñado para jugadores de 95-110kg que aterrizan con toda esa masa partido tras partido. El bounce es menor que el ZoomX, pero la protección bajo carga máxima no tiene rival.</p>
 <p><strong>El problema:</strong> No da el bounce reactivo del ZoomX. Es un cushion absorbente más que energético. Para guards que necesitan respuesta, no es la opción.</p>
-<p><strong>Modelos que la usan:</strong> Nike LeBron 22, Nike LeBron 23, Nike LeBron Witness.</p>
+<p><strong>Modelos que la usan:</strong> Nike LeBron Witness 8.</p>
 <p><strong>Puntuación relativa:</strong> Respuesta 6/10 · Cushion 10/10 · Estabilidad 8/10</p>
 
 <h3>Lightstrike Pro (Adidas)</h3>
 <p><strong>Qué es:</strong> La espuma premium de Adidas para baloncesto y atletismo. Una espuma de TPU modificado que equilibra cushion y respuesta. Más firme que el ZoomX pero más reactiva que el Bounce foam convencional de Adidas.</p>
 <p><strong>Cómo se siente:</strong> El equilibrio más honesto del mercado. No es la que más cushion da (Max Air la supera) ni la más reactiva (ZoomX o UA Flow la superan), pero tiene un score medio muy alto en todos los atributos. Para jugadores que no quieren extremos, es la referencia.</p>
-<p><strong>El problema:</strong> Es cara de fabricar, por eso aparece solo en los modelos signature premium de Adidas (AE 2, Harden Vol 9). Las versiones económicas de Adidas usan Bounce, que es inferior.</p>
-<p><strong>Modelos que la usan:</strong> Adidas AE 2, Adidas Harden Vol 9, Adidas Trae Young 3.</p>
+<p><strong>El problema:</strong> Es cara de fabricar, por eso aparece solo en los modelos signature premium de Adidas (AE 2). Las versiones económicas de Adidas usan Bounce, que es inferior.</p>
+<p><strong>Modelos que la usan:</strong> Adidas AE 2.</p>
 <p><strong>Puntuación relativa:</strong> Respuesta 8/10 · Cushion 8/10 · Estabilidad 8/10</p>
 
 <h2>Comparativa directa</h2>
@@ -2788,8 +2788,8 @@ export const ARTICLES: Article[] = [
 <ul>
   <li><strong>Base o escolta que prioriza court feel y plays en interior → UA Flow</strong> (UA Curry 13). No hay nada como sentir el suelo directamente.</li>
   <li><strong>Guard o alero que quiere bounce con cushion decente → ZoomX</strong> (Nike Ja 3, Air Jordan 40). El mejor equilibrio cushion-respuesta del mercado.</li>
-  <li><strong>Pívot o ala-pívot de 90kg+ que necesita protección máxima → Max Air</strong> (Nike LeBron 22/23). El cushion que no colapsa.</li>
-  <li><strong>Cualquier posición que busca el mejor equilibrio sin extremos → Lightstrike Pro</strong> (Adidas AE 2, Harden Vol 9). El sweet spot del mercado.</li>
+  <li><strong>Pívot o ala-pívot de 90kg+ que necesita protección máxima → Cushion máximo (ZoomX / Zoom Air)</strong> (Nike LeBron 22/23). El cushion que no colapsa.</li>
+  <li><strong>Cualquier posición que busca el mejor equilibrio sin extremos → Lightstrike Pro</strong> (Adidas AE 2). El sweet spot del mercado.</li>
 </ul>
 
 <p class="art-outro">¿No sabes qué espuma encaja con tu perfil? El <a href="/quiz">quiz de CANCHA.ZAPA</a> usa tus respuestas de posición, peso y estilo de juego para filtrarte automáticamente las zapatillas con la espuma más adecuada para ti.</p>
@@ -2819,10 +2819,10 @@ export const ARTICLES: Article[] = [
 <h2>Diseño y primeras impresiones</h2>
 <p>La MB.05 es estéticamente la más discreta de la línea Ball — y eso, paradójicamente, es un punto a favor para quien quiere llevarla en cancha sin que el diseño distraiga. El upper de malla multidireccional con refuerzos de TPU da un aspecto más funcional que las versiones anteriores. Puma ha escuchado las críticas sobre la excentricidad del diseño y ha equilibrado.</p>
 
-<h2>La tecnología: Nitro Elite foam</h2>
-<p>La MB.05 usa Nitro Elite foam — la versión avanzada del Nitro que Puma también usa en sus zapatillas de running de alta gama. Es una espuma de PEBA modificado, similar en concepto al ZoomX de Nike pero con una formulación propia. El resultado:</p>
+<h2>La tecnología: Nitrofoam</h2>
+<p>La MB.05 usa Nitrofoam, la espuma de nitrógeno de Puma. El resultado:</p>
 <ul>
-  <li><strong>Bounce mayor que la MB.04:</strong> el Nitro Elite es más reactivo que el Nitro estándar de la MB.04. En los primeros pasos se nota la diferencia — hay más energía de retorno.</li>
+  <li><strong>Bounce mayor que la MB.04:</strong> el Nitrofoam de la MB.05 se siente blando, con respuesta en el antepié. En los primeros pasos se nota la diferencia — hay más energía de retorno.</li>
   <li><strong>Cushion {{nota:puma-mb05:amortiguacion}}:</strong> al nivel de la AE 2 ({{nota:adidas-ae-2:amortiguacion}}), con un tacto más suave que el del Lightstrike Pro. Para un guard de 75-90kg es suficiente y protector.</li>
   <li><strong>Ligereza:</strong> la MB.05 pesa 418 g, en la línea de la AE 2 (428 g) y la GT Cut 4 (431 g). No es ligera, pero para su nivel de cushion es un peso razonable.</li>
 </ul>
@@ -2837,7 +2837,7 @@ export const ARTICLES: Article[] = [
 <h2>¿Mejora a la MB.04?</h2>
 <p>Sí en tracción y respuesta (la ficha da 9 frente al 8 de la MB.04); en soporte lateral queda por debajo ({{nota:puma-mb05:soporte_lateral}} frente a {{nota:puma-mb-04:soporte_lateral}}):</p>
 <ul>
-  <li>Nitro Elite > Nitro en bounce y cushion</li>
+  <li>Foco de espuma en el antepié</li>
   <li>Upper más contenido — menos llamativo pero más funcional</li>
   <li>Ajuste de la horma más consistente — la MB.04 tenía problemas de talla</li>
   <li>El punto débil (tracción en pistas sucias) sigue siendo el mismo</li>
@@ -2846,7 +2846,7 @@ export const ARTICLES: Article[] = [
 <h2>Puntuación técnica CANCHA.ZAPA</h2>
 <ul>
   <li>Tracción: <strong>{{nota:puma-mb05:traccion}}</strong></li>
-  <li>Amortiguación: <strong>{{nota:puma-mb05:amortiguacion}}</strong> — Nitro Elite da cushion serio</li>
+  <li>Amortiguación: <strong>{{nota:puma-mb05:amortiguacion}}</strong> — el Nitrofoam da cushion cómodo</li>
   <li>Respuesta: <strong>{{nota:puma-mb05:respuesta}}</strong> — bounce notable para un guard</li>
   <li>Soporte lateral: <strong>{{nota:puma-mb05:soporte_lateral}}</strong> — suficiente para guard sin historial</li>
   <li>Estabilidad: <strong>{{nota:puma-mb05:estabilidad}}</strong> — aceptable, no es su punto fuerte</li>
@@ -2857,9 +2857,9 @@ export const ARTICLES: Article[] = [
 <h2>¿Vale los {{precio:puma-mb05}}?</h2>
 <p>Su precio (desde {{precio:puma-mb05}}) la pone en competencia directa con la Adidas AE 2 (desde {{precio:adidas-ae-2}}) y la UA Curry 13 (desde {{precio:ua-curry-13}}). Mi veredicto honesto:</p>
 <ul>
-  <li>Si tienes la pista siempre limpia: <strong>sí, la MB.05 vale lo que cuesta</strong>. El Nitro Elite es una espuma premium y el conjunto es muy competitivo.</li>
+  <li>Si tienes la pista siempre limpia: <strong>sí, la MB.05 vale lo que cuesta</strong>. El Nitrofoam es una espuma cómoda y el conjunto es muy competitivo.</li>
   <li>Si juegas en pistas con polvo frecuente: elige la <strong>AE 2</strong> — la tracción herringbone es más consistente.</li>
-  <li>Si priorizas el court feel y juegas solo en interior: elige la <strong>Curry 13</strong> — la UA Flow da una sensación que el Nitro Elite no puede replicar.</li>
+  <li>Si priorizas el court feel y juegas solo en interior: elige la <strong>Curry 13</strong> — la UA Flow da una sensación que el Nitrofoam no puede replicar.</li>
 </ul>
 
 <h2>Disponibilidad en España</h2>
@@ -2890,28 +2890,28 @@ export const ARTICLES: Article[] = [
 <p class="art-intro">Kobe Bryant no necesitaba una zapatilla de moda. Necesitaba la que le diera ventaja en décimas de segundo. La Kobe 8 Protro es la reedición de la zapatilla que Kobe usó durante la temporada 2012-13 — y en 2025 sigue siendo una de las más reactivas del mercado. Esto no es nostalgia. Es ingeniería que aguanta el paso del tiempo.</p>
 
 <h2>¿Por qué la Kobe 8 Protro sigue siendo relevante?</h2>
-<p>La mayoría de zapatillas retro Protro son lifestyle disfrazadas de performance. La Kobe 8 Protro es diferente: Nike actualizó la entresuela con Zoom Air Strobel full-length, mantiene el perfil ultra-bajo y la suela herringbone original. El resultado es una zapatilla de 2012 con la tecnología de 2025.</p>
-<p>Para tiradores y escoltas, específicamente, la Kobe 8 Protro ofrece algo que ningún modelo nuevo 2025 replica exactamente: el perfil más bajo del mercado combinado con el Zoom Air más reactivo que Nike fabrica en ese volumen.</p>
+<p>La mayoría de zapatillas retro Protro son lifestyle disfrazadas de performance. La Kobe 8 Protro es diferente: Nike sustituyó el Lunarlon original por un drop-in de React, mantiene el perfil ultra-bajo y la suela herringbone original. El resultado es una zapatilla de 2012 con la tecnología de 2025.</p>
+<p>Para tiradores y escoltas, específicamente, la Kobe 8 Protro ofrece algo que ningún modelo nuevo 2025 replica exactamente: el perfil más bajo del mercado combinado con un drop-in de React de perfil bajo.</p>
 
 <h2>Lo que la hace especial técnicamente</h2>
 
 <h3>Perfil ultra-bajo (low-profile)</h3>
 <p>La Kobe 8 Protro tiene la distancia suelo-pie más baja de cualquier zapatilla de baloncesto en producción. Eso significa que cuando plantas el pie para tirar, sientes exactamente dónde estás. Para tiradores de posición fija (spot-up shooters), esa información es crítica. La zapatilla "desaparece" bajo el pie — que es exactamente lo que un tirador necesita.</p>
 
-<h3>Zoom Air Strobel full-length</h3>
-<p>El Zoom Air Strobel recorre toda la longitud de la zapatilla. En la Protro, está configurado para firmeza máxima — más reactivo que cushion absorbente. Cuando saltas y aterrizas en tiro, el Strobel devuelve energía rápido. Sus 340 g, ligeros para una zapatilla con Zoom Air de longitud completa, tampoco frenan ese retorno.</p>
+<h3>Drop-in de React</h3>
+<p>El drop-in de React es fino y de perfil bajo: prioriza el court feel sobre la protección. Sus 340 g tampoco frenan la respuesta.</p>
 
 <h3>Suela herringbone de carbon</h3>
-<p>El patrón herringbone de carbono de la Kobe 8 es uno de los diseños más copiados de la historia del baloncesto. No en vano: en parquet limpio, la tracción es excepcional. El problema: en pistas con polvo o suciedad, la goma fina se desliza antes que la goma más gruesa de la GT Cut 4 o la AE 2.</p>
+<p>El patrón herringbone de la Kobe 8 es uno de los diseños más copiados de la historia del baloncesto. No en vano: en parquet limpio, la tracción es excepcional. El problema: en pistas con polvo o suciedad, la goma fina se desliza antes que la goma más gruesa de la GT Cut 4 o la AE 2.</p>
 
 <h2>Puntuación técnica CANCHA.ZAPA</h2>
 <ul>
   <li>Tracción: <strong>{{nota:nike-kobe-8-protro:traccion}}</strong> (conviene limpiar la suela en pistas con polvo)</li>
-  <li>Amortiguación: <strong>{{nota:nike-kobe-8-protro:amortiguacion}}</strong> — el Strobel firma pero no es Max Air</li>
+  <li>Amortiguación: <strong>{{nota:nike-kobe-8-protro:amortiguacion}}</strong> — el drop-in de React es fino y de perfil bajo</li>
   <li>Respuesta: <strong>{{nota:nike-kobe-8-protro:respuesta}}</strong> — de las más reactivas del catálogo, al nivel de la AE 2 y la Curry 13</li>
   <li>Soporte lateral: <strong>{{nota:nike-kobe-8-protro:soporte_lateral}}</strong> — buen soporte para un low-top</li>
   <li>Estabilidad: <strong>{{nota:nike-kobe-8-protro:estabilidad}}</strong> — la base ancha compensa el upper bajo</li>
-  <li>Ligereza: <strong>{{nota:nike-kobe-8-protro:peso_score}}</strong> — 340 g, de las más ligeras con Zoom Air</li>
+  <li>Ligereza: <strong>{{nota:nike-kobe-8-protro:peso_score}}</strong> — 340 g, de las más ligeras del catálogo</li>
   <li>Durabilidad outdoor: <strong>{{nota:nike-kobe-8-protro:durabilidad_outdoor}}</strong> — goma fina, no la lleves al asfalto</li>
 </ul>
 
@@ -3717,7 +3717,7 @@ export const ARTICLES: Article[] = [
   <li><a href="/zapatilla/ua-curry-12">Under Armour Curry 12</a> tecnologia Flow, ligereza insuperable y court feel para tiradores.</li>
   <li><a href="/zapatilla/jordan-tatum-3">Jordan Tatum 3</a> de las mas ligeras del Jumpman, minimalista y flexible.</li>
   <li><a href="/zapatilla/nike-kd-18">Nike KD 18</a> probablemente la mas equilibrada de Nike. Gusta a bases y pivots.</li>
-  <li><a href="/zapatilla/adidas-harden-vol-9">Adidas Harden Vol. 9</a> chasis EVA y agarre lateral perfecto para cambios de ritmo.</li>
+  <li><a href="/zapatilla/adidas-harden-vol-9">Adidas Harden Vol. 9</a> entresuela Boost + Lightstrike y buen agarre lateral para cambios de ritmo.</li>
 </ul>
 <h2>El mercado sibarita (marcas asiaticas y emergentes)</h2>
 <ul>
@@ -3885,7 +3885,7 @@ export const ARTICLES: Article[] = [
 <h2>La gama (2026)</h2>
 <ul>
   <li><strong>Neovolt Pro V3 (desde {{precio:moolah-neovolt-pro-v3}}):</strong> el modelo performance de referencia. Equilibrada, reactiva, con cushion mejorado. La que recomendamos para empezar con la marca.</li>
-  <li><strong>Evolyte Elite (desde {{precio:moolah-evolyte-elite}}):</strong> el tope de gama. Placa TPU completa y espuma de doble densidad para retorno de energía brutal en el primer paso, manteniendo el control de talón. Para la exterior ultra rápida.</li>
+  <li><strong>Evolyte Elite (desde {{precio:moolah-evolyte-elite}}):</strong> el tope de gama. Modelo de gama alta de Moolah con cushion premium. Para la exterior ultra rápida.</li>
   <li><strong>Triple Double (desde {{precio:moolah-triple-double}}):</strong> la "todoterreno". Sacrifica la placa rígida por una suela de caucho más gruesa y duradera: ideal para outdoor o entrenamientos diarios intensos.</li>
 </ul>
 
