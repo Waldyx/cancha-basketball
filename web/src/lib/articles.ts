@@ -4450,7 +4450,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h2>3. No empieces de cero si no hace falta</h2>
-<p>La biblioteca trae cinco plantillas (pick and roll, cuernos, saque de fondo en caja, contraataque 3 contra 2 y zona 2-3) y siete ejercicios de entrenamiento: rueda de bandejas, tres hombres, 3c2 y 2c1 continuo, mikan, 1c1 con salida desde el aro, tiro en estrella y tiro con rebote y pase. Las abres, las cambias y las guardas con tu nombre y una categoría (ataque, defensa, saques, contraataque, presión o ejercicio).</p>
+<p>La biblioteca trae cinco plantillas (pick and roll, cuernos, saque de fondo en caja, contraataque 3 contra 2 y zona 2-3) y doce ejercicios de entrenamiento: rueda de bandejas, tres hombres, 3c2 y 2c1 continuo, mikan, 1c1 con salida desde el aro, tiro en estrella, tiro con rebote y pase, zig-zag defensivo, cierre de rebote, 2c2 de bloqueo directo, pase y corte y la concha defensiva 4c4. Las abres, las cambias y las guardas con tu nombre y una categoría (ataque, defensa, saques, contraataque, presión o ejercicio).</p>
 
 <h2>4. Lecturas: qué pasa si el defensor hace otra cosa (Pro)</h2>
 <p>Con «+ Lectura» creas una alternativa que sale de un paso, por ejemplo «si pasa por detrás», con sus propios pasos. Hasta 6 por jugada. Crearlas es Pro.</p>
