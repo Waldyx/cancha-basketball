@@ -921,7 +921,7 @@ export const SEO_PAGES: SeoPage[] = [
       { lab: "KAI 2 = la sorpresa del año", body: "La KAI 2 de Kyrie Irving ofrece tracción y respuesta de 150€ a solo 119€. A-Flashfoam 2.0 y herringbone multidireccional. La mejor relación calidad-precio de 2025." },
       { lab: "KT 10/11 = para tiradores", body: "La línea KT de Klay Thompson prioriza estabilidad lateral y cushion sólido. Perfecta para tiradores de posición media que necesitan soporte en plant-and-shoot." },
       { lab: "Shock Game = segmento medio", body: "Para jugadores sin patrocinado favorito que buscan una Anta genérica de calidad. Precio más bajo, tecnología mid-range pero sólida." },
-      { lab: "Talla y horma generosa", body: "Anta tiende a horma más ancha que Nike. Para pies anchos, es una ventaja real. Comprueba siempre las guías de talla — suelen correr entre normal y ligeramente grande." },
+      { lab: "Talla y ajuste", body: "Anta suele ir ceñida, con ajuste de guante (Kai 2, Kai 3, KT 10): con pie ancho, prueba media talla más. Comprueba siempre la guía de tallas de cada modelo." },
     ],
     faqs: [
       { q: "¿Son buenas las zapatillas Anta para baloncesto?", a: "Sí, especialmente para el precio. La KAI 2 compite técnicamente con la Nike AE 2 a 30€ menos. La marca invierte en tecnología real, no solo en marketing." },
