@@ -334,6 +334,14 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 - ✅ **/resultados: 127 KB → 5 KB de JS** (`lib/quizCatalogo.ts` + `/quiz-catalogo.json`, 26 KB gz cacheable). Importaba el
   catálogo entero para puntuar 5 zapas. Test candado: 60 combinaciones de respuestas dan lo mismo con el catálogo recortado.
   🔴 Y sus tarjetas enseñaban el precio REAL (reventa y tiendas sin afiliado, con CTA patrocinado): ahora el de la ficha.
+- ✅ **25 notas más ancladas a HoopsGeek** (páginas publicadas tras la auditoría del 21-sep): Curry 13, Joker 2 GT,
+  Believe That 1, Sabrina 4, Ja 4, Caitlin 1, A'Two, Gamma 2, GT Cut 3 (slug `nike-air-zoom-gt-cut-3`), Dame Certified 3,
+  All-Pro Nitro, AE 1, Luka .77, GT Cut Academy 2, Zion 4, Book 1, KD 17, D.O.N. 6, Witness 8, Precision 7, TWO WXY v5,
+  KD 19, Dame X, ZEN 7 y Rigorer AR1. Pro Vision NO (2 reviews). AE 3: WearTesters 8,5. Cortes: todos coinciden salvo
+  Witness 8 (se queda low). 🔑 HoopsGeek da también **notas por categoría** (tracción, cushion, soporte, % exterior) en
+  «Category Performance Ratings» y pros/contras: con eso se reescribieron Caitlin 1, A'Two, Joker 2 GT, AE 3, AG 6 y JB4,
+  que seguían como pre-lanzamiento o «sin review». Quedan 45 visibles sin ancla: budget/team sin reviews (s44) y
+  lanzamientos sin review aún (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11).
 - ✅ **Kobe 5 Protro rescatada** (Decathlon marketplace, 233,99 € = 1,34× MSRP, 7 tallas). Descartadas: **PG 6** (una
   talla y 1 unidad) y **Why Not .6** (solo 36,5-40: curva de mujer/GS). Ocultas 43 → 42.
 - ⏸ **Search Console**: la sesión de Google del navegador integrado caducó; no se mete contraseña. Revisarlo el usuario
