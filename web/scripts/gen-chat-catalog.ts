@@ -18,12 +18,14 @@ import { writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 import { zapatillas, zapatillasTodas } from "../src/data/zapatillas";
-import { findMejorPrecio } from "../src/lib/scoring";
+import { findMejorPrecioMostrado } from "../src/lib/scoring";
 
 const catalogo = zapatillas
   .map((z) => {
     const s = z.puntuaciones;
-    const precio = findMejorPrecio(z.links_compra)?.precio_actual ?? z.precio_msrp_eur;
+    // El MISMO precio que enseñan la ficha y la tarjeta del chat (`shoe-index.json`): con el
+    // real, el chat anunciaba la reventa que la web oculta (Gamma 2 "479€" con MSRP 120).
+    const precio = findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur)?.precio_actual ?? z.precio_msrp_eur;
     return (
       `${z.slug} | ${z.marca} ${z.modelo} | ${z.categoria_principal} | ${Math.round(precio)}€ | ` +
       `tracc ${s.traccion} cushion ${s.amortiguacion} resp ${s.respuesta} ` +
