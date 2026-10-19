@@ -446,6 +446,18 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   Asics Unpre ARS 2, Glide Nova FF 4, UA Embiid 1) → ▶️ **DECIDIR (usuario): ¿cuenta el sello POIZON como Marcas+?** ·
   Decathlon marketplace (PG 6, Why Not 6, Kobe 5 Protro) sin poder leer stock: Decathlon dio 429 y luego verificación de
   Cloudflare a mitad de la pasada → repetir esas tres desde un navegador normal.
+- ✅ **Pizarra en móvil APAISADO (20-oct)**: con `max-height: 520px` y horizontal, herramientas en columna a la izquierda
+  y la pista con toda la altura (844×390: 378 px de alto, antes 175). Vertical, tableta y escritorio no cambian.
+- 🔑 **FCBQ, investigado a fondo (20-oct)**: `basquetcatala.cat` da 403 + reCAPTCHA a curl Y al navegador integrado, y su
+  `robots.txt` **prohíbe expresamente a los agentes de IA (ClaudeBot, Claude-User…) todo el sitio** ⇒ NO acceder, ni
+  siquiera para mirar. La FEB no tiene esa prohibición. **Open Data FCBQ**: servicio de pago SOLO para clubs federados,
+  para publicar en la web del club los datos de SUS equipos: 25 €+IVA/mes, 30 €+IVA con actas (según el resumen del
+  buscador de basquetcatala.cat/pagina/8516; sin confirmar). Integración con el servicio informático de la FCBQ, sin API
+  documentada. La vía legítima sigue siendo el PEGADO por el entrenador. ▶️ Propuesta pendiente: correo a la FCBQ (mejor
+  con el club). 🔑 **En Pre-mini el resultado oficial limita la diferencia a +50**: el partido del Alella fue 128-1 según
+  la propia estadística de la FCBQ y el resultado oficial 51-1 (y el del Mataró 69-19). Sin confirmar en el reglamento.
+  El usuario está montando las estadísticas de su hijo (Pre-mini, AB Premià Blau, dorsal 12): falta la captura de la
+  pestaña «Resum» de la app oficial (la de «Jugades» es jugada a jugada); la J1 vs Mataró no tiene acta digital.
 - ▶️ **Ideas siguientes** (sin prometer en la web): generador de sesiones con IA.
 - ▶️ **Paso 3, por orden**: control de minutos/cuartos (verificar normas de participación de la FCBQ) → mapa de
   tiro → libro de jugadas con escudo del club → etiquetas de vídeo. Más ideas: informe del rival (actas FEB),
