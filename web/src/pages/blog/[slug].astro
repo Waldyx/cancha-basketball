@@ -23,8 +23,8 @@ const { article } = Astro.props;
 // inexistente o sin peso ROMPE el build a propósito: mejor un fallo de build
 // que publicar una marca sin sustituir.
 const articleBody = article.body.replace(
-  /\{\{(peso|precio):([a-z0-9-]+)\}\}/g,
-  (_match: string, kind: "peso" | "precio", id: string) => {
+  /\{\{(peso|precio|exterior):([a-z0-9-]+)\}\}/g,
+  (_match: string, kind: "peso" | "precio" | "exterior", id: string) => {
     // `zapatillasTodas` y no `zapatillas`: una zapa OCULTA conserva su ficha y su
     // precio, y un artículo que la cita debe seguir dando su número en vez de
     // romper el build. Ocultar es sacarla de los listados, no borrar el dato.
@@ -40,6 +40,8 @@ const articleBody = article.body.replace(
       }
       return `${z.peso_real_g}g`;
     }
+    // Durabilidad en exterior de la ficha (1-10), para las guías de outdoor: se escribía a mano.
+    if (kind === "exterior") return `${z.puntuaciones.durabilidad_outdoor}/10`;
     const precio = findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur)?.precio_actual ?? z.precio_msrp_eur;
     return `${precio}€`;
   }

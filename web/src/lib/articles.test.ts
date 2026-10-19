@@ -11,7 +11,7 @@ import { zapatillas, zapatillasTodas } from "../data/zapatillas";
 // falla si alguien vuelve a escribir un número suelto.
 // ─────────────────────────────────────────────────────────
 
-const MARCA_RE = /\{\{(peso|precio):([a-z0-9-]+)\}\}/g;
+const MARCA_RE = /\{\{(peso|precio|exterior):([a-z0-9-]+)\}\}/g;
 const strip = (s: string) => s.replace(/<[^>]+>/g, "").replace(/⭐|✅|❌|🔥/g, "").replace(/\s+/g, " ").trim();
 const norm = (s: string) =>
   s

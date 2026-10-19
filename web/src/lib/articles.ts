@@ -460,16 +460,16 @@ export const ARTICLES: Article[] = [
     title: "Mejores zapatillas de baloncesto para outdoor en 2025-2026",
     metaTitle: "Mejores zapatillas de baloncesto outdoor 2025 | CANCHA.ZAPA",
     description:
-      "Guía de zapatillas de baloncesto para exterior en 2025: qué modelos aguantan el asfalto, cuáles evitar (UA Flow se destruye) y comparativa de durabilidad outdoor.",
-    fecha: "2026-05-26",
-    fechaLabel: "26 mayo 2026",
+      "Zapatillas de baloncesto para exterior: las que aguantan el asfalto según las reviews, cuáles evitar (UA Flow, AE 2, GT Cut) y comparativa de durabilidad outdoor.",
+    fecha: "2026-10-19",
+    fechaLabel: "19 octubre 2026",
     categoria: "Guías",
     readMinutes: 5,
-    eyebrow: "★ Guía outdoor · Exterior 2025",
-    heroTitle: "Zapatillas outdoor 2025",
+    eyebrow: "★ Guía outdoor · Exterior 2026",
+    heroTitle: "Zapatillas outdoor 2026",
     heroSubtitle: "Cuáles aguantan el asfalto y cuáles no",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-ja-3", "adidas-ae-2", "anta-kai-2", "nike-lebron-23", "ua-curry-13"],
+    relatedShoes: ["lining-wow-allcity-14", "anta-shock-wave-5", "jordan-luka-77", "adidas-dame-certified", "nike-precision-7"],
     relatedSeoPages: ["zapatillas-outdoor", "zapatillas-baloncesto-baratas", "mejor-zapatilla-base"],
     body: `
 <p class="art-intro">El baloncesto al aire libre es el mayor enemigo de tus zapatillas de interior. El asfalto y el cemento destrozan suelas en cuestión de semanas. Lo que dura 2 temporadas en pabellón puede quedar inutilizable después de 10 partidos en la calle. Antes de comprar, tienes que saber qué buscar — y qué evitar.</p>
@@ -482,86 +482,77 @@ export const ARTICLES: Article[] = [
   <li><strong>Upper reforzado:</strong> la malla fina se desgarra. Los tejidos más densos o sintéticos aguantan mejor los golpes y la suciedad.</li>
 </ul>
 
-<h2>Los 5 modelos más duraderos en exterior en 2025</h2>
+<h2>Las que aguantan el exterior en 2026</h2>
+<p>Para elegir no nos fiamos de lo que dice la marca: miramos qué parte de los analistas que reseñan cada zapatilla la dan por apta para exterior (las reviews que agrega HoopsGeek) y lo cruzamos con su precio en tiendas españolas. Estas cinco salen bien paradas y se compran en España.</p>
 
-<h3><a href="/zapatilla/nike-ja-3">Nike Ja 3 — desde {{precio:nike-ja-3}}</a></h3>
-<p>La Ja 3 tiene una de las suelas de goma más gruesas de Nike en 2025. El patrón multidireccional funciona bien tanto en parquet como en asfalto limpio, y el upper de malla densa resiste mejor que el mesh fino de otros modelos. La excepción positiva dentro de Nike para outdoor.</p>
+<h3><a href="/zapatilla/lining-wow-allcity-14">Li-Ning Way of Wade All City 14 — desde {{precio:lining-wow-allcity-14}}</a></h3>
+<p>La más completa de la lista: rinde como una zapatilla de gama alta en pista cubierta (9/10 en HoopsGeek) y el 80 % de los análisis la da por apta para exterior. Si solo vas a tener un par para dentro y para fuera, es esta.</p>
 <ul>
-  <li>✅ Suela duradera — aguanta exterior sin degradarse rápido</li>
-  <li>✅ Tracción sólida en asfalto seco</li>
-  <li>❌ En asfalto muy húmedo la tracción baja bastante</li>
+  <li>✅ Nota global de gama alta a precio de gama media</li>
+  <li>✅ Suela de goma que aguanta el asfalto</li>
+  <li>❌ Se compra en AliExpress: el envío tarda más que en una tienda española</li>
 </ul>
 
-<h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — desde {{precio:adidas-ae-2}}</a></h3>
-<p>El herringbone de la AE 2 es uno de los patrones más resistentes al desgaste en asfalto. Los cantos son profundos y la goma es de dureza media-alta. Para jugadores que alternan interior y exterior, es la opción más equilibrada del mercado.</p>
+<h3><a href="/zapatilla/anta-shock-wave-5">Anta Shock Wave 5 — desde {{precio:anta-shock-wave-5}}</a></h3>
+<p>Goma gruesa y flexible con surcos profundos: todos los análisis la consideran apta para exterior y conserva el agarre en pistas rugosas. Es la apuesta segura si juegas casi siempre en la calle.</p>
 <ul>
-  <li>✅ Herringbone aguanta exterior mejor que la mayoría</li>
-  <li>✅ Upper robusto — resiste suciedad y golpes</li>
-  <li>❌ No está diseñada para exterior puro — en uso intensivo outdoor se nota el desgaste</li>
+  <li>✅ Apta para exterior en el 100 % de los análisis</li>
+  <li>✅ Tracción que no se pierde en superficie rugosa</li>
+  <li>❌ También se compra en AliExpress</li>
 </ul>
 
-<h3>Under Armour Curry 13 ❌ <strong>NO OUTDOOR</strong></h3>
-<p>La Curry 13 usa tecnología UA Flow — espuma sin capa de goma que contacta directamente con el suelo. Es perfecta para parquet porque maximiza el court feel. En asfalto, es un desastre: la espuma se desgasta en semanas y la tracción desaparece. <strong>Una sesión outdoor puede arruinar la suela.</strong> Úsala solo en pabellón.</p>
-
-<h3><a href="/zapatilla/anta-kai-2">ANTA Kai 2 — desde {{precio:anta-kai-2}}</a></h3>
-<p>La Kai 2 es la sorpresa. La marca china ha apostado por una goma de caucho gruesa y un patrón agresivo que aguanta el exterior mejor de lo esperado. Para su precio, es la mejor opción outdoor del mercado en 2025.</p>
+<h3><a href="/zapatilla/jordan-luka-77">Jordan Luka .77 — desde {{precio:jordan-luka-77}}</a></h3>
+<p>La versión asequible de la línea de Luka Doncic lleva una suela de goma pensada para la calle: los analistas destacan su durabilidad y una tracción constante en pistas rugosas (92 % la ven apta para exterior).</p>
 <ul>
-  <li>✅ Goma gruesa — la más duradera de las opciones económicas</li>
-  <li>✅ Tracción en asfalto muy competente</li>
-  <li>❌ Upper menos refinado que las opciones premium</li>
+  <li>✅ Suela construida para exterior</li>
+  <li>✅ Precio contenido para una Jordan</li>
 </ul>
 
-<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — desde {{precio:nike-lebron-23}}</a></h3>
-<p>La LeBron tiene suela Max Air con caucho de alta densidad. Para outdoor moderado (2-3 sesiones al mes en asfalto), aguanta bien. Para uso intensivo exterior, el precio no se justifica — la Ja 3 o la AE 2 son más inteligentes.</p>
+<h3><a href="/zapatilla/adidas-dame-certified">Adidas Dame Certified — desde {{precio:adidas-dame-certified}}</a></h3>
+<p>Suela de goma gruesa y una tracción que aguanta el desgaste: el 88 % de los análisis la recomienda para exterior. De las mejores relaciones entre durabilidad y precio del catálogo.</p>
 <ul>
-  <li>✅ Suela Max Air robusta para jugadores pesados</li>
-  <li>❌ Precio alto para outdoor: existen mejores opciones por menos</li>
+  <li>✅ Goma gruesa pensada para pista exterior</li>
+  <li>✅ Buena longevidad de la suela</li>
 </ul>
 
-<h2>Lo que debes evitar en outdoor</h2>
+<h3><a href="/zapatilla/nike-precision-7">Nike Precision 7 — desde {{precio:nike-precision-7}}</a></h3>
+<p>La de presupuesto más ajustado: goma dura con surcos profundos, apta para exterior en todos los análisis y con tracción que se mantiene incluso en pista con polvo. No esperes la amortiguación de una gama alta.</p>
 <ul>
-  <li><strong>UA Flow (Curry 12, Curry 13):</strong> sin goma = destrucción garantizada en asfalto</li>
-  <li><strong>Suelas de espuma directa:</strong> cualquier zapatilla con "foam outsole" en las especificaciones</li>
-  <li><strong>Nike GT Cut 3/4:</strong> diseñadas para pista interior limpia, la suela no aguanta el asfalto</li>
-  <li><strong>New Balance con suelas ultra-delgadas:</strong> los modelos de foam directo tienen la misma debilidad que el UA Flow</li>
+  <li>✅ La más barata de las cinco</li>
+  <li>✅ Goma dura que aguanta el asfalto</li>
+  <li>❌ Amortiguación básica</li>
 </ul>
 
-<h2>Comparativa de durabilidad outdoor</h2>
+<p>Si buscas algo de gama más alta que también aguante fuera, mira la <a href="/zapatilla/rigorer-ar3">Rigorer AR3</a> (apta para exterior en todos los análisis) o la <a href="/zapatilla/nb-two-wxy-v5">New Balance TWO WXY v5</a> (goma dura con surcos profundos).</p>
+
+<h2>Lo que debes evitar en exterior</h2>
+<ul>
+  <li><strong>Suelas UA Flow (Curry 12, Curry 13, Curry Fox 2, Flow Breakthru 4):</strong> la suela es la propia espuma, sin goma. Ningún análisis da la Curry 12 por apta para exterior: en asfalto se gasta en semanas.</li>
+  <li><strong>Adidas AE 2:</strong> su goma estándar no está pensada para la calle; las reviews coinciden en que se deshilacha y se gasta rápido en pista rugosa.</li>
+  <li><strong>Nike GT Cut 3 y GT Cut 4:</strong> tacos estrechos pensados para parquet limpio; solo un 17 % de los análisis da la GT Cut 3 por apta para exterior.</li>
+  <li><strong>Gomas finas y blandas</strong> como las de la Zoom Freak 4, la Puma MB.04 o la Air Jordan XXXIX: ningún análisis las recomienda fuera.</li>
+</ul>
+
+<h2>Comparativa de durabilidad en exterior</h2>
+<p>La columna «Exterior» es la nota de durabilidad de nuestra ficha (1-10); el porcentaje es la parte de los análisis que la ven apta para exterior, a 19 de octubre de 2026.</p>
 <div style="overflow-x:auto">
 <table style="width:100%;border-collapse:collapse;font-size:14px">
   <thead>
     <tr style="border-bottom:2px solid #f97316">
       <th style="padding:8px;text-align:left">Modelo</th>
-      <th style="padding:8px;text-align:center">Durabilidad outdoor</th>
+      <th style="padding:8px;text-align:center">Exterior</th>
+      <th style="padding:8px;text-align:center">Apta (análisis)</th>
       <th style="padding:8px;text-align:center">Precio</th>
     </tr>
   </thead>
   <tbody>
-    <tr style="border-bottom:1px solid var(--cz-elev)">
-      <td style="padding:8px"><strong>Nike Ja 3</strong></td>
-      <td style="padding:8px;text-align:center">⭐ 8/10</td>
-      <td style="padding:8px;text-align:center">{{precio:nike-ja-3}}</td>
-    </tr>
-    <tr style="border-bottom:1px solid var(--cz-elev)">
-      <td style="padding:8px"><strong>Adidas AE 2</strong></td>
-      <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">{{precio:adidas-ae-2}}</td>
-    </tr>
-    <tr style="border-bottom:1px solid var(--cz-elev)">
-      <td style="padding:8px"><strong>ANTA Kai 2</strong></td>
-      <td style="padding:8px;text-align:center">⭐ 8/10</td>
-      <td style="padding:8px;text-align:center">{{precio:anta-kai-2}}</td>
-    </tr>
-    <tr style="border-bottom:1px solid var(--cz-elev)">
-      <td style="padding:8px"><strong>Nike LeBron 23</strong></td>
-      <td style="padding:8px;text-align:center">7/10</td>
-      <td style="padding:8px;text-align:center">{{precio:nike-lebron-23}}</td>
-    </tr>
-    <tr>
-      <td style="padding:8px"><strong>UA Curry 13</strong></td>
-      <td style="padding:8px;text-align:center">❌ 2/10</td>
-      <td style="padding:8px;text-align:center">{{precio:ua-curry-13}}</td>
-    </tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px"><strong>Li-Ning WoW All City 14</strong></td><td style="padding:8px;text-align:center">{{exterior:lining-wow-allcity-14}}</td><td style="padding:8px;text-align:center">80 %</td><td style="padding:8px;text-align:center">{{precio:lining-wow-allcity-14}}</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px"><strong>Anta Shock Wave 5</strong></td><td style="padding:8px;text-align:center">{{exterior:anta-shock-wave-5}}</td><td style="padding:8px;text-align:center">100 %</td><td style="padding:8px;text-align:center">{{precio:anta-shock-wave-5}}</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px"><strong>Jordan Luka .77</strong></td><td style="padding:8px;text-align:center">{{exterior:jordan-luka-77}}</td><td style="padding:8px;text-align:center">92 %</td><td style="padding:8px;text-align:center">{{precio:jordan-luka-77}}</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px"><strong>Adidas Dame Certified</strong></td><td style="padding:8px;text-align:center">{{exterior:adidas-dame-certified}}</td><td style="padding:8px;text-align:center">88 %</td><td style="padding:8px;text-align:center">{{precio:adidas-dame-certified}}</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px"><strong>Nike Precision 7</strong></td><td style="padding:8px;text-align:center">{{exterior:nike-precision-7}}</td><td style="padding:8px;text-align:center">100 %</td><td style="padding:8px;text-align:center">{{precio:nike-precision-7}}</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px"><strong>Adidas AE 2</strong> ❌</td><td style="padding:8px;text-align:center">{{exterior:adidas-ae-2}}</td><td style="padding:8px;text-align:center">0 %</td><td style="padding:8px;text-align:center">{{precio:adidas-ae-2}}</td></tr>
+    <tr><td style="padding:8px"><strong>UA Curry 12</strong> ❌</td><td style="padding:8px;text-align:center">{{exterior:ua-curry-12}}</td><td style="padding:8px;text-align:center">0 %</td><td style="padding:8px;text-align:center">{{precio:ua-curry-12}}</td></tr>
   </tbody>
 </table>
 </div>
