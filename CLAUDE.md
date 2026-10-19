@@ -349,6 +349,21 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   Luka .77, Dame Certified y Precision 7, y su tabla usa la marca nueva **`{{exterior:ID}}`**. Siete fichas que seguían
   vendiendo el exterior, reescritas. ⚠ Tracción/cushion/soporte de HG NO se aplican: otra escala (HG casi nunca da 10)
   y bajarlos solo en las medidas hundiría a esas zapas en el quiz frente a las no medidas.
+- ✅ **Horma corregida en 16 zapas** que HoopsGeek describe explícitamente como estrechas (Zion 3/4, Freak 5, GT Jump 1
+  → estrecha; Immortality 3, GT Jump 2, Witness 8 → normal; Ja 1, Kobe 6 y 9 Elite Low, Kyrie Low 5, One Take 5, Gamma 2,
+  All-Pro Nitro 2, AJ 40, GT Cut Academy 2 → estrecha). La coletilla «wide footers, half size up» NO cuenta: sale en casi todas.
+- ✅ **Contenido corregido contra la ficha**: FAQ (28 respuestas), páginas SEO (New Balance rehecha + 10 líneas), guías de
+  outdoor, pie ancho, baratas y niños rehechas, y 8 menciones sueltas en análisis. Recomendaban zapas que NO existen
+  (Voltzy 500, Flow Breakthru 5, TWO WXY v6, Precision 8 GS, Tatum 2/3 GS, Immortality 5 GS, Tarmak Fast 500), ocultas
+  (Fresh Foam BB v3, Precision 8, Answer IV), GS a adultos (Cross 'Em Up Select, Air Zoom Crossover 2), «Max Air» en la
+  LeBron 22/23, «Nike AE 2», precios de hace meses y que el tag de Amazon «garantiza producto oficial» (falso).
+  🔑 Herramientas de esta sesión en el scratchpad (no en el repo): bajar páginas HG a `$TEMP/hgcat/<id>.html` y parsear
+  «Category Performance Ratings» (`|9.5|Traction|…`, `|50%|Outdoor|…`, `|Fit|…`, `|Sizing|…`) y `ratingValue` del JSON-LD.
+- ▶️ **PARA RETOMAR (tras el clear del 19-oct)**: (1) seguir el barrido de contenido: `articles.ts` aún tiene notas «x/10»
+  escritas a mano y afirmaciones de tecnología/horma sin fuente (buscar `/10` y nombres de zapas ocultas); (2) las 45
+  visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
+  el sitemap de HG en 2-3 semanas; (3) Search Console (sesión de Google caducada en el navegador integrado: la abre el
+  usuario); (4) medir otra vez el chat y `/api/sesion` (`npx tsx scripts/audit-ia.ts` + 2-3 consultas reales).
 - ✅ **Kobe 5 Protro rescatada** (Decathlon marketplace, 233,99 € = 1,34× MSRP, 7 tallas). Descartadas: **PG 6** (una
   talla y 1 unidad) y **Why Not .6** (solo 36,5-40: curva de mujer/GS). Ocultas 43 → 42.
 - ⏸ **Search Console**: la sesión de Google del navegador integrado caducó; no se mete contraseña. Revisarlo el usuario
