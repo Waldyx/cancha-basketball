@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { pareceRazonamiento } from "./chat.ts";
+import { formatoVisible, pareceRazonamiento } from "./chat.ts";
 
 // Candado del 21-sep-2026. El chat servía en producción la CADENA DE PENSAMIENTO del
 // modelo en vez de la respuesta, en inglés y sin llegar a responder. Los dos positivos
@@ -46,5 +46,47 @@ describe("pareceRazonamiento", () => {
     const respuesta = "Te recomiendo la Curry 12 por su tracción. ".repeat(12) + "Let me know.";
     expect(respuesta.length).toBeGreaterThan(400);
     expect(pareceRazonamiento(respuesta)).toBe(false);
+  });
+});
+
+// Candado del 19-oct-2026: nemotron copiaba el formato del catálogo (slug suelto + fila
+// cruda) y la respuesta llegaba sin tarjetas. Captura LITERAL de producción.
+describe("formatoVisible", () => {
+  const capturada =
+    "Para un alero de 80 kg en pista interior con presupuesto <120€, priorizo tracción, soporte lateral y amortiguación equilibrada. Aquí van tres opciones sólidas dentro del rango:\n\n" +
+    "ua-curry-12  \n" +
+    "Under Armour Curry 12 | responsive | 98€ | tracc 10 cushion 10 resp 10 soporte 10 estab 10 ligereza 10 outdoor 6 vent 10 | low | horma normal  \n" +
+    "→ Máxima tracción y respuesta para cortes explosivos, ideal para cambios de dirección rápidos. Horma normal, buen ajuste para 80 kg.\n\n" +
+    "anta-kai-2  \n" +
+    "Anta KAI 2 | balanced | 62€ | tracc 10 cushion 10 resp 9 soporte 9 estab 9 ligereza 8 outdoor 8 vent 9 | low | horma normal  \n" +
+    "→ Relación calidad-precio imbatible.";
+
+  it("convierte el slug suelto en marcador y quita la fila cruda del catálogo", () => {
+    const f = formatoVisible(capturada, true);
+    expect(f).toContain("[[shoe:ua-curry-12]]");
+    expect(f).toContain("[[shoe:anta-kai-2]]");
+    expect(f).not.toMatch(/tracc \d+/);
+    expect(f).toContain("Máxima tracción y respuesta");
+  });
+
+  it("lo emitido a trozos es siempre prefijo de lo final (emitir es irreversible)", () => {
+    const final = formatoVisible(capturada, true);
+    let anterior = "";
+    for (let i = 1; i <= capturada.length; i++) {
+      const parcial = formatoVisible(capturada.slice(0, i));
+      expect(final.startsWith(parcial)).toBe(true);
+      expect(parcial.startsWith(anterior)).toBe(true);
+      anterior = parcial;
+    }
+  });
+
+  it("no toca una respuesta normal con marcadores", () => {
+    const normal = "La **Curry 12** es tu zapa: tracción y respuesta de sobra.\n[[shoe:ua-curry-12]]\nSi quieres más opciones, haz el quiz (/quiz).";
+    expect(formatoVisible(normal, true)).toBe(normal);
+  });
+
+  it("una línea de prosa larga sale sin esperar al salto de línea", () => {
+    const prosa = "Para jugar por fuera necesitas una suela gruesa y un caucho duro que aguante el asfalto";
+    expect(formatoVisible(prosa)).toBe(prosa);
   });
 });

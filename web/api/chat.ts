@@ -26,7 +26,9 @@
 import catalogData from "./_catalog.json" with { type: "json" };
 
 // Permite a Vercel ampliar el tiempo de ejecución si el plan lo soporta.
-export const config = { maxDuration: 30 };
+// 60 s: con 30 el tope de 15 s por intento cortaba a nemotron a mitad de respuesta
+// (medido el 19-oct en producción). En streaming el usuario ya está leyendo mientras tanto.
+export const config = { maxDuration: 60 };
 
 // ── Catálogo compacto para el system prompt (1 línea/zapa, ~5k tokens) ─────────
 const CATALOGO: string = catalogData.catalogo;
@@ -189,6 +191,42 @@ const visibleParcial = (t: string) => {
   const abierto = sinCerrados.search(/<think>/i);
   return (abierto >= 0 ? sinCerrados.slice(0, abierto) : sinCerrados).trimStart();
 };
+
+// 🔴 MEDIDO EN PRODUCCIÓN EL 19-oct-2026: nemotron copia el FORMATO del catálogo en su
+// respuesta: el slug suelto en una línea y debajo la fila cruda ("Under Armour Curry 12 |
+// responsive | 98€ | tracc 10 cushion 10 …"), sin un solo [[shoe:]]. El front no pinta
+// tarjetas y el usuario lee nuestras líneas internas. Esto lo arregla EN EL STREAM:
+//   · línea que es solo un slug del catálogo  -> [[shoe:slug]] (sale la tarjeta)
+//   · línea que empieza como una fila del catálogo -> fuera
+// Emitir es irreversible, así que la línea en curso solo se retiene mientras PUEDA acabar
+// siendo una de las dos: corta (< 60) o con "|" (en una fila el primer "|" llega antes del
+// carácter 60, porque va detrás de marca y modelo). La prosa normal sale sin esperar.
+const SLUGS = new Set(ZAPAS.map((z) => z.slug));
+const FILA_CATALOGO = /^[^|\n]{2,60}\|\s*[a-z-]+\s*\|\s*\d+\s*€/i;
+const soloSlug = (l: string) => {
+  const s = l.trim().replace(/^[-*•\d.)\s]+/, "").replace(/[*`_:]/g, "").trim().toLowerCase();
+  return SLUGS.has(s) ? s : null;
+};
+export function formatoVisible(t: string, final = false): string {
+  const corte = t.lastIndexOf("\n");
+  const completas = corte >= 0 ? t.slice(0, corte + 1) : "";
+  let resto = corte >= 0 ? t.slice(corte + 1) : t;
+  const out = completas
+    .split("\n")
+    .slice(0, -1)
+    .flatMap((l) => {
+      if (FILA_CATALOGO.test(l.trim())) return [];
+      const s = soloSlug(l);
+      return [s ? `[[shoe:${s}]]` : l];
+    });
+  if (final) {
+    if (FILA_CATALOGO.test(resto.trim())) resto = "";
+    else if (soloSlug(resto)) resto = `[[shoe:${soloSlug(resto)}]]`;
+  } else if (resto.length < 60 || resto.includes("|")) {
+    resto = "";
+  }
+  return (out.length ? out.join("\n") + "\n" : "") + resto;
+}
 
 // 🔴 MEDIDO EN PRODUCCIÓN EL 21-sep-2026: 2 de cada 3 consultas devolvían la CADENA DE
 // PENSAMIENTO del modelo en vez de la respuesta ("We need to recommend a cheap outdoor
@@ -394,8 +432,8 @@ export default async function handler(req: any, res: any) {
   // logs de Vercel. No lleva nada sensible: es el texto de error de OpenRouter.
   const detalles: string[] = [];
 
-  // Presupuesto total. maxDuration=30s, dejamos ~25s.
-  const deadline = Date.now() + 25000;
+  // Presupuesto total. maxDuration=60s, dejamos ~52s.
+  const deadline = Date.now() + 52000;
 
   // Texto YA enviado al cliente (limpio) y texto crudo acumulado del modelo. Se separan
   // porque lo emitido es irreversible: una vez sale el primer byte no se puede volver al
@@ -421,12 +459,21 @@ export default async function handler(req: any, res: any) {
     res.status(200);
   };
 
+  // Cierre: `asegurarMarcadores` necesita el texto ENTERO, así que se aplica aquí y se manda
+  // solo la diferencia (el front concatena). También cuando el intento se corta a mitad de
+  // stream: antes ese camino cerraba sin marcadores y la respuesta se quedaba sin tarjetas.
+  // Sin `trim` final a propósito: debe seguir siendo una extensión de lo ya emitido.
+  const cerrarConMarcadores = () => {
+    const final = asegurarMarcadores(formatoVisible(visibleParcial(acumulado), true));
+    if (final.startsWith(emitido) && final.length > emitido.length) res.write(final.slice(emitido.length));
+  };
+
   for (const intento of intentos) {
     const restante = deadline - Date.now();
     if (restante < 4000) break; // sin tiempo útil para otro intento
     // Generoso a propósito: los modelos caídos fallan al instante y no gastan presupuesto,
     // así que repartirlo a partes iguales solo servía para asfixiar al único que responde.
-    const tope = Math.min(15000, restante - 1000);
+    const tope = Math.min(40000, restante - 1000);
     try {
       const r = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
@@ -481,7 +528,7 @@ export default async function handler(req: any, res: any) {
           const delta: string = j?.choices?.[0]?.delta?.content ?? "";
           if (!delta) continue;
           acumulado += delta;
-          const limpio = visibleParcial(acumulado);
+          const limpio = formatoVisible(visibleParcial(acumulado));
           // Retención de arranque: mientras no se haya emitido nada, se espera a tener
           // material suficiente para juzgar. Es la única ventana en la que todavía se
           // puede descartar el modelo y probar el siguiente.
@@ -541,10 +588,7 @@ export default async function handler(req: any, res: any) {
 
       // Cierre: `asegurarMarcadores` necesita el texto ENTERO, así que se aplica aquí y
       // se manda solo la diferencia. El front concatena, así que las mini-cards salen igual.
-      const final = asegurarMarcadores(limpiarRespuesta(acumulado));
-      if (final.startsWith(emitido) && final.length > emitido.length) {
-        res.write(final.slice(emitido.length));
-      }
+      cerrarConMarcadores();
       console.log("[api/chat] respondió", modeloUsado || "(modelo desconocido)", "(stream)");
       res.end();
       return;
@@ -560,6 +604,7 @@ export default async function handler(req: any, res: any) {
       // es texto útil aunque esté cortado. Caso real, no teórico: el tope de 15 s corta a
       // minimax, que es justo el modelo lento por el que se puso el streaming.
       if (emitido) {
+        cerrarConMarcadores();
         res.end();
         return;
       }
