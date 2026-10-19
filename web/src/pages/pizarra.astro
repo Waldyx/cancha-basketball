@@ -920,6 +920,26 @@ const jsonLd = {
     .pz-vel { width: 56px; }
     .pz-stepact [data-act="dup-step"] { display: none; }
   }
+  /* ── móvil APAISADO (poca altura): herramientas en columna a la izquierda y la pista con toda la
+     altura de la pantalla; pasos, lecturas y reproducción quedan justo debajo. Antes la pista se
+     quedaba en ~175 px de alto con dos franjas vacías a los lados. ── */
+  @media (orientation: landscape) and (max-height: 520px) {
+    .pz-app:not(.pz-tm):not(.pz-jugador):not(.pz-fs):not(:fullscreen) {
+      display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: calc(100dvh - 12px) auto auto;
+      height: auto; max-width: none; padding: 0 6px; gap: 6px; column-gap: 6px;
+    }
+    .pz-app:not(.pz-tm):not(.pz-jugador) > .pz-banner, .pz-app:not(.pz-tm):not(.pz-jugador) > .pz-lect,
+    .pz-app:not(.pz-tm):not(.pz-jugador) > .pz-bottom, .pz-app:not(.pz-tm):not(.pz-jugador) > .pz-ses { grid-column: 1 / -1; }
+    .pz-app:not(.pz-tm):not(.pz-jugador) > .pz-toolbar {
+      grid-column: 1; grid-row: 1; flex-direction: column; flex-wrap: nowrap; align-items: stretch;
+      width: 90px; overflow-x: hidden; overflow-y: auto; scrollbar-width: none; padding-bottom: 0;
+    }
+    .pz-app:not(.pz-tm):not(.pz-jugador) > .pz-toolbar .pz-grp { flex-wrap: wrap; justify-content: flex-start; }
+    .pz-app:not(.pz-tm):not(.pz-jugador) > .pz-toolbar .pz-btn { min-width: 41px; width: 41px; height: 38px; padding: 0; }
+    .pz-app:not(.pz-tm):not(.pz-jugador) > .pz-main { grid-column: 2; grid-row: 1; min-height: 0; }
+    .pz-app:not(.pz-tm):not(.pz-jugador) .pz-board { flex: 1; aspect-ratio: auto; max-height: none; height: 100%; }
+    .pz-hint { top: 8px; bottom: auto; }
+  }
   html.pz-modal #cz-chat { display: none !important; }
   /* con un diálogo abierto, la pizarra pasa por ENCIMA de la cabecera y del banner de cookies (el main crea su propio apilado) */
   html.pz-modal #main-content { z-index: 400 !important; }
