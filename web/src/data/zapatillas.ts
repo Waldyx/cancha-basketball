@@ -10771,10 +10771,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
-    oculto: true,
     precio_msrp_eur: 175,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Nike+Kobe+5+Protro&tag=canchazapa-21", precio_actual: 195, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-baloncesto-kobe-5-protro%2Ff50144bd-111e-4b32-8c54-d22f3e078118%2Fc218c148c45", precio_actual: 233.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-19" }, // 2026-10-19: Kobe 5 Protro X-Ray Deep Royal, WE HAVE IT, 7 tallas, verificado 19-oct
     ],
   },
 
