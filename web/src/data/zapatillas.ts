@@ -2083,16 +2083,16 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 4, ventilacion: 6,
     },
     categoria_principal: "balanced",
-    tags: ["signature", "presupuesto", "outdoor"],
+    tags: ["signature", "presupuesto"],
     ideal_para: {
       posiciones: ["escolta", "alero", "ala-pivot"],
       peso_jugador_kg: [70, 100],
       estilos: ["potente", "equilibrado"],
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
-    resumen: "Línea de Russell Westbrook con vibe skate-shoe. Rubber gordo lateral, sole resistente y tracción en todas direcciones. Pensada para outdoor y juego potente.",
+    resumen: "Línea de Russell Westbrook con vibe skate-shoe. Rubber gordo lateral, sole resistente y tracción en todas direcciones. Pensada para juego potente; la goma aguanta algo de exterior, pero las reviews dudan de que dure (solo un tercio la ve apta para la calle).",
     pros: [
-      "Rubber durable, ideal outdoor",
+      "Goma sólida que rinde bien en pista cubierta",
       "Lockdown excelente",
       "Tracción multidireccional",
       "Precio razonable",
@@ -2102,7 +2102,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Phylon básico sin gran protección",
       "Estética polariza",
     ],
-    veredicto: "Para jugadores potentes que juegan principalmente outdoor o necesitan durabilidad sobre lujo. No es para guards rápidos.",
+    veredicto: "Para jugadores potentes que juegan sobre todo en pista cubierta y quieren una signature barata y resistente; para la calle hay opciones más duraderas. No es para guards rápidos.",
     imagen_principal: "/shoes/jordan-one-take-5.webp",
     imagenes: [],
     fuentes: [
@@ -2518,7 +2518,7 @@ const _rawZapatillas: Zapatilla[] = [
       lesiones_compatibles: ["rodillas", "fascia"],
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
-    resumen: "El cuarto zapato de Giannis combina React y Zoom para ofrecer protección a jugadores corpulentos. Horma ancha, soporte lateral contenido y durabilidad para indoor y outdoor suave.",
+    resumen: "El cuarto zapato de Giannis combina React y Zoom para ofrecer protección a jugadores corpulentos. Horma ancha, soporte lateral contenido Para pista cubierta: su goma fina y blanda se gasta rápido en exterior.",
     pros: [
       "Horma ancha ideal para pies anchos",
       "React + Zoom da cushion balanceado",
@@ -2750,7 +2750,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 2, ventilacion: 7,
     },
     categoria_principal: "traction-king",
-    tags: ["mujer", "outdoor", "flow", "multi-superficie"],
+    tags: ["mujer", "flow"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
       peso_jugador_kg: [45, 85],
@@ -2762,7 +2762,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Horma femenina real (talón estrecho, cero rozadura trasera)",
       "Tracción Flow imbatible en cualquier superficie",
       "Muy ligera (sin suela de goma)",
-      "Versátil indoor/outdoor",
+      "Agarre UA Flow excelente en pista cubierta",
     ],
     contras: [
       "Court feel diferente (inusual al principio)",
@@ -3719,7 +3719,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Signature NBA top en talla junior",
       "Reactiva y con traccion Continental excelente",
       "Estetica futurista muy demandada",
-      "Buen comportamiento tambien en exterior",
+      "Mismo agarre y sujeción que la adulta",
     ],
     contras: [
       "Tallaje GS: hasta EU 40 aprox.",
@@ -4344,7 +4344,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["moderna", "reebok-performance", "angel-reese", "balanced", "outdoor-viable"],
+    tags: ["moderna", "reebok-performance", "angel-reese", "balanced"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero", "ala-pivot"],
       peso_jugador_kg: [65, 95],
@@ -4354,10 +4354,10 @@ const _rawZapatillas: Zapatilla[] = [
       posiciones: ["pivot"],
       estilos: ["potente"],
     },
-    resumen: "El regreso de Reebok a las zapatillas de rendimiento real. La Engine A estrena el sistema ERS con nitrogen-infused SuperFloat foam en talón y antepié, herringbone multidireccional durable para outdoor, y un upper sintético moldeado ultraligero. Debut de Angel Reese. La mejor zapatilla de performance de Reebok en 15 años.",
+    resumen: "El regreso de Reebok a las zapatillas de rendimiento real. La Engine A estrena el sistema ERS con nitrogen-infused SuperFloat foam en talón y antepié, herringbone multidireccional de goma gruesa, y un upper sintético moldeado ultraligero. Debut de Angel Reese. La mejor zapatilla de performance de Reebok en 15 años.",
     pros: [
       "ERS + SuperFloat foam muy cómodo y responsivo",
-      "Herringbone con goma gruesa válida para outdoor",
+      "Herringbone de goma gruesa con buen agarre",
       "Upper moldeado ligero y transpirable",
       "Reebok vuelve con algo que merece atención",
       "Precio accesible para el nivel tech",
@@ -4367,7 +4367,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Disponibilidad puede ser limitada en España",
       "No tan explosiva como la AE 2 o GT Cut 4",
     ],
-    veredicto: "Para el jugador que quiere algo diferente y equilibrado. La Engine A no lidera en ninguna categoría concreta pero es sólida en todo — y el rubber grueso la hace viable para exterior. Un regreso de Reebok que merece ser tomado en serio.",
+    veredicto: "Para el jugador que quiere algo diferente y equilibrado. La Engine A no lidera en ninguna categoría concreta pero es sólida en todo — y la goma gruesa aguanta algo de exterior, aunque las reviews avisan de que se gasta antes de lo que parece. Un regreso de Reebok que merece ser tomado en serio.",
     imagen_principal: "/shoes/reebok-engine-a.webp",
     imagenes: [],
     fuentes: [
@@ -5538,7 +5538,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     resumen: "Debut signature de A'ja Wilson (3x MVP WNBA). WearTesters le da 8/10 — uno de los mejores bang-for-buck de 2025. Cushlon 3.0 full-length con cushion plush, tracción mordaz de cleat-style nubs, soporte locked-in con TPU midfoot plate, y precio accesible. Sorpresa del año.",
     pros: [
-      "Tracción fantástica indoor y outdoor (cleat-style nubs)",
+      "Tracción fantástica en pista cubierta (tacos tipo cleat)",
       "Cushion Cushlon 3.0 plush y reactivo",
       "Soporte locked-in con TPU midfoot + heel counter sculpted",
       "Precio increíble para el nivel de performance",
@@ -6404,9 +6404,9 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
     resumen: "Sexta entrega de la línea signature de Donovan Mitchell. Destaca por su tracción herringbone excepcional y su precio asequible para ser una firma de jugador NBA.",
-    pros: ["Tracción de primer nivel", "Buena durabilidad outdoor", "Precio competitivo para signature"],
+    pros: ["Tracción de primer nivel", "Sujeción y soporte muy fiables", "Precio competitivo para signature"],
     contras: ["Algo pesada", "Cushion solo correcto, no destacado"],
-    veredicto: "Para jugadores que priorizan el agarre y juegan tanto interior como exterior. Una de las mejores relaciones calidad-precio en signatures.",
+    veredicto: "Para jugadores que priorizan el agarre en pista cubierta (para la calle no: su suela es de interior). Una de las mejores relaciones calidad-precio en signatures.",
     imagen_principal: "/shoes/adidas-don-issue-6.webp",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/adidas-don-issue-6-review/" }],
