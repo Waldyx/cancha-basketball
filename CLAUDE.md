@@ -429,6 +429,8 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   recargar) en tests, asistencia y evaluación · `lineasPlantilla` ya no repite «Pau (2)».
 - ✅ **3 guías más (19-oct)**: scouting con el informe del rival, rutina de tiro para jugadores, asistencia y convocatorias.
   Enlaces de vuelta desde `/rival/`, `/plan-tiro/` y `/asistencia/`; `/rival/` enlaza también al plan de partido.
+  + 2 guías (plan de partido y pizarra táctica, 19-oct), enlazadas desde `/plan-partido/` y `/pizarra/`. Ya son 8 guías
+  para entrenadores. 🔑 Campos de texto a 16 px en móvil en TODA la web (`cancha-redesign.css`): iOS hacía zoom.
 - ✅ **Revisión del plan de partido (`trabajo/revision-19oct-plan.md`) aplicada entera**: al cambiar de rival no se
   quedan las claves del anterior · rival SIN dorsal → iniciales («M. P.»), nunca su nombre · rival escrito a mano
   sincroniza `rivalId`, «Traer» y el datalist sin repintar el campo · `fechaValida` en fecha y en `fechaLarga` ·
