@@ -18,7 +18,8 @@
  *
  * Env: OPENROUTER_API_KEY (obligatoria). CHAT_MODEL (opcional, fuerza un modelo).
  */
-export const config = { maxDuration: 30 };
+// 60 s, como chat.ts: el tope de 15 s por intento cortaba a nemotron (medido el 19-oct).
+export const config = { maxDuration: 60 };
 
 const RL_WINDOW_MS = 30 * 60 * 1000;
 const RL_MAX = 25;
@@ -208,14 +209,14 @@ export default async function handler(req: any, res: any) {
   // logs de Vercel. No lleva nada sensible: es el texto de error de OpenRouter.
   const detalles: string[] = [];
 
-  const deadline = Date.now() + 25000;
+  const deadline = Date.now() + 52000;
   let data: any = null;
   let modeloUsado = "";
 
   for (const intento of intentos) {
     const restante = deadline - Date.now();
     if (restante < 4000) break;
-    const tope = Math.min(15000, restante - 1000);
+    const tope = Math.min(40000, restante - 1000);
     try {
       const r = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",

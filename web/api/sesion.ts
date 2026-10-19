@@ -47,6 +47,11 @@ export const EJERCICIOS_IA: { id: string; nombre: string; uso: string }[] = [
   { id: "ejercicio-1c1-cierre", nombre: "1c1 con salida desde el aro", uso: "cierre defensivo (closeout) y ataque al aro por parejas; defensa individual" },
   { id: "ejercicio-tiro-estrella", nombre: "Tiro en estrella", uso: "tiro tras recepción en cinco puestos con rotación" },
   { id: "ejercicio-tiro-rebote-pase", nombre: "Tiro con rebote y pase", uso: "tirador, reboteador y pasador por tríos; tiro con volumen" },
+  { id: "ejercicio-zigzag-defensivo", nombre: "Zig-zag defensivo por parejas", uso: "desplazamientos defensivos delante del que bota; defensa individual" },
+  { id: "ejercicio-cierre-rebote", nombre: "Cierre de rebote por parejas", uso: "bloqueo de rebote (box out) tras tiro del entrenador" },
+  { id: "ejercicio-2c2-bloqueo-directo", nombre: "2c2 de bloqueo directo", uso: "base y pívot contra dos: bloqueo directo, continuación y su defensa" },
+  { id: "ejercicio-pase-y-corte", nombre: "Pase y corte (dar y ir)", uso: "pasar al ala y cortar al aro por delante del defensor" },
+  { id: "ejercicio-shell-4c4", nombre: "Concha defensiva 4c4", uso: "posiciones de presión, negación y ayuda en cada pase; defensa de equipo" },
 ];
 
 const ETAPAS: Record<string, { nombre: string; edades: string; guia: string }> = {

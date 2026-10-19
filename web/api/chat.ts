@@ -33,7 +33,7 @@ export const config = { maxDuration: 60 };
 // ── Catálogo compacto para el system prompt (1 línea/zapa, ~5k tokens) ─────────
 const CATALOGO: string = catalogData.catalogo;
 
-const SYSTEM = `Eres el experto de CANCHA.ZAPA, web independiente de zapatillas de baloncesto para España. Hablas castellano, directo, sin marketing ("sin BS"). Tuteas.
+const sistema = (catalogo: string) => `Eres el experto de CANCHA.ZAPA, web independiente de zapatillas de baloncesto para España. Hablas castellano, directo, sin marketing ("sin BS"). Tuteas.
 
 REGLAS:
 - Tu especialidad son las ZAPATILLAS de este catálogo: NUNCA inventes modelos, specs ni precios; usa solo los datos de abajo. Si una zapa no está, dilo claro.
@@ -41,6 +41,7 @@ REGLAS:
 - Si una zapa es mala para el caso del usuario, lo dices sin rodeos.
 - Los scores van de 1 a 10. Los precios son los mejores verificados en tiendas españolas.
 - Cuando recomiendes una zapa concreta, escribe su marcador EXACTO [[shoe:SLUG]] en su propia línea (el SLUG es el primer campo de cada línea del catálogo). El front lo convierte en tarjeta con foto, score y precio. Máximo 2-3 marcadores por respuesta.
+- En el texto nombra cada zapa por su nombre comercial (el segundo campo), NUNCA por el slug. No copies las líneas del catálogo: escribe frases.
 - Para zapas marcadas RETRO: avisa que son más de coleccionismo/uso casual que de cancha competitiva.
 - GÉNERO/EDAD (marcadores al final de cada línea del catálogo):
   · "JUNIOR-GS" = versión júnior (Grade School, tallaje niño hasta ~EU40). Recomiéndalas SOLO si el usuario pide algo para un niño/junior; NUNCA a un adulto. Si te piden la adulta, usa la versión sin este marcador.
@@ -51,7 +52,26 @@ REGLAS:
 - Respuestas breves (2-4 frases + marcadores). Cierra sugiriendo el quiz (/quiz) o una ficha concreta.
 
 CATÁLOGO (slug | marca modelo | categoría | precio | scores | altura | horma | marcadores RETRO/JUNIOR-GS/MUJER):
-${CATALOGO}`;
+${catalogo}`;
+
+// 🔴 19-oct-2026, medido en producción: nemotron ofrecía la Curry 12 GS (de niño) a un adulto
+// y una zapa de 127 € con tope de 120 €, saltándose las dos reglas del prompt. Lo robusto no es
+// repetir la regla: si nadie en la conversación pide algo júnior, las GS NO entran en el
+// catálogo que ve el modelo (no puede recomendar lo que no ve). El presupuesto se le recuerda
+// al final, que es lo último que lee.
+const JUNIOR = /junior|jr\b|niñ|infantil|hijo|hija|grade school|\bgs\b/;
+const leerPresupuesto = (q: string): number => {
+  const mp = q.match(/(\d{1,4})\s*(?:€|eur|euros?)/) ?? q.match(/presupuesto\D{0,12}(\d{1,4})/);
+  return mp ? Number(mp[1]) : 0;
+};
+const CATALOGO_ADULTO = CATALOGO.split("\n").filter((l) => !/JUNIOR-GS/.test(l)).join("\n");
+export function sistemaPara(textoUsuario: string): string {
+  const q = textoUsuario.toLowerCase();
+  let s = sistema(JUNIOR.test(q) ? CATALOGO : CATALOGO_ADULTO);
+  const presupuesto = leerPresupuesto(q);
+  if (presupuesto > 0) s += `\n\nPRESUPUESTO DEL USUARIO: ${presupuesto} €. No recomiendes ni propongas como opción ninguna zapa de más de ${presupuesto} €.`;
+  return s;
+}
 
 // ── Fallback local: responde SIN llamar a ninguna IA ───────────────────────────
 // Cuando la cadena entera falla (free tier agotado, modelos caídos) el usuario se
@@ -112,10 +132,9 @@ function asegurarMarcadores(texto: string): string {
 
 function respuestaLocal(pregunta: string): string {
   const q = pregunta.toLowerCase();
-  const mp = q.match(/(\d{1,4})\s*(?:€|eur|euros?)/) ?? q.match(/presupuesto\D{0,12}(\d{1,4})/);
-  const presupuesto = mp ? Number(mp[1]) : 0;
+  const presupuesto = leerPresupuesto(q);
   const exterior = /exterior|outdoor|calle|asfalto|cemento|parque/.test(q);
-  const junior = /junior|jr\b|niñ|infantil|hijo|hija|grade school/.test(q);
+  const junior = JUNIOR.test(q);
   const mujer = /mujer|chica|jugadora|femenin/.test(q);
 
   // Los RETRO fuera siempre: son de coleccionismo, no de cancha (regla del prompt).
@@ -362,6 +381,15 @@ export default async function handler(req: any, res: any) {
   // Cuerpo de la petición. `models` = la lista entera (OpenRouter la recorre por dentro);
   // `model` = un modelo suelto. Los docs muestran `models` SIN `model`, así que se manda
   // uno u otro, nunca los dos.
+  // Lo que ha escrito el usuario, el mensaje más reciente primero: así gana el último
+  // presupuesto que diga, no el primero.
+  const SYSTEM = sistemaPara(
+    messages
+      .filter((m) => m.role === "user")
+      .map((m) => m.content)
+      .reverse()
+      .join("\n")
+  );
   const payload = (sel: { models: string[] } | { model: string }) =>
     JSON.stringify({
       ...sel,

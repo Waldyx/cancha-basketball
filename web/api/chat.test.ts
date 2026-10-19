@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { formatoVisible, pareceRazonamiento } from "./chat.ts";
+import { formatoVisible, pareceRazonamiento, sistemaPara } from "./chat.ts";
 
 // Candado del 21-sep-2026. El chat servía en producción la CADENA DE PENSAMIENTO del
 // modelo en vez de la respuesta, en inglés y sin llegar a responder. Los dos positivos
@@ -88,5 +88,23 @@ describe("formatoVisible", () => {
   it("una línea de prosa larga sale sin esperar al salto de línea", () => {
     const prosa = "Para jugar por fuera necesitas una suela gruesa y un caucho duro que aguante el asfalto";
     expect(formatoVisible(prosa)).toBe(prosa);
+  });
+});
+
+// Candado del 19-oct-2026: nemotron ofrecía GS a adultos y zapas por encima del tope.
+describe("sistemaPara", () => {
+  it("sin petición júnior, las GS no están en el catálogo que ve el modelo", () => {
+    const lineaGS = "ua-curry-12-gs |";
+    expect(sistemaPara("busco zapas para alero de 80 kg")).not.toContain(lineaGS);
+    expect(sistemaPara("busco zapas para alero de 80 kg")).toContain("ua-curry-12 |");
+    expect(sistemaPara("algo para mi hijo de 12 años")).toContain(lineaGS);
+    expect(sistemaPara("¿la Curry 12 GS merece la pena?")).toContain(lineaGS);
+  });
+  it("recuerda el presupuesto al final si lo hay", () => {
+    expect(sistemaPara("menos de 120 euros").trimEnd()).toMatch(/120 €\.$/);
+    expect(sistemaPara("para pista interior")).not.toContain("PRESUPUESTO DEL USUARIO");
+  });
+  it("gana el presupuesto del mensaje más reciente (que llega primero)", () => {
+    expect(sistemaPara("mejor hasta 90 €\nmenos de 150 euros")).toContain("PRESUPUESTO DEL USUARIO: 90 €");
   });
 });

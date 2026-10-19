@@ -628,6 +628,217 @@ function tiroReboteYPase(): Jugada {
   });
 }
 
+function zigzagDefensivo(): Jugada {
+  const p1 = paso(
+    [
+      pz("a1", "atq", "1", 13.0, 2.0),
+      pz("b", "balon", "", 13.4, 1.5),
+      pz("d1", "def", "X1", 11.9, 2.5),
+      fila("f", 12.8, 12.6, 3, "atq", [12.8, 7.5]),
+    ],
+    [
+      ln("bote", "a1", [13.0, 2.0], [9.6, 6.0], { mid: [11.6, 3.6] }),
+      ln("corte", "d1", [11.9, 2.5], [8.5, 6.3], { mid: [10.5, 4.0] }),
+    ],
+    "Por parejas, en medio campo de ancho. El atacante bota en diagonal hacia la línea de fondo; el defensor va delante, de espaldas al aro, deslizando sin cruzar los pies."
+  );
+  const p2 = sig(
+    p1,
+    [
+      ln("bote", "a1", [9.6, 6.0], [6.2, 2.0], { mid: [8.2, 3.6] }),
+      ln("corte", "d1", [8.5, 6.3], [5.1, 2.3], { mid: [6.9, 4.0] }),
+    ],
+    "Cambio de dirección: el atacante cambia de mano y va hacia la banda. El defensor cambia el paso (abre la cadera) y vuelve a ponerse delante.",
+    { b: [10.0, 6.4] }
+  );
+  const p3 = sig(
+    p2,
+    [
+      ln("bote", "a1", [6.2, 2.0], [3.4, 5.0], { mid: [4.9, 3.0] }),
+      ln("corte", "d1", [5.1, 2.3], [2.4, 5.4], { mid: [3.7, 3.4] }),
+    ],
+    "Último zig-zag hasta el fondo. Primeras repeticiones al 50 %; después el atacante intenta superarle y el defensor contiene sin falta. Vuelven por la otra banda cambiando los papeles.",
+    { b: [6.6, 2.4] }
+  );
+  return nuevaJugada({
+    id: "ejercicio-zigzag-defensivo",
+    nombre: "Zig-zag defensivo por parejas",
+    categoria: "ejercicio",
+    notas:
+      "Cómo se hace: por parejas, atacante con balón y defensor delante. El atacante bota en zig-zag de banda a centro hasta la línea de fondo; el defensor desliza para estar siempre delante. Vuelven por el otro lado y cambian.\nQué se corrige: piernas flexionadas y espalda recta, pasos cortos sin juntar ni cruzar los pies, cadera que abre antes del cambio de dirección, manos activas sin alcanzar y nunca perder la línea balón-aro.",
+    cancha: "media",
+    orient: "v",
+    pasos: [p1, p2, p3],
+  });
+}
+
+function cierreRebote(): Jugada {
+  const p1 = paso(
+    [
+      entrenador(8.4, 7.5),
+      pz("b", "balon", "", 8.9, 7.9),
+      pz("a1", "atq", "1", 5.2, 4.2),
+      pz("d1", "def", "X1", 4.1, 4.9),
+      pz("a2", "atq", "2", 5.2, 10.8),
+      pz("d2", "def", "X2", 4.1, 10.1),
+    ],
+    [ln("tiro", "e", [8.4, 7.5], [2.2, 7.5])],
+    "Dos parejas en los laterales de la zona, el defensor entre su atacante y el aro. El entrenador tira desde arriba."
+  );
+  const p2 = sig(
+    p1,
+    [
+      ln("corte", "a1", [5.2, 4.2], [4.4, 4.9]),
+      ln("corte", "d1", [4.1, 4.9], [3.3, 5.7]),
+      ln("corte", "a2", [5.2, 10.8], [4.4, 10.1]),
+      ln("corte", "d2", [4.1, 10.1], [3.3, 9.3]),
+    ],
+    "Al salir el tiro, cada defensor busca a su atacante, pivota y le pone la espalda (cierre). El atacante intenta entrar a por el rebote.",
+    { b: [3.4, 5.9] }
+  );
+  const p3 = sig(
+    p2,
+    [ln("pase", "d1", [3.3, 5.7], [8.4, 7.5], { fin: "e" })],
+    "Quien gana la posición atrapa el rebote con las dos manos y saca un pase de salida al entrenador. Punto para la pareja que defiende si coge el rebote; si lo coge el atacante, cambian.",
+    { b: [2.9, 6.3] }
+  );
+  return nuevaJugada({
+    id: "ejercicio-cierre-rebote",
+    nombre: "Cierre de rebote por parejas",
+    categoria: "ejercicio",
+    notas:
+      "Cómo se hace: parejas atacante-defensor alrededor de la zona y el entrenador tira. Al salir el tiro, el defensor hace contacto, pivota, cierra a su atacante y va a por el balón. Rebote defensivo = punto; ofensivo = cambio de papeles.\nQué se corrige: mirar al atacante antes que al balón, contacto con la espalda y los brazos en forma de U, pivote rápido, coger el balón con las dos manos en el punto más alto y protegerlo bajo la barbilla.",
+    cancha: "media",
+    orient: "v",
+    pasos: [p1, p2, p3],
+  });
+}
+
+function dosDosBloqueoDirecto(): Jugada {
+  const p1 = paso(
+    [
+      pz("a1", "atq", "1", 9.2, 7.5),
+      pz("b", "balon", "", 9.7, 7.9),
+      pz("a5", "atq", "5", 6.0, 9.8),
+      pz("d1", "def", "X1", 8.1, 7.5),
+      pz("d5", "def", "X5", 5.0, 9.2),
+    ],
+    [ln("bloqueo", "a5", [6.0, 9.8], [8.0, 8.7])],
+    "2 contra 2 arriba: base con balón y pívot. El 5 sube a poner el bloqueo directo en el hombro del defensor del 1."
+  );
+  const p2 = sig(
+    p1,
+    [
+      ln("bote", "a1", [9.2, 7.5], [6.6, 10.4], { mid: [8.9, 9.6] }),
+      ln("corte", "a5", [8.0, 8.7], [3.4, 8.2], { mid: [5.9, 8.0] }),
+      ln("corte", "d1", [8.1, 7.5], [8.4, 9.7], { mid: [9.1, 8.9] }),
+      ln("corte", "d5", [5.0, 9.2], [6.4, 9.2]),
+    ],
+    "El 1 sale pegado al bloqueo y ataca el aro. El 5 rueda mirando al balón. X5 sale a frenar al que bota y X1 persigue por detrás del bloqueo."
+  );
+  const p3 = sig(
+    p2,
+    [ln("pase", "a1", [6.6, 10.4], [3.4, 8.2], { fin: "a5" }), ln("tiro", "a5", [3.4, 8.2], [1.9, 7.6])],
+    "Lectura: si X5 se queda con el balón, pase al que rueda y bandeja. Si X5 se queda atrás protegiendo el aro, el 1 tira o sigue botando hasta la bandeja.",
+    { b: [7.1, 10.8] }
+  );
+  return nuevaJugada({
+    id: "ejercicio-2c2-bloqueo-directo",
+    nombre: "2 contra 2 de bloqueo directo",
+    categoria: "ejercicio",
+    notas:
+      "Cómo se hace: base y pívot contra dos defensores. El pívot bloquea, el base usa el bloqueo y lee a la defensa: tiro o penetración si nadie le frena, pase al que rueda si el defensor del pívot sale. Se juega hasta canasta y rotan las parejas.\nQué se corrige: bloqueo quieto y con los pies abiertos (si no, es falta), el base espera a que el bloqueo esté puesto y sale hombro con hombro, el pívot rueda mirando al balón, y en defensa: hablar («¡bloqueo!») y que el defensor del pívot frene sin perder a su hombre.",
+    cancha: "media",
+    orient: "v",
+    pasos: [p1, p2, p3],
+  });
+}
+
+function paseYCorte(): Jugada {
+  const p1 = paso(
+    [
+      pz("a1", "atq", "1", 8.8, 8.6),
+      pz("b", "balon", "", 9.3, 9.0),
+      pz("a2", "atq", "2", 6.4, 2.8),
+      pz("d1", "def", "X1", 7.8, 8.2),
+      fila("f", 11.2, 10.8, 3, "atq", [8.8, 8.6]),
+    ],
+    [ln("pase", "a1", [8.8, 8.6], [6.4, 2.8], { fin: "a2" })],
+    "El 1 está arriba con balón y un defensor; el 2 en el ala. El 1 pasa al ala."
+  );
+  const p2 = sig(
+    p1,
+    [ln("corte", "a1", [8.8, 8.6], [2.8, 6.4], { mid: [6.6, 6.4] }), ln("corte", "d1", [7.8, 8.2], [4.6, 7.4], { mid: [6.4, 7.8] })],
+    "Nada más pasar, el 1 amaga hacia fuera y corta hacia el aro por DELANTE de su defensor (dar y ir), pidiendo el balón con la mano de fuera. El defensor llega tarde, por detrás.",
+    { b: [6.9, 3.2] }
+  );
+  const p3 = sig(
+    p2,
+    [ln("pase", "a2", [6.4, 2.8], [2.8, 6.4], { fin: "a1" }), ln("tiro", "a1", [2.8, 6.4], [1.9, 7.2])],
+    "El 2 le devuelve el balón en carrera y el 1 termina con bandeja. Si el defensor le cierra el corte, el 1 sigue hasta la esquina y se repite por el otro lado."
+  );
+  return nuevaJugada({
+    id: "ejercicio-pase-y-corte",
+    nombre: "Pase y corte (dar y ir)",
+    categoria: "ejercicio",
+    notas:
+      "Cómo se hace: el de arriba pasa al ala y corta al aro por delante de su defensor para recibir de vuelta y acabar. Primero sin defensa, después con un defensor que intenta negar el corte. El que corta pasa a ser el del ala.\nQué se corrige: pasar y cortar sin pararse a mirar, cambio de ritmo en el corte, ganar la posición por delante del defensor, pedir el balón con la mano de fuera y pase al ritmo del corte (ni antes ni detrás).",
+    cancha: "media",
+    orient: "v",
+    pasos: [p1, p2, p3],
+  });
+}
+
+function shell4c4(): Jugada {
+  const p1 = paso(
+    [
+      pz("a1", "atq", "1", 8.6, 5.0),
+      pz("b", "balon", "", 9.1, 4.6),
+      pz("a2", "atq", "2", 8.6, 10.0),
+      pz("a3", "atq", "3", 5.0, 1.6),
+      pz("a4", "atq", "4", 5.0, 13.4),
+      pz("d1", "def", "X1", 7.6, 5.3),
+      pz("d2", "def", "X2", 7.0, 8.6),
+      pz("d3", "def", "X3", 4.6, 3.2),
+      pz("d4", "def", "X4", 3.8, 9.6),
+    ],
+    [],
+    "4 contra 4 sin botar. X1 presiona al balón; X2 y X3, a un pase, niegan la línea de pase; X4, a dos pases, ayuda dentro de la zona."
+  );
+  const p2 = sig(
+    p1,
+    [ln("pase", "a1", [8.6, 5.0], [5.0, 1.6], { fin: "a3" })],
+    "Pase al ala. Todos se mueven MIENTRAS vuela el balón, no cuando ya ha llegado."
+  );
+  const p3 = sig(
+    p2,
+    [],
+    "Así queda: X3 presiona al balón, X1 baja a la línea del balón, X2 y X4 cierran la ayuda en la zona.",
+    { b: [5.5, 1.2], d1: [6.4, 5.0], d2: [5.4, 7.6], d3: [4.4, 2.6], d4: [2.9, 8.6] }
+  );
+  const p4 = sig(
+    p3,
+    [ln("pase", "a3", [5.0, 1.6], [8.6, 5.0], { fin: "a1" }), ln("pase", "a1", [8.6, 5.0], [8.6, 10.0], { fin: "a2" })],
+    "El balón vuelve arriba y cambia de lado. La defensa se recoloca en cada pase: el del balón presiona, los de un pase niegan y los de dos pases ayudan."
+  );
+  const p5 = sig(
+    p4,
+    [],
+    "Con el balón en el otro lado: X2 presiona, X1 y X4 están a un pase y X3 ayuda desde la zona. Cuando la defensa se mueve bien, se libera el bote y se juega hasta canasta.",
+    { b: [9.1, 10.4], d1: [7.0, 6.4], d2: [7.6, 9.7], d3: [3.8, 5.4], d4: [5.6, 12.4] }
+  );
+  return nuevaJugada({
+    id: "ejercicio-shell-4c4",
+    nombre: "Concha defensiva 4 contra 4 (shell)",
+    categoria: "ejercicio",
+    notas:
+      "Cómo se hace: cuatro atacantes fijos en el perímetro se pasan el balón sin botar; cuatro defensores se recolocan en cada pase. Primero despacio y parando para corregir; después se libera el bote y se juega 4c4 hasta canasta.\nQué se corrige: moverse mientras el balón está en el aire, ver siempre balón y hombre (triángulo), negar a un pase, ayudar a dos pases con un pie en la zona, y hablar: «balón», «ayuda», «niego».",
+    cancha: "media",
+    orient: "v",
+    pasos: [p1, p2, p3, p4, p5],
+  });
+}
+
 export const PLANTILLAS_EJERCICIOS: Plantilla[] = [
   { id: "ejercicio-rueda-bandejas", nombre: "Rueda de bandejas (dos lados)", categoria: "ejercicio", descripcion: "Dos filas en las alas, rebote y cambio de fila · 3 pasos", crear: ruedaBandejas },
   { id: "ejercicio-tres-hombres", nombre: "3 hombres (trenza)", categoria: "ejercicio", descripcion: "Pista completa, pase y corre por detrás · 5 pasos", crear: tresHombres },
@@ -636,4 +847,9 @@ export const PLANTILLAS_EJERCICIOS: Plantilla[] = [
   { id: "ejercicio-1c1-cierre", nombre: "1c1 con salida desde el aro", categoria: "ejercicio", descripcion: "Cierre del defensor y ataque al aro · 3 pasos", crear: unoUnoCierre },
   { id: "ejercicio-tiro-estrella", nombre: "Tiro en estrella", categoria: "ejercicio", descripcion: "Cinco puestos y rotación · 3 pasos", crear: tiroEstrella },
   { id: "ejercicio-tiro-rebote-pase", nombre: "Tiro con rebote y pase", categoria: "ejercicio", descripcion: "Tirador, reboteador y fila en rotación · 3 pasos", crear: tiroReboteYPase },
+  { id: "ejercicio-zigzag-defensivo", nombre: "Zig-zag defensivo", categoria: "ejercicio", descripcion: "Por parejas, desplazamientos delante del que bota · 3 pasos", crear: zigzagDefensivo },
+  { id: "ejercicio-cierre-rebote", nombre: "Cierre de rebote", categoria: "ejercicio", descripcion: "Parejas, tira el entrenador y se cierra al atacante · 3 pasos", crear: cierreRebote },
+  { id: "ejercicio-2c2-bloqueo-directo", nombre: "2c2 de bloqueo directo", categoria: "ejercicio", descripcion: "Base y pívot, bloqueo, continuación y lectura · 3 pasos", crear: dosDosBloqueoDirecto },
+  { id: "ejercicio-pase-y-corte", nombre: "Pase y corte (dar y ir)", categoria: "ejercicio", descripcion: "Pasa al ala y corta por delante del defensor · 3 pasos", crear: paseYCorte },
+  { id: "ejercicio-shell-4c4", nombre: "Concha defensiva 4c4", categoria: "ejercicio", descripcion: "Presión, negación y ayuda en cada pase · 5 pasos", crear: shell4c4 },
 ];

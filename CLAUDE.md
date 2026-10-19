@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-09-23 (sesión 54)
+> Última actualización: 2026-10-19 (sesión 57)
 > Para Claude: lee esto al empezar una sesión nueva. **Solo contiene lo vivo**: estado, reglas,
 > doctrina, afiliados, arquitectura y pendientes.
 >
@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **245 zapas (43 OCULTAS, 202 visibles) · 290 tests · `astro check` 0 errores · 347 páginas** |
+| Tamaño | **245 zapas (42 OCULTAS, 203 visibles) · 641 tests · `astro check` 0 errores · 371 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -302,6 +302,37 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 
 ## 🔴 Pendientes abiertos
 
+### ▶️ S57 (19-oct, autónomo) — generador de sesiones con IA y la cadena gratuita, otra vez medio muerta
+
+- ✅ **Fuentes**: los dos `preload` de `.woff2` de `Base.astro` daban **404 en TODAS las páginas** (Google cambió las
+  versiones). Quitados (`3f6e0d9`); la hoja de Google Fonts sigue cargando las buenas.
+- ✅ **QA en móvil (375 px) de las 11 herramientas en producción**: ninguna desborda la página (las tablas anchas van en su
+  contenedor con scroll) y sin errores de consola salvo el de las fuentes. Torneo probado de punta a punta (6 equipos, 2
+  grupos + semis, triple empate resuelto por diferencia, cruces correctos, foco conservado al teclear resultados).
+- ✅ **Generador de sesiones con IA** (`feedf89`), ver el punto del modelo de negocio.
+- 🔴 **Cadena gratuita: 3 de 6 modelos ya no existen gratis** (medido contra `/api/v1/models`): `qwen3.8-27b` (404
+  "unavailable for free"), `ling-3.0-flash-vl` y `glm-5.2`. Quedan **17 `:free`**, todos de razonamiento. Entran
+  `minimax-m3.1-flash` (nuevo ese mismo día), `nemotron-3.5-super-vl` y `nemotron-3-ultra-550b`, **sin validar**.
+  Hoy contesta casi todo **nemotron-3-super**; gemma-31b sigue con 429.
+- 🔴 **El chat servía filas crudas del catálogo y sin tarjetas**: nemotron imita el formato de las líneas del prompt
+  (slug suelto + `Marca | cat | 98€ | tracc 10…`) y el tope de 15 s lo cortaba a mitad, por un camino que cerraba sin
+  `asegurarMarcadores`. Arreglado en el stream (`formatoVisible`) + 40 s por intento + `maxDuration: 60`. Lo mismo para
+  `coach.ts`.
+- ✅ **Chat medido tras el arreglo (3 consultas)**: las 3 con tarjetas y 0 filas crudas (gemma 4 s; nemotron 14-24 s). Pero
+  nemotron se saltaba reglas: GS a un adulto y una zapa de 127 € con tope de 120. Ahora `sistemaPara()` quita las GS del
+  catálogo que ve el modelo si nadie pide algo júnior y añade el presupuesto al final del prompt; y se le pide nombrar por
+  nombre comercial, no por slug.
+- ✅ **5 ejercicios dibujados nuevos** (7 → 12): zig-zag defensivo, cierre de rebote, 2c2 de bloqueo directo, pase y corte y
+  concha 4c4 (shell). Revisados dibujados paso a paso (render a PNG con `renderSvgCompleto` + sharp). 🔑 En `sig()` el
+  `mueve` coloca las piezas al EMPEZAR el paso, no al acabarlo: lo que se mueve DURANTE un paso va con una línea.
+  También van en `EJERCICIOS_IA`, así que la IA de sesiones ya los usa.
+- ✅ **Kobe 5 Protro rescatada** (Decathlon marketplace, 233,99 € = 1,34× MSRP, 7 tallas). Descartadas: **PG 6** (una
+  talla y 1 unidad) y **Why Not .6** (solo 36,5-40: curva de mujer/GS). Ocultas 43 → 42.
+- ⏸ **Search Console**: la sesión de Google del navegador integrado caducó; no se mete contraseña. Revisarlo el usuario
+  (estaba previsto hacia el 29-oct).
+- Correo: Forum Flash 48h (18-19 oct) ya cargada; las de ECI «8 Días de Oro» son de hogar/juguetes/ropa, no se cargan.
+  Invitación de Awin de «Pixasocial (US)»: irrelevante, sin aceptar.
+
 ### 💼 MODELO DE NEGOCIO (decidido con el usuario, 15-oct)
 - **Freemium**: lo de zapatillas (catálogo, fichas, quiz, rankings, blog) GRATIS SIEMPRE: es el embudo SEO y
   de afiliados. Lo de más valor (herramientas de entrenador) será **Pro**. Lo que empuja una compra de
@@ -458,7 +489,12 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   la propia estadística de la FCBQ y el resultado oficial 51-1 (y el del Mataró 69-19). Sin confirmar en el reglamento.
   El usuario está montando las estadísticas de su hijo (Pre-mini, AB Premià Blau, dorsal 12): falta la captura de la
   pestaña «Resum» de la app oficial (la de «Jugades» es jugada a jugada); la J1 vs Mataró no tiene acta digital.
-- ▶️ **Ideas siguientes** (sin prometer en la web): generador de sesiones con IA.
+- ✅ **Generador de sesiones con IA (19-oct)**: en la pizarra, panel de sesiones → «O pídesela a la IA» (etapa + texto libre;
+  duración y jugadores salen de los campos de arriba). `api/sesion.ts` pide un plan en JSON y lo VALIDA (`normalizarPlan`:
+  minutos que suman exacto, solo ids de `EJERCICIOS_IA` — test candado contra la biblioteca —, textos recortados). Si la IA
+  falla, la pizarra crea la sesión base de la etapa con esa duración y el foco deducido del texto (`objetivoDeTexto`).
+  Pro: `pizarra-sesion-ia`. Medido: 4 de 5 peticiones reales bien (13-15 s, nemotron); la que falló era de tiempo y se
+  arregló con `maxDuration: 60`. `src/lib/pizarraSesionIA.ts`.
 - ▶️ **Paso 3, por orden**: control de minutos/cuartos (verificar normas de participación de la FCBQ) → mapa de
   tiro → libro de jugadas con escudo del club → etiquetas de vídeo. Más ideas: informe del rival (actas FEB),
   plan de partido, generador de sesiones con IA, evaluación de jugadores + informe a familias, tests físicos,
@@ -2551,12 +2587,14 @@ presupuesto · ancho de pie · uso (auto-submit 400 ms).
 ### Serverless (`web/api/`, ESM puro, SIN bundling)
 ⚠ **Los imports deben llevar extensión** o revientan con `ERR_MODULE_NOT_FOUND`. Las funciones son
 **autocontenidas**: no importan el catálogo, leen `_catalog.json`.
-- `chat.ts` — asistente IA. Cadena gratuita de OpenRouter (mejor→peor), enviada ENTERA en el
-  parámetro `models` de UNA sola petición (s42, ver *IA del chat*): `minimax/minimax-m2.7:free` →
-  `google/gemma-4-31b-it:free` → `google/gemma-4-26b-a4b-it:free` → `z-ai/glm-5.2:free` →
-  `thinkingmachines/inkling-small:free`. Presupuesto 25 s para la petición completa.
+- `chat.ts` — asistente IA. Cadena gratuita de OpenRouter: los 3 primeros en `models` de una petición y
+  detrás de uno en uno. A 19-oct: `gemma-4-31b-it` → `nemotron-3-super-120b` → `minimax-m3.1-flash` →
+  `gemma-4-26b` → `nemotron-3.5-super-vl` → `nemotron-3-ultra-550b` (los 3 últimos de esa lista, SIN validar).
+  `maxDuration: 60`, hasta 40 s por intento. `formatoVisible` arregla en el stream el formato de catálogo
+  que copia nemotron (slug suelto → `[[shoe:]]`, fila cruda fuera).
   `OPENROUTER_API_KEY` en Vercel, **NUNCA en el repo**. ⚠ `deepseek-v4-flash:free` NO existe (404).
 - `coach.ts` — agente de estadísticas (misma cadena, mismo `models`).
+- `sesion.ts` — generador de sesiones de la pizarra (misma cadena; plan JSON validado en servidor).
 - `feb.ts` — importador de actas FEB: saca el JWT de `#_ctl0_token` y llama a
   `https://intrafeb.feb.es/LiveStats.API/api/v1/BoxScore/{id}`.
   ⛔ **FCBQ/Cataluña NO es accesible**: `basquetcatala.cat` protege toda la web con reCAPTCHA y su
@@ -2608,4 +2646,4 @@ presupuesto · ancho de pie · uso (auto-submit 400 ms).
   `cancha-quiz-respuestas` (sessionStorage).
 - **Scripts de mantenimiento**: `update-images.js`, `fix-encoding.js`, `optimize-images.mjs`,
   `gen-chat-catalog.ts`, y los `audit-*` listados arriba.
-- **Tests**: `npx vitest run` → 287.
+- **Tests**: `npx vitest run` → 641.

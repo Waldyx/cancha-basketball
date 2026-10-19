@@ -309,9 +309,9 @@ describe("ejercicios de entrenamiento", () => {
     ...s.piezas.filter((p) => p.tipo === "fila").flatMap((p) => puestosFila(p).map((q) => ({ ...q, r: FILA.RADIO }))),
   ];
 
-  it("hay siete, con ids únicos, categoría ejercicio y las dos notas (cómo se hace y qué se corrige)", () => {
-    expect(PLANTILLAS_EJERCICIOS).toHaveLength(7);
-    expect(new Set(PLANTILLAS_EJERCICIOS.map((p) => p.id)).size).toBe(7);
+  it("hay doce, con ids únicos, categoría ejercicio y las dos notas (cómo se hace y qué se corrige)", () => {
+    expect(PLANTILLAS_EJERCICIOS).toHaveLength(12);
+    expect(new Set(PLANTILLAS_EJERCICIOS.map((p) => p.id)).size).toBe(12);
     for (const p of PLANTILLAS_EJERCICIOS) {
       const j = p.crear();
       expect(j.categoria, p.id).toBe("ejercicio");
@@ -324,7 +324,7 @@ describe("ejercicios de entrenamiento", () => {
 
   it("cubren los ejercicios pedidos", () => {
     const ids = PLANTILLAS_EJERCICIOS.map((p) => p.id).join(" ");
-    for (const k of ["rueda-bandejas", "tres-hombres", "3c2-2c1", "mikan", "1c1", "estrella", "rebote-pase"]) expect(ids).toContain(k);
+    for (const k of ["rueda-bandejas", "tres-hombres", "3c2-2c1", "mikan", "1c1", "estrella", "rebote-pase", "zigzag", "cierre-rebote", "bloqueo-directo", "pase-y-corte", "shell"]) expect(ids).toContain(k);
   });
 
   it("pasan la validación sin perder nada y caben en una URL razonable", async () => {
