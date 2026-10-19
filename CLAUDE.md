@@ -368,8 +368,14 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   pie plano, entra la Kai 2). Se dejan: notas citadas de HG/WT y la guía de espumas (valora tecnologías, no zapas). Fuera
   de las recomendaciones las ocultas (BB v3, Kawhi 2, Luka 77 GS, Unpre ARS 2, Embiid 1) y «NB vs ANTA» rehecho. Mapeo en
   `trabajo/w32-notas.tsv`. ⚠ Las marcas solo se resuelven en `body`: en `description`/`title` no pongas números.
-- ▶️ **PARA RETOMAR**: (1) **horma en los artículos**: dicen «GT Cut 4 horma estrecha» (ficha: normal) y daban la Ja 3 como
-  «la Nike más ancha» (ficha: normal); barrer `horma`/`estrech`/`ancha` contra la ficha; (2) las 45
+- ✅ **Horma, barrido de artículos (`1d89684`, `trabajo/w33-horma.tsv`)**: 107 afirmaciones de horma de zapas concretas
+  contrastadas con ficha + HoopsGeek (`thehoopsgeek.com`, no `hoopsgeek.com`; caché en `$TEMP/hgcat`). **7 fichas
+  corregidas** con cita verificada en el HTML: GT Cut 4, Ja 3, Sabrina 3 → estrecha; Joker 1, Immortality 4 (+GS), Freak 7
+  → normal («narrow to regular best»). 🔑 **Regla: la ficha de horma solo se mueve hacia MÁS ESTRECHA** (Curry 13 y KD 17,
+  que HG ve amplias, se quedan normal): recomendar como ancha una zapa que aprieta es el error que duele, como con el corte.
+  45 frases de artículos corregidas (la Ja 3 «la Nike ancha», la Kai 2 «la mejor para pie ancho», la LeBron 23
+  «estrecha»…). Y las FAQ de `seoPages` sin notas x/10 a mano (no resuelven marcas).
+- ▶️ **PARA RETOMAR**: (1) ~~horma en los artículos~~ hecho; (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
   el sitemap de HG en 2-3 semanas; (3) Search Console (sesión de Google caducada en el navegador integrado: la abre el
   usuario); (4) medir otra vez el chat y `/api/sesion` (`npx tsx scripts/audit-ia.ts` + 2-3 consultas reales).
