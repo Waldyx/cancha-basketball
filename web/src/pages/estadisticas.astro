@@ -101,7 +101,7 @@ import "../styles/cancha-redesign.css";
                   selecciona la tabla de estadísticas de tu equipo y <strong>pégala aquí tal cual</strong>.
                   Detecto las columnas por su cabecera (Punts, T2, T3, TL, Reb, As…) en catalán o castellano.
                 </p>
-                <textarea id="paste-in" class="st-paste-area" rows="6" placeholder="Dorsal  Jugador  Min  Punts  T2  T3  TL  Reb  As  BR  Tap  PP  Faltes&#10;7  COGNOM, Nom  24  15  4/7  1/3  4/4  6  3  2  0  2  3  …"></textarea>
+                <textarea id="paste-in" class="st-paste-area" rows="6" aria-label="Tabla de estadísticas pegada" placeholder="Dorsal  Jugador  Min  Punts  T2  T3  TL  Reb  As  BR  Tap  PP  Faltes&#10;7  COGNOM, Nom  24  15  4/7  1/3  4/4  6  3  2  0  2  3  …"></textarea>
                 <button type="button" id="paste-parse" class="st-btn">Leer acta pegada</button>
                 <p id="paste-error" class="st-error hidden"></p>
                 <div id="paste-result" class="hidden"></div>
@@ -201,7 +201,7 @@ import "../styles/cancha-redesign.css";
             <div id="coach-log" class="st-coach-log"></div>
             <div id="coach-suggest" data-pro="stats-agente" class="st-coach-suggest"></div>
             <form id="coach-form" data-pro="stats-agente" class="st-coach-form" autocomplete="off">
-              <input id="coach-in" class="st-coach-in" placeholder="¿En qué debo mejorar? ¿Cuál fue mi mejor partido?" maxlength="300" />
+              <input id="coach-in" class="st-coach-in" aria-label="Pregunta al agente de estadísticas" placeholder="¿En qué debo mejorar? ¿Cuál fue mi mejor partido?" maxlength="300" />
               <button type="submit" id="coach-send" class="st-btn">Preguntar</button>
             </form>
             <p class="st-coach-note">Al preguntar, las estadísticas de tu temporada se envían al modelo de IA para analizarlas. No se guardan en ningún sitio.</p>

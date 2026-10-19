@@ -55,7 +55,7 @@ const def = index.find((z) => !z.retro) ?? index[0];
           {/* Controles */}
           <div class="cost-controls">
             <div class="cc-block">
-              <label class="cc-label">Tu zapa <strong style="font-size:11px;color:var(--cz-fg4)">{index.length} en catálogo</strong></label>
+              <label class="cc-label" for="cost-search">Tu zapa <strong style="font-size:11px;color:var(--cz-fg4)">{index.length} en catálogo</strong></label>
               <div class="cc-combo">
                 <input
                   id="cost-search"
@@ -70,12 +70,12 @@ const def = index.find((z) => !z.retro) ?? index[0];
             </div>
 
             <div class="cc-block">
-              <label class="cc-label">Partidos / semana <strong id="out-semana">3</strong></label>
+              <label class="cc-label" for="in-semana">Partidos / semana <strong id="out-semana">3</strong></label>
               <input type="range" min="1" max="7" step="1" value="3" class="cc-range" id="in-semana" />
             </div>
 
             <div class="cc-block">
-              <label class="cc-label">Juego en exterior <strong id="out-outdoor">30%</strong></label>
+              <label class="cc-label" for="in-outdoor">Juego en exterior <strong id="out-outdoor">30%</strong></label>
               <input type="range" min="0" max="100" step="10" value="30" class="cc-range" id="in-outdoor" />
               <p class="cc-hint">El asfalto desgasta ~2,5× más rápido que el parquet.</p>
             </div>

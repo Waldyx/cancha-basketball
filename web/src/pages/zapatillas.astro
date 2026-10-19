@@ -139,12 +139,12 @@ const ordenadas = [...zapatillas].sort(compareByScore);
       <div class="cz-actionbar">
         <div class="cz-search">
           <span class="icon">⌕</span>
-          <input id="search" placeholder="Buscar marca o modelo…" autocomplete="off" />
+          <input id="search" placeholder="Buscar marca o modelo…" autocomplete="off" aria-label="Buscar marca o modelo" />
         </div>
         <div class="right">
           <div class="cz-select">
             <span class="label">Ordenar</span>
-            <select id="sort">
+            <select id="sort" aria-label="Ordenar">
               <option value="score-desc" selected>★ Mejor score</option>
               <option value="precio-asc">↑ Precio</option>
               <option value="precio-desc">↓ Precio</option>
@@ -214,7 +214,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
 
           <section>
             <h3><span class="num">05</span> Precio máx.</h3>
-            <input type="range" class="range" id="price-range" min="40" max="250" step="10" value="250" />
+            <input type="range" class="range" id="price-range" min="40" max="250" step="10" value="250" aria-label="Precio máximo" />
             <div class="range-label">
               <span>40€</span>
               <span id="price-label" style="color: var(--cz-accent-text);font-weight:900">sin tope</span>
