@@ -24,6 +24,7 @@ export const FUNCIONES_PRO = {
   "evaluacion-fichas": "Fichas de evaluación imprimibles",
   "tests-fichas": "Fichas de tests físicos imprimibles",
   "plan-partido": "Plan de partido imprimible con tu escudo",
+  "pizarra-sesion-ia": "Sesiones generadas con IA",
 } as const;
 
 export type FuncionPro = keyof typeof FUNCIONES_PRO;

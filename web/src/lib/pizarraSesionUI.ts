@@ -15,6 +15,11 @@ import {
   minutosSesionPorEdad,
   type OpcionesSesionEdad,
 } from "./pizarraSesionesEdad";
+import { PETICION_MAX, crearSesionDesdePlan, leerPlanIA, objetivoDeTexto, type PlanIA } from "./pizarraSesionIA";
+
+// Límites de duración que acepta /api/sesion (DURACION_MIN/MAX en api/sesion.ts).
+const DURACION_IA_MIN = 30;
+const DURACION_IA_MAX = 150;
 import { PALETAS, opcionesResumen, renderSvgCompleto, type NombrePaleta } from "./pizarraRender";
 import {
   BLOQUES_TEXTO_TIPO,
@@ -358,11 +363,8 @@ export function iniciarSesiones(ctx: CtxSesion): ControlSesiones {
     inpTitulo.select();
   }
 
-  function crearPorEdad(id: string) {
-    if (compartida) return;
-    const creada = crearSesionPorEdad(id, opcionesEdad);
-    if (!creada) return;
-
+  /** Guarda una sesión recién creada (por edad o con IA) con sus ejercicios y la abre. */
+  function guardarCreada(creada: { sesion: Sesion; jugadas: Jugada[] }) {
     // La sesión referencia los IDs que genera la plantilla. `asegurarJugada`
     // puede reutilizar una copia existente, así que remapeamos cada bloque al ID
     // real antes de guardar la nueva sesión.
@@ -375,9 +377,63 @@ export function iniciarSesiones(ctx: CtxSesion): ControlSesiones {
     ctx.setSesiones([creada.sesion, ...ctx.sesiones()]);
     actualId = creada.sesion.id;
     pintarTodo();
+  }
+
+  function crearPorEdad(id: string) {
+    if (compartida) return;
+    const creada = crearSesionPorEdad(id, opcionesEdad);
+    if (!creada) return;
+    guardarCreada(creada);
     const etapa = SESIONES_POR_EDAD.find((x) => x.id === id)?.etapa ?? "Sesión";
     const obj = OBJETIVOS_SESION.find((o) => o.id === opcionesEdad.objetivo)?.nombre.toLowerCase();
     ctx.toast(creada.objetivoAplicado ? `${etapa} lista para editar` : `${etapa} no tiene bloques de ${obj}: se ha creado la sesión general`, 4500);
+  }
+
+  // Con IA: la etapa se elige aquí; duración y jugadores salen de los campos de arriba.
+  // Si la IA no responde, se crea la sesión base de la etapa con esas mismas opciones.
+  let generando = false;
+  async function crearConIA() {
+    if (compartida || generando) return;
+    const etapaId = selEtapaIA.value;
+    const plantilla = SESIONES_POR_EDAD.find((x) => x.id === etapaId);
+    const peticion = txtIA.value.trim();
+    if (!plantilla) return;
+    if (peticion.length < 3) {
+      ctx.toast("Escribe qué quieres trabajar en la sesión");
+      txtIA.focus();
+      return;
+    }
+    const duracion = Math.min(DURACION_IA_MAX, Math.max(DURACION_IA_MIN, opcionesEdad.duracion ?? minutosSesionPorEdad(etapaId, opcionesEdad)));
+    const pistaMini = etapaId === "premini" || etapaId === "mini";
+    generando = true;
+    btnIA.disabled = true;
+    btnIA.textContent = "Generando… (unos 15 s)";
+    let plan: PlanIA | null = null;
+    try {
+      const r = await fetch("/api/sesion", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ etapa: etapaId, duracion, jugadores: opcionesEdad.jugadores ?? null, peticion }),
+        signal: AbortSignal.timeout(32000),
+      });
+      if (r.ok) plan = leerPlanIA(await r.json());
+    } catch {
+      plan = null;
+    } finally {
+      generando = false;
+      btnIA.disabled = false;
+      btnIA.textContent = "Generar con IA";
+    }
+    if (plan) {
+      guardarCreada(crearSesionDesdePlan(plan, { pistaMini, nota: "Generada con IA: revísala antes de usarla." }));
+      ctx.toast("Sesión generada: revisa y ajusta lo que quieras", 4500);
+      return;
+    }
+    const objetivo = !opcionesEdad.objetivo || opcionesEdad.objetivo === "general" ? objetivoDeTexto(peticion) : opcionesEdad.objetivo;
+    const base = crearSesionPorEdad(etapaId, { ...opcionesEdad, objetivo, duracion });
+    if (!base) return;
+    guardarCreada(base);
+    ctx.toast(`La IA no responde ahora: te dejo la sesión base de ${plantilla.etapa} con ${duracion} min`, 6000);
   }
 
   function duplicar() {
@@ -665,6 +721,32 @@ export function iniciarSesiones(ctx: CtxSesion): ControlSesiones {
     }
   }
   pintarSesionesEdad();
+
+  const selEtapaIA = el("select", { cls: "pz-inp", attrs: { "aria-label": "Etapa del equipo" } });
+  for (const p of SESIONES_POR_EDAD) selEtapaIA.append(el("option", { text: `${p.etapa} (${p.edades})`, attrs: { value: p.id } }));
+  selEtapaIA.value = "infantil";
+  const txtIA = el("textarea", {
+    cls: "pz-inp",
+    attrs: {
+      rows: "2",
+      maxlength: String(PETICION_MAX),
+      placeholder: "Ej.: bloqueo directo y su defensa, y acabar con 5c5",
+      "aria-label": "Qué quieres trabajar",
+    },
+  });
+  const btnIA = el("button", { cls: "pz-bn pz-ses-ia-btn", text: "Generar con IA", attrs: { type: "button", "data-pro": "pizarra-sesion-ia" } });
+  btnIA.addEventListener("click", () => void crearConIA());
+  edadEl.append(
+    el(
+      "div",
+      { cls: "pz-ses-ia" },
+      el("strong", { cls: "pz-ses-ia-tit", text: "O pídesela a la IA" }),
+      campo("Etapa", selEtapaIA),
+      campo("Qué quieres trabajar", txtIA),
+      el("p", { cls: "pz-ses-ia-nota", text: "Usa la duración y los jugadores de arriba. No escribas nombres de jugadores: solo se envía este texto y no se guarda." }),
+      btnIA
+    )
+  );
 
   return { abrir, abrirCompartida, cerrar, estaAbierta: () => !hoja.hidden };
 }

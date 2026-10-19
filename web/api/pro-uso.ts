@@ -30,6 +30,7 @@ const FUNCIONES = [
   "evaluacion-fichas",
   "tests-fichas",
   "plan-partido",
+  "pizarra-sesion-ia",
 ];
 const EVENTOS = ["visto", "activado"];
 
