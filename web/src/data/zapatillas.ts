@@ -15016,7 +15016,7 @@ const _rawZapatillas: Zapatilla[] = [
       "A 24-ago-2026 NO se vende aún en Nike ES ni en Amazon ES",
     ],
     veredicto:
-      "Sobre el papel es la Jordan más protectora y completa de la saga, pero es la única de esta tanda que todavía no tiene ni review ni distribución en España. Score provisional: se revisará en cuanto WearTesters la analice.",
+      "Sobre el papel es la Jordan más protectora y completa de la saga, y ya se vende en la tienda de Nike en España, pero todavía no tiene review de rendimiento publicada: el score es una estimación nuestra y se revisará cuando WearTesters o HoopsGeek la analicen.",
 
     imagen_principal: "/shoes/jordan-41.webp",
     imagenes: [],
@@ -15235,18 +15235,17 @@ const _rawZapatillas: Zapatilla[] = [
       "La AE 1 y la AE 2 son de lo mejor puntuado del catálogo; la plataforma viene avalada",
     ],
     contras: [
-      "AÚN NO LANZADA (15-sep-2026): score y specs son estimación previa",
+      "Evolución continuista: si ya tienes la AE 2, el salto es pequeño",
       "Corte low: poca sujeción de tobillo",
-      "Hyperboost pesa más que Lightstrike; el peso está por confirmar",
-      "Sin distribución ni precio verificado en España todavía",
+      "Hyperboost pesa más que Lightstrike, y el peso de la ficha sigue sin medir",
     ],
     veredicto:
-      "En el papel es la sucesora lógica de una de las mejores líneas de guard del mercado, y estrena la espuma más interesante de adidas en años. Hasta que no salga y haya review, tómate el score como orientativo.",
+      "Es una evolución, no una revolución: cambia el diseño y estrena Hyperboost, pero conserva la horma y el equilibrio entre amortiguación y estabilidad que hicieron buena a la línea. WearTesters le da un 8,5/10 y la ve como la tercera acertada seguida de la saga. Para bases y escoltas que quieren una low reactiva y fiable.",
 
     imagen_principal: "/shoes/adidas-ae-3.webp",
     imagenes: [],
 
-    fuentes: [{ tipo: "evaluacion-propia" }],
+    fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/adidas-anthony-edwards-3-review/", score_original: "8.5/10", fecha: "2026-10-19" }],
     ultima_actualizacion: "2026-08-24",
     precio_msrp_eur: 130,
     links_compra: [
@@ -15345,9 +15344,9 @@ const _rawZapatillas: Zapatilla[] = [
     tipo_cierre: "cordones",
 
     puntuaciones: {
-      traccion: 9, amortiguacion: 8, respuesta: 9,
-      soporte_lateral: 9, estabilidad: 8, peso_score: 6,
-      durabilidad_outdoor: 6, ventilacion: 6,
+      traccion: 8, amortiguacion: 8, respuesta: 9,
+      soporte_lateral: 9, estabilidad: 9, peso_score: 6,
+      durabilidad_outdoor: 9, ventilacion: 6,
     },
     categoria_principal: "responsive",
     tags: ["china-brand", "signature", "explosivo"],
@@ -15370,16 +15369,17 @@ const _rawZapatillas: Zapatilla[] = [
     contras: [
       "Peso ESTIMADO: 361sport no publica el dato de fábrica",
       "Sin tienda afiliada en España todavía — solo se puede comprar en 361sport.com",
-      "Sin review independiente (WearTesters/RunRepeat/HoopsGeek), score editorial",
+      "Tracción sensible al polvo: hay que limpiar la suela a menudo",
+      "Pisada firme: no es mullida para jugadores pesados",
       "Línea nueva sin generaciones anteriores en el catálogo con las que comparar",
     ],
     veredicto:
-      "Con suela Diamond Grip, zonas de rebote explosivo y un chasis anti-torsión, apunta a un perfil de alero/ala-pívot potente y explosivo — coherente con el juego de Aaron Gordon. Sin review independiente todavía y sin tienda afiliada en España: toca comprar en 361sport.com y asumir el IVA de importación.",
+      "Con suela Diamond Grip, zonas de rebote explosivo y un chasis anti-torsión, apunta a un perfil de alero/ala-pívot potente y explosivo — coherente con el juego de Aaron Gordon. HoopsGeek la agrega en 8,3/10 con cuatro reviews: muy estable y con buena sujeción, amortiguación firme y reactiva, y una suela de goma dura que aguanta bien el exterior. Sin tienda afiliada en España: toca comprar en 361sport.com y asumir el IVA de importación.",
 
     imagen_principal: "/shoes/361-ag-6.webp",
     imagenes: [],
 
-    fuentes: [{ tipo: "evaluacion-propia" }],
+    fuentes: [{ tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/361-ag-6/", fecha: "2026-10-19" }],
     ultima_actualizacion: "2026-09-11",
     precio_msrp_eur: 110,
     links_compra: [
@@ -15572,26 +15572,26 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "mesh",
 
     puntuaciones: {
-      traccion: 8,
-      amortiguacion: 8,
+      traccion: 10,
+      amortiguacion: 9,
       respuesta: 9,
-      soporte_lateral: 8,
-      estabilidad: 8,
+      soporte_lateral: 10,
+      estabilidad: 9,
       peso_score: 8,
-      durabilidad_outdoor: 6,
-      ventilacion: 7,
+      durabilidad_outdoor: 2,
+      ventilacion: 6,
     },
     categoria_principal: "responsive",
     tags: ["signature", "china-brand", "moderna", "explosivo"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
-      peso_jugador_kg: [65, 95],
-      estilos: ["explosivo", "equilibrado", "tirador"],
+      peso_jugador_kg: [70, 110],
+      estilos: ["explosivo", "equilibrado", "potente"],
     },
     no_recomendada_para: {
       posiciones: ["pivot"],
-      estilos: ["potente"],
+      estilos: [],
     },
 
     resumen:
@@ -15604,16 +15604,17 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     contras: [
       "Peso estimado: ni la marca ni las tiendas lo publican",
-      "Sin review independiente (WearTesters/RunRepeat/HoopsGeek), score editorial",
+      "Upper rígido y poco flexible; horma estrecha con puntera afilada",
+      "No sirve para exterior: suela de surcos poco profundos",
       "Marca poco conocida en Europa, sin red de servicio técnico local",
           ],
     veredicto:
-      "Con la misma base tecnológica que hizo destacar a la Gamma 2, la JB4 apunta a bases y escoltas explosivos que quieren carbono y BOOM foam sin pagar precio de marca occidental. Sin review independiente todavía, pero se compra hoy en España sin necesidad de importar.",
+      "Con la misma base que hizo destacar a la Gamma 2 (BOOM de longitud completa y placa de carbono entera), las reviews la sitúan entre las más agarradas y estables del mercado: HoopsGeek, 8,7/10 con cuatro análisis y un 9,8 en tracción. Rinde para jugadores pesados y cortes agresivos; a cambio, upper rígido, horma estrecha y nada de exterior. Se compra hoy en España sin necesidad de importar.",
 
     imagen_principal: "/shoes/lining-jb4.webp",
     imagenes: [],
 
-    fuentes: [{ tipo: "evaluacion-propia" }],
+    fuentes: [{ tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/li-ning-jb-4/", fecha: "2026-10-19" }],
     ultima_actualizacion: "2026-09-14",
     // ⚠ MSRP ESTIMADO: no hay tarifa oficial en € (1199 CNY sin confirmar
     // en tienda oficial). Aproximado al precio real de venta en España.
