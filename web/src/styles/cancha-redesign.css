@@ -2320,6 +2320,11 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ── Shortcuts (by position) ── */
 .home-shortcuts { padding: 60px 0; border-bottom: 1px solid rgba(var(--cz-border-rgb),0.3); }
+/* iOS Safari amplía la página al enfocar un campo con letra de menos de 16 px (y no vuelve a su sitio):
+   en móvil todos los campos de texto van a 16 px */
+@media (max-width: 600px) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]), select, textarea { font-size: 16px !important; }
+}
 /* aviso de datos huérfanos / nombres repetidos (lib/huerfanosUI.ts) */
 .hf[hidden] { display: none !important; }
 .hf { border-left: 4px solid #f97316 !important; }
