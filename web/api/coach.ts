@@ -155,15 +155,18 @@ export default async function handler(req: any, res: any) {
         // único verificado como español limpio, detrás los que razonan (que siguen siendo
         // útiles contra el 429, que es por modelo) ya con la guarda de arriba.
         "google/gemma-4-31b-it:free", // validado para español limpio + formato [[shoe:slug]]
-        "qwen/qwen3.8-27b:free",
         // ⚠ nemotron colaba su razonamiento en `content` en jun-2026. Volvió a entrar el
         // 21-sep dando por hecho que `limpiarRespuesta` lo cubría, y no lo cubre: viene sin
         // etiquetas `<think>`. Lo que lo tapa es `pareceRazonamiento`.
         "nvidia/nemotron-3-super-120b-a12b:free",
+        "minimax/minimax-m3.1-flash:free", // nuevo el 19-oct-2026, sin validar
         // Cola de respaldo: se prueban de uno en uno si la cadena falla.
         "google/gemma-4-26b-a4b-it:free",
-        "inclusionai/ling-3.0-flash-vl:free",
-        "z-ai/glm-5.2:free",
+        // 🔴 19-oct-2026, medido contra /api/v1/models: qwen3.8-27b (404 "unavailable for free"),
+        // ling-3.0-flash-vl y glm-5.2 ya no existen gratis. Entran tres vivos ese día, SIN VALIDAR:
+        // el modelo que contesta sale en la cabecera X-CZ-Model y los fallos en `detalle`.
+        "nvidia/nemotron-3.5-super-vl:free",
+        "nvidia/nemotron-3-ultra-550b-a55b:free",
       ];
 
   // Cuerpo: `models` = la lista entera (OpenRouter la recorre); `model` = uno suelto.

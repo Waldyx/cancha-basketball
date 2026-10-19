@@ -20,7 +20,9 @@
  *
  * Env: OPENROUTER_API_KEY (obligatoria). CHAT_MODEL (opcional, fuerza un modelo).
  */
-export const config = { maxDuration: 30 };
+// 60 s: un plan largo tarda 15-20 s en nemotron y con 30 s el primer intento se cortaba
+// (medido el 19-oct en producción, 105 min de júnior: `estados: 0,429,404,0`).
+export const config = { maxDuration: 60 };
 
 const RL_WINDOW_MS = 30 * 60 * 1000;
 const RL_MAX = 12;
@@ -90,7 +92,7 @@ EQUIPO: ${e.nombre} (${e.edades}). ${jugadores ? `${jugadores} jugadores.` : "N�
 DURACIÓN TOTAL: ${duracion} minutos (la suma de los bloques debe dar exactamente ${duracion}).
 CRITERIOS DE LA ETAPA: ${e.guia}
 
-EJERCICIOS DIBUJADOS DISPONIBLES (úsalos con su id en "ejercicio" SOLO si encajan de verdad; si no, deja "ejercicio": null y describe el ejercicio en "notas"):
+EJERCICIOS DIBUJADOS DISPONIBLES (úsalos con su id en "ejercicio" SOLO si encajan de verdad; si no, deja "ejercicio": null y describe el ejercicio en "notas". Si un bloque ES uno de estos, pon su id aunque lo adaptes):
 ${lista}
 
 FORMATO EXACTO:
@@ -244,11 +246,14 @@ export default async function handler(req: any, res: any) {
     ? [process.env.CHAT_MODEL]
     : [
         "google/gemma-4-31b-it:free",
-        "qwen/qwen3.8-27b:free",
         "nvidia/nemotron-3-super-120b-a12b:free",
+        "minimax/minimax-m3.1-flash:free", // nuevo el 19-oct-2026, sin validar
         "google/gemma-4-26b-a4b-it:free",
-        "inclusionai/ling-3.0-flash-vl:free",
-        "z-ai/glm-5.2:free",
+        // 🔴 19-oct-2026, medido contra /api/v1/models: qwen3.8-27b (404 "unavailable for free"),
+        // ling-3.0-flash-vl y glm-5.2 ya no existen gratis. Entran tres vivos ese día, SIN VALIDAR:
+        // el modelo que contesta sale en la cabecera X-CZ-Model y los fallos en `detalle`.
+        "nvidia/nemotron-3.5-super-vl:free",
+        "nvidia/nemotron-3-ultra-550b-a55b:free",
       ];
   const SYSTEM = buildSystem(etapa, duracion, jugadores);
   const payload = (sel: { models: string[] } | { model: string }) =>
@@ -268,7 +273,7 @@ export default async function handler(req: any, res: any) {
 
   const fallos: number[] = [];
   const detalles: string[] = [];
-  const deadline = Date.now() + 26000;
+  const deadline = Date.now() + 52000;
   for (const intento of intentos) {
     const restante = deadline - Date.now();
     if (restante < 4000) break;
@@ -282,7 +287,7 @@ export default async function handler(req: any, res: any) {
           "X-Title": "CANCHA.ZAPA",
         },
         body: intento.body,
-        signal: AbortSignal.timeout(Math.min(18000, restante - 1000)),
+        signal: AbortSignal.timeout(Math.min(40000, restante - 1000)),
       });
       if (!r.ok) {
         const txt = await r.text().catch(() => "");

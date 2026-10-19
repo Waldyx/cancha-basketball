@@ -407,14 +407,14 @@ export function iniciarSesiones(ctx: CtxSesion): ControlSesiones {
     const pistaMini = etapaId === "premini" || etapaId === "mini";
     generando = true;
     btnIA.disabled = true;
-    btnIA.textContent = "Generando… (unos 15 s)";
+    btnIA.textContent = "Generando… (unos 20 s)";
     let plan: PlanIA | null = null;
     try {
       const r = await fetch("/api/sesion", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ etapa: etapaId, duracion, jugadores: opcionesEdad.jugadores ?? null, peticion }),
-        signal: AbortSignal.timeout(32000),
+        signal: AbortSignal.timeout(58000),
       });
       if (r.ok) plan = leerPlanIA(await r.json());
     } catch {
