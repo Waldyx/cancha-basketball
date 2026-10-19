@@ -183,9 +183,8 @@ import "../styles/cancha-redesign.css";
   </main>
 
   <script>
-    import { recomendar } from "../lib/scoring";
-    import { zapatillas } from "../data/zapatillas";
-    import type { RespuestasQuiz, Recomendacion } from "../lib/types";
+    import { findMejorPrecioMostrado, recomendar } from "../lib/scoring";
+    import type { RespuestasQuiz, Recomendacion, Zapatilla } from "../lib/types";
 
     const STORAGE_KEY = "cancha-quiz-respuestas";
 
@@ -289,7 +288,9 @@ import "../styles/cancha-redesign.css";
     function renderCard(rec: Recomendacion, rank: number): string {
       const z = rec.zapatilla;
       const matchCls = matchClass(rec.match_pct);
-      const mejorPrecio = rec.mejor_precio;
+      // El precio que se ENSEÑA es el de la ficha: solo tiendas que monetizamos y sin reventa
+      // (> 1,5x MSRP). `rec.mejor_precio` es el real y solo sirve para ordenar.
+      const mejorPrecio = findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur);
       const precioActual = mejorPrecio?.precio_actual ?? z.precio_msrp_eur;
       const tiendaNombre = mejorPrecio ? LABELS_TIENDA[mejorPrecio.tienda] || mejorPrecio.tienda : "";
       const ahorro = mejorPrecio && mejorPrecio.precio_actual < z.precio_msrp_eur
@@ -371,6 +372,8 @@ import "../styles/cancha-redesign.css";
     } else {
       try {
         const respuestas = JSON.parse(raw) as RespuestasQuiz;
+        // Catálogo recortado (ver quiz-catalogo.json.ts): antes iba entero dentro de este JS.
+        const zapatillas = (await (await fetch("/quiz-catalogo.json")).json()) as Zapatilla[];
         const recomendaciones = recomendar(respuestas, zapatillas, 5);
         const totalMatches = recomendaciones.length;
 
