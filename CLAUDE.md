@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **245 zapas (42 OCULTAS, 203 visibles) · 641 tests · `astro check` 0 errores · 371 páginas** |
+| Tamaño | **245 zapas (42 OCULTAS, 203 visibles) · 644 tests · `astro check` 0 errores · 371 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -326,6 +326,9 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   concha 4c4 (shell). Revisados dibujados paso a paso (render a PNG con `renderSvgCompleto` + sharp). 🔑 En `sig()` el
   `mueve` coloca las piezas al EMPEZAR el paso, no al acabarlo: lo que se mueve DURANTE un paso va con una línea.
   También van en `EJERCICIOS_IA`, así que la IA de sesiones ya los usa.
+- ✅ **`scripts/audit-ia.ts`** nuevo: lista qué modelos de la cadena ya no existen gratis (exit 1) y cuáles hay sin usar.
+- ✅ **El catálogo del chat usa el precio MOSTRADO** (`gen-chat-catalog.ts`): anunciaba la reventa que la web oculta
+  (Gamma 2 «479 €» con la ficha enseñando MSRP 120).
 - ✅ **Kobe 5 Protro rescatada** (Decathlon marketplace, 233,99 € = 1,34× MSRP, 7 tallas). Descartadas: **PG 6** (una
   talla y 1 unidad) y **Why Not .6** (solo 36,5-40: curva de mujer/GS). Ocultas 43 → 42.
 - ⏸ **Search Console**: la sesión de Google del navegador integrado caducó; no se mete contraseña. Revisarlo el usuario
@@ -2551,6 +2554,8 @@ Ordenación: **precio primero**, desempate por comisión dentro de ±0,50 €.
   Volume→vol, Anthony Edwards→ae), siglas punteadas ("g t"→"gt"), `°`→espacio, `NO_ES_CALZADO`/
   `esPrenda()`, guardarraíl de otros deportes (⚠ **"tenis" NO puede entrar**: en español de América
   es como se llaman las zapatillas), `unwrapAffiliateUrl()`, `esRedirectOpaco()`.
+- **`scripts/audit-ia.ts`**: comprueba contra `/api/v1/models` (sin clave) que los modelos `:free` de `chat.ts`,
+  `coach.ts` y `sesion.ts` siguen existiendo. **Pasarlo al empezar sesión**: la cadena se muere cada pocas semanas.
 - Herramientas: `scripts/audit-frescura.ts` (frescura por tienda), `scripts/audit-enlaces.ts`
   (wrappers anidados, duplicados, rutas muertas, zapas sin opción disponible — **no pide ni una
   página**), `scripts/audit-affiliates.ts`, `scripts/review-by-score.ts`.
@@ -2646,4 +2651,4 @@ presupuesto · ancho de pie · uso (auto-submit 400 ms).
   `cancha-quiz-respuestas` (sessionStorage).
 - **Scripts de mantenimiento**: `update-images.js`, `fix-encoding.js`, `optimize-images.mjs`,
   `gen-chat-catalog.ts`, y los `audit-*` listados arriba.
-- **Tests**: `npx vitest run` → 641.
+- **Tests**: `npx vitest run` → 644.
