@@ -567,16 +567,16 @@ export const ARTICLES: Article[] = [
     title: "Zapatillas de baloncesto para pie ancho: guía completa 2025",
     metaTitle: "Zapatillas de baloncesto para pie ancho 2025 | CANCHA.ZAPA",
     description:
-      "Guía para elegir zapatillas de baloncesto si tienes pie ancho. Qué marcas van estrechas, cuáles anchas, y el top 5 de modelos que mejor encajan en 2025.",
-    fecha: "2026-05-26",
-    fechaLabel: "26 mayo 2026",
+      "Guía para elegir zapatillas de baloncesto si tienes pie ancho: qué líneas van estrechas, cuáles dan espacio según las reviews, y las 5 que mejor encajan.",
+    fecha: "2026-10-19",
+    fechaLabel: "19 octubre 2026",
     categoria: "Guías",
     readMinutes: 5,
-    eyebrow: "★ Guía · Pie ancho 2025",
+    eyebrow: "★ Guía · Pie ancho 2026",
     heroTitle: "Zapatillas para pie ancho",
-    heroSubtitle: "Las que realmente encajan — guía 2025",
+    heroSubtitle: "Las que realmente encajan, según las reviews",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-ja-3", "adidas-ae-2", "anta-kai-2", "ua-curry-13", "nike-lebron-23"],
+    relatedShoes: ["nike-lebron-22", "jordan-luka-1", "ua-curry-13", "nike-kd-17", "nike-sabrina-2"],
     relatedSeoPages: ["zapatillas-baloncesto-pie-ancho", "mejores-zapatillas-baloncesto-2025", "zapatillas-baloncesto-baratas"],
     body: `
 <p class="art-intro">La mayoría de marcas diseñan sus zapatillas de baloncesto para un pie estándar o incluso estrecho. Si tienes pie ancho, el mercado juega en tu contra: compras un modelo que en la talla parece correcto, lo pisas en el primer partido, y al cuarto de hora el quinto dedo ya está ardiendo. Esta guía va directo al grano: qué marcas van anchas, cuáles evitar, y los 5 mejores modelos para pie ancho en 2025.</p>
@@ -590,61 +590,62 @@ export const ARTICLES: Article[] = [
   <li>Siempre tienes que subir media talla para tener espacio — señal de que la horma es estrecha, no de que necesitas una talla mayor</li>
 </ul>
 
-<h2>Marcas: quién va estrecho y quién va ancho</h2>
+<h2>Marcas: quién va estrecho y quién da espacio</h2>
+<p>Generalizar por marca engaña: dentro de una misma marca hay líneas que van justas y otras que sobran. Lo que sí se repite en las reviews que agrega HoopsGeek:</p>
 <ul>
-  <li><strong>Nike →</strong> Estrecho como norma. Casi todos los modelos de performance van ajustados. Pocas excepciones.</li>
-  <li><strong>Adidas →</strong> Normal-ancho. Mejor opción general para pie medio-ancho.</li>
-  <li><strong>Under Armour →</strong> Normal. Suficiente para pie medio pero no para pie muy ancho.</li>
-  <li><strong>ANTA →</strong> Ancho. La marca que más espacio da en el antepié. La mejor para pies anchos.</li>
-  <li><strong>Li-Ning →</strong> Variable por modelo. Consultar por modelo.</li>
+  <li><strong>Nike →</strong> depende de la línea. LeBron, KD y Sabrina dan espacio en el antepié; Zion, Ja, Kobe Protro y Kyrie van estrechas y con poco volumen.</li>
+  <li><strong>Under Armour →</strong> sus últimos modelos (Curry 13, FUTR X Elite, Embiid 1) son de los más permisivos con el pie ancho.</li>
+  <li><strong>Adidas →</strong> normal, con puntera variable según el modelo: pruébatela antes.</li>
+  <li><strong>ANTA →</strong> ajuste de guante (Kai 2, Kai 3, KT 10, Shock Wave 5): con pie ancho, casi siempre media talla más.</li>
+  <li><strong>Li-Ning →</strong> tiende a estrecho en la gama alta (la Gamma 2 va justa y con poco volumen).</li>
 </ul>
 
-<h2>Top 5 zapatillas para pie ancho en 2025</h2>
+<h2>Las 5 que mejor encajan con pie ancho</h2>
 
-<h3><a href="/zapatilla/anta-kai-2">ANTA Kai 2 — la mejor para pie muy ancho</a></h3>
-<p>La firma de Kyrie Irving con ANTA tiene la horma más generosa del mercado mainstream en 2025. El antepié es amplio, hay espacio para todos los dedos y el calce no aprieta. Para pie ancho o extra-ancho, es la recomendación clara.</p>
+<h3><a href="/zapatilla/nike-lebron-22">Nike LeBron 22 — desde {{precio:nike-lebron-22}}</a></h3>
+<p>Las reviews coinciden: talla normal, antepié amplio y buena sujeción tras un rodaje corto. Es la recomendación más segura si tienes pie ancho y además pesas: es de las más protectoras del catálogo.</p>
 <ul>
-  <li>✅ La horma más ancha entre las opciones de 2025</li>
-  <li>✅ Precio accesible (desde {{precio:anta-kai-2}})</li>
-  <li>❌ Respuesta no llega al nivel de la GT Cut 4 o Curry 13</li>
+  <li>✅ Antepié amplio sin perder sujeción</li>
+  <li>✅ Mucha amortiguación para jugadores pesados</li>
+  <li>❌ Los cordones pueden rozar a algunos</li>
 </ul>
 
-<h3><a href="/zapatilla/nike-ja-3">Nike Ja 3 — la excepción en Nike</a></h3>
-<p>Ja Morant tiene pie ancho y su firma lo refleja. La Ja 3 es la zapatilla Nike de baloncesto con más espacio en el antepié de las actuales en producción. Si tienes pie ancho y quieres Nike, esta es la única opción segura.</p>
+<h3><a href="/zapatilla/jordan-luka-1">Jordan Luka 1 — desde {{precio:jordan-luka-1}}</a></h3>
+<p>Talla normal y, según los análisis, se adapta bien a pies anchos, con algo de espacio extra en el antepié. Y es la más barata de esta lista.</p>
 <ul>
-  <li>✅ Horma ancha — rara en Nike</li>
-  <li>✅ Buen cushion ZoomX</li>
-  <li>❌ Más pesada que otros modelos low-top de guards</li>
+  <li>✅ Permisiva con el pie ancho</li>
+  <li>✅ Precio contenido</li>
 </ul>
 
-<h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — equilibrio para pie normal-ancho</a></h3>
-<p>La AE 2 no es ancha como la Kai 2, pero tiene más espacio en el antepié que la mayoría de Nike. Para pie normal-ancho (no extra ancho), encaja sin problemas. Anthony Edwards tiene pie grande y eso ha influido en el diseño.</p>
+<h3><a href="/zapatilla/ua-curry-13">Under Armour Curry 13 — desde {{precio:ua-curry-13}}</a></h3>
+<p>Puntera amplia y sujeción tipo botín. Los análisis la recomiendan para pies estrechos y también para los algo anchos, y la destacan para pies planos. Ojo: su suela UA Flow es solo para pista cubierta.</p>
 <ul>
-  <li>✅ Más espacio en antepié que la media del mercado</li>
-  <li>✅ Excelente tracción herringbone</li>
-  <li>❌ No suficiente para pie muy ancho o extra-ancho</li>
+  <li>✅ Puntera amplia y fácil de rodar</li>
+  <li>✅ Buena para pie plano</li>
+  <li>❌ Nada de exterior (suela UA Flow)</li>
 </ul>
 
-<h3><a href="/zapatilla/ua-curry-13">Under Armour Curry 13 — normal, suficiente para medio-ancho</a></h3>
-<p>La Curry 13 tiene horma normal. No está pensada para pie ancho, pero tampoco va estrecha. Para jugadores con pie medio-ancho (no extra ancho), suele encajar sin problemas. Pruébatela antes de comprar si tienes pie muy ancho.</p>
+<h3><a href="/zapatilla/nike-kd-17">Nike KD 17 — desde {{precio:nike-kd-17}}</a></h3>
+<p>Talla normal pero algo larga, con volumen extra en el antepié que sienta bien al pie ancho (y puede quedar holgado si lo tienes estrecho).</p>
 <ul>
-  <li>✅ Horma normal — no aprieta en pie medio</li>
-  <li>❌ No apta para pie muy ancho o extra-ancho</li>
+  <li>✅ Volumen extra en el antepié</li>
+  <li>❌ Va algo larga: pruébatela</li>
 </ul>
 
-<h3><a href="/zapatilla/nike-lebron-23">Nike LeBron 23 — ancha para ser Nike</a></h3>
-<p>LeBron James tiene pie grande y la LeBron line tradicionalmente va algo más ancha que la media Nike. No es la mejor para pie ancho, pero es más permisiva que otras líneas Nike. Low-top, pero con más volumen interior.</p>
+<h3><a href="/zapatilla/nike-sabrina-2">Nike Sabrina 2 — desde {{precio:nike-sabrina-2}}</a></h3>
+<p>Ganó anchura respecto a la primera y su antepié es más permisivo. Una buena opción ligera si eres base o escolta con pie medio-ancho.</p>
 <ul>
-  <li>✅ Más espacio que otras Nike</li>
-  <li>❌ Sigue siendo estrecha comparada con ANTA o Adidas</li>
-  <li>❌ Cara para ser la quinta opción</li>
+  <li>✅ Más ancha que la Sabrina 1</li>
+  <li>❌ Algún análisis nota la puntera justa: pruébatela antes</li>
 </ul>
+
+<p>Otra que va bien con pie ancho: la <a href="/zapatilla/ua-futr-x-elite">UA FUTR X Elite</a>, que los análisis recomiendan comprar en tu talla si tienes el pie ancho y bajar media si lo tienes estrecho.</p>
 
 <h2>Lo que debes evitar si tienes pie ancho</h2>
 <ul>
-  <li><strong>Nike GT Cut 4:</strong> extremadamente estrecha. Diseñada para pie estrecho-normal. Pie ancho = dolor desde el calentamiento.</li>
-  <li><strong>Nike KD 19:</strong> upper TPU ajustado — poco margen lateral. No recomendada para pie ancho.</li>
-  <li><strong>Jordan Brand en general:</strong> la línea retro Jordan va estrecha. Las performance (Jordan 40) van mejor pero siguen siendo justas para pie ancho.</li>
+  <li><strong>Jordan Zion 3 y Zion 4:</strong> van estrechas y con poco volumen. Pese a estar pensadas para jugadores grandes, con pie ancho aprietan.</li>
+  <li><strong>Nike Ja 1, Kyrie Low 5 y las Kobe Protro (6 y 9 Elite Low):</strong> horma estrecha y puntera justa.</li>
+  <li><strong>Li-Ning Gamma 2 y Nike GT Cut Academy 2:</strong> ajuste estrecho; la Academy con la puntera afilada.</li>
 </ul>
 
 <p class="art-outro">El <a href="/quiz">quiz de CANCHA.ZAPA</a> tiene una pregunta específica sobre el ancho de tu pie y filtra los modelos según esa variable. Si seleccionas "pie ancho", los modelos con horma estrecha quedan fuera del resultado automáticamente.</p>
