@@ -4345,6 +4345,148 @@ export const ARTICLES: Article[] = [
 <p class="art-outro">Empieza por lo sencillo: escribe tu plantilla en <a href="/asistencia/">Asistencia y convocatorias</a> y pasa lista en el próximo entrenamiento. Gratis y sin registro.</p>
 `,
   },
+
+  // ── Plan de partido ─────────────────────────────────────────────────
+  {
+    slug: "plan-de-partido-baloncesto-base-que-tu-equipo-lo-recuerde",
+    title: "Cómo hacer un plan de partido en baloncesto base (y que tu equipo lo recuerde)",
+    metaTitle: "Plan de partido en baloncesto base, en una hoja | CANCHA.ZAPA",
+    description:
+      "Cómo preparar un plan de partido en baloncesto base: pocas ideas, claves del rival con dorsales, emparejamientos y jugadas dibujadas, en una hoja y un mensaje.",
+    fecha: "2026-10-19",
+    fechaLabel: "19 octubre 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Entrenadores · Partido",
+    heroTitle: "Cómo hacer un plan de partido que tu equipo recuerde",
+    heroSubtitle: "Pocas ideas, acciones concretas y una hoja que cabe en el banquillo",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: [],
+    relatedSeoPages: ["zapatillas-indoor", "zapatillas-baloncesto-junior", "zapatillas-baloncesto-calidad-precio"],
+    body: `
+<p class="art-intro">Un plan de partido que no se recuerda no sirve de nada. En baloncesto base el problema rara vez es que falte información: es que sobra. Diez claves del rival, cinco jugadas y tres defensas distintas no caben en la cabeza de un jugador de 12 años en mitad de un partido. Esta guía propone cómo decidir qué entra en el plan y montarlo con el <a href="/plan-partido/">plan de partido</a> de CANCHA.ZAPA, que junta en una hoja lo que ya tienes en el navegador: las claves del rival, tus jugadas y tu plantilla.</p>
+
+<h2>1. Elige poco y hazlo concreto</h2>
+<p>Una regla práctica: dos o tres objetivos, una idea clara para atacar, una para defender y una situación especial para el final del partido. Lo que no cabe ahí, se trabaja en el entrenamiento pero no va al plan.</p>
+<ul>
+  <li><strong>Acciones, no deseos:</strong> «cerrar el rebote defensivo» es una acción; «jugar mejor» no lo es. «No dejar tirar al 7» se entiende.</li>
+  <li><strong>Lo que controláis vosotros:</strong> en formación pesa más lo que tu equipo aprende que anular al rival.</li>
+  <li><strong>Una frase por línea:</strong> cada punto debe poder decirse en un tiempo muerto sin mirar el papel.</li>
+</ul>
+
+<h2>2. Qué trae la hoja</h2>
+<p>El plan tiene estas secciones, y solo salen las que rellenas:</p>
+<ul>
+  <li><strong>El partido:</strong> rival, fecha, hora y lugar.</li>
+  <li><strong>Objetivos, En ataque y En defensa:</strong> una idea por línea.</li>
+  <li><strong>Claves del rival:</strong> se escriben a mano o se traen del informe del rival.</li>
+  <li><strong>Emparejamientos:</strong> hasta 12 filas con tu jugador, el rival y una nota.</li>
+  <li><strong>Jugadas:</strong> hasta 6, elegidas de tu pizarra.</li>
+  <li><strong>Situaciones especiales:</strong> último ataque, presión, cuándo pedir tiempo muerto.</li>
+</ul>
+<p>Puedes guardar hasta 20 planes, uno por partido.</p>
+
+<h2>3. Claves del rival, con dorsales</h2>
+<p>Si ya has añadido actas del rival en el <a href="/rival/">informe del rival</a>, el plan te deja elegirlo en un desplegable y trae sus claves de golpe. Al traerlas, el plan cambia el nombre de cada jugador por su dorsal («Su anotador principal es #7: …»). Si el acta no trae dorsal, usa las iniciales («P. R.») y nunca el nombre completo. Es lo que se dice en pista y, de paso, el mensaje al grupo no lleva nombres de niños de otro equipo.</p>
+<p>Si añades partidos al informe, el botón «Traer del informe del rival» refresca las claves (te pregunta antes de sustituir lo escrito). Y si cambias de rival, te pregunta si quieres sustituir las claves escritas por las del nuevo.</p>
+<p>Las claves salen de reglas fijas sobre las actas (anotador principal, tiradores, faltas…): quédate solo con las que cambien lo que vais a hacer. Con pocas actas, son una pista, no una verdad.</p>
+
+<h2>4. Emparejamientos que se entienden</h2>
+<p>En cada fila escribes tu jugador, el dorsal del rival y, si quieres, una nota corta («negarle el balón»). Mientras escribes, la herramienta te ofrece como sugerencia los dorsales del rival elegido y los jugadores de tu equipo, si tienes uno creado en el modo Equipo de <a href="/estadisticas/">estadísticas</a>. En la hoja salen como «tu jugador → rival (nota)».</p>
+<p>Marca solo los que importan, normalmente el anotador del rival. El resto, defensa normal.</p>
+
+<h2>5. Jugadas de tu pizarra</h2>
+<p>Las jugadas que has guardado en la <a href="/pizarra/">pizarra</a> aparecen como casillas para marcar, con su categoría al lado (hasta 6 por plan). En el mensaje para el grupo salen solo con su nombre; en la hoja impresa, con su dibujo. Si borras una jugada de la pizarra, el plan la quita y te avisa. Elige las que vuestro equipo ya ejecuta bien: un plan no es el sitio para estrenar jugadas.</p>
+
+<h2>6. Del plan a la semana de entrenamiento</h2>
+<ul>
+  <li><strong>Inicio de semana:</strong> prepara el plan y decide las dos o tres ideas.</li>
+  <li><strong>Entrenamientos:</strong> unos minutos para cada idea, con las jugadas elegidas. Si no se puede entrenar, quizá no debería estar en el plan.</li>
+  <li><strong>El día antes:</strong> manda el mensaje al grupo del equipo.</li>
+  <li><strong>El día del partido:</strong> repetid las ideas en el vestuario con las mismas palabras del plan.</li>
+</ul>
+
+<h2>7. El mensaje del grupo y la hoja del banquillo</h2>
+<p>El cuadro «Para el equipo» compone solo el texto, con el formato de WhatsApp (títulos en negrita y viñetas), y se actualiza mientras escribes. Lo puedes copiar o compartir con el menú del móvil. Léelo antes de enviarlo: lleva también las claves del rival, con sus cifras.</p>
+<p>«Imprimir plan» genera una hoja A4 con las secciones en dos columnas, las jugadas con su dibujo y el escudo y el nombre de tu club arriba, si los has guardado en la pizarra (Biblioteca, «Escudo y colores del club»). La hoja impresa con escudo es una función Pro, gratis durante la beta. Llévala al banquillo para tener a mano quién defiende a quién y qué hacer en el último ataque.</p>
+
+<h2>Una nota sobre los datos</h2>
+<p>El plan, el informe del rival y la pizarra se guardan solo en el navegador de tu dispositivo y no se suben a ningún servidor. Si borras los datos del navegador o cambias de móvil u ordenador, tendrás que empezar de nuevo.</p>
+
+<p class="art-outro">Empieza por lo pequeño: abre el <a href="/plan-partido/">plan de partido</a>, elige a tu próximo rival y escribe tres líneas. Si aún no has preparado su ficha, hazlo primero en el <a href="/rival/">informe del rival</a>. Gratis y sin registro.</p>
+`,
+  },
+
+  // ── Pizarra táctica ─────────────────────────────────────────────────
+  {
+    slug: "pizarra-tactica-online-baloncesto-dibujar-animar-compartir",
+    title: "Pizarra táctica online para baloncesto: cómo dibujar, animar y compartir jugadas",
+    metaTitle: "Pizarra táctica online de baloncesto: guía | CANCHA.ZAPA",
+    description:
+      "Guía de la pizarra táctica online de CANCHA.ZAPA: dibuja jugadas por pasos, anímalas, comparte por enlace o QR y prepara sesiones por edad. Gratis en tu móvil.",
+    fecha: "2026-10-19",
+    fechaLabel: "19 octubre 2026",
+    categoria: "Guías",
+    readMinutes: 6,
+    eyebrow: "★ Entrenadores · Pizarra",
+    heroTitle: "Pizarra táctica online: dibujar, animar y compartir",
+    heroSubtitle: "Un flujo de principio a fin para entrenadores de base, con lo que es gratis y lo que es Pro",
+    author: "Editorial CANCHA.ZAPA",
+    relatedShoes: [],
+    relatedSeoPages: ["zapatillas-indoor", "zapatillas-baloncesto-junior", "zapatillas-baloncesto-calidad-precio"],
+    body: `
+<p class="art-intro">Una jugada en un papel se explica; una que se mueve paso a paso se entiende. La <a href="/pizarra/">pizarra táctica</a> de CANCHA.ZAPA funciona en el navegador, sin registro, en el móvil o la tableta, y guarda todo en tu dispositivo. Esta guía recorre lo que hace, en el orden en que lo usa un entrenador de base, e indica qué es Pro (gratis durante la beta).</p>
+
+<h2>1. Elige la pista y coloca las piezas</h2>
+<p>Primero eliges el tipo de pista: FIBA o minibasket (aro a 2,60 m), en media pista o completa, y puedes girarla y cambiar el color. Después colocas atacantes, defensores, balón, conos, jugadores neutros, entrenador y filas de jugadores esperando turno.</p>
+<p>Para el movimiento hay una herramienta por acción: pase (discontinua), bote (zigzag), corte (continua), bloqueo (línea en T), tiro, y rotación para indicar adónde va el jugador después. Si empiezas de cero, las «Formaciones» colocan en un paso la formación que elijas, como 1-3-1, 2-3, cuernos, individual, zona 2-3 o presión 1-2-1-1, y se pueden deshacer.</p>
+
+<h2>2. Divide la jugada en pasos</h2>
+<p>Una jugada es una secuencia de pasos. Al añadir un paso, parte de donde acabaron los jugadores del anterior, y solo dibujas lo que cambia. Puedes duplicar o borrar pasos y escribir una nota por paso («el 5 sube a bloquear»).</p>
+<ul>
+  <li><strong>Numera las líneas</strong> de un paso para marcar el orden: se ve un número en cada flecha.</li>
+  <li><strong>Pon nombre a los jugadores:</strong> carga la plantilla de un equipo que ya tengas en el modo Equipo de <a href="/estadisticas/">estadísticas</a>, o quítalos.</li>
+  <li><strong>Reproduce la jugada</strong> a velocidad de 0,5× a 2× para comprobar que se entiende.</li>
+</ul>
+
+<h2>3. No empieces de cero si no hace falta</h2>
+<p>La biblioteca trae cinco plantillas (pick and roll, cuernos, saque de fondo en caja, contraataque 3 contra 2 y zona 2-3) y siete ejercicios de entrenamiento: rueda de bandejas, tres hombres, 3c2 y 2c1 continuo, mikan, 1c1 con salida desde el aro, tiro en estrella y tiro con rebote y pase. Las abres, las cambias y las guardas con tu nombre y una categoría (ataque, defensa, saques, contraataque, presión o ejercicio).</p>
+
+<h2>4. Lecturas: qué pasa si el defensor hace otra cosa (Pro)</h2>
+<p>Con «+ Lectura» creas una alternativa que sale de un paso, por ejemplo «si pasa por detrás», con sus propios pasos. Hasta 6 por jugada. Crearlas es Pro.</p>
+
+<h2>5. Guardar, y no perderlo todo</h2>
+<p>Guardas la jugada en tu biblioteca, con búsqueda y filtro por categoría. Hay copia de seguridad y restauración, y conviene usarla: si borras los datos del navegador, cambias de dispositivo o usas una ventana de incógnito, las jugadas se pierden.</p>
+
+<h2>6. Compartir: seis maneras</h2>
+<ul>
+  <li><strong>Enlace:</strong> la jugada viaja dentro de la dirección, sin subirse a ningún servidor. Si es muy largo, la herramienta avisa y propone imagen o archivo.</li>
+  <li><strong>Imagen o PDF:</strong> PNG del paso o hoja con todos los pasos, e impresión de una jugada o de todo el playbook.</li>
+  <li><strong>Modo jugador y código QR (Pro):</strong> un enlace de solo ver que abre la jugada en bucle, con las notas y sin herramientas de edición. El QR sirve para proyectarlo o ponerlo en la tableta.</li>
+  <li><strong>GIF o vídeo WebM (Pro):</strong> el GIF se ve en WhatsApp, incluido iPhone; el vídeo WebM no funciona en Safari. Hacen falta al menos dos pasos.</li>
+  <li><strong>Archivo .json:</strong> de una jugada o de todo el playbook.</li>
+  <li><strong>Hoja de banquillo:</strong> 4 o 6 jugadas por folio, con el nombre grande y los pasos superpuestos o solo el último. Es gratis y para llevar al partido.</li>
+</ul>
+<p>Quien recibe un enlace puede guardarlo en su biblioteca o editar una copia. Y para el partido, el botón «Tiempo muerto» deja una pizarra limpia a pantalla completa en la que mover piezas y dibujar flechas.</p>
+
+<h2>7. Sesiones de entrenamiento (Pro)</h2>
+<p>El botón «Sesión» monta un plan con bloques, minutos, notas y material. Trae cinco sesiones listas por etapa: Premini (6–8 años), Mini (9–11), Infantil (12–13), Cadete (14–15) y Júnior/Sénior (16+). Son una base editable. Antes de crearla puedes elegir el objetivo (general, tiro, defensa o transición), la duración y cuántos jugadores tienes, de 4 a 24: reparte los minutos y añade una nota de organización a los bloques que la admiten (tríos, parejas, número de canastas). Se imprime en una o dos hojas A4.</p>
+
+<h2>8. Club y escudo</h2>
+<p>Un coordinador puede compartir toda su biblioteca, jugadas y sesiones, con el nombre del club, por enlace o archivo, sin los nombres de sus jugadores. Compartir es Pro; recibirlo es gratis, y una versión nueva sustituye a la anterior sin tocar lo tuyo. El nombre, el color y el escudo del club salen arriba del playbook, la hoja de banquillo y las sesiones; guardarlos es Pro.</p>
+
+<h2>Un flujo de principio a fin</h2>
+<ul>
+  <li><strong>Lunes:</strong> abre una plantilla o un ejercicio, adáptala y guárdala.</li>
+  <li><strong>Entrenamiento:</strong> proyecta el QR o enseña la animación y explica la jugada en dos minutos.</li>
+  <li><strong>Entre semana:</strong> manda el GIF o el enlace de solo ver.</li>
+  <li><strong>Partido:</strong> imprime la hoja de banquillo y usa el tiempo muerto.</li>
+</ul>
+<p>Cuando quieras llevar las jugadas a un partido concreto, el <a href="/plan-partido/">plan de partido</a> las junta con los objetivos y las claves del <a href="/rival/">informe del rival</a>.</p>
+
+<p class="art-outro">¿Listo? Abre la <a href="/pizarra/">pizarra táctica</a>, carga una plantilla y dibuja tu primera jugada. Gratis y sin registro.</p>
+`,
+  },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
