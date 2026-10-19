@@ -441,7 +441,7 @@ export const SEO_PAGES: SeoPage[] = [
     ],
     faqs: [
       { q: "¿Qué zapa agarra mejor en parquet?",
-        a: "Nike Kobe 8 Protro y Anta KAI 1 Speed. Ambas con score 9/10 en tracción y patrón herringbone profundo." },
+        a: "Muchas tienen la nota máxima de tracción en nuestra ficha; dos de las que más destacan son la Nike Kobe 8 Protro y la Anta KAI 1 Speed. En los rankings tienes el resto." },
       { q: "¿Por qué patinan las zapas nuevas?",
         a: "A veces traen una capa de fábrica que se quita con uso. 2-3 partidos y normaliza. Si sigue patinando, es polvo en suela." },
       { q: "¿Buena tracción outdoor es lo mismo?",
@@ -874,7 +874,7 @@ export const SEO_PAGES: SeoPage[] = [
     guidePoints: [
       { lab: "Kobe Protros — las mejores jugables", body: "Nike actualizó outsoles y Zoom Air en las Kobe 4/5/6 Protro. Son retros en aspecto pero modernas en rendimiento. Las más recomendadas para jugar de verdad." },
       { lab: "Jordan 12 y 14 — clásicas que aguantan", body: "Zoom Air real, herringbone tracción, cuero durable. La 12 (Flu Game) y la 14 (Last Shot) son las Jordan clásicas más jugables." },
-      { lab: "Reebok Iverson — los de las Finales 2001", body: "Question Mid y Answer IV de Allen Iverson. Tracción de cuero pegajosa y DMX foam. Scores 6.2-6.4/10 para ser de 1996-2001." },
+      { lab: "Reebok Iverson — los de las Finales 2001", body: "Question Mid y Answer IV de Allen Iverson. Tracción de cuero pegajosa y DMX foam. Para ser de 1996-2001, rinden mejor de lo esperado." },
       { lab: "Iconos históricos — para colección", body: "AF1 (1982), Chuck Taylor (1917), Puma Clyde (1973), Converse Weapon (1986). Cultura pura, rendimiento limitado." },
     ],
     faqs: [
@@ -925,7 +925,7 @@ export const SEO_PAGES: SeoPage[] = [
     ],
     faqs: [
       { q: "¿Son buenas las zapatillas Anta para baloncesto?", a: "Sí, especialmente para el precio. La KAI 2 compite técnicamente con la Adidas AE 2 y suele costar menos. La marca invierte en tecnología real, no solo en marketing." },
-      { q: "¿Merece la pena la Anta KAI 2 de Kyrie Irving?", a: "Sí. Tracción 8/10, respuesta 9/10, horma ancha, 119€. Para bases o escoltas con pie normal o ancho que buscan rendimiento sin gastar 150€+, es la mejor compra de 2025." },
+      { q: "¿Merece la pena la Anta KAI 2 de Kyrie Irving?", a: "Sí. En nuestra ficha está arriba en tracción, amortiguación y respuesta, con horma normal (con pie ancho, prueba media talla más). Para bases o escoltas que buscan rendimiento de gama alta sin pagar precio de gama alta, es de las mejores compras." },
       { q: "¿Dónde comprar Anta en España?", a: "Amazon ES es la principal fuente de Anta en España, con vendedores oficiales y devolución fácil. AliExpress tiene más colorways pero tarda más. Pocas tiendas físicas en España tienen stock." },
     ],
   }),
