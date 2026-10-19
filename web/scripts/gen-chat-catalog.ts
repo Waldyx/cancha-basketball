@@ -33,7 +33,10 @@ const catalogo = zapatillas
       `outdoor ${s.durabilidad_outdoor} vent ${s.ventilacion} | ${z.altura} | horma ${z.horma}` +
       (z.tags.includes("retro") ? " | RETRO" : "") +
       (z.genero === "gs" ? " | JUNIOR-GS" : "") +
-      (z.genero === "women" ? " | MUJER-100%" : z.tags.includes("mujer") ? " | MUJER-tambien" : "")
+      (z.genero === "women" ? " | MUJER-100%" : z.tags.includes("mujer") ? " | MUJER-tambien" : "") +
+      // Al final a propósito: `chat.ts` lee los campos por posición. Sin esto el modelo se
+      // inventaba la tecnología (19-oct: "Max Air y placa de carbono" en la LeBron 22).
+      (z.tecnologia_clave?.length ? ` | tec ${z.tecnologia_clave.join(", ")}` : "")
     );
   })
   .join("\n");

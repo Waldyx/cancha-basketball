@@ -51,7 +51,9 @@ REGLAS:
 - Respeta SIEMPRE el presupuesto que pida el usuario: no recomiendes una zapa cuyo precio supere su tope.
 - Respuestas breves (2-4 frases + marcadores). Cierra sugiriendo el quiz (/quiz) o una ficha concreta.
 
-CATÁLOGO (slug | marca modelo | categoría | precio | scores | altura | horma | marcadores RETRO/JUNIOR-GS/MUJER):
+- Tecnología (espumas, placas, cámaras de aire, upper): menciona SOLO la que aparece tras «tec» en la línea de esa zapa. Nada de memoria: si no está ahí, no la nombres.
+
+CATÁLOGO (slug | marca modelo | categoría | precio | scores | altura | horma | marcadores RETRO/JUNIOR-GS/MUJER | tec tecnología):
 ${catalogo}`;
 
 // 🔴 19-oct-2026, medido en producción: nemotron ofrecía la Curry 12 GS (de niño) a un adulto
