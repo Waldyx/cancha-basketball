@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **245 zapas (42 OCULTAS, 203 visibles) · 644 tests · `astro check` 0 errores · 371 páginas** |
+| Tamaño | **245 zapas (42 OCULTAS, 203 visibles) · 646 tests · `astro check` 0 errores · 371 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -329,6 +329,11 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 - ✅ **`scripts/audit-ia.ts`** nuevo: lista qué modelos de la cadena ya no existen gratis (exit 1) y cuáles hay sin usar.
 - ✅ **El catálogo del chat usa el precio MOSTRADO** (`gen-chat-catalog.ts`): anunciaba la reventa que la web oculta
   (Gamma 2 «479 €» con la ficha enseñando MSRP 120).
+- ✅ **Chat sin tecnología inventada**: cada línea del catálogo del chat lleva `| tec …` (`tecnologia_clave`) y el prompt
+  prohíbe nombrar otra (nemotron atribuía «Max Air y placa de carbono» a la LeBron 22). Re-medido: cita Air Zoom y Cushlon 3.0.
+- ✅ **/resultados: 127 KB → 5 KB de JS** (`lib/quizCatalogo.ts` + `/quiz-catalogo.json`, 26 KB gz cacheable). Importaba el
+  catálogo entero para puntuar 5 zapas. Test candado: 60 combinaciones de respuestas dan lo mismo con el catálogo recortado.
+  🔴 Y sus tarjetas enseñaban el precio REAL (reventa y tiendas sin afiliado, con CTA patrocinado): ahora el de la ficha.
 - ✅ **Kobe 5 Protro rescatada** (Decathlon marketplace, 233,99 € = 1,34× MSRP, 7 tallas). Descartadas: **PG 6** (una
   talla y 1 unidad) y **Why Not .6** (solo 36,5-40: curva de mujer/GS). Ocultas 43 → 42.
 - ⏸ **Search Console**: la sesión de Google del navegador integrado caducó; no se mete contraseña. Revisarlo el usuario
@@ -2651,4 +2656,4 @@ presupuesto · ancho de pie · uso (auto-submit 400 ms).
   `cancha-quiz-respuestas` (sessionStorage).
 - **Scripts de mantenimiento**: `update-images.js`, `fix-encoding.js`, `optimize-images.mjs`,
   `gen-chat-catalog.ts`, y los `audit-*` listados arriba.
-- **Tests**: `npx vitest run` → 644.
+- **Tests**: `npx vitest run` → 646.
