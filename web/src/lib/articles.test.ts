@@ -116,3 +116,20 @@ describe("ARTICLES — marcas {{peso:ID}}/{{precio:ID}}", () => {
     expect(hallazgos, hallazgos.join("\n")).toEqual([]);
   });
 });
+
+// 19-oct-2026: las notas «x/10» de los artículos salen de la ficha con {{nota:ID:eje}} y
+// {{score:ID}} (blog/[slug].astro). Un id o un eje mal escrito rompería el build: aquí se ve antes.
+describe("ARTICLES — marcas {{nota:ID:eje}}/{{score:ID}}", () => {
+  const EJES = ["traccion", "amortiguacion", "respuesta", "soporte_lateral", "estabilidad", "peso_score", "durabilidad_outdoor", "ventilacion"];
+  it("toda marca de nota apunta a un id real y a un eje válido", () => {
+    const malas: string[] = [];
+    for (const art of ARTICLES) {
+      for (const m of art.body.matchAll(/\{\{(nota|score):([a-z0-9-]+)(?::([a-z_]+))?\}\}/g)) {
+        const [txt, kind, id, eje] = m;
+        if (!zapatillasTodas.some((z) => z.id === id)) malas.push(`${art.slug}: ${txt} — id inexistente`);
+        if (kind === "nota" && !EJES.includes(eje ?? "")) malas.push(`${art.slug}: ${txt} — eje desconocido`);
+      }
+    }
+    expect(malas, malas.join("\n")).toEqual([]);
+  });
+});

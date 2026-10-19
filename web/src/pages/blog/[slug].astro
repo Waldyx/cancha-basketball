@@ -4,7 +4,7 @@ import Base from "../../layouts/Base.astro";
 import "../../styles/cancha-redesign.css";
 import { ARTICLES, getArticle } from "../../lib/articles";
 import { zapatillas, zapatillasTodas } from "../../data/zapatillas";
-import { findMejorPrecioMostrado } from "../../lib/scoring";
+import { findMejorPrecioMostrado, scoreMeta } from "../../lib/scoring";
 import { getSeoPage } from "../../lib/seoPages";
 
 export async function getStaticPaths() {
@@ -22,7 +22,20 @@ const { article } = Astro.props;
 // real). Sustituir ANTES de pintar el body y ANTES de contar palabras. Un ID
 // inexistente o sin peso ROMPE el build a propósito: mejor un fallo de build
 // que publicar una marca sin sustituir.
-const articleBody = article.body.replace(
+// Notas: {{nota:ID:eje}} = un eje de `puntuaciones` (traccion, amortiguacion…) y {{score:ID}} =
+// la nota global de la ficha. Se escribían a mano y divergían de la ficha (19-oct).
+const EJES = ["traccion", "amortiguacion", "respuesta", "soporte_lateral", "estabilidad", "peso_score", "durabilidad_outdoor", "ventilacion"];
+const conNotas = article.body.replace(
+  /\{\{(nota|score):([a-z0-9-]+)(?::([a-z_]+))?\}\}/g,
+  (_match: string, kind: "nota" | "score", id: string, eje?: string) => {
+    const z = zapatillasTodas.find((zz) => zz.id === id);
+    if (!z) throw new Error(`[blog/${article.slug}] {{${kind}:${id}}} apunta a un id que no existe en el catálogo`);
+    if (kind === "score") return `${String(scoreMeta(z).score).replace(".", ",")}/10`;
+    if (!eje || !EJES.includes(eje)) throw new Error(`[blog/${article.slug}] {{nota:${id}:${eje}}}: eje desconocido`);
+    return `${(z.puntuaciones as any)[eje]}/10`;
+  }
+);
+const articleBody = conNotas.replace(
   /\{\{(peso|precio|exterior):([a-z0-9-]+)\}\}/g,
   (_match: string, kind: "peso" | "precio" | "exterior", id: string) => {
     // `zapatillasTodas` y no `zapatillas`: una zapa OCULTA conserva su ficha y su

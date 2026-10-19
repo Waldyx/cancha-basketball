@@ -198,18 +198,18 @@ export const ARTICLES: Article[] = [
   <tbody>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Tracción</td>
-      <td style="padding:8px;text-align:center">⭐ 9/10</td>
-      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">{{nota:adidas-ae-2:traccion}}</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-ja-3:traccion}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Amortiguación</td>
-      <td style="padding:8px;text-align:center">7/10</td>
-      <td style="padding:8px;text-align:center">⭐ 8/10</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-ae-2:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-ja-3:amortiguacion}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Respuesta</td>
-      <td style="padding:8px;text-align:center">⭐ 9/10</td>
-      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+      <td style="padding:8px;text-align:center">{{nota:adidas-ae-2:respuesta}}</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-ja-3:respuesta}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Horma</td>
@@ -230,16 +230,16 @@ export const ARTICLES: Article[] = [
 </table>
 </div>
 
-<h2>Tracción: ventaja clara para la AE 2</h2>
-<p>El patrón herringbone de la AE 2 es uno de los mejores del mercado en 2025. Agarra sin necesidad de limpiar cada partido y funciona bien en parquet polvoriento. La Ja 3 también tiene buena tracción, pero en condiciones sucias la AE 2 gana por un margen notable.</p>
-<p><strong>Veredicto:</strong> AE 2 si juegas en pistas con polvo frecuente.</p>
+<h2>Tracción: {{nota:adidas-ae-2:traccion}} la AE 2 y {{nota:nike-ja-3:traccion}} la Ja 3</h2>
+<p>El patrón herringbone de la AE 2 es uno de los mejores del mercado en 2025. Agarra sin necesidad de limpiar cada partido y funciona bien en parquet polvoriento. La Ja 3 también agarra muy bien: en nuestra ficha empatan.</p>
+<p><strong>Veredicto:</strong> empate. Decide por amortiguación, horma o precio.</p>
 
-<h2>Amortiguación: Ja 3 va un paso por delante</h2>
-<p>La Ja 3 usa ZoomX full-length — la misma espuma de los Vaporfly de running. Eso se nota: el bounce es superior al Lightstrike Pro de la AE 2, que es más firme y reactivo pero con menor retorno energético puro. Para un guard de más de 85kg, la Ja 3 protege mejor las rodillas.</p>
-<p><strong>Veredicto:</strong> Ja 3 si priorizas el cushion o pesas más de 80kg.</p>
+<h2>Amortiguación: {{nota:adidas-ae-2:amortiguacion}} la AE 2 y {{nota:nike-ja-3:amortiguacion}} la Ja 3</h2>
+<p>La Ja 3 usa ZoomX full-length — la misma espuma de los Vaporfly de running. Es más blanda que el Lightstrike Pro de la AE 2, que es más firme y reactivo. Aun así, en nuestra ficha la AE 2 puntúa un punto más en amortiguación.</p>
+<p><strong>Veredicto:</strong> AE 2 si priorizas la amortiguación; Ja 3 si prefieres un tacto más blando.</p>
 
 <h2>Respuesta: empate técnico</h2>
-<p>Ambas tienen 9/10 en respuesta en nuestro análisis. La AE 2 tiene un primer paso más agresivo gracias al Lightstrike Pro firme; la Ja 3 tiene más bounce pero similar tiempo de respuesta. Para guards explosivos, las dos están en el mismo nivel.</p>
+<p>Ambas tienen {{nota:adidas-ae-2:respuesta}} en respuesta en nuestro análisis. La AE 2 tiene un primer paso más agresivo gracias al Lightstrike Pro firme; la Ja 3 tiene más bounce pero similar tiempo de respuesta. Para guards explosivos, las dos están en el mismo nivel.</p>
 
 <h2>Horma: ventaja Ja 3 para pies anchos</h2>
 <p>La AE 2 tiene horma normal — ni estrecha ni ancha. La Ja 3 tiene una horma más generosa, especialmente en el antepié. Si tu pie es ancho o has tenido problemas con Nike en el pasado (muchos modelos van estrechos), la Ja 3 es más segura.</p>
@@ -299,13 +299,13 @@ export const ARTICLES: Article[] = [
 
 <h3>Puntuación técnica CANCHA.ZAPA</h3>
 <ul>
-  <li>Tracción: 8/10 (baja a 6 si no limpias la suela)</li>
-  <li>Amortiguación: <strong>10/10</strong> — la mejor del mercado mainline</li>
-  <li>Respuesta: 9/10 (el ZoomX bounce es lo mejor que ofrece)</li>
-  <li>Soporte lateral: 8/10 (las 6 correas hacen su trabajo)</li>
-  <li>Estabilidad: 7/10 (ligera inestabilidad en el antepié con carga extrema)</li>
-  <li>Ligereza: 6/10 (439 g — no es ligera)</li>
-  <li>Durabilidad outdoor: 6/10 (no la lleves al asfalto)</li>
+  <li>Tracción: {{nota:jordan-40:traccion}}</li>
+  <li>Amortiguación: <strong>{{nota:jordan-40:amortiguacion}}</strong> — entre las mejores del mercado mainline</li>
+  <li>Respuesta: {{nota:jordan-40:respuesta}} (el ZoomX bounce es lo mejor que ofrece)</li>
+  <li>Soporte lateral: {{nota:jordan-40:soporte_lateral}} (las 6 correas hacen su trabajo)</li>
+  <li>Estabilidad: {{nota:jordan-40:estabilidad}}</li>
+  <li>Ligereza: {{nota:jordan-40:peso_score}} ({{peso:jordan-40}})</li>
+  <li>Durabilidad outdoor: {{nota:jordan-40:durabilidad_outdoor}} (no la lleves al asfalto)</li>
 </ul>
 
 <h2>¿Vale los {{precio:jordan-40}}?</h2>
@@ -412,30 +412,30 @@ export const ARTICLES: Article[] = [
   <tbody>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike LeBron 23</strong></td>
-      <td style="padding:8px;text-align:center">⭐ 10/10</td>
-      <td style="padding:8px;text-align:center">9/10</td>
-      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:nike-lebron-23:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-lebron-23:soporte_lateral}}</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-lebron-23:traccion}}</td>
       <td style="padding:8px;text-align:center">{{precio:nike-lebron-23}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike KD 19</strong></td>
-      <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:nike-kd-19:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-kd-19:soporte_lateral}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:nike-kd-19:traccion}}</td>
       <td style="padding:8px;text-align:center">{{precio:nike-kd-19}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Air Jordan 40</strong></td>
-      <td style="padding:8px;text-align:center">⭐ 10/10</td>
-      <td style="padding:8px;text-align:center">⭐ 9/10</td>
-      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">{{nota:jordan-40:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">{{nota:jordan-40:soporte_lateral}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:jordan-40:traccion}}</td>
       <td style="padding:8px;text-align:center">{{precio:jordan-40}}</td>
     </tr>
     <tr>
       <td style="padding:8px"><strong>ANTA KT 11</strong></td>
-      <td style="padding:8px;text-align:center">6/10</td>
-      <td style="padding:8px;text-align:center">6/10</td>
-      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">{{nota:anta-kt-11:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">{{nota:anta-kt-11:soporte_lateral}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:anta-kt-11:traccion}}</td>
       <td style="padding:8px;text-align:center">{{precio:anta-kt-11}}</td>
     </tr>
   </tbody>
@@ -594,7 +594,7 @@ export const ARTICLES: Article[] = [
 <p>Generalizar por marca engaña: dentro de una misma marca hay líneas que van justas y otras que sobran. Lo que sí se repite en las reviews que agrega HoopsGeek:</p>
 <ul>
   <li><strong>Nike →</strong> depende de la línea. LeBron, KD y Sabrina dan espacio en el antepié; Zion, Ja, Kobe Protro y Kyrie van estrechas y con poco volumen.</li>
-  <li><strong>Under Armour →</strong> sus últimos modelos (Curry 13, FUTR X Elite, Embiid 1) son de los más permisivos con el pie ancho.</li>
+  <li><strong>Under Armour →</strong> sus últimos modelos (Curry 13, FUTR X Elite) son de los más permisivos con el pie ancho.</li>
   <li><strong>Adidas →</strong> normal, con puntera variable según el modelo: pruébatela antes.</li>
   <li><strong>ANTA →</strong> ajuste de guante (Kai 2, Kai 3, KT 10, Shock Wave 5): con pie ancho, casi siempre media talla más.</li>
   <li><strong>Li-Ning →</strong> tiende a estrecho en la gama alta (la Gamma 2 va justa y con poco volumen).</li>
@@ -692,35 +692,35 @@ export const ARTICLES: Article[] = [
 <h2>Top 4 zapatillas para tobillo débil en 2025</h2>
 
 <h3><a href="/zapatilla/nike-kobe-9-high-protro">Nike Kobe 9 High Protro — desde {{precio:nike-kobe-9-high-protro}}</a></h3>
-<p>La única high-top real de las cuatro — el propio nombre de fábrica lo dice ("High Protro"). Soporte lateral 9/10 y estabilidad 9/10. El shank de fibra de carbono da rigidez al mediopié y el upper Flyknit sube por encima del tobillo: es la de más caña de la lista.</p>
+<p>La única high-top real de las cuatro — el propio nombre de fábrica lo dice ("High Protro"). Soporte lateral {{nota:nike-kobe-9-high-protro:soporte_lateral}} y estabilidad {{nota:nike-kobe-9-high-protro:estabilidad}}. El shank de fibra de carbono da rigidez al mediopié y el upper Flyknit sube por encima del tobillo: es la de más caña de la lista.</p>
 <ul>
   <li>✅ High-top real: máxima altura de caña de la lista</li>
-  <li>✅ Soporte lateral 9/10 y estabilidad 9/10</li>
+  <li>✅ Soporte lateral {{nota:nike-kobe-9-high-protro:soporte_lateral}} y estabilidad {{nota:nike-kobe-9-high-protro:estabilidad}}</li>
   <li>❌ Solo disponible en KicksCrew — sin tienda española con stock propio</li>
 </ul>
 
 <h3><a href="/zapatilla/ua-curry-13">UA Curry 13 — desde {{precio:ua-curry-13}}</a></h3>
-<p>Mid-top pensada para bases y escoltas tiradores. La entresuela UA HOVR+ de longitud completa va montada sobre un chasis de estabilidad en Pebax, y el soporte lateral (9/10) y la estabilidad (9/10) igualan a los de la Kobe 9 High Protro sin renunciar a la agilidad de un corte más bajo. Es además la más fácil de encontrar: cuatro tiendas con stock en España.</p>
+<p>Mid-top pensada para bases y escoltas tiradores. La entresuela UA HOVR+ de longitud completa va montada sobre un chasis de estabilidad en Pebax, y el soporte lateral ({{nota:ua-curry-13:soporte_lateral}}) y la estabilidad ({{nota:ua-curry-13:estabilidad}}) igualan a los de la Kobe 9 High Protro sin renunciar a la agilidad de un corte más bajo. Es además la más fácil de encontrar: cuatro tiendas con stock en España.</p>
 <ul>
-  <li>✅ Soporte lateral 9/10 y estabilidad 9/10 en un corte mid</li>
+  <li>✅ Soporte lateral {{nota:ua-curry-13:soporte_lateral}} y estabilidad {{nota:ua-curry-13:estabilidad}} en un corte mid</li>
   <li>✅ La más disponible de las cuatro: El Corte Inglés, Decathlon, UA y Basket4Ballers</li>
   <li>❌ Horma normal — pruébatela antes si tienes el pie ancho</li>
 </ul>
 
 <h3><a href="/zapatilla/361-joker-1">361° Joker 1 — desde {{precio:361-joker-1}}</a></h3>
-<p>Mid-top pensada para pívots y ala-pívots. El contrafuerte de talón en TPU y la placa de carbono dan el mismo soporte lateral (9/10) y estabilidad (9/10) que la Curry 13, con horma ancha. Se puede comprar en tres tiendas (AliExpress, Basketball Emotion y Amazon).</p>
+<p>Mid-top pensada para pívots y ala-pívots. El contrafuerte de talón en TPU y la placa de carbono dan el mismo soporte lateral ({{nota:361-joker-1:soporte_lateral}}) y estabilidad ({{nota:361-joker-1:estabilidad}}) que la Curry 13, con horma ancha. Se puede comprar en tres tiendas (AliExpress, Basketball Emotion y Amazon).</p>
 <ul>
-  <li>✅ Soporte lateral 9/10 y estabilidad 9/10 — igual que la Curry 13</li>
+  <li>✅ Soporte lateral {{nota:361-joker-1:soporte_lateral}} y estabilidad {{nota:361-joker-1:estabilidad}} — igual que la Curry 13</li>
   <li>✅ Horma ancha: mejor ajuste si tu pie no entra en tallas normales</li>
   <li>❌ La más pesada de las cuatro — el refuerzo de carbono y TPU prioriza protección sobre ligereza</li>
 </ul>
 
 <h3><a href="/zapatilla/puma-mb-04">Puma MB.04 — desde {{precio:puma-mb-04}}</a></h3>
-<p>Mid-top de LaMelo Ball pensada para bases, escoltas y aleros. Los Nitro foam pucks amortiguan sin perder la rigidez del carrier de EVA que sujeta el mediopié, y el soporte lateral (9/10) iguala al de la Curry 13 y la Joker 1. La cuarta opción de la lista, con dos tiendas afiliadas en España.</p>
+<p>Mid-top de LaMelo Ball pensada para bases, escoltas y aleros. Los Nitro foam pucks amortiguan sin perder la rigidez del carrier de EVA que sujeta el mediopié, y el soporte lateral ({{nota:puma-mb-04:soporte_lateral}}) iguala al de la Curry 13 y la Joker 1. La cuarta opción de la lista, con dos tiendas afiliadas en España.</p>
 <ul>
-  <li>✅ Soporte lateral 9/10 en un corte mid, para guards y aleros</li>
+  <li>✅ Soporte lateral {{nota:puma-mb-04:soporte_lateral}} en un corte mid, para guards y aleros</li>
   <li>✅ Nitro foam + carrier de EVA: amortiguación sin perder contención lateral</li>
-  <li>❌ Estabilidad 8/10 — algo por debajo de las otras tres (9/10)</li>
+  <li>❌ Estabilidad {{nota:puma-mb-04:estabilidad}} — algo por debajo de las otras tres ({{nota:ua-curry-13:estabilidad}})</li>
 </ul>
 
 <h2>Lo que NO hacer si tienes el tobillo débil</h2>
@@ -741,7 +741,7 @@ export const ARTICLES: Article[] = [
     title: "GT Cut 4 vs Curry 13 vs ANTA Kai 2: batalla de los explosivos en 2025",
     metaTitle: "Nike GT Cut 4 vs UA Curry 13 vs ANTA Kai 2 comparativa 2025 | CANCHA.ZAPA",
     description:
-      "Comparativa técnica entre las tres zapatillas más reactivas de 2025: GT Cut 4, Curry 13 y ANTA Kai 2. Tracción, respuesta, precio y para qué tipo de base/escolta.",
+      "Comparativa técnica de tres zapatillas para guards de 2025: GT Cut 4, Curry 13 y ANTA Kai 2. Tracción, respuesta, precio y para qué tipo de base/escolta.",
     fecha: "2026-05-26",
     fechaLabel: "26 mayo 2026",
     categoria: "Comparativas",
@@ -770,21 +770,21 @@ export const ARTICLES: Article[] = [
   <tbody>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Tracción</td>
-      <td style="padding:8px;text-align:center">⭐ 10/10</td>
-      <td style="padding:8px;text-align:center">9/10</td>
-      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-gt-cut-4:traccion}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:ua-curry-13:traccion}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:anta-kai-2:traccion}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Respuesta</td>
-      <td style="padding:8px;text-align:center">⭐ 10/10</td>
-      <td style="padding:8px;text-align:center">9/10</td>
-      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-gt-cut-4:respuesta}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:ua-curry-13:respuesta}}</td>
+      <td style="padding:8px;text-align:center">{{nota:anta-kai-2:respuesta}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Amortiguación</td>
-      <td style="padding:8px;text-align:center">7/10</td>
-      <td style="padding:8px;text-align:center">⭐ 8/10</td>
-      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-gt-cut-4:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">{{nota:ua-curry-13:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:anta-kai-2:amortiguacion}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Horma</td>
@@ -808,8 +808,8 @@ export const ARTICLES: Article[] = [
 </table>
 </div>
 
-<h2>Nike GT Cut 4: la más explosiva del mercado</h2>
-<p>La GT Cut 4 tiene el Zoom Air más reactivo que Nike fabrica actualmente en baloncesto. Combinado con una suela de goma dura de patrón multidireccional, el resultado es la zapatilla con mejor court feel de 2025 — y posiblemente de los últimos 5 años.</p>
+<h2>Nike GT Cut 4: court feel y primer paso</h2>
+<p>La GT Cut 4 monta Zoom Air Strobel con una suela de goma dura de patrón multidireccional. Su baza es el court feel: el pie va muy pegado al suelo.</p>
 <p><strong>El problema:</strong> la horma es muy estrecha. Si tienes pie ancho o dedos largos, la presión en el antepié puede ser un problema real después de 30 minutos. Pruébatela antes de comprar o sube media talla.</p>
 <p><strong>Para quién:</strong> Base o escolta con pie normal o estrecho que juega en interior limpio y prioriza el primer paso sobre cualquier otra cosa.</p>
 
@@ -820,7 +820,7 @@ export const ARTICLES: Article[] = [
 
 <h2>ANTA Kai 2: la sorpresa del año</h2>
 <p>Kyrie Irving fichó por ANTA después de salir de Nike, y la Kai 2 es su segunda zapatilla con la marca china. Desde {{precio:anta-kai-2}}, ofrece un rendimiento que avergüenza a zapatillas más caras. La tracción es sólida, la respuesta es rápida gracias a la espuma A-Flashfoam 2.0, y la horma ancha la hace la más accesible para pies normales y anchos.</p>
-<p><strong>El problema:</strong> la respuesta no llega al nivel de la GT Cut 4 o la Curry 13. La diferencia no es enorme, pero existe. Si buscas el máximo rendimiento sin importar el precio, las otras dos ganan.</p>
+<p><strong>El problema:</strong> la respuesta ({{nota:anta-kai-2:respuesta}}) queda un punto por debajo de la Curry 13 ({{nota:ua-curry-13:respuesta}}), aunque por encima de la GT Cut 4 ({{nota:nike-gt-cut-4:respuesta}}). Si buscas la máxima respuesta, la Curry 13 gana.</p>
 <p><strong>Para quién:</strong> Bases y escoltas con cualquier tipo de pie que buscan máxima relación calidad-precio. También la mejor opción si tu pie es ancho.</p>
 
 <h2>Veredicto final</h2>
@@ -1024,7 +1024,7 @@ export const ARTICLES: Article[] = [
 <h2>Tier 1 — Retros que realmente puedes jugar</h2>
 
 <h3>🥇 Nike Kobe 5 Protro / Kobe 6 Protro — Las mejores retros jugables</h3>
-<p>Las Kobe Protros son el mejor argumento de que "retro" no significa "inferior". Nike ha actualizado las outsoles, aplicado Zoom Air moderno y mantenido el perfil bajo y reactivo que hacía a las originales tan especiales. Las Kobe 5 y 6 Protro consiguen scores de 6.6-6.7/10 — dentro del rango de zapas modernas de rango medio.</p>
+<p>Las Kobe Protros son el mejor argumento de que "retro" no significa "inferior". Nike ha actualizado las outsoles, aplicado Zoom Air moderno y mantenido el perfil bajo y reactivo que hacía a las originales tan especiales. Las Kobe 5 y 6 Protro consiguen {{score:nike-kobe-5-protro}} (Kobe 5) y {{score:nike-kobe-6-protro}} (Kobe 6) — al nivel de las zapas modernas de gama alta.</p>
 <ul>
   <li><strong>Para quién:</strong> Bases y escoltas explosivos que quieren rendimiento real + historia.</li>
   <li><strong>Vs alternativa moderna equivalente:</strong> Nike Ja 2 (desde {{precio:nike-ja-2}}) — similar rendimiento, sin el legado.</li>
@@ -1032,7 +1032,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3>🥈 Air Jordan 12 Retro — La mejor Jordan retro para jugar</h3>
-<p>La Jordan del Flu Game (1997). Zoom Air completo, herringbone tracción, estructura de cuero sólida. Consigue 6.1/10 — la mejor puntuación de la saga Jordan clásica. La penaliza el peso (440 g) pero si juegas sin velocidad explosiva, ofrece una experiencia sorprendentemente moderna.</p>
+<p>La Jordan del Flu Game (1997). Zoom Air completo, herringbone tracción, estructura de cuero sólida. Consigue {{score:air-jordan-12}} — la mejor puntuación de la saga Jordan clásica. La penaliza el peso (440 g) pero si juegas sin velocidad explosiva, ofrece una experiencia sorprendentemente moderna.</p>
 <ul>
   <li><strong>Para quién:</strong> Aleros y ala-pívots que juegan equilibrado. No para bases.</li>
   <li><strong>Historia incluida:</strong> El partido donde Jordan jugó con fiebre de 39° y ganó el anillo.</li>
@@ -1040,7 +1040,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3>🥉 Air Jordan 14 Retro — La mejor low-top Jordan histórica</h3>
-<p>El "Last Shot" de 1998 — el tiro que le dio el sexto anillo a MJ. Zoom Air real, peso contenido para ser un retro (415 g) y el perfil más limpio de toda la saga. Empata con la Jordan 12 en 6.1/10 pero ofrece más movilidad al ser low-top.</p>
+<p>El "Last Shot" de 1998 — el tiro que le dio el sexto anillo a MJ. Zoom Air real, peso contenido para ser un retro (415 g) y el perfil más limpio de toda la saga. Se queda por debajo de la Jordan 12 ({{score:air-jordan-12}}) con {{score:air-jordan-14}}, pero ofrece más movilidad al ser low-top.</p>
 <ul>
   <li><strong>Ojo:</strong> Low-top significa menos soporte de tobillo. No recomendada si tienes historial de esguinces.</li>
   <li><strong>Historia incluida:</strong> La última imagen icónica de MJ en Bulls.</li>
@@ -1049,30 +1049,30 @@ export const ARTICLES: Article[] = [
 <h2>Tier 2 — Retros icónicas con rendimiento decente</h2>
 
 <h3>Reebok Question Mid / Answer IV — Los zapatos de Iverson</h3>
-<p>Allen Iverson cruzó a MJ con la Question Mid y ganó con la Answer IV en las Finales 2001 contra los Lakers. Ambas consiguen scores entre 6.2-6.4/10 — mejor de lo esperado para 1996-2001. Tracción de cuero pegajosa y soporte lateral sólido. Limitadas en cushion pero jugables para estilos pausados.</p>
+<p>Allen Iverson cruzó a MJ con la Question Mid y ganó con la Answer IV en las Finales 2001 contra los Lakers. Consiguen {{score:reebok-question-mid}} (Question Mid) y {{score:reebok-answer-iv}} (Answer IV) — mejor de lo esperado para 1996-2001. Tracción de cuero pegajosa y soporte lateral sólido. Limitadas en cushion pero jugables para estilos pausados.</p>
 
 <h3>Nike Air Penny 2 — El zapato de Penny Hardaway</h3>
-<p>La primera gran rival de Jordan en los 90s. Foamposite parcial, Zoom Air, perfil mid. 5.7/10 — más baja que las Kobe Protro pero aceptable si no buscas velocidad explosiva. Diseño casi futurista para ser de 1996.</p>
+<p>La primera gran rival de Jordan en los 90s. Foamposite parcial, Zoom Air, perfil mid. {{score:nike-air-penny-2}} — más baja que las Kobe Protro pero aceptable si no buscas velocidad explosiva. Diseño casi futurista para ser de 1996.</p>
 
 <h3>Air Jordan 11 — La más elegante</h3>
-<p>La Jordan con lacado de patente negro. Un score de 5.4/10 refleja su Zoom Air básico y peso elevado, pero es la Jordan retro que más se viste fuera de la cancha con credibilidad. Para el coleccionista que también quiere jugar casualmente.</p>
+<p>La Jordan con lacado de patente negro. Un score de {{score:air-jordan-11}} refleja su Zoom Air básico y peso elevado, pero es la Jordan retro que más se viste fuera de la cancha con credibilidad. Para el coleccionista que también quiere jugar casualmente.</p>
 
 <h2>Tier 3 — Solo para jugar casual o colección</h2>
 
 <h3>Nike Air Force 1 — Madre de todo</h3>
-<p>La primera Nike Air de la historia (1982). 5.5/10 pero su tecnología Air es básica y pesa 460 g. Resistente, tracción sólida, soporte lateral excelente — pero no para correr. Para jugadores potentes que quieren el icono fundacional.</p>
+<p>La primera Nike Air de la historia (1982). {{score:nike-air-force-1}} pero su tecnología Air es básica y pesa 460 g. Resistente, tracción sólida, soporte lateral excelente — pero no para correr. Para jugadores potentes que quieren el icono fundacional.</p>
 
 <h3>Air Jordan 1/3/4/6/7/8 — La saga completa</h3>
-<p>Scores entre 3.8 y 5.8/10. Las mejores de este grupo son la Jordan 8 (correas, tracción buena) y la Jordan 6 (la del primer anillo). Las Jordan 1, 2 y 3 son para colección — no tienen tecnología de amortiguación real para el juego moderno.</p>
+<p>Scores entre {{score:air-jordan-1}} y {{score:air-jordan-8}}. Las mejores de este grupo son la Jordan 8 (correas, tracción buena) y la Jordan 7. Las Jordan 1, 2 y 3 son para colección — no tienen tecnología de amortiguación real para el juego moderno.</p>
 
 <h3>Reebok Shaq Attaq — El dinosaurio</h3>
-<p>La zapatilla de Shaquille O'Neal de 1992. Un honesto 4.4/10: pesa 570 g, sin tecnología real, pero el pump Reebok y el perfil high-top tienen su gracia. Para el que quiere saber cómo jugaba el pivot más dominante de la historia.</p>
+<p>La zapatilla de Shaquille O'Neal de 1992. Un honesto {{score:reebok-shaq-attaq}}: pesa 570 g, sin tecnología real, pero el pump Reebok y el perfil high-top tienen su gracia. Para el que quiere saber cómo jugaba el pivot más dominante de la historia.</p>
 
 <h2>Las que NO recomendamos para jugar</h2>
 <ul>
-  <li><strong>Converse Chuck Taylor (1917):</strong> 3.5/10. La abuela de todas las zapatillas de baloncesto. Suela plana, cero cushion. Para la foto y la historia, no para cancha.</li>
-  <li><strong>Puma Clyde (1973):</strong> 4.6/10. Suede bonito, goma plana. La primera signature de la historia es también la más limitada.</li>
-  <li><strong>Nike Air Foamposite One (1997):</strong> 4.6/10. Aspecto brutal, ventilación 1/10. En verano es un horno. Solo para exterior y bajas temperaturas.</li>
+  <li><strong>Converse Chuck Taylor (1917):</strong> {{score:converse-chuck-taylor}}. La abuela de todas las zapatillas de baloncesto. Suela plana, cero cushion. Para la foto y la historia, no para cancha.</li>
+  <li><strong>Puma Clyde (1973):</strong> {{score:puma-clyde}}. Suede bonito, goma plana. La primera signature de la historia es también la más limitada.</li>
+  <li><strong>Nike Air Foamposite One (1997):</strong> {{score:nike-air-foamposite-one}}. Aspecto brutal, ventilación {{nota:nike-air-foamposite-one:ventilacion}}. En verano es un horno. Solo para exterior y bajas temperaturas.</li>
 </ul>
 
 <h2>Preguntas frecuentes sobre retros</h2>
@@ -1123,18 +1123,18 @@ export const ARTICLES: Article[] = [
   <tbody>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Tracción</td>
-      <td style="padding:8px;text-align:center">⭐ 9/10</td>
-      <td style="padding:8px;text-align:center">8.5/10</td>
+      <td style="padding:8px;text-align:center">{{nota:puma-mb-04:traccion}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:puma-mb05:traccion}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Amortiguación</td>
-      <td style="padding:8px;text-align:center">7/10</td>
-      <td style="padding:8px;text-align:center">⭐ 8/10</td>
+      <td style="padding:8px;text-align:center">{{nota:puma-mb-04:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">{{nota:puma-mb05:amortiguacion}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Respuesta</td>
-      <td style="padding:8px;text-align:center">⭐ 8.5/10</td>
-      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">{{nota:puma-mb-04:respuesta}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:puma-mb05:respuesta}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Peso</td>
@@ -1143,8 +1143,8 @@ export const ARTICLES: Article[] = [
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Score CANCHA</td>
-      <td style="padding:8px;text-align:center">⭐ 7.9/10</td>
-      <td style="padding:8px;text-align:center">7.6/10</td>
+      <td style="padding:8px;text-align:center">{{score:puma-mb-04}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{score:puma-mb05}}</td>
     </tr>
     <tr>
       <td style="padding:8px">Precio (ES)</td>
@@ -1163,9 +1163,9 @@ export const ARTICLES: Article[] = [
 </ul>
 <p><strong>Veredicto espuma:</strong> MB.04 si eres un guard explosivo que necesita primer paso rápido. MB.05 si pesas más de 80kg o necesitas más protección en rodillas.</p>
 
-<h2>Tracción: ventaja MB.04</h2>
-<p>El outsole de la MB.04 con patrón multidireccional es uno de los mejores del catálogo Puma en 2025. Agarra sin necesidad de limpiar en parquet y tolera bien pistas con algo de polvo. La MB.05 tiene buena tracción también (8.5/10), pero el patrón es ligeramente menos agresivo — se nota en cortes rápidos.</p>
-<p><strong>Veredicto:</strong> MB.04 claramente si la tracción es tu prioridad.</p>
+<h2>Tracción: MB.04 {{nota:puma-mb-04:traccion}} y MB.05 {{nota:puma-mb05:traccion}}</h2>
+<p>Las dos agarran bien en parquet limpio. En nuestra ficha la MB.05 ({{nota:puma-mb05:traccion}}) puntúa un punto más que la MB.04 ({{nota:puma-mb-04:traccion}}).</p>
+<p><strong>Veredicto:</strong> MB.05 si la tracción es tu prioridad.</p>
 
 <h2>Peso y perfil</h2>
 <p>La MB.04 pesa 390 g. La MB.05 sube a 418 g por el stack de espuma adicional. 28 g de diferencia no suenan a mucho, pero en 40 minutos de partido se nota. Para jugadores que valoran la sensación de agilidad, la MB.04 gana.</p>
@@ -1219,23 +1219,23 @@ export const ARTICLES: Article[] = [
   <tbody>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Tracción</td>
-      <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+      <td style="padding:8px;text-align:center">{{nota:jordan-tatum-4:traccion}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-ae-2:traccion}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Amortiguación</td>
-      <td style="padding:8px;text-align:center">⭐ 8/10</td>
-      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">{{nota:jordan-tatum-4:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-ae-2:amortiguacion}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Respuesta</td>
-      <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+      <td style="padding:8px;text-align:center">{{nota:jordan-tatum-4:respuesta}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-ae-2:respuesta}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Soporte lateral</td>
-      <td style="padding:8px;text-align:center">⭐ 8/10</td>
-      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">{{nota:jordan-tatum-4:soporte_lateral}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-ae-2:soporte_lateral}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Peso</td>
@@ -1260,12 +1260,12 @@ export const ARTICLES: Article[] = [
 <p>La Jordan Tatum 4 está desde {{precio:jordan-tatum-4}} y la Adidas AE 2 desde {{precio:adidas-ae-2}}. La Tatum 4 es una línea más accesible dentro del catálogo Jordan y la AE 2 es el flagship de Anthony Edwards, así que en precio de salida la AE 2 queda por encima. Si el presupuesto es tu filtro principal, compara el precio actual de las dos.</p>
 
 <h2>Espuma: Zoom Strobel vs Lightstrike Pro</h2>
-<p><strong>Jordan Tatum 4 — Zoom Air Strobel + React foam:</strong> el Zoom Strobel full-length da una respuesta energética directa en todo el pie. El React foam bajo añade amortiguación extra. El resultado: el cushion más generoso de las dos zapatillas. Para aleros de 80-100kg que aterrizan con impacto (fintas, rebotes), la Tatum 4 protege mejor.</p>
-<p><strong>Adidas AE 2 — Lightstrike Pro:</strong> la espuma signature de Adidas es más firme y reactiva que el React de Nike. La energía de retorno es superior — lo notas en los saltos y en el primer paso. Pero hay menos "cushion puro": si aterrizas fuerte, la AE 2 transmite más impacto que la Tatum 4.</p>
-<p><strong>Veredicto espuma:</strong> Tatum 4 para más cushion y protección. AE 2 para más reactividad.</p>
+<p><strong>Jordan Tatum 4 — Zoom Air Strobel + React foam:</strong> el Zoom Strobel full-length da una respuesta energética directa en todo el pie. El React foam bajo añade amortiguación extra. El resultado: una amortiguación de {{nota:jordan-tatum-4:amortiguacion}} en nuestra ficha, justo por debajo de la {{nota:adidas-ae-2:amortiguacion}} de la AE 2.</p>
+<p><strong>Adidas AE 2 — Lightstrike Pro:</strong> la espuma signature de Adidas es más firme y reactiva que el React de Nike. La energía de retorno es superior — lo notas en los saltos y en el primer paso.</p>
+<p><strong>Veredicto espuma:</strong> en nuestra ficha la AE 2 gana en las dos, amortiguación ({{nota:adidas-ae-2:amortiguacion}} frente a {{nota:jordan-tatum-4:amortiguacion}}) y respuesta ({{nota:adidas-ae-2:respuesta}} frente a {{nota:jordan-tatum-4:respuesta}}).</p>
 
 <h2>Tracción: ventaja AE 2</h2>
-<p>El outsole herringbone de la AE 2 es uno de los mejores del catálogo Adidas en 2025. Más agarre en cortes laterales y mejor respuesta en pistas con algo de polvo. La Tatum 4 tiene buena tracción (8/10) pero el patrón es menos agresivo. Si juegas en pistas con polvo frecuente, la AE 2 gana.</p>
+<p>El outsole herringbone de la AE 2 es uno de los mejores del catálogo Adidas en 2025. Más agarre en cortes laterales y mejor respuesta en pistas con algo de polvo. La Tatum 4 tiene buena tracción ({{nota:jordan-tatum-4:traccion}}) pero el patrón es menos agresivo. Si juegas en pistas con polvo frecuente, la AE 2 gana.</p>
 
 <h2>¿Para qué tipo de alero es cada una?</h2>
 <ul>
@@ -1288,22 +1288,22 @@ export const ARTICLES: Article[] = [
   // ── 14. Nike GT Cut 4 análisis ───────────────────────────────────────
   {
     slug: "nike-gt-cut-4-analisis-2025",
-    title: "Nike GT Cut 4: análisis completo — la zapatilla más reactiva de 2025",
+    title: "Nike GT Cut 4: análisis completo — court feel para guards de pabellón",
     metaTitle: "Nike GT Cut 4 análisis 2025: tracción, cushion y veredicto | CANCHA.ZAPA",
     description:
-      "Análisis completo de la Nike Air Zoom GT Cut 4: tracción 10/10, Zoom Air Strobel, horma estrecha y por qué es la mejor zapatilla para bases y escoltas en 2025.",
+      "Análisis completo de la Nike Air Zoom GT Cut 4: Zoom Air Strobel, horma estrecha y para qué bases y escoltas encaja.",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
     categoria: "Análisis",
     readMinutes: 6,
     eyebrow: "★ Análisis · Nike GT Cut 4",
     heroTitle: "Nike GT Cut 4",
-    heroSubtitle: "La zapatilla más reactiva del mercado en 2025",
+    heroSubtitle: "Court feel y primer paso para guards de pabellón",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["nike-gt-cut-4", "nike-gt-cut-3", "ua-curry-13", "anta-kai-2", "adidas-ae-2"],
     relatedSeoPages: ["mejor-zapatilla-base", "zapatillas-reactivas", "mejores-zapatillas-baloncesto-2025"],
     body: `
-<p class="art-intro">La Nike Air Zoom GT Cut 4 es la zapatilla de baloncesto que más se repite en la lista de deseos de guards y escoltas en 2025. Tracción 10/10 y Zoom Air Strobel de última generación, aunque no es ligera (431 g). Victor Wembanyama la escogió para la temporada NBA 25-26 — un 2,24m que usa una zapatilla de guard te dice todo lo que necesitas saber sobre su court feel.</p>
+<p class="art-intro">La Nike Air Zoom GT Cut 4 es la zapatilla de baloncesto que más se repite en la lista de deseos de guards y escoltas en 2025. Tracción {{nota:nike-gt-cut-4:traccion}} y Zoom Air Strobel de última generación, aunque no es ligera ({{peso:nike-gt-cut-4}}). Victor Wembanyama la escogió para la temporada NBA 25-26 — un 2,24m que usa una zapatilla de guard te dice todo lo que necesitas saber sobre su court feel.</p>
 
 <h2>Ficha técnica</h2>
 <div style="overflow-x:auto">
@@ -1326,16 +1326,16 @@ export const ARTICLES: Article[] = [
 </table>
 </div>
 
-<h2>Tracción: la mejor del mercado</h2>
-<p>El outsole herringbone de la GT Cut 4 es la referencia en tracción de pista cubierta en 2025. El patrón actualizado añade más canales multidireccionales que la GT Cut 3, lo que mejora el agarre en cortes oblicuos — los más exigentes en juego real.</p>
-<p>En parquet limpio, el agarre es inmediato sin necesidad de limpiar la suela. En pistas con algo de polvo, aguanta mejor que la mayoría de competidoras. La única limitación: la goma es fina para reducir peso, lo que penaliza en exterior (asfalto) donde se desgasta rápido. <strong>Son exclusivamente zapatillas de pabellón.</strong></p>
+<h2>Tracción: pensada para pabellón</h2>
+<p>El outsole herringbone de la GT Cut 4 está pensado para pista cubierta. El patrón actualizado añade más canales multidireccionales que la GT Cut 3, lo que mejora el agarre en cortes oblicuos — los más exigentes en juego real.</p>
+<p>En parquet limpio, el agarre es inmediato sin necesidad de limpiar la suela. La limitación: la goma es fina para reducir peso, lo que penaliza en exterior (asfalto) donde se desgasta rápido. <strong>Son exclusivamente zapatillas de pabellón.</strong></p>
 
 <h2>Amortiguación: funcional, no espectacular</h2>
-<p>La GT Cut 4 no es una zapatilla de cushion — y eso es una elección deliberada. El Zoom Air Strobel (que recorre toda la plantilla) da una respuesta energética inmediata, pero la amortiguación total es moderada: 7/10 en nuestra escala. Pívots y jugadores de más de 100kg que aterrizan con impacto fuerte encontrarán otras opciones más protectoras.</p>
+<p>La GT Cut 4 no es una zapatilla de cushion — y eso es una elección deliberada. El Zoom Air Strobel (que recorre toda la plantilla) da una respuesta energética inmediata, pero la amortiguación total es moderada: {{nota:nike-gt-cut-4:amortiguacion}} en nuestra escala. Pívots y jugadores de más de 100kg que aterrizan con impacto fuerte encontrarán otras opciones más protectoras.</p>
 <p>Para un guard de 70-85kg que hace cortes cortos y cambios de dirección rápidos, es suficiente. Pero si comparas con la Nike LeBron 22 o la Jordan Tatum 4 en cushion puro, la diferencia es notable.</p>
 
 <h2>Respuesta y court feel</h2>
-<p>Aquí es donde la GT Cut 4 destruye a la competencia. El Zoom Air Strobel tiene un retorno de energía casi instantáneo — pisas y recuperas energía en menos de 20ms según las pruebas de Nike. Combinado con el drop de 7mm y la suela fina, obtienes una sensación de contacto directo con el parquet que pocas zapatillas replican.</p>
+<p>Aquí es donde la GT Cut 4 juega su baza ({{nota:nike-gt-cut-4:respuesta}} en nuestra ficha). El Zoom Air Strobel tiene un retorno de energía casi instantáneo — pisas y recuperas energía en menos de 20ms según las pruebas de Nike. Combinado con el drop de 7mm y la suela fina, obtienes una sensación de contacto directo con el parquet que pocas zapatillas replican.</p>
 <p>Es la zapatilla que más se acerca a jugar descalzo sobre parquet — en el buen sentido. Sabes exactamente dónde está tu pie en cada momento.</p>
 
 <h2>Horma y ajuste</h2>
@@ -1363,15 +1363,15 @@ export const ARTICLES: Article[] = [
   <tbody>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Tracción</td>
-      <td style="padding:8px;text-align:center">⭐ 10</td>
-      <td style="padding:8px;text-align:center">9</td>
-      <td style="padding:8px;text-align:center">8</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-gt-cut-4:traccion}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:ua-curry-13:traccion}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:anta-kai-2:traccion}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Respuesta</td>
-      <td style="padding:8px;text-align:center">⭐ 9</td>
-      <td style="padding:8px;text-align:center">9</td>
-      <td style="padding:8px;text-align:center">8</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-gt-cut-4:respuesta}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:ua-curry-13:respuesta}}</td>
+      <td style="padding:8px;text-align:center">{{nota:anta-kai-2:respuesta}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Horma ancha</td>
@@ -1390,7 +1390,7 @@ export const ARTICLES: Article[] = [
 </div>
 
 <h2>Veredicto</h2>
-<p>La Nike GT Cut 4 es la mejor zapatilla de baloncesto para guards en 2025 — si encajas en el perfil. La tracción y la respuesta son el techo del mercado. Pero hay dos condiciones: pie normal o estrecho, y juego exclusivamente indoor. Si se cumplen ambas, es una compra que no te arrepentirás.</p>
+<p>La Nike GT Cut 4 es una buena opción para guards de pabellón — si encajas en el perfil. Su punto fuerte es el court feel y el primer paso, no las cifras de tracción ({{nota:nike-gt-cut-4:traccion}}) ni de respuesta ({{nota:nike-gt-cut-4:respuesta}}). Pero hay dos condiciones: pie normal o estrecho, y juego exclusivamente indoor. Si se cumplen ambas, es una compra que no te arrepentirás.</p>
 <p>Si tienes pie ancho o necesitas más cushion, la <a href="/zapatilla/ua-curry-13">UA Curry 13</a> o la <a href="/zapatilla/anta-kai-2">ANTA Kai 2</a> son alternativas más cómodas y algo más baratas.</p>
 
 <p class="art-outro">¿Dudas entre la GT Cut 4 y otra zapatilla? <a href="/comparar?slugs=nike-gt-cut-4,ua-curry-13,anta-kai-2">Compáralas con todos los datos aquí</a>. ¿No sabes si es la tuya? <a href="/quiz">El quiz te lo dice en 60 segundos</a>.</p>
@@ -1477,7 +1477,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Zapatillas de baloncesto para pie plano",
     heroSubtitle: "Guía 2025-2026 — sin BS, sin ventas disfrazadas",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["ua-curry-13", "nike-lebron-22", "jordan-tatum-4", "adidas-ae-2", "nike-gt-cut-4"],
+    relatedShoes: ["ua-curry-13", "nike-lebron-22", "anta-kai-2", "adidas-ae-2", "nike-gt-cut-4"],
     relatedSeoPages: ["zapatillas-baloncesto-pie-plano", "zapatillas-cushion", "zapatillas-equilibradas"],
     body: `
 <p class="art-intro">El pie plano (o pronación excesiva) afecta aproximadamente al 20-30% de los jugadores de baloncesto. La buena noticia: con la zapatilla correcta, no es una desventaja real. La mala: la mayoría de guías de zapatillas ignoran este tema. Aquí lo abordamos en serio.</p>
@@ -1512,19 +1512,19 @@ export const ARTICLES: Article[] = [
 <h2>Las 5 mejores opciones para pie plano</h2>
 
 <h3>1. Nike LeBron 22 — la mejor amortiguación + estabilidad</h3>
-<p>Zoom Air en talón y antepié, plataforma ancha, estabilidad 8.5/10. El LeBron está diseñado para jugadores físicos de 100kg+ — la misma ingeniería que protege a un jugador de ese tamaño protege perfectamente a un jugador con pie plano a cualquier peso. Precio: desde {{precio:nike-lebron-22}}.</p>
+<p>Zoom Air en talón y antepié, plataforma ancha, estabilidad {{nota:nike-lebron-22:estabilidad}}. El LeBron está diseñado para jugadores físicos de 100kg+ — la misma ingeniería que protege a un jugador de ese tamaño protege perfectamente a un jugador con pie plano a cualquier peso. Precio: desde {{precio:nike-lebron-22}}.</p>
 
-<h3>2. Jordan Tatum 4 — balanced con soporte real</h3>
-<p>Estabilidad 8.5/10, soporte lateral 8/10, Zoom Air full-length. La Tatum es una de las zapatillas más equilibradas del mercado — no brilla en ningún atributo específico pero no falla en ninguno. Perfecta para aleros con pie plano que necesitan versatilidad. Precio: desde {{precio:jordan-tatum-4}}.</p>
+<h3>2. ANTA Kai 2 — estabilidad y cushion</h3>
+<p>Estabilidad {{nota:anta-kai-2:estabilidad}}, soporte lateral {{nota:anta-kai-2:soporte_lateral}} y amortiguación {{nota:anta-kai-2:amortiguacion}}, con entresuela Nitro Edge enjaulada y suela de goma completa. Horma normal. Una opción versátil para guards y aleros con pie plano. Precio: desde {{precio:anta-kai-2}}.</p>
 
 <h3>3. UA Curry 13 — court feel con soporte</h3>
-<p>Sorprendentemente buena para pie plano: UA Flow con geometría de suela estabilizadora, soporte lateral 8/10, estabilidad 7.5/10. Más reactiva que el LeBron, ideal si eres guard con pie plano. El UA Flow actúa como una plantilla extra al ser la espuma de suela directo al suelo. Precio: desde {{precio:ua-curry-13}}.</p>
+<p>Sorprendentemente buena para pie plano: UA Flow con geometría de suela estabilizadora, soporte lateral {{nota:ua-curry-13:soporte_lateral}}, estabilidad {{nota:ua-curry-13:estabilidad}}. Más reactiva que el LeBron, ideal si eres guard con pie plano. El UA Flow actúa como una plantilla extra al ser la espuma de suela directo al suelo. Precio: desde {{precio:ua-curry-13}}.</p>
 
 <h3>4. Adidas AE 2 — más accesible que las de gama tope</h3>
-<p>Si el presupuesto importa, la AE 2 ofrece estabilidad 7.5/10 y soporte lateral 8/10 desde {{precio:adidas-ae-2}}. Lightstrike Pro firme, herringbone tracción. No llega al LeBron en cushion pero sí en soporte. Para jugadores de hasta 85kg con pie plano, es suficiente.</p>
+<p>Si el presupuesto importa, la AE 2 ofrece estabilidad {{nota:adidas-ae-2:estabilidad}} y soporte lateral {{nota:adidas-ae-2:soporte_lateral}} desde {{precio:adidas-ae-2}}. Lightstrike Pro firme, herringbone tracción. No llega al LeBron ni en cushion ({{nota:adidas-ae-2:amortiguacion}} frente a {{nota:nike-lebron-22:amortiguacion}}) ni en soporte ({{nota:adidas-ae-2:soporte_lateral}} frente a {{nota:nike-lebron-22:soporte_lateral}}). Para jugadores de hasta 85kg con pie plano, es suficiente.</p>
 
 <h3>5. Nike GT Hustle 3 — soporte de tobillo + pie plano</h3>
-<p>Si tienes pie plano <em>y</em> historial de esguinces, la GT Hustle 3, de corte mid, es la solución. Estabilidad 8/10, soporte lateral 7.5/10, collar de tobillo reforzado. Más pesada que la GT Cut, pero para un jugador con problemas combinados de pie plano + tobillo débil, es la opción más segura del mercado.</p>
+<p>Si tienes pie plano <em>y</em> historial de esguinces, la GT Hustle 3, de corte mid, es la solución. Estabilidad {{nota:nike-gt-hustle-3:estabilidad}}, soporte lateral {{nota:nike-gt-hustle-3:soporte_lateral}}, collar de tobillo reforzado. Más pesada que la GT Cut, pero para un jugador con problemas combinados de pie plano + tobillo débil, es la opción más segura del mercado.</p>
 
 <h2>Lo que debes evitar</h2>
 <ul>
@@ -1571,7 +1571,7 @@ export const ARTICLES: Article[] = [
     relatedShoes: ["adidas-ae-2", "nike-gt-cut-4", "ua-curry-13", "anta-kai-2", "jordan-tatum-4"],
     relatedSeoPages: ["zapatillas-traccion", "zapatillas-reactivas", "mejor-zapatilla-base"],
     body: `
-<p class="art-intro">La Adidas AE 2 lleva varios meses en el tope de nuestros rankings. Tracción 9/10, respuesta excepcional, horma versátil. Pero ¿por qué exactamente? Este análisis desmonta la zapatilla atributo por atributo para que entiendas qué la hace tan buena y si encaja con tu perfil.</p>
+<p class="art-intro">La Adidas AE 2 lleva varios meses en el tope de nuestros rankings. Tracción {{nota:adidas-ae-2:traccion}}, respuesta excepcional, horma versátil. Pero ¿por qué exactamente? Este análisis desmonta la zapatilla atributo por atributo para que entiendas qué la hace tan buena y si encaja con tu perfil.</p>
 
 <h2>Contexto: Anthony Edwards y la línea AE</h2>
 <p>Anthony Edwards firmó con Adidas en 2023 y la AE 2 es el tercer modelo de su línea signature. Edwards es un escolta explosivo, potente y con un primer paso brutal — su zapatilla refleja exactamente eso: tracción y respuesta por encima de todo. Adidas metió Lightstrike Pro en el modelo, la misma tecnología de las zapatillas de élite de atletismo.</p>
@@ -1580,7 +1580,7 @@ export const ARTICLES: Article[] = [
 <h2>Tracción: la mejor del mercado en indoor</h2>
 <p>El patrón herringbone de la AE 2 es uno de los mejores que hemos probado en pabellón en 2025. La goma agarra en todas las direcciones — cambios de dirección laterales, arranques, paradas — sin un solo deslizamiento. En polvo de la cancha funciona bien; en suelo muy sucio (pabellones mal barridos) necesitas limpiar con regularidad, como cualquier zapatilla indoor.</p>
 <ul>
-  <li><strong>Indoor:</strong> excepcional (9/10)</li>
+  <li><strong>Indoor:</strong> excepcional ({{nota:adidas-ae-2:traccion}})</li>
   <li><strong>Outdoor:</strong> no recomendable — la goma se desgasta rápido en asfalto</li>
   <li><strong>Patrón:</strong> herringbone full-length con variaciones en talón y antepié</li>
 </ul>
@@ -1598,7 +1598,7 @@ export const ARTICLES: Article[] = [
 <p>El upper en flyknit estructurado ofrece un ajuste ceñido pero sin puntos de presión. El collar de tobillo está bien acolchado. No hay historial de rozaduras en el talón en la AE 2, un problema que sí afecta a algunos usuarios de la GT Cut 4.</p>
 
 <h2>Soporte y estabilidad</h2>
-<p>La AE 2 ofrece soporte lateral sólido (7.5/10) para un zapato low-top. El counter de talón es rígido y el midfoot shank controla el torsional. Para guards y escoltas que hacen muchos cortes, el soporte es más que suficiente. No es el zapato para un pívot de 100 kg que necesita máxima estabilidad — ahí manda el LeBron 22 o la Jordan Tatum 4.</p>
+<p>La AE 2 ofrece soporte lateral sólido ({{nota:adidas-ae-2:soporte_lateral}}) para un zapato low-top. El counter de talón es rígido y el midfoot shank controla el torsional. Para guards y escoltas que hacen muchos cortes, el soporte es más que suficiente. No es el zapato para un pívot de 100 kg que necesita máxima estabilidad — ahí manda el LeBron 22 o la Jordan Tatum 4.</p>
 
 <h2>Peso</h2>
 <p>La AE 2 pesa <strong>428 g</strong> en talla 44 (US 10), que la coloca entre las pesadas de su categoría: está a la par de la GT Cut 4 (431 g) y muy por encima de una Curry 13 (352 g) o una Tatum 4 (351 g). Si buscas ligereza, no es tu zapatilla; si vienes de un modelo de este peso, la diferencia no la vas a notar.</p>
@@ -1616,27 +1616,27 @@ export const ARTICLES: Article[] = [
   <tbody>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px;color:var(--cz-fg3)">Tracción</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-green)">9/10</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-green)">10/10</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-green)">8/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">{{nota:adidas-ae-2:traccion}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">{{nota:nike-gt-cut-4:traccion}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">{{nota:ua-curry-13:traccion}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px;color:var(--cz-fg3)">Cushion</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">7.5/10</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">6/10</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">8/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">{{nota:adidas-ae-2:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">{{nota:nike-gt-cut-4:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">{{nota:ua-curry-13:amortiguacion}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px;color:var(--cz-fg3)">Respuesta</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-green)">9/10</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-green)">9/10</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-green)">8/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">{{nota:adidas-ae-2:respuesta}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">{{nota:nike-gt-cut-4:respuesta}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">{{nota:ua-curry-13:respuesta}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px;color:var(--cz-fg3)">Soporte lateral</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">7.5/10</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">7/10</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-green)">8/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">{{nota:adidas-ae-2:soporte_lateral}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">{{nota:nike-gt-cut-4:soporte_lateral}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">{{nota:ua-curry-13:soporte_lateral}}</td>
     </tr>
     <tr>
       <td style="padding:8px;color:var(--cz-fg3)">Precio</td>
@@ -1771,11 +1771,11 @@ export const ARTICLES: Article[] = [
 <p>El cushion no sacrifica el court feel gracias al Zoom en el antepié. Otros zapatos con tanto cushion (LeBron 22, Witness) se sienten "esponjosos" — la Tatum 4 mantiene conexión con el suelo.</p>
 
 <h2>Tracción</h2>
-<p>El patrón multidireccional de la Tatum 4 es sólido (8/10) aunque no excepcional. En pabellones limpios, agarra en todas las direcciones sin problema. En suelo con polvo, necesitas limpiar la suela con regularidad. No llega al nivel de la AE 2 o la GT Cut 4 en tracción pura, pero tampoco decepciona.</p>
+<p>El patrón multidireccional de la Tatum 4 es sólido ({{nota:jordan-tatum-4:traccion}}) aunque no excepcional. En pabellones limpios, agarra en todas las direcciones sin problema. En suelo con polvo, necesitas limpiar la suela con regularidad. No llega al nivel de la AE 2 o la GT Cut 4 en tracción pura, pero tampoco decepciona.</p>
 
-<h2>Soporte lateral y estabilidad: el punto diferencial</h2>
+<h2>Soporte lateral y estabilidad</h2>
 <p>Aquí conviene ajustar expectativas: la Tatum 4 es low-top y RunRepeat la descarta como opción para soporte de tobillo, porque apenas lleva elementos estabilizadores más allá de la plataforma baja y la copa de TPU. Con tobillos sanos cumple; si vienes de esguinces, mira antes una mid o una high.</p>
-<p>Para jugadores con historial de esguinces leves o que simplemente quieren más seguridad en los cortes, la Tatum 4 ofrece el mejor soporte lateral de la gama sin llegar al extremo restrictivo de los LeBron 22 más altos. Score: <strong>9/10</strong>.</p>
+<p>Con tobillos sanos, la Tatum 4 ofrece un soporte lateral correcto sin llegar al extremo restrictivo de los LeBron 22 más altos. Score: <strong>{{nota:jordan-tatum-4:soporte_lateral}}</strong>.</p>
 
 <h2>Ajuste y horma</h2>
 <p>La Tatum 4 tiene horma <strong>media</strong>, ligeramente más estrecha que la LeBron 22 pero más generosa que la GT Cut 4 o la Kyrie. Para la mayoría de pies normales, encaja perfectamente en talla habitual. Los que tienen pie ancho pueden necesitar media talla más — en talla habitual el antepié puede quedar justo.</p>
@@ -1812,24 +1812,24 @@ export const ARTICLES: Article[] = [
   <tbody>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px;color:var(--cz-fg3)">Cushion</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-green)">8.5/10</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">7.5/10</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">8/10</td>
-      <td style="padding:8px;text-align:center;color:#fb923c">6/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">{{nota:jordan-tatum-4:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">{{nota:adidas-ae-2:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">{{nota:ua-curry-13:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center;color:#fb923c">{{nota:nike-gt-cut-4:amortiguacion}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px;color:var(--cz-fg3)">Soporte lateral</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-green)">9/10</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">7.5/10</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-green)">8/10</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">7/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">{{nota:jordan-tatum-4:soporte_lateral}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">{{nota:adidas-ae-2:soporte_lateral}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">{{nota:ua-curry-13:soporte_lateral}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">{{nota:nike-gt-cut-4:soporte_lateral}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px;color:var(--cz-fg3)">Tracción</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">8/10</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-green)">9/10</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">8/10</td>
-      <td style="padding:8px;text-align:center;color:var(--cz-green)">10/10</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">{{nota:jordan-tatum-4:traccion}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">{{nota:adidas-ae-2:traccion}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-amber-text)">{{nota:ua-curry-13:traccion}}</td>
+      <td style="padding:8px;text-align:center;color:var(--cz-green)">{{nota:nike-gt-cut-4:traccion}}</td>
     </tr>
     <tr>
       <td style="padding:8px;color:var(--cz-fg3)">Peso</td>
@@ -1879,12 +1879,12 @@ export const ARTICLES: Article[] = [
 <p>El resultado es la nota de amortiguación más alta de nuestra ficha, empatada con la LeBron 23 y la KD 19. Si tienes rodillas sensibles o pesas más de 90kg, ninguna otra zapatilla te protegerá mejor.</p>
 
 <h2>El gran trade-off: respuesta y peso</h2>
-<p>Toda esa protección tiene un coste. La LeBron 22 tiene la respuesta más baja de los modelos premium (5/10) — es una zapatilla que absorbe el impacto más que lo devuelve. Si eres un guard que vive de los primeros pasos y las carreras de transición, la LeBron 22 no es tu zapatilla. Pero si eres un ala-pívot o pívot que prioriza la protección en la pintura, ese court feel "apagado" es completamente aceptable.</p>
+<p>Toda esa protección tiene un coste. La LeBron 22 tiene una respuesta de {{nota:nike-lebron-22:respuesta}} en nuestra ficha, pero toda esa protección se paga en peso ({{peso:nike-lebron-22}}) y en court feel: es una zapatilla que absorbe el impacto más que lo devuelve. Si eres un guard que vive de los primeros pasos y las carreras de transición, la LeBron 22 no es tu zapatilla. Pero si eres un ala-pívot o pívot que prioriza la protección en la pintura, ese court feel "apagado" es completamente aceptable.</p>
 <p>El peso de 442 g es notable. En 40 minutos de partido, la diferencia de unos 90 g respecto a zapatillas ligeras como la Tatum 4 (351 g) o la Curry 13 (352 g) se acumula. Para guards: descartada. Para pívots y jugadores de más de 95 kg: justificada.</p>
 
 <h2>Tracción y soporte: excelente</h2>
-<p>La tracción es sólida (8/10) con un patrón multidireccional que funciona bien en pabellones limpios. No es la mejor en suelo con polvo (la AE 2 o la GT Cut 4 la superan), pero es más que suficiente para el 90% de pabellones españoles.</p>
-<p>El soporte lateral es excepcional (9/10): la base ancha y el collar con espuma densa sujetan bien el pie en los contactos bajo el aro. Pero ojo con un dato que se repite mal por ahí: <strong>la LeBron 22 es low-top</strong> (así la clasifican TheHoopsGeek y RunRepeat). Estabilidad lateral no es lo mismo que sujeción de tobillo: si tienes historial de esguinces graves, busca una mid.</p>
+<p>La tracción es excelente ({{nota:nike-lebron-22:traccion}}) con un patrón multidireccional que funciona bien en pabellones limpios. En suelo con polvo hay que limpiar la suela como en cualquier zapatilla indoor, pero es más que suficiente para el 90% de pabellones españoles.</p>
+<p>El soporte lateral es excepcional ({{nota:nike-lebron-22:soporte_lateral}}): la base ancha y el collar con espuma densa sujetan bien el pie en los contactos bajo el aro. Pero ojo con un dato que se repite mal por ahí: <strong>la LeBron 22 es low-top</strong> (así la clasifican TheHoopsGeek y RunRepeat). Estabilidad lateral no es lo mismo que sujeción de tobillo: si tienes historial de esguinces graves, busca una mid.</p>
 
 <h2>¿Para quién es la LeBron 22?</h2>
 <ul>
@@ -1942,7 +1942,7 @@ export const ARTICLES: Article[] = [
 <h2>Los 5 mejores modelos para alero en 2025</h2>
 
 <h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — desde {{precio:jordan-tatum-4}}</a></h3>
-<p><strong>El mejor equilibrio del mercado.</strong> Jayson Tatum es el prototipo del alero moderno: defiende del 1 al 5, mete cortes, tira de tres y postea. La Tatum 4 está diseñada para eso: score 7+ en todos los ejes con cushion Zoom Air + Impact Plate para los aterrizajes.</p>
+<p><strong>El mejor equilibrio del mercado.</strong> Jayson Tatum es el prototipo del alero moderno: defiende del 1 al 5, mete cortes, tira de tres y postea. La Tatum 4 está diseñada para eso: score 7+ en casi todos los ejes (la durabilidad outdoor es {{nota:jordan-tatum-4:durabilidad_outdoor}}) con cushion Zoom Air + Impact Plate para los aterrizajes.</p>
 <ul>
   <li>✅ Cushion 8 + respuesta 8: el mejor equilibrio technico del grupo</li>
   <li>✅ Ligera: 12,4 oz según RunRepeat, de las más ligeras del grupo</li>
@@ -2001,37 +2001,37 @@ export const ARTICLES: Article[] = [
   <tbody>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Jordan Tatum 4</strong></td>
-      <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">⭐ 8/10</td>
-      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+      <td style="padding:8px;text-align:center">{{nota:jordan-tatum-4:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">{{nota:jordan-tatum-4:respuesta}}</td>
+      <td style="padding:8px;text-align:center">{{nota:jordan-tatum-4:soporte_lateral}}</td>
       <td style="padding:8px;text-align:center">{{precio:jordan-tatum-4}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Adidas Harden Vol 9</strong></td>
-      <td style="padding:8px;text-align:center">⭐ 9/10</td>
-      <td style="padding:8px;text-align:center">7/10</td>
-      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-harden-vol-9:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-harden-vol-9:respuesta}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-harden-vol-9:soporte_lateral}}</td>
       <td style="padding:8px;text-align:center">{{precio:adidas-harden-vol-9}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike KD 17</strong></td>
-      <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:nike-kd-17:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-kd-17:respuesta}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:nike-kd-17:soporte_lateral}}</td>
       <td style="padding:8px;text-align:center">{{precio:nike-kd-17}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>UA Flow Breakthru 4</strong></td>
-      <td style="padding:8px;text-align:center">7/10</td>
-      <td style="padding:8px;text-align:center">⭐ 9/10</td>
-      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">{{nota:ua-flow-breakthru-4:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">{{nota:ua-flow-breakthru-4:respuesta}}</td>
+      <td style="padding:8px;text-align:center">{{nota:ua-flow-breakthru-4:soporte_lateral}}</td>
       <td style="padding:8px;text-align:center">{{precio:ua-flow-breakthru-4}}</td>
     </tr>
     <tr>
       <td style="padding:8px"><strong>Jordan Luka 4</strong></td>
-      <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">7/10</td>
-      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:jordan-luka-4:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:jordan-luka-4:respuesta}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:jordan-luka-4:soporte_lateral}}</td>
       <td style="padding:8px;text-align:center">{{precio:jordan-luka-4}}</td>
     </tr>
   </tbody>
@@ -2084,26 +2084,26 @@ export const ARTICLES: Article[] = [
 
 <h2>Puntuación técnica CANCHA.ZAPA</h2>
 <ul>
-  <li>Tracción: <strong>8/10</strong> — sólida en parquet limpio, aguanta algo de polvo</li>
-  <li>Amortiguación: <strong>8/10</strong> — el ZoomX da cushion excepcional para low-top</li>
-  <li>Respuesta: <strong>9/10</strong> — bounce reactivo, primer paso rápido</li>
-  <li>Soporte lateral: <strong>7/10</strong> — aceptable para guard, no es su punto fuerte</li>
-  <li>Estabilidad: <strong>7/10</strong> — el ZoomX es algo blando bajo carga extrema</li>
-  <li>Ligereza: <strong>8/10</strong> — 310g, una de las más ligeras del grupo con cushion</li>
-  <li>Durabilidad outdoor: <strong>8/10</strong> — goma completa, aguanta asfalto moderado</li>
-  <li>Ventilación: <strong>7/10</strong> — malla densa, algo cálida en verano</li>
+  <li>Tracción: <strong>{{nota:nike-ja-3:traccion}}</strong> — sólida en parquet limpio, aguanta algo de polvo</li>
+  <li>Amortiguación: <strong>{{nota:nike-ja-3:amortiguacion}}</strong> — el ZoomX da cushion excepcional para low-top</li>
+  <li>Respuesta: <strong>{{nota:nike-ja-3:respuesta}}</strong> — bounce reactivo, primer paso rápido</li>
+  <li>Soporte lateral: <strong>{{nota:nike-ja-3:soporte_lateral}}</strong> — aceptable para guard, no es su punto fuerte</li>
+  <li>Estabilidad: <strong>{{nota:nike-ja-3:estabilidad}}</strong> — el ZoomX es algo blando bajo carga extrema</li>
+  <li>Ligereza: <strong>{{nota:nike-ja-3:peso_score}}</strong> — {{peso:nike-ja-3}}, una de las más ligeras del grupo con cushion</li>
+  <li>Durabilidad outdoor: <strong>{{nota:nike-ja-3:durabilidad_outdoor}}</strong> — goma completa, aguanta asfalto moderado</li>
+  <li>Ventilación: <strong>{{nota:nike-ja-3:ventilacion}}</strong></li>
 </ul>
 
 <h2>¿Cómo se compara con sus rivales?</h2>
 
 <h3>vs Adidas AE 2 (desde {{precio:adidas-ae-2}})</h3>
-<p>La AE 2 gana en tracción (herringbone 9/10 vs 8/10). La Ja 3 gana en cushion (ZoomX vs Lightstrike Pro) y es mejor para pie ancho. Para jugadores de 70-85kg en pistas algo sucias: AE 2. Para jugadores con pie ancho o que priorizan el cushion: Ja 3.</p>
+<p>La AE 2 y la Ja 3 empatan en tracción ({{nota:adidas-ae-2:traccion}} frente a {{nota:nike-ja-3:traccion}}). En cushion la ficha da {{nota:adidas-ae-2:amortiguacion}} a la AE 2 y {{nota:nike-ja-3:amortiguacion}} a la Ja 3 (Lightstrike Pro frente a ZoomX). Si priorizas el cushion: AE 2.</p>
 
 <h3>vs Under Armour Curry 13 (desde {{precio:ua-curry-13}})</h3>
 <p>La Curry 13 tiene mejor court feel (UA Flow directo al suelo). La Ja 3 tiene mejor durabilidad outdoor y horma más fácil para pie ancho. Si juegas siempre en interior limpio: Curry 13. Si juegas ocasionalmente fuera o tienes pie ancho: Ja 3.</p>
 
 <h3>vs Nike GT Cut 4 (desde {{precio:nike-gt-cut-4}})</h3>
-<p>La GT Cut 4 es más reactiva (10/10 en respuesta), aunque pesa bastante más (431 g frente a 310 g). La Ja 3 tiene mejor cushion y horma más ancha. Para bases con pie normal o estrecho que buscan el máximo primer paso: GT Cut 4. Para bases con pie ancho o que priorizan cushion+outdoor: Ja 3.</p>
+<p>La Ja 3 es más reactiva ({{nota:nike-ja-3:respuesta}} frente a {{nota:nike-gt-cut-4:respuesta}} en respuesta) y además pesa bastante menos ({{peso:nike-ja-3}} frente a {{peso:nike-gt-cut-4}}). También puntúa más en amortiguación ({{nota:nike-ja-3:amortiguacion}} frente a {{nota:nike-gt-cut-4:amortiguacion}}). En nuestra ficha la Ja 3 gana a la GT Cut 4 en casi todo.</p>
 
 <h2>¿Para quién es la Ja 3?</h2>
 <p>Es el mejor match para:</p>
@@ -2162,10 +2162,10 @@ export const ARTICLES: Article[] = [
 
 <h2>Top 5 zapatillas para rodilla en 2025</h2>
 
-<h3><a href="/zapatilla/jordan-40">Air Jordan 40 — desde {{precio:jordan-40}} — La mejor cushion del mercado</a></h3>
+<h3><a href="/zapatilla/jordan-40">Air Jordan 40 — desde {{precio:jordan-40}} — Una de las mejores cushion del mercado</a></h3>
 <p>ZoomX + Zoom Strobel full-length: la combinación de espumas más avanzada disponible en 2025. El ZoomX devuelve el 85% de la energía con bounce real, mientras el Strobel añade firmeza para que la espuma no colapse. Para pívots y ala-pívots con problemas de rodilla, es el techo tecnológico del mercado.</p>
 <ul>
-  <li>✅ Amortiguación 10/10 — el cushion más avanzado disponible</li>
+  <li>✅ Amortiguación {{nota:jordan-40:amortiguacion}} — la combinación de espumas más avanzada disponible</li>
   <li>✅ 6 correas internas: estabilidad extra en aterrizajes</li>
   <li>❌ {{precio:jordan-40}} y 439 g — de las más caras del grupo y de las más pesadas</li>
 </ul>
@@ -2181,7 +2181,7 @@ export const ARTICLES: Article[] = [
 <h3><a href="/zapatilla/nike-kd-19">Nike KD 19 — desde {{precio:nike-kd-19}} — El equilibrio precio/cushion</a></h3>
 <p>Zoom Strobel + Cushlon 3.0 a un precio por debajo de la LeBron 23 o la Jordan 40. Kevin Durant jugó con rodilla operada durante años — el KD 19 tiene cushion pensado para eso. Para ala-pívots que necesitan protección seria sin el precio top.</p>
 <ul>
-  <li>✅ Cushion 8/10 a precio razonable</li>
+  <li>✅ Cushion {{nota:nike-kd-19:amortiguacion}} a precio razonable</li>
   <li>✅ Bounce reactivo (Strobel) además de amortiguación</li>
   <li>❌ No llega al nivel Max Air de la LeBron para jugadores >100kg</li>
 </ul>
@@ -2190,14 +2190,14 @@ export const ARTICLES: Article[] = [
 <p>Zoom Air + Impact Plate en la zona del antepié. El Impact Plate distribuye el impacto de los aterrizajes en tres puntos en lugar de concentrarlo, reduciendo el pico de presión en la rótula. Para aleros de 80-95kg con problemas de rodilla, es la mejor opción de la gama media.</p>
 <ul>
   <li>✅ Impact Plate: tecnología de distribución de impacto única</li>
-  <li>✅ Cushion 8/10 con soporte lateral 9/10</li>
+  <li>✅ Cushion {{nota:jordan-tatum-4:amortiguacion}} con soporte lateral {{nota:jordan-tatum-4:soporte_lateral}}</li>
   <li>❌ No está orientada a jugadores >100kg — ahí la LeBron gana</li>
 </ul>
 
 <h3><a href="/zapatilla/ua-flow-breakthru-4">Under Armour Flow Breakthru 4 — desde {{precio:ua-flow-breakthru-4}} — Para aleros que priorizan suavidad</a></h3>
 <p>UA Flow con UA Micro G foam ofrece un cushion suave y reactivo. No llega al nivel de la Jordan 40 o la LeBron, pero para jugadores de 70-85kg con molestias ligeras de rodilla es suficiente — y de las más económicas del grupo.</p>
 <ul>
-  <li>✅ De las más accesibles del grupo, con cushion 7/10</li>
+  <li>✅ De las más accesibles del grupo, con cushion {{nota:ua-flow-breakthru-4:amortiguacion}}</li>
   <li>✅ Suave sin ser imprecisa</li>
   <li>❌ Para jugadores >90kg o con problemas serios de rodilla, el cushion no es suficiente</li>
 </ul>
@@ -2225,7 +2225,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "New Balance vs ANTA",
     heroSubtitle: "¿Cuál da más por tu dinero?",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nb-fresh-foam-bb-v3", "nb-two-wxy-v4", "nb-kawhi-2", "anta-kai-2", "anta-kt-11"],
+    relatedShoes: ["nb-two-wxy-v5", "nb-two-wxy-v4", "nb-kawhi-4", "anta-kai-2", "anta-kt-11"],
     relatedSeoPages: ["mejores-zapatillas-new-balance", "mejores-zapatillas-anta", "zapatillas-baloncesto-baratas"],
     body: `
 <p class="art-intro">Si tu presupuesto es ajustado o simplemente no quieres pagar el sobreprecio de Nike y Jordan, tienes dos marcas que en 2025 ofrecen rendimiento serio a precio razonable: New Balance y ANTA. Son perfiles muy distintos — y la mejor para ti depende de qué tipo de juego tienes.</p>
@@ -2233,29 +2233,29 @@ export const ARTICLES: Article[] = [
 <h2>Filosofías de diseño completamente distintas</h2>
 <p>Antes de comparar modelos concretos, hay que entender que New Balance y ANTA tienen enfoques diferentes:</p>
 <ul>
-  <li><strong>New Balance:</strong> cushion generoso, horma ancha, espumas propias (Fresh Foam, FuelCell). Más orientada a jugadores que priorizan comodidad y amortiguación. Influenciada por sus atletas signature (Kawhi Leonard, Darius Garland).</li>
-  <li><strong>ANTA:</strong> tecnología reactiva (A-Flashfoam), court feel más directo, horma muy ancha. Marcas de calzado chino con contratos de Kyrie Irving y Klay Thompson. Mejor relación rendimiento/precio en el mercado.</li>
+  <li><strong>New Balance:</strong> espumas propias (Fresh Foam, FuelCell) heredadas del running. Más orientada a jugadores que priorizan comodidad y amortiguación. Influenciada por sus atletas signature (Kawhi Leonard, Darius Garland).</li>
+  <li><strong>ANTA:</strong> espumas propias (Nitro Edge en la Kai 2, espuma de nitrógeno en la KT 11) y court feel directo. Marcas de calzado chino con contratos de Kyrie Irving y Klay Thompson. Mejor relación rendimiento/precio en el mercado.</li>
 </ul>
 
 <h2>Duelo por categorías</h2>
 
 <h3>Tracción</h3>
-<p>ANTA gana. El patrón multidireccional de la Kai 2 y la KT 11 ofrece agarre consistente en parquet limpio y moderado. New Balance tiene tracción sólida pero menos agresiva — la Fresh Foam BB V3 resbala algo más en pistas con polvo.</p>
+<p>ANTA gana. El patrón multidireccional de la Kai 2 y la KT 11 ofrece agarre consistente en parquet limpio y moderado. New Balance tiene tracción sólida: en nuestra ficha la TWO WXY V5 da {{nota:nb-two-wxy-v5:traccion}} frente al {{nota:anta-kai-2:traccion}} de la Kai 2.</p>
 
 <h3>Cushion</h3>
-<p>New Balance gana. Fresh Foam y FuelCell son espumas maduras con años de I+D en running. El cushion de la NB Fresh Foam BB V3 o la TWO WXY V4 es suave y duradera. ANTA A-Flashfoam es buena para su precio pero no llega al nivel NB en absorción pura.</p>
+<p>ANTA gana en nuestra ficha. La Kai 2 tiene {{nota:anta-kai-2:amortiguacion}} y la KT 11 {{nota:anta-kt-11:amortiguacion}}, frente al {{nota:nb-two-wxy-v4:amortiguacion}} de la TWO WXY V4 y la V5. La excepción es la Kawhi 4, con FuelCell, que llega a {{nota:nb-kawhi-4:amortiguacion}}.</p>
 
 <h3>Respuesta y court feel</h3>
-<p>ANTA gana. La Kai 2 tiene un court feel más directo y reactivo que cualquier NB de baloncesto actual. Para guards y jugadores explosivos, ANTA da mejor primer paso.</p>
+<p>Depende del modelo. La Kawhi 4 ({{nota:nb-kawhi-4:respuesta}}) y la Kai 2 ({{nota:anta-kai-2:respuesta}}) están arriba; la TWO WXY V5 se queda en {{nota:nb-two-wxy-v5:respuesta}}.</p>
 
 <h3>Horma</h3>
-<p>Empate, ambas anchas. ANTA y New Balance son las dos marcas con mejor horma para pie ancho en baloncesto. New Balance históricamente ha sido la referencia para pies anchos (sus tallas "2E" y "4E" son estándar en running). ANTA también va ancha, especialmente la Kai 2. Si tienes pie muy ancho, ambas son seguras.</p>
+<p>Empate. New Balance es la referencia en anchos para running (tallas "2E" y "4E"), pero en nuestra ficha sus zapatillas de baloncesto actuales son de horma normal, igual que la Kai 2 y la KT 11. Si tienes pie muy ancho, mira nuestra <a href="/blog/zapatillas-baloncesto-pie-ancho-2025">guía de pie ancho</a>.</p>
 
 <h3>Durabilidad outdoor</h3>
-<p>ANTA gana ligeramente. La Kai 2 tiene suela de goma más gruesa y resistente al asfalto. La Fresh Foam BB V3 aguanta exterior moderado pero se gasta antes en uso intensivo outdoor.</p>
+<p>ANTA gana ligeramente: la KT 11 tiene {{exterior:anta-kt-11}} y la Kai 2 {{exterior:anta-kai-2}}, frente al {{exterior:nb-two-wxy-v5}} de la TWO WXY V5. La Kawhi 4 ({{exterior:nb-kawhi-4}}) es solo de pabellón.</p>
 
 <h3>Precio</h3>
-<p>Compara: la Kai 2 (desde {{precio:anta-kai-2}}) y la KT 11 (desde {{precio:anta-kt-11}}) frente a la NB TWO WXY V4 (desde {{precio:nb-two-wxy-v4}}) o la Kawhi 2 (desde {{precio:nb-kawhi-2}}).</p>
+<p>Compara: la Kai 2 (desde {{precio:anta-kai-2}}) y la KT 11 (desde {{precio:anta-kt-11}}) frente a la NB TWO WXY V4 (desde {{precio:nb-two-wxy-v4}}) o la Kawhi 4 (desde {{precio:nb-kawhi-4}}).</p>
 
 <h2>Resumen por tipo de jugador</h2>
 
@@ -2270,14 +2270,14 @@ export const ARTICLES: Article[] = [
   </thead>
   <tbody>
     <tr style="border-bottom:1px solid var(--cz-elev)">
-      <td style="padding:8px">Guard explosivo, pie ancho</td>
+      <td style="padding:8px">Guard explosivo</td>
       <td style="padding:8px;text-align:center">⭐ ANTA</td>
       <td style="padding:8px;text-align:center">Kai 2 (desde {{precio:anta-kai-2}})</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Jugador pesado (&gt;90kg) con rodillas</td>
       <td style="padding:8px;text-align:center">⭐ New Balance</td>
-      <td style="padding:8px;text-align:center">Fresh Foam BB V3</td>
+      <td style="padding:8px;text-align:center">Kawhi 4 (desde {{precio:nb-kawhi-4}})</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Junior / primeras zapatillas</td>
@@ -2285,23 +2285,23 @@ export const ARTICLES: Article[] = [
       <td style="padding:8px;text-align:center">KT 11 (desde {{precio:anta-kt-11}})</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
-      <td style="padding:8px">Alero equilibrado, pie ancho</td>
+      <td style="padding:8px">Alero equilibrado</td>
       <td style="padding:8px;text-align:center">⭐ New Balance</td>
       <td style="padding:8px;text-align:center">TWO WXY V4 (desde {{precio:nb-two-wxy-v4}})</td>
     </tr>
     <tr>
       <td style="padding:8px">Exterior / outdoor frecuente</td>
       <td style="padding:8px;text-align:center">⭐ ANTA</td>
-      <td style="padding:8px;text-align:center">Kai 2 (mejor suela)</td>
+      <td style="padding:8px;text-align:center">KT 11 (mejor suela)</td>
     </tr>
   </tbody>
 </table>
 </div>
 
 <h2>El veredicto</h2>
-<p>Si tuviéramos que elegir una: <strong>ANTA gana en relación calidad-precio</strong>. La Kai 2, desde {{precio:anta-kai-2}}, ofrece un rendimiento que avergüenza a zapatillas más caras de marcas mainstream. La tracción, la horma ancha y la respuesta están al nivel de modelos premium.</p>
+<p>Si tuviéramos que elegir una: <strong>ANTA gana en relación calidad-precio</strong>. La Kai 2, desde {{precio:anta-kai-2}}, ofrece un rendimiento que avergüenza a zapatillas más caras de marcas mainstream. La tracción, la amortiguación y la respuesta están al nivel de modelos premium.</p>
 
-<p>Pero si priorizas cushion puro o pesas más de 90kg, <strong>New Balance es la elección más inteligente</strong>. Fresh Foam da una protección articular que ANTA no iguala en ese rango de precio.</p>
+<p>Si pesas más de 90kg y juegas en pabellón, la <strong>Kawhi 4</strong> es la New Balance a mirar: iguala a la Kai 2 en amortiguación y la supera en respuesta.</p>
 
 <p class="art-outro">¿Todavía tienes dudas sobre qué marca encaja con tu perfil? <a href="/quiz">El quiz de CANCHA.ZAPA</a> no filtra por marca — filtra por tus necesidades reales y te da las 5 más compatibles. A veces el resultado sorprende.</p>
     `,
@@ -2345,11 +2345,11 @@ export const ARTICLES: Article[] = [
 <h2>Top 5 zapatillas para bases en 2025</h2>
 
 <h3><a href="/zapatilla/nike-gt-cut-4">Nike GT Cut 4 — desde {{precio:nike-gt-cut-4}}</a></h3>
-<p><strong>La más explosiva del mercado en 2025.</strong> El Zoom Air de la GT Cut 4 es el más reactivo que Nike fabrica para baloncesto. Suela de goma dura multidireccional con tracción 10/10 y court feel absolutamente excepcional. No es ligera (431 g), pero la respuesta lo compensa. Si tu pie encaja (horma estrecha) y juegas siempre en interior limpio, no hay nada mejor en 2025.</p>
+<p><strong>Court feel excepcional y primer paso rápido en 2025.</strong> Suela de goma dura multidireccional con tracción {{nota:nike-gt-cut-4:traccion}} y court feel absolutamente excepcional. No es ligera ({{peso:nike-gt-cut-4}}). Si tu pie encaja (horma estrecha) y juegas siempre en interior limpio, encaja bien.</p>
 <ul>
-  <li>✅ Respuesta 10/10 — la más reactiva del grupo</li>
-  <li>✅ Tracción 10/10 — herringbone de carbono</li>
-  <li>❌ 431 g — la más pesada del grupo; lo compensa con respuesta</li>
+  <li>❌ Respuesta {{nota:nike-gt-cut-4:respuesta}} — la más baja de las cinco, aunque con court feel excepcional</li>
+  <li>✅ Tracción {{nota:nike-gt-cut-4:traccion}} — herringbone de carbono</li>
+  <li>❌ {{peso:nike-gt-cut-4}} — la más pesada del grupo</li>
   <li>❌ Horma muy estrecha — pie normal o estrecho únicamente</li>
   <li>❌ Solo interior — la suela se destruye en asfalto</li>
 </ul>
@@ -2358,19 +2358,19 @@ export const ARTICLES: Article[] = [
 <p><strong>El mejor court feel del mercado.</strong> UA Flow sin goma en la suela significa que el antepié toca directamente la espuma — el feeling más cercano al suelo que puedes tener en una zapatilla de baloncesto. Para bases que priorizan sentir la cancha, es insuperable. Cushion algo mayor que la GT Cut 4 — mejor para bases de 75-90kg.</p>
 <ul>
   <li>✅ Court feel único — el más cercano al suelo del mercado</li>
-  <li>✅ Tracción 9/10 en parquet limpio</li>
+  <li>✅ Tracción {{nota:ua-curry-13:traccion}} en parquet limpio</li>
   <li>✅ Horma normal — más segura para la mayoría de pies</li>
   <li>❌ Sin goma → no outdoor. Una sesión en asfalto destruye la suela</li>
   <li>❌ Tracción baja en pistas con polvo (sin goma que raspa)</li>
 </ul>
 
 <h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — desde {{precio:adidas-ae-2}}</a></h3>
-<p><strong>El mejor equilibrio precio/rendimiento para bases.</strong> Herringbone 9/10 que funciona en parquet limpio y sucio. Lightstrike Pro reactivo pero con algo más de cushion que la GT Cut 4. 428 g, horma normal. Para bases que juegan en diferentes canchas y no quieren pagar el precio premium de la GT Cut 4.</p>
+<p><strong>El mejor equilibrio precio/rendimiento para bases.</strong> Herringbone {{nota:adidas-ae-2:traccion}} que funciona en parquet limpio y sucio. Lightstrike Pro reactivo pero con algo más de cushion que la GT Cut 4. 428 g, horma normal. Para bases que juegan en diferentes canchas y no quieren pagar el precio premium de la GT Cut 4.</p>
 <ul>
-  <li>✅ Tracción 9/10 — aguanta pistas con polvo</li>
-  <li>✅ Respuesta 9/10 — primer paso rápido</li>
+  <li>✅ Tracción {{nota:adidas-ae-2:traccion}} — aguanta pistas con polvo</li>
+  <li>✅ Respuesta {{nota:adidas-ae-2:respuesta}} — primer paso rápido</li>
   <li>✅ Más económica que la GT Cut 4</li>
-  <li>❌ No llega al nivel de respuesta pura de la GT Cut 4</li>
+  <li>❌ Peso: {{peso:adidas-ae-2}}, de las más pesadas del grupo</li>
 </ul>
 
 <h3><a href="/zapatilla/anta-kai-2">ANTA Kai 2 — desde {{precio:anta-kai-2}}</a></h3>
@@ -2379,11 +2379,11 @@ export const ARTICLES: Article[] = [
   <li>✅ 90% del rendimiento de la AE 2</li>
   <li>✅ Horma ancha — la mejor para pies anchos del grupo</li>
   <li>✅ Outdoor moderado — suela de goma más resistente que la Curry 13</li>
-  <li>❌ Respuesta algo por debajo de GT Cut 4 y Curry 13</li>
+  <li>❌ Respuesta algo por debajo de la Curry 13 ({{nota:anta-kai-2:respuesta}} frente a {{nota:ua-curry-13:respuesta}})</li>
 </ul>
 
 <h3><a href="/zapatilla/nike-ja-3">Nike Ja 3 — desde {{precio:nike-ja-3}}</a></h3>
-<p><strong>La mejor opción para bases con pie ancho dentro de Nike.</strong> ZoomX full-length da un bounce excepcional para su precio. Horma más ancha que cualquier otra Nike en producción. Suela de goma que aguanta outdoor moderado. Para bases que querían Nike pero no encajaban en la GT Cut 4, la Ja 3 es la respuesta.</p>
+<p><strong>La alternativa Nike a la GT Cut 4 para bases.</strong> ZoomX full-length da un bounce excepcional para su precio. Suela de goma que aguanta outdoor moderado.</p>
 <ul>
   <li>✅ ZoomX full-length: cushion + bounce excepcional para un guard</li>
   <li>✅ Horma ancha (raro en Nike)</li>
@@ -2406,36 +2406,36 @@ export const ARTICLES: Article[] = [
   <tbody>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike GT Cut 4</strong></td>
-      <td style="padding:8px;text-align:center">⭐ 10/10</td>
-      <td style="padding:8px;text-align:center">⭐ 10/10</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-gt-cut-4:respuesta}}</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-gt-cut-4:traccion}}</td>
       <td style="padding:8px;text-align:center">{{peso:nike-gt-cut-4}}</td>
       <td style="padding:8px;text-align:center">{{precio:nike-gt-cut-4}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>UA Curry 13</strong></td>
-      <td style="padding:8px;text-align:center">9/10</td>
-      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:ua-curry-13:respuesta}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:ua-curry-13:traccion}}</td>
       <td style="padding:8px;text-align:center">{{peso:ua-curry-13}}</td>
       <td style="padding:8px;text-align:center">{{precio:ua-curry-13}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Adidas AE 2</strong></td>
-      <td style="padding:8px;text-align:center">9/10</td>
-      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-ae-2:respuesta}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-ae-2:traccion}}</td>
       <td style="padding:8px;text-align:center">{{peso:adidas-ae-2}}</td>
       <td style="padding:8px;text-align:center">{{precio:adidas-ae-2}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>ANTA Kai 2</strong></td>
-      <td style="padding:8px;text-align:center">9/10</td>
-      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">{{nota:anta-kai-2:respuesta}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:anta-kai-2:traccion}}</td>
       <td style="padding:8px;text-align:center">{{peso:anta-kai-2}}</td>
       <td style="padding:8px;text-align:center">{{precio:anta-kai-2}}</td>
     </tr>
     <tr>
       <td style="padding:8px"><strong>Nike Ja 3</strong></td>
-      <td style="padding:8px;text-align:center">9/10</td>
-      <td style="padding:8px;text-align:center">8/10</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:nike-ja-3:respuesta}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:nike-ja-3:traccion}}</td>
       <td style="padding:8px;text-align:center">{{peso:nike-ja-3}}</td>
       <td style="padding:8px;text-align:center">{{precio:nike-ja-3}}</td>
     </tr>
@@ -2486,18 +2486,18 @@ export const ARTICLES: Article[] = [
 <h2>Top 5 zapatillas para escoltas en 2025</h2>
 
 <h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — desde {{precio:adidas-ae-2}}</a></h3>
-<p><strong>La opción más completa del mercado para el perfil escolta-creador.</strong> El herringbone de 9/10 da agarre en cualquier condición; el Lightstrike Pro da respuesta suficiente para las penetraciones sin sacrificar el cushion. Horma normal, precio competitivo. Para escoltas que juegan en diferentes canchas y no saben si van a interior o exterior.</p>
+<p><strong>La opción más completa del mercado para el perfil escolta-creador.</strong> El herringbone de {{nota:adidas-ae-2:traccion}} da agarre en cualquier condición; el Lightstrike Pro da respuesta suficiente para las penetraciones sin sacrificar el cushion. Horma normal, precio competitivo. Para escoltas que juegan en diferentes canchas y no saben si van a interior o exterior.</p>
 <ul>
-  <li>✅ Tracción 9/10 — el mejor herringbone del mercado para exterior moderado</li>
-  <li>✅ Respuesta 9/10 — primer paso competitivo para escolta-creador</li>
+  <li>✅ Tracción {{nota:adidas-ae-2:traccion}} — el mejor herringbone del mercado para exterior moderado</li>
+  <li>✅ Respuesta {{nota:adidas-ae-2:respuesta}} — primer paso competitivo para escolta-creador</li>
   <li>✅ El precio más equilibrado del grupo</li>
   <li>❌ No el cushion más alto — para escoltas >90kg, considera la Tatum 4</li>
 </ul>
 
 <h3><a href="/zapatilla/nike-kobe-8-protro">Nike Kobe 8 Protro — desde {{precio:nike-kobe-8-protro}}</a></h3>
-<p><strong>Para el escolta-tirador puro.</strong> La Kobe 8 Protro es la referencia histórica para el perfil escolta: ultra-reactiva (respuesta 10/10), la más ligera del grupo (340 g) y con el court feel más bajo del mercado. Kobe Bryant era el tirador perfecto — su zapatilla lo refleja. El problema: la horma es muy estrecha y el precio alto.</p>
+<p><strong>Para el escolta-tirador puro.</strong> La Kobe 8 Protro es la referencia histórica para el perfil escolta: ultra-reactiva (respuesta {{nota:nike-kobe-8-protro:respuesta}}), la más ligera del grupo (340 g) y con el court feel más bajo del mercado. Kobe Bryant era el tirador perfecto — su zapatilla lo refleja. El problema: la horma es muy estrecha y el precio alto.</p>
 <ul>
-  <li>✅ Respuesta 10/10 — la segunda más explosiva tras la GT Cut 4</li>
+  <li>✅ Respuesta {{nota:nike-kobe-8-protro:respuesta}} — al nivel de la AE 2 y la Curry 13</li>
   <li>✅ 340 g — la más ligera del grupo</li>
   <li>✅ Court feel excepcional para sentir la planta antes del tiro</li>
   <li>❌ {{precio:nike-kobe-8-protro}} — la más cara del grupo</li>
@@ -2508,25 +2508,25 @@ export const ARTICLES: Article[] = [
 <p><strong>Para escoltas que priorizan el court feel y el tiro perimetral.</strong> UA Flow da la sensación de suelo más directa del mercado. Para el tirador que necesita sentir exactamente cuándo va a soltar el balón y qué tiene bajo los pies, la Curry 13 es el referente. Steph Curry es el mejor tirador de la historia — su zapatilla está diseñada para eso.</p>
 <ul>
   <li>✅ Court feel único — ideal para tiradores de posición fija</li>
-  <li>✅ Tracción 9/10 en parquet limpio</li>
+  <li>✅ Tracción {{nota:ua-curry-13:traccion}} en parquet limpio</li>
   <li>✅ Horma normal — segura para la mayoría de pies</li>
   <li>❌ Sin goma → exclusivamente interior. Outdoor la destruye</li>
 </ul>
 
 <h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — desde {{precio:jordan-tatum-4}}</a></h3>
-<p><strong>Para el escolta-alero que juega físico.</strong> Jayson Tatum es técnicamente un alero, pero muchos escoltas físicos (6'5"+) se identifican con su perfil: defiende al base del rival, mete cortes, juega en el poste bajo a veces. La Tatum 4 ofrece la mayor estabilidad lateral del grupo y cushion para los aterrizajes de esos momentos físicos.</p>
+<p><strong>Para el escolta-alero que juega físico.</strong> Jayson Tatum es técnicamente un alero, pero muchos escoltas físicos (6'5"+) se identifican con su perfil: defiende al base del rival, mete cortes, juega en el poste bajo a veces. La Tatum 4 ofrece una estabilidad lateral correcta y cushion para los aterrizajes de esos momentos físicos.</p>
 <ul>
-  <li>✅ Soporte lateral 9/10 — el mayor del grupo para escoltas físicos</li>
-  <li>✅ Cushion 8/10 — protege bien en aterrizajes de corte y rebote</li>
+  <li>✅ Soporte lateral {{nota:jordan-tatum-4:soporte_lateral}} — correcto para escoltas físicos</li>
+  <li>✅ Cushion {{nota:jordan-tatum-4:amortiguacion}} — protege bien en aterrizajes de corte y rebote</li>
   <li>✅ Plataforma baja y copa de TPU: estable en los apoyos</li>
   <li>❌ Prioriza cushion y versatilidad: no es la más reactiva para escoltas de velocidad pura</li>
 </ul>
 
 <h3><a href="/zapatilla/nike-gt-cut-4">Nike GT Cut 4 — desde {{precio:nike-gt-cut-4}}</a></h3>
-<p><strong>Para el escolta-base que quiere la máxima reactividad.</strong> Si tu juego de escolta es más parecido al de un base (Shai Gilgeous-Alexander, por ejemplo), la GT Cut 4 te da el mismo primer paso explosivo con algo más de estabilidad que en configuración de base puro.</p>
+<p><strong>Para el escolta-base que quiere court feel y un primer paso rápido.</strong> Si tu juego de escolta es más parecido al de un base (Shai Gilgeous-Alexander, por ejemplo), la GT Cut 4 te da el mismo primer paso explosivo con algo más de estabilidad que en configuración de base puro.</p>
 <ul>
-  <li>✅ Respuesta 10/10 y tracción 10/10 — el techo del mercado</li>
-  <li>❌ 431 g: no es ligera, su baza es la respuesta</li>
+  <li>❌ Respuesta {{nota:nike-gt-cut-4:respuesta}} y tracción {{nota:nike-gt-cut-4:traccion}}, por debajo de la AE 2 y la Curry 13</li>
+  <li>❌ {{peso:nike-gt-cut-4}}: no es ligera</li>
   <li>❌ Horma muy estrecha — solo si tu pie lo admite</li>
   <li>❌ No outdoor — solo interior limpio</li>
 </ul>
@@ -2605,9 +2605,9 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3><a href="/zapatilla/adidas-harden-vol-9">Adidas Harden Vol 9 — desde {{precio:adidas-harden-vol-9}}</a></h3>
-<p><strong>La mejor relación calidad-precio del grupo para ala-pívots medianos.</strong> James Harden juega de escolta pero tiene el perfil físico de un 4 — la Harden Vol 9 está pensada para jugadores potentes con movilidad. Lightstrike Pro foam da cushion 9/10 con bounce reactivo por menos que la LeBron 23.</p>
+<p><strong>La mejor relación calidad-precio del grupo para ala-pívots medianos.</strong> James Harden juega de escolta pero tiene el perfil físico de un 4 — la Harden Vol 9 está pensada para jugadores potentes con movilidad. Lightstrike Pro foam da cushion {{nota:adidas-harden-vol-9:amortiguacion}} con bounce reactivo por menos que la LeBron 23.</p>
 <ul>
-  <li>✅ Lightstrike Pro: cushion 9/10 a precio competitivo</li>
+  <li>✅ Lightstrike Pro: cushion {{nota:adidas-harden-vol-9:amortiguacion}} a precio competitivo</li>
   <li>✅ Cushion de gama alta por menos que la LeBron 23</li>
   <li>✅ Respuesta suficiente para el 4 que sale al perímetro</li>
   <li>❌ No llega a la estabilidad lateral de la LeBron o la Luka para juego de poste muy físico</li>
@@ -2637,37 +2637,37 @@ export const ARTICLES: Article[] = [
   <tbody>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike LeBron 23</strong></td>
-      <td style="padding:8px;text-align:center">⭐ 10/10</td>
-      <td style="padding:8px;text-align:center">9/10</td>
-      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:nike-lebron-23:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-lebron-23:estabilidad}}</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-lebron-23:respuesta}}</td>
       <td style="padding:8px;text-align:center">{{precio:nike-lebron-23}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike KD 19</strong></td>
-      <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">⭐ 8/10</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:nike-kd-19:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-kd-19:estabilidad}}</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-kd-19:respuesta}}</td>
       <td style="padding:8px;text-align:center">{{precio:nike-kd-19}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Jordan Luka 4</strong></td>
-      <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">⭐ 9/10</td>
-      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">{{nota:jordan-luka-4:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">{{nota:jordan-luka-4:estabilidad}}</td>
+      <td style="padding:8px;text-align:center">{{nota:jordan-luka-4:respuesta}}</td>
       <td style="padding:8px;text-align:center">{{precio:jordan-luka-4}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Adidas Harden Vol 9</strong></td>
-      <td style="padding:8px;text-align:center">9/10</td>
-      <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">7/10</td>
+      <td style="padding:8px;text-align:center">{{nota:adidas-harden-vol-9:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">{{nota:adidas-harden-vol-9:estabilidad}}</td>
+      <td style="padding:8px;text-align:center">{{nota:adidas-harden-vol-9:respuesta}}</td>
       <td style="padding:8px;text-align:center">{{precio:adidas-harden-vol-9}}</td>
     </tr>
     <tr>
       <td style="padding:8px"><strong>Air Jordan 40</strong></td>
-      <td style="padding:8px;text-align:center">⭐ 10/10</td>
-      <td style="padding:8px;text-align:center">8/10</td>
-      <td style="padding:8px;text-align:center">⭐ 9/10</td>
+      <td style="padding:8px;text-align:center">{{nota:jordan-40:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">{{nota:jordan-40:estabilidad}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:jordan-40:respuesta}}</td>
       <td style="padding:8px;text-align:center">{{precio:jordan-40}}</td>
     </tr>
   </tbody>
@@ -2679,7 +2679,7 @@ export const ARTICLES: Article[] = [
   <li><strong>Si pesas >90kg y juegas físico en la pintura → <a href="/zapatilla/nike-lebron-23">LeBron 23</a></strong> (ZoomX con Air Zoom: de las de más amortiguación del catálogo)</li>
   <li><strong>Si eres 4 dinámico, 80-100kg, juegas en el perímetro → <a href="/zapatilla/nike-kd-19">KD 19</a></strong> (mejor equilibrio precio/rendimiento)</li>
   <li><strong>Si juegas mucho poste y pick-and-pop → <a href="/zapatilla/jordan-luka-4">Luka 4</a></strong> (la base más estable del grupo)</li>
-  <li><strong>Si buscas la mejor relación calidad-precio → <a href="/zapatilla/adidas-harden-vol-9">Harden Vol 9</a></strong> (cushion 9/10 desde {{precio:adidas-harden-vol-9}})</li>
+  <li><strong>Si buscas la mejor relación calidad-precio → <a href="/zapatilla/adidas-harden-vol-9">Harden Vol 9</a></strong> (cushion {{nota:adidas-harden-vol-9:amortiguacion}} desde {{precio:adidas-harden-vol-9}})</li>
   <li><strong>Si priorizas el bounce y puedes gastar 200€ → <a href="/zapatilla/jordan-40">Air Jordan 40</a></strong> (el techo tecnológico de 2025)</li>
 </ul>
 
@@ -2823,19 +2823,19 @@ export const ARTICLES: Article[] = [
 <p>La MB.05 usa Nitro Elite foam — la versión avanzada del Nitro que Puma también usa en sus zapatillas de running de alta gama. Es una espuma de PEBA modificado, similar en concepto al ZoomX de Nike pero con una formulación propia. El resultado:</p>
 <ul>
   <li><strong>Bounce mayor que la MB.04:</strong> el Nitro Elite es más reactivo que el Nitro estándar de la MB.04. En los primeros pasos se nota la diferencia — hay más energía de retorno.</li>
-  <li><strong>Cushion 8/10:</strong> más suave que la AE 2 (Lightstrike Pro más firme) pero menos que el ZoomX. Para un guard de 75-90kg es suficiente y protector.</li>
+  <li><strong>Cushion {{nota:puma-mb05:amortiguacion}}:</strong> al nivel de la AE 2 ({{nota:adidas-ae-2:amortiguacion}}), con un tacto más suave que el del Lightstrike Pro. Para un guard de 75-90kg es suficiente y protector.</li>
   <li><strong>Ligereza:</strong> la MB.05 pesa 418 g, en la línea de la AE 2 (428 g) y la GT Cut 4 (431 g). No es ligera, pero para su nivel de cushion es un peso razonable.</li>
 </ul>
 
-<h2>Tracción: el punto débil de la serie</h2>
+<h2>Tracción</h2>
 <p>El patrón de suela de la MB.05 ha sido siempre el punto más criticado de la línea Ball. El problema no es el agarre en sí (es decente en parquet limpio) sino la consistencia: en pistas con algo de polvo, la suela de la MB.05 pierde tracción más rápido que la AE 2 o la Curry 13. El patrón es bonito pero no tan funcional como el herringbone clásico.</p>
-<p><strong>Tracción en limpio: 8/10. En pistas con polvo: 6/10.</strong> Si tu pista está impecable, bien. Si es de las pistas de barrio que no se limpian desde el miércoles, el agarre flojea.</p>
+<p><strong>Tracción en limpio: {{nota:puma-mb05:traccion}}. En pistas con polvo baja de forma notable.</strong> Si tu pista está impecable, bien. Si es de las pistas de barrio que no se limpian desde el miércoles, el agarre flojea.</p>
 
 <h2>Soporte lateral y tobillo</h2>
-<p>La MB.05 es low-top con un collar de espuma que cubre el tobillo sin llegar a mid-top. El soporte lateral está en 7/10 gracias a los refuerzos de TPU en el upper. Para un guard de 70-85kg sin historial de tobillos, es suficiente. Para jugadores más físicos o con esguinces previos, considera una mid-top.</p>
+<p>La MB.05 es low-top con un collar de espuma que cubre el tobillo sin llegar a mid-top. El soporte lateral está en {{nota:puma-mb05:soporte_lateral}} gracias a los refuerzos de TPU en el upper. Para un guard de 70-85kg sin historial de tobillos, es suficiente. Para jugadores más físicos o con esguinces previos, considera una mid-top.</p>
 
 <h2>¿Mejora a la MB.04?</h2>
-<p>Sí, en todos los atributos relevantes:</p>
+<p>Sí en tracción y respuesta (la ficha da 9 frente al 8 de la MB.04); en soporte lateral queda por debajo ({{nota:puma-mb05:soporte_lateral}} frente a {{nota:puma-mb-04:soporte_lateral}}):</p>
 <ul>
   <li>Nitro Elite > Nitro en bounce y cushion</li>
   <li>Upper más contenido — menos llamativo pero más funcional</li>
@@ -2845,13 +2845,13 @@ export const ARTICLES: Article[] = [
 
 <h2>Puntuación técnica CANCHA.ZAPA</h2>
 <ul>
-  <li>Tracción: <strong>7/10</strong> (8 en limpio, 6 con polvo)</li>
-  <li>Amortiguación: <strong>8/10</strong> — Nitro Elite da cushion serio</li>
-  <li>Respuesta: <strong>8/10</strong> — bounce notable para un guard</li>
-  <li>Soporte lateral: <strong>7/10</strong> — suficiente para guard sin historial</li>
-  <li>Estabilidad: <strong>7/10</strong> — aceptable, no es su punto fuerte</li>
-  <li>Ligereza: <strong>8/10</strong> — 418 g, razonable para su cushion</li>
-  <li>Durabilidad outdoor: <strong>7/10</strong> — suela de goma aguanta outdoor moderado</li>
+  <li>Tracción: <strong>{{nota:puma-mb05:traccion}}</strong></li>
+  <li>Amortiguación: <strong>{{nota:puma-mb05:amortiguacion}}</strong> — Nitro Elite da cushion serio</li>
+  <li>Respuesta: <strong>{{nota:puma-mb05:respuesta}}</strong> — bounce notable para un guard</li>
+  <li>Soporte lateral: <strong>{{nota:puma-mb05:soporte_lateral}}</strong> — suficiente para guard sin historial</li>
+  <li>Estabilidad: <strong>{{nota:puma-mb05:estabilidad}}</strong> — aceptable, no es su punto fuerte</li>
+  <li>Ligereza: <strong>{{nota:puma-mb05:peso_score}}</strong> — {{peso:puma-mb05}}, razonable para su cushion</li>
+  <li>Durabilidad outdoor: <strong>{{nota:puma-mb05:durabilidad_outdoor}}</strong> — suela de goma aguanta outdoor moderado</li>
 </ul>
 
 <h2>¿Vale los {{precio:puma-mb05}}?</h2>
@@ -2906,13 +2906,13 @@ export const ARTICLES: Article[] = [
 
 <h2>Puntuación técnica CANCHA.ZAPA</h2>
 <ul>
-  <li>Tracción: <strong>9/10</strong> (baja a 7 en pistas con polvo)</li>
-  <li>Amortiguación: <strong>7/10</strong> — el Strobel firma pero no es Max Air</li>
-  <li>Respuesta: <strong>10/10</strong> — empatada con la GT Cut 4 como la más reactiva del mercado</li>
-  <li>Soporte lateral: <strong>6/10</strong> — low-top con upper de malla: poco soporte</li>
-  <li>Estabilidad: <strong>7/10</strong> — la base ancha compensa el upper bajo</li>
-  <li>Ligereza: <strong>10/10</strong> — 340 g, de las más ligeras con Zoom Air</li>
-  <li>Durabilidad outdoor: <strong>6/10</strong> — goma fina, no la lleves al asfalto</li>
+  <li>Tracción: <strong>{{nota:nike-kobe-8-protro:traccion}}</strong> (conviene limpiar la suela en pistas con polvo)</li>
+  <li>Amortiguación: <strong>{{nota:nike-kobe-8-protro:amortiguacion}}</strong> — el Strobel firma pero no es Max Air</li>
+  <li>Respuesta: <strong>{{nota:nike-kobe-8-protro:respuesta}}</strong> — de las más reactivas del catálogo, al nivel de la AE 2 y la Curry 13</li>
+  <li>Soporte lateral: <strong>{{nota:nike-kobe-8-protro:soporte_lateral}}</strong> — buen soporte para un low-top</li>
+  <li>Estabilidad: <strong>{{nota:nike-kobe-8-protro:estabilidad}}</strong> — la base ancha compensa el upper bajo</li>
+  <li>Ligereza: <strong>{{nota:nike-kobe-8-protro:peso_score}}</strong> — 340 g, de las más ligeras con Zoom Air</li>
+  <li>Durabilidad outdoor: <strong>{{nota:nike-kobe-8-protro:durabilidad_outdoor}}</strong> — goma fina, no la lleves al asfalto</li>
 </ul>
 
 <h2>Comparativa con rivales</h2>
@@ -2931,28 +2931,28 @@ export const ARTICLES: Article[] = [
   <tbody>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike Kobe 8 Protro</strong></td>
-      <td style="padding:8px;text-align:center">⭐ 10/10</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:nike-kobe-8-protro:respuesta}}</td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">{{peso:nike-kobe-8-protro}}</td>
       <td style="padding:8px;text-align:center">{{precio:nike-kobe-8-protro}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike GT Cut 4</strong></td>
-      <td style="padding:8px;text-align:center">⭐ 10/10</td>
+      <td style="padding:8px;text-align:center">{{nota:nike-gt-cut-4:respuesta}}</td>
       <td style="padding:8px;text-align:center">9/10</td>
       <td style="padding:8px;text-align:center">{{peso:nike-gt-cut-4}}</td>
       <td style="padding:8px;text-align:center">{{precio:nike-gt-cut-4}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>UA Curry 13</strong></td>
-      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:ua-curry-13:respuesta}}</td>
       <td style="padding:8px;text-align:center">⭐ 10/10</td>
       <td style="padding:8px;text-align:center">{{peso:ua-curry-13}}</td>
       <td style="padding:8px;text-align:center">{{precio:ua-curry-13}}</td>
     </tr>
     <tr>
       <td style="padding:8px"><strong>Adidas AE 2</strong></td>
-      <td style="padding:8px;text-align:center">9/10</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-ae-2:respuesta}}</td>
       <td style="padding:8px;text-align:center">8/10</td>
       <td style="padding:8px;text-align:center">{{peso:adidas-ae-2}}</td>
       <td style="padding:8px;text-align:center">{{precio:adidas-ae-2}}</td>
@@ -2973,7 +2973,7 @@ export const ARTICLES: Article[] = [
 <p><strong>No es para ti si:</strong> pesas más de 90kg (el cushion no es suficiente para esos impactos), tienes pie ancho (la horma es estrecha), juegas en exterior o en pistas con polvo.</p>
 
 <h2>¿Vale los {{precio:nike-kobe-8-protro}}?</h2>
-<p>La pregunta del millón. Mi respuesta: sí, para el perfil correcto, sí vale. La Kobe 8 Protro ofrece algo que la GT Cut 4 (desde {{precio:nike-gt-cut-4}}) no tiene: el perfil más bajo del mercado con 10/10 en respuesta y 340 g. Para un tirador puro, esa diferencia se nota en cada tiro. Para el resto de jugadores, la GT Cut 4 o la AE 2 son decisiones más inteligentes.</p>
+<p>La pregunta del millón. Mi respuesta: sí, para el perfil correcto, sí vale. La Kobe 8 Protro ofrece algo que la GT Cut 4 (desde {{precio:nike-gt-cut-4}}) no tiene: el perfil más bajo del mercado con {{nota:nike-kobe-8-protro:respuesta}} en respuesta y 340 g. Para un tirador puro, esa diferencia se nota en cada tiro. Para el resto de jugadores, la GT Cut 4 o la AE 2 son decisiones más inteligentes.</p>
 
 <p class="art-outro">¿La Kobe 8 Protro es para tu perfil? El <a href="/quiz">quiz de CANCHA.ZAPA</a> evalúa tu posición, estilo de juego y tipo de pie para decirte si es tu match o si hay algo más adecuado. Sin ambigüedades.</p>
     `,
@@ -3171,7 +3171,7 @@ export const ARTICLES: Article[] = [
     <li><strong style="color:#e4e4e7">Altura:</strong> Mid-top</li>
     <li><strong style="color:#e4e4e7">Lanzamiento original:</strong> 1998</li>
     <li><strong style="color:#e4e4e7">Precio retro actual:</strong> desde {{precio:adidas-crazy-8}}</li>
-    <li><strong style="color:#e4e4e7">Score jugabilidad:</strong> 7.5/10 (interior)</li>
+    <li><strong style="color:#e4e4e7">Score jugabilidad:</strong> {{score:adidas-crazy-8}} (interior)</li>
   </ul>
 </div>
 
@@ -3236,7 +3236,7 @@ export const ARTICLES: Article[] = [
     <li><strong style="color:#e4e4e7">Altura:</strong> High-top</li>
     <li><strong style="color:#e4e4e7">Lanzamiento:</strong> 1995</li>
     <li><strong style="color:#e4e4e7">Precio retro actual:</strong> desde {{precio:fila-grant-hill-1}}</li>
-    <li><strong style="color:#e4e4e7">Score jugabilidad:</strong> 7/10 (interior)</li>
+    <li><strong style="color:#e4e4e7">Score jugabilidad:</strong> {{score:fila-grant-hill-1}} (interior)</li>
   </ul>
 </div>
 
@@ -3290,7 +3290,7 @@ export const ARTICLES: Article[] = [
     <li><strong style="color:#e4e4e7">Tecnología:</strong> Nike Shox (columnas elastómero) · Herringbone outsole</li>
     <li><strong style="color:#e4e4e7">Lanzamiento:</strong> 2000</li>
     <li><strong style="color:#e4e4e7">Precio retro actual:</strong> desde {{precio:nike-shox-bb4}}</li>
-    <li><strong style="color:#e4e4e7">Score jugabilidad:</strong> 6.5/10 (interior)</li>
+    <li><strong style="color:#e4e4e7">Score jugabilidad:</strong> {{score:nike-shox-bb4}} (interior)</li>
   </ul>
 </div>
 
@@ -3699,7 +3699,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Las mas buscadas de 2026",
     heroSubtitle: "El hype real de pistas y redes - Lista trending",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["adidas-ae-2", "nike-sabrina-3", "ua-curry-12", "lining-wow-12", "asics-unpre-ars-2"],
+    relatedShoes: ["adidas-ae-2", "nike-sabrina-3", "ua-curry-12", "lining-wow-12", "361-joker-1"],
     relatedSeoPages: ["mejores-zapatillas-baloncesto-2025", "zapatillas-baloncesto-retro"],
     body: `
 <p class="art-intro">Cada temporada hay un punado de modelos que dominan las busquedas, vuelan de las tiendas y monopolizan TikTok e Instagram. No siempre son las mejores en una review tecnica, son las que la gente quiere. Esta es nuestra lista <strong>trending de 2026</strong>, la misma que puedes filtrar en el <a href="/zapatillas?trending=1">catalogo con el chip Trending</a> o ver ordenada por nota en <a href="/rankings">Rankings</a>.</p>
@@ -3725,7 +3725,6 @@ export const ARTICLES: Article[] = [
   <li><a href="/zapatilla/lining-wow-12">Way of Wade 12</a> placa de carbono vista y materiales aeroespaciales. Puro estatus.</li>
   <li><a href="/zapatilla/rigorer-ar3">Rigorer AR3</a> perfil bajo, traccion extrema en interior y estetica cuidada.</li>
   <li><a href="/zapatilla/361-joker-1">361 Joker 1</a> el modelo del MVP Nikola Jokic. Estabilidad y precio competitivo.</li>
-  <li><a href="/zapatilla/asics-unpre-ars-2">Asics Unpre Ars 2</a> la joya japonesa de Yuki Kawamura. Estabilidad lateral de elite.</li>
   <li><a href="/zapatilla/skechers-skx-float">Skechers SKX Float</a> amortiguacion Hyper Burst, pensada para proteger rodillas.</li>
 </ul>
 <h2>Rendimiento especializado y volumen</h2>
@@ -3817,7 +3816,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Zapatillas de baloncesto júnior (GS)",
     heroSubtitle: "La signature de tu hijo a mitad de precio · 2026",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["ua-curry-12-gs","adidas-ae-2-gs","puma-mb05-gs","adidas-don-issue-7-gs","nike-giannis-immortality-4-gs","jordan-luka-77-gs"],
+    relatedShoes: ["ua-curry-12-gs","adidas-ae-2-gs","puma-mb05-gs","adidas-don-issue-7-gs","nike-giannis-immortality-4-gs","adidas-believe-that-1-gs"],
     relatedSeoPages: ["zapatillas-baloncesto-junior","zapatillas-baloncesto-baratas","mejores-zapatillas-baloncesto-2025"],
     body: `
 <p class="art-intro">Las zapatillas signature de la NBA cuestan 130-200€. Pero casi todas tienen una versión "GS" (Grade School, tallaje júnior) con <strong>la misma tecnología, la misma suela y el mismo diseño</strong>, a menudo por la mitad de precio. Si tu hijo (o tú, si calzas hasta una EU 40) juega en serio, este es el secreto peor guardado del básquet.</p>
@@ -3833,7 +3832,7 @@ export const ARTICLES: Article[] = [
   <li><strong>Puma MB.05 GS (desde {{precio:puma-mb05-gs}}):</strong> el estilo y el Nitrofoam de LaMelo Ball para los más jóvenes.</li>
   <li><strong>Adidas D.O.N. Issue 7 GS (desde {{precio:adidas-don-issue-7-gs}}):</strong> Lightstrike Pro + suela Continental: cushion premium y tracción de élite indoor.</li>
   <li><strong>Nike Giannis Immortality 4 GS (desde {{precio:nike-giannis-immortality-4-gs}}):</strong> horma ancha, resistente al asfalto y baratísima. La mejor budget para el júnior interior.</li>
-  <li><strong>Jordan Luka 77 GS (desde {{precio:jordan-luka-77-gs}}):</strong> React + Zoom Air, equilibrada y de las pocas que aguantan bien el outdoor.</li>
+  <li><strong>Adidas Believe That 1 GS (desde {{precio:adidas-believe-that-1-gs}}):</strong> Dreamstrike y herringbone multidireccional; de las GS que mejor aguantan el outdoor ({{exterior:adidas-believe-that-1-gs}}).</li>
 </ul>
 
 <h2>¿Y las budget puras?</h2>
@@ -3847,7 +3846,7 @@ export const ARTICLES: Article[] = [
 <h2>Cómo elegir para tu hijo</h2>
 <ol>
   <li><strong>Comprueba la talla:</strong> que entre en el tallaje GS (hasta ~EU 40). Si se le queda pequeña pronto, mejor budget.</li>
-  <li><strong>Mira dónde juega:</strong> si es mucho outdoor, prioriza durabilidad (Immortality 4 GS, OwnTheGame 3 GS, Luka 77 GS). Para pabellón, cualquier signature.</li>
+  <li><strong>Mira dónde juega:</strong> si es mucho outdoor, prioriza durabilidad (Believe That 1 GS, Immortality 4 GS, OwnTheGame 3 GS). Para pabellón, cualquier signature.</li>
   <li><strong>No pagues de más en pies que crecen:</strong> un júnior cambia de talla cada temporada. La GS te da rendimiento real sin gastar 160€.</li>
 </ol>
 
@@ -3922,9 +3921,9 @@ export const ARTICLES: Article[] = [
 
 <h2>De un vistazo</h2>
 <ul>
-  <li><strong>Nike Sabrina 3 — la superventas (score ~8,5):</strong> unisex, pero LA opción de muchas jugadoras. Low-top, tracción salvaje, ligera, estilo "Kobe". Horma estándar ceñida.</li>
+  <li><strong>Nike Sabrina 3 — la superventas (score {{score:nike-sabrina-3}}):</strong> unisex, pero LA opción de muchas jugadoras. Low-top, tracción salvaje, ligera, estilo "Kobe". Horma estándar ceñida.</li>
   <li><strong>Jordan Heir Series — la cortante (score 8,0, WT 8/10):</strong> primera silueta de Jordan creada con insights de jugadoras WNBA. Low-to-ground, reactiva, pensada para velocidad y cambios de ritmo.</li>
-  <li><strong>UA Flow Breakthru 4 — la anatómica (score ~7,5):</strong> horma 100% femenina (talón estrecho) + suela UA Flow sin goma: súper ligera y la mejor de las tres en outdoor.</li>
+  <li><strong>UA Flow Breakthru 4 — la anatómica (score {{score:ua-flow-breakthru-4}}):</strong> horma 100% femenina (talón estrecho) + suela UA Flow sin goma: súper ligera ({{peso:ua-flow-breakthru-4}}), la más ligera de las tres.</li>
 </ul>
 
 <h2>Tracción</h2>
