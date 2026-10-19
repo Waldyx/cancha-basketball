@@ -375,7 +375,14 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   que HG ve amplias, se quedan normal): recomendar como ancha una zapa que aprieta es el error que duele, como con el corte.
   45 frases de artículos corregidas (la Ja 3 «la Nike ancha», la Kai 2 «la mejor para pie ancho», la LeBron 23
   «estrecha»…). Y las FAQ de `seoPages` sin notas x/10 a mano (no resuelven marcas).
-- ▶️ **PARA RETOMAR**: (1) ~~horma en los artículos~~ hecho; (2) las 45
+- ✅ **Tecnología, barrido de artículos (`e0ee482`, `trabajo/w34-tecnologia.tsv`)**: 12 fichas con `tecnologia_clave`
+  mal, corregidas con cita de HG verificada (Ja 3 = ZoomX enjaulado; Tatum 4 = Cushlon 3.0 + Zoom antepié; GT Cut 4 =
+  Zoom Strobel + ZoomX; Luka 1 = Formula 23; LeBron 23 = ZoomX + Cushlon + carbono, SIN Air Zoom; Kobe 8 Protro = React
+  drop-in; Shock Wave 5 = nitrógeno + carbono; Joker 1 = CQT + shank de plástico…) y 78 frases de artículos/SEO/FAQ. El
+  «Max Air» de las LeBron 22/23 estaba en ~15 líneas. ⚠ Sin resolver (FICHA_DUDA): ¿la AE 2 lleva Lightstrike **Pro**?
+  (HG no lo nombra y adidas.com bloquea; los artículos lo repiten en ~10 líneas), KT 11, Trae Young 3, Kobe 9 High Protro.
+  Heir Series sin tocar: HG solo tiene la Heir Series 2. «Luka DonÄiÄ‡» se veía así en producción: arreglado (6 fichas).
+- ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos; (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
   el sitemap de HG en 2-3 semanas; (3) Search Console (sesión de Google caducada en el navegador integrado: la abre el
   usuario); (4) medir otra vez el chat y `/api/sesion` (`npx tsx scripts/audit-ia.ts` + 2-3 consultas reales).
