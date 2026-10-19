@@ -66,10 +66,23 @@ const leerPresupuesto = (q: string): number => {
   const mp = q.match(/(\d{1,4})\s*(?:€|eur|euros?)/) ?? q.match(/presupuesto\D{0,12}(\d{1,4})/);
   return mp ? Number(mp[1]) : 0;
 };
-const CATALOGO_ADULTO = CATALOGO.split("\n").filter((l) => !/JUNIOR-GS/.test(l)).join("\n");
+// 🔴 19-oct-2026 (2.ª medición): con "tobillos débiles" recomendó KT 10, Luka 4 y LeBron 21,
+// las tres low; y a "mi hijo de 12 años" le puso la Witness 8 de adulto. Mismo remedio: lo
+// que no debe recomendar, no lo ve. Júnior → solo GS (igual que `respuestaLocal`); tobillo →
+// fuera las low (el filtro duro del quiz). Si un filtro deja el catálogo vacío, no se aplica.
+const TOBILLO = /tobill|esguinc|torcedur/;
+const filtrar = (lineas: string[], f: (l: string) => boolean) => {
+  const r = lineas.filter(f);
+  return r.length ? r : lineas;
+};
 export function sistemaPara(textoUsuario: string): string {
   const q = textoUsuario.toLowerCase();
-  let s = sistema(JUNIOR.test(q) ? CATALOGO : CATALOGO_ADULTO);
+  let lineas = CATALOGO.split("\n").filter(Boolean);
+  lineas = JUNIOR.test(q)
+    ? filtrar(lineas, (l) => /JUNIOR-GS/.test(l))
+    : lineas.filter((l) => !/JUNIOR-GS/.test(l));
+  if (TOBILLO.test(q)) lineas = filtrar(lineas, (l) => !/\| low \|/.test(l));
+  let s = sistema(lineas.join("\n"));
   const presupuesto = leerPresupuesto(q);
   if (presupuesto > 0) s += `\n\nPRESUPUESTO DEL USUARIO: ${presupuesto} €. No recomiendes ni propongas como opción ninguna zapa de más de ${presupuesto} €.`;
   return s;
@@ -85,6 +98,7 @@ type ZapaCat = {
   nombre: string;
   precio: number;
   scores: Record<string, number>;
+  altura: string;
   marcadores: string;
 };
 
@@ -100,6 +114,7 @@ const ZAPAS: ZapaCat[] = CATALOGO.split("\n")
       nombre: c[1] ?? "",
       precio: Number((c[3] ?? "").replace(/[^\d]/g, "")) || 0,
       scores,
+      altura: c[5] ?? "",
       marcadores: c.slice(7).join(" "),
     };
   })
@@ -150,6 +165,10 @@ function respuestaLocal(pregunta: string): string {
     if (f.length >= 3) cand = f;
   }
   if (presupuesto > 0) cand = cand.filter((z) => z.precio > 0 && z.precio <= presupuesto);
+  if (TOBILLO.test(q)) {
+    const f = cand.filter((z) => z.altura !== "low");
+    if (f.length) cand = f;
+  }
 
   // Nota = los 5 criterios de cancha. En exterior, la suela pesa el triple.
   const nota = (z: ZapaCat) => {

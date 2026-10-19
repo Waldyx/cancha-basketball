@@ -100,6 +100,17 @@ describe("sistemaPara", () => {
     expect(sistemaPara("algo para mi hijo de 12 años")).toContain(lineaGS);
     expect(sistemaPara("¿la Curry 12 GS merece la pena?")).toContain(lineaGS);
   });
+  it("si piden júnior, solo ve GS", () => {
+    const s = sistemaPara("que zapatillas para mi hijo de 12 años que juega de pivot");
+    expect(s).toContain("ua-curry-12-gs |");
+    expect(s).not.toContain("nike-lebron-witness-8 |");
+  });
+  it("con tobillos débiles, fuera las low (y solo si queda algo)", () => {
+    const s = sistemaPara("alero de 85 kg con tobillos debiles");
+    expect(s).not.toContain("anta-kt-10 |");
+    expect(s).not.toMatch(/\| low \|/);
+    expect(s).toMatch(/\| (mid|high) \|/);
+  });
   it("recuerda el presupuesto al final si lo hay", () => {
     expect(sistemaPara("menos de 120 euros").trimEnd()).toMatch(/120 €\.$/);
     expect(sistemaPara("para pista interior")).not.toContain("PRESUPUESTO DEL USUARIO");
