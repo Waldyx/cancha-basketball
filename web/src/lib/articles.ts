@@ -837,93 +837,86 @@ export const ARTICLES: Article[] = [
   // ── 9. Guía baratas ──────────────────────────────────────────────────
   {
     slug: "mejores-zapatillas-baloncesto-baratas-2025",
-    title: "Mejores zapatillas de baloncesto baratas de 2025: las 8 mejores opciones por menos de 80€",
-    metaTitle: "Mejores zapatillas de baloncesto baratas 2025 (menos de 80€) | CANCHA.ZAPA",
-    description: "Descubre las 8 zapatillas de baloncesto con mejor relación calidad-precio de 2025, todas por menos de 80 €.",
-    fecha: "2025-05-20",
-    fechaLabel: "20 mayo 2025",
+    title: "Mejores zapatillas de baloncesto baratas: las 8 mejores por menos de 80 €",
+    metaTitle: "Mejores zapatillas de baloncesto baratas (menos de 80 €) | CANCHA.ZAPA",
+    description: "Las 8 zapatillas de baloncesto con mejor relación calidad-precio por menos de 80 €: Li-Ning All City 14, Anta KAI 1 Speed, NB TWO WXY v5, Luka 1 y más, con precio actualizado.",
+    fecha: "2026-10-19",
+    fechaLabel: "19 octubre 2026",
     categoria: "Guías",
     readMinutes: 6,
     eyebrow: "★ Guía editorial · CANCHA.ZAPA",
     heroTitle: "Mejores zapatillas de baloncesto baratas",
-    heroSubtitle: "Las 8 mejores opciones por menos de 80€ en 2025",
+    heroSubtitle: "Las 8 mejores opciones por menos de 80 €",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-precision-8", "adidas-cross-em-up-select", "decathlon-tarmak-fast-900", "adidas-ownthegame-3", "ua-lockdown-7"],
+    relatedShoes: ["lining-wow-allcity-14", "anta-kai-1-speed", "nb-two-wxy-v5", "jordan-luka-1", "adidas-dame-certified"],
     relatedSeoPages: ["zapatillas-baloncesto-baratas", "zapatillas-baloncesto-calidad-precio", "zapatillas-baloncesto-junior"],
-    imagen: "https://ballershoesdb.com/wp-content/uploads/NikePrecision8-Cropped-650x406.jpg",
+    imagen: "/shoes/lining-wow-allcity-14.webp",
     body: `
-<p class="art-intro">Encontrar una zapatilla de baloncesto que combine buen rendimiento, estilo y un precio asequible no es fácil, pero en 2025 el mercado español ofrece varias opciones por debajo de los 80 €. Aquí tienes un análisis de las ocho mejores alternativas para que puedas jugar sin vaciar tu cartera.</p>
+<p class="art-intro">Se puede jugar bien por menos de 80 €, y no solo con modelos básicos: muchas de las mejores relaciones calidad-precio del catálogo son marcas chinas con tecnología de gama alta o modelos de una o dos temporadas atrás que han bajado mucho de precio. Estas son las ocho que hoy merecen la pena, todas a la venta en tiendas que trabajan en España. El precio de cada titular se actualiza solo.</p>
 
-<h2>1. Nike Precision 8</h2>
-<p>La <strong>Nike Precision 8</strong> sigue la línea de la popular Precision 7, pero con una construcción más ligera y una suela de goma de alta tracción. Su parte superior de malla transpirable mantiene los pies frescos durante todo el partido. La opción más versátil del rango: válida para interior y exterior sin sacrificar demasiado.</p>
+<h2>1. Li-Ning Way of Wade All City 14 — desde {{precio:lining-wow-allcity-14}}</h2>
+<p>La mejor valorada del catálogo a este precio: espuma BOOM de longitud completa, placa de carbono y una suela de goma que además aguanta el exterior. Rinde como una zapatilla de gama alta.</p>
 <ul>
-  <li>Tracción excelente en ambas superficies</li>
-  <li>Amortiguación básica pero funcional</li>
-  <li>Tiendas y tallas en <a href="/zapatilla/nike-precision-8">su ficha</a></li>
+  <li>Tecnología de gama alta: BOOM y placa de carbono</li>
+  <li>Vale para interior y exterior</li>
+  <li>Se compra en AliExpress: el envío tarda más. Tiendas y tallas en <a href="/zapatilla/lining-wow-allcity-14">su ficha</a></li>
 </ul>
 
-<h2>2. Adidas Cross-Em Up Select</h2>
-<p>Pensada para jugadores que buscan velocidad y control. El refuerzo de TPU en el talón aporta estabilidad sin añadir peso. La suela de goma Continental ofrece una tracción sorprendente para su precio.</p>
+<h2>2. Anta KAI 1 Speed — desde {{precio:anta-kai-1-speed}}</h2>
+<p>La versión ligera de la primera zapatilla de Kyrie Irving con Anta: espuma Nitroedge y placa de carbono, con una tracción y una respuesta de las más altas del catálogo. Para bases rápidos que juegan en pista cubierta.</p>
 <ul>
-  <li>Suela Continental — tracción de gama alta a precio bajo</li>
-  <li>Ligera y reactiva — ideal para guards</li>
-  <li>Una de las mejores opciones económicas del mercado</li>
+  <li>De las más reactivas que vas a encontrar a cualquier precio</li>
+  <li>Ojo: suela de interior, no la uses en la calle</li>
 </ul>
 
-<h2>3. Decathlon Tarmak Fast 900</h2>
-<p>Decathlon ha mejorado su línea Tarmak con la Voltzy 500, que incorpora una entresuela de espuma EVA de densidad media y una malla reforzada. La sorpresa del año en términos de relación calidad-precio — supera en durabilidad outdoor a modelos que cuestan tres veces más.</p>
+<h2>3. New Balance TWO WXY v5 — desde {{precio:nb-two-wxy-v5}}</h2>
+<p>FuelCell y Fresh Foam X, buena tracción y una goma dura que aguanta el exterior. Una de las más equilibradas del catálogo, y además se compra en una tienda española.</p>
 <ul>
-  <li>Relación calidad-precio imbatible</li>
-  <li>Durabilidad outdoor destacable para su rango</li>
-  <li>Disponible en tiendas Decathlon con posibilidad de probar antes</li>
+  <li>Equilibrada en todo: para casi cualquier posición</li>
+  <li>Apta para interior y exterior</li>
 </ul>
 
-<h2>4. Adidas OwnTheGame 3</h2>
-<p>La tercera generación de la OwnTheGame mantiene la estética urbana-deportiva y añade una entresuela mejorada con mayor retorno de energía. Una de las zapas más cómodas de este rango para partidos largos.</p>
+<h2>4. Jordan Luka 1 — desde {{precio:jordan-luka-1}}</h2>
+<p>La primera de Luka Doncic: Zoom Air, base ancha y una horma que las reviews describen como permisiva con el pie ancho. Una signature de gama alta de hace dos temporadas a precio de gama baja.</p>
 <ul>
-  <li>Comodidad excepcional para uso prolongado</li>
-  <li>Diseño moderno que funciona dentro y fuera de la pista</li>
-  <li>Build quality típico de Adidas</li>
+  <li>Buena opción si tienes el pie ancho</li>
+  <li>Estable gracias a su base ancha</li>
 </ul>
 
-<h2>5. Under Armour Lockdown 7</h2>
-<p>Con una parte superior de malla y refuerzos sintéticos, la <strong>Lockdown 7</strong> ofrece una sensación de segunda piel y buen soporte lateral. La suela de goma con patrón multidireccional aguanta bien en parqué.</p>
+<h2>5. Adidas Dame Certified — desde {{precio:adidas-dame-certified}}</h2>
+<p>La línea económica de Damian Lillard: suela de goma gruesa con muy buena tracción y una de las más duraderas del catálogo en exterior. La amortiguación (Bounce) es básica.</p>
 <ul>
-  <li>Gran estabilidad lateral para su rango de precio</li>
-  <li>Ajuste ceñido — ideal para pies normales o estrechos</li>
-  <li>La opción UA más accesible con buen rendimiento</li>
+  <li>Una de las mejores para jugar en la calle</li>
+  <li>Amortiguación justa para jugadores pesados</li>
 </ul>
 
-<h2>6. Puma Playmaker Pro Mid</h2>
-<p>La Playmaker Pro Mid ofrece altura mid-top con soporte de tobillo y entresuela ProFoam. Buena opción para jugadores que necesitan protección extra sin disparar el presupuesto.</p>
+<h2>6. Jordan Luka .77 — desde {{precio:jordan-luka-77}}</h2>
+<p>La versión asequible de la línea de Luka: React con Zoom Air en el talón, mucho soporte y una suela construida para exterior. De las más completas de esta lista para quien juega dentro y fuera.</p>
 <ul>
-  <li>Mid-top — más soporte de tobillo que las low</li>
-  <li>ProFoam con cushion decente para el rango</li>
-  <li>Buena para jugadores con historial leve de esguinces</li>
+  <li>Muy completa para su precio</li>
+  <li>Suela pensada para la calle</li>
 </ul>
 
-<h2>7. Nike Air Zoom Crossover 2</h2>
-<p>Versión de entrada de la línea Zoom, con una cámara de aire básica en el antepié. Ofrece un paso por encima de la Precision 8 en amortiguación a un precio similar.</p>
+<h2>7. Adidas Dame X — desde {{precio:adidas-dame-x}}</h2>
+<p>La décima de Lillard, con Lightstrike: buena tracción, amortiguación y respuesta. Es de la temporada pasada y por eso se encuentra muy rebajada. Solo para pista cubierta: su goma se gasta rápido fuera.</p>
 <ul>
-  <li>Zoom Air básico — notablemente mejor que espuma EVA estándar</li>
-  <li>Tracción sólida en interior</li>
-  <li>Buena horma — sirve para pie normal y ancho</li>
+  <li>Gama alta de hace poco a precio de saldo</li>
+  <li>No apta para exterior</li>
 </ul>
 
-<h2>8. Reebok Answer IV</h2>
-<p>Reebok revive el clásico de Allen Iverson con materiales modernizados. La suela de goma ofrece tracción y durabilidad, y el diseño retro es uno de los más llamativos de este rango.</p>
+<h2>8. Nike Precision 7 — desde {{precio:nike-precision-7}}</h2>
+<p>La más básica de la lista y de las más baratas del catálogo: espuma Phylon sencilla y una goma dura de espiga que aguanta muy bien el exterior. Para jugar de forma recreativa o en la calle sin miedo a gastarla.</p>
 <ul>
-  <li>Diseño icónico — el más estético de la lista</li>
-  <li>Tracción clásica herringbone — funciona bien en interior</li>
-  <li>Una zapatilla con historia real detrás</li>
+  <li>Muy duradera en exterior</li>
+  <li>Amortiguación básica</li>
 </ul>
 
 <h3>¿Cómo elegir la mejor opción para ti?</h3>
-<p>Al buscar zapatillas baratas, ten en cuenta tres factores: <strong>tracción</strong> (lo que más afecta al rendimiento), <strong>altura</strong> (low si juegas rápido, mid si tienes dudas con el tobillo) y <strong>disponibilidad</strong> (Decathlon es la única que puedes probar en tienda física antes de comprar).</p>
+<p>Mira tres cosas: <strong>dónde juegas</strong> (las de suela de interior se gastan rápido en asfalto), <strong>tu tobillo</strong> (todas estas son low; si has tenido esguinces, la <a href="/zapatilla/puma-playmaker-pro-mid">Puma Playmaker Pro Mid</a> es mid y barata) y <strong>dónde comprar</strong> (la <a href="/zapatilla/decathlon-tarmak-fast-900">Decathlon Tarmak Fast 900</a> es la única que puedes probarte en una tienda física).</p>
 
-<p>Si juegas en exterior: <a href="/zapatilla/decathlon-tarmak-fast-900">Tarmak Fast 900</a> o <a href="/zapatilla/nike-precision-8">Nike Precision 8</a>. Si juegas solo en interior: <a href="/zapatilla/adidas-cross-em-up-select">Cross-Em Up Select</a>. Si tienes problemas de tobillo: <a href="/zapatilla/puma-playmaker-pro-mid">Playmaker Pro Mid</a>.</p>
+<p>Si juegas en exterior: <a href="/zapatilla/adidas-dame-certified">Dame Certified</a>, <a href="/zapatilla/jordan-luka-77">Luka .77</a> o <a href="/zapatilla/nike-precision-7">Precision 7</a>. Si juegas solo en interior y quieres rendimiento: <a href="/zapatilla/anta-kai-1-speed">KAI 1 Speed</a> o <a href="/zapatilla/adidas-dame-x">Dame X</a>. Para las dos cosas: <a href="/zapatilla/lining-wow-allcity-14">All City 14</a> o <a href="/zapatilla/nb-two-wxy-v5">TWO WXY v5</a>.</p>
 
-<p class="art-outro">En 2025 no necesitas gastar más de 80€ para jugar bien. La Adidas Cross-Em Up Select, la Nike Precision 8 y la Tarmak Fast 900 cubren la mayoría de perfiles. ¿No sabes cuál es la tuya? <a href="/quiz">Haz el quiz en 60 segundos</a> y te damos la recomendación exacta para tu juego.</p>
+<p class="art-outro">No necesitas gastar más de 80 € para jugar bien. ¿No sabes cuál es la tuya? <a href="/quiz">Haz el quiz en 60 segundos</a>: filtra por tu presupuesto, tu posición y dónde juegas.</p>
     `,
   },
 
@@ -1411,15 +1404,15 @@ export const ARTICLES: Article[] = [
     metaTitle: "Mejores zapatillas baloncesto niños y jóvenes 2025 | CANCHA.ZAPA",
     description:
       "Guía completa para padres: las mejores zapatillas de baloncesto para niños y adolescentes en 2025. Qué marcas, qué modelos y cuánto gastar según la edad.",
-    fecha: "2026-05-27",
-    fechaLabel: "27 mayo 2026",
+    fecha: "2026-10-19",
+    fechaLabel: "19 octubre 2026",
     categoria: "Guías",
     readMinutes: 5,
-    eyebrow: "★ Guía para padres · Junior 2025",
+    eyebrow: "★ Guía para padres · Junior 2026",
     heroTitle: "Zapatillas de baloncesto para niños y jóvenes",
     heroSubtitle: "Lo que nadie te dice antes de comprarlas",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-precision-8", "adidas-cross-em-up-select", "decathlon-tarmak-fast-900", "nike-giannis-immortality-5", "ua-lockdown-7"],
+    relatedShoes: ["decathlon-tarmak-fast-900-nba-junior", "adidas-cross-em-up-5-gs", "nike-giannis-immortality-4-gs", "adidas-dame-x-gs", "adidas-don-issue-7-gs"],
     relatedSeoPages: ["zapatillas-baloncesto-junior", "zapatillas-baloncesto-baratas", "mejor-zapatilla-base"],
     body: `
 <p class="art-intro">Comprar zapatillas de baloncesto para un niño o adolescente tiene sus propias reglas. Los pies crecen rápido, el presupuesto es limitado y el rendimiento debe acompañar el nivel de juego. Esta guía responde las preguntas que todo padre hace antes de comprar.</p>
@@ -1427,9 +1420,9 @@ export const ARTICLES: Article[] = [
 <h2>Lo primero: ¿cuánto debo gastar?</h2>
 <p>La tentación de comprar las mismas zapatillas que usa el jugador favorito de tu hijo existe, pero no siempre tiene sentido. Aquí va una guía práctica según el nivel:</p>
 <ul>
-  <li><strong>Iniciación (6-10 años):</strong> 30-50€. Los niños crecen muy rápido — una zapatilla básica dura 1 temporada. Prioriza comodidad y amortiguación básica. Decathlon Tarmak y Nike Precision son las opciones más inteligentes.</li>
-  <li><strong>Escuela/Club (10-14 años):</strong> 50-80€. Ya tiene sentido invertir algo más — la zapa dura más y el niño empieza a desarrollar su técnica. Nike Precision 8, Adidas Cross-Em Up Select y UA Lockdown 7 son las mejores opciones de este rango.</li>
-  <li><strong>Federado/Cadete (14-18 años):</strong> 80-130€. A esta edad, el rendimiento importa. El pie ya está más estabilizado (menos crecimiento por año) y vale la pena invertir en modelos con tecnología seria: Adidas AE 2, Nike Zoom Freak, Puma MB.04.</li>
+  <li><strong>Iniciación (6-10 años):</strong> 30-50€. Los niños crecen muy rápido — una zapatilla básica dura 1 temporada. Prioriza comodidad y amortiguación básica. La Decathlon Tarmak Fast 900 NBA Junior y la UA Jet '25 en versión de niño son las opciones más inteligentes.</li>
+  <li><strong>Escuela/Club (10-14 años):</strong> 50-80€. Ya tiene sentido invertir algo más — la zapa dura más y el niño empieza a desarrollar su técnica. Adidas Cross Em Up 5, Nike Giannis Immortality 4 y Adidas Dame X, todas en versión de niño, son las mejores opciones de este rango.</li>
+  <li><strong>Federado/Cadete (14-18 años):</strong> 80-130€. A esta edad, el rendimiento importa. El pie ya está más estabilizado (menos crecimiento por año) y vale la pena invertir en modelos con tecnología seria: Adidas D.O.N. Issue 7, AE 2 o Puma MB.05, que también existen en tallaje GS.</li>
 </ul>
 
 <h2>Tallas: GS (Grade School) y diferencias clave</h2>
@@ -1437,32 +1430,33 @@ export const ARTICLES: Article[] = [
 <p><strong>Atención:</strong> algunas zapatillas premium solo están disponibles en tallas adulto (EU 40+). Verifica siempre la disponibilidad en GS antes de comprometerte con un modelo concreto.</p>
 <p>Para medir correctamente: mide el pie en centímetros por la tarde (cuando está más hinchado) y suma 1cm para espacio en punta. Los niños en crecimiento pueden necesitar 1-1.5cm de espacio adicional — pero no más, porque el pie se mueve demasiado dentro de la zapatilla.</p>
 
-<h2>Los mejores modelos junior en 2025</h2>
+<h2>Los mejores modelos junior</h2>
+<p>Todas estas se venden en tallaje de niño (GS) en tiendas que trabajan en España; el precio de hoy de cada una está en su ficha.</p>
 
-<h3>1. Nike Precision 8 GS</h3>
-<p>La mejor opción para iniciación y nivel escolar. Disponible en tallas desde EU 35.5, con la misma suela de tracción herringbone que el modelo adulto. Buena amortiguación básica, upper de malla transpirable. La zapatilla que más veces aparece en pistas escolares en España — y con razón.</p>
+<h3>1. <a href="/zapatilla/decathlon-tarmak-fast-900-nba-junior">Decathlon Tarmak Fast 900 NBA Junior</a> — iniciación</h3>
+<p>La opción más sensata para un niño que empieza y aún no sabes si seguirá: barata, cómoda y la única que puedes probarle en una tienda física. La amortiguación es básica, pero para iniciación no hace falta más.</p>
 
-<h3>2. Adidas Cross-Em Up Select Kids</h3>
-<p>Suela Continental a un precio muy bajo. Para la edad de iniciación, la tracción Continental de Adidas en una zapatilla tan económica es una ventaja real. La horma es algo estrecha — ideal para pies normales o estrechos.</p>
+<h3>2. <a href="/zapatilla/adidas-cross-em-up-5-gs">Adidas Cross Em Up 5</a> — iniciación y escuela</h3>
+<p>Caña media para dar algo más de sujeción al tobillo y una suela de goma que aguanta también la pista exterior del colegio. Hay una versión hermana, la <a href="/zapatilla/adidas-cross-em-up-select">Cross 'Em Up Select</a>, con el mismo planteamiento.</p>
 
-<h3>3. Decathlon Tarmak Fast 500</h3>
-<p>La opción más económica con rendimiento real. Perfecta para niños que están probando el baloncesto y aún no sabes si seguirán. La Tarmak es durable, cómoda y aguanta exterior e interior. A ese precio, si el niño crece dos tallas en una temporada, no duele tanto el gasto.</p>
+<h3>3. <a href="/zapatilla/nike-giannis-immortality-4-gs">Nike Giannis Immortality 4</a> — club</h3>
+<p>Para niños de 10 a 14 años que juegan en club: Cushlon, buena tracción de espiga y un precio contenido. El tirón de Giannis Antetokounmpo ayuda con la motivación.</p>
 
-<h3>4. Nike Giannis Immortality 5 GS</h3>
-<p>Para adolescentes de 12-16 años que juegan en club. El Giannis Immortality ofrece amortiguación de gama media y buena estabilidad a un precio razonable. El atractivo del jugador (Giannis Antetokounmpo) añade un plus de motivación para el chaval.</p>
+<h3>4. <a href="/zapatilla/adidas-dame-x-gs">Adidas Dame X</a> — rendimiento de gama alta a precio bajo</h3>
+<p>La versión de niño de la décima de Damian Lillard: Lightstrike con muy buena tracción, amortiguación y respuesta, y suele encontrarse rebajada. Es de pista cubierta: en exterior su goma se gasta rápido.</p>
 
-<h3>5. Jordan Tatum 2 o 3 GS</h3>
-<p>Para jugadores cadetes con nivel federado que buscan rendimiento real. La línea Tatum tiene un cushion serio y tracción competente en un paquete que funciona para aleros y escoltas junior. La Tatum 2 a menudo la encuentras en oferta — buena opción de relación calidad-precio.</p>
+<h3>5. <a href="/zapatilla/adidas-don-issue-7-gs">Adidas D.O.N. Issue 7</a> — cadetes que compiten</h3>
+<p>La mejor valorada de las versiones de niño del catálogo: Lightstrike Pro, mucho soporte y tracción. Para jugadores federados que ya notan la diferencia. Otras de ese nivel: la <a href="/zapatilla/adidas-ae-2-gs">AE 2</a> y la <a href="/zapatilla/ua-curry-12-gs">UA Curry 12</a>, también en tallaje GS y también solo para interior.</p>
 
 <h2>¿Low, mid o high para un niño?</h2>
 <p>Para niños sin historial de esguinces: cualquier altura funciona. Para niños con tobillos débiles o historial de torceduras: prioriza mid o high. La diferencia en protección entre low y mid es real en jugadores en formación cuya musculatura de tobillo aún se está desarrollando.</p>
 <p>Si tu hijo juega en posición 1-2 (base/escolta) y es ágil, low-top está bien. Para posiciones 4-5 (ala-pívot/pívot), una mid o high ofrece más protección en los contactos de la pintura.</p>
 
 <h2>¿Interior o exterior?</h2>
-<p>La mayoría de equipos junior entrenan y juegan en pabellón. Si tu hijo también juega en parque o cancha exterior (streetball), necesita una zapatilla con suela de goma robusta. La Nike Precision 8 y la Decathlon Tarmak son buenas opciones "todo terreno". Las zapatillas premium de competición (GT Cut, Curry 13) NO son para exterior.</p>
+<p>La mayoría de equipos junior entrenan y juegan en pabellón. Si tu hijo también juega en parque o cancha exterior (streetball), necesita una zapatilla con suela de goma robusta. Las Adidas Cross Em Up y la UA Jet '25 llevan una goma que aguanta bien fuera. Las zapatillas premium de competición (GT Cut, Curry 13) NO son para exterior.</p>
 
 <h2>Dónde comprar las mejores zapatillas junior</h2>
-<p>Para iniciación: Decathlon es la mejor opción — puedes probarlas en tienda, tienen buena política de devolución y el precio es imbatible. Para modelos Nike/Adidas/Jordan: Amazon ES con vendedor oficial ofrece devolución en 30 días, lo que es clave cuando el niño crece rápido o la talla no queda bien.</p>
+<p>Para iniciación: Decathlon es la mejor opción — puedes probarlas en tienda, tienen buena política de devolución y el precio es imbatible. Para modelos Nike y Adidas en tallaje de niño: tiendas como Forum Sport, Atmósfera, El Corte Inglés o la propia Adidas, y Amazon si el vendedor es oficial. Fíjate en que la devolución sea fácil: es clave cuando el niño crece rápido o la talla no queda bien.</p>
 
 <p class="art-outro">¿Tu hijo ya tiene un nivel de juego claro y quieres la recomendación exacta para su posición, peso y presupuesto? <a href="/quiz">El quiz funciona igual para adultos que para jóvenes</a> — introduce sus datos y obtén las 5 zapatillas más compatibles con su perfil.</p>
     `,
@@ -1592,7 +1586,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h2>Amortiguación: reactiva, no máxima</h2>
-<p>La AE 2 lleva <strong>Lightstrike Pro</strong> en el antepié y una capa de Lightstrike base en el talón. El resultado es un cushion reactivo y devolutivo — sientes el suelo pero con protección suficiente. No es la zapatilla de máxima amortiguación del mercado (ese papel lo juegan LeBron 22 o Fresh Foam BB v3), pero tampoco es minimal. Score: 7.5/10.</p>
+<p>La AE 2 lleva <strong>Lightstrike Pro</strong> en el antepié y una capa de Lightstrike base en el talón. El resultado es un cushion reactivo y devolutivo — sientes el suelo pero con protección suficiente. No es la zapatilla de máxima amortiguación del mercado (ese papel lo juegan la LeBron 22 o la LeBron 23), pero tampoco es minimal.</p>
 <p>Para jugadores de 60-85 kg que no buscan cushion de pívot, es más que suficiente. Para jugadores de 90+ kg o con rodillas sensibles, considera alternativas con más stack de cushion.</p>
 
 <h2>Respuesta y court feel</h2>
@@ -1663,7 +1657,7 @@ export const ARTICLES: Article[] = [
 <p>No es ideal para:</p>
 <ul>
   <li>Pívots que necesitan máxima amortiguación (90 kg+)</li>
-  <li>Jugadores outdoor — usa la Precision 8 o KD 17 para asfalto</li>
+  <li>Jugadores outdoor: su goma blanda se gasta rápido en asfalto; para la calle, mejor una <a href="/zapatilla/adidas-dame-certified">Dame Certified</a> o una <a href="/zapatilla/jordan-luka-77">Luka .77</a></li>
   <li>Pies muy anchos — considera la ANTA KAI 2 o la LeBron 22</li>
 </ul>
 
@@ -1730,7 +1724,7 @@ export const ARTICLES: Article[] = [
 <ul>
   <li><strong>Elige la AE 2 si:</strong> priorizas la tracción, juegas en pabellones con polvo, tienes pie medio-ancho, o tu presupuesto llega a {{precio:adidas-ae-2}}</li>
   <li><strong>Elige la Curry 13 si:</strong> priorizas estabilidad lateral y court feel, juegas en pabellones limpios, o tienes historial leve de esguinces</li>
-  <li><strong>Si tienes 90 kg+:</strong> ninguna de las dos es tu primera opción — considera la LeBron 22, Jordan Tatum 4 o Fresh Foam BB v3</li>
+  <li><strong>Si tienes 90 kg+:</strong> ninguna de las dos es tu primera opción — considera la LeBron 22, la LeBron 23 o la KD 19</li>
 </ul>
 
 <h2>¿Dónde comprar la Curry 13?</h2>
@@ -1773,7 +1767,7 @@ export const ARTICLES: Article[] = [
 <p>La combinación Zoom + React es la más versátil de Nike — más cushion que solo Zoom (como la GT Cut 4) y más respuesta que solo React (como la LeBron 22). Para un alero que hace de todo, es el compromiso perfecto.</p>
 
 <h2>Cushion: uno de los mejores del mercado en su segmento</h2>
-<p>Con un score de amortiguación <strong>8.5/10</strong>, la Tatum 4 protege bien en todas las situaciones. En aterrizajes desde el aro, contactos en la pintura y partidos de 40+ minutos, el nivel de cushion es más que suficiente para jugadores hasta 95 kg. Para pívots de 100 kg+, el LeBron 22 o la Fresh Foam BB v3 tienen aún más stack.</p>
+<p>Con Zoom Air y React, la Tatum 4 protege bien en todas las situaciones. En aterrizajes desde el aro, contactos en la pintura y partidos de 40+ minutos, el nivel de cushion es más que suficiente para jugadores hasta 95 kg. Para pívots de 100 kg+, la LeBron 22 o la LeBron 23 tienen aún más amortiguación.</p>
 <p>El cushion no sacrifica el court feel gracias al Zoom en el antepié. Otros zapatos con tanto cushion (LeBron 22, Witness) se sienten "esponjosos" — la Tatum 4 mantiene conexión con el suelo.</p>
 
 <h2>Tracción</h2>
@@ -1800,7 +1794,7 @@ export const ARTICLES: Article[] = [
 <p>No es ideal para:</p>
 <ul>
   <li>Bases explosivos que buscan el máximo primer paso — usa la GT Cut 4 o la Curry 13</li>
-  <li>Pívots puros de 100 kg+ — el LeBron 22 o la Fresh Foam BB v3 tienen más cushion</li>
+  <li>Pívots puros de 100 kg+ — la LeBron 22 o la LeBron 23 tienen más cushion</li>
   <li>Jugadores outdoor — su suela no está optimizada para asfalto</li>
 </ul>
 
@@ -1882,7 +1876,7 @@ export const ARTICLES: Article[] = [
   <li><strong>Air Zoom Strobel full-length:</strong> unidad de aire de longitud completa bajo el pie. La presión del aire en el antepié ofrece respuesta rápida en el despegue. Es la misma tecnología que LeBron lleva usando desde las LeBron 19.</li>
   <li><strong>Cushlon 3.0 en el talón:</strong> espuma de alta densidad que absorbe los impactos de aterrizajes. Para un jugador de más de 90kg que aterriza desde el aro decenas de veces por partido, este talón hace una diferencia real a largo plazo.</li>
 </ul>
-<p>El resultado es un score de amortiguación <strong>9/10</strong> — el más alto de nuestra base de datos junto con la New Balance Fresh Foam BB v3. Si tienes rodillas sensibles o pesas más de 90kg, ninguna otra zapatilla te protegerá mejor.</p>
+<p>El resultado es la nota de amortiguación más alta de nuestra ficha, empatada con la LeBron 23 y la KD 19. Si tienes rodillas sensibles o pesas más de 90kg, ninguna otra zapatilla te protegerá mejor.</p>
 
 <h2>El gran trade-off: respuesta y peso</h2>
 <p>Toda esa protección tiene un coste. La LeBron 22 tiene la respuesta más baja de los modelos premium (5/10) — es una zapatilla que absorbe el impacto más que lo devuelve. Si eres un guard que vive de los primeros pasos y las carreras de transición, la LeBron 22 no es tu zapatilla. Pero si eres un ala-pívot o pívot que prioriza la protección en la pintura, ese court feel "apagado" es completamente aceptable.</p>
@@ -2682,7 +2676,7 @@ export const ARTICLES: Article[] = [
 
 <h2>¿Cuál elegir?</h2>
 <ul>
-  <li><strong>Si pesas >90kg y juegas físico en la pintura → <a href="/zapatilla/nike-lebron-23">LeBron 23</a></strong> (Max Air insustituible para cargas extremas)</li>
+  <li><strong>Si pesas >90kg y juegas físico en la pintura → <a href="/zapatilla/nike-lebron-23">LeBron 23</a></strong> (ZoomX con Air Zoom: de las de más amortiguación del catálogo)</li>
   <li><strong>Si eres 4 dinámico, 80-100kg, juegas en el perímetro → <a href="/zapatilla/nike-kd-19">KD 19</a></strong> (mejor equilibrio precio/rendimiento)</li>
   <li><strong>Si juegas mucho poste y pick-and-pop → <a href="/zapatilla/jordan-luka-4">Luka 4</a></strong> (la base más estable del grupo)</li>
   <li><strong>Si buscas la mejor relación calidad-precio → <a href="/zapatilla/adidas-harden-vol-9">Harden Vol 9</a></strong> (cushion 9/10 desde {{precio:adidas-harden-vol-9}})</li>
