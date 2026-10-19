@@ -342,6 +342,13 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   «Category Performance Ratings» y pros/contras: con eso se reescribieron Caitlin 1, A'Two, Joker 2 GT, AE 3, AG 6 y JB4,
   que seguían como pre-lanzamiento o «sin review». Quedan 45 visibles sin ancla: budget/team sin reviews (s44) y
   lanzamientos sin review aún (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11).
+- 🔴 **La durabilidad en EXTERIOR estaba inflada en todo el catálogo** (142 de 153 adultas pasaban el filtro de exterior
+  del quiz). Comparadas las 102 ancladas con el «% de análisis que la ven apta para exterior» de HoopsGeek: AE 2 8/10 y 0 %,
+  Curry 12 6 y 0 %, Jordan XXXIX 8 y 0 %… Corregidas 41 (+GS) donde el desvío era ≥ 3 (0 % → 2, 100 % → 9) y la Flow
+  Breakthru 4 (UA Flow). Ahora pasan 110. La guía de outdoor recomendaba la AE 2: rehecha con All City 14, Shock Wave 5,
+  Luka .77, Dame Certified y Precision 7, y su tabla usa la marca nueva **`{{exterior:ID}}`**. Siete fichas que seguían
+  vendiendo el exterior, reescritas. ⚠ Tracción/cushion/soporte de HG NO se aplican: otra escala (HG casi nunca da 10)
+  y bajarlos solo en las medidas hundiría a esas zapas en el quiz frente a las no medidas.
 - ✅ **Kobe 5 Protro rescatada** (Decathlon marketplace, 233,99 € = 1,34× MSRP, 7 tallas). Descartadas: **PG 6** (una
   talla y 1 unidad) y **Why Not .6** (solo 36,5-40: curva de mujer/GS). Ocultas 43 → 42.
 - ⏸ **Search Console**: la sesión de Google del navegador integrado caducó; no se mete contraseña. Revisarlo el usuario
@@ -2388,6 +2395,10 @@ Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
   la imagen en `public/shoes/` y las MENCIONES en el texto de otras fichas. Los tres sobreviven años.
 - **`web/api/_catalog.json` se regenera en cada build local (prebuild) → sale como modificado.
   NO commitear**: trae churn de precios ajeno al cambio. Vercel lo regenera.
+- **Un eje editorial puede estar inflado en bloque sin que se note** — s57. La durabilidad en exterior se puso a ojo y
+  casi todas salían ≥ 5, así que el filtro de exterior del quiz no filtraba. Se vio comparando con una fuente que mide
+  OTRA cosa parecida (% de analistas que la ven apta para la calle). Al corregir un eje con una fuente externa, hacerlo
+  solo si la escala es comparable; si no, se crea un sesgo entre las zapas medidas y las que no.
 - **Regla de disponibilidad**: `disponible: false` solo afecta al botón de compra en la ficha
   individual. **NUNCA** debe excluir una zapa de rankings, editor's pick ni catálogo.
 
