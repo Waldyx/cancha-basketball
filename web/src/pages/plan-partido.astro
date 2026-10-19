@@ -57,7 +57,7 @@ const jsonLd = {
             </label>
             <label class="pp-campo"><span>Rival</span><input id="pp-rival" class="pp-inp" maxlength="60" data-k="rival" /></label>
             <div class="pp-grid3">
-              <label class="pp-campo"><span>Fecha</span><input id="pp-fecha" type="date" class="pp-inp" data-k="fecha" /></label>
+              <label class="pp-campo"><span>Fecha</span><input id="pp-fecha" type="date" min="2000-01-01" max="2100-12-31" class="pp-inp" data-k="fecha" /></label>
               <label class="pp-campo"><span>Hora</span><input id="pp-hora" type="time" class="pp-inp" data-k="hora" /></label>
               <label class="pp-campo"><span>Lugar</span><input id="pp-lugar" class="pp-inp" maxlength="60" data-k="lugar" /></label>
             </div>
@@ -70,7 +70,7 @@ const jsonLd = {
 
           <section class="pp-panel">
             <h2 class="pp-h2">Claves del rival</h2>
-            <textarea id="pp-claves" class="pp-inp pp-ta" data-k="claves" rows="4" maxlength="1200" placeholder="Una por línea"></textarea>
+            <textarea id="pp-claves" class="pp-inp pp-ta" data-k="claves" rows="4" maxlength="2000" placeholder="Una por línea"></textarea>
             <div class="pp-fila">
               <button type="button" id="pp-traer" class="pp-bn pp-bn-2 pp-bn-sm" hidden>Traer del informe del rival</button>
               <a href="/rival/" class="pp-ayuda doc-link">Preparar el informe del rival →</a>
@@ -98,6 +98,7 @@ const jsonLd = {
             <h2 class="pp-h2">Jugadas</h2>
             <div id="pp-jugadas" class="pp-jugadas"></div>
             <p class="pp-ayuda" id="pp-jugadas-ayuda"></p>
+            <p class="pp-ayuda pp-aviso" id="pp-jugadas-perdidas" hidden></p>
           </section>
 
           <section class="pp-panel">
@@ -144,6 +145,10 @@ const jsonLd = {
   .pp-bn-2 { background: transparent; color: var(--cz-text); border-color: var(--cz-border); }
   .pp-bn-sm { min-height: 36px; padding: 0 12px; font-size: 11px; align-self: flex-start; }
   .pp-ayuda { margin: 0; font-size: 12px; color: var(--cz-text-2); }
+  .pp-aviso { color: var(--cz-text); border-left: 3px solid #f97316; padding-left: 8px; }
+  .pp-aviso[hidden] { display: none; }
+  /* iOS amplía la página al enfocar un campo con letra de menos de 16 px */
+  @media (max-width: 600px) { .pp-inp { font-size: 16px; } }
   .pp-emp { display: flex; flex-direction: column; gap: 6px; }
   .pp-emp-fila { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.2fr) 36px; gap: 6px; align-items: center; }
   @media (max-width: 480px) { .pp-emp-fila { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 36px; } .pp-emp-fila .pp-emp-nota { grid-column: 1 / 3; grid-row: 2; } }
@@ -182,7 +187,8 @@ const jsonLd = {
   import { tarjeta } from "../lib/pizarraBanquillo";
   import { CLAVE_EQUIPO, equiposDeTexto } from "../lib/pizarraEquipo";
   import { CLAVE_MARCA, leerMarca } from "../lib/pizarraMarca";
-  import { LIMITES_PLAN, cabecera, clavesDelRival, jugadoresRival, normalizarStorePlan, planVacio, secciones, textoParaEquipo, type PlanPartido, type StorePlan } from "../lib/planPartido";
+  import { LIMITES_PLAN, cabecera, clavesDelRival, jugadoresRival, normalizarStorePlan, planVacio, reengancharJugadas, secciones, textoParaEquipo, type PlanPartido, type StorePlan } from "../lib/planPartido";
+  import { fechaValida } from "../lib/plantillaTexto";
 
   const CLAVE = "cz.planpartido.v1";
   const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -267,8 +273,12 @@ const jsonLd = {
   for (const c of campos)
     c.addEventListener("input", () => {
       const k = c.dataset.k as CampoTexto;
-      plan()[k] = c.value.slice(0, k === "fecha" || k === "hora" ? 10 : c.maxLength > 0 ? c.maxLength : LIMITES_PLAN.TEXTO);
-      if (k === "rival") plan().rivalId = rivales.find((r) => r.nombre === c.value)?.id ?? "";
+      if (k === "fecha") plan().fecha = fechaValida(c.value) ? c.value : "";
+      else plan()[k] = c.value.slice(0, k === "hora" ? 5 : c.maxLength > 0 ? c.maxLength : LIMITES_PLAN.TEXTO);
+      if (k === "rival") {
+        plan().rivalId = rivales.find((r) => r.nombre.trim().toLowerCase() === c.value.trim().toLowerCase())?.id ?? "";
+        sincronizarRival();
+      }
       guardar();
       pintarSalida();
       if (k === "rival" || k === "fecha") pintarSelector();
@@ -301,11 +311,19 @@ const jsonLd = {
     pintarTodo();
   });
 
+  // botón «Traer», selector de rival y dorsales del datalist, sin tocar los campos de texto (el foco)
+  function sincronizarRival() {
+    const p = plan();
+    const r = rivalDe(p);
+    if (rivales.length) $<HTMLSelectElement>("pp-rival-sel").value = r?.id ?? "";
+    ($("pp-traer") as HTMLButtonElement).hidden = !r;
+    $("pp-dl-rival").replaceChildren(...(r ? jugadoresRival(r) : []).map((j) => new Option(j.etiqueta)));
+  }
+
   // ── emparejamientos ─────────────────────────────────────────────────
   function pintarEmparejamientos() {
     const p = plan();
-    const r = rivalDe(p);
-    $("pp-dl-rival").replaceChildren(...(r ? jugadoresRival(r) : []).map((j) => new Option(j.etiqueta)));
+    sincronizarRival();
     $("pp-dl-nuestros").replaceChildren(...nuestros.map((n) => new Option(n)));
     const cont = $("pp-emp");
     cont.replaceChildren();
@@ -355,8 +373,12 @@ const jsonLd = {
     const p = plan();
     const cont = $("pp-jugadas");
     cont.replaceChildren();
-    // las que ya no existen en la pizarra se quitan del plan
-    p.jugadas = p.jugadas.filter((id) => jugadasPizarra.some((j) => j.id === id));
+    // por id y, si cambió (biblioteca del club actualizada), por nombre; las borradas se avisan
+    const perdidas = reengancharJugadas(p, jugadasPizarra);
+    if (perdidas) guardar();
+    const av = $("pp-jugadas-perdidas");
+    av.hidden = !perdidas;
+    av.textContent = perdidas ? `${perdidas === 1 ? "Una jugada del plan ya no está" : `${perdidas} jugadas del plan ya no están`} en tu pizarra y se ${perdidas === 1 ? "ha quitado" : "han quitado"}.` : "";
     $("pp-jugadas-ayuda").textContent = jugadasPizarra.length
       ? `Marca hasta ${LIMITES_PLAN.JUGADAS}: salen con su dibujo en la hoja impresa.`
       : "Aún no tienes jugadas guardadas en la pizarra de este navegador.";
@@ -378,7 +400,12 @@ const jsonLd = {
             return void alert(`Como mucho ${LIMITES_PLAN.JUGADAS} jugadas por plan.`);
           }
           p.jugadas.push(j.id);
-        } else p.jugadas = p.jugadas.filter((x) => x !== j.id);
+          p.jugadasNombres.push(j.nombre);
+        } else {
+          const i = p.jugadas.indexOf(j.id);
+          p.jugadas.splice(i, 1);
+          p.jugadasNombres.splice(i, 1);
+        }
         guardar();
         pintarSalida();
       });
@@ -468,8 +495,6 @@ const jsonLd = {
     const p = plan();
     pintarSelector();
     for (const c of campos) c.value = p[c.dataset.k as CampoTexto] ?? "";
-    if (rivales.length) $<HTMLSelectElement>("pp-rival-sel").value = rivalDe(p)?.id ?? "";
-    ($("pp-traer") as HTMLButtonElement).hidden = !rivalDe(p);
     pintarEmparejamientos();
     pintarJugadas();
     pintarSalida();

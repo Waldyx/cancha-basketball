@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { lineaVacia } from "./statsEquipo";
 import { actaPegada, type JugadorActa, type Rival } from "./informeRival";
-import { cabecera, clavesDelRival, fechaLarga, jugadoresRival, normalizarStorePlan, planVacio, secciones, textoParaEquipo } from "./planPartido";
+import { cabecera, clavesDelRival, reengancharJugadas, fechaLarga, jugadoresRival, normalizarStorePlan, planVacio, secciones, textoParaEquipo } from "./planPartido";
 
 const j = (nombre: string, dorsal: string, l: Partial<JugadorActa>): JugadorActa => ({ ...lineaVacia(), nombre, dorsal, min: 20, ...l });
 const rival: Rival = {
@@ -34,11 +34,27 @@ describe("plan de partido", () => {
       "",
       "*Emparejamientos:*",
       "• Laia → #7 (negarle el balón)",
+      "• Marc → ¿a quién?",
       "",
       "*Jugadas:*",
       "• Horns",
     ]);
     expect(fechaLarga("mal")).toBe("");
+  });
+
+  it("reengancha jugadas por nombre si cambian de id y cuenta las perdidas", () => {
+    const p = { ...planVacio("a"), jugadas: ["x1", "x2", "x3"], jugadasNombres: ["Horns", "Flex", "Borrada"] };
+    expect(reengancharJugadas(p, [{ id: "x1", nombre: "Horns" }, { id: "nuevo", nombre: "Flex" }])).toBe(1);
+    expect(p.jugadas).toEqual(["x1", "nuevo"]);
+    expect(p.jugadasNombres).toEqual(["Horns", "Flex"]);
+  });
+
+  it("no se come el signo de «-3 de parcial» y marca los emparejamientos a medias", () => {
+    const p = { ...planVacio("a"), objetivos: "-3 de parcial como mucho\n- Cerrar el rebote\n*Importante*", emparejamientos: [{ rival: "", nuestro: "Marc", nota: "" }] };
+    const s = secciones(p);
+    expect(s[0].items).toEqual(["-3 de parcial como mucho", "Cerrar el rebote", "*Importante*"]);
+    expect(s[1].items).toEqual(["Marc → ¿a quién?"]);
+    expect(fechaLarga("2026-13-01")).toBe("");
   });
 
   it("valida lo guardado", () => {

@@ -6,6 +6,7 @@
 // Todo vive en cz.planpartido.v1. Lógica pura.
 
 import { informe, type Rival } from "./informeRival";
+import { fechaValida } from "./plantillaTexto";
 
 export interface Emparejamiento {
   rival: string;
@@ -29,6 +30,9 @@ export interface PlanPartido {
   emparejamientos: Emparejamiento[];
   /** ids de jugadas de la pizarra */
   jugadas: string[];
+  /** sus nombres, en el mismo orden: si la pizarra le cambia el id a una (p. ej. al actualizar la
+   * biblioteca del club), se vuelve a encontrar por el nombre */
+  jugadasNombres: string[];
 }
 
 export interface StorePlan {
@@ -37,10 +41,10 @@ export interface StorePlan {
   planes: PlanPartido[];
 }
 
-export const LIMITES_PLAN = { PLANES: 20, TEXTO: 1200, CORTO: 60, EMPAREJAMIENTOS: 12, JUGADAS: 6 } as const;
+export const LIMITES_PLAN = { PLANES: 20, TEXTO: 1200, CLAVES: 2000, CORTO: 60, EMPAREJAMIENTOS: 12, JUGADAS: 6 } as const;
 
 export function planVacio(id: string): PlanPartido {
-  return { id, rival: "", rivalId: "", fecha: "", hora: "", lugar: "", objetivos: "", claves: "", ataque: "", defensa: "", especiales: "", emparejamientos: [], jugadas: [] };
+  return { id, rival: "", rivalId: "", fecha: "", hora: "", lugar: "", objetivos: "", claves: "", ataque: "", defensa: "", especiales: "", emparejamientos: [], jugadas: [], jugadasNombres: [] };
 }
 
 /** "#7" si hay dorsal; si no, sus iniciales («P. R.»): el nombre de un niño rival nunca sale tal cual. */
@@ -72,23 +76,44 @@ export function clavesDelRival(r: Rival): string {
   return inf.claves
     .map((c) => {
       let t = c;
-      for (const j of js) t = t.replace(new RegExp(`(^|[^\\p{L}'-])${escRe(j.nombre)}(?![\\p{L}'-])`, "gu"), `$1${etiquetaRival(j.nombre, j.dorsal)}`);
+      for (const j of js) t = t.replace(new RegExp(`(^|[^\\p{L}\\p{N}'’-])${escRe(j.nombre)}(?![\\p{L}\\p{N}'’-])`, "gu"), `$1${etiquetaRival(j.nombre, j.dorsal)}`);
       return t;
     })
-    .join("\n");
+    // solo líneas completas: una clave cortada a media frase no sirve
+    .reduce((acc, l) => (acc.length + l.length + 1 <= LIMITES_PLAN.CLAVES ? (acc ? `${acc}\n${l}` : l) : acc), "");
+}
+
+/**
+ * Vuelve a enganchar las jugadas del plan con las de la pizarra: por id y, si ese id ya no existe,
+ * por nombre. Devuelve cuántas se han perdido (borradas de la pizarra) para poder avisar.
+ */
+export function reengancharJugadas(p: PlanPartido, disponibles: { id: string; nombre: string }[]): number {
+  const ids: string[] = [];
+  const nombres: string[] = [];
+  let perdidas = 0;
+  p.jugadas.forEach((id, i) => {
+    const j = disponibles.find((x) => x.id === id) ?? disponibles.find((x) => x.nombre === p.jugadasNombres[i] && !ids.includes(x.id));
+    if (j && !ids.includes(j.id)) {
+      ids.push(j.id);
+      nombres.push(j.nombre);
+    } else perdidas++;
+  });
+  p.jugadas = ids;
+  p.jugadasNombres = nombres;
+  return perdidas;
 }
 
 const lineas = (t: string) =>
   t
     .split("\n")
-    .map((l) => l.trim().replace(/^[-•*·]\s*/, ""))
+    .map((l) => l.trim().replace(/^(?:[-*]\s+|[•·]\s*)/, ""))
     .filter(Boolean);
 
 const DIAS = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
 const MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
 export function fechaLarga(f: string): string {
   const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(f);
-  if (!m) return "";
+  if (!m || !fechaValida(f)) return "";
   const d = new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
   return `${DIAS[d.getUTCDay()]} ${+m[3]} de ${MESES[+m[2] - 1]}`;
 }
@@ -103,7 +128,9 @@ export function secciones(p: PlanPartido, nombresJugadas: string[] = []): { titu
   add("En defensa", lineas(p.defensa));
   add(
     "Emparejamientos",
-    p.emparejamientos.filter((e) => e.rival.trim() && e.nuestro.trim()).map((e) => `${e.nuestro.trim()} → ${e.rival.trim()}${e.nota.trim() ? ` (${e.nota.trim()})` : ""}`)
+    p.emparejamientos
+      .filter((e) => e.rival.trim() || e.nuestro.trim())
+      .map((e) => `${e.nuestro.trim() || "¿quién?"} → ${e.rival.trim() || "¿a quién?"}${e.nota.trim() ? ` (${e.nota.trim()})` : ""}`)
   );
   add("Jugadas", nombresJugadas);
   add("Situaciones especiales", lineas(p.especiales));
@@ -141,11 +168,11 @@ export function normalizarStorePlan(raw: unknown): StorePlan {
       id,
       rival: str(rp.rival, C),
       rivalId: str(rp.rivalId, 40),
-      fecha: typeof rp.fecha === "string" && /^\d{4}-\d{2}-\d{2}$/.test(rp.fecha) ? rp.fecha : "",
+      fecha: typeof rp.fecha === "string" && fechaValida(rp.fecha) ? rp.fecha : "",
       hora: typeof rp.hora === "string" && /^([01]\d|2[0-3]):[0-5]\d$/.test(rp.hora) ? rp.hora : "",
       lugar: str(rp.lugar, C),
       objetivos: str(rp.objetivos, T),
-      claves: str(rp.claves, T),
+      claves: str(rp.claves, LIMITES_PLAN.CLAVES),
       ataque: str(rp.ataque, T),
       defensa: str(rp.defensa, T),
       especiales: str(rp.especiales, T),
@@ -154,7 +181,11 @@ export function normalizarStorePlan(raw: unknown): StorePlan {
         .slice(0, LIMITES_PLAN.EMPAREJAMIENTOS)
         .map((e) => ({ rival: str(e.rival, C), nuestro: str(e.nuestro, C), nota: str(e.nota, C) })),
       jugadas: (Array.isArray(rp.jugadas) ? rp.jugadas : []).filter((x): x is string => typeof x === "string").slice(0, LIMITES_PLAN.JUGADAS),
+      jugadasNombres: [],
     });
+    const ult = st.planes[st.planes.length - 1];
+    const ns = Array.isArray(rp.jugadasNombres) ? rp.jugadasNombres : [];
+    ult.jugadasNombres = ult.jugadas.map((_, i) => str(ns[i], 80));
   }
   st.activo = typeof raw.activo === "string" && st.planes.some((p) => p.id === raw.activo) ? raw.activo : st.planes[0]?.id ?? "";
   return st;

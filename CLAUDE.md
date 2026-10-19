@@ -429,11 +429,13 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   recargar) en tests, asistencia y evaluación · `lineasPlantilla` ya no repite «Pau (2)».
 - ✅ **3 guías más (19-oct)**: scouting con el informe del rival, rutina de tiro para jugadores, asistencia y convocatorias.
   Enlaces de vuelta desde `/rival/`, `/plan-tiro/` y `/asistencia/`; `/rival/` enlaza también al plan de partido.
-- 🟡 **Revisión del plan de partido (`trabajo/revision-19oct-plan.md`)**: arreglados los dos graves (al cambiar de rival
-  ya no se quedan las claves del anterior; un rival SIN dorsal sale por iniciales, nunca por nombre). ▶️ PENDIENTES del
-  informe: rival escrito a mano desincroniza `rivalId` (botón «Traer» y datalist), `fechaValida` en el campo fecha,
-  emparejamientos incompletos descartados en silencio, `lineas()` quita «-» de «-3 de parcial», jugadas del club que
-  cambian de id al actualizarse y desaparecen del plan, zoom de iOS con inputs de 14 px.
+- ✅ **Revisión del plan de partido (`trabajo/revision-19oct-plan.md`) aplicada entera**: al cambiar de rival no se
+  quedan las claves del anterior · rival SIN dorsal → iniciales («M. P.»), nunca su nombre · rival escrito a mano
+  sincroniza `rivalId`, «Traer» y el datalist sin repintar el campo · `fechaValida` en fecha y en `fechaLarga` ·
+  emparejamientos a medias salen marcados («Marc → ¿a quién?») · «-3 de parcial» ya no pierde el signo · jugadas
+  guardadas con su nombre (`jugadasNombres`) y reenganchadas por nombre si la biblioteca del club les cambia el id
+  (`reengancharJugadas`), con aviso de las borradas · claves hasta 2000 caracteres y solo líneas completas · inputs de
+  16 px en móvil (iOS no hace zoom).
 - ⏳ **Rescate de ocultas (Sonnet, 19-oct)**: salida en `trabajo/w31-rescate.tsv` (puede estar a medias si el trabajador
   se cortó). Revisar fila a fila y aplicar con `web/_w27_aplicar.mjs` (formato: id tienda url_directa precio comentario).
 - ▶️ **Ideas siguientes** (sin prometer en la web): generador de sesiones con IA.
