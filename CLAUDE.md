@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-10-19 (sesión 57)
+> Última actualización: 2026-10-19 (sesión 57, tarde)
 > Para Claude: lee esto al empezar una sesión nueva. **Solo contiene lo vivo**: estado, reglas,
 > doctrina, afiliados, arquitectura y pendientes.
 >
@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **245 zapas (42 OCULTAS, 203 visibles) · 646 tests · `astro check` 0 errores · 371 páginas** |
+| Tamaño | **245 zapas (42 OCULTAS, 203 visibles) · 649 tests · `astro check` 0 errores · 371 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -359,8 +359,17 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   LeBron 22/23, «Nike AE 2», precios de hace meses y que el tag de Amazon «garantiza producto oficial» (falso).
   🔑 Herramientas de esta sesión en el scratchpad (no en el repo): bajar páginas HG a `$TEMP/hgcat/<id>.html` y parsear
   «Category Performance Ratings» (`|9.5|Traction|…`, `|50%|Outdoor|…`, `|Fit|…`, `|Sizing|…`) y `ratingValue` del JSON-LD.
-- ▶️ **PARA RETOMAR (tras el clear del 19-oct)**: (1) seguir el barrido de contenido: `articles.ts` aún tiene notas «x/10»
-  escritas a mano y afirmaciones de tecnología/horma sin fuente (buscar `/10` y nombres de zapas ocultas); (2) las 45
+- ✅ **19-oct (tarde), tras el clear**: chat medido otra vez y otras dos reglas saltadas → `sistemaPara()` ahora da al
+  modelo SOLO las GS si piden júnior y quita las `low` si hablan de tobillo/esguince (`69f7c09`, verificado en producción:
+  Curry 13 + Sabrina 2 para tobillos, Believe That 1 GS + Immortality 4 GS para un niño). `/api/sesion`: 2 de 2 bien.
+  **Notas x/10 de los artículos → marcas `{{nota:ID:eje}}` y `{{score:ID}}`** (`99ff847`, test candado en
+  `articles.test.ts`): de 264, 131 ya no coincidían con la ficha; 58 frases reescritas porque quedaban falsas (GT Cut 4
+  «la más reactiva» con respuesta 7 y score 7,0; MB.04 vs MB.05; Kobe 8 «poco soporte» con 9; Tatum 4 fuera de la guía de
+  pie plano, entra la Kai 2). Se dejan: notas citadas de HG/WT y la guía de espumas (valora tecnologías, no zapas). Fuera
+  de las recomendaciones las ocultas (BB v3, Kawhi 2, Luka 77 GS, Unpre ARS 2, Embiid 1) y «NB vs ANTA» rehecho. Mapeo en
+  `trabajo/w32-notas.tsv`. ⚠ Las marcas solo se resuelven en `body`: en `description`/`title` no pongas números.
+- ▶️ **PARA RETOMAR**: (1) **horma en los artículos**: dicen «GT Cut 4 horma estrecha» (ficha: normal) y daban la Ja 3 como
+  «la Nike más ancha» (ficha: normal); barrer `horma`/`estrech`/`ancha` contra la ficha; (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
   el sitemap de HG en 2-3 semanas; (3) Search Console (sesión de Google caducada en el navegador integrado: la abre el
   usuario); (4) medir otra vez el chat y `/api/sesion` (`npx tsx scripts/audit-ia.ts` + 2-3 consultas reales).
@@ -2690,4 +2699,4 @@ presupuesto · ancho de pie · uso (auto-submit 400 ms).
   `cancha-quiz-respuestas` (sessionStorage).
 - **Scripts de mantenimiento**: `update-images.js`, `fix-encoding.js`, `optimize-images.mjs`,
   `gen-chat-catalog.ts`, y los `audit-*` listados arriba.
-- **Tests**: `npx vitest run` → 646.
+- **Tests**: `npx vitest run` → 649.
