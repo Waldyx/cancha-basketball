@@ -1360,7 +1360,7 @@ const _rawZapatillas: Zapatilla[] = [
     sucesor_id: "nike-giannis-freak-8",
     peso_real_g: 391,
     altura: "low",
-    horma: "ancha",
+    horma: "normal",
     drop_mm: 5,
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
@@ -1370,7 +1370,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 4, ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["trending","signature", "value", "horma-ancha"],
+    tags: ["trending","signature", "value"],
     ideal_para: {
       posiciones: ["alero", "ala-pivot", "pivot"],
       peso_jugador_kg: [80, 110],
@@ -1378,11 +1378,10 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { estilos: ["tirador"] },
     resumen:
-      "Séptima signature de Giannis. Mantiene la receta: tracción agresiva (HG 8.5), cushion Cushlon 3.0 + Zoom, horma ancha para forwards/pivots. Precio MSRP muy accesible ($120) — en oferta se encuentra a 50€. HG le da 7.8 global, no es la mejor de la saga (Freak 5/6 eran superiores) pero es un value pick brutal a su precio.",
+      "Séptima signature de Giannis. Mantiene la receta: tracción agresiva (HG 8.5), cushion Cushlon 3.0 + Zoom para forwards/pivots. Precio MSRP muy accesible ($120) — en oferta se encuentra a 50€. HG le da 7.8 global, no es la mejor de la saga (Freak 5/6 eran superiores) pero es un value pick brutal a su precio.",
     pros: [
       "Precio chollo (~50€ en oferta)",
       "Tracción muy fiable (HG 8.5)",
-      "Horma ancha cómoda para pies anchos",
       "Soporte lateral sólido (Giannis es explosivo)",
     ],
     contras: [
@@ -1391,7 +1390,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Cushion no es premium (no compite con LeBron/KD)",
     ],
     veredicto:
-      "Si juegas de alero/ala-pívot/pivot con pie ancho y buscas value bajo 60€, la Freak 7 es candidata clara. Para indoor exclusivamente.",
+      "Si juegas de alero/ala-pívot/pivot y buscas value bajo 60€, la Freak 7 es candidata clara. Para indoor exclusivamente.",
     imagen_principal: "/shoes/nike-giannis-freak-7.webp",
     imagenes: [],
     fuentes: [
@@ -3313,7 +3312,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     peso_real_g: 310,
     altura: "low",
-    horma: "normal",
+    horma: "estrecha",
     drop_mm: 8,
     tipo_cierre: "cordones",
     material_superior: "mesh",
@@ -3962,7 +3961,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     peso_real_g: 431,
     altura: "low",
-    horma: "normal",
+    horma: "estrecha",
     drop_mm: 5,
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
@@ -5063,7 +5062,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     peso_real_g: 346,
     altura: "low",
-    horma: "normal",
+    horma: "estrecha",
     drop_mm: 6,
     tipo_cierre: "cordones",
     material_superior: "mesh",
@@ -7144,7 +7143,7 @@ const _rawZapatillas: Zapatilla[] = [
     sucesor_id: "nike-giannis-immortality-5",
     peso_real_g: 357,
     altura: "low",
-    horma: "ancha",
+    horma: "normal",
     drop_mm: 5,
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
@@ -7167,10 +7166,10 @@ const _rawZapatillas: Zapatilla[] = [
       lesiones_compatibles: [],
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
-    resumen: "La línea budget de Giannis en su cuarta iteración. Misma base de horma ancha y buena tracción que la Freak, a precio mucho más asequible.",
-    pros: ["Excelente precio para una signature", "Buena durabilidad outdoor", "Horma ancha cómoda"],
+    resumen: "La línea budget de Giannis en su cuarta iteración. Buena tracción, como la Freak, a precio mucho más asequible.",
+    pros: ["Excelente precio para una signature", "Buena durabilidad outdoor"],
     contras: ["Muy pesada", "Cushion básico", "Sin tecnología premium"],
-    veredicto: "La opción más asequible para jugadores de interior con pie ancho. La Freak budget que funciona.",
+    veredicto: "La opción más asequible para jugadores de interior. La Freak budget que funciona.",
     imagen_principal: "/shoes/nike-giannis-immortality-4.webp",
     imagenes: [],
     fuentes: [
@@ -7200,7 +7199,7 @@ const _rawZapatillas: Zapatilla[] = [
     sucesor_id: null,
     peso_real_g: 310,
     altura: "low",
-    horma: "ancha",
+    horma: "normal",
     drop_mm: 5,
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
@@ -7218,10 +7217,9 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: [], estilos: [] },
     resumen:
-      "Versión junior (Grade School) de la Giannis Immortality 4, la signature budget de Giannis en tallaje niño. Tracción herringbone fiable, horma ancha cómoda y buena durabilidad outdoor: la opción signature más asequible y resistente para el junior.",
+      "Versión junior (Grade School) de la Giannis Immortality 4, la signature budget de Giannis en tallaje niño. Tracción herringbone fiable y buena durabilidad outdoor: la opción signature más asequible y resistente para el junior.",
     pros: [
       "Tracción herringbone sólida",
-      "Horma ancha cómoda para pies anchos",
       "Buena durabilidad outdoor (aguanta el asfalto)",
       "Signature a precio budget junior",
     ],
@@ -7231,7 +7229,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Sin tecnología premium",
     ],
     veredicto:
-      "La compra inteligente para el junior interior con pie ancho que juega dentro y fuera: signature de Giannis, resistente y barata. Si busca reactividad, hay opciones más técnicas.",
+      "La compra inteligente para el junior interior que juega dentro y fuera: signature de Giannis, resistente y barata. Si busca reactividad, hay opciones más técnicas.",
     imagen_principal: "/shoes/nike-giannis-immortality-4-gs.jpg",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
@@ -13902,7 +13900,7 @@ const _rawZapatillas: Zapatilla[] = [
     sucesor_id: "361-joker-2",
     peso_real_g: 420,
     altura: "mid",
-    horma: "ancha",
+    horma: "normal",
     drop_mm: 9,
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",

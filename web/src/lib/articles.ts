@@ -214,7 +214,7 @@ export const ARTICLES: Article[] = [
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Horma</td>
       <td style="padding:8px;text-align:center">Normal</td>
-      <td style="padding:8px;text-align:center">⭐ Ancha</td>
+      <td style="padding:8px;text-align:center">Estrecha</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Peso</td>
@@ -241,14 +241,14 @@ export const ARTICLES: Article[] = [
 <h2>Respuesta: empate técnico</h2>
 <p>Ambas tienen {{nota:adidas-ae-2:respuesta}} en respuesta en nuestro análisis. La AE 2 tiene un primer paso más agresivo gracias al Lightstrike Pro firme; la Ja 3 tiene más bounce pero similar tiempo de respuesta. Para guards explosivos, las dos están en el mismo nivel.</p>
 
-<h2>Horma: ventaja Ja 3 para pies anchos</h2>
-<p>La AE 2 tiene horma normal — ni estrecha ni ancha. La Ja 3 tiene una horma más generosa, especialmente en el antepié. Si tu pie es ancho o has tenido problemas con Nike en el pasado (muchos modelos van estrechos), la Ja 3 es más segura.</p>
+<h2>Horma: ninguna de las dos es para pies anchos</h2>
+<p>La AE 2 tiene horma normal — ni estrecha ni ancha. La Ja 3 es más ceñida: los análisis la describen como estrecha y con un rodaje inicial, y aconsejan subir media talla si tu pie es ancho. Con pie ancho, pruébate cualquiera de las dos antes de comprar.</p>
 
 <h2>¿Cuál debo comprar?</h2>
 <p>Depende de qué priorices:</p>
 <ul>
   <li><strong>Elige la AE 2 si:</strong> priorizas tracción sobre todo, juegas en pistas con polvo, tienes pie normal y buscas el menor precio posible.</li>
-  <li><strong>Elige la Ja 3 si:</strong> priorizas el cushion y el bounce, tienes pie ancho, pesas más de 80kg o juegas en pistas en buen estado donde la tracción no es problema.</li>
+  <li><strong>Elige la Ja 3 si:</strong> priorizas el cushion y el bounce, pesas más de 80kg o juegas en pistas en buen estado donde la tracción no es problema.</li>
 </ul>
 
 <p>Las dos son excelentes zapatillas de guards de 2025. Si te queda duda, <a href="/comparar?slugs=adidas-ae-2,nike-ja-3">compáralas aquí lado a lado</a> con todos los atributos desplegados.</p>
@@ -362,7 +362,7 @@ export const ARTICLES: Article[] = [
   <li>✅ Suela de caucho multidireccional: agarre excepcional en parquet limpio y sucio.</li>
   <li>✅ Upper Flyknit reforzado: soporte lateral sólido sin rigidez excesiva.</li>
   <li>❌ 455 g — la más pesada del grupo. Se nota en las ayudas defensivas lentas.</li>
-  <li>❌ La horma estrecha de Nike no encaja bien en pies anchos.</li>
+  <li>✅ Horma amable con el pie ancho, aunque el talón va algo estrecho.</li>
 </ul>
 
 <h3><a href="/zapatilla/nike-kd-19">Nike KD 19 — desde {{precio:nike-kd-19}}</a></h3>
@@ -593,7 +593,7 @@ export const ARTICLES: Article[] = [
 <h2>Marcas: quién va estrecho y quién da espacio</h2>
 <p>Generalizar por marca engaña: dentro de una misma marca hay líneas que van justas y otras que sobran. Lo que sí se repite en las reviews que agrega HoopsGeek:</p>
 <ul>
-  <li><strong>Nike →</strong> depende de la línea. LeBron, KD y Sabrina dan espacio en el antepié; Zion, Ja, Kobe Protro y Kyrie van estrechas y con poco volumen.</li>
+  <li><strong>Nike →</strong> depende de la línea. La LeBron 22 y 23 y la KD 17 dan espacio en el antepié (la Sabrina 2 gana algo de anchura); la KD 19, la Sabrina 3, la Zion, la Ja, las Kobe Protro y la Kyrie van estrechas y con poco volumen.</li>
   <li><strong>Under Armour →</strong> sus últimos modelos (Curry 13, FUTR X Elite) son de los más permisivos con el pie ancho.</li>
   <li><strong>Adidas →</strong> normal, con puntera variable según el modelo: pruébatela antes.</li>
   <li><strong>ANTA →</strong> ajuste de guante (Kai 2, Kai 3, KT 10, Shock Wave 5): con pie ancho, casi siempre media talla más.</li>
@@ -708,10 +708,10 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3><a href="/zapatilla/361-joker-1">361° Joker 1 — desde {{precio:361-joker-1}}</a></h3>
-<p>Mid-top pensada para pívots y ala-pívots. El contrafuerte de talón en TPU y la placa de carbono dan el mismo soporte lateral ({{nota:361-joker-1:soporte_lateral}}) y estabilidad ({{nota:361-joker-1:estabilidad}}) que la Curry 13, con horma ancha. Se puede comprar en tres tiendas (AliExpress, Basketball Emotion y Amazon).</p>
+<p>Mid-top pensada para pívots y ala-pívots. El contrafuerte de talón en TPU y la placa de carbono dan el mismo soporte lateral ({{nota:361-joker-1:soporte_lateral}}) y estabilidad ({{nota:361-joker-1:estabilidad}}) que la Curry 13, con horma normal. Se puede comprar en tres tiendas (AliExpress, Basketball Emotion y Amazon).</p>
 <ul>
   <li>✅ Soporte lateral {{nota:361-joker-1:soporte_lateral}} y estabilidad {{nota:361-joker-1:estabilidad}} — igual que la Curry 13</li>
-  <li>✅ Horma ancha: mejor ajuste si tu pie no entra en tallas normales</li>
+  <li>❌ Ajuste ceñido: con pie ancho, sube media talla</li>
   <li>❌ La más pesada de las cuatro — el refuerzo de carbono y TPU prioriza protección sobre ligereza</li>
 </ul>
 
@@ -790,7 +790,7 @@ export const ARTICLES: Article[] = [
       <td style="padding:8px">Horma</td>
       <td style="padding:8px;text-align:center">Estrecha</td>
       <td style="padding:8px;text-align:center">Normal</td>
-      <td style="padding:8px;text-align:center">⭐ Ancha</td>
+      <td style="padding:8px;text-align:center">Normal</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px">Peso</td>
@@ -819,15 +819,15 @@ export const ARTICLES: Article[] = [
 <p><strong>Para quién:</strong> Guards de 70-85kg que juegan siempre en pabellón, valoran la sensación de suelo y quieren algo más de cushion que la GT Cut. Horma normal, segura para la mayoría de pies.</p>
 
 <h2>ANTA Kai 2: la sorpresa del año</h2>
-<p>Kyrie Irving fichó por ANTA después de salir de Nike, y la Kai 2 es su segunda zapatilla con la marca china. Desde {{precio:anta-kai-2}}, ofrece un rendimiento que avergüenza a zapatillas más caras. La tracción es sólida, la respuesta es rápida gracias a la espuma A-Flashfoam 2.0, y la horma ancha la hace la más accesible para pies normales y anchos.</p>
+<p>Kyrie Irving fichó por ANTA después de salir de Nike, y la Kai 2 es su segunda zapatilla con la marca china. Desde {{precio:anta-kai-2}}, ofrece un rendimiento que avergüenza a zapatillas más caras. La tracción es sólida, la respuesta es rápida gracias a la espuma A-Flashfoam 2.0, y su ajuste de guante la hace cómoda para la mayoría de pies normales.</p>
 <p><strong>El problema:</strong> la respuesta ({{nota:anta-kai-2:respuesta}}) queda un punto por debajo de la Curry 13 ({{nota:ua-curry-13:respuesta}}), aunque por encima de la GT Cut 4 ({{nota:nike-gt-cut-4:respuesta}}). Si buscas la máxima respuesta, la Curry 13 gana.</p>
-<p><strong>Para quién:</strong> Bases y escoltas con cualquier tipo de pie que buscan máxima relación calidad-precio. También la mejor opción si tu pie es ancho.</p>
+<p><strong>Para quién:</strong> Bases y escoltas con pie normal o estrecho que buscan máxima relación calidad-precio.</p>
 
 <h2>Veredicto final</h2>
 <ul>
   <li><strong>Mejor court feel absoluto → <a href="/zapatilla/nike-gt-cut-4">GT Cut 4</a></strong> — si tu pie encaja y juegas siempre en interior.</li>
   <li><strong>Mejor equilibrio rendimiento-versatilidad → <a href="/zapatilla/ua-curry-13">Curry 13</a></strong> — para guards que valoran el cushion extra.</li>
-  <li><strong>Mejor relación calidad-precio y pie ancho → <a href="/zapatilla/anta-kai-2">Kai 2</a></strong> — horma ancha y un rendimiento muy cercano al de la Curry 13.</li>
+  <li><strong>Mejor relación calidad-precio → <a href="/zapatilla/anta-kai-2">Kai 2</a></strong> — ajuste de guante y un rendimiento muy cercano al de la Curry 13.</li>
 </ul>
 
 <p class="art-outro">¿No tienes claro cuál de las tres encaja con tu perfil específico? <a href="/comparar?slugs=nike-gt-cut-4,ua-curry-13,anta-kai-2">Compáralas aquí con todos los atributos</a> o <a href="/quiz">haz el quiz</a> para obtener tu recomendación personalizada.</p>
@@ -1320,7 +1320,7 @@ export const ARTICLES: Article[] = [
     <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Altura</td><td style="padding:8px">Low-top</td></tr>
     <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Peso</td><td style="padding:8px">305g (US10)</td></tr>
     <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Drop</td><td style="padding:8px">7mm</td></tr>
-    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Horma</td><td style="padding:8px">Normal (tirando a estrecha)</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px">Horma</td><td style="padding:8px">Estrecha</td></tr>
     <tr><td style="padding:8px">Precio recomendado</td><td style="padding:8px">170€</td></tr>
   </tbody>
 </table>
@@ -1339,7 +1339,7 @@ export const ARTICLES: Article[] = [
 <p>Es la zapatilla que más se acerca a jugar descalzo sobre parquet — en el buen sentido. Sabes exactamente dónde está tu pie en cada momento.</p>
 
 <h2>Horma y ajuste</h2>
-<p>La GT Cut 4 tiene horma normal tirando a estrecha, especialmente en el antepié. Si tienes pie ancho (más de 10cm de anchura en la parte más ancha del pie), sube media talla o busca alternativas como la ANTA Kai 2 que tiene horma más generosa.</p>
+<p>La GT Cut 4 tiene horma estrecha, especialmente en el antepié. Si tienes pie ancho (más de 10cm de anchura en la parte más ancha del pie), sube media talla o busca alternativas como la UA Curry 13, de puntera amplia.</p>
 <p>El upper de mesh + TPU se adapta bien al pie después de unas horas de uso. Inicialmente puede sentirse más rígido que otras opciones — dale 2-3 sesiones antes de juzgar el confort final.</p>
 
 <h2>¿Para quién es la GT Cut 4?</h2>
@@ -1377,7 +1377,7 @@ export const ARTICLES: Article[] = [
       <td style="padding:8px">Horma ancha</td>
       <td style="padding:8px;text-align:center">❌ No</td>
       <td style="padding:8px;text-align:center">✅ Normal</td>
-      <td style="padding:8px;text-align:center">⭐ Ancha</td>
+      <td style="padding:8px;text-align:center">Normal</td>
     </tr>
     <tr>
       <td style="padding:8px">Precio</td>
@@ -1391,7 +1391,7 @@ export const ARTICLES: Article[] = [
 
 <h2>Veredicto</h2>
 <p>La Nike GT Cut 4 es una buena opción para guards de pabellón — si encajas en el perfil. Su punto fuerte es el court feel y el primer paso, no las cifras de tracción ({{nota:nike-gt-cut-4:traccion}}) ni de respuesta ({{nota:nike-gt-cut-4:respuesta}}). Pero hay dos condiciones: pie normal o estrecho, y juego exclusivamente indoor. Si se cumplen ambas, es una compra que no te arrepentirás.</p>
-<p>Si tienes pie ancho o necesitas más cushion, la <a href="/zapatilla/ua-curry-13">UA Curry 13</a> o la <a href="/zapatilla/anta-kai-2">ANTA Kai 2</a> son alternativas más cómodas y algo más baratas.</p>
+<p>Si tienes pie ancho, la <a href="/zapatilla/ua-curry-13">UA Curry 13</a> (puntera amplia) es una alternativa más cómoda; si lo que te falta es cushion, mira la <a href="/zapatilla/anta-kai-2">ANTA Kai 2</a>. Las dos son algo más baratas.</p>
 
 <p class="art-outro">¿Dudas entre la GT Cut 4 y otra zapatilla? <a href="/comparar?slugs=nike-gt-cut-4,ua-curry-13,anta-kai-2">Compáralas con todos los datos aquí</a>. ¿No sabes si es la tuya? <a href="/quiz">El quiz te lo dice en 60 segundos</a>.</p>
     `,
@@ -1594,7 +1594,7 @@ export const ARTICLES: Article[] = [
 <p>El court feel es excelente para una zapatilla con cushion de este nivel. No es tan "al suelo" como la GT Cut 4, pero tampoco parece que estás sobre un cojín.</p>
 
 <h2>Ajuste y horma</h2>
-<p>La AE 2 tiene una horma <strong>media-ancha</strong>, más generosa que la GT Cut 4 (estrecha) y más estrecha que la LeBron 22 (ancha). Para la mayoría de pies normales a ligeramente anchos, encaja perfectamente en talla habitual. Algunos usuarios con pie muy ancho suben media talla.</p>
+<p>La AE 2 tiene una horma <strong>normal</strong>, más generosa que la GT Cut 4 (estrecha) y más estrecha que la LeBron 22 (ancha). Para la mayoría de pies normales, encaja perfectamente en talla habitual. Algunos usuarios con pie muy ancho suben media talla.</p>
 <p>El upper en flyknit estructurado ofrece un ajuste ceñido pero sin puntos de presión. El collar de tobillo está bien acolchado. No hay historial de rozaduras en el talón en la AE 2, un problema que sí afecta a algunos usuarios de la GT Cut 4.</p>
 
 <h2>Soporte y estabilidad</h2>
@@ -1658,7 +1658,7 @@ export const ARTICLES: Article[] = [
 <ul>
   <li>Pívots que necesitan máxima amortiguación (90 kg+)</li>
   <li>Jugadores outdoor: su goma blanda se gasta rápido en asfalto; para la calle, mejor una <a href="/zapatilla/adidas-dame-certified">Dame Certified</a> o una <a href="/zapatilla/jordan-luka-77">Luka .77</a></li>
-  <li>Pies muy anchos — considera la ANTA KAI 2 o la LeBron 22</li>
+  <li>Pies muy anchos — considera la UA Curry 13 o la LeBron 22</li>
 </ul>
 
 <h2>¿Dónde comprar?</h2>
@@ -1722,7 +1722,7 @@ export const ARTICLES: Article[] = [
 <h2>AE 2 vs Curry 13: ¿cuál elegir?</h2>
 <p>Son los dos mejores zapatos de guard de 2025 y la elección depende de tu perfil:</p>
 <ul>
-  <li><strong>Elige la AE 2 si:</strong> priorizas la tracción, juegas en pabellones con polvo, tienes pie medio-ancho, o tu presupuesto llega a {{precio:adidas-ae-2}}</li>
+  <li><strong>Elige la AE 2 si:</strong> priorizas la tracción, juegas en pabellones con polvo, tienes pie normal, o tu presupuesto llega a {{precio:adidas-ae-2}}</li>
   <li><strong>Elige la Curry 13 si:</strong> priorizas estabilidad lateral y court feel, juegas en pabellones limpios, o tienes historial leve de esguinces</li>
   <li><strong>Si tienes 90 kg+:</strong> ninguna de las dos es tu primera opción — considera la LeBron 22, la LeBron 23 o la KD 19</li>
 </ul>
@@ -1946,7 +1946,7 @@ export const ARTICLES: Article[] = [
 <ul>
   <li>✅ Cushion 8 + respuesta 8: el mejor equilibrio technico del grupo</li>
   <li>✅ Ligera: 12,4 oz según RunRepeat, de las más ligeras del grupo</li>
-  <li>✅ Horma normal-ancha: encaja con la mayoría de pies</li>
+  <li>✅ Horma normal: encaja con la mayoría de pies</li>
   <li>❌ Low-top con poco soporte de tobillo y suela fina que se desgasta rápido en exterior (RunRepeat, HoopsGeek)</li>
 </ul>
 
@@ -1965,7 +1965,7 @@ export const ARTICLES: Article[] = [
   <li>✅ Zoom Strobel full-length: cushion reactivo para jugadores >85kg</li>
   <li>✅ Upper de TPU: soporte estructural sin peso extra</li>
   <li>✅ Score equilibrado — ningún punto débil destacado</li>
-  <li>❌ Horma algo estrecha en el antepié para pie ancho</li>
+  <li>❌ Va algo larga y con volumen extra en el antepié: puede quedar holgada si tu pie es estrecho</li>
 </ul>
 
 <h3><a href="/zapatilla/ua-flow-breakthru-4">Under Armour Flow Breakthru 4 — desde {{precio:ua-flow-breakthru-4}}</a></h3>
@@ -1974,7 +1974,7 @@ export const ARTICLES: Article[] = [
   <li>✅ UA Flow: court feel excepcional para un alero</li>
   <li>✅ Ligera para su cushion — ventaja en las ayudas defensivas</li>
   <li>❌ No usar en exterior — sin goma, la suela se destruye en asfalto</li>
-  <li>❌ Horma algo estrecha para pie ancho</li>
+  <li>❌ Molde femenino de talón estrecho: pruébala antes si tienes el pie ancho</li>
 </ul>
 
 <h3><a href="/zapatilla/jordan-luka-4">Jordan Luka 4 — desde {{precio:jordan-luka-4}}</a></h3>
@@ -2057,7 +2057,7 @@ export const ARTICLES: Article[] = [
     title: "Nike Ja 3: análisis completo — la mejor zapatilla de Ja Morant vale lo que cuesta",
     metaTitle: "Nike Ja 3 análisis completo 2025 | CANCHA.ZAPA",
     description:
-      "Análisis técnico completo de la Nike Ja 3: ZoomX full-length, suela outdoor, horma ancha. ¿Es la mejor zapatilla para guards de 2025?",
+      "Análisis técnico completo de la Nike Ja 3: ZoomX full-length, suela outdoor, horma ajustada. ¿Es la mejor zapatilla para guards de 2025?",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
     categoria: "Análisis",
@@ -2069,7 +2069,7 @@ export const ARTICLES: Article[] = [
     relatedShoes: ["nike-ja-3", "nike-ja-2", "adidas-ae-2", "ua-curry-13", "nike-gt-cut-4"],
     relatedSeoPages: ["mejor-zapatilla-base", "mejor-zapatilla-escolta", "mejores-zapatillas-nike"],
     body: `
-<p class="art-intro">Ja Morant tiene el primer paso más explosivo de la NBA en 2025. Y por primera vez desde la Kobe 8 Protro, hay una zapatilla de guard que realmente está diseñada para ese tipo de atletismo: ligera, reactiva, con la espuma más avanzada de Nike y una horma ancha que rompe el molde Nike clásico.</p>
+<p class="art-intro">Ja Morant tiene el primer paso más explosivo de la NBA en 2025. Y por primera vez desde la Kobe 8 Protro, hay una zapatilla de guard que realmente está diseñada para ese tipo de atletismo: ligera, reactiva, con la espuma más avanzada de Nike y una suela de goma completa que también vale para el exterior.</p>
 
 <h2>La tecnología que la define</h2>
 
@@ -2079,8 +2079,8 @@ export const ARTICLES: Article[] = [
 <h3>Suela de goma completa (diferencia con la Curry 13)</h3>
 <p>A diferencia de la Under Armour Curry 13 (que usa UA Flow sin capa de goma), la Ja 3 sí tiene suela de goma completa. Eso significa dos cosas: tracción más consistente y durabilidad outdoor real. Puedes llevar la Ja 3 al asfalto de vez en cuando sin destruirla — algo que la Curry 13 no puede decir.</p>
 
-<h3>Horma ancha: la excepción en Nike</h3>
-<p>Nike tradicionalmente fabrica sus zapatillas de baloncesto con horma estrecha o normal-estrecha. La Ja 3 rompe esa tendencia: Ja Morant tiene pie ancho y la firma lo refleja. Es la zapatilla Nike de baloncesto con más espacio en el antepié de las actuales en producción. Para jugadores que venían de frustrarse con Nike, esto es un cambio de juego.</p>
+<h3>Horma ajustada: como casi todo en Nike</h3>
+<p>Nike tradicionalmente fabrica sus zapatillas de baloncesto con horma estrecha o normal-estrecha, y la Ja 3 sigue esa línea: los análisis la describen como estrecha y ajustada, con un rodaje inicial, y avisan de que con pie ancho conviene subir media talla. Eso sí, es algo menos ceñida que la Ja 1 y la Ja 2.</p>
 
 <h2>Puntuación técnica CANCHA.ZAPA</h2>
 <ul>
@@ -2100,7 +2100,7 @@ export const ARTICLES: Article[] = [
 <p>La AE 2 y la Ja 3 empatan en tracción ({{nota:adidas-ae-2:traccion}} frente a {{nota:nike-ja-3:traccion}}). En cushion la ficha da {{nota:adidas-ae-2:amortiguacion}} a la AE 2 y {{nota:nike-ja-3:amortiguacion}} a la Ja 3 (Lightstrike Pro frente a ZoomX). Si priorizas el cushion: AE 2.</p>
 
 <h3>vs Under Armour Curry 13 (desde {{precio:ua-curry-13}})</h3>
-<p>La Curry 13 tiene mejor court feel (UA Flow directo al suelo). La Ja 3 tiene mejor durabilidad outdoor y horma más fácil para pie ancho. Si juegas siempre en interior limpio: Curry 13. Si juegas ocasionalmente fuera o tienes pie ancho: Ja 3.</p>
+<p>La Curry 13 tiene mejor court feel (UA Flow directo al suelo). La Ja 3 tiene mejor durabilidad outdoor y la Curry 13 una puntera más amplia. Si juegas siempre en interior limpio o tienes pie ancho: Curry 13. Si juegas ocasionalmente fuera: Ja 3.</p>
 
 <h3>vs Nike GT Cut 4 (desde {{precio:nike-gt-cut-4}})</h3>
 <p>La Ja 3 es más reactiva ({{nota:nike-ja-3:respuesta}} frente a {{nota:nike-gt-cut-4:respuesta}} en respuesta) y además pesa bastante menos ({{peso:nike-ja-3}} frente a {{peso:nike-gt-cut-4}}). También puntúa más en amortiguación ({{nota:nike-ja-3:amortiguacion}} frente a {{nota:nike-gt-cut-4:amortiguacion}}). En nuestra ficha la Ja 3 gana a la GT Cut 4 en casi todo.</p>
@@ -2109,12 +2109,12 @@ export const ARTICLES: Article[] = [
 <p>Es el mejor match para:</p>
 <ul>
   <li>Bases y escoltas de <strong>70-90kg</strong></li>
-  <li>Jugadores con <strong>pie ancho</strong> que querían Nike pero no encajaban</li>
+  <li>Jugadores que quieren una Nike con <strong>ZoomX</strong> completo y suela de goma completa</li>
   <li>Quien juega tanto en <strong>interior como exterior</strong> y quiere una sola zapatilla</li>
   <li>Quien prioriza <strong>cushion reactivo</strong> sobre court feel extremo</li>
 </ul>
 
-<p><strong>No es para ti si:</strong> tienes pie muy estrecho y prefieres lockdown máximo, o si buscas el court feel ultra-bajo de la Curry 13 o la GT Cut 4.</p>
+<p><strong>No es para ti si:</strong> tienes pie ancho, o si buscas el court feel ultra-bajo de la Curry 13 o la GT Cut 4.</p>
 
 <h2>Disponibilidad y precio</h2>
 <p>El precio de salida fue 135€, el más competitivo del grupo. Para una zapatilla con ZoomX full-length, 135€ es una propuesta seria. Consulta las tiendas y el precio actualizado en <a href="/zapatilla/nike-ja-3">su ficha</a>.</p>
@@ -2175,7 +2175,7 @@ export const ARTICLES: Article[] = [
 <ul>
   <li>✅ Max Air: el cushion que mejor aguanta bajo cargas pesadas</li>
   <li>✅ React foam: cushion extra en toda la entresuela</li>
-  <li>❌ Horma algo estrecha — incómoda para pie ancho</li>
+  <li>✅ Horma amable con el pie ancho (el talón va algo estrecho)</li>
 </ul>
 
 <h3><a href="/zapatilla/nike-kd-19">Nike KD 19 — desde {{precio:nike-kd-19}} — El equilibrio precio/cushion</a></h3>
@@ -2374,10 +2374,10 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3><a href="/zapatilla/anta-kai-2">ANTA Kai 2 — desde {{precio:anta-kai-2}}</a></h3>
-<p><strong>La mejor relación calidad-precio del mercado + horma ancha.</strong> Kyrie Irving tiene uno de los pies más exigentes del baloncesto (ancho, con historial de tobillo) y la Kai 2 lo refleja. A-Flashfoam reactivo, tracción competente y suela que aguanta exterior moderado. Para bases con pie ancho o que no quieren gastar de más, es la elección clara.</p>
+<p><strong>La mejor relación calidad-precio del mercado.</strong> El ajuste es ceñido, tipo guante. A-Flashfoam reactivo, tracción competente y suela que aguanta exterior moderado. Para bases que no quieren gastar de más, es la elección clara.</p>
 <ul>
   <li>✅ 90% del rendimiento de la AE 2</li>
-  <li>✅ Horma ancha — la mejor para pies anchos del grupo</li>
+  <li>✅ Ajuste de guante, sin deslizamiento de talón para la mayoría</li>
   <li>✅ Outdoor moderado — suela de goma más resistente que la Curry 13</li>
   <li>❌ Respuesta algo por debajo de la Curry 13 ({{nota:anta-kai-2:respuesta}} frente a {{nota:ua-curry-13:respuesta}})</li>
 </ul>
@@ -2386,7 +2386,7 @@ export const ARTICLES: Article[] = [
 <p><strong>La alternativa Nike a la GT Cut 4 para bases.</strong> ZoomX full-length da un bounce excepcional para su precio. Suela de goma que aguanta outdoor moderado.</p>
 <ul>
   <li>✅ ZoomX full-length: cushion + bounce excepcional para un guard</li>
-  <li>✅ Horma ancha (raro en Nike)</li>
+  <li>✅ Ajuste ceñido y seguro, con rodaje inicial</li>
   <li>✅ Outdoor moderado — goma completa</li>
   <li>❌ No llega al court feel de la Curry 13 o la GT Cut 4</li>
 </ul>
@@ -2445,11 +2445,11 @@ export const ARTICLES: Article[] = [
 
 <h2>¿Cuál elegir?</h2>
 <ul>
-  <li><strong>Máximo rendimiento, pie normal o estrecho, interior siempre → <a href="/zapatilla/nike-gt-cut-4">GT Cut 4</a></strong></li>
+  <li><strong>Court feel máximo, pie estrecho, interior siempre → <a href="/zapatilla/nike-gt-cut-4">GT Cut 4</a></strong></li>
   <li><strong>Máximo court feel, juegas solo en interior, horma normal → <a href="/zapatilla/ua-curry-13">Curry 13</a></strong></li>
   <li><strong>Mejor equilibrio precio/rendimiento, interior y outdoor → <a href="/zapatilla/adidas-ae-2">AE 2</a></strong></li>
-  <li><strong>Presupuesto ajustado o pie ancho → <a href="/zapatilla/anta-kai-2">ANTA Kai 2</a></strong></li>
-  <li><strong>Pie ancho, quieres Nike, outdoor ocasional → <a href="/zapatilla/nike-ja-3">Ja 3</a></strong></li>
+  <li><strong>Presupuesto ajustado → <a href="/zapatilla/anta-kai-2">ANTA Kai 2</a></strong></li>
+  <li><strong>Quieres Nike con ZoomX, outdoor ocasional → <a href="/zapatilla/nike-ja-3">Ja 3</a></strong></li>
 </ul>
 
 <p class="art-outro">¿Sigues con dudas? El <a href="/quiz">quiz de CANCHA.ZAPA</a> filtra por posición, peso, tipo de pie y tipo de cancha para darte las 5 más compatibles con tu perfil exacto. Menos de un minuto.</p>
@@ -2536,7 +2536,7 @@ export const ARTICLES: Article[] = [
   <li><strong>Escolta-creador con juego de penetración → <a href="/zapatilla/adidas-ae-2">AE 2</a></strong> (mejor equilibrio precio/rendimiento)</li>
   <li><strong>Tirador puro de posición fija → <a href="/zapatilla/nike-kobe-8-protro">Kobe 8 Protro</a></strong> o <strong><a href="/zapatilla/ua-curry-13">Curry 13</a></strong> (court feel para el tiro)</li>
   <li><strong>Escolta físico, 85kg+, juego por dentro → <a href="/zapatilla/jordan-tatum-4">Tatum 4</a></strong> (estabilidad y cushion)</li>
-  <li><strong>Escolta muy rápido, pie normal/estrecho → <a href="/zapatilla/nike-gt-cut-4">GT Cut 4</a></strong> (máxima reactividad)</li>
+  <li><strong>Escolta muy rápido, pie estrecho → <a href="/zapatilla/nike-gt-cut-4">GT Cut 4</a></strong> (court feel)</li>
 </ul>
 
 <p class="art-outro">¿Escolta pero no sabes cuál de estos perfiles es el tuyo? El <a href="/quiz">quiz de CANCHA.ZAPA</a> tiene una pregunta sobre estilo de juego que distingue entre escolta-tirador y escolta-creador para darte la recomendación más ajustada a tu juego.</p>
@@ -2583,7 +2583,7 @@ export const ARTICLES: Article[] = [
   <li>✅ React foam en toda la entresuela: bounce además de absorción</li>
   <li>✅ Suela XDR: aguanta outdoor moderado</li>
   <li>❌ 455 g — la más pesada del grupo, y de las más caras</li>
-  <li>❌ Horma algo estrecha — problemas para pie muy ancho</li>
+  <li>✅ Horma amable con el pie ancho (el talón va algo estrecho)</li>
 </ul>
 
 <h3><a href="/zapatilla/nike-kd-19">Nike KD 19 — desde {{precio:nike-kd-19}}</a></h3>
@@ -3709,7 +3709,7 @@ export const ARTICLES: Article[] = [
   <li><a href="/zapatilla/nike-sabrina-3">Nike Sabrina 3</a> corte bajo y traccion que muerde el parquet. Cabecera del baloncesto federado en Espana.</li>
   <li><a href="/zapatilla/nike-ja-3">Nike Ja 3</a> para jugadores electricos. Por fin estabilizo la amortiguacion del talon.</li>
   <li><a href="/zapatilla/puma-mb05">Puma MB.05</a> colores chillones, Nitrofoam comoda y sello LaMelo Ball.</li>
-  <li><a href="/zapatilla/jordan-luka-4">Jordan Luka 4</a> ancha, ultraestable para el step-back y contencion lateral mejorada.</li>
+  <li><a href="/zapatilla/jordan-luka-4">Jordan Luka 4</a> de base ancha, ultraestable para el step-back y contencion lateral mejorada.</li>
 </ul>
 <h2>Las firmas de elite (gama premium)</h2>
 <ul>
@@ -3770,7 +3770,7 @@ export const ARTICLES: Article[] = [
 <h2>Las dos familias (y por qué importa la diferencia)</h2>
 
 <h3>1. Signatures unisex con ADN femenino</h3>
-<p>Llevan el nombre de una estrella de la WNBA, pero se venden en <strong>tallaje completo</strong> porque los hombres también las quieren por su rendimiento. Horma estándar, ajuste ceñido. Son las más vendidas del planeta:</p>
+<p>Llevan el nombre de una estrella de la WNBA, pero se venden en <strong>tallaje completo</strong> porque los hombres también las quieren por su rendimiento. Ajuste ceñido, con horma de normal a estrecha. Son las más vendidas del planeta:</p>
 <ul>
   <li><strong>Nike Sabrina 3 (Sabrina Ionescu):</strong> el mayor éxito reciente de Nike. Low-top, ligera, agarre salvaje. Estilo "Kobe". La opción nº1 de muchas jugadoras.</li>
   <li><strong>Nike A'One (A'ja Wilson):</strong> debut de la MVP. Más enfocada a amortiguación y estabilidad para juego todoterreno.</li>
@@ -3831,7 +3831,7 @@ export const ARTICLES: Article[] = [
   <li><strong>Adidas AE 1 / AE 2 GS (desde {{precio:adidas-ae-1-gs}} / {{precio:adidas-ae-2-gs}}):</strong> la zapa de Anthony Edwards, la más aspiracional ahora mismo, en talla niño a precio de ganga.</li>
   <li><strong>Puma MB.05 GS (desde {{precio:puma-mb05-gs}}):</strong> el estilo y el Nitrofoam de LaMelo Ball para los más jóvenes.</li>
   <li><strong>Adidas D.O.N. Issue 7 GS (desde {{precio:adidas-don-issue-7-gs}}):</strong> Lightstrike Pro + suela Continental: cushion premium y tracción de élite indoor.</li>
-  <li><strong>Nike Giannis Immortality 4 GS (desde {{precio:nike-giannis-immortality-4-gs}}):</strong> horma ancha, resistente al asfalto y baratísima. La mejor budget para el júnior interior.</li>
+  <li><strong>Nike Giannis Immortality 4 GS (desde {{precio:nike-giannis-immortality-4-gs}}):</strong> resistente al asfalto y baratísima. La mejor budget para el júnior interior.</li>
   <li><strong>Adidas Believe That 1 GS (desde {{precio:adidas-believe-that-1-gs}}):</strong> Dreamstrike y herringbone multidireccional; de las GS que mejor aguantan el outdoor ({{exterior:adidas-believe-that-1-gs}}).</li>
 </ul>
 
@@ -3921,7 +3921,7 @@ export const ARTICLES: Article[] = [
 
 <h2>De un vistazo</h2>
 <ul>
-  <li><strong>Nike Sabrina 3 — la superventas (score {{score:nike-sabrina-3}}):</strong> unisex, pero LA opción de muchas jugadoras. Low-top, tracción salvaje, ligera, estilo "Kobe". Horma estándar ceñida.</li>
+  <li><strong>Nike Sabrina 3 — la superventas (score {{score:nike-sabrina-3}}):</strong> unisex, pero LA opción de muchas jugadoras. Low-top, tracción salvaje, ligera, estilo "Kobe". Horma estrecha y ceñida.</li>
   <li><strong>Jordan Heir Series — la cortante (score 8,0, WT 8/10):</strong> primera silueta de Jordan creada con insights de jugadoras WNBA. Low-to-ground, reactiva, pensada para velocidad y cambios de ritmo.</li>
   <li><strong>UA Flow Breakthru 4 — la anatómica (score {{score:ua-flow-breakthru-4}}):</strong> horma 100% femenina (talón estrecho) + suela UA Flow sin goma: súper ligera ({{peso:ua-flow-breakthru-4}}), la más ligera de las tres.</li>
 </ul>
@@ -3933,7 +3933,7 @@ export const ARTICLES: Article[] = [
 <p>Ninguna es una "nube": las tres son de perfil bajo y reactivo. La <strong>Sabrina 3</strong> ofrece el mejor equilibrio cushion/respuesta. La <strong>Heir</strong> es la más cortante y baja al suelo (Cushlon 3.0 fino: poca protección de impacto). La <strong>Flow Breakthru</strong> prioriza ligereza y durabilidad sobre amortiguación.</p>
 
 <h2>Ajuste (lo que las diferencia de verdad)</h2>
-<p>Aquí está la clave. Sabrina y Heir son <strong>unisex</strong>: horma estándar ceñida, válida para casi todo el mundo. La <strong>Flow Breakthru 4 es 100% femenina</strong>: si tienes el talón estrecho y se te escapa con otras zapatillas, esta lo soluciona. No hay versión de hombre.</p>
+<p>Aquí está la clave. Sabrina y Heir son <strong>unisex</strong>: horma ceñida, de normal a estrecha, válida para pies normales y estrechos. La <strong>Flow Breakthru 4 es 100% femenina</strong>: si tienes el talón estrecho y se te escapa con otras zapatillas, esta lo soluciona. No hay versión de hombre.</p>
 
 <h2>¿Cuál eliges?</h2>
 <ul>
