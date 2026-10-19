@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **245 zapas (45 OCULTAS, 200 visibles) · 290 tests · `astro check` 0 errores · 347 páginas** |
+| Tamaño | **245 zapas (43 OCULTAS, 202 visibles) · 290 tests · `astro check` 0 errores · 347 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -438,8 +438,14 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   guardadas con su nombre (`jugadasNombres`) y reenganchadas por nombre si la biblioteca del club les cambia el id
   (`reengancharJugadas`), con aviso de las borradas · claves hasta 2000 caracteres y solo líneas completas · inputs de
   16 px en móvil (iOS no hace zoom).
-- ⏳ **Rescate de ocultas (Sonnet, 19-oct)**: salida en `trabajo/w31-rescate.tsv` (puede estar a medias si el trabajador
-  se cortó). Revisar fila a fila y aplicar con `web/_w27_aplicar.mjs` (formato: id tienda url_directa precio comentario).
+- ✅ **Rescate de ocultas (Sonnet, 19-oct, `trabajo/w31-rescate.tsv`)**: 45 ocultas revisadas → **2 rescatadas** en
+  FuikaOmar (verificadas por mí con curl: JSON-LD InStock por talla): `nike-sabrina-3-gs` 109,90 € (IR3207-100, 5 tallas)
+  y `nike-kobe-9-elite-low-protro` 179,90 € (IH1401 600 University Red, 7 tallas; «EM» = nomenclatura de tienda, ya
+  establecido en s52). **Ocultas 45 → 43, visibles 202.** NO aplicadas: Kobe 9 Halo y Kyrie Flytrap 6 en FuikaOmar con
+  UNA sola talla · 5 de AliExpress con sello POIZON «Authenticity Verified» sin texto Marcas+ (NB Fresh Foam BB v3, Kawhi 2,
+  Asics Unpre ARS 2, Glide Nova FF 4, UA Embiid 1) → ▶️ **DECIDIR (usuario): ¿cuenta el sello POIZON como Marcas+?** ·
+  Decathlon marketplace (PG 6, Why Not 6, Kobe 5 Protro) sin poder leer stock: Decathlon dio 429 y luego verificación de
+  Cloudflare a mitad de la pasada → repetir esas tres desde un navegador normal.
 - ▶️ **Ideas siguientes** (sin prometer en la web): generador de sesiones con IA.
 - ▶️ **Paso 3, por orden**: control de minutos/cuartos (verificar normas de participación de la FCBQ) → mapa de
   tiro → libro de jugadas con escudo del club → etiquetas de vídeo. Más ideas: informe del rival (actas FEB),

@@ -5486,10 +5486,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
-    oculto: true,
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/sabrina-3-nino-sail-navy-atom-red-photo-blue", precio_actual: 109.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-sabrina-3-gs-wnba.html", precio_actual: 109.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-19" }, // 2026-10-19: IR3207-100, 5 tallas GS, verificado 19-oct
     ],
   },
 
@@ -13377,11 +13377,11 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/nike-kobe-9-elite-low-protro/" },
     ],
     ultima_actualizacion: "2026-06-02",
-    oculto: true,
     precio_msrp_eur: 190,
     links_compra: [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/kobe-9-elite-low-em-protro-light-silver-steam-summit-white", precio_actual: 159.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21" }, // s52 21-sep: JSON-LD "Kobe 9 Elite Low Em Protro", SKU IH1401-003 (= Kobe 9 Elite Low Protro), InStock, 12 tallas
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0GFJSL965?tag=canchazapa-21", precio_actual: 243.55, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" }, // w17 18-sep: es la Kobe 9 Low EM Protro, no la Elite Low
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-kobe-9-elite-low-em-proto-university-red.html", precio_actual: 179.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-19" }, // 2026-10-19: IH1401 600 (Elite Low Protro, EM = nomenclatura), 7 tallas, verificado 19-oct
     ],
   },
 
