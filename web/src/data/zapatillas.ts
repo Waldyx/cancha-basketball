@@ -302,7 +302,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La mejor relación calidad-precio del catálogo signature de Nike. 28 gramos más ligera que la Sabrina 1, con Zoom Air en talón y Cushlon 3.0 en mediopié. Una zapatilla all-around que funciona para guardias y aleros que mezclan estilos.",
+      "La mejor relación calidad-precio del catálogo signature de Nike. 28 gramos más ligera que la Sabrina 1, con Zoom Air en el antepié y Cushlon 3.0 en la mediasuela. Una zapatilla all-around que funciona para guardias y aleros que mezclan estilos.",
     pros: [
       "Excelente relación calidad-precio (€120)",
       "Equilibrio entre respuesta y amortiguación",
@@ -1355,7 +1355,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Giannis Antetokounmpo",
-    tecnologia_clave: ["Cushlon 3.0", "Air Zoom", "TPU midfoot shank"],
+    tecnologia_clave: ["Cushlon 3.0 full-length", "TPU midfoot shank"],
     predecesor_id: "nike-zoom-freak-6",
     sucesor_id: "nike-giannis-freak-8",
     peso_real_g: 391,
@@ -1378,7 +1378,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { estilos: ["tirador"] },
     resumen:
-      "Séptima signature de Giannis. Mantiene la receta: tracción agresiva (HG 8.5), cushion Cushlon 3.0 + Zoom para forwards/pivots. Precio MSRP muy accesible ($120) — en oferta se encuentra a 50€. HG le da 7.8 global, no es la mejor de la saga (Freak 5/6 eran superiores) pero es un value pick brutal a su precio.",
+      "Séptima signature de Giannis. Mantiene la receta: tracción agresiva (HG 8.5), cushion Cushlon 3.0 (sin unidad Zoom) para forwards/pivots. Precio MSRP muy accesible ($120) — en oferta se encuentra a 50€. HG le da 7.8 global, no es la mejor de la saga (Freak 5/6 eran superiores) pero es un value pick brutal a su precio.",
     pros: [
       "Precio chollo (~50€ en oferta)",
       "Tracción muy fiable (HG 8.5)",
@@ -2554,7 +2554,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2023,
     genero: "unisex",
     signature_player: "Giannis Antetokounmpo",
-    tecnologia_clave: ["React foam"],
+    tecnologia_clave: ["Renew foam (full-length)"],
     peso_real_g: 342,
     altura: "low",
     horma: "normal",
@@ -2579,7 +2579,7 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["equilibrado", "potente"],
     },
     no_recomendada_para: { posiciones: ["base", "escolta"], estilos: ["explosivo"] },
-    resumen: "La línea budget de Giannis. React foam básico sin Zoom, ajuste algo ceñido en el antepié, tracción adecuada. No pretende ser premium — pretende dar una opción Nike para jugadores grandes con presupuesto limitado.",
+    resumen: "La línea budget de Giannis. Renew foam básico sin Zoom, ajuste algo ceñido en el antepié, tracción adecuada. No pretende ser premium — pretende dar una opción Nike para jugadores grandes con presupuesto limitado.",
     pros: [
       "Sujeta bien al atarla",
       "Precio imbatible para Nike",
@@ -3100,7 +3100,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2022,
     genero: "unisex",
     signature_player: "Paul George",
-    tecnologia_clave: ["React", "Zoom Air unit"],
+    tecnologia_clave: ["React foam full-length"],
     peso_real_g: 330,
     altura: "low",
     horma: "normal",
@@ -3125,12 +3125,12 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["explosivo", "tirador"],
     },
     no_recomendada_para: { posiciones: ["pivot", "ala-pivot"], estilos: ["potente"] },
-    resumen: "La PG 6 es para los guards que valoran el court feel por encima de todo. Tracción herringbone de primer nivel, Zoom Air para propulsión y low-top para máxima agilidad. Una de las mejores opciones para bases explosivos a precio de saldo.",
+    resumen: "La PG 6 es para los guards que valoran el court feel por encima de todo. Tracción herringbone de primer nivel, React de largo completo para respuesta y low-top para máxima agilidad. Una de las mejores opciones para bases explosivos a precio de saldo.",
     pros: [
       "Tracción herringbone sobresaliente",
       "Court feel excelente en low-top",
       "Muy ligera y ágil",
-      "React + Zoom bien balanceados",
+      "React de largo completo bien balanceado",
     ],
     contras: [
       "Low-top: no recomendada con historial de tobillos",
@@ -3162,7 +3162,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 2,
     año_lanzamiento: 2023,
     genero: "unisex",
-    tecnologia_clave: ["Zoom Air pods (heel+forefoot)", "React foam"],
+    tecnologia_clave: ["Zoom Air units en el antepié (dos)", "Zoom Air strobel", "React foam en el talón", "Jump Frame"],
     peso_real_g: 390,
     altura: "high",
     horma: "normal",
@@ -3188,9 +3188,9 @@ const _rawZapatillas: Zapatilla[] = [
       lesiones_compatibles: ["rodillas", "tobillos"],
     },
     no_recomendada_para: { posiciones: ["base", "escolta"], estilos: ["explosivo"] },
-    resumen: "Diseñada específicamente para pívots y grandes que saltan. Zoom Air pods en talón y antepié dan cushion de impacto real, y el high-top ofrece soporte máximo de tobillo.",
+    resumen: "Diseñada específicamente para pívots y grandes que saltan. Zoom Air en el antepié (dos unidades) más strobel y espuma React en el talón dan cushion de impacto real, y el high-top ofrece soporte máximo de tobillo.",
     pros: [
-      "Doble Zoom Air para máxima absorción de impactos",
+      "Doble Zoom Air en el antepié para máxima absorción de impactos",
       "High-top con excelente soporte tobillo",
       "Tracción herringbone superior",
       "Talón seguro y sujeción ajustable",
@@ -4977,7 +4977,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Devin Booker",
-    tecnologia_clave: ["Zoom Air forefoot", "React midsole", "mesh upper"],
+    tecnologia_clave: ["Cushlon 3.0 full-length", "Zoom Air unit en el antepié", "mesh upper"],
     predecesor_id: null,
     sucesor_id: null,
 
@@ -5012,7 +5012,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Nike Book 2 es la segunda zapatilla signature de Devin Booker. Mejora significativa sobre la Book 1: Zoom Air en el antepié para respuesta en arranques, midsole React para cushion durante el juego, upper mesh ligero. Diseñada para jugadores rápidos y tiradores.",
+      "La Nike Book 2 es la segunda zapatilla signature de Devin Booker. Mejora significativa sobre la Book 1: Zoom Air en el antepié para respuesta en arranques, midsole Cushlon para cushion durante el juego, upper mesh ligero. Diseñada para jugadores rápidos y tiradores.",
     pros: [
       "Zoom Air en antepié: respuesta excelente en cambios de dirección",
       "Ligera y cómoda desde el primer uso",
@@ -5025,7 +5025,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Precio de 150€ exige comparar con opciones similares",
     ],
     veredicto:
-      "Una de las mejores opciones para bases y escoltas explosivos que priorizan velocidad y comodidad. La combinación React + Zoom Air en antepié la hace destacar en su rango de precio.",
+      "Una de las mejores opciones para bases y escoltas explosivos que priorizan velocidad y comodidad. La combinación Cushlon + Zoom Air en antepié la hace destacar en su rango de precio.",
 
     imagen_principal: "/shoes/nike-book-2.webp",
     imagenes: [],
@@ -5055,7 +5055,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Sabrina Ionescu",
-    tecnologia_clave: ["Zoom Air strobel", "React foam", "rubber outsole"],
+    tecnologia_clave: ["Cushlon 3.0 full-length", "Zoom Air unit en el antepié", "midfoot shank", "rubber outsole"],
     predecesor_id: null,
     sucesor_id: "nike-sabrina-4",
 
@@ -5090,9 +5090,9 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Nike Sabrina 3 es la evolución más completa de la línea Ionescu. Zoom Air strobel full-length para cushion reactivo en todo el pie, React foam para amortiguación duradera, outsole con excelente agarre. Una de las zapatillas más versátiles de Nike para baloncesto en 2025.",
+      "La Nike Sabrina 3 es la evolución más completa de la línea Ionescu. Cushlon 3.0 de longitud completa con una unidad Zoom Air en el antepié para respuesta, outsole con excelente agarre. Una de las zapatillas más versátiles de Nike para baloncesto en 2025.",
     pros: [
-      "Zoom Air strobel full-length: cushion reactivo en todo el pie",
+      "Cushlon 3.0 full-length con Zoom Air en el antepié: cushion suave y respuesta en el primer paso",
       "Outsole con patrón de herringbone modificado — agarre excelente",
       "Estabilidad lateral buena para un low-top",
       "Precio justo para las tecnologías incluidas",
@@ -5103,7 +5103,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Sin versión mid para quienes prefieren soporte de tobillo",
     ],
     veredicto:
-      "Una zapatilla seria que no debe descartarse por ser femenina en origen. El Zoom Air strobel + React la convierten en una de las opciones más completas de Nike bajo los 130€. Recomendada para jugadores ágiles de cualquier género.",
+      "Una zapatilla seria que no debe descartarse por ser femenina en origen. El Cushlon 3.0 + Zoom Air en el antepié la convierten en una de las opciones más completas de Nike bajo los 130€. Recomendada para jugadores ágiles de cualquier género.",
 
     imagen_principal: "/shoes/nike-sabrina-3.webp",
     imagenes: [],
@@ -5443,7 +5443,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "gs",
     signature_player: "Sabrina Ionescu",
-    tecnologia_clave: ["Zoom Air strobel", "React foam", "rubber outsole"],
+    tecnologia_clave: ["Cushlon 3.0 full-length", "Zoom Air unit en el antepié", "midfoot shank", "rubber outsole"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 320,
@@ -5466,7 +5466,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
     resumen:
-      "Versión junior (Grade School) de la Sabrina 3, con el mismo Zoom Air strobel y la tracción de élite del modelo adulto en tallaje niño. Una de las signatures más versátiles y completas del mercado, ahora para el junior que juega en serio.",
+      "Versión junior (Grade School) de la Sabrina 3, con el mismo Cushlon 3.0 + Zoom Air en el antepié y la tracción de élite del modelo adulto en tallaje niño. Una de las signatures más versátiles y completas del mercado, ahora para el junior que juega en serio.",
     pros: [
       "Misma tracción top y Zoom Air que la adulta",
       "Low-top ligero y versátil",
@@ -5853,7 +5853,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: undefined,
-    tecnologia_clave: ["foam cushion", "rubber outsole multidireccional", "synthetic upper"],
+    tecnologia_clave: ["Air Zoom unit en el antepié", "foam cushion", "rubber outsole multidireccional", "synthetic upper"],
     predecesor_id: null,
     sucesor_id: null,
 
@@ -5888,7 +5888,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La GT Cut Academy 2 lleva el outsole herringbone multidireccional de la GT Cut 4 a un precio más accesible. Sin Zoom Air, pero con agarre excepcional gracias al patrón de outsole del GT Cut. Ideal para jugadores que priorizan el agarre y la agilidad sin pagar precio premium.",
+      "La GT Cut Academy 2 lleva el outsole herringbone multidireccional de la GT Cut 4 a un precio más accesible. Con una unidad Air Zoom solo en el antepié (sin ZoomX ni Strobel) y con agarre excepcional gracias al patrón de outsole del GT Cut. Ideal para jugadores que priorizan el agarre y la agilidad sin pagar precio premium.",
     pros: [
       "Outsole inspirado en el GT Cut 4: agarre multidireccional sobresaliente",
       "Precio muy competitivo (100€)",
@@ -5896,7 +5896,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Buena durabilidad para el precio",
     ],
     contras: [
-      "Sin Zoom Air — cushion básico comparado con el GT Cut 4",
+      "Solo una unidad Zoom en el antepié: cushion básico comparado con el GT Cut 4",
       "Upper sintético menos transpirable que mesh",
       "No tan reactiva como la versión premium",
     ],
@@ -6166,7 +6166,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2024,
     genero: "unisex",
     signature_player: "Devin Booker",
-    tecnologia_clave: ["Zoom Air forefoot", "herringbone outsole", "knit upper"],
+    tecnologia_clave: ["Zoom Air unit en el talón", "Cushlon foam", "herringbone outsole", "upper de cuero sintético tipo nubuck"],
     predecesor_id: null,
     sucesor_id: "nike-book-2",
 
@@ -6175,7 +6175,7 @@ const _rawZapatillas: Zapatilla[] = [
     horma: "normal",
     drop_mm: 7,
     tipo_cierre: "cordones",
-    material_superior: "knit",
+    material_superior: "leather+synthetic",
 
     puntuaciones: {
       traccion: 9,
@@ -6201,11 +6201,11 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Nike Book 1 es la primera zapatilla signature de Devin Booker, diseñada para el jugador de perímetro que necesita respuesta, agarre y ligereza. Zoom Air en el antepié, outsole herringbone y upper knit que abraza el pie. Actualmente disponible a 60€ — una oportunidad increíble para su nivel de rendimiento.",
+      "La Nike Book 1 es la primera zapatilla signature de Devin Booker, diseñada para el jugador de perímetro que necesita respuesta, agarre y ligereza. Zoom Air en el talón, outsole herringbone y upper de cuero sintético tipo nubuck que abraza el pie. Actualmente disponible a 60€ — una oportunidad increíble para su nivel de rendimiento.",
     pros: [
-      "Zoom Air en el antepié: respuesta notable para tiradores",
+      "Zoom Air en el talón: buena protección de impacto para tiradores",
       "Outsole herringbone con excelente agarre en pista cubierta",
-      "Upper knit cómodo y bien ventilado",
+      "Upper de cuero sintético cómodo y de tacto premium",
       "Muy ligera para ser una low-top con Zoom",
       "Precio rebajado a 60€ — mejor valor del catálogo Nike actualmente",
     ],
@@ -6215,7 +6215,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Amortiguación moderada (no es la prioridad en este modelo)",
     ],
     veredicto:
-      "A 60€ la Book 1 es probablemente la mejor compra del catálogo Nike ahora mismo para guards y escoltas. Zoom Air, tracción herringbone y comodidad de knit — todo lo que necesita un jugador de perímetro, a un precio que no tiene rival. El hecho de que sea la primera edición de Booker le da un punto de coleccionismo extra.",
+      "A 60€ la Book 1 es probablemente la mejor compra del catálogo Nike ahora mismo para guards y escoltas. Zoom Air, tracción herringbone y comodidad del upper — todo lo que necesita un jugador de perímetro, a un precio que no tiene rival. El hecho de que sea la primera edición de Booker le da un punto de coleccionismo extra.",
 
     imagen_principal: "/shoes/nike-book-1.webp",
     imagenes: [],
@@ -7137,7 +7137,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2024,
     genero: "unisex",
     signature_player: "Giannis Antetokounmpo",
-    tecnologia_clave: ["Cushlon foam", "herringbone"],
+    tecnologia_clave: ["Renew foam (full-length)", "herringbone", "top-loaded shank"],
     predecesor_id: "nike-giannis-immortality-3",
     sucesor_id: "nike-giannis-immortality-5",
     peso_real_g: 357,
@@ -7193,7 +7193,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2024,
     genero: "gs",
     signature_player: "Giannis Antetokounmpo",
-    tecnologia_clave: ["Cushlon foam", "herringbone"],
+    tecnologia_clave: ["Renew foam (full-length)", "herringbone"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 310,
@@ -7223,7 +7223,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Signature a precio budget junior",
     ],
     contras: [
-      "Cushion básico (Cushlon)",
+      "Cushion básico (Renew)",
       "Tallaje GS: hasta EU 40 aprox.",
       "Sin tecnología premium",
     ],
@@ -7690,7 +7690,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 6,
     año_lanzamiento: 2023,
     genero: "unisex",
-    tecnologia_clave: ["Cushlon foam", "herringbone"],
+    tecnologia_clave: ["Phylon midsole", "forefoot Zoom Air (top-loaded)", "herringbone"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 375,
@@ -8355,7 +8355,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2023,
     genero: "unisex",
     signature_player: "Ja Morant",
-    tecnologia_clave: ["Cushlon foam", "React foam", "herringbone traction"],
+    tecnologia_clave: ["Phylon midsole", "Zoom Air unit en el antepié (top-loaded)", "herringbone traction"],
     predecesor_id: null,
     sucesor_id: "nike-ja-2",
 
@@ -8386,16 +8386,16 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
 
-    resumen: "La primera firma de Ja Morant destaca por una tracción de herringbone excepcional y un setup de amortiguación Cushlon+React que da respuesta sin sacrificar court feel. Ligera, baja y diseñada para guards rápidos.",
+    resumen: "La primera firma de Ja Morant destaca por una tracción de herringbone excepcional y una mediasuela de Phylon con Zoom Air en el antepié que da respuesta sin sacrificar court feel. Ligera, baja y diseñada para guards rápidos.",
     pros: [
       "Tracción herringbone de primer nivel",
       "Ligera para ser una signature (310g)",
-      "React en antepié da respuesta snappy",
+      "Zoom Air en antepié da respuesta snappy",
       "Precio asequible para signature Nike",
     ],
     contras: [
       "Sin soporte de tobillo al ser low",
-      "Cushlon básico en talón, poco acolchado",
+      "Phylon básico en talón, poco acolchado",
       "Durabilidad outdoor limitada",
     ],
     veredicto: "Para guards explosivos que priorizan tracción y velocidad sobre protección. La Ja 2 la supera en tech, pero la Ja 1 sigue siendo una ganga a precio reducido.",
@@ -8566,7 +8566,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 3,
     año_lanzamiento: 2024,
     genero: "unisex",
-    tecnologia_clave: ["double-stacked Air Zoom", "Flyknit", "gum rubber outsole"],
+    tecnologia_clave: ["React foam midsole", "double-stacked Zoom Air en el antepié", "knit upper", "gum rubber outsole"],
     predecesor_id: null,
     sucesor_id: null,
 
@@ -8598,11 +8598,11 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
 
-    resumen: "La GT Hustle 3 empuja la amortiguación al máximo con doble Air Zoom stacked. Victor Wembanyama la usa en la NBA. La opción definitiva para pivots que buscan protección de impactos con Flyknit ligero.",
+    resumen: "La GT Hustle 3 empuja la amortiguación al máximo con doble Air Zoom stacked. Victor Wembanyama la usa en la NBA. La opción definitiva para pivots que buscan protección de impactos con un upper de punto ligero.",
     pros: [
       "Amortiguación Air Zoom doble stack excepcional",
       "81.5% de retorno energético (top del mercado)",
-      "Flyknit ligero y muy transpirable",
+      "Upper de punto ligero y muy transpirable",
       "Ideal para rodillas castigadas",
     ],
     contras: [
@@ -8925,7 +8925,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2022,
     genero: "unisex",
     signature_player: "LeBron James",
-    tecnologia_clave: ["Air Max", "Zoom Air Strobel", "React"],
+    tecnologia_clave: ["Cushlon foam", "Zoom Turbo unit en el antepié", "Zoom Air unit", "plastic shank plate"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 360,
@@ -8952,7 +8952,7 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["potente", "equilibrado"],
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
-    resumen: "El LeBron NXXT Gen es la apuesta de Nike por un LeBron más ligero y accesible. Combina Air Max en talón y Zoom Air Strobel en antepié con una construcción low que lo hace más versátil que sus predecesores. Menos monstruo, más polivalente.",
+    resumen: "El LeBron NXXT Gen es la apuesta de Nike por un LeBron más ligero y accesible. Combina espuma Cushlon con unidades Zoom Turbo y Zoom Air y un shank de plástico con una construcción low que lo hace más versátil que sus predecesores. Menos monstruo, más polivalente.",
     pros: ["Cushion premium en toda la longitud del pie", "Construcción low — más versátil que LeBrons anteriores", "Horma ancha cómoda para pies anchos", "Tracción fiable en pista cubierta"],
     contras: ["Pesado para un low (360g)", "Respuesta no al nivel de la línea Curry o GT Cut", "Precio elevado para lo que ofrece frente a rivales"],
     veredicto: "Buena opción para aleros y ala-pivots con pies anchos que quieren un LeBron sin renunciar a versatilidad. Si buscas máxima explosividad, mira otras opciones.",
@@ -8979,7 +8979,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 1,
     año_lanzamiento: 2021,
     genero: "unisex",
-    tecnologia_clave: ["Zoom Air Strobel full-length", "2x Zoom Air en talón", "Jaula TPU"],
+    tecnologia_clave: ["Zoom Strobel full-length", "Zoom Air unit en el talón", "Zoom Turbo unit en el antepié", "upper Jumpwire"],
     predecesor_id: null,
     sucesor_id: "nike-gt-jump-2",
     peso_real_g: 390,
@@ -9002,9 +9002,9 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
     resumen:
-      "La Nike Air Zoom GT Jump (la original de la saga 'Greater Than', 2021) fue uno de los mayores experimentos de amortiguacion de Nike: triple Zoom Air (Strobel full-length + dos unidades en el talon) para el maximo retorno de energia en saltos. La eligio Nikola Jokic. Pensada para hombres grandes que aterrizan con fuerza y quieren proteccion maxima sobre velocidad.",
+      "La Nike Air Zoom GT Jump (la original de la saga 'Greater Than', 2021) fue uno de los mayores experimentos de amortiguacion de Nike: triple Zoom (Strobel full-length + unidad Zoom Air en el talon + Zoom Turbo en el antepie) para el maximo retorno de energia en saltos. La eligio Nikola Jokic. Pensada para hombres grandes que aterrizan con fuerza y quieren proteccion maxima sobre velocidad.",
     pros: [
-      "Amortiguacion de las mas altas del mercado (triple Zoom Air)",
+      "Amortiguacion de las mas altas del mercado (triple Zoom)",
       "Estabilidad y soporte de tobillo excelentes",
       "Ideal para jugadores pesados e interiores",
       "Construccion robusta y duradera",
@@ -9058,7 +9058,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
     resumen:
-      "La Nike GT Jump Academy es la version asequible de la linea GT Jump: recoge la idea de amortiguacion y estabilidad para jugadores grandes, pero con espuma Phylon (mas Zoom puntual) en lugar del costoso triple Zoom Air. Buena opcion budget para pivots y ala-pivots que quieren proteccion en los aterrizajes sin pagar el tope de gama.",
+      "La Nike GT Jump Academy es la version asequible de la linea GT Jump: recoge la idea de amortiguacion y estabilidad para jugadores grandes, pero con espuma Phylon (mas Zoom puntual) en lugar del costoso triple Zoom. Buena opcion budget para pivots y ala-pivots que quieren proteccion en los aterrizajes sin pagar el tope de gama.",
     pros: [
       "Estabilidad y soporte solidos para su precio",
       "Amortiguacion comoda para jugadores pesados",
@@ -9067,7 +9067,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     contras: [
       "Pesada y poco reactiva",
-      "Sin el triple Zoom Air de la GT Jump original",
+      "Sin el triple Zoom de la GT Jump original",
       "No para guards ni juego rapido",
     ],
     veredicto:
@@ -13643,7 +13643,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "LeBron James",
-    tecnologia_clave: ["Zoom Air", "Cushlon 3.0 midsole", "Rubber outsole"],
+    tecnologia_clave: ["Zoom Air unit solo en el antepié", "espuma densa tipo Phylon", "Rubber outsole"],
     predecesor_id: null,
     peso_real_g: 410,
     altura: "mid",
@@ -13668,7 +13668,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Línea secundaria LeBron (NXXT GEN se renombró a NXXT Genisus). HG le da 8.2 global con soporte 8.7. 410g, mid-top, ideal para forwards potentes. Outdoor durabilidad media (HG 50%). MSRP $135 — el value pick LeBron sin pagar lo de la 22.",
     pros: [
       "Soporte lateral premium para wing-forwards (HG 8.7)",
-      "Cushion Zoom Air + Cushlon 3.0 sólido",
+      "Cushion sólido: Zoom Air solo en el antepié + espuma densa",
       "Mucho más barata que LeBron 22",
       "Outdoor decente para jugadores recreacionales",
     ],
@@ -15150,7 +15150,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "Giro de receta en la saga: la Freak 8 sustituye el Cushlon + Zoom de la Freak 7 por ReactX de largo completo (13% más retorno de energía que el React clásico). Más ligera y más blanda, pero sin unidad Zoom ni placa, así que pierde chispa. Salió el 1 de agosto de 2026 a 114,99 €: sigue siendo la flagship más barata de Nike.",
+      "Giro de receta en la saga: la Freak 8 sustituye el Cushlon 3.0 de la Freak 7 por ReactX de largo completo (13% más retorno de energía que el React clásico). Más ligera y más blanda, pero sin unidad Zoom ni placa, así que pierde chispa. Salió el 1 de agosto de 2026 a 114,99 €: sigue siendo la flagship más barata de Nike.",
     pros: [
       "114,99 €: relación tech/precio difícil de batir en una signature",
       "ReactX de largo completo: más blanda que la Freak 7",
@@ -15158,7 +15158,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Base ancha y baja: muy estable para jugadores grandes",
     ],
     contras: [
-      "Sin Zoom Air ni placa: menos respuesta que la Freak 7",
+      "Sin Zoom Air ni placa: respuesta más apagada por la espuma blanda",
       "Corte low: poca sujeción de tobillo",
       "Goma de interior: el outdoor la castiga",
       "Sin review de rendimiento publicada: score estimado",
