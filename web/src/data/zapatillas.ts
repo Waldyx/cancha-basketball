@@ -1523,7 +1523,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DC6YYJC1?tag=canchazapa-21", precio_actual: 173.67, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DC6YYJC1?tag=canchazapa-21", precio_actual: 179.38, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" },
     ],
   },
 
@@ -2775,6 +2775,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 100,
     links_compra: [
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CDC91PKD?tag=canchazapa-21", precio_actual: 62.76, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: re-verificado (agotado: #outOfStock)
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+flow+breakthru+4+baloncesto&tag=canchazapa-21", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -6627,6 +6628,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 80,
     links_compra: [
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B097TW3DJ9?tag=canchazapa-21", precio_actual: 306.0, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: re-verificado
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+exhibit+a+baloncesto&tag=canchazapa-21", precio_actual: 67.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -7945,6 +7947,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 55,
     links_compra: [
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0F1XG42NZ?tag=canchazapa-21", precio_actual: 35.75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: re-verificado
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-own-the-game-3%2FIF4566.html", precio_actual: 45.5, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ownthegame+2+baloncesto&tag=canchazapa-21", precio_actual: 39.00, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-14" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-ownthegame-30-hombre-negro-141378.html", precio_actual: 45.50, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
@@ -8410,7 +8413,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D1S5M6LG?tag=canchazapa-21", precio_actual: 126.03, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // s52 21-sep: el ASIN anterior (B0D9KPGJW5) esta agotado. "Nike Tenis de baloncesto Ja 1 para hombre", Departamento Hombre, add-to-cart-button, 126,03 EUR
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D9KPGJW5?tag=canchazapa-21", precio_actual: 109.16, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D9KPGJW5?tag=canchazapa-21", precio_actual: 160.41, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" },
     ],
   },
 
@@ -10508,7 +10511,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 210,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CZHS7L8J?tag=canchazapa-21", precio_actual: 271.49, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // s52 21-sep: el ASIN anterior (B09WZH67PK) esta agotado. "Jordan Hombres 13 Retro Dune Red (DJ5982 601)", Departamento Hombre, add-to-cart-button, 271,49 EUR = 1,29x MSRP
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B09WZH67PK?tag=canchazapa-21", precio_actual: 181, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B09WZH67PK?tag=canchazapa-21", precio_actual: 300.01, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" },
     ],
   },
 
@@ -11300,7 +11303,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 180,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CJX8KW27?tag=canchazapa-21", precio_actual: 245.83, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CJX8KW27?tag=canchazapa-21", precio_actual: 269.28, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" },
     ],
   },
 
@@ -12116,7 +12119,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 190,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CZHG6GP9?tag=canchazapa-21", precio_actual: 209.82, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CZHG6GP9?tag=canchazapa-21", precio_actual: 204.11, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" },
     ],
   },
 

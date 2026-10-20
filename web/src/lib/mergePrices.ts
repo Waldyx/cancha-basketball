@@ -400,6 +400,14 @@ export function mergePricesIntoShoes(
         (editorialesPorTienda.get(orig.tienda) ?? 0) > 1
       );
       if (!fresh) return orig;
+      // 20-oct-2026: una verificación EDITORIAL más reciente que el scrape manda también en
+      // el precio, no solo en el agotado (ver arriba). Amazon no da precio en las fichas con
+      // selector de talla, el scraper se queda con el de hace semanas y la ficha anunciaba
+      // la Trae Young 3 a 44,88 € (del 26-sep) cuando costaba 248. En cuanto el scraper
+      // vuelva a leer ese producto, su fecha será más nueva y volverá a mandar él.
+      if (orig.ultima_verificacion && fresh.ultima_verificacion && orig.ultima_verificacion > fresh.ultima_verificacion) {
+        return orig;
+      }
       // Guardarraíl: si el precio scrapeado es implausible vs el editorial,
       // ignorar el override por completo y conservar la entrada editorial.
       if (!precioPlausible(fresh.precio_actual ?? 0, orig.precio_actual, shoe.precio_msrp_eur)) {

@@ -415,6 +415,25 @@ describe("mergePricesIntoShoes — TAREA 9: la ficha manda sobre disponible:fals
   });
 });
 
+describe("mergePricesIntoShoes — una verificación editorial más reciente manda en el precio (20-oct)", () => {
+  // Trae Young 3: el scrape guardaba 44,88 € del 26-sep (página con selector de talla, sin
+  // precio legible después) y la ficha, re-verificada a mano el 20-oct, decía 248 €.
+  const scrapeDe = (precio: number, fecha: string) => ({
+    generated_at: fecha,
+    shoes: { z1: { links_compra: [{ tienda: "aliexpress" as const, url: awin(FICHA_A), precio_actual: precio, disponible: true, ultima_verificacion: fecha }] } },
+  });
+  it("si la ficha se verificó DESPUÉS del scrape, se queda el precio de la ficha", () => {
+    const shoes = [zapa([link({ precio_actual: 248, ultima_verificacion: "2026-10-20" })])];
+    const merged = mergePricesIntoShoes(shoes, scrapeDe(44.88, "2026-09-26"));
+    expect(merged[0].links_compra[0].precio_actual).toBe(248);
+  });
+  it("si el scrape es más reciente, manda el scrape (el caso normal de cada noche)", () => {
+    const shoes = [zapa([link({ precio_actual: 248, ultima_verificacion: "2026-10-20" })])];
+    const merged = mergePricesIntoShoes(shoes, scrapeDe(230, "2026-10-21"));
+    expect(merged[0].links_compra[0].precio_actual).toBe(230);
+  });
+});
+
 describe("mergePricesIntoShoes — guardarraíl de precio anclado también al MSRP (s48b)", () => {
   // El editorial puede ser justo el precio que estaba MAL (el scraper de Amazon leía
   // otra oferta): comparado solo con él, el precio bueno quedaba bloqueado para siempre.
