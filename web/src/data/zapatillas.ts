@@ -2699,9 +2699,9 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["explosivo", "equilibrado", "tirador"],
     },
     no_recomendada_para: { posiciones: ["pivot", "ala-pivot"], estilos: ["potente"] },
-    resumen: "La generación anterior del zapato de LaMelo. Nitrofoam sin placa — más suave y menos explosivo que el MB.04 pero muy ligero y confortable para bases y escoltas.",
+    resumen: "La generación anterior del zapato de LaMelo. Nitrofoam sin placa — más suave y menos explosivo que el MB.04 pero confortable para bases y escoltas.",
     pros: [
-      "Ligero y ágil",
+      "Ágil y cómodo",
       "Nitrofoam da buen cushion para el peso",
       "Tracción herringbone sólida",
       "Precio actual accesible",
@@ -3783,7 +3783,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La quinta entrega de LaMelo monta Nitrofoam con un upper de mesh engineered inspirado en el número 1 de LaMelo. La más ligera y responsiva de la línea MB hasta la fecha.",
+      "La quinta entrega de LaMelo monta Nitrofoam con un upper de mesh engineered inspirado en el número 1 de LaMelo. La más responsiva de la línea MB hasta la fecha.",
     pros: [
       "Nitrofoam con foco en el antepié",
       "Muy buena ventilación y respuesta",
@@ -6206,7 +6206,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Zoom Air en el talón: buena protección de impacto para tiradores",
       "Outsole herringbone con excelente agarre en pista cubierta",
       "Upper de cuero sintético cómodo y de tacto premium",
-      "Muy ligera para ser una low-top con Zoom",
+      "Peso razonable para ser una low-top con Zoom",
       "Suele encontrarse rebajada — muy buen valor dentro del catálogo Nike",
     ],
     contras: [
@@ -6509,7 +6509,7 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["explosivo", "tirador", "equilibrado"],
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
-    resumen: "La Dame 8 con Bounce Pro es una de las zapatillas más rápidas de Adidas. Ligera, reactiva y con buena tracción herringbone.",
+    resumen: "La Dame 8 con Bounce Pro es una de las zapatillas más rápidas de Adidas. Reactiva y con buena tracción herringbone.",
     pros: ["Respuesta excelente", "Buena ventilación"],
     contras: ["Cushion modesto para jugadores pesados", "Soporte lateral básico"],
     veredicto: "Perfecta para bases tiradores que quieren velocidad y reactividad a buen precio.",
@@ -8457,7 +8457,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["pivot", "ala-pivot"], estilos: ["potente"] },
 
-    resumen: "Tercera generación de la firma de Trae Young. Tracción dual excepcional con foam wedge reactivo a ras del suelo. Ligera, rápida y con lockdown de primer nivel para guards ágiles.",
+    resumen: "Tercera generación de la firma de Trae Young. Tracción dual excepcional con foam wedge reactivo a ras del suelo. Rápida y con lockdown de primer nivel para guards ágiles.",
     pros: [
       "Tracción indoor excepcional (dual-pattern)",
       "Muy reactiva y baja al suelo",
@@ -8680,7 +8680,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Cushion ligeramente menos plush que la Kawhi 1",
       "Horma algo estrecha al inicio",
     ],
-    veredicto: "La evolución natural de la Kawhi 1. Más rápida y ligera sin sacrificar la tracción que hizo famosa a la primera. La mejor opción NB para aleros versátiles.",
+    veredicto: "La evolución natural de la Kawhi 1. Más rápida sin sacrificar la tracción que hizo famosa a la primera. La mejor opción NB para aleros versátiles.",
 
     imagen_principal: "/shoes/nb-kawhi-2.webp",
     imagenes: [],
@@ -9187,7 +9187,6 @@ const _rawZapatillas: Zapatilla[] = [
     pros: [
       "Boost de longitud completa: buena relación amortiguación-respuesta",
       "Tracción herringbone multidireccional",
-      "Ligera para su categoría",
       "Buena ventilación gracias a la malla tejida",
     ],
     contras: [
@@ -9407,7 +9406,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Nike KD 19 marca un giro radical en la línea de Kevin Durant: abandona el knit y apuesta por una estructura TPU tipo 'daga' inspirada en su apodo 'Slim Reaper'. El Zoom Strobel full-length paired con Cushlon 3.0 ofrece el mejor balance respuesta-amortiguación de la línea hasta la fecha. Más ligera y reactiva que la KD 18.",
+      "La Nike KD 19 marca un giro radical en la línea de Kevin Durant: abandona el knit y apuesta por una estructura TPU tipo 'daga' inspirada en su apodo 'Slim Reaper'. El Zoom Strobel full-length paired con Cushlon 3.0 ofrece el mejor balance respuesta-amortiguación de la línea hasta la fecha.",
     pros: [
       "Zoom Strobel full-length: bounce y respuesta top en 2025",
       "Cushlon 3.0 absorbe impactos sin sacrificar court feel",
@@ -9576,7 +9575,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Una de las signature más económicas de adidas",
       "Tracción multidireccional fiable en pista interior",
       "Upper stretch-woven ligero y bien ventilado",
-      "Ligera y cómoda desde el primer día",
+      "Cómoda desde el primer día",
       "Buena relación calidad-precio para guards y escoltas",
     ],
     contras: [
