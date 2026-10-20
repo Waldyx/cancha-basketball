@@ -381,7 +381,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2024,
     genero: "unisex",
     signature_player: "Kyrie Irving",
-    tecnologia_clave: ["Nitroedge foam", "Carbon plate"],
+    tecnologia_clave: ["Nitro Edge foam (espuma infundida de nitrógeno)", "Shank TPU en mediopié", "Paneles TPU laterales", "Suela de herringbone"],
     predecesor_id: null,
     sucesor_id: "anta-kai-2",
 
@@ -416,10 +416,10 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La signature oficial de Kyrie Irving con Anta (tras dejar Nike). Tracción de las mejores del año según WearTesters, placa de carbono para respuesta y un precio que la hace imbatible en relación calidad-precio. Apuesta del momento para guardias técnicos.",
+      "La signature oficial de Kyrie Irving con Anta (tras dejar Nike). Tracción de las mejores del año según WearTesters, shank TPU en el mediopié para estabilidad y un precio que la hace imbatible en relación calidad-precio. Apuesta del momento para guardias técnicos.",
     pros: [
       "Tracción excepcional, una de las mejores 2024-25",
-      "Respuesta y court feel premium gracias a la placa de carbono",
+      "Respuesta y court feel premium gracias a la espuma Nitro Edge y al shank TPU",
       "Excelente relación calidad-precio (€115)",
       "Low-top moderno y cómodo",
     ],
@@ -982,7 +982,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Dwyane Wade",
-    tecnologia_clave: ["BOOM foam full-length", "Carbon fiber plate", "GCU outsole"],
+    tecnologia_clave: ["BOOM foam full-length con inserto Super Boom en talón", "TPU Probar Loc torsion plate (placa muelle)", "Caja de EVA en talón"],
     predecesor_id: "lining-wow-allcity-13",
     peso_real_g: 370,
     altura: "low",
@@ -1004,10 +1004,10 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["pivot"] },
     resumen:
-      "Top-tier performance a precio mid-tier (~149$). Según WearTesters, Way of Wade puede estar arrebatándole la corona a Jordan Brand: ofrecen un nivel técnico altísimo en un modelo que ni siquiera es su flagship. BOOM foam full-length + carbon plate + GCU outsole por menos de 130€.",
+      "Top-tier performance a precio mid-tier (~149$). Según WearTesters, Way of Wade puede estar arrebatándole la corona a Jordan Brand: ofrecen un nivel técnico altísimo en un modelo que ni siquiera es su flagship. BOOM foam full-length + Super Boom en el talón + placa TPU por menos de 130€.",
     pros: [
       "Tracción excepcional (HG 9.5/10)",
-      "Cushion BOOM + carbon plate de gama alta",
+      "Cushion BOOM + Super Boom y placa TPU de gama alta",
       "Soporte lateral muy sólido",
       "Outdoor durability decente (raro en zapas con foam premium)",
     ],
@@ -1168,7 +1168,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Kyrie Irving",
-    tecnologia_clave: ["Foam full-length", "Malla ultraligera", "Insertos termoplásticos laterales"],
+    tecnologia_clave: ["Amortiguación A-SHOCK PRO", "Upper de malla MONO ultraligera", "Paneles laterales TPU", "Estructura de nylon en X en el mediopié"],
     predecesor_id: "anta-kai-1-speed",
     peso_real_g: 360,
     altura: "low",
@@ -1190,7 +1190,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["pivot", "ala-pivot"], estilos: ["potente"] },
     resumen:
-      "Versión Speed del KAI 2: silueta más estilizada y redondeada que el KAI 2 normal, pensada para movimientos rápidos del pie y estructura más ligera. Tobillera suave con almohadilla para tendón de Aquiles, malla ultraligera y entresuela de espuma full-length. Anta recomienda uso indoor.",
+      "Versión Speed del KAI 2: silueta más estilizada y redondeada que el KAI 2 normal, pensada para movimientos rápidos del pie y estructura más ligera. Tobillera suave con almohadilla para tendón de Aquiles, malla ultraligera y amortiguación A-SHOCK PRO. Anta recomienda uso indoor.",
     pros: [
       "Diseñada específicamente para bases que priorizan velocidad",
       "Malla ultraligera muy transpirable",
@@ -1230,7 +1230,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2026,
     genero: "unisex",
     signature_player: "Kyrie Irving",
-    tecnologia_clave: ["Nitrogen foam", "TPU side cage", "Herringbone outsole"],
+    tecnologia_clave: ["Nitrogen (N2) foam sobre base ETPU", "Shank de fibra de carbono", "Paredes laterales de espuma envolventes", "Suela multidireccional de dibujo ondulado", "Upper de malla TPU tejida"],
     predecesor_id: "anta-kai-2",
     peso_real_g: 390,
     altura: "low",
@@ -2301,7 +2301,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 5,
     año_lanzamiento: 2024,
     genero: "unisex",
-    tecnologia_clave: ["A-SHOCK stabilizer", "Nitrogen foam", "Carbon fiber plate"],
+    tecnologia_clave: ["A-SHOCK Stabilizer (placa moderadora)", "A-Flash Edge foam", "Carbon fiber plate", "Midfoot rubber cage", "Wavebone traction"],
     peso_real_g: 380,
     altura: "mid",
     horma: "normal",
@@ -2322,9 +2322,9 @@ const _rawZapatillas: Zapatilla[] = [
       lesiones_compatibles: ["fascia"],
     },
     no_recomendada_para: { estilos: ["explosivo"] },
-    resumen: "Anta budget con A-SHOCK stabilizer y nitrógeno. Sorprende por la calidad: cushion bouncy, soporte estable y rubber durable. Top option para pies planos y outdoor.",
+    resumen: "Anta budget con A-SHOCK stabilizer y espuma A-Flash Edge. Sorprende por la calidad: cushion bouncy, soporte estable y rubber durable. Top option para pies planos y outdoor.",
     pros: [
-      "Cushion nitrógeno bouncy",
+      "Cushion A-Flash Edge bouncy",
       "Carbon plate aporta lively launch",
       "Rubber high-performance durable",
       "Excelente para outdoor y pies planos",
@@ -4032,7 +4032,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 2,
     año_lanzamiento: 2026,
     genero: "unisex",
-    tecnologia_clave: ["Li-Ning BOOM foam", "Carbon fiber plate", "Full-length cushion"],
+    tecnologia_clave: ["Super BOOM foam (mediasuela e insole, antepié ahuecado con pod)", "Placa muelle de fibra de carbono de longitud completa", "Talonera de fibra de carbono", "Suela GCU en espiga"],
 
     peso_real_g: 280, // WearTesters: 9.9 oz (280 g) en US9
     altura: "low",
@@ -4065,9 +4065,9 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "WearTesters la nombró 'mejor zapatilla de baloncesto de 2026 hasta la fecha'. BOOM foam + placa de carbono a 120€ es una combinación que avergüenza a muchos modelos que cuestan el doble. La mejor relación rendimiento-precio del mercado en 2026.",
+      "WearTesters la nombró 'mejor zapatilla de baloncesto de 2026 hasta la fecha'. Super BOOM + placa de carbono a 120€ es una combinación que avergüenza a muchos modelos que cuestan el doble. La mejor relación rendimiento-precio del mercado en 2026.",
     pros: [
-      "BOOM foam + placa carbono a precio accesible",
+      "Super BOOM + placa carbono a precio accesible",
       "Una de las más ligeras del catálogo (280 g)",
       "Tracción excepcional",
       "Soporte y estabilidad muy por encima de su precio",
@@ -4105,7 +4105,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Klay Thompson",
-    tecnologia_clave: ["Nitrogen foam", "A-FLASHEDGE technology", "Woven upper"],
+    tecnologia_clave: ["NITRO 80+ midsole (espuma de nitrógeno insignia de Anta)", "Upper tejido reforzado", "Sistema TPU Lockdown 180° en talón", "Suela LTR Liquid Rubber"],
     predecesor_id: "anta-kt-10",
 
     peso_real_g: 400,
@@ -4139,7 +4139,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La KT 11 estrena upper de tejido woven de alta calidad y mantiene el nitrógeno foam que hizo grande a la línea. El jersey número 31 de Klay (ahora en Dallas) inspira el diseño. Una de las mejores opciones para tiradores y escoltas que buscan tracción excepcional y un upper premium sin pagar precio Nike.",
+      "La KT 11 estrena upper de tejido woven de alta calidad y actualiza la espuma de nitrógeno de la línea a NITRO 80+. El jersey número 31 de Klay (ahora en Dallas) inspira el diseño. Una de las mejores opciones para tiradores y escoltas que buscan tracción excepcional y un upper premium sin pagar precio Nike.",
     pros: [
       "Upper woven de calidad superior",
       "Tracción excelente para exterior moderado",
@@ -7082,7 +7082,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 12,
     año_lanzamiento: 2024,
     genero: "unisex",
-    tecnologia_clave: ["CLOUD III foam", "herringbone", "carbon plate"],
+    tecnologia_clave: ["Li-Ning BOOM de longitud completa", "Light Foam Plus", "Pieza TPU grande para torsión", "Suela TUFF RB"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 340,
@@ -7109,7 +7109,7 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["explosivo", "equilibrado", "tirador"],
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
-    resumen: "Una de las mejores zapatillas de tracción por precio del mercado. La Sonic 12 de Li-Ning con carbon plate y CLOUD III foam compite con marcas que doblan su precio.",
+    resumen: "Una de las mejores zapatillas de tracción por precio del mercado. La Sonic 12 de Li-Ning con BOOM y Light Foam Plus compite con marcas que doblan su precio.",
     pros: ["Tracción excelente", "Relación calidad-precio imbatible", "Ligera para su rendimiento"],
     contras: ["Durabilidad outdoor limitada", "Difícil de encontrar en tiendas físicas españolas"],
     veredicto: "La alternativa de presupuesto medio más sorprendente. Si no te importa comprar online, bate a zapatillas el doble de caras en tracción.",
@@ -13768,7 +13768,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2023,
     genero: "unisex",
     signature_player: "Dwyane Wade",
-    tecnologia_clave: ["BOOM foam", "Carbon fiber plate", "GCU outsole"],
+    tecnologia_clave: ["BOOM foam de longitud completa", "Doble shank (dos placas) con jaula de plástico en el mediopié", "Suela TUFF RB"],
     predecesor_id: null,
     peso_real_g: 440,
     altura: "low",
@@ -13790,7 +13790,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["tirador"] },
     resumen:
-      "Penúltima All City antes de la 13. HG la considera mejor incluso que algunas WoW flagship: 8.9 global con cushion 9.4 (¡casi perfecto!) y tracción 9.3. BOOM foam + carbon plate por debajo del precio mid-tier. Pesa 440g (la más pesada de la línea), por eso no es para guards rápidos. Outdoor excelente (HG 83%) — apta para asfalto.",
+      "Penúltima All City antes de la 13. HG la considera mejor incluso que algunas WoW flagship: 8.9 global con cushion 9.4 (¡casi perfecto!) y tracción 9.3. BOOM foam + doble shank por debajo del precio mid-tier. Pesa 440g (la más pesada de la línea), por eso no es para guards rápidos. Outdoor excelente (HG 83%) — apta para asfalto.",
     pros: [
       "Cushion BOOM excepcional (HG 9.4/10)",
       "Tracción premium (HG 9.3)",
@@ -13831,7 +13831,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Dwyane Wade",
-    tecnologia_clave: ["BOOM foam", "TPU midfoot shank", "GCU outsole"],
+    tecnologia_clave: ["BOOM foam de longitud completa con Light Foam Ultra en el talón", "Probar Loc TPU midfoot shank", "Suela Tough RB"],
     predecesor_id: null,
     peso_real_g: 360,
     altura: "low",
@@ -13920,7 +13920,7 @@ const _rawZapatillas: Zapatilla[] = [
       "La 361° Joker 1 es la firma debut de Nikola Jokić (MVP NBA) con la marca china. Espuma CQT + shank de plástico y un talón firme para el pívot. Pensada para jugadores grandes que castigan la zapatilla: aleros pesados y pívots móviles. Precio brutal para llevar la signature del MVP.",
     pros: [
       "Signature de Nikola Jokić — el MVP NBA",
-      "Carbon plate + QU!KFOAM Lite = empuje real",
+      "Espuma CQT + shank de plástico = empuje real",
       "Talón firme y shank de plástico: estabilidad para pívots",
       "Precio competitivo (119€) frente a flagship Nike/Adidas (170€+)",
     ],
@@ -13977,7 +13977,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
     resumen:
-      "La 361° Joker 2 arregla lo que lastraba a la Joker 1: el upper rígido. Baja a low-top, pierde 30 g y cambia el QU!KFOAM Lite por un doble sistema CQT Qu!k Tech + QU!KLIGHT con espuma supercrítica en el talón. La suela Diamond Grip sale pegajosa de caja y los tres paneles de torsión (medial, lateral e inferior) la dejan rígida como una tabla en torsión. WearTesters la puntúa 8/10 y HoopsGeek 8,6 sobre 5 reviews expertas: es la mejor zapatilla que ha hecho 361° para jugadores grandes.",
+      "La 361° Joker 2 arregla lo que lastraba a la Joker 1: el upper rígido. Baja a low-top, pierde 30 g y cambia la espuma CQT sencilla por un doble sistema CQT Qu!k Tech + QU!KLIGHT con espuma supercrítica en el talón. La suela Diamond Grip sale pegajosa de caja y los tres paneles de torsión (medial, lateral e inferior) la dejan rígida como una tabla en torsión. WearTesters la puntúa 8/10 y HoopsGeek 8,6 sobre 5 reviews expertas: es la mejor zapatilla que ha hecho 361° para jugadores grandes.",
     pros: [
       "Protección de impacto de élite en el talón — para pívots que caen mucho",
       "Base ancha y plana + 3 paneles de torsión: estabilidad de las mejores del mercado",
@@ -14078,7 +14078,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 6,
     año_lanzamiento: 2024,
     genero: "unisex",
-    tecnologia_clave: ["QU!KFOAM", "Carbon plate", "Pebax shank", "Multi-directional herringbone"],
+    tecnologia_clave: ["Entresuela Qu!kCQTECH (CQT)", "Placa de fibra de carbono Qu!kBONE y TPU", "Upper tejido Jiaozong"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 365,
@@ -14101,9 +14101,9 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
     resumen:
-      "La Big3 6.0 Pro es la línea de rendimiento histórica de 361°, ahora en su sexta iteración Pro. Low-top ligero, placa de carbono + Pebax shank, QU!KFOAM con buena reactividad. Diseñada para bases y escoltas eléctricos que necesitan cambios de ritmo y respuesta inmediata. Compite cara a cara con las gamas medias-altas tradicionales.",
+      "La Big3 6.0 Pro es la línea de rendimiento histórica de 361°, ahora en su sexta iteración Pro. Low-top ligero, placa de carbono Qu!kBONE + TPU, entresuela Qu!kCQTECH con buena reactividad. Diseñada para bases y escoltas eléctricos que necesitan cambios de ritmo y respuesta inmediata. Compite cara a cara con las gamas medias-altas tradicionales.",
     pros: [
-      "Carbon plate + Pebax shank = respuesta de élite",
+      "Carbon plate + TPU = respuesta de élite",
       "Tracción multidireccional excelente en interior",
       "Ligera para llevar tantísima tecnología (365g)",
       "Precio competitivo (105€) — value premium real",
@@ -14135,7 +14135,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 7,
     año_lanzamiento: 2024,
     genero: "unisex",
-    tecnologia_clave: ["QU!KFOAM Lite", "Rubber outsole grueso", "Mesh+TPU upper"],
+    tecnologia_clave: ["Amortiguación CQT de longitud completa", "Zona de propulsión Soaring Area", "Goma blanda de baja dureza", "Shank/placa de torsión completa y talonera TPU grande"],
     predecesor_id: null,
     sucesor_id: "361-zen-8",
     peso_real_g: 395,
@@ -14166,7 +14166,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Construcción mesh+TPU sólida",
     ],
     contras: [
-      "QU!KFOAM Lite es más básico que el de la Big3 Pro",
+      "La espuma CQT es más básica que la de la gama alta de 361°",
       "Cushion limitado para jugadores >90kg",
       "Estética sobria — no llama la atención",
     ],
@@ -14194,7 +14194,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Austin Reaves",
-    tecnologia_clave: ["Lightning foam", "Carbon midfoot plate", "TPU lateral cage", "Multi-grip herringbone"],
+    tecnologia_clave: ["Espuma ETPU Showtime de longitud completa", "Placas TPU internas y externas", "Shank moldeado", "Suela de espiga gruesa de goma firme", "Outrigger ancho"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 360,
@@ -14217,11 +14217,11 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
     resumen:
-      "La Rigorer AR3 es la tercera signature de Austin Reaves (Lakers), la más refinada de la saga. Suela mejorada que muerde en parqué de forma brutal, sujeción lateral renovada y cushion Lightning foam más estable. Marca china que ha ido subiendo cada año el nivel — la AR3 es su pico técnico.",
+      "La Rigorer AR3 es la tercera signature de Austin Reaves (Lakers), la más refinada de la saga. Suela mejorada que muerde en parqué de forma brutal, sujeción lateral renovada y cushion Showtime (ETPU) más estable. Marca china que ha ido subiendo cada año el nivel — la AR3 es su pico técnico.",
     pros: [
       "Tracción multidireccional excepcional en interior",
       "Sujeción lateral muy mejorada vs AR1/AR2",
-      "Carbon plate aporta respuesta",
+      "Las placas TPU aportan estabilidad y respuesta",
       "Signature de Austin Reaves a precio asequible",
     ],
     contras: [
@@ -14251,7 +14251,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 2,
     año_lanzamiento: 2024,
     genero: "unisex",
-    tecnologia_clave: ["Rearfoot GEL", "Upper de PU", "Paneles laterales TPU", "Outsole X-groove"],
+    tecnologia_clave: ["FLYTEFOAM PROPEL", "Rearfoot GEL", "Upper de malla PU con paredes laterales de esponja dura", "Suela N.C. Rubber con patrón X-groove"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 400,
@@ -14283,7 +14283,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     contras: [
       "Pesada para ser low-top (~400g)",
-      "Amortiguacion justa (solo Rearfoot GEL)",
+      "Amortiguacion justa (FLYTEFOAM PROPEL + Rearfoot GEL)",
       "Upper de PU poco transpirable",
       "Dificil de conseguir en Espana (importar)",
     ],
@@ -14362,7 +14362,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 4,
     año_lanzamiento: 2025,
     genero: "unisex",
-    tecnologia_clave: ["FlyteFoam", "GEL", "Lengueta partida"],
+    tecnologia_clave: ["FLYTEFOAM", "TPU TRUSSTIC en el mediopié de la suela", "Lengueta partida"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 365,
@@ -14420,7 +14420,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2023,
     genero: "unisex",
     signature_player: "Austin Reaves",
-    tecnologia_clave: ["Lightning foam", "Low-top minimalista", "Herringbone outsole"],
+    tecnologia_clave: ["Showtime foam en el antepié", "Talón de EVA y Phylon", "Suela radial multidireccional de goma flexible"],
     predecesor_id: null,
     sucesor_id: "rigorer-ar3",
     peso_real_g: 320,
@@ -14478,7 +14478,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2024,
     genero: "unisex",
     signature_player: "Joel Embiid",
-    tecnologia_clave: ["Hyper Burst foam", "Goodyear rubber outsole", "TPU heel counter"],
+    tecnologia_clave: ["5Gen foam midsole", "Shank interno de torsión en la mediasuela", "Goodyear Performance Outsole", "Jaula háptica 3D impresa que baja hasta la suela", "Plantilla Move Foam"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 405,
@@ -14501,10 +14501,10 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
     resumen:
-      "La Skechers SKX JE1 es la primera signature real de Joel Embiid (MVP NBA) tras dejar Under Armour. Hyper Burst foam + Goodyear rubber (la misma tecnología de neumáticos premium). Pensada para jugadores grandes que castigan la zapatilla. Skechers entra fuerte en NBA performance.",
+      "La Skechers SKX JE1 es la primera signature real de Joel Embiid (MVP NBA) tras dejar Under Armour. 5Gen foam con shank de torsión + suela Goodyear Performance (marca de neumáticos). Pensada para jugadores grandes que castigan la zapatilla. Skechers entra fuerte en NBA performance.",
     pros: [
       "Signature del MVP Joel Embiid — gancho cultural",
-      "Hyper Burst foam — cushion premium reactivo",
+      "5Gen foam con shank de torsión — cushion estable y reactivo",
       "Goodyear outsole — tracción y durabilidad serias",
       "Precio muy competitivo (130€) para signature MVP",
     ],
@@ -14593,7 +14593,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 1,
     año_lanzamiento: 2024,
     genero: "unisex",
-    tecnologia_clave: ["Air-Cooled Memory Foam", "Rubber outsole", "Engineered mesh"],
+    tecnologia_clave: ["Espuma 5GEN en la mediasuela", "Plantilla Move Foam", "Suela de goma no marcante", "Upper perforado"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 395,
@@ -14616,7 +14616,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { estilos: ["explosivo", "potente"] },
     resumen:
-      "La SKX League es la opción budget de Skechers Basketball: high-top con Air-Cooled Memory Foam (la plantilla cómoda histórica de la marca). Pensada para baloncesto recreativo, entrenamientos de escuela o adolescentes empezando. Comodidad inmediata, sin pretensiones de élite.",
+      "La SKX League es la opción budget de Skechers Basketball: high-top con espuma 5GEN y plantilla Move Foam. Pensada para baloncesto recreativo, entrenamientos de escuela o adolescentes empezando. Comodidad inmediata, sin pretensiones de élite.",
     pros: [
       "Comodidad legendaria Skechers desde el primer uso",
       "Precio agresivo (95€) bajo barrera 100€",
@@ -14649,7 +14649,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 1,
     año_lanzamiento: 2024,
     genero: "unisex",
-    tecnologia_clave: ["Hyper Burst Pro", "Goodyear rubber outsole", "Carbon midfoot"],
+    tecnologia_clave: ["Mediasuela Hyper Burst de doble densidad", "Plantilla Hyper Burst Pro", "Goodyear Performance Outsole", "TPU de bloqueo del pie", "Swirl Tech (flexibilidad)"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 380,
@@ -14672,10 +14672,10 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { estilos: ["explosivo"] },
     resumen:
-      "La Skechers SKX Float es la apuesta de Skechers por la máxima protección contra impactos. Hyper Burst Pro (la variante más reactiva) + carbon midfoot + suela Goodyear. Pensada para aleros pesados y pívots móviles que necesitan cushion plush sin sacrificar respuesta. El gancho: comodidad de LeBron 22 con la ligereza de una zapa mid-top.",
+      "La Skechers SKX Float es la apuesta de Skechers por la máxima protección contra impactos. mediasuela Hyper Burst + plantilla Hyper Burst Pro + TPU de sujeción + suela Goodyear. Pensada para aleros pesados y pívots móviles que necesitan cushion plush sin sacrificar respuesta. El gancho: comodidad de LeBron 22 con la ligereza de una zapa mid-top.",
     pros: [
       "Amortiguación 10/10 — la mejor de Skechers para basket",
-      "Carbon midfoot da respuesta a una zapa de cushion",
+      "El TPU de sujeción aporta estabilidad a una zapa de cushion",
       "Goodyear outsole — tracción + durabilidad",
       "Alternativa real a LeBron 22 a precio inferior (155€)",
     ],
@@ -15294,7 +15294,7 @@ const _rawZapatillas: Zapatilla[] = [
     resumen:
       "Sucesora directa de la Zen 7: sube a un upper de punto biomimético y estrena una mediasuela DUAL con hasta un 70% de rebote, sin perder la vocación todoterreno interior/exterior de la línea. 361° la vende en su tienda oficial (361sport.com/es-es) con 8 colorways de lanzamiento a 130€, pero todavía no ha llegado a ninguna tienda afiliada en España.",
     pros: [
-      "Mediasuela DUAL con hasta 70% de rebote — mejora directa sobre el QU!KFOAM Lite de la Zen 7",
+      "Mediasuela DUAL con hasta 70% de rebote — mejora directa sobre la espuma CQT de la Zen 7",
       "Upper de punto biomimético: más transpirable que el mesh+TPU de la generación anterior",
       "Construcción pensada para exterior, como toda la línea Zen",
       "8 colorways de lanzamiento ya disponibles en tienda oficial",
