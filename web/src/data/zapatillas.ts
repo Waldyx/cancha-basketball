@@ -14691,7 +14691,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-09",
     precio_msrp_eur: 155,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=skechers+skx+float+baloncesto&tag=canchazapa-21", precio_actual: 155, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DC5JHFF5?tag=canchazapa-21", precio_actual: 92.7, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: SKX FLOAT-253000, cordones, «Caña media», en stock
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DQ67VQV6?tag=canchazapa-21", precio_actual: 71.7, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: 253001 es OTRA variante (cierre elástico; Skechers la describe «Low top collar»)
     ],
   },
 
