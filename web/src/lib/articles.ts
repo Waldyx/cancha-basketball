@@ -2089,7 +2089,7 @@ export const ARTICLES: Article[] = [
   <li>Respuesta: <strong>{{nota:nike-ja-3:respuesta}}</strong> — bounce reactivo, primer paso rápido</li>
   <li>Soporte lateral: <strong>{{nota:nike-ja-3:soporte_lateral}}</strong> — aceptable para guard, no es su punto fuerte</li>
   <li>Estabilidad: <strong>{{nota:nike-ja-3:estabilidad}}</strong> — el ZoomX es algo blando bajo carga extrema</li>
-  <li>Ligereza: <strong>{{nota:nike-ja-3:peso_score}}</strong> — {{peso:nike-ja-3}}, una de las más ligeras del grupo con cushion</li>
+  <li>Ligereza: <strong>{{nota:nike-ja-3:peso_score}}</strong> — {{peso:nike-ja-3}}, peso medio para una zapatilla con tanto cushion</li>
   <li>Durabilidad outdoor: <strong>{{nota:nike-ja-3:durabilidad_outdoor}}</strong> — goma completa, aguanta asfalto moderado</li>
   <li>Ventilación: <strong>{{nota:nike-ja-3:ventilacion}}</strong></li>
 </ul>

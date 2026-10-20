@@ -738,7 +738,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2024,
     genero: "unisex",
     tecnologia_clave: ["ZoomX foam", "Phylon carrier", "Translucent rubber"],
-    peso_real_g: 357,
+    peso_real_g: 335,
     altura: "low",
     horma: "normal",
     drop_mm: 6,
@@ -2424,7 +2424,7 @@ const _rawZapatillas: Zapatilla[] = [
     genero: "unisex",
     signature_player: "LeBron James",
     tecnologia_clave: ["Cushlon 3.0", "Air Zoom"],
-    peso_real_g: 440,
+    peso_real_g: 403,
     altura: "low",
     horma: "ancha",
     drop_mm: 10,
@@ -2458,7 +2458,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Durabilidad outdoor sólida",
     ],
     contras: [
-      "Muy pesada para juego explosivo",
+      "Algo pesada (403 g) para juego muy explosivo",
       "Court feel casi nulo",
       "Ventilación mejorable",
     ],
@@ -3163,7 +3163,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2023,
     genero: "unisex",
     tecnologia_clave: ["Zoom Air units en el antepié (dos)", "Zoom Air strobel", "React foam en el talón", "Jump Frame"],
-    peso_real_g: 390,
+    peso_real_g: 442,
     altura: "high",
     horma: "normal",
     drop_mm: 10,
@@ -3310,7 +3310,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: "nike-ja-2",
     sucesor_id: "nike-ja-4",
 
-    peso_real_g: 310,
+    peso_real_g: 379,
     altura: "low",
     horma: "estrecha",
     drop_mm: 8,
@@ -3328,7 +3328,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 9,
     },
     categoria_principal: "responsive",
-    tags: ["trending","signature", "guard", "explosivo", "moderna", "ligera"],
+    tags: ["trending", "signature", "guard", "explosivo", "moderna"],
 
     ideal_para: {
       posiciones: ["base", "escolta"],
@@ -3341,10 +3341,10 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "El primer zapato de Ja diseñado completamente desde cero. Más ligero y más reactivo que el Ja 2, con tracción herringbone brutalmente agresiva y una entresuela de ZoomX enjaulada. El zapato de los guards explosivos de 2025.",
+      "El primer zapato de Ja diseñado completamente desde cero. Más reactivo que el Ja 2, aunque algo más pesado (379 g frente a 336 g), con tracción herringbone brutalmente agresiva y una entresuela de ZoomX enjaulada. El zapato de los guards explosivos de 2025.",
     pros: [
       "Tracción herringbone entre las mejores del año",
-      "Extremadamente ligera para su nivel de tech",
+      "Peso medio (379 g) para su nivel de tech",
       "ZoomX muy reactivo",
       "Ventilación superior",
     ],
@@ -4182,7 +4182,7 @@ const _rawZapatillas: Zapatilla[] = [
     tecnologia_clave: ["Hexalite cushion (talón)", "Foam midsole", "Leather upper"],
     predecesor_id: null,
     sucesor_id: null,
-    peso_real_g: 405,
+    peso_real_g: 479,
     altura: "mid",
     horma: "normal",
     drop_mm: 9,
@@ -4981,7 +4981,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: null,
     sucesor_id: null,
 
-    peso_real_g: 400,
+    peso_real_g: 442,
     altura: "low",
     horma: "normal",
     drop_mm: 9,
@@ -4999,7 +4999,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 10,
     },
     categoria_principal: "responsive",
-    tags: ["trending","low-top", "signature", "ligera", "rapida", "explosiva"],
+    tags: ["trending", "low-top", "signature", "rapida", "explosiva"],
 
     ideal_para: {
       posiciones: ["base", "escolta"],
@@ -5012,10 +5012,10 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Nike Book 2 es la segunda zapatilla signature de Devin Booker. Mejora significativa sobre la Book 1: Zoom Air en el antepié para respuesta en arranques, midsole Cushlon para cushion durante el juego, upper mesh ligero. Diseñada para jugadores rápidos y tiradores.",
+      "La Nike Book 2 es la segunda zapatilla signature de Devin Booker. Mejora significativa sobre la Book 1: Zoom Air en el antepié para respuesta en arranques, midsole Cushlon para cushion durante el juego, upper de malla. Diseñada para jugadores rápidos y tiradores.",
     pros: [
       "Zoom Air en antepié: respuesta excelente en cambios de dirección",
-      "Ligera y cómoda desde el primer uso",
+      "Cómoda desde el primer uso, aunque no es ligera (442 g)",
       "Buen agarre con outsole multidireccional",
       "Upper mesh transpirable",
     ],
@@ -5372,7 +5372,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     // Peso y drop ESTIMADOS: Nike no los publica y WearTesters no los midió. Anclados a la
     // Sabrina 3 verificada (346 g / 6 mm) + el TPU full-length que añade la 4.
-    peso_real_g: 352,
+    peso_real_g: 391,
     altura: "low",
     horma: "normal",
     drop_mm: 6,
@@ -8761,7 +8761,7 @@ const _rawZapatillas: Zapatilla[] = [
     tecnologia_clave: ["Full-length Air Strobel", "Phylon/EVA foam midsole", "herringbone"],
     predecesor_id: null,
     sucesor_id: "jordan-tatum-3",
-    peso_real_g: 408,
+    peso_real_g: 366,
     altura: "low",
     horma: "normal",
     drop_mm: 8,
@@ -8816,7 +8816,7 @@ const _rawZapatillas: Zapatilla[] = [
     tecnologia_clave: ["Drop-in midsole with Formula 23 foam", "Forefoot Zoom Air unit", "herringbone"],
     predecesor_id: null,
     sucesor_id: "jordan-zion-4",
-    peso_real_g: 415,
+    peso_real_g: 383,
     altura: "low",
     horma: "estrecha",
     drop_mm: 10,
@@ -8843,7 +8843,7 @@ const _rawZapatillas: Zapatilla[] = [
     no_recomendada_para: { posiciones: ["base", "escolta"], estilos: ["equilibrado"] },
     resumen: "Tercera firma de Zion Williamson, diseñada para aguantar el impacto brutal de un jugador de 130kg. Formula 23 en mediasuela drop-in con Zoom Air en el antepié ofrecen una protección de impactos sólida con la menor altura de pila de la línea Zion.",
     pros: ["Protección de impactos sólida para jugadores muy pesados", "Sujeción segura una vez rodada", "Tracción herringbone agresiva", "Build quality premium"],
-    contras: ["Muy pesada (415g) — no apta para guards", "Cara para lo que ofrece técnicamente", "Superada ya por la Zion 4", "Va estrecha: con pie ancho puede apretar en el antepié"],
+    contras: ["Peso medio-alto (383 g): no es la más ágil para guards", "Cara para lo que ofrece técnicamente", "Superada ya por la Zion 4", "Va estrecha: con pie ancho puede apretar en el antepié"],
     veredicto: "La opción definitiva para pivots y ala-pivots de más de 95kg. Si tu cuerpo pide mucha protección de impactos, esta es una de las opciones más completas de Jordan.",
     imagen_principal: "/shoes/jordan-zion-3.webp",
     imagenes: [],
@@ -12253,7 +12253,7 @@ const _rawZapatillas: Zapatilla[] = [
     tecnologia_clave: ["Shell toe", "Cuero premium", "Suela de goma", "Low-top"],
     predecesor_id: null,
     sucesor_id: null,
-    peso_real_g: 350,
+    peso_real_g: 401,
     altura: "low",
     horma: "normal",
     drop_mm: 6,
@@ -14969,7 +14969,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: "jordan-40",
     sucesor_id: null,
 
-    peso_real_g: 430,
+    peso_real_g: 397,
     altura: "low",
     horma: "normal",
     drop_mm: 5,
@@ -15042,7 +15042,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: "nike-ja-3",
     sucesor_id: null,
 
-    peso_real_g: 345,
+    peso_real_g: 392,
     altura: "low",
     horma: "estrecha",
     drop_mm: 8,
