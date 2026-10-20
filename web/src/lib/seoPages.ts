@@ -872,13 +872,13 @@ export const SEO_PAGES: SeoPage[] = [
     guideTitle: "Retro no significa malo",
     guideIntro: "Las zapatillas retro de baloncesto van de las que superan el 6/10 técnico (Kobe Protros, Jordan 11/12) a las puramente históricas como la Converse Chuck Taylor de 1917. Aquí te explicamos las diferencias clave.",
     guidePoints: [
-      { lab: "Kobe Protros — las mejores jugables", body: "Nike actualizó outsoles y Zoom Air en las Kobe Protro. Son retros en aspecto pero modernas en rendimiento. Las más recomendadas para jugar de verdad." },
+      { lab: "Kobe Protros — las mejores jugables", body: "Nike actualizó las suelas y la amortiguación de las Kobe Protro (Zoom Turbo en la 5 y la 6, React en la 8 y la 9). Son retros en aspecto pero modernas en rendimiento. Las más recomendadas para jugar de verdad." },
       { lab: "Jordan 12 y 11 — clásicas que aguantan", body: "Zoom Air en la 12 y Air de longitud completa en la 11, tracción herringbone y cuero durable. La 12 (Flu Game) y la 11 son de las Jordan clásicas más jugables." },
       { lab: "Reebok Iverson — la Question Mid", body: "La Question Mid de Allen Iverson (1996). Tracción de goma pegajosa y upper de cuero. Para ser de los 90, rinde mejor de lo esperado." },
       { lab: "Iconos históricos — para colección", body: "Chuck Taylor (1917), Puma Clyde (1973), Converse Weapon (1986). Cultura pura, rendimiento limitado." },
     ],
     faqs: [
-      { q: "¿Cuáles son las mejores zapatillas retro de baloncesto para jugar?", a: "La Kobe 5 Protro es de las mejores: Nike la rediseñó con Zoom Air moderno y outsole nuevo manteniendo el aspecto original. También la Air Jordan 12 tiene Zoom Air y es jugable. Para estilos menos explosivos, la Reebok Question Mid de Iverson aguanta bien." },
+      { q: "¿Cuáles son las mejores zapatillas retro de baloncesto para jugar?", a: "La Kobe 5 Protro es de las mejores: Nike la rediseñó con Zoom Turbo en el antepié sobre Cushlon y outsole nuevo manteniendo el aspecto original. También la Air Jordan 12 tiene Zoom Air y es jugable. Para estilos menos explosivos, la Reebok Question Mid de Iverson aguanta bien." },
       { q: "¿Son las Air Jordan retro buenas para jugar baloncesto?", a: "Depende de la generación. La Jordan 12 tiene Zoom Air y la 11 un Air de longitud completa; las dos son jugables aunque pesadas. Las Jordan 1, 2, 3 y 4 son principalmente colección — cuero rígido, cushion básico y peso elevado. Las Kobe Protro (que no son Jordan pero son Nike) son las mejores retros para jugar." },
       { q: "¿Cuánto cuestan las zapatillas retro de baloncesto en España?", a: "Las retros más accesibles son la Converse Chuck Taylor (~75€) y el Puma Clyde (~80€). Las Jordan retro tienen un precio oficial de unos 180€ (Jordan 1) a 220€ (Jordan 11/12). Las Kobe Protro cuestan 175-200€. Busca en KicksCrew y Amazon ES para precios competitivos." },
     ],

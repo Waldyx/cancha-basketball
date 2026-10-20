@@ -1016,7 +1016,7 @@ export const ARTICLES: Article[] = [
 <h2>Primero lo importante: qué significa "retro jugable"</h2>
 <p>No todas las retros son iguales. Hay una diferencia enorme entre:</p>
 <ul>
-  <li><strong>Retros que puedes jugar:</strong> Kobe Protros, Air Jordan 12/14, Reebok Question. Tecnología actualizada (Zoom Air real, outsoles nuevas) en cuerpos clásicos.</li>
+  <li><strong>Retros que puedes jugar:</strong> Kobe Protros, Air Jordan 12, Reebok Question. Tecnología actualizada (Zoom Turbo o React según el modelo, outsoles nuevas) en cuerpos clásicos.</li>
   <li><strong>Retros que SON históricas:</strong> Air Force 1, Chuck Taylor, Converse Weapon, Puma Clyde. Puedes jugar con ellas pero son básicamente museísticas. No las recomendamos para alto rendimiento.</li>
 </ul>
 <p>Esta guía te dice cuáles son cuáles y por qué.</p>
@@ -1024,7 +1024,7 @@ export const ARTICLES: Article[] = [
 <h2>Tier 1 — Retros que realmente puedes jugar</h2>
 
 <h3>🥇 Nike Kobe 5 Protro / Kobe 6 Protro — Las mejores retros jugables</h3>
-<p>Las Kobe Protros son el mejor argumento de que "retro" no significa "inferior". Nike ha actualizado las outsoles, aplicado Zoom Air moderno y mantenido el perfil bajo y reactivo que hacía a las originales tan especiales. Las Kobe 5 y 6 Protro consiguen {{score:nike-kobe-5-protro}} (Kobe 5) y {{score:nike-kobe-6-protro}} (Kobe 6) — al nivel de las zapas modernas de gama alta.</p>
+<p>Las Kobe Protros son el mejor argumento de que "retro" no significa "inferior". Nike ha actualizado las outsoles y la amortiguación (Zoom Turbo en el antepié de la 5 y la 6) y ha mantenido el perfil bajo y reactivo que hacía a las originales tan especiales. Las Kobe 5 y 6 Protro consiguen {{score:nike-kobe-5-protro}} (Kobe 5) y {{score:nike-kobe-6-protro}} (Kobe 6) — al nivel de las zapas modernas de gama alta.</p>
 <ul>
   <li><strong>Para quién:</strong> Bases y escoltas explosivos que quieren rendimiento real + historia.</li>
   <li><strong>Vs alternativa moderna equivalente:</strong> Nike Ja 2 (desde {{precio:nike-ja-2}}) — similar rendimiento, sin el legado.</li>
@@ -2875,7 +2875,7 @@ export const ARTICLES: Article[] = [
     title: "Nike Kobe 8 Protro análisis: la mejor zapatilla para tiradores en 2025",
     metaTitle: "Nike Kobe 8 Protro análisis completo 2025 | CANCHA.ZAPA",
     description:
-      "Análisis técnico de la Nike Kobe 8 Protro: la zapatilla más reactiva para escoltas y tiradores en 2025. Respuesta 10/10, 340 g, court feel único. ¿Merece la pena su precio?",
+      "Análisis técnico de la Nike Kobe 8 Protro: la zapatilla más reactiva para escoltas y tiradores en 2025. Ligera y con un court feel único. ¿Merece la pena su precio?",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
     categoria: "Análisis",
