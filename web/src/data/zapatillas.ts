@@ -468,7 +468,7 @@ const _rawZapatillas: Zapatilla[] = [
     // Amazon) acaban todas en la talla 40 EU; la única que Amazon etiquetaba "Unisex adulto"
     // (B0CKXYQJ9Y) se titula "Mid Trainers Kids" y va de la 21 a la 40.
     genero: "gs",
-    tecnologia_clave: ["Bounce cushion", "Suela de goma reforzada"],
+    tecnologia_clave: ["Cloudfoam", "Suela de goma"],
     predecesor_id: null,
     sucesor_id: null,
 
@@ -504,7 +504,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La mejor compra por debajo de €70 para juego outdoor. Goma reforzada que aguanta asfalto durante meses, caña media para tobillos delicados y un cushion Bounce básico pero fiable. Pensada para iniciación o jugadores casuales que machacan la zapa. Ojo: es un modelo de niño, solo existe en tallas 21-40 EU.",
+      "La mejor compra por debajo de €70 para juego outdoor. Goma reforzada que aguanta asfalto durante meses, caña media para tobillos delicados y un cushion Cloudfoam básico pero fiable. Pensada para iniciación o jugadores casuales que machacan la zapa. Ojo: es un modelo de niño, solo existe en tallas 21-40 EU.",
     pros: [
       "Durabilidad outdoor excepcional — aguanta meses en asfalto",
       "Caña media con buen soporte de tobillo a este precio",
@@ -1292,7 +1292,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Tyrese Haliburton",
-    tecnologia_clave: ["Nitro Foam", "ProFoam+", "PUMAGrip"],
+    tecnologia_clave: ["NITROFOAM de longitud completa", "TPU midfoot shank", "PUMAGRIP"],
     predecesor_id: null,
     peso_real_g: 405,
     altura: "low",
@@ -1314,10 +1314,10 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["pivot"] },
     resumen:
-      "Debut signature de Tyrese Haliburton con Puma. Combina Nitro Foam + ProFoam+ para un cushion bouncy y reactivo, con tracción PUMAGrip excelente (HG 9.3/10). Diseñada para guards versátiles que mezclan tirador y explosivo. 340g, low-top, una de las signatures debut más prometedoras de 2025.",
+      "Debut signature de Tyrese Haliburton con Puma. Monta Nitrofoam de longitud completa para un cushion bouncy y reactivo, con tracción PUMAGrip excelente (HG 9.3/10). Diseñada para guards versátiles que mezclan tirador y explosivo. 340g, low-top, una de las signatures debut más prometedoras de 2025.",
     pros: [
       "Tracción excepcional PUMAGrip (HG 9.3/10)",
-      "Cushion equilibrado Nitro+ProFoam",
+      "Cushion equilibrado de Nitrofoam",
       "Ligera (340g) para una signature",
       "Precio MSRP razonable ($120) — la encuentras a 80€",
     ],
@@ -2852,7 +2852,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2023,
     genero: "unisex",
     signature_player: "Anthony Edwards",
-    tecnologia_clave: ["Lightstrike Pro", "Continental rubber"],
+    tecnologia_clave: ["Boost (Jetboost)", "Lightstrike", "spring plate de longitud completa"],
     peso_real_g: 448,
     altura: "mid",
     horma: "normal",
@@ -2870,17 +2870,17 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 9,
     },
     categoria_principal: "responsive",
-    tags: ["signature", "guard", "lightstrike-pro", "descuento"],
+    tags: ["signature", "guard", "descuento"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
       peso_jugador_kg: [65, 90],
       estilos: ["explosivo", "equilibrado", "tirador"],
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
-    resumen: "El debut de Anthony Edwards en Adidas supera todas las expectativas. Lightstrike Pro da una de las mejores sensaciones de cushion responsivo del mercado, y el rubber Continental clava la tracción en cualquier pista. Uno de los mejores zapatos para guards de los últimos años.",
+    resumen: "El debut de Anthony Edwards en Adidas supera todas las expectativas. Boost (Jetboost) con Lightstrike da una de las mejores sensaciones de cushion responsivo del mercado, y la suela clava la tracción en pista limpia. Uno de los mejores zapatos para guards de los últimos años.",
     pros: [
-      "Tracción Continental de primer nivel",
-      "Lightstrike Pro muy responsivo y ligero",
+      "Tracción de primer nivel",
+      "Boost + Lightstrike muy responsivo",
       "Ventilación excelente",
       "Buen lateral containment para low-mid",
     ],
@@ -3384,7 +3384,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Anthony Edwards",
-    tecnologia_clave: ["Lightstrike Pro 2.0", "Continental rubber", "TPU shank"],
+    tecnologia_clave: ["Light BOOST", "Lightstrike", "Propulsion Plate de mediopié", "shank de plástico"],
     predecesor_id: "adidas-ae-1",
     sucesor_id: "adidas-ae-3",
 
@@ -3406,7 +3406,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 9,
     },
     categoria_principal: "responsive",
-    tags: ["trending","signature", "guard", "lightstrike-pro", "moderna", "top-guard-2025"],
+    tags: ["trending", "signature", "guard", "moderna", "top-guard-2025"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -3419,11 +3419,11 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "El AE 2 mejora al AE 1 en todo lo que importa: más ligero, mejor ajuste en antepié y Lightstrike Pro actualizado que devuelve más energía. Sin el 'sophomore slump' típico — uno de los mejores zapatos para guards del año.",
+      "El AE 2 mejora al AE 1 en todo lo que importa: más ligero, mejor ajuste en antepié y Light BOOST con propulsion plate que devuelve más energía. Sin el 'sophomore slump' típico — uno de los mejores zapatos para guards del año.",
     pros: [
       "Más ligero que el AE 1 (305g vs 320g)",
-      "Tracción Continental imbatible",
-      "Lightstrike Pro aún más responsivo",
+      "Tracción imbatible",
+      "Light BOOST más responsivo en el antepié",
       "Ventilación mejorada",
     ],
     contras: [
@@ -3685,7 +3685,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "gs",
     signature_player: "Anthony Edwards",
-    tecnologia_clave: ["Lightstrike Pro 2.0", "Continental rubber", "TPU shank"],
+    tecnologia_clave: ["Light BOOST", "Lightstrike", "Propulsion Plate de mediopié", "shank de plástico"],
     predecesor_id: "adidas-ae-1-gs",
     sucesor_id: null,
     peso_real_g: 330,
@@ -3713,10 +3713,10 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
     resumen:
-      "Version junior (Grade School) de la AE 2, la esperada continuacion de la signature de Anthony Edwards y una de las zapas mas buscadas. Misma estetica futurista y la misma base reactiva (Lightstrike Pro, goma Continental) que la adulta, en tallaje nino. La signature trending por excelencia para el junior federado.",
+      "Version junior (Grade School) de la AE 2, la esperada continuacion de la signature de Anthony Edwards y una de las zapas mas buscadas. Misma estetica futurista y la misma base reactiva (Light BOOST con Lightstrike, misma suela) que la adulta, en tallaje nino. La signature trending por excelencia para el junior federado.",
     pros: [
       "Signature NBA top en talla junior",
-      "Reactiva y con traccion Continental excelente",
+      "Reactiva y con traccion excelente",
       "Estetica futurista muy demandada",
       "Mismo agarre y sujeción que la adulta",
     ],
@@ -3882,7 +3882,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Shai Gilgeous-Alexander",
-    tecnologia_clave: ["React foam", "Herringbone outsole", "Integrated ankle collar"],
+    tecnologia_clave: ["Espuma de longitud completa (Phylon/EVA)", "Zoom Air en antepié", "placa de torsión pequeña", "tracción de puntos (dot-style)", "shroud de neopreno"],
 
     peso_real_g: 414,
     altura: "low",
@@ -3915,15 +3915,15 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "Converse volvió a la élite del rendimiento con el debut de SGA. La SHAI 001 mezcla un diseño limpio y minimal con React foam funcional y tracción herringbone fiable. La sorpresa más agradable de 2025 — demostró que Converse puede competir en performance.",
+      "Converse volvió a la élite del rendimiento con el debut de SGA. La SHAI 001 mezcla un diseño limpio y minimal con espuma de perfil bajo, Zoom Air en el antepié y tracción de patrón de puntos. La sorpresa más agradable de 2025 — demostró que Converse puede competir en performance.",
     pros: [
       "Diseño más limpio y versátil del año",
-      "React foam cómodo y ligero",
-      "Tracción herringbone sólida",
+      "Espuma de perfil bajo con Zoom Air en el antepié",
+      "Tracción de patrón de puntos muy buena en pista limpia",
       "Válida tanto para jugar como para vestir",
     ],
     contras: [
-      "Sin tecnología premium (sin Zoom ni placa)",
+      "Cushion de perfil bajo: Zoom Air pequeño en el antepié",
       "Cushion básico para jugadores pesados",
       "Sin historial de durabilidad largo en Converse performance",
     ],
@@ -5931,7 +5931,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Breanna Stewart",
-    tecnologia_clave: ["Nitrofoam midsole", "outsole herringbone", "synthetic upper"],
+    tecnologia_clave: ["NITROFOAM + ProFoam", "PWRTAPE (refuerzo del upper)", "engineered woven mesh upper", "patrón de tracción floral de alta abrasión"],
     predecesor_id: null,
     sucesor_id: "puma-stewie-5",
 
@@ -5966,16 +5966,16 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Puma Stewie 4 es la zapatilla signature de Breanna Stewart (MVP WNBA), ahora disponible para todos. Nitrofoam para cushion consistente, outsole herringbone para tracción en pista cubierta, y corte low. Una opción mid-range sólida para jugadores físicos.",
+      "La Puma Stewie 4 es la zapatilla signature de Breanna Stewart (MVP WNBA), ahora disponible para todos. Nitrofoam para cushion consistente, outsole de patrón floral de alta abrasión para tracción en pista cubierta, y corte low. Una opción mid-range sólida para jugadores físicos.",
     pros: [
       "Nitrofoam: cushion reactivo y duradero",
-      "Outsole herringbone con buen agarre en pista cubierta",
+      "Outsole de patrón floral con buen agarre en pista cubierta",
       "Low-top: soporte de tobillo justo",
       "Precio competitivo a 120€ para zapatilla con Nitrofoam",
     ],
     contras: [
       "No tan ligera como las opciones speed",
-      "Upper sintético menos transpirable que mesh",
+      "Upper de malla tejida técnica (engineered woven mesh): correcto, sin destacar en ligereza",
       "Estética predominantemente femenina en algunos colorways",
     ],
     veredicto:
@@ -6243,7 +6243,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "James Harden",
-    tecnologia_clave: ["Lightstrike Pro midsole", "herringbone outsole", "mesh upper"],
+    tecnologia_clave: ["Light BOOST de longitud completa", "Lightstrike (borde)", "herringbone outsole", "mesh upper"],
     predecesor_id: "adidas-harden-vol-9",
     sucesor_id: null,
 
@@ -6265,7 +6265,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 5,
     },
     categoria_principal: "cushion-focused",
-    tags: ["signature", "equilibrado", "guards", "lightstrike-pro"],
+    tags: ["signature", "equilibrado", "guards"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -6278,9 +6278,9 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Adidas Harden Vol 10 es la décima iteración de la línea de James Harden, con Lightstrike Pro mejorado y un outsole herringbone que ofrece tracción sólida. Corte low (así la clasifica RunRepeat; HoopsGeek la da mid). Diseñada para el guard de físico que necesita cushion y soporte sin perder respuesta. A 160€ compite en el segmento premium.",
+      "La Adidas Harden Vol 10 es la décima iteración de la línea de James Harden, con Light BOOST de longitud completa y un outsole herringbone que ofrece tracción sólida. Corte low (así la clasifica RunRepeat; HoopsGeek la da mid). Diseñada para el guard de físico que necesita cushion y soporte sin perder respuesta. A 160€ compite en el segmento premium.",
     pros: [
-      "Lightstrike Pro: una de las mejores mezclas cushion-respuesta del mercado",
+      "Light BOOST: cushion cómodo con retorno suave y estable",
       "Soporte lateral elevado",
       "Outsole herringbone con buena tracción",
       "Diseño equilibrado para el guard de físico",
@@ -6291,7 +6291,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Estética que puede no gustar a todos",
     ],
     veredicto:
-      "La Harden 10 es la zapatilla definitiva para el guard que pesa entre 85-105 kg y busca Lightstrike Pro con buen soporte lateral. Compite con la Luka 5 y la Curry 13 en el mismo rango. Si valoras el equilibrio entre cushion, respuesta y soporte lateral, la Harden 10 es una elección sólida a 160€.",
+      "La Harden 10 es la zapatilla definitiva para el guard que pesa entre 85-105 kg y busca Light BOOST con buen soporte lateral. Compite con la Luka 5 y la Curry 13 en el mismo rango. Si valoras el equilibrio entre cushion, respuesta y soporte lateral, la Harden 10 es una elección sólida a 160€.",
 
     imagen_principal: "/shoes/adidas-harden-vol-10.webp",
     imagenes: [],
@@ -6375,7 +6375,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2024,
     genero: "unisex",
     signature_player: "Donovan Mitchell",
-    tecnologia_clave: ["Zoom Air", "herringbone outsole"],
+    tecnologia_clave: ["Lightstrike (talón y base)", "Lightstrike Pro (antepié)", "herringbone outsole"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 370,
@@ -6428,7 +6428,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2024,
     genero: "unisex",
     signature_player: "Scoot Henderson",
-    tecnologia_clave: ["NITRO foam", "herringbone"],
+    tecnologia_clave: ["ProFoam EVA", "herringbone"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 310,
@@ -6455,7 +6455,7 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["explosivo", "equilibrado"],
     },
     no_recomendada_para: { posiciones: ["pivot", "ala-pivot"], estilos: ["potente"] },
-    resumen: "Primera signature de Scoot Henderson, uno de los bases más explosivos de la NBA. Ultra ligera con NITRO foam de Puma que ofrece excelente respuesta sin sacrificar cushion.",
+    resumen: "Primera signature de Scoot Henderson, uno de los bases más explosivos de la NBA. Ultra ligera con una mediasuela de ProFoam EVA densa y estable: respuesta directa y court feel, con cushion modesto.",
     pros: ["Extremadamente ligera", "Muy buena ventilación", "Respuesta excelente para bases explosivos"],
     contras: ["Poco soporte lateral para jugadores grandes", "Durabilidad outdoor mejorable"],
     veredicto: "La elección perfecta para bases ligeros que buscan velocidad y respuesta. No apta para jugadores potentes.",
@@ -6482,7 +6482,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2023,
     genero: "unisex",
     signature_player: "Damian Lillard",
-    tecnologia_clave: ["Lightstrike Pro", "herringbone"],
+    tecnologia_clave: ["Bounce Pro (doble densidad)", "shank interno", "herringbone modificado"],
     predecesor_id: null,
     sucesor_id: "adidas-dame-9",
     peso_real_g: 410,
@@ -6509,7 +6509,7 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["explosivo", "tirador", "equilibrado"],
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
-    resumen: "La Dame 8 con Lightstrike Pro es una de las zapatillas más rápidas de Adidas. Ligera, reactiva y con buena tracción herringbone.",
+    resumen: "La Dame 8 con Bounce Pro es una de las zapatillas más rápidas de Adidas. Ligera, reactiva y con buena tracción herringbone.",
     pros: ["Muy ligera", "Respuesta excelente", "Buena ventilación"],
     contras: ["Cushion modesto para jugadores pesados", "Soporte lateral básico"],
     veredicto: "Perfecta para bases tiradores que quieren velocidad y reactividad a buen precio.",
@@ -7371,7 +7371,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 5,
     año_lanzamiento: 2023,
     genero: "unisex",
-    tecnologia_clave: ["Bounce foam", "herringbone"],
+    tecnologia_clave: ["Cloudfoam", "herringbone"],
     predecesor_id: null,
     sucesor_id: "adidas-cross-em-up-select",
     peso_real_g: 355,
@@ -7398,7 +7398,7 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["equilibrado"],
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["explosivo"] },
-    resumen: "Una de las opciones budget más populares de Adidas para baloncesto. Bounce foam básico, buena tracción y durabilidad outdoor. Funcional y asequible para uso recreativo o entrenamiento. (Existe también en versión junior — ver Cross Em Up 5 GS.)",
+    resumen: "Una de las opciones budget más populares de Adidas para baloncesto. Cloudfoam básico, buena tracción y durabilidad outdoor. Funcional y asequible para uso recreativo o entrenamiento. (Existe también en versión junior — ver Cross Em Up 5 GS.)",
     pros: ["Precio muy asequible", "Buena durabilidad outdoor", "Tracción sólida"],
     contras: ["Cushion básico", "Pesada", "Sin tecnología premium"],
     veredicto: "Una referencia budget fiable: funcional, duradera y resistente al asfalto. Para recreativo o entrenamiento cumple de sobra; para competir, sube de gama.",
@@ -7423,7 +7423,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 5,
     año_lanzamiento: 2023,
     genero: "gs",
-    tecnologia_clave: ["Bounce foam", "herringbone"],
+    tecnologia_clave: ["Cloudfoam", "herringbone"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 300,
@@ -7445,9 +7445,9 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["equilibrado", "explosivo"],
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
-    resumen: "La zapatilla junior de Adidas más popular. Misma base Bounce que la adulta en tallaje niño (versión K): buena tracción y durabilidad outdoor a precio mínimo. Perfecta para jóvenes jugadores que empiezan.",
+    resumen: "La zapatilla junior de Adidas más popular. Misma base Cloudfoam que la adulta en tallaje niño (versión K): buena tracción y durabilidad outdoor a precio mínimo. Perfecta para jóvenes jugadores que empiezan.",
     pros: ["Precio muy asequible para junior", "Buena durabilidad outdoor", "Tracción sólida", "Mid-top con soporte de tobillo"],
-    contras: ["Cushion Bounce básico", "Materiales sencillos", "Tallaje GS/K: hasta EU 38 aprox."],
+    contras: ["Cushion Cloudfoam básico", "Materiales sencillos", "Tallaje GS/K: hasta EU 38 aprox."],
     veredicto: "La referencia budget para el junior que empieza: funcional, duradera y barata. Si ya compite en serio, sube a la Dame X GS o a una signature junior.",
     imagen_principal: "/shoes/adidas-cross-em-up-5.webp",
     imagenes: [],
@@ -7906,7 +7906,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 3,
     año_lanzamiento: 2024,
     genero: "unisex",
-    tecnologia_clave: ["Bounce foam", "rubber outsole"],
+    tecnologia_clave: ["LIGHTMOTION midsole", "Adiwear rubber outsole"],
     predecesor_id: "adidas-ownthegame-2",
     sucesor_id: null,
     peso_real_g: 385,
@@ -7960,7 +7960,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 3,
     año_lanzamiento: 2024,
     genero: "gs",
-    tecnologia_clave: ["Bounce foam", "rubber outsole"],
+    tecnologia_clave: ["LIGHTMOTION midsole", "Adiwear rubber outsole"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 340,
@@ -7991,7 +7991,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Disponible en cualquier talla",
     ],
     contras: [
-      "Cushion Bounce básico",
+      "Cushion Lightmotion básico",
       "Materiales sintéticos sencillos",
       "Poco reactiva para juego rápido",
     ],
@@ -8074,7 +8074,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 1,
     año_lanzamiento: 2023,
     genero: "unisex",
-    tecnologia_clave: ["NITRO foam", "herringbone"],
+    tecnologia_clave: ["ProFoam (EVA)", "TPU midsole support", "herringbone"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 370,
@@ -8102,8 +8102,8 @@ const _rawZapatillas: Zapatilla[] = [
       lesiones_compatibles: ["tobillos"],
     },
     no_recomendada_para: { posiciones: [], estilos: ["explosivo"] },
-    resumen: "Puma Playmaker Pro Mid con NITRO foam. Buen soporte de tobillo gracias al corte mid, tracción sólida y precio muy competitivo para la tecnología que ofrece.",
-    pros: ["NITRO foam a precio asequible", "Buen soporte tobillo mid", "Tracción consistente"],
+    resumen: "Puma Playmaker Pro Mid con ProFoam (EVA). Buen soporte de tobillo gracias al corte mid, tracción sólida y precio muy competitivo para la tecnología que ofrece.",
+    pros: ["ProFoam a precio asequible", "Buen soporte tobillo mid", "Tracción consistente"],
     contras: ["No destaca en ningún parámetro top", "Algo pesada"],
     veredicto: "Para jugadores con historial de torceduras que buscan soporte tobillo a precio medio sin gastar en tope de gama.",
     imagen_principal: "/shoes/puma-playmaker-pro-mid.webp",
@@ -8242,7 +8242,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 1,
     año_lanzamiento: 2019,
     genero: "unisex",
-    tecnologia_clave: ["Nike Zoom Air", "herringbone"],
+    tecnologia_clave: ["Nike React (drop-in de longitud completa)", "goma translúcida"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 390,
@@ -8270,8 +8270,8 @@ const _rawZapatillas: Zapatilla[] = [
       lesiones_compatibles: ["tobillos"],
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
-    resumen: "Converse vuelve al baloncesto de rendimiento con Nike Zoom Air. Diseño high-top icónico con tecnología moderna. Para el jugador que quiere estilo y soporte tobillo premium.",
-    pros: ["Soporte tobillo high-top excepcional", "Nike Zoom Air integrado", "Diseño icónico único"],
+    resumen: "Converse vuelve al baloncesto de rendimiento con Nike React. Diseño high-top icónico con tecnología moderna. Para el jugador que quiere estilo y soporte tobillo premium.",
+    pros: ["Soporte tobillo high-top excepcional", "Nike React integrado", "Diseño icónico único"],
     contras: ["Pesada", "Ventilación escasa (leather upper)", "Precio elevado para Converse"],
     veredicto: "Para jugadores con problemas de tobillo que también quieren el look más icónico del baloncesto con tecnología moderna.",
     imagen_principal: "/shoes/converse-all-star-pro-bb.webp",
@@ -8869,7 +8869,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2022,
     genero: "unisex",
     signature_player: "Clyde Drexler",
-    tecnologia_clave: ["ProFoam+", "Pebax puck", "herringbone"],
+    tecnologia_clave: ["ProFoam+ de longitud completa", "Pebax puck en el talón", "patrón de tracción checkered"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 380,
@@ -8889,15 +8889,15 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["versatil", "guard", "nitro", "buena-relacion-calidad-precio"],
+    tags: ["versatil", "guard", "buena-relacion-calidad-precio"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
       peso_jugador_kg: [60, 95],
       estilos: ["explosivo", "equilibrado"],
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
-    resumen: "La Clyde All-Pro es la apuesta de Puma para competir en gama alta con NITRO foam, su espuma de nitrógeno más reactiva. Ligera, versátil y con buena tracción herringbone — una sorpresa muy competitiva para guards y aleros.",
-    pros: ["NITRO foam: respuesta y amortiguación equilibradas", "Peso muy competitivo (317g)", "Tracción herringbone fiable en interior", "Horma estándar — encaja con la mayoría de pies"],
+    resumen: "La Clyde All-Pro es la apuesta de Puma para competir en gama alta con ProFoam+ de longitud completa y un puck de Pebax en el talón. Ligera, versátil y con buena tracción — una sorpresa muy competitiva para guards y aleros.",
+    pros: ["ProFoam+ con puck de Pebax: respuesta y amortiguación equilibradas", "Peso muy competitivo (317g)", "Tracción fiable en interior", "Horma estándar — encaja con la mayoría de pies"],
     contras: ["Puma tiene menor presencia en España — difícil de encontrar", "Soporte de tobillo limitado al ser low", "Durabilidad outdoor no testeada extensivamente"],
     veredicto: "Opción muy sólida y algo infravalorada por la poca presencia de Puma en baloncesto. Si la encuentras a buen precio, es una compra muy inteligente para guards y aleros.",
     imagen_principal: "/shoes/puma-clyde-all-pro.webp",
@@ -9152,7 +9152,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2024,
     genero: "unisex",
     signature_player: "James Harden",
-    tecnologia_clave: ["Lightstrike Pro", "herringbone", "malla tejida"],
+    tecnologia_clave: ["Boost de longitud completa (Jetboost)", "herringbone", "malla tejida"],
     predecesor_id: null,
     sucesor_id: "adidas-harden-vol-9",
 
@@ -9174,7 +9174,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["signature", "guard", "escolta", "tirador", "lightstrike-pro"],
+    tags: ["signature", "guard", "escolta", "tirador"],
 
     ideal_para: {
       posiciones: ["base", "escolta"],
@@ -9183,9 +9183,9 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["pivot", "ala-pivot"], estilos: ["potente"] },
 
-    resumen: "La Harden Vol 8 consolida el uso de Lightstrike Pro en la línea signature de Harden. Tracción herringbone multidireccional fiable y perfil bajo que favorece el juego de manejo de balón y tiro exterior.",
+    resumen: "La Harden Vol 8 consolida el uso de Boost de longitud completa en la línea signature de Harden. Tracción herringbone multidireccional fiable y perfil bajo que favorece el juego de manejo de balón y tiro exterior.",
     pros: [
-      "Lightstrike Pro: buena relación amortiguación-respuesta",
+      "Boost de longitud completa: buena relación amortiguación-respuesta",
       "Tracción herringbone multidireccional",
       "Ligera para su categoría",
       "Buena ventilación gracias a la malla tejida",
@@ -9327,7 +9327,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { estilos: ["explosivo"] },
 
-    resumen: "La Ownthegame 2.0 de Adidas es la opción budget más accesible de la marca alemana. Cushion Bounce básico y suela herringbone duradera que la convierten en una buena zapatilla de entrenamiento o de iniciación al baloncesto.",
+    resumen: "La Ownthegame 2.0 de Adidas es la opción budget más accesible de la marca alemana. Cushion básico y suela herringbone duradera que la convierten en una buena zapatilla de entrenamiento o de iniciación al baloncesto.",
     pros: [
       "Precio muy accesible",
       "Buena durabilidad para exterior",
@@ -9335,7 +9335,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Disponible en muchas tallas y colores",
     ],
     contras: [
-      "Cushion Bounce básico — no para competición seria",
+      "Cushion básico — no para competición seria",
       "Pesada para su nivel de prestaciones",
       "Superada por la Ownthegame 3",
     ],
@@ -9837,7 +9837,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2026,
     genero: "unisex",
     signature_player: "LaMelo Ball",
-    tecnologia_clave: ["Nitro foam", "Propulsion plate", "RS-X inspired outsole"],
+    tecnologia_clave: ["Drop-in midsole", "Nitro foam (doble densidad)", "paredes laterales de soporte"],
     predecesor_id: "puma-mb05",
     sucesor_id: null,
 
@@ -9872,10 +9872,10 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La MB.06 es la sexta generación de la línea signature de LaMelo Ball con Puma. Nitro foam mejorado, placa de propulsión renovada y diseño inspirado en las RS-X. Más reactiva que la MB.05 con mejor tracción en interior. La propuesta de Puma en el segmento guard explosivo de 2025.",
+      "La MB.06 es la sexta generación de la línea signature de LaMelo Ball con Puma. Midsole drop-in con Nitro foam y paredes laterales de soporte. Más reactiva que la MB.05 con mejor tracción en interior. La propuesta de Puma en el segmento guard explosivo de 2025.",
     pros: [
       "Nitro foam 2025: más reactivo y ligero que la generación anterior",
-      "Placa de propulsión: primer paso más explosivo",
+      "Midsole drop-in: más cerca de la pista",
       "Diseño llamativo — LaMelo tiene el mejor colorway game del mercado",
       "Buena ventilación para partidos largos",
       "Tracción sólida en interior",
@@ -9912,7 +9912,7 @@ const _rawZapatillas: Zapatilla[] = [
     modelo: "Pro Vision",
     año_lanzamiento: 2018,
     genero: "unisex",
-    tecnologia_clave: ["Cloudfoam cushion", "Rubber outsole", "Mesh upper"],
+    tecnologia_clave: ["Bounce", "Rubber outsole", "Mesh upper"],
     predecesor_id: null,
     sucesor_id: null,
 
@@ -9947,7 +9947,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Adidas Pro Vision es la zapatilla de entrada/mid-range de Adidas para 2024. Cloudfoam básico, suela de goma robusta con buena durabilidad outdoor y horma mid-top versátil. Sin tecnología premium pero con el build quality típico de Adidas a un precio accesible. Perfecta como primera zapatilla o para uso outdoor moderado.",
+      "La Adidas Pro Vision es la zapatilla de entrada/mid-range de Adidas para 2024. Bounce básico, suela de goma robusta con buena durabilidad outdoor y horma mid-top versátil. Sin tecnología premium pero con el build quality típico de Adidas a un precio accesible. Perfecta como primera zapatilla o para uso outdoor moderado.",
     pros: [
       "Durabilidad outdoor 8/10 — suela de goma resistente al asfalto",
       "Mid-top con soporte lateral decente",
@@ -9955,7 +9955,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Horma versátil — funciona para casi todas las posiciones",
     ],
     contras: [
-      "Cloudfoam básico — sin la respuesta del Lightstrike o Boost",
+      "Bounce básico — sin la respuesta del Lightstrike o Boost",
       "No apta para jugadores de alto rendimiento",
       "Peso alto para no tener tecnología premium",
     ],
@@ -10055,7 +10055,7 @@ const _rawZapatillas: Zapatilla[] = [
     modelo: "Stewie 3",
     año_lanzamiento: 2024,
     genero: "unisex",
-    tecnologia_clave: ["Nitrofoam", "ProFoam+", "TPU shank plate", "Herringbone outsole"],
+    tecnologia_clave: ["Drop-in midsole de ProFoam", "unidad Nitrofoam en antepié", "TPU shank plate", "patrón de tracción radial"],
     predecesor_id: null,
     sucesor_id: null,
 
@@ -10090,12 +10090,12 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Puma Stewie 3 es la tercera firma de Breanna Stewart (dos veces campeona WNBA). Combina Nitrofoam en el antepié con ProFoam+ en el talón y una placa de TPU para estabilidad torsional. Su upper de malla tejida es más transpirable que generaciones anteriores. Diseñada específicamente para la anatomía del pie femenino — no es un modelo masculino recoloreado.",
+      "La Puma Stewie 3 es la tercera firma de Breanna Stewart (dos veces campeona WNBA). Combina un drop-in de ProFoam con una unidad de Nitrofoam en el antepié y una placa de TPU para estabilidad torsional. Su upper de malla tejida es más transpirable que generaciones anteriores. Diseñada específicamente para la anatomía del pie femenino — no es un modelo masculino recoloreado.",
     pros: [
-      "Nitrofoam + ProFoam+ — la mejor combinación de Puma en una firma",
+      "Nitrofoam + ProFoam — drop-in con unidad Nitrofoam en el antepié",
       "Horma femenina real — superior al ajuste de modelos unisex",
       "Ultraligera (300g) — entre las más ligeras del mercado",
-      "Tracción herringbone sólida en interior",
+      "Tracción radial sólida en interior",
     ],
     contras: [
       "Cushion limitado para posiciones interiores",
@@ -13522,7 +13522,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Donovan Mitchell",
-    tecnologia_clave: ["Lightstrike Pro", "Lightlock support", "Continental rubber outsole"],
+    tecnologia_clave: ["Lightstrike (longitud completa)", "Lightstrike Pro (antepié)", "shank TPU con alas laterales", "nylon lace cables"],
     predecesor_id: null,
     peso_real_g: 397,
     altura: "low",
@@ -13544,9 +13544,9 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["pivot"] },
     resumen:
-      "Séptima D.O.N. Issue de Donovan Mitchell. HG le da 8.7 global con tracción 9.2 y fit 8.8. Lightstrike Pro + Continental rubber: cushion premium y tracción excepcional. MSRP $130 — value pick claro. Outdoor pobre (HG 7%) limita uso a indoor.",
+      "Séptima D.O.N. Issue de Donovan Mitchell. HG le da 8.7 global con tracción 9.2 y fit 8.8. Lightstrike con Lightstrike Pro en el antepié: cushion premium y tracción excepcional. MSRP $130 — value pick claro. Outdoor pobre (HG 7%) limita uso a indoor.",
     pros: [
-      "Tracción excepcional Continental (HG 9.2/10)",
+      "Tracción excepcional (HG 9.2/10)",
       "Cushion Lightstrike Pro premium",
       "Fit clavado (HG 8.8) sin necesidad de break-in",
       "Soporte y estabilidad sobresalientes",
@@ -13584,7 +13584,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "gs",
     signature_player: "Donovan Mitchell",
-    tecnologia_clave: ["Lightstrike Pro", "Lightlock support", "Continental rubber outsole"],
+    tecnologia_clave: ["Lightstrike (longitud completa)", "Lightstrike Pro (antepié)", "shank TPU con alas laterales", "nylon lace cables"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 300,
@@ -13607,10 +13607,10 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
     resumen:
-      "Versión junior (Grade School) de la D.O.N. Issue 7 de Donovan Mitchell, con el mismo Lightstrike Pro y la suela Continental del modelo adulto en tallaje niño. Una de las mejores relaciones rendimiento-precio del segmento junior: cushion premium y tracción de élite indoor.",
+      "Versión junior (Grade School) de la D.O.N. Issue 7 de Donovan Mitchell, con el mismo Lightstrike (y Lightstrike Pro en el antepié) y la misma suela del modelo adulto en tallaje niño. Una de las mejores relaciones rendimiento-precio del segmento junior: cushion premium y tracción de élite indoor.",
     pros: [
       "Mismo Lightstrike Pro premium que la adulta",
-      "Suela Continental: tracción de élite en pista",
+      "Suela con tracción de élite en pista",
       "Soporte y estabilidad sobresalientes",
       "Signature real a precio junior",
     ],
