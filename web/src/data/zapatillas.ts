@@ -120,7 +120,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2024,
     genero: "unisex",
     signature_player: "Stephen Curry",
-    tecnologia_clave: ["UA Flow", "Warp 2.0 upper"],
+    tecnologia_clave: ["Dual-density UA Flow cushioning", "UA Flow outsole", "Pebax forefoot plate", "Engineered mesh upper"],
     predecesor_id: null,
     sucesor_id: null,
 
@@ -129,7 +129,7 @@ const _rawZapatillas: Zapatilla[] = [
     horma: "normal",
     drop_mm: 8,
     tipo_cierre: "cordones",
-    material_superior: "knit",
+    material_superior: "mesh",
 
     puntuaciones: {
       traccion: 10,
@@ -202,7 +202,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2024,
     genero: "gs",
     signature_player: "Stephen Curry",
-    tecnologia_clave: ["UA Flow", "Warp 2.0 upper"],
+    tecnologia_clave: ["Dual-density UA Flow cushioning", "UA Flow outsole", "Pebax forefoot plate", "Engineered mesh upper"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 290,
@@ -210,7 +210,7 @@ const _rawZapatillas: Zapatilla[] = [
     horma: "normal",
     drop_mm: 8,
     tipo_cierre: "cordones",
-    material_superior: "knit",
+    material_superior: "mesh",
     puntuaciones: {
       traccion: 10,
       amortiguacion: 10,
@@ -1480,7 +1480,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2024,
     genero: "unisex",
     signature_player: "Luka Dončić",
-    tecnologia_clave: ["Formula 23 foam", "IsoPlate", "Multidirectional traction"],
+    tecnologia_clave: ["Full-length Cushlon 3.0 foam", "IsoPlate", "Multidirectional traction"],
     sucesor_id: "jordan-luka-5",
     peso_real_g: 384,
     altura: "low",
@@ -1597,7 +1597,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 3,
     año_lanzamiento: 2025,
     genero: "unisex",
-    tecnologia_clave: ["Fresh Foam X midsole", "Wave-bone traction"],
+    tecnologia_clave: ["Dual-density Fresh Foam X midsole", "Full-length underfoot plate", "Dual TPU shanks", "Segmented wavy-tread outsole"],
     peso_real_g: 397,
     altura: "mid",
     horma: "ancha",
@@ -1618,10 +1618,10 @@ const _rawZapatillas: Zapatilla[] = [
       lesiones_compatibles: ["rodillas", "fascia"],
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
-    resumen: "El mejor Fresh Foam BB hasta la fecha: cushion enorme sin perder court feel del todo. Tracción sólida con patrón tipo Superstar. Penaliza altura y peso.",
+    resumen: "El mejor Fresh Foam BB hasta la fecha: cushion enorme sin perder court feel del todo. Tracción sólida con suela segmentada de dibujo ondulado. Penaliza altura y peso.",
     pros: [
       "Cushion plush sin precedentes para NB basket",
-      "Tracción wave-bone fiable",
+      "Tracción fiable con dibujo ondulado",
       "Cómodo desde el primer día",
       "Buena para pies anchos",
     ],
@@ -3045,7 +3045,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2022,
     genero: "unisex",
     signature_player: "Luka Doncic",
-    tecnologia_clave: ["Zoom Air forefoot", "Air Strobel"],
+    tecnologia_clave: ["Full-length Formula 23 foam", "IsoPlate foot frame", "Cushlon 3.0 medial wedge"],
     peso_real_g: 411,
     altura: "low",
     horma: "normal",
@@ -3065,7 +3065,7 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["tirador", "equilibrado"],
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["explosivo"] },
-    resumen: "La segunda entrega de Luka ofrece Zoom Air forefoot + Air Strobel para cushion cómodo y responsivo. Pensada para jugadores versátiles que necesitan confort en ataque y estabilidad en defensa.",
+    resumen: "La segunda entrega de Luka ofrece espuma Formula 23 de largo completo con IsoPlate para un cushion cómodo y responsivo. Pensada para jugadores versátiles que necesitan confort en ataque y estabilidad en defensa.",
     pros: [
       "Buena combinación cushion/respuesta",
       "Versatil para distintas posiciones",
@@ -4607,7 +4607,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: undefined,
-    tecnologia_clave: ["UA HOVR foam", "herringbone outsole", "mesh+TPU upper"],
+    tecnologia_clave: ["UA HOVR+ cushioning wrapped in Micro G", "Rubber outsole with wave-bone traction pattern", "Engineered woven mesh upper with TPU skin overlays", "TPU wing"],
     predecesor_id: null,
     sucesor_id: null,
 
@@ -4642,11 +4642,11 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Spawn 7 Mid de UA ofrece un buen equilibrio entre soporte y amortiguación. HOVR foam en mediasuela proporciona energía devuelta sin sacrificar cushion. Upper mid con buen soporte lateral para jugadores físicos. Una opción sólida de gama media disponible en UA España.",
+      "La Spawn 7 Mid de UA ofrece un buen equilibrio entre soporte y amortiguación. HOVR+ envuelto en Micro G en la mediasuela proporciona energía devuelta sin sacrificar cushion. Upper mid con buen soporte lateral para jugadores físicos. Una opción sólida de gama media disponible en UA España.",
     pros: [
-      "HOVR foam con buena amortiguación y respuesta",
+      "HOVR+ con Micro G: buena amortiguación y respuesta",
       "Perfil mid con soporte lateral adecuado",
-      "Herringbone durable para indoor y outdoor",
+      "Suela de goma con dibujo wave-bone, durable para indoor y outdoor",
       "Precio justo en gama media (120€)",
     ],
     contras: [
@@ -4683,7 +4683,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: undefined,
-    tecnologia_clave: ["UA HOVR foam", "Flow-inspired outsole", "knit upper"],
+    tecnologia_clave: ["UA Flow midsole", "UA Flow outsole (sin goma)", "IntelliKnit upper"],
     predecesor_id: null,
     sucesor_id: "ua-futr-x-elite",
 
@@ -4718,9 +4718,9 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La FUTR X 4 es la zapatilla más equilibrada del catálogo UA: HOVR foam con buena energía devuelta, outsole reactiva similar al Flow en rendimiento, knit upper transpirable y soporte lateral sólido. Disponible en UA España a 120€.",
+      "La FUTR X 4 es la zapatilla más equilibrada del catálogo UA: espuma UA Flow con buena energía devuelta, suela Flow sin goma, IntelliKnit upper transpirable y soporte lateral sólido. Disponible en UA España a 120€.",
     pros: [
-      "Excelente equilibrio cushion-respuesta con HOVR",
+      "Excelente equilibrio cushion-respuesta con UA Flow",
       "Knit upper cómodo y transpirable",
       "Soporte lateral bueno para cambios de dirección",
       "Versatilidad para distintos estilos de juego",
@@ -4757,7 +4757,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Stephen Curry",
-    tecnologia_clave: ["EVA foam midsole", "herringbone outsole", "mesh upper"],
+    tecnologia_clave: ["Charged Cushioning midsole", "Internal midfoot shank", "Rubber outsole with anatomical traction pattern", "Leather and mesh upper"],
     predecesor_id: null,
     sucesor_id: null,
 
@@ -4792,16 +4792,16 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La versión asequible de la línea Curry. EVA foam básico pero funcional, herringbone resistente para outdoor, y el respaldo del nombre Curry. Ideal para jugadores que quieren el look Curry sin el precio premium. Disponible en UA España a 85€.",
+      "La versión asequible de la línea Curry. Charged Cushioning básico pero funcional, suela de goma resistente para outdoor, y el respaldo del nombre Curry. Ideal para jugadores que quieren el look Curry sin el precio premium. Disponible en UA España a 85€.",
     pros: [
       "Precio muy asequible (85€) con el nombre Curry",
-      "Herringbone durable para outdoor e indoor",
+      "Suela de goma durable para outdoor e indoor",
       "Buena opción para principiantes o uso recreativo",
       "Ligera para su precio",
     ],
     contras: [
       "Muy inferior a la Curry 12/13 en cushion y respuesta",
-      "EVA básico — no hay UA Flow ni HOVR",
+      "Charged Cushioning básico — no hay UA Flow ni HOVR",
       "No tiene las tecnologías premium de la línea Curry",
     ],
     veredicto:
@@ -4842,7 +4842,7 @@ const _rawZapatillas: Zapatilla[] = [
     horma: "normal",
     drop_mm: 6,
     tipo_cierre: "cordones",
-    material_superior: "knit",
+    material_superior: "mesh+synthetic",
 
     puntuaciones: {
       traccion: 9,
@@ -4914,7 +4914,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "gs",
     signature_player: "Luka Dončić",
-    tecnologia_clave: ["React foam", "Zoom Air heel", "knit upper"],
+    tecnologia_clave: ["Dual-density foam", "Forefoot Zoom Air unit"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 310,
@@ -4922,7 +4922,7 @@ const _rawZapatillas: Zapatilla[] = [
     horma: "normal",
     drop_mm: 6,
     tipo_cierre: "cordones",
-    material_superior: "knit",
+    material_superior: "mesh+synthetic",
     puntuaciones: {
       traccion: 9, amortiguacion: 9, respuesta: 8,
       soporte_lateral: 9, estabilidad: 8, peso_score: 8,
@@ -4937,11 +4937,11 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
     resumen:
-      "Versión junior (Grade School) de la Nike Luka 77, con el mismo combo React + Zoom Air del modelo adulto en tallaje niño. Buen cushion, knit cómodo y una de las mejores durabilidades outdoor del segmento: aguanta dentro y fuera.",
+      "Versión junior (Grade School) de la Nike Luka 77, con la misma espuma de doble densidad + Zoom Air en el antepié del modelo adulto en tallaje niño. Buen cushion, upper cómodo y una de las mejores durabilidades outdoor del segmento: aguanta dentro y fuera.",
     pros: [
-      "React + Zoom Air: cushion equilibrado",
+      "Doble densidad + Zoom Air en el antepié: cushion equilibrado",
       "Aguanta bien el outdoor",
-      "Knit cómodo desde el primer uso",
+      "Upper cómodo desde el primer uso",
       "Signature real a precio junior",
     ],
     contras: [
@@ -6007,7 +6007,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Zion Williamson",
-    tecnologia_clave: ["React foam midsole", "herringbone outsole", "reinforced upper"],
+    tecnologia_clave: ["Cushlon 3.0 drop-in midsole", "Full-length parabolic Air Zoom strobel", "Computationally designed outsole", "reinforced upper"],
     predecesor_id: null,
     sucesor_id: null,
 
@@ -6042,12 +6042,12 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Jordan Zion 4 está diseñada para jugadores corpulentos que necesitan máxima protección y estabilidad. Con React foam de alta densidad y una base reforzada, ofrece el cushion que necesita un jugador físico. Ojo con la horma: es estrecha y de poco volumen, con pie ancho sube media talla. Precio muy competitivo en rebajas.",
+      "La Jordan Zion 4 está diseñada para jugadores corpulentos que necesitan máxima protección y estabilidad. Con Cushlon 3.0 drop-in sobre un Air Zoom strobel de largo completo y una base reforzada, ofrece el cushion que necesita un jugador físico. Ojo con la horma: es estrecha y de poco volumen, con pie ancho sube media talla. Precio muy competitivo en rebajas.",
     pros: [
-      "React foam de alta densidad: máximo cushion para interiores pesados",
+      "Cushlon 3.0 drop-in + Air Zoom strobel de largo completo: mucho cushion para interiores pesados",
       "Base ultra estable para jugadores de más de 90 kg",
       "Base estable pensada para juego físico",
-      "Excelente tracción herringbone",
+      "Excelente tracción (suela diseñada computacionalmente)",
       "Precio rebajado (~85€) — una de las mejores opciones para pivots",
     ],
     contras: [
@@ -6087,7 +6087,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Luka Doncic",
-    tecnologia_clave: ["Zoom Air unit", "herringbone outsole", "knit upper"],
+    tecnologia_clave: ["Cushlon 3.0 midsole", "Forefoot Zoom Air unit", "IsoPlate", "Flightwire cables", "High-abrasion mesh upper", "herringbone outsole"],
     predecesor_id: "jordan-luka-3",
     sucesor_id: null,
 
@@ -6096,7 +6096,7 @@ const _rawZapatillas: Zapatilla[] = [
     horma: "normal",
     drop_mm: 10,
     tipo_cierre: "cordones",
-    material_superior: "knit",
+    material_superior: "mesh+synthetic",
 
     puntuaciones: {
       traccion: 10,
@@ -6122,17 +6122,17 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Jordan Luka 4 continúa la tradición de la línea Doncic: Zoom Air para cushion reactivo, upper de knit para comodidad, y soporte lateral sólido para ser low-top. Perfecta para guards y aleros que buscan un equilibrio entre amortiguación y respuesta. A 80€ en rebajas es una auténtica ganga.",
+      "La Jordan Luka 4 continúa la tradición de la línea Doncic: Zoom Air para cushion reactivo, upper de malla con Flightwire para comodidad, y soporte lateral sólido para ser low-top. Perfecta para guards y aleros que buscan un equilibrio entre amortiguación y respuesta. A 80€ en rebajas es una auténtica ganga.",
     pros: [
       "Zoom Air: cushion reactivo y responsive",
-      "Upper knit: comodidad y ajuste natural al pie",
+      "Upper de malla con Flightwire: contención ligera y ajuste natural al pie",
       "Soporte lateral sólido para ser low-top",
       "Perfil equilibrado: serve para múltiples posiciones",
       "Precio rebajado (~80€) — excelente relación calidad-precio",
     ],
     contras: [
       "Algo más pesada que las opciones speed",
-      "Upper knit puede desgastarse más rápido en uso outdoor",
+      "Upper de malla puede desgastarse más rápido en uso outdoor",
       "Respuesta no tan alta como Ja 3 o AE 3",
     ],
     veredicto:
@@ -6750,7 +6750,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 38,
     año_lanzamiento: 2023,
     genero: "unisex",
-    tecnologia_clave: ["Zoom Air Strobel", "Eclipse Plate"],
+    tecnologia_clave: ["Full-length Zoom Strobel", "Full-length Cushlon 3.0", "X-Plate", "Herringbone traction"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 396,
@@ -6778,7 +6778,7 @@ const _rawZapatillas: Zapatilla[] = [
       lesiones_compatibles: ["rodillas"],
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
-    resumen: "La línea Air Jordan en su 38ª edición ofrece Zoom Air Strobel completo para un cushion premium. Ideal para aleros y ala-pívots que buscan protección y estilo.",
+    resumen: "La línea Air Jordan en su 38ª edición ofrece Zoom Strobel completo con Cushlon 3.0 para un cushion premium. Ideal para aleros y ala-pívots que buscan protección y estilo.",
     pros: ["Cushion premium", "Muy buena estabilidad", "Icónico diseño Jordan"],
     contras: ["Algo pesada", "Durabilidad outdoor limitada", "Precio alto"],
     veredicto: "Para el jugador que quiere el look y el rendimiento Jordan en una posición versátil. Premium en todo.",
@@ -6803,7 +6803,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 23,
     año_lanzamiento: 2023,
     genero: "unisex",
-    tecnologia_clave: ["UA Micro G", "herringbone"],
+    tecnologia_clave: ["Full-length UA Micro G midsole", "Rubber outsole with anatomical traction pattern", "Mixed-material upper"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 380,
@@ -8758,7 +8758,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2023,
     genero: "unisex",
     signature_player: "Jayson Tatum",
-    tecnologia_clave: ["Zoom Air", "React foam", "herringbone"],
+    tecnologia_clave: ["Full-length Air Strobel", "Phylon/EVA foam midsole", "herringbone"],
     predecesor_id: null,
     sucesor_id: "jordan-tatum-3",
     peso_real_g: 408,
@@ -8785,8 +8785,8 @@ const _rawZapatillas: Zapatilla[] = [
       estilos: ["equilibrado", "explosivo"],
     },
     no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
-    resumen: "Segunda firma de Jayson Tatum con Jordan Brand. Combinación de Zoom Air y React foam para el alero versátil moderno. Predecesor directo de la popular Tatum 3.",
-    pros: ["Amortiguación Zoom+React muy equilibrada", "Buena tracción herringbone", "Polivalente para todas las posiciones perimetrales", "Durabilidad outdoor decente"],
+    resumen: "Segunda firma de Jayson Tatum con Jordan Brand. Air Strobel de largo completo sobre espuma Phylon/EVA para el alero versátil moderno. Predecesor directo de la popular Tatum 3.",
+    pros: ["Amortiguación Air Strobel + Phylon: buena protección y tacto de pista", "Buena tracción herringbone", "Polivalente para todas las posiciones perimetrales", "Durabilidad outdoor decente"],
     contras: ["Superada por la Tatum 3 en tecnología", "Sin innovación destacada respecto a generaciones anteriores"],
     veredicto: "Una sólida signature para aleros que buscan equilibrio completo. Vale la pena buscarla a precio reducido frente a la Tatum 3.",
     imagen_principal: "/shoes/jordan-tatum-2.webp",
@@ -8813,7 +8813,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2023,
     genero: "unisex",
     signature_player: "Zion Williamson",
-    tecnologia_clave: ["full-length React foam", "Zoom Air Strobel", "herringbone"],
+    tecnologia_clave: ["Drop-in midsole with Formula 23 foam", "Forefoot Zoom Air unit", "herringbone"],
     predecesor_id: null,
     sucesor_id: "jordan-zion-4",
     peso_real_g: 415,
@@ -8841,10 +8841,10 @@ const _rawZapatillas: Zapatilla[] = [
       lesiones_compatibles: ["rodillas"],
     },
     no_recomendada_para: { posiciones: ["base", "escolta"], estilos: ["equilibrado"] },
-    resumen: "Tercera firma de Zion Williamson, diseñada para aguantar el impacto brutal de un jugador de 130kg. React full-length y Zoom Air Strobel ofrecen la máxima protección de impactos de toda la línea.",
-    pros: ["Amortiguación máxima para jugadores muy pesados", "Sujeción segura una vez rodada", "Tracción herringbone agresiva", "Build quality premium"],
+    resumen: "Tercera firma de Zion Williamson, diseñada para aguantar el impacto brutal de un jugador de 130kg. Formula 23 en mediasuela drop-in con Zoom Air en el antepié ofrecen una protección de impactos sólida con la menor altura de pila de la línea Zion.",
+    pros: ["Protección de impactos sólida para jugadores muy pesados", "Sujeción segura una vez rodada", "Tracción herringbone agresiva", "Build quality premium"],
     contras: ["Muy pesada (415g) — no apta para guards", "Cara para lo que ofrece técnicamente", "Superada ya por la Zion 4", "Va estrecha: con pie ancho puede apretar en el antepié"],
-    veredicto: "La opción definitiva para pivots y ala-pivots de más de 95kg. Si tu cuerpo pide amortiguación máxima, esta es la zapatilla.",
+    veredicto: "La opción definitiva para pivots y ala-pivots de más de 95kg. Si tu cuerpo pide mucha protección de impactos, esta es una de las opciones más completas de Jordan.",
     imagen_principal: "/shoes/jordan-zion-3.webp",
     imagenes: [],
     fuentes: [
@@ -9095,7 +9095,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2023,
     genero: "unisex",
     signature_player: "Stephen Curry",
-    tecnologia_clave: ["UA FLOW", "Flow outsole", "herringbone"],
+    tecnologia_clave: ["Dual-density UA Flow foam", "UA Flow outsole", "Warp and knit upper"],
     predecesor_id: null,
     sucesor_id: "ua-curry-12",
     peso_real_g: 348,
@@ -9224,7 +9224,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2022,
     genero: "unisex",
     signature_player: "Russell Westbrook",
-    tecnologia_clave: ["Zoom Air Strobel", "herringbone", "low-top"],
+    tecnologia_clave: ["Forefoot Zoom Air unit", "EVA/Phylon foam midsole", "herringbone", "low-top"],
     predecesor_id: null,
     sucesor_id: null,
 
@@ -9256,9 +9256,9 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["pivot", "ala-pivot"], estilos: ["potente"] },
 
-    resumen: "La Why Not .6 refleja el estilo de juego explosivo y sin frenos de Russell Westbrook. Zoom Air Strobel en todo el pie para máxima respuesta en cada zancada. Es de corte low: prioriza agilidad, no sujeción de tobillo.",
+    resumen: "La Why Not .6 refleja el estilo de juego explosivo y sin frenos de Russell Westbrook. Zoom Air en el antepié sobre espuma EVA/Phylon para respuesta en cada zancada. Es de corte low: prioriza agilidad, no sujeción de tobillo.",
     pros: [
-      "Zoom Air Strobel: respuesta inmediata",
+      "Zoom Air en el antepié: respuesta inmediata",
       "Tracción herringbone multidireccional fiable",
       "Cushion equilibrado para el juego explosivo",
     ],
@@ -13398,7 +13398,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2020,
     genero: "unisex",
     signature_player: "Joel Embiid",
-    tecnologia_clave: ["UA HOVR", "Charged Cushioning", "TPU heel counter"],
+    tecnologia_clave: ["Full-length Micro G midsole", "HOVR heel puck", "TPU heel counter"],
     predecesor_id: null,
     peso_real_g: 410,
     altura: "mid",
@@ -13420,9 +13420,9 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["base"], estilos: ["explosivo"] },
     resumen:
-      "Debut signature de Joel Embiid con UA. Pensada para jugadores grandes: amortiguación HOVR + Charged para impactos pesados, horma ancha y soporte mid-top. HG le da 8.1 global con cushion 8.6. 410g de peso refleja su construcción robusta para pívots.",
+      "Debut signature de Joel Embiid con UA. Pensada para jugadores grandes: amortiguación Micro G + puck HOVR en el talón para impactos pesados, horma ancha y soporte mid-top. HG le da 8.1 global con cushion 8.6. 410g de peso refleja su construcción robusta para pívots.",
     pros: [
-      "Cushion HOVR excelente para impactos pesados (HG 8.6)",
+      "Cushion Micro G + HOVR en el talón excelente para impactos pesados (HG 8.6)",
       "Soporte y estabilidad ideales para pívots",
       "Horma ancha cómoda para pies grandes",
       "Build quality premium, durable",
@@ -13705,7 +13705,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2023,
     genero: "unisex",
     signature_player: "Stephen Curry",
-    tecnologia_clave: ["UA FLOW", "Warp upper", "Nitrogen-charged foam"],
+    tecnologia_clave: ["UA FLOW", "Warp upper", "Extended shank"],
     predecesor_id: null,
     peso_real_g: 350,
     altura: "low",
@@ -14903,7 +14903,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 1,
     año_lanzamiento: 2024,
     genero: "unisex",
-    tecnologia_clave: ["Diseño basado en jugadoras WNBA", "Perfil bajo (court feel)", "Cushion reactivo"],
+    tecnologia_clave: ["Diseño basado en jugadoras WNBA", "Perfil bajo (court feel)", "Drop-in Cushlon 3.0 midsole", "Exterior foam layer", "Rubber herringbone traction"],
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 320,
@@ -14965,7 +14965,7 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 41,
     año_lanzamiento: 2026,
     genero: "unisex",
-    tecnologia_clave: ["Cushlon 3.0", "ZoomX antepié", "Zoom Air talón", "Zoom Air Strobel full-length", "Upper tejido"],
+    tecnologia_clave: ["Full-length ZoomX foam", "Full-length Zoom Strobel", "Double-stacked Zoom Air cushioning", "Carbon fiber + TPU shank", "3D nano print mesh upper"],
     predecesor_id: "jordan-40",
     sucesor_id: null,
 
@@ -14974,7 +14974,7 @@ const _rawZapatillas: Zapatilla[] = [
     horma: "normal",
     drop_mm: 5,
     tipo_cierre: "cordones",
-    material_superior: "knit",
+    material_superior: "mesh",
 
     puntuaciones: {
       traccion: 9,
@@ -15000,10 +15000,10 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La 41ª de la saga y el setup de amortiguación más cargado que ha llevado una Air Jordan: Cushlon 3.0 de base, ZoomX en el antepié, Zoom Air en el talón y además un Zoom Air Strobel de largo completo. Encima, upper tejido con cuello tipo bootie para bajar peso frente a la 40. Salió el 9 de julio de 2026 a 205$.",
+      "La 41ª de la saga y el setup de amortiguación más cargado que ha llevado una Air Jordan: ZoomX de largo completo, un Zoom Strobel de largo completo y un Zoom Air doble apilado. Encima, upper de malla nano print 3D para bajar peso frente a la 40. Salió el 9 de julio de 2026 a 205$.",
     pros: [
-      "El stack de amortiguación más completo de la línea (Cushlon 3.0 + ZoomX + 2 unidades Zoom)",
-      "Upper tejido y ligero para un flagship de este nivel",
+      "El stack de amortiguación más completo de la línea (ZoomX + Zoom Strobel + Zoom Air doble apilado)",
+      "Upper de malla nano print 3D y ligero para un flagship de este nivel",
       "Cuello bootie: calce envolvente sin capas extra",
       "Hereda la plataforma de la 40, que dejó el listón muy alto",
     ],
