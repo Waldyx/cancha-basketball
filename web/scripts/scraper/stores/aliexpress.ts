@@ -29,6 +29,41 @@ export function isBotChallengeUrl(url: string): boolean {
   return /\/_____tmd_____\//i.test(url) || /\/punish[/?]/i.test(url);
 }
 
+/**
+ * La API de afiliados sigue devolviendo productos que AliExpress YA HA RETIRADO
+ * (20-oct-2026: 7 de 34 fichas daban «Esta página no existe» y el scraper había
+ * dado por vivas dos de ellas el 16 y el 18). La ficha retirada sí se distingue
+ * en un navegador: es la misma página de error para cualquier id. Solo el texto
+ * de error cuenta como muerta (señal POSITIVA); ver el título del producto, viva;
+ * cualquier otra cosa (reto, página a medio cargar) no decide nada.
+ */
+export function veredictoFichaItem(texto: string, titulo: string): "muerta" | "viva" | null {
+  if (/Esta página no existe|Page Not Found|this page doesn't exist/i.test(texto)) return "muerta";
+  if (titulo.trim().length >= 10) return "viva";
+  return null;
+}
+
+export async function fichaRetirada(page: Page, productId: string): Promise<boolean> {
+  try {
+    await page.goto(`https://es.aliexpress.com/item/${productId}.html`, {
+      waitUntil: "domcontentloaded",
+      timeout: 20000,
+    });
+    const limite = Date.now() + PRICE_WAIT_MS;
+    while (Date.now() < limite) {
+      const [texto, titulo] = await page.evaluate(
+        "[document.body ? document.body.innerText.slice(0, 2000) : '', (document.querySelector('h1') || {}).innerText || '']"
+      ) as [string, string];
+      const v = veredictoFichaItem(texto, titulo);
+      if (v) return v === "muerta";
+      await page.waitForTimeout(POLL_MS);
+    }
+  } catch {
+    // Inconcluyente: manda lo que dijo la API.
+  }
+  return false;
+}
+
 /** Presupuesto de espera del precio. Antes eran 3s ciegos + 5s de isVisible. */
 const PRICE_WAIT_MS = 6000;
 const POLL_MS = 500;
@@ -176,7 +211,14 @@ export const aliexpress: StoreScraper = {
         console.log(`   ⚠️  API AliExpress reventó: ${(e as Error).message} · ${shoe.id}`);
         return null;
       });
-      if (viaApi) return viaApi;
+      if (viaApi) {
+        const id = extractProductId(viaApi.url);
+        if (viaApi.disponible && id && (await fichaRetirada(page, id))) {
+          console.log(`   🪦 AliExpress: la API da el item ${id} pero la ficha ya no existe · ${shoe.id}`);
+          return { ...viaApi, precio_actual: 0, disponible: false, agotado: true };
+        }
+        return viaApi;
+      }
     }
 
     // Si salta el reto anti-bot, abandonamos ya: el precio no va a aparecer.

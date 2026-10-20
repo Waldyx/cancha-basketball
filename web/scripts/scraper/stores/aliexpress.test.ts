@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { isBotChallengeUrl, precioDeCandidato } from "./aliexpress";
+import { isBotChallengeUrl, precioDeCandidato, veredictoFichaItem } from "./aliexpress";
 
 // AliExpress responde a la XHR de precio (mtop...pdp.pc.query) con un reto
 // anti-bot en vez de con datos. Capturado en red el 2026-07-30: por cada ficha,
@@ -73,5 +73,19 @@ describe("precioDeCandidato — no aceptar el precio de otro producto", () => {
   it("acepta un modelo occidental con SKU en el título (formato Marcas+)", () => {
     const sabrina = { id: "nike-sabrina-3", marca: "Nike", modelo: "Sabrina 3" };
     expect(precioDeCandidato("Nike Authentic Sabrina 3 EP HF2882-600", "90,99 €", sabrina)).toBe(90.99);
+  });
+});
+
+// 20-oct-2026: la API daba por vivos items retirados. Texto capturado de una ficha
+// retirada (1005011984740781) y de una viva (1005012884085615).
+describe("veredictoFichaItem — ficha retirada de AliExpress", () => {
+  it("la página de error es muerta aunque traiga cabecera y pie", () => {
+    expect(veredictoFichaItem("AliExpress\n0\nEsta página no existe :(\nAyuda\nAtención al cliente", "")).toBe("muerta");
+  });
+  it("con el título del producto, viva", () => {
+    expect(veredictoFichaItem("AliExpress …", "Zapatillas de Baloncesto ANTA Shock Wave 5 112341106-5")).toBe("viva");
+  });
+  it("página a medio cargar o reto: no decide", () => {
+    expect(veredictoFichaItem("AliExpress\n0", "")).toBeNull();
   });
 });
