@@ -235,11 +235,11 @@ export const ARTICLES: Article[] = [
 <p><strong>Veredicto:</strong> empate. Decide por amortiguación, horma o precio.</p>
 
 <h2>Amortiguación: {{nota:adidas-ae-2:amortiguacion}} la AE 2 y {{nota:nike-ja-3:amortiguacion}} la Ja 3</h2>
-<p>La Ja 3 usa ZoomX full-length — la misma espuma de los Vaporfly de running. Es más blanda que el Lightstrike Pro de la AE 2, que es más firme y reactivo. Aun así, en nuestra ficha la AE 2 puntúa un punto más en amortiguación.</p>
+<p>La Ja 3 usa ZoomX full-length — la misma espuma de los Vaporfly de running. Su tacto es distinto al del Light BOOST con Lightstrike de la AE 2. Aun así, en nuestra ficha la AE 2 puntúa un punto más en amortiguación.</p>
 <p><strong>Veredicto:</strong> AE 2 si priorizas la amortiguación; Ja 3 si prefieres un tacto más blando.</p>
 
 <h2>Respuesta: empate técnico</h2>
-<p>Ambas tienen {{nota:adidas-ae-2:respuesta}} en respuesta en nuestro análisis. La AE 2 tiene un primer paso más agresivo gracias al Lightstrike Pro firme; la Ja 3 tiene más bounce pero similar tiempo de respuesta. Para guards explosivos, las dos están en el mismo nivel.</p>
+<p>Ambas tienen {{nota:adidas-ae-2:respuesta}} en respuesta en nuestro análisis. La AE 2 tiene un primer paso más agresivo gracias al Light BOOST con Propulsion Plate; la Ja 3 tiene más bounce pero similar tiempo de respuesta. Para guards explosivos, las dos están en el mismo nivel.</p>
 
 <h2>Horma: ninguna de las dos es para pies anchos</h2>
 <p>La AE 2 tiene horma normal — ni estrecha ni ancha. La Ja 3 es más ceñida: los análisis la describen como estrecha y con un rodaje inicial, y aconsejan subir media talla si tu pie es ancho. Con pie ancho, pruébate cualquiera de las dos antes de comprar.</p>
@@ -360,7 +360,7 @@ export const ARTICLES: Article[] = [
 <ul>
   <li>✅ ZoomX de longitud completa con Cushlon y placa de carbono: el combo de cushion más potente de Nike en baloncesto.</li>
   <li>✅ Suela de caucho multidireccional: agarre excepcional en parquet limpio y sucio.</li>
-  <li>✅ Upper de punto (knit) con refuerzos: soporte lateral sólido sin rigidez excesiva.</li>
+  <li>✅ Upper con refuerzos: soporte lateral sólido sin rigidez excesiva.</li>
   <li>❌ 455 g — la más pesada del grupo. Se nota en las ayudas defensivas lentas.</li>
   <li>✅ Horma amable con el pie ancho, aunque el talón va algo estrecho.</li>
 </ul>
@@ -855,15 +855,15 @@ export const ARTICLES: Article[] = [
 <p class="art-intro">Se puede jugar bien por menos de 80 €, y no solo con modelos básicos: muchas de las mejores relaciones calidad-precio del catálogo son marcas chinas con tecnología de gama alta o modelos de una o dos temporadas atrás que han bajado mucho de precio. Estas son las ocho que hoy merecen la pena, todas a la venta en tiendas que trabajan en España. El precio de cada titular se actualiza solo.</p>
 
 <h2>1. Li-Ning Way of Wade All City 14 — desde {{precio:lining-wow-allcity-14}}</h2>
-<p>La mejor valorada del catálogo a este precio: espuma BOOM de longitud completa, placa de carbono y una suela de goma que además aguanta el exterior. Rinde como una zapatilla de gama alta.</p>
+<p>La mejor valorada del catálogo a este precio: espuma BOOM de longitud completa, placa de muelle de TPU y una suela de goma que además aguanta el exterior. Rinde como una zapatilla de gama alta.</p>
 <ul>
-  <li>Tecnología de gama alta: BOOM y placa de carbono</li>
+  <li>Tecnología de gama alta: BOOM y placa de muelle de TPU</li>
   <li>Vale para interior y exterior</li>
   <li>Se compra en AliExpress: el envío tarda más. Tiendas y tallas en <a href="/zapatilla/lining-wow-allcity-14">su ficha</a></li>
 </ul>
 
 <h2>2. Anta KAI 1 Speed — desde {{precio:anta-kai-1-speed}}</h2>
-<p>La versión ligera de la primera zapatilla de Kyrie Irving con Anta: espuma Nitroedge y placa de carbono, con una tracción y una respuesta de las más altas del catálogo. Para bases rápidos que juegan en pista cubierta.</p>
+<p>La versión ligera de la primera zapatilla de Kyrie Irving con Anta: espuma Nitro Edge y shank de TPU en el mediopié, con una tracción y una respuesta de las más altas del catálogo. Para bases rápidos que juegan en pista cubierta.</p>
 <ul>
   <li>De las más reactivas que vas a encontrar a cualquier precio</li>
   <li>Ojo: suela de interior, no la uses en la calle</li>
@@ -1159,7 +1159,7 @@ export const ARTICLES: Article[] = [
 <p>Ambas usan Nitro foam de Puma, la tecnología de nitrógeno inyectado que caracteriza la línea MB. Sin embargo, la disposición cambia:</p>
 <ul>
   <li><strong>MB.04:</strong> Nitrofoam. El resultado es una zapa más reactiva y firme — más court feel, menos amortiguación blanda.</li>
-  <li><strong>MB.05:</strong> Nitro full-length con mayor volumen de espuma. Más protección de impactos, especialmente en aterrizajes. Ligeramente menos "snap" que la MB.04.</li>
+  <li><strong>MB.05:</strong> Nitrofoam con mayor volumen de espuma. Más protección de impactos, especialmente en aterrizajes. Ligeramente menos "snap" que la MB.04.</li>
 </ul>
 <p><strong>Veredicto espuma:</strong> MB.04 si eres un guard explosivo que necesita primer paso rápido. MB.05 si pesas más de 80kg o necesitas más protección en rodillas.</p>
 
@@ -1259,9 +1259,9 @@ export const ARTICLES: Article[] = [
 <h2>La sorpresa del precio: Jordan por menos que Adidas</h2>
 <p>La Jordan Tatum 4 está desde {{precio:jordan-tatum-4}} y la Adidas AE 2 desde {{precio:adidas-ae-2}}. La Tatum 4 es una línea más accesible dentro del catálogo Jordan y la AE 2 es el flagship de Anthony Edwards, así que en precio de salida la AE 2 queda por encima. Si el presupuesto es tu filtro principal, compara el precio actual de las dos.</p>
 
-<h2>Espuma: Zoom Strobel vs Lightstrike Pro</h2>
+<h2>Espuma: Zoom Air con Cushlon vs Light BOOST con Lightstrike</h2>
 <p><strong>Jordan Tatum 4 — Zoom Air + Cushlon 3.0:</strong> una unidad Zoom Air de gran volumen en el antepié sobre Cushlon 3.0 de longitud completa da respuesta y amortiguación. El resultado: una amortiguación de {{nota:jordan-tatum-4:amortiguacion}} en nuestra ficha, justo por debajo de la {{nota:adidas-ae-2:amortiguacion}} de la AE 2.</p>
-<p><strong>Adidas AE 2 — Lightstrike Pro:</strong> la espuma signature de Adidas es más firme y reactiva que el React de Nike. La energía de retorno es superior — lo notas en los saltos y en el primer paso.</p>
+<p><strong>Adidas AE 2 — Light BOOST con Lightstrike:</strong> Light BOOST de longitud completa con Lightstrike y una Propulsion Plate en el mediopié. La energía de retorno es superior — lo notas en los saltos y en el primer paso.</p>
 <p><strong>Veredicto espuma:</strong> en nuestra ficha la AE 2 gana en las dos, amortiguación ({{nota:adidas-ae-2:amortiguacion}} frente a {{nota:jordan-tatum-4:amortiguacion}}) y respuesta ({{nota:adidas-ae-2:respuesta}} frente a {{nota:jordan-tatum-4:respuesta}}).</p>
 
 <h2>Tracción: ventaja AE 2</h2>
@@ -1270,7 +1270,7 @@ export const ARTICLES: Article[] = [
 <h2>¿Para qué tipo de alero es cada una?</h2>
 <ul>
   <li><strong>Jordan Tatum 4 si:</strong> eres alero de 75-100kg que prioriza cushion, juegas tanto en el perímetro como en la pintura, tienes presupuesto ajustado (desde {{precio:jordan-tatum-4}}), o prefieres el branding Jordan.</li>
-  <li><strong>Adidas AE 2 si:</strong> eres alero-escolta (<90kg) que prioriza explosividad y tracción, juegas en pistas con polvo, quieres el máximo rendimiento técnico disponible desde {{precio:adidas-ae-2}}, o ya conoces y confías en Lightstrike Pro.</li>
+  <li><strong>Adidas AE 2 si:</strong> eres alero-escolta (<90kg) que prioriza explosividad y tracción, juegas en pistas con polvo, quieres el máximo rendimiento técnico disponible desde {{precio:adidas-ae-2}}, o ya conoces y confías en el Light BOOST de adidas.</li>
 </ul>
 
 <h2>¿Y si no soy alero?</h2>
@@ -1440,13 +1440,13 @@ export const ARTICLES: Article[] = [
 <p>Caña media para dar algo más de sujeción al tobillo y una suela de goma que aguanta también la pista exterior del colegio. Hay una versión hermana, la <a href="/zapatilla/adidas-cross-em-up-select">Cross 'Em Up Select</a>, con el mismo planteamiento.</p>
 
 <h3>3. <a href="/zapatilla/nike-giannis-immortality-4-gs">Nike Giannis Immortality 4</a> — club</h3>
-<p>Para niños de 10 a 14 años que juegan en club: Cushlon, buena tracción de espiga y un precio contenido. El tirón de Giannis Antetokounmpo ayuda con la motivación.</p>
+<p>Para niños de 10 a 14 años que juegan en club: espuma Renew, buena tracción de espiga y un precio contenido. El tirón de Giannis Antetokounmpo ayuda con la motivación.</p>
 
 <h3>4. <a href="/zapatilla/adidas-dame-x-gs">Adidas Dame X</a> — rendimiento de gama alta a precio bajo</h3>
 <p>La versión de niño de la décima de Damian Lillard: Lightstrike con muy buena tracción, amortiguación y respuesta, y suele encontrarse rebajada. Es de pista cubierta: en exterior su goma se gasta rápido.</p>
 
 <h3>5. <a href="/zapatilla/adidas-don-issue-7-gs">Adidas D.O.N. Issue 7</a> — cadetes que compiten</h3>
-<p>La mejor valorada de las versiones de niño del catálogo: Lightstrike Pro, mucho soporte y tracción. Para jugadores federados que ya notan la diferencia. Otras de ese nivel: la <a href="/zapatilla/adidas-ae-2-gs">AE 2</a> y la <a href="/zapatilla/ua-curry-12-gs">UA Curry 12</a>, también en tallaje GS y también solo para interior.</p>
+<p>La mejor valorada de las versiones de niño del catálogo: Lightstrike con Lightstrike Pro en el antepié, mucho soporte y tracción. Para jugadores federados que ya notan la diferencia. Otras de ese nivel: la <a href="/zapatilla/adidas-ae-2-gs">AE 2</a> y la <a href="/zapatilla/ua-curry-12-gs">UA Curry 12</a>, también en tallaje GS y también solo para interior.</p>
 
 <h2>¿Low, mid o high para un niño?</h2>
 <p>Para niños sin historial de esguinces: cualquier altura funciona. Para niños con tobillos débiles o historial de torceduras: prioriza mid o high. La diferencia en protección entre low y mid es real en jugadores en formación cuya musculatura de tobillo aún se está desarrollando.</p>
@@ -1521,7 +1521,7 @@ export const ARTICLES: Article[] = [
 <p>Sorprendentemente buena para pie plano: UA Flow con geometría de suela estabilizadora, soporte lateral {{nota:ua-curry-13:soporte_lateral}}, estabilidad {{nota:ua-curry-13:estabilidad}}. Más reactiva que el LeBron, ideal si eres guard con pie plano. El UA Flow actúa como una plantilla extra al ser la espuma de suela directo al suelo. Precio: desde {{precio:ua-curry-13}}.</p>
 
 <h3>4. Adidas AE 2 — más accesible que las de gama tope</h3>
-<p>Si el presupuesto importa, la AE 2 ofrece estabilidad {{nota:adidas-ae-2:estabilidad}} y soporte lateral {{nota:adidas-ae-2:soporte_lateral}} desde {{precio:adidas-ae-2}}. Lightstrike Pro firme, herringbone tracción. No llega al LeBron ni en cushion ({{nota:adidas-ae-2:amortiguacion}} frente a {{nota:nike-lebron-22:amortiguacion}}) ni en soporte ({{nota:adidas-ae-2:soporte_lateral}} frente a {{nota:nike-lebron-22:soporte_lateral}}). Para jugadores de hasta 85kg con pie plano, es suficiente.</p>
+<p>Si el presupuesto importa, la AE 2 ofrece estabilidad {{nota:adidas-ae-2:estabilidad}} y soporte lateral {{nota:adidas-ae-2:soporte_lateral}} desde {{precio:adidas-ae-2}}. Light BOOST con Lightstrike, herringbone tracción. No llega al LeBron ni en cushion ({{nota:adidas-ae-2:amortiguacion}} frente a {{nota:nike-lebron-22:amortiguacion}}) ni en soporte ({{nota:adidas-ae-2:soporte_lateral}} frente a {{nota:nike-lebron-22:soporte_lateral}}). Para jugadores de hasta 85kg con pie plano, es suficiente.</p>
 
 <h3>5. Nike GT Hustle 3 — soporte de tobillo + pie plano</h3>
 <p>Si tienes pie plano <em>y</em> historial de esguinces, la GT Hustle 3, de corte mid, es la solución. Estabilidad {{nota:nike-gt-hustle-3:estabilidad}}, soporte lateral {{nota:nike-gt-hustle-3:soporte_lateral}}, collar de tobillo reforzado. Más pesada que la GT Cut, pero para un jugador con problemas combinados de pie plano + tobillo débil, es la opción más segura del mercado.</p>
@@ -1574,7 +1574,7 @@ export const ARTICLES: Article[] = [
 <p class="art-intro">La Adidas AE 2 lleva varios meses en el tope de nuestros rankings. Tracción {{nota:adidas-ae-2:traccion}}, respuesta excepcional, horma versátil. Pero ¿por qué exactamente? Este análisis desmonta la zapatilla atributo por atributo para que entiendas qué la hace tan buena y si encaja con tu perfil.</p>
 
 <h2>Contexto: Anthony Edwards y la línea AE</h2>
-<p>Anthony Edwards firmó con Adidas en 2023 y la AE 2 es el tercer modelo de su línea signature. Edwards es un escolta explosivo, potente y con un primer paso brutal — su zapatilla refleja exactamente eso: tracción y respuesta por encima de todo. Adidas metió Lightstrike Pro en el modelo, la misma tecnología de las zapatillas de élite de atletismo.</p>
+<p>Anthony Edwards firmó con Adidas en 2023 y la AE 2 es el tercer modelo de su línea signature. Edwards es un escolta explosivo, potente y con un primer paso brutal — su zapatilla refleja exactamente eso: tracción y respuesta por encima de todo. Adidas montó Light BOOST con Lightstrike y una Propulsion Plate en el mediopié.</p>
 <p>La AE 2 se lanzó a <strong>~145€</strong>, un precio razonable para la tecnología que incluye. Es un escalón por debajo del precio aspiracional de Jordan y Nike (150-180€) con rendimiento comparable o superior en la mayoría de atributos.</p>
 
 <h2>Tracción: la mejor del mercado en indoor</h2>
@@ -1586,11 +1586,11 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h2>Amortiguación: reactiva, no máxima</h2>
-<p>La AE 2 lleva <strong>Lightstrike Pro</strong> en el antepié y una capa de Lightstrike base en el talón. El resultado es un cushion reactivo y devolutivo — sientes el suelo pero con protección suficiente. No es la zapatilla de máxima amortiguación del mercado (ese papel lo juegan la LeBron 22 o la LeBron 23), pero tampoco es minimal.</p>
+<p>La AE 2 lleva <strong>Light BOOST</strong> de longitud completa, con Lightstrike y una Propulsion Plate en el mediopié. El resultado es un cushion reactivo y devolutivo — sientes el suelo pero con protección suficiente. No es la zapatilla de máxima amortiguación del mercado (ese papel lo juegan la LeBron 22 o la LeBron 23), pero tampoco es minimal.</p>
 <p>Para jugadores de 60-85 kg que no buscan cushion de pívot, es más que suficiente. Para jugadores de 90+ kg o con rodillas sensibles, considera alternativas con más stack de cushion.</p>
 
 <h2>Respuesta y court feel</h2>
-<p>Aquí la AE 2 destaca especialmente. El Lightstrike Pro devuelve energía de forma eficiente — cuando aceleras, la midsole "empuja" en lugar de absorber pasivamente. Es la característica que más aprecia Edwards (cuyo juego se basa en primeros pasos) y que más notable resulta en cancha.</p>
+<p>Aquí la AE 2 destaca especialmente. El Light BOOST con la Propulsion Plate devuelve energía de forma eficiente — cuando aceleras, la midsole "empuja" en lugar de absorber pasivamente. Es la característica que más aprecia Edwards (cuyo juego se basa en primeros pasos) y que más notable resulta en cancha.</p>
 <p>El court feel es excelente para una zapatilla con cushion de este nivel. No es tan "al suelo" como la GT Cut 4, pero tampoco parece que estás sobre un cojín.</p>
 
 <h2>Ajuste y horma</h2>
@@ -1767,7 +1767,7 @@ export const ARTICLES: Article[] = [
 <p>La combinación Zoom Air + Cushlon 3.0 es equilibrada: el Zoom del antepié da respuesta y el Cushlon, amortiguación. Para un alero que hace de todo, es el compromiso perfecto.</p>
 
 <h2>Cushion: uno de los mejores del mercado en su segmento</h2>
-<p>Con Zoom Air y React, la Tatum 4 protege bien en todas las situaciones. En aterrizajes desde el aro, contactos en la pintura y partidos de 40+ minutos, el nivel de cushion es más que suficiente para jugadores hasta 95 kg. Para pívots de 100 kg+, la LeBron 22 o la LeBron 23 tienen aún más amortiguación.</p>
+<p>Con Zoom Air y Cushlon 3.0, la Tatum 4 protege bien en todas las situaciones. En aterrizajes desde el aro, contactos en la pintura y partidos de 40+ minutos, el nivel de cushion es más que suficiente para jugadores hasta 95 kg. Para pívots de 100 kg+, la LeBron 22 o la LeBron 23 tienen aún más amortiguación.</p>
 <p>El cushion no sacrifica el court feel gracias al Zoom en el antepié. Otros zapatos con tanto cushion (LeBron 22, Witness) se sienten "esponjosos" — la Tatum 4 mantiene conexión con el suelo.</p>
 
 <h2>Tracción</h2>
@@ -1779,7 +1779,7 @@ export const ARTICLES: Article[] = [
 
 <h2>Ajuste y horma</h2>
 <p>La Tatum 4 tiene horma <strong>media</strong>, ligeramente más estrecha que la LeBron 22 pero más generosa que la GT Cut 4 o la Kyrie. Para la mayoría de pies normales, encaja perfectamente en talla habitual. Los que tienen pie ancho pueden necesitar media talla más — en talla habitual el antepié puede quedar justo.</p>
-<p>El upper construido en materiales sintéticos de alta densidad es sólido pero transpira menos que el flyknit de la AE 2. Para sesiones largas o pabellones calurosos, la ventilación es un punto débil.</p>
+<p>El upper construido en materiales sintéticos de alta densidad es sólido pero transpira menos que el upper de la AE 2. Para sesiones largas o pabellones calurosos, la ventilación es un punto débil.</p>
 
 <h2>Peso: uno de sus puntos fuertes</h2>
 <p>La Tatum 4 pesa 12,4 oz (unos <strong>351 g</strong>) según el laboratorio de RunRepeat: más de una onza por debajo de la media de su categoría y la Jordan de baloncesto más ligera hasta la fecha. Pesa bastante menos que la AE 2 (428 g) o la GT Cut 4 (431 g) y prácticamente lo mismo que la Curry 13 (352 g). Para una zapatilla de alero con este nivel de cushion y soporte, es una ventaja clara.</p>
@@ -2097,7 +2097,7 @@ export const ARTICLES: Article[] = [
 <h2>¿Cómo se compara con sus rivales?</h2>
 
 <h3>vs Adidas AE 2 (desde {{precio:adidas-ae-2}})</h3>
-<p>La AE 2 y la Ja 3 empatan en tracción ({{nota:adidas-ae-2:traccion}} frente a {{nota:nike-ja-3:traccion}}). En cushion la ficha da {{nota:adidas-ae-2:amortiguacion}} a la AE 2 y {{nota:nike-ja-3:amortiguacion}} a la Ja 3 (Lightstrike Pro frente a ZoomX). Si priorizas el cushion: AE 2.</p>
+<p>La AE 2 y la Ja 3 empatan en tracción ({{nota:adidas-ae-2:traccion}} frente a {{nota:nike-ja-3:traccion}}). En cushion la ficha da {{nota:adidas-ae-2:amortiguacion}} a la AE 2 y {{nota:nike-ja-3:amortiguacion}} a la Ja 3 (Light BOOST frente a ZoomX). Si priorizas el cushion: AE 2.</p>
 
 <h3>vs Under Armour Curry 13 (desde {{precio:ua-curry-13}})</h3>
 <p>La Curry 13 tiene mejor court feel (UA Flow directo al suelo). La Ja 3 tiene mejor durabilidad outdoor y la Curry 13 una puntera más amplia. Si juegas siempre en interior limpio o tienes pie ancho: Curry 13. Si juegas ocasionalmente fuera: Ja 3.</p>
@@ -2365,7 +2365,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — desde {{precio:adidas-ae-2}}</a></h3>
-<p><strong>El mejor equilibrio precio/rendimiento para bases.</strong> Herringbone {{nota:adidas-ae-2:traccion}} que funciona en parquet limpio y sucio. Lightstrike Pro reactivo pero con algo más de cushion que la GT Cut 4. 428 g, horma normal. Para bases que juegan en diferentes canchas y no quieren pagar el precio premium de la GT Cut 4.</p>
+<p><strong>El mejor equilibrio precio/rendimiento para bases.</strong> Herringbone {{nota:adidas-ae-2:traccion}} que funciona en parquet limpio y sucio. Light BOOST reactivo pero con algo más de cushion que la GT Cut 4. 428 g, horma normal. Para bases que juegan en diferentes canchas y no quieren pagar el precio premium de la GT Cut 4.</p>
 <ul>
   <li>✅ Tracción {{nota:adidas-ae-2:traccion}} — aguanta pistas con polvo</li>
   <li>✅ Respuesta {{nota:adidas-ae-2:respuesta}} — primer paso rápido</li>
@@ -2486,7 +2486,7 @@ export const ARTICLES: Article[] = [
 <h2>Top 5 zapatillas para escoltas en 2025</h2>
 
 <h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — desde {{precio:adidas-ae-2}}</a></h3>
-<p><strong>La opción más completa del mercado para el perfil escolta-creador.</strong> El herringbone de {{nota:adidas-ae-2:traccion}} da agarre en cualquier condición; el Lightstrike Pro da respuesta suficiente para las penetraciones sin sacrificar el cushion. Horma normal, precio competitivo. Para escoltas que juegan en diferentes canchas y no saben si van a interior o exterior.</p>
+<p><strong>La opción más completa del mercado para el perfil escolta-creador.</strong> El herringbone de {{nota:adidas-ae-2:traccion}} da agarre en cualquier condición; el Light BOOST da respuesta suficiente para las penetraciones sin sacrificar el cushion. Horma normal, precio competitivo. Para escoltas que juegan en diferentes canchas y no saben si van a interior o exterior.</p>
 <ul>
   <li>✅ Tracción {{nota:adidas-ae-2:traccion}} — el mejor herringbone del mercado para exterior moderado</li>
   <li>✅ Respuesta {{nota:adidas-ae-2:respuesta}} — primer paso competitivo para escolta-creador</li>
@@ -2733,8 +2733,8 @@ export const ARTICLES: Article[] = [
 <h3>Lightstrike Pro (Adidas)</h3>
 <p><strong>Qué es:</strong> La espuma premium de Adidas para baloncesto y atletismo. Una espuma de TPU modificado que equilibra cushion y respuesta. Más firme que el ZoomX pero más reactiva que el Bounce foam convencional de Adidas.</p>
 <p><strong>Cómo se siente:</strong> El equilibrio más honesto del mercado. No es la que más cushion da (Max Air la supera) ni la más reactiva (ZoomX o UA Flow la superan), pero tiene un score medio muy alto en todos los atributos. Para jugadores que no quieren extremos, es la referencia.</p>
-<p><strong>El problema:</strong> Es cara de fabricar, por eso aparece solo en los modelos signature premium de Adidas (AE 2). Las versiones económicas de Adidas usan Bounce, que es inferior.</p>
-<p><strong>Modelos que la usan:</strong> Adidas AE 2.</p>
+<p><strong>El problema:</strong> Es cara de fabricar, por eso aparece solo en modelos premium de Adidas, como el antepié de las D.O.N. Issue 6 y 7. Las versiones económicas de Adidas usan Bounce, que es inferior.</p>
+<p><strong>Modelos que la usan:</strong> Adidas D.O.N. Issue 6 y D.O.N. Issue 7 (en el antepié).</p>
 <p><strong>Puntuación relativa:</strong> Respuesta 8/10 · Cushion 8/10 · Estabilidad 8/10</p>
 
 <h2>Comparativa directa</h2>
@@ -2789,7 +2789,7 @@ export const ARTICLES: Article[] = [
   <li><strong>Base o escolta que prioriza court feel y plays en interior → UA Flow</strong> (UA Curry 13). No hay nada como sentir el suelo directamente.</li>
   <li><strong>Guard o alero que quiere bounce con cushion decente → ZoomX</strong> (Nike Ja 3, Air Jordan 40). El mejor equilibrio cushion-respuesta del mercado.</li>
   <li><strong>Pívot o ala-pívot de 90kg+ que necesita protección máxima → Cushion máximo (ZoomX / Zoom Air)</strong> (Nike LeBron 22/23). El cushion que no colapsa.</li>
-  <li><strong>Cualquier posición que busca el mejor equilibrio sin extremos → Lightstrike Pro</strong> (Adidas AE 2). El sweet spot del mercado.</li>
+  <li><strong>Cualquier posición que busca el mejor equilibrio sin extremos → Lightstrike Pro</strong> (Adidas D.O.N. Issue 7, con Lightstrike Pro en el antepié). El sweet spot del mercado.</li>
 </ul>
 
 <p class="art-outro">¿No sabes qué espuma encaja con tu perfil? El <a href="/quiz">quiz de CANCHA.ZAPA</a> usa tus respuestas de posición, peso y estilo de juego para filtrarte automáticamente las zapatillas con la espuma más adecuada para ti.</p>
@@ -2823,7 +2823,7 @@ export const ARTICLES: Article[] = [
 <p>La MB.05 usa Nitrofoam, la espuma de nitrógeno de Puma. El resultado:</p>
 <ul>
   <li><strong>Bounce mayor que la MB.04:</strong> el Nitrofoam de la MB.05 se siente blando, con respuesta en el antepié. En los primeros pasos se nota la diferencia — hay más energía de retorno.</li>
-  <li><strong>Cushion {{nota:puma-mb05:amortiguacion}}:</strong> al nivel de la AE 2 ({{nota:adidas-ae-2:amortiguacion}}), con un tacto más suave que el del Lightstrike Pro. Para un guard de 75-90kg es suficiente y protector.</li>
+  <li><strong>Cushion {{nota:puma-mb05:amortiguacion}}:</strong> al nivel de la AE 2 ({{nota:adidas-ae-2:amortiguacion}}), con un tacto más suave que el del Light BOOST. Para un guard de 75-90kg es suficiente y protector.</li>
   <li><strong>Ligereza:</strong> la MB.05 pesa 418 g, en la línea de la AE 2 (428 g) y la GT Cut 4 (431 g). No es ligera, pero para su nivel de cushion es un peso razonable.</li>
 </ul>
 
@@ -2901,7 +2901,7 @@ export const ARTICLES: Article[] = [
 <h3>Drop-in de React</h3>
 <p>El drop-in de React es fino y de perfil bajo: prioriza el court feel sobre la protección. Sus 340 g tampoco frenan la respuesta.</p>
 
-<h3>Suela herringbone de carbon</h3>
+<h3>Suela herringbone</h3>
 <p>El patrón herringbone de la Kobe 8 es uno de los diseños más copiados de la historia del baloncesto. No en vano: en parquet limpio, la tracción es excepcional. El problema: en pistas con polvo o suciedad, la goma fina se desliza antes que la goma más gruesa de la GT Cut 4 o la AE 2.</p>
 
 <h2>Puntuación técnica CANCHA.ZAPA</h2>
@@ -3830,7 +3830,7 @@ export const ARTICLES: Article[] = [
   <li><strong>UA Curry 12 GS (desde {{precio:ua-curry-12-gs}}):</strong> la misma suela UA Flow (sin goma, súper ligera y reactiva) que la adulta (desde {{precio:ua-curry-12}}). La signature premium del júnior tirador.</li>
   <li><strong>Adidas AE 1 / AE 2 GS (desde {{precio:adidas-ae-1-gs}} / {{precio:adidas-ae-2-gs}}):</strong> la zapa de Anthony Edwards, la más aspiracional ahora mismo, en talla niño a precio de ganga.</li>
   <li><strong>Puma MB.05 GS (desde {{precio:puma-mb05-gs}}):</strong> el estilo y el Nitrofoam de LaMelo Ball para los más jóvenes.</li>
-  <li><strong>Adidas D.O.N. Issue 7 GS (desde {{precio:adidas-don-issue-7-gs}}):</strong> Lightstrike Pro + suela Continental: cushion premium y tracción de élite indoor.</li>
+  <li><strong>Adidas D.O.N. Issue 7 GS (desde {{precio:adidas-don-issue-7-gs}}):</strong> Lightstrike con Lightstrike Pro en el antepié: cushion premium.</li>
   <li><strong>Nike Giannis Immortality 4 GS (desde {{precio:nike-giannis-immortality-4-gs}}):</strong> resistente al asfalto y baratísima. La mejor budget para el júnior interior.</li>
   <li><strong>Adidas Believe That 1 GS (desde {{precio:adidas-believe-that-1-gs}}):</strong> Dreamstrike y herringbone multidireccional; de las GS que mejor aguantan el outdoor ({{exterior:adidas-believe-that-1-gs}}).</li>
 </ul>
@@ -3886,7 +3886,7 @@ export const ARTICLES: Article[] = [
 <ul>
   <li><strong>Neovolt Pro V3 (desde {{precio:moolah-neovolt-pro-v3}}):</strong> el modelo performance de referencia. Equilibrada, reactiva, con cushion mejorado. La que recomendamos para empezar con la marca.</li>
   <li><strong>Evolyte Elite (desde {{precio:moolah-evolyte-elite}}):</strong> el tope de gama. Modelo de gama alta de Moolah con cushion premium. Para la exterior ultra rápida.</li>
-  <li><strong>Triple Double (desde {{precio:moolah-triple-double}}):</strong> la "todoterreno". Sacrifica la placa rígida por una suela de caucho más gruesa y duradera: ideal para outdoor o entrenamientos diarios intensos.</li>
+  <li><strong>Triple Double (desde {{precio:moolah-triple-double}}):</strong> la "todoterreno": high-top pensada, según Moolah, para aleros y pívots.</li>
 </ul>
 
 <h2>El pero: importación</h2>
