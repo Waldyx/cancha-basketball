@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **245 zapas (42 OCULTAS, 203 visibles) · 649 tests · `astro check` 0 errores · 371 páginas** |
+| Tamaño | **245 zapas (46 OCULTAS, 199 visibles) · 655 tests · `astro check` 0 errores · 371 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -415,7 +415,18 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   fichas: precios que se pudren, pesos que no cuadraban con `peso_real_g`, notas x/10 sin fuente; se quedan los pesos que
   coinciden ±5 % y las notas atribuidas a HG/WT) + 16 adjetivos «ligera» que contradecían el peso (KD 19 «más ligera que
   la KD 18» con 440 g frente a 422…). Quiz comprobado tras los cambios de horma y ligereza: pie ancho ya no recibe
-  estrechas, tobillos solo mid. ⏳ En curso: reauditoría de cortes (`w40-cortes.tsv`).
+  estrechas, tobillos solo mid. Cortes reauditados (`w40`/`w41`): Sabrina 2 mid → low, GT Jump 2 high → mid, LeBron 24
+  high → low, Jet 23 mid → low.
+- ✅ **20-oct (noche): precios viejos y enlaces muertos.** 32 «desde» con >14 días re-verificados a mano (Amazon, Atmósfera,
+  Decathlon, AliExpress; `w42-enlaces-scraper.tsv`). 🔑 **Merge: una `ultima_verificacion` editorial MÁS RECIENTE que el
+  scrape manda también en el PRECIO** (`3085061`, +2 tests): antes el scrape de hace días pisaba la corrección de hoy.
+  **AliExpress, los 34 items visibles abiertos con navegador: 7 ya no existen** («Esta página no existe»), y el scraper
+  había dado por vivos dos de ellos el 16 y el 18-oct (Tatum 3, All City 13). 🔑 **La API de afiliados sigue devolviendo
+  producto para items retirados**: ahora el scraper abre la ficha cuando la API dice que existe y solo el texto de error
+  la marca agotada (`veredictoFichaItem`, `5cd9d00`; probado con cloakbrowser, <2 s por item). All City 13 recupera compra
+  (ABAV001-4, Marcas+ POIZON, 63,39 €). Ocultas por enlaces muertos: Jet 23, TWO WXY v5, Ownthegame 2, Yu Shuai 18 → **46**.
+  ⚠ Sin poder re-verificar: adidas.es (bloquea curl Y navegador: AE 2 GS, D.O.N. 7, Forum 84, AE 3), 7 fichas de Amazon con
+  selector de talla y los 3 `s.click`.
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
@@ -2747,4 +2758,4 @@ presupuesto · ancho de pie · uso (auto-submit 400 ms).
   `cancha-quiz-respuestas` (sessionStorage).
 - **Scripts de mantenimiento**: `update-images.js`, `fix-encoding.js`, `optimize-images.mjs`,
   `gen-chat-catalog.ts`, y los `audit-*` listados arriba.
-- **Tests**: `npx vitest run` → 650.
+- **Tests**: `npx vitest run` → 655.
