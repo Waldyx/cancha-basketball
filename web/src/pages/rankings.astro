@@ -35,7 +35,7 @@ const RANKINGS = [
   { id: "cushion",   label: "Más cushion",       key: "amortiguacion" as const,blurb: "Para rodillas, tobillos y jugadores >85kg." },
   { id: "respuesta", label: "Más reactivas",     key: "respuesta" as const,    blurb: "Court feel premium. Para guardias rápidos." },
   { id: "outdoor",   label: "Outdoor",           key: "durabilidad_outdoor" as const, blurb: "Aguantan asfalto sin gastarse." },
-  { id: "ligera",    label: "Más ligeras",       key: "peso_score" as const,   blurb: "Menos de 350g. Vuelas." },
+  { id: "ligera",    label: "Más ligeras",       key: null,                    blurb: "Ordenadas por su peso real en gramos, de la más ligera a la más pesada." },
   { id: "soporte",   label: "Soporte tobillo",   key: "soporte_lateral" as const, blurb: "Para tobillos débiles y lesiones frecuentes." },
   { id: "retro",     label: "🏅 Retro",          key: null,                    blurb: "Clásicos que siguen siendo jugables. Score técnico con tecnología de su época." },
   { id: "mujer",     label: "♀ Mujer",           key: null,                    blurb: "Lo mejor para jugadoras: moldes 100% femeninos + signatures con ADN de la WNBA (Sabrina, Stewie, Heir Series…)." },
@@ -55,6 +55,9 @@ function sortBy(id: string, key: keyof typeof zapatillas[0]["puntuaciones"] | nu
     : id === "junior" ? zapatillas.filter(z => z.genero === "gs")
     : [...poolModern];
   if (id === "valor") return arr.sort((a, b) => (valueMap.get(b.slug) ?? 0) - (valueMap.get(a.slug) ?? 0));
+  // 20-oct-2026: ordenaba por peso_score, que apenas sigue al peso real (con un 8 de ligereza
+  // había fichas de 280 g y de 447 g, y la AE 2 de 428 g tenía un 10). Se ordena por gramos.
+  if (id === "ligera") return arr.filter(z => z.peso_real_g).sort((a, b) => a.peso_real_g! - b.peso_real_g!);
   if (key) return arr.sort((a, b) => b.puntuaciones[key] - a.puntuaciones[key]);
   return arr.sort(compareByScore);
 }
@@ -107,6 +110,7 @@ const rankingJsonLd = {
       const [first, second, third, ...rest] = sorted.slice(0, 10);
       const isValor = r.id === "valor";
       const isRetro = r.id === "retro";
+      const isLigera = r.id === "ligera";
       return (
         <div class={`rk-panel ${i === 0 ? "" : "hidden"}`} data-rk-panel={r.id} data-blurb={r.blurb} data-label={r.label}>
           <section class="rk-podium">
@@ -123,8 +127,8 @@ const rankingJsonLd = {
                   const medal =
                     rank === 1 ? "var(--cz-medal-oro)" : rank === 2 ? "var(--cz-medal-plata)" : "var(--cz-medal-bronce)";
                   const sc = scoreOf(z);
-                  const metric = isValor ? (valueMap.get(z.slug) ?? 0) : r.key ? z.puntuaciones[r.key] : sc;
-                  const metricUnit = isValor ? "pts/100€" : "/10";
+                  const metric = isValor ? (valueMap.get(z.slug) ?? 0) : isLigera ? z.peso_real_g : r.key ? z.puntuaciones[r.key] : sc;
+                  const metricUnit = isValor ? "pts/100€" : isLigera ? " g" : "/10";
                   const mp = findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur);
                   return (
                     <article class={`rk-pod ${isFirst ? "primary" : ""}`} style={`--cat:${cat};--medal:${medal}`}>
@@ -161,14 +165,14 @@ const rankingJsonLd = {
                 <span>#</span>
                 <span>Zapatilla</span>
                 <span class="hide-sm">Categoría</span>
-                <span>{isValor ? "pts/100€" : r.key ? r.label.replace(/^(Mejor |Más )/,"") : "Score"}</span>
+                <span>{isValor ? "pts/100€" : isLigera ? "Peso" : r.key ? r.label.replace(/^(Mejor |Más )/,"") : "Score"}</span>
                 <span>Precio</span>
                 <span></span>
               </div>
               {rest.map((z, i) => {
                 const cat = CAT_ACCENT[z.categoria_principal];
                 const sc = scoreOf(z);
-                const metric = isValor ? (valueMap.get(z.slug) ?? 0) : r.key ? z.puntuaciones[r.key] : sc;
+                const metric = isValor ? (valueMap.get(z.slug) ?? 0) : isLigera ? `${z.peso_real_g} g` : r.key ? z.puntuaciones[r.key] : sc;
                 const mp = findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur);
                 return (
                   <a href={`/zapatilla/${z.slug}`} class="rk-row" style={`--cat:${cat}`}>
@@ -183,7 +187,7 @@ const rankingJsonLd = {
                       </span>
                     </span>
                     <span class="rk-row-cat hide-sm" style={`color:${isRetro ? "var(--cz-amber-text)" : cat}`}>{isRetro ? `🏅 ${z.año_lanzamiento}` : CAT_LABELS[z.categoria_principal]}</span>
-                    <span class="rk-row-metric">{metric}<small>{isValor ? "" : "/10"}</small></span>
+                    <span class="rk-row-metric">{metric}<small>{isValor || isLigera ? "" : "/10"}</small></span>
                     <span class="rk-row-price">{Math.round(mp?.precio_actual ?? z.precio_msrp_eur)}€</span>
                     <span class="rk-row-arrow">→</span>
                   </a>
