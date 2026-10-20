@@ -411,6 +411,11 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   su Chrome (Claude in Chrome) con su sesión de Google, sin contraseña: elegir cuenta + «Continuar». Si el equipo está
   bloqueado, Chrome no pinta (capturas con timeout); con `read_page`/JS sí se puede leer y rellenar. El editor es Quill:
   rellenar `.ql-editor` y copiar `__quill.root.innerHTML` al `input#description` antes de «Crear».
+- ✅ **20-oct (tarde)**: **números a mano en la prosa de las fichas** fuera (`w39-numeros-prosa.tsv`, 232 frases en 162
+  fichas: precios que se pudren, pesos que no cuadraban con `peso_real_g`, notas x/10 sin fuente; se quedan los pesos que
+  coinciden ±5 % y las notas atribuidas a HG/WT) + 16 adjetivos «ligera» que contradecían el peso (KD 19 «más ligera que
+  la KD 18» con 440 g frente a 422…). Quiz comprobado tras los cambios de horma y ligereza: pie ancho ya no recibe
+  estrechas, tobillos solo mid. ⏳ En curso: reauditoría de cortes (`w40-cortes.tsv`).
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
