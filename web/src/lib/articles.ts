@@ -523,7 +523,7 @@ export const ARTICLES: Article[] = [
   <li>❌ Amortiguación básica</li>
 </ul>
 
-<p>Si buscas algo de gama más alta que también aguante fuera, mira la <a href="/zapatilla/rigorer-ar3">Rigorer AR3</a> (apta para exterior en todos los análisis) o la <a href="/zapatilla/nb-two-wxy-v5">New Balance TWO WXY v5</a> (goma dura con surcos profundos).</p>
+<p>Si buscas algo de gama más alta que también aguante fuera, mira la <a href="/zapatilla/rigorer-ar3">Rigorer AR3</a> (apta para exterior en todos los análisis) o la <a href="/zapatilla/nb-two-wxy-v4">New Balance TWO WXY v4</a> (goma dura que aguanta el asfalto).</p>
 
 <h2>Lo que debes evitar en exterior</h2>
 <ul>
@@ -839,7 +839,7 @@ export const ARTICLES: Article[] = [
     slug: "mejores-zapatillas-baloncesto-baratas-2025",
     title: "Mejores zapatillas de baloncesto baratas: las 8 mejores por menos de 80 €",
     metaTitle: "Mejores zapatillas de baloncesto baratas (menos de 80 €) | CANCHA.ZAPA",
-    description: "Las 8 zapatillas de baloncesto con mejor relación calidad-precio por menos de 80 €: Li-Ning All City 14, Anta KAI 1 Speed, NB TWO WXY v5, Luka 1 y más, con precio actualizado.",
+    description: "Las 8 zapatillas de baloncesto con mejor relación calidad-precio por menos de 80 €: Li-Ning All City 14, Anta KAI 1 Speed, NB TWO WXY v4, Luka 1 y más, con precio actualizado.",
     fecha: "2026-10-19",
     fechaLabel: "19 octubre 2026",
     categoria: "Guías",
@@ -848,7 +848,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Mejores zapatillas de baloncesto baratas",
     heroSubtitle: "Las 8 mejores opciones por menos de 80 €",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["lining-wow-allcity-14", "anta-kai-1-speed", "nb-two-wxy-v5", "jordan-luka-1", "adidas-dame-certified"],
+    relatedShoes: ["lining-wow-allcity-14", "anta-kai-1-speed", "nb-two-wxy-v4", "jordan-luka-1", "adidas-dame-certified"],
     relatedSeoPages: ["zapatillas-baloncesto-baratas", "zapatillas-baloncesto-calidad-precio", "zapatillas-baloncesto-junior"],
     imagen: "/shoes/lining-wow-allcity-14.webp",
     body: `
@@ -869,8 +869,8 @@ export const ARTICLES: Article[] = [
   <li>Ojo: suela de interior, no la uses en la calle</li>
 </ul>
 
-<h2>3. New Balance TWO WXY v5 — desde {{precio:nb-two-wxy-v5}}</h2>
-<p>FuelCell y Fresh Foam X, buena tracción y una goma dura que aguanta el exterior. Una de las más equilibradas del catálogo, y además se compra en una tienda española.</p>
+<h2>3. New Balance TWO WXY v4 — desde {{precio:nb-two-wxy-v4}}</h2>
+<p>FuelCell con shank de TPU, buena tracción y una goma dura que aguanta el exterior. Una de las más equilibradas del catálogo, y además se compra en una tienda española.</p>
 <ul>
   <li>Equilibrada en todo: para casi cualquier posición</li>
   <li>Apta para interior y exterior</li>
@@ -914,7 +914,7 @@ export const ARTICLES: Article[] = [
 <h3>¿Cómo elegir la mejor opción para ti?</h3>
 <p>Mira tres cosas: <strong>dónde juegas</strong> (las de suela de interior se gastan rápido en asfalto), <strong>tu tobillo</strong> (todas estas son low; si has tenido esguinces, la <a href="/zapatilla/puma-playmaker-pro-mid">Puma Playmaker Pro Mid</a> es mid y barata) y <strong>dónde comprar</strong> (la <a href="/zapatilla/decathlon-tarmak-fast-900">Decathlon Tarmak Fast 900</a> es la única que puedes probarte en una tienda física).</p>
 
-<p>Si juegas en exterior: <a href="/zapatilla/adidas-dame-certified">Dame Certified</a>, <a href="/zapatilla/jordan-luka-77">Luka .77</a> o <a href="/zapatilla/nike-precision-7">Precision 7</a>. Si juegas solo en interior y quieres rendimiento: <a href="/zapatilla/anta-kai-1-speed">KAI 1 Speed</a> o <a href="/zapatilla/adidas-dame-x">Dame X</a>. Para las dos cosas: <a href="/zapatilla/lining-wow-allcity-14">All City 14</a> o <a href="/zapatilla/nb-two-wxy-v5">TWO WXY v5</a>.</p>
+<p>Si juegas en exterior: <a href="/zapatilla/adidas-dame-certified">Dame Certified</a>, <a href="/zapatilla/jordan-luka-77">Luka .77</a> o <a href="/zapatilla/nike-precision-7">Precision 7</a>. Si juegas solo en interior y quieres rendimiento: <a href="/zapatilla/anta-kai-1-speed">KAI 1 Speed</a> o <a href="/zapatilla/adidas-dame-x">Dame X</a>. Para las dos cosas: <a href="/zapatilla/lining-wow-allcity-14">All City 14</a> o <a href="/zapatilla/nb-two-wxy-v4">TWO WXY v4</a>.</p>
 
 <p class="art-outro">No necesitas gastar más de 80 € para jugar bien. ¿No sabes cuál es la tuya? <a href="/quiz">Haz el quiz en 60 segundos</a>: filtra por tu presupuesto, tu posición y dónde juegas.</p>
     `,
@@ -2225,7 +2225,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "New Balance vs ANTA",
     heroSubtitle: "¿Cuál da más por tu dinero?",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nb-two-wxy-v5", "nb-two-wxy-v4", "nb-kawhi-4", "anta-kai-2", "anta-kt-11"],
+    relatedShoes: ["nb-two-wxy-v4", "nb-kawhi-4", "nb-kawhi-1", "anta-kai-2", "anta-kt-11"],
     relatedSeoPages: ["mejores-zapatillas-new-balance", "mejores-zapatillas-anta", "zapatillas-baloncesto-baratas"],
     body: `
 <p class="art-intro">Si tu presupuesto es ajustado o simplemente no quieres pagar el sobreprecio de Nike y Jordan, tienes dos marcas que en 2025 ofrecen rendimiento serio a precio razonable: New Balance y ANTA. Son perfiles muy distintos — y la mejor para ti depende de qué tipo de juego tienes.</p>
@@ -2240,19 +2240,19 @@ export const ARTICLES: Article[] = [
 <h2>Duelo por categorías</h2>
 
 <h3>Tracción</h3>
-<p>ANTA gana. El patrón multidireccional de la Kai 2 y la KT 11 ofrece agarre consistente en parquet limpio y moderado. New Balance tiene tracción sólida: en nuestra ficha la TWO WXY V5 da {{nota:nb-two-wxy-v5:traccion}} frente al {{nota:anta-kai-2:traccion}} de la Kai 2.</p>
+<p>ANTA gana. El patrón multidireccional de la Kai 2 y la KT 11 ofrece agarre consistente en parquet limpio y moderado. New Balance tiene tracción sólida: en nuestra ficha la TWO WXY V4 da {{nota:nb-two-wxy-v4:traccion}} frente al {{nota:anta-kai-2:traccion}} de la Kai 2.</p>
 
 <h3>Cushion</h3>
 <p>ANTA gana en nuestra ficha. La Kai 2 tiene {{nota:anta-kai-2:amortiguacion}} y la KT 11 {{nota:anta-kt-11:amortiguacion}}, frente al {{nota:nb-two-wxy-v4:amortiguacion}} de la TWO WXY V4 y la V5. La excepción es la Kawhi 4, con FuelCell, que llega a {{nota:nb-kawhi-4:amortiguacion}}.</p>
 
 <h3>Respuesta y court feel</h3>
-<p>Depende del modelo. La Kawhi 4 ({{nota:nb-kawhi-4:respuesta}}) y la Kai 2 ({{nota:anta-kai-2:respuesta}}) están arriba; la TWO WXY V5 se queda en {{nota:nb-two-wxy-v5:respuesta}}.</p>
+<p>Depende del modelo. La Kawhi 4 ({{nota:nb-kawhi-4:respuesta}}) y la Kai 2 ({{nota:anta-kai-2:respuesta}}) están arriba; la TWO WXY V4 se queda en {{nota:nb-two-wxy-v4:respuesta}}.</p>
 
 <h3>Horma</h3>
 <p>Empate. New Balance es la referencia en anchos para running (tallas "2E" y "4E"), pero en nuestra ficha sus zapatillas de baloncesto actuales son de horma normal, igual que la Kai 2 y la KT 11. Si tienes pie muy ancho, mira nuestra <a href="/blog/zapatillas-baloncesto-pie-ancho-2025">guía de pie ancho</a>.</p>
 
 <h3>Durabilidad outdoor</h3>
-<p>ANTA gana ligeramente: la KT 11 tiene {{exterior:anta-kt-11}} y la Kai 2 {{exterior:anta-kai-2}}, frente al {{exterior:nb-two-wxy-v5}} de la TWO WXY V5. La Kawhi 4 ({{exterior:nb-kawhi-4}}) es solo de pabellón.</p>
+<p>ANTA gana ligeramente: la KT 11 tiene {{exterior:anta-kt-11}} y la Kai 2 {{exterior:anta-kai-2}}, frente al {{exterior:nb-two-wxy-v4}} de la TWO WXY V4. La Kawhi 4 ({{exterior:nb-kawhi-4}}) es solo de pabellón.</p>
 
 <h3>Precio</h3>
 <p>Compara: la Kai 2 (desde {{precio:anta-kai-2}}) y la KT 11 (desde {{precio:anta-kt-11}}) frente a la NB TWO WXY V4 (desde {{precio:nb-two-wxy-v4}}) o la Kawhi 4 (desde {{precio:nb-kawhi-4}}).</p>

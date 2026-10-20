@@ -6842,10 +6842,11 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "evaluacion-propia" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true,
     precio_msrp_eur: 75,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BGQQH4J2?tag=canchazapa-21", precio_actual: 41.95, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" }, // w17 18-sep: es otra variante (corte o segmento)
-      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Funder-armour%2Fzapatillas-de-baloncesto-under-armour-jet-23-negro-67594.html", precio_actual: 50.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Funder-armour%2Fzapatillas-de-baloncesto-under-armour-jet-23-negro-67594.html", precio_actual: 50.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: el producto ya no existe (redirige a la portada de la marca)
     ],
   },
   {
@@ -8550,9 +8551,10 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/new-balance-two-wxy-v5/" },
     ],
     ultima_actualizacion: "2026-06-13",
+    oculto: true,
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fnew-balance%2Fzapatillas-de-baloncesto-new-balance-two-wxy-v5-team-navy-151094.html", precio_actual: 79.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fnew-balance%2Fzapatillas-de-baloncesto-new-balance-two-wxy-v5-team-navy-151094.html", precio_actual: 79.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: el producto ya no existe (redirige a la portada de la marca)
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-new-balance-two-wxy-azul-oscuro%2F362992%2Fc8m8967078", precio_actual: 79.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" }, // Decathlon 17-sep: redirige a la categoria (ficha retirada)
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/new-balance/two-wxy-v5-scarlet", precio_actual: 90, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+two+wxy+v5+baloncesto&tag=canchazapa-21", precio_actual: 110, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
