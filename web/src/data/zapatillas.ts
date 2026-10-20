@@ -8480,6 +8480,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-19",
     precio_msrp_eur: 150,
     links_compra: [
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0C9NT9ZHY?tag=canchazapa-21", precio_actual: 248, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: hoy a 248 € (reventa); el 44,88 guardado era del 26-sep
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+trae+young+3+baloncesto&tag=canchazapa-21", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -10380,6 +10381,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 210,
     links_compra: [
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B06XMRLL3F?tag=canchazapa-21", precio_actual: 298.05, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: es la AJ6 Retro PRM Heiress (colorway de mujer, talla 36)
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-6-retro-infrared-salesman-negro-94676", precio_actual: 150, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+6+retro&tag=canchazapa-21", precio_actual: 289, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
@@ -12048,6 +12050,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 80,
     links_compra: [
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0C6D3Z2XH?tag=canchazapa-21", precio_actual: 78.43, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: es la Puma Rebound Layup Winter, otro producto
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Puma+Clyde+baloncesto&tag=canchazapa-21", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
@@ -12730,6 +12733,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 130,
     links_compra: [
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BGJPSMJY?tag=canchazapa-21", precio_actual: 139.95, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: es la Grant Hill 1 x Trailpacer de mujer, un híbrido distinto
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=fila+grant+hill+1+1995&tag=canchazapa-21", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
   },
