@@ -382,7 +382,21 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   «Max Air» de las LeBron 22/23 estaba en ~15 líneas. ⚠ Sin resolver (FICHA_DUDA): ¿la AE 2 lleva Lightstrike **Pro**?
   (HG no lo nombra y adidas.com bloquea; los artículos lo repiten en ~10 líneas), KT 11, Trae Young 3, Kobe 9 High Protro.
   Heir Series sin tocar: HG solo tiene la Heir Series 2. «Luka DonÄiÄ‡» se veía así en producción: arreglado (6 fichas).
-- ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos; (2) las 45
+- ✅ **Noche del 19→20-oct (autónomo): `tecnologia_clave` auditada en TODO el catálogo moderno** (`trabajo/w36-tec-*.tsv`,
+  cita + URL por ficha; 4 Sonnets por grupos de marca, yo verifiqué al azar ~20 citas en el HTML real y todas estaban).
+  **81 fichas corregidas**: 21 Jordan/UA/NB, 19 chinas/Asics/Skechers, 17 Nike, 24 adidas/Puma/Converse (+ prosa de cada
+  ficha, `material_superior` y etiquetas falsas). 🔑 **El «Lightstrike Pro» estaba puesto en media gama adidas sin serlo**
+  (AE 1 = Boost+Lightstrike; AE 2 = Light BOOST+Lightstrike, RunRepeat laboratorio; Harden 8 = Boost; Harden 10 = Light
+  BOOST; Dame 8 = Bounce Pro); ninguna fuente respalda la «goma Continental». Placas de carbono inventadas en 6 chinas y la
+  SKX Float. SHAI 001 lleva Zoom antepié (no React). Freak 7 sin Zoom, Immortality = Renew, PG 6 sin aire. Yu Shuai 18 sin
+  tocar (la fuente era la ABAU009 high). Script de aplicación: `aplicar_w36.py` (scratchpad; valida que `tec_actual`
+  coincida con la ficha antes de cambiar). Además: **páginas SEO, 149 afirmaciones** (`w35-seo.tsv`: zapas inexistentes u
+  ocultas recomendadas —Converse «BBall Pro», Reebok Answer V/Legacy Court, Moolah—, comparaciones falsas, números a mano,
+  hechos: Puma volvió en 2018, Li-Ning es de 1990) y **coherencia interna de fichas** (prosa/etiquetas contra sus campos:
+  Zion 4, GT Jump 2, Curry 13, Reebok Blast; JB4 → estrecha). 🔑 El heredoc del Bash de esta máquina convierte `\\` en `\`:
+  scripts con regex, escribirlos con la herramienta Write.
+- ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
+  `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
   el sitemap de HG en 2-3 semanas; (3) Search Console (sesión de Google caducada en el navegador integrado: la abre el
   usuario); (4) medir otra vez el chat y `/api/sesion` (`npx tsx scripts/audit-ia.ts` + 2-3 consultas reales).
