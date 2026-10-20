@@ -5135,12 +5135,12 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: "nike-lebron-23",
     sucesor_id: null,
 
-    // TODO peso/drop/altura son ESTIMADOS: la zapatilla NO ha salido (17-nov-2026) y no
+    // TODO peso/drop son ESTIMADOS (la altura NO: low-top segun Nick DePaula, oct-2026): la zapatilla NO ha salido (17-nov-2026) y no
     // existe ninguna medicion. Nike AFIRMA que es "la mas ligera de la saga"; la saga en
     // catalogo va de 440 g (LeBron 21) a 455 (LeBron 23), asi que la estimacion se pone
     // por debajo de esas. Es una afirmacion de MARCA, no un dato: revisar al lanzamiento.
     peso_real_g: 415,
-    altura: "high",
+    altura: "low",
     horma: "ancha",
     drop_mm: 10,
     tipo_cierre: "cordones",
@@ -5157,7 +5157,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 6,
     },
     categoria_principal: "cushion-focused",
-    tags: ["signature", "high-top", "cushion", "proximamente"],
+    tags: ["signature", "low-top", "cushion", "proximamente"],
 
     ideal_para: {
       posiciones: ["alero", "ala-pivot", "pivot"],
@@ -6807,7 +6807,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: null,
     sucesor_id: null,
     peso_real_g: 380,
-    altura: "mid",
+    altura: "low",
     horma: "normal",
     drop_mm: 10,
     tipo_cierre: "cordones",
