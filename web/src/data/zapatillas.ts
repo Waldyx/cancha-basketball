@@ -3188,7 +3188,7 @@ const _rawZapatillas: Zapatilla[] = [
       lesiones_compatibles: ["rodillas", "tobillos"],
     },
     no_recomendada_para: { posiciones: ["base", "escolta"], estilos: ["explosivo"] },
-    resumen: "Diseñada específicamente para pívots y grandes que saltan. Zoom Air pods en talón y antepié dan cushion de impacto real, el high-top ofrece soporte máximo de tobillo y la horma ancha da comfort a pies grandes.",
+    resumen: "Diseñada específicamente para pívots y grandes que saltan. Zoom Air pods en talón y antepié dan cushion de impacto real, y el high-top ofrece soporte máximo de tobillo.",
     pros: [
       "Doble Zoom Air para máxima absorción de impactos",
       "High-top con excelente soporte tobillo",
@@ -4443,7 +4443,6 @@ const _rawZapatillas: Zapatilla[] = [
     contras: [
       "Suela Flow poco durable en asfalto",
       "Cushion insuficiente para jugadores pesados o lesiones de tobillo",
-      "Horma estrecha en antepié — probar antes de comprar",
     ],
     veredicto:
       "La mejor opción actual de UA para bases y escolteros que buscan respuesta máxima en pista cubierta. Si ya te gustó la Curry 12, la 13 es una mejora directa. Para asfalto o pesos > 90kg, busca otra cosa. Al ser el cierre de la saga, es razonable esperar descuentos según se agote el stock durante 2026.",
@@ -5735,7 +5734,7 @@ const _rawZapatillas: Zapatilla[] = [
     resumen:
       "La Jordan Tatum 4 es la zapatilla signature más madura de Jayson Tatum. Zoom Air en el antepié sobre Cushlon 3.0 de longitud completa y un upper sintético preciso. La combinación perfecta para aleros que necesitan un calzado versátil sin renunciar al cushion.",
     pros: [
-      "Zoom Air strobel full-length — cushion reactivo en todo el pie",
+      "Zoom Air de gran volumen en el antepié sobre Cushlon 3.0",
       "Knit upper: sujeción precisa sin puntos de presión",
       "Buen soporte lateral para un low-top",
       "Precio competitivo para su nivel tecnológico",
@@ -6030,7 +6029,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "cushion-focused",
-    tags: ["low-top", "signature", "potente", "interior", "horma-ancha", "amortiguacion-maxima"],
+    tags: ["low-top", "signature", "potente", "interior", "amortiguacion-maxima"],
 
     ideal_para: {
       posiciones: ["ala-pivot", "pivot"],
@@ -6043,7 +6042,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La Jordan Zion 4 está diseñada para jugadores corpulentos que necesitan máxima protección y estabilidad. Con React foam de alta densidad y una base reforzada, ofrece el cushion que necesita un jugador físico. La horma ancha es ideal para pies anchos. Precio muy competitivo en rebajas.",
+      "La Jordan Zion 4 está diseñada para jugadores corpulentos que necesitan máxima protección y estabilidad. Con React foam de alta densidad y una base reforzada, ofrece el cushion que necesita un jugador físico. Ojo con la horma: es estrecha y de poco volumen, con pie ancho sube media talla. Precio muy competitivo en rebajas.",
     pros: [
       "React foam de alta densidad: máximo cushion para interiores pesados",
       "Base ultra estable para jugadores de más de 90 kg",
@@ -13059,7 +13058,7 @@ const _rawZapatillas: Zapatilla[] = [
       estabilidad: 8, peso_score: 4, durabilidad_outdoor: 4, ventilacion: 4,
     },
     categoria_principal: "balanced",
-    tags: ["retro", "reebok", "blast", "hexalite", "1990", "high-top", "clasico", "90s", "big-shoe"],
+    tags: ["retro", "reebok", "blast", "hexalite", "1990", "mid-top", "clasico", "90s", "big-shoe"],
     ideal_para: {
       posiciones: ["pivot", "ala-pivot"],
       peso_jugador_kg: [75, 115],
@@ -13069,7 +13068,7 @@ const _rawZapatillas: Zapatilla[] = [
     resumen: "La Reebok Blast de 1990 es uno de los grandes clásicos olvidados de la era. Hexalite cushion (celdas hexagonales comprimibles) en el talón, cuero premium de alta caña, suela herringbone. La estética era característica de los 90 early: grande, cuadrada, con presencia. Hoy es una pieza de colección difícil de encontrar.",
     pros: [
       "Hexalite cushion — tecnología de amortiguación real para 1990",
-      "Cuero high-top de primera — soporte de tobillo excelente pasivo",
+      "Cuero de primera y corte mid: buena sujeción de tobillo",
       "Horma ancha — cómoda para pies anchos",
       "Estética 90s early sin igual — uno de los diseños más auténticos de la era",
     ],
@@ -15565,7 +15564,7 @@ const _rawZapatillas: Zapatilla[] = [
     // de carbono de longitud completa.
     peso_real_g: 280,
     altura: "low",
-    horma: "normal",
+    horma: "estrecha",
     drop_mm: 7, // sin dato oficial: heredado de lining-gamma-2, misma plataforma BOOM + carbono
     tipo_cierre: "cordones",
     material_superior: "mesh",
