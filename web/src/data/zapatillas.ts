@@ -361,10 +361,10 @@ const _rawZapatillas: Zapatilla[] = [
       {
         tienda: "decathlon",
         url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-sabrina-2-activate%2Fcc25881e-89b2-4512-a16d-b4c16ce26791%2Fc20",
-        precio_actual: 97.90,
+        precio_actual: 229.9, // 20-oct: hoy 229,90 € (revendedor)
         disponible: true,
         tiene_afiliado: true,
-        ultima_verificacion: "2026-07-29",
+        ultima_verificacion: "2026-10-20",
       },
     ],
   },
@@ -1463,7 +1463,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012498467123.html", precio_actual: 100.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-24" }, // 18-sep: el item ya no existe en AliExpress
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012505451023.html", precio_actual: 104.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012505451023.html", precio_actual: 104.39, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: item muerto: «Esta página no existe»
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-anta-kt10-low-graffiti.html", precio_actual: 139.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
     ],
   },
@@ -8171,9 +8171,10 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "evaluacion-propia" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true,
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012795321945.html", precio_actual: 91.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-18" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012795321945.html", precio_actual: 91.39, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: item muerto: «Esta página no existe»
     ],
   },
 
@@ -9352,10 +9353,11 @@ const _rawZapatillas: Zapatilla[] = [
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-20",
 
+    oculto: true,
     precio_msrp_eur: 70,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ownthegame+2.0+baloncesto&tag=canchazapa-21", precio_actual: 50, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
-      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatilla-ownthegame-2-0-talla-42-gw5483-gris%2Fc4ab000b-b12b-40a2-91b3-84c32b724b7f%2Fc1c250", precio_actual: 81.40, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // w24 21-sep: ADULTO (GW5483), no el 3.0 ni el escolar. 1,16x MSRP y SOLO talla 42: opcion debil
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatilla-ownthegame-2-0-talla-42-gw5483-gris%2Fc4ab000b-b12b-40a2-91b3-84c32b724b7f%2Fc1c250", precio_actual: 81.4, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // w24 21-sep: ADULTO (GW5483), no el 3.0 ni el escolar. 1,16x MSRP y SOLO talla 42: opcion debil
     ],
   },
 
@@ -9525,7 +9527,7 @@ const _rawZapatillas: Zapatilla[] = [
       // nuestro, asi que sale como "Ver precio en Nike" sin numero. Se repone aqui porque al
       // morir su item de AliExpress la ficha se quedo sin ninguna opcion de compra.
       { tienda: "nike_es", url: "https://www.nike.com/es/t/air-jordan-40-zapatillas-de-baloncesto-CNT7P4t3/IM8206-800", precio_actual: 199.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-18" },
-      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fjordan-40-dusty-rose%2Fbb604729-0161-4214-8cae-712df6278612%2Fc24", precio_actual: 155.49, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-04" }, // 2026-10-04: w28 Decathlon marketplace (W.Sneakers), Dusty Rose, 3 tallas (opción débil)
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fjordan-40-dusty-rose%2Fbb604729-0161-4214-8cae-712df6278612%2Fc24", precio_actual: 155.49, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 2026-10-04: w28 Decathlon marketplace (W.Sneakers), Dusty Rose, 3 tallas (opción débil)
     ],
   },
 
@@ -10194,7 +10196,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatilla/jordan/air-jordan-1-mid-sail-midnight-green-pure-platinum", precio_actual: 84, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" }, // Air Jordan 1 MID: otro producto (la ficha es la 1 High)
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatilla/jordan/air-jordan-1-mid-white-white-white", precio_actual: 98, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-05" }, // Air Jordan 1 MID: otro producto (la ficha es la 1 High)
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-1-retro-high-og-satin-bred%2Fd458e42d-95be-4b3d-ba9d-407bfd810831%2Fc14c1", precio_actual: 117, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-05" }, // Decathlon 17-sep: redirige a la categoria (ficha retirada)
-      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-1-high-og-lost-and-found%2F378773b8-208e-4fbf-88af-580b422fb96a%2Fc4", precio_actual: 252, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-1-high-og-lost-and-found%2F378773b8-208e-4fbf-88af-580b422fb96a%2Fc4", precio_actual: 270.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: hoy 270,90 € (revendedor)
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-1-mid-blanco-94681", precio_actual: 90, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" }, // Air Jordan 1 MID: otro producto (la ficha es la 1 High)
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-1-low-se-blanco-97780", precio_actual: 140, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+1+retro&tag=canchazapa-21", precio_actual: 190, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
@@ -13820,7 +13822,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012505780207.html", precio_actual: 96.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012505780207.html", precio_actual: 96.39, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: item muerto: «Esta página no existe»
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012505088993.html", precio_actual: 120.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005006830773488.html", precio_actual: 165.92, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=way+of+wade+all+city+12&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
@@ -14245,7 +14247,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-09",
     precio_msrp_eur: 95,
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010696055283.html", precio_actual: 102.46, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010696055283.html", precio_actual: 113.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: re-verificado
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-de-baloncesto-rigorer-ar3-hitman%2F5a220446-8725-471a-8f6d-010c644fff75%2Fc4", precio_actual: 103.50, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012216803460.html", precio_actual: 102.08, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-18" },
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011799546879.html", precio_actual: 121.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
@@ -14471,7 +14473,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-09",
     precio_msrp_eur: 75,
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010661844381.html", precio_actual: 69.57, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-06" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010661844381.html", precio_actual: 119.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: hoy 119,39 € (sin caja)
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=rigorer+ar1+austin+reaves&tag=canchazapa-21", precio_actual: 85, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
     ],
   },
