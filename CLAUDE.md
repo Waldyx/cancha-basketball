@@ -406,6 +406,11 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   queda por probar (la tiene que hacer el usuario, es crear cuenta): darse de alta como partner NUEVO desde ese mismo enlace
   de Joom con OTRO correo** (p. ej. uno de CANCHA.ZAPA): el alta por enlace de marca va directa a la marca, sin la revisión
   de Marketplace que rechazó la cuenta actual. Plan B: FlexOffers lista «Joom ES» (1,6-20 %, cookie 30 d; estado dudoso).
+  ✅ **Ticket a Impact n.º 903210 (20-oct, «Marketplace Approval»)** pidiendo re-evaluar el rechazo, con el caso de Joom.
+  Vía oficial según su ayuda (no hay botón de «reapply» en el panel). El usuario NO quiere cuentas nuevas. 🔑 Se abrió desde
+  su Chrome (Claude in Chrome) con su sesión de Google, sin contraseña: elegir cuenta + «Continuar». Si el equipo está
+  bloqueado, Chrome no pinta (capturas con timeout); con `read_page`/JS sí se puede leer y rellenar. El editor es Quill:
+  rellenar `.ql-editor` y copiar `__quill.root.innerHTML` al `input#description` antes de «Crear».
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
