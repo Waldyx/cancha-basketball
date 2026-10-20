@@ -395,6 +395,17 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   hechos: Puma volvió en 2018, Li-Ning es de 1990) y **coherencia interna de fichas** (prosa/etiquetas contra sus campos:
   Zion 4, GT Jump 2, Curry 13, Reebok Blast; JB4 → estrecha). 🔑 El heredoc del Bash de esta máquina convierte `\\` en `\`:
   scripts con regex, escribirlos con la herramienta Write.
+- ✅ **20-oct (mañana)**: retros auditados (14 fichas, `w36-tec-retro.tsv`), segunda pasada de contenido (`w37`), **pesos**
+  (`w38-pesos.tsv`: solo 51 de 227 tienen laboratorio; 12 corregidas con RunRepeat o peso oficial de Nike — Ja 3 310 → 379 g)
+  y 🔑 **`peso_score` = f(peso_real_g)**: 10 con ≤300 g y −1 cada 25 g, con test candado (`pesoScore.test.ts`). Antes se
+  ponía a ojo (AE 2 de 428 g con un 10). Recalculadas 168; nota global movida en 60 (máx ±0,5), top 10 igual. El ranking
+  «Más ligeras» ordena por gramos.
+- 📧 **Joom (20-oct)**: segundo recordatorio a Viviana enviado (pide invitación directa a la cuenta Impact 7791022). Probado
+  otra vez desde el Chrome del usuario: el enlace `campaign-promo-signup/Joom.brand` con la cuenta existente → «Iniciar
+  sesión» CIERRA la sesión y vuelve al panel; no hay forma de solicitar desde dentro (Marketplace rechazado). 🔑 **Vía que
+  queda por probar (la tiene que hacer el usuario, es crear cuenta): darse de alta como partner NUEVO desde ese mismo enlace
+  de Joom con OTRO correo** (p. ej. uno de CANCHA.ZAPA): el alta por enlace de marca va directa a la marca, sin la revisión
+  de Marketplace que rechazó la cuenta actual. Plan B: FlexOffers lista «Joom ES» (1,6-20 %, cookie 30 d; estado dudoso).
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
@@ -2726,4 +2737,4 @@ presupuesto · ancho de pie · uso (auto-submit 400 ms).
   `cancha-quiz-respuestas` (sessionStorage).
 - **Scripts de mantenimiento**: `update-images.js`, `fix-encoding.js`, `optimize-images.mjs`,
   `gen-chat-catalog.ts`, y los `audit-*` listados arriba.
-- **Tests**: `npx vitest run` → 649.
+- **Tests**: `npx vitest run` → 650.
