@@ -244,24 +244,37 @@ const visibleParcial = (t: string) => {
 const SLUGS = new Set(ZAPAS.map((z) => z.slug));
 const FILA_CATALOGO = /^[^|\n]{2,60}\|\s*[a-z-]+\s*\|\s*\d+\s*€/i;
 const soloSlug = (l: string) => {
-  const s = l.trim().replace(/^[-*•\d.)\s]+/, "").replace(/[*`_:]/g, "").trim().toLowerCase();
+  const s = l.trim().replace(/^[-*•\d.)\s]+/, "").replace(/[*`_:[\]]/g, "").trim().toLowerCase();
   return SLUGS.has(s) ? s : null;
 };
 export function formatoVisible(t: string, final = false): string {
   const corte = t.lastIndexOf("\n");
   const completas = corte >= 0 ? t.slice(0, corte + 1) : "";
   let resto = corte >= 0 ? t.slice(corte + 1) : t;
+  // 21-oct-2026: nemotron-3.5 escribe la lista como `[[slug]]` (sin «shoe:») y DESPUÉS repite
+  // los mismos con `[[shoe:slug]]`: el widget pintaba el texto literal y luego seis tarjetas.
+  // Una tarjeta que ya ha salido no se repite.
+  const vistos = new Set<string>();
+  const marcador = (l: string) => {
+    const s = soloSlug(l);
+    const m = s ? `[[shoe:${s}]]` : l;
+    const id = m.trim().match(/^\[\[shoe:([a-z0-9-]+)\]\]$/i)?.[1];
+    if (!id) return m;
+    if (vistos.has(id)) return null;
+    vistos.add(id);
+    return m;
+  };
   const out = completas
     .split("\n")
     .slice(0, -1)
     .flatMap((l) => {
       if (FILA_CATALOGO.test(l.trim())) return [];
-      const s = soloSlug(l);
-      return [s ? `[[shoe:${s}]]` : l];
+      const m = marcador(l);
+      return m === null ? [] : [m];
     });
   if (final) {
     if (FILA_CATALOGO.test(resto.trim())) resto = "";
-    else if (soloSlug(resto)) resto = `[[shoe:${soloSlug(resto)}]]`;
+    else resto = marcador(resto) ?? "";
   } else if (resto.length < 60 || resto.includes("|")) {
     resto = "";
   }

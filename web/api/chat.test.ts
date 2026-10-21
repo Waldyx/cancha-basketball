@@ -80,6 +80,27 @@ describe("formatoVisible", () => {
     }
   });
 
+  // Capturada en producción el 21-oct (nemotron-3.5-super-vl): `[[slug]]` sin prefijo y luego
+  // los mismos con prefijo. Salían como texto literal y seis tarjetas.
+  const doble =
+    "Para exterior y base prioriza tracción y durabilidad. La Anta KAI 2 es la mejor opción.\n\n" +
+    "[[anta-kai-2]]\n[[adidas-dame-certified]]\n\n" +
+    "Haz el quiz (/quiz) para afinar más.\n\n" +
+    "[[shoe:anta-kai-2]]\n[[shoe:adidas-dame-certified]]";
+
+  it("[[slug]] sin prefijo es tarjeta, y una tarjeta no se repite", () => {
+    const f = formatoVisible(doble, true);
+    expect(f).not.toMatch(/\[\[(?!shoe:)/);
+    expect(f.match(/\[\[shoe:anta-kai-2\]\]/g)).toHaveLength(1);
+    expect(f.match(/\[\[shoe:adidas-dame-certified\]\]/g)).toHaveLength(1);
+    expect(f).toContain("Haz el quiz");
+  });
+
+  it("deduplicar no rompe el streaming: lo parcial sigue siendo prefijo", () => {
+    const final = formatoVisible(doble, true);
+    for (let i = 1; i <= doble.length; i++) expect(final.startsWith(formatoVisible(doble.slice(0, i)))).toBe(true);
+  });
+
   it("no toca una respuesta normal con marcadores", () => {
     const normal = "La **Curry 12** es tu zapa: tracción y respuesta de sobra.\n[[shoe:ua-curry-12]]\nSi quieres más opciones, haz el quiz (/quiz).";
     expect(formatoVisible(normal, true)).toBe(normal);
