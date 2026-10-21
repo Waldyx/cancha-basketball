@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **245 zapas (48 OCULTAS, 197 visibles) · 658 tests · `astro check` 0 errores · 371 páginas** |
+| Tamaño | **246 zapas (48 OCULTAS, 198 visibles) · 658 tests · `astro check` 0 errores · 371 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -455,6 +455,16 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   OTROS productos ⇒ nunca detectaba un agotado. Ahora solo `.product-actions` (esperando a que se pinte). La «Precision 8
   Mid» de Atmósfera es IH1104 = Low (no rescata la ficha). ▶️ Quedan por barrer igual: Forum Sport, Snipes y Decathlon.
   ⚠ AJ 40: su «desde» es Decathlon 155,49 y Nike ES la vende hoy a 139,99 (regla de s55): decidir si se quita.
+  **Forum Sport** (tallas pintadas en cliente: `.size-item.js-select-size` = disponible, `off` = no): casi todo con 1-3
+  tallas; entran Harden 10 KI1605 107,19 y D.O.N. 7 JR9502 78,11. Luka 77 GS sigue oculta (Nike ES 55,99 < Forum 71,99);
+  su MSRP 90 → 79,99. Snipes no tiene categoría de rendimiento y Decathlon mezcla marketplace (2.150 resultados): no
+  compensa barrerlos.
+- ✅ **Ficha nueva `adidas-don-issue-8`** (`9f28e81`): WearTesters 9/10 (ancla editorial 9.0 + `wt_url`, como la AE 3),
+  Lightstrike Pro desbloqueado en antepié, 352 g de fabricante (WT pesó 409 g en EU 45), low (imagen oficial), 120 €.
+  Desde 77,99 en Forum (11 tallas) + adidas.es 120 + FuikaOmar 119,90. IndexNow enviado. **Catálogo 245 → 246.**
+  ▶️ **Candidatas a ficha nueva vistas en los barridos** (todas lanzadas en ES): **LeBron Witness X** (Nike ES 99,99,
+  Cushlon 3.0, sin reviews; Forum solo «Halloween» a 109,99 → hoy no pasa la regla del afiliado más caro), **Tatum 5**
+  (Nike ES 129,99; ninguna afiliada la vende en adulto → saldría oculta), **G.T. Future** (Nike ES 199,99, sin mirar).
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
