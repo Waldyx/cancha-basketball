@@ -523,7 +523,7 @@ export const ARTICLES: Article[] = [
   <li>❌ Amortiguación básica</li>
 </ul>
 
-<p>Si buscas algo de gama más alta que también aguante fuera, mira la <a href="/zapatilla/rigorer-ar3">Rigorer AR3</a> (apta para exterior en todos los análisis) o la <a href="/zapatilla/nb-two-wxy-v4">New Balance TWO WXY v4</a> (goma dura que aguanta el asfalto).</p>
+<p>Si buscas algo de gama más alta que también aguante fuera, mira la <a href="/zapatilla/rigorer-ar3">Rigorer AR3</a> (apta para exterior en todos los análisis) o la <a href="/zapatilla/nb-two-wxy-v4">New Balance TWO WXY v4</a> (goma dura que aguanta el asfalto). Y entre las novedades, la <a href="/zapatilla/lining-wow-allcity-13-encore">Li-Ning All City 13 Encore</a> y la <a href="/zapatilla/lining-wade-dlo-2">Wade DLo 2</a>: el 100 % de los análisis de HoopsGeek las ven aptas para la calle.</p>
 
 <h2>Lo que debes evitar en exterior</h2>
 <ul>
@@ -551,6 +551,8 @@ export const ARTICLES: Article[] = [
     <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px"><strong>Jordan Luka .77</strong></td><td style="padding:8px;text-align:center">{{exterior:jordan-luka-77}}</td><td style="padding:8px;text-align:center">92 %</td><td style="padding:8px;text-align:center">{{precio:jordan-luka-77}}</td></tr>
     <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px"><strong>Adidas Dame Certified</strong></td><td style="padding:8px;text-align:center">{{exterior:adidas-dame-certified}}</td><td style="padding:8px;text-align:center">88 %</td><td style="padding:8px;text-align:center">{{precio:adidas-dame-certified}}</td></tr>
     <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px"><strong>Nike Precision 7</strong></td><td style="padding:8px;text-align:center">{{exterior:nike-precision-7}}</td><td style="padding:8px;text-align:center">100 %</td><td style="padding:8px;text-align:center">{{precio:nike-precision-7}}</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px"><strong>Li-Ning All City 13 Encore</strong></td><td style="padding:8px;text-align:center">{{exterior:lining-wow-allcity-13-encore}}</td><td style="padding:8px;text-align:center">100 %</td><td style="padding:8px;text-align:center">{{precio:lining-wow-allcity-13-encore}}</td></tr>
+    <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px"><strong>Li-Ning Wade DLo 2</strong></td><td style="padding:8px;text-align:center">{{exterior:lining-wade-dlo-2}}</td><td style="padding:8px;text-align:center">100 %</td><td style="padding:8px;text-align:center">{{precio:lining-wade-dlo-2}}</td></tr>
     <tr style="border-bottom:1px solid var(--cz-elev)"><td style="padding:8px"><strong>Adidas AE 2</strong> ❌</td><td style="padding:8px;text-align:center">{{exterior:adidas-ae-2}}</td><td style="padding:8px;text-align:center">0 %</td><td style="padding:8px;text-align:center">{{precio:adidas-ae-2}}</td></tr>
     <tr><td style="padding:8px"><strong>UA Curry 12</strong> ❌</td><td style="padding:8px;text-align:center">{{exterior:ua-curry-12}}</td><td style="padding:8px;text-align:center">0 %</td><td style="padding:8px;text-align:center">{{precio:ua-curry-12}}</td></tr>
   </tbody>
@@ -909,6 +911,14 @@ export const ARTICLES: Article[] = [
 <ul>
   <li>Muy duradera en exterior</li>
   <li>Amortiguación básica</li>
+</ul>
+
+<h3>Tres Li-Ning nuevas que también entran por menos de 80 €</h3>
+<p>Las tres llegaron al catálogo en octubre, se compran en AliExpress (tienda POIZON) y tienen nota de HoopsGeek:</p>
+<ul>
+  <li><a href="/zapatilla/lining-wow-allcity-13-encore">Way of Wade All City 13 Encore</a> — desde {{precio:lining-wow-allcity-13-encore}}. La revisión de la All City 13: mucha tracción y mucho soporte, y apta para la calle. Horma algo estrecha.</li>
+  <li><a href="/zapatilla/lining-wade-dlo-2">Wade DLo 2</a> — desde {{precio:lining-wade-dlo-2}}. La de D'Angelo Russell: BOOM de longitud completa, pegada al suelo y con goma dura para exterior.</li>
+  <li><a href="/zapatilla/lining-wade-flash-2">Wade Flash 2</a> — desde {{precio:lining-wade-flash-2}}. Ligera y con una tracción excelente, para bases que juegan en pabellón. Talla pequeña: pide media más.</li>
 </ul>
 
 <h3>¿Cómo elegir la mejor opción para ti?</h3>

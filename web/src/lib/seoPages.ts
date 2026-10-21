@@ -933,12 +933,13 @@ export const SEO_PAGES: SeoPage[] = [
   // ── MARCA: Li-Ning ─────────────────────────────────────────────────
   marca("Li-Ning", {
     title: "Mejores zapatillas de baloncesto Li-Ning 2026 | CANCHA.ZAPA",
-    description: "Las 5 mejores Li-Ning de baloncesto: WoW AllCity 13, Gamma 2, Sonic 12. Jimmy Butler, Wade y más. Tecnología china de vanguardia.",
+    description: "Las mejores Li-Ning de baloncesto: Gamma 2, Way of Wade 12, All City 14 y la línea Wade (DLo 2, 808 5 Ultra V2, Flash 2). Tecnología china de vanguardia.",
     eyebrow: "★ Por marca · Li-Ning",
     lede: "Li-Ning es el competidor más ambicioso de Nike en baloncesto. Con Dwyane Wade (WoW) y Jimmy Butler (JB), la marca china produce tecnología de primer nivel que todavía vuela bajo el radar en Europa.",
     intro: "Li-Ning fundó la marca en 1990, pero su salto al baloncesto de élite llegó con la línea WoW (Way of Wade) de Dwyane Wade. Hoy también tienen a Jimmy Butler, con su línea JB. Su tecnología de espuma BOOM es competitiva con ZoomX de Nike, y suele costar menos.",
     points: [
-      { lab: "WoW AllCity 13 = premium", body: "La línea WoW es la flagship de Li-Ning. Materiales premium, BOOM foam reactivo, tracción agresiva. Cushion y tracción altos, algo por debajo de la Jordan 40 y la GT Cut 3 en nuestras fichas." },
+      { lab: "Way of Wade = la flagship", body: "La línea WoW es la flagship de Li-Ning: la WoW 12 es la de gama alta y las All City (13, 13 Encore, 14) dan casi lo mismo por bastante menos. BOOM reactivo, tracción agresiva y suelas que aguantan la calle." },
+      { lab: "Wade DLo, Flash, Shadow y 808 = rendimiento barato", body: "Las líneas secundarias de Way of Wade son las mejores compras de la marca: la DLo 2 (de D'Angelo Russell), la Flash 2 y la Shadow 7 llevan BOOM de longitud completa y buena tracción a precio de zapatilla de equipo, y la 808 5 Ultra V2 monta Super BOOM de longitud completa, con una de las notas de amortiguación más altas que publica HoopsGeek." },
       { lab: "Gamma 2 = la tope de gama", body: "La Gamma 2 puntúa muy alto en nuestra ficha (tracción, respuesta, cushion y soporte lateral), pero es la Li-Ning más cara, por encima de las WoW. Es muy ligera y de horma estrecha." },
       { lab: "Sonic 12 = guards de primer paso", body: "La línea Sonic prioriza velocidad y respuesta. Para bases y escoltas que no necesitan mucho cushion pero sí explosividad." },
       { lab: "Talla: mide con cuidado", body: "Li-Ning tiende a tallar algo más pequeño que las marcas occidentales. Comprueba siempre la guía de tallas y, si tienes dudas, sube media talla." },
