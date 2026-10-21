@@ -971,6 +971,64 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012795601046.html", precio_actual: 63.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: ABAV001-4, Marcas+ POIZON, IVA incluido
     ],
   },
+  // LI-NING WAY OF WADE ALL CITY 13 ENCORE (alta: 21-oct-2026)
+  {
+    id: "lining-wow-allcity-13-encore",
+    slug: "lining-wow-allcity-13-encore",
+    marca: "Li-Ning",
+    modelo: "Way of Wade All City 13 Encore",
+    generacion: 13,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Dwyane Wade",
+    tecnologia_clave: ["BOOM de longitud completa", "cables en el mediopié", "suela Tuff RB"],
+    predecesor_id: "lining-wow-allcity-13",
+    sucesor_id: null,
+    peso_real_g: 390, // ESTIMADO: sin dato publicado; se toma el de la All City 13 (los análisis la ven algo más pesada)
+    altura: "low",
+    horma: "estrecha",
+    drop_mm: 8, // sin dato oficial: heredado de la All City 13
+    tipo_cierre: "cordones",
+    material_superior: "knit",
+    puntuaciones: {
+      traccion: 10, amortiguacion: 9, respuesta: 8,
+      soporte_lateral: 9, estabilidad: 9, peso_score: 6,
+      durabilidad_outdoor: 9, ventilacion: 5,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "value-premium", "china-brand", "outdoor"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [65, 100],
+      estilos: ["explosivo", "equilibrado", "potente"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"] },
+    resumen:
+      "Revisión de la All City 13 con BOOM de longitud completa, mejor sujeción en el talón y un tejido más premium. HoopsGeek le da un 8,9 con 8 análisis (puesto 18 de 416), con 9,5 en tracción y 9,4 en soporte, y el 100 % de los analistas la ve apta para exterior. Pega: ventila poco y la horma es algo estrecha.",
+    pros: [
+      "Tracción excelente; con polvo, basta una pasada de mano",
+      "Mucho soporte y estabilidad lateral (HoopsGeek 9,4)",
+      "BOOM de longitud completa, firme y con buen contacto con la pista",
+      "Suela Tuff RB que aguanta la calle",
+    ],
+    contras: [
+      "Transpira poco",
+      "Horma algo estrecha",
+      "Rígida al principio: necesita unos días de rodaje",
+    ],
+    veredicto:
+      "De las zapatillas más completas que se pueden comprar por menos de 100 €, y vale tanto para pabellón como para la calle. Si tu pie es ancho o pasas mucho calor jugando, mira otra.",
+    imagen_principal: "/shoes/lining-wow-allcity-13-encore.webp",
+    imagenes: [],
+    fuentes: [
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/li-ning-way-of-wade-all-city-13-encore/" },
+    ],
+    ultima_actualizacion: "2026-10-21",
+    precio_msrp_eur: 105, // $114,99 de tarifa (HoopsGeek)
+    links_compra: [
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005013149187366.html", precio_actual: 65.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // POIZON, ABAV047-1, 65,39-124,69 según talla, 13 tallas
+    ],
+  },
 
   // ─────────────────────────────────────────────────────────────────
   // 12-bis. LI-NING WAY OF WADE ALL CITY 14 — Mid-tier killer 2025
