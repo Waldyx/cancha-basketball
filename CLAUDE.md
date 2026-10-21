@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **254 zapas (49 OCULTAS, 205 visibles) · 658 tests · `astro check` 0 errores · 380 páginas** |
+| Tamaño | **255 zapas (49 OCULTAS, 206 visibles) · 658 tests · `astro check` 0 errores · 381 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -515,6 +515,10 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     `"ratingValue"`): **Wade 808 6 Ultra** (WT 9, ABAW009, desde 122,39), **All City 14 Encore** (WT 9, **ABAW037**; la ABAW053
     es la «V2 Summer Edition», otra), **Wade Shadow 8** (WT 8,5, ABPW023, desde 70,39). Todas POIZON, pesos ESTIMADOS (los de
     su predecesora). **Catálogo 251 → 254.** Asics Swiftace Yuki (WT 8): no se vende en España → no se crea.
+  · **Puma MB.04 Low** (WT 8, «mejor que la mid»): FuikaOmar Alien Skin 79,90 (5 tallas) + Amazon B0FP8BKP5D 82,35 (5).
+    🔑 La MB.04 (mid) citaba como fuente la reseña de la LOW: quitada. Barrido de todas las `fuentes` buscando variantes
+    cruzadas en la URL (low/mid/pro/elite/encore/gs…): ninguna más. **Catálogo 254 → 255.** Sin afiliada que las venda (no
+    se crean): Nike Ja Twelve Time (WT 9, $90), Jordan Triangle (WT 8), Jordan Air Rev (WT 7), Curry Series 7 (WT 9).
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
