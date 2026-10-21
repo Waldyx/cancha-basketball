@@ -2291,7 +2291,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 85,
     links_compra: [
-      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fsearch%3FNtt%3Dtarmak%2Bfast%2B900", precio_actual: 84.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
+      { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-nba-lakers-hombre-mujer-fast-900-low-1-negro%2F343952%2Fc1c213m8933362", precio_actual: 79.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: la de ADULTO (343952, tallas 39-48). La búsqueda resolvía a la de niño (348019)
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=tarmak+fast+900&tag=canchazapa-21", precio_actual: 89, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
