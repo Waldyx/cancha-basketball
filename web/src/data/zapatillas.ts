@@ -2535,11 +2535,12 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 190,
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010673040763.html", precio_actual: 78.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005009817325177.html", precio_actual: 112.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" },
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010673521913.html", precio_actual: 88.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011644113862.html", precio_actual: 92.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010673040763.html", precio_actual: 78.69, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: Core Life Gear Store, SIN sello Marcas+ (Nike suelto en AliExpress = posible réplica; regla del proyecto)
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005009817325177.html", precio_actual: 112.39, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: Active Drive Sports, SIN sello Marcas+ (Nike suelto en AliExpress = posible réplica; regla del proyecto)
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010673521913.html", precio_actual: 88.39, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: Chill Athletic Vibes, SIN sello Marcas+ (Nike suelto en AliExpress = posible réplica; regla del proyecto)
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011644113862.html", precio_actual: 92.39, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: Power Stride Sports, SIN sello Marcas+ (Nike suelto en AliExpress = posible réplica; regla del proyecto)
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-lebron-21-akoya.html", precio_actual: 159.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-13" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D9V558GK?tag=canchazapa-21", precio_actual: 223.60, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: FZ7883-700, 7 tallas (41-45), 223,60-309,91 según talla
     ],
   },
 
@@ -3353,7 +3354,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56003509%2F", precio_actual: 139.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/lebron-23-grand-opening-white-metallic-gold-university-red-black", precio_actual: 119.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012098378688.html", precio_actual: 152.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-18" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012098378688.html", precio_actual: 152.69, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: tienda genérica, SIN sello Marcas+ (Nike suelto en AliExpress = posible réplica; regla del proyecto)
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fnike-lebron-xxiii-shut-up-and-dribble%2F6c6d08b5-4aff-4800-9127-4913c3006964%2Fc4", precio_actual: 161.09, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+lebron+23+basketball&tag=canchazapa-21", precio_actual: 210, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
@@ -6862,9 +6863,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/jordan-38-review/" }],
     ultima_actualizacion: "2026-05-18",
+    oculto: true, // 22-oct: su único enlace era la AJ 38 Low (FD2325) y sin Marcas+
     precio_msrp_eur: 200, // tarifa europea (sneakerjagers, DZ3356-106 y 3 colorways más). Antes 180 sin fuente
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005008505878749.html", precio_actual: 123.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-01" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005008505878749.html", precio_actual: 118.39, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: FD2325-107 = AJ 38 LOW PF «Royalty» (otro corte) y tienda sin sello Marcas+
     ],
   },
 
