@@ -47,12 +47,17 @@ export const atmosfera_sport: StoreScraper = {
 
     try {
       await page.goto(url, { waitUntil: "domcontentloaded", timeout: 25000 });
+      // Las tallas del producto se pintan en cliente dentro de `.product-actions`.
+      // 21-oct-2026: antes se leía cualquier `[class*=size]`, y los carruseles de
+      // recomendados (`km-c002-size-select`) traen SUS tallas disponibles: el
+      // producto no salía agotado nunca. Si no aparece, no se afirma nada.
+      await page.waitForSelector(".product-actions option", { timeout: 8000 }).catch(() => {});
 
       const datos = await page.evaluate(
         `(() => {
           const meta = (p) => document.querySelector('meta[property="' + p + '"]');
           const tallas = Array.prototype.slice
-            .call(document.querySelectorAll('[class*="size" i] li, [class*="size" i] option, [class*="talla" i] li'))
+            .call(document.querySelectorAll('.product-actions option, .product-actions li'))
             .map(function (e) { return { texto: (e.textContent || "").trim(), clases: e.className || "" }; });
           return {
             precio: meta("product:price:amount") ? meta("product:price:amount").getAttribute("content") : null,
