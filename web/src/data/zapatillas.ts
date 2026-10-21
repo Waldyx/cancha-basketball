@@ -13922,9 +13922,10 @@ const _rawZapatillas: Zapatilla[] = [
     generacion: 1,
     año_lanzamiento: 2025,
     genero: "unisex",
-    signature_player: "Dwyane Wade",
+    signature_player: "D'Angelo Russell",
     tecnologia_clave: ["BOOM foam de longitud completa con Light Foam Ultra en el talón", "Probar Loc TPU midfoot shank", "Suela Tough RB"],
     predecesor_id: null,
+    sucesor_id: "lining-wade-dlo-2",
     peso_real_g: 360,
     altura: "low",
     horma: "normal",
@@ -13945,7 +13946,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
     no_recomendada_para: { posiciones: ["pivot"] },
     resumen:
-      "Nueva línea Wade DLo (signature secundario de Dwyane Wade en Li-Ning). HG le da 8.4 global con tracción 9.0 y cushion 9.0 (BOOM foam). Low-top, línea secundaria respecto a la Way of Wade flagship. Outdoor decente (HG 63%) — apta para uso mixto. Una alternativa más asequible a la WoW 12.",
+      "Primera Wade DLo, la línea de D'Angelo Russell dentro de Way of Wade (Li-Ning). HG le da 8.4 global con tracción 9.0 y cushion 9.0 (BOOM foam). Low-top, línea secundaria respecto a la Way of Wade flagship. Outdoor decente (HG 63%) — apta para uso mixto. Una alternativa más asequible a la WoW 12.",
     pros: [
       "Tracción premium (HG 9.0/10)",
       "Cushion BOOM de primer nivel — al nivel de modelos flagship",
@@ -13969,6 +13970,122 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012269555144.html", precio_actual: 100.08, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-18" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=li-ning+wade+dlo+1&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
+    ],
+  },
+  // LI-NING WADE DLO 2 — sucesora de la DLo 1 (alta: 21-oct-2026)
+  {
+    id: "lining-wade-dlo-2",
+    slug: "lining-wade-dlo-2",
+    marca: "Li-Ning",
+    modelo: "Wade DLo 2",
+    generacion: 2,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "D'Angelo Russell",
+    tecnologia_clave: ["BOOM de longitud completa con carcasa de Light Foam Ultra", "contrafuerte exterior cosido con piezas de TPU", "shank en la base", "suela de goma dura"],
+    predecesor_id: "lining-wade-dlo-1",
+    sucesor_id: null,
+    peso_real_g: 360, // ESTIMADO: sin dato publicado; se toma el de la DLo 1
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8, // sin dato oficial: heredado de la DLo 1
+    tipo_cierre: "cordones",
+    material_superior: "knit", // knit con refuerzos sintéticos
+    puntuaciones: {
+      traccion: 9, amortiguacion: 9, respuesta: 8,
+      soporte_lateral: 9, estabilidad: 9, peso_score: 8,
+      durabilidad_outdoor: 9, ventilacion: 6,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "value", "china-brand", "outdoor"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [65, 95],
+      estilos: ["explosivo", "equilibrado", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"] },
+    resumen:
+      "Segunda Wade DLo, la línea de D'Angelo Russell dentro de Way of Wade. HoopsGeek le da un 8,5 con 6 análisis y la ve mejor que la DLo 1 en tracción, amortiguación, horma y soporte. BOOM de longitud completa, pegada al suelo, y una goma dura que el 100 % de los analistas ve apta para exterior.",
+    pros: [
+      "Tracción muy buena en interior y en exterior, sin apenas limpiar la suela",
+      "BOOM de longitud completa: algo de rebote sin perder contacto con la pista",
+      "Mucha estabilidad torsional y buena contención lateral",
+      "Suela de goma dura: aguanta la calle",
+    ],
+    contras: [
+      "Materiales justos: algunas piezas sintéticas se notan baratas",
+      "Transpira poco",
+      "Antepié estrecho al principio; con pie ancho, media talla más",
+    ],
+    veredicto:
+      "Una de las compras más claras para jugar en la calle sin renunciar a una amortiguación seria. Si eres base o escolta, te gusta ir pegado al suelo y tu pie no es ancho, rinde como zapatillas que cuestan el doble.",
+    imagen_principal: "/shoes/lining-wade-dlo-2.webp",
+    imagenes: [],
+    fuentes: [
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/li-ning-wade-dlo-2/" },
+    ],
+    ultima_actualizacion: "2026-10-21",
+    precio_msrp_eur: 110, // $119 de tarifa (HoopsGeek), mismo criterio que la DLo 1
+    links_compra: [
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005013159306235.html", precio_actual: 62.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // POIZON, ABPW013-11, 62,99-76,39 según talla
+    ],
+  },
+  // LI-NING WADE 808 5 ULTRA V2 (alta: 21-oct-2026)
+  {
+    id: "lining-wade-808-5-ultra-v2",
+    slug: "lining-wade-808-5-ultra-v2",
+    marca: "Li-Ning",
+    modelo: "Wade 808 5 Ultra V2",
+    generacion: 5,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Dwyane Wade",
+    tecnologia_clave: ["Super BOOM de longitud completa (drop-in)", "placa de fibra de carbono", "chasis de TPU y shank envolvente", "suela de goma GCU y Tuff RB"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 360, // ESTIMADO: sin dato publicado; en la franja de las Li-Ning de gama alta con Super BOOM (WoW 12 346 g, All City 14 370 g)
+    altura: "low",
+    horma: "estrecha",
+    drop_mm: 8, // sin dato oficial
+    tipo_cierre: "cordones",
+    material_superior: "synthetic+tpu",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 10, respuesta: 9,
+      soporte_lateral: 9, estabilidad: 9, peso_score: 8,
+      durabilidad_outdoor: 8, ventilacion: 5,
+    },
+    categoria_principal: "cushion-focused",
+    tags: ["signature", "value-premium", "china-brand", "cushion"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [60, 90],
+      estilos: ["explosivo", "equilibrado", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"] },
+    resumen:
+      "Segunda versión de la Wade 808 5 Ultra de Li-Ning: la misma media suela de Super BOOM con otra parte de arriba, más rígida y duradera. HoopsGeek le da un 8,8 con 6 análisis y un 9,8 en amortiguación, de las más altas que publica. Horma estrecha y poca ventilación.",
+    pros: [
+      "Amortiguación de primer nivel: Super BOOM de longitud completa, con mucho rebote",
+      "Tracción muy buena en interior, con espiga y goma GCU",
+      "Mucha contención: chasis de TPU y placa de carbono",
+      "La suela aguanta bien el exterior",
+    ],
+    contras: [
+      "Transpira poco: la parte de arriba es una carcasa de TPU",
+      "Horma estrecha en el antepié; con pie muy ancho, mejor otra",
+      "Los jugadores pesados pueden notar que la espuma se hunde antes",
+    ],
+    veredicto:
+      "Para bases, escoltas y aleros ligeros que quieren la amortiguación con más rebote del mercado a menos precio que una signature de Nike. Si tu pie es ancho o juegas en pabellones calurosos, mira otra.",
+    imagen_principal: "/shoes/lining-wade-808-5-ultra-v2.webp",
+    imagenes: [],
+    fuentes: [
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/li-ning-wade-808-5-ultra-v2/" },
+    ],
+    ultima_actualizacion: "2026-10-21",
+    precio_msrp_eur: 145, // $158,99 de tarifa (HoopsGeek)
+    links_compra: [
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012511194515.html", precio_actual: 102.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // POIZON, ABAV045-11, 102,99-121,99 según talla, 12 tallas
     ],
   },
 
