@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **255 zapas (49 OCULTAS, 206 visibles) · 658 tests · `astro check` 0 errores · 381 páginas** |
+| Tamaño | **255 zapas (49 OCULTAS, 206 visibles) · 659 tests · `astro check` 0 errores · 381 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -528,6 +528,12 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     no es el más barato), (b) apagar esas afiliadas (la ficha enseñaría MSRP + «Ver precio en BE») o (c) enseñar el número de
     BE cuando sea el más barato (contradice la estrategia «Ver precio» de la s28: BE no tiene scraper y el número se pudre).
     Los 7 casos con Joom no cuentan: precios de junio y Joom sin garantía de autenticidad.
+  · 🔴 **La Tarmak Fast 900 Low-1 de ADULTO enlazaba la de NIÑO**: su enlace era una búsqueda y el scraper la resolvió al
+    producto 348019 (niño, 54,99). Fijada la de adulto 343952 (79,99, tallas 39-48; Decathlon da 375 g en T43 = el peso de la
+    ficha). Revisadas las 23 URLs visibles que puso el scraper al resolver búsquedas (Amazon por `/dp/` con título,
+    departamento y modelo: `scratchpad/amz_dp.py`): todas correctas. Ninguna otra ficha de adulto enlaza producto de niño.
+  · **Chat**: con «calle/exterior/outdoor/asfalto» el modelo ya no ve las zapas con outdoor < 5 (el filtro duro del quiz),
+    + test. Medido: recomienda Dame Certified, All City 13 Encore y Stewie 5.
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
