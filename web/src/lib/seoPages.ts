@@ -1168,7 +1168,10 @@ export const SEO_PAGES: SeoPage[] = [
     h1Accent: "zapatillas baloncesto",
     h1Post: "2026",
     lede: "El Black Friday es el 27 de noviembre y las tiendas aún no han anunciado sus ofertas. Mientras tanto, vigilamos los precios cada noche: este top 5 son las zapatillas con mayor rebaja real hoy frente a su precio oficial, y se actualiza solo.",
-    filter: (z) => z.genero !== "gs" && !z.es_retro && descuentoMostrado(z) >= 0.15,
+    // Fuera Li-Ning, Anta, Peak y Rigorer: su MSRP sale de la tarifa en dólares de importación a EE. UU.,
+    // y su precio en POIZON frente a esa tarifa es un «descuento» de cartel, justo lo que esta página
+    // enseña a no creerse (22-oct-2026). 361° sí tiene tarifa oficial en euros (361sport).
+    filter: (z) => z.genero !== "gs" && !z.es_retro && !["Li-Ning", "Anta", "Peak", "Rigorer"].includes(z.marca) && descuentoMostrado(z) >= 0.15,
     sort: (a, b) => {
       const d = descuentoMostrado(b) - descuentoMostrado(a);
       return Math.abs(d) > 0.0001 ? d : byScoreDesc(a, b);
