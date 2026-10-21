@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { zapatillas } from "../data/zapatillas";
+import { findMejorPrecioMostrado } from "../lib/scoring";
 
 // Índice del buscador global (Cmd+K). Vive aquí y NO dentro de
 // `CommandPalette.astro` porque ese componente está en `Base.astro`: inlinearlo
@@ -16,7 +17,9 @@ export const GET: APIRoute = () =>
         modelo: z.modelo,
         search:
           `${z.marca} ${z.modelo} ${z.slug} ${z.categoria_principal} ${z.tags.join(" ")}`.toLowerCase(),
-        precio: z.precio_msrp_eur,
+        // El mismo «desde» que la ficha y las tarjetas; antes era el MSRP y la KT 11
+        // salía a 110 € en el buscador y a 75 € en su ficha.
+        precio: Math.round(findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur)?.precio_actual ?? z.precio_msrp_eur),
         cat: z.categoria_principal,
         img: z.imagen_principal,
       }))
