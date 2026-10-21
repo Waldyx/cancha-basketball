@@ -14047,7 +14047,7 @@ const _rawZapatillas: Zapatilla[] = [
     sucesor_id: "lining-wade-dlo-2",
     peso_real_g: 360,
     altura: "low",
-    horma: "normal",
+    horma: "estrecha",
     drop_mm: 8,
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
@@ -14073,6 +14073,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Outdoor decente para una zapa con foam premium (HG 63%)",
     ],
     contras: [
+      "Horma estrecha: con pie ancho, media talla más (WearTesters)",
       "Fit puede necesitar break-in (HG 7.8)",
       "Disponibilidad limitada en España",
       "Marca y modelo poco conocidos en Europa",
@@ -14083,6 +14084,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/li-ning-wade-dlo-1/" },
+      { tipo: "weartesters", url: "https://weartesters.com/way-of-wade-dlo-1-review/" },
     ],
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 110,
@@ -14142,6 +14144,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/li-ning-wade-dlo-2/" },
+      { tipo: "weartesters", url: "https://weartesters.com/way-of-wade-dlo-2-review/" },
     ],
     ultima_actualizacion: "2026-10-21",
     precio_msrp_eur: 110, // $119 de tarifa (HoopsGeek), mismo criterio que la DLo 1
