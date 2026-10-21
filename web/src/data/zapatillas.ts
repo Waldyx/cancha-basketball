@@ -1924,7 +1924,6 @@ const _rawZapatillas: Zapatilla[] = [
     imagen_principal: "/shoes/puma-mb-04.webp",
     imagenes: [],
     fuentes: [
-      { tipo: "weartesters", url: "https://weartesters.com/puma-mb-04-low-review/" },
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/puma-mb04/" },
     ],
     ultima_actualizacion: "2026-05-13",
@@ -1934,6 +1933,65 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-puma-lamelo-ball-mb04-low-azul%2F372870%2Fm8967856", precio_actual: 114.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DTNVP8DL?tag=canchazapa-21", precio_actual: 281.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: la búsqueda resolvía a esta ficha: reventa, un solo vendedor externo
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-puma-mb04-gem.html", precio_actual: 84.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: Gem, 6 tallas
+    ],
+  },
+  // PUMA MB.04 LOW — el corte bajo de la MB.04 (alta: 22-oct-2026)
+  {
+    id: "puma-mb-04-low",
+    slug: "puma-mb-04-low",
+    marca: "Puma",
+    modelo: "MB.04 Low",
+    generacion: 4,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "LaMelo Ball",
+    tecnologia_clave: ["Nitro foam en talón y antepié dentro de una entresuela de EVA", "jaula lateral de TPU", "parte de arriba textil con refuerzos de TPU"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 370, // ESTIMADO: sin dato publicado; algo menos que la MB.04 mid (390 g), que WearTesters ve más pesada
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8, // sin dato oficial: el de la MB.04
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 7, amortiguacion: 8, respuesta: 8,
+      soporte_lateral: 8, estabilidad: 9, peso_score: 7,
+      durabilidad_outdoor: 4, ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "moderna"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [65, 95],
+      estilos: ["equilibrado", "tirador", "explosivo"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"] },
+    resumen:
+      "El corte bajo de la cuarta signature de LaMelo Ball. WearTesters le da un 8/10 y la ve algo mejor que la MB.04 mid: cambia la jaula de goma por una parte de arriba textil, más ligera, flexible y transpirable, con la misma amortiguación de Nitro. Agarra muy bien en pista limpia, pero con polvo resbala.",
+    pros: [
+      "Parte de arriba textil: más ligera, flexible y fresca que la de la mid",
+      "Nitro foam con buena protección, que se suelta tras unos días de uso",
+      "Base ancha y plana: muy estable",
+      "Talla fiel y mucho acolchado interior",
+    ],
+    contras: [
+      "Tracción irregular en pistas con polvo",
+      "Poco recomendable para la calle: la goma se gasta",
+      "La lengüeta es voluminosa y pesa sobre el tobillo",
+    ],
+    veredicto:
+      "Para bases, escoltas y aleros que juegan en pabellones limpios y quieren una MB.04 más ligera y jugable que la mid. Si tu pista tiene polvo o juegas en la calle, hay opciones más agarradas.",
+    imagen_principal: "/shoes/puma-mb-04-low.webp",
+    imagenes: [],
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/puma-mb-04-low-review/" },
+    ],
+    ultima_actualizacion: "2026-10-22",
+    precio_msrp_eur: 115, // $125 de tarifa (WearTesters)
+    links_compra: [
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-puma-mb-04-low-alien-skin.html", precio_actual: 79.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // Alien Skin, 5 tallas (44-49,5)
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FP8BKP5D?tag=canchazapa-21", precio_actual: 82.35, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // Ice White, Unisex adulto, 5 tallas (42-48)
     ],
   },
 
