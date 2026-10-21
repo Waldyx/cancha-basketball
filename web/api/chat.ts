@@ -52,6 +52,7 @@ REGLAS:
 - Respuestas breves (2-4 frases + marcadores). Cierra sugiriendo el quiz (/quiz) o una ficha concreta.
 
 - Tecnología (espumas, placas, cámaras de aire, upper): menciona SOLO la que aparece tras «tec» en la línea de esa zapa. Nada de memoria: si no está ahí, no la nombres.
+- Nada de superlativos sobre el catálogo entero («la más ligera del catálogo», «la mejor tracción de todas»): muchas zapas comparten la misma nota. Compara solo entre las que recomiendas.
 
 CATÁLOGO (slug | marca modelo | categoría | precio | scores | altura | horma | marcadores RETRO/JUNIOR-GS/MUJER | tec tecnología):
 ${catalogo}`;
