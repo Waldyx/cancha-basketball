@@ -14088,6 +14088,120 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012511194515.html", precio_actual: 102.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // POIZON, ABAV045-11, 102,99-121,99 según talla, 12 tallas
     ],
   },
+  // LI-NING WADE FLASH 2 (alta: 21-oct-2026)
+  {
+    id: "lining-wade-flash-2",
+    slug: "lining-wade-flash-2",
+    marca: "Li-Ning",
+    modelo: "Wade Flash 2",
+    generacion: 2,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Dwyane Wade",
+    tecnologia_clave: ["BOOM de longitud completa", "suela de espiga de goma de interior", "parte de arriba textil con pocos refuerzos"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 340, // ESTIMADO: sin dato publicado; los análisis la describen como ligera
+    altura: "low",
+    horma: "estrecha",
+    drop_mm: 8, // sin dato oficial
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+    puntuaciones: {
+      traccion: 10, amortiguacion: 9, respuesta: 8,
+      soporte_lateral: 7, estabilidad: 7, peso_score: 8,
+      durabilidad_outdoor: 6, ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "value", "china-brand", "ligera"],
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [55, 85],
+      estilos: ["explosivo", "equilibrado", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot", "ala-pivot"] },
+    resumen:
+      "Zapatilla de base de la línea Way of Wade, barata y ligera. HoopsGeek le da un 8,3 con 4 análisis y un 9,5 en tracción: agarra en pistas limpias y algo polvorientas casi sin limpiar la suela. BOOM de longitud completa, mullido y con rebote. Lo flojo es el soporte y una horma estrecha que además talla pequeña.",
+    pros: [
+      "Tracción excelente, incluso con algo de polvo (HoopsGeek 9,5)",
+      "BOOM de longitud completa: mullida y con rebote",
+      "Ligera y fresca",
+    ],
+    contras: [
+      "Horma estrecha y talla pequeña: casi todos recomiendan media talla más",
+      "Soporte justo: parte de arriba fina y con pocos refuerzos",
+      "La goma es más blanda que en las anteriores: en la calle se gastará antes",
+    ],
+    veredicto:
+      "Para bases y escoltas ligeros que juegan en pabellón y quieren mucho agarre y una amortiguación cómoda gastando poco. Pide media talla más, y si tu pie es ancho o necesitas sujeción, mira otra.",
+    imagen_principal: "/shoes/lining-wade-flash-2.webp",
+    imagenes: [],
+    fuentes: [
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/li-ning-wade-flash-2/" },
+    ],
+    ultima_actualizacion: "2026-10-21",
+    precio_msrp_eur: 110, // $119,99 de tarifa (HoopsGeek), mismo criterio que la DLo
+    links_compra: [
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012810981397.html", precio_actual: 51.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // POIZON, ABPV013-5, 51,69-55,99 según talla, 12 tallas
+    ],
+  },
+  // LI-NING WADE SHADOW 7 (alta: 21-oct-2026)
+  {
+    id: "lining-wade-shadow-7",
+    slug: "lining-wade-shadow-7",
+    marca: "Li-Ning",
+    modelo: "Wade Shadow 7",
+    generacion: 7,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    signature_player: "Dwyane Wade",
+    tecnologia_clave: ["BOOM de doble densidad con Light Foam Ultra, de longitud completa", "placa de TPU de longitud completa", "contrafuertes de talón interno y externo"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 340, // ESTIMADO: sin dato publicado; los análisis la describen como ligera
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8, // sin dato oficial
+    tipo_cierre: "cordones",
+    material_superior: "mesh+synthetic",
+    puntuaciones: {
+      traccion: 8, amortiguacion: 9, respuesta: 8,
+      soporte_lateral: 8, estabilidad: 9, peso_score: 8,
+      durabilidad_outdoor: 6, ventilacion: 7,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "value", "china-brand", "ligera"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [60, 95],
+      estilos: ["explosivo", "equilibrado", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"] },
+    resumen:
+      "Séptima Wade Shadow, la gama media de Way of Wade. HoopsGeek le da un 8,2 con 5 análisis, todos entre 8,0 y 8,4: ligera, con mucha sujeción y estabilidad gracias a una placa de TPU de longitud completa, y una amortiguación de BOOM que gana con el uso. En pistas con polvo agarra menos.",
+    pros: [
+      "Mucha estabilidad: placa de TPU de longitud completa y doble contrafuerte",
+      "BOOM de doble densidad: con rebote y buena protección en el antepié",
+      "Ligera sin perder sujeción",
+    ],
+    contras: [
+      "Tracción floja en pistas con polvo",
+      "Algunos materiales se notan baratos",
+      "Mediopié estrecho; con pie ancho, media talla más",
+    ],
+    veredicto:
+      "Una compra sólida para quien quiere una zapatilla ligera pero estable, sin pagar una signature de gama alta. Mejor en pabellones limpios que en pistas con polvo.",
+    imagen_principal: "/shoes/lining-wade-shadow-7.webp",
+    imagenes: [],
+    fuentes: [
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/li-ning-wade-shadow-7/" },
+    ],
+    ultima_actualizacion: "2026-10-21",
+    precio_msrp_eur: 110, // $119,99 de tarifa (HoopsGeek), mismo criterio que la DLo
+    links_compra: [
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012802172966.html", precio_actual: 63.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // POIZON, ABPV011-7, 63,39-116,69 según talla, 13 tallas
+    ],
+  },
 
   // ═══════════════════════════════════════════════════════════════════════════
   // SESIÓN 24 — Marcas nicho (361°, Rigorer, Skechers): nuevo nicho SEO de alta conversión
