@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **251 zapas (48 OCULTAS, 203 visibles) · 658 tests · `astro check` 0 errores · 377 páginas** |
+| Tamaño | **251 zapas (49 OCULTAS, 202 visibles) · 658 tests · `astro check` 0 errores · 377 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -495,6 +495,22 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   Kobe 9 High Protro (no se sabe qué versión es la ficha), Question Mid (110-180), NXXT Genisus (solo QS), AE 1 (la ficha es
   la Mid de 2025, 140). Efecto: Freak 4, Forum 84 y Flight 95 dejan de contar como reventa y enseñan su Amazon (verificado);
   la GT Jump 2 ya solo tiene una oferta a 402,63 € (1,83×) → sigue enseñando su MSRP.
+- ✅ **Noche del 21→22-oct (autónomo)**:
+  · 🔴 **Nike en AliExpress SIN Marcas+ en enlaces visibles**: LeBron 21 (×4, tiendas «Core Life Gear», «Active Drive
+    Sports»…, 94-112 € con MSRP 190) y LeBron 23 (genérica, 129 €) → apagados. La AJ 38 enlazaba la FD2325 = **AJ 38 LOW PF**
+    y sin sello → **oculta (48 → 49)**. LeBron 21 conserva compra con Amazon B0D9V558GK (7 tallas, desde 223,60). 🔑 Para leer
+    el título de un item de AliExpress basta `fetch('/item/ID.html')` desde la página y la meta `og:title`; la tienda y el
+    sello solo salen con el navegador (`De<tienda>(` en el texto). Revisados los 35 items visibles: ninguno más de marca
+    occidental. Rigorer AR1: MSRP 75 → 92 ($100 de lanzamiento, sneakernews/StockX) y oferta de «RIGORER Basketball Pro
+    Store» a 91,99 con `nota: "Se envía sin caja"`.
+  · 🔑 **SKU de Anta**: `112` + año (`3` = 2023) + temporada + estilo (`1106`). 112331106 y 112341106 son la MISMA Shock Wave
+    5 en dos temporadas. La MSRP de las chinas en $ (HG/StockX) es precio de importación a EE. UU.: SW5 $200-230 y JB4 $150-299
+    según fuente, con POIZON a 70-145 € → no se tocan sin una tarifa europea.
+  · Contenido: página SEO de Li-Ning (top nuevo + línea Wade), guía de baratas (+ Encore, DLo 2, Flash 2), guía de exterior
+    (+ Encore y DLo 2 en tabla), artículo de marcas chinas (Amazon NO las vende; Basketball Emotion sí) y 4 listas de tiendas
+    falsas en artículos (Joker 1 «y Amazon», Kobe 9 High «solo KicksCrew», Curry 13 «UA y Basket4Ballers», Breakthru 4).
+  · Promo Forum Sport Flash Night (20MIN, hasta el 22-oct 10:00). Enlaces internos rotos en el build: 0. Imágenes: 0 faltan.
+  · Ocultas en Amazon: Jet '23 solo en anuncios de 1-2 tallas; Kobe Protro y PG 6, reventa a 400-530 €. Siguen ocultas.
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
