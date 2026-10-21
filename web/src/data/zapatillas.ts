@@ -14103,7 +14103,7 @@ const _rawZapatillas: Zapatilla[] = [
     signature_player: "Dwyane Wade",
     tecnologia_clave: ["Super BOOM de longitud completa (drop-in)", "placa de fibra de carbono", "chasis de TPU y shank envolvente", "suela de goma GCU y Tuff RB"],
     predecesor_id: null,
-    sucesor_id: null,
+    sucesor_id: "lining-wade-808-6-ultra",
     peso_real_g: 360, // ESTIMADO: sin dato publicado; en la franja de las Li-Ning de gama alta con Super BOOM (WoW 12 346 g, All City 14 370 g)
     altura: "low",
     horma: "estrecha",
@@ -14218,7 +14218,7 @@ const _rawZapatillas: Zapatilla[] = [
     signature_player: "Dwyane Wade",
     tecnologia_clave: ["BOOM de doble densidad con Light Foam Ultra, de longitud completa", "placa de TPU de longitud completa", "contrafuertes de talón interno y externo"],
     predecesor_id: null,
-    sucesor_id: null,
+    sucesor_id: "lining-wade-shadow-8",
     peso_real_g: 340, // ESTIMADO: sin dato publicado; los análisis la describen como ligera
     altura: "low",
     horma: "normal",
@@ -14261,6 +14261,177 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 110, // $119,99 de tarifa (HoopsGeek), mismo criterio que la DLo
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012802172966.html", precio_actual: 63.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // POIZON, ABPV011-7, 63,39-116,69 según talla, 13 tallas
+    ],
+  },
+  // LI-NING WADE 808 6 ULTRA — sucesora de la 808 5 Ultra V2 (alta: 22-oct-2026)
+  {
+    id: "lining-wade-808-6-ultra",
+    slug: "lining-wade-808-6-ultra",
+    marca: "Li-Ning",
+    modelo: "Wade 808 6 Ultra",
+    generacion: 6,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "Dwyane Wade",
+    tecnologia_clave: ["Super BOOM drop-in de longitud completa, con una cápsula más blanda en el talón", "shank de fibra de carbono", "placa de TPU en el antepié con outrigger", "suela GCU de longitud completa"],
+    predecesor_id: "lining-wade-808-5-ultra-v2",
+    sucesor_id: null,
+    peso_real_g: 360, // ESTIMADO: sin dato publicado; el de la 808 5 Ultra V2 (WearTesters la describe como rápida y ligera)
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8, // sin dato oficial
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 10, amortiguacion: 10, respuesta: 9,
+      soporte_lateral: 9, estabilidad: 9, peso_score: 8,
+      durabilidad_outdoor: 6, ventilacion: 8,
+    },
+    categoria_principal: "cushion-focused",
+    tags: ["signature", "value-premium", "china-brand", "cushion"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [60, 95],
+      estilos: ["explosivo", "equilibrado", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"] },
+    resumen:
+      "Sexta 808 de Way of Wade. WearTesters le da un 9/10: tracción de élite en interior, una media suela drop-in de Super BOOM con muchísimo rebote y protección, y una sujeción de primera gracias al shank de carbono y la placa de TPU del antepié. La comparan con la Kobe 8 original, y en amortiguación la ven mejor.",
+    pros: [
+      "Tracción excelente en interior, esté como esté la pista",
+      "Super BOOM drop-in: mucho rebote y protección de impactos",
+      "Muy sujeta: shank de carbono, placa de TPU y outrigger en el antepié",
+      "Parte de arriba ligera y transpirable; horma fiel, sin puntos de presión",
+    ],
+    contras: [
+      "La goma no es la más duradera: en la calle se gastará antes",
+      "El talón puede resultar demasiado blando para algunos",
+      "Al ser drop-in no admite plantillas ortopédicas propias",
+    ],
+    veredicto:
+      "De lo mejor que se puede comprar para jugar en pabellón si te gustan las zapatillas rápidas y con mucho rebote, a bastante menos que una signature de Nike. Si juegas sobre todo en la calle o usas plantillas ortopédicas, mira otra.",
+    imagen_principal: "/shoes/lining-wade-808-6-ultra.webp",
+    imagenes: [],
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/way-of-wade-808-6-ultra-performance-review/" },
+    ],
+    ultima_actualizacion: "2026-10-22",
+    precio_msrp_eur: 145, // $159 de tarifa (WearTesters), mismo criterio que la 808 5 Ultra V2
+    links_compra: [
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005013095155140.html", precio_actual: 122.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // POIZON, ABAW009-6, 122,39-126,99 según talla, 12 tallas
+    ],
+  },
+  // LI-NING WAY OF WADE ALL CITY 14 ENCORE (alta: 22-oct-2026)
+  {
+    id: "lining-wow-allcity-14-encore",
+    slug: "lining-wow-allcity-14-encore",
+    marca: "Li-Ning",
+    modelo: "Way of Wade All City 14 Encore",
+    generacion: 14,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "Dwyane Wade",
+    tecnologia_clave: ["Super BOOM de longitud completa con capa de Light Foam Ultra", "placa de torsión Probar Loc", "outrigger lateral Euro Plate", "suela TUFF RB con GCU en el talón"],
+    predecesor_id: "lining-wow-allcity-14",
+    sucesor_id: null,
+    peso_real_g: 370, // ESTIMADO: sin dato publicado; el de la All City 14 (la Encore pierde el ala lateral)
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8, // sin dato oficial
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 10, amortiguacion: 9, respuesta: 8,
+      soporte_lateral: 10, estabilidad: 9, peso_score: 7,
+      durabilidad_outdoor: 9, ventilacion: 9,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "value-premium", "china-brand", "outdoor"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero", "ala-pivot"],
+      peso_jugador_kg: [60, 105],
+      estilos: ["explosivo", "equilibrado", "potente", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"] },
+    resumen:
+      "Revisión de la All City 14 con Super BOOM de longitud completa y una parte de arriba más ligera. WearTesters le da un 9/10 y la ve de las que mejor equilibran protección y contacto con la pista. Tracción excelente en cualquier pista y estado, soporte de élite y una suela TUFF RB que aguanta la calle.",
+    pros: [
+      "Tracción excelente dentro y fuera, con goma TUFF RB",
+      "Gran protección de impactos sin perder contacto con la pista",
+      "Soporte de élite: placa Probar Loc y outrigger Euro Plate",
+      "Parte de arriba muy ligera y transpirable",
+    ],
+    contras: [
+      "El antepié amortigua menos que en la All City 14",
+    ],
+    veredicto:
+      "Una de las más completas del catálogo, para pabellón y para la calle, a precio de gama media. Si buscas el máximo rebote en el antepié, la All City 14 normal da algo más.",
+    imagen_principal: "/shoes/lining-wow-allcity-14-encore.webp",
+    imagenes: [],
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/way-of-wade-all-city-14-encore-performance-review/" },
+    ],
+    ultima_actualizacion: "2026-10-22",
+    precio_msrp_eur: 140, // $149 de tarifa (WearTesters), igual que la All City 14
+    links_compra: [
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012818174010.html", precio_actual: 88.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // POIZON, ABAW037-8, 88,39-131,99 según talla, 16 tallas
+    ],
+  },
+  // LI-NING WADE SHADOW 8 — sucesora de la Shadow 7 (alta: 22-oct-2026)
+  {
+    id: "lining-wade-shadow-8",
+    slug: "lining-wade-shadow-8",
+    marca: "Li-Ning",
+    modelo: "Wade Shadow 8",
+    generacion: 8,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "Dwyane Wade",
+    tecnologia_clave: ["BOOM de longitud completa", "placa de torsión Probar Loc", "cables en el mediopié", "suela TUFF RB"],
+    predecesor_id: "lining-wade-shadow-7",
+    sucesor_id: null,
+    peso_real_g: 340, // ESTIMADO: sin dato publicado; el de la Shadow 7
+    altura: "low",
+    horma: "estrecha",
+    drop_mm: 8, // sin dato oficial
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 8, respuesta: 8,
+      soporte_lateral: 8, estabilidad: 9, peso_score: 8,
+      durabilidad_outdoor: 9, ventilacion: 7,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "value", "china-brand", "outdoor"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [60, 95],
+      estilos: ["explosivo", "equilibrado", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"] },
+    resumen:
+      "Octava Wade Shadow, la gama media de Way of Wade. WearTesters le da un 8,5/10 y la ve con la mejor amortiguación de su rango de precio: BOOM de longitud completa, algo firme en el antepié. Suela TUFF RB apta para la calle y mucha estabilidad. Su pega: el antepié es estrecho.",
+    pros: [
+      "BOOM de longitud completa: de lo mejor en amortiguación a este precio",
+      "Suela TUFF RB que aguanta la calle",
+      "Muy estable y con buena sujeción gracias a los cables del mediopié",
+      "Plantilla extraíble: admite plantillas ortopédicas",
+    ],
+    contras: [
+      "Antepié estrecho: con pie ancho, mejor otra",
+      "Materiales sencillos",
+    ],
+    veredicto:
+      "Muy buena compra para jugar en pabellón y en la calle gastando poco, si tu pie no es ancho. Con pie ancho, WearTesters recomienda la 808 6 Ultra o la WoW 12.",
+    imagen_principal: "/shoes/lining-wade-shadow-8.webp",
+    imagenes: [],
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/way-of-wade-shadow-8-performance-review/" },
+    ],
+    ultima_actualizacion: "2026-10-22",
+    precio_msrp_eur: 110, // $119 de tarifa (WearTesters), igual que la Shadow 7
+    links_compra: [
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005013332503336.html", precio_actual: 70.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // POIZON, ABPW023-5, 70,39-118,39 según talla, 12 tallas
     ],
   },
 
