@@ -497,6 +497,20 @@ export const PROMOS: Promo[] = [
     color: "#facc15",
   },
   {
+    id: "forumsport-flash-night-2026-10",
+    tienda: "forumsport_es",
+    tiendaLabel: "Forum Sport",
+    titulo: "Flash Night",
+    // Correo de Awin del 21-oct: de 21-oct 18:00 a 22-oct 10:00 (París). Enlace con nuestro awinaffid.
+    desde: "2026-10-21T18:00:00+02:00",
+    hasta: "2026-10-22T10:00:00+02:00",
+    url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2F",
+    codigo: "20MIN",
+    descuentoTexto: "20% mínimo en ropa y calzado",
+    nota: "Compras superiores a 60€ · sobre el precio inicial, en productos seleccionados · solo hasta el 22-oct a las 10:00",
+    color: "#facc15",
+  },
+  {
     id: "aliexpress-ofertas-invierno-2026-10",
     tienda: "aliexpress",
     tiendaLabel: "AliExpress",
