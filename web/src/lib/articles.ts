@@ -1874,7 +1874,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "Nike LeBron 22",
     heroSubtitle: "El Rolls Royce del cushion — análisis honesto 2025",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-lebron-22", "jordan-tatum-4", "nb-fresh-foam-bb-v3", "ua-curry-13", "adidas-ae-2"],
+    relatedShoes: ["nike-lebron-22", "jordan-tatum-4", "nike-lebron-23", "ua-curry-13", "adidas-ae-2"],
     relatedSeoPages: ["zapatillas-cushion", "zapatillas-baloncesto-para-rodillas", "mejor-zapatilla-pivot"],
     body: `
 <p class="art-intro">LeBron James es el jugador más dominante de la historia por volumen y longevidad. Con 39 años, sigue jugando al máximo nivel — y su zapatilla refleja esa filosofía: más protección, más soporte, más cushion. La LeBron 22 no es para todos. Es para jugadores pesados, pívots, y cualquiera que priorice la protección sobre la ligereza.</p>
