@@ -474,6 +474,19 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   ficha se lee el precio talla a talla clicando `[class*=sku-item--text]`. Descartadas: **Shock Wave 7** (HG reseña la
   112611606 sin correa; AliExpress solo tiene la 112611111S con correa y otras SKU: no es el mismo producto), **Rigorer
   AR 2** (adulto ≥136 € con tarifa de 100 $) y **361 BioSpeed BB 2** (no está; la gen 1 a 156 €).
+- ✅ **Más baratas por POIZON** (misma búsqueda por SKU): DLo 1 119,69 → **61,39** (ABPV009-14, 16 tallas), All City 12
+  102,39 → **89,99** (ABAU015-5, 18 tallas), KT 10 **107,99** (112441101-6; FuikaOmar solo tiene la 44). MB.06: Amazon
+  `/dp/B0HKNHGYQB` a **91,99** (era búsqueda apagada; FuikaOmar 119,90). ⚠ La «Joker 2» a 88 € de AliExpress es la **672611104**
+  = Joker 2 **Alta** (361sport, `/products/<handle>.js` da la SKU por variante); nuestra ficha es la baja, 672611110.
+- 🔴 **Gamma 2: MSRP 120 € SIN FUENTE → 370 €.** HoopsGeek $399,99 y WearTesters «Price: $400+» («the biggest issue is the
+  price»). La ficha la vendía como «la mejor relación rendimiento-precio» y por eso los 479 € de AliExpress salían como
+  reventa a 4×: es la tope de gama de Li-Ning. Reescritos ficha y `seoPages` («Gamma 2 = relación calidad-precio»).
+  🔑 **Cruce MSRP ficha vs tarifa de HG** (todas las fichas con URL de HG): también salen por debajo la Shock Wave 5 (90 € vs
+  $199,99), la JB4 (120 vs $249) y la Rigorer AR1 (75 vs $139,99), pero **NO se tocan**: HG da para marcas chinas el precio
+  de importación en EE. UU. y sus propios analistas las llaman «budget» / «great value». Hace falta segunda fuente. Por
+  arriba (ratio 1,35-1,45): Tatum 2, NXXT Gen, Luka 1, Zion 3 y Embiid 1, sin revisar.
+- Nike de 2025-26 sin ficha (ST Charge, Kobe 11 Protro, Heir Series 2, NXXT Gen by JuJu, G.T. Future): **ninguna afiliada
+  las vende** (Amazon tampoco). No se crean. Scoot Zeros III: Amazon la tiene a 63 € pero Puma ES a 50 € → regla s55, fuera.
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
