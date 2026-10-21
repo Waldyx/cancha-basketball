@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **245 zapas (46 OCULTAS, 199 visibles) · 655 tests · `astro check` 0 errores · 371 páginas** |
+| Tamaño | **245 zapas (48 OCULTAS, 197 visibles) · 658 tests · `astro check` 0 errores · 371 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -426,7 +426,22 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   la marca agotada (`veredictoFichaItem`, `5cd9d00`; probado con cloakbrowser, <2 s por item). All City 13 recupera compra
   (ABAV001-4, Marcas+ POIZON, 63,39 €). Ocultas por enlaces muertos: Jet 23, TWO WXY v5, Ownthegame 2, Yu Shuai 18 → **46**.
   ⚠ Sin poder re-verificar: adidas.es (bloquea curl Y navegador: AE 2 GS, D.O.N. 7, Forum 84, AE 3), 7 fichas de Amazon con
-  selector de talla y los 3 `s.click`.
+  selector de talla y los 3 `s.click`. → Resuelto el 21-oct (abajo).
+- ✅ **21-oct: lo que quedaba sin verificar, verificado.** 🔑 **adidas.es YA carga en el navegador integrado** (curl sigue en
+  403). Agotadas AE 2, AE 2 GS, Harden 9, D.O.N. 7 y Forum 84 Low; Pro Model redirige a /classics. 🔑 **El scraper le puso a la
+  Dame X ADULTA la versión JUNIOR** (KJ6559, «Kids Unisex»): adidas redirige un color retirado a otro, también de otro
+  segmento. Vuelve la KI5949. MSRP corregidos con el «Precio original» de adidas.es: AE 2 130 · AE 2 GS 100 · D.O.N. 7 120 ·
+  OwnTheGame 3 65 · Dame X 90. AE 2 GS recupera compra en FuikaOmar (VDay Junior, 99,90 €, 3 tallas). **Amazon**: 10
+  «desde» viejos; la mayoría ya solo se venden como reventa o con un vendedor externo (Curry 12 GS, Sabrina 2, Harden 9,
+  MB.04, MB.03, Kawhi 1, Tatum 4, Precision 7: 125-286 €) → la ficha enseña MSRP. Forum 84: la búsqueda devolvía Low y Mid,
+  fijada la High (B0CH4875SK). Dame X en Decathlon a 33,99 € con `nota` de talla única (47 1/3). **Los 3 `s.click`**: KT 11
+  → item real (112611101-4, 75,39 €); Shock The Game 5 y Taichi Flash no existen en AliExpress (la Flash Taichi es mid) →
+  **ocultas (46 → 48)**; el artículo de marcas chinas usa la Peak AW4. 🔑 **Títulos de una búsqueda de AliExpress**: las
+  tarjetas no traen texto en el DOM; están en el HTML como `"productId"…"displayTitle"`. Ordenar por precio devuelve basura.
+  **Chat**: nemotron-3.5 escribía `[[slug]]` sin prefijo y repetía las tarjetas → `formatoVisible` lo convierte y deduplica.
+  **Precios con coma** en toda la web (`euros()` en `scoring.ts`) y el buscador Cmd+K enseña el mismo «desde» que la ficha
+  (antes, el MSRP). Joom: borrador SIN ENVIAR a hello@joom.com (único contacto oficial), a la espera del usuario; FlexOffers y
+  Admitad listan Joom ES abierto, pero piden cuenta nueva.
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
@@ -2758,4 +2773,4 @@ presupuesto · ancho de pie · uso (auto-submit 400 ms).
   `cancha-quiz-respuestas` (sessionStorage).
 - **Scripts de mantenimiento**: `update-images.js`, `fix-encoding.js`, `optimize-images.mjs`,
   `gen-chat-catalog.ts`, y los `audit-*` listados arriba.
-- **Tests**: `npx vitest run` → 655.
+- **Tests**: `npx vitest run` → 658.
