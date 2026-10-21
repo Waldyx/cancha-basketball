@@ -534,6 +534,8 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     departamento y modelo: `scratchpad/amz_dp.py`): todas correctas. Ninguna otra ficha de adulto enlaza producto de niño.
   · **Chat**: con «calle/exterior/outdoor/asfalto» el modelo ya no ve las zapas con outdoor < 5 (el filtro duro del quiz),
     + test. Medido: recomienda Dame Certified, All City 13 Encore y Stewie 5. Y con «pie ancho» fuera las de horma estrecha.
+  · **Black Friday** (`b06bd21`): fuera Li-Ning, Anta, Peak y Rigorer del top por descuento: su MSRP es la tarifa en $ de
+    importación a EE. UU. y el «descuento» de POIZON era de cartel (Flash 2 y AC14 encabezaban). 361° se queda (tarifa en €).
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
