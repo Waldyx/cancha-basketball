@@ -968,7 +968,8 @@ export const ARTICLES: Article[] = [
 <h3>Modelos clave 2025</h3>
 <ul>
   <li><strong><a href="/zapatilla/lining-wow-allcity-13">Li-Ning WOW AllCity 13</a> (desde {{precio:lining-wow-allcity-13}})</strong>: espuma Boom de longitud completa con suela de goma de tracción excepcional. Una de las mejor valoradas por los análisis independientes.</li>
-  <li><strong><a href="/zapatilla/lining-sonic-12">Li-Ning Sonic 12</a> (desde {{precio:lining-sonic-12}})</strong>: la opción de velocidad — ultraligera, reactiva y con tracción de primer nivel.</li>
+  <li><strong><a href="/zapatilla/lining-sonic-12">Li-Ning Sonic 12</a> (desde {{precio:lining-sonic-12}})</strong>: la opción de velocidad — ligera, reactiva y con tracción de primer nivel.</li>
+  <li><strong>Línea Wade: <a href="/zapatilla/lining-wade-dlo-2">DLo 2</a> (desde {{precio:lining-wade-dlo-2}}), <a href="/zapatilla/lining-wade-flash-2">Flash 2</a> y <a href="/zapatilla/lining-wade-shadow-7">Shadow 7</a></strong>: las líneas secundarias de Way of Wade, con BOOM de longitud completa a precio de zapatilla de equipo. Las mejores compras de la marca.</li>
 </ul>
 
 <h3>Veredicto Li-Ning</h3>
@@ -988,8 +989,9 @@ export const ARTICLES: Article[] = [
 <h2>¿Dónde comprar en España?</h2>
 <p>Este es el talón de Aquiles de las marcas chinas: la disponibilidad. En España, tus mejores opciones son:</p>
 <ul>
-  <li><strong>Amazon ES</strong>: stock variable, pero suele tener los modelos más populares con envío Prime.</li>
-  <li><strong>AliExpress</strong>: más variedad, precio más bajo, pero plazos de entrega de 2-4 semanas. CANCHA.ZAPA enlaza directamente a tiendas oficiales para evitar réplicas.</li>
+  <li><strong>Basketball Emotion</strong>: tienda española con algunos modelos de Li-Ning y Anta (All City 14, WoW 12, JB4, KAI 2 Speed), con envío rápido y devoluciones en España.</li>
+  <li><strong>AliExpress</strong>: más variedad y precio más bajo, pero plazos de entrega de 2-4 semanas. Siempre que podemos enlazamos la tienda oficial de la marca o la de POIZON, que verifica la autenticidad de cada par.</li>
+  <li><strong>Amazon ES</strong>: apenas trabaja estas marcas; casi ninguno de sus modelos de baloncesto actuales está a la venta allí.</li>
 </ul>
 
 <h2>Comparativa rápida</h2>
