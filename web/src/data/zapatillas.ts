@@ -2342,9 +2342,10 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/anta-shock-the-game-5-0-review/" },
     ],
     ultima_actualizacion: "2026-05-13",
+    oculto: true,
     precio_msrp_eur: 100,
     links_compra: [
-      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3G68WNT", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-13" },
+      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3G68WNT", precio_actual: 95, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: AliExpress no tiene la Shock The Game 5 (solo Shock Wave)
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+shock+the+game+5&tag=canchazapa-21", precio_actual: 109, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -4166,7 +4167,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c3AJpADb", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-15" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012954994168.html", precio_actual: 75.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: KT11 112611101-4 (el s.click no se podía verificar)
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kt+11+basketball&tag=canchazapa-21", precio_actual: 105, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -7304,9 +7305,10 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "evaluacion-propia" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true,
     precio_msrp_eur: 90,
     links_compra: [
-      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c4tjkTxx", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-18" },
+      { tienda: "aliexpress", url: "https://s.click.aliexpress.com/e/_c4tjkTxx", precio_actual: 75, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: en AliExpress solo está la Flash Taichi de media caña (E94451A)
     ],
   },
 

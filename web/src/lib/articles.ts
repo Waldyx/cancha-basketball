@@ -934,7 +934,7 @@ export const ARTICLES: Article[] = [
     heroTitle: "ANTA, Li-Ning y Peak en 2025",
     heroSubtitle: "¿Merecen la pena las zapatillas chinas de baloncesto?",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["anta-kai-2", "anta-kt-11", "lining-wow-allcity-13", "lining-sonic-12", "peak-taichi-flash"],
+    relatedShoes: ["anta-kai-2", "anta-kt-11", "lining-wow-allcity-13", "lining-sonic-12", "peak-aw4"],
     relatedSeoPages: ["zapatillas-baloncesto-calidad-precio", "zapatillas-baloncesto-baratas", "zapatillas-baloncesto-premium"],
     imagen: "https://wowsole.com/wp-content/uploads/2024/01/ANTA-Kai-2-01.jpg",
     body: `
@@ -964,16 +964,16 @@ export const ARTICLES: Article[] = [
 <h3>Veredicto Li-Ning</h3>
 <p>Li-Ning es para jugadores con criterio que no necesitan el logo de Nike para sentirse bien en pista. Si buscas tecnología real a precios honestos, es la marca más interesante del lote.</p>
 
-<h2>Peak — la más accesible</h2>
-<p>Peak se ha centrado en crear calzado ligero y funcional para el jugador amateur. Sin colaboraciones de superestrellas, pero con una propuesta técnica sólida a precios muy competitivos.</p>
+<h2>Peak — la que menos se ve en España</h2>
+<p>Peak tiene mucha menos presencia en España que ANTA y Li-Ning. Toda su gama de baloncesto se apoya en su plataforma de amortiguación TaiChi, también la signature de Andrew Wiggins.</p>
 
 <h3>Modelos clave 2025</h3>
 <ul>
-  <li><strong><a href="/zapatilla/peak-taichi-flash">Peak Taichi Flash</a> (desde {{precio:peak-taichi-flash}})</strong>: entresuela con espuma TaiChi y suela de goma con tracción multidireccional. Notable ligereza para ser una zapatilla de baloncesto.</li>
+  <li><strong><a href="/zapatilla/peak-aw4">Peak AW4</a> (desde {{precio:peak-aw4}})</strong>: la cuarta signature de Andrew Wiggins, de caña baja y sobre la plataforma TaiChi.</li>
 </ul>
 
 <h3>Veredicto Peak</h3>
-<p>Peak es la mejor opción si quieres probar una marca china por primera vez sin arriesgar mucho presupuesto. No es la más avanzada, pero cumple bien en casi todos los parámetros.</p>
+<p>Hoy es la marca más difícil de encontrar de las tres: la AW4 es el modelo de Peak que podemos enlazar con garantías. Si te atrae la marca, es la puerta de entrada.</p>
 
 <h2>¿Dónde comprar en España?</h2>
 <p>Este es el talón de Aquiles de las marcas chinas: la disponibilidad. En España, tus mejores opciones son:</p>
@@ -987,7 +987,7 @@ export const ARTICLES: Article[] = [
 <ul>
   <li><strong>Mejor rendimiento global por su precio → <a href="/zapatilla/anta-kai-2">ANTA Kai 2</a></strong></li>
   <li><strong>Mejor tracción y tecnología → <a href="/zapatilla/lining-wow-allcity-13">Li-Ning WOW AllCity 13</a></strong></li>
-  <li><strong>Mejor precio entrada → <a href="/zapatilla/anta-kt-11">ANTA KT-11</a></strong></li>
+  <li><strong>Mejor precio entrada → <a href="/zapatilla/anta-kai-1-speed">ANTA KAI 1 Speed</a></strong></li>
 </ul>
 
 <p class="art-outro">Las marcas chinas ya no son la segunda opción para quien no puede permitirse Nike. En 2025 son una alternativa real y en muchos casos superior para el jugador amateur español. ¿Quieres ver cómo comparan con modelos de Nike y Adidas de su mismo rango? <a href="/comparar?slugs=anta-kai-2,adidas-ae-2,nike-gt-cut-4">Usa el comparador</a> y juzga tú mismo.</p>
