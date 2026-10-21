@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **250 zapas (48 OCULTAS, 202 visibles) · 658 tests · `astro check` 0 errores · 376 páginas** |
+| Tamaño | **251 zapas (48 OCULTAS, 203 visibles) · 658 tests · `astro check` 0 errores · 377 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -468,7 +468,7 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
 - ✅ **4 fichas chinas nuevas con ancla de HoopsGeek, todas en AliExpress/POIZON** (`8e6de52` + siguiente): **Wade DLo 2**
   (HG 8,5, ABPW013, desde 62,99, MSRP 110), **Wade 808 5 Ultra V2** (HG 8,8, ABAV045, desde 102,99, MSRP 145), **Wade Flash 2**
   (HG 8,3, ABPV013, desde 51,69) y **Wade Shadow 7** (HG 8,2, ABPV011, desde 63,39). Pesos ESTIMADOS (HG no los publica).
-  **Catálogo 246 → 250.** 🔑 **La DLo es la línea de D'Angelo Russell**, no de Dwyane Wade: corregida la DLo 1. 🔑 **Método**:
+  + **All City 13 Encore** (HG 8,9, ABAV047, desde 65,39). **Catálogo 246 → 251.** 🔑 **La DLo es la línea de D'Angelo Russell**, no de Dwyane Wade: corregida la DLo 1. 🔑 **Método**:
   la SKU de la zapa reseñada sale de los nombres de imagen de HG (`/IMG/…-abpw013-…`); se busca ESA SKU en AliExpress
   (`/w/wholesale-ABPW013.html?SortType=price_asc`, precios en el HTML como `productId…displayTitle…formattedPrice`) y en la
   ficha se lee el precio talla a talla clicando `[class*=sku-item--text]`. Descartadas: **Shock Wave 7** (HG reseña la

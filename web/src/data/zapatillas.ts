@@ -9980,7 +9980,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 125, // tarifa de Puma ES el 4-oct (JSON-LD de primer nivel); antes 139,99 estimado
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+mb+06+baloncesto&tag=canchazapa-21", precio_actual: 139.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0HKNHGYQB?tag=canchazapa-21", precio_actual: 91.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: Shooting Star, Unisex adulto, carrito, 40-44,5 a 91,99
       { tienda: "puma_es", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-mb06-shooting-star-unisex/313624", precio_actual: 125, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-04" }, // 2026-10-04: Shooting Star unisex 313624, JSON-LD InStock, 13 de 16 tallas
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/puma/mb.06-shooting-star-dark-amethyst-lavender-alert", precio_actual: 124.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-04" }, // 2026-10-04: JSON-LD InStock, SKU 313624-01
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-puma-mb06-shooting-stars.html", precio_actual: 119.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: Shooting Stars, 9 tallas
