@@ -442,6 +442,19 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   **Precios con coma** en toda la web (`euros()` en `scoring.ts`) y el buscador Cmd+K enseña el mismo «desde» que la ficha
   (antes, el MSRP). Joom: borrador SIN ENVIAR a hello@joom.com (único contacto oficial), a la espera del usuario; FlexOffers y
   Admitad listan Joom ES abierto, pero piden cuenta nueva.
+- ✅ **21-oct (tarde): barrido de CATÁLOGO ENTERO por tienda afiliada** (mucho más rendidor que buscar modelo a modelo, porque
+  ECI y Atmósfera ignoran el modelo en su buscador). 🔑 **Método**: listar la categoría de baloncesto entera (ECI
+  `/deportes/baloncesto/zapatillas/N/` con `fetch` desde la página; Atmósfera `/baloncesto-zapatillas-hombre-242`, `-ninos-244`,
+  `/outlet-baloncesto-3704` con `?page=`; FuikaOmar `/zapatillas-baloncesto/?page=` por curl), quedarse con lo no enlazado,
+  leer precio + tallas, cruzar con las fichas y REVISAR A MANO (el `matchesShoe` del scraper casa AJ 4 con «Why Not Zero 0.4»
+  y Scoot Zeros 1 con la 2/3). Umbral: **4 tallas o más**. Resultado: **18 fichas** con precio mejor o afiliado nuevo (ECI:
+  Immortality 4 62,99 [era 108 en Amazon], AE 2 GS, Believe That 1 GS · Atmósfera: AE 3 109,90 [adidas 130], Curry 3Z 25
+  46,75, Witness 9, FUTR X 4, SKX League, Jet 25, Precision 7, Cross Em Up Select GS · FuikaOmar: MB.04 Gem 84,90 [enseñaba
+  MSRP], MB.06 [ya no depende solo de Puma], Trae Young 3, Harden 10, Sabrina 3, MB.05 GS). 🔑 **Scraper de Atmósfera
+  arreglado**: leía `[class*=size]` y los carruseles de recomendados (`km-c002-size-select`) traen tallas disponibles de
+  OTROS productos ⇒ nunca detectaba un agotado. Ahora solo `.product-actions` (esperando a que se pinte). La «Precision 8
+  Mid» de Atmósfera es IH1104 = Low (no rescata la ficha). ▶️ Quedan por barrer igual: Forum Sport, Snipes y Decathlon.
+  ⚠ AJ 40: su «desde» es Decathlon 155,49 y Nike ES la vende hoy a 139,99 (regla de s55): decidir si se quita.
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
