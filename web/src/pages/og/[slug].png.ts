@@ -12,7 +12,7 @@
 
 import sharp from "sharp";
 import { zapatillas } from "../../data/zapatillas";
-import { findMejorPrecioMostrado } from "../../lib/scoring";
+import { findMejorPrecioMostrado, msrpComparable } from "../../lib/scoring";
 
 export const getStaticPaths = () =>
   zapatillas.map((z) => ({ params: { slug: z.slug } }));
@@ -41,7 +41,7 @@ export const GET = async ({ params }: { params: Record<string, string> }) => {
   const score = Math.round((Object.values(z.puntuaciones).reduce((a, b) => a + b, 0) / 8) * 10) / 10;
   const mejor = findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur);
   const precio = mejor?.precio_actual ?? z.precio_msrp_eur;
-  const ahorro = mejor && mejor.precio_actual < z.precio_msrp_eur
+  const ahorro = mejor && msrpComparable(z) && mejor.precio_actual < z.precio_msrp_eur
     ? Math.round((1 - mejor.precio_actual / z.precio_msrp_eur) * 100)
     : 0;
   const cat = CAT_ACCENT[z.categoria_principal] ?? "#f97316";

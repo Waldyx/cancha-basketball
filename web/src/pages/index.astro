@@ -5,7 +5,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecio, findMejorPrecioMostrado, scoreDisplay, compareByScore, fechaVerificacionMasReciente, euros } from "../lib/scoring";
+import { findMejorPrecio, findMejorPrecioMostrado, scoreDisplay, compareByScore, fechaVerificacionMasReciente, euros, msrpComparable } from "../lib/scoring";
 import { getAllArticles } from "../lib/articles";
 
 function scoreOf(z: typeof zapatillas[0]): number {
@@ -73,7 +73,7 @@ const BLOG_CAT_COLOR: Record<string, string> = { "Guías": "#f97316", "Comparati
 // se sigue ELIGIENDO con el precio real (editorPick), pero el número que enseñamos es éste.
 const pickMostrado = findMejorPrecioMostrado(editorPick.z.links_compra, editorPick.z.precio_msrp_eur);
 const pickPrecioVista = pickMostrado?.precio_actual ?? editorPick.z.precio_msrp_eur;
-const pickAhorro = pickMostrado && pickPrecioVista < editorPick.z.precio_msrp_eur
+const pickAhorro = pickMostrado && msrpComparable(editorPick.z) && pickPrecioVista < editorPick.z.precio_msrp_eur
   ? editorPick.z.precio_msrp_eur - pickPrecioVista : 0;
 
 // Entidad de marca para Google (Organization + WebSite). Mejora el reconocimiento

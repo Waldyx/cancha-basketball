@@ -6,7 +6,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecio, findMejorPrecioMostrado, scoreDisplay, scoreBadge, compareByScore, fechaVerificacionMasReciente, euros } from "../lib/scoring";
+import { findMejorPrecio, findMejorPrecioMostrado, scoreDisplay, scoreBadge, compareByScore, fechaVerificacionMasReciente, euros, msrpComparable } from "../lib/scoring";
 
 const LABELS_TIENDA: Record<string, string> = {
   amazon_es: "Amazon", decathlon: "Decathlon", nike_es: "Nike", adidas_es: "Adidas",
@@ -250,7 +250,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
               // de una tienda que monetiza/pendiente; si no hay, el MSRP oficial.
               const mejorVista = findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur);
               const precioVista = mejorVista?.precio_actual ?? z.precio_msrp_eur;
-              const ahorro = z.precio_msrp_eur - precioVista;
+              const ahorro = msrpComparable(z) ? z.precio_msrp_eur - precioVista : 0;
               return (
                 <article class="cz-pick" data-pick="true" style={`--cat:${CAT_ACCENT[z.categoria_principal]}`}>
                   <div class="pick-photo">

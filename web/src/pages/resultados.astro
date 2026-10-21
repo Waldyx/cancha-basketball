@@ -184,7 +184,7 @@ import "../styles/cancha-redesign.css";
   </main>
 
   <script>
-    import { findMejorPrecioMostrado, recomendar } from "../lib/scoring";
+    import { findMejorPrecioMostrado, recomendar, msrpComparable } from "../lib/scoring";
     import type { RespuestasQuiz, Recomendacion, Zapatilla } from "../lib/types";
 
     const STORAGE_KEY = "cancha-quiz-respuestas";
@@ -294,7 +294,7 @@ import "../styles/cancha-redesign.css";
       const mejorPrecio = findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur);
       const precioActual = mejorPrecio?.precio_actual ?? z.precio_msrp_eur;
       const tiendaNombre = mejorPrecio ? LABELS_TIENDA[mejorPrecio.tienda] || mejorPrecio.tienda : "";
-      const ahorro = mejorPrecio && mejorPrecio.precio_actual < z.precio_msrp_eur
+      const ahorro = mejorPrecio && msrpComparable(z) && mejorPrecio.precio_actual < z.precio_msrp_eur
         ? Math.round((1 - mejorPrecio.precio_actual / z.precio_msrp_eur) * 100) : 0;
 
       const razonesHtml = rec.razones

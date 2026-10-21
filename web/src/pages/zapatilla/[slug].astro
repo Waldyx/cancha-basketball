@@ -5,7 +5,7 @@
 import Base from "../../layouts/Base.astro";
 import "../../styles/cancha-redesign.css";
 import { zapatillas, zapatillasTodas } from "../../data/zapatillas";
-import { findMejorPrecio, findMejorPrecioMostrado, mostramosPrecio, esEnlaceDeBusqueda, COMISIONES_TIENDA, scoreMeta, unaFilaPorTienda, euros } from "../../lib/scoring";
+import { findMejorPrecio, findMejorPrecioMostrado, mostramosPrecio, esEnlaceDeBusqueda, COMISIONES_TIENDA, scoreMeta, unaFilaPorTienda, euros, msrpComparable } from "../../lib/scoring";
 import PriceAlert from "../../components/PriceAlert.astro";
 import CosteBlock from "../../components/CosteBlock.astro";
 import { ARTICLES } from "../../lib/articles";
@@ -79,7 +79,7 @@ const score = sMeta.score;
 const CONF_LABEL = { alta: "Verificado", media: "Contrastado", editorial: "Estimación editorial" } as const;
 const CONF_ICON = { alta: "🟢", media: "🟡", editorial: "⚪" } as const;
 const cat = CAT_ACCENT[z.categoria_principal];
-const ahorro = mejorMostrado && precioVista < z.precio_msrp_eur
+const ahorro = mejorMostrado && msrpComparable(z) && precioVista < z.precio_msrp_eur
   ? z.precio_msrp_eur - precioVista : 0;
 const ahorroPct = ahorro > 0 ? Math.round((ahorro / z.precio_msrp_eur) * 100) : 0;
 

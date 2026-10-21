@@ -575,6 +575,18 @@ export function euros(n: number): string {
   return Number.isInteger(n) ? String(n) : n.toFixed(2).replace(".", ",");
 }
 
+/**
+ * ¿Tiene sentido enseñar el ahorro de esta zapa frente a su MSRP?
+ *
+ * Li-Ning, Anta, Peak y Rigorer no tienen tarifa en euros: su MSRP es el precio en dólares de
+ * importación a EE. UU. (HoopsGeek, StockX). Contra él, cualquier precio de POIZON parece un
+ * «−50 %» que nadie ha rebajado: es el descuento de cartel. 361° sí la tiene (361sport /es-es).
+ */
+export const MARCAS_SIN_TARIFA_EUR = new Set(["Li-Ning", "Anta", "Peak", "Rigorer"]);
+export function msrpComparable(z: { marca: string }): boolean {
+  return !MARCAS_SIN_TARIFA_EUR.has(z.marca);
+}
+
 /** Mejor precio entre las tiendas cuyo precio SÍ mostramos (para el "desde X€"). */
 export function findMejorPrecioMostrado(links: LinkCompra[], msrp?: number): LinkCompra | undefined {
   return findMejorPrecio(links.filter((l) => mostramosPrecio(l, msrp)));
