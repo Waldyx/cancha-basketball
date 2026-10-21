@@ -3,6 +3,7 @@ import {
   recomendar,
   calcularPesos,
   aplicarFiltrosDuros,
+  euros,
   findMejorPrecio,
   esEnlaceDeBusqueda,
   mostramosPrecio,
@@ -496,5 +497,13 @@ describe("findMejorPrecioMostrado con MSRP", () => {
 
   it("si TODO es reventa, no devuelve precio y la página cae al MSRP", () => {
     expect(findMejorPrecioMostrado([linkAfiliado(485.39)], 120)).toBeUndefined();
+  });
+});
+
+describe("euros", () => {
+  it("coma decimal y dos cifras; los enteros, sin decimales", () => {
+    expect(euros(122.69)).toBe("122,69");
+    expect(euros(129.9)).toBe("129,90");
+    expect(euros(130)).toBe("130");
   });
 });

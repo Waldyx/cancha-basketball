@@ -6,7 +6,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecio, findMejorPrecioMostrado, scoreDisplay, scoreBadge, compareByScore, fechaVerificacionMasReciente } from "../lib/scoring";
+import { findMejorPrecio, findMejorPrecioMostrado, scoreDisplay, scoreBadge, compareByScore, fechaVerificacionMasReciente, euros } from "../lib/scoring";
 
 const LABELS_TIENDA: Record<string, string> = {
   amazon_es: "Amazon", decathlon: "Decathlon", nike_es: "Nike", adidas_es: "Adidas",
@@ -281,7 +281,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
                       <div class="pick-price">
                         <div class="pp-now">{Math.round(precioVista)}€</div>
                         <div class="pp-meta">
-                          {mejorVista && ahorro > 0 && <><span class="msrp">msrp {z.precio_msrp_eur}€</span><span class="save">−{Math.round(ahorro)}€</span></>}
+                          {mejorVista && ahorro > 0 && <><span class="msrp">msrp {euros(z.precio_msrp_eur)}€</span><span class="save">−{Math.round(ahorro)}€</span></>}
                         </div>
                         {mejorVista
                           ? <div class="pp-tienda"><span class="dot"></span>Verificado en {LABELS_TIENDA[mejorVista.tienda] || mejorVista.tienda}</div>

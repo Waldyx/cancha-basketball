@@ -5,7 +5,7 @@
 import Base from "../../layouts/Base.astro";
 import "../../styles/cancha-redesign.css";
 import { zapatillas, zapatillasTodas } from "../../data/zapatillas";
-import { findMejorPrecio, findMejorPrecioMostrado, mostramosPrecio, esEnlaceDeBusqueda, COMISIONES_TIENDA, scoreMeta, unaFilaPorTienda } from "../../lib/scoring";
+import { findMejorPrecio, findMejorPrecioMostrado, mostramosPrecio, esEnlaceDeBusqueda, COMISIONES_TIENDA, scoreMeta, unaFilaPorTienda, euros } from "../../lib/scoring";
 import PriceAlert from "../../components/PriceAlert.astro";
 import CosteBlock from "../../components/CosteBlock.astro";
 import { ARTICLES } from "../../lib/articles";
@@ -449,7 +449,7 @@ const productJsonLd = {
                     <span class="dhbp-now">{Math.round(precioVista)}€</span>
                     {ahorro > 0 && (
                       <>
-                        <span class="dhbp-msrp">msrp {z.precio_msrp_eur}€</span>
+                        <span class="dhbp-msrp">msrp {euros(z.precio_msrp_eur)}€</span>
                         <span class="dhbp-save">−{ahorroPct}%</span>
                       </>
                     )}
@@ -720,7 +720,7 @@ const productJsonLd = {
                       {mostramosPrecio(link, z.precio_msrp_eur)
                         ? <>
                             <p style={`font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:24px;margin:0;line-height:1;color:${idx === 0 ? "var(--cz-accent-text)" : "var(--cz-text)"}`}>
-                              {link.precio_actual}€
+                              {euros(link.precio_actual)}€
                             </p>
                             {diffPct > 0 && <p style="font-size:10px;color:var(--cz-green);font-weight:900;letter-spacing:.06em;margin:2px 0 0">-{diffPct}% vs MSRP</p>}
                           </>
@@ -816,7 +816,7 @@ const productJsonLd = {
           </div>
           <div class="sb-price">
             <span class="sbp-now">{Math.round(precioVista)}€</span>
-            {ahorro > 0 && <span class="sbp-msrp">msrp {z.precio_msrp_eur}€</span>}
+            {ahorro > 0 && <span class="sbp-msrp">msrp {euros(z.precio_msrp_eur)}€</span>}
           </div>
           {ctaLink && (
             <a href={ctaLink.url} target="_blank" rel={ctaLink.tiene_afiliado ? "noopener noreferrer sponsored" : "noopener noreferrer"} class="sb-btn">

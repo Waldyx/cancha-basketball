@@ -170,7 +170,7 @@ const shortcuts = [
               <span class="cmdk-item-marca">${escapeHtml(z.marca)}</span>
               <span class="cmdk-item-modelo">${escapeHtml(z.modelo)}</span>
             </span>
-            <span class="cmdk-item-price">${z.precio}€</span>
+            <span class="cmdk-item-price">${Number.isInteger(z.precio) ? z.precio : z.precio.toFixed(2).replace(".", ",")}€</span>
           </a>
         `).join("")}
       </div>

@@ -9,7 +9,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecioMostrado } from "../lib/scoring";
+import { findMejorPrecioMostrado, euros } from "../lib/scoring";
 import { SEO_PAGES, getSeoPage } from "../lib/seoPages";
 import { ARTICLES } from "../lib/articles";
 
@@ -189,7 +189,7 @@ const relatedArticles = ARTICLES
                       <span class="srf-now">{Math.round(precio)}€</span>
                       {ahorro > 0 && (
                         <div class="srf-meta">
-                          <span class="msrp">msrp {z.precio_msrp_eur}€</span>
+                          <span class="msrp">msrp {euros(z.precio_msrp_eur)}€</span>
                           <span class="save">−{ahorro}%</span>
                         </div>
                       )}

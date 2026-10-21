@@ -570,6 +570,11 @@ export function mostramosPrecio(link: LinkCompra, msrp?: number): boolean {
   return link.tiene_afiliado === true || TIENDAS_PENDIENTES.has(link.tienda);
 }
 
+/** Precio con coma decimal, como se escribe en España: 122,69 · 129,90 · 130 (entero, sin decimales). */
+export function euros(n: number): string {
+  return Number.isInteger(n) ? String(n) : n.toFixed(2).replace(".", ",");
+}
+
 /** Mejor precio entre las tiendas cuyo precio SÍ mostramos (para el "desde X€"). */
 export function findMejorPrecioMostrado(links: LinkCompra[], msrp?: number): LinkCompra | undefined {
   return findMejorPrecio(links.filter((l) => mostramosPrecio(l, msrp)));
@@ -665,7 +670,7 @@ export function generarRazones(
     case "precio": {
       const mejor = findMejorPrecio(zapatilla.links_compra);
       if (mejor) {
-        razones.push(`Mejor precio actual: ${mejor.precio_actual}€.`);
+        razones.push(`Mejor precio actual: ${euros(mejor.precio_actual)}€.`);
       }
       break;
     }

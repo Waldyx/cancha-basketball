@@ -117,7 +117,7 @@ const jsonLd = {
               <div class="bl-buy">
                 {b.links_compra.filter((l) => l.disponible).map((l) => (
                   <a class="bl-btn" href={l.url} target="_blank" rel="nofollow sponsored noopener">
-                    {TIENDA_LABEL[l.tienda] ?? l.tienda} · {l.precio_actual}€ →
+                    {TIENDA_LABEL[l.tienda] ?? l.tienda} · {Number.isInteger(l.precio_actual) ? l.precio_actual : l.precio_actual.toFixed(2).replace(".", ",")}€ →
                   </a>
                 ))}
               </div>

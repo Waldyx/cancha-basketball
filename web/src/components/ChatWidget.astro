@@ -197,7 +197,7 @@ const SUGERENCIAS = [
       <span class="cc-shoe-info">
         <span class="cc-shoe-marca">${esc(z.marca)}</span>
         <span class="cc-shoe-modelo">${esc(z.modelo)}</span>
-        <span class="cc-shoe-meta"><span class="cc-shoe-score">${z.score}</span><span class="cc-shoe-price">${z.precio}€</span></span>
+        <span class="cc-shoe-meta"><span class="cc-shoe-score">${z.score}</span><span class="cc-shoe-price">${Number.isInteger(z.precio) ? z.precio : z.precio.toFixed(2).replace(".", ",")}€</span></span>
       </span>
       <span class="cc-shoe-arrow">→</span>`;
     return a;

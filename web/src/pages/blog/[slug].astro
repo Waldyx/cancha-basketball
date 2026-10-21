@@ -4,7 +4,7 @@ import Base from "../../layouts/Base.astro";
 import "../../styles/cancha-redesign.css";
 import { ARTICLES, getArticle } from "../../lib/articles";
 import { zapatillas, zapatillasTodas } from "../../data/zapatillas";
-import { findMejorPrecioMostrado, scoreMeta } from "../../lib/scoring";
+import { findMejorPrecioMostrado, scoreMeta, euros } from "../../lib/scoring";
 import { getSeoPage } from "../../lib/seoPages";
 
 export async function getStaticPaths() {
@@ -56,7 +56,7 @@ const articleBody = conNotas.replace(
     // Durabilidad en exterior de la ficha (1-10), para las guías de outdoor: se escribía a mano.
     if (kind === "exterior") return `${z.puntuaciones.durabilidad_outdoor}/10`;
     const precio = findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur)?.precio_actual ?? z.precio_msrp_eur;
-    return `${precio}€`;
+    return `${euros(precio)}€`;
   }
 );
 
@@ -188,7 +188,7 @@ const CATEGORIA_COLOR: Record<string, string> = {
                       <div>
                         <span class="art-shoe-name">{z.marca} {z.modelo}</span>
                         <span class="art-shoe-price">
-                          {mejor ? `${mejor.precio_actual}€` : `${z.precio_msrp_eur}€`}
+                          {mejor ? `${euros(mejor.precio_actual)}€` : `${euros(z.precio_msrp_eur)}€`}
                         </span>
                       </div>
                     </a>

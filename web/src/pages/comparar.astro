@@ -170,7 +170,7 @@ const ringFracs = [0.33, 0.66, 1];
           <div class="cmp-cell lab price-row"><span class="cmp-lab">Precio MSRP</span></div>
           {shoes.map((z, idx) => (
             <div class={`cmp-cell price-row ${cheapestIdx === idx && shoes.length > 1 ? "winner" : ""}`}>
-              <span class="cmp-price">{z.precio_msrp_eur}€</span>
+              <span class="cmp-price">{Number.isInteger(z.precio_msrp_eur) ? z.precio_msrp_eur : z.precio_msrp_eur.toFixed(2).replace(".", ",")}€</span>
               {cheapestIdx === idx && shoes.length > 1 && <span class="cmp-win-tag">Más barata</span>}
             </div>
           ))}
@@ -283,7 +283,7 @@ const ringFracs = [0.33, 0.66, 1];
       shoes.forEach(z => { h += `<div class="cmp-cell ideal">${esc(z.ideal)}</div>`; });
       // precio
       h += `<div class="cmp-cell lab price-row"><span class="cmp-lab">Precio MSRP</span></div>`;
-      shoes.forEach((z, idx) => { h += `<div class="cmp-cell price-row ${cheapest === idx && shoes.length > 1 ? "winner" : ""}"><span class="cmp-price">${z.precio}€</span>${cheapest === idx && shoes.length > 1 ? '<span class="cmp-win-tag">Más barata</span>' : ""}</div>`; });
+      shoes.forEach((z, idx) => { h += `<div class="cmp-cell price-row ${cheapest === idx && shoes.length > 1 ? "winner" : ""}"><span class="cmp-price">${Number.isInteger(z.precio) ? z.precio : z.precio.toFixed(2).replace(".", ",")}€</span>${cheapest === idx && shoes.length > 1 ? '<span class="cmp-win-tag">Más barata</span>' : ""}</div>`; });
       // cta
       h += `<div class="cmp-cell lab">&nbsp;</div>`;
       shoes.forEach(z => { h += `<div class="cmp-cell"><a href="/zapatilla/${z.slug}" class="cmp-cta">Ver review →</a></div>`; });

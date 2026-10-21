@@ -114,7 +114,7 @@ export const GET = async ({ params }: { params: Record<string, string> }) => {
           font-weight="900" fill="#f97316">${Math.round(precio)}€</text>
     ${ahorro > 0 ? `
     <text x="155" y="42" font-family="system-ui, sans-serif" font-size="18" font-weight="700"
-          fill="#52525b" text-decoration="line-through">${z.precio_msrp_eur}€</text>
+          fill="#52525b" text-decoration="line-through">${Number.isInteger(z.precio_msrp_eur) ? z.precio_msrp_eur : z.precio_msrp_eur.toFixed(2).replace(".", ",")}€</text>
     <text x="265" y="42" font-family="system-ui, sans-serif" font-size="20" font-weight="900"
           fill="#4ade80">−${ahorro}%</text>
     ` : ""}

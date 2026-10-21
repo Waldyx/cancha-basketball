@@ -5,7 +5,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
-import { findMejorPrecio, findMejorPrecioMostrado, scoreDisplay, compareByScore, fechaVerificacionMasReciente } from "../lib/scoring";
+import { findMejorPrecio, findMejorPrecioMostrado, scoreDisplay, compareByScore, fechaVerificacionMasReciente, euros } from "../lib/scoring";
 import { getAllArticles } from "../lib/articles";
 
 function scoreOf(z: typeof zapatillas[0]): number {
@@ -205,7 +205,7 @@ const homeJsonLd = {
                 <div class="pp-now">{Math.round(pickPrecioVista)}€</div>
                 {pickAhorro > 0 && (
                   <div class="pp-meta">
-                    <span class="msrp">msrp {editorPick.z.precio_msrp_eur}€</span>
+                    <span class="msrp">msrp {euros(editorPick.z.precio_msrp_eur)}€</span>
                     <span class="save">−{Math.round(pickAhorro)}€</span>
                   </div>
                 )}
