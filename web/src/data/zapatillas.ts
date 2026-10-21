@@ -14843,9 +14843,9 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-09",
-    precio_msrp_eur: 75,
+    precio_msrp_eur: 92, // $100 de lanzamiento (sneakernews y StockX, todas las colorways); HoopsGeek dice $139,99. Antes 75 sin fuente
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010661844381.html", precio_actual: 119.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: hoy 119,39 € (sin caja)
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010661945986.html", precio_actual: 91.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22", nota: "Se envía sin caja" }, // 22-oct: RIGORER Basketball Pro Store, «San Valentín», 91,99 en 40-50 (11 tallas). Antes item 1005010661844381 (LARANZIA, 119,39)
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=rigorer+ar1+austin+reaves&tag=canchazapa-21", precio_actual: 85, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-09" },
     ],
   },
