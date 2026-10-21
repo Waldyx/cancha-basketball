@@ -599,7 +599,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA53978261-negro-pr-zapatillas-de-baloncesto-de-hombre-kd18-nike%2F", precio_actual: 95.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-01" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-kd-18-liquid-lime.html", precio_actual: 139.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/kd18-atomic-pink-photo-blue-lt-wild-mango", precio_actual: 109.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/kd18-atomic-pink-photo-blue-lt-wild-mango", precio_actual: 95.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0GVQ1YZBK/?tag=canchazapa-21", precio_actual: 134.17, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-23" }, // 2026-09-23: Departamento Hombre, IM0634. 3 tallas (44,5-45,5). Verificado por w27
     ],
   },
@@ -662,7 +662,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 200,
     links_compra: [
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/kobe-8-protro-siempre-mio-lt-orewood-brn-baroque-brown-summit-white-red", precio_actual: 189.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21" }, // s52 21-sep: JSON-LD "Zapatillas Nike Kobe 8 Protro Siempre Mio", InStock, 17 tallas (4-15 USA)
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/kobe-8-protro-siempre-mio-lt-orewood-brn-baroque-brown-summit-white-red", precio_actual: 189.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" }, // s52 21-sep: JSON-LD "Zapatillas Nike Kobe 8 Protro Siempre Mio", InStock, 17 tallas (4-15 USA)
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=kobe+8+protro&vst=kobe+8+protro", precio_actual: 200, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-09-09" },
     ],
   },
@@ -723,7 +723,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56001758%2F", precio_actual: 90.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-air-jordan-luka-5-viper-edge.html", precio_actual: 149.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/jordan/luka-5-viper-edge-electric-green-infrared-23-black-teal-tint-be", precio_actual: 109.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/jordan/luka-5-viper-edge-electric-green-infrared-23-black-teal-tint-be", precio_actual: 109.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
     ],
   },
 
@@ -1087,7 +1087,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 140,
     links_compra: [
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/li-ning/wade-all-city-14-multicolor", precio_actual: 139.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21" }, // s52 21-sep: JSON-LD "Zapatillas Li - ning Wade All City 14", InStock, 5 tallas (7-9 USA)
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/li-ning/wade-all-city-14-multicolor", precio_actual: 139.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" }, // s52 21-sep: JSON-LD "Zapatillas Li - ning Wade All City 14", InStock, 5 tallas (7-9 USA)
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011540494334.html", precio_actual: 131.82, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" }, // 18-sep: el item ya no existe en AliExpress
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012802154831.html", precio_actual: 91.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-23" }, // 2026-09-23: Wade All City 14 ABAW001-3, caña baja. Verificado por w27
     ],
@@ -1272,7 +1272,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 90,
     links_compra: [
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/anta/kai-2-speed-blue", precio_actual: 93.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21" }, // s52 21-sep: JSON-LD "Zapatillas Anta KAI 2 Speed Blue", InStock, pero solo 4 tallas (10,5 / 13 / 14 / 15 USA)
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/anta/kai-2-speed-blue", precio_actual: 93.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" }, // s52 21-sep: JSON-LD "Zapatillas Anta KAI 2 Speed Blue", InStock, pero solo 4 tallas (10,5 / 13 / 14 / 15 USA)
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010621033449.html", precio_actual: 51.39, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" }, // 18-sep: el item ya no existe en AliExpress
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012834584397.html", precio_actual: 56.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-23" }, // 2026-09-23: "KAI SPEED 2" 912541114S, caña baja: el item anterior (1005010621033449) murio el 18-sep. Verificado por w27
     ],
@@ -1396,8 +1396,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/puma/hali-1-gray-echo-feather-gray", precio_actual: 52, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/puma/hali-1-opal-blissful-blue-royal-saphire", precio_actual: 78, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/puma/hali-1-gray-echo-feather-gray", precio_actual: 51.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/puma/hali-1-opal-blissful-blue-royal-saphire", precio_actual: 77.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
       { tienda: "puma_es", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-hali-1-unisex/313450?swatch=01", precio_actual: 104, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-05" }, // 22-sep: AGOTADO en Puma ES (JSON-LD OutOfStock + "AGOTADO" en pagina). Es el unico colorway de esta ficha alli. Le quedan los dos de Basketball Emotion.
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+hali+1+basketball&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
@@ -1462,7 +1462,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA53977147%2F", precio_actual: 68.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "joom", url: "https://www.joom.com/es/products/6995a03236111c010b2e9a0a?variant_id=6995a03236111ca90b2e9a22", precio_actual: 56, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
       { tienda: "joom", url: "https://www.joom.com/es/products/6951f7637afe890117de18c0", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/giannis-freak-7-all-star-volt-black", precio_actual: 98, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/giannis-freak-7-all-star-volt-black", precio_actual: 102.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
       { tienda: "amazon_es", url: "https://www.amazon.es/Giannis-Zapatillas-b%C3%A1squetbol-Hombre-Metallic/dp/B0DYLDTQDP?tag=canchazapa-21", precio_actual: 114.17, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
     ],
   },
@@ -3411,7 +3411,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 200, // tarifa europea (sneakerjagers, IH1513-002 y 15 colorways más). Antes 220 sin fuente
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56003509%2F", precio_actual: 139.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/lebron-23-grand-opening-white-metallic-gold-university-red-black", precio_actual: 119.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/lebron-23-grand-opening-white-metallic-gold-university-red-black", precio_actual: 119.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012098378688.html", precio_actual: 152.69, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: tienda genérica, SIN sello Marcas+ (Nike suelto en AliExpress = posible réplica; regla del proyecto)
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fnike-lebron-xxiii-shut-up-and-dribble%2F6c6d08b5-4aff-4800-9127-4913c3006964%2Fc4", precio_actual: 161.09, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+lebron+23+basketball&tag=canchazapa-21", precio_actual: 210, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
@@ -3490,7 +3490,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 135,
     links_compra: [
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/ja-3-scratch-3.0-turbo-green-university-red-black-white", precio_actual: 93.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/ja-3-scratch-3.0-turbo-green-university-red-black-white", precio_actual: 104.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+ja+3+basketball&tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=ja+3&vst=ja+3", precio_actual: 135, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-15" }, // 22-sep: Nike ES ya no stockea la Ja 3: la busqueda solo devuelve "Ja 3 By You" y la Ja 4, y su ficha IU6793-800 da 404. Le queda Basketball Emotion.
     ],
@@ -3994,7 +3994,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 100,
     links_compra: [
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-puma-mb05-low-fluorish-junior.html", precio_actual: 99.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/puma/mb.05-lo-flourish-nino-fluro-green-pes-fluro-yellow-pes", precio_actual: 104.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/puma/mb.05-lo-flourish-nino-fluro-green-pes-fluro-yellow-pes", precio_actual: 104.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-puma-mb-05-mist-junior.html", precio_actual: 89.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: Mist Junior, 5 tallas
     ],
   },
@@ -4068,7 +4068,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/converse/shai-001-navy-into-the-void-navy", precio_actual: 124.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21" }, // s52 21-sep: JSON-LD "Zapatillas Converse Shai 001", InStock, 12 tallas (6-13 USA)
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/converse/shai-001-navy-into-the-void-navy", precio_actual: 134.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" }, // s52 21-sep: JSON-LD "Zapatillas Converse Shai 001", InStock, 12 tallas (6-13 USA)
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=converse+shai+001+baloncesto&tag=canchazapa-21", precio_actual: 125, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FMP_0071639_SHAIPABOX-zapatillas-de-baloncesto-unisex-shai-001-peek-a-boo-converse%2F", precio_actual: 129.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-04" }, // 2026-10-04: w28 ECI marketplace, Peek a Boo, 8 de 19 tallas (41-46.5)
     ],
@@ -4144,7 +4144,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 200, // tarifa europea (sneakerjagers, IR1829-001 y 3 colorways más). Antes 170 sin fuente
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/698af0777c328f01b8904e11", precio_actual: 127, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/g.t.-cut-4-photo-blue-multi-color-mtlc-silver", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/g.t.-cut-4-photo-blue-multi-color-mtlc-silver", precio_actual: 141.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+gt+cut+4+basketball&tag=canchazapa-21", precio_actual: 160, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "nike_es", url: "https://www.nike.com/es/w?q=gt+cut+4&vst=gt+cut+4", precio_actual: 170, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
     ],
@@ -5170,7 +5170,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56001212-amarillo-pr-zapatillas-de-baloncesto-de-hombre-book-2-se-nike%2F", precio_actual: 104.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-01" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fnike-book-2-spiridon-sport-red%2F0016d89e-d6c5-4f8e-afc7-eb477540d685%2Fc14", precio_actual: 161.09, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/book-2-rising-black-multi-color-safety-orange-sundial-tatto", precio_actual: 119.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/book-2-rising-black-multi-color-safety-orange-sundial-tatto", precio_actual: 104.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
     ],
   },
 
@@ -5618,7 +5618,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-12",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/sabrina-3-nino-sail-navy-atom-red-photo-blue", precio_actual: 109.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/sabrina-3-nino-sail-navy-atom-red-photo-blue", precio_actual: 109.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-sabrina-3-gs-wnba.html", precio_actual: 109.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-19" }, // 2026-10-19: IR3207-100, 5 tallas GS, verificado 19-oct
     ],
   },
@@ -5690,7 +5690,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 110, // tarifa europea (sneakerjagers, FZ8605-702 y 6 colorways más). Antes 130 sin fuente
     links_compra: [
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/aone-lem-and-lime-mujer-volt-white-barely-volt", precio_actual: 76, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/aone-lem-and-lime-mujer-volt-white-barely-volt", precio_actual: 76.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fnike-a-ja-wilson-a-one-all-star-women-s%2F2a0a5073-24e6-461d-9b70-5379fb3e323c%2Fc4", precio_actual: 116, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-aone-mvps.html", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+a%27one+wilson&tag=canchazapa-21", precio_actual: 140, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
@@ -5753,7 +5753,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "nike_es", url: "https://www.nike.com/es/t/caitlin-1-caitlin-blue-zapatillas-de-baloncesto-VUSxa3ht/IH7423-400", precio_actual: 139.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-04" }, // 2026-10-04: ya a la venta en Nike ES, IH7423-400 adulto, 11 de 16 tallas
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/caitlin-clark-1-racer-blue-multi-color", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-04" }, // 2026-10-04: JSON-LD InStock, SKU IH7423-400
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/caitlin-clark-1-racer-blue-multi-color", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" }, // 2026-10-04: JSON-LD InStock, SKU IH7423-400
     ],
   },
   // ─────────────────────────────────────────────────────────────────
@@ -5892,7 +5892,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56002580%2F", precio_actual: 90.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "amazon_es", url: "https://www.amazon.es/Tatum-Zapatillas-baloncesto-universitario-University/dp/B0GDJXDFTM?tag=canchazapa-21", precio_actual: 209.51, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: solo un vendedor de EE. UU. con entrega en noviembre (reventa)
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/jordan/tatum-4-green-glow-green-glow-black", precio_actual: 89.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/jordan/tatum-4-green-glow-green-glow-black", precio_actual: 89.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
     ],
   },
 
@@ -6282,7 +6282,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56824564%2F", precio_actual: 77.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-air-jordan-luka-4-gone-fishing.html", precio_actual: 109.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/jordan/luka-4-gone-ranching-summit-white-pine-green-canyon-gold", precio_actual: 97.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/jordan/luka-4-gone-ranching-summit-white-pine-green-canyon-gold", precio_actual: 90.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
     ],
   },
 
@@ -7317,7 +7317,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA54981652%2F", precio_actual: 53.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "amazon_es", url: "https://www.amazon.es/Nike-Giannis-Immortality-Basketball-Shoes/dp/B0FCHLF64L?tag=canchazapa-21", precio_actual: 107.82, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/giannis-immortality-4-white-black-volt-wolf-grey-cool-grey-total-or", precio_actual: 67.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/giannis-immortality-4-white-black-volt-wolf-grey-cool-grey-total-or", precio_actual: 75.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56001339-gris-negro-pr-zapatillas-de-baloncesto-de-hombre-giannis-immortality-4-nike%2F", precio_actual: 62.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: 13 de 15 tallas
     ],
   },
@@ -7375,7 +7375,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 65,
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56000750%2F", precio_actual: 52.49, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/giannis-immortality-4-nino-dark-raisin-total-crimson-volt-sail", precio_actual: 51.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/giannis-immortality-4-nino-dark-raisin-total-crimson-volt-sail", precio_actual: 59.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56003244-negro-pr-zapatillas-baloncesto-de-ninos-giannis-immortality-4-gs-nike%2F", precio_actual: 56.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-23" }, // 2026-09-23: "(Gs)", Deportes>Niños. OJO solo 2 tallas (36,5 y 38). Verificado por w27
     ],
   },
@@ -10043,7 +10043,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0HKNHGYQB?tag=canchazapa-21", precio_actual: 91.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: Shooting Star, Unisex adulto, carrito, 40-44,5 a 91,99
       { tienda: "puma_es", url: "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-mb06-shooting-star-unisex/313624", precio_actual: 125, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-04" }, // 2026-10-04: Shooting Star unisex 313624, JSON-LD InStock, 13 de 16 tallas
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/puma/mb.06-shooting-star-dark-amethyst-lavender-alert", precio_actual: 124.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-04" }, // 2026-10-04: JSON-LD InStock, SKU 313624-01
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/puma/mb.06-shooting-star-dark-amethyst-lavender-alert", precio_actual: 124.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" }, // 2026-10-04: JSON-LD InStock, SKU 313624-01
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-puma-mb06-shooting-stars.html", precio_actual: 119.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: Shooting Stars, 9 tallas
     ],
   },
@@ -10463,7 +10463,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-03",
     precio_msrp_eur: 220,
     links_compra: [
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatilla/jordan/air-jordan-4-retro-og-flight-club-sail-black-univ-red", precio_actual: 167.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-21" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatilla/jordan/air-jordan-4-retro-og-flight-club-sail-black-univ-red", precio_actual: 167.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-4-retro-toro-bravo-rojo-98232", precio_actual: 170, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+4+retro&tag=canchazapa-21", precio_actual: 230, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0C53QY671?tag=canchazapa-21", precio_actual: 0, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es Big Kid (GS) (lo habia resuelto el scraper)
@@ -13529,7 +13529,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 190,
     links_compra: [
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/kobe-9-elite-low-em-protro-light-silver-steam-summit-white", precio_actual: 159.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21" }, // s52 21-sep: JSON-LD "Kobe 9 Elite Low Em Protro", SKU IH1401-003 (= Kobe 9 Elite Low Protro), InStock, 12 tallas
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/kobe-9-elite-low-em-protro-light-silver-steam-summit-white", precio_actual: 179.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" }, // s52 21-sep: JSON-LD "Kobe 9 Elite Low Em Protro", SKU IH1401-003 (= Kobe 9 Elite Low Protro), InStock, 12 tallas
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0GFJSL965?tag=canchazapa-21", precio_actual: 243.55, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" }, // w17 18-sep: es la Kobe 9 Low EM Protro, no la Elite Low
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-kobe-9-elite-low-em-proto-university-red.html", precio_actual: 179.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-19" }, // 2026-10-19: IH1401 600 (Elite Low Protro, EM = nomenclatura), 7 tallas, verificado 19-oct
     ],
@@ -14551,7 +14551,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010194753497.html", precio_actual: 97.89, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-18" },
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/361/joker-1-denver-blue-white", precio_actual: 105, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-24" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/361/joker-1-denver-blue-white", precio_actual: 89.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012114784807.html", precio_actual: 146.69, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: item muerto («Esta página no existe»)
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DSJB58JQ?tag=canchazapa-21", precio_actual: 113, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
     ],
@@ -15864,7 +15864,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-anthony-edwards-3%2FKH8537.html", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 2026-10-04: ya a la venta en adidas ES, KH8537 hombre caña baja, 9 de 25 tallas
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-anthony-edwards-3-snow-camo.html", precio_actual: 129.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-04" }, // 2026-10-04: colorway Snow Camo, caña baja, 6 tallas (41 1/3-46 2/3)
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/adidas/anthony-edwards-3-cold-blooded-sky-tint-bliss-blue-tech-grey-met.", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-04" }, // 2026-10-04: JSON-LD InStock, SKU KH8537
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/adidas/anthony-edwards-3-cold-blooded-sky-tint-bliss-blue-tech-grey-met.", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" }, // 2026-10-04: JSON-LD InStock, SKU KH8537
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-anthony-edwards-3-rojo-hombre-184985.html", precio_actual: 109.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: 10 tallas (41 1/3 a 47 1/3)
     ],
   },
@@ -16234,7 +16234,7 @@ const _rawZapatillas: Zapatilla[] = [
     // en tienda oficial). Aproximado al precio real de venta en España.
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/li-ning/jimmy-butler-4-robin-blue", precio_actual: 116.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-14" },
+      { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/li-ning/jimmy-butler-4-robin-blue", precio_actual: 98.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012876628910.html", precio_actual: 122.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-14" },
     ],
   },
