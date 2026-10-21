@@ -939,7 +939,7 @@ export const SEO_PAGES: SeoPage[] = [
     intro: "Li-Ning fundó la marca en 1990, pero su salto al baloncesto de élite llegó con la línea WoW (Way of Wade) de Dwyane Wade. Hoy también tienen a Jimmy Butler, con su línea JB. Su tecnología de espuma BOOM es competitiva con ZoomX de Nike, y suele costar menos.",
     points: [
       { lab: "WoW AllCity 13 = premium", body: "La línea WoW es la flagship de Li-Ning. Materiales premium, BOOM foam reactivo, tracción agresiva. Cushion y tracción altos, algo por debajo de la Jordan 40 y la GT Cut 3 en nuestras fichas." },
-      { lab: "Gamma 2 = relación calidad-precio", body: "La Gamma 2 puntúa muy alto en nuestra ficha (tracción, respuesta, cushion y soporte lateral) y cuesta menos que las WoW. Es muy ligera, pero de horma estrecha." },
+      { lab: "Gamma 2 = la tope de gama", body: "La Gamma 2 puntúa muy alto en nuestra ficha (tracción, respuesta, cushion y soporte lateral), pero es la Li-Ning más cara, por encima de las WoW. Es muy ligera y de horma estrecha." },
       { lab: "Sonic 12 = guards de primer paso", body: "La línea Sonic prioriza velocidad y respuesta. Para bases y escoltas que no necesitan mucho cushion pero sí explosividad." },
       { lab: "Talla: mide con cuidado", body: "Li-Ning tiende a tallar algo más pequeño que las marcas occidentales. Comprueba siempre la guía de tallas y, si tienes dudas, sube media talla." },
     ],

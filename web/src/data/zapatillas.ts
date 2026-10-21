@@ -4121,7 +4121,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 9,
     },
     categoria_principal: "responsive",
-    tags: ["china-brand", "moderna", "value-premium", "top-2026", "explosivo"],
+    tags: ["china-brand", "moderna", "tope-de-gama", "top-2026", "explosivo"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -4134,20 +4134,20 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "WearTesters la nombró 'mejor zapatilla de baloncesto de 2026 hasta la fecha'. Super BOOM + placa de carbono a su precio es una combinación que avergüenza a muchos modelos bastante más caros. La mejor relación rendimiento-precio del mercado en 2026.",
+      "WearTesters la ve candidata a mejor zapatilla de baloncesto de 2026 y HoopsGeek le da un 9,0: Super BOOM con placa de carbono de longitud completa en solo 280 g. Su gran pega es el precio: es la tope de gama de Li-Ning y en EE. UU. se vende por unos 400 $.",
     pros: [
-      "Super BOOM + placa carbono a precio accesible",
+      "Super BOOM con placa de carbono de longitud completa",
       "Una de las más ligeras del catálogo (280 g)",
       "Tracción excepcional",
-      "Soporte y estabilidad muy por encima de su precio",
+      "Soporte y estabilidad de primer nivel",
     ],
     contras: [
-      "Disponibilidad limitada en España (aliexpress/amazon import)",
-      "Marca menos conocida en Europa",
-      "Sin red de servicio técnico local",
+      "Muy cara: es la Li-Ning más cara del catálogo",
+      "Horma muy estrecha",
+      "En España solo se encuentra importada",
     ],
     veredicto:
-      "La joya escondida de 2026. Si no te importa importarla, la Gamma 2 ofrece el mejor rendimiento por euro del mercado. WearTesters no se equivoca: es el zapato del año.",
+      "Si el precio no es problema y tu pie es estrecho, es de lo mejor que se puede calzar en 2026: ligerísima y sin flojos en tracción, amortiguación ni soporte. Si buscas rendimiento por euro, las Wade de la propia Li-Ning dan mucho por bastante menos.",
 
     imagen_principal: "/shoes/lining-gamma-2.webp",
     imagenes: [],
@@ -4156,7 +4156,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/li-ning-gamma-2-performance-review/" },
     ],
     ultima_actualizacion: "2026-05-15",
-    precio_msrp_eur: 120,
+    precio_msrp_eur: 370, // $399,99 de tarifa (HoopsGeek; WearTesters «$400+»). Antes 120 sin fuente
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012511374212.html", precio_actual: 473.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-09" },
     ],
@@ -14026,7 +14026,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-02",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012269555144.html", precio_actual: 100.08, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-18" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012795507567.html", precio_actual: 61.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: POIZON, ABPV009-14, 61,39-104,69 según talla, 16 tallas (antes item 1005012269555144 a 119,69)
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=li-ning+wade+dlo+1&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
   },
