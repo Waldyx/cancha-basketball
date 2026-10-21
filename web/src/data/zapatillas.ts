@@ -4969,12 +4969,12 @@ const _rawZapatillas: Zapatilla[] = [
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
     oculto: true,
-    precio_msrp_eur: 90,
+    precio_msrp_eur: 79.99, // 21-oct: precio original en Nike ES (la rebaja la deja en 55,99)
     links_compra: [
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fnike-zapatilla-baloncesto-ninos-jordan-luka-77-gs-azrs-ih0573-1001091579-p", precio_actual: 63.19, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       // Nike ES la vende como "Luka 77 Chicago - Nino/a" a 55,99 EUR (verificado con
       // navegador el 18-sep). Sin afiliado: sale como "Ver precio en Nike", sin numero.
-      { tienda: "nike_es", url: "https://www.nike.com/es/t/luka-77-chicago-zapatillas-de-baloncesto-nino-a-oYEv7m3u/IH0573-101", precio_actual: 55.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-18" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/luka-77-chicago-zapatillas-de-baloncesto-nino-a-oYEv7m3u/IH0573-101", precio_actual: 55.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-21" },
     ],
   },
 
@@ -6321,6 +6321,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-harden-volume-10%2FKH9153.html", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-harden-vol-10-aquamarine.html", precio_actual: 149.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-harden-vol-10-joker.html", precio_actual: 119.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: Joker, 4 tallas
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-harden-volume-10-ki1605-1001135121-p", precio_actual: 107.19, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: KI1605, 10 tallas
     ],
   },
 
@@ -13600,6 +13601,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "amazon_es", url: "https://www.amazon.es/adidas-N-Issue-JR9503-Talla/dp/B0GKLT9SNP?tag=canchazapa-21", precio_actual: 89, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-don-issue-7-blanco-gris-144153.html", precio_actual: 68, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-don-issue-7-all-star.html", precio_actual: 109.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-don-issue-7-veaz-jr9502-1001064477-p", precio_actual: 78.11, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: JR9502, 4 tallas
     ],
   },
 
