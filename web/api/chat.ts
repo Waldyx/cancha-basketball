@@ -71,6 +71,9 @@ const leerPresupuesto = (q: string): number => {
 // que no debe recomendar, no lo ve. Júnior → solo GS (igual que `respuestaLocal`); tobillo →
 // fuera las low (el filtro duro del quiz). Si un filtro deja el catálogo vacío, no se aplica.
 const TOBILLO = /tobill|esguinc|torcedur/;
+// 22-oct-2026: el mismo filtro duro que el quiz para pista exterior (durabilidad outdoor ≥ 5):
+// si hablan de calle/exterior, fuera las suelas de interior (UA Flow, gomas blandas).
+const EXTERIOR = /\bcalle\b|exterior|outdoor|asfalto|aire libre|cemento/;
 const filtrar = (lineas: string[], f: (l: string) => boolean) => {
   const r = lineas.filter(f);
   return r.length ? r : lineas;
@@ -82,6 +85,7 @@ export function sistemaPara(textoUsuario: string): string {
     ? filtrar(lineas, (l) => /JUNIOR-GS/.test(l))
     : lineas.filter((l) => !/JUNIOR-GS/.test(l));
   if (TOBILLO.test(q)) lineas = filtrar(lineas, (l) => !/\| low \|/.test(l));
+  if (EXTERIOR.test(q)) lineas = filtrar(lineas, (l) => Number((l.match(/outdoor (\d+)/) ?? [])[1] ?? 10) >= 5);
   let s = sistema(lineas.join("\n"));
   const presupuesto = leerPresupuesto(q);
   if (presupuesto > 0) s += `\n\nPRESUPUESTO DEL USUARIO: ${presupuesto} €. No recomiendes ni propongas como opción ninguna zapa de más de ${presupuesto} €.`;
