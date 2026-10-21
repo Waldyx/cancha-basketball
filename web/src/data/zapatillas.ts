@@ -13554,6 +13554,7 @@ const _rawZapatillas: Zapatilla[] = [
     signature_player: "Donovan Mitchell",
     tecnologia_clave: ["Lightstrike (longitud completa)", "Lightstrike Pro (antepié)", "shank TPU con alas laterales", "nylon lace cables"],
     predecesor_id: null,
+    sucesor_id: "adidas-don-issue-8",
     peso_real_g: 397,
     altura: "low",
     horma: "normal",
@@ -13659,6 +13660,66 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 90,
     links_compra: [
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-ninos-don-issue-7-azne-jq6836-1001075090-p", precio_actual: 70.19, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+    ],
+  },
+  // ADIDAS D.O.N. ISSUE 8 — sucesora de la 7 (alta: 21-oct-2026)
+  {
+    id: "adidas-don-issue-8",
+    slug: "adidas-don-issue-8",
+    marca: "Adidas",
+    modelo: "D.O.N. Issue 8",
+    generacion: 8,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "Donovan Mitchell",
+    tecnologia_clave: ["Lightstrike Pro en el antepié (desbloqueado, sin carcasa)", "Lightstrike Pro en el talón", "carcasa de EVA", "plantilla de Boost", "shank TPU del mediopié al antepié"],
+    predecesor_id: "adidas-don-issue-7",
+    sucesor_id: null,
+    peso_real_g: 352, // dato de fabricante (adidas.es, talla sin indicar); WearTesters pesó 409 g en una EU 45
+    altura: "low",
+    horma: "normal",
+    drop_mm: 9, // sin dato oficial: heredado de la D.O.N. Issue 7
+    tipo_cierre: "cordones",
+    material_superior: "mesh+tpu",
+    puntuaciones: {
+      traccion: 9, amortiguacion: 10, respuesta: 9,
+      soporte_lateral: 9, estabilidad: 9, peso_score: 8,
+      durabilidad_outdoor: 2, ventilacion: 8,
+    },
+    categoria_principal: "cushion-focused",
+    tags: ["trending", "signature", "value", "tope-de-gama"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [70, 100],
+      estilos: ["explosivo", "equilibrado", "potente"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"] },
+    resumen:
+      "Octava D.O.N. Issue de Donovan Mitchell. WearTesters le da un 9/10 y la ve candidata a mejor zapatilla del año: el Lightstrike Pro del antepié va desbloqueado, sin carcasa de EVA encima ni debajo, y la amortiguación es la mejor de la línea. Tracción de interior excelente; en exterior la goma blanda dura poco.",
+    pros: [
+      "Amortiguación sobresaliente: Lightstrike Pro desbloqueado en el antepié (WearTesters 9/10)",
+      "Tracción de interior excelente, con dibujo en tela de araña multidireccional",
+      "Mucho soporte: shank TPU, base plana y laterales de la entresuela elevados",
+      "Plantilla de Boost, muy por encima de las habituales de adidas",
+    ],
+    contras: [
+      "Nada apta para exterior: la goma es blanda y el dibujo se gasta rápido",
+      "El acolchado del talón aprieta el tendón de Aquiles al principio",
+      "La plantilla no tiene soporte de arco",
+    ],
+    veredicto:
+      "La mejor D.O.N. hasta la fecha. Si juegas en interior de base, escolta o alero y quieres una amortiguación de gama alta sin pagar precio de gama alta, es de las compras más claras del momento. Talla habitual.",
+    imagen_principal: "/shoes/adidas-don-issue-8.webp",
+    imagenes: [],
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/adidas-don-issue-8-review/" },
+    ],
+    ultima_actualizacion: "2026-10-21",
+    precio_msrp_eur: 120, // precio en adidas.es
+    links_compra: [
+      { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-don-issue-8-nars-ki9287-1001102096-p", precio_actual: 77.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // KI9287, 11 tallas
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-don-issue-8%2FKI9287.html", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 20 tallas
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-don-issue-8-panama.html", precio_actual: 119.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // Panama, 5 tallas
     ],
   },
 
