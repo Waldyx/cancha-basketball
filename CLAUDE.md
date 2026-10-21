@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **246 zapas (48 OCULTAS, 198 visibles) · 658 tests · `astro check` 0 errores · 371 páginas** |
+| Tamaño | **250 zapas (48 OCULTAS, 202 visibles) · 658 tests · `astro check` 0 errores · 376 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -465,6 +465,15 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   ▶️ **Candidatas a ficha nueva vistas en los barridos** (todas lanzadas en ES): **LeBron Witness X** (Nike ES 99,99,
   Cushlon 3.0, sin reviews; Forum solo «Halloween» a 109,99 → hoy no pasa la regla del afiliado más caro), **Tatum 5**
   (Nike ES 129,99; ninguna afiliada la vende en adulto → saldría oculta), **G.T. Future** (Nike ES 199,99, sin mirar).
+- ✅ **4 fichas chinas nuevas con ancla de HoopsGeek, todas en AliExpress/POIZON** (`8e6de52` + siguiente): **Wade DLo 2**
+  (HG 8,5, ABPW013, desde 62,99, MSRP 110), **Wade 808 5 Ultra V2** (HG 8,8, ABAV045, desde 102,99, MSRP 145), **Wade Flash 2**
+  (HG 8,3, ABPV013, desde 51,69) y **Wade Shadow 7** (HG 8,2, ABPV011, desde 63,39). Pesos ESTIMADOS (HG no los publica).
+  **Catálogo 246 → 250.** 🔑 **La DLo es la línea de D'Angelo Russell**, no de Dwyane Wade: corregida la DLo 1. 🔑 **Método**:
+  la SKU de la zapa reseñada sale de los nombres de imagen de HG (`/IMG/…-abpw013-…`); se busca ESA SKU en AliExpress
+  (`/w/wholesale-ABPW013.html?SortType=price_asc`, precios en el HTML como `productId…displayTitle…formattedPrice`) y en la
+  ficha se lee el precio talla a talla clicando `[class*=sku-item--text]`. Descartadas: **Shock Wave 7** (HG reseña la
+  112611606 sin correa; AliExpress solo tiene la 112611111S con correa y otras SKU: no es el mismo producto), **Rigorer
+  AR 2** (adulto ≥136 € con tarifa de 100 $) y **361 BioSpeed BB 2** (no está; la gen 1 a 156 €).
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
