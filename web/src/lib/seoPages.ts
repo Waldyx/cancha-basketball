@@ -1140,7 +1140,7 @@ export const SEO_PAGES: SeoPage[] = [
     guidePoints: [
       { lab: "ZoomX en baloncesto", body: "La Air Jordan 40 lleva ZoomX de longitud completa con Zoom Strobel; la GT Cut 3 (2024) ya había llevado ZoomX a la pista." },
       { lab: "Signature más competitivos", body: "AE 2, Ja 3, Curry 13, Jordan 40 — el listón técnico sube cada año. 2025 no defrauda." },
-      { lab: "Budget mejora", body: "Adidas Dame X a 95€ demuestra que se puede tener tecnología signature sin gastar 150€+." },
+      { lab: "Budget mejora", body: "Adidas Dame X, por debajo de 100 € de tarifa, demuestra que se puede tener tecnología signature sin gastar 150 € o más." },
       { lab: "Marcas chinas maduran", body: "Anta y Li-Ning siguen mejorando. KAI 2 y WoW AllCity 13 son opciones reales para jugadores europeos." },
     ],
     faqs: [
