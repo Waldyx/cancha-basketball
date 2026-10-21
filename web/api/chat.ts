@@ -74,6 +74,8 @@ const TOBILLO = /tobill|esguinc|torcedur/;
 // 22-oct-2026: el mismo filtro duro que el quiz para pista exterior (durabilidad outdoor ≥ 5):
 // si hablan de calle/exterior, fuera las suelas de interior (UA Flow, gomas blandas).
 const EXTERIOR = /\bcalle\b|exterior|outdoor|asfalto|aire libre|cemento/;
+// Y el de pie ancho: fuera las de horma estrecha.
+const PIE_ANCHO = /pies? anchos?|ancho de pie|horma ancha|empeine alto/;
 const filtrar = (lineas: string[], f: (l: string) => boolean) => {
   const r = lineas.filter(f);
   return r.length ? r : lineas;
@@ -86,6 +88,7 @@ export function sistemaPara(textoUsuario: string): string {
     : lineas.filter((l) => !/JUNIOR-GS/.test(l));
   if (TOBILLO.test(q)) lineas = filtrar(lineas, (l) => !/\| low \|/.test(l));
   if (EXTERIOR.test(q)) lineas = filtrar(lineas, (l) => Number((l.match(/outdoor (\d+)/) ?? [])[1] ?? 10) >= 5);
+  if (PIE_ANCHO.test(q)) lineas = filtrar(lineas, (l) => !/\| horma estrecha \|/.test(l));
   let s = sistema(lineas.join("\n"));
   const presupuesto = leerPresupuesto(q);
   if (presupuesto > 0) s += `\n\nPRESUPUESTO DEL USUARIO: ${presupuesto} €. No recomiendes ni propongas como opción ninguna zapa de más de ${presupuesto} €.`;

@@ -138,6 +138,12 @@ describe("sistemaPara", () => {
     expect(s).not.toMatch(/outdoor [0-4] /);
     expect(sistemaPara("escolta de pabellón")).toContain("ua-curry-12 |");
   });
+  it("con pie ancho, fuera las de horma estrecha (como el quiz)", () => {
+    const s = sistemaPara("tengo el pie ancho, juego de base");
+    expect(s).not.toMatch(/\| horma estrecha \|/);
+    expect(s).toMatch(/\| horma (normal|ancha) \|/);
+    expect(sistemaPara("juego de base")).toMatch(/\| horma estrecha \|/);
+  });
   it("recuerda el presupuesto al final si lo hay", () => {
     expect(sistemaPara("menos de 120 euros").trimEnd()).toMatch(/120 €\.$/);
     expect(sistemaPara("para pista interior")).not.toContain("PRESUPUESTO DEL USUARIO");
