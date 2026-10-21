@@ -484,9 +484,17 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   🔑 **Cruce MSRP ficha vs tarifa de HG** (todas las fichas con URL de HG): también salen por debajo la Shock Wave 5 (90 € vs
   $199,99), la JB4 (120 vs $249) y la Rigorer AR1 (75 vs $139,99), pero **NO se tocan**: HG da para marcas chinas el precio
   de importación en EE. UU. y sus propios analistas las llaman «budget» / «great value». Hace falta segunda fuente. Por
-  arriba (ratio 1,35-1,45): Tatum 2, NXXT Gen, Luka 1, Zion 3 y Embiid 1, sin revisar.
+  arriba (ratio 1,35-1,45): Tatum 2, NXXT Gen, Luka 1 y Zion 3 → corregidos el 22-oct (abajo); Embiid 1 sin fuente.
 - Nike de 2025-26 sin ficha (ST Charge, Kobe 11 Protro, Heir Series 2, NXXT Gen by JuJu, G.T. Future): **ninguna afiliada
   las vende** (Amazon tampoco). No se crean. Scoot Zeros III: Amazon la tiene a 63 € pero Puma ES a 50 € → regla s55, fuera.
+- ✅ **22-oct: MSRP auditados contra sneakerjagers** (Sonnet, `trabajo/w43-msrp-salida.tsv`; 170 fichas de marcas no chinas):
+  82 OK · 30 distintos · 47 sin fuente · 11 ya con fuente. **27 corregidos con fuente** (Tatum 2/3, Luka 1, Zion 3, LeBron 23
+  220→200, GT Cut 4 170→200, A'One 130→110, Book 1 110→150, AJ 38, GT Jump 2 150→220, Crazy 8 110→160, Forum 84 High 140,
+  retros AJ 7/9, Zoom Generation 250…; el comentario de cada MSRP lleva el SKU). 🔑 En sneakerjagers la tarifa está en
+  `Retail price</dt><dd …>€X` (la meta «Retail €X» no siempre). NO aplicados: Engine A (la página no da tarifa), Superstar y
+  Kobe 9 High Protro (no se sabe qué versión es la ficha), Question Mid (110-180), NXXT Genisus (solo QS), AE 1 (la ficha es
+  la Mid de 2025, 140). Efecto: Freak 4, Forum 84 y Flight 95 dejan de contar como reventa y enseñan su Amazon (verificado);
+  la GT Jump 2 ya solo tiene una oferta a 402,63 € (1,83×) → sigue enseñando su MSRP.
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
