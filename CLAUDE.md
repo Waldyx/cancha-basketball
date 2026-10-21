@@ -519,6 +519,15 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     🔑 La MB.04 (mid) citaba como fuente la reseña de la LOW: quitada. Barrido de todas las `fuentes` buscando variantes
     cruzadas en la URL (low/mid/pro/elite/encore/gs…): ninguna más. **Catálogo 254 → 255.** Sin afiliada que las venda (no
     se crean): Nike Ja Twelve Time (WT 9, $90), Jordan Triangle (WT 8), Jordan Air Rev (WT 7), Curry Series 7 (WT 9).
+  · Basketball Emotion: los 28 enlaces visibles re-verificados (JSON-LD de primer nivel, todos InStock; 27 con precio
+    actualizado; `scratchpad/be_check.py`).
+  · ▶️ **DECIDIR (usuario): el «desde» de 8 fichas sale de una afiliada MÁS CARA que una tienda sin afiliado verificada hoy**
+    (la regla s55 solo se aplicaba a enlaces nuevos): KD 18 Amazon 132 vs BE 96 · A'One FuikaOmar 110 vs BE 77 · JB4
+    AliExpress 145 vs BE 99 · LeBron 23 ECI 140 vs BE 120 · WoW 12 AliExpress 227 vs BE 170 · Joker 1 AliExpress 101 vs BE 90
+    · AJ 40 Decathlon 155 vs Nike ES 140 · Tatum 4 ECI 91 vs BE 90. Opciones: (a) dejarlo (se cobra comisión, pero el «desde»
+    no es el más barato), (b) apagar esas afiliadas (la ficha enseñaría MSRP + «Ver precio en BE») o (c) enseñar el número de
+    BE cuando sea el más barato (contradice la estrategia «Ver precio» de la s28: BE no tiene scraper y el número se pudre).
+    Los 7 casos con Joom no cuentan: precios de junio y Joom sin garantía de autenticidad.
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
