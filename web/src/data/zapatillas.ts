@@ -7862,7 +7862,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/jordan-luka-1-review/" }],
     ultima_actualizacion: "2026-05-18",
-    precio_msrp_eur: 140,
+    precio_msrp_eur: 110, // tarifa europea (sneakerjagers, DN1772-305). Antes 140 sin fuente
     links_compra: [
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-air-jordan-luka-1-safari.html", precio_actual: 54.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
     ],
@@ -8880,7 +8880,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/jordan-tatum-2-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
-    precio_msrp_eur: 155,
+    precio_msrp_eur: 130, // tarifa europea (sneakerjagers, FJ6457-300 «Vortex»). Antes 155 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=jordan+tatum+2+baloncesto&tag=canchazapa-21", precio_actual: 110, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
@@ -8936,7 +8936,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/jordan-zion-3-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
-    precio_msrp_eur: 185,
+    precio_msrp_eur: 150, // tarifa europea del adulto (sneakerjagers, DR0675-002). Antes 185 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CWCXM9TV?tag=canchazapa-21", precio_actual: 120.46, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
     ],
