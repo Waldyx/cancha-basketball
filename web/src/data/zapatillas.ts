@@ -842,7 +842,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/jordan-tatum-3/" },
     ],
     ultima_actualizacion: "2026-05-13",
-    precio_msrp_eur: 145,
+    precio_msrp_eur: 130, // tarifa europea (sneakerjagers, IB8149-100). Antes 145 sin fuente
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011984740781.html", precio_actual: 79.80, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: item muerto («Esta página no existe»)
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-jordan-tatum-3-zen.html", precio_actual: 109.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
@@ -2600,7 +2600,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/nike-zoom-freak-4-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
-    precio_msrp_eur: 110,
+    precio_msrp_eur: 140, // tarifa europea (sneakerjagers, DO9680-500). Antes 110 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BSVL687Q?tag=canchazapa-21", precio_actual: 172.53, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
     ],
@@ -3091,7 +3091,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/new-balance-two-wxy-v4/" },
     ],
     ultima_actualizacion: "2026-05-29",
-    precio_msrp_eur: 95,
+    precio_msrp_eur: 130, // tarifa europea (sneakerjagers, BB2WYGS4). Antes 95 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+two+wxy+v4+baloncesto&tag=canchazapa-21", precio_actual: 72, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-new-balance-two-wxy-v4-acero.html", precio_actual: 79.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
@@ -3272,9 +3272,9 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/nike-gt-jump-2/" },
     ],
     ultima_actualizacion: "2026-05-29",
-    precio_msrp_eur: 150,
+    precio_msrp_eur: 220, // tarifa europea (sneakerjagers, DJ9431-002 y 2 colorways más). Antes 150 sin fuente
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D2641PYR?tag=canchazapa-21", precio_actual: 279.67, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D2641PYR?tag=canchazapa-21", precio_actual: 402.63, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: una sola oferta, a 402,63 (reventa)
     ],
   },
 
@@ -3349,7 +3349,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/nike-lebron-23-performance-review/" },
     ],
     ultima_actualizacion: "2026-05-15",
-    precio_msrp_eur: 220,
+    precio_msrp_eur: 200, // tarifa europea (sneakerjagers, IH1513-002 y 15 colorways más). Antes 220 sin fuente
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56003509%2F", precio_actual: 139.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/lebron-23-grand-opening-white-metallic-gold-university-red-black", precio_actual: 119.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-12" },
@@ -4082,7 +4082,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/nike-gt-cut-4-performance-review/" },
     ],
     ultima_actualizacion: "2026-05-15",
-    precio_msrp_eur: 170,
+    precio_msrp_eur: 200, // tarifa europea (sneakerjagers, IR1829-001 y 3 colorways más). Antes 170 sin fuente
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/698af0777c328f01b8904e11", precio_actual: 127, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/g.t.-cut-4-photo-blue-multi-color-mtlc-silver", precio_actual: 150, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
@@ -5629,7 +5629,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     ultima_actualizacion: "2026-06-05",
 
-    precio_msrp_eur: 130,
+    precio_msrp_eur: 110, // tarifa europea (sneakerjagers, FZ8605-702 y 6 colorways más). Antes 130 sin fuente
     links_compra: [
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/aone-lem-and-lime-mujer-volt-white-barely-volt", precio_actual: 76, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fnike-a-ja-wilson-a-one-all-star-women-s%2F2a0a5073-24e6-461d-9b70-5379fb3e323c%2Fc4", precio_actual: 116, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
@@ -6298,7 +6298,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     ultima_actualizacion: "2026-05-29",
 
-    precio_msrp_eur: 110,
+    precio_msrp_eur: 150, // tarifa europea (sneakerjagers, IM7615-001 y 10 colorways más). Antes 110 sin fuente
     links_compra: [
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-book-1-valley.html", precio_actual: 129.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
     ],
@@ -6485,7 +6485,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/adidas-don-issue-6-review/" }],
     ultima_actualizacion: "2026-05-18",
-    precio_msrp_eur: 110,
+    precio_msrp_eur: 130, // tarifa europea (sneakerjagers, JQ2249). Antes 110 sin fuente
     links_compra: [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-adidas-d-o-n-issue-6-verde-blanco%2F372429%2Fm8968268", precio_actual: 71.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
@@ -6808,7 +6808,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/nike-kyrie-infinity-review/" },
     ],
     ultima_actualizacion: "2026-06-05",
-    precio_msrp_eur: 100,
+    precio_msrp_eur: 130, // tarifa europea (sneakerjagers, «Aluminum», 2022). Antes 100 sin fuente
     links_compra: [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-de-baloncesto-nike-kyrie-infinity-hombre%2F60c01261-32b4-4f18-a661-3eb55686beb4%2Fc1", precio_actual: 88, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
       { tienda: "joom", url: "https://www.joom.com/es/products/68c8408465f3e3012396c5e7", precio_actual: 131, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
@@ -6862,7 +6862,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/jordan-38-review/" }],
     ultima_actualizacion: "2026-05-18",
-    precio_msrp_eur: 180,
+    precio_msrp_eur: 200, // tarifa europea (sneakerjagers, DZ3356-106 y 3 colorways más). Antes 180 sin fuente
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005008505878749.html", precio_actual: 123.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-01" },
     ],
@@ -7753,7 +7753,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-sabrina-1-review/" }],
     ultima_actualizacion: "2026-05-18",
-    precio_msrp_eur: 110,
+    precio_msrp_eur: 130, // tarifa europea (sneakerjagers, FQ3381-003). Antes 110 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CMV8D852?tag=canchazapa-21", precio_actual: 171.85, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
     ],
@@ -8417,7 +8417,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/nike-precision-7-performance-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
-    precio_msrp_eur: 65,
+    precio_msrp_eur: 75.99, // tarifa europea (sneakerjagers, FN4322-005). Antes 65 sin fuente
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56003799%2F", precio_actual: 52.49, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DLGZDKM8?tag=canchazapa-21", precio_actual: 124.97, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: solo vendedores externos (reventa)
@@ -8704,7 +8704,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "runrepeat-lab", url: "https://runrepeat.com/nike-gt-hustle-3" },
     ],
     ultima_actualizacion: "2026-05-19",
-    precio_msrp_eur: 185,
+    precio_msrp_eur: 200, // tarifa europea (sneakerjagers, FV5953-008). Antes 185 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+gt+hustle+3+baloncesto&tag=canchazapa-21", precio_actual: 131.32, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
@@ -9047,7 +9047,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/nike-lebron-nxxt-gen-ampd-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
-    precio_msrp_eur: 200,
+    precio_msrp_eur: 170, // tarifa europea (sneakerjagers, DR8784-301 y FJ1566-102). Antes 200 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/Nike-Lebron-NXXT-Gen-baloncesto/dp/B0CRNL24GY?tag=canchazapa-21", precio_actual: 180.57, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
     ],
@@ -10990,7 +10990,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
-    precio_msrp_eur: 150,
+    precio_msrp_eur: 180, // tarifa europea (sneakerjagers, HR0499, 2023). Antes 150 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B09H5D6H93?tag=canchazapa-21", precio_actual: 196.0, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
     ],
@@ -11320,7 +11320,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
-    precio_msrp_eur: 160,
+    precio_msrp_eur: 190, // tarifa europea (sneakerjagers, DV0817-001, 2023). Antes 160 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BWM9Z36S/?tag=canchazapa-21", precio_actual: 134, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
     ],
@@ -11384,7 +11384,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
-    precio_msrp_eur: 180,
+    precio_msrp_eur: 250, // tarifa europea (sneakerjagers, retro de 2023, DV7219-100). Antes 180 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CJX8KW27?tag=canchazapa-21", precio_actual: 269.28, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" },
     ],
@@ -11513,7 +11513,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
-    precio_msrp_eur: 200,
+    precio_msrp_eur: 219.99, // tarifa europea (sneakerjagers, último retro, «Miro» 2026). Antes 200 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Air+Jordan+7+Retro&tag=canchazapa-21", precio_actual: 210, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
     ],
@@ -12073,7 +12073,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
-    precio_msrp_eur: 100,
+    precio_msrp_eur: 140, // tarifa europea (sneakerjagers, la High, IF9675). Antes 100 sin fuente
     links_compra: [
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-forum-84-low-adv%2FFY7998.html", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: agotada en adidas.es
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CH4875SK?tag=canchazapa-21", precio_actual: 165.06, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: Forum 84 HIGH (la búsqueda devolvía Low y Mid)
@@ -12134,7 +12134,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
-    precio_msrp_eur: 80,
+    precio_msrp_eur: 110, // tarifa europea (sneakerjagers, 395374-01). Antes 80 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0C6D3Z2XH?tag=canchazapa-21", precio_actual: 78.43, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: es la Puma Rebound Layup Winter, otro producto
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Puma+Clyde+baloncesto&tag=canchazapa-21", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
@@ -12200,7 +12200,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
-    precio_msrp_eur: 190,
+    precio_msrp_eur: 210, // tarifa europea (sneakerjagers, último retro, «Flint Grey» 2026). Antes 190 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CZHG6GP9?tag=canchazapa-21", precio_actual: 204.11, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" },
     ],
@@ -12322,7 +12322,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
-    precio_msrp_eur: 110,
+    precio_msrp_eur: 160, // tarifa europea (sneakerjagers, IG3739 e IF4521). Antes 110 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FL7WTKW8?tag=canchazapa-21", precio_actual: 106.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
     ],
@@ -13061,7 +13061,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-28",
-    precio_msrp_eur: 130,
+    precio_msrp_eur: 160, // tarifa europea (sneakerjagers, DM0523-001). Antes 130 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0C1GXMH9X?tag=canchazapa-21", precio_actual: 215.53, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
     ],
