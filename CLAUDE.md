@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **251 zapas (49 OCULTAS, 202 visibles) · 658 tests · `astro check` 0 errores · 377 páginas** |
+| Tamaño | **254 zapas (49 OCULTAS, 205 visibles) · 658 tests · `astro check` 0 errores · 380 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -511,6 +511,10 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     falsas en artículos (Joker 1 «y Amazon», Kobe 9 High «solo KicksCrew», Curry 13 «UA y Basket4Ballers», Breakthru 4).
   · Promo Forum Sport Flash Night (20MIN, hasta el 22-oct 10:00). Enlaces internos rotos en el build: 0. Imágenes: 0 faltan.
   · Ocultas en Amazon: Jet '23 solo en anuncios de 1-2 tallas; Kobe Protro y PG 6, reventa a 400-530 €. Siguen ocultas.
+  · **3 fichas más desde el índice de WearTesters** (`/category/basketball/performance-reviews/page/N/`; la nota está en
+    `"ratingValue"`): **Wade 808 6 Ultra** (WT 9, ABAW009, desde 122,39), **All City 14 Encore** (WT 9, **ABAW037**; la ABAW053
+    es la «V2 Summer Edition», otra), **Wade Shadow 8** (WT 8,5, ABPW023, desde 70,39). Todas POIZON, pesos ESTIMADOS (los de
+    su predecesora). **Catálogo 251 → 254.** Asics Swiftace Yuki (WT 8): no se vende en España → no se crea.
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
