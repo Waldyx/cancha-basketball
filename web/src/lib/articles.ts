@@ -698,19 +698,19 @@ export const ARTICLES: Article[] = [
 <ul>
   <li>✅ High-top real: máxima altura de caña de la lista</li>
   <li>✅ Soporte lateral {{nota:nike-kobe-9-high-protro:soporte_lateral}} y estabilidad {{nota:nike-kobe-9-high-protro:estabilidad}}</li>
-  <li>❌ Solo disponible en KicksCrew — sin tienda española con stock propio</li>
+  <li>❌ Cara: hoy solo la vende el marketplace de Decathlon, por encima de su precio de salida</li>
 </ul>
 
 <h3><a href="/zapatilla/ua-curry-13">UA Curry 13 — desde {{precio:ua-curry-13}}</a></h3>
 <p>Mid-top pensada para bases y escoltas tiradores. La entresuela UA HOVR+ de longitud completa va montada sobre un chasis de estabilidad en Pebax, y el soporte lateral ({{nota:ua-curry-13:soporte_lateral}}) y la estabilidad ({{nota:ua-curry-13:estabilidad}}) igualan a los de la Kobe 9 High Protro sin renunciar a la agilidad de un corte más bajo. Es además la más fácil de encontrar: cuatro tiendas con stock en España.</p>
 <ul>
   <li>✅ Soporte lateral {{nota:ua-curry-13:soporte_lateral}} y estabilidad {{nota:ua-curry-13:estabilidad}} en un corte mid</li>
-  <li>✅ La más disponible de las cuatro: El Corte Inglés, Decathlon, UA y Basket4Ballers</li>
+  <li>✅ La más fácil de encontrar de las cuatro (tiendas y tallas en <a href="/zapatilla/ua-curry-13">su ficha</a>)</li>
   <li>❌ Horma normal — pruébatela antes si tienes el pie ancho</li>
 </ul>
 
 <h3><a href="/zapatilla/361-joker-1">361° Joker 1 — desde {{precio:361-joker-1}}</a></h3>
-<p>Mid-top pensada para pívots y ala-pívots. La espuma CQT y el shank de plástico, con un talón firme, dan el mismo soporte lateral ({{nota:361-joker-1:soporte_lateral}}) y estabilidad ({{nota:361-joker-1:estabilidad}}) que la Curry 13, con horma normal. Se puede comprar en tres tiendas (AliExpress, Basketball Emotion y Amazon).</p>
+<p>Mid-top pensada para pívots y ala-pívots. La espuma CQT y el shank de plástico, con un talón firme, dan el mismo soporte lateral ({{nota:361-joker-1:soporte_lateral}}) y estabilidad ({{nota:361-joker-1:estabilidad}}) que la Curry 13, con horma normal. Tiendas y tallas en <a href="/zapatilla/361-joker-1">su ficha</a>.</p>
 <ul>
   <li>✅ Soporte lateral {{nota:361-joker-1:soporte_lateral}} y estabilidad {{nota:361-joker-1:estabilidad}} — igual que la Curry 13</li>
   <li>❌ Ajuste ceñido: con pie ancho, sube media talla</li>
@@ -3795,7 +3795,7 @@ export const ARTICLES: Article[] = [
 <p>No comparten molde con ningún modelo de hombre. Se construyen sobre bases anatómicas exclusivas del pie de mujer: talón ultra estrecho, arco elevado, menos volumen en empeine. Un hombre con su talla equivalente notaría el talón demasiado apretado.</p>
 <ul>
   <li><strong>Moolah Kicks (Neovolt Pro V3, Evolyte Elite, Triple Double):</strong> la única marca dedicada 100% al básquet femenino. Filón para quien busca el ajuste anatómico real. En España hay que importarla (moolahkicks.com), pero su review es justo lo que buscas si vas a comprarla.</li>
-  <li><strong>Under Armour Flow Breakthru 4:</strong> horma biométrica femenina + suela UA Flow (sin goma, solo espuma al suelo): de las más ligeras del mercado. Y se compra en España (Amazon) a precio de ganga.</li>
+  <li><strong>Under Armour Flow Breakthru 4:</strong> horma biométrica femenina + suela UA Flow (sin goma, solo espuma al suelo): de las más ligeras del mercado. Ojo: ahora mismo está agotada en Amazon, la tienda española que la tenía.</li>
   <li><strong>Adidas Exhibit Select:</strong> desarrollada con mapas de presión de atletas WNBA. Bootie de neopreno, Bounce flexible desde el minuto uno, horma estrecha. Tiendas y precio en <a href="/zapatilla/adidas-exhibit-select">su ficha</a>.</li>
 </ul>
 
@@ -3902,7 +3902,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h2>El pero: importación</h2>
-<p>Aquí está el freno. Moolah se vende sobre todo en <strong>moolahkicks.com y Amazon.com (EE.UU.)</strong>. En España toca importar, con el coste y los plazos que eso implica. Por eso, si quieres horma 100% femenina <em>comprable aquí</em>, hay dos alternativas serias: la <strong>UA Flow Breakthru 4</strong> y la <strong>Adidas Exhibit Select</strong>, ambas con molde femenino y disponibles en Amazon España.</p>
+<p>Aquí está el freno. Moolah se vende sobre todo en <strong>moolahkicks.com y Amazon.com (EE.UU.)</strong>. En España toca importar, con el coste y los plazos que eso implica. Por eso, si quieres horma 100% femenina <em>comprable aquí</em>, hay dos alternativas serias: la <strong>Adidas Exhibit Select</strong>, a la venta en Amazon España, y la <strong>UA Flow Breakthru 4</strong>, ahora mismo agotada. Las dos tienen molde femenino.</p>
 
 <h2>Veredicto: ¿merece importarla?</h2>
 <p><strong>Sí, si:</strong> ya has probado hormas de mujer y notas que ninguna otra te sujeta el talón, o si quieres la marca más especializada del mercado y no te importa esperar/pagar el envío.</p>
