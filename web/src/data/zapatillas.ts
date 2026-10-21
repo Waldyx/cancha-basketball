@@ -1524,7 +1524,8 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012498467123.html", precio_actual: 100.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-24" }, // 18-sep: el item ya no existe en AliExpress
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012505451023.html", precio_actual: 104.39, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: item muerto: «Esta página no existe»
-      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-anta-kt10-low-graffiti.html", precio_actual: 139.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012883811229.html", precio_actual: 107.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: POIZON, 112441101-6, 107,99 en 39, 42, 44,5 y 47 (hasta 189,99 en el resto)
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-anta-kt10-low-graffiti.html", precio_actual: 139.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: solo queda la 44
     ],
   },
 
@@ -13964,7 +13965,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012505780207.html", precio_actual: 96.39, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: item muerto: «Esta página no existe»
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012505088993.html", precio_actual: 120.69, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: item muerto («Esta página no existe»)
-      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005006830773488.html", precio_actual: 165.92, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+      { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005013093597583.html", precio_actual: 89.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: POIZON, ABAU015-5, 89,99-197,69 según talla (casi todas 96,39), 18 tallas (antes item 1005006830773488 a 102,39)
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=way+of+wade+all+city+12&tag=canchazapa-21", precio_actual: 120, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
     ],
   },
