@@ -66,7 +66,7 @@ export const ARTICLES: Article[] = [
 <p>Puedes sacar todo esto con una calculadora y las fórmulas de arriba… o dejar que lo haga la herramienta. En <a href="/estadisticas">la calculadora de estadísticas de CANCHA.ZAPA</a> apuntas tu línea de cada partido (tiros, rebotes, asistencias…) y te devuelve al instante tus medias, tu TS%, tu eFG% y tu valoración, con un gráfico de tu evolución partido a partido. <strong>Gratis, sin cuentas y sin registro</strong>: todo se guarda en tu propio navegador.</p>
 
 <h3>¿Juegas federado? Importa tu acta oficial</h3>
-<p>Si juegas en una competición de la <strong>Federación Española (FEB)</strong>, no tienes ni que teclear: pega el enlace de tu partido y la herramienta lee el acta oficial, te muestra el equipo y rellena tu línea sola. Y si juegas en una liga autonómica (Cataluña y otras), puedes pegar la tabla de estadísticas tal cual y la interpreta igual.</p>
+<p>Si juegas en una competición de la <strong>Federación Española (FEB)</strong>, no tienes ni que teclear: pega el enlace de tu partido y la herramienta lee el acta oficial, te muestra el equipo y rellena tu línea sola. Y si juegas en una liga autonómica (Cataluña y otras), pega la tabla de estadísticas tal cual o sube una captura, una foto o el PDF del acta: se lee en tu navegador y, si hace falta la IA, solo le llegan los números, nunca los nombres.</p>
 
 <h3>Un análisis que te dice en qué mejorar</h3>
 <p>Además de los números, un agente analiza tu temporada y te suelta consejos concretos sin rodeos: si dejas puntos en la línea de tiros libres, si tu triple no es rentable, si pierdes demasiados balones o si tu rendimiento se hunde contra ciertos rivales. Y puedes generar una <strong>tarjeta de tu temporada</strong> lista para compartir.</p>
@@ -4166,7 +4166,7 @@ export const ARTICLES: Article[] = [
 <p>En el <a href="/rival/">informe del rival</a> creas el equipo con su nombre y le añades partidos de dos maneras:</p>
 <ul>
   <li><strong>Acta de la FEB:</strong> pegas el enlace del partido (baloncestoenvivo.feb.es) o su número y pulsas Importar. La herramienta busca cuál de los dos equipos es tu rival por el nombre y, si no lo tiene claro, te pregunta. Solo importa partidos terminados: un acta en directo todavía cambia.</li>
-  <li><strong>Acta pegada:</strong> sirve para la FCBQ u otra federación. Copias la tabla de estadísticas del rival con su fila de cabecera (Min, Punts, T2, T3, TL…) y la pegas. Añades la fecha, contra quién jugó y, si quieres que salga el balance de victorias, el marcador.</li>
+  <li><strong>Acta de otra federación:</strong> sirve para la FCBQ u otras. Pegas la tabla de estadísticas del rival (mejor con su fila de cabecera: Min, Punts, T2, T3, TL…) o subes una captura, una foto o el PDF del acta. Se lee en tu navegador; si hace falta la IA, le llegan los números sin los nombres, y lo que no cuadra (puntos frente a tiros) sale avisado. La fecha, contra quién jugó y el marcador los coge del acta si vienen; si no, los añades tú para que salga el balance de victorias.</li>
 </ul>
 <p>Puedes juntar varios partidos del mismo rival, quitar el que no quieras y volver a consultarlo cuando lo necesites. Un partido es gratis; juntar varios es una función Pro, gratis durante la beta.</p>
 
