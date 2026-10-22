@@ -5025,7 +5025,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 100,
     links_compra: [
-      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56002143%2F", precio_actual: 69.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56002143%2F", precio_actual: 69.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" },
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fnike-zapatilla-baloncesto-jordan-luka-77-neant-hf0806-1001053712-p", precio_actual: 59.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       // Repuesto el 18-sep: ECI y Forum Sport se quedaron agotados y la ficha se habia
       // quedado sin compra. Nike ES la vende a 99,99 EUR (verificado con navegador); no es
@@ -7979,7 +7979,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0C2FZD6Y6?tag=canchazapa-21", precio_actual: 151.08, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0C2FZD6Y6?tag=canchazapa-21", precio_actual: 343.76, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: Amazon ya no la vende; solo 2 vendedores externos (343,76 y 424 €) = reventa → la web enseña el MSRP
     ],
   },
 
