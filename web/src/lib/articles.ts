@@ -1040,7 +1040,7 @@ export const ARTICLES: Article[] = [
 <ul>
   <li><strong>Para quién:</strong> Bases y escoltas explosivos que quieren rendimiento real + historia.</li>
   <li><strong>Vs alternativa moderna equivalente:</strong> Nike Ja 2 (desde {{precio:nike-ja-2}}) — similar rendimiento, sin el legado.</li>
-  <li><strong>Precio actual:</strong> desde {{precio:nike-kobe-5-protro}} (Kobe 5) y desde {{precio:nike-kobe-6-protro}} (Kobe 6).</li>
+  <li><strong>Precio actual:</strong> desde {{precio:nike-kobe-5-protro}} (Kobe 5). La Kobe 6 Protro hoy no la vende ninguna de nuestras tiendas a un precio razonable: solo hay reventa.</li>
 </ul>
 
 <h3>🥈 Air Jordan 12 Retro — La mejor Jordan retro para jugar</h3>
@@ -3301,7 +3301,7 @@ export const ARTICLES: Article[] = [
   <ul style="margin:0;padding:0 0 0 16px;color:var(--cz-fg3);font-size:14px;line-height:1.8">
     <li><strong style="color:#e4e4e7">Tecnología:</strong> Nike Shox (columnas elastómero) · Herringbone outsole</li>
     <li><strong style="color:#e4e4e7">Lanzamiento:</strong> 2000</li>
-    <li><strong style="color:#e4e4e7">Precio retro actual:</strong> desde {{precio:nike-shox-bb4}}</li>
+    <li><strong style="color:#e4e4e7">Precio oficial:</strong> {{precio:nike-shox-bb4}} (hoy no la vende ninguna de nuestras tiendas)</li>
     <li><strong style="color:#e4e4e7">Score jugabilidad:</strong> {{score:nike-shox-bb4}} (interior)</li>
   </ul>
 </div>
@@ -3896,9 +3896,9 @@ export const ARTICLES: Article[] = [
 
 <h2>La gama (2026)</h2>
 <ul>
-  <li><strong>Neovolt Pro V3 (desde {{precio:moolah-neovolt-pro-v3}}):</strong> el modelo performance de referencia. Equilibrada, reactiva, con cushion mejorado. La que recomendamos para empezar con la marca.</li>
-  <li><strong>Evolyte Elite (desde {{precio:moolah-evolyte-elite}}):</strong> el tope de gama. Modelo de gama alta de Moolah con cushion premium. Para la exterior ultra rápida.</li>
-  <li><strong>Triple Double (desde {{precio:moolah-triple-double}}):</strong> la "todoterreno": high-top pensada, según Moolah, para aleros y pívots.</li>
+  <li><strong>Neovolt Pro V3 (precio oficial {{precio:moolah-neovolt-pro-v3}}):</strong> el modelo performance de referencia. Equilibrada, reactiva, con cushion mejorado. La que recomendamos para empezar con la marca.</li>
+  <li><strong>Evolyte Elite (precio oficial {{precio:moolah-evolyte-elite}}):</strong> el tope de gama. Modelo de gama alta de Moolah con cushion premium. Para la exterior ultra rápida.</li>
+  <li><strong>Triple Double (precio oficial {{precio:moolah-triple-double}}):</strong> la "todoterreno": high-top pensada, según Moolah, para aleros y pívots.</li>
 </ul>
 
 <h2>El pero: importación</h2>
