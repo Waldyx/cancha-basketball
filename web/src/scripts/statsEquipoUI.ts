@@ -275,6 +275,7 @@ export function initEquipo(host: HostJugador) {
         <details class="st-import st-import-paste">
           <summary>Otra federación: pega el acta (texto, captura o PDF)</summary>
           <p class="st-paste-help">Haz una <strong>captura de la tabla de estadísticas</strong> del partido y pégala aquí con Ctrl+V, o copia la tabla tal cual. También vale una foto o el PDF del acta. Se lee en tu navegador; si hace falta IA, los nombres no salen de aquí.</p>
+          <p class="st-paste-help"><strong>¿FCBQ?</strong> Su app no da la tabla por jugador: en el partido, pestaña «Jugades», graba la pantalla mientras bajas hasta el final y sube aquí el vídeo.</p>
           <textarea id="eq-paste" class="st-paste-area" rows="6" placeholder="Dorsal  Jugador  Min  Punts  T2  T3  TL  Reb  As  BR  Tap  PP  Faltes"></textarea>
           <button type="button" class="st-btn" id="eq-paste-leer">Leer acta</button>
           <p id="eq-paste-err" class="st-error hidden"></p>
