@@ -588,6 +588,10 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     catálogo (Curry 12, KD 18, Sabrina 3, Ja 3, Freak 7, MB.05, Harden 9, AE 2, Joker 1, D.O.N. 7…). Pasarla a las sucesoras
     refresca, pero muchas sucesoras solo se venden en Nike ES (sin comisión) y las viejas tienen afiliada. (2) Las Protro:
     Kobe 1/3/4/5/6 son `es_retro` (fuera de rankings modernos y Black Friday) y Kobe 8/9 High/9 Elite Low no.
+  · Enlaces externos: las 154 `fuentes` de las fichas y las 124 URL de `score-fuentes.json` comprobadas: 4 de HG daban 404
+    (formato viejo `/<x>-review/` → `/shoe-reviews/<slug>/`; la Kai 1 Speed citaba la reseña de la Kai 1). Sneaker News da 403
+    (anti-bot). Portada OG del artículo de marcas chinas: era un hotlink a wowsole.com (429) → local. Fichas ocultas: og:image
+    por defecto (su `/og/<slug>.png` no se genera). Build: 650 rutas locales, 0 rotas.
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
