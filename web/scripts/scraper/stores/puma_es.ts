@@ -63,6 +63,29 @@ async function priceFromPumaWeb(
   }
 }
 
+/**
+ * Precio y stock de la ficha de producto, del objeto `Product` de PRIMER nivel de su JSON-LD.
+ * `agotado` solo con señal POSITIVA: todas las ofertas declaran OutOfStock/SoldOut. Si no hay
+ * JSON-LD o no trae `availability`, `null`: el scrape no concluye nada sobre el stock.
+ */
+export function fichaDeJsonLd(html: string): { precio: number; agotado: boolean } | null {
+  for (const m of html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
+    let obj: any;
+    try { obj = JSON.parse(m[1]); } catch { continue; }
+    for (const item of Array.isArray(obj) ? obj : [obj]) {
+      if (item?.["@type"] !== "Product") continue;
+      const ofertas: any[] = (Array.isArray(item.offers) ? item.offers : [item.offers]).filter(Boolean);
+      const precio = ofertas.map((o) => parseFloat(o?.price ?? o?.lowPrice ?? "")).find((p) => p > 0);
+      const estados = ofertas.map((o) => String(o?.availability ?? ""));
+      if (!precio || !estados.some(Boolean)) return null;
+      if (estados.some((e) => /InStock|LimitedAvailability|PreOrder|BackOrder/i.test(e))) return { precio, agotado: false };
+      if (estados.every((e) => /OutOfStock|SoldOut|Discontinued/i.test(e))) return { precio, agotado: true };
+      return null;
+    }
+  }
+  return null;
+}
+
 async function acceptCookies(page: Page): Promise<void> {
   const selectors = [
     'button[data-testid="cookie-accept"]',
@@ -229,6 +252,27 @@ export const puma_es: StoreScraper = {
     };
 
     try {
+      // ── 0. Enlace a una ficha concreta: se lee ESA ficha (precio + stock) ──
+      // Antes se buscaba el modelo en el buscador y se daba por disponible la primera tarjeta que
+      // casaba, aunque el producto enlazado estuviera agotado (la Hali 1, 22-oct-2026).
+      if (url.includes("/pd/")) {
+        const res = await fetch(url, {
+          headers: {
+            "User-Agent":
+              "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
+              "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+            Accept: "text/html,application/xhtml+xml",
+            "Accept-Language": "es-ES,es;q=0.9",
+          },
+          redirect: "follow",
+          signal: AbortSignal.timeout(15000),
+        }).catch(() => null);
+        const ficha = res?.ok ? fichaDeJsonLd(await res.text()) : null;
+        if (ficha?.agotado) return { ...base, precio_actual: ficha.precio, agotado: true };
+        if (ficha) return { ...base, precio_actual: ficha.precio, disponible: true };
+        return base; // sin JSON-LD legible: inconcluyente
+      }
+
       // ── 1. HTTP fetch (sin browser) ──────────────────────────────────────
       const webResult = await priceFromPumaWeb(shoe);
       if (webResult) {
