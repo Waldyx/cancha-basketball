@@ -5580,7 +5580,7 @@ const _rawZapatillas: Zapatilla[] = [
     sucesor_id: null,
     peso_real_g: 320,
     altura: "low",
-    horma: "normal",
+    horma: "estrecha",
     drop_mm: 6,
     tipo_cierre: "cordones",
     material_superior: "mesh",
