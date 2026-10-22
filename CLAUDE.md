@@ -670,6 +670,14 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   clase), enlaces de párrafo subrayados en las guías. Redirecciones 301 de las 5 fichas retiradas (trae-young-4,
   harden-stepback-4, cross-em-up-speed, air-max-impact-5, rigorer-warship). Método: inyectar axe desde jsDelivr en un iframe
   del mismo origen por página (`axe.run(iframe.contentDocument)`); el tema se fuerza con `localStorage cz-tema`.
+- ✅ **Scraper de Puma**: con enlace a una ficha `/pd/` lee ESA ficha por HTTP (JSON-LD de primer nivel: precio + stock;
+  `agotado` solo con señal positiva). Antes buscaba el modelo y daba por disponible la 1.ª tarjeta: la Hali 1 agotada salía
+  disponible a 78 € (no se veía porque la ficha la tenía apagada; «la ficha manda»). Stewie 5, Scoot Zeros III y MB.06 en stock.
+  ⚠ **`nike_es` (10 enlaces visibles), `ua_es`, `nb_es` y `reebok_es` tampoco leen stock.** Nike: su JSON-LD (ProductGroup)
+  NO trae `availability` y las tallas del __NEXT_DATA__ dicen `status: ACTIVE` sin decir si hay stock → hace falta comparar
+  con una ficha AGOTADA de Nike antes de programarlo. Mientras, los de Nike se revisan a mano (último: 22-oct, los 10 vivos).
+- ✅ Portada: el vídeo del hero (3,3 MB, 37 s a 718 kbps: ya bien codificado) arranca tras el `load` y nunca con ahorro de
+  datos o «reducir movimiento».
 - ✅ **Kobe 5 Protro rescatada** (Decathlon marketplace, 233,99 € = 1,34× MSRP, 7 tallas). Descartadas: **PG 6** (una
   talla y 1 unidad) y **Why Not .6** (solo 36,5-40: curva de mujer/GS). Ocultas 43 → 42.
 - ⏸ **Search Console**: la sesión de Google del navegador integrado caducó; no se mete contraseña. Revisarlo el usuario
