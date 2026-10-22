@@ -574,6 +574,12 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     Nike (vía Sole Retriever; las del newsroom son de ambiente, y su URL exige el `m=…&s=…` firmado). Sin más imágenes que falten.
     A'Two y Caitlin 1 eran miniaturas de 320×400: ahora 600 px desde la CDN de Nike (🔑 en la ficha de nike.com/es la URL
     `t_default/…/<id>/<NOMBRE>.png` vale con `t_PDP_1280_v1/f_auto,q_auto:eco,…` delante del mismo id). SW → `cz-cache-v5`.
+  · ✅ **`ignoreCommand` comprobado en Vercel**: el commit solo-docs `7826da5` salió «Canceled by Ignored Build Step».
+    Para ver el estado de un despliegue: `gh api repos/Waldyx/cancha-basketball/commits/<sha>/status`.
+  · Enlaces de marca re-verificados (22-oct): los 10 de Nike ES vivos y InStock (KD 19 159,99, AJ 40 139,99, AJ 41 199,99…),
+    361sport ZEN 8 14/19 tallas y AG 6 9/15; Hali 1 en Puma ES sigue OutOfStock en todos los colores (enlace apagado bien).
+  · Artículos: fuera los «desde X €» de zapas ocultas (Kobe 6 Protro, Shox BB4 y las 3 Moolah): «precio oficial» o aviso de
+    que no la vende ninguna de nuestras tiendas. Las `relatedShoes` ocultas se descartan solas.
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
