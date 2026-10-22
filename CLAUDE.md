@@ -572,6 +572,8 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     exterior + tope): todos con 4-5 resultados coherentes. **Imágenes**: la MB.06 (visible y a la venta) y la LeBron 24 seguían
     con `placeholder-shoe.svg`; ahora MB.06 «Shooting Star» de su `/dp/` de Amazon (`hiRes`) y LeBron 24 de la foto oficial de
     Nike (vía Sole Retriever; las del newsroom son de ambiente, y su URL exige el `m=…&s=…` firmado). Sin más imágenes que falten.
+    A'Two y Caitlin 1 eran miniaturas de 320×400: ahora 600 px desde la CDN de Nike (🔑 en la ficha de nike.com/es la URL
+    `t_default/…/<id>/<NOMBRE>.png` vale con `t_PDP_1280_v1/f_auto,q_auto:eco,…` delante del mismo id). SW → `cz-cache-v5`.
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
