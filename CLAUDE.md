@@ -650,6 +650,10 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   jugada, con fotos de los niños) y capturarlo entero es inviable. Ideas que quedaron en el aire («ya veremos», usuario):
   leer una GRABACIÓN de pantalla de «Jugades» (fotogramas + OCR local, dedupe por periodo/minuto/marcador, el marcador de cada
   jugada como control), anotar en directo con botones por dorsal, o el Open Data de la FCBQ para el club. NO empezar sin él.
+  ⛔ **22-oct: el usuario trajo el consejo de otra IA para sacar los datos de la FCBQ** (buscar su «API oculta» en F12,
+  Playwright que pase por humano, o 2Captcha). **Descartado y explicado**: es esquivar un CAPTCHA/antibot que la FCBQ pone a
+  propósito, su robots.txt veta a los agentes de IA, vende esos datos a los clubs (Open Data) y son datos de menores. La vía
+  es pedirlos: el club con el Open Data, o un correo a la FCBQ (se ofreció redactarlo). NO volver a plantear la API oculta.
 - ✅ **22-oct (tarde): `minimax-m3.1-flash` dejó de ser gratis** (estaba vivo por la mañana) → `nemotron-3.5-super-vl` sube a 3.º
   en chat/coach/sesion y entra `nemotron-3.5-lightning` en la cola; en actas super-vl va delante. `audit-ia` revisa también
   `acta.ts`. Medido en producción: chat 3/3 bien (super-vl, 2,5-12 s; presupuesto, tobillos → mid/high, niño → solo GS),
