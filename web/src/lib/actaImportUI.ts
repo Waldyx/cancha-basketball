@@ -203,7 +203,8 @@ function estilos() {
   .acta-foto input{margin-top:3px;flex:none}
   .acta-foto button{align-self:flex-start;min-height:38px;padding:0 14px;background:#f97316;border:1px solid #f97316;color:#0c0c0c;font:900 12px Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
   .acta-foto button:disabled{opacity:.45;cursor:not-allowed}
-  .acta-drop{outline:2px dashed #f97316;outline-offset:2px}`;
+  .acta-drop{outline:2px dashed #f97316;outline-offset:2px}
+  @media (hover:none){.acta-ctrlv{display:none}}`;
   document.head.append(s);
 }
 
@@ -218,7 +219,7 @@ export function montarLectorActa(o: OpcionesLector): void {
   fila.className = "acta-x";
   fila.innerHTML = `<label class="acta-sube">📷 Subir captura, foto o PDF<input type="file" accept="image/*,application/pdf" hidden /></label>
     <span class="acta-adj" hidden></span>
-    <span>o pega la captura aquí con Ctrl+V</span>`;
+    <span class="acta-ctrlv">o pega la captura aquí con Ctrl+V</span>`;
   const input = fila.querySelector("input")!;
   const adj = fila.querySelector<HTMLElement>(".acta-adj")!;
 
