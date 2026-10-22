@@ -4,6 +4,7 @@
   "framework": "astro",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
+  "ignoreCommand": "[ -n \"$VERCEL_GIT_PREVIOUS_SHA\" ] && git diff --quiet \"$VERCEL_GIT_PREVIOUS_SHA\" HEAD -- .",
   "redirects": [
     {
       "source": "/((?!api/)(?!_astro/)[^.]*[^./])",
