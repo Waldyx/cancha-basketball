@@ -5316,7 +5316,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Ficha de posicionamiento: sale el 17-nov-2026 y hasta entonces no hay nada medido. Lo único sólido es la fecha y que Nike estrena el KingKnit y promete la LeBron más ligera. Peso, drop, altura y las ocho puntuaciones son ESTIMACIONES ancladas a la LeBron 23; se actualizan cuando salga y alguien la mida. No compres a ciegas por esta ficha.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/nike-lebron-24.webp",
     imagenes: [],
 
     fuentes: [
@@ -10033,7 +10033,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La mejor MB de la línea hasta la fecha. Para guards de hasta 90kg que quieren una zapatilla reactiva, llamativa y con buena ventilación, la MB.06 es una alternativa sólida a la AE 3 y la Ja 3 en 2025.",
 
-    imagen_principal: "/placeholder-shoe.svg",
+    imagen_principal: "/shoes/puma-mb-06.webp",
     imagenes: [],
     fuentes: [
       { tipo: "evaluacion-propia" },
