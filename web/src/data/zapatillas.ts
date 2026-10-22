@@ -1753,7 +1753,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Estética polariza",
     ],
     veredicto: "Para guards y wings que valoran cushion y soporte sobre velocidad. Mejor opción Harden en años.",
-    imagen_principal: "/shoes/adidas-harden-vol-9.jpg",
+    imagen_principal: "/shoes/adidas-harden-vol-9.webp",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/adidas-harden-vol-9-review/" },
@@ -1864,7 +1864,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Soporte y estabilidad de gama superior", "Fit excelente, true to size", "Bounce foam cómodo y protector", "Relación calidad-precio brutal cuando está rebajada"],
     contras: ["Tracción sufre con polvo", "Upper de malla rígido", "Goma fina: durabilidad outdoor justa"],
     veredicto: "Una de las mejores compras budget de adidas para pista interior limpia: soporte y fit de zapatilla mucho más cara. Si tu pista tiene polvo, limpia la suela a menudo o mira otra opción.",
-    imagen_principal: "/shoes/adidas-dame-certified-3.jpg",
+    imagen_principal: "/shoes/adidas-dame-certified-3.webp",
     imagenes: [],
     fuentes: [
       { tipo: "evaluacion-propia" },
@@ -2101,7 +2101,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Respuesta limitada por foam soft",
     ],
     veredicto: "Para forwards y pívots medianos/pesados con presupuesto. Si eres guard rápido, esta no es.",
-    imagen_principal: "/shoes/nike-lebron-witness-9.jpg",
+    imagen_principal: "/shoes/nike-lebron-witness-9.webp",
     imagenes: [],
     fuentes: [
       { tipo: "weartesters", url: "https://weartesters.com/nike-lebron-9-performance-review/" },
@@ -3083,7 +3083,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Para el junior base o escolta que quiere una signature de verdad sin pagar precio de adulto, la AE 1 Low GS es de las mejores opciones. Si necesita mas sujecion de tobillo, mira una mid.",
-    imagen_principal: "/shoes/adidas-ae-1-gs.jpg",
+    imagen_principal: "/shoes/adidas-ae-1-gs.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
@@ -3402,7 +3402,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "Si eres pívot, pesas más de 90kg y el presupuesto no es problema, el LeBron 23 es el techo tecnológico del mercado. Si buscas velocidad, ni lo mires.",
 
-    imagen_principal: "/shoes/nike-lebron-23.jpg",
+    imagen_principal: "/shoes/nike-lebron-23.webp",
     imagenes: [],
 
     fuentes: [
@@ -3620,7 +3620,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Una de las mejores compras calidad-precio de adidas: traccion y soporte de gama alta a un precio contenido. Ideal para guards y aleros que priorizan agarre y estabilidad. Si necesitas maxima proteccion de impacto (pivot pesado), busca mas cushion.",
-    imagen_principal: "/shoes/adidas-believe-that-1.jpg",
+    imagen_principal: "/shoes/adidas-believe-that-1.webp",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/adidas-believe-that-1-performance-review/" }],
     ultima_actualizacion: "2026-06-12",
@@ -3681,7 +3681,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Para el junior que prioriza agarre y estabilidad sin gastar de más: rendimiento de gama alta a precio budget. Una compra muy inteligente para pista cubierta y exterior.",
-    imagen_principal: "/shoes/adidas-believe-that-1.jpg",
+    imagen_principal: "/shoes/adidas-believe-that-1.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
@@ -3738,7 +3738,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Si buscas una zapa tecnica de baloncesto sin pagar precio de marca grande, la Canaveral 900 es de las mejores compras calidad-precio del mercado. Polivalente y bien valorada (4.7/5 con 162 resenas).",
-    imagen_principal: "/shoes/kipsta-canaveral-900.jpg",
+    imagen_principal: "/shoes/kipsta-canaveral-900.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
@@ -3792,7 +3792,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Para iniciacion, juego recreativo o entrenamiento, la SE500 Mid es la mejor relacion calidad-precio de Decathlon. Si buscas rendimiento de competicion o reactividad, sube a la Canaveral 900 o a una signature.",
-    imagen_principal: "/shoes/decathlon-tarmak-se500-mid.jpg",
+    imagen_principal: "/shoes/decathlon-tarmak-se500-mid.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
@@ -3853,7 +3853,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Si tu junior quiere LA signature del momento y juega en serio, la AE 2 GS es la mejor opcion: rendimiento real de adulto en tallaje nino. La mas aspiracional del segmento.",
-    imagen_principal: "/shoes/adidas-ae-2-gs.jpg",
+    imagen_principal: "/shoes/adidas-ae-2-gs.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
@@ -3988,7 +3988,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Para el junior base o escolta que quiere la signature de LaMelo con rendimiento real: ligera, reactiva y con flow. Para exterior intensivo, mira algo más resistente.",
-    imagen_principal: "/shoes/puma-mb05-gs.jpg",
+    imagen_principal: "/shoes/puma-mb05-gs.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
@@ -5613,7 +5613,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Para el junior de cualquier posición de perímetro que quiere lo mejor en pista cubierta: tracción, soporte y versatilidad de adulto en tallaje niño. Para exterior, busca otra cosa.",
-    imagen_principal: "/shoes/nike-sabrina-3-gs.jpg",
+    imagen_principal: "/shoes/nike-sabrina-3-gs.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
@@ -6918,7 +6918,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Cushion premium", "Muy buena estabilidad", "Icónico diseño Jordan"],
     contras: ["Algo pesada", "Durabilidad outdoor limitada", "Precio alto"],
     veredicto: "Para el jugador que quiere el look y el rendimiento Jordan en una posición versátil. Premium en todo.",
-    imagen_principal: "/shoes/jordan-xxxviii.jpg",
+    imagen_principal: "/shoes/jordan-xxxviii.webp",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/jordan-38-review/" }],
     ultima_actualizacion: "2026-05-18",
@@ -7029,7 +7029,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Para iniciacion, entrenamiento o juego recreativo con presupuesto ajustado, la Jet '25 cumple. Si buscas reactividad o rendimiento de competicion, sube de gama.",
-    imagen_principal: "/shoes/ua-jet-25.jpg",
+    imagen_principal: "/shoes/ua-jet-25.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
@@ -7144,7 +7144,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Para iniciar, entrenar o jugar recreativo el junior sin gastar mucho: cumple, dura y protege. Si compite en serio, sube de gama.",
-    imagen_principal: "/shoes/ua-jet-25.jpg",
+    imagen_principal: "/shoes/ua-jet-25.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
@@ -7369,7 +7369,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "La compra inteligente para el junior interior que juega dentro y fuera: signature de Giannis, resistente y barata. Si busca reactividad, hay opciones más técnicas.",
-    imagen_principal: "/shoes/nike-giannis-immortality-4-gs.jpg",
+    imagen_principal: "/shoes/nike-giannis-immortality-4-gs.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
@@ -8879,7 +8879,7 @@ const _rawZapatillas: Zapatilla[] = [
     pros: ["Tracción indoor muy sólida para su precio", "Lightstrike cómodo y ligero", "Excelente relación calidad-precio", "Upper textil transpirable"],
     contras: ["Suela fina: mala para outdoor", "Cushion algo plano en antepié", "Soporte justo para jugadores pesados o muy físicos"],
     veredicto: "Si buscas una zapatilla de pista interior económica con tracción fiable, la Trae Unlimited 2 es de las mejores compras budget del mercado. Para outdoor o juego muy físico, sube de gama.",
-    imagen_principal: "/shoes/adidas-trae-unlimited-2.jpg",
+    imagen_principal: "/shoes/adidas-trae-unlimited-2.webp",
     imagenes: [],
     fuentes: [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/adidas-trae-unlimited/" },
@@ -9570,7 +9570,7 @@ const _rawZapatillas: Zapatilla[] = [
     veredicto:
       "La mejor KD en años. Si eres escolta o alero, tienes pie estrecho y priorizas respuesta y bounce, la KD 19 es una de las compras más inteligentes de 2026. Para pies anchos, considera la KD 18 o la Air Jordan 40; si necesitas sujeción de tobillo, busca una mid.",
 
-    imagen_principal: "/shoes/nike-kd-19.jpg",
+    imagen_principal: "/shoes/nike-kd-19.webp",
     imagenes: [],
 
     fuentes: [
@@ -13119,7 +13119,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Imagen inferior a Jordan/Kobe retros — menos valor de recolección",
     ],
     veredicto: "Buen rendimiento retro — una de las mejores relaciones calidad-precio del mercado retro de Nike. El Zoom Air del talón la diferencia de retros sin tecnología de cushion real. Para jugadores de guards que quieren algo distinto a los Air Jordan clásicos.",
-    imagen_principal: "/shoes/nike-air-zoom-flight-95.jpg",
+    imagen_principal: "/shoes/nike-air-zoom-flight-95.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-28",
@@ -13174,7 +13174,7 @@ const _rawZapatillas: Zapatilla[] = [
       "No apta para outdoor — suela original no resiste el asfalto",
     ],
     veredicto: "Rendimiento retro correcto — el Torsion Bar y el cuero high-top hacen de la EQT Basketball una opción funcional para indoor casual. El diseño es el mejor argumento: minimalismo 90s que ningún modelo actual ha replicado. Para coleccionistas de Adidas retro, es una pieza imprescindible.",
-    imagen_principal: "/shoes/adidas-eqt-basketball.jpg",
+    imagen_principal: "/shoes/adidas-eqt-basketball.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-28",
@@ -13230,7 +13230,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Precio alto en mercado secundario para una marca sin la caché de Jordan o Kobe",
     ],
     veredicto: "Rendimiento retro correcto — la Reebok Blast es para coleccionistas de la era pre-Iverson de Reebok. Funcional para indoor casual a pesar de la edad. Para jugadores que quieren el retro Reebok más auténtico posible más allá de la Question Mid.",
-    imagen_principal: "/shoes/reebok-blast.jpg",
+    imagen_principal: "/shoes/reebok-blast.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-28",
@@ -13286,7 +13286,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Sin heel Zoom — el antepié está bien, el talón es foam básico",
     ],
     veredicto: "Muy buen rendimiento retro — la Hyperdunk 2008 es técnicamente la mejor de esta lista. El Zoom Air + Flywire aún compite con zapatillas modernas de gama media. Si buscas el retro más funcional de Nike de la era 2000-2010, esta es la elección clara.",
-    imagen_principal: "/shoes/nike-hyperdunk-2008.jpg",
+    imagen_principal: "/shoes/nike-hyperdunk-2008.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-28",
@@ -13342,7 +13342,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Narrativa inferior a Jordan/Kobe en valor de colección",
     ],
     veredicto: "Rendimiento retro correcto — funcional para indoor casual en jugadores físicos gracias al cuero high-top y la suela herringbone. El valor real es cultural: los Hornets de Larry Johnson y Alonzo Mourning son nostalgia pura. Para coleccionistas del early 90s NBA.",
-    imagen_principal: "/shoes/converse-larry-johnson.jpg",
+    imagen_principal: "/shoes/converse-larry-johnson.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-28",
@@ -14907,7 +14907,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Si eres base o escolta y te tuerces los tobillos con facilidad, pocas low-top sujetan como esta. Joya importada para quien busca estabilidad por encima de todo.",
-    imagen_principal: "/shoes/asics-unpre-ars-2.jpg",
+    imagen_principal: "/shoes/asics-unpre-ars-2.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
@@ -14962,7 +14962,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Para bases y escoltas que priorizan ligereza, traccion y sentir la pista, es de lo mejor de Asics. Y la version Extra Wide la hace unica para pie ancho.",
-    imagen_principal: "/shoes/asics-gelhoop-v17.jpg",
+    imagen_principal: "/shoes/asics-gelhoop-v17.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
@@ -15017,7 +15017,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "Si quieres una Asics mas amortiguada y todoterreno que la Gelhoop, la Glide Nova FF 4 es la eleccion comoda para guards y aleros que juegan muchos minutos.",
-    imagen_principal: "/shoes/asics-glide-nova-ff-4.jpg",
+    imagen_principal: "/shoes/asics-glide-nova-ff-4.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
@@ -15355,7 +15355,7 @@ const _rawZapatillas: Zapatilla[] = [
     contras: ["No se vende en tiendas españolas (compra en moolahkicks.com, EE.UU.)", "Sin programa de afiliados en España", "Horma 100% mujer: no apta para pie masculino"],
     veredicto:
       "Si eres jugadora y nunca has probado una zapatilla con horma femenina real, la diferencia en el ajuste del talón es enorme. La mejor opción anatómica del mercado — pero hay que importarla de EE.UU.",
-    imagen_principal: "/shoes/moolah-neovolt-pro-v3.jpg",
+    imagen_principal: "/shoes/moolah-neovolt-pro-v3.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
@@ -15401,7 +15401,7 @@ const _rawZapatillas: Zapatilla[] = [
     contras: ["Precio alto e importación desde EE.UU.", "No disponible en tiendas españolas ni con afiliado", "Horma 100% mujer: no apta para pie masculino"],
     veredicto:
       "La opción premium para la jugadora exigente que busca horma femenina real sin renunciar a materiales top. Si el presupuesto y la importación no son problema, es lo más completo del segmento mujer.",
-    imagen_principal: "/shoes/moolah-evolyte-elite.jpg",
+    imagen_principal: "/shoes/moolah-evolyte-elite.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
@@ -15447,7 +15447,7 @@ const _rawZapatillas: Zapatilla[] = [
     contras: ["Cushion básico frente a la Neovolt/Evolyte", "Importación desde EE.UU. (sin venta ni afiliado en España)", "Horma 100% mujer: no apta para pie masculino"],
     veredicto:
       "La forma más asequible de probar la horma femenina de Moolah. Para la jugadora que quiere un ajuste pensado para su pie sin ir al tope de gama. El freno sigue siendo la importación.",
-    imagen_principal: "/shoes/moolah-triple-double.png",
+    imagen_principal: "/shoes/moolah-triple-double.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
@@ -15504,7 +15504,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "La opción de una multinacional con horma 100% femenina y disponibilidad real en España. Para la jugadora que quiere estabilidad y un ajuste pensado para su pie sin importar de EE.UU. Una de las pocas mujer-exclusivas que puedes comprar aquí.",
-    imagen_principal: "/shoes/adidas-exhibit-select.jpg",
+    imagen_principal: "/shoes/adidas-exhibit-select.webp",
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-13",
@@ -15560,7 +15560,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     veredicto:
       "WearTesters la nombró la mejor Jordan de baloncesto de la temporada 2024-25 (8/10): ligera, reactiva, low-to-ground y con court feel y soporte de sobra. Una signature de mujer de verdad — y a buen precio en Forum, una compra redonda para la jugadora rápida de perímetro.",
-    imagen_principal: "/shoes/jordan-heir-series.jpg",
+    imagen_principal: "/shoes/jordan-heir-series.webp",
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/air-jordan-heir-review/" }],
     ultima_actualizacion: "2026-06-13",
