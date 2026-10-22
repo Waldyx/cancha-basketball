@@ -1017,7 +1017,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Rígida al principio: necesita unos días de rodaje",
     ],
     veredicto:
-      "De las zapatillas más completas que se pueden comprar por menos de 100 €, y vale tanto para pabellón como para la calle. Si tu pie es ancho o pasas mucho calor jugando, mira otra.",
+      "De las zapatillas más completas que se pueden comprar a precio de gama media, y vale tanto para pabellón como para la calle. Si tu pie es ancho o pasas mucho calor jugando, mira otra.",
     imagen_principal: "/shoes/lining-wow-allcity-13-encore.webp",
     imagenes: [],
     fuentes: [
