@@ -663,6 +663,13 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   ejes): la LeBron 23 salía «7/10» al compartirla y la ficha dice 8,3. Ahora `scoreBadge` + de dónde sale. Lector de actas: el
   archivo se suelta al leerlo y en /rival releer la misma acta (fecha, contrario y ≥60 % de dorsales) la sustituye; en el modo
   Equipo, si el nombre del equipo encaja con uno del acta (FEB o leída) ya no pregunta cuál es el nuestro.
+- ✅ **22-oct (tarde): accesibilidad con axe-core en 29 páginas → 0 fallos** (dos temas). 🔑 **Los grises secundarios del tema
+  oscuro no llegaban a 4,5:1**: `--cz-text-muted`/`--cz-fg4` #71717a → **#8a8a94** y `--cz-text-dim`/`--cz-fg5` #52525b → **#80808a**
+  (el contorno decorativo del pie conserva el viejo con `--cz-wordmark-stroke`). La cabecera del chat era un 2.º «banner»
+  (`<header>` → div), `<aside>` anidados → div, filtros del catálogo y paneles de la pizarra h3 → h2 (mismo estilo, por
+  clase), enlaces de párrafo subrayados en las guías. Redirecciones 301 de las 5 fichas retiradas (trae-young-4,
+  harden-stepback-4, cross-em-up-speed, air-max-impact-5, rigorer-warship). Método: inyectar axe desde jsDelivr en un iframe
+  del mismo origen por página (`axe.run(iframe.contentDocument)`); el tema se fuerza con `localStorage cz-tema`.
 - ✅ **Kobe 5 Protro rescatada** (Decathlon marketplace, 233,99 € = 1,34× MSRP, 7 tallas). Descartadas: **PG 6** (una
   talla y 1 unidad) y **Why Not .6** (solo 36,5-40: curva de mujer/GS). Ocultas 43 → 42.
 - ⏸ **Search Console**: la sesión de Google del navegador integrado caducó; no se mete contraseña. Revisarlo el usuario
