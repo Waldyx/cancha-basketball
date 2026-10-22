@@ -10,6 +10,7 @@ import {
   sumaLineas, tablaTemporada, textoPartido, tokenDeHash, uid, urlEnlace, valorColumna,
 } from "../lib/statsEquipo";
 import { montarLectorActa } from "../lib/actaImportUI";
+import { equipoDelRival, type ActaFeb } from "../lib/informeRival";
 
 export interface HostJugador {
   esc: (s: unknown) => string;
@@ -302,6 +303,8 @@ export function initEquipo(host: HostJugador) {
             febMsg = "Acta leída.<br/><strong>¿Cuál de los dos es tu equipo?</strong>";
             febOrigen = "pegado";
             febAvisos = avisos;
+            const propio = equipoPropio(eqAct);
+            if (propio >= 0) { track("Team Paste Import"); elegirEquipoActa(eqAct, propio); return; }
           }
           track("Team Paste Import");
           renderAdd();
@@ -399,6 +402,20 @@ export function initEquipo(host: HostJugador) {
     renderAll();
   };
 
+  /** Borrador del partido con el equipo `i` del acta en `febData` como el nuestro. */
+  const elegirEquipoActa = (e: Equipo, i: number) => {
+    const own = febData.equipos[i], other = febData.equipos[1 - i];
+    draft = nuevoBorrador(febOrigen, {
+      fecha: febData.fecha || hoy(), rival: String(other.nombre || ""), competicion: String(febData.competicion || ""),
+      pf: String(own.pts ?? ""), pc: String(other.pts ?? ""), rows: rowsImportadas(e, own.jugadores || []), avisos: febAvisos,
+    });
+    if (febOrigen === "feb") track("Team FEB Import");
+    febData = null; febMsg = ""; febAvisos = []; renderAdd();
+  };
+  /** Si el nombre del equipo encaja SIN DUDA con uno de los dos del acta, no hace falta preguntar. */
+  const equipoPropio = (e: Equipo) =>
+    equipoDelRival({ equipos: febData.equipos.map((t: any) => ({ ...t, pts: t.pts ?? 0 })) } as ActaFeb, e.nombre);
+
   // FEB
   const febBuscar = async () => {
     const q = ($q<HTMLInputElement>("#eq-feb-q")?.value || "").trim();
@@ -410,6 +427,8 @@ export function initEquipo(host: HostJugador) {
       if (!r.ok) { febMsg = esc(d.error || "No se pudo leer el acta."); }
       else if (!d.equipos || d.equipos.length !== 2) { febMsg = "El acta no tiene estadísticas todavía."; }
       else { febData = d; febMsg = `${esc(d.competicion)} · ${esc(fechaCorta(d.fecha))}<br/><strong>¿Cuál de los dos es tu equipo?</strong>`; }
+      const e = eq();
+      if (febData && e && equipoPropio(e) >= 0) { elegirEquipoActa(e, equipoPropio(e)); return; }
     } catch { febMsg = "No se pudo leer el acta. Comprueba la URL y reintenta."; }
     renderAdd();
     const inp = $q<HTMLInputElement>("#eq-feb-q"); if (inp) inp.value = q;
@@ -879,13 +898,8 @@ export function initEquipo(host: HostJugador) {
       case "feb-buscar": await febBuscar(); break;
       case "feb-elegir": {
         if (!e || !febData) break;
-        const i = Number(btn.dataset.i), own = febData.equipos[i], other = febData.equipos[1 - i];
-        draft = nuevoBorrador(febOrigen, {
-          fecha: febData.fecha || hoy(), rival: String(other.nombre || ""), competicion: String(febData.competicion || ""),
-          pf: String(own.pts ?? ""), pc: String(other.pts ?? ""), rows: rowsImportadas(e, own.jugadores || []), avisos: febAvisos,
-        });
-        if (febOrigen === "feb") track("Team FEB Import");
-        febData = null; febMsg = ""; febAvisos = []; renderAdd(); break;
+        elegirEquipoActa(e, Number(btn.dataset.i));
+        break;
       }
       case "guardar-partido": guardarPartido(); break;
       case "cancelar-partido": draft = null; renderAdd(); break;
