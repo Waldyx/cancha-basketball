@@ -798,10 +798,10 @@ export const SEO_PAGES: SeoPage[] = [
     h1Accent: "para mujer",
     h1Post: "",
     lede: "Las mejores zapatillas para jugadoras, en dos familias: signatures unisex con ADN femenino (Sabrina, A'One, Stewie, Jordan Heir Series) y moldes 100% femeninos de horma anatómica (UA Flow Breakthru 4, Adidas Exhibit Select).",
-    filter: (z) =>
+    filter: (z) => z.genero !== "gs" && (
       z.genero === "women" ||
       (z.tags || []).includes("mujer") ||
-      (z.signature_player !== undefined && ["Sabrina Ionescu", "Breanna Stewart", "A'ja Wilson"].some(p => z.signature_player?.includes(p))),
+      (z.signature_player !== undefined && ["Sabrina Ionescu", "Breanna Stewart", "A'ja Wilson"].some(p => z.signature_player?.includes(p)))),
     sort: byScoreDesc,
     guideTitle: "Cómo elegir zapa para baloncesto femenino",
     guideIntro: "Hay dos enfoques y conviene distinguirlos. Las signatures con ADN femenino (Sabrina, Stewie, A'One, Jordan Heir Series) se venden en tallaje unisex pero están pensadas para el juego femenino: las usan ellas y ellos. Las de horma 100% femenina (UA Flow Breakthru 4, Adidas Exhibit Select) se construyen sobre un molde anatómico de mujer (talón estrecho, arco elevado) y no tienen versión de hombre.",

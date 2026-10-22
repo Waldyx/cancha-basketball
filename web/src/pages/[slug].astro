@@ -35,8 +35,11 @@ const CAT_ACCENT: Record<string, string> = {
   "traction-king":   "var(--cz-cat-traccion)",
 };
 
-// Top 5 según filtro + orden de esta página
-const matches = zapatillas.filter(page.filter).sort(page.sort);
+// Top 5 según filtro + orden de esta página. Las GS (tallaje júnior, hasta la 40) solo en la página
+// júnior: la de talla grande llegó a recomendar la Curry 12 GS.
+const matches = zapatillas
+  .filter((z) => (z.genero !== "gs" || page.slug === "zapatillas-baloncesto-junior") && page.filter(z))
+  .sort(page.sort);
 const top5 = matches.slice(0, 5);
 const totalMatches = matches.length;
 
