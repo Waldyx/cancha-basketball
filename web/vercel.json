@@ -7,6 +7,31 @@
   "ignoreCommand": "[ -n \"$VERCEL_GIT_PREVIOUS_SHA\" ] && git diff --quiet \"$VERCEL_GIT_PREVIOUS_SHA\" HEAD -- .",
   "redirects": [
     {
+      "source": "/zapatilla/adidas-trae-young-4/",
+      "destination": "/zapatilla/adidas-trae-young-3/",
+      "permanent": true
+    },
+    {
+      "source": "/zapatilla/adidas-harden-stepback-4/",
+      "destination": "/mejores-zapatillas-adidas/",
+      "permanent": true
+    },
+    {
+      "source": "/zapatilla/adidas-cross-em-up-speed/",
+      "destination": "/mejores-zapatillas-adidas/",
+      "permanent": true
+    },
+    {
+      "source": "/zapatilla/nike-air-max-impact-5/",
+      "destination": "/mejores-zapatillas-nike/",
+      "permanent": true
+    },
+    {
+      "source": "/zapatilla/rigorer-warship/",
+      "destination": "/zapatillas/",
+      "permanent": true
+    },
+    {
       "source": "/((?!api/)(?!_astro/)[^.]*[^./])",
       "destination": "/$1/",
       "permanent": true
