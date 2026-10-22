@@ -536,6 +536,15 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     + test. Medido: recomienda Dame Certified, All City 13 Encore y Stewie 5. Y con «pie ancho» fuera las de horma estrecha.
   · **Black Friday** (`b06bd21`): fuera Li-Ning, Anta, Peak y Rigorer del top por descuento: su MSRP es la tarifa en $ de
     importación a EE. UU. y el «descuento» de POIZON era de cartel (Flash 2 y AC14 encabezaban). 361° se queda (tarifa en €).
+  · 🔑 **`msrpComparable(z)`** (`scoring.ts`): sin «−X %» ni MSRP tachado para Li-Ning/Anta/Peak/Rigorer en ficha, catálogo,
+    resultados, SEO, OG y portada (la Flash 2 enseñaba «−53 %»). Su MSRP sigue valiendo para el corte de reventa.
+  · **Horma con WearTesters como 2.ª fuente** (`scratchpad/wt_fit.py`, caché en `$TEMP/wtcat`; sección «Fit» de 110 reseñas):
+    → estrecha donde WT Y HG coinciden: Luka 77 (+GS), Tatum 2, Kawhi 1, Book 1, GT Cut 3, Harden Vol 10, MB.03 y Wade DLo 1
+    (WT: «tira a estrecha»). ancha → normal donde HG dice ceñida/«narrow to regular best»: Witness 9, NXXT Gen, Freak 6,
+    LeBron 21. Se quedan: Luka 3 y A'Two (HG holgadas), Book 2 (HG «varía»), FUTR X Elite (HG «permisiva»). Las reseñas de
+    retros 2026 de WT (AJ 3/6/13) puntúan materiales, no rendimiento: no anclan nota. Reparto adulto: 14 ancha · 104 · 39.
+  · Chat: prohibidos los superlativos sobre el catálogo entero («la más ligera del catálogo» con 12 empatadas). Medido:
+    cadena viva (audit-ia), nemotron-3.5 contesta bien; `/api/sesion` 75 min exactos con 11 jugadores.
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
