@@ -51,7 +51,7 @@ function sortBy(id: string, key: keyof typeof zapatillas[0]["puntuaciones"] | nu
   const poolModern = pool.filter(z => !z.es_retro);
   const arr = id === "retro" ? pool.filter(z => z.es_retro)
     : id === "trending" ? poolModern.filter(z => (z.tags || []).includes("trending"))
-    : id === "mujer" ? zapatillas.filter(z => !z.proximamente && (z.genero === "women" || (z.tags || []).includes("mujer")))
+    : id === "mujer" ? zapatillas.filter(z => !z.proximamente && z.genero !== "gs" && (z.genero === "women" || (z.tags || []).includes("mujer")))
     : id === "junior" ? zapatillas.filter(z => z.genero === "gs")
     : [...poolModern];
   if (id === "valor") return arr.sort((a, b) => (valueMap.get(b.slug) ?? 0) - (valueMap.get(a.slug) ?? 0));
