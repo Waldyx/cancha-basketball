@@ -851,6 +851,8 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 9px; font-weight: 900; text-transform: uppercase;
   letter-spacing: 0.18em; color: #fb923c;
 }
+/* En el tema claro el naranja suave sobre cemento daba 1,5:1 (axe, 22-oct). */
+:root[data-cz-theme="claro"] .cz-pick .pick-cat { color: var(--cz-accent-text); }
 .cz-pick .pick-new {
   padding: 4px 9px; background: rgba(74,222,128,0.15); color: var(--cz-green);
   border: 1px solid rgba(74,222,128,0.3);

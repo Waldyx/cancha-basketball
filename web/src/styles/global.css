@@ -24,14 +24,15 @@
   --cz-text: #ffffff;
   --cz-text-soft: #d4d4d8;
   --cz-text-2: #a1a1aa;
-  --cz-text-muted: #71717a;
-  --cz-text-dim: #52525b;
+  --cz-text-muted: #8a8a94; /* 22-oct: #71717a daba 3,7:1 sobre las tarjetas (axe); ahora ≥5:1 */
+  --cz-text-dim: #80808a; /* 22-oct: #52525b daba 2,3:1; ahora ≥4,5:1 sobre #18181b */
   --cz-fg1: #ffffff;
   --cz-fg2: #d4d4d8;
   --cz-fg3: #a1a1aa;
-  --cz-fg4: #71717a;
-  --cz-fg5: #52525b;
+  --cz-fg4: #8a8a94;
+  --cz-fg5: #80808a;
   --cz-fg6: #3f3f46;
+  --cz-wordmark-stroke: #52525b;
   --cz-watermark: rgba(255, 255, 255, 0.05);
   --cz-chip: rgba(24, 24, 27, 0.85);
   --cz-badge: rgba(39, 39, 42, 0.8);
@@ -107,6 +108,7 @@
   --cz-fg2: #292524;
   --cz-fg3: #44403c;
   --cz-fg4: #57534e;
+  --cz-wordmark-stroke: #4b4743;
   --cz-fg5: #4b4743;
   --cz-fg6: #4b4743;
   --cz-watermark: rgba(0, 0, 0, 0.07);
@@ -158,13 +160,13 @@
   --cz-text: #ffffff;
   --cz-text-soft: #d4d4d8;
   --cz-text-2: #a1a1aa;
-  --cz-text-muted: #71717a;
-  --cz-text-dim: #52525b;
+  --cz-text-muted: #8a8a94; /* 22-oct: #71717a daba 3,7:1 sobre las tarjetas (axe); ahora ≥5:1 */
+  --cz-text-dim: #80808a; /* 22-oct: #52525b daba 2,3:1; ahora ≥4,5:1 sobre #18181b */
   --cz-fg1: #ffffff;
   --cz-fg2: #d4d4d8;
   --cz-fg3: #a1a1aa;
-  --cz-fg4: #71717a;
-  --cz-fg5: #52525b;
+  --cz-fg4: #8a8a94;
+  --cz-fg5: #80808a;
   --cz-fg6: #3f3f46;
   --cz-watermark: rgba(255, 255, 255, 0.05);
   --cz-chip: rgba(24, 24, 27, 0.85);
