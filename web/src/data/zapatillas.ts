@@ -629,7 +629,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 5, ventilacion: 9,
     },
     categoria_principal: "responsive",
-    tags: ["signature", "tope-de-gama", "low-top", "ligera", "retro"],
+    tags: ["signature", "tope-de-gama", "low-top", "ligera"],
     ideal_para: {
       posiciones: ["base", "escolta"],
       peso_jugador_kg: [60, 90],
@@ -9919,7 +9919,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["retro", "protro", "signature", "high-top", "kobe", "2024"],
+    tags: ["protro", "signature", "high-top", "kobe", "2024"],
 
     ideal_para: {
       posiciones: ["alero", "escolta", "ala-pivot"],
