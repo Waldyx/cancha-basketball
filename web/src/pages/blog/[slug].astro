@@ -368,6 +368,8 @@ const CATEGORIA_COLOR: Record<string, string> = {
     .art-body :global(li) { margin-bottom: 6px; }
     .art-body :global(strong) { color: var(--cz-text-soft); }
     .art-body :global(a) { color: var(--cz-accent-text); }
+    /* un enlace dentro de un párrafo no puede distinguirse solo por el color (axe, 22-oct) */
+    .art-body :global(p a), .art-body :global(li a) { text-decoration: underline; text-underline-offset: 2px; }
     .art-body :global(a:hover) { color: var(--cz-amber-text); }
     .art-body :global(table) {
       width: 100%;

@@ -100,7 +100,7 @@ const ringFracs = [0.33, 0.66, 1];
           {/* MARCA · MODELO */}
           <div class="cmp-cell lab"><span class="cmp-lab">Marca · Modelo</span></div>
           {shoes.map((z) => (
-            <div class="cmp-cell"><p class="cmp-marca">{z.marca}</p><h3 class="cmp-modelo">{z.modelo}</h3></div>
+            <div class="cmp-cell"><p class="cmp-marca">{z.marca}</p><h2 class="cmp-modelo">{z.modelo}</h2></div>
           ))}
 
           {/* CATEGORÍA */}
@@ -240,7 +240,7 @@ const ringFracs = [0.33, 0.66, 1];
 
       // marca modelo
       h += `<div class="cmp-cell lab"><span class="cmp-lab">Marca · Modelo</span></div>`;
-      shoes.forEach(z => { h += `<div class="cmp-cell"><p class="cmp-marca">${esc(z.marca)}</p><h3 class="cmp-modelo">${esc(z.modelo)}</h3></div>`; });
+      shoes.forEach(z => { h += `<div class="cmp-cell"><p class="cmp-marca">${esc(z.marca)}</p><h2 class="cmp-modelo">${esc(z.modelo)}</h2></div>`; });
 
       // categoría
       h += `<div class="cmp-cell lab"><span class="cmp-lab">Categoría</span></div>`;
