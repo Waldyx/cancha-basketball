@@ -611,6 +611,12 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     Sabrina 3 es estrecha), FAQ de pie ancho (la KD 19 va estrecha), FAQ de New Balance (sin la TWO WXY v5, oculta) y FAQ
     de Converse (preguntaba por la inexistente «BBall Pro» y recomendaba la All Star Pro BB oculta → SHAI 001). 7
     comparativas sin «en 2025» en título/meta. All City 13 sin «menos de 100 €» en la prosa.
+  · **Pasada del 22-oct revisada**: 0 zapas visibles sin compra; 16 «desde» cambian (casi todo céntimos). 🔴 **Bug del
+    scraper**: FuikaOmar daba el producto por agotado si UNA talla del JSON-LD decía OutOfStock (la Trae Young 3 tenía 4
+    InStock y 1 agotada; también la MB.04 «Love»), y Forum/Snipes miraban solo `offers[0]` → ahora basta una oferta InStock
+    (+ tests, 663). Los otros 8 agotados de FuikaOmar son reales. Tatum 3: FuikaOmar agotada → Amazon HV5882-100 (5 tallas,
+    desde 99,99). GT Cut Academy 2: ECI agotada; en Amazon la HV9774 (= Academy 2) solo tiene 3 tallas → no entra, se queda
+    con su búsqueda de Amazon; ▶️ revisar si ECI repone. AJ 6: Snipes agotada de verdad (una sola oferta).
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
