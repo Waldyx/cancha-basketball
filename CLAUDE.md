@@ -607,6 +607,10 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     la Omni Lite de adulto → **oculta (49 → 50)**. 🔑 **`#outOfStock` en una `/dp/` con selector de talla solo dice que la
     talla POR DEFECTO está agotada**: hay que pedir cada ASIN hijo (`li[data-asin]` del selector, `/dp/<hijo>?th=1&psc=1`)
     y mirar `#add-to-cart-button`. «Ver opciones disponibles» = solo vendedores externos (a menudo reventa).
+  · Texto contra los cambios de horma y ocultas: SEO Nike («la LeBron 22 y 23 y la Freak 4» son anchas), SEO mujer (la
+    Sabrina 3 es estrecha), FAQ de pie ancho (la KD 19 va estrecha), FAQ de New Balance (sin la TWO WXY v5, oculta) y FAQ
+    de Converse (preguntaba por la inexistente «BBall Pro» y recomendaba la All Star Pro BB oculta → SHAI 001). 7
+    comparativas sin «en 2025» en título/meta. All City 13 sin «menos de 100 €» en la prosa.
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
