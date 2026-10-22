@@ -113,9 +113,21 @@ const homeJsonLd = {
     <section class="home-hero">
       <div class="home-hero-bg" aria-hidden="true">
         <img src="/bg-court.svg" alt="" />
-        <video src="/hero-cancha.mp4" poster="/hero-cancha-poster.jpg"
-               autoplay muted loop playsinline preload="metadata"
+        <video id="home-hero-video" poster="/hero-cancha-poster.jpg"
+               muted loop playsinline preload="none"
                onerror="this.remove()"></video>
+        {/* El vídeo (3,3 MB) ya no se baja con autoplay a la vez que la página: se arranca al acabar de
+            cargar, y nunca con «ahorro de datos» o «reducir movimiento» (se queda el póster). */}
+        <script is:inline>
+          (function () {
+            var v = document.getElementById("home-hero-video");
+            if (!v) return;
+            var c = navigator.connection;
+            if ((c && c.saveData) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+            var go = function () { v.src = "/hero-cancha.mp4"; var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+            if (document.readyState === "complete") go(); else addEventListener("load", go, { once: true });
+          })();
+        </script>
       </div>
       <div class="shell home-hero-inner">
         <div class="home-hero-grid">
