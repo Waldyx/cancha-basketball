@@ -9,7 +9,7 @@ import { findMejorPrecio, findMejorPrecioMostrado, mostramosPrecio, esEnlaceDeBu
 import PriceAlert from "../../components/PriceAlert.astro";
 import CosteBlock from "../../components/CosteBlock.astro";
 import { ARTICLES } from "../../lib/articles";
-import { PROMOS, mejorCodigo } from "../../data/promos";
+import { mejorCodigo, promosNoCaducadas } from "../../data/promos";
 
 export async function getStaticPaths() {
   // `zapatillasTodas` y no `zapatillas`: las ocultas conservan su ficha viva (200 +
@@ -138,7 +138,7 @@ const linksOrdenados = unaFilaPorTienda([...z.links_compra].filter(l => l.dispon
 // por fecha la hace un script en cliente (web estática).
 type FichaPromo = { id: string; desde: string; hasta: string; color: string; tiendaLabel: string; titulo: string; fin: string; texto: string; nota: string };
 const promosFicha: FichaPromo[] = [];
-for (const p of PROMOS) {
+for (const p of promosNoCaducadas()) {
   const link = z.links_compra.find((l) => l.tienda === p.tienda);
   if (!link) continue;
   const fin = new Date(p.hasta).toLocaleDateString("es-ES", { day: "numeric", month: "short" });

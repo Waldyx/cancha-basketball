@@ -4,9 +4,9 @@
 // rotando entre las promos vigentes hoy (carrusel, cambio cada 5s, pausa al
 // pasar el ratón). Gating por fecha en cliente (web estática).
 // ?promo=preview fuerza mostrarlas todas (para previsualizar antes de su fecha).
-import { PROMOS } from "../data/promos";
+import { promosNoCaducadas } from "../data/promos";
 
-const promosData = PROMOS.map((p) => ({
+const promosData = promosNoCaducadas().map((p) => ({
   id: p.id,
   tiendaLabel: p.tiendaLabel,
   titulo: p.titulo,

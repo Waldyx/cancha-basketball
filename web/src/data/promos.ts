@@ -551,6 +551,17 @@ export function promosActivas(now: Date = new Date()): Promo[] {
   return PROMOS.filter((p) => t >= new Date(p.desde).getTime() && t <= new Date(p.hasta).getTime());
 }
 
+/**
+ * Promos que aún no han acabado (activas o futuras). Es lo que se mete en el HTML: la web se
+ * reconstruye al menos cada noche (el commit del scraper de precios), y meter TODAS las promos
+ * desde junio en cada página eran 15 KB × ~380 páginas por despliegue. La activación por fecha
+ * la sigue haciendo el cliente.
+ */
+export function promosNoCaducadas(now: Date = new Date()): Promo[] {
+  const t = now.getTime();
+  return PROMOS.filter((p) => new Date(p.hasta).getTime() >= t);
+}
+
 /** Mejor código aplicable a un precio (el de mayor descuento que cumpla la compra mínima). */
 export function mejorCodigo(promo: Promo, precio: number): PromoCodigo | null {
   if (!promo.codigos?.length) return null;

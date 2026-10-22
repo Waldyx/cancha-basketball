@@ -12,7 +12,7 @@
 
 import sharp from "sharp";
 import { zapatillas } from "../../data/zapatillas";
-import { findMejorPrecioMostrado, msrpComparable } from "../../lib/scoring";
+import { findMejorPrecioMostrado, msrpComparable, scoreBadge, scoreMeta } from "../../lib/scoring";
 
 export const getStaticPaths = () =>
   zapatillas.map((z) => ({ params: { slug: z.slug } }));
@@ -38,7 +38,11 @@ export const GET = async ({ params }: { params: Record<string, string> }) => {
   const z = zapatillas.find((x) => x.slug === params.slug);
   if (!z) return new Response("Not found", { status: 404 });
 
-  const score = Math.round((Object.values(z.puntuaciones).reduce((a, b) => a + b, 0) / 8) * 10) / 10;
+  // El MISMO score que la ficha (consenso de fuentes − ajuste por antigüedad). Antes era la media
+  // simple de los 8 ejes: la LeBron 23 salía «7/10» al compartirla y la ficha decía otra cosa.
+  const badge = scoreBadge(z);
+  const conFuente = scoreMeta(z).fuentes.filter((f) => f.score > 0).map((f) => f.nombre);
+  const origenScore = z.proximamente ? "Aún sin lanzar" : conFuente.length ? `Consenso de ${conFuente.join(" y ")}` : "Estimación editorial";
   const mejor = findMejorPrecioMostrado(z.links_compra, z.precio_msrp_eur);
   const precio = mejor?.precio_actual ?? z.precio_msrp_eur;
   const ahorro = mejor && msrpComparable(z) && mejor.precio_actual < z.precio_msrp_eur
@@ -99,14 +103,14 @@ export const GET = async ({ params }: { params: Record<string, string> }) => {
 
   <!-- Score chip -->
   <g transform="translate(60,440)">
-    <rect x="0" y="0" width="120" height="58" fill="#f97316"/>
-    <text x="60" y="42" font-family="'Barlow Condensed', system-ui, sans-serif" font-size="36"
-          font-weight="900" fill="#0c0c0c" text-anchor="middle">${score}/10</text>
+    <rect x="0" y="0" width="128" height="58" fill="#f97316"/>
+    <text x="64" y="41" font-family="'Barlow Condensed', system-ui, sans-serif" font-size="32"
+          font-weight="900" fill="#0c0c0c" text-anchor="middle">${z.proximamente ? badge : `${badge}/10`}</text>
   </g>
   <text x="200" y="465" font-family="system-ui, sans-serif" font-size="14" font-weight="900"
         fill="#71717a" letter-spacing="3">SCORE CANCHA</text>
   <text x="200" y="488" font-family="system-ui, sans-serif" font-size="13" font-weight="700"
-        fill="#a1a1aa">Media ponderada · ${z.fuentes.length || 1} fuente${z.fuentes.length === 1 ? "" : "s"}</text>
+        fill="#a1a1aa">${escape(origenScore)}</text>
 
   <!-- Price chip -->
   <g transform="translate(60,520)">
@@ -132,8 +136,10 @@ export const GET = async ({ params }: { params: Record<string, string> }) => {
   <rect x="0" y="624" width="1200" height="6" fill="${cat}"/>
 </svg>`;
 
-  // Rasterizar el SVG a PNG (1200×630) con sharp
-  const png = await sharp(Buffer.from(svg)).png().toBuffer();
+  // Rasterizar el SVG a PNG (1200×630) con sharp. Sin canal alfa (el fondo es opaco) y con la
+  // compresión al máximo: mismos píxeles y la mitad de peso (74 → 37 KB; son ~240 por despliegue).
+  // Con paleta bajaba a 24 KB, pero el degradado del fondo salía en anillos.
+  const png = await sharp(Buffer.from(svg)).removeAlpha().png({ compressionLevel: 9, effort: 10 }).toBuffer();
 
   return new Response(new Uint8Array(png), {
     headers: {
