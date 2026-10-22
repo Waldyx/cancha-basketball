@@ -642,6 +642,10 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   ⚠ Sin fila de cabecera la IA adivina las columnas y se equivoca: el texto tiene que llevarla. Lógica en `lib/actaIA.ts`, interfaz en
   `lib/actaImportUI.ts`. 🔑 La web de la FCBQ: la página `/estadistica/equip/…` es el resumen de temporada (sin jugadores);
   la tabla por jugador está en cada partido (flecha › de la lista) → pestaña «Resum». NO abrirla nosotros (robots.txt).
+  ✅ **Capturas largas del móvil** (`0e712e4`): se cortan en trozos solapados (OCR: cada palabra la aporta el trozo en
+  cuya franja propia cae; IA: hasta 6 trozos en una petición y la fila repetida fuera). Medido: 1080×7000 con filas en
+  los cortes → 8/8 exactas en 10 s en el navegador; 3 trozos a la IA en producción → 5/5 y la fila del corte una vez.
+  En la app de la FCBQ la pestaña «Jugades» es jugada a jugada (con fotos de los niños): la buena es «Resum».
 - ✅ **Kobe 5 Protro rescatada** (Decathlon marketplace, 233,99 € = 1,34× MSRP, 7 tallas). Descartadas: **PG 6** (una
   talla y 1 unidad) y **Why Not .6** (solo 36,5-40: curva de mujer/GS). Ocultas 43 → 42.
 - ⏸ **Search Console**: la sesión de Google del navegador integrado caducó; no se mete contraseña. Revisarlo el usuario
