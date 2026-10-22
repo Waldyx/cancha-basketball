@@ -605,7 +605,7 @@ export function mejoresDelPartido(eq: Equipo, p: PartidoEq, n = 3) {
 // Detecta las columnas por su cabecera (catalán/castellano) → no asume orden.
 // Sinónimos normalizados (sin acentos ni símbolos): cabecera → campo interno.
 export const COLS: Record<string, string[]> = {
-  dorsal: ["dorsal", "d", "num", "numero", "no", "n"],
+  dorsal: ["dorsal", "dors", "d", "num", "numero", "no", "n"],
   nombre: ["jugador", "jugadora", "nom", "nombre", "name", "cognom", "cognoms", "jugadores"],
   min: ["min", "minuts", "minutos", "m"],
   pts: ["punts", "puntos", "pts", "pt", "p"],

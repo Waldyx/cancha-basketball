@@ -137,3 +137,11 @@ describe("arreglarOcr con cabecera", () => {
     expect(fraccionPerdida("4l7")).toBe("4/7");
   });
 });
+
+describe("normalizarActa con trozos solapados", () => {
+  it("una fila leída en dos trozos cuenta una vez", () => {
+    const fila = { dorsal: "7", nombre: "Marc", t2c: 4, t2i: 7 };
+    const a = normalizarActa({ equipos: [{ nombre: "A", jugadores: [fila, { ...fila, nombre: "MARC" }, { dorsal: "9", nombre: "Pau" }] }] })!;
+    expect(a.equipos[0].jugadores.map((j) => j.dorsal)).toEqual(["7", "9"]);
+  });
+});

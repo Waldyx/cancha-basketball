@@ -45,20 +45,34 @@ function cargarScript(src: string): Promise<void> {
 }
 
 // ─── imágenes ──────────────────────────────────────────────────────────────
-/** La imagen en un lienzo con su lado mayor ≤ maxLado; con `ampliar`, además, hasta ×3. */
-async function lienzoDe(img: Blob, maxLado: number, ampliar = false): Promise<HTMLCanvasElement> {
+/**
+ * La imagen escalada a `k` y cortada en trozos verticales de `alto` px (ya escalados) que se solapan
+ * `solape` px, para que ninguna fila se quede partida por la mitad en todos. Una captura con
+ * desplazamiento del móvil mide 1080 × 6000-15000: entera, o se encoge hasta no leerse o no cabe.
+ * `desde`/`hasta` marcan la franja que es «propia» de cada trozo (sin el solape).
+ */
+async function trozosDe(img: Blob, escala: (w: number, h: number) => number, alto: number, solape: number) {
   const bmp = await createImageBitmap(img);
-  const k = Math.min(ampliar ? 3 : 1, maxLado / Math.max(bmp.width, bmp.height));
-  const c = document.createElement("canvas");
-  c.width = Math.round(bmp.width * k);
-  c.height = Math.round(bmp.height * k);
-  const ctx = c.getContext("2d")!;
-  ctx.fillStyle = "#fff";
-  ctx.fillRect(0, 0, c.width, c.height);
-  ctx.imageSmoothingQuality = "high";
-  ctx.drawImage(bmp, 0, 0, c.width, c.height);
+  const k = escala(bmp.width, bmp.height);
+  const W = Math.round(bmp.width * k);
+  const H = Math.round(bmp.height * k);
+  const out: { lienzo: HTMLCanvasElement; y0: number; desde: number; hasta: number }[] = [];
+  for (let desde = 0; desde < H; desde += alto) {
+    const hasta = Math.min(H, desde + alto);
+    const y0 = Math.max(0, desde - solape);
+    const y1 = Math.min(H, hasta + solape);
+    const c = document.createElement("canvas");
+    c.width = W;
+    c.height = y1 - y0;
+    const ctx = c.getContext("2d")!;
+    ctx.fillStyle = "#fff";
+    ctx.fillRect(0, 0, c.width, c.height);
+    ctx.imageSmoothingQuality = "high";
+    ctx.drawImage(bmp, 0, y0 / k, bmp.width, (y1 - y0) / k, 0, 0, W, y1 - y0);
+    out.push({ lienzo: c, y0, desde, hasta });
+  }
   bmp.close();
-  return c;
+  return out;
 }
 
 /** Grises, invertida si la captura es de tema oscuro, y con el contraste estirado: Tesseract lee
@@ -100,23 +114,29 @@ async function ocr(img: Blob, progreso: (p: number) => void): Promise<string> {
   await cargarScript(TESSERACT_URL);
   const T = (window as any).Tesseract;
   // ×3 y gamma 2: medido el 22-oct con una tabla en gris claro de 15 px, la única combinación
-  // que leyó todas las fracciones (a ×1,5 o ×2 se perdían «4/7» o «0/1»)
-  const lienzo = prepararParaOcr(await lienzoDe(img, 5000, true));
+  // que leyó todas las fracciones (a ×1,5 o ×2 se perdían «4/7» o «0/1»). Tope de 40 Mpx en
+  // total para que una captura larga no ahogue al móvil.
+  const trozos = await trozosDe(img, (w, h) => Math.min(3, 5000 / w, Math.sqrt(40e6 / (w * h))), 3000, 150);
+  let hecho = 0;
   const worker = await T.createWorker(["spa", "cat"], 1, {
-    logger: (m: any) => { if (m?.status === "recognizing text") progreso(m.progress ?? 0); },
+    logger: (m: any) => { if (m?.status === "recognizing text") progreso((hecho + (m.progress ?? 0)) / trozos.length); },
   });
   try {
     // 6 = un bloque de texto uniforme: conserva las filas de la tabla en vez de partirla en columnas
     await worker.setParameters({ tessedit_pageseg_mode: "6", preserve_interword_spaces: "1" });
-    const { data } = await worker.recognize(lienzo);
-    const cajas: CajaTexto[] = (data.words ?? []).map((w: any) => ({
-      texto: String(w.text ?? ""),
-      x: w.bbox.x0,
-      y: w.bbox.y0,
-      ancho: w.bbox.x1 - w.bbox.x0,
-      alto: w.bbox.y1 - w.bbox.y0,
-    }));
-    return arreglarOcr((cajas.length ? filasDeCajas(cajas) : String(data.text ?? "")).trim());
+    const cajas: CajaTexto[] = [];
+    for (const t of trozos) {
+      const { data } = await worker.recognize(prepararParaOcr(t.lienzo));
+      for (const w of data.words ?? []) {
+        const y = t.y0 + w.bbox.y0;
+        const centro = y + (w.bbox.y1 - w.bbox.y0) / 2;
+        // cada palabra la aporta solo el trozo en cuya franja propia cae (el solape no duplica)
+        if (centro < t.desde || centro >= t.hasta) continue;
+        cajas.push({ texto: String(w.text ?? ""), x: w.bbox.x0, y, ancho: w.bbox.x1 - w.bbox.x0, alto: w.bbox.y1 - w.bbox.y0 });
+      }
+      hecho++;
+    }
+    return arreglarOcr(filasDeCajas(cajas).trim());
   } finally {
     await worker.terminate();
   }
@@ -153,7 +173,7 @@ async function leerPdf(file: Blob): Promise<{ texto: string; imagen: Blob | null
 }
 
 // ─── IA ────────────────────────────────────────────────────────────────────
-async function pedirIA(cuerpo: Record<string, string>): Promise<ActaLeida> {
+async function pedirIA(cuerpo: Record<string, string | string[]>): Promise<ActaLeida> {
   let r: Response;
   try {
     r = await fetch("/api/acta", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(cuerpo) });
@@ -206,7 +226,7 @@ export function montarLectorActa(o: OpcionesLector): void {
   foto.className = "acta-foto";
   foto.hidden = true;
   foto.innerHTML = `<p style="margin:0" data-msg></p>
-    <label><input type="checkbox" /> <span>Entiendo que la imagen, <strong>con los nombres que aparezcan</strong>, se envía a un modelo de IA gratuito (vía OpenRouter) solo para leerla. Aquí no se guarda, pero el proveedor del modelo podría conservarla.</span></label>
+    <label><input type="checkbox" /> <span>Entiendo que la imagen, <strong>con los nombres y las fotos que aparezcan</strong>, se envía a un modelo de IA gratuito (vía OpenRouter) solo para leerla. Aquí no se guarda, pero el proveedor del modelo podría conservarla.</span></label>
     <button type="button" disabled>Enviar la foto a la IA</button>`;
   const fotoMsg = foto.querySelector<HTMLElement>("[data-msg]")!;
   const fotoOk = foto.querySelector<HTMLInputElement>("input")!;
@@ -343,8 +363,11 @@ export function montarLectorActa(o: OpcionesLector): void {
     fotoBtn.disabled = true;
     o.estado("Enviando la foto a la IA…");
     try {
-      const c = await lienzoDe(imagenParaIA, 1800);
-      const acta = await pedirIA({ modo: "foto", imagen: c.toDataURL("image/jpeg", 0.85) });
+      // ancho ≤ 1100 y trozos de 1500 px de alto (máx. 6): una captura larga del móvil se manda en
+      // trozos legibles en vez de encogida hasta no leerse
+      const trozos = await trozosDe(imagenParaIA, (w, h) => Math.min(1, 1100 / w, 8400 / h), 1500, 100);
+      const imagenes = trozos.map((t) => t.lienzo.toDataURL("image/jpeg", 0.8));
+      const acta = await pedirIA({ modo: "foto", imagenes });
       foto.hidden = true;
       entregar(acta, "foto");
     } catch (e) {

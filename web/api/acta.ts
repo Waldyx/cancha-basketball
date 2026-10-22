@@ -4,8 +4,10 @@
  * Contrato (lo envía `src/lib/actaImportUI.ts` desde estadísticas y el informe del rival):
  *   POST /api/acta { modo: "texto", texto }   → el texto del acta SIN NOMBRES: el navegador los
  *                                              cambia por códigos (NOM1, NOM2…) y los repone él.
- *   POST /api/acta { modo: "foto", imagen }   → data URL JPEG/PNG. Solo con el consentimiento
- *                                              explícito del entrenador, porque lleva los nombres.
+ *   POST /api/acta { modo: "foto", imagenes } → 1-6 data URL JPEG/PNG: la captura, o una captura
+ *                                              larga del móvil cortada en trozos de arriba abajo.
+ *                                              Solo con el consentimiento explícito del entrenador,
+ *                                              porque lleva los nombres. (`imagen` suelta también vale.)
  *   → 200 { acta: { fecha, sinIntentos, equipos: [{ nombre, pts, jugadores: [{ nombre, dorsal, min,
  *           pts, t2c, t2i, t3c, t3i, tlc, tli, ro, rd, ast, rob, tap, per, fal }] }] } }
  *   → 502 { error, estados, detalle }
@@ -33,7 +35,8 @@ function rateLimited(ip: string): boolean {
 }
 
 export const MAX_TEXTO = 15000;
-export const MAX_IMAGEN = 3_500_000; // caracteres del data URL (~2,6 MB de imagen)
+export const MAX_IMAGEN = 3_500_000; // caracteres de los data URL juntos (~2,6 MB; Vercel corta en 4,5 MB)
+export const MAX_TROZOS = 6;
 
 export const STATS = ["min", "t2c", "t2i", "t3c", "t3i", "tlc", "tli", "ro", "rd", "ast", "rob", "tap", "per", "fal"] as const;
 type Stat = (typeof STATS)[number];
@@ -73,6 +76,8 @@ REGLAS:
 - "fecha" solo si aparece en el acta.`;
 
 const INSTRUCCION_FOTO = "Esta imagen es un acta o una tabla de estadísticas de un partido de baloncesto. Pásala al JSON. Lee con cuidado cada fila y cada columna: si un número no se lee bien, pon 0.";
+const INSTRUCCION_TROZOS = (n: number) =>
+  `Estas ${n} imágenes son trozos seguidos, de arriba abajo, de UNA MISMA captura larga de un acta o una tabla de estadísticas de baloncesto. Los trozos se solapan un poco: una fila que salga en dos trozos se cuenta UNA vez. Pásala al JSON. Lee con cuidado cada fila y cada columna: si un número no se lee bien, pon 0.`;
 
 /** Entero en [0, tope]; acepta "12", 12.4, "24:35" (minutos). */
 function entero(v: unknown, tope: number): number {
@@ -126,6 +131,8 @@ export function normalizarActa(raw: unknown): ActaLeida | null {
       const dorsal = texto(y.dorsal, 3).replace(/\D/g, "");
       if (!nombre && !dorsal) continue;
       if (/^(total|totals|totales|equip|equipo|team)\b/i.test(nombre)) continue;
+      // la misma fila leída en dos trozos solapados de una captura larga
+      if (jugadores.some((p) => p.dorsal === dorsal && p.nombre.toLowerCase() === nombre.toLowerCase())) continue;
       const g = { nombre, dorsal, pts: puntosONull(y.pts, 150) } as JugadorLeido;
       for (const k of STATS) g[k] = entero(y[k], TOPE[k]);
       // los intentos nunca por debajo de los anotados
@@ -177,12 +184,15 @@ export default async function handler(req: any, res: any) {
     if (t.length > MAX_TEXTO) { res.status(413).json({ error: "El acta es demasiado larga: pega solo la tabla de estadísticas." }); return; }
     contenido = `ACTA:\n${t}`;
   } else if (modo === "foto") {
-    const img = typeof body.imagen === "string" ? body.imagen : "";
-    if (!/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(img)) { res.status(400).json({ error: "Imagen no válida." }); return; }
-    if (img.length > MAX_IMAGEN) { res.status(413).json({ error: "La imagen es demasiado grande." }); return; }
+    const imgs: unknown[] = Array.isArray(body.imagenes) ? body.imagenes : [body.imagen];
+    if (!imgs.length || imgs.length > MAX_TROZOS || !imgs.every((x) => typeof x === "string" && /^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(x))) {
+      res.status(400).json({ error: "Imagen no válida." });
+      return;
+    }
+    if ((imgs as string[]).reduce((a, x) => a + x.length, 0) > MAX_IMAGEN) { res.status(413).json({ error: "La imagen es demasiado grande." }); return; }
     contenido = [
-      { type: "text", text: INSTRUCCION_FOTO },
-      { type: "image_url", image_url: { url: img } },
+      { type: "text", text: imgs.length > 1 ? INSTRUCCION_TROZOS(imgs.length) : INSTRUCCION_FOTO },
+      ...(imgs as string[]).map((url) => ({ type: "image_url", image_url: { url } })),
     ];
   } else {
     res.status(400).json({ error: "modo desconocido" });
