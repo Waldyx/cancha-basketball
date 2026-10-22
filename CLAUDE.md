@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **255 zapas (50 OCULTAS, 205 visibles) · 660 tests · `astro check` 0 errores · 381 páginas** |
+| Tamaño | **255 zapas (50 OCULTAS, 205 visibles) · 678 tests · `astro check` 0 errores · 381 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -629,6 +629,19 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
   el sitemap de HG en 2-3 semanas; (3) Search Console (sesión de Google caducada en el navegador integrado: la abre el
   usuario); (4) medir otra vez el chat y `/api/sesion` (`npx tsx scripts/audit-ia.ts` + 2-3 consultas reales).
+- ✅ **Lector de actas (22-oct, `dbe24a7`)**: en estadísticas (jugador y equipo) y en el informe del rival, el recuadro de
+  «pegar acta» acepta una CAPTURA con Ctrl+V, foto o PDF. Orden, de más privado a menos: (1) PDF con pdf.js / imagen con
+  Tesseract EN EL NAVEGADOR (CDN jsDelivr, versiones fijas, carga perezosa) → `parsePaste`, sin IA; (2) si no se entiende,
+  `/api/acta` con el texto SIN NOMBRES (`anonimizar`: toda palabra que no sea de estadística → NOM1…, se reponen en local);
+  (3) solo si falla, o si hay avisos, y con casilla de consentimiento: la foto a un modelo con visión. Siempre se revisa
+  antes de guardar y salen avisos de lo que no cuadra (puntos del acta vs tiros, marcador vs suma). 🔑 OCR medido con tablas
+  en gris claro: hace falta ×3 + gamma 2 (a ×1,5-2 la barra de «4/7» desaparece) y rehacer fracciones en las columnas
+  T2/T3/TL («59» → 5/9, «410» → 4/10). Con letra de 12 px gris claro en 2000 px: 8 de 9 filas exactas y la 9.ª avisada.
+  ✅ IA medida en producción el 22-oct con un acta inventada: texto anonimizado con cabecera y DOS equipos → 100 % bien en
+  4,8 s; la foto → 100 % bien en 9,3 s (también la fila que el OCR local leyó mal). Contestó `nemotron-3.5-super-vl`.
+  ⚠ Sin fila de cabecera la IA adivina las columnas y se equivoca: el texto tiene que llevarla. Lógica en `lib/actaIA.ts`, interfaz en
+  `lib/actaImportUI.ts`. 🔑 La web de la FCBQ: la página `/estadistica/equip/…` es el resumen de temporada (sin jugadores);
+  la tabla por jugador está en cada partido (flecha › de la lista) → pestaña «Resum». NO abrirla nosotros (robots.txt).
 - ✅ **Kobe 5 Protro rescatada** (Decathlon marketplace, 233,99 € = 1,34× MSRP, 7 tallas). Descartadas: **PG 6** (una
   talla y 1 unidad) y **Why Not .6** (solo 36,5-40: curva de mujer/GS). Ocultas 43 → 42.
 - ⏸ **Search Console**: la sesión de Google del navegador integrado caducó; no se mete contraseña. Revisarlo el usuario
@@ -2904,6 +2917,7 @@ presupuesto · ancho de pie · uso (auto-submit 400 ms).
   `OPENROUTER_API_KEY` en Vercel, **NUNCA en el repo**. ⚠ `deepseek-v4-flash:free` NO existe (404).
 - `coach.ts` — agente de estadísticas (misma cadena, mismo `models`).
 - `sesion.ts` — generador de sesiones de la pizarra (misma cadena; plan JSON validado en servidor).
+- `acta.ts` — lector de actas con IA (texto anonimizado o foto con consentimiento; `normalizarActa` valida). Ver *Lector de actas*.
 - `feb.ts` — importador de actas FEB: saca el JWT de `#_ctl0_token` y llama a
   `https://intrafeb.feb.es/LiveStats.API/api/v1/BoxScore/{id}`.
   ⛔ **FCBQ/Cataluña NO es accesible**: `basquetcatala.cat` protege toda la web con reCAPTCHA y su
