@@ -545,6 +545,18 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     retros 2026 de WT (AJ 3/6/13) puntúan materiales, no rendimiento: no anclan nota. Reparto adulto: 14 ancha · 104 · 39.
   · Chat: prohibidos los superlativos sobre el catálogo entero («la más ligera del catálogo» con 12 empatadas). Medido:
     cadena viva (audit-ia), nemotron-3.5 contesta bien; `/api/sesion` 75 min exactos con 11 jugadores.
+  · 📧 **Joom / Impact, respuestas del 21-oct (sin contestar, decide el usuario)**: Impact (ticket 903210) vuelve a
+    rechazar el Marketplace: *«the traffic on your domain doesn't quite meet the minimum requirements»*, que solicitemos
+    campañas directamente y volvamos a pedirlo con más tráfico. Viviana: *«I cannot see you on Impact, could you please open
+    a ticket with the customer service?»* (es justo lo que se hizo). ⇒ Por Impact está cerrado hasta tener tráfico; el
+    borrador a hello@joom.com sigue sin enviar.
+  · 🔴 **Vercel otra vez al 100 % del almacenamiento (correo del 22-oct 00:10)**: lo provocan los pushes sueltos (51 commits
+    en 24 h; ~61 MB por despliegue × ~165 = 10 GB, y la retención es de 1 semana). Hecho: `ignoreCommand` en `web/vercel.json`
+    (no despliega si nada cambió en `web/` desde `$VERCEL_GIT_PREVIOUS_SHA`; probado en local) y **pushes agrupados**. No se
+    ha borrado nada: borrar despliegues lo decide el usuario (panel de Vercel).
+  · Decathlon «Colección adidas baloncesto» (correo de Awin): D.O.N. 8 105,49 · Believe That 1 69,99 · OTG 3 64,99 · OTG 3
+    niño 44,99, todas más caras que el «desde» actual → no se añaden. La AE 2 de Decathlon es **solo en tienda física**
+    (`InStoreOnly`). OTG 3: fuera una búsqueda de Amazon que buscaba la OTG 2. Build: 0 marcas sin resolver / undefined / NaN.
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
