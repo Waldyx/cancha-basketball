@@ -4146,7 +4146,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "joom", url: "https://www.joom.com/es/products/698af0777c328f01b8904e11", precio_actual: 127, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-05" },
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/g.t.-cut-4-photo-blue-multi-color-mtlc-silver", precio_actual: 141.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+gt+cut+4+basketball&tag=canchazapa-21", precio_actual: 160, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
-      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=gt+cut+4&vst=gt+cut+4", precio_actual: 170, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-15" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/w?q=gt+cut+4&vst=gt+cut+4", precio_actual: 170, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
     ],
   },
 
@@ -9579,7 +9579,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 149.99,
     links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/t/kd19-zapatillas-de-baloncesto-kHLnTNgP/IH1117-400", precio_actual: 159.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-06" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/kd19-zapatillas-de-baloncesto-kHLnTNgP/IH1117-400", precio_actual: 159.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+kd+19+baloncesto&tag=canchazapa-21", precio_actual: 149.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -15932,7 +15932,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-09-11",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "361sport", url: "https://361sport.com/es-es/products/zen-8-be-water", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21", nota: "Envía desde fuera de la UE y sin IOSS: el IVA (21%) y la gestión de aduana los pagas al recibir, aparte del precio." }, // w25 21-sep: tienda oficial de la marca. JSON-LD de primer nivel, InStock, 14 de 19 tallas
+      { tienda: "361sport", url: "https://361sport.com/es-es/products/zen-8-be-water", precio_actual: 130, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22", nota: "Envía desde fuera de la UE y sin IOSS: el IVA (21%) y la gestión de aduana los pagas al recibir, aparte del precio." }, // w25 21-sep: tienda oficial de la marca. JSON-LD de primer nivel, InStock, 14 de 19 tallas
     ],
   },
 
@@ -15999,7 +15999,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-09-11",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "361sport", url: "https://361sport.com/es-es/products/ag-6-ag-ion", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-21", nota: "Envía desde fuera de la UE y sin IOSS: el IVA (21%) y la gestión de aduana los pagas al recibir, aparte del precio." }, // w25: colorway "Ion AG", 9 de 15 tallas. El "Black Mamba" vale lo mismo pero solo le quedan 2
+      { tienda: "361sport", url: "https://361sport.com/es-es/products/ag-6-ag-ion", precio_actual: 110, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22", nota: "Envía desde fuera de la UE y sin IOSS: el IVA (21%) y la gestión de aduana los pagas al recibir, aparte del precio." }, // w25: colorway "Ion AG", 9 de 15 tallas. El "Black Mamba" vale lo mismo pero solo le quedan 2
     ],
   },
 
