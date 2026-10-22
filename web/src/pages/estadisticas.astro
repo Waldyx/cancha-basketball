@@ -95,14 +95,15 @@ import "../styles/cancha-redesign.css";
               </div>
 
               <details class="st-import st-import-paste">
-                <summary>¿Cataluña u otra liga? Pega tu acta y la leo</summary>
+                <summary>¿Cataluña u otra liga? Pega tu acta (texto, captura o PDF) y la leo</summary>
                 <p class="st-paste-help">
-                  Abre tu partido en la app o web de tu federación (p. ej. Bàsquet Català),
-                  selecciona la tabla de estadísticas de tu equipo y <strong>pégala aquí tal cual</strong>.
-                  Detecto las columnas por su cabecera (Punts, T2, T3, TL, Reb, As…) en catalán o castellano.
+                  Abre tu partido en la app o web de tu federación (p. ej. Bàsquet Català) y
+                  <strong>haz una captura de la tabla de estadísticas</strong> (pégala aquí con Ctrl+V) o
+                  copia la tabla tal cual. También vale una foto o el PDF del acta. Se lee en tu navegador;
+                  si hace falta IA, los nombres no salen de aquí.
                 </p>
                 <textarea id="paste-in" class="st-paste-area" rows="6" aria-label="Tabla de estadísticas pegada" placeholder="Dorsal  Jugador  Min  Punts  T2  T3  TL  Reb  As  BR  Tap  PP  Faltes&#10;7  COGNOM, Nom  24  15  4/7  1/3  4/4  6  3  2  0  2  3  …"></textarea>
-                <button type="button" id="paste-parse" class="st-btn">Leer acta pegada</button>
+                <button type="button" id="paste-parse" class="st-btn">Leer acta</button>
                 <p id="paste-error" class="st-error hidden"></p>
                 <div id="paste-result" class="hidden"></div>
               </details>
@@ -281,7 +282,8 @@ import "../styles/cancha-redesign.css";
   </main>
 
   <script>
-    import { calcLinea, parsePaste, fusionarJugador } from "../lib/statsEquipo";
+    import { calcLinea, fusionarJugador } from "../lib/statsEquipo";
+    import { montarLectorActa } from "../lib/actaImportUI";
     import { initEquipo, montarAvisoCopia, marcarCopia, refrescarAvisos } from "../scripts/statsEquipoUI";
     // ─── tipos + accesor DOM (script cliente; tipado para astro check) ───
     interface Game { fecha: string; rival: string; res: string; min: number; t2c: number; t2i: number; t3c: number; t3i: number; tlc: number; tli: number; ro: number; rd: number; ast: number; rob: number; tap: number; per: number; fal: number; }
@@ -966,32 +968,45 @@ import "../styles/cancha-redesign.css";
       }
     });
 
-    // ──────────── importar acta PEGADA (Cataluña / genérico) ──────────
-    // (el parser vive en lib/statsEquipo.ts: lo comparte el modo Equipo)
+    // ──────────── importar acta pegada, en captura o en PDF (Cataluña / genérico) ──────────
+    // (la lectura vive en lib/actaImportUI.ts: la comparten el modo Equipo y el informe del rival)
 
     const pasteError = $("paste-error");
     const pasteResult = $("paste-result");
-    const pasteFail = (m: string) => { pasteError.textContent = m; pasteError.classList.remove("hidden"); pasteResult.classList.add("hidden"); };
 
-    $("paste-parse").addEventListener("click", () => {
-      const raw = $("paste-in").value;
-      if (!raw.trim()) return pasteFail("Pega el acta en el recuadro.");
-      let jugadores: ReturnType<typeof parsePaste>;
-      try { jugadores = parsePaste(raw); }
-      catch (e) { return pasteFail((e as Error).message); }
-      pasteError.classList.add("hidden");
-      pasteResult.innerHTML =
-        `<p class="st-import-hint">${jugadores.length} jugador${jugadores.length === 1 ? "" : "es"} detectado${jugadores.length === 1 ? "" : "s"}. <strong>Toca tu nombre</strong> para rellenar el formulario (revísalo antes de guardar):</p>` +
-        `<div class="st-import-players">` +
-        jugadores.map((j: any, ji: number) =>
-          `<button type="button" class="st-player" data-j="${ji}"><span>${esc(j.dorsal || "·")}</span>${esc(j.nombre)}</button>`
-        ).join("") + `</div>`;
-      pasteResult.classList.remove("hidden");
-      pasteResult.querySelectorAll<HTMLElement>(".st-player").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          fillFromFeb(jugadores[Number(btn.dataset.j)], { fecha: new Date().toISOString().slice(0, 10), rival: "", res: "" }, "paste");
+    montarLectorActa({
+      textarea: document.getElementById("paste-in") as HTMLTextAreaElement,
+      boton: document.getElementById("paste-parse") as HTMLButtonElement,
+      estado: (m, error) => {
+        pasteError.textContent = m;
+        pasteError.classList.toggle("hidden", !m);
+        pasteError.classList.toggle("st-error", !!error);
+        pasteError.classList.toggle("st-import-hint", !error);
+        if (m && error) pasteResult.classList.add("hidden");
+      },
+      onActa: (acta, avisos) => {
+        const [a, b] = acta.equipos;
+        const marcador = b ? `${esc(a.nombre)} ${a.pts ?? "?"}–${b.pts ?? "?"} ${esc(b.nombre)}<br/>` : "";
+        const total = acta.equipos.reduce((s, e) => s + e.jugadores.length, 0);
+        pasteResult.innerHTML =
+          `<p class="st-import-hint">${marcador}${total} jugador${total === 1 ? "" : "es"} detectado${total === 1 ? "" : "s"}. <strong>Toca tu nombre</strong> para rellenar el formulario (revísalo antes de guardar):</p>` +
+          (avisos.length ? `<ul class="st-import-avisos">${avisos.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : "") +
+          acta.equipos.map((eq, ti) =>
+            `<div class="st-import-team">${b ? `<h3>${esc(eq.nombre || `Equipo ${ti + 1}`)}</h3>` : ""}<div class="st-import-players">` +
+            eq.jugadores.map((j, ji) =>
+              `<button type="button" class="st-player" data-t="${ti}" data-j="${ji}"><span>${esc(j.dorsal || "·")}</span>${esc(j.nombre)}</button>`
+            ).join("") + `</div></div>`
+          ).join("");
+        pasteResult.classList.remove("hidden");
+        pasteResult.querySelectorAll<HTMLElement>(".st-player").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const ti = Number(btn.dataset.t);
+            const own = acta.equipos[ti], other = acta.equipos[1 - ti];
+            const res = other && own.pts !== null && other.pts !== null ? (own.pts > other.pts ? "V" : own.pts < other.pts ? "D" : "") : "";
+            fillFromFeb(own.jugadores[Number(btn.dataset.j)], { fecha: acta.fecha || new Date().toISOString().slice(0, 10), rival: other?.nombre ?? "", res }, "paste");
+          });
         });
-      });
+      },
     });
 
     // ─────────────────────── perfil ──────────────────────────
@@ -1147,6 +1162,7 @@ import "../styles/cancha-redesign.css";
     .st-import-row .st-btn { padding: 8px 14px; flex-shrink: 0; }
     .st-import-hint { font-size: 12px; color: var(--cz-text-2); margin: 12px 0 8px; line-height: 1.5; }
     .st-import-hint strong { color: var(--cz-text); }
+    .st-import-avisos { margin: 0 0 10px; padding-left: 18px; font-size: 12px; line-height: 1.5; color: var(--cz-red-text); }
     .st-import-team h3 {
       font-family: "Barlow Condensed", sans-serif; font-weight: 900; text-transform: uppercase;
       font-size: 15px; color: var(--cz-text-soft); margin: 10px 0 6px;

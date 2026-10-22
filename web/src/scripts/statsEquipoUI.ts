@@ -6,9 +6,10 @@ import {
   COLUMNAS, LIMITE_ENLACE, LINEA_KEYS,
   archivoCopia, archivoEquipo, balance, calcLinea, codificarEnlace, csvTemporada, decodificarEnlace, emparejar, equipoSoloPartido, esArchivoCopia, mostrarAvisoCopia, recordatorioCopia, restaurarCopia, textoUltimaCopia,
   fechaCorta, fusionar, jugo, leerArchivoEquipo, lideres, lineaVacia, mejoresDelPartido, normalizarStore, ordenarTabla,
-  parsePaste, parsePlantilla, partidosDeJugador, partidosOrdenados, puntosPropios, resultado, serieMarcadores,
+  parsePlantilla, partidosDeJugador, partidosOrdenados, puntosPropios, resultado, serieMarcadores,
   sumaLineas, tablaTemporada, textoPartido, tokenDeHash, uid, urlEnlace, valorColumna,
 } from "../lib/statsEquipo";
+import { montarLectorActa } from "../lib/actaImportUI";
 
 export interface HostJugador {
   esc: (s: unknown) => string;
@@ -23,6 +24,8 @@ interface DRow { key: number; imp: boolean; dorsal: string; nombre: string; asig
 interface Draft {
   editId: string | null; origen: "manual" | "feb" | "pegado" | "edicion";
   fecha: string; rival: string; competicion: string; pf: string; pc: string; rows: DRow[]; error: string;
+  /** Lo que no cuadra en un acta leída de una captura o con IA: se enseña para revisarlo. */
+  avisos: string[];
 }
 
 // ───────────────────────── aviso y recordatorio de copia de seguridad ─────────────────────────
@@ -92,6 +95,9 @@ export function initEquipo(host: HostJugador) {
   let draft: Draft | null = null;
   let febData: any = null;
   let febMsg = "";
+  // el elegir equipo de un acta vale también para la leída de una captura (dos equipos)
+  let febOrigen: "feb" | "pegado" = "feb";
+  let febAvisos: string[] = [];
   let verId: string | null = null;
   let jugadorId: string | null = null;
   let creando = false;
@@ -235,7 +241,7 @@ export function initEquipo(host: HostJugador) {
     e.jugadores.map((j) => ({ key: rowKey++, imp: false, dorsal: j.dorsal, nombre: j.nombre, asign: j.id, l: { ...(lineas.get(j.id) ?? lineaVacia()) } }));
 
   const nuevoBorrador = (origen: Draft["origen"], parte: Partial<Draft> = {}): Draft => ({
-    editId: null, origen, fecha: hoy(), rival: "", competicion: "", pf: "", pc: "", rows: [], error: "", ...parte,
+    editId: null, origen, fecha: hoy(), rival: "", competicion: "", pf: "", pc: "", rows: [], error: "", avisos: [], ...parte,
   });
 
   const rowsImportadas = (e: Equipo, jugadores: any[]): DRow[] => {
@@ -263,17 +269,44 @@ export function initEquipo(host: HostJugador) {
           </div>
           ${febMsg ? `<p class="${febData ? "st-import-hint" : "st-error"}">${febMsg}</p>` : ""}
           ${febData ? febData.equipos.map((t: any, i: number) =>
-            `<button type="button" class="st-btn st-btn-ghost st-feb-team" data-act="feb-elegir" data-i="${i}">Somos <strong>${esc(t.nombre)}</strong> (${t.pts})</button>`).join("") : ""}
+            `<button type="button" class="st-btn st-btn-ghost st-feb-team" data-act="feb-elegir" data-i="${i}">Somos <strong>${esc(t.nombre || `Equipo ${i + 1}`)}</strong> (${t.pts ?? "?"})</button>`).join("") : ""}
         </div>
         <details class="st-import st-import-paste">
-          <summary>Otra federación: pega la tabla del acta</summary>
-          <p class="st-paste-help">Selecciona la tabla de estadísticas de <strong>tu equipo</strong> en la web de tu federación y pégala aquí tal cual. Detecto las columnas por su cabecera (catalán o castellano).</p>
+          <summary>Otra federación: pega el acta (texto, captura o PDF)</summary>
+          <p class="st-paste-help">Haz una <strong>captura de la tabla de estadísticas</strong> del partido y pégala aquí con Ctrl+V, o copia la tabla tal cual. También vale una foto o el PDF del acta. Se lee en tu navegador; si hace falta IA, los nombres no salen de aquí.</p>
           <textarea id="eq-paste" class="st-paste-area" rows="6" placeholder="Dorsal  Jugador  Min  Punts  T2  T3  TL  Reb  As  BR  Tap  PP  Faltes"></textarea>
-          <button type="button" class="st-btn" data-act="paste-leer">Leer acta pegada</button>
+          <button type="button" class="st-btn" id="eq-paste-leer">Leer acta</button>
           <p id="eq-paste-err" class="st-error hidden"></p>
         </details>
         <div class="st-actions"><button type="button" class="st-btn st-btn-ghost" data-act="manual">✍ Entrada manual rápida</button></div>
         ${e.jugadores.length ? "" : '<p class="st-note">Consejo: rellena antes la plantilla para que la entrada manual tenga una fila por jugador.</p>'}`;
+      montarLectorActa({
+        textarea: $q<HTMLTextAreaElement>("#eq-paste")!,
+        boton: $q<HTMLButtonElement>("#eq-paste-leer")!,
+        estado: (m, error) => {
+          const el = $q("#eq-paste-err") as HTMLElement | null;
+          if (!el) return;
+          el.textContent = m;
+          el.classList.toggle("hidden", !m);
+          el.classList.toggle("st-error", !!error);
+          el.classList.toggle("st-import-hint", !error);
+        },
+        onActa: (acta, avisos) => {
+          const eqAct = eq();
+          if (!eqAct) return;
+          if (acta.equipos.length === 1) {
+            const t = acta.equipos[0];
+            draft = nuevoBorrador("pegado", { fecha: acta.fecha || hoy(), pf: t.pts == null ? "" : String(t.pts), rows: rowsImportadas(eqAct, t.jugadores), avisos });
+          } else {
+            febData = { fecha: acta.fecha, competicion: "", equipos: acta.equipos };
+            febMsg = "Acta leída.<br/><strong>¿Cuál de los dos es tu equipo?</strong>";
+            febOrigen = "pegado";
+            febAvisos = avisos;
+          }
+          track("Team Paste Import");
+          renderAdd();
+        },
+      });
       return;
     }
     const d = draft;
@@ -298,6 +331,7 @@ export function initEquipo(host: HostJugador) {
     elAdd.innerHTML = `
       <h2 class="st-h2">${titulo}</h2>
       <p class="st-import-hint" style="margin-top:0">${pista}</p>
+      ${d.avisos.length ? `<ul class="st-import-avisos">${d.avisos.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
       <div class="st-form-row">
         <div class="st-field"><label for="d-fecha">Fecha</label><input id="d-fecha" type="date" data-d="fecha" value="${esc(d.fecha)}" /></div>
         <div class="st-field st-grow"><label for="d-rival">Rival</label><input id="d-rival" data-d="rival" value="${esc(d.rival)}" maxlength="40" placeholder="CB Rival" /></div>
@@ -369,7 +403,7 @@ export function initEquipo(host: HostJugador) {
   const febBuscar = async () => {
     const q = ($q<HTMLInputElement>("#eq-feb-q")?.value || "").trim();
     if (!q) { febData = null; febMsg = "Pega la URL del partido (o su ID numérico)."; renderAdd(); return; }
-    febData = null; febMsg = "Leyendo el acta…"; renderAdd();
+    febData = null; febMsg = "Leyendo el acta…"; febOrigen = "feb"; febAvisos = []; renderAdd();
     try {
       const r = await fetch(`/api/feb?partido=${encodeURIComponent(q)}`);
       const d = await r.json();
@@ -846,23 +880,12 @@ export function initEquipo(host: HostJugador) {
       case "feb-elegir": {
         if (!e || !febData) break;
         const i = Number(btn.dataset.i), own = febData.equipos[i], other = febData.equipos[1 - i];
-        draft = nuevoBorrador("feb", {
+        draft = nuevoBorrador(febOrigen, {
           fecha: febData.fecha || hoy(), rival: String(other.nombre || ""), competicion: String(febData.competicion || ""),
-          pf: String(own.pts ?? ""), pc: String(other.pts ?? ""), rows: rowsImportadas(e, own.jugadores || []),
+          pf: String(own.pts ?? ""), pc: String(other.pts ?? ""), rows: rowsImportadas(e, own.jugadores || []), avisos: febAvisos,
         });
-        febData = null; febMsg = ""; track("Team FEB Import"); renderAdd(); break;
-      }
-      case "paste-leer": {
-        if (!e) break;
-        const err = $q("#eq-paste-err") as HTMLElement;
-        try {
-          const raw = $q<HTMLTextAreaElement>("#eq-paste")?.value || "";
-          if (!raw.trim()) throw new Error("Pega el acta en el recuadro.");
-          const js = parsePaste(raw);
-          draft = nuevoBorrador("pegado", { rows: rowsImportadas(e, js) });
-          track("Team Paste Import"); renderAdd();
-        } catch (x) { err.textContent = (x as Error).message; err.classList.remove("hidden"); }
-        break;
+        if (febOrigen === "feb") track("Team FEB Import");
+        febData = null; febMsg = ""; febAvisos = []; renderAdd(); break;
       }
       case "guardar-partido": guardarPartido(); break;
       case "cancelar-partido": draft = null; renderAdd(); break;

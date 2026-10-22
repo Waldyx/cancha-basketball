@@ -65,8 +65,8 @@ const jsonLd = {
         </div>
         <div id="rv-elegir" class="rv-elegir" hidden></div>
         <details class="rv-det">
-          <summary>Pegar un acta (FCBQ u otra federación)</summary>
-          <p class="rv-ayuda">Copia la tabla de estadísticas del rival con su fila de cabecera (Min, Punts, T2, T3, TL…) y pégala aquí.</p>
+          <summary>Pegar un acta: texto, captura o PDF (FCBQ u otra federación)</summary>
+          <p class="rv-ayuda">Haz una captura de la tabla de estadísticas del partido y pégala aquí con Ctrl+V, o copia la tabla con su fila de cabecera (Min, Punts, T2, T3, TL…). También vale una foto o el PDF. Se lee en tu navegador; si hace falta IA, los nombres no salen de aquí. Los campos de abajo son opcionales si el acta ya los trae.</p>
           <textarea id="rv-pegar" class="rv-inp rv-ta" rows="6" aria-label="Acta del rival pegada"></textarea>
           <div class="rv-fila rv-fila-4">
             <label class="rv-campo"><span>Fecha</span><input id="rv-fecha" type="date" class="rv-inp" /></label>
@@ -74,7 +74,7 @@ const jsonLd = {
             <label class="rv-campo"><span>Pts rival</span><input id="rv-ptsr" type="number" min="0" class="rv-inp" /></label>
             <label class="rv-campo"><span>Pts contrario</span><input id="rv-ptsc" type="number" min="0" class="rv-inp" /></label>
           </div>
-          <button type="button" id="rv-leer" class="rv-bn">Leer acta pegada</button>
+          <button type="button" id="rv-leer" class="rv-bn">Leer acta</button>
         </details>
         <p id="rv-estado" class="rv-estado" role="status"></p>
         <ul id="rv-actas" class="rv-actas"></ul>
@@ -138,7 +138,8 @@ const jsonLd = {
 
 <script>
   import { actaDeFeb, actaPegada, equipoDelRival, informe, normalizarStoreRival, LIMITES_RIVAL, type ActaFeb, type JugadorActa, type Rival, type StoreRival } from "../lib/informeRival";
-  import { fechaCorta, parsePaste, uid } from "../lib/statsEquipo";
+  import { fechaCorta, uid } from "../lib/statsEquipo";
+  import { montarLectorActa } from "../lib/actaImportUI";
 
   const CLAVE = "cz.rival.v1";
   const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
@@ -238,27 +239,48 @@ const jsonLd = {
     }
   });
 
-  // ── acta pegada ──────────────────────────────────────────────────────
-  btnLeer.addEventListener("click", () => {
-    if (!activo()) return estado("Crea primero el rival.", true);
-    try {
-      const jugadores = parsePaste($<HTMLTextAreaElement>("rv-pegar").value) as unknown as JugadorActa[];
+  // ── acta pegada, en captura o en PDF (la lectura vive en lib/actaImportUI.ts) ──
+  const pegar = $<HTMLTextAreaElement>("rv-pegar");
+  montarLectorActa({
+    textarea: pegar,
+    boton: btnLeer,
+    estado: (m, error) => estado(m, error),
+    onActa: (acta, avisos) => {
+      const r = activo();
+      if (!r) return estado("Crea primero el rival.", true);
       const num = (id: string) => {
         const v = $<HTMLInputElement>(id).value;
         return v === "" ? null : Math.max(0, Math.round(Number(v)));
       };
-      anadirActa(
-        actaPegada(jugadores, {
-          fecha: $<HTMLInputElement>("rv-fecha").value,
-          contra: $<HTMLInputElement>("rv-contra").value.trim().slice(0, 60),
-          ptsRival: num("rv-ptsr"),
-          ptsContra: num("rv-ptsc"),
-        })
-      );
-      $<HTMLTextAreaElement>("rv-pegar").value = "";
-    } catch (e) {
-      estado(e instanceof Error ? e.message : "No se pudo leer el acta.", true);
-    }
+      const anadir = (i: number) => {
+        const e = acta.equipos[i];
+        const otro = acta.equipos[1 - i];
+        anadirActa(
+          actaPegada(e.jugadores.map(({ pts, ...j }) => j) as unknown as JugadorActa[], {
+            fecha: $<HTMLInputElement>("rv-fecha").value || acta.fecha,
+            contra: ($<HTMLInputElement>("rv-contra").value.trim() || otro?.nombre || "").slice(0, 60),
+            ptsRival: num("rv-ptsr") ?? e.pts,
+            ptsContra: num("rv-ptsc") ?? otro?.pts ?? null,
+          })
+        );
+        pegar.value = "";
+        if (avisos.length) estado(`${estadoEl.textContent} Revisa: ${avisos.join(" ")}`);
+      };
+      if (acta.equipos.length === 1) return anadir(0);
+      const i = equipoDelRival({ equipos: acta.equipos.map((e) => ({ ...e, pts: e.pts ?? 0 })) } as unknown as ActaFeb, r.nombre);
+      if (i >= 0) return anadir(i);
+      elegirEl.replaceChildren(el("span", undefined, "¿Cuál de los dos es tu rival?"));
+      acta.equipos.forEach((e, k) => {
+        const b = el("button", "rv-bn rv-bn-2 rv-bn-sm", e.nombre || `Equipo ${k + 1}`) as HTMLButtonElement;
+        b.type = "button";
+        b.addEventListener("click", () => {
+          elegirEl.hidden = true;
+          anadir(k);
+        });
+        elegirEl.append(b);
+      });
+      elegirEl.hidden = false;
+    },
   });
 
   // ── pintar ───────────────────────────────────────────────────────────

@@ -650,7 +650,7 @@ export function parsePaste(raw: string) {
   for (let i = headerIdx + 1; i < lines.length; i++) {
     const cells = tok(lines[i]);
     if (!cells.length) continue;
-    const g: Record<string, any> = { nombre: "", dorsal: "", min: 0, t2c: 0, t2i: 0, t3c: 0, t3i: 0, tlc: 0, tli: 0, ro: 0, rd: 0, ast: 0, rob: 0, tap: 0, per: 0, fal: 0 };
+    const g: Record<string, any> = { nombre: "", dorsal: "", pts: null, min: 0, t2c: 0, t2i: 0, t3c: 0, t3i: 0, tlc: 0, tli: 0, ro: 0, rd: 0, ast: 0, rob: 0, tap: 0, per: 0, fal: 0 };
     let rt: number | null = null, hasStat = false;
     cells.forEach((cell: string, idx: number) => {
       const field = headerMap[idx];
@@ -662,7 +662,8 @@ export function parsePaste(raw: string) {
       if (field === "t3") { if (ma) { g.t3c = ma[0]; g.t3i = ma[1]; hasStat = true; } return; }
       if (field === "tl") { if (ma) { g.tlc = ma[0]; g.tli = ma[1]; hasStat = true; } return; }
       if (field === "rt") { rt = pInt(cell); return; }
-      if (field === "pts") { hasStat = true; return; } // pts se recalcula; solo marca fila válida
+      // pts se recalcula de los tiros; se guarda el del acta solo para avisar si no cuadra
+      if (field === "pts") { g.pts = pInt(cell); hasStat = true; return; }
       g[field] = pInt(cell); if (g[field]) hasStat = true;
     });
     // Si no hay nombre marcado, coge el primer token no numérico largo
