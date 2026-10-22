@@ -168,8 +168,8 @@ export const ARTICLES: Article[] = [
   // ── 2. Comparativa AE 2 vs Ja 3 ─────────────────────────────────────
   {
     slug: "adidas-ae-2-vs-nike-ja-3-2025",
-    title: "AE 2 vs Ja 3: ¿cuál es mejor para guards y escoltas en 2025?",
-    metaTitle: "Adidas AE 2 vs Nike Ja 3 2025: comparativa completa | CANCHA.ZAPA",
+    title: "AE 2 vs Ja 3: ¿cuál es mejor para guards y escoltas?",
+    metaTitle: "Adidas AE 2 vs Nike Ja 3: comparativa completa | CANCHA.ZAPA",
     description:
       "Comparativa técnica entre la Adidas AE 2 (Anthony Edwards) y la Nike Ja 3 (Ja Morant): tracción, amortiguación, horma y precio para guards y escoltas.",
     fecha: "2026-05-22",
@@ -178,7 +178,7 @@ export const ARTICLES: Article[] = [
     readMinutes: 5,
     eyebrow: "★ Comparativa · Guards 2025",
     heroTitle: "AE 2 vs Ja 3",
-    heroSubtitle: "La batalla de los guards en 2025",
+    heroSubtitle: "La batalla de los guards",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["adidas-ae-2", "nike-ja-3", "ua-curry-13", "nike-gt-cut-4"],
     relatedSeoPages: ["mejor-zapatilla-base", "mejor-zapatilla-escolta", "zapatillas-reactivas"],
@@ -740,8 +740,8 @@ export const ARTICLES: Article[] = [
   // ── 8. GT Cut 4 vs Curry 13 vs Kai 2 ────────────────────────────────
   {
     slug: "gt-cut-4-vs-curry-13-vs-kai-2-explosivos-2025",
-    title: "GT Cut 4 vs Curry 13 vs ANTA Kai 2: batalla de los explosivos en 2025",
-    metaTitle: "Nike GT Cut 4 vs UA Curry 13 vs ANTA Kai 2 comparativa 2025 | CANCHA.ZAPA",
+    title: "GT Cut 4 vs Curry 13 vs ANTA Kai 2: batalla de los explosivos",
+    metaTitle: "Nike GT Cut 4 vs UA Curry 13 vs ANTA Kai 2: comparativa | CANCHA.ZAPA",
     description:
       "Comparativa técnica de tres zapatillas para guards de 2025: GT Cut 4, Curry 13 y ANTA Kai 2. Tracción, respuesta, precio y para qué tipo de base/escolta.",
     fecha: "2026-05-26",
@@ -933,15 +933,15 @@ export const ARTICLES: Article[] = [
   // ── 10. Comparativa marcas chinas ────────────────────────────────────
   {
     slug: "anta-lining-peak-zapatillas-chinas-baloncesto-2025",
-    title: "ANTA, Li-Ning y Peak en 2025: ¿merecen la pena las zapatillas chinas de baloncesto?",
-    metaTitle: "ANTA vs Li-Ning vs Peak: ¿merecen la pena las zapatillas chinas? 2025 | CANCHA.ZAPA",
-    description: "Analizamos si las zapatillas de baloncesto chinas de ANTA, Li-Ning y Peak ofrecen calidad y rendimiento real en 2025.",
+    title: "ANTA, Li-Ning y Peak: ¿merecen la pena las zapatillas chinas de baloncesto?",
+    metaTitle: "ANTA vs Li-Ning vs Peak: ¿merecen la pena las zapatillas chinas? | CANCHA.ZAPA",
+    description: "Analizamos si las zapatillas de baloncesto chinas de ANTA, Li-Ning y Peak ofrecen calidad y rendimiento real.",
     fecha: "2025-06-01",
     fechaLabel: "1 junio 2025",
     categoria: "Comparativas",
     readMinutes: 7,
     eyebrow: "★ Comparativa · CANCHA.ZAPA",
-    heroTitle: "ANTA, Li-Ning y Peak en 2025",
+    heroTitle: "ANTA, Li-Ning y Peak",
     heroSubtitle: "¿Merecen la pena las zapatillas chinas de baloncesto?",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["anta-kai-2", "anta-kt-11", "lining-wow-allcity-13", "lining-sonic-12", "peak-aw4"],
@@ -1105,10 +1105,10 @@ export const ARTICLES: Article[] = [
   // ── 11. Puma MB.04 vs MB.05 ─────────────────────────────────────────
   {
     slug: "puma-mb04-vs-mb05-lamelo-2025",
-    title: "Puma MB.04 vs MB.05 — LaMelo Ball 2025: ¿cuál comprar?",
-    metaTitle: "Puma MB.04 vs MB.05 (LaMelo Ball 2025): comparativa completa | CANCHA.ZAPA",
+    title: "Puma MB.04 vs MB.05 de LaMelo Ball: ¿cuál comprar?",
+    metaTitle: "Puma MB.04 vs MB.05 (LaMelo Ball): comparativa completa | CANCHA.ZAPA",
     description:
-      "Comparativa técnica entre la Puma MB.04 y MB.05 de LaMelo Ball: tracción, Nitro foam, peso y precio. Te decimos cuál vale más la pena en 2025.",
+      "Comparativa técnica entre la Puma MB.04 y MB.05 de LaMelo Ball: tracción, Nitro foam, peso y precio. Te decimos cuál vale más la pena.",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
     categoria: "Comparativas",
@@ -1201,17 +1201,17 @@ export const ARTICLES: Article[] = [
   // ── 13. Jordan Tatum 4 vs Adidas AE 2 ───────────────────────────────
   {
     slug: "jordan-tatum-4-vs-adidas-ae-2-aleros-2025",
-    title: "Jordan Tatum 4 vs Adidas AE 2: ¿cuál es mejor para aleros en 2025?",
-    metaTitle: "Jordan Tatum 4 vs Adidas AE 2 comparativa 2025: aleros y escoltas | CANCHA.ZAPA",
+    title: "Jordan Tatum 4 vs Adidas AE 2: ¿cuál es mejor para aleros?",
+    metaTitle: "Jordan Tatum 4 vs Adidas AE 2: comparativa para aleros y escoltas | CANCHA.ZAPA",
     description:
-      "Comparativa completa entre Jordan Tatum 4 y Adidas AE 2: cushion, tracción, precio y para qué perfil de jugador es mejor cada una en 2025.",
+      "Comparativa completa entre Jordan Tatum 4 y Adidas AE 2: cushion, tracción, precio y para qué perfil de jugador es mejor cada una.",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
     categoria: "Comparativas",
     readMinutes: 5,
     eyebrow: "★ Comparativa · Aleros 2025",
     heroTitle: "Tatum 4 vs AE 2",
-    heroSubtitle: "Jordan o Adidas — ¿cuál para aleros en 2025?",
+    heroSubtitle: "Jordan o Adidas — ¿cuál para aleros?",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["jordan-tatum-4", "adidas-ae-2", "nike-gt-cut-4", "jordan-luka-4", "ua-curry-13"],
     relatedSeoPages: ["mejor-zapatilla-alero", "zapatillas-equilibradas", "mejores-zapatillas-jordan"],
@@ -2225,10 +2225,10 @@ export const ARTICLES: Article[] = [
   // ── 24. Comparativa New Balance vs ANTA ─────────────────────────────
   {
     slug: "new-balance-vs-anta-baloncesto-2025",
-    title: "New Balance vs ANTA: ¿cuál es mejor para baloncesto en 2025?",
-    metaTitle: "New Balance vs ANTA baloncesto 2025: comparativa completa | CANCHA.ZAPA",
+    title: "New Balance vs ANTA: ¿cuál es mejor para baloncesto?",
+    metaTitle: "New Balance vs ANTA en baloncesto: comparativa completa | CANCHA.ZAPA",
     description:
-      "Comparativa entre New Balance y ANTA en baloncesto: qué marca da más por menos dinero en 2025. Rendimiento, horma, durabilidad y precio analizados.",
+      "Comparativa entre New Balance y ANTA en baloncesto: qué marca da más por menos dinero. Rendimiento, horma, durabilidad y precio analizados.",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
     categoria: "Comparativas",
@@ -2811,8 +2811,8 @@ export const ARTICLES: Article[] = [
   // ── 29. Puma MB.05 análisis ──────────────────────────────────────────
   {
     slug: "puma-mb05-analisis-lamelo-2025",
-    title: "Puma MB.05 análisis: ¿la firma de LaMelo Ball merece la pena en 2025?",
-    metaTitle: "Puma MB.05 análisis completo 2025 | CANCHA.ZAPA",
+    title: "Puma MB.05 análisis: ¿la firma de LaMelo Ball merece la pena?",
+    metaTitle: "Puma MB.05: análisis completo | CANCHA.ZAPA",
     description:
       "Análisis técnico completo de la Puma MB.05 de LaMelo Ball: Nitro foam, tracción y veredicto honesto. ¿Mejor que la MB.04? ¿Merece la pena su precio?",
     fecha: "2026-05-27",
