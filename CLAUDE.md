@@ -592,6 +592,12 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     (formato viejo `/<x>-review/` → `/shoe-reviews/<slug>/`; la Kai 1 Speed citaba la reseña de la Kai 1). Sneaker News da 403
     (anti-bot). Portada OG del artículo de marcas chinas: era un hotlink a wowsole.com (429) → local. Fichas ocultas: og:image
     por defecto (su `/og/<slug>.png` no se genera). Build: 650 rutas locales, 0 rotas.
+  · **«desde» viejos** (todos ≤ 12 días): Havoc 5 en Amazon era reventa (Amazon ya no la vende; vendedores externos a
+    343-424 €, MSRP 110) → precio real y la web enseña MSRP. Luka .77: su «desde» 59,99 era el ECI **blanco**, agotado en
+    todas las tallas y sin refrescar desde el 14-oct (el scraper fallaba y lo conservaba) → apagado; queda el verde a 69,99.
+    🔑 Una URL de afiliado va codificada dentro del wrapper (`%2F`): para buscar un producto en `zapatillas.ts` hay que
+    buscar su id (`A56814491`), no la URL. Pasada del 21-oct: 177/399; Amazon 32 ok / 135 fallos (lo conocido de CI),
+    AliExpress 25/47 (los fallos son items ya apagados que el scraper sigue intentando).
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
