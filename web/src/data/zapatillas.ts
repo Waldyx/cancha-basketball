@@ -9185,7 +9185,7 @@ const _rawZapatillas: Zapatilla[] = [
     sucesor_id: null,
     peso_real_g: 380,
     altura: "low",
-    horma: "ancha",
+    horma: "normal",
     drop_mm: 10,
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
@@ -15099,7 +15099,7 @@ const _rawZapatillas: Zapatilla[] = [
     sucesor_id: null,
     peso_real_g: 405,
     altura: "low",
-    horma: "ancha",
+    horma: "normal",
     drop_mm: 8,
     tipo_cierre: "cordones",
     material_superior: "mesh+tpu",
@@ -15739,7 +15739,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     peso_real_g: 375,
     altura: "low",
-    horma: "ancha",
+    horma: "normal",
     drop_mm: 6,
     tipo_cierre: "cordones",
     material_superior: "synthetic",
@@ -15755,7 +15755,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 7,
     },
     categoria_principal: "balanced",
-    tags: ["signature", "value", "horma-ancha", "moderna"],
+    tags: ["signature", "value", "moderna"],
 
     ideal_para: {
       posiciones: ["alero", "ala-pivot", "pivot"],
@@ -15772,7 +15772,6 @@ const _rawZapatillas: Zapatilla[] = [
     pros: [
       "Relación tech/precio difícil de batir en una signature",
       "ReactX de largo completo: más blanda que la Freak 7",
-      "Horma ancha de verdad, algo raro en el mercado",
       "Base ancha y baja: muy estable para jugadores grandes",
     ],
     contras: [
@@ -15782,7 +15781,7 @@ const _rawZapatillas: Zapatilla[] = [
       "Sin review de rendimiento publicada: score estimado",
     ],
     veredicto:
-      "El value pick de Nike para aleros y pívots que priorizan amortiguación y horma ancha a buen precio. Si lo tuyo es la respuesta, la Freak 7 (o su rebaja) sigue siendo mejor compra.",
+      "El value pick de Nike para aleros y pívots que priorizan amortiguación a buen precio. Si lo tuyo es la respuesta, la Freak 7 (o su rebaja) sigue siendo mejor compra.",
 
     imagen_principal: "/shoes/nike-giannis-freak-8.webp",
     imagenes: [],
