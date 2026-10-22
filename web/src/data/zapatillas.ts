@@ -4870,7 +4870,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DHDF78RW?tag=canchazapa-21", precio_actual: 67.66, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DHDF78RW?tag=canchazapa-21", precio_actual: 67.66, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: #outOfStock en Amazon
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Funder-armour%2Fzapatillas-de-baloncesto-under-armour-flow-futr-x-4-sos-negro-101205.html", precio_actual: 60, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: 6 tallas
     ],
   },
@@ -7316,7 +7316,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 85,
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA54981652%2F", precio_actual: 53.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/Nike-Giannis-Immortality-Basketball-Shoes/dp/B0FCHLF64L?tag=canchazapa-21", precio_actual: 107.82, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/Nike-Giannis-Immortality-Basketball-Shoes/dp/B0FCHLF64L?tag=canchazapa-21", precio_actual: 107.82, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: #outOfStock en Amazon
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/nike/giannis-immortality-4-white-black-volt-wolf-grey-cool-grey-total-or", precio_actual: 75.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56001339-gris-negro-pr-zapatillas-de-baloncesto-de-hombre-giannis-immortality-4-nike%2F", precio_actual: 62.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: 13 de 15 tallas
     ],
@@ -8146,7 +8146,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-ninos-ownthegame-30-j-azve-js2177-1001075273-p", precio_actual: 41.27, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-ninos-ownthegame-30-jq7939-1001087254-p", precio_actual: 40.28, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-04" }, // 2026-10-04: JQ7939 niño, JSON-LD InStock, 6 tallas (36-39 1/3); el JS2177 sigue agotado
-      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-ownthegame-30-infantil-negro-hiemet-rossho-176940.html", precio_actual: 44, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-04" }, // 2026-10-04: JQ7941 infantil, 7 tallas (28-39 1/3)
+      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-ownthegame-30-infantil-negro-hiemet-rossho-176940.html", precio_actual: 44, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 2026-10-04: JQ7941 infantil, 7 tallas (28-39 1/3)
     ],
   },
 
