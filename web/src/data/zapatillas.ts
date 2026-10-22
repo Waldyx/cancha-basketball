@@ -82,7 +82,7 @@ const _rawZapatillas: Zapatilla[] = [
       },
       {
         tipo: "hoops-geek",
-        url: "https://www.thehoopsgeek.com/nike-lebron-22-review/",
+        url: "https://www.thehoopsgeek.com/shoe-reviews/nike-lebron-22/",
       },
     ],
     ultima_actualizacion: "2026-05-28",
@@ -180,7 +180,7 @@ const _rawZapatillas: Zapatilla[] = [
       },
       {
         tipo: "hoops-geek",
-        url: "https://www.thehoopsgeek.com/under-armour-curry-12-review/",
+        url: "https://www.thehoopsgeek.com/shoe-reviews/under-armour-curry-12/",
       },
     ],
     ultima_actualizacion: "2026-05-13",
@@ -327,7 +327,7 @@ const _rawZapatillas: Zapatilla[] = [
       },
       {
         tipo: "hoops-geek",
-        url: "https://www.thehoopsgeek.com/nike-sabrina-2-review/",
+        url: "https://www.thehoopsgeek.com/shoe-reviews/nike-sabrina-2/",
       },
     ],
     ultima_actualizacion: "2026-05-13",
@@ -441,7 +441,7 @@ const _rawZapatillas: Zapatilla[] = [
       },
       {
         tipo: "hoops-geek",
-        url: "https://www.thehoopsgeek.com/anta-kai-1-review/",
+        url: "https://www.thehoopsgeek.com/shoe-reviews/anta-kai-1-speed/",
       },
     ],
     ultima_actualizacion: "2026-05-13",
