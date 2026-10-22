@@ -1028,14 +1028,15 @@ export const ARTICLES: Article[] = [
 <h2>Primero lo importante: qué significa "retro jugable"</h2>
 <p>No todas las retros son iguales. Hay una diferencia enorme entre:</p>
 <ul>
-  <li><strong>Retros que puedes jugar:</strong> Kobe Protros, Air Jordan 12, Reebok Question. Tecnología actualizada (Zoom Turbo o React según el modelo, outsoles nuevas) en cuerpos clásicos.</li>
+  <li><strong>Retros que puedes jugar:</strong> Air Jordan 12, Reebok Question. Cuerpos clásicos que todavía rinden en pista.</li>
+  <li><strong>Protros, que ya no son retros:</strong> las Kobe Protro conservan el diseño pero llevan tecnología actual (Zoom Turbo o React según el modelo, outsoles nuevas). En CANCHA.ZAPA van con las modernas; la excepción es la Kobe 4 Protro, que mantiene el Zoom de talón y el Phylon del original.</li>
   <li><strong>Retros que SON históricas:</strong> Air Force 1, Chuck Taylor, Converse Weapon, Puma Clyde. Puedes jugar con ellas pero son básicamente museísticas. No las recomendamos para alto rendimiento.</li>
 </ul>
 <p>Esta guía te dice cuáles son cuáles y por qué.</p>
 
 <h2>Tier 1 — Retros que realmente puedes jugar</h2>
 
-<h3>🥇 Nike Kobe 5 Protro / Kobe 6 Protro — Las mejores retros jugables</h3>
+<h3>🥇 Nike Kobe 5 Protro / Kobe 6 Protro — aspecto retro, tecnología actual</h3>
 <p>Las Kobe Protros son el mejor argumento de que "retro" no significa "inferior". Nike ha actualizado las outsoles y la amortiguación (Zoom Turbo en el antepié de la 5 y la 6) y ha mantenido el perfil bajo y reactivo que hacía a las originales tan especiales. Las Kobe 5 y 6 Protro consiguen {{score:nike-kobe-5-protro}} (Kobe 5) y {{score:nike-kobe-6-protro}} (Kobe 6) — al nivel de las zapas modernas de gama alta.</p>
 <ul>
   <li><strong>Para quién:</strong> Bases y escoltas explosivos que quieren rendimiento real + historia.</li>

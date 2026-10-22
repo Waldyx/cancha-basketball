@@ -10664,7 +10664,7 @@ const _rawZapatillas: Zapatilla[] = [
   {
     id: "nike-kobe-1-protro",
     slug: "nike-kobe-1-protro",
-    es_retro: true,
+    es_retro: false,
     marca: "Nike",
     modelo: "Kobe 1 Protro",
     año_lanzamiento: 2018,
@@ -10690,7 +10690,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 6,
     },
     categoria_principal: "balanced",
-    tags: ["retro", "kobe", "protro", "nike", "81-points", "coleccionismo", "signature"],
+    tags: ["kobe", "protro", "nike", "81-points", "coleccionismo", "signature"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
       peso_jugador_kg: [60, 100],
@@ -10727,7 +10727,7 @@ const _rawZapatillas: Zapatilla[] = [
   {
     id: "nike-kobe-3-protro",
     slug: "nike-kobe-3-protro",
-    es_retro: true,
+    es_retro: false,
     marca: "Nike",
     modelo: "Kobe 3 Protro",
     generacion: 3,
@@ -10756,7 +10756,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 5,
     },
     categoria_principal: "balanced",
-    tags: ["signature", "retro", "kobe", "culto", "high-top"],
+    tags: ["protro", "signature", "kobe", "culto", "high-top"],
 
     ideal_para: {
       posiciones: ["escolta", "alero"],
@@ -10867,10 +10867,10 @@ const _rawZapatillas: Zapatilla[] = [
   {
     id: "nike-kobe-5-protro",
     slug: "nike-kobe-5-protro",
-    es_retro: true,
+    es_retro: false,
     marca: "Nike",
     modelo: "Kobe 5 Protro",
-    año_lanzamiento: 2010,
+    año_lanzamiento: 2020,
     genero: "unisex",
     signature_player: "Kobe Bryant",
     tecnologia_clave: ["Zoom Turbo antepié", "Cushlon full-length", "Low-top minimalista", "Herringbone outsole"],
@@ -10893,7 +10893,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 9,
     },
     categoria_principal: "responsive",
-    tags: ["retro", "kobe", "low-top", "chaos", "big-stage", "coleccionismo"],
+    tags: ["protro", "kobe", "low-top", "chaos", "big-stage", "coleccionismo"],
     ideal_para: {
       posiciones: ["base", "escolta"],
       peso_jugador_kg: [50, 85],
@@ -10932,10 +10932,10 @@ const _rawZapatillas: Zapatilla[] = [
   {
     id: "nike-kobe-6-protro",
     slug: "nike-kobe-6-protro",
-    es_retro: true,
+    es_retro: false,
     marca: "Nike",
     modelo: "Kobe 6 Protro",
-    año_lanzamiento: 2011,
+    año_lanzamiento: 2021,
     genero: "unisex",
     signature_player: "Kobe Bryant",
     tecnologia_clave: ["Zoom Turbo antepié", "Cushlon foam", "Carbon fiber plate", "Low-top", "Herringbone outsole", "Upper de malla y textil con escamas fuse"],
@@ -10958,7 +10958,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 10,
     },
     categoria_principal: "responsive",
-    tags: ["retro", "kobe", "low-top", "grinch", "coleccionismo", "mambamentality"],
+    tags: ["protro", "kobe", "low-top", "grinch", "coleccionismo", "mambamentality"],
     ideal_para: {
       posiciones: ["base", "escolta"],
       peso_jugador_kg: [50, 90],

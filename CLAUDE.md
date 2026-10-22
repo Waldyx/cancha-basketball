@@ -586,8 +586,7 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     ahí el año es un dato, y subirlo sin revisar el texto sería fingir frescura. Quedan ~28 artículos con «2025» en el título.
   · ▶️ **DECIDIR (usuario)**: (1) «Tendencia» (etiqueta `trending`, portada y ranking) incluye generaciones ya superadas en
     catálogo (Curry 12, KD 18, Sabrina 3, Ja 3, Freak 7, MB.05, Harden 9, AE 2, Joker 1, D.O.N. 7…). Pasarla a las sucesoras
-    refresca, pero muchas sucesoras solo se venden en Nike ES (sin comisión) y las viejas tienen afiliada. (2) Las Protro:
-    Kobe 1/3/4/5/6 son `es_retro` (fuera de rankings modernos y Black Friday) y Kobe 8/9 High/9 Elite Low no.
+    refresca, pero muchas sucesoras solo se venden en Nike ES (sin comisión) y las viejas tienen afiliada. (2) ~~Las Protro~~ → resuelto el 22-oct (abajo).
   · Enlaces externos: las 154 `fuentes` de las fichas y las 124 URL de `score-fuentes.json` comprobadas: 4 de HG daban 404
     (formato viejo `/<x>-review/` → `/shoe-reviews/<slug>/`; la Kai 1 Speed citaba la reseña de la Kai 1). Sneaker News da 403
     (anti-bot). Portada OG del artículo de marcas chinas: era un hotlink a wowsole.com (429) → local. Fichas ocultas: og:image
@@ -617,6 +616,14 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     (+ tests, 663). Los otros 8 agotados de FuikaOmar son reales. Tatum 3: FuikaOmar agotada → Amazon HV5882-100 (5 tallas,
     desde 99,99). GT Cut Academy 2: ECI agotada; en Amazon la HV9774 (= Academy 2) solo tiene 3 tallas → no entra, se queda
     con su búsqueda de Amazon; ▶️ revisar si ECI repone. AJ 6: Snipes agotada de verdad (una sola oferta).
+  · ✅ **Kobe Protro: decidido por el usuario (22-oct)** — *«las renovadas con tecnología actual NO son retro; las que
+    conservan la tecnología vieja, SÍ»*. Comprobado modelo a modelo en HoopsGeek (Cushion) y prensa: **modernas** Kobe 1
+    Protro (Zoom de longitud completa en vez de las cápsulas de talón y antepié del original, shank más pequeño), 3 (Zoom
+    Strobel + Cushlon), 5 y 6 (Zoom Turbo + Cushlon), 8, 9 High y 9 Elite Low (React en vez del Lunarlon original) ·
+    **retro** Kobe 4 Protro (sigue con Zoom en el talón sobre Phylon; las reseñas: «no es una mejora de rendimiento», «más
+    retro que Protro»). Cambiado `es_retro` en 1/3/5/6, fuera la etiqueta «retro», y el año de la 5 y la 6 pasa al de la
+    Protro (2020 y 2021, el de las retro se deja en el original). Texto de la página SEO de retros y del artículo de retros
+    para jugar ajustado. Efecto: la Kobe 5 Protro (única visible de las 4) entra en quiz, rankings modernos y Black Friday.
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
