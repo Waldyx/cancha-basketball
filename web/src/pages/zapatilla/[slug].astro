@@ -133,6 +133,11 @@ const linksOrdenados = unaFilaPorTienda([...z.links_compra].filter(l => l.dispon
     return (COMISIONES_TIENDA[b.tienda] ?? 0) - (COMISIONES_TIENDA[a.tienda] ?? 0);
   });
 
+// Título: el sufijo de marca solo si cabe en ~60 caracteres. Google corta lo que pasa de ahí (222 de 255
+// fichas lo cortaban) y ya enseña el nombre del sitio aparte.
+const tituloBase = `${z.marca} ${z.modelo} (${z.año_lanzamiento}) · Análisis y mejor precio`;
+const tituloFicha = tituloBase.length <= 46 ? `${tituloBase} | CANCHA.ZAPA` : tituloBase;
+
 // Promo contextual: si la zapa tiene enlace a una tienda con códigos por importe
 // (AliExpress) y el precio cumple algún tramo, preparamos el aviso. La activación
 // por fecha la hace un script en cliente (web estática).
@@ -281,7 +286,7 @@ const productJsonLd = {
 ---
 
 <Base
-  title={`${z.marca} ${z.modelo} (${z.año_lanzamiento}) · Análisis y mejor precio | CANCHA.ZAPA`}
+  title={tituloFicha}
   description={`${z.marca} ${z.modelo}: análisis técnico honesto, puntuaciones en 8 atributos y mejor precio en tiendas españolas. ${z.resumen.slice(0, 80)}...`}
   ogType="article"
   ogImage={z.oculto ? undefined : `/og/${z.slug}.png`}
