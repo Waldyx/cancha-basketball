@@ -176,8 +176,12 @@ export function cabeceraDeLineas(lineas: LineaTexto[], ancho: number): { local: 
   const fin = lineas.findIndex((l) => (l.texto.match(/\bP\s?[1-8]\b/g) ?? []).length >= 3 || RE_PERIODO.test(l.texto));
   const cab = fin < 0 ? lineas : lineas.slice(0, fin);
   const RUIDO = /federaci|catalana|basquetbol|resum|jugades|fcbq/i;
+  // el marcador final son las cifras GRANDES de la cabecera: una línea de dos números de letra normal
+  // no lo es (con una grabación real salió «1-5» en vez de 60-55)
+  const altos = lineas.map((l) => l.alto).sort((a, b) => a - b);
+  const altoTipico = altos[Math.floor(altos.length / 2)] ?? 0;
   for (const l of cab) {
-    if (!res.final && /^\s*\d{1,3}\s+\d{1,3}\s*$/.test(l.texto.replace(/\t/g, " "))) {
+    if (!res.final && l.alto >= altoTipico * 1.4 && /^\s*\d{1,3}\s+\d{1,3}\s*$/.test(l.texto.replace(/\t/g, " "))) {
       const [a, b] = l.texto.match(/\d{1,3}/g)!.map(Number);
       res.final = [a, b];
       continue;

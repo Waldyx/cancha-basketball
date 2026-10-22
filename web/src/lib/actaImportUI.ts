@@ -188,19 +188,28 @@ async function leerJugadesVideo(file: Blob, progreso: (p: number) => void): Prom
     try {
       await worker.setParameters({ tessedit_pageseg_mode: "6", preserve_interword_spaces: "1" });
       await cifras.setParameters({ tessedit_pageseg_mode: "7", tessedit_char_whitelist: "0123456789-" });
-      // cada 0,8 s: bajando a ritmo normal, cada tarjeta sale entera en al menos un fotograma
-      for (let t = 0; t < dur; t += 0.8) {
+      // Se mira el vídeo cada 0,2 s y se LEE solo cuando la pantalla está quieta (imagen nítida) y ha
+      // cambiado desde la última lectura. Bajando muy deprisa los fotogramas salen movidos y el OCR
+      // no lee nada (medido con una grabación real, 22-oct); si nunca se para, se lee igual cada 1 s.
+      const dif = (a: Uint8ClampedArray, b: Uint8ClampedArray) => {
+        let d = 0;
+        for (let i = 0; i < a.length; i += 4) d += Math.abs(a[i] - b[i]);
+        return d / (mini.width * mini.height);
+      };
+      let firmaLeida: Uint8ClampedArray | null = null;
+      let tLeida = -1;
+      for (let t = 0; t < dur; t += 0.2) {
         await buscar(Math.min(t, dur - 0.05));
         ctx.drawImage(v, 0, sy, v.videoWidth, sh, 0, 0, c.width, c.height);
         mctx.drawImage(c, 0, 0, mini.width, mini.height);
         const firma = mctx.getImageData(0, 0, mini.width, mini.height).data;
         progreso(t / dur);
-        if (firmaPrev) {
-          let d = 0;
-          for (let i = 0; i < firma.length; i += 4) d += Math.abs(firma[i] - firmaPrev[i]);
-          if (d / (mini.width * mini.height) < 2) continue; // la pantalla no se ha movido
-        }
+        const quieta = firmaPrev !== null && dif(firma, firmaPrev) < 2;
         firmaPrev = firma;
+        const cambiada = !firmaLeida || dif(firma, firmaLeida) > 4;
+        if (!cambiada || !(quieta || t - tLeida >= 1)) continue;
+        firmaLeida = firma;
+        tLeida = t;
         const { data } = await worker.recognize(prepararParaOcr(c));
         const lineas = lineasDeCajas(
           (data.words ?? []).map((w: any) => ({ texto: String(w.text ?? ""), x: w.bbox.x0, y: w.bbox.y0, ancho: w.bbox.x1 - w.bbox.x0, alto: w.bbox.y1 - w.bbox.y0 })),

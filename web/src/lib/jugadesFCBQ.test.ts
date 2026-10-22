@@ -10,7 +10,7 @@ const L = (texto: string, x0: number, y: number, x1 = x0 + texto.length * 18): L
 const CABECERA = [
   L("Federació Catalana de Basquetbol", 400, 210),
   L("Resum\tJugades", 225, 355, 870),
-  L("60\t55", 415, 540, 680),
+  { texto: "60\t55", x0: 415, x1: 680, y: 540, alto: 90 }, // cifras grandes
   // como en la app: la fecha y la hora en la misma línea que los nombres
   L("A.E SANT ANDREU\t17/10/2026\tAB PREMIÀ BLAU", 64, 675, 1010),
   L("NATZARET\t10:30h", 118, 712, 600),
@@ -54,6 +54,9 @@ describe("clasificar", () => {
 });
 
 describe("cabeceraDeLineas", () => {
+  it("una línea de dos números de letra normal no es el marcador final", () => {
+    expect(cabeceraDeLineas([L("1\t5", 400, 500), L("Cistella de 3", 60, 600), L("Salt guanyat", 60, 700)], W).final).toBeNull();
+  });
   it("nombres de los dos equipos y marcador final", () => {
     expect(cabeceraDeLineas(CABECERA, W)).toEqual({ local: "A.E SANT ANDREU NATZARET", visitante: "AB PREMIÀ BLAU", final: [60, 55] });
   });
