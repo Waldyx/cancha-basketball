@@ -211,17 +211,18 @@ export default async function handler(req: any, res: any) {
     ? [process.env.CHAT_MODEL]
     : modo === "foto"
       ? [
-          "google/gemma-4-31b-it:free",
+          // nemotron-3.5-super-vl delante: es el que contestó en las tres pruebas del 22-oct
           "nvidia/nemotron-3.5-super-vl:free",
+          "google/gemma-4-31b-it:free",
           "google/gemma-4-26b-a4b-it:free",
-          "minimax/minimax-m3.1-flash:free",
+          "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free", // sin validar
         ]
       : [
+          "nvidia/nemotron-3.5-super-vl:free",
           "google/gemma-4-31b-it:free",
           "nvidia/nemotron-3-super-120b-a12b:free",
-          "minimax/minimax-m3.1-flash:free",
           "google/gemma-4-26b-a4b-it:free",
-          "nvidia/nemotron-3.5-super-vl:free",
+          "nvidia/nemotron-3.5-lightning:free", // sin validar
         ];
   const payload = (sel: { models: string[] } | { model: string }) =>
     JSON.stringify({

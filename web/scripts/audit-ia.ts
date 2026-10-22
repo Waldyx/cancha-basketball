@@ -1,5 +1,5 @@
 /**
- * Comprueba que los modelos gratuitos de las funciones de IA (chat, coach, sesion) siguen
+ * Comprueba que los modelos gratuitos de las funciones de IA (chat, coach, sesion, acta) siguen
  * existiendo en OpenRouter. La cadena se ha quedado medio muerta varias veces (ago, 21-sep y
  * 19-oct-2026) y siempre se descubrió por un fallo en producción.
  *
@@ -12,7 +12,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
 
 const dir = resolve(dirname(fileURLToPath(import.meta.url)), "../api");
-const FUNCIONES = ["chat.ts", "coach.ts", "sesion.ts"];
+const FUNCIONES = ["chat.ts", "coach.ts", "sesion.ts", "acta.ts"];
 
 const usados = new Map<string, string[]>();
 for (const f of FUNCIONES) {
@@ -40,7 +40,7 @@ for (const [id, fs] of usados) {
 const nuevos = libres.filter((id) => !usados.has(id));
 if (nuevos.length) console.log(`\nGratuitos que no usamos: ${nuevos.join(", ")}`);
 if (muertos) {
-  console.log(`\n${muertos} modelo(s) de la cadena ya no existen gratis: quitarlos de las tres funciones.`);
+  console.log(`\n${muertos} modelo(s) de la cadena ya no existen gratis: quitarlos de las funciones.`);
   process.exit(1);
 }
 console.log("\nCadena entera viva (que exista no quiere decir que no dé 429: eso solo se ve en producción).");

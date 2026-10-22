@@ -160,13 +160,13 @@ export default async function handler(req: any, res: any) {
         // 21-sep dando por hecho que `limpiarRespuesta` lo cubría, y no lo cubre: viene sin
         // etiquetas `<think>`. Lo que lo tapa es `pareceRazonamiento`.
         "nvidia/nemotron-3-super-120b-a12b:free",
-        "minimax/minimax-m3.1-flash:free", // nuevo el 19-oct-2026, sin validar
+        "nvidia/nemotron-3.5-super-vl:free", // validado en producción el 21-oct (chat) y el 22-oct (actas)
         // Cola de respaldo: se prueban de uno en uno si la cadena falla.
         "google/gemma-4-26b-a4b-it:free",
         // 🔴 19-oct-2026, medido contra /api/v1/models: qwen3.8-27b (404 "unavailable for free"),
         // ling-3.0-flash-vl y glm-5.2 ya no existen gratis. Entran tres vivos ese día, SIN VALIDAR:
         // el modelo que contesta sale en la cabecera X-CZ-Model y los fallos en `detalle`.
-        "nvidia/nemotron-3.5-super-vl:free",
+        "nvidia/nemotron-3.5-lightning:free", // 22-oct: entra por minimax-m3.1-flash (dejó de ser gratis), sin validar
         "nvidia/nemotron-3-ultra-550b-a55b:free",
       ];
 
