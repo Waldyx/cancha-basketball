@@ -698,7 +698,7 @@ export const SEO_PAGES: SeoPage[] = [
     points: [
       { lab: "Signature por perfil", body: "LeBron = cushion. Kobe = reactiva. KD = equilibrada y de cushion alto. Ja = explosiva y ligera. Curry no: fue de UA hasta 2026 y hoy Steph es agente libre de calzado." },
       { lab: "GT Cut, joya escondida", body: "La GT Cut 3 es una zapatilla muy completa (respuesta y tracción altas, durabilidad exterior baja) y no lleva nombre famoso. Mejor para interior." },
-      { lab: "Horma según el modelo", body: "La LeBron y algunas Freak son de horma ancha, buena parte son normal y otras (Kobe 8, KD 18 y 19, Ja, Sabrina 3) son estrechas. Mira la horma de cada ficha." },
+      { lab: "Horma según el modelo", body: "La LeBron 22 y 23 y la Freak 4 son de horma ancha, buena parte son normal y otras (Kobe 8, KD 18 y 19, Ja, Sabrina 3) son estrechas. Mira la horma de cada ficha." },
       { lab: "Innovación cada 18 meses", body: "Los modelos signature renuevan cada 1-2 años. Comprar el anterior con descuento es viable." },
     ],
     faqs: [
@@ -806,7 +806,7 @@ export const SEO_PAGES: SeoPage[] = [
     guideTitle: "Cómo elegir zapa para baloncesto femenino",
     guideIntro: "Hay dos enfoques y conviene distinguirlos. Las signatures con ADN femenino (Sabrina, Stewie, A'One, Jordan Heir Series) se venden en tallaje unisex pero están pensadas para el juego femenino: las usan ellas y ellos. Las de horma 100% femenina (UA Flow Breakthru 4, Adidas Exhibit Select) se construyen sobre un molde anatómico de mujer (talón estrecho, arco elevado) y no tienen versión de hombre.",
     guidePoints: [
-      { lab: "Signatures unisex (las más vendidas)", body: "Nike Sabrina 3, A'One, Puma Stewie, Jordan Heir Series. Máximo rendimiento y disponibles en cualquier sitio. Horma estándar ceñida." },
+      { lab: "Signatures unisex (las más vendidas)", body: "Nike Sabrina 3, A'One, Puma Stewie, Jordan Heir Series. Máximo rendimiento y fáciles de encontrar. Ojo: van ceñidas, y la Sabrina 3 es de horma estrecha." },
       { lab: "Horma 100% femenina", body: "UA Flow Breakthru 4 y Adidas Exhibit Select (en Amazon España): talón estrecho que evita que el pie se deslice al saltar." },
       { lab: "Si el talón se te escapa", body: "Es el problema nº1 con hormas de hombre. La familia 100% femenina lo soluciona: ve directa a Flow Breakthru o Exhibit Select." },
       { lab: "Ligereza y court feel", body: "El peso medio del pie es menor: prioriza zapas ligeras y reactivas (sub-350g). La respuesta importa más que un cushion enorme salvo en poste." },
