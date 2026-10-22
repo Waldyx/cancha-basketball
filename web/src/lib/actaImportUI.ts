@@ -7,7 +7,8 @@
  *   · y solo si eso falla y el entrenador lo acepta, la foto tal cual a la IA.
  * La lógica pura está en `actaIA.ts`.
  */
-import { actaDeTexto, anonimizar, arreglarOcr, avisosActa, filasDeCajas, restaurarNombres, type ActaLeida, type CajaTexto } from "./actaIA";
+import { actaDeTexto, anonimizar, arreglarOcr, avisosActa, filasDeCajas, lineasDeCajas, restaurarNombres, type ActaLeida, type CajaTexto } from "./actaIA";
+import { actaDeJugadas, cabeceraDeLineas, franjasSinMarcador, jugadasDeLineas, unirJugadas, type Jugada } from "./jugadesFCBQ";
 
 // Versiones fijas (comprobadas el 22-oct-2026 en jsDelivr). Tesseract baja además su núcleo wasm
 // y los idiomas de jsDelivr la primera vez (~4 MB); luego quedan en la caché del navegador.
@@ -142,6 +143,96 @@ async function ocr(img: Blob, progreso: (p: number) => void): Promise<string> {
   }
 }
 
+/**
+ * Una grabación de pantalla de la pestaña «Jugades» de la app de la FCBQ → acta. Se saltan los
+ * fotogramas casi iguales al anterior (el vídeo parado) y cada uno se lee con OCR; las jugadas
+ * repetidas entre fotogramas se unen en `unirJugadas`. Todo en el navegador: el vídeo no se sube.
+ */
+async function leerJugadesVideo(file: Blob, progreso: (p: number) => void): Promise<{ acta: ActaLeida; avisos: string[] }> {
+  await cargarScript(TESSERACT_URL);
+  const T = (window as any).Tesseract;
+  const url = URL.createObjectURL(file);
+  const v = document.createElement("video");
+  v.muted = true;
+  v.playsInline = true;
+  v.preload = "auto";
+  v.src = url;
+  try {
+    await new Promise<void>((ok, ko) => {
+      v.onloadeddata = () => ok();
+      v.onerror = () => ko(new Error("No puedo abrir ese vídeo en este navegador."));
+    });
+    const buscar = (t: number) => new Promise<void>((ok) => { v.onseeked = () => ok(); v.currentTime = t; });
+    let dur = v.duration;
+    if (!Number.isFinite(dur)) { await buscar(1e9); dur = v.currentTime; } // WebM grabado sin duración
+    if (!(dur > 0)) throw new Error("No puedo leer la duración del vídeo.");
+    // 720 px de ancho bastan para la letra de las tarjetas, y la barra azul de arriba y la de
+    // navegación de abajo (fijas, sin jugadas) se recortan: es lo que más tiempo de OCR ahorra
+    const k = Math.min(1, 720 / v.videoWidth);
+    const sy = Math.round(v.videoHeight * 0.14), sh = Math.round(v.videoHeight * 0.78);
+    const c = document.createElement("canvas");
+    c.width = Math.round(v.videoWidth * k);
+    c.height = Math.round(sh * k);
+    const ctx = c.getContext("2d", { willReadFrequently: true })!;
+    const mini = document.createElement("canvas");
+    mini.width = 24;
+    mini.height = 48;
+    const mctx = mini.getContext("2d", { willReadFrequently: true })!;
+    const worker = await T.createWorker(["spa", "cat"], 1);
+    // segundo lector solo de cifras, para el marcador de cada tarjeta (ver `franjasSinMarcador`)
+    const cifras = await T.createWorker(["spa"], 1);
+    const recorte = document.createElement("canvas");
+    const listas: Jugada[][] = [];
+    let cab: ReturnType<typeof cabeceraDeLineas> | null = null;
+    let firmaPrev: Uint8ClampedArray | null = null;
+    try {
+      await worker.setParameters({ tessedit_pageseg_mode: "6", preserve_interword_spaces: "1" });
+      await cifras.setParameters({ tessedit_pageseg_mode: "7", tessedit_char_whitelist: "0123456789-" });
+      // cada 0,8 s: bajando a ritmo normal, cada tarjeta sale entera en al menos un fotograma
+      for (let t = 0; t < dur; t += 0.8) {
+        await buscar(Math.min(t, dur - 0.05));
+        ctx.drawImage(v, 0, sy, v.videoWidth, sh, 0, 0, c.width, c.height);
+        mctx.drawImage(c, 0, 0, mini.width, mini.height);
+        const firma = mctx.getImageData(0, 0, mini.width, mini.height).data;
+        progreso(t / dur);
+        if (firmaPrev) {
+          let d = 0;
+          for (let i = 0; i < firma.length; i += 4) d += Math.abs(firma[i] - firmaPrev[i]);
+          if (d / (mini.width * mini.height) < 2) continue; // la pantalla no se ha movido
+        }
+        firmaPrev = firma;
+        const { data } = await worker.recognize(prepararParaOcr(c));
+        const lineas = lineasDeCajas(
+          (data.words ?? []).map((w: any) => ({ texto: String(w.text ?? ""), x: w.bbox.x0, y: w.bbox.y0, ancho: w.bbox.x1 - w.bbox.x0, alto: w.bbox.y1 - w.bbox.y0 })),
+        );
+        // las cifras grandes del marcador se las salta el OCR de página: se leen aparte, franja a franja
+        for (const fr of franjasSinMarcador(lineas).reverse()) {
+          const x0 = Math.max(0, fr.x0 - 10), w = Math.min(c.width, fr.x1 + 10) - x0, h = fr.y1 - fr.y0;
+          if (w < 20 || h < 10) continue;
+          recorte.width = w;
+          recorte.height = h;
+          recorte.getContext("2d")!.drawImage(c, x0, fr.y0, w, h, 0, 0, w, h);
+          const nums = String((await cifras.recognize(recorte)).data.text ?? "").match(/\d{1,3}/g);
+          if (nums?.length === 2) lineas.splice(fr.despuesDe + 1, 0, { texto: `${nums[0]} - ${nums[1]}`, x0: fr.x0, x1: fr.x1, y: fr.y0, alto: h });
+        }
+        if (!cab) {
+          const cb = cabeceraDeLineas(lineas, c.width);
+          if (cb.final || cb.local) cab = cb;
+        }
+        listas.push(jugadasDeLineas(lineas, c.width));
+      }
+    } finally {
+      await worker.terminate();
+      await cifras.terminate();
+    }
+    const jugadas = unirJugadas(listas);
+    if (!jugadas.length) throw new Error("No he encontrado jugadas en el vídeo: tiene que ser la pestaña «Jugades» de la app de la FCBQ, bajando de arriba abajo.");
+    return actaDeJugadas(jugadas, cab ?? undefined);
+  } finally {
+    URL.revokeObjectURL(url);
+  }
+}
+
 /** Texto de las 3 primeras páginas; si no hay (PDF escaneado), la primera página como imagen. */
 async function leerPdf(file: Blob): Promise<{ texto: string; imagen: Blob | null }> {
   const url = PDFJS_URL;
@@ -217,7 +308,7 @@ export function montarLectorActa(o: OpcionesLector): void {
 
   const fila = document.createElement("div");
   fila.className = "acta-x";
-  fila.innerHTML = `<label class="acta-sube">📷 Subir captura, foto o PDF<input type="file" accept="image/*,application/pdf" hidden /></label>
+  fila.innerHTML = `<label class="acta-sube">📷 Subir captura, foto, PDF o vídeo<input type="file" accept="image/*,application/pdf,video/*" hidden /></label>
     <span class="acta-adj" hidden></span>
     <span class="acta-ctrlv">o pega la captura aquí con Ctrl+V</span>`;
   const input = fila.querySelector("input")!;
@@ -267,12 +358,14 @@ export function montarLectorActa(o: OpcionesLector): void {
   };
   const adjuntar = (f: File | null | undefined) => {
     if (!f) return false;
-    if (!f.type.startsWith("image/") && f.type !== "application/pdf") {
-      o.estado("Ese archivo no es una imagen ni un PDF.", true);
+    const video = f.type.startsWith("video/");
+    if (!f.type.startsWith("image/") && f.type !== "application/pdf" && !video) {
+      o.estado("Ese archivo no es una imagen, un PDF ni un vídeo.", true);
       return false;
     }
-    if (f.size > 15_000_000) {
-      o.estado("El archivo es demasiado grande (máx. 15 MB).", true);
+    // el vídeo no se sube a ningún sitio: solo se limita para no ahogar al navegador
+    if (f.size > (video ? 400_000_000 : 15_000_000)) {
+      o.estado(`El archivo es demasiado grande (máx. ${video ? "400" : "15"} MB).`, true);
       return false;
     }
     adjunto = f;
@@ -299,9 +392,9 @@ export function montarLectorActa(o: OpcionesLector): void {
   /** La imagen que se mandaría con consentimiento (la captura, o la 1.ª página del PDF escaneado). */
   let imagenParaIA: Blob | null = null;
 
-  const entregar = (acta: ActaLeida, origen: OrigenActa) => {
+  const entregar = (acta: ActaLeida, origen: OrigenActa, extra: string[] = []) => {
     o.estado("");
-    const avisos = avisosActa(acta);
+    const avisos = [...extra, ...avisosActa(acta)];
     // leída: el archivo se suelta para que un segundo «Leer acta» no la vuelva a añadir (la
     // imagen se guarda aparte por si luego se manda a la IA)
     adjunto = null;
@@ -330,6 +423,12 @@ export function montarLectorActa(o: OpcionesLector): void {
     boton.disabled = true;
     try {
       let texto = textarea.value.trim();
+      if (adjunto?.type.startsWith("video/")) {
+        // grabación de «Jugades» (FCBQ): sin IA ni foto que mandar, todo se lee aquí
+        o.estado("Leyendo el vídeo en tu dispositivo (tarda un par de minutos)…");
+        const r = await leerJugadesVideo(adjunto, (p) => o.estado(`Leyendo el vídeo en tu dispositivo… ${Math.round(p * 100)} %`));
+        return entregar(r.acta, "texto", r.avisos);
+      }
       if (adjunto) {
         if (adjunto.type === "application/pdf") {
           o.estado("Leyendo el PDF…");

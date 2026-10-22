@@ -132,15 +132,24 @@ export interface CajaTexto {
   alto: number;
 }
 
+export interface LineaTexto {
+  texto: string;
+  /** borde izquierdo y derecho de la línea, y su altura (en px de la imagen) */
+  x0: number;
+  x1: number;
+  y: number;
+  alto: number;
+}
+
 /**
- * Reconstruye las filas de una tabla a partir de trozos de texto con su posición (los de pdf.js o
- * las palabras de Tesseract). Un hueco grande entre dos trozos de la misma fila es un cambio de
- * columna y se escribe como tabulador, que es lo que `parsePaste` entiende mejor.
- * `y` crece hacia abajo (en un PDF hay que invertirla antes).
+ * Agrupa trozos de texto con posición (los de pdf.js o las palabras de Tesseract) en líneas, de
+ * arriba abajo. Un hueco grande entre dos trozos de la misma línea es un cambio de columna y se
+ * escribe como tabulador, que es lo que `parsePaste` entiende mejor. `y` crece hacia abajo (en un
+ * PDF hay que invertirla antes).
  */
-export function filasDeCajas(cajas: CajaTexto[]): string {
+export function lineasDeCajas(cajas: CajaTexto[]): LineaTexto[] {
   const validas = cajas.filter((c) => c.texto.trim() && c.alto > 0);
-  if (!validas.length) return "";
+  if (!validas.length) return [];
   const altos = validas.map((c) => c.alto).sort((a, b) => a - b);
   const altoTipico = altos[Math.floor(altos.length / 2)];
   const orden = [...validas].sort((a, b) => a.y - b.y || a.x - b.x);
@@ -151,17 +160,21 @@ export function filasDeCajas(cajas: CajaTexto[]): string {
     if (fila && Math.abs(centro - (fila[0].y + fila[0].alto / 2)) < altoTipico * 0.5) fila.push(c);
     else filas.push([c]);
   }
-  return filas
-    .map((fila) => {
-      fila.sort((a, b) => a.x - b.x);
-      let s = fila[0].texto.trim();
-      for (let i = 1; i < fila.length; i++) {
-        const hueco = fila[i].x - (fila[i - 1].x + fila[i - 1].ancho);
-        s += (hueco > altoTipico * 0.9 ? "\t" : hueco > altoTipico * 0.12 ? " " : "") + fila[i].texto.trim();
-      }
-      return s;
-    })
-    .join("\n");
+  return filas.map((fila) => {
+    fila.sort((a, b) => a.x - b.x);
+    let s = fila[0].texto.trim();
+    for (let i = 1; i < fila.length; i++) {
+      const hueco = fila[i].x - (fila[i - 1].x + fila[i - 1].ancho);
+      s += (hueco > altoTipico * 0.9 ? "\t" : hueco > altoTipico * 0.12 ? " " : "") + fila[i].texto.trim();
+    }
+    const ult = fila[fila.length - 1];
+    return { texto: s, x0: fila[0].x, x1: ult.x + ult.ancho, y: fila[0].y, alto: Math.max(...fila.map((c) => c.alto)) };
+  });
+}
+
+/** Las filas de una tabla como texto, con tabuladores entre columnas (ver `lineasDeCajas`). */
+export function filasDeCajas(cajas: CajaTexto[]): string {
+  return lineasDeCajas(cajas).map((l) => l.texto).join("\n");
 }
 
 // ─── sin IA ────────────────────────────────────────────────────────────────
