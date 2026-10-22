@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **255 zapas (49 OCULTAS, 206 visibles) · 660 tests · `astro check` 0 errores · 381 páginas** |
+| Tamaño | **255 zapas (50 OCULTAS, 205 visibles) · 660 tests · `astro check` 0 errores · 381 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -598,6 +598,15 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     🔑 Una URL de afiliado va codificada dentro del wrapper (`%2F`): para buscar un producto en `zapatillas.ts` hay que
     buscar su id (`A56814491`), no la URL. Pasada del 21-oct: 177/399; Amazon 32 ok / 135 fallos (lo conocido de CI),
     AliExpress 25/47 (los fallos son items ya apagados que el scraper sigue intentando).
+  · Filas con número de >10 días: FUTR X 4 e Immortality 4 en Amazon daban `#outOfStock` → apagadas (conservan Atmósfera
+    y ECI); OTG 3 GS en Atmósfera viva (8 tallas EU). 🔑 Amazon desde CI no ve agotados (`AMAZON_MARCA_AGOTADO=false`): las
+    filas de Amazon solo se refrescan a mano. Barrido de las 66 que enseñan número: `fetch('/dp/ASIN')` desde amazon.es en
+    el navegador integrado, en segundo plano dentro de la página (`window.__res`), 1,5 s entre peticiones.
+    Resultado: 64 con carrito, 9 precios al día. **One Take 5**: su color se agotó → otro color FD2335 con 13 tallas a
+    87,97. **Pump Omni Lite**: su ASIN era la Pump Omni **Zone II** (otro modelo) y agotada; ni Amazon ni reebok.eu tienen
+    la Omni Lite de adulto → **oculta (49 → 50)**. 🔑 **`#outOfStock` en una `/dp/` con selector de talla solo dice que la
+    talla POR DEFECTO está agotada**: hay que pedir cada ASIN hijo (`li[data-asin]` del selector, `/dp/<hijo>?th=1&psc=1`)
+    y mirar `#add-to-cart-button`. «Ver opciones disponibles» = solo vendedores externos (a menudo reventa).
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
