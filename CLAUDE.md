@@ -557,6 +557,11 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   · Decathlon «Colección adidas baloncesto» (correo de Awin): D.O.N. 8 105,49 · Believe That 1 69,99 · OTG 3 64,99 · OTG 3
     niño 44,99, todas más caras que el «desde» actual → no se añaden. La AE 2 de Decathlon es **solo en tienda física**
     (`InStoreOnly`). OTG 3: fuera una búsqueda de Amazon que buscaba la OTG 2. Build: 0 marcas sin resolver / undefined / NaN.
+  · **«ancha» sin fuente → normal**: SKX JE1 (sin reseñas; Skechers solo vende ancho estándar), Freak 8 (sin reseña;
+    Freak 6/7 estrechas de puntera; fuera su «Horma ancha de verdad») y GT Jump Academy. Sabrina 3 GS → estrecha como la
+    adulta. 🔑 **Regla: una ficha solo va en «ancha» si una fuente la ve holgada** (hoy: LeBron 22/23, Dame 9, Freak 4,
+    Luka 1, FUTR X Elite; la LeBron 24 hereda de la 23). La página SEO de pie ancho se rellena con esas. Sin duplicados de
+    title/description en el build; HG sin reseñas nuevas de fichas sin ancla (sitemap: 900).
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
