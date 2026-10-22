@@ -580,6 +580,14 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     361sport ZEN 8 14/19 tallas y AG 6 9/15; Hali 1 en Puma ES sigue OutOfStock en todos los colores (enlace apagado bien).
   · Artículos: fuera los «desde X €» de zapas ocultas (Kobe 6 Protro, Shox BB4 y las 3 Moolah): «precio oficial» o aviso de
     que no la vende ninguna de nuestras tiendas. Las `relatedShoes` ocultas se descartan solas.
+  · Chat: el modelo escribía los marcadores internos tal cual («Todas son MUJER-tambien o MUJER-100%»): regla en el prompt;
+    re-medido limpio. **Años**: las 3 guías rehechas el 19-oct (exterior, pie ancho, niños) y las páginas SEO de marca y
+    accesorios pasan a 2026 en título/meta (las SEO se rellenan solas del catálogo). Los análisis «la mejor de 2025» se quedan:
+    ahí el año es un dato, y subirlo sin revisar el texto sería fingir frescura. Quedan ~28 artículos con «2025» en el título.
+  · ▶️ **DECIDIR (usuario)**: (1) «Tendencia» (etiqueta `trending`, portada y ranking) incluye generaciones ya superadas en
+    catálogo (Curry 12, KD 18, Sabrina 3, Ja 3, Freak 7, MB.05, Harden 9, AE 2, Joker 1, D.O.N. 7…). Pasarla a las sucesoras
+    refresca, pero muchas sucesoras solo se venden en Nike ES (sin comisión) y las viejas tienen afiliada. (2) Las Protro:
+    Kobe 1/3/4/5/6 son `es_retro` (fuera de rankings modernos y Black Friday) y Kobe 8/9 High/9 Elite Low no.
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
