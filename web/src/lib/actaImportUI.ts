@@ -220,6 +220,10 @@ async function leerJugadesVideo(file: Blob, progreso: (p: number) => void): Prom
           if (cb.final || cb.local) cab = cb;
         }
         listas.push(jugadasDeLineas(lineas, c.width));
+        // diagnóstico: con localStorage «cz.debug.acta» = 1, lo leído en cada fotograma queda en window.__actaDebug
+        try {
+          if (localStorage.getItem("cz.debug.acta")) ((window as any).__actaDebug ??= []).push({ t, lineas: lineas.map((l) => `${Math.round(l.x0)}|${l.texto}`), jugadas: listas[listas.length - 1] });
+        } catch { /* sin almacenamiento */ }
       }
     } finally {
       await worker.terminate();
