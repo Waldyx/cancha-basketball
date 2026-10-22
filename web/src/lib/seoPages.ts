@@ -539,7 +539,7 @@ export const SEO_PAGES: SeoPage[] = [
     slug: "zapatillas-baloncesto-calidad-precio",
     title: "Mejores zapatillas de baloncesto calidad-precio 2026 | CANCHA.ZAPA",
     description:
-      "Las zapatillas de baloncesto con mejor relación calidad-precio en 2026: máximo rendimiento por euro, no solo las más baratas. Ranking honesto por score/precio con precios verificados en tiendas españolas.",
+      "Las zapatillas de baloncesto con mejor calidad-precio en 2026: máximo rendimiento por euro, no solo las más baratas, con precios verificados en España.",
     eyebrow: "★ Relación calidad-precio",
     h1Pre: "Zapatillas baloncesto",
     h1Accent: "calidad-precio",
@@ -792,7 +792,7 @@ export const SEO_PAGES: SeoPage[] = [
   {
     slug: "zapatillas-baloncesto-mujer",
     title: "Mejores zapatillas de baloncesto para mujer 2026 | CANCHA.ZAPA",
-    description: "Las mejores zapatillas de baloncesto para mujer 2026: signatures unisex con ADN WNBA (Sabrina, Stewie, Heir Series) y moldes 100% femeninos (UA Flow Breakthru 4, Adidas Exhibit Select).",
+    description: "Las mejores zapatillas de baloncesto para mujer en 2026: signatures unisex con ADN WNBA (Sabrina, Stewie, Heir Series) y hormas femeninas como la UA Flow Breakthru 4.",
     eyebrow: "★ Para mujer · WNBA inspired",
     h1Pre: "Zapatillas de baloncesto",
     h1Accent: "para mujer",
