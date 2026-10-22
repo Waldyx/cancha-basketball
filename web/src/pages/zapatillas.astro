@@ -103,7 +103,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
               ℹ️ Imágenes orientativas y precios que pueden variar: confirma color, talla y precio finales en la tienda al abrir el enlace.
             </p>
           </div>
-          <aside class="hero-panel">
+          <div class="hero-panel">
             <div class="panel-header">
               <span class="dot-pulse"></span>
               <span>RADAR EN VIVO</span>
@@ -124,7 +124,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
                 </div>
               ))}
             </div>
-          </aside>
+          </div>
         </div>
         <div class="hero-match">
           <span>Mostrando <strong id="catalogo-count">{nonGSCount}</strong> de <strong>{nonGSCount}</strong> zapas con tus filtros</span>
@@ -171,7 +171,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
         {/* SIDEBAR */}
         <aside class="cz-sidebar">
           <section>
-            <h3><span class="num">01</span> Marca</h3>
+            <h2><span class="num">01</span> Marca</h2>
             {marcas.map(m => (
               <label class="row">
                 <input type="checkbox" data-filter="marca" value={m} />
@@ -182,7 +182,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
           </section>
 
           <section>
-            <h3><span class="num">02</span> Categoría</h3>
+            <h2><span class="num">02</span> Categoría</h2>
             <div class="chip-row">
               {Object.entries(CAT_LABELS).map(([k, l]) => (
                 <button class="chip" data-filter="categoria" data-value={k}>{l}</button>
@@ -193,7 +193,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
           </section>
 
           <section>
-            <h3><span class="num">03</span> Altura</h3>
+            <h2><span class="num">03</span> Altura</h2>
             <div class="chip-row">
               {["low", "mid", "high"].map(a => (
                 <button class="chip" data-filter="altura" data-value={a}>{a}</button>
@@ -202,7 +202,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
           </section>
 
           <section>
-            <h3><span class="num">04</span> Posición</h3>
+            <h2><span class="num">04</span> Posición</h2>
             <div class="chip-row">
               {["base", "escolta", "alero", "ala-pivot", "pivot"].map(p => (
                 <button class="chip" data-filter="posicion" data-value={p}>
@@ -213,7 +213,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
           </section>
 
           <section>
-            <h3><span class="num">05</span> Precio máx.</h3>
+            <h2><span class="num">05</span> Precio máx.</h2>
             <input type="range" class="range" id="price-range" min="40" max="250" step="10" value="250" aria-label="Precio máximo" />
             <div class="range-label">
               <span>40€</span>
@@ -222,13 +222,13 @@ const ordenadas = [...zapatillas].sort(compareByScore);
           </section>
 
           <section>
-            <h3><span class="num">06</span> Solo</h3>
+            <h2><span class="num">06</span> Solo</h2>
             <label class="row"><input type="checkbox" id="only-new"/><span>Nuevas (2026)</span></label>
             <label class="row"><input type="checkbox" id="only-verified"/><span>Precio verificado</span></label>
           </section>
 
           <section>
-            <h3><span class="num">07</span> Colección</h3>
+            <h2><span class="num">07</span> Colección</h2>
             <div class="chip-row">
               <button class="chip" id="chip-trending">🔥 Trending</button>
               <button class="chip" id="chip-retro">🏅 Retro</button>

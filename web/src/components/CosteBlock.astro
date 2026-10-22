@@ -30,7 +30,7 @@ const uid = `cb-${slug}`;
 ---
 
 {isRetro ? (
-  <aside class="cb-block cb-retro">
+  <div class="cb-block cb-retro">
     <div class="cb-head">
       <span class="cb-bell cb-bell-retro" aria-hidden="true">◈</span>
       <div>
@@ -45,9 +45,9 @@ const uid = `cb-${slug}`;
       las suelas vintage se gastan antes que las modernas.
     </p>
     <a href="/zapatillas?retro=false" class="cb-retro-link">Ver zapas pensadas para jugar →</a>
-  </aside>
+  </div>
 ) : (
-  <aside class="cb-block" id={uid} data-dura={durabilidad} data-precio={precio}>
+  <div class="cb-block" id={uid} data-dura={durabilidad} data-precio={precio}>
     <div class="cb-head">
       <span class="cb-bell" aria-hidden="true">◔</span>
       <div>
@@ -97,7 +97,7 @@ const uid = `cb-${slug}`;
       ⚠ Estimación según el score de durabilidad ({durabilidad}/10) y tu uso. El desgaste real
       varía con la superficie y el cuidado.
     </p>
-  </aside>
+  </div>
 )}
 
 <script define:vars={{ uid }}>

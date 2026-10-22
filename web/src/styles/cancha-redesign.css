@@ -297,12 +297,12 @@ button { font-family: inherit; cursor: pointer; }
   padding: 18px 18px 22px;
   max-height: calc(100vh - 110px); overflow: auto;
 }
-.cz-sidebar h3 {
+.cz-sidebar h2 {
   margin: 0 0 10px; font-size: 10px; font-weight: 800;
   text-transform: uppercase; letter-spacing: 0.2em; color: var(--cz-accent-text);
   display: flex; align-items: center; gap: 8px;
 }
-.cz-sidebar h3 .num {
+.cz-sidebar h2 .num {
   font-family: "Barlow Condensed", sans-serif;
   font-size: 22px; line-height: 1; color: var(--cz-border); font-weight: 900;
 }

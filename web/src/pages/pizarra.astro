@@ -316,13 +316,13 @@ const jsonLd = {
             <textarea id="pz-notas" class="pz-inp" data-pz="notas" rows="3" maxlength="2000" placeholder="Objetivo, lecturas, errores a evitar…"></textarea>
             <label class="pz-lab" for="pz-nota-paso">Nota de este paso</label>
             <textarea id="pz-nota-paso" class="pz-inp" data-pz="nota-paso" rows="3" maxlength="400" placeholder="Qué pasa en este paso"></textarea>
-            <h3 class="pz-h3 pz-edit">Orden de las acciones</h3>
+            <h2 class="pz-h3 pz-edit">Orden de las acciones</h2>
             <div class="pz-row pz-edit">
               <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-act="numerar">Numerar las líneas del paso</button>
               <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-act="sin-numeros">Quitar números</button>
             </div>
             <p class="pz-small pz-edit">Cada línea lleva un circulito con su número (1, 2, 3…) en el orden en que se dibujó. Para cambiar uno, selecciona la línea.</p>
-            <h3 class="pz-h3 pz-edit">Nombres de los jugadores</h3>
+            <h2 class="pz-h3 pz-edit">Nombres de los jugadores</h2>
             <select class="pz-inp pz-edit" data-pz="equipo-sel" aria-label="Equipo del que cargar la plantilla" hidden></select>
             <div class="pz-row pz-edit">
               <button type="button" class="pz-bn pz-bn-2 pz-bn-sm" data-act="equipo-cargar">Cargar plantilla</button>
@@ -354,11 +354,11 @@ const jsonLd = {
               <button type="button" class="pz-bn pz-bn-2" data-act="banquillo" title="Imprime 4 o 6 jugadas por página, con el nombre grande, para llevarlas al banquillo">Hoja de banquillo</button>
             </div>
             <div class="pz-compartidas" hidden>
-              <h3 class="pz-h3">Compartidas contigo (sin guardar)</h3>
+              <h2 class="pz-h3">Compartidas contigo (sin guardar)</h2>
               <ul class="pz-lista" data-pz="compartidas"></ul>
             </div>
             <div class="pz-club">
-              <h3 class="pz-h3">Biblioteca del club</h3>
+              <h2 class="pz-h3">Biblioteca del club</h2>
               <p class="pz-small" data-pz="club-info"></p>
               <details class="pz-club-det">
                 <summary>Soy coordinador: compartir mi biblioteca con el club</summary>
@@ -384,7 +384,7 @@ const jsonLd = {
                 <button type="button" class="pz-bn pz-bn-2" data-act="marca-quitar">Quitar</button>
               </div>
             </details>
-            <h3 class="pz-h3">Mis jugadas</h3>
+            <h2 class="pz-h3">Mis jugadas</h2>
             <div class="pz-filtros">
               <input type="search" class="pz-inp" data-pz="buscar" placeholder="Buscar…" aria-label="Buscar jugadas" autocomplete="off" />
               <select class="pz-inp" data-pz="filtro-cat" aria-label="Filtrar por categoría">
@@ -400,9 +400,9 @@ const jsonLd = {
               </select>
             </div>
             <ul class="pz-lista" data-pz="lista"></ul>
-            <h3 class="pz-h3">Plantillas para empezar</h3>
+            <h2 class="pz-h3">Plantillas para empezar</h2>
             <ul class="pz-lista" data-pz="plantillas"></ul>
-            <h3 class="pz-h3">Ejercicios de entrenamiento</h3>
+            <h2 class="pz-h3">Ejercicios de entrenamiento</h2>
             <ul class="pz-lista" data-pz="ejercicios"></ul>
           </div>
         </aside>
@@ -500,16 +500,16 @@ const jsonLd = {
             <p class="pz-ses-total" data-pz="ses-total" aria-live="polite"></p>
             <ol class="pz-ses-lista" data-pz="ses-bloques"></ol>
             <div class="pz-ses-add" data-ses-edit>
-              <h3 class="pz-h3">Añadir un ejercicio o jugada</h3>
+              <h2 class="pz-h3">Añadir un ejercicio o jugada</h2>
               <div class="pz-row">
                 <select class="pz-inp pz-ses-sel" data-pz="ses-anadir" aria-label="Ejercicio o jugada que añadir"></select>
                 <button type="button" class="pz-bn" data-ses="anadir">Añadir</button>
               </div>
-              <h3 class="pz-h3">Añadir un bloque de texto</h3>
+              <h2 class="pz-h3">Añadir un bloque de texto</h2>
               <div class="pz-row" data-pz="ses-rapidos"></div>
             </div>
             <div class="pz-ses-fin">
-              <h3 class="pz-h3">Compartir e imprimir</h3>
+              <h2 class="pz-h3">Compartir e imprimir</h2>
               <div class="pz-row">
                 <button type="button" class="pz-bn" data-ses="imprimir">Imprimir o PDF</button>
                 <button type="button" class="pz-bn pz-bn-2" data-ses="enlace">Copiar enlace</button>
