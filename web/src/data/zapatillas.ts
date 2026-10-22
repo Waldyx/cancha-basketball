@@ -2231,7 +2231,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DMGYGDCX?tag=canchazapa-21", precio_actual: 89.12, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DMGMF5S8?tag=canchazapa-21", precio_actual: 87.97, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: el color de antes (B0DMGYGDCX) se agotó; FD2335 blanco/azul, 13 tallas con carrito
     ],
   },
 
@@ -2598,7 +2598,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010673521913.html", precio_actual: 88.39, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: Chill Athletic Vibes, SIN sello Marcas+ (Nike suelto en AliExpress = posible réplica; regla del proyecto)
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011644113862.html", precio_actual: 92.39, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: Power Stride Sports, SIN sello Marcas+ (Nike suelto en AliExpress = posible réplica; regla del proyecto)
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-lebron-21-akoya.html", precio_actual: 159.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-13" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D9V558GK?tag=canchazapa-21", precio_actual: 223.60, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: FZ7883-700, 7 tallas (41-45), 223,60-309,91 según talla
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D9V558GK?tag=canchazapa-21", precio_actual: 238.36, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: FZ7883-700, 7 tallas (41-45), 223,60-309,91 según talla
     ],
   },
 
@@ -2960,7 +2960,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 150,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/Under-Armour-Flow-Elite-multicolor/dp/B0CV98QB26?tag=canchazapa-21", precio_actual: 69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/Under-Armour-Flow-Elite-multicolor/dp/B0CV98QB26?tag=canchazapa-21", precio_actual: 75.00, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" },
     ],
   },
 
@@ -8255,7 +8255,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 90,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BM9FNJ29?tag=canchazapa-21", precio_actual: 67.5, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // s52 21-sep: era una busqueda; ficha real "PUMA Playmaker Pro Mid Laser, Zapatillas de basquetbol Hombre", con add-to-cart-button, 67,50 EUR
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BM9FNJ29?tag=canchazapa-21", precio_actual: 70.10, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // s52 21-sep: era una busqueda; ficha real "PUMA Playmaker Pro Mid Laser, Zapatillas de basquetbol Hombre", con add-to-cart-button, 67,50 EUR
       { tienda: "amazon_es", url: "https://www.amazon.es/PUMA-Playmaker-Pro-deportivos-Gris-Lima/dp/B0B7CNKFBB/ref=sr_1_1?tag=canchazapa-21", precio_actual: 97, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es otra variante (corte o segmento) (la ficha enlazaba una busqueda)
     ],
   },
@@ -11052,7 +11052,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 180, // tarifa europea (sneakerjagers, HR0499, 2023). Antes 150 sin fuente
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B09H5D6H93?tag=canchazapa-21", precio_actual: 196.0, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B09H5D6H93?tag=canchazapa-21", precio_actual: 210.00, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" },
     ],
   },
 
@@ -11183,9 +11183,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 160,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FD42Z5HF?tag=canchazapa-21", precio_actual: 180, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FD42Z5HF?tag=canchazapa-21", precio_actual: 180, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: es la Pump Omni ZONE II (otro modelo) y además agotada; Amazon y reebok.eu no tienen la Omni Lite de adulto
     ],
   },
 
@@ -11318,7 +11319,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fbaskets-homme-baskets-converse-bordeaux-bordeaux-converse%2F2e9ddaaf-f8ab-47a3-93da-73d7d366f505%2Fc15", precio_actual: 43, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-14" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fconverse%2Fchuck-taylor-all-star-9755.html", precio_actual: 53, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/Converse-Taylor-Zapatillas-Unisex-adulto/dp/B002W7NP8S?tag=canchazapa-21", precio_actual: 44.95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/Converse-Taylor-Zapatillas-Unisex-adulto/dp/B002W7NP8S?tag=canchazapa-21", precio_actual: 52.13, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" },
     ],
   },
 
@@ -16080,7 +16081,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/products/angel-reese-1-100272893-272893", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-18" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FBFY4L1M?tag=canchazapa-21", precio_actual: 140, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-14" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FBFY4L1M?tag=canchazapa-21", precio_actual: 72.93, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" },
     ],
   },
 
