@@ -654,6 +654,13 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   Playwright que pase por humano, o 2Captcha). **Descartado y explicado**: es esquivar un CAPTCHA/antibot que la FCBQ pone a
   propósito, su robots.txt veta a los agentes de IA, vende esos datos a los clubs (Open Data) y son datos de menores. La vía
   es pedirlos: el club con el Open Data, o un correo a la FCBQ (se ofreció redactarlo). NO volver a plantear la API oculta.
+  ✅ **Lector de «Jugades» (`e6f2d1d`, `lib/jugadesFCBQ.ts`)**: el usuario graba la pantalla bajando por «Jugades» y sube el
+  vídeo en estadísticas (jugador/equipo) o rival. Fotograma cada 0,8 s a 720 px sin las barras fijas → Tesseract → tarjetas
+  (`P1 05:28` · marcador · jugada · `#8 NOMBRE`); equipo por el LADO del texto (local a la derecha, visitante a la izquierda);
+  🔑 las cifras grandes del marcador el OCR de página se las salta → se leen aparte por franja con un worker solo de cifras
+  (PSM 7, whitelist); 🔑 el «#» sale como H/4/+ → se descarta el 1.er carácter y el dorsal se VOTA por nombre; la clave de
+  jugada no lleva dorsal (un marcador solo ocurre una vez). Sintético (Arial, 12 s): 4/4 exactos en 83 s. ⏳ Falta la grabación
+  REAL (el usuario la pasa por WhatsApp; ojo, WhatsApp comprime: mejor como «Documento»).
 - ✅ **22-oct (tarde): `minimax-m3.1-flash` dejó de ser gratis** (estaba vivo por la mañana) → `nemotron-3.5-super-vl` sube a 3.º
   en chat/coach/sesion y entra `nemotron-3.5-lightning` en la cola; en actas super-vl va delante. `audit-ia` revisa también
   `acta.ts`. Medido en producción: chat 3/3 bien (super-vl, 2,5-12 s; presupuesto, tobillos → mid/high, niño → solo GS),
