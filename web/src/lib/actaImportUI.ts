@@ -77,15 +77,18 @@ async function trozosDe(img: Blob, escala: (w: number, h: number) => number, alt
 }
 
 /** Grises, invertida si la captura es de tema oscuro, y con el contraste estirado: Tesseract lee
- *  mucho mejor negro sobre blanco, y la web de la FCBQ pinta las cifras en gris muy claro. */
-function prepararParaOcr(c: HTMLCanvasElement): HTMLCanvasElement {
+ *  mucho mejor negro sobre blanco, y la web de la FCBQ pinta las cifras en gris muy claro.
+ *  Con \`minCanal\` el gris es el canal MÁS OSCURO de los tres: en la app de la FCBQ el marcador del
+ *  equipo que anota va en amarillo sobre turquesa, que en gris normal casi desaparece y así sale
+ *  oscuro (medido con una captura real: «3 - 0» se leía «0»). */
+function prepararParaOcr(c: HTMLCanvasElement, minCanal = false): HTMLCanvasElement {
   const ctx = c.getContext("2d")!;
   const im = ctx.getImageData(0, 0, c.width, c.height);
   const d = im.data;
   const n = d.length / 4;
   let suma = 0;
   for (let i = 0; i < d.length; i += 4) {
-    const g = 0.299 * d[i] + 0.587 * d[i + 1] + 0.114 * d[i + 2];
+    const g = minCanal ? Math.min(d[i], d[i + 1], d[i + 2]) : 0.299 * d[i] + 0.587 * d[i + 1] + 0.114 * d[i + 2];
     d[i] = g;
     suma += g;
   }
@@ -183,7 +186,8 @@ async function leerJugadesVideo(file: Blob, progreso: (p: number) => void): Prom
     const cifras = await T.createWorker(["spa"], 1);
     const recorte = document.createElement("canvas");
     const listas: Jugada[][] = [];
-    let cab: ReturnType<typeof cabeceraDeLineas> | null = null;
+    let nombres = { local: "", visitante: "" };
+    let finalCab: [number, number] | null = null;
     let firmaPrev: Uint8ClampedArray | null = null;
     try {
       await worker.setParameters({ tessedit_pageseg_mode: "6", preserve_interword_spaces: "1" });
@@ -210,7 +214,7 @@ async function leerJugadesVideo(file: Blob, progreso: (p: number) => void): Prom
         if (!cambiada || !(quieta || t - tLeida >= 1)) continue;
         firmaLeida = firma;
         tLeida = t;
-        const { data } = await worker.recognize(prepararParaOcr(c));
+        const { data } = await worker.recognize(prepararParaOcr(c, true));
         const lineas = lineasDeCajas(
           (data.words ?? []).map((w: any) => ({ texto: String(w.text ?? ""), x: w.bbox.x0, y: w.bbox.y0, ancho: w.bbox.x1 - w.bbox.x0, alto: w.bbox.y1 - w.bbox.y0 })),
         );
@@ -224,9 +228,26 @@ async function leerJugadesVideo(file: Blob, progreso: (p: number) => void): Prom
           const nums = String((await cifras.recognize(recorte)).data.text ?? "").match(/\d{1,3}/g);
           if (nums?.length === 2) lineas.splice(fr.despuesDe + 1, 0, { texto: `${nums[0]} - ${nums[1]}`, x0: fr.x0, x1: fr.x1, y: fr.y0, alto: h });
         }
-        if (!cab) {
+        if (!nombres.local) {
           const cb = cabeceraDeLineas(lineas, c.width);
-          if (cb.final || cb.local) cab = cb;
+          if (cb.local) nombres = { local: cb.local, visitante: cb.visitante };
+        }
+        // marcador final: las dos cajas grandes de la cabecera, encima de la línea de la fecha. Cada
+        // caja se lee por separado (juntas salen pegadas: «6055»)
+        const fecha = lineas.find((l) => /\d{1,2}\/\d{1,2}\/\d{2,4}/.test(l.texto));
+        if (fecha && !finalCab) {
+          const y0 = Math.max(0, Math.round(fecha.y - fecha.alto * 8)), h = Math.round(fecha.y - fecha.alto * 1.2) - y0;
+          const leer = async (x0: number, x1: number) => {
+            recorte.width = Math.round(x1 - x0);
+            recorte.height = h;
+            recorte.getContext("2d")!.drawImage(c, x0, y0, recorte.width, h, 0, 0, recorte.width, h);
+            const m = String((await cifras.recognize(recorte)).data.text ?? "").match(/\d{1,3}/);
+            return m ? +m[0] : null;
+          };
+          if (h > 20) {
+            const a = await leer(c.width * 0.28, c.width * 0.5), b = await leer(c.width * 0.5, c.width * 0.72);
+            if (a !== null && b !== null) finalCab = [a, b];
+          }
         }
         listas.push(jugadasDeLineas(lineas, c.width));
         // diagnóstico: con localStorage «cz.debug.acta» = 1, lo leído en cada fotograma queda en window.__actaDebug
@@ -240,7 +261,7 @@ async function leerJugadesVideo(file: Blob, progreso: (p: number) => void): Prom
     }
     const jugadas = unirJugadas(listas);
     if (!jugadas.length) throw new Error("No he encontrado jugadas en el vídeo: tiene que ser la pestaña «Jugades» de la app de la FCBQ, bajando de arriba abajo.");
-    return actaDeJugadas(jugadas, cab ?? undefined);
+    return actaDeJugadas(jugadas, { ...nombres, final: finalCab });
   } finally {
     URL.revokeObjectURL(url);
   }
