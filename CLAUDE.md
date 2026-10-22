@@ -678,6 +678,9 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   con una ficha AGOTADA de Nike antes de programarlo. Mientras, los de Nike se revisan a mano (último: 22-oct, los 10 vivos).
 - ✅ Portada: el vídeo del hero (3,3 MB, 37 s a 718 kbps: ya bien codificado) arranca tras el `load` y nunca con ahorro de
   datos o «reducir movimiento».
+- ✅ **SEO de fichas (22-oct)**: título sin « | CANCHA.ZAPA» cuando pasa de ~60 caracteres (Google lo cortaba en 222 de 255) y
+  descripción con el RESUMEN propio delante (cortado por frase/palabra) + «Nota CANCHA x/10, caña, peso. Precio en tiendas de
+  España.» en ~160 (antes las 255 abrían con la misma frase genérica). Enlaces externos de guías/SEO/FAQ: los 14 vivos.
 - ✅ **Kobe 5 Protro rescatada** (Decathlon marketplace, 233,99 € = 1,34× MSRP, 7 tallas). Descartadas: **PG 6** (una
   talla y 1 unidad) y **Why Not .6** (solo 36,5-40: curva de mujer/GS). Ocultas 43 → 42.
 - ⏸ **Search Console**: la sesión de Google del navegador integrado caducó; no se mete contraseña. Revisarlo el usuario
