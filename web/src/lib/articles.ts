@@ -457,8 +457,8 @@ export const ARTICLES: Article[] = [
   // ── 5. Outdoor ───────────────────────────────────────────────────────
   {
     slug: "mejores-zapatillas-baloncesto-outdoor-2025",
-    title: "Mejores zapatillas de baloncesto para outdoor en 2025-2026",
-    metaTitle: "Mejores zapatillas de baloncesto outdoor 2025 | CANCHA.ZAPA",
+    title: "Mejores zapatillas de baloncesto para outdoor en 2026",
+    metaTitle: "Mejores zapatillas de baloncesto outdoor 2026 | CANCHA.ZAPA",
     description:
       "Zapatillas de baloncesto para exterior: las que aguantan el asfalto según las reviews, cuáles evitar (UA Flow, AE 2, GT Cut) y comparativa de durabilidad outdoor.",
     fecha: "2026-10-19",
@@ -566,8 +566,8 @@ export const ARTICLES: Article[] = [
   // ── 6. Pie ancho ─────────────────────────────────────────────────────
   {
     slug: "zapatillas-baloncesto-pie-ancho-2025",
-    title: "Zapatillas de baloncesto para pie ancho: guía completa 2025",
-    metaTitle: "Zapatillas de baloncesto para pie ancho 2025 | CANCHA.ZAPA",
+    title: "Zapatillas de baloncesto para pie ancho: guía completa 2026",
+    metaTitle: "Zapatillas de baloncesto para pie ancho 2026 | CANCHA.ZAPA",
     description:
       "Guía para elegir zapatillas de baloncesto si tienes pie ancho: qué líneas van estrechas, cuáles dan espacio según las reviews, y las 5 que mejor encajan.",
     fecha: "2026-10-19",
@@ -581,7 +581,7 @@ export const ARTICLES: Article[] = [
     relatedShoes: ["nike-lebron-22", "jordan-luka-1", "ua-curry-13", "nike-kd-17", "nike-sabrina-2"],
     relatedSeoPages: ["zapatillas-baloncesto-pie-ancho", "mejores-zapatillas-baloncesto-2025", "zapatillas-baloncesto-baratas"],
     body: `
-<p class="art-intro">La mayoría de marcas diseñan sus zapatillas de baloncesto para un pie estándar o incluso estrecho. Si tienes pie ancho, el mercado juega en tu contra: compras un modelo que en la talla parece correcto, lo pisas en el primer partido, y al cuarto de hora el quinto dedo ya está ardiendo. Esta guía va directo al grano: qué marcas van anchas, cuáles evitar, y los 5 mejores modelos para pie ancho en 2025.</p>
+<p class="art-intro">La mayoría de marcas diseñan sus zapatillas de baloncesto para un pie estándar o incluso estrecho. Si tienes pie ancho, el mercado juega en tu contra: compras un modelo que en la talla parece correcto, lo pisas en el primer partido, y al cuarto de hora el quinto dedo ya está ardiendo. Esta guía va directo al grano: qué marcas van anchas, cuáles evitar, y los 5 mejores modelos para pie ancho en 2026.</p>
 
 <h2>Cómo saber si tienes pie ancho</h2>
 <p>No necesitas ir al podólogo. Estas señales te lo dicen:</p>
@@ -1412,10 +1412,10 @@ export const ARTICLES: Article[] = [
   // ── 14. Zapatillas niños y jóvenes ──────────────────────────────────
   {
     slug: "zapatillas-baloncesto-ninos-jovenes-2025",
-    title: "Mejores zapatillas de baloncesto para niños y jóvenes 2025",
-    metaTitle: "Mejores zapatillas baloncesto niños y jóvenes 2025 | CANCHA.ZAPA",
+    title: "Mejores zapatillas de baloncesto para niños y jóvenes 2026",
+    metaTitle: "Mejores zapatillas baloncesto niños y jóvenes 2026 | CANCHA.ZAPA",
     description:
-      "Guía completa para padres: las mejores zapatillas de baloncesto para niños y adolescentes en 2025. Qué marcas, qué modelos y cuánto gastar según la edad.",
+      "Guía completa para padres: las mejores zapatillas de baloncesto para niños y adolescentes en 2026. Qué marcas, qué modelos y cuánto gastar según la edad.",
     fecha: "2026-10-19",
     fechaLabel: "19 octubre 2026",
     categoria: "Guías",
