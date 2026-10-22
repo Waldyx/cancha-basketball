@@ -138,6 +138,24 @@ const linksOrdenados = unaFilaPorTienda([...z.links_compra].filter(l => l.dispon
 const tituloBase = `${z.marca} ${z.modelo} (${z.año_lanzamiento}) · Análisis y mejor precio`;
 const tituloFicha = tituloBase.length <= 46 ? `${tituloBase} | CANCHA.ZAPA` : tituloBase;
 
+// Descripción: lo PROPIO de la zapa primero (su resumen, cortado por frase o palabra) y detrás sus datos
+// estables, en ~160 caracteres. Antes las 255 abrían con la misma frase genérica y Google cortaba el resumen.
+const CORTE_TXT: Record<string, string> = { low: "caña baja", mid: "caña media", high: "caña alta" };
+const datosFicha = [z.proximamente ? "" : `nota CANCHA ${scoreMeta(z).score.toFixed(1)}/10`, CORTE_TXT[z.altura] ?? "", z.peso_real_g ? `${z.peso_real_g} g` : ""]
+  .filter(Boolean).join(", ");
+const colaDesc = datosFicha ? ` ${datosFicha.charAt(0).toUpperCase()}${datosFicha.slice(1)}. Precio en tiendas de España.` : " Precio en tiendas de España.";
+const cabezaDesc = `${z.marca} ${z.modelo}: `;
+function recortaResumen(t: string, max: number): string {
+  t = t.replace(/\s+/g, " ").trim();
+  if (t.length <= max) return t.replace(/[.\s]+$/, "") + ".";
+  const frases = t.match(/[^.!?]+[.!?]/g) ?? [];
+  let out = "";
+  for (const fr of frases) { if ((out + fr).trim().length > max) break; out += fr; }
+  if (out.trim().length >= max * 0.5) return out.trim();
+  return t.slice(0, max - 1).replace(/\s+\S*$/, "").replace(/[,;:\s]+$/, "") + "…";
+}
+const descripcionFicha = cabezaDesc + recortaResumen(z.resumen, Math.max(60, 160 - cabezaDesc.length - colaDesc.length)) + colaDesc;
+
 // Promo contextual: si la zapa tiene enlace a una tienda con códigos por importe
 // (AliExpress) y el precio cumple algún tramo, preparamos el aviso. La activación
 // por fecha la hace un script en cliente (web estática).
@@ -287,7 +305,7 @@ const productJsonLd = {
 
 <Base
   title={tituloFicha}
-  description={`${z.marca} ${z.modelo}: análisis técnico honesto, puntuaciones en 8 atributos y mejor precio en tiendas españolas. ${z.resumen.slice(0, 80)}...`}
+  description={descripcionFicha}
   ogType="article"
   ogImage={z.oculto ? undefined : `/og/${z.slug}.png`}
   jsonLd={productJsonLd}
