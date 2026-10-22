@@ -185,10 +185,28 @@ const jsonLd = {
     }
   }
 
+  /** Dos actas pegadas del mismo partido: misma fecha, mismo contrario y casi todos los dorsales
+   *  en común (no todos: una lectura con OCR puede haber leído mal alguno). */
+  function mismoPartidoPegado(x: ReturnType<typeof actaPegada>, a: ReturnType<typeof actaPegada>) {
+    if (x.origen !== "pegado" || a.origen !== "pegado" || (x.fecha || "") !== (a.fecha || "")) return false;
+    if (x.contra.trim().toLowerCase() !== a.contra.trim().toLowerCase()) return false;
+    const dx = new Set(x.jugadores.map((j) => j.dorsal || j.nombre));
+    const da = a.jugadores.map((j) => j.dorsal || j.nombre);
+    return da.filter((d) => dx.has(d)).length >= 0.6 * Math.max(dx.size, da.length);
+  }
+
   function anadirActa(a: ReturnType<typeof actaPegada>) {
     const r = activo();
     if (!r) return;
     if (r.actas.some((x) => x.id === a.id)) return estado("Ese partido ya estaba añadido.", true);
+    // la misma acta leída otra vez (p. ej. la captura enviada después a la IA): sustituye a la anterior
+    const i = r.actas.findIndex((x) => mismoPartidoPegado(x, a));
+    if (i >= 0) {
+      r.actas[i] = { ...a, id: r.actas[i].id };
+      guardar();
+      estado(`Partido actualizado con la nueva lectura: ${a.jugadores.length} jugadores del rival.`);
+      return pintar();
+    }
     if (r.actas.length >= LIMITES_RIVAL.ACTAS) return estado(`Como mucho ${LIMITES_RIVAL.ACTAS} partidos por rival.`, true);
     r.actas.push(a);
     r.actas.sort((x, y) => (y.fecha || "").localeCompare(x.fecha || ""));

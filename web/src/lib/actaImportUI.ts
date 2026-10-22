@@ -302,6 +302,11 @@ export function montarLectorActa(o: OpcionesLector): void {
   const entregar = (acta: ActaLeida, origen: OrigenActa) => {
     o.estado("");
     const avisos = avisosActa(acta);
+    // leída: el archivo se suelta para que un segundo «Leer acta» no la vuelva a añadir (la
+    // imagen se guarda aparte por si luego se manda a la IA)
+    adjunto = null;
+    input.value = "";
+    pintarAdjunto();
     otra.hidden = !(imagenParaIA && origen !== "foto");
     o.onActa(acta, avisos, origen);
     // números que no cuadran en una captura leída aquí: la IA con la foto suele leerla bien
