@@ -1304,7 +1304,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 9, ventilacion: 9,
     },
     categoria_principal: "balanced",
-    tags: ["signature", "value-premium", "china-brand", "soporte-tobillo"],
+    tags: ["signature", "value-premium", "china-brand"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
       peso_jugador_kg: [70, 100],
@@ -2753,7 +2753,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 5, ventilacion: 8,
     },
     categoria_principal: "responsive",
-    tags: ["responsive", "nitrofoam", "guards", "pebax"],
+    tags: ["responsive", "nitrofoam", "guards"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
       peso_jugador_kg: [60, 90],
