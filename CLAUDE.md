@@ -568,6 +568,10 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     decidir: las Kobe 1/3/4/5/6 Protro SÍ son `es_retro` y la 8/9 High/9 Elite Low no; unificar mueve rankings y quiz.
   · **Páginas SEO: las GS solo en la júnior** (`[slug].astro`): 12 páginas de adulto tenían GS en el top 5 (talla grande con
     la Curry 12 GS, mujer abriendo con la Sabrina 3 GS).
+  · Ranking de mujer sin GS (entraba la Crossover 2 GS). Quiz probado con 5 perfiles exigentes (pie ancho + tobillo +
+    exterior + tope): todos con 4-5 resultados coherentes. **Imágenes**: la MB.06 (visible y a la venta) y la LeBron 24 seguían
+    con `placeholder-shoe.svg`; ahora MB.06 «Shooting Star» de su `/dp/` de Amazon (`hiRes`) y LeBron 24 de la foto oficial de
+    Nike (vía Sole Retriever; las del newsroom son de ambiente, y su URL exige el `m=…&s=…` firmado). Sin más imágenes que falten.
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
