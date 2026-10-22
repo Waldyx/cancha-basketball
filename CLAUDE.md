@@ -1,6 +1,6 @@
 # CANCHA.ZAPA — Contexto del proyecto
 
-> Última actualización: 2026-10-19 (sesión 57, tarde)
+> Última actualización: 2026-10-22 (noche del 21→22, autónomo)
 > Para Claude: lee esto al empezar una sesión nueva. **Solo contiene lo vivo**: estado, reglas,
 > doctrina, afiliados, arquitectura y pendientes.
 >
