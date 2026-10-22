@@ -562,6 +562,12 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     adulta. 🔑 **Regla: una ficha solo va en «ancha» si una fuente la ve holgada** (hoy: LeBron 22/23, Dame 9, Freak 4,
     Luka 1, FUTR X Elite; la LeBron 24 hereda de la 23). La página SEO de pie ancho se rellena con esas. Sin duplicados de
     title/description en el build; HG sin reseñas nuevas de fichas sin ancla (sitemap: 900).
+  · **Etiquetas (`tags`)**: se pintan en la ficha (las 2 primeras), van al buscador y el chat lee `retro`/`mujer`. Fuera
+    «ligera» de 8 zapas de 363-464 g, «soporte-tobillo» de la Kai 3 (low), «pebax» de la All-Pro Nitro y «retro» de la Kobe 8
+    y Kobe 9 High Protro (no son `es_retro`: el chat las avisaba de coleccionismo). Angel Reese 1 gana «mujer». ⚠ Sin
+    decidir: las Kobe 1/3/4/5/6 Protro SÍ son `es_retro` y la 8/9 High/9 Elite Low no; unificar mueve rankings y quiz.
+  · **Páginas SEO: las GS solo en la júnior** (`[slug].astro`): 12 páginas de adulto tenían GS en el top 5 (talla grande con
+    la Curry 12 GS, mujer abriendo con la Sabrina 3 GS).
 - ▶️ **PARA RETOMAR**: (1) ~~horma~~ y ~~tecnología~~ en los artículos, hechos (segunda pasada contra las fichas nuevas:
   `w37-contenido-tec.tsv`; retros: `w36-tec-retro.tsv`); (2) las 45
   visibles sin ancla de HG (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…): repetir el cruce con
