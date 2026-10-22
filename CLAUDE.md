@@ -661,6 +661,18 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   (PSM 7, whitelist); 🔑 el «#» sale como H/4/+ → se descarta el 1.er carácter y el dorsal se VOTA por nombre; la clave de
   jugada no lleva dorsal (un marcador solo ocurre una vez). Sintético (Arial, 12 s): 4/4 exactos en 83 s. ⏳ Falta la grabación
   REAL (el usuario la pasa por WhatsApp; ojo, WhatsApp comprime: mejor como «Documento»).
+  ▶️ **ESTADO AL HACER EL CLEAR (22-oct, 19:45) — EMPIEZA AQUÍ si se retoma el lector:**
+  · 1.ª prueba REAL del usuario (desde el móvil, bajando deprisa): solo leyó el principio, marcadores basura y final «5-1».
+    Arreglado y desplegado: (1) se leen solo fotogramas QUIETOS que han cambiado (muestreo cada 0,2 s; si nunca para, cada
+    1 s) y se le dijo que grabe **a saltos** (deslizar 1/3 de pantalla, parar 1 s); (2) 🔑 **gris por el canal MÍNIMO
+    (`prepararParaOcr(c, true)`)**: el marcador del equipo que anota va en amarillo sobre turquesa y en gris normal
+    desaparecía; (3) final = las dos cajas grandes encima de la línea de la FECHA, leídas por separado.
+  · Probado con un vídeo hecho de su captura REAL (`.claude/uploads/…/73076105-image.png`, copiada a `web/dist/_t/` para
+    servirla en la preview): las 3 tarjetas bien (#5 vis, #19 local, «3 - 0» canasta de 3 del #8). 🔴 PENDIENTE: (a) el
+    60-55 de la cabecera NO se leyó con el recorte por mitades (con la caja entera sale «6055»): revisar el recorte (bordes
+    turquesa de las cajas) o partir «6055» por la mitad; (b) en el nombre del visitante se cuela «HAB» (el logo ABP):
+    `cabeceraDeLineas` debe usar solo las líneas pegadas a la de la fecha. Diagnóstico: `localStorage cz.debug.acta=1` →
+    `window.__actaDebug` (líneas leídas por fotograma). El usuario NO está en el PC: prueba desde el móvil y manda capturas.
 - ✅ **22-oct (tarde): `minimax-m3.1-flash` dejó de ser gratis** (estaba vivo por la mañana) → `nemotron-3.5-super-vl` sube a 3.º
   en chat/coach/sesion y entra `nemotron-3.5-lightning` en la cola; en actas super-vl va delante. `audit-ia` revisa también
   `acta.ts`. Medido en producción: chat 3/3 bien (super-vl, 2,5-12 s; presupuesto, tobillos → mid/high, niño → solo GS),
