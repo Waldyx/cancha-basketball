@@ -655,6 +655,14 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   `acta.ts`. Medido en producción: chat 3/3 bien (super-vl, 2,5-12 s; presupuesto, tobillos → mid/high, niño → solo GS),
   /api/sesion 60 min exactos (lightning, 29 s), /api/acta bien. Y `vitest.config.ts` regenera `api/_catalog.json` antes de
   los tests (la copia de git va atrasada y tumbaba 2 tests del chat según el último build).
+- ✅ **22-oct (tarde): despliegue 63 → 49 MB (−22 %)**, por Vercel al 100 % de almacenamiento: banner y ficha solo meten en el
+  HTML las promos NO caducadas (`promosNoCaducadas`; antes todas desde junio, 15 KB × ~380 páginas; ficha 108 → 88 KB) ·
+  OG sin alfa y compresión máxima (16 → 8 MB, mismos píxeles; con paleta el degradado salía en anillos) · los 29 JPG/PNG de
+  zapatillas que quedaban → WebP 600 q82 (2,3 → 0,47 MB). 🔑 **`optimize-images.mjs` reprocesa TODAS** (recomprime los WebP
+  ya hechos): para imágenes nuevas, convertir solo esas. 🔴 **La imagen OG calculaba su propio score** (media simple de los 8
+  ejes): la LeBron 23 salía «7/10» al compartirla y la ficha dice 8,3. Ahora `scoreBadge` + de dónde sale. Lector de actas: el
+  archivo se suelta al leerlo y en /rival releer la misma acta (fecha, contrario y ≥60 % de dorsales) la sustituye; en el modo
+  Equipo, si el nombre del equipo encaja con uno del acta (FEB o leída) ya no pregunta cuál es el nuestro.
 - ✅ **Kobe 5 Protro rescatada** (Decathlon marketplace, 233,99 € = 1,34× MSRP, 7 tallas). Descartadas: **PG 6** (una
   talla y 1 unidad) y **Why Not .6** (solo 36,5-40: curva de mujer/GS). Ocultas 43 → 42.
 - ⏸ **Search Console**: la sesión de Google del navegador integrado caducó; no se mete contraseña. Revisarlo el usuario
