@@ -690,7 +690,7 @@ export const SEO_PAGES: SeoPage[] = [
 
   // ── MARCA (3) ───────────────────────────────────────────────────────
   marca("Nike", {
-    title: "Mejores zapatillas de baloncesto Nike 2025 | CANCHA.ZAPA",
+    title: "Mejores zapatillas de baloncesto Nike 2026 | CANCHA.ZAPA",
     description: "Las 5 mejores Nike de baloncesto: LeBron, KD, Kyrie, GT Cut, Sabrina. Análisis técnico honesto.",
     eyebrow: "★ Por marca · Nike",
     lede: "Nike domina el catálogo: signature lines de LeBron, KD, Kyrie + las team (GT Cut, Precision). Estas son sus mejores actuales según puntuación técnica.",
@@ -712,10 +712,10 @@ export const SEO_PAGES: SeoPage[] = [
   }),
 
   marca("Jordan", {
-    title: "Mejores zapatillas de baloncesto Jordan 2025 | CANCHA.ZAPA",
+    title: "Mejores zapatillas de baloncesto Jordan 2026 | CANCHA.ZAPA",
     description: "Las 5 mejores Jordan Brand performance: Tatum, Luka, Zion. No retros, modelos para jugar.",
     eyebrow: "★ Por marca · Jordan",
-    lede: "Jordan Brand performance (no retros) es de las marcas más sólidas en 2025. Tatum, Luka y Zion compiten cara a cara con las top Nike.",
+    lede: "Jordan Brand performance (no retros) es de las marcas más sólidas en 2026. Tatum, Luka y Zion compiten cara a cara con las top Nike.",
     intro: "Jordan Brand (filial de Nike) tiene su propia línea performance, separada de los retros lifestyle. Tatum, Luka, Zion son referencia para alero y ala-pívot. Cuestan parecido a sus primas Nike signature y comparten sus espumas.",
     points: [
       { lab: "Tatum = equilibrada", body: "Cushion, respuesta y soporte altos y parejos; su punto flojo es la durabilidad en exterior." },
@@ -734,7 +734,7 @@ export const SEO_PAGES: SeoPage[] = [
   }),
 
   marca("Adidas", {
-    title: "Mejores zapatillas de baloncesto Adidas 2025 | CANCHA.ZAPA",
+    title: "Mejores zapatillas de baloncesto Adidas 2026 | CANCHA.ZAPA",
     description: "Las 5 mejores Adidas: Trae Young, Harden, Dame, Cross 'Em Up. Análisis honesto + mejor relación calidad-precio.",
     eyebrow: "★ Por marca · Adidas",
     lede: "Adidas es la alternativa real a Nike. Líneas signature (Harden, Trae Young, Dame) + las team. Suele dar buena relación calidad-precio.",
@@ -889,7 +889,7 @@ export const SEO_PAGES: SeoPage[] = [
 
   // ── MARCA ADICIONAL: Puma ──────────────────────────────────────────
   marca("Puma", {
-    title: "Mejores zapatillas de baloncesto Puma 2025-2026 | CANCHA.ZAPA",
+    title: "Mejores zapatillas de baloncesto Puma 2026 | CANCHA.ZAPA",
     description: "Las 5 mejores Puma de baloncesto: MB.04, MB.05, All-Pro Nitro 2, Stewie 4. Análisis técnico honesto de la línea Nitro y LaMelo Ball.",
     eyebrow: "★ Por marca · Puma",
     lede: "Puma volvió al baloncesto con la línea Nitro y LaMelo Ball. El MB.04 y el MB.05 son las más visibles de la línea. ¿Merecen la pena?",
@@ -1034,12 +1034,12 @@ export const SEO_PAGES: SeoPage[] = [
   // ── CALCETINES BALONCESTO ─────────────────────────────────────────
   {
     slug: "calcetines-baloncesto",
-    title: "Mejores calcetines de baloncesto 2025-2026 | CANCHA.ZAPA",
+    title: "Mejores calcetines de baloncesto 2026 | CANCHA.ZAPA",
     description: "Nike Elite, Adidas Cushioned, Under Armour Playmaker, Stance NBA: los mejores calcetines técnicos para baloncesto. Guía de selección por tipo de zapatilla.",
     eyebrow: "★ Accesorios · Calcetines",
     h1Pre: "Mejores calcetines",
     h1Accent: "de baloncesto",
-    h1Post: "2025-2026",
+    h1Post: "2026",
     lede: "Un buen calcetín técnico mejora la tracción, reduce ampollas y añade cushion donde la zapatilla no llega. Nike Elite, Adidas Cushioned, Under Armour Playmaker y Stance NBA son las referencias del mercado.",
     filter: (z) => z.categoria_principal === "cushion-focused" || z.es_retro === true,
     sort: byScoreDesc,
@@ -1069,7 +1069,7 @@ export const SEO_PAGES: SeoPage[] = [
     eyebrow: "★ Accesorios · Plantillas",
     h1Pre: "Zapatillas que",
     h1Accent: "piden plantilla",
-    h1Post: "2025-2026",
+    h1Post: "2026",
     lede: "Las plantillas de fábrica de la mayoría de zapatillas son mediocres. Una plantilla técnica puede mejorar el soporte de arco, reducir el impacto en rodillas y alargar la vida útil de la zapatilla.",
     filter: (z) => z.es_retro === true || z.puntuaciones.amortiguacion <= 6,
     sort: byScoreDesc,
@@ -1133,7 +1133,7 @@ export const SEO_PAGES: SeoPage[] = [
     h1Pre: "Mejores zapatillas",
     h1Accent: "2025-2026",
     h1Post: "",
-    lede: "Los lanzamientos más destacados de la temporada 2025-2026. Los lanzamientos más destacados de la temporada, ordenados por puntuación técnica; alguno aún no ha salido a la venta y su ficha lo indica.",
+    lede: "Los lanzamientos más destacados de la temporada 2025-2026, ordenados por puntuación técnica; alguno aún no ha salido a la venta y su ficha lo indica.",
     filter: (z) => z.año_lanzamiento >= 2025,
     sort: byScoreDesc,
     guideTitle: "Qué novedades trajo 2025 al baloncesto",
