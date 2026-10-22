@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **255 zapas (50 OCULTAS, 205 visibles) · 678 tests · `astro check` 0 errores · 381 páginas** |
+| Tamaño | **255 zapas (50 OCULTAS, 205 visibles) · 679 tests · `astro check` 0 errores · 381 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -645,7 +645,16 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
   ✅ **Capturas largas del móvil** (`0e712e4`): se cortan en trozos solapados (OCR: cada palabra la aporta el trozo en
   cuya franja propia cae; IA: hasta 6 trozos en una petición y la fila repetida fuera). Medido: 1080×7000 con filas en
   los cortes → 8/8 exactas en 10 s en el navegador; 3 trozos a la IA en producción → 5/5 y la fila del corte una vez.
-  En la app de la FCBQ la pestaña «Jugades» es jugada a jugada (con fotos de los niños): la buena es «Resum».
+  🔴 **La FCBQ NO publica estadística por jugador** (22-oct, visto por el usuario): «Resum» de la app solo trae totales de
+  equipo (TL/T2/T3 anotados, parciales) y la web, solo resumen. El detalle por dorsal está únicamente en «Jugades» (jugada a
+  jugada, con fotos de los niños) y capturarlo entero es inviable. Ideas que quedaron en el aire («ya veremos», usuario):
+  leer una GRABACIÓN de pantalla de «Jugades» (fotogramas + OCR local, dedupe por periodo/minuto/marcador, el marcador de cada
+  jugada como control), anotar en directo con botones por dorsal, o el Open Data de la FCBQ para el club. NO empezar sin él.
+- ✅ **22-oct (tarde): `minimax-m3.1-flash` dejó de ser gratis** (estaba vivo por la mañana) → `nemotron-3.5-super-vl` sube a 3.º
+  en chat/coach/sesion y entra `nemotron-3.5-lightning` en la cola; en actas super-vl va delante. `audit-ia` revisa también
+  `acta.ts`. Medido en producción: chat 3/3 bien (super-vl, 2,5-12 s; presupuesto, tobillos → mid/high, niño → solo GS),
+  /api/sesion 60 min exactos (lightning, 29 s), /api/acta bien. Y `vitest.config.ts` regenera `api/_catalog.json` antes de
+  los tests (la copia de git va atrasada y tumbaba 2 tests del chat según el último build).
 - ✅ **Kobe 5 Protro rescatada** (Decathlon marketplace, 233,99 € = 1,34× MSRP, 7 tallas). Descartadas: **PG 6** (una
   talla y 1 unidad) y **Why Not .6** (solo 36,5-40: curva de mujer/GS). Ocultas 43 → 42.
 - ⏸ **Search Console**: la sesión de Google del navegador integrado caducó; no se mete contraseña. Revisarlo el usuario
@@ -2973,4 +2982,4 @@ presupuesto · ancho de pie · uso (auto-submit 400 ms).
   `cancha-quiz-respuestas` (sessionStorage).
 - **Scripts de mantenimiento**: `update-images.js`, `fix-encoding.js`, `optimize-images.mjs`,
   `gen-chat-catalog.ts`, y los `audit-*` listados arriba.
-- **Tests**: `npx vitest run` → 658.
+- **Tests**: `npx vitest run` → 679 (regenera `api/_catalog.json` antes, ver `vitest.config.ts`).
