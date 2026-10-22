@@ -846,6 +846,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011984740781.html", precio_actual: 79.80, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: item muerto («Esta página no existe»)
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-jordan-tatum-3-zen.html", precio_actual: 109.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DP2RTYSL?tag=canchazapa-21", precio_actual: 99.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: HV5882-100 hombre, carrito en 5 tallas (42,5-45,5) de 99,99 a 111,72 €; FuikaOmar agotada
       { tienda: "joom", url: "https://www.joom.com/es/products/68c9e3a3da556e01f521fec8?variant_id=68c9e3a3da556e2ef521fecf", precio_actual: 75, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-05-31" },
     ],
   },
