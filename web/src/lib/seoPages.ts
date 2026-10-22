@@ -639,7 +639,7 @@ export const SEO_PAGES: SeoPage[] = [
     h1Pre: "Zapatillas para",
     h1Accent: "pies anchos",
     lede: "Si Nike te queda apretada, no eres tú — es su horma. Estas 5 tienen horma normal o ancha sin sacrificar rendimiento.",
-    intro: "Parte de Nike/Jordan va estrecha; la serie LeBron, la Dame 9 de Adidas y algunas otras van anchas, y el resto de marcas suele ser de horma normal. La trampa es que muchas marcas dicen \"true to size\" cuando no lo son.",
+    intro: "Parte de Nike/Jordan va estrecha; la LeBron 22 y 23, la Dame 9 de Adidas y algunas otras van anchas, y el resto de marcas suele ser de horma normal. La trampa es que muchas marcas dicen \"true to size\" cuando no lo son.",
     points: [
       { lab: "Horma ancha o normal", body: "Filtra por horma. Las marcadas \"estrecha\" se descartan." },
       { lab: "Mira la línea, no la marca", body: "Dentro de Nike, la LeBron y algunas Freak dan espacio en el antepié; la Zion, la Ja, la KD 18 y 19 o la Kobe 8 Protro van estrechas. Anta suele ir ceñida." },
@@ -648,7 +648,7 @@ export const SEO_PAGES: SeoPage[] = [
     ],
     faqs: [
       { q: "¿Qué marcas son mejores para pies anchos?",
-        a: "Entre las marcas del catálogo, la horma más habitual de Adidas, New Balance y Anta es la normal; las más anchas son la Dame 9 de Adidas y la serie LeBron de Nike. En Nike y Jordan hay de todo: mira la horma de cada ficha." },
+        a: "Entre las marcas del catálogo, la horma más habitual de Adidas, New Balance y Anta es la normal; las más anchas son la Dame 9 de Adidas y la LeBron 22 y 23 de Nike. En Nike y Jordan hay de todo: mira la horma de cada ficha." },
       { q: "¿Subir talla en lugar de buscar wide?",
         a: "Funciona a veces, pero pierdes ajuste en talón y empeine. Mejor buscar horma ancha de verdad." },
       { q: "¿Pie ancho = más riesgo de lesión?",
