@@ -16041,7 +16041,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "cushion-focused",
-    tags: ["signature", "moderna", "reebok-performance", "angel-reese", "cushion"],
+    tags: ["signature", "moderna", "reebok-performance", "angel-reese", "cushion", "mujer"],
 
     ideal_para: {
       posiciones: ["alero", "ala-pivot", "escolta"],
