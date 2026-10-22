@@ -5031,7 +5031,7 @@ const _rawZapatillas: Zapatilla[] = [
       // quedado sin compra. Nike ES la vende a 99,99 EUR (verificado con navegador); no es
       // afiliado nuestro, asi que sale como "Ver precio en Nike", sin numero.
       { tienda: "nike_es", url: "https://www.nike.com/es/t/luka-77-zapatillas-de-baloncesto-BERU1e7j/IF1610-500", precio_actual: 99.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-18" },
-      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56814491-blanco-pr-zapatillas-de-baloncesto-de-hombre-jordan-luka-77-jordan%2F", precio_actual: 59.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-04" }, // 2026-10-04: w28 ECI adulto, 3 de 15 tallas (opción débil)
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56814491-blanco-pr-zapatillas-de-baloncesto-de-hombre-jordan-luka-77-jordan%2F", precio_actual: 59.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 2026-10-04: w28 ECI adulto, 3 de 15 tallas (opción débil). 22-oct: agotado en todas las tallas
     ],
   },
 
