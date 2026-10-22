@@ -24,6 +24,14 @@ describe("stockDeJsonLd — disponibilidad de FuikaOmar", () => {
     expect(stockDeJsonLd('"availability":"https://schema.org/OutOfStock"')).not.toBe(true);
   });
 
+  // Captura real del 22-oct: la Trae Young 3 trae una oferta por talla, 4 InStock y 1 OutOfStock.
+  it("con alguna talla InStock hay stock, aunque otra esté agotada", () => {
+    const ld = '"offers":[{"availability":"https:\/\/schema.org\/InStock"},{"availability":"https:\/\/schema.org\/OutOfStock"}]';
+    expect(stockDeJsonLd(ld)).toBe(true);
+    const ld2 = '"offers":[{"availability":"https:\/\/schema.org\/OutOfStock"},{"availability":"https:\/\/schema.org\/InStock"}]';
+    expect(stockDeJsonLd(ld2)).toBe(true);
+  });
+
   it("devuelve null cuando la ficha no dice nada de stock", () => {
     expect(stockDeJsonLd('{"@type":"Product","name":"Zapatillas"}')).toBeNull();
   });

@@ -65,6 +65,22 @@ const ORGANIZACION = JSON.stringify({
 });
 
 describe("ofertaDeJsonLd — Forum Sport", () => {
+  // 22-oct-2026: una oferta por talla; la primera agotada no puede tumbar el producto.
+  it("con una oferta por talla, manda la que está en stock", () => {
+    const ld = JSON.stringify({ "@type": "ProductGroup", name: "Air Jordan 6", offers: [
+      { price: 160, availability: "https://schema.org/OutOfStock" },
+      { price: 150, availability: "https://schema.org/InStock" },
+    ] });
+    const o = ofertaDeJsonLd([ld]);
+    expect(o?.disponible).toBe(true);
+    expect(o?.precio).toBe(150);
+    const todas = JSON.stringify({ "@type": "ProductGroup", name: "Air Jordan 6", offers: [
+      { price: 160, availability: "https://schema.org/OutOfStock" },
+    ] });
+    expect(ofertaDeJsonLd([todas])?.disponible).toBe(false);
+  });
+
+
   it("lee el precio de venta y el stock del ProductGroup", () => {
     expect(ofertaDeJsonLd([ORGANIZACION, HARDEN_9])).toEqual({
       nombre: "adidas HARDEN VOLUME 9",

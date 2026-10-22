@@ -24,8 +24,10 @@ import { matchesShoe, parsePrice, today } from "../matcher.js";
  */
 export function stockDeJsonLd(ldTexto: string): boolean | null {
   if (!/"availability"/i.test(ldTexto)) return null;
-  if (/"availability"\s*:\s*"[^"]*OutOfStock"/i.test(ldTexto)) return false;
+  // Una oferta por TALLA: basta una InStock para que haya stock. Antes mandaba el primer
+  // OutOfStock y la Trae Young 3 (4 tallas InStock y 1 agotada) salía agotada (22-oct-2026).
   if (/"availability"\s*:\s*"[^"]*InStock"/i.test(ldTexto)) return true;
+  if (/"availability"\s*:\s*"[^"]*OutOfStock"/i.test(ldTexto)) return false;
   return null;
 }
 

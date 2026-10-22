@@ -52,6 +52,22 @@ const WEBSITE = JSON.stringify({
 });
 
 describe("ofertaDeJsonLd — Snipes", () => {
+  // 22-oct-2026: una oferta por talla; la primera agotada no puede tumbar el producto.
+  it("con una oferta por talla, manda la que está en stock", () => {
+    const ld = JSON.stringify({ "@type": "Product", name: "Air Jordan 6", offers: [
+      { price: 160, availability: "https://schema.org/OutOfStock" },
+      { price: 150, availability: "https://schema.org/InStock" },
+    ] });
+    const o = ofertaDeJsonLd([ld]);
+    expect(o?.disponible).toBe(true);
+    expect(o?.precio).toBe(150);
+    const todas = JSON.stringify({ "@type": "Product", name: "Air Jordan 6", offers: [
+      { price: 160, availability: "https://schema.org/OutOfStock" },
+    ] });
+    expect(ofertaDeJsonLd([todas])?.disponible).toBe(false);
+  });
+
+
   it("lee precio, stock y marca de la ficha", () => {
     expect(ofertaDeJsonLd([WEBSITE, AJ4_TORO])).toEqual({
       nombre: 'Air Jordan 4 Retro "Toro Bravo"',

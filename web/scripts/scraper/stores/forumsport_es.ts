@@ -77,7 +77,10 @@ export function ofertaDeJsonLd(textos: string[]): OfertaForum | null {
       const tipos = Array.isArray(nodo["@type"]) ? nodo["@type"] : [nodo["@type"]];
       if (!tipos.includes("ProductGroup") && !tipos.includes("Product")) continue;
 
-      const oferta = Array.isArray(nodo.offers) ? nodo.offers[0] : nodo.offers;
+      // Puede venir una oferta por talla: si alguna está en stock, manda esa. Antes se miraba
+      // solo la primera, y una talla agotada daba el producto entero por agotado (22-oct-2026).
+      const ofertas: any[] = (Array.isArray(nodo.offers) ? nodo.offers : [nodo.offers]).filter(Boolean);
+      const oferta = ofertas.find((o) => disponibilidad(o.availability) === true) ?? ofertas[0];
       if (!oferta) continue;
 
       const precio = Number(oferta.price);
