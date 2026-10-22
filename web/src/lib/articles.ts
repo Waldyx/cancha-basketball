@@ -946,7 +946,7 @@ export const ARTICLES: Article[] = [
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["anta-kai-2", "anta-kt-11", "lining-wow-allcity-13", "lining-sonic-12", "peak-aw4"],
     relatedSeoPages: ["zapatillas-baloncesto-calidad-precio", "zapatillas-baloncesto-baratas", "zapatillas-baloncesto-premium"],
-    imagen: "https://wowsole.com/wp-content/uploads/2024/01/ANTA-Kai-2-01.jpg",
+    imagen: "/shoes/anta-kai-2.webp",
     body: `
 <p class="art-intro">En los últimos años, ANTA, Li-Ning y Peak han pasado de ser marcas desconocidas en España a tener presencia real en las pistas. En 2025, estas marcas chinas ofrecen tecnología propia, colaboraciones con estrellas de la NBA y precios hasta un 40% más bajos que Nike o Adidas. ¿Pero merecen realmente la pena? Lo analizamos sin filtros.</p>
 
