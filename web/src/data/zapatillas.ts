@@ -815,7 +815,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 5, ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["trending","signature", "tope-de-gama", "moderna", "ligera"],
+    tags: ["trending","signature", "tope-de-gama", "moderna"],
     ideal_para: {
       posiciones: ["escolta", "alero", "base"],
       peso_jugador_kg: [70, 95],
@@ -1366,7 +1366,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 7, ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["signature", "moderna", "ligera"],
+    tags: ["signature", "moderna"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
       peso_jugador_kg: [65, 95],
@@ -2259,7 +2259,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 7, ventilacion: 7,
     },
     categoria_principal: "responsive",
-    tags: ["presupuesto", "low-top", "ligera"],
+    tags: ["presupuesto", "low-top"],
     ideal_para: {
       posiciones: ["base", "escolta"],
       peso_jugador_kg: [60, 85],
@@ -3898,7 +3898,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 9,
     },
     categoria_principal: "responsive",
-    tags: ["trending","signature", "guard", "nitrofoam", "moderna", "ligera"],
+    tags: ["trending","signature", "guard", "nitrofoam", "moderna"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -6320,7 +6320,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 7,
     },
     categoria_principal: "responsive",
-    tags: ["low-top", "signature", "tirador", "guards", "zoom-air", "ligera"],
+    tags: ["low-top", "signature", "tirador", "guards", "zoom-air"],
 
     ideal_para: {
       posiciones: ["escolta", "alero", "base"],
@@ -6636,7 +6636,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "responsive",
-    tags: ["signature", "ligera", "value-premium"],
+    tags: ["signature", "value-premium"],
     ideal_para: {
       posiciones: ["base", "escolta"],
       peso_jugador_kg: [60, 85],
@@ -10223,7 +10223,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 7,
     },
     categoria_principal: "responsive",
-    tags: ["2024", "puma", "low-top", "mujer", "breanna-stewart", "guards", "ligera", "nitrofoam"],
+    tags: ["2024", "puma", "low-top", "mujer", "breanna-stewart", "guards", "nitrofoam"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -13499,7 +13499,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 4, ventilacion: 9,
     },
     categoria_principal: "responsive",
-    tags: ["signature", "retro-protro", "moderna", "ligera"],
+    tags: ["signature", "retro-protro", "moderna"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
       peso_jugador_kg: [65, 95],
