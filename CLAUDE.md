@@ -673,6 +673,16 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     turquesa de las cajas) o partir «6055» por la mitad; (b) en el nombre del visitante se cuela «HAB» (el logo ABP):
     `cabeceraDeLineas` debe usar solo las líneas pegadas a la de la fecha. Diagnóstico: `localStorage cz.debug.acta=1` →
     `window.__actaDebug` (líneas leídas por fotograma). El usuario NO está en el PC: prueba desde el móvil y manda capturas.
+  ▶️ **24-oct (`7fd7e35`, SIN PUSH) — EMPIEZA AQUÍ:** (a) y (b) arreglados y probados con 2 GRABACIONES REALES (WhatsApp,
+  576×1296; copiadas a `web/public/_t/v1.mp4` = partido completo Sant Andreu 60-55 Premià, y `v2.mp4` = otro partido SIN
+  el principio, sin cabecera; NO commitear `public/_t/`). Cabecera y 60-55 bien. 🔑 **El marcador de cada tarjeta es el
+  PARCIAL del periodo** (vuelve a 0-0). Arreglados también: «Personal 2 tirs lliures» contaba como tiro libre anotado,
+  «Intent fallat de N» se tiraba, «PS»/«Pi» por P5/P1. 🔴 **Pendiente: solo se leen ~45 de 60 y ~41 de 55 puntos.** La
+  grabación va lenta (cada tarjeta sale en 4-5 fotogramas): el fallo es de OCR, sobre todo en la tarjeta RESALTADA (fondo
+  turquesa, marcador amarillo) y con la letra de 576 px. Ampliar el fotograma a 1000 px EMPEORA (33/30): no. Ideas: pedir
+  el vídeo como «Documento» (resolución original), leer los parciales por periodo de la cabecera (P1 11 · P2 4…) para
+  avisar por cuarto de lo que falta. En la preview oculta tarda ~6 min; visible, ~2. Guardar `__actaDebug` en
+  `sessionStorage` durante la prueba: cualquier edición recarga la página y se pierde.
 - ✅ **22-oct (tarde): `minimax-m3.1-flash` dejó de ser gratis** (estaba vivo por la mañana) → `nemotron-3.5-super-vl` sube a 3.º
   en chat/coach/sesion y entra `nemotron-3.5-lightning` en la cola; en actas super-vl va delante. `audit-ia` revisa también
   `acta.ts`. Medido en producción: chat 3/3 bien (super-vl, 2,5-12 s; presupuesto, tobillos → mid/high, niño → solo GS),
