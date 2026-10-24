@@ -673,7 +673,7 @@ Nike GT Cut 1 Retro (WT 9,5/10) y Converse SHAI 001 Lux.
     turquesa de las cajas) o partir «6055» por la mitad; (b) en el nombre del visitante se cuela «HAB» (el logo ABP):
     `cabeceraDeLineas` debe usar solo las líneas pegadas a la de la fecha. Diagnóstico: `localStorage cz.debug.acta=1` →
     `window.__actaDebug` (líneas leídas por fotograma). El usuario NO está en el PC: prueba desde el móvil y manda capturas.
-  ▶️ **24-oct (`7fd7e35`, SIN PUSH) — EMPIEZA AQUÍ:** (a) y (b) arreglados y probados con 2 GRABACIONES REALES (WhatsApp,
+  ▶️ **24-oct (`cd2f2a4`, desplegado) — EMPIEZA AQUÍ:** (a) y (b) arreglados y probados con 2 GRABACIONES REALES (WhatsApp,
   576×1296; copiadas a `web/public/_t/v1.mp4` = partido completo Sant Andreu 60-55 Premià, y `v2.mp4` = otro partido SIN
   el principio, sin cabecera; NO commitear `public/_t/`). Cabecera y 60-55 bien. 🔑 **El marcador de cada tarjeta es el
   PARCIAL del periodo** (vuelve a 0-0). Arreglados también: «Personal 2 tirs lliures» contaba como tiro libre anotado,
