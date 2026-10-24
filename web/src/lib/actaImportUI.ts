@@ -8,7 +8,7 @@
  * La lógica pura está en `actaIA.ts`.
  */
 import { actaDeTexto, anonimizar, arreglarOcr, avisosActa, filasDeCajas, lineasDeCajas, restaurarNombres, type ActaLeida, type CajaTexto } from "./actaIA";
-import { actaDeJugadas, cabeceraDeLineas, franjasSinMarcador, jugadasDeLineas, unirJugadas, type Jugada } from "./jugadesFCBQ";
+import { actaDeJugadas, cabeceraDeLineas, franjasSinMarcador, franjasSinPeriodo, jugadasDeLineas, unirJugadas, type Jugada } from "./jugadesFCBQ";
 
 // Versiones fijas (comprobadas el 22-oct-2026 en jsDelivr). Tesseract baja además su núcleo wasm
 // y los idiomas de jsDelivr la primera vez (~4 MB); luego quedan en la caché del navegador.
@@ -170,7 +170,8 @@ async function leerJugadesVideo(file: Blob, progreso: (p: number) => void): Prom
     if (!Number.isFinite(dur)) { await buscar(1e9); dur = v.currentTime; } // WebM grabado sin duración
     if (!(dur > 0)) throw new Error("No puedo leer la duración del vídeo.");
     // 720 px de ancho bastan para la letra de las tarjetas, y la barra azul de arriba y la de
-    // navegación de abajo (fijas, sin jugadas) se recortan: es lo que más tiempo de OCR ahorra
+    // navegación de abajo (fijas, sin jugadas) se recortan: es lo que más tiempo de OCR ahorra.
+    // NO se amplía: con un vídeo de WhatsApp (576 px) ampliado a 1000 se leyeron MENOS canastas (24-oct)
     const k = Math.min(1, 720 / v.videoWidth);
     const sy = Math.round(v.videoHeight * 0.14), sh = Math.round(v.videoHeight * 0.78);
     const c = document.createElement("canvas");
@@ -228,19 +229,46 @@ async function leerJugadesVideo(file: Blob, progreso: (p: number) => void): Prom
           const nums = String((await cifras.recognize(recorte)).data.text ?? "").match(/\d{1,3}/g);
           if (nums?.length === 2) lineas.splice(fr.despuesDe + 1, 0, { texto: `${nums[0]} - ${nums[1]}`, x0: fr.x0, x1: fr.x1, y: fr.y0, alto: h });
         }
+        // y la línea «P1 05:28» de la tarjeta resaltada (turquesa sobre turquesa), igual, aparte
+        const sinPeriodo = franjasSinPeriodo(lineas).reverse();
+        if (sinPeriodo.length) await cifras.setParameters({ tessedit_char_whitelist: "P0123456789:" });
+        for (const fr of sinPeriodo) {
+          const x0 = Math.max(0, fr.x0 - 10), w = Math.min(c.width, fr.x1 + 10) - x0, y0 = Math.round(fr.y0), h = Math.round(fr.y1 - fr.y0);
+          if (w < 20 || h < 10) continue;
+          recorte.width = w;
+          recorte.height = h;
+          recorte.getContext("2d")!.drawImage(c, x0, y0, w, h, 0, 0, w, h);
+          const leido = String((await cifras.recognize(recorte)).data.text ?? "").replace(/\s+/g, " ");
+          const m = leido.match(/(?:P\s?([1-8])\D*?)?(\d{1,2})\s?:\s?(\d{2})/);
+          if (!m) continue;
+          // la «P» se pierde a menudo y queda solo el reloj: el periodo, el de la tarjeta vecina
+          const vecina = [...lineas.slice(0, fr.antesDe).reverse(), ...lineas.slice(fr.antesDe)].find((l) => /\bP\s?[1-8S]\b/.test(l.texto) && /\d{1,2}\s?[:.]?\s?\d{2}/.test(l.texto));
+          const periodo = m[1] ?? vecina?.texto.match(/\bP\s?([1-8S])\b/)?.[1].replace("S", "5");
+          if (periodo) lineas.splice(fr.antesDe, 0, { texto: `P${periodo}\t${m[2].padStart(2, "0")}:${m[3]}`, x0: fr.x0, x1: fr.x1, y: y0, alto: h });
+        }
+        if (sinPeriodo.length) await cifras.setParameters({ tessedit_char_whitelist: "0123456789-" });
         if (!nombres.local) {
           const cb = cabeceraDeLineas(lineas, c.width);
           if (cb.local) nombres = { local: cb.local, visitante: cb.visitante };
         }
         // marcador final: las dos cajas grandes de la cabecera, encima de la línea de la fecha. Cada
-        // caja se lee por separado (juntas salen pegadas: «6055»)
+        // caja se lee por separado (juntas salen pegadas: «6055») y del fotograma ORIGINAL, no de `c`,
+        // que ya está en gris: ahí el borde turquesa de las cajas sale casi negro y el OCR no lee nada.
+        // Se binariza por el canal MÁXIMO: la cifra azul marino queda negra; el turquesa, el amarillo
+        // de los escudos y el rojo de la fecha, blancos.
         const fecha = lineas.find((l) => /\d{1,2}\/\d{1,2}\/\d{2,4}/.test(l.texto));
         if (fecha && !finalCab) {
           const y0 = Math.max(0, Math.round(fecha.y - fecha.alto * 8)), h = Math.round(fecha.y - fecha.alto * 1.2) - y0;
           const leer = async (x0: number, x1: number) => {
             recorte.width = Math.round(x1 - x0);
             recorte.height = h;
-            recorte.getContext("2d")!.drawImage(c, x0, y0, recorte.width, h, 0, 0, recorte.width, h);
+            const rc = recorte.getContext("2d", { willReadFrequently: true })!;
+            rc.drawImage(v, x0 / k, sy + y0 / k, recorte.width / k, h / k, 0, 0, recorte.width, h);
+            const im = rc.getImageData(0, 0, recorte.width, h);
+            for (let i = 0; i < im.data.length; i += 4) {
+              im.data[i] = im.data[i + 1] = im.data[i + 2] = Math.max(im.data[i], im.data[i + 1], im.data[i + 2]) < 150 ? 0 : 255;
+            }
+            rc.putImageData(im, 0, 0);
             const m = String((await cifras.recognize(recorte)).data.text ?? "").match(/\d{1,3}/);
             return m ? +m[0] : null;
           };
@@ -252,7 +280,7 @@ async function leerJugadesVideo(file: Blob, progreso: (p: number) => void): Prom
         listas.push(jugadasDeLineas(lineas, c.width));
         // diagnóstico: con localStorage «cz.debug.acta» = 1, lo leído en cada fotograma queda en window.__actaDebug
         try {
-          if (localStorage.getItem("cz.debug.acta")) ((window as any).__actaDebug ??= []).push({ t, lineas: lineas.map((l) => `${Math.round(l.x0)}|${l.texto}`), jugadas: listas[listas.length - 1] });
+          if (localStorage.getItem("cz.debug.acta")) ((window as any).__actaDebug ??= []).push({ t, lineas: lineas.map((l) => `${Math.round(l.x0)}|${l.texto}`), jugadas: listas[listas.length - 1], nombres, finalCab });
         } catch { /* sin almacenamiento */ }
       }
     } finally {

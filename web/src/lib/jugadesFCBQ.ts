@@ -40,15 +40,20 @@ const sinTildes = (s: string) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLo
 export function clasificar(texto: string): { tipo: TipoJugada; valor: number } {
   const t = sinTildes(texto);
   const fallo = /fallat|fallad|errat|errad|fallo|perdut/.test(t) && !/salt/.test(t);
-  const n = t.match(/(?:cistella|tir|tiro|canasta)\s*(?:de\s*)?([123])\b/);
+  // «Personal 2 tirs lliures, 1a falta» es la FALTA que da los tiros, no un tiro libre
+  if (/falta|personal|tecnica|antiesportiva|desqualificant/.test(t)) return { tipo: "falta", valor: 0 };
+  // la app escribe «Cistella de 2» y «Intent fallat de 2»
+  const n = t.match(/(?:cistella|tir|tiro|canasta|intent)\s*(?:fallat\s*|fallado\s*)?(?:de\s*)?([123])\b/);
   if (/tirs?\s*lliures?|tiros?\s*libres?/.test(t)) return { tipo: fallo ? "fallo" : "canasta", valor: 1 };
   if (n) return { tipo: fallo ? "fallo" : "canasta", valor: +n[1] };
-  if (/falta/.test(t)) return { tipo: "falta", valor: 0 };
   if (/perdua|pilota perduda|perdida|balon perdido/.test(t)) return { tipo: "perdida", valor: 0 };
   return { tipo: "otra", valor: 0 };
 }
 
-const RE_PERIODO = /\bP\s?([1-8lI|])\b[^\d]*?(\d{1,2})\s?[:.]\s?(\d{2})\b/;
+// el OCR lee «PS» por P5 y «Pl» por P1, y a veces se come los dos puntos del reloj («0600»): con
+// una grabación real se perdía así casi todo el 5.º periodo (24-oct)
+const RE_PERIODO = /\bP\s?([1-8lIi|SB])\b[^\d]*?(\d{1,2})(?:\s?[:.]\s?|(?=\d{2}\b))(\d{2})\b/;
+const numPeriodo = (p: string) => +p.replace(/[lIi|]/, "1").replace("S", "5").replace("B", "8");
 // «#8 ARNAU GARCIA». El OCR lee el «#» como «#», «H», «4» o «+», y a veces lo pega a la cifra
 // («48», «412», «H8»): el primer carácter del dorsal se descarta salvo que sea un «#» limpio, y el
 // dorsal de cada jugador se decide luego por votación entre todas sus jugadas (`unirJugadas`).
@@ -81,10 +86,32 @@ export function franjasSinMarcador(lineas: LineaTexto[]): { y0: number; y1: numb
   return out;
 }
 
+/**
+ * Las tarjetas a las que les falta la línea del periodo y el reloj (en la tarjeta resaltada va en
+ * turquesa sobre turquesa claro y el OCR de página la pierde: medido con una captura real, 22-oct):
+ * la franja encima del marcador, para leerla aparte. Sin ella la tarjeta no cuenta.
+ */
+export function franjasSinPeriodo(lineas: LineaTexto[]): { y0: number; y1: number; x0: number; x1: number; antesDe: number }[] {
+  const out: { y0: number; y1: number; x0: number; x1: number; antesDe: number }[] = [];
+  for (let i = 0; i < lineas.length; i++) {
+    const l = lineas[i];
+    if (!marcadorDe(l.texto)) continue;
+    // ya tiene su periodo justo encima (entre medias, como mucho, la basura de la foto o el escudo)
+    if (lineas.slice(Math.max(0, i - 2), i).some((p) => RE_PERIODO.test(p.texto))) continue;
+    const resto = lineas.slice(i + 1, i + 4);
+    const ev = resto.findIndex((r) => /[A-Za-zÀ-ÿ]{3,}/.test(r.texto) && !RE_JUGADOR.test(r.texto));
+    if (ev < 0 || !resto.slice(ev + 1).some((r) => RE_JUGADOR.test(r.texto))) continue;
+    out.push({ y0: Math.max(0, l.y - l.alto * 1.6), y1: l.y - 1, x0: l.x0, x1: l.x1, antesDe: i });
+  }
+  return out;
+}
+
 /** Dos números solos en la línea (el «-» del marcador a veces el OCR no lo ve). */
 function marcadorDe(texto: string): [number, number] | null {
   if (/[:#/]/.test(texto)) return null;
-  const limpio = texto.replace(/\b[A-Za-z]\b/g, " "); // la inicial del avatar («A») va en la misma línea
+  // una «o» suelta es un 0 mal leído («3 o»); el resto de letras sueltas, la inicial del avatar («A»),
+  // que va en la misma línea
+  const limpio = texto.replace(/\b[oO]\b/g, "0").replace(/\b[A-Za-z]\b/g, " ");
   if (/[A-Za-z]{2,}/.test(limpio)) return null;
   const nums = limpio.match(/\d{1,3}/g);
   return nums && nums.length === 2 ? [+nums[0], +nums[1]] : null;
@@ -99,7 +126,7 @@ export function jugadasDeLineas(lineas: LineaTexto[], ancho: number): Jugada[] {
   for (let i = 0; i < lineas.length; i++) {
     const m = lineas[i].texto.match(RE_PERIODO);
     if (!m) continue;
-    const periodo = +m[1].replace(/[lI|]/, "1");
+    const periodo = numPeriodo(m[1]);
     const reloj = `${m[2].padStart(2, "0")}:${m[3]}`;
     let marcador: [number, number] | null = null;
     let evento: LineaTexto | null = null;
@@ -165,9 +192,40 @@ export function unirJugadas(listas: Jugada[][]): Jugada[] {
     const k = claveJugada(j);
     grupos.set(k, [...(grupos.get(k) ?? []), j]);
   }
-  return [...grupos.values()]
-    .map((g) => ({ ...g[0], dorsal: masVotado(g.map((j) => j.dorsal)), nombre: masVotado(g.map((j) => j.nombre)) }))
+  const lista = [...grupos.values()]
+    .map((g) => ({ ...g[0], dorsal: masVotado(g.map((j) => j.dorsal)), nombre: masVotado(g.map((j) => j.nombre)), veces: g.length }))
     .sort((a, b) => a.periodo - b.periodo || b.segundos - a.segundos || a.local + a.visitante - (b.local + b.visitante));
+  return sinMarcadoresMalLeidos(lista).map(({ veces, ...j }) => j);
+}
+
+/**
+ * La misma canasta leída con dos marcadores («9-0» y, en otro fotograma, «9-90») sale como dos
+ * jugadas con el mismo reloj, equipo y valor. Si esos marcadores no son una serie de verdad (dos
+ * tiros libres seguidos: 4-1 y 5-1), se queda la lectura que más se ha repetido y, si empatan, la
+ * que encaja con la canasta anterior del periodo.
+ */
+function sinMarcadoresMalLeidos<T extends Jugada & { veces: number }>(lista: T[]): T[] {
+  const fuera = new Set<T>();
+  let previo: [number, number] = [0, 0];
+  let periodo = 0;
+  for (let i = 0; i < lista.length; i++) {
+    const j = lista[i];
+    if (j.tipo !== "canasta" || fuera.has(j)) continue;
+    if (j.periodo !== periodo) { periodo = j.periodo; previo = [0, 0]; }
+    const g = lista.filter((x) => x.tipo === "canasta" && x.periodo === j.periodo && x.reloj === j.reloj && x.lado === j.lado && x.valor === j.valor);
+    const lado = j.lado === "local" ? 0 : 1;
+    const pts = (x: T) => [x.local, x.visitante][lado];
+    const serie = g.length > 1 && [...g].sort((a, b) => pts(a) - pts(b)).every((x, k, s) =>
+      k === 0 || (pts(x) - pts(s[k - 1]) === j.valor && [x.local, x.visitante][1 - lado] === [s[k - 1].local, s[k - 1].visitante][1 - lado]));
+    if (g.length > 1 && !serie) {
+      const esperado = lado === 0 ? [previo[0] + j.valor, previo[1]] : [previo[0], previo[1] + j.valor];
+      const dist = (x: T) => Math.abs(x.local - esperado[0]) + Math.abs(x.visitante - esperado[1]);
+      const buena = [...g].sort((a, b) => b.veces - a.veces || dist(a) - dist(b))[0];
+      for (const x of g) if (x !== buena) fuera.add(x);
+      previo = [buena.local, buena.visitante];
+    } else previo = [j.local, j.visitante];
+  }
+  return lista.filter((x) => !fuera.has(x));
 }
 
 /** Nombres de los equipos y marcador final, de la cabecera (solo sale en los primeros fotogramas). */
@@ -180,13 +238,18 @@ export function cabeceraDeLineas(lineas: LineaTexto[], ancho: number): { local: 
   // no lo es (con una grabación real salió «1-5» en vez de 60-55)
   const altos = lineas.map((l) => l.alto).sort((a, b) => a - b);
   const altoTipico = altos[Math.floor(altos.length / 2)] ?? 0;
+  // los nombres van en la línea de la fecha y la de debajo: lo de encima (las letras de los escudos,
+  // «HAB» del de la ABP con una grabación real) no es nombre. Sin la fecha no hay cabecera en el
+  // fotograma (una grabación que empieza ya en las tarjetas) y no se lee ningún nombre
+  const fecha = cab.find((l) => /\d{1,2}\/\d{1,2}\/\d{2,4}/.test(l.texto));
+  const esNombre = (l: LineaTexto) => !!fecha && l.y >= fecha.y - fecha.alto * 0.8 && l.y <= fecha.y + fecha.alto * 3;
   for (const l of cab) {
     if (!res.final && l.alto >= altoTipico * 1.4 && /^\s*\d{1,3}\s+\d{1,3}\s*$/.test(l.texto.replace(/\t/g, " "))) {
       const [a, b] = l.texto.match(/\d{1,3}/g)!.map(Number);
       res.final = [a, b];
       continue;
     }
-    if (RUIDO.test(l.texto)) continue;
+    if (RUIDO.test(l.texto) || !esNombre(l)) continue;
     // la fecha y la hora van en la misma línea que los nombres, en medio: fuera los trozos con cifras
     const trozos = l.texto.split("\t").map((t) => t.trim()).filter((t) => t && !/\d/.test(t) && /[A-ZÀ-Ý]{2,}/.test(t));
     if (!trozos.length) continue;
@@ -228,21 +291,26 @@ export function actaDeJugadas(
     }
   }
 
-  // control con el marcador de cada canasta, en orden de partido
+  // control con el marcador de cada canasta, en orden de partido. El de cada tarjeta es el PARCIAL
+  // del periodo (vuelve a 0-0 en cada uno: medido con una grabación real, 24-oct)
   let previo: [number, number] = [0, 0];
+  let periodo = 0;
+  const parciales = new Map<number, [number, number]>();
   let huecos = 0;
   for (const j of jugadas.filter((x) => x.tipo === "canasta")) {
+    if (j.periodo !== periodo) { periodo = j.periodo; previo = [0, 0]; }
     const esperado: [number, number] = j.lado === "local" ? [previo[0] + j.valor, previo[1]] : [previo[0], previo[1] + j.valor];
     if (j.local !== esperado[0] || j.visitante !== esperado[1]) {
       huecos++;
       if (huecos <= 3) avisos.push(`Entre ${previo[0]}-${previo[1]} y ${j.local}-${j.visitante} (P${j.periodo} ${j.reloj}) falta alguna canasta por leer.`);
     }
     previo = [j.local, j.visitante];
+    parciales.set(j.periodo, previo);
   }
   if (huecos > 3) avisos.push(`… y ${huecos - 3} hueco(s) más en el marcador.`);
 
   // la suma frente al marcador final y la falta de intentos ya los avisa `avisosActa`
-  const final = cab.final ?? (jugadas.length ? [previo[0], previo[1]] as [number, number] : null);
+  const final = cab.final ?? (parciales.size ? [...parciales.values()].reduce((a, b) => [a[0] + b[0], a[1] + b[1]], [0, 0]) as [number, number] : null);
 
   const equipo = (l: Lado, nombre: string, pts: number | null) => ({
     nombre,

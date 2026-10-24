@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { actaDeJugadas, cabeceraDeLineas, clasificar, jugadasDeLineas, unirJugadas } from "./jugadesFCBQ";
+import { actaDeJugadas, cabeceraDeLineas, clasificar, franjasSinPeriodo, jugadasDeLineas, unirJugadas } from "./jugadesFCBQ";
 import { avisosActa, type LineaTexto } from "./actaIA";
 
 // Posiciones medidas en una captura real de la app (1084 px de ancho, 17-oct-2026). Los nombres,
@@ -41,6 +41,25 @@ describe("jugadasDeLineas", () => {
     const js = jugadasDeLineas([L("Pl\t05.28", 655, 10), L("3\t0", 655, 80), L("Cistella de 3", 790, 190), L("#8 ARNAU", 650, 240)], W);
     expect(js[0]).toMatchObject({ periodo: 1, reloj: "05:28", local: 3, visitante: 0, valor: 3 });
   });
+  it("tolera «PS» por P5 y el reloj sin los dos puntos (grabación real, 24-oct)", () => {
+    const js = jugadasDeLineas([L("PS\t06:00", 655, 10), L("0 - 0", 655, 80), L("Surt del camp", 790, 190), L("#24 MARTI", 650, 240),
+      L("P5\t0600", 655, 400), L("0 - 0", 655, 470), L("Entra al camp", 790, 580), L("#19 POL", 650, 630)], W);
+    expect(js.map((j) => [j.periodo, j.reloj])).toEqual([[5, "06:00"], [5, "06:00"]]);
+    const resaltada = jugadasDeLineas([L("Pi\t05:28", 655, 10), L("3\to", 655, 80), L("Cistella de 3", 790, 190), L("#8 ARNAU", 650, 240)], W);
+    expect(resaltada[0]).toMatchObject({ periodo: 1, local: 3, visitante: 0, valor: 3 });
+  });
+});
+
+describe("franjasSinPeriodo", () => {
+  it("solo la tarjeta que ha perdido la línea del periodo (la resaltada), con su franja encima del marcador", () => {
+    // como en la grabación real: la del medio conserva «P1 06:00» con la basura de la foto delante
+    const sinP3 = [...TARJETAS.slice(0, 4), L("(=)", 190, 1540), ...TARJETAS.slice(4, 8), L("(-)", 190, 1950), ...TARJETAS.slice(9)];
+    const fr = franjasSinPeriodo(sinP3);
+    expect(fr).toHaveLength(1);
+    expect(sinP3[fr[0].antesDe].texto).toBe("3 - 0");
+    expect(fr[0]).toMatchObject({ x0: 655, x1: 1010, y1: 2039 });
+    expect(fr[0].y0).toBeLessThan(1990);
+  });
 });
 
 describe("clasificar", () => {
@@ -51,6 +70,14 @@ describe("clasificar", () => {
     expect(clasificar("Falta personal")).toEqual({ tipo: "falta", valor: 0 });
     expect(clasificar("Salt perdut")).toEqual({ tipo: "otra", valor: 0 });
   });
+  it("los textos reales de la app (grabación del 24-oct)", () => {
+    expect(clasificar("Personal 2 tirs lliures, 1a falta")).toEqual({ tipo: "falta", valor: 0 });
+    expect(clasificar("Personal, 1a falta")).toEqual({ tipo: "falta", valor: 0 });
+    expect(clasificar("Intent fallat de 1")).toEqual({ tipo: "fallo", valor: 1 });
+    expect(clasificar("Intent fallat de 3")).toEqual({ tipo: "fallo", valor: 3 });
+    expect(clasificar("Cistella de 1")).toEqual({ tipo: "canasta", valor: 1 });
+    expect(clasificar("Entra al camp")).toEqual({ tipo: "otra", valor: 0 });
+  });
 });
 
 describe("cabeceraDeLineas", () => {
@@ -59,6 +86,10 @@ describe("cabeceraDeLineas", () => {
   });
   it("nombres de los dos equipos y marcador final", () => {
     expect(cabeceraDeLineas(CABECERA, W)).toEqual({ local: "A.E SANT ANDREU NATZARET", visitante: "AB PREMIÀ BLAU", final: [60, 55] });
+  });
+  it("las letras de los escudos (encima de los nombres) no se cuelan en el nombre", () => {
+    const conEscudos = [...CABECERA.slice(0, 2), L("AS	HAB", 150, 520, 960), ...CABECERA.slice(2)];
+    expect(cabeceraDeLineas(conEscudos, W)).toMatchObject({ local: "A.E SANT ANDREU NATZARET", visitante: "AB PREMIÀ BLAU" });
   });
 });
 
@@ -99,5 +130,28 @@ describe("unirJugadas con fotogramas movidos", () => {
     const u = unirJugadas([[{ ...base, dorsal: "12", nombre: "PAU" }], [{ ...base, dorsal: "17", nombre: "PAU" }], [{ ...base, dorsal: "12", nombre: "PAU" }]]);
     expect(u).toHaveLength(1);
     expect(u[0].dorsal).toBe("12");
+  });
+});
+
+describe("marcadores de una grabación real (24-oct)", () => {
+  const c = (periodo: number, reloj: string, local: number, visitante: number, valor: number, dorsal: string) =>
+    ({ periodo, reloj, segundos: +reloj.slice(0, 2) * 60 + +reloj.slice(3), local, visitante, texto: `Cistella de ${valor}`, tipo: "canasta" as const, valor, dorsal, nombre: `J${dorsal}`, lado: "local" as const });
+
+  it("la misma canasta leída «9-0» y «9-90» cuenta una vez, con el marcador que encaja", () => {
+    const u = unirJugadas([[c(1, "03:35", 7, 0, 3, "7"), c(1, "02:56", 9, 0, 2, "23")], [c(1, "02:56", 9, 90, 2, "23"), c(1, "01:28", 12, 0, 3, "13")]]);
+    expect(u.map((j) => `${j.local}-${j.visitante}`)).toEqual(["7-0", "9-0", "12-0"]);
+  });
+  it("dos tiros libres seguidos con el mismo reloj no se juntan", () => {
+    const tl = (local: number) => ({ ...c(1, "02:00", local, 0, 1, "4"), texto: "Cistella de 1" });
+    expect(unirJugadas([[tl(4), tl(5)]])).toHaveLength(2);
+  });
+  it("el marcador de cada tarjeta es el parcial del periodo: sin huecos falsos y el final es la suma", () => {
+    const js = unirJugadas([[c(1, "05:00", 2, 0, 2, "8"), c(1, "02:00", 5, 0, 3, "7"), c(2, "05:38", 3, 0, 3, "6"), c(2, "05:04", 5, 0, 2, "10")]]);
+    const { acta, avisos } = actaDeJugadas(js);
+    expect(avisos).toEqual([]);
+    expect(acta.equipos.map((e) => e.pts)).toEqual([10, 0]);
+  });
+  it("sin la línea de la fecha (la grabación empieza ya en las tarjetas) no se inventa nombres", () => {
+    expect(cabeceraDeLineas([L("8) (ANa", 364, 40), L("Salt guanyat", 31, 160), L("ST AH.M.R", 441, 300), ...TARJETAS], W)).toMatchObject({ local: "", visitante: "" });
   });
 });
