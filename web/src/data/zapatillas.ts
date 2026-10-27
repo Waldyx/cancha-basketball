@@ -9052,9 +9052,10 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/puma-clyde-all-pro-performance-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true, // 27-oct: sin compra; su único enlace vivo era una búsqueda de Amazon que no la trae
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+clyde+all+pro+baloncesto&tag=canchazapa-21", precio_actual: 63.03, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+clyde+all+pro+baloncesto&tag=canchazapa-21", precio_actual: 63.03, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-27" }, // 27-oct: la búsqueda no trae el modelo
       { tienda: "amazon_es", url: "https://www.amazon.es/Puma-All-Pro-Nitro-Team-Zapatillas/dp/B0CV9L1VSY/ref=sr_1_7?tag=canchazapa-21", precio_actual: 70, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es OTRO producto (la ficha enlazaba una busqueda)
     ],
   },
@@ -12196,10 +12197,11 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true, // 27-oct: sin compra; su único enlace vivo era una búsqueda de Amazon que no la trae
     precio_msrp_eur: 110, // tarifa europea (sneakerjagers, 395374-01). Antes 80 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0C6D3Z2XH?tag=canchazapa-21", precio_actual: 78.43, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: es la Puma Rebound Layup Winter, otro producto
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Puma+Clyde+baloncesto&tag=canchazapa-21", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Puma+Clyde+baloncesto&tag=canchazapa-21", precio_actual: 75, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-27" }, // 27-oct: la búsqueda no trae el modelo
     ],
   },
 
