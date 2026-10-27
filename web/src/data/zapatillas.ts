@@ -9057,6 +9057,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+clyde+all+pro+baloncesto&tag=canchazapa-21", precio_actual: 63.03, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-27" }, // 27-oct: la búsqueda no trae el modelo
       { tienda: "amazon_es", url: "https://www.amazon.es/Puma-All-Pro-Nitro-Team-Zapatillas/dp/B0CV9L1VSY/ref=sr_1_7?tag=canchazapa-21", precio_actual: 70, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es OTRO producto (la ficha enlazaba una busqueda)
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B088RHSS2J?tag=canchazapa-21", precio_actual: 109.97, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-27" }, // 27-oct: SÍ es la Clyde All-Pro, pero solo queda la talla 52 (visto por el usuario)
     ],
   },
 
