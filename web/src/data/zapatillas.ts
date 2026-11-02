@@ -8889,6 +8889,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-12",
     precio_msrp_eur: 100,
     links_compra: [
+      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-trae-unlimited-2-rojo-84984.html", precio_actual: 40, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-trae-unlimited-2-negro-88899.html", precio_actual: 50, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
