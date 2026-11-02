@@ -3217,6 +3217,74 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-new-balance-two-wxy-v4-acero.html", precio_actual: 79.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
     ],
   },
+  // NEW BALANCE HESI LOW V2 (BBHSLAT2): nota de HoopsGeek, peso y drop de laboratorio de RunRepeat
+  {
+    id: "nb-hesi-low-v2",
+    slug: "nb-hesi-low-v2",
+    marca: "New Balance",
+    modelo: "Hesi Low V2",
+    generacion: 2,
+    año_lanzamiento: 2024,
+    genero: "unisex",
+    tecnologia_clave: ["FuelCell de longitud completa", "Shank en el mediopié", "Contrafuerte moldeado", "Suela multidireccional"],
+    predecesor_id: null,
+    sucesor_id: null,
+
+    peso_real_g: 383, // laboratorio de RunRepeat (13.5 oz)
+    altura: "low",
+    horma: "estrecha", // RunRepeat la mide estrecha; HoopsGeek, de estrecha a normal
+    drop_mm: 10, // laboratorio de RunRepeat
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 9,
+      amortiguacion: 8,
+      respuesta: 7,
+      soporte_lateral: 7,
+      estabilidad: 8,
+      peso_score: 7,
+      durabilidad_outdoor: 4,
+      ventilacion: 7,
+    },
+    categoria_principal: "balanced",
+    tags: ["low-top", "new-balance", "versatil"],
+
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [65, 95],
+      estilos: ["equilibrado", "tirador"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+    },
+
+    resumen:
+      "La Hesi Low V2 combina una mediasuela FuelCell de longitud completa con una suela multidireccional de mucho agarre en pista limpia. Es blanda y protectora, con una sujeción firme en el talón, aunque el upper de malla limita algo la sujeción lateral.",
+    pros: [
+      "Agarre muy alto en pista limpia, también con algo de polvo",
+      "FuelCell blando y protector, con más rebote que la primera versión",
+      "Talón bien sujeto y buena estabilidad a la torsión",
+    ],
+    contras: [
+      "Horma tirando a estrecha: con pie ancho, conviene probarla o subir media talla",
+      "El upper blando limita la sujeción lateral y puede retener humedad",
+      "Mejor en interior que en la calle",
+    ],
+    veredicto:
+      "Una low versátil para quien prioriza el agarre y una pisada blanda, siempre que su pie no sea ancho. Para jugar sobre todo en interior.",
+
+    imagen_principal: "/shoes/nb-hesi-low-v2.webp",
+    imagenes: [],
+
+    fuentes: [{ tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/new-balance-hesi-low-v2/" }],
+    ultima_actualizacion: "2026-11-03",
+
+    precio_msrp_eur: 120, // tachado de Atmósfera Sport (HoopsGeek: 109,99 $)
+    links_compra: [
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-new-balance-hesi-low-v2-blue-oasis.html", precio_actual: 99.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-03" },
+    ],
+  },
 
   // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // 40. JORDAN LUKA 2 — Signature versátil de Luka

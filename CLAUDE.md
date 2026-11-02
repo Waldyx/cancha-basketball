@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **258 zapas (52 OCULTAS, 206 visibles) · 682 tests · `astro check` 0 errores · 381 páginas** |
+| Tamaño | **259 zapas (52 OCULTAS, 207 visibles) · 682 tests · `astro check` 0 errores · 381 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -105,6 +105,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 - **Sin afiliada que las venda, no se crean**: G.T. Future, ST Charge, Kobe 11 Protro, Heir
   Series 2, NXXT Gen by JuJu, P400 de NB, Ja Twelve Time, Jordan Triangle, Air Rev, Curry Series 7. NB Kawhi V: no se vende en España.
 - **Repuntar a afiliada** las de Nike ES / Puma ES cuando ECI, Atmósfera, Snipes o FuikaOmar las tengan. GT Cut Academy 2: ver si ECI repone.
+- **Modelos que faltan, cruzados el 3-nov** con FuikaOmar, Atmósfera y las reseñas (entra Hesi Low V2): con tallas en FuikaOmar y sin reseña, MB World 01 y SKX Full Court Press; Shock Wave 6 Pro sin reseña de esa versión. Con 1-2 tallas: Adizero Select 3.0, Rise Nitro, Shock Wave 7. Atmósfera sin confirmar: Court Rider 2.0, Breakaway, Bounce Legends, Fusion Nitro Team, Curry Splash 25, Jump Hook Low.
 - **Barrido por tienda** (el que más rinde): Forum Sport el 21-oct; FuikaOmar, Atmósfera y ECI repetidos el 2-nov (entran AJ 5, AJ 1 High, Trae Unlimited 2, Freak 8, Tatum 5 y Witness X); Snipes y Decathlon no compensan.
 - `nike_es`, `ua_es`, `nb_es` y `reebok_es` no leen stock: revisar a mano los de Nike (último: 2-nov). Para programarlo
   hay que comparar con una ficha AGOTADA de Nike. Las filas de Amazon también van a mano (`AMAZON_MARCA_AGOTADO = false`).
@@ -177,7 +178,7 @@ pantallas rediseñadas**, en este orden: home → catálogo + ficha → rankings
   necesita cookie jar.
 - **Barrido de categoría**: ECI `/deportes/baloncesto/zapatillas/N/` con `fetch` desde la página (entrar antes por la home);
   Atmósfera `/baloncesto-zapatillas-hombre-242`, `-ninos-244`, `/outlet-baloncesto-3704`; FuikaOmar `/zapatillas-baloncesto/?page=`.
-  Revisar a mano: `matchesShoe` casa de más. **Basketball Emotion**: su buscador da 500; cruzar por sitemap (`/comprar/zapatillas/`,
+  Atmósfera: abrir la ficha en el navegador; en `.product-actions select` la clase `attribute-no` = talla agotada (por `fetch` no se ve). Revisar a mano: `matchesShoe` casa de más. **Basketball Emotion**: su buscador da 500; cruzar por sitemap (`/comprar/zapatillas/`,
   `/zapatilla/`, `/sneakers/`). **Foot Locker y Nike ES** solo tienen la generación actual y rellenan por similitud.
 - **adidas.es**: carga en el navegador integrado, `curl` da 403. **361sport**: tallas en `/products/<handle>.js`. **Forum**:
   `.size-item.js-select-size` (`off` = no hay). **New Balance**: casa subcadenas; necesita navegador real.
