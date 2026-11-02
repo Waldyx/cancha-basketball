@@ -533,7 +533,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 60,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+cross+em+up+select&tag=canchazapa-21", precio_actual: 54.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+cross+em+up+select&tag=canchazapa-21", precio_actual: 54.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/adidas-Cross-Select-Shoes-Mid-Black/dp/B0C2QLWQBH/ref=sr_1_1?tag=canchazapa-21", precio_actual: 0, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es otra variante (corte o segmento) (la ficha enlazaba una busqueda)
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatilla-cross-em-up-select%2Fa55546c0-eb8c-41d3-aa53-37e1ad5a7dfa%2Fc1c4c251", precio_actual: 54.25, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-23" }, // 2026-09-23: "Zapatillas de baloncesto niño", tallas 32-40: ahora que la ficha es GS, es el producto correcto. Verificado por w27
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-cross-em-up-select-infantil-67302.html", precio_actual: 38.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: 4 tallas (36 2/3 a 40)
@@ -3682,7 +3682,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-believe-that-1-jq9475-1001111484-p", precio_actual: 69.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-believe-that-1-negro-naraci-supcol-176218.html", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-believe-that-1%2FJQ9475.html", precio_actual: 100, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+believe+that+1+baloncesto&tag=canchazapa-21", precio_actual: 100, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+believe+that+1+baloncesto&tag=canchazapa-21", precio_actual: 100, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
@@ -8677,7 +8677,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 150,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0C9NT9ZHY?tag=canchazapa-21", precio_actual: 248, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: hoy a 248 € (reventa); el 44,88 guardado era del 26-sep
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+trae+young+3+baloncesto&tag=canchazapa-21", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+trae+young+3+baloncesto&tag=canchazapa-21", precio_actual: 75, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-trae-young-3-cloud-white.html", precio_actual: 74.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: Cloud White, 4 tallas
     ],
   },
@@ -10394,7 +10394,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-1-high-og-lost-and-found%2F378773b8-208e-4fbf-88af-580b422fb96a%2Fc4", precio_actual: 270.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: hoy 270,90 € (revendedor)
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-1-mid-blanco-94681", precio_actual: 90, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" }, // Air Jordan 1 MID: otro producto (la ficha es la 1 High)
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-1-low-se-blanco-97780", precio_actual: 140, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+1+retro&tag=canchazapa-21", precio_actual: 190, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+1+retro&tag=canchazapa-21", precio_actual: 190, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
@@ -11571,7 +11571,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-air-jordan-5-retro-og-fire-red.html", precio_actual: 229.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fair-jordan-5-retro-se-craft-light-orewood-brown-taille-eu%2F7b7897ea-561b-4730-9477-e6f5e7d85b97%2Fc27c20", precio_actual: 238.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-05" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Air+Jordan+5+Retro&tag=canchazapa-21", precio_actual: 230, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Air+Jordan+5+Retro&tag=canchazapa-21", precio_actual: 230, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0B57MM4SF?tag=canchazapa-21", precio_actual: 0, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es la AJ5 Retro LOW (lo habia resuelto el scraper)
     ],
   },
