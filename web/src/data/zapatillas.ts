@@ -5264,7 +5264,7 @@ const _rawZapatillas: Zapatilla[] = [
     año_lanzamiento: 2026,
     genero: "unisex",
     signature_player: "LeBron James",
-    tecnologia_clave: ["KingKnit", "Zoom Air"],
+    tecnologia_clave: ["KingKnit", "React drop-in", "Air Zoom"],
     predecesor_id: "nike-lebron-23",
     sucesor_id: null,
 
@@ -5303,7 +5303,7 @@ const _rawZapatillas: Zapatilla[] = [
     },
 
     resumen:
-      "La 24 de LeBron sale el 17 de noviembre de 2026 y estrena un material de empeine llamado KingKnit, de textura escamada. Nike la presenta como la más ligera de la historia de la saga — una afirmación de la marca, todavía sin medición independiente que la respalde.",
+      "La 24 de LeBron sale el 17 de noviembre de 2026 y estrena un material de empeine llamado KingKnit, de textura escamada. Según Nike, lleva una entresuela React de longitud completa tipo drop-in con unidades Air Zoom en antepié y talón, y es la más ligera de la historia de la saga: una afirmación de la marca, todavía sin medición independiente que la respalde.",
     pros: [
       "Nike la anuncia como la más ligera de la saga, que arrastra 20 años de zapatillas pesadas",
       "KingKnit: material de empeine nuevo, no un reciclado de la 23",
@@ -5315,17 +5315,18 @@ const _rawZapatillas: Zapatilla[] = [
       "La saga nunca ha destacado en durabilidad de exterior ni en ventilación",
     ],
     veredicto:
-      "Ficha de posicionamiento: sale el 17-nov-2026 y hasta entonces no hay nada medido. Lo único sólido es la fecha y que Nike estrena el KingKnit y promete la LeBron más ligera. Peso, drop, altura y las ocho puntuaciones son ESTIMACIONES ancladas a la LeBron 23; se actualizan cuando salga y alguien la mida. No compres a ciegas por esta ficha.",
+      "Ficha de posicionamiento: sale el 17-nov-2026 y hasta entonces no hay nada medido. Lo único sólido es la fecha y lo que Nike declara: KingKnit, React drop-in con Air Zoom en antepié y talón, y la promesa de la LeBron más ligera. Peso, drop y las ocho puntuaciones son ESTIMACIONES ancladas a la LeBron 23; se actualizan cuando salga y alguien la mida. No compres a ciegas por esta ficha.",
 
     imagen_principal: "/shoes/nike-lebron-24.webp",
     imagenes: [],
 
     fuentes: [
-      { tipo: "evaluacion-propia", url: "https://sneakernews.com/2026/08/12/nike-lebron-24-release-date/" },
+      { tipo: "evaluacion-propia", url: "https://about.nike.com/en-GB/newsroom/releases/nike-and-lebron-james-help-players-level-up-with-the-lebron-24-his-lightest-game-shoe-ever" },
     ],
-    ultima_actualizacion: "2026-09-01",
+    ultima_actualizacion: "2026-11-02",
 
     proximamente: true,
+    // 200 $ de lanzamiento. Tarifa en EUR sin publicar a 2-nov (la LeBron XXIII esta a 199,99 en Nike ES): confirmar el 17-nov.
     precio_msrp_eur: 200,
     links_compra: [],
   },
