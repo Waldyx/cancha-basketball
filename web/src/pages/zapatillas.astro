@@ -717,6 +717,13 @@ const ordenadas = [...zapatillas].sort(compareByScore);
 </Base>
 
 <style>
+  :global(#catalogo-grid .cz-card) {
+    content-visibility: auto;
+    contain-intrinsic-block-size: auto 440px;
+  }
+  @media print {
+    :global(#catalogo-grid .cz-card) { content-visibility: visible; }
+  }
   /* Tiny inline overrides — most styles come from cancha-redesign.css */
   .hidden { display: none !important; }
 </style>
