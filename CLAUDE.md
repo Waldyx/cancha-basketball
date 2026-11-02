@@ -53,6 +53,8 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
   🔴 Solo lee ~45 de 60 y ~41 de 55 puntos: fallo de OCR, sobre todo en la tarjeta resaltada (turquesa con marcador
   amarillo) y con letra de 576 px. Ampliar el fotograma a 1000 px EMPEORA. Ideas: pedir el vídeo como «Documento» y
   avisar por cuarto con los parciales de la cabecera. Diagnóstico: `localStorage cz.debug.acta=1` → `window.__actaDebug`.
+- **Rediseño de la home**: propuesta de Codex en la rama local `codex/rediseno-home` (worktree `Proyectos/cancha-home-preview`), sin fusionar: la decide el usuario. Capturas en `web/_coach-audit-out/home-redesign/` de la carpeta principal.
+- **Si Claude se queda sin tokens, Codex lo sustituye**: reglas en `AGENTS.md`. Empieza cuando el usuario le escriba «Claude sin tokens».
 - Detalle de todo lo cerrado: `docs/historial-sesiones.md` (buscar `S57`, `S54`, `s43`…).
 
 ---
@@ -139,6 +141,7 @@ pantallas rediseñadas**, en este orden: home → catálogo + ficha → rankings
   `zapatillasTodas` = todo; `zapatillas` = lo visible. Ficha oculta: 200 con `noindex`, fuera del sitemap. Rescatar = añadir
   compra y quitar `oculto`. `audit-enlaces.ts` lista las rescatables. `disponible: false` NO saca a una zapa de ningún listado.
 - **Un enlace afiliado no entra** si pasa a ser el «desde» y es más caro que una tienda no afiliada ya enlazada (s55).
+- **Enlaces entre fichas**: `relacionadas` son las vecinas de nota de la categoría, en círculo, para que todas reciban enlaces. `sucesor_id` alimenta el aviso de «generación más reciente» (no en retros): mantener la cadena al crear una ficha.
 - **Precio oculto**: por encima de 1,5× MSRP no se enseña el número (se queda «Ver precio» + MSRP), ni en JSON-LD. Enlaces
   de búsqueda, igual (`esEnlaceDeBusqueda`). DISPLAY solo: el orden usa `findMejorPrecio`.
 - **Reventa ≥ ~2× MSRP**: no se enlaza si hay alternativa. **Barridos**: mínimo 4 tallas.
@@ -277,6 +280,7 @@ Destilado de las sesiones 26-38. Cada línea costó al menos una sesión.
   salía eran los enlaces de la ficha ANTERIOR. Anclar el patrón al principio de línea
   (`^    id: "X",`). Es la misma trampa de subcadena del matcher de New Balance, pero mordiéndonos
   en nuestras propias herramientas de medición.
+- **Una auditoría sin hallazgos no prueba la zona de al lado — 2-nov.** 18 de 43 enlaces de Amazon apagados eran otro producto, y entre los 87 activos salió una Nike Tanjun en la AJ 9. Comparar el título real con corte, segmento y generación de la ficha. Amazon corta con CAPTCHA tras muchas peticiones seguidas (y luego da páginas vacías): de pocas en pocas.
 - **Antes de dar por bueno un fallo de scraping, separar agotado / no-match / enlace muerto.**
   De 15 "fallos" de Snipes, 7 eran agotados correctos, 4 matcher y 4 enlaces muertos.
 - **No celebrar una mejora con una sola noche de datos.** AliExpress 3→11 parecía éxito y era ruido
@@ -707,4 +711,4 @@ presupuesto · ancho de pie · uso (auto-submit 400 ms).
   `cancha-quiz-respuestas` (sessionStorage).
 - **Scripts de mantenimiento**: `update-images.js`, `fix-encoding.js`, `optimize-images.mjs`,
   `gen-chat-catalog.ts`, y los `audit-*` listados arriba.
-- **Tests**: `npx vitest run` → 679 (regenera `api/_catalog.json` antes, ver `vitest.config.ts`).
+- **Tests**: `npx vitest run` → 682 (regenera `api/_catalog.json` antes, ver `vitest.config.ts`).
