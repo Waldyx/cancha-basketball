@@ -5833,7 +5833,7 @@ const _rawZapatillas: Zapatilla[] = [
     signature_player: "Jayson Tatum",
     tecnologia_clave: ["Full-length Cushlon 3.0", "Forefoot Zoom Air unit", "Synthetic upper"],
     predecesor_id: "jordan-tatum-3",
-    sucesor_id: null,
+    sucesor_id: "jordan-tatum-5",
 
     peso_real_g: 351,
     altura: "low",
@@ -15653,6 +15653,145 @@ const _rawZapatillas: Zapatilla[] = [
     ],
   },
 
+  // JORDAN TATUM 5 y LEBRON WITNESS X: sin reseñas a 2-nov-2026, nota editorial anclada a su predecesora
+  {
+    id: "jordan-tatum-5",
+    slug: "jordan-tatum-5",
+    marca: "Jordan",
+    modelo: "Tatum 5",
+    generacion: 5,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "Jayson Tatum",
+    tecnologia_clave: ["Cushlon 3.0", "Air Zoom en el antepié", "Correa de estabilidad en el mediopié", "Upper moldeado + malla", "Suela de espiga"],
+    predecesor_id: "jordan-tatum-4",
+    sucesor_id: null,
+
+    peso_real_g: 369, // dato de Nike para la versión PF (UK 8, «approx. 368.5 g»); sin laboratorio
+    altura: "low",
+    horma: "normal",
+    drop_mm: 8, // HEREDADO de la Tatum 4, Nike no lo publica
+    tipo_cierre: "cordones",
+    material_superior: "mesh+synthetic",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 8,
+      respuesta: 8,
+      soporte_lateral: 8,
+      estabilidad: 8,
+      peso_score: 7,
+      durabilidad_outdoor: 5,
+      ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["low-top", "signature", "versatil", "reactiva"],
+
+    ideal_para: {
+      posiciones: ["alero", "escolta", "base"],
+      peso_jugador_kg: [65, 100],
+      estilos: ["equilibrado", "explosivo", "tirador"],
+    },
+    no_recomendada_para: {
+      posiciones: ["pivot"],
+    },
+
+    resumen:
+      "La quinta de Jayson Tatum mantiene la receta de la 4, Cushlon 3.0 con Air Zoom en el antepié, y estrena la primera correa de la línea: pasa bajo los cordones, sujeta la lengüeta y refuerza los cortes. Todavía sin reseñas de rendimiento.",
+    pros: [
+      "Air Zoom en el antepié sobre Cushlon 3.0, la combinación que funcionó en la Tatum 4",
+      "Correa de mediopié ajustable para una sujeción más firme",
+      "Suela de espiga, un dibujo clásico de tracción",
+      "La vende El Corte Inglés, con todas las tallas de adulto habituales",
+    ],
+    contras: [
+      "Todavía SIN review de rendimiento publicada: la nota es una estimación",
+      "Falta comprobar cómo ajusta la correa en pies anchos",
+      "Su durabilidad en exterior está sin medir",
+    ],
+    veredicto:
+      "Parece una evolución prudente de la Tatum 4 con más sujeción, pensada para aleros y escoltas. La nota es una estimación nuestra basada en su predecesora y en los datos de Nike; la revisaremos cuando WearTesters o HoopsGeek la analicen.",
+
+    imagen_principal: "/shoes/jordan-tatum-5.webp",
+    imagenes: [],
+
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-11-02",
+
+    precio_msrp_eur: 129.99,
+    links_compra: [
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA58882916-negro-pr-zapatillas-de-baloncesto-de-adulto-jordan-tatum-5-jordan%2F", precio_actual: 129.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
+    ],
+  },
+  {
+    id: "nike-lebron-witness-10",
+    slug: "nike-lebron-witness-10",
+    marca: "Nike",
+    modelo: "LeBron Witness X",
+    generacion: 10,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "LeBron James",
+    tecnologia_clave: ["Cushlon 3.0", "Suela de goma perforada", "Upper minimalista"],
+    predecesor_id: "nike-lebron-witness-9",
+    sucesor_id: null,
+
+    peso_real_g: 428, // ESTIMADO: el de laboratorio de la Witness 9; Nike no publica el de la X
+    altura: "low",
+    horma: "normal",
+    drop_mm: 6, // HEREDADO de la Witness 9, Nike no lo publica
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+
+    puntuaciones: {
+      traccion: 8,
+      amortiguacion: 8,
+      respuesta: 7,
+      soporte_lateral: 7,
+      estabilidad: 8,
+      peso_score: 5,
+      durabilidad_outdoor: 5,
+      ventilacion: 8,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "presupuesto", "value-premium"],
+
+    ideal_para: {
+      posiciones: ["alero", "ala-pivot", "pivot"],
+      peso_jugador_kg: [75, 110],
+      estilos: ["potente", "equilibrado"],
+    },
+    no_recomendada_para: {
+      estilos: ["explosivo"],
+    },
+
+    resumen:
+      "La Witness más sencilla de los últimos años: upper minimalista y mediasuela de Cushlon 3.0, en lugar del ReactX de la Witness 9, sobre una suela de goma perforada para que la espuma trabaje. Todavía sin reseñas de rendimiento.",
+    pros: [
+      "Mediasuela Cushlon 3.0 de longitud completa",
+      "Upper minimalista que Nike plantea para moverse con libertad",
+      "Precio contenido para una zapatilla de LeBron",
+    ],
+    contras: [
+      "Todavía SIN review de rendimiento publicada: la nota es una estimación",
+      "Peso sin confirmar: el dato es el de la Witness 9",
+      "Sin unidad Air Zoom",
+    ],
+    veredicto:
+      "La opción económica de la línea LeBron, con una receta distinta a la de la Witness 9. La nota es una estimación nuestra basada en su predecesora y en los datos de Nike; la revisaremos cuando WearTesters o HoopsGeek la analicen.",
+
+    imagen_principal: "/shoes/nike-lebron-witness-10.webp",
+    imagenes: [],
+
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-11-02",
+
+    precio_msrp_eur: 99.99,
+    links_compra: [
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA58884383-negro-pr-zapatillas-de-baloncesto-de-adulto-lebron-witness-10-nike%2F", precio_actual: 99.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
+    ],
+  },
+
   // NIKE JA 4 - 4a signature de Ja Morant, guard 2026
   {
     id: "nike-ja-4",
@@ -15797,7 +15936,8 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-08-24",
     precio_msrp_eur: 114.99,
     links_compra: [
-      { tienda: "nike_es", url: "https://www.nike.com/es/t/giannis-freak-8-zapatillas-de-baloncesto-txvJ3CIi/JA1403-100", precio_actual: 114.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-08-24" },
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA58884313-azul-pr-zapatillas-de-baloncesto-de-adulto-giannis-freak-8-nike%2F", precio_actual: 114.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
+      { tienda: "nike_es", url: "https://www.nike.com/es/t/giannis-freak-8-zapatillas-de-baloncesto-txvJ3CIi/JA1403-100", precio_actual: 114.99, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-11-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+giannis+freak+8&tag=canchazapa-21", precio_actual: 114.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-24" },
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA200906839-negro-pr-zapatillas-de-baloncesto-de-hombre-giannis-freak-8-nike%2F", precio_actual: 114.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-04" }, // 2026-10-04: w28 ECI adulto, 10 de 13 tallas
     ],

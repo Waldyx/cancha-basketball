@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **255 zapas (51 OCULTAS, 204 visibles) · 679 tests · `astro check` 0 errores · 381 páginas** |
+| Tamaño | **257 zapas (51 OCULTAS, 206 visibles) · 681 tests · `astro check` 0 errores · 381 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -80,6 +80,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 - **Amazon Afiliados**: sin 3 ventas, puede cerrar la cuenta hacia **nov-2026** (política de 180 días). Mirar el panel. Si
   cierra, los enlaces siguen funcionando pero no pagan: Amazon pasaría a «Ver precio». Desde el 22-sep los clics suben por
   un cambio de medición, no por tráfico nuevo.
+- **Tatum 5 y Witness X** (2-nov, nota editorial 7,5 sin reseñas, peso de la X ESTIMADO): revisar cuando las reseñen.
 - **Nike LeBron 24 sale el 17-nov** (`proximamente`, peso ESTIMADO, «KingKnit» es afirmación de Nike). Quitar la marca y
   buscar compra afiliada. **adidas Harden Vol 11**: dic-2026, entra entonces.
 - **Search Console, medido el 2-nov** (propiedad `sc-domain:canchazapa.com`, se lee desde el Chrome del usuario sin contraseña):
@@ -100,10 +101,10 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 - **Anclas de HoopsGeek**: 44 adultas visibles sin ancla, repasado el 2-nov sin reseñas nuevas (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, KT 11…). AJ 41: WearTesters 9/10.
   Repetir el cruce con el sitemap de HG.
 - **Pesos estimados**: actualizar cuando RunRepeat los mida (repasado el 2-nov: 11 corregidos con su catálogo, `/catalog/basketball-shoes?page=N`). LeBron 24 y AJ 41 siguen estimados.
-- **Sin afiliada que las venda, no se crean**: LeBron Witness X, Tatum 5, G.T. Future, ST Charge, Kobe 11 Protro, Heir
+- **Sin afiliada que las venda, no se crean**: G.T. Future, ST Charge, Kobe 11 Protro, Heir
   Series 2, NXXT Gen by JuJu, P400 de NB, Ja Twelve Time, Jordan Triangle, Air Rev, Curry Series 7. NB Kawhi V: no se vende en España.
 - **Repuntar a afiliada** las de Nike ES / Puma ES cuando ECI, Atmósfera, Snipes o FuikaOmar las tengan. GT Cut Academy 2: ver si ECI repone.
-- **Barrido por tienda** (el que más rinde): ECI, Atmósfera y Forum Sport el 21-oct; FuikaOmar repetido el 2-nov (entran AJ 5 y AJ 1 High); Snipes y Decathlon no compensan.
+- **Barrido por tienda** (el que más rinde): Forum Sport el 21-oct; FuikaOmar, Atmósfera y ECI repetidos el 2-nov (entran AJ 5, AJ 1 High, Trae Unlimited 2, Freak 8, Tatum 5 y Witness X); Snipes y Decathlon no compensan.
 - `nike_es`, `ua_es`, `nb_es` y `reebok_es` no leen stock: revisar a mano los de Nike (último: 2-nov). Para programarlo
   hay que comparar con una ficha AGOTADA de Nike. Las filas de Amazon también van a mano (`AMAZON_MARCA_AGOTADO = false`).
 - Kobe 9 High Protro y Superstar sin MSRP aplicado (no se sabe qué versión es la ficha). Shock Wave 5, JB4 y Rigorer: su
