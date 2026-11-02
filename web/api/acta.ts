@@ -220,7 +220,6 @@ export default async function handler(req: any, res: any) {
       : [
           "nvidia/nemotron-3.5-super-vl:free",
           "google/gemma-4-31b-it:free",
-          "nvidia/nemotron-3-super-120b-a12b:free",
           "google/gemma-4-26b-a4b-it:free",
           "nvidia/nemotron-3.5-lightning:free", // sin validar
         ];

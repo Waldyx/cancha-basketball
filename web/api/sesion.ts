@@ -251,7 +251,6 @@ export default async function handler(req: any, res: any) {
     ? [process.env.CHAT_MODEL]
     : [
         "google/gemma-4-31b-it:free",
-        "nvidia/nemotron-3-super-120b-a12b:free",
         "nvidia/nemotron-3.5-super-vl:free", // validado en producción el 21-oct (chat) y el 22-oct (actas)
         "google/gemma-4-26b-a4b-it:free",
         // 🔴 19-oct-2026, medido contra /api/v1/models: qwen3.8-27b (404 "unavailable for free"),

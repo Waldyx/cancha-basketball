@@ -132,6 +132,11 @@ describe("sistemaPara", () => {
     expect(s).not.toMatch(/\| low \|/);
     expect(s).toMatch(/\| (mid|high) \|/);
   });
+  it("las retro solo entran si las piden o nombran esa zapa", () => {
+    expect(sistemaPara("tengo esguinces y pie ancho, peso 95 kg")).not.toContain("reebok-shaq-attaq |");
+    expect(sistemaPara("busco una zapatilla retro para el dia a dia")).toContain("reebok-shaq-attaq |");
+    expect(sistemaPara("¿la shaq attaq sirve para jugar?")).toContain("reebok-shaq-attaq |");
+  });
   it("si juegan en la calle, fuera las de durabilidad outdoor < 5 (como el quiz)", () => {
     const s = sistemaPara("escolta que juega en la calle");
     expect(s).not.toContain("ua-curry-12 |");

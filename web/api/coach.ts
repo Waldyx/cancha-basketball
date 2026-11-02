@@ -159,7 +159,6 @@ export default async function handler(req: any, res: any) {
         // ⚠ nemotron colaba su razonamiento en `content` en jun-2026. Volvió a entrar el
         // 21-sep dando por hecho que `limpiarRespuesta` lo cubría, y no lo cubre: viene sin
         // etiquetas `<think>`. Lo que lo tapa es `pareceRazonamiento`.
-        "nvidia/nemotron-3-super-120b-a12b:free",
         "nvidia/nemotron-3.5-super-vl:free", // validado en producción el 21-oct (chat) y el 22-oct (actas)
         // Cola de respaldo: se prueban de uno en uno si la cadena falla.
         "google/gemma-4-26b-a4b-it:free",

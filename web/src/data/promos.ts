@@ -543,6 +543,27 @@ export const PROMOS: Promo[] = [
     nota: "Solo para clientes Prime · 6 y 7 de octubre · las ofertas cambian por producto, comprueba el precio en la ficha",
     color: "#ff9900",
   },
+  {
+    id: "aliexpress-11-11-2026",
+    tienda: "aliexpress",
+    tiendaLabel: "AliExpress",
+    titulo: "Promo del 11.11",
+    desde: "2026-11-01T00:00:00+01:00",
+    hasta: "2026-11-18T23:59:59+01:00",
+    // Tramos del correo de Awin del 27-oct. Prefijo ESD11. Sin los de 500 y 600 €: solo valen
+    // el 1-3 y el 11-12 de noviembre y ninguna zapa llega a ese mínimo.
+    codigos: [
+      { code: "ESD1103", descuento: 3, minCompra: 18 },
+      { code: "ESD1108", descuento: 8, minCompra: 45 },
+      { code: "ESD1112", descuento: 12, minCompra: 69 },
+      { code: "ESD1123", descuento: 23, minCompra: 135 },
+      { code: "ESD1139", descuento: 39, minCompra: 230 },
+      { code: "ESD1158", descuento: 58, minCompra: 325 },
+      { code: "ESD1175", descuento: 75, minCompra: 429 },
+    ],
+    nota: "Pedidos enviados a España · no válidos en productos virtuales · no acumulable con otras promociones",
+    color: "#ff4747",
+  },
 ];
 
 /** Promos activas a una fecha dada (por defecto, ahora). */

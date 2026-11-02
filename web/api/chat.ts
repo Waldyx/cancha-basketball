@@ -78,6 +78,11 @@ const TOBILLO = /tobill|esguinc|torcedur/;
 const EXTERIOR = /\bcalle\b|exterior|outdoor|asfalto|aire libre|cemento/;
 // Y el de pie ancho: fuera las de horma estrecha.
 const PIE_ANCHO = /pies? anchos?|ancho de pie|horma ancha|empeine alto/;
+// 🔴 2-nov-2026, medido en producción: a un jugador con esguinces le ofreció la Reebok Shaq Attaq
+// (retro de 1992, 210 €) como opción «más económica». Las retro solo entran si las piden, o si
+// nombran esa zapa (el slug sin la marca): igual que `respuestaLocal`, que nunca las recomienda.
+const PIDE_RETRO = /retro|cl[aá]sic|vintage|coleccion|protro/;
+const nombraLaZapa = (l: string, q: string) => q.includes(l.split("|")[0].trim().split("-").slice(1).join(" "));
 const filtrar = (lineas: string[], f: (l: string) => boolean) => {
   const r = lineas.filter(f);
   return r.length ? r : lineas;
@@ -88,6 +93,7 @@ export function sistemaPara(textoUsuario: string): string {
   lineas = JUNIOR.test(q)
     ? filtrar(lineas, (l) => /JUNIOR-GS/.test(l))
     : lineas.filter((l) => !/JUNIOR-GS/.test(l));
+  if (!PIDE_RETRO.test(q)) lineas = filtrar(lineas, (l) => !/\| RETRO\b/.test(l) || nombraLaZapa(l, q));
   if (TOBILLO.test(q)) lineas = filtrar(lineas, (l) => !/\| low \|/.test(l));
   if (EXTERIOR.test(q)) lineas = filtrar(lineas, (l) => Number((l.match(/outdoor (\d+)/) ?? [])[1] ?? 10) >= 5);
   if (PIE_ANCHO.test(q)) lineas = filtrar(lineas, (l) => !/\| horma estrecha \|/.test(l));
@@ -410,7 +416,6 @@ export default async function handler(req: any, res: any) {
         // ⚠ nemotron colaba su cadena de pensamiento en `content` en jun-2026. Volvió a
         // entrar el 21-sep dando por hecho que `limpiarRespuesta` lo cubría, y NO lo cubre:
         // aquello venía sin etiquetas `<think>`. Lo que lo tapa es la guarda de arranque.
-        "nvidia/nemotron-3-super-120b-a12b:free",
         "nvidia/nemotron-3.5-super-vl:free", // validado en producción el 21-oct (chat) y el 22-oct (actas)
         // Cola de respaldo: se prueban de uno en uno si la cadena falla.
         "google/gemma-4-26b-a4b-it:free",
