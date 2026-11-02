@@ -319,6 +319,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
                   data-score={score}
                   data-año={z.año_lanzamiento}
                   data-nombre={`${z.marca} ${z.modelo}`.toLowerCase()}
+                  aria-label={`${z.marca} ${z.modelo}`}
                   data-categoria={z.categoria_principal}
                   data-altura={z.altura}
                   data-posicion={z.ideal_para.posiciones.join(",")}
