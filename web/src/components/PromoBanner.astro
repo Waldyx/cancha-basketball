@@ -136,7 +136,6 @@ const promosData = promosNoCaducadas().map((p) => ({
       cta.target = "_blank";
       cta.rel = "sponsored noopener";
       inner.appendChild(txt);
-      inner.appendChild(cta);
       var dots = document.createElement("div");
       dots.className = "cz-promo-dots";
       var close = document.createElement("button");
@@ -165,11 +164,11 @@ const promosData = promosNoCaducadas().map((p) => ({
         strip.style.background = p.color;
         txt.textContent = "🔥 " + p.tiendaLabel + " · " + p.titulo + ": " + resumen(p) + " · hasta " + fin(p);
         if (p.url) {
-          cta.style.display = "";
+          if (!cta.isConnected) inner.appendChild(cta);
           cta.href = p.url;
           cta.textContent = "Ver en tienda →";
         } else {
-          cta.style.display = "none";
+          cta.remove();
         }
         var ds = dots.children;
         for (var k = 0; k < ds.length; k++) {

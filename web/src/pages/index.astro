@@ -67,7 +67,7 @@ const CAT_ACCENT: Record<string, string> = {
 const _fechaVerif = fechaVerificacionMasReciente(zapatillas);
 const today = (_fechaVerif ? new Date(_fechaVerif + "T12:00:00") : new Date()).toLocaleDateString("es-ES", { day: "2-digit", month: "short" }).toUpperCase();
 const recentArticles = getAllArticles().slice(0, 3);
-const BLOG_CAT_COLOR: Record<string, string> = { "Guías": "#f97316", "Comparativas": "var(--cz-cat-reactiva)", "Análisis": "var(--cz-cat-cushion)" };
+const BLOG_CAT_COLOR: Record<string, string> = { "Guías": "#f97316", "Comparativas": "#facc15", "Análisis": "#38bdf8" };
 
 // Precio MOSTRADO del pick (solo tiendas que monetizan/pendientes; si no, MSRP). El pick
 // se sigue ELIGIENDO con el precio real (editorPick), pero el número que enseñamos es éste.
@@ -112,7 +112,7 @@ const homeJsonLd = {
     {/* HERO */}
     <section class="home-hero">
       <div class="home-hero-bg" aria-hidden="true">
-        <img src="/bg-court.svg" alt="" />
+        <img src="/bg-court.svg" alt="" width="1440" height="800" fetchpriority="high" />
         <video id="home-hero-video" poster="/hero-cancha-poster.jpg"
                muted loop playsinline preload="none"
                onerror="this.remove()"></video>

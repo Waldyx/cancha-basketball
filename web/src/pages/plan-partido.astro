@@ -64,13 +64,13 @@ const jsonLd = {
           </section>
 
           <section class="pp-panel">
-            <h2 class="pp-h2">Objetivos</h2>
-            <textarea class="pp-inp pp-ta" data-k="objetivos" rows="3" maxlength="1200" placeholder={"Una idea por línea, p. ej.:\nMenos de 12 pérdidas\nCerrar el rebote defensivo"}></textarea>
+            <h2 class="pp-h2" id="pp-objetivos-label">Objetivos</h2>
+            <textarea class="pp-inp pp-ta" data-k="objetivos" aria-labelledby="pp-objetivos-label" rows="3" maxlength="1200" placeholder={"Una idea por línea, p. ej.:\nMenos de 12 pérdidas\nCerrar el rebote defensivo"}></textarea>
           </section>
 
           <section class="pp-panel">
-            <h2 class="pp-h2">Claves del rival</h2>
-            <textarea id="pp-claves" class="pp-inp pp-ta" data-k="claves" rows="4" maxlength="2000" placeholder="Una por línea"></textarea>
+            <h2 class="pp-h2" id="pp-claves-label">Claves del rival</h2>
+            <textarea id="pp-claves" class="pp-inp pp-ta" data-k="claves" aria-labelledby="pp-claves-label" rows="4" maxlength="2000" placeholder="Una por línea"></textarea>
             <div class="pp-fila">
               <button type="button" id="pp-traer" class="pp-bn pp-bn-2 pp-bn-sm" hidden>Traer del informe del rival</button>
               <a href="/rival/" class="pp-ayuda doc-link">Preparar el informe del rival →</a>
@@ -78,10 +78,10 @@ const jsonLd = {
           </section>
 
           <section class="pp-panel">
-            <h2 class="pp-h2">En ataque</h2>
-            <textarea class="pp-inp pp-ta" data-k="ataque" rows="3" maxlength="1200" placeholder={"Correr tras rebote\nBuscar el pase interior"}></textarea>
-            <h2 class="pp-h2">En defensa</h2>
-            <textarea class="pp-inp pp-ta" data-k="defensa" rows="3" maxlength="1200" placeholder={"Individual, ayudas desde el lado débil\nNo dejar tirar al #7"}></textarea>
+            <h2 class="pp-h2" id="pp-ataque-label">En ataque</h2>
+            <textarea class="pp-inp pp-ta" data-k="ataque" aria-labelledby="pp-ataque-label" rows="3" maxlength="1200" placeholder={"Correr tras rebote\nBuscar el pase interior"}></textarea>
+            <h2 class="pp-h2" id="pp-defensa-label">En defensa</h2>
+            <textarea class="pp-inp pp-ta" data-k="defensa" aria-labelledby="pp-defensa-label" rows="3" maxlength="1200" placeholder={"Individual, ayudas desde el lado débil\nNo dejar tirar al #7"}></textarea>
           </section>
         </div>
 
@@ -102,8 +102,8 @@ const jsonLd = {
           </section>
 
           <section class="pp-panel">
-            <h2 class="pp-h2">Situaciones especiales</h2>
-            <textarea class="pp-inp pp-ta" data-k="especiales" rows="3" maxlength="1200" placeholder={"Último ataque: Horns\nSi nos presionan: Contra presión 2-2-1\nTiempo muerto si encajan un parcial de 8-0"}></textarea>
+            <h2 class="pp-h2" id="pp-especiales-label">Situaciones especiales</h2>
+            <textarea class="pp-inp pp-ta" data-k="especiales" aria-labelledby="pp-especiales-label" rows="3" maxlength="1200" placeholder={"Último ataque: Horns\nSi nos presionan: Contra presión 2-2-1\nTiempo muerto si encajan un parcial de 8-0"}></textarea>
           </section>
 
           <section class="pp-panel">
