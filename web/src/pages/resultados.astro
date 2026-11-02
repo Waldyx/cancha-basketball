@@ -99,7 +99,7 @@ import "../styles/cancha-redesign.css";
           </a>
           <a href="/quiz" class="rs-btn ghost">↻ Rehacer quiz</a>
           <a href="/zapatillas" class="rs-btn ghost">Ver catálogo completo</a>
-          <button id="btn-compartir" type="button" class="rs-btn ghost">🔗 Compartir</button>
+          <button id="btn-compartir" type="button" class="rs-btn ghost">🔗 Compartir quiz</button>
         </div>
       </div>
 
@@ -412,15 +412,20 @@ import "../styles/cancha-redesign.css";
     // Share button
     const $share = document.getElementById("btn-compartir");
     if ($share) {
-      $share.addEventListener("click", () => {
-        const url = window.location.href;
-        if (navigator.share) {
-          navigator.share({ title: "Mis 5 zapas · CANCHA.ZAPA", url });
-        } else {
-          navigator.clipboard.writeText(url).then(() => {
+      $share.addEventListener("click", async () => {
+        const url = new URL("/quiz", window.location.origin).href;
+        try {
+          if (navigator.share) {
+            await navigator.share({ title: "Encuentra tu zapatilla · CANCHA.ZAPA", text: "Haz el quiz y encuentra las zapatillas que mejor encajan contigo.", url });
+          } else {
+            await navigator.clipboard.writeText(url);
             $share.textContent = "✓ Enlace copiado";
-            setTimeout(() => { $share.textContent = "🔗 Compartir"; }, 2000);
-          });
+            setTimeout(() => { $share.textContent = "🔗 Compartir quiz"; }, 2000);
+          }
+        } catch (err) {
+          if (!(err instanceof DOMException && err.name === "AbortError")) {
+            $share.textContent = "No se pudo compartir";
+          }
         }
       });
     }
