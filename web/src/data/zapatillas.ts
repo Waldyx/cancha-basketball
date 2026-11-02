@@ -122,7 +122,7 @@ const _rawZapatillas: Zapatilla[] = [
     signature_player: "Stephen Curry",
     tecnologia_clave: ["Dual-density UA Flow cushioning", "UA Flow outsole", "Pebax forefoot plate", "Engineered mesh upper"],
     predecesor_id: null,
-    sucesor_id: null,
+    sucesor_id: "ua-curry-13",
 
     peso_real_g: 344,
     altura: "low",
@@ -142,7 +142,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 10,
     },
     categoria_principal: "responsive",
-    tags: ["trending","signature", "ligera", "tope-de-gama"],
+    tags: ["signature", "ligera", "tope-de-gama"],
 
     ideal_para: {
       posiciones: ["base", "escolta"],
@@ -692,7 +692,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 7, ventilacion: 7,
     },
     categoria_principal: "cushion-focused",
-    tags: ["signature", "tope-de-gama", "moderna"],
+    tags: ["trending","signature", "tope-de-gama", "moderna"],
     ideal_para: {
       posiciones: ["escolta", "alero", "base"],
       peso_jugador_kg: [75, 100],
@@ -799,6 +799,7 @@ const _rawZapatillas: Zapatilla[] = [
     marca: "Jordan",
     modelo: "Tatum 3",
     generacion: 3,
+    sucesor_id: "jordan-tatum-4",
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "Jayson Tatum",
@@ -815,7 +816,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 5, ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["trending","signature", "tope-de-gama", "moderna"],
+    tags: ["signature", "tope-de-gama", "moderna"],
     ideal_para: {
       posiciones: ["escolta", "alero", "base"],
       peso_jugador_kg: [70, 95],
@@ -1431,7 +1432,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 4, ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["trending","signature", "value"],
+    tags: ["signature", "value"],
     ideal_para: {
       posiciones: ["alero", "ala-pivot", "pivot"],
       peso_jugador_kg: [80, 110],
@@ -1717,6 +1718,7 @@ const _rawZapatillas: Zapatilla[] = [
     marca: "Adidas",
     modelo: "Harden Vol 9",
     generacion: 9,
+    sucesor_id: "adidas-harden-vol-10",
     año_lanzamiento: 2024,
     genero: "unisex",
     signature_player: "James Harden",
@@ -1733,7 +1735,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 7, ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["trending","signature", "moderna"],
+    tags: ["signature", "moderna"],
     ideal_para: {
       posiciones: ["escolta", "alero", "base"],
       peso_jugador_kg: [70, 100],
@@ -3580,7 +3582,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 9,
     },
     categoria_principal: "responsive",
-    tags: ["trending", "signature", "guard", "moderna", "top-guard-2025"],
+    tags: ["signature", "guard", "moderna", "top-guard-2025"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -3925,6 +3927,7 @@ const _rawZapatillas: Zapatilla[] = [
     marca: "Puma",
     modelo: "MB.05",
     generacion: 5,
+    sucesor_id: "puma-mb-06",
     año_lanzamiento: 2025,
     genero: "unisex",
     signature_player: "LaMelo Ball",
@@ -3948,7 +3951,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 9,
     },
     categoria_principal: "responsive",
-    tags: ["trending","signature", "guard", "nitrofoam", "moderna"],
+    tags: ["signature", "guard", "nitrofoam", "moderna"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -4599,7 +4602,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 9,
     },
     categoria_principal: "responsive",
-    tags: ["signature", "ligera", "tope-de-gama", "curry"],
+    tags: ["trending","signature", "ligera", "tope-de-gama", "curry"],
 
     ideal_para: {
       posiciones: ["base", "escolta"],
@@ -6292,7 +6295,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["trending","low-top", "signature", "equilibrado", "versatil", "zoom-air"],
+    tags: ["low-top", "signature", "equilibrado", "versatil", "zoom-air"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -6448,7 +6451,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 5,
     },
     categoria_principal: "cushion-focused",
-    tags: ["signature", "equilibrado", "guards"],
+    tags: ["trending","signature", "equilibrado", "guards"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -7346,7 +7349,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 7,
     },
     categoria_principal: "traction-king",
-    tags: ["trending","signature", "budget"],
+    tags: ["signature", "budget"],
     ideal_para: {
       posiciones: ["pivot", "ala-pivot", "alero"],
       peso_jugador_kg: [80, 120],
@@ -10056,7 +10059,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "responsive",
-    tags: ["signature", "low-top", "guards", "lamelo", "2025", "nitro"],
+    tags: ["trending","signature", "low-top", "guards", "lamelo", "2025", "nitro"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
@@ -13743,7 +13746,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 2, ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["trending","signature", "value", "tope-de-gama"],
+    tags: ["signature", "value", "tope-de-gama"],
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],
       peso_jugador_kg: [70, 100],
@@ -14582,7 +14585,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 4, ventilacion: 8,
     },
     categoria_principal: "cushion-focused",
-    tags: ["trending","signature", "china-brand", "big-man", "value-premium"],
+    tags: ["signature", "china-brand", "big-man", "value-premium"],
     ideal_para: {
       posiciones: ["pivot", "ala-pivot", "alero"],
       peso_jugador_kg: [85, 130],
@@ -14642,7 +14645,7 @@ const _rawZapatillas: Zapatilla[] = [
       durabilidad_outdoor: 5, ventilacion: 7,
     },
     categoria_principal: "cushion-focused",
-    tags: ["signature", "china-brand", "big-man", "value-premium"],
+    tags: ["trending","signature", "china-brand", "big-man", "value-premium"],
     ideal_para: {
       posiciones: ["pivot", "ala-pivot", "alero", "escolta"],
       peso_jugador_kg: [75, 130],
@@ -15735,7 +15738,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "balanced",
-    tags: ["low-top", "signature", "versatil", "reactiva"],
+    tags: ["trending","low-top", "signature", "versatil", "reactiva"],
 
     ideal_para: {
       posiciones: ["alero", "escolta", "base"],
@@ -15951,7 +15954,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 7,
     },
     categoria_principal: "balanced",
-    tags: ["signature", "value", "moderna"],
+    tags: ["trending","signature", "value", "moderna"],
 
     ideal_para: {
       posiciones: ["alero", "ala-pivot", "pivot"],
@@ -16027,7 +16030,7 @@ const _rawZapatillas: Zapatilla[] = [
       ventilacion: 8,
     },
     categoria_principal: "responsive",
-    tags: ["signature", "guard", "explosivo", "moderna"],
+    tags: ["trending","signature", "guard", "explosivo", "moderna"],
 
     ideal_para: {
       posiciones: ["base", "escolta", "alero"],

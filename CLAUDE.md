@@ -63,8 +63,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 1. **El «desde» de 7 fichas sale de una afiliada más cara que una tienda sin afiliado** (medido 22-oct): A'One FuikaOmar 110 vs BE 77 · JB4 AliExpress 145 vs BE 99 · LeBron 23 ECI 140 vs BE 120 · WoW 12 AliExpress
    227 vs BE 170 · Joker 1 AliExpress 101 vs BE 90 · AJ 40 Decathlon 155 vs Nike ES 140 · Tatum 4 ECI 91 vs BE 90.
    Opciones: dejarlo, apagar esas afiliadas o enseñar el número de BE (contradice la estrategia «Ver precio»).
-2. **«Tendencia» incluye generaciones ya superadas** (Curry 12, KD 18, Sabrina 3, Ja 3, Freak 7, MB.05, Harden 9, AE 2,
-   Joker 1, D.O.N. 7…). Pasarla a las sucesoras refresca, pero muchas solo se venden en Nike ES, sin comisión.
+2. **«Tendencia»** renovada el 2-nov a las sucesoras con compra afiliada (Freak 8, AE 3, Curry 13, Tatum 5, Harden 10, MB.06, Luka 5, Joker 2). Quedan KD 18, LeBron 23, Ja 3 y Sabrina 3: su sucesora solo está en Nike ES, sin comisión.
 3. **¿El sello POIZON «Authenticity Verified» cuenta como Marcas+?** Rescataría 5 ocultas (Fresh Foam BB v3, Kawhi 2,
    Unpre ARS 2, Glide Nova FF 4, Embiid 1). Recomendación anterior para Nike: no.
 4. **Afiliado de 361sport**: GoAffPro, self-service, hasta 5 %. Crear la cuenta es cosa del usuario.
