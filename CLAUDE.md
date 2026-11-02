@@ -97,14 +97,14 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 - Contador de Pro: necesita un Redis de Upstash en Vercel (acción del usuario). Bing Webmaster Tools sin dar de alta.
 
 ### Catálogo: reabrir cuando cambien los hechos
-- **Anclas de HoopsGeek**: 45 visibles sin ancla (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, AJ 41, KT 11…).
+- **Anclas de HoopsGeek**: 44 adultas visibles sin ancla, repasado el 2-nov sin reseñas nuevas (Freak 8, MB.06, Stewie 5, Scoot Zeros III, Immortality 5, KT 11…). AJ 41: WearTesters 9/10.
   Repetir el cruce con el sitemap de HG.
-- **Pesos estimados**: actualizar cuando RunRepeat los mida. Solo 51 de 227 tienen laboratorio.
+- **Pesos estimados**: actualizar cuando RunRepeat los mida (repasado el 2-nov: 11 corregidos con su catálogo, `/catalog/basketball-shoes?page=N`). LeBron 24 y AJ 41 siguen estimados.
 - **Sin afiliada que las venda, no se crean**: LeBron Witness X, Tatum 5, G.T. Future, ST Charge, Kobe 11 Protro, Heir
   Series 2, NXXT Gen by JuJu, P400 de NB, Ja Twelve Time, Jordan Triangle, Air Rev, Curry Series 7. NB Kawhi V: no se vende en España.
 - **Repuntar a afiliada** las de Nike ES / Puma ES cuando ECI, Atmósfera, Snipes o FuikaOmar las tengan. GT Cut Academy 2: ver si ECI repone.
-- **Barrido por tienda** (el que más rinde): hecho el 21-oct en ECI, Atmósfera, FuikaOmar y Forum Sport; Snipes y Decathlon no compensan.
-- `nike_es`, `ua_es`, `nb_es` y `reebok_es` no leen stock: revisar a mano los de Nike (último: 22-oct). Para programarlo
+- **Barrido por tienda** (el que más rinde): ECI, Atmósfera y Forum Sport el 21-oct; FuikaOmar repetido el 2-nov (entran AJ 5 y AJ 1 High); Snipes y Decathlon no compensan.
+- `nike_es`, `ua_es`, `nb_es` y `reebok_es` no leen stock: revisar a mano los de Nike (último: 2-nov). Para programarlo
   hay que comparar con una ficha AGOTADA de Nike. Las filas de Amazon también van a mano (`AMAZON_MARCA_AGOTADO = false`).
 - Kobe 9 High Protro y Superstar sin MSRP aplicado (no se sabe qué versión es la ficha). Shock Wave 5, JB4 y Rigorer: su
   tarifa en $ es de importación a EE. UU.; no tocar sin tarifa europea.
