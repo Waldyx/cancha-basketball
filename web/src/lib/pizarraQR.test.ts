@@ -111,7 +111,7 @@ describe("el QR se puede leer de verdad (decodificado con jsQR)", () => {
       if (leer(t) !== t) fallos.push(largo);
     }
     expect(fallos).toEqual([]);
-  });
+  }, 30000); // decodifica 75 QR: con la máquina ocupada pasa de los 5 s por defecto
 
   it("texto con acentos y símbolos", () => {
     const t = "https://canchazapa.com/pizarra#j=ñandú-€&m=jugador";
