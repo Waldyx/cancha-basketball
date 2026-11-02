@@ -10332,6 +10332,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-03",
     precio_msrp_eur: 180,
     links_compra: [
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fnike-air-jordan-1-retro-high-og-reverse-panda.html", precio_actual: 169.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/Air-Jordan-Retro-Low-OG/dp/B0CZHKXTZN/ref=sr_1_1?tag=canchazapa-21", precio_actual: 126.85, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-13" },
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA52028803-zapatillas-de-baloncesto-de-hombre-air-jordan-1-mid-jordan%2F", precio_actual: 70, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-29" }, // Air Jordan 1 MID: otro producto (la ficha es la 1 High)
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatilla/jordan/air-jordan-1-mid-sail-midnight-green-pure-platinum", precio_actual: 84, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-06-03" }, // Air Jordan 1 MID: otro producto (la ficha es la 1 High)
@@ -11515,6 +11516,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 210,
     links_compra: [
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-air-jordan-5-retro-og-fire-red.html", precio_actual: 229.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fair-jordan-5-retro-se-craft-light-orewood-brown-taille-eu%2F7b7897ea-561b-4730-9477-e6f5e7d85b97%2Fc27c20", precio_actual: 238.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-07-05" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Air+Jordan+5+Retro&tag=canchazapa-21", precio_actual: 230, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0B57MM4SF?tag=canchazapa-21", precio_actual: 0, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es la AJ5 Retro LOW (lo habia resuelto el scraper)
