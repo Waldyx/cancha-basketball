@@ -60,8 +60,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 ## 🔴 Pendientes abiertos
 
 ### ▶️ Decisiones del usuario
-1. **El «desde» de 8 fichas sale de una afiliada más cara que una tienda sin afiliado** (medido 22-oct): KD 18 Amazon 132
-   vs BE 96 · A'One FuikaOmar 110 vs BE 77 · JB4 AliExpress 145 vs BE 99 · LeBron 23 ECI 140 vs BE 120 · WoW 12 AliExpress
+1. **El «desde» de 7 fichas sale de una afiliada más cara que una tienda sin afiliado** (medido 22-oct): A'One FuikaOmar 110 vs BE 77 · JB4 AliExpress 145 vs BE 99 · LeBron 23 ECI 140 vs BE 120 · WoW 12 AliExpress
    227 vs BE 170 · Joker 1 AliExpress 101 vs BE 90 · AJ 40 Decathlon 155 vs Nike ES 140 · Tatum 4 ECI 91 vs BE 90.
    Opciones: dejarlo, apagar esas afiliadas o enseñar el número de BE (contradice la estrategia «Ver precio»).
 2. **«Tendencia» incluye generaciones ya superadas** (Curry 12, KD 18, Sabrina 3, Ja 3, Freak 7, MB.05, Harden 9, AE 2,
@@ -80,7 +79,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 - **Amazon Afiliados**: sin 3 ventas, puede cerrar la cuenta hacia **nov-2026** (política de 180 días). Mirar el panel. Si
   cierra, los enlaces siguen funcionando pero no pagan: Amazon pasaría a «Ver precio». Desde el 22-sep los clics suben por
   un cambio de medición, no por tráfico nuevo.
-- **Amazon activos, auditados el 2-nov** (87 filas por `/dp/`, sin `tag`): tallas contadas solo en 20 porque saltó un CAPTCHA. Repetir sin prisa el recuento de las otras 67, de pocas en pocas. Con 1-3 tallas y sin decidir: KD 18 (2, ver decisión 1), Dame Certified (3), Kyrie Low 5 y Zoom Freak 4 (anuncios de una talla). AJ 9 oculta porque su ASIN se titula «Nike Tanjun» (leído una vez): buscar compra real. El precio cambia por talla (Curry 12: 82-171 €), así que no corregir a mano lo que el scraper pisa.
+- **Amazon activos, auditados el 2-nov** (87 filas por `/dp/`, sin `tag`): tallas contadas solo en 20 porque saltó un CAPTCHA. Repetir sin prisa el recuento de las otras 67, de pocas en pocas. Con 1-3 tallas y sin decidir: Dame Certified (3), Kyrie Low 5 y Zoom Freak 4 (anuncios de una talla). AJ 9 oculta porque su ASIN se titula «Nike Tanjun» (leído una vez): buscar compra real. El precio cambia por talla (Curry 12: 82-171 €), así que no corregir a mano lo que el scraper pisa.
 - **Tatum 5 y Witness X** (2-nov, nota editorial 7,5 sin reseñas, peso de la X ESTIMADO): revisar cuando las reseñen.
 - **Nike LeBron 24 sale el 17-nov** (`proximamente`, peso ESTIMADO, «KingKnit» es afirmación de Nike). Quitar la marca y
   buscar compra afiliada. **adidas Harden Vol 11**: dic-2026, entra entonces.
