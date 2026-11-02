@@ -11,6 +11,7 @@ export interface Article {
   description: string;
   fecha: string; // ISO YYYY-MM-DD
   fechaLabel: string; // "25 mayo 2026"
+  fechaActualizacion?: string; // revisión posterior a la publicación
   categoria: string; // "Guías" | "Comparativas" | "Análisis"
   readMinutes: number;
   eyebrow: string;
@@ -329,6 +330,7 @@ export const ARTICLES: Article[] = [
       "Análisis técnico de las mejores zapatillas para pívots en 2025: LeBron 23, KD 19, Jordan 40 y ANTA KT 11. Amortiguación, soporte y estabilidad para el juego interior.",
     fecha: "2026-05-26",
     fechaLabel: "26 mayo 2026",
+    fechaActualizacion: "2026-11-02",
     categoria: "Guías",
     readMinutes: 6,
     eyebrow: "★ Guía por posición · Pívots",
@@ -375,7 +377,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3><a href="/zapatilla/jordan-40">Air Jordan 40 — desde {{precio:jordan-40}}</a></h3>
-<p><strong>Para qué perfil:</strong> Ala-pívots que priorizan el bounce sobre todo y pueden invertir en la opción premium.</p>
+<p><strong>Para qué perfil:</strong> Ala-pívots que priorizan el bounce sobre todo y pueden invertir en la opción premium. Su sucesora, la Air Jordan 41, ya se vende, pero solo en la tienda de Nike en España.</p>
 <ul>
   <li>✅ ZoomX + Zoom Strobel: la combinación de espuma más avanzada que Jordan Brand ha puesto en baloncesto. Devuelve el 85% de la energía.</li>
   <li>✅ 6 correas internas de contención: soporte lateral excepcional a pesar de la blandura del ZoomX.</li>
@@ -1908,16 +1910,17 @@ export const ARTICLES: Article[] = [
     title: "Mejores zapatillas de baloncesto para aleros en 2025-2026",
     metaTitle: "Mejores zapatillas para aleros 2025-2026 | CANCHA.ZAPA",
     description:
-      "Guía de las mejores zapatillas para aleros en 2025: Jordan Tatum 4, Harden Vol 9, KD 17 y más. Qué buscar en equilibrio, soporte y versatilidad.",
+      "Guía de las mejores zapatillas para aleros en 2025: Jordan Tatum 4, Harden Vol 10, KD 17 y más. Qué buscar en equilibrio, soporte y versatilidad.",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
+    fechaActualizacion: "2026-11-02",
     categoria: "Guías",
     readMinutes: 6,
     eyebrow: "★ Guía por posición · Aleros 2025",
     heroTitle: "Mejores zapas para aleros",
     heroSubtitle: "2025-2026 · Equilibrio, soporte y versatilidad",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["jordan-tatum-4", "adidas-harden-vol-9", "nike-kd-17", "ua-flow-breakthru-4", "jordan-luka-4"],
+    relatedShoes: ["jordan-tatum-4", "adidas-harden-vol-10", "nike-kd-17", "ua-flow-breakthru-4", "jordan-luka-5"],
     relatedSeoPages: ["mejor-zapatilla-alero", "zapatillas-equilibradas", "zapatillas-baloncesto-130-euros"],
     body: `
 <p class="art-intro">El alero es la posición más exigente para una zapatilla porque no tiene perfil único. Un día defiendes al base más rápido del equipo rival; al siguiente, estás en la zona pugnando por rebotes con el pívot. Necesitas una zapatilla que no te falle en ninguno de esos escenarios — y eso significa equilibrio real, no marketinig.</p>
@@ -1935,24 +1938,26 @@ export const ARTICLES: Article[] = [
 <h2>Los 5 mejores modelos para alero en 2025</h2>
 
 <h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — desde {{precio:jordan-tatum-4}}</a></h3>
-<p><strong>El mejor equilibrio del mercado.</strong> Jayson Tatum es el prototipo del alero moderno: defiende del 1 al 5, mete cortes, tira de tres y postea. La Tatum 4 está diseñada para eso: score 7+ en casi todos los ejes (la durabilidad outdoor es {{nota:jordan-tatum-4:durabilidad_outdoor}}) con cushion Zoom Air + Cushlon 3.0 para los aterrizajes.</p>
+<p><strong>Equilibrio parejo para el alero completo.</strong> Jayson Tatum es el prototipo del alero moderno: defiende del 1 al 5, mete cortes, tira de tres y postea. La Tatum 4 está diseñada para eso: score 7+ en casi todos los ejes (la durabilidad outdoor es {{nota:jordan-tatum-4:durabilidad_outdoor}}) con cushion Zoom Air + Cushlon 3.0 para los aterrizajes. Su sucesora, la Tatum 5, acaba de salir y aún no tiene reseñas.</p>
 <ul>
-  <li>✅ Cushion 8 + respuesta 8: el mejor equilibrio technico del grupo</li>
+  <li>✅ Cushion {{nota:jordan-tatum-4:amortiguacion}} + respuesta {{nota:jordan-tatum-4:respuesta}}: equilibrio parejo</li>
   <li>✅ Ligera: 12,4 oz según RunRepeat, de las más ligeras del grupo</li>
   <li>✅ Horma normal: encaja con la mayoría de pies</li>
   <li>❌ Low-top con poco soporte de tobillo y suela fina que se desgasta rápido en exterior (RunRepeat, HoopsGeek)</li>
 </ul>
 
-<h3><a href="/zapatilla/adidas-harden-vol-9">Adidas Harden Vol 9 — desde {{precio:adidas-harden-vol-9}}</a></h3>
-<p><strong>Para aleros con perfil físico que postean.</strong> James Harden es técnicamente un escolta/alero con juego de pívot — la Vol 9 refleja eso. La combinación Boost + Lightstrike da cushion generoso. La opción si juegas media cancha más que medio campo.</p>
+<h3><a href="/zapatilla/adidas-harden-vol-10">Adidas Harden Vol 10 — desde {{precio:adidas-harden-vol-10}}</a></h3>
+<p><strong>Para aleros de físico potente que necesitan cushion y soporte.</strong> La décima de la línea de James Harden, diseñada para el guard de físico: Light BOOST de longitud completa con retorno suave y estable, borde de Lightstrike y suela herringbone. Corte low y horma estrecha.</p>
 <ul>
-  <li>✅ Boost + Lightstrike: cushion alto con bounce reactivo</li>
-  <li>✅ Base ancha: estabilidad sólida en contactos laterales</li>
-  <li>✅ Rendimiento similar al de la Tatum 4</li>
+  <li>✅ Light BOOST de longitud completa: cushion {{nota:adidas-harden-vol-10:amortiguacion}} con retorno suave y estable</li>
+  <li>✅ Soporte lateral {{nota:adidas-harden-vol-10:soporte_lateral}} y estabilidad {{nota:adidas-harden-vol-10:estabilidad}}: las más altas del grupo</li>
+  <li>✅ Suela herringbone con tracción {{nota:adidas-harden-vol-10:traccion}}</li>
+  <li>❌ {{peso:adidas-harden-vol-10}}: la más pesada del grupo</li>
+  <li>❌ Horma estrecha: pruébala antes si tu pie es ancho</li>
 </ul>
 
 <h3><a href="/zapatilla/nike-kd-17">Nike KD 17 — desde {{precio:nike-kd-17}}</a></h3>
-<p><strong>Para aleros que salen mucho al perímetro.</strong> Kevin Durant es el alero/pívot que más tira de tres del mercado. La KD 17 combina Zoom Air en el antepié y un Strobel con Air en el talón, con un shank en el antepié.</p>
+<p><strong>Para aleros que salen mucho al perímetro.</strong> Kevin Durant es el alero/pívot que más tira de tres del mercado. La KD 17 combina Zoom Air en el antepié y un Strobel con Air en el talón, con un shank en el antepié. La KD 19 es ya la generación vigente, pero hoy solo se vende en la tienda de Nike en España.</p>
 <ul>
   <li>✅ Zoom Air en el antepié y Strobel con Air en el talón: cushion protector</li>
   <li>✅ Upper de malla con refuerzos de plástico</li>
@@ -1969,12 +1974,14 @@ export const ARTICLES: Article[] = [
   <li>❌ Molde femenino de talón estrecho: pruébala antes si tienes el pie ancho</li>
 </ul>
 
-<h3><a href="/zapatilla/jordan-luka-4">Jordan Luka 4 — desde {{precio:jordan-luka-4}}</a></h3>
-<p><strong>Para aleros grandes o ala-pívots con juego de poste.</strong> Luka Doncic es técnicamente un base/alero, pero su zapatilla está diseñada para jugadores potentes: cushion alto, base ancha y soporte lateral extra.</p>
+<h3><a href="/zapatilla/jordan-luka-5">Jordan Luka 5 — desde {{precio:jordan-luka-5}}</a></h3>
+<p><strong>Para aleros grandes que priorizan el cushion.</strong> Luka Doncic es técnicamente un base/alero, pero su zapatilla está pensada para jugadores ground-based equilibrados y tiradores potentes: Zoom Strobel de longitud completa con Cushlon 3.0 e ISOband, con buen lockdown. A cambio, el talón es algo inestable en cambios bruscos.</p>
 <ul>
-  <li>✅ Cushion Zoom Air para aterrizajes de jugadores >90kg</li>
-  <li>✅ Base ancha — la más estable del grupo</li>
+  <li>✅ Zoom Strobel + Cushlon 3.0: cushion {{nota:jordan-luka-5:amortiguacion}}, bouncy y protector</li>
+  <li>✅ Buen lockdown</li>
   <li>✅ Horma normal — sirve para la mayoría de pies</li>
+  <li>❌ Talón algo inestable en cambios bruscos (estabilidad {{nota:jordan-luka-5:estabilidad}})</li>
+  <li>❌ Tracción menos fiable en pista sucia ({{nota:jordan-luka-5:traccion}})</li>
 </ul>
 
 <h2>Comparativa rápida</h2>
@@ -1998,11 +2005,11 @@ export const ARTICLES: Article[] = [
       <td style="padding:8px;text-align:center">{{precio:jordan-tatum-4}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
-      <td style="padding:8px"><strong>Adidas Harden Vol 9</strong></td>
-      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-harden-vol-9:amortiguacion}}</td>
-      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-harden-vol-9:respuesta}}</td>
-      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-harden-vol-9:soporte_lateral}}</td>
-      <td style="padding:8px;text-align:center">{{precio:adidas-harden-vol-9}}</td>
+      <td style="padding:8px"><strong>Adidas Harden Vol 10</strong></td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-harden-vol-10:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-harden-vol-10:respuesta}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-harden-vol-10:soporte_lateral}}</td>
+      <td style="padding:8px;text-align:center">{{precio:adidas-harden-vol-10}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
       <td style="padding:8px"><strong>Nike KD 17</strong></td>
@@ -2019,11 +2026,11 @@ export const ARTICLES: Article[] = [
       <td style="padding:8px;text-align:center">{{precio:ua-flow-breakthru-4}}</td>
     </tr>
     <tr>
-      <td style="padding:8px"><strong>Jordan Luka 4</strong></td>
-      <td style="padding:8px;text-align:center">⭐ {{nota:jordan-luka-4:amortiguacion}}</td>
-      <td style="padding:8px;text-align:center">⭐ {{nota:jordan-luka-4:respuesta}}</td>
-      <td style="padding:8px;text-align:center">⭐ {{nota:jordan-luka-4:soporte_lateral}}</td>
-      <td style="padding:8px;text-align:center">{{precio:jordan-luka-4}}</td>
+      <td style="padding:8px"><strong>Jordan Luka 5</strong></td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:jordan-luka-5:amortiguacion}}</td>
+      <td style="padding:8px;text-align:center">{{nota:jordan-luka-5:respuesta}}</td>
+      <td style="padding:8px;text-align:center">{{nota:jordan-luka-5:soporte_lateral}}</td>
+      <td style="padding:8px;text-align:center">{{precio:jordan-luka-5}}</td>
     </tr>
   </tbody>
 </table>
@@ -2031,11 +2038,11 @@ export const ARTICLES: Article[] = [
 
 <h2>¿Cuál elegir?</h2>
 <ul>
-  <li><strong>Si juegas un juego equilibrado (cortes, tiros, contacto):</strong> Jordan Tatum 4. El mejor equilibrio del mercado para el alero completo.</li>
-  <li><strong>Si juegas con potencia y posteas:</strong> Adidas Harden Vol 9. Cushion alto a precio razonable.</li>
+  <li><strong>Si juegas un juego equilibrado (cortes, tiros, contacto):</strong> Jordan Tatum 4. Equilibrio parejo para el alero completo.</li>
+  <li><strong>Si eres alero de físico potente y tu pie es estrecho:</strong> Adidas Harden Vol 10. Cushion alto y el mayor soporte del grupo.</li>
   <li><strong>Si eres alero-tirador y pesas >85kg:</strong> Nike KD 17. El Zoom Air del antepié da el bounce que necesitas en aterrizajes de tiro.</li>
   <li><strong>Si priorizas el court feel y juegas solo en interior:</strong> UA Flow Breakthru 4. La más reactiva del grupo.</li>
-  <li><strong>Si eres alero grande o ala-pívot:</strong> Jordan Luka 4. La base más estable del grupo para jugadores físicos.</li>
+  <li><strong>Si eres alero grande y priorizas el cushion:</strong> Jordan Luka 5. Cushion alto y buen lockdown; ojo con el talón en cambios bruscos.</li>
 </ul>
 
 <p class="art-outro">¿No estás seguro de cuál encaja con tu juego? El <a href="/quiz">quiz de CANCHA.ZAPA</a> filtra por posición, peso, tipo de cancha y presupuesto para darte las 5 más compatibles con tu perfil en menos de un minuto.</p>
@@ -2301,19 +2308,20 @@ export const ARTICLES: Article[] = [
   // ── 25. Guía bases ──────────────────────────────────────────────────
   {
     slug: "mejores-zapatillas-bases-2025",
-    title: "Mejores zapatillas de baloncesto para bases en 2025-2026",
-    metaTitle: "Mejores zapatillas para bases baloncesto 2025-2026 | CANCHA.ZAPA",
+    title: "Mejores zapatillas de baloncesto para bases en 2026",
+    metaTitle: "Mejores zapatillas para bases baloncesto 2026 | CANCHA.ZAPA",
     description:
-      "Guía completa: las mejores zapatillas para bases en 2025. Reactividad, ligereza y tracción. Top 5 con análisis técnico, comparativa y veredicto honesto.",
+      "Guía completa: las mejores zapatillas para bases en 2026. Reactividad, ligereza y tracción. Top 5 con análisis técnico, comparativa y veredicto honesto.",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
+    fechaActualizacion: "2026-11-02",
     categoria: "Guías",
     readMinutes: 6,
-    eyebrow: "★ Guía por posición · Bases 2025",
+    eyebrow: "★ Guía por posición · Bases 2026",
     heroTitle: "Mejores zapas para bases",
-    heroSubtitle: "2025-2026 · Reactividad, ligereza y primer paso",
+    heroSubtitle: "2026 · Reactividad, ligereza y primer paso",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["nike-gt-cut-4", "ua-curry-13", "adidas-ae-2", "anta-kai-2", "nike-ja-3"],
+    relatedShoes: ["nike-gt-cut-4", "ua-curry-13", "adidas-ae-3", "anta-kai-3", "nike-ja-3"],
     relatedSeoPages: ["mejor-zapatilla-base", "zapatillas-reactivas", "zapatillas-baloncesto-baratas"],
     body: `
 <p class="art-intro">El base lleva el juego. Cada posesión empieza con el balón en tus manos y los primeros pasos determinan si el equipo abre el campo o se queda bloqueado. La zapatilla de un base tiene una misión clara: darte ventaja en el primer paso, darte agarre cuando frenas, y no pesarte cuando llegas al último cuarto. No hay sitio para concesiones.</p>
@@ -2333,10 +2341,10 @@ export const ARTICLES: Article[] = [
   <li>Caña alta — limita la velocidad. Low o mid-top según tu historial de tobillo.</li>
 </ul>
 
-<h2>Top 5 zapatillas para bases en 2025</h2>
+<h2>Top 5 zapatillas para bases en 2026</h2>
 
 <h3><a href="/zapatilla/nike-gt-cut-4">Nike GT Cut 4 — desde {{precio:nike-gt-cut-4}}</a></h3>
-<p><strong>Court feel excepcional y primer paso rápido en 2025.</strong> Suela de goma dura multidireccional con tracción {{nota:nike-gt-cut-4:traccion}} y court feel absolutamente excepcional. No es ligera ({{peso:nike-gt-cut-4}}). Si tu pie encaja (horma estrecha) y juegas siempre en interior limpio, encaja bien.</p>
+<p><strong>Court feel excepcional y primer paso rápido en 2026.</strong> Suela de goma dura multidireccional con tracción {{nota:nike-gt-cut-4:traccion}} y court feel absolutamente excepcional. No es ligera ({{peso:nike-gt-cut-4}}). Si tu pie encaja (horma estrecha) y juegas siempre en interior limpio, encaja bien.</p>
 <ul>
   <li>❌ Respuesta {{nota:nike-gt-cut-4:respuesta}} — la más baja de las cinco, aunque con court feel excepcional</li>
   <li>✅ Tracción {{nota:nike-gt-cut-4:traccion}} — herringbone</li>
@@ -2355,26 +2363,29 @@ export const ARTICLES: Article[] = [
   <li>❌ Tracción baja en pistas con polvo (sin goma que raspa)</li>
 </ul>
 
-<h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — desde {{precio:adidas-ae-2}}</a></h3>
-<p><strong>El mejor equilibrio precio/rendimiento para bases.</strong> Herringbone {{nota:adidas-ae-2:traccion}} que funciona en parquet limpio y sucio. Light BOOST reactivo pero con algo más de cushion que la GT Cut 4. 428 g, horma normal. Para bases que juegan en diferentes canchas y no quieren pagar el precio premium de la GT Cut 4.</p>
+<h3><a href="/zapatilla/adidas-ae-3">Adidas AE 3 — desde {{precio:adidas-ae-3}}</a></h3>
+<p><strong>La low reactiva y fiable de adidas.</strong> Estrena Hyperboost, la espuma nueva de adidas, y suma una placa de mediopié. Es una evolución de la AE 2 más que una revolución: conserva la horma normal y el equilibrio entre amortiguación y estabilidad. Pesa {{peso:adidas-ae-3}}. Para bases que quieren una low reactiva y fiable sin pagar el precio de la GT Cut 4.</p>
 <ul>
-  <li>✅ Tracción {{nota:adidas-ae-2:traccion}} — aguanta pistas con polvo</li>
-  <li>✅ Respuesta {{nota:adidas-ae-2:respuesta}} — primer paso rápido</li>
+  <li>✅ Tracción {{nota:adidas-ae-3:traccion}} y amortiguación {{nota:adidas-ae-3:amortiguacion}}</li>
+  <li>✅ Respuesta {{nota:adidas-ae-3:respuesta}} — primer paso rápido</li>
+  <li>✅ Placa de mediopié: snap y torsión controlada</li>
   <li>✅ Más económica que la GT Cut 4</li>
-  <li>❌ Peso: {{peso:adidas-ae-2}}, de las más pesadas del grupo</li>
+  <li>❌ Peso: {{peso:adidas-ae-3}}, de las más pesadas del grupo</li>
+  <li>❌ Corte low: poca sujeción de tobillo</li>
 </ul>
 
-<h3><a href="/zapatilla/anta-kai-2">ANTA Kai 2 — desde {{precio:anta-kai-2}}</a></h3>
-<p><strong>La mejor relación calidad-precio del mercado.</strong> El ajuste es ceñido, tipo guante. Nitro Edge reactivo, tracción competente y suela que aguanta exterior moderado. Para bases que no quieren gastar de más, es la elección clara.</p>
+<h3><a href="/zapatilla/anta-kai-3">ANTA Kai 3 — desde {{precio:anta-kai-3}}</a></h3>
+<p><strong>Soporte lateral y tracción de primer nivel.</strong> Tercera generación de la línea KAI de Kyrie con Anta: mantiene la tracción agresiva y el soporte lateral premium, y mejora el cushion con Nitrogen foam. Pesa {{peso:anta-kai-3}}, un peso medio-alto: pensada para bases explosivos y de complexión pesada más que para guards ligeros.</p>
 <ul>
-  <li>✅ 90% del rendimiento de la AE 2</li>
-  <li>✅ Ajuste de guante, sin deslizamiento de talón para la mayoría</li>
-  <li>✅ Outdoor moderado — suela de goma más resistente que la Curry 13</li>
-  <li>❌ Respuesta algo por debajo de la Curry 13 ({{nota:anta-kai-2:respuesta}} frente a {{nota:ua-curry-13:respuesta}})</li>
+  <li>✅ Soporte lateral {{nota:anta-kai-3:soporte_lateral}} — el más alto de las cinco</li>
+  <li>✅ Tracción {{nota:anta-kai-3:traccion}} y cushion {{nota:anta-kai-3:amortiguacion}}</li>
+  <li>✅ Outdoor moderado — durabilidad exterior {{nota:anta-kai-3:durabilidad_outdoor}}, por encima de la Curry 13</li>
+  <li>❌ Respuesta algo por debajo de la Curry 13 ({{nota:anta-kai-3:respuesta}} frente a {{nota:ua-curry-13:respuesta}})</li>
+  <li>❌ Low-top: poca sujeción de tobillo; disponibilidad limitada en Europa</li>
 </ul>
 
 <h3><a href="/zapatilla/nike-ja-3">Nike Ja 3 — desde {{precio:nike-ja-3}}</a></h3>
-<p><strong>La alternativa Nike a la GT Cut 4 para bases.</strong> ZoomX full-length da un bounce excepcional para su precio. Suela de goma que aguanta outdoor moderado.</p>
+<p><strong>La alternativa Nike a la GT Cut 4 para bases.</strong> ZoomX full-length da un bounce excepcional para su precio. Suela de goma que aguanta outdoor moderado. Su sucesora, la Ja 4, es más firme y estable pero recorta amortiguación, y hoy solo se vende en la tienda de Nike en España.</p>
 <ul>
   <li>✅ ZoomX full-length: cushion + bounce excepcional para un guard</li>
   <li>✅ Ajuste ceñido y seguro, con rodaje inicial</li>
@@ -2410,18 +2421,18 @@ export const ARTICLES: Article[] = [
       <td style="padding:8px;text-align:center">{{precio:ua-curry-13}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
-      <td style="padding:8px"><strong>Adidas AE 2</strong></td>
-      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-ae-2:respuesta}}</td>
-      <td style="padding:8px;text-align:center">⭐ {{nota:adidas-ae-2:traccion}}</td>
-      <td style="padding:8px;text-align:center">{{peso:adidas-ae-2}}</td>
-      <td style="padding:8px;text-align:center">{{precio:adidas-ae-2}}</td>
+      <td style="padding:8px"><strong>Adidas AE 3</strong></td>
+      <td style="padding:8px;text-align:center">{{nota:adidas-ae-3:respuesta}}</td>
+      <td style="padding:8px;text-align:center">{{nota:adidas-ae-3:traccion}}</td>
+      <td style="padding:8px;text-align:center">{{peso:adidas-ae-3}}</td>
+      <td style="padding:8px;text-align:center">{{precio:adidas-ae-3}}</td>
     </tr>
     <tr style="border-bottom:1px solid var(--cz-elev)">
-      <td style="padding:8px"><strong>ANTA Kai 2</strong></td>
-      <td style="padding:8px;text-align:center">{{nota:anta-kai-2:respuesta}}</td>
-      <td style="padding:8px;text-align:center">⭐ {{nota:anta-kai-2:traccion}}</td>
-      <td style="padding:8px;text-align:center">{{peso:anta-kai-2}}</td>
-      <td style="padding:8px;text-align:center">{{precio:anta-kai-2}}</td>
+      <td style="padding:8px"><strong>ANTA Kai 3</strong></td>
+      <td style="padding:8px;text-align:center">{{nota:anta-kai-3:respuesta}}</td>
+      <td style="padding:8px;text-align:center">⭐ {{nota:anta-kai-3:traccion}}</td>
+      <td style="padding:8px;text-align:center">{{peso:anta-kai-3}}</td>
+      <td style="padding:8px;text-align:center">{{precio:anta-kai-3}}</td>
     </tr>
     <tr>
       <td style="padding:8px"><strong>Nike Ja 3</strong></td>
@@ -2438,8 +2449,8 @@ export const ARTICLES: Article[] = [
 <ul>
   <li><strong>Court feel máximo, pie estrecho, interior siempre → <a href="/zapatilla/nike-gt-cut-4">GT Cut 4</a></strong></li>
   <li><strong>Máximo court feel, juegas solo en interior, horma normal → <a href="/zapatilla/ua-curry-13">Curry 13</a></strong></li>
-  <li><strong>Mejor equilibrio precio/rendimiento → <a href="/zapatilla/adidas-ae-2">AE 2</a></strong></li>
-  <li><strong>Presupuesto ajustado → <a href="/zapatilla/anta-kai-2">ANTA Kai 2</a></strong></li>
+  <li><strong>Low reactiva y fiable, con Hyperboost → <a href="/zapatilla/adidas-ae-3">AE 3</a></strong></li>
+  <li><strong>Máximo soporte lateral y tracción, guard explosivo y pesado → <a href="/zapatilla/anta-kai-3">ANTA Kai 3</a></strong></li>
   <li><strong>Quieres Nike con ZoomX, outdoor ocasional → <a href="/zapatilla/nike-ja-3">Ja 3</a></strong></li>
 </ul>
 
@@ -2450,45 +2461,46 @@ export const ARTICLES: Article[] = [
   // ── 26. Guía escoltas ───────────────────────────────────────────────
   {
     slug: "mejores-zapatillas-escoltas-2025",
-    title: "Mejores zapatillas de baloncesto para escoltas en 2025-2026",
-    metaTitle: "Mejores zapatillas para escoltas baloncesto 2025-2026 | CANCHA.ZAPA",
+    title: "Mejores zapatillas de baloncesto para escoltas en 2026",
+    metaTitle: "Mejores zapatillas para escoltas baloncesto 2026 | CANCHA.ZAPA",
     description:
-      "Las mejores zapatillas para escoltas en 2025: estabilidad lateral, cortes sin balón y tiro. Top 5 con análisis técnico honesto.",
+      "Las mejores zapatillas para escoltas en 2026: estabilidad lateral, cortes sin balón y tiro. Top 5 con análisis técnico honesto.",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
+    fechaActualizacion: "2026-11-02",
     categoria: "Guías",
     readMinutes: 5,
-    eyebrow: "★ Guía por posición · Escoltas 2025",
+    eyebrow: "★ Guía por posición · Escoltas 2026",
     heroTitle: "Mejores zapas para escoltas",
-    heroSubtitle: "2025-2026 · Estabilidad, cortes y tiro de confianza",
+    heroSubtitle: "2026 · Estabilidad, cortes y tiro de confianza",
     author: "Editorial CANCHA.ZAPA",
-    relatedShoes: ["adidas-ae-2", "nike-kobe-8-protro", "ua-curry-13", "jordan-tatum-4", "nike-gt-cut-4"],
+    relatedShoes: ["adidas-ae-3", "nike-kobe-8-protro", "ua-curry-13", "jordan-tatum-4", "nike-gt-cut-4"],
     relatedSeoPages: ["mejor-zapatilla-escolta", "zapatillas-equilibradas", "zapatillas-baloncesto-130-euros"],
     body: `
 <p class="art-intro">El escolta es la posición más infravalorada cuando se trata de elegir zapatilla. Muchos escoltas copian a los bases y van a la más reactiva del mercado — y se dan cuenta en el primer partido que su juego pide más. El escolta corre sin balón (necesita ligereza), frena en seco para tirar (necesita estabilidad lateral), y defiende a jugadores más rápidos (necesita tracción constante). No es lo mismo que jugar de base.</p>
 
 <h2>El perfil del escolta moderno</h2>
-<p>El escolta en 2025 tiene dos variantes:</p>
+<p>El escolta en 2026 tiene dos variantes:</p>
 <ul>
   <li><strong>Escolta-tirador (Klay Thompson, Devin Booker):</strong> mucho movimiento sin balón, paradas bruscas para el tiro, necesita estabilidad lateral 8+ para esos cambios de dirección. Puede permitirse algo más de cushion porque sus aterrizajes son frecuentes en el tiro.</li>
   <li><strong>Escolta-creador (Shai Gilgeous-Alexander, Devin Booker):</strong> más parecido a un base, necesita respuesta alta para las penetraciones. Puede funcionar con casi las mismas zapatillas que un base.</li>
 </ul>
 
-<h2>Top 5 zapatillas para escoltas en 2025</h2>
+<h2>Top 5 zapatillas para escoltas en 2026</h2>
 
-<h3><a href="/zapatilla/adidas-ae-2">Adidas AE 2 — desde {{precio:adidas-ae-2}}</a></h3>
-<p><strong>La opción más completa del mercado para el perfil escolta-creador.</strong> El herringbone de {{nota:adidas-ae-2:traccion}} da agarre en cualquier condición; el Light BOOST da respuesta suficiente para las penetraciones sin sacrificar el cushion. Horma normal, precio competitivo. Para escoltas que juegan en diferentes canchas y no saben si van a interior o exterior.</p>
+<h3><a href="/zapatilla/adidas-ae-3">Adidas AE 3 — desde {{precio:adidas-ae-3}}</a></h3>
+<p><strong>La opción más completa del grupo para el perfil escolta-creador.</strong> Estrena Hyperboost, la espuma nueva de adidas, con placa de mediopié: tracción {{nota:adidas-ae-3:traccion}} y respuesta suficiente para las penetraciones sin sacrificar el cushion. Corte low y horma normal. Para escoltas que quieren una low reactiva y fiable.</p>
 <ul>
-  <li>✅ Tracción {{nota:adidas-ae-2:traccion}}</li>
-  <li>✅ Respuesta {{nota:adidas-ae-2:respuesta}} — primer paso competitivo para escolta-creador</li>
-  <li>✅ El precio más equilibrado del grupo</li>
-  <li>❌ No el cushion más alto — para escoltas >90kg, considera la Tatum 4</li>
+  <li>✅ Tracción {{nota:adidas-ae-3:traccion}}</li>
+  <li>✅ Respuesta {{nota:adidas-ae-3:respuesta}} — primer paso competitivo para escolta-creador</li>
+  <li>✅ Precio contenido para una flagship signature</li>
+  <li>❌ Corte low: poca sujeción de tobillo</li>
 </ul>
 
 <h3><a href="/zapatilla/nike-kobe-8-protro">Nike Kobe 8 Protro — desde {{precio:nike-kobe-8-protro}}</a></h3>
 <p><strong>Para el escolta-tirador puro.</strong> La Kobe 8 Protro es la referencia histórica para el perfil escolta: ultra-reactiva (respuesta {{nota:nike-kobe-8-protro:respuesta}}), la más ligera del grupo (340 g) y con el court feel más bajo del mercado. Kobe Bryant era el tirador perfecto — su zapatilla lo refleja. El problema: la horma es muy estrecha y el precio alto.</p>
 <ul>
-  <li>✅ Respuesta {{nota:nike-kobe-8-protro:respuesta}} — al nivel de la AE 2 y la Curry 13</li>
+  <li>✅ Respuesta {{nota:nike-kobe-8-protro:respuesta}} — al nivel de la Curry 13 y por encima de la AE 3</li>
   <li>✅ 340 g — la más ligera del grupo</li>
   <li>✅ Court feel excepcional para sentir la planta antes del tiro</li>
   <li>❌ {{precio:nike-kobe-8-protro}} — la más cara del grupo</li>
@@ -2505,7 +2517,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3><a href="/zapatilla/jordan-tatum-4">Jordan Tatum 4 — desde {{precio:jordan-tatum-4}}</a></h3>
-<p><strong>Para el escolta-alero que juega físico.</strong> Jayson Tatum es técnicamente un alero, pero muchos escoltas físicos (6'5"+) se identifican con su perfil: defiende al base del rival, mete cortes, juega en el poste bajo a veces. La Tatum 4 ofrece una estabilidad lateral correcta y cushion para los aterrizajes de esos momentos físicos.</p>
+<p><strong>Para el escolta-alero que juega físico.</strong> Jayson Tatum es técnicamente un alero, pero muchos escoltas físicos (6'5"+) se identifican con su perfil: defiende al base del rival, mete cortes, juega en el poste bajo a veces. La Tatum 4 ofrece una estabilidad lateral correcta y cushion para los aterrizajes de esos momentos físicos. Su sucesora, la Tatum 5, acaba de salir y aún no tiene reseñas.</p>
 <ul>
   <li>✅ Soporte lateral {{nota:jordan-tatum-4:soporte_lateral}} — correcto para escoltas físicos</li>
   <li>✅ Cushion {{nota:jordan-tatum-4:amortiguacion}} — protege bien en aterrizajes de corte y rebote</li>
@@ -2516,7 +2528,7 @@ export const ARTICLES: Article[] = [
 <h3><a href="/zapatilla/nike-gt-cut-4">Nike GT Cut 4 — desde {{precio:nike-gt-cut-4}}</a></h3>
 <p><strong>Para el escolta-base que quiere court feel y un primer paso rápido.</strong> Si tu juego de escolta es más parecido al de un base (Shai Gilgeous-Alexander, por ejemplo), la GT Cut 4 te da el mismo primer paso explosivo con algo más de estabilidad que en configuración de base puro.</p>
 <ul>
-  <li>❌ Respuesta {{nota:nike-gt-cut-4:respuesta}} y tracción {{nota:nike-gt-cut-4:traccion}}, por debajo de la AE 2 y la Curry 13</li>
+  <li>❌ Respuesta {{nota:nike-gt-cut-4:respuesta}} y tracción {{nota:nike-gt-cut-4:traccion}}, por debajo de la AE 3 y la Curry 13</li>
   <li>❌ {{peso:nike-gt-cut-4}}: no es ligera</li>
   <li>❌ Horma muy estrecha — solo si tu pie lo admite</li>
   <li>❌ No outdoor — solo interior limpio</li>
@@ -2524,7 +2536,7 @@ export const ARTICLES: Article[] = [
 
 <h2>¿Cuál elegir?</h2>
 <ul>
-  <li><strong>Escolta-creador con juego de penetración → <a href="/zapatilla/adidas-ae-2">AE 2</a></strong> (mejor equilibrio precio/rendimiento)</li>
+  <li><strong>Escolta-creador con juego de penetración → <a href="/zapatilla/adidas-ae-3">AE 3</a></strong> (low reactiva y fiable, con Hyperboost)</li>
   <li><strong>Tirador puro de posición fija → <a href="/zapatilla/nike-kobe-8-protro">Kobe 8 Protro</a></strong> o <strong><a href="/zapatilla/ua-curry-13">Curry 13</a></strong> (court feel para el tiro)</li>
   <li><strong>Escolta físico, 85kg+, juego por dentro → <a href="/zapatilla/jordan-tatum-4">Tatum 4</a></strong> (estabilidad y cushion)</li>
   <li><strong>Escolta muy rápido, pie estrecho → <a href="/zapatilla/nike-gt-cut-4">GT Cut 4</a></strong> (court feel)</li>
@@ -2543,6 +2555,7 @@ export const ARTICLES: Article[] = [
       "Guía de las mejores zapatillas para ala-pívots en 2025: cushion, estabilidad y movilidad. Top 5 con análisis técnico y comparativa completa.",
     fecha: "2026-05-27",
     fechaLabel: "27 mayo 2026",
+    fechaActualizacion: "2026-11-02",
     categoria: "Guías",
     readMinutes: 6,
     eyebrow: "★ Guía por posición · Ala-pívots 2025",
@@ -2602,7 +2615,7 @@ export const ARTICLES: Article[] = [
 </ul>
 
 <h3><a href="/zapatilla/jordan-40">Air Jordan 40 — desde {{precio:jordan-40}}</a></h3>
-<p><strong>Para el ala-pívot que prioriza el bounce por encima de todo.</strong> ZoomX + Zoom Strobel es la combinación de espumas más avanzada de 2025. Si eres un 4 moderno que vive en el perímetro (tres puntos, pick-and-pop, post-fade) y valoras ese bounce en cada aterrizaje, la Jordan 40 no tiene rival. El problema: es cara, pesada y atrae el polvo.</p>
+<p><strong>Para el ala-pívot que prioriza el bounce por encima de todo.</strong> ZoomX + Zoom Strobel es la combinación de espumas más avanzada de 2025. Si eres un 4 moderno que vive en el perímetro (tres puntos, pick-and-pop, post-fade) y valoras ese bounce en cada aterrizaje, la Jordan 40 no tiene rival. El problema: es cara, pesada y atrae el polvo. Su sucesora, la Air Jordan 41, ya se vende, pero solo en la tienda de Nike en España.</p>
 <ul>
   <li>✅ ZoomX + Strobel: el bounce más avanzado del mercado</li>
   <li>✅ 6 correas internas: soporte lateral excepcional pese al cushion blando</li>

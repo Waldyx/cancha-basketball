@@ -99,7 +99,7 @@ const articleJsonLd = {
     url: Astro.site?.toString(),
   },
   datePublished: article.fecha,
-  dateModified: article.fecha,
+  dateModified: article.fechaActualizacion ?? article.fecha,
   mainEntityOfPage: new URL(`/blog/${article.slug}`, Astro.site).toString(),
   wordCount: Math.round(articleBody.replace(/<[^>]+>/g, " ").trim().split(/\s+/).length),
 };
