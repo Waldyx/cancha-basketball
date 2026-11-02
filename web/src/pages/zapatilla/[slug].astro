@@ -289,7 +289,7 @@ const productJsonLd = {
   // Un medio reseñando el producto de un TERCERO sí es legítimo (no es
   // "auto-servido"), y es exactamente lo que hacemos: por eso Review con
   // author = la propia publicación.
-  "review": {
+  ...(!z.proximamente ? { "review": {
     "@type": "Review",
     "author": { "@type": "Organization", "name": "CANCHA.ZAPA" },
     "reviewRating": {
@@ -299,7 +299,7 @@ const productJsonLd = {
       "worstRating": 1
     },
     "reviewBody": z.resumen
-  }
+  } } : {})
 };
 ---
 
