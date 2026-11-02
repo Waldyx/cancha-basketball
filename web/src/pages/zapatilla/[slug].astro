@@ -112,10 +112,14 @@ if (z.genero === "gs") {
   versionEsGs = !!versionLink;
 }
 
-const relacionadas = zapatillas
-  .filter(o => o.slug !== z.slug && o.categoria_principal === z.categoria_principal)
-  .sort((a, b) => Object.values(b.puntuaciones).reduce((s, v) => s + v, 0) - Object.values(a.puntuaciones).reduce((s, v) => s + v, 0))
-  .slice(0, 3);
+const mismaCategoria = zapatillas
+  .filter(o => o.categoria_principal === z.categoria_principal)
+  .sort((a, b) => Object.values(b.puntuaciones).reduce((s, v) => s + v, 0) - Object.values(a.puntuaciones).reduce((s, v) => s + v, 0) || a.slug.localeCompare(b.slug));
+// Vecinas en nota, en círculo: cada ficha visible recibe enlaces de otras, no solo las 3 mejores de la categoría
+const posicion = mismaCategoria.findIndex(o => o.slug === z.slug);
+const relacionadas = posicion < 0
+  ? mismaCategoria.slice(0, 3)
+  : [...new Set([1, 2, -1].map(d => mismaCategoria[(posicion + d + mismaCategoria.length) % mismaCategoria.length]))].filter(o => o.slug !== z.slug);
 
 // Blog articles mentioning this shoe
 const articulosRelacionados = ARTICLES
