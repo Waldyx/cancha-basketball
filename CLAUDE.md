@@ -46,6 +46,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 
 - **Dos agentes en paralelo: Claude y Codex** (decidido por el usuario, 2-nov). Reglas y reparto en `AGENTS.md`;
   coordinación en `trabajo/HANDOFF.md` (local). Leer el HANDOFF al empezar y reclamar ficheros antes de tocarlos.
+  Claude trabaja en el worktree `.claude/worktrees/claude` (rama `claude/trabajo`), no en la carpeta principal, que es de Codex.
 - Web y scraper sanos a 2-nov: la web da 200 y `price-bot` commitea cada noche.
 - **Trabajo a medias: lector de «Jugades»** (`lib/jugadesFCBQ.ts`, zona de Codex, último commit `cd2f2a4`, 24-oct).
   Cabecera y marcador final bien con 2 grabaciones reales (`web/public/_t/v1.mp4` y `v2.mp4`, NO commitear).

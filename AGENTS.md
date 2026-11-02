@@ -10,7 +10,7 @@ Hay DOS agentes sobre este repo a la vez: **Codex** y **Claude**. El usuario qui
 paralelo sin pisaros y conociendo lo que hace el otro.
 
 **Al empezar cada sesión y antes de cada tarea:**
-1. Lee `trabajo/HANDOFF.md` (zonas, ficheros reclamados, relevos pendientes).
+1. Lee `trabajo/HANDOFF.md` de la carpeta principal (ficheros reclamados, relevos pendientes).
 2. `git fetch` y `git status`. Mira `git log HEAD..origin/master` (el bot de precios commitea cada noche).
 3. Reclama en `HANDOFF.md` los ficheros que vas a tocar ANTES de editarlos. Si ya están reclamados
    por el otro, no los toques: anota lo que necesitas en la sección de relevos.
@@ -34,8 +34,14 @@ paralelo sin pisaros y conociendo lo que hace el otro.
 recuerdes de la sesión. Ninguna nota, tampoco las de este fichero, sustituye a mirar el dato.
 
 **Git:**
-- Los dos agentes comparten la MISMA carpeta de trabajo: nada de cambiar de rama, `stash`, `reset` ni
-  `checkout` de ficheros. Para aislarte, usa un `git worktree` aparte.
+- Cada agente tiene su PROPIA copia de trabajo, para que los cambios sin commitear de uno no bloqueen al otro:
+  · **Codex**: la carpeta principal del repo, rama `master`, dev server en el puerto 4321.
+  · **Claude**: `.claude/worktrees/claude`, rama `claude/trabajo`, puerto 4322. Publica con
+    `git fetch && git rebase origin/master && git push origin HEAD:master`.
+  · `trabajo/HANDOFF.md` y `web/public/_t/` existen SOLO en la carpeta principal. Claude los usa por ruta absoluta.
+  · No toques la copia de trabajo del otro.
+- `web/api/_catalog.json` sale modificado tras los tests o el build. Si eso impide el `git pull --rebase`, descarta
+  ese fichero con `git checkout -- web/api/_catalog.json` en tu copia; es lo único que se descarta así.
 - El usuario AUTORIZA commits a los dos agentes. Mensajes en español, estilo del historial.
 - `git add` de ficheros CONCRETOS. Nunca `git add -A`, `git add .` ni `git commit -a`.
 - Commit solo de lo tuyo. No toques ni commitees el trabajo sin commitear del otro.

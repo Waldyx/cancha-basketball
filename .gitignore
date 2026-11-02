@@ -30,3 +30,4 @@ ENCARGO*.mjs
 web/_*.ts
 web/_*.mjs
 web/_*.json
+web/public/_t/
