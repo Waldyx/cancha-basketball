@@ -1585,7 +1585,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-13",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DC6YYJC1?tag=canchazapa-21", precio_actual: 179.38, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DC6YYJC1?tag=canchazapa-21", precio_actual: 179.38, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
@@ -1822,7 +1822,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-28",
     precio_msrp_eur: 95,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BNN8MF4M?tag=canchazapa-21", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // s52 21-sep: "adidas Dame Certified, Zapatillas Hombre", Departamento Hombre, add-to-cart-button, 70,00 EUR (los otros dos enlaces son otra variante / busqueda)
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BNN8MF4M?tag=canchazapa-21", precio_actual: 60.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" }, // s52 21-sep: "adidas Dame Certified, Zapatillas Hombre", Departamento Hombre, add-to-cart-button, 70,00 EUR (los otros dos enlaces son otra variante / busqueda)
       { tienda: "amazon_es", url: "https://www.amazon.es/adidas-Zapatillas-Lillard-Certified-Unisex/dp/B0CYN6L7VK/ref=sr_1_1?tag=canchazapa-21", precio_actual: 42.58, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-13" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+dame+certified+baloncesto&tag=canchazapa-21", precio_actual: 59.90, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" }, // w17 18-sep: la busqueda no devuelve el modelo
     ],
@@ -2662,7 +2662,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 140, // tarifa europea (sneakerjagers, DO9680-500). Antes 110 sin fuente
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BSVL687Q?tag=canchazapa-21", precio_actual: 172.53, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BSVL687Q?tag=canchazapa-21", precio_actual: 188.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
@@ -2725,7 +2725,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 85, // s52 21-sep: eran 65, que es el precio de la GS (la Immortality 4 GS vale justo 65). HoopsGeek publica "Official Retail Price: $84.99" y la Immortality 4 adulta esta a 85 EUR en catalogo.
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CT5ZNC6Y?tag=canchazapa-21", precio_actual: 97.72, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CT5ZNC6Y?tag=canchazapa-21", precio_actual: 130.08, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
@@ -3209,7 +3209,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 125,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CTW4SKM8?tag=canchazapa-21", precio_actual: 129.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CTW4SKM8?tag=canchazapa-21", precio_actual: 129.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
@@ -3936,7 +3936,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-15",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0H1J3WM96?tag=canchazapa-21", precio_actual: 69.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0H1J3WM96?tag=canchazapa-21", precio_actual: 74.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-puma-mb05-metallic.html", precio_actual: 94.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
@@ -4366,7 +4366,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/search?q=question+mid", precio_actual: 130, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Freebok-question-mid-gris-17566", precio_actual: 80, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/Reebok-Zapatillas-QUESTION-Cuero-Blanco-Amarillo/dp/B0DPG7Z966?tag=canchazapa-21", precio_actual: 119, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/Reebok-Zapatillas-QUESTION-Cuero-Blanco-Amarillo/dp/B0DPG7Z966?tag=canchazapa-21", precio_actual: 119, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
@@ -6655,7 +6655,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0B6GM83PV?tag=canchazapa-21", precio_actual: 68.25, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // s52 21-sep: la ficha no tenia NI UN enlace. "adidas Dame 8, Zapatillas Unisex Adulto", Departamento Unisex adulto, add-to-cart-button, 68,25 EUR
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0B6GM83PV?tag=canchazapa-21", precio_actual: 65, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" }, // s52 21-sep: la ficha no tenia NI UN enlace. "adidas Dame 8, Zapatillas Unisex Adulto", Departamento Unisex adulto, add-to-cart-button, 68,25 EUR
     ],
   },
 
@@ -6816,7 +6816,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 95,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B09RQG4VWL?tag=canchazapa-21", precio_actual: 135.96, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-12" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B09RQG4VWL?tag=canchazapa-21", precio_actual: 119.91, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+exhibit+b+baloncesto&tag=canchazapa-21", precio_actual: 75, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
     ],
   },
@@ -7817,7 +7817,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 130, // tarifa europea (sneakerjagers, FQ3381-003). Antes 110 sin fuente
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CMV8D852?tag=canchazapa-21", precio_actual: 171.85, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CMV8D852?tag=canchazapa-21", precio_actual: 160.39, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
@@ -8553,7 +8553,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-19",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D1S5M6LG?tag=canchazapa-21", precio_actual: 126.03, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // s52 21-sep: el ASIN anterior (B0D9KPGJW5) esta agotado. "Nike Tenis de baloncesto Ja 1 para hombre", Departamento Hombre, add-to-cart-button, 126,03 EUR
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D1S5M6LG?tag=canchazapa-21", precio_actual: 141.43, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" }, // s52 21-sep: el ASIN anterior (B0D9KPGJW5) esta agotado. "Nike Tenis de baloncesto Ja 1 para hombre", Departamento Hombre, add-to-cart-button, 126,03 EUR
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D9KPGJW5?tag=canchazapa-21", precio_actual: 160.41, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" },
     ],
   },
@@ -9000,7 +9000,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 150, // tarifa europea del adulto (sneakerjagers, DR0675-002). Antes 185 sin fuente
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CWCXM9TV?tag=canchazapa-21", precio_actual: 120.46, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CWCXM9TV?tag=canchazapa-21", precio_actual: 120.46, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
@@ -9111,7 +9111,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 170, // tarifa europea (sneakerjagers, DR8784-301 y FJ1566-102). Antes 200 sin fuente
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/Nike-Lebron-NXXT-Gen-baloncesto/dp/B0CRNL24GY?tag=canchazapa-21", precio_actual: 180.57, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/Nike-Lebron-NXXT-Gen-baloncesto/dp/B0CRNL24GY?tag=canchazapa-21", precio_actual: 216.82, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
@@ -9169,7 +9169,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-29",
     precio_msrp_eur: 200,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BJ2RVFVS?tag=canchazapa-21", precio_actual: 277.65, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BJ2RVFVS?tag=canchazapa-21", precio_actual: 279.67, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
   // ─────────────────────────────────────────────────────────────────
@@ -9282,7 +9282,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-29",
     precio_msrp_eur: 160,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CMK2W8HH?tag=canchazapa-21", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // s52 21-sep: era una busqueda; ficha real "Under Armour Curry 11 Domaine - Tenis para hombre", con add-to-cart-button, 95,00 EUR
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CMK2W8HH?tag=canchazapa-21", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" }, // s52 21-sep: era una busqueda; ficha real "Under Armour Curry 11 Domaine - Tenis para hombre", con add-to-cart-button, 95,00 EUR
       { tienda: "amazon_es", url: "https://www.amazon.es/Under-Armour-Tenis-baloncesto-Curry/dp/B0DNCSY6DK/ref=sr_1_1?tag=canchazapa-21", precio_actual: 0, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es otra variante (corte o segmento) (la ficha enlazaba una busqueda)
     ],
   },
@@ -10655,7 +10655,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 210,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CZHS7L8J?tag=canchazapa-21", precio_actual: 274.55, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // s52 21-sep: el ASIN anterior (B09WZH67PK) esta agotado. "Jordan Hombres 13 Retro Dune Red (DJ5982 601)", Departamento Hombre, add-to-cart-button, 271,49 EUR = 1,29x MSRP
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CZHS7L8J?tag=canchazapa-21", precio_actual: 274.55, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" }, // s52 21-sep: el ASIN anterior (B09WZH67PK) esta agotado. "Jordan Hombres 13 Retro Dune Red (DJ5982 601)", Departamento Hombre, add-to-cart-button, 271,49 EUR = 1,29x MSRP
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B09WZH67PK?tag=canchazapa-21", precio_actual: 300.01, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" },
     ],
   },
@@ -11385,7 +11385,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 190, // tarifa europea (sneakerjagers, DV0817-001, 2023). Antes 160 sin fuente
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BWM9Z36S/?tag=canchazapa-21", precio_actual: 134, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-05" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BWM9Z36S/?tag=canchazapa-21", precio_actual: 133.85, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
@@ -11639,9 +11639,10 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/air-jordan-project-air-jordan-xii-retro-performance-review/" },
     ],
     ultima_actualizacion: "2026-05-27",
+    oculto: true, // 2-nov-2026: Amazon sin carrito; lo demás es reventa a 2,2× MSRP o de niño (BG)
     precio_msrp_eur: 220,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FPJRVL47?tag=canchazapa-21", precio_actual: 244.91, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FPJRVL47?tag=canchazapa-21", precio_actual: 244.91, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
@@ -11827,7 +11828,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0F5RLM2R7/?tag=canchazapa-21", precio_actual: 72, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0F5RLM2R7/?tag=canchazapa-21", precio_actual: 72, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-converse-weapon-og-mid-black-ivory.html", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-converse-weapon-blanco-hombre%2F26e292fc-d118-4769-b9a3-4f6c1a3eb2a6%2Fc4", precio_actual: 136, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
     ],
@@ -12387,7 +12388,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-27",
     precio_msrp_eur: 160, // tarifa europea (sneakerjagers, IG3739 e IF4521). Antes 110 sin fuente
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FL7WTKW8?tag=canchazapa-21", precio_actual: 106.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FL7WTKW8?tag=canchazapa-21", precio_actual: 106.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
@@ -13126,7 +13127,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-28",
     precio_msrp_eur: 160, // tarifa europea (sneakerjagers, DM0523-001). Antes 130 sin fuente
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0C1GXMH9X?tag=canchazapa-21", precio_actual: 215.53, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0C1GXMH9X?tag=canchazapa-21", precio_actual: 217.43, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
@@ -13411,7 +13412,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-08",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CZHDWB7B?tag=canchazapa-21", precio_actual: 124.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-29" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CZHDWB7B?tag=canchazapa-21", precio_actual: 137.16, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
@@ -13472,7 +13473,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-08",
     precio_msrp_eur: 110,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BCXJ5X33?tag=canchazapa-21", precio_actual: 124.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BCXJ5X33?tag=canchazapa-21", precio_actual: 133.91, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
@@ -15140,7 +15141,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-09",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/Skechers-Performance-SKX-JE-baloncesto/dp/B0FWKGNPYW?tag=canchazapa-21", precio_actual: 91.23, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/Skechers-Performance-SKX-JE-baloncesto/dp/B0FWKGNPYW?tag=canchazapa-21", precio_actual: 86.79, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fskechers%2Fzapatillas-skechers-skx-je-1-hombre-blanco-negro-160188.html", precio_actual: 106.21, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
@@ -16083,7 +16084,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/products/angel-reese-1-100272893-272893", precio_actual: 140, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-09-18" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FBFY4L1M?tag=canchazapa-21", precio_actual: 72.93, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FBFY4L1M?tag=canchazapa-21", precio_actual: 68.14, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
