@@ -369,7 +369,8 @@ const ringFracs = [0.33, 0.66, 1];
     // Init: si la URL trae ?slugs= (link compartido), renderiza en cliente.
     const q = new URLSearchParams(location.search).get("slugs");
     if (q) {
-      current = q.split(",");
+      current = [...new Set(q.split(","))].filter(s => DATA.some(d => d.slug === s)).slice(0, 3);
+      if (!current.length) current = [...initialSlugs];
       render(current);
     } else {
       attachPhotos();
