@@ -475,6 +475,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
     }
 
     function refreshUI() {
+      document.getElementById("price-label")!.textContent = filters.precioMax >= 250 ? "sin tope" : `${filters.precioMax}€`;
       const chips = activeChips();
       $active.innerHTML = "";
       if (chips.length === 0) {
@@ -482,7 +483,9 @@ const ordenadas = [...zapatillas].sort(compareByScore);
       } else {
         const html = ['<span class="label">Filtros:</span>'];
         chips.forEach((c, i) => {
-          html.push(`<span class="chip">${c.lab}<button class="x" data-idx="${i}">×</button></span>`);
+          const label = document.createElement("span");
+          label.textContent = c.lab;
+          html.push(`<span class="chip">${label.innerHTML}<button class="x" data-idx="${i}">×</button></span>`);
         });
         html.push(`<button style="background:transparent;color:var(--cz-fg4);border:1px solid var(--cz-elev);padding:5px 10px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:800;margin-left:4px" id="clear-chips">Limpiar todo</button>`);
         html.push(`<span class="count"><strong>${visibleCount()}</strong> / ${totalAll} zapas</span>`);
@@ -494,6 +497,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
       }
       $count.textContent = String(visibleCount());
       // Update chip + checkbox states
+      document.querySelectorAll<HTMLInputElement>("[data-filter='marca']").forEach(cb => { cb.checked = filters.marcas.has(cb.value); });
       document.querySelectorAll<HTMLButtonElement>("[data-filter='categoria']").forEach(b => b.classList.toggle("is-active", filters.categorias.has(b.dataset.value!)));
       document.querySelectorAll<HTMLButtonElement>("[data-filter='altura']").forEach(b => b.classList.toggle("is-active", filters.alturas.has(b.dataset.value!)));
       document.querySelectorAll<HTMLButtonElement>("[data-filter='posicion']").forEach(b => b.classList.toggle("is-active", filters.posiciones.has(b.dataset.value!)));
@@ -512,6 +516,18 @@ const ordenadas = [...zapatillas].sort(compareByScore);
     }
 
     function apply() {
+      const url = new URL(location.href);
+      ["q", "marca", "categoria", "altura", "posicion", "precio_max", "cancha", "trending", "coleccion", "junior", "gs", "mujer", "women", "nuevas", "verificado", "ligera", "retro", "orden"].forEach(k => url.searchParams.delete(k));
+      for (const [key, values] of [["marca", filters.marcas], ["categoria", filters.categorias], ["altura", filters.alturas], ["posicion", filters.posiciones]] as const) {
+        values.forEach(v => url.searchParams.append(key, v));
+      }
+      if (filters.q) url.searchParams.set("q", filters.q);
+      if (filters.precioMax < 250) url.searchParams.set("precio_max", String(filters.precioMax));
+      if (sortMode !== "score-desc") url.searchParams.set("orden", sortMode);
+      for (const [key, enabled] of [["cancha", filters.soloOutdoor], ["trending", filters.soloTrending], ["junior", filters.soloGS], ["mujer", filters.soloW], ["nuevas", filters.soloNuevas], ["verificado", filters.soloVerificado], ["ligera", filters.soloLigera], ["retro", filters.soloRetro]] as const) {
+        if (enabled) url.searchParams.set(key, key === "cancha" ? "exterior" : "1");
+      }
+      history.replaceState(null, "", url);
       let visible = 0;
       const card = (c: HTMLElement) => {
         const marca = c.dataset.marca!;
@@ -539,7 +555,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
         if (filters.categorias.size && !filters.categorias.has(cat)) ok = false;
         if (filters.alturas.size && !filters.alturas.has(alt)) ok = false;
         if (filters.posiciones.size && !pos.some(p => filters.posiciones.has(p))) ok = false;
-        if (precio > filters.precioMax) ok = false;
+        if (filters.precioMax < 250 && precio > filters.precioMax) ok = false;
         if (filters.soloNuevas && año < 2026) ok = false;
         if (filters.soloVerificado && !verified) ok = false;
         if (filters.soloOutdoor && !outdoor) ok = false;
@@ -684,14 +700,30 @@ const ordenadas = [...zapatillas].sort(compareByScore);
     //           ?precio_max=80  ?cancha=exterior
     (function initFromUrl() {
       const sp = new URLSearchParams(window.location.search);
-      const pos = sp.get("posicion");
-      if (pos) { filters.posiciones.add(pos); document.querySelector<HTMLButtonElement>("[data-filter='posicion'][data-value='"+pos+"']")?.classList.add("is-active"); }
-      const cat = sp.get("categoria");
-      if (cat) { filters.categorias.add(cat); document.querySelector<HTMLButtonElement>("[data-filter='categoria'][data-value='"+cat+"']")?.classList.add("is-active"); }
-      const mrc = sp.get("marca");
-      if (mrc) { filters.marcas.add(mrc); const cb = document.querySelector<HTMLInputElement>("input[data-filter='marca'][value='"+mrc+"']"); if (cb) cb.checked = true; }
+      for (const [param, field, values] of [["posicion", "posicion", filters.posiciones], ["categoria", "categoria", filters.categorias], ["altura", "altura", filters.alturas], ["marca", "marca", filters.marcas]] as const) {
+        document.querySelectorAll<HTMLInputElement | HTMLButtonElement>(`[data-filter='${field}']`).forEach(el => {
+          const value = el.dataset.value ?? (el as HTMLInputElement).value;
+          if (sp.getAll(param).includes(value)) {
+            values.add(value);
+            if (el instanceof HTMLInputElement) el.checked = true;
+          }
+        });
+      }
+      filters.q = sp.get("q") ?? "";
+      (document.getElementById("search") as HTMLInputElement).value = filters.q;
+      const order = sp.get("orden");
+      if (order && ["score-desc", "precio-asc", "precio-desc", "nuevas"].includes(order)) {
+        sortMode = order;
+        (document.getElementById("sort") as HTMLSelectElement).value = order;
+      }
+      filters.soloNuevas = sp.get("nuevas") === "1";
+      filters.soloVerificado = sp.get("verificado") === "1";
+      filters.soloLigera = sp.get("ligera") === "1";
+      filters.soloRetro = sp.get("retro") === "1";
+      (document.getElementById("only-new") as HTMLInputElement).checked = filters.soloNuevas;
+      (document.getElementById("only-verified") as HTMLInputElement).checked = filters.soloVerificado;
       const pmax = sp.get("precio_max");
-      if (pmax) { const v = parseInt(pmax,10); if (!isNaN(v) && v < 250) { filters.precioMax = v; const rng = document.getElementById("price-range") as HTMLInputElement; const lbl = document.getElementById("price-label"); if(rng) rng.value=String(v); if(lbl) lbl.textContent=v+"€"; } }
+      if (pmax) { const v = Number(pmax); if (Number.isFinite(v)) { const rng = document.getElementById("price-range") as HTMLInputElement; rng.value = String(v); filters.precioMax = Number(rng.value); } }
       const cancha = sp.get("cancha");
       if (cancha === "exterior") { filters.soloOutdoor = true; }
       const trend = sp.get("trending") || sp.get("coleccion");
