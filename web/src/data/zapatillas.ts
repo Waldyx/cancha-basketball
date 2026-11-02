@@ -2049,9 +2049,58 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-06-03",
     oculto: true,
     precio_msrp_eur: 80,
+    links_compra: [],
+  },
+  // NIKE PRECISION 8 LOW (IH1104): la review de HoopsGeek es de la Mid (IH1105), aqui no se ancla
+  {
+    id: "nike-precision-8-low",
+    slug: "nike-precision-8-low",
+    marca: "Nike",
+    modelo: "Precision 8 Low",
+    generacion: 8,
+    año_lanzamiento: 2025,
+    genero: "unisex",
+    tecnologia_clave: ["Phylon midsole", "Herringbone outsole"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 365, // ESTIMADO: el de la Precision 8 Mid; sin dato de la Low
+    altura: "low",
+    horma: "normal",
+    drop_mm: 10, // HEREDADO de la Precision 8 Mid, Nike no lo publica
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+    puntuaciones: {
+      traccion: 8, amortiguacion: 6, respuesta: 6,
+      soporte_lateral: 6, estabilidad: 6, peso_score: 7,
+      durabilidad_outdoor: 5, ventilacion: 7,
+    },
+    categoria_principal: "balanced",
+    tags: ["low-top", "presupuesto", "iniciacion"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [55, 85],
+      estilos: ["equilibrado", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen: "La versión de caña baja de la Precision 8, la línea de iniciación de Nike: mediasuela de Phylon y suela de espiga, sin unidades de amortiguación. Todavía sin reseñas propias.",
+    pros: [
+      "Una de las opciones más económicas de Nike para baloncesto",
+      "Suela de espiga, un dibujo clásico de tracción",
+      "La vende El Corte Inglés con tallas de adulto repartidas",
+    ],
+    contras: [
+      "Todavía SIN review de rendimiento: la nota es una estimación",
+      "Peso sin confirmar: el dato es el de la Precision 8 Mid",
+      "Amortiguación básica, sin Zoom",
+    ],
+    veredicto: "Para empezar o para jugar de vez en cuando con poco presupuesto. La nota es una estimación nuestra a partir de la Precision 8 Mid, que sí tiene reseña; la revisaremos si alguien analiza la Low.",
+    imagen_principal: "/shoes/nike-precision-8-low.webp",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-11-02",
+    precio_msrp_eur: 74.99,
     links_compra: [
-      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56817360%2F", precio_actual: 74.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
-      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fnike%2Fzapatillas-de-baloncesto-nike-precision-8-low-hombre-negro-blanco-rojo-175748.html", precio_actual: 74.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" }, // w17 18-sep: es otra variante (corte o segmento)
+      { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56817360-negro-pr-zapatillas-de-baloncesto-de-hombre-nike-precision-8-mens-basketball-shoes-nike%2F", precio_actual: 44.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
@@ -12083,7 +12132,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DGTYTW9L/?tag=canchazapa-21", precio_actual: 153, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" }, // w17 18-sep: es la Uptempo LOW
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fzapatillas-air-more-uptempo-low-dark-grey-light-crimson%2F8094b496-dc1b-4c51-937f-e2123b6b4bdf%2Fc14", precio_actual: 178, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
-      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-air-more-uptempo-96-olympic.html", precio_actual: 190, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-air-more-uptempo-96-olympic.html", precio_actual: 190, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 

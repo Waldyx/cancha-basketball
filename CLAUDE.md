@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **257 zapas (51 OCULTAS, 206 visibles) · 681 tests · `astro check` 0 errores · 381 páginas** |
+| Tamaño | **258 zapas (51 OCULTAS, 207 visibles) · 682 tests · `astro check` 0 errores · 381 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -145,7 +145,7 @@ pantallas rediseñadas**, en este orden: home → catálogo + ficha → rankings
 - **Reventa ≥ ~2× MSRP**: no se enlaza si hay alternativa. **Barridos**: mínimo 4 tallas.
 - **`msrpComparable`**: sin «−X %» para Li-Ning, Anta, Peak y Rigorer. **Gamma 2** es tope de gama (MSRP 370 €).
 - **`adidas-cross-em-up-5`** se queda sin enlaces. **`adidas-cross-em-up-select`** es de niño (`gs`). **Shaqnosis**: no se
-  enlaza la Low. **Precision 8 Mid**: no se vende en España (IH1104 = Low). **Decathlon SE500**: no se retira.
+  enlaza la Low. **Precision 8 Mid** (IH1105, la de la reseña de HG): no se vende en España. IH1104 es la Low, con ficha propia. **Decathlon SE500**: no se retira.
 - **Retiradas por fantasma**: Trae Young 4, Harden Stepback 4, Cross Em Up Speed, Air Max Impact 5, Rigorer Warship.
 - **Kobe Protro** (usuario, 22-oct): las renovadas con tecnología actual NO son retro (1, 3, 5, 6, 8, 9 High, 9 Elite Low);
   la 4 sí.
