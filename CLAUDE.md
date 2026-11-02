@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **255 zapas (50 OCULTAS, 205 visibles) · 679 tests · `astro check` 0 errores · 381 páginas** |
+| Tamaño | **255 zapas (51 OCULTAS, 204 visibles) · 679 tests · `astro check` 0 errores · 381 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -82,7 +82,10 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
   un cambio de medición, no por tráfico nuevo.
 - **Nike LeBron 24 sale el 17-nov** (`proximamente`, peso ESTIMADO, «KingKnit» es afirmación de Nike). Quitar la marca y
   buscar compra afiliada. **adidas Harden Vol 11**: dic-2026, entra entonces.
-- **Search Console** (revisión prevista hacia el 29-oct, pendiente): el 15-oct había 6 indexadas de 485 y 0 enlaces externos.
+- **Search Console, medido el 2-nov** (propiedad `sc-domain:canchazapa.com`, se lee desde el Chrome del usuario sin contraseña):
+  **1 indexada, 789 sin indexar** (431 rastreadas sin indexar, 295 descubiertas sin indexar), 7 clics y 20 impresiones en 28 días,
+  sitemap leído el 25-oct (328 páginas, correcto). Robots y canonical bien en producción. **Amazon, medido el 2-nov**: 14 clics
+  y 0 € en 30 días; lo mismo se lee desde ese Chrome. El 15-oct había 6 indexadas de 485 y 0 enlaces externos.
   El cuello de botella es la autoridad. La sesión de Google del navegador integrado caducó: la abre el usuario.
 - **Primeros enlaces**: 4 borradores en catalán en Gmail, SIN ENVIAR (AB Premià, Consell Esportiu Maresme, Ràdio Premià,
   La Clau). Enviar solo cuando el usuario lo diga. Objetivos en `trabajo/w30-enlaces-objetivos.md`.
