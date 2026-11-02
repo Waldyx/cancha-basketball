@@ -112,6 +112,18 @@ if (z.genero === "gs") {
   versionEsGs = !!versionLink;
 }
 
+// La generación visible más nueva, siguiendo sucesor_id. Las retro no caducan: no llevan aviso.
+let generacionNueva: typeof z | undefined;
+if (!z.es_retro) {
+  const vistas = new Set([z.id]);
+  let actual = z.sucesor_id ? zapatillasTodas.find(o => o.id === z.sucesor_id) : undefined;
+  while (actual && !actual.es_retro && !vistas.has(actual.id)) {
+    vistas.add(actual.id);
+    if (!actual.oculto && !actual.proximamente && actual.año_lanzamiento >= z.año_lanzamiento) generacionNueva = actual;
+    actual = actual.sucesor_id ? zapatillasTodas.find(o => o.id === actual!.sucesor_id) : undefined;
+  }
+}
+
 const mismaCategoria = zapatillas
   .filter(o => o.categoria_principal === z.categoria_principal)
   .sort((a, b) => Object.values(b.puntuaciones).reduce((s, v) => s + v, 0) - Object.values(a.puntuaciones).reduce((s, v) => s + v, 0) || a.slug.localeCompare(b.slug));
@@ -336,6 +348,16 @@ const productJsonLd = {
         <div class="shell" style="display:flex;align-items:center;gap:12px;font-size:13px;color:#fde68a">
           <span style="font-size:20px">🏅</span>
           <span><strong>Zapatilla histórica</strong> — Las puntuaciones reflejan rendimiento técnico con tecnología de su época, no valor de colección. No aparece en el quiz de recomendación.</span>
+        </div>
+      </div>
+    )}
+
+    {/* GENERACIÓN MÁS RECIENTE */}
+    {generacionNueva && (
+      <div style="background:var(--cz-surface);border-bottom:1px solid var(--cz-border);padding:10px 0">
+        <div class="shell" style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:13px;color:var(--cz-text-muted)">
+          <span>Hay una generación más reciente de este modelo.</span>
+          <a href={`/zapatilla/${generacionNueva.slug}`} style="color: var(--cz-accent-text);font-weight:700;text-decoration:underline">Ver {generacionNueva.marca} {generacionNueva.modelo} →</a>
         </div>
       </div>
     )}
