@@ -1781,7 +1781,7 @@ const _rawZapatillas: Zapatilla[] = [
     genero: "unisex",
     signature_player: "Damian Lillard",
     tecnologia_clave: ["Bounce foam", "Wavebone outsole", "Wide base"],
-    peso_real_g: 415,
+    peso_real_g: 404, // RunRepeat, laboratorio (2-nov-2026)
     altura: "low",
     horma: "normal",
     drop_mm: 8,
@@ -1789,7 +1789,7 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "mesh",
     puntuaciones: {
       traccion: 9, amortiguacion: 6, respuesta: 7,
-      soporte_lateral: 7, estabilidad: 8, peso_score: 5,
+      soporte_lateral: 7, estabilidad: 8, peso_score: 6,
       durabilidad_outdoor: 9, ventilacion: 7,
     },
     categoria_principal: "traction-king",
@@ -3354,7 +3354,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: "nike-gt-jump-1",
     sucesor_id: "nike-lebron-24",
 
-    peso_real_g: 455,
+    peso_real_g: 439, // RunRepeat, laboratorio (2-nov-2026)
     altura: "low",
     horma: "ancha",
     drop_mm: 10,
@@ -3586,7 +3586,7 @@ const _rawZapatillas: Zapatilla[] = [
     tecnologia_clave: ["Dreamstrike", "Herringbone multidireccional"],
     predecesor_id: null,
     sucesor_id: null,
-    peso_real_g: 380,
+    peso_real_g: 388, // RunRepeat, laboratorio (2-nov-2026)
     altura: "low",
     horma: "normal",
     drop_mm: 10,
@@ -3594,7 +3594,7 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "mesh",
     puntuaciones: {
       traccion: 9, amortiguacion: 7, respuesta: 8,
-      soporte_lateral: 9, estabilidad: 9, peso_score: 7,
+      soporte_lateral: 9, estabilidad: 9, peso_score: 6,
       durabilidad_outdoor: 8, ventilacion: 8,
     },
     categoria_principal: "traction-king",
@@ -5506,7 +5506,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     // Peso y drop ESTIMADOS: Nike no los publica y WearTesters no los midió. Anclados a la
     // Sabrina 3 verificada (346 g / 6 mm) + el TPU full-length que añade la 4.
-    peso_real_g: 391,
+    peso_real_g: 383, // RunRepeat, laboratorio (2-nov-2026)
     altura: "low",
     horma: "normal",
     drop_mm: 6,
@@ -5519,7 +5519,7 @@ const _rawZapatillas: Zapatilla[] = [
       respuesta: 9,
       soporte_lateral: 9,
       estabilidad: 9,
-      peso_score: 6,
+      peso_score: 7,
       durabilidad_outdoor: 6,
       ventilacion: 7,
     },
@@ -5914,7 +5914,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: "nike-giannis-immortality-3",
     sucesor_id: null,
 
-    peso_real_g: 360,
+    peso_real_g: 383, // RunRepeat, laboratorio (2-nov-2026)
     altura: "low",
     horma: "normal",
     drop_mm: 10,
@@ -5927,7 +5927,7 @@ const _rawZapatillas: Zapatilla[] = [
       respuesta: 7,
       soporte_lateral: 7,
       estabilidad: 7,
-      peso_score: 8,
+      peso_score: 7,
       durabilidad_outdoor: 8,
       ventilacion: 7,
     },
@@ -7169,7 +7169,7 @@ const _rawZapatillas: Zapatilla[] = [
     tecnologia_clave: ["Nitro foam doble densidad", "foam supercrítico", "PumaGrip outsole"],
     predecesor_id: "puma-all-pro-nitro",
     sucesor_id: null,
-    peso_real_g: 380,
+    peso_real_g: 386, // RunRepeat, laboratorio (2-nov-2026)
     altura: "low",
     horma: "estrecha",
     drop_mm: 8,
@@ -7462,7 +7462,7 @@ const _rawZapatillas: Zapatilla[] = [
     tecnologia_clave: ["Zoom Air", "wide herringbone"],
     predecesor_id: "nike-zoom-freak-5",
     sucesor_id: "nike-giannis-freak-7",
-    peso_real_g: 344,
+    peso_real_g: 349, // RunRepeat, laboratorio (2-nov-2026)
     altura: "low",
     horma: "normal",
     drop_mm: 10,
@@ -9075,7 +9075,7 @@ const _rawZapatillas: Zapatilla[] = [
     tecnologia_clave: ["Cushlon foam", "Zoom Turbo unit en el antepié", "Zoom Air unit", "plastic shank plate"],
     predecesor_id: null,
     sucesor_id: null,
-    peso_real_g: 360,
+    peso_real_g: 372, // RunRepeat, laboratorio (2-nov-2026)
     altura: "low",
     horma: "normal",
     drop_mm: 10,
@@ -9087,7 +9087,7 @@ const _rawZapatillas: Zapatilla[] = [
       respuesta: 9,
       soporte_lateral: 9,
       estabilidad: 9,
-      peso_score: 8,
+      peso_score: 7,
       durabilidad_outdoor: 6,
       ventilacion: 6,
     },
@@ -9245,7 +9245,7 @@ const _rawZapatillas: Zapatilla[] = [
     tecnologia_clave: ["Dual-density UA Flow foam", "UA Flow outsole", "Warp and knit upper"],
     predecesor_id: null,
     sucesor_id: "ua-curry-12",
-    peso_real_g: 348,
+    peso_real_g: 340, // RunRepeat, laboratorio (2-nov-2026)
     altura: "low",
     horma: "estrecha",
     drop_mm: 8,
@@ -13798,7 +13798,7 @@ const _rawZapatillas: Zapatilla[] = [
     tecnologia_clave: ["Lightstrike Pro en el antepié (desbloqueado, sin carcasa)", "Lightstrike Pro en el talón", "carcasa de EVA", "plantilla de Boost", "shank TPU del mediopié al antepié"],
     predecesor_id: "adidas-don-issue-7",
     sucesor_id: null,
-    peso_real_g: 352, // dato de fabricante (adidas.es, talla sin indicar); WearTesters pesó 409 g en una EU 45
+    peso_real_g: 371, // RunRepeat, laboratorio (2-nov-2026)
     altura: "low",
     horma: "normal",
     drop_mm: 9, // sin dato oficial: heredado de la D.O.N. Issue 7
@@ -13806,7 +13806,7 @@ const _rawZapatillas: Zapatilla[] = [
     material_superior: "mesh+tpu",
     puntuaciones: {
       traccion: 9, amortiguacion: 10, respuesta: 9,
-      soporte_lateral: 9, estabilidad: 9, peso_score: 8,
+      soporte_lateral: 9, estabilidad: 9, peso_score: 7,
       durabilidad_outdoor: 2, ventilacion: 8,
     },
     categoria_principal: "cushion-focused",
@@ -15816,7 +15816,7 @@ const _rawZapatillas: Zapatilla[] = [
     predecesor_id: "adidas-ae-2",
     sucesor_id: null,
 
-    peso_real_g: 420,
+    peso_real_g: 425, // RunRepeat, laboratorio (2-nov-2026)
     altura: "low",
     horma: "normal",
     drop_mm: 7,
