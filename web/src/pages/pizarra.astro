@@ -953,6 +953,7 @@ const jsonLd = {
   /* ── impresión / PDF: una jugada por página ── */
   @media print {
     @page { size: A4; margin: 12mm; }
+    html.pz-printing { background: #fff !important; color-scheme: light; }
     html.pz-printing body > *:not(#main-content) { display: none !important; }
     html.pz-printing body { display: block !important; min-height: 0 !important; background: #fff !important; color: #000 !important; }
     html.pz-printing #main-content { display: block !important; }
@@ -964,12 +965,12 @@ const jsonLd = {
     .pz-print-play h2 { font-size: 28pt; line-height: 1; margin: 0 0 3mm; text-transform: uppercase; font-weight: 900; }
     .pz-print-meta { margin: 0 0 2mm; font-size: 12pt; color: #444; font-weight: 700; }
     .pz-print-notas { margin: 0 0 5mm; font-size: 12pt; line-height: 1.35; white-space: pre-wrap; }
-    .pz-print-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+    .pz-print-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
     .pz-print-grid.uno { grid-template-columns: 1fr; }
     .pz-print-paso { margin: 0; break-inside: avoid; page-break-inside: avoid; }
-    .pz-print-svg svg { display: block; width: 100%; height: auto; border: 0.4mm solid #666; }
+    .pz-print-svg svg { display: block; width: 100%; height: auto; max-height: 72mm; border: 0.4mm solid #666; }
     .pz-print-paso figcaption { margin-top: 1.5mm; font-size: 11pt; line-height: 1.3; }
-    .pz-print-pie { margin: 6mm 0 0; font-size: 9pt; color: #666; text-align: right; }
+    .pz-print-pie { margin: 3mm 0 0; font-size: 9pt; color: #666; text-align: right; break-before: avoid; }
     /* marca del club: escudo + nombre con una franja de su color */
     .pz-print-marca { display: flex; align-items: center; gap: 3mm; margin: 0 0 4mm; padding-bottom: 2mm; border-bottom: 1.2mm solid #f97316; font-family: "Barlow Condensed", Arial, sans-serif; color: #000; }
     .pz-print-marca img { height: 13mm; width: auto; max-width: 30mm; object-fit: contain; }
