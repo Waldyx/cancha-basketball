@@ -8,7 +8,7 @@
  * La lógica pura está en `actaIA.ts`.
  */
 import { actaDeTexto, anonimizar, arreglarOcr, avisosActa, filasDeCajas, lineasDeCajas, restaurarNombres, type ActaLeida, type CajaTexto } from "./actaIA";
-import { actaDeJugadas, cabeceraDeLineas, franjasSinMarcador, franjasSinPeriodo, jugadasDeLineas, unirJugadas, type Jugada } from "./jugadesFCBQ";
+import { actaDeJugadas, cabeceraDeLineas, franjasSinMarcador, franjasSinPeriodo, jugadasDeLineas, unirJugadas, type Jugada, type CabeceraJugades } from "./jugadesFCBQ";
 
 // Versiones fijas (comprobadas el 22-oct-2026 en jsDelivr). Tesseract baja además su núcleo wasm
 // y los idiomas de jsDelivr la primera vez (~4 MB); luego quedan en la caché del navegador.
@@ -189,6 +189,7 @@ async function leerJugadesVideo(file: Blob, progreso: (p: number) => void): Prom
     const listas: Jugada[][] = [];
     let nombres = { local: "", visitante: "" };
     let finalCab: [number, number] | null = null;
+    let parcialesCab: CabeceraJugades["parciales"];
     let firmaPrev: Uint8ClampedArray | null = null;
     try {
       await worker.setParameters({ tessedit_pageseg_mode: "6", preserve_interword_spaces: "1" });
@@ -250,6 +251,7 @@ async function leerJugadesVideo(file: Blob, progreso: (p: number) => void): Prom
         if (!nombres.local) {
           const cb = cabeceraDeLineas(lineas, c.width);
           if (cb.local) nombres = { local: cb.local, visitante: cb.visitante };
+          if (cb.parciales) parcialesCab = cb.parciales;
         }
         // marcador final: las dos cajas grandes de la cabecera, encima de la línea de la fecha. Cada
         // caja se lee por separado (juntas salen pegadas: «6055») y del fotograma ORIGINAL, no de `c`,
@@ -289,7 +291,7 @@ async function leerJugadesVideo(file: Blob, progreso: (p: number) => void): Prom
     }
     const jugadas = unirJugadas(listas);
     if (!jugadas.length) throw new Error("No he encontrado jugadas en el vídeo: tiene que ser la pestaña «Jugades» de la app de la FCBQ, bajando de arriba abajo.");
-    return actaDeJugadas(jugadas, { ...nombres, final: finalCab });
+    return actaDeJugadas(jugadas, { ...nombres, final: finalCab, parciales: parcialesCab });
   } finally {
     URL.revokeObjectURL(url);
   }

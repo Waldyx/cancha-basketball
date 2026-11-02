@@ -18,6 +18,14 @@ import type { ActaLeida, JugadorLeido, LineaTexto } from "./actaIA";
 export type Lado = "local" | "visitante";
 export type TipoJugada = "canasta" | "fallo" | "falta" | "perdida" | "otra";
 
+export interface CabeceraJugades {
+  local: string;
+  visitante: string;
+  final: [number, number] | null;
+  /** Parcial de cada periodo, solo si la suma reproduce el marcador final. */
+  parciales?: [number, number][];
+}
+
 export interface Jugada {
   periodo: number;
   /** reloj tal cual («05:28») y en segundos, para ordenar */
@@ -229,8 +237,8 @@ function sinMarcadoresMalLeidos<T extends Jugada & { veces: number }>(lista: T[]
 }
 
 /** Nombres de los equipos y marcador final, de la cabecera (solo sale en los primeros fotogramas). */
-export function cabeceraDeLineas(lineas: LineaTexto[], ancho: number): { local: string; visitante: string; final: [number, number] | null } {
-  const res = { local: "", visitante: "", final: null as [number, number] | null };
+export function cabeceraDeLineas(lineas: LineaTexto[], ancho: number): CabeceraJugades {
+  const res: CabeceraJugades = { local: "", visitante: "", final: null };
   const fin = lineas.findIndex((l) => (l.texto.match(/\bP\s?[1-8]\b/g) ?? []).length >= 3 || RE_PERIODO.test(l.texto));
   const cab = fin < 0 ? lineas : lineas.slice(0, fin);
   const RUIDO = /federaci|catalana|basquetbol|resum|jugades|fcbq/i;
@@ -259,6 +267,20 @@ export function cabeceraDeLineas(lineas: LineaTexto[], ancho: number): { local: 
     } else if (l.x0 < ancho * 0.45) res.local = `${res.local} ${trozos.join(" ")}`.trim();
     else res.visitante = `${res.visitante} ${trozos.join(" ")}`.trim();
   }
+  // La cabecera de FCBQ muestra P1…P4 y debajo los cuatro parciales de cada equipo. Solo se usan
+  // como control si suman exactamente el marcador final: así un OCR parcial no crea avisos falsos.
+  if (res.final) {
+    for (const l of cab) {
+      const nums = l.texto.match(/\b\d{1,2}\b/g)?.map(Number) ?? [];
+      if (nums.length !== 8) continue;
+      const parciales = nums.slice(0, 4).map((n, i) => [n, nums[i + 4]] as [number, number]);
+      const suma = parciales.reduce<[number, number]>((a, p) => [a[0] + p[0], a[1] + p[1]], [0, 0]);
+      if (suma[0] === res.final[0] && suma[1] === res.final[1]) {
+        res.parciales = parciales;
+        break;
+      }
+    }
+  }
   return res;
 }
 
@@ -272,7 +294,7 @@ const vacio = (dorsal: string, nombre: string): JugadorLeido => ({
  */
 export function actaDeJugadas(
   jugadas: Jugada[],
-  cab: { local: string; visitante: string; final: [number, number] | null } = { local: "", visitante: "", final: null },
+  cab: CabeceraJugades = { local: "", visitante: "", final: null },
 ): { acta: ActaLeida; avisos: string[] } {
   const avisos: string[] = [];
   const por: Record<Lado, Map<string, JugadorLeido & { nombres: Map<string, number> }>> = { local: new Map(), visitante: new Map() };
@@ -308,6 +330,22 @@ export function actaDeJugadas(
     parciales.set(j.periodo, previo);
   }
   if (huecos > 3) avisos.push(`… y ${huecos - 3} hueco(s) más en el marcador.`);
+
+  if (cab.parciales?.length) {
+    const leidos = new Map<number, [number, number]>();
+    for (const j of jugadas) {
+      if (j.tipo !== "canasta") continue;
+      const p = leidos.get(j.periodo) ?? [0, 0];
+      p[j.lado === "local" ? 0 : 1] += j.valor;
+      leidos.set(j.periodo, p);
+    }
+    cab.parciales.forEach(([local, visitante], i) => {
+      const [leidoLocal, leidoVisitante] = leidos.get(i + 1) ?? [0, 0];
+      if (leidoLocal !== local || leidoVisitante !== visitante) {
+        avisos.push(`P${i + 1}: se han leído ${leidoLocal}-${leidoVisitante}, la cabecera marca ${local}-${visitante}.`);
+      }
+    });
+  }
 
   // la suma frente al marcador final y la falta de intentos ya los avisa `avisosActa`
   const final = cab.final ?? (parciales.size ? [...parciales.values()].reduce((a, b) => [a[0] + b[0], a[1] + b[1]], [0, 0]) as [number, number] : null);

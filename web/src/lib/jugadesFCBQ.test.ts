@@ -91,6 +91,10 @@ describe("cabeceraDeLineas", () => {
     const conEscudos = [...CABECERA.slice(0, 2), L("AS	HAB", 150, 520, 960), ...CABECERA.slice(2)];
     expect(cabeceraDeLineas(conEscudos, W)).toMatchObject({ local: "A.E SANT ANDREU NATZARET", visitante: "AB PREMIÀ BLAU" });
   });
+  it("solo usa los parciales si reproducen el marcador final", () => {
+    const cabecera = [...CABECERA.slice(0, 3), L("15\t14\t16\t15\t12\t13\t16\t14", 115, 885, 970)];
+    expect(cabeceraDeLineas(cabecera, W).parciales).toEqual([[15, 12], [14, 13], [16, 16], [15, 14]]);
+  });
 });
 
 describe("unirJugadas + actaDeJugadas", () => {
@@ -150,6 +154,12 @@ describe("marcadores de una grabación real (24-oct)", () => {
     const { acta, avisos } = actaDeJugadas(js);
     expect(avisos).toEqual([]);
     expect(acta.equipos.map((e) => e.pts)).toEqual([10, 0]);
+  });
+  it("avisa por periodo cuando la cabecera revela qué parcial no se ha leído", () => {
+    const js = unirJugadas([[c(1, "05:00", 2, 0, 2, "8"), c(2, "05:00", 3, 0, 3, "6")]]);
+    const { avisos } = actaDeJugadas(js, { local: "A", visitante: "B", final: [7, 2], parciales: [[4, 0], [3, 2]] });
+    expect(avisos).toContain("P1: se han leído 2-0, la cabecera marca 4-0.");
+    expect(avisos).toContain("P2: se han leído 3-0, la cabecera marca 3-2.");
   });
   it("sin la línea de la fecha (la grabación empieza ya en las tarjetas) no se inventa nombres", () => {
     expect(cabeceraDeLineas([L("8) (ANa", 364, 40), L("Salt guanyat", 31, 160), L("ST AH.M.R", 441, 300), ...TARJETAS], W)).toMatchObject({ local: "", visitante: "" });
