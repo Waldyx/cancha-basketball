@@ -34,6 +34,8 @@ paralelo sin pisaros y conociendo lo que hace el otro.
 recuerdes de la sesión. Ninguna nota, tampoco las de este fichero, sustituye a mirar el dato.
 
 **Git:**
+- Los dos agentes comparten la MISMA carpeta de trabajo: nada de cambiar de rama, `stash`, `reset` ni
+  `checkout` de ficheros. Para aislarte, usa un `git worktree` aparte.
 - El usuario AUTORIZA commits a los dos agentes. Mensajes en español, estilo del historial.
 - `git add` de ficheros CONCRETOS. Nunca `git add -A`, `git add .` ni `git commit -a`.
 - Commit solo de lo tuyo. No toques ni commitees el trabajo sin commitear del otro.
