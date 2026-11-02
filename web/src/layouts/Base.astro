@@ -3,6 +3,7 @@
 // Adds: font preload, skip-to-content link, dynamic OG support, broken-img fallback.
 
 import "../styles/global.css";
+import "../styles/fonts.css";
 import CommandPalette from "../components/CommandPalette.astro";
 import CookieBanner from "../components/CookieBanner.astro";
 import Analytics from "../components/Analytics.astro";
@@ -90,14 +91,8 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
 
-    <!-- Fonts: preconnect. Sin preload de los .woff2: Google cambia esas URLs al actualizar
-         la fuente y las escritas a mano acabaron en 404 en cada página (oct-2026). -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Barlow+Condensed:ital,wght@0,700;0,900;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/barlow-condensed-900-normal-latin.woff2" as="font" type="font/woff2" crossorigin />
 
     <!-- Favicons + PWA -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
