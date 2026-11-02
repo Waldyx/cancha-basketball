@@ -251,7 +251,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 130,
     links_compra: [
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-under-armour-curry-12-dub-nation.html", precio_actual: 99.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: solo queda la talla 38; el scraper no la lee (el título no dice «GS»)
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0F9NBJ8HB?tag=canchazapa-21", precio_actual: 274.89, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: sin buybox: solo un vendedor externo (reventa)
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0F9NBJ8HB?tag=canchazapa-21", precio_actual: 274.89, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-02" }, // 21-oct: sin buybox: solo un vendedor externo (reventa)
     ],
   },
 
@@ -11372,7 +11372,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fbaskets-homme-baskets-converse-bordeaux-bordeaux-converse%2F2e9ddaaf-f8ab-47a3-93da-73d7d366f505%2Fc15", precio_actual: 43, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-14" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fconverse%2Fchuck-taylor-all-star-9755.html", precio_actual: 53, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-03" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/Converse-Taylor-Zapatillas-Unisex-adulto/dp/B002W7NP8S?tag=canchazapa-21", precio_actual: 52.13, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/Converse-Taylor-Zapatillas-Unisex-adulto/dp/B002W7NP8S?tag=canchazapa-21", precio_actual: 52.13, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 
@@ -12316,9 +12316,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 210, // tarifa europea (sneakerjagers, último retro, «Flint Grey» 2026). Antes 190 sin fuente
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CZHG6GP9?tag=canchazapa-21", precio_actual: 204.11, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CZHG6GP9?tag=canchazapa-21", precio_actual: 204.11, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
 

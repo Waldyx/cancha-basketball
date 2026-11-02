@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **258 zapas (51 OCULTAS, 207 visibles) · 682 tests · `astro check` 0 errores · 381 páginas** |
+| Tamaño | **258 zapas (52 OCULTAS, 206 visibles) · 682 tests · `astro check` 0 errores · 381 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -80,6 +80,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 - **Amazon Afiliados**: sin 3 ventas, puede cerrar la cuenta hacia **nov-2026** (política de 180 días). Mirar el panel. Si
   cierra, los enlaces siguen funcionando pero no pagan: Amazon pasaría a «Ver precio». Desde el 22-sep los clics suben por
   un cambio de medición, no por tráfico nuevo.
+- **Amazon activos, auditados el 2-nov** (87 filas por `/dp/`, sin `tag`): tallas contadas solo en 20 porque saltó un CAPTCHA. Repetir sin prisa el recuento de las otras 67, de pocas en pocas. Con 1-3 tallas y sin decidir: KD 18 (2, ver decisión 1), Dame Certified (3), Kyrie Low 5 y Zoom Freak 4 (anuncios de una talla). AJ 9 oculta porque su ASIN se titula «Nike Tanjun» (leído una vez): buscar compra real. El precio cambia por talla (Curry 12: 82-171 €), así que no corregir a mano lo que el scraper pisa.
 - **Tatum 5 y Witness X** (2-nov, nota editorial 7,5 sin reseñas, peso de la X ESTIMADO): revisar cuando las reseñen.
 - **Nike LeBron 24 sale el 17-nov** (`proximamente`, peso ESTIMADO, «KingKnit» es afirmación de Nike). Quitar la marca y
   buscar compra afiliada. **adidas Harden Vol 11**: dic-2026, entra entonces.
