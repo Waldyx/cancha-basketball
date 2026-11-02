@@ -67,6 +67,7 @@ const shortcuts = [
   const $input = document.getElementById("cmdk-input");
   const $results = document.getElementById("cmdk-results");
   let active = 0;
+  let returnFocus = null;
 
   // El índice llega bajo demanda desde /search-index.json la primera vez que se
   // abre la paleta, y el navegador ya lo cachea para el resto del sitio.
@@ -86,6 +87,7 @@ const shortcuts = [
   }
 
   function open() {
+    if ($overlay.classList.contains("hidden")) returnFocus = document.activeElement;
     loadIndex();
     $overlay.classList.remove("hidden");
     $input.value = "";
@@ -94,7 +96,19 @@ const shortcuts = [
   }
   function close() {
     $overlay.classList.add("hidden");
+    returnFocus?.focus();
   }
+
+  $overlay.addEventListener("keydown", (e) => {
+    if (e.key !== "Tab") return;
+    const controls = [...$overlay.querySelectorAll("input, a[href], button")].filter(el => el.getClientRects().length);
+    const first = controls[0], last = controls[controls.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault(); last?.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault(); first?.focus();
+    }
+  });
 
   // Open on Cmd+K / Ctrl+K
   window.addEventListener("keydown", (e) => {

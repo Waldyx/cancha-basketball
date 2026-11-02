@@ -42,7 +42,7 @@ const SUGERENCIAS = [
   </button>
 
   <!-- Panel -->
-  <div id="cz-chat-panel" class="cz-chat-panel" role="dialog" aria-label="Asistente CANCHA.ZAPA">
+  <div id="cz-chat-panel" class="cz-chat-panel" role="dialog" aria-label="Asistente CANCHA.ZAPA" aria-hidden="true" inert>
     <div class="ccp-head">
       <div class="ccp-head-id">
         <span class="ccp-avatar" aria-hidden="true">★</span>
@@ -126,14 +126,19 @@ const SUGERENCIAS = [
   // Historial enviado al backend (sin el saludo inicial)
   const messages = [];
   let busy = false;
+  let focusTimer = null;
 
   // ── Abrir / cerrar ──────────────────────────────────────────────
   function setOpen(open) {
     root.dataset.open = String(open);
     bubble.setAttribute("aria-expanded", String(open));
+    clearTimeout(focusTimer);
+    if (!open && panel.contains(document.activeElement)) bubble.focus();
+    panel.inert = !open;
+    panel.setAttribute("aria-hidden", String(!open));
     if (open) {
       loadShoeIndex();
-      setTimeout(() => input.focus(), 240);
+      focusTimer = setTimeout(() => input.focus(), 240);
       try { localStorage.setItem("cz.chat.seen", "1"); } catch {}
       root.querySelector(".ccb-pulse")?.classList.add("hidden");
     }

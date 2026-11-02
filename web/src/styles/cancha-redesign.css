@@ -453,6 +453,7 @@ button { font-family: inherit; cursor: pointer; }
   background: var(--cat); opacity: 0.7;
 }
 .cz-card .photo .cat-badge {
+  z-index: 2;
   position: absolute; left: 12px; top: 12px;
   padding: 4px 8px;
   border: 1px solid rgba(var(--cz-border-rgb),0.8);
@@ -461,6 +462,7 @@ button { font-family: inherit; cursor: pointer; }
   letter-spacing: 0.18em; color: var(--cat);
 }
 .cz-card .photo .new-badge {
+  z-index: 2;
   position: absolute; left: 12px; bottom: 14px;
   padding: 3px 7px; background: #f97316; color: var(--cz-ink);
   font-size: 9px; font-weight: 900; text-transform: uppercase;
@@ -752,6 +754,7 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ── Ideal-para reveal overlay on hover ─────────────────────── */
 .cz-card .cz-ideal-overlay {
+  z-index: 3;
   position: absolute; left: 0; right: 0; bottom: 0;
   background: linear-gradient(180deg, rgba(var(--cz-bg-rgb),0) 0%, rgba(var(--cz-bg-rgb),0.95) 30%);
   padding: 36px 14px 12px;

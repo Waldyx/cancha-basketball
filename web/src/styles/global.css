@@ -32,7 +32,7 @@
   --cz-fg4: #8a8a94;
   --cz-fg5: #80808a;
   --cz-fg6: #3f3f46;
-  --cz-wordmark-stroke: #52525b;
+  --cz-wordmark-stroke: #71717a;
   --cz-watermark: rgba(255, 255, 255, 0.05);
   --cz-chip: rgba(24, 24, 27, 0.85);
   --cz-badge: rgba(39, 39, 42, 0.8);
@@ -223,6 +223,10 @@
 /* ── Tipografía global ── */
 body {
   font-family: 'Inter', system-ui, sans-serif;
+}
+:is(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--cz-accent-text);
+  outline-offset: 3px;
 }
 h1, h2, h3, h4, .font-black {
   font-family: 'Barlow Condensed', 'Inter', system-ui, sans-serif;
