@@ -165,7 +165,7 @@ const areas = Object.entries(AREAS) as [keyof typeof AREAS, string][];
     @page { size: A4; margin: 14mm; }
     html.ev-printing body > *:not(#ev-print) { display: none !important; }
     html.ev-printing #ev-print { display: block !important; }
-    html.ev-printing body { background: #fff !important; }
+    html.ev-printing, html.ev-printing body { background: #fff !important; color-scheme: light; }
     .ev-hoja { break-after: page; page-break-after: always; color: #000; font-family: Arial, sans-serif; }
     .ev-hoja:last-child { break-after: auto; page-break-after: auto; }
     .ev-marca { display: flex; align-items: center; gap: 3mm; margin: 0 0 6mm; padding-bottom: 2mm; border-bottom: 1.2mm solid #f97316; }
@@ -174,7 +174,7 @@ const areas = Object.entries(AREAS) as [keyof typeof AREAS, string][];
     .ev-hoja h1 { margin: 0 0 1mm; font: 900 28pt "Barlow Condensed", Arial, sans-serif; text-transform: uppercase; line-height: 1; }
     .ev-sub { margin: 0 0 5mm; font-size: 11pt; color: #444; }
     .ev-ptabla { width: 100%; border-collapse: collapse; font-size: 10.5pt; margin-bottom: 4mm; }
-    .ev-ptabla th, .ev-ptabla td { padding: 1.4mm 2mm; border-bottom: 0.3mm solid #bbb; text-align: left; }
+    .ev-ptabla th, .ev-ptabla td { padding: 1.1mm 2mm; border-bottom: 0.3mm solid #bbb; text-align: left; }
     .ev-ptabla th { font-size: 8.5pt; text-transform: uppercase; letter-spacing: .05em; color: #555; }
     .ev-ptabla .ev-parea td { padding-top: 3mm; font-weight: 900; text-transform: uppercase; font-size: 9pt; letter-spacing: .08em; color: #c2410c; border-bottom: 0.5mm solid #c2410c; }
     .ev-barra { display: inline-flex; gap: 0.8mm; vertical-align: middle; margin-right: 2mm; }
@@ -183,7 +183,7 @@ const areas = Object.entries(AREAS) as [keyof typeof AREAS, string][];
     .ev-ph2 { margin: 4mm 0 1.5mm; font: 900 13pt "Barlow Condensed", Arial, sans-serif; text-transform: uppercase; }
     .ev-hoja ul { margin: 0; padding-left: 5mm; font-size: 11pt; line-height: 1.45; }
     .ev-com { font-size: 11pt; line-height: 1.5; white-space: pre-wrap; border-left: 1.2mm solid #f97316; padding: 2mm 4mm; background: #f6f6f6; }
-    .ev-pie { margin-top: 6mm; font-size: 8.5pt; color: #777; text-align: right; }
+    .ev-pie { margin-top: 4mm; font-size: 8.5pt; color: #777; text-align: right; break-before: avoid; }
   }
 </style>
 
