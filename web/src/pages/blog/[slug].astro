@@ -311,7 +311,8 @@ const CATEGORIA_COLOR: Record<string, string> = {
     }
     @media (max-width: 900px) {
       .art-layout { grid-template-columns: 1fr; }
-      .art-sidebar { order: -1; }
+      /* En móvil, el artículo primero; el índice aparece por JS y empujaría el texto */
+      #art-toc-widget { display: none !important; }
     }
     /* Article body styles */
     .art-body { max-width: 720px; }
