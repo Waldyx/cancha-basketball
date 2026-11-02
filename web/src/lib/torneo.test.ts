@@ -9,6 +9,7 @@ import {
   generar,
   horaDe,
   jornadas,
+  jugado,
   limpiarCruces,
   normalizarTorneo,
   problemaFormato,
@@ -186,5 +187,17 @@ describe("torneo", () => {
     expect(t.pistas).toBe(8);
     expect(t.partidos[0]).toMatchObject({ pa: 3, pb: 1 });
     expect(t.partidos[1]).toMatchObject({ pa: null, pb: null });
+  });
+
+  it("conserva un marcador a medias al recargar sin dar el partido por terminado", () => {
+    for (const [pa, pb] of [[22, null], [null, 11], [0, null], [null, 0]]) {
+      const t = normalizarTorneo({ equipos: ["A", "B", "C"], formato: "liga-final", partidos: [{ id: "p0", pa, pb }] })!;
+      expect(t.partidos[0]).toMatchObject({ pa, pb });
+      expect(jugado(t.partidos[0])).toBe(false);
+      expect(clasificacion(t, 0).every((f) => f.pj === 0)).toBe(true);
+      const final = t.partidos.find((p) => p.r === 0)!;
+      expect(resolver(t, final.a)).toBeNull();
+      expect(resolver(t, final.b)).toBeNull();
+    }
   });
 });

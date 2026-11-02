@@ -159,11 +159,18 @@ const jsonLd = {
   .tn-campeon { padding: 10px; text-align: center; font: 900 22px "Barlow Condensed", sans-serif; text-transform: uppercase; color: #0c0c0c; background: #facc15; }
   @media print {
     @page { size: A4; margin: 12mm; }
-    html.tn-printing body * { visibility: hidden !important; }
-    html.tn-printing #tn-imprimible, html.tn-printing #tn-imprimible * { visibility: visible !important; color: #000 !important; }
-    html.tn-printing #tn-imprimible { position: absolute; left: 0; top: 0; width: 100%; }
+    html.tn-printing, html.tn-printing body { background: #fff !important; color-scheme: light; }
+    html.tn-printing body { display: block !important; min-height: 0 !important; }
+    html.tn-printing body > *:not(#main-content), html.tn-printing .app > *:not(.tn),
+    html.tn-printing .tn > *:not(#tn-app), html.tn-printing #tn-app > *:not(#tn-imprimible) { display: none !important; }
+    html.tn-printing #tn-imprimible, html.tn-printing #tn-imprimible * { color: #000 !important; }
+    html.tn-printing .tn { display: block; padding: 0; }
     html.tn-printing .tn-panel { background: #fff !important; border-color: #999 !important; break-inside: avoid; }
-    html.tn-printing .tn-cols { grid-template-columns: 1fr; }
+    html.tn-printing .tn-cols { display: block; }
+    html.tn-printing .tn-cols > .tn-panel { break-inside: auto; margin-bottom: 4mm; }
+    html.tn-printing .tn-cal > div, html.tn-printing .tn-cruce { break-inside: avoid; }
+    html.tn-printing .tn-titulo, html.tn-printing .tn-h2 { break-after: avoid; }
+    html.tn-printing .tn-cruce { background: #fff !important; border-color: #999 !important; }
     html.tn-printing .tn-res { border: 0.3mm solid #999 !important; background: #fff !important; }
   }
 </style>

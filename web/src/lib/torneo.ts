@@ -385,8 +385,8 @@ export function normalizarTorneo(raw: unknown): Torneo | null {
     for (const rp of raw.partidos) {
       if (!esObj(rp) || typeof rp.id !== "string") continue;
       const p = t.partidos.find((x) => x.id === rp.id);
-      const ok = (v: unknown) => typeof v === "number" && Number.isInteger(v) && v >= 0 && v < 1000;
-      if (p && ok(rp.pa) && ok(rp.pb)) (p.pa = rp.pa as number), (p.pb = rp.pb as number);
+      const ok = (v: unknown) => v === null || (typeof v === "number" && Number.isInteger(v) && v >= 0 && v < 1000);
+      if (p && ok(rp.pa) && ok(rp.pb)) (p.pa = rp.pa as number | null), (p.pb = rp.pb as number | null);
     }
   return t;
 }
