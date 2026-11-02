@@ -191,9 +191,7 @@ const ogImageUrl = ogImage.startsWith("http") ? ogImage : new URL(ogImage, Astro
             img.style.display = "none";
           };
           img.addEventListener("error", hide, { once: true });
-          window.setTimeout(() => {
-            if (img.naturalWidth === 0) hide();
-          }, 1800);
+          if (img.complete && img.naturalWidth === 0) hide();
         });
       };
       if (document.readyState === "loading") {
