@@ -374,7 +374,8 @@ export function montarLectorActa(o: OpcionesLector): void {
   fila.className = "acta-x";
   fila.innerHTML = `<label class="acta-sube">📷 Subir captura, foto, PDF o vídeo<input type="file" accept="image/*,application/pdf,video/*" hidden /></label>
     <span class="acta-adj" hidden></span>
-    <span class="acta-ctrlv">o pega la captura aquí con Ctrl+V</span>`;
+    <span class="acta-ctrlv">o pega la captura aquí con Ctrl+V</span>
+    <span style="flex-basis:100%">Si te pasan el vídeo por WhatsApp, pide que lo envíen como «Documento» para conservar más calidad que como vídeo normal.</span>`;
   const input = fila.querySelector("input")!;
   const adj = fila.querySelector<HTMLElement>(".acta-adj")!;
 
