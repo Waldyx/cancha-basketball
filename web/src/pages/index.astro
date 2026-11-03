@@ -40,7 +40,7 @@ const editorPick = (conDescuento.length > 0
 const conPrecio = visibles.filter(z => findMejorPrecio(z.links_compra)).sort(compareByScore);
 const sinPrecio = visibles.filter(z => !findMejorPrecio(z.links_compra)).sort(compareByScore);
 const top3 = [...conPrecio, ...sinPrecio].slice(0, 3);
-// "Trending hoy" = lista curada (tag "trending"), priorizando precio verificado y score.
+// "Selección destacada" = lista curada (tag "trending"), priorizando precio verificado y score.
 // Fallback a top por score si no hubiera suficientes etiquetadas.
 const trendingTagged = visibles
   .filter(z => (z.tags || []).includes("trending"))
@@ -139,7 +139,7 @@ const homeJsonLd = {
             </h1>
             <p class="home-lede">
               Cuéntanos cómo juegas. Te decimos las <strong>5 zapatillas</strong> que mejor encajan contigo
-              y dónde están al mejor precio. <span class="muted italic">Sin sesgo. Sin BS.</span>
+              y dónde están al mejor precio. <span class="muted italic">Criterios a la vista.</span>
             </p>
             <div class="home-cta-row">
               <a href="/quiz" class="home-btn primary">→ Empezar el quiz</a>
@@ -148,13 +148,13 @@ const homeJsonLd = {
               <a href="/rankings" class="home-btn ghost">Rankings</a>
               <a href="/comparar" class="home-btn ghost">Comparar</a>
             </div>
-            <p class="home-cta-foot">Gratis · sin registro · 100% honestos</p>
+            <p class="home-cta-foot">Gratis · sin registro</p>
           </div>
 
           <div class="home-hero-panel">
             <div class="panel-header">
               <span class="dot-pulse"></span>
-              <span>RADAR EN VIVO</span>
+              <span>EL RADAR</span>
             </div>
             <div class="panel-grid">
               <div class="stat"><div class="v">{zapatillas.length}</div><div class="k">zapas</div></div>
@@ -163,7 +163,7 @@ const homeJsonLd = {
               <div class="stat"><div class="v">100<small>%</small></div><div class="k">honesto</div></div>
             </div>
             <div class="panel-ticker">
-              <div class="ticker-label">★ Trending hoy</div>
+              <div class="ticker-label">★ Selección destacada</div>
               {trendingHero.map(z => (
                 <div class="ticker-row">
                   <span class="t-rank">{scoreOf(z)}</span>
@@ -443,5 +443,22 @@ const homeJsonLd = {
 
   <style>
     .guide-link:hover { border-color: var(--cz-accent-text) !important; color: var(--cz-accent-text) !important; }
+    .home-lede .muted,
+    .home-cta-foot,
+    .panel-header span:last-child {
+      color: #eee;
+      background: rgba(12, 12, 12, .85);
+      -webkit-box-decoration-break: clone;
+      box-decoration-break: clone;
+    }
+    .home-cta-foot { width: fit-content; }
+    .home-lede .muted,
+    .panel-header span:last-child { box-shadow: 0 0 0 2px rgba(12, 12, 12, .85); }
+    .home-cta-row .ghost { background: rgba(12, 12, 12, .85); }
+    @media (max-width: 560px) {
+      .home-cta-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .home-cta-row .primary { grid-column: 1 / -1; }
+      .home-cta-row .ghost { padding-inline: 10px; }
+    }
   </style>
 </Base>
