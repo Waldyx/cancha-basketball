@@ -7231,6 +7231,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA55064666%2F", precio_actual: 38.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+team+hustle+d+12&tag=canchazapa-21", precio_actual: 50, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
+      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fnike%2Fzapatillas-de-baloncesto-nike-team-hustle-d-12-basketball-infantil-blanco-182584.html", precio_actual: 51.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-03" },
     ],
   },
 
