@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **259 zapas (67 OCULTAS, 192 visibles) · 696 tests · 385 páginas** |
+| Tamaño | **259 zapas (70 OCULTAS, 189 visibles) · 696 tests · 385 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -81,6 +81,8 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
   cierra, los enlaces siguen funcionando pero no pagan: Amazon pasaría a «Ver precio». Desde el 22-sep los clics suben por
   un cambio de medición, no por tráfico nuevo.
 - **Amazon activos, recontados el 3-nov** (83 filas por `/dp/`: 79 leídas sin CAPTCHA, de una en una con 3,5 s de pausa, y las otras 4 ya medidas). 32 fichas con 1-3 tallas, y 25 de ellas sin otra afiliada (9 retros). El usuario decidió (3-nov) ocultar solo las actuales de 1 talla: One Take 5, Spawn 7, Zion 4, Hovr Havoc 5, Tatum 2, NXXT Gen, SKX Float, Kyrie Low 5 y Zoom Freak 4. `audit-enlaces` las listará como rescatables porque conservan el enlace: no rescatarlas sin volver a contar tallas. Siguen visibles las de 2-3 tallas (Ja 2, Stewie 4, Team Hustle D 12, Kawhi 1, Curry 10 y 11, Dame Certified) y los retros: Question Mid, Crazy 8, AJ 13, Zoom Generation, Forum 84, Pro Model, Flight Huarache, Grant Hill 2, Fila MB. Agotada en talla: la clase `a-button-unavailable` dentro del `li[data-asin]`, no en el `li`. Sin selector = anuncio de una talla. Sin precio ni carrito y sin `#outOfStock` = inconcluyente (Tatum 4). AJ 9 oculta porque su ASIN se titula «Nike Tanjun» (leído una vez): buscar compra real. El precio cambia por talla (Curry 12: 82-171 €), así que no corregir a mano lo que el scraper pisa.
+- **Generaciones viejas, regla del 3-nov**: se oculta si no es retro, hay generación nueva visible y le quedan 3 tallas o menos en su única afiliada (Curry 10, Curry 11, Kawhi 1). Excepciones: Ja 2 y Stewie 4, única afiliada de su línea, y Dame Certified, recomendada para exterior en las guías.
+- **Textos, 3-nov**: la web no promete «sin BS», «sin sesgo» ni «100 % honesto»: «sin sesgo de afiliado» era falso, porque la compra afiliada decide el catálogo. La frase válida es «La nota no depende de la comisión». Al cambiar de programa de afiliados, actualizar `financiacion.astro` y `privacidad.astro`.
 - **Búsquedas de Amazon, 3-nov**: las fichas que solo vivían de `/s?k=` devolvían otros modelos. Ocultas: Clyde All-Pro, Puma Clyde, Converse Pro Leather, Grant Hill 1, AJ 8 y GT Cut Academy 2. Repuntadas: Flow Breakthru 4, AJ 6 y Scoot Zeros (anuncio «Scoot Zeros 2k»; revisar). Al recontar Amazon, mirar también estas filas. El artículo de la Grant Hill sigue diciendo «desde 130 €».
 - **Sin compra afiliada mejor, repasado el 3-nov**: Ja 2 solo tiene 1 talla por color en FuikaOmar, Stewie 4 tiene 3 (99,90 €) y Dame Certified 1 en Atmósfera. Team Hustle D 12 ya tiene Atmósfera.
 - **Tatum 5 y Witness X** (2-nov, nota editorial 7,5 sin reseñas, peso de la X ESTIMADO): revisar cuando las reseñen.
