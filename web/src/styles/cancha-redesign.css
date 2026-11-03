@@ -2182,6 +2182,8 @@ button { font-family: inherit; cursor: pointer; }
   background: transparent; color: var(--cz-text-soft); border: 2px solid var(--cz-text-muted);
 }
 .home-btn.ghost:hover { color: var(--cz-accent-text); border-color: var(--cz-accent-text); }
+/* El texto lleva el nombre de la categoría: a 375 px no cabe en una línea. */
+.seo-see-all .home-btn { white-space: normal; max-width: 100%; text-align: center; }
 .home-cta-foot {
   margin-top: 18px; font-size: 10px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 0.18em; 
