@@ -906,7 +906,7 @@ export const SEO_PAGES: SeoPage[] = [
       { q: "¿Qué diferencia hay entre MB.04 y MB.05?",
         a: "En nuestra ficha la MB.05 gana en tracción y respuesta, y empatan en amortiguación. La MB.04 es mid y sujeta algo más el tobillo. Para guards rápidos: MB.05. Si quieres más sujeción: MB.04." },
       { q: "¿Dónde comprar Puma baloncesto en España?",
-        a: "En nuestro catálogo, la línea MB se compra sobre todo en Amazon ES (MB.03, MB.04, MB.05), FuikaOmar (MB.05) y Puma.com (MB.06). Mira la ficha de cada modelo para el stock de hoy." },
+        a: "En nuestro catálogo, la línea MB se compra sobre todo en Amazon ES (MB.04, MB.05), FuikaOmar (MB.05) y Puma.com (MB.06). Mira la ficha de cada modelo para el stock de hoy." },
     ],
   }),
 

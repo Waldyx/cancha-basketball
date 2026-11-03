@@ -2840,6 +2840,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [],
     ultima_actualizacion: "2026-05-15",
+    oculto: true,
     precio_msrp_eur: 130,
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA57296268%2F", precio_actual: 90.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
@@ -2904,6 +2905,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/puma-mb-03-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true,
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D68TPZC8?tag=canchazapa-21", precio_actual: 271.61, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: la búsqueda resolvía a esta ficha: reventa, un solo vendedor externo
