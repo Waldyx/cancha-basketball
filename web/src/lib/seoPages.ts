@@ -720,7 +720,7 @@ export const SEO_PAGES: SeoPage[] = [
     points: [
       { lab: "Tatum = equilibrada", body: "Cushion, respuesta y soporte altos y parejos; su punto flojo es la durabilidad en exterior." },
       { lab: "Luka = cushion grande", body: "Pensada para Luka, lo que significa: jugadores potentes >85kg con cushion alto." },
-      { lab: "Zion = para los más físicos", body: "La Zion 4 es la que mejor encaja (cushion y estabilidad altos); la Zion 3 se queda corta en estabilidad. Ambas son estrechas y pesadas." },
+      { lab: "Zion = para los más físicos", body: "La Zion 3 está pensada para jugadores físicos, pero se queda corta en estabilidad y es estrecha. Si buscas lo mismo con más apoyo, mira la Luka 4." },
       { lab: "Precio relativo", body: "Las Jordan performance cuestan parecido a las Nike signature equivalentes." },
     ],
     faqs: [
@@ -729,7 +729,7 @@ export const SEO_PAGES: SeoPage[] = [
       { q: "¿Vale la pena Jordan vs Nike?",
         a: "Jordan y Nike cuestan parecido en la gama signature. La Tatum 3 y la Sabrina 2 son ambas equilibradas: la Tatum 3 da algo más de cushion y la Sabrina 2 más respuesta y ligereza." },
       { q: "¿Mejor Jordan para pívots?",
-        a: "Jordan Zion 4. Cushion y estabilidad altos para jugadores físicos, aunque es pesada y de horma estrecha." },
+        a: "Jordan Luka 4. Cushion, estabilidad y soporte altos para jugadores físicos, con horma normal." },
     ],
   }),
 
@@ -779,7 +779,7 @@ export const SEO_PAGES: SeoPage[] = [
       { q: "¿Merece la pena Under Armour para baloncesto?",
         a: "Sí, especialmente si eres guard o escolta. Las Curry 12 y 13 tienen un court feel de los mejores del mercado, junto a la Kobe Protro. Si priorizas respuesta, UA es la apuesta. Eso sí, la Curry 13 es la última de la línea: UA y Steph Curry se separaron en 2025, así que el catálogo Curry deja de renovarse." },
       { q: "¿Cuánto cuestan las Curry en España?",
-        a: "El precio actual de la UA Curry 13 está en su ficha, con las tiendas que la tienen. Las versiones anteriores (Curry 11, 12) suelen aparecer en outlet con descuento. Muy buen valor." },
+        a: "El precio actual de la UA Curry 13 está en su ficha, con las tiendas que la tienen. Las versiones anteriores, como la Curry 12, suelen aparecer en outlet con descuento. Muy buen valor." },
       { q: "¿UA Flow se puede usar en exterior?",
         a: "Poco tiempo. La UA Flow sin goma adicional se desgasta rápido en outdoor. Úsalas solo en pista cubierta." },
     ],
@@ -880,7 +880,7 @@ export const SEO_PAGES: SeoPage[] = [
     faqs: [
       { q: "¿Cuáles son las mejores zapatillas retro de baloncesto para jugar?", a: "La Air Jordan 11 (Air de longitud completa) es de las clásicas más jugables, y para estilos menos explosivos la Reebok Question Mid de Iverson aguanta bien. Si quieres aspecto clásico con tecnología actual, mira las Kobe Protro: Nike las actualizó y por eso las contamos como modernas." },
       { q: "¿Son las Air Jordan retro buenas para jugar baloncesto?", a: "Depende de la generación. La Jordan 11 tiene un Air de longitud completa; es jugable aunque pesada. Las Jordan 1, 2, 3 y 4 son principalmente colección — cuero rígido, cushion básico y peso elevado. Si quieres aspecto clásico con amortiguación actual, las Kobe Protro de Nike la llevan." },
-      { q: "¿Cuánto cuestan las zapatillas retro de baloncesto en España?", a: "Las retros más accesibles son la Converse Chuck Taylor (~75€) y el Puma Clyde (~80€). Las Jordan retro tienen un precio oficial de unos 180€ (Jordan 1) a 220€ (Jordan 11). Busca en KicksCrew y Amazon ES para precios competitivos." },
+      { q: "¿Cuánto cuestan las zapatillas retro de baloncesto en España?", a: "La retro más accesible es la Converse Chuck Taylor (~75€). Las Jordan retro tienen un precio oficial de unos 180€ (Jordan 1) a 220€ (Jordan 11). Busca en KicksCrew y Amazon ES para precios competitivos." },
     ],
     related: [],
     catalogQuery: "?retro=true",
@@ -1026,7 +1026,7 @@ export const SEO_PAGES: SeoPage[] = [
     faqs: [
       { q: "¿Las zapatillas FILA son buenas para jugar baloncesto?", a: "Los retros FILA (Grant Hill 1, etc.) funcionan para baloncesto recreativo en interior. La tracción herringbone es sólida en parqué limpio y el soporte de tobillo del caño alto es real. No son para rendimiento de alto nivel o exterior — para eso, las zapatillas técnicas de 2025 las superan claramente en cushion y respuesta." },
       { q: "¿Por qué FILA ya no está en el baloncesto de rendimiento?", a: "Tras Grant Hill, FILA no encontró otro jugador con el mismo impacto cultural. Hill acabó fichando por adidas y después por Nike. FILA viró hacia el lifestyle y el tenis, donde su herencia italiana tiene más peso. Hoy su presencia en baloncesto performance es casi nula." },
-      { q: "¿Dónde comprar retros FILA en España?", a: "Amazon ES tiene habitualmente stock de la Grant Hill 1 reedición. FILA.com también tiene el catálogo oficial con envío a España. Para tallas o colorways específicos, KicksCrew tiene buena disponibilidad con envío internacional." },
+      { q: "¿Dónde comprar retros FILA en España?", a: "Hay poco stock: en Amazon ES quedan pocas tallas de la Grant Hill 2 y la FILA MB, y la Grant Hill 1 no la hemos encontrado. Mira las fichas antes de contar con tu talla." },
     ],
   }),
 
