@@ -7841,6 +7841,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/new-balance-kawhi-performance-review/" }],
     ultima_actualizacion: "2026-05-18",
+    oculto: true,
     precio_msrp_eur: 150,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BM3JSRHX?tag=canchazapa-21", precio_actual: 277.89, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // s52 21-sep: era una busqueda (286,70 EUR era de otra tarjeta); ficha real "New Balance Kawhi 1 - Zapatos para hombre", con add-to-cart-button, 185,80 EUR = 1,24x MSRP // 21-oct: sin buybox: solo un vendedor externo (reventa)
@@ -9422,6 +9423,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/under-armour-curry-11/" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true,
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CMK2W8HH?tag=canchazapa-21", precio_actual: 95, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" }, // s52 21-sep: era una busqueda; ficha real "Under Armour Curry 11 Domaine - Tenis para hombre", con add-to-cart-button, 95,00 EUR
@@ -14111,6 +14113,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/under-armour-curry-10/" },
     ],
     ultima_actualizacion: "2026-06-02",
+    oculto: true,
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/6952597cc263e701ec4f1b2d?variant_id=6952597cc263e7c3ec4f1b30", precio_actual: 81, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
