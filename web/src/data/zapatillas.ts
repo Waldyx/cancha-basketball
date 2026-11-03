@@ -1153,6 +1153,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/nike-kyrie-low-5/" },
     ],
     ultima_actualizacion: "2026-05-13",
+    oculto: true,
     precio_msrp_eur: 120,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CRRVDBK6?tag=canchazapa-21", precio_actual: 197, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // s52 21-sep: era una busqueda; ficha real "Nike Kyrie Low 5 - Zapatos para hombre", Departamento Hombre, con add-to-cart-button, 197,00 EUR = 1,64x MSRP
@@ -2288,6 +2289,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/jordan-one-take-5-review/" },
     ],
     ultima_actualizacion: "2026-05-13",
+    oculto: true,
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DMGMF5S8?tag=canchazapa-21", precio_actual: 87.97, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: el color de antes (B0DMGYGDCX) se agotó; FD2335 blanco/azul, 13 tallas con carrito
@@ -2718,6 +2720,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/nike-zoom-freak-4-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true,
     precio_msrp_eur: 140, // tarifa europea (sneakerjagers, DO9680-500). Antes 110 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BSVL687Q?tag=canchazapa-21", precio_actual: 188.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
@@ -4924,6 +4927,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "evaluacion-propia" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true,
 
     precio_msrp_eur: 120,
     links_compra: [
@@ -6331,6 +6335,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/jordan-zion-4/" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true,
 
     precio_msrp_eur: 149.99,
     links_compra: [
@@ -8109,6 +8114,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "evaluacion-propia" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true,
     precio_msrp_eur: 110,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0C2FZD6Y6?tag=canchazapa-21", precio_actual: 343.76, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: Amazon ya no la vende; solo 2 vendedores externos (343,76 y 424 €) = reventa → la web enseña el MSRP
@@ -9073,6 +9079,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/jordan-tatum-2-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true,
     precio_msrp_eur: 130, // tarifa europea (sneakerjagers, FJ6457-300 «Vortex»). Antes 155 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=jordan+tatum+2+baloncesto&tag=canchazapa-21", precio_actual: 110, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
@@ -9240,6 +9247,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/nike-lebron-nxxt-gen-ampd-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true,
     precio_msrp_eur: 170, // tarifa europea (sneakerjagers, DR8784-301 y FJ1566-102). Antes 200 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/Nike-Lebron-NXXT-Gen-baloncesto/dp/B0CRNL24GY?tag=canchazapa-21", precio_actual: 216.82, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
@@ -15445,6 +15453,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-09",
+    oculto: true,
     precio_msrp_eur: 155,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DC5JHFF5?tag=canchazapa-21", precio_actual: 92.7, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: SKX FLOAT-253000, cordones, «Caña media», en stock

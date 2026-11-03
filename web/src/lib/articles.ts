@@ -3726,7 +3726,6 @@ export const ARTICLES: Article[] = [
   <li><a href="/zapatilla/lining-wow-12">Way of Wade 12</a> placa de carbono vista y materiales aeroespaciales. Puro estatus.</li>
   <li><a href="/zapatilla/rigorer-ar3">Rigorer AR3</a> perfil bajo, traccion extrema en interior y estetica cuidada.</li>
   <li><a href="/zapatilla/361-joker-1">361 Joker 1</a> el modelo del MVP Nikola Jokic. Estabilidad y precio competitivo.</li>
-  <li><a href="/zapatilla/skechers-skx-float">Skechers SKX Float</a> amortiguacion Hyper Burst, pensada para proteger rodillas.</li>
 </ul>
 <h2>Rendimiento especializado y volumen</h2>
 <ul>
