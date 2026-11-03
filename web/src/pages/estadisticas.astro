@@ -286,11 +286,11 @@ import "../styles/cancha-redesign.css";
   </main>
 
   <script>
-    import { calcLinea, fusionarJugador } from "../lib/statsEquipo";
+    import { calcLinea, fusionarJugador, resumenMetricas, intentosConocidos, type PartidoJugador } from "../lib/statsEquipo";
     import { montarLectorActa } from "../lib/actaImportUI";
     import { initEquipo, montarAvisoCopia, marcarCopia, refrescarAvisos } from "../scripts/statsEquipoUI";
     // ─── tipos + accesor DOM (script cliente; tipado para astro check) ───
-    interface Game { fecha: string; rival: string; res: string; min: number; t2c: number; t2i: number; t3c: number; t3i: number; tlc: number; tli: number; ro: number; rd: number; ast: number; rob: number; tap: number; per: number; fal: number; }
+    type Game = PartidoJugador;
     interface Perfil { nombre: string; posicion: string; }
     interface Meta { id: string; target: number; }
     interface Insight { tone: string; icon: string; titulo: string; texto: string; }
@@ -336,10 +336,8 @@ import "../styles/cancha-redesign.css";
       if (!n) return null;
       const sum = (f: (g: Game) => number) => games.reduce((a: number, g: Game) => a + f(g), 0);
       const pts = sum((g) => 2 * g.t2c + 3 * g.t3c + g.tlc);
-      const fgm = sum((g) => g.t2c + g.t3c), fga = sum((g) => g.t2i + g.t3i);
       const tlc = sum((g) => g.tlc), tli = sum((g) => g.tli);
-      const t3c = sum((g) => g.t3c), t3i = sum((g) => g.t3i);
-      const tsa = fga + 0.44 * tli;
+      const m = resumenMetricas(games);
       return {
         n, pts,
         ppg: pts / n,
@@ -349,13 +347,13 @@ import "../styles/cancha-redesign.css";
         fpg: sum((g) => g.fal) / n,
         perTot: sum((g) => g.per),
         astTot: sum((g) => g.ast),
-        ts: tsa > 0 ? (pts / (2 * tsa)) * 100 : null,
-        efg: fga > 0 ? ((fgm + 0.5 * t3c) / fga) * 100 : null,
+        ts: m.ts,
+        efg: m.efg,
         tlPct: tli > 0 ? (tlc / tli) * 100 : null,
         tliPg: tli / n,
-        t3Pct: t3i > 0 ? (t3c / t3i) * 100 : null,
-        t3iTot: t3i, tliTot: tli,
-        valAvg: games.reduce((a: number, g: Game) => a + calcGame(g).val, 0) / n,
+        t3Pct: m.t3Pct,
+        t3iTot: m.t3i, tliTot: tli,
+        valAvg: m.valMedia, conIntentos: m.n,
       };
     };
 
@@ -369,7 +367,7 @@ import "../styles/cancha-redesign.css";
         pts: argmax((x: WC) => x.d.pts),
         reb: argmax((x: WC) => x.d.reb),
         ast: argmax((x: WC) => x.g.ast),
-        val: argmax((x: WC) => x.d.val),
+        val: wc.filter((x) => x.d.val != null).sort((a, b) => b.d.val! - a.d.val!)[0] ?? null,
       };
       const byRes = (res: string) => {
         const arr = wc.filter((x: WC) => x.g.res === res);
@@ -377,7 +375,7 @@ import "../styles/cancha-redesign.css";
         return {
           n: arr.length,
           ppg: arr.reduce((a: number, x: WC) => a + x.d.pts, 0) / arr.length,
-          valAvg: arr.reduce((a: number, x: WC) => a + x.d.val, 0) / arr.length,
+          valAvg: resumenMetricas(arr.map((x) => x.g)).valMedia,
         };
       };
       const rivalMap: Record<string, WC[]> = {};
@@ -390,9 +388,9 @@ import "../styles/cancha-redesign.css";
           rival, n, balance: `${v}-${d}`,
           ppg: arr.reduce((a: number, x: WC) => a + x.d.pts, 0) / n,
           apg: arr.reduce((a: number, x: WC) => a + x.g.ast, 0) / n,
-          valAvg: arr.reduce((a: number, x: WC) => a + x.d.val, 0) / n,
+          valAvg: resumenMetricas(arr.map((x) => x.g)).valMedia,
         };
-      }).sort((a, b) => b.n - a.n || b.valAvg - a.valAvg);
+      }).sort((a, b) => b.n - a.n || (b.valAvg ?? -Infinity) - (a.valAvg ?? -Infinity));
       return { records, wins: byRes("V"), losses: byRes("D"), byRival };
     };
 
@@ -438,9 +436,9 @@ import "../styles/cancha-redesign.css";
       // Faltas
       if (s.fpg >= 3.5) push("warn", "🖐️", `${s.fpg.toFixed(1)} faltas / partido`, "Vives al borde de la eliminación. Trabaja la posición defensiva para defender con piernas, no con manos.");
       // Tendencia (últimos 3 vs temporada)
-      if (s.n >= 5) {
+      if (s.n >= 5 && s.valAvg != null && games.slice(-3).every(intentosConocidos)) {
         const last3 = games.slice(-3);
-        const v3 = last3.reduce((a: number, g: Game) => a + calcGame(g).val, 0) / 3;
+        const v3 = resumenMetricas(last3).valMedia!;
         if (s.valAvg > 0 && v3 >= s.valAvg * 1.15) push("good", "📈", "Racha al alza", `Tu valoración media en los últimos 3 partidos (${v3.toFixed(1)}) supera claramente tu media de temporada (${s.valAvg.toFixed(1)}). Sigue con lo que estás haciendo.`);
         else if (s.valAvg > 0 && v3 <= s.valAvg * 0.85) push("warn", "📉", "Bajón reciente", `Tus últimos 3 partidos (VAL ${v3.toFixed(1)}) están por debajo de tu media (${s.valAvg.toFixed(1)}). Revisa descanso, minutos y molestias antes de forzar.`);
       }
@@ -469,10 +467,10 @@ import "../styles/cancha-redesign.css";
     // ─────────────────────── gráfico ─────────────────────────
     const CHART_COLOR = "#ea580c"; // validado sobre superficie oscura
     type GameCalc = ReturnType<typeof calcGame>;
-    const METRICS: Record<string, { label: string; get: (d: GameCalc) => number; fmt: (v: number) => string }> = {
+    const METRICS: Record<string, { label: string; get: (d: GameCalc) => number | null; fmt: (v: number) => string }> = {
       pts: { label: "Puntos", get: (d) => d.pts, fmt: (v) => String(Math.round(v)) },
       val: { label: "Valoración", get: (d) => d.val, fmt: (v) => v.toFixed(0) },
-      ts:  { label: "TS%", get: (d) => d.ts ?? 0, fmt: (v) => v.toFixed(1) + "%" },
+      ts:  { label: "TS%", get: (d) => d.ts, fmt: (v) => v.toFixed(1) + "%" },
     };
     let currentMetric = "pts";
     let chartPoints: { x: number; y: number; g: Game; value: number }[] = []; // para el hover
@@ -487,14 +485,16 @@ import "../styles/cancha-redesign.css";
       empty.classList.add("hidden"); svg.style.display = "block";
 
       const M = METRICS[currentMetric];
-      const data = games.map((g: Game) => ({ g, value: M.get(calcGame(g)) }));
+      const data = games.map((g: Game, i) => ({ g, i, value: M.get(calcGame(g)) }))
+        .filter((d): d is { g: Game; i: number; value: number } => d.value != null);
+      if (!data.length) { empty.textContent = "sin dato"; empty.classList.remove("hidden"); svg.style.display = "none"; return; }
       const W = 720, H = 260, padL = 44, padR = 52, padT = 16, padB = 30;
       const iw = W - padL - padR, ih = H - padT - padB;
       let lo = Math.min(0, ...data.map((d) => d.value));
       let hi = Math.max(...data.map((d) => d.value), 1);
       const span = hi - lo || 1;
       hi += span * 0.08;
-      const x = (i: number) => padL + (data.length === 1 ? iw / 2 : (i / (data.length - 1)) * iw);
+      const x = (i: number) => padL + (games.length === 1 ? iw / 2 : (i / (games.length - 1)) * iw);
       const y = (v: number) => padT + ih - ((v - lo) / (hi - lo)) * ih;
       const NS = "http://www.w3.org/2000/svg";
       const el = (tag: string, attrs: Record<string, string | number>) => {
@@ -517,28 +517,28 @@ import "../styles/cancha-redesign.css";
       if (lo < 0) svg.appendChild(el("line", { x1: padL, x2: W - padR, y1: y(0), y2: y(0), stroke: "rgba(var(--cz-wm-rgb),0.18)", "stroke-width": 1 }));
 
       // línea de la serie
-      const path = data.map((d, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(d.value).toFixed(1)}`).join(" ");
+      const path = data.map((d, i) => `${i ? "L" : "M"}${x(d.i).toFixed(1)},${y(d.value).toFixed(1)}`).join(" ");
       svg.appendChild(el("path", { d: path, fill: "none", stroke: CHART_COLOR, "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }));
 
       // marcadores con anillo del color de la superficie
       data.forEach((d, i) => {
-        const cx = x(i), cy = y(d.value);
+        const cx = x(d.i), cy = y(d.value);
         svg.appendChild(el("circle", { cx, cy, r: 4, fill: CHART_COLOR, stroke: "var(--cz-card)", "stroke-width": 2 }));
         chartPoints.push({ x: cx, y: cy, g: d.g, value: d.value });
       });
 
       // etiquetas eje X (J1, J2… cada n para no saturar)
       const step = Math.max(1, Math.ceil(data.length / 8));
-      data.forEach((_d, i) => {
+      data.forEach((d, i) => {
         if (i % step !== 0 && i !== data.length - 1) return;
-        const lbl = el("text", { x: x(i), y: H - 10, "text-anchor": "middle", fill: "var(--cz-fg4)", "font-size": 10, "font-family": "Inter, sans-serif" });
-        lbl.textContent = "J" + (i + 1);
+        const lbl = el("text", { x: x(d.i), y: H - 10, "text-anchor": "middle", fill: "var(--cz-fg4)", "font-size": 10, "font-family": "Inter, sans-serif" });
+        lbl.textContent = "J" + (d.i + 1);
         svg.appendChild(lbl);
       });
 
       // etiqueta directa en el último punto (texto en token de texto, no en color de serie)
       const lastI = data.length - 1;
-      const dl = el("text", { x: x(lastI) + 9, y: y(data[lastI].value) + 4, fill: "var(--cz-fg2)", "font-size": 12, "font-weight": "700", "font-family": "Inter, sans-serif" });
+      const dl = el("text", { x: x(data[lastI].i) + 9, y: y(data[lastI].value) + 4, fill: "var(--cz-fg2)", "font-size": 12, "font-weight": "700", "font-family": "Inter, sans-serif" });
       dl.textContent = M.fmt(data[lastI].value);
       svg.appendChild(dl);
     };
@@ -578,7 +578,7 @@ import "../styles/cancha-redesign.css";
     // ─────────────────────── render ──────────────────────────
     const ESC_MAP: Record<string, string> = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
     const esc = (s: unknown) => String(s).replace(/[&<>"']/g, (c) => ESC_MAP[c] ?? c);
-    const fmt1 = (v: number | null | undefined) => (v == null ? "—" : v.toFixed(1));
+    const fmt1 = (v: number | null | undefined) => (v == null ? "sin dato" : v.toFixed(1));
 
     const render = () => {
       const games = state.partidos;
@@ -588,8 +588,9 @@ import "../styles/cancha-redesign.css";
       $("t-reb").textContent = s ? fmt1(s.rpg) : "—";
       $("t-ast").textContent = s ? fmt1(s.apg) : "—";
       $("t-val").textContent = s ? fmt1(s.valAvg) : "—";
-      $("t-ts").textContent = s && s.ts != null ? s.ts.toFixed(1) + "%" : "—";
-      $("t-efg").textContent = s && s.efg != null ? s.efg.toFixed(1) + "%" : "—";
+      $("t-ts").textContent = s && s.ts != null ? s.ts.toFixed(1) + "%" : "sin dato";
+      $("t-efg").textContent = s && s.efg != null ? s.efg.toFixed(1) + "%" : "sin dato";
+      for (const id of ["t-ts", "t-efg", "t-val"]) $(id).title = s ? `Intentos conocidos en ${s.conIntentos} de ${s.n} partidos` : "sin dato";
 
       // tabla
       const tbody = $("st-tbody");
@@ -601,8 +602,8 @@ import "../styles/cancha-redesign.css";
           <td>${g.res === "V" ? '<span class="st-w">V</span>' : g.res === "D" ? '<span class="st-l">D</span>' : "—"}</td>
           <td>${g.min}</td>
           <td><strong>${d.pts}</strong></td>
-          <td>${g.t2c}/${g.t2i}</td>
-          <td>${g.t3c}/${g.t3i}</td>
+          <td>${g.t2c}/${intentosConocidos(g) ? g.t2i : "?"}</td>
+          <td>${g.t3c}/${intentosConocidos(g) ? g.t3i : "?"}</td>
           <td>${g.tlc}/${g.tli}</td>
           <td>${d.reb}</td>
           <td>${g.ast}</td>
@@ -610,8 +611,8 @@ import "../styles/cancha-redesign.css";
           <td>${g.tap}</td>
           <td>${g.per}</td>
           <td>${g.fal}</td>
-          <td>${d.ts == null ? "—" : d.ts.toFixed(0) + "%"}</td>
-          <td><strong>${d.val}</strong></td>
+          <td>${d.ts == null ? "sin dato" : d.ts.toFixed(0) + "%"}</td>
+          <td><strong>${d.val ?? "sin dato"}</strong></td>
           <td><button class="st-del" data-i="${i}" aria-label="Borrar partido" title="Borrar">✕</button></td>
         </tr>`;
       }).join("");
@@ -648,6 +649,7 @@ import "../styles/cancha-redesign.css";
       if (!sp) { panel.classList.add("hidden"); box.innerHTML = ""; return; }
       panel.classList.remove("hidden");
       const rec = (r: any, label: { v: number | string; t: string }) => {
+        if (!r) return `<div class="st-rec"><strong>sin dato</strong><span class="st-rec-lbl">${label.t}</span></div>`;
         const via = r.g.rival ? `vs ${esc(r.g.rival)}` : (r.g.fecha || "");
         return `<div class="st-rec"><strong>${label.v}</strong><span class="st-rec-lbl">${label.t}</span><span class="st-rec-via">${via}</span></div>`;
       };
@@ -656,7 +658,7 @@ import "../styles/cancha-redesign.css";
         rec(sp.records.pts, { v: sp.records.pts.d.pts, t: "máx. puntos" }) +
         rec(sp.records.reb, { v: sp.records.reb.d.reb, t: "máx. rebotes" }) +
         rec(sp.records.ast, { v: sp.records.ast.g.ast, t: "máx. asistencias" }) +
-        rec(sp.records.val, { v: sp.records.val.d.val, t: "máx. valoración" }) +
+        rec(sp.records.val, { v: sp.records.val?.d.val ?? "sin dato", t: "máx. valoración" }) +
         `</div>`;
       let vd = "";
       if (sp.wins && sp.losses) {
@@ -832,8 +834,8 @@ import "../styles/cancha-redesign.css";
       // fila de 3 secundarias
       const sy = ty + 2 * (th + gap) + 8, sw = (W - P * 2 - gap * 2) / 3, sh = 150;
       const smallTiles = [
-        [s.ts == null ? "—" : fmt1(s.ts) + "%", "TS% (TIRO REAL)"],
-        [s.efg == null ? "—" : fmt1(s.efg) + "%", "eFG%"],
+        [s.ts == null ? "sin dato" : fmt1(s.ts) + "%", "TS% (TIRO REAL)"],
+        [s.efg == null ? "sin dato" : fmt1(s.efg) + "%", "eFG%"],
         [String(best || 0), "SU MEJOR PARTIDO (PTS)"],
       ];
       smallTiles.forEach((t: string[], i: number) => {
@@ -880,6 +882,8 @@ import "../styles/cancha-redesign.css";
       return Number.isFinite(v) && v >= 0 ? v : 0;
     };
     $("f-fecha").value = new Date().toISOString().slice(0, 10);
+    let tcFormulario = true;
+    for (const id of ["f-t2i", "f-t3i"]) $(id).addEventListener("input", () => { tcFormulario = true; });
 
     $("st-form").addEventListener("submit", (ev: Event) => {
       ev.preventDefault();
@@ -887,6 +891,7 @@ import "../styles/cancha-redesign.css";
         fecha: $("f-fecha").value,
         rival: $("f-rival").value.trim(),
         res: $("f-res").value,
+        tcConocidos: tcFormulario,
         min: num("f-min"),
         t2c: num("f-t2c"), t2i: num("f-t2i"),
         t3c: num("f-t3c"), t3i: num("f-t3i"),
@@ -905,6 +910,7 @@ import "../styles/cancha-redesign.css";
       state.partidos.push(g);
       state.partidos.sort((a: Game, b: Game) => (a.fecha < b.fecha ? -1 : a.fecha > b.fecha ? 1 : 0));
       save(); render();
+      tcFormulario = true;
       // reset de contadores (fecha y rival se mantienen para tandas de carga)
       ["f-t2c","f-t2i","f-t3c","f-t3i","f-tlc","f-tli","f-ro","f-rd","f-ast","f-rob","f-tap","f-per","f-fal"].forEach((id: string) => {
         $(id).value = "0";
@@ -918,6 +924,7 @@ import "../styles/cancha-redesign.css";
     const febFail = (msg: string) => { febError.textContent = msg; febError.classList.remove("hidden"); febResult.classList.add("hidden"); };
 
     const fillFromFeb = (j: any, meta: { fecha?: string; rival: string; res: string }, source?: string) => {
+      tcFormulario = intentosConocidos(j);
       const set = (id: string, v: unknown) => { $(id).value = String(v); };
       set("f-fecha", meta.fecha || new Date().toISOString().slice(0, 10));
       set("f-rival", meta.rival);
@@ -964,7 +971,7 @@ import "../styles/cancha-redesign.css";
           btn.addEventListener("click", () => {
             const ti = Number(btn.dataset.t), ji = Number(btn.dataset.j);
             const own = d.equipos[ti], other = d.equipos[1 - ti];
-            fillFromFeb(own.jugadores[ji], { fecha: d.fecha, rival: other.nombre, res: resFor(own, other) });
+            fillFromFeb({ ...own.jugadores[ji], tcConocidos: own.jugadores.some((l: Game) => l.t2i > l.t2c || l.t3i > l.t3c) }, { fecha: d.fecha, rival: other.nombre, res: resFor(own, other) });
           });
         });
       } catch {
@@ -1007,7 +1014,7 @@ import "../styles/cancha-redesign.css";
             const ti = Number(btn.dataset.t);
             const own = acta.equipos[ti], other = acta.equipos[1 - ti];
             const res = other && own.pts !== null && other.pts !== null ? (own.pts > other.pts ? "V" : own.pts < other.pts ? "D" : "") : "";
-            fillFromFeb(own.jugadores[Number(btn.dataset.j)], { fecha: acta.fecha || new Date().toISOString().slice(0, 10), rival: other?.nombre ?? "", res }, "paste");
+            fillFromFeb({ ...own.jugadores[Number(btn.dataset.j)], tcConocidos: own.jugadores.some((l) => l.t2i > l.t2c || l.t3i > l.t3c) }, { fecha: acta.fecha || new Date().toISOString().slice(0, 10), rival: other?.nombre ?? "", res }, "paste");
           });
         });
       },
@@ -1256,7 +1263,7 @@ import "../styles/cancha-redesign.css";
     .st-vd-h { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--cz-text-muted); margin-bottom: 6px; }
     .st-vd-col strong { font-family: "Barlow Condensed", sans-serif; font-weight: 900; font-size: 28px; color: var(--cz-text); }
     .st-vd-col em { font-style: normal; font-size: 13px; color: var(--cz-text-2); margin-left: 8px; }
-    .st-rival-wrap { overflow-x: auto; }
+    .st-rival-wrap { overflow-x: auto; position: relative; }
     .st-rival-table th, .st-rival-table td { white-space: nowrap; }
     /* objetivos */
     .st-metas { margin-bottom: 20px; }
@@ -1348,7 +1355,7 @@ import "../styles/cancha-redesign.css";
     .st-insight p { font-size: 13px; color: var(--cz-text-2); line-height: 1.5; margin: 0; }
     .st-insight p :global(a) { color: var(--cz-accent-text); text-decoration: underline; }
     /* tabla */
-    .st-table-wrap { overflow-x: auto; }
+    .st-table-wrap { overflow-x: auto; position: relative; }
     .st-table { width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
     .st-table th {
       text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em;

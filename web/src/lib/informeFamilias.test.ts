@@ -35,6 +35,14 @@ function equipo(): Equipo {
 }
 
 describe("informe para las familias", () => {
+  it("no inventa una tendencia de VAL si faltan intentos de campo", () => {
+    const eq = equipo();
+    eq.partidos.forEach((p) => p.lineas.forEach((l) => { l.tcConocidos = false; }));
+    const inf = informeJugador(eq, "marc")!;
+    expect(inf.mejora).toBe(false);
+    expect(inf.mejor?.pts).toBe(12);
+    expect(inf.puntosFuertes.join(" ")).not.toMatch(/ha ido a más/i);
+  });
   it("resume la temporada del jugador y su mejor partido", () => {
     const inf = informeJugador(equipo(), "laia")!;
     expect(inf).toMatchObject({ nombre: "Laia", pj: 4, partidosEquipo: 4 });

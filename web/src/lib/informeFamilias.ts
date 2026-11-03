@@ -4,7 +4,7 @@
 // puntos fuertes, la tendencia solo aparece si es buena y nunca se compara con un compañero por
 // su nombre. Lógica pura.
 
-import { calcLinea, partidosDeJugador, type Equipo } from "./statsEquipo";
+import { calcLinea, intentosConocidos, partidosDeJugador, type Equipo } from "./statsEquipo";
 
 export interface InformeJugador {
   jid: string;
@@ -52,6 +52,7 @@ export function informeJugador(eq: Equipo, jid: string): InformeJugador | null {
   const vals: number[] = [];
   let mejor: InformeJugador["mejor"] = null;
   let mejorVal = -Infinity;
+  const valoracionCompleta = ps.every(intentosConocidos);
   for (const p of ps) {
     const c = calcLinea(p);
     tot.min += p.min;
@@ -67,9 +68,10 @@ export function informeJugador(eq: Equipo, jid: string): InformeJugador | null {
     tot.tlc += p.tlc;
     tot.tli += p.tli;
     serie.push(c.pts);
-    vals.push(c.val);
-    if (c.val > mejorVal) {
-      mejorVal = c.val;
+    if (c.val != null) vals.push(c.val);
+    const valorMejor = valoracionCompleta ? c.val! : c.pts;
+    if (valorMejor > mejorVal) {
+      mejorVal = valorMejor;
       mejor = { fecha: p.fecha, rival: p.rival, pts: c.pts, reb: c.reb, ast: p.ast };
     }
   }
@@ -78,7 +80,7 @@ export function informeJugador(eq: Equipo, jid: string): InformeJugador | null {
 
   // ¿ha ido a más? Solo con partidos suficientes, y solo se dice si es así.
   let mejora = false;
-  if (pj >= 4) {
+  if (pj >= 4 && valoracionCompleta) {
     const mitad = Math.floor(pj / 2);
     const media = (xs: number[]) => xs.reduce((a, b) => a + b, 0) / xs.length;
     mejora = media(vals.slice(pj - mitad)) - media(vals.slice(0, mitad)) >= 2;

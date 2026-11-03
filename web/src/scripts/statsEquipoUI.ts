@@ -7,7 +7,7 @@ import {
   archivoCopia, archivoEquipo, balance, calcLinea, codificarEnlace, csvTemporada, decodificarEnlace, emparejar, equipoSoloPartido, esArchivoCopia, mostrarAvisoCopia, recordatorioCopia, restaurarCopia, textoUltimaCopia,
   fechaCorta, fusionar, jugo, leerArchivoEquipo, lideres, lineaVacia, mejoresDelPartido, normalizarStore, ordenarTabla,
   parsePlantilla, partidosDeJugador, partidosOrdenados, puntosPropios, resultado, serieMarcadores,
-  sumaLineas, tablaTemporada, textoPartido, tokenDeHash, uid, urlEnlace, valorColumna,
+  sumaLineas, tablaTemporada, textoPartido, tokenDeHash, uid, urlEnlace, valorColumna, intentosConocidos, lineasConContexto,
 } from "../lib/statsEquipo";
 import { montarLectorActa } from "../lib/actaImportUI";
 import { equipoDelRival, type ActaFeb } from "../lib/informeRival";
@@ -251,6 +251,7 @@ export function initEquipo(host: HostJugador) {
     return jug.map((j, i) => {
       const l = lineaVacia();
       for (const k of LINEA_KEYS) l[k] = Math.max(0, Math.min(k === "min" ? 99 : 999, parseInt(j[k], 10) || 0));
+      if (typeof j.tcConocidos === "boolean") l.tcConocidos = j.tcConocidos;
       return { key: rowKey++, imp: true, dorsal: String(j.dorsal ?? ""), nombre: String(j.nombre ?? ""), asign: emp[i] ?? "__new", l };
     });
   };
@@ -389,7 +390,7 @@ export function initEquipo(host: HostJugador) {
         if (ya) jid = ya.id;
         else { jid = uid(); e.jugadores.push({ id: jid, dorsal: r.dorsal.replace(/\D/g, "").slice(0, 3), nombre: (r.nombre || "Jugador").slice(0, 40) }); }
       }
-      lineas.push({ jid, ...r.l });
+      lineas.push({ jid, ...r.l, tcConocidos: d.origen === "manual" ? true : r.l.tcConocidos });
     }
     if (!lineas.length) return fail("No hay ningún jugador con estadísticas. Rellena al menos una fila.");
     const num = (s: string) => (s === "" || !Number.isFinite(Number(s)) ? null : Math.max(0, Math.min(300, Math.trunc(Number(s)))));
@@ -450,7 +451,8 @@ export function initEquipo(host: HostJugador) {
       if (col === "nombre") return interactiva ? `<button type="button" class="st-linkbtn" data-act="ver-jugador" data-id="${esc(f.jid)}">${esc(f.nombre)}</button>` : esc(f.nombre);
       const v = valorColumna(f, col, modo) as number | null;
       if (col === "pj") return String(f.pj);
-      if (col === "ts" || col === "efg") return v == null ? "—" : v.toFixed(0) + "%";
+      if (v == null && ["ts", "efg", "val"].includes(col)) return "sin dato";
+      if (col === "ts" || col === "efg") return v!.toFixed(0) + "%";
       return modo === "medias" ? f1(v) : f0(v);
     };
     const cuerpo = filas.map((f) => `<tr class="${f.pj ? "" : "st-dim"}">${COLUMNAS.map(({ col }) => `<td class="${col === "nombre" ? "st-sticky" : "st-num"}">${cel(f, col)}</td>`).join("")}</tr>`).join("");
@@ -458,13 +460,13 @@ export function initEquipo(host: HostJugador) {
   };
 
   const boxHtml = (e: Equipo, p: PartidoEq) => {
-    const ls = p.lineas.filter(jugo).map((l) => ({ l, j: e.jugadores.find((x) => x.id === l.jid), c: calcLinea(l) }))
+    const ls = lineasConContexto(p).filter(jugo).map((l) => ({ l, j: e.jugadores.find((x) => x.id === l.jid), c: calcLinea(l) }))
       .filter((x) => x.j).sort((a, b) => (parseInt(a.j!.dorsal, 10) || 999) - (parseInt(b.j!.dorsal, 10) || 999));
     const fila = (n: string, d: string, l: Linea, c: ReturnType<typeof calcLinea>, cls = "") => `<tr class="${cls}">
       <td class="st-sticky">${d ? `<span class="st-dorsal">${esc(d)}</span> ` : ""}${esc(n)}</td><td class="st-num">${l.min}</td><td class="st-num"><strong>${c.pts}</strong></td>
-      <td class="st-num">${l.t2c}/${l.t2i}</td><td class="st-num">${l.t3c}/${l.t3i}</td><td class="st-num">${l.tlc}/${l.tli}</td>
-      <td class="st-num">${c.reb}</td><td class="st-num">${l.ast}</td><td class="st-num">${l.rob}</td><td class="st-num">${l.tap}</td><td class="st-num">${l.per}</td><td class="st-num">${l.fal}</td><td class="st-num"><strong>${c.val}</strong></td></tr>`;
-    const tot = sumaLineas(ls.map((x) => x.l));
+      <td class="st-num">${l.t2c}/${intentosConocidos(l) ? l.t2i : "?"}</td><td class="st-num">${l.t3c}/${intentosConocidos(l) ? l.t3i : "?"}</td><td class="st-num">${l.tlc}/${l.tli}</td>
+      <td class="st-num">${c.reb}</td><td class="st-num">${l.ast}</td><td class="st-num">${l.rob}</td><td class="st-num">${l.tap}</td><td class="st-num">${l.per}</td><td class="st-num">${l.fal}</td><td class="st-num"><strong>${c.val ?? "sin dato"}</strong></td></tr>`;
+    const tot = { ...sumaLineas(ls.map((x) => x.l)), tcConocidos: ls.length > 0 && ls.every((x) => intentosConocidos(x.l)) };
     return `<div class="st-table-wrap"><table class="st-table st-box"><thead><tr><th>Jugador</th><th class="st-num">MIN</th><th class="st-num">PTS</th><th class="st-num">T2</th><th class="st-num">T3</th><th class="st-num">TL</th><th class="st-num">REB</th><th class="st-num">AST</th><th class="st-num">ROB</th><th class="st-num">TAP</th><th class="st-num">PÉR</th><th class="st-num">FAL</th><th class="st-num">VAL</th></tr></thead>
       <tbody>${ls.map((x) => fila(x.j!.nombre, x.j!.dorsal, x.l, x.c)).join("")}${fila("Equipo", "", tot, calcLinea(tot), "st-total")}</tbody></table></div>`;
   };
@@ -518,7 +520,7 @@ export function initEquipo(host: HostJugador) {
     const lid = lideres(filas);
     const ldHtml = (titulo: string, arr: { nombre: string; dorsal: string; valor: number }[], fmt: (v: number) => string) =>
       `<div class="st-lider"><span class="st-lider-t">${titulo}</span>${arr.length ? `<strong>${fmt(arr[0].valor)}</strong><span class="st-lider-n">${arr[0].dorsal ? esc(arr[0].dorsal) + " · " : ""}${esc(arr[0].nombre)}</span>
-        <ol>${arr.slice(1).map((l) => `<li>${esc(l.nombre)} <em>${fmt(l.valor)}</em></li>`).join("")}</ol>` : '<span class="st-lider-n">Sin datos suficientes</span>'}</div>`;
+        <ol>${arr.slice(1).map((l) => `<li>${esc(l.nombre)} <em>${fmt(l.valor)}</em></li>`).join("")}</ol>` : '<span class="st-lider-n">sin dato</span>'}</div>`;
     const lista = partidosOrdenados(e).slice().reverse().map((p) => `<tr class="${p.id === verId ? "st-sel" : ""}">
         <td>${esc(fechaCorta(p.fecha))}</td><td class="st-sticky">${esc(p.rival || "—")}</td><td class="st-num">${marcadorHtml(p)}</td>
         <td class="st-acts"><button type="button" class="st-linkbtn" data-act="ver-partido" data-id="${esc(p.id)}">Ver</button>
@@ -540,13 +542,13 @@ export function initEquipo(host: HostJugador) {
     const jf = jugadorId ? filas.find((f) => f.jid === jugadorId) : undefined;
     const ficha = jf ? (() => {
       const ps = partidosDeJugador(e, jf.jid);
-      const rows = partidosOrdenados(e).map((p) => ({ p, l: p.lineas.find((l) => l.jid === jf.jid) })).filter((x) => x.l && jugo(x.l!)).map(({ p, l }) => {
+      const rows = partidosOrdenados(e).map((p) => ({ p, l: lineasConContexto(p).find((l) => l.jid === jf.jid) })).filter((x) => x.l && jugo(x.l!)).map(({ p, l }) => {
         const c = calcLinea(l!);
-        return `<tr><td>${esc(fechaCorta(p.fecha))}</td><td class="st-sticky">${esc(p.rival || "—")}</td><td class="st-num">${tonoRes(resultado(p))}</td><td class="st-num">${l!.min}</td><td class="st-num"><strong>${c.pts}</strong></td><td class="st-num">${c.reb}</td><td class="st-num">${l!.ast}</td><td class="st-num">${c.ts == null ? "—" : c.ts.toFixed(0) + "%"}</td><td class="st-num">${c.val}</td></tr>`;
+        return `<tr><td>${esc(fechaCorta(p.fecha))}</td><td class="st-sticky">${esc(p.rival || "—")}</td><td class="st-num">${tonoRes(resultado(p))}</td><td class="st-num">${l!.min}</td><td class="st-num"><strong>${c.pts}</strong></td><td class="st-num">${c.reb}</td><td class="st-num">${l!.ast}</td><td class="st-num">${c.ts == null ? "sin dato" : c.ts.toFixed(0) + "%"}</td><td class="st-num">${c.val ?? "sin dato"}</td></tr>`;
       }).join("");
       return `<div class="st-panel" id="eq-ficha">
         <div class="st-eq-head"><h2 class="st-h2">${jf.dorsal ? esc(jf.dorsal) + " · " : ""}${esc(jf.nombre)}</h2><button type="button" class="st-del" data-act="cerrar-jugador" aria-label="Cerrar">✕</button></div>
-        <p class="st-note" style="margin-top:0">${jf.pj} partidos · ${f1(jf.pj ? jf.pts / jf.pj : null)} pts · ${f1(jf.pj ? jf.reb / jf.pj : null)} reb · ${f1(jf.pj ? jf.ast / jf.pj : null)} ast · VAL ${f1(jf.pj ? jf.val / jf.pj : null)}</p>
+        <p class="st-note" style="margin-top:0">${jf.pj} partidos · ${f1(jf.pj ? jf.pts / jf.pj : null)} pts · ${f1(jf.pj ? jf.reb / jf.pj : null)} reb · ${f1(jf.pj ? jf.ast / jf.pj : null)} ast · VAL ${jf.val == null ? "sin dato" : f1(jf.val / jf.pjMetricas)}</p>
         <div class="st-table-wrap"><table class="st-table"><thead><tr><th>Fecha</th><th>Rival</th><th class="st-num">Res</th><th class="st-num">MIN</th><th class="st-num">PTS</th><th class="st-num">REB</th><th class="st-num">AST</th><th class="st-num">TS%</th><th class="st-num">VAL</th></tr></thead><tbody>${rows}</tbody></table></div>
         <div class="st-actions st-actions-wrap">
           <button type="button" class="st-btn" data-act="enviar-jugador" data-id="${esc(jf.jid)}"${ps.length ? "" : " disabled"}>📤 Enviar a este jugador</button>
@@ -586,7 +588,7 @@ export function initEquipo(host: HostJugador) {
           </div>
         </div>
         ${tablaHtml(e, true)}
-        <p class="st-note">${modo === "medias" ? "Medias por partido jugado." : "Totales de la temporada."} Toca una cabecera para ordenar y un nombre para ver su ficha. <strong>VAL</strong> = valoración estilo FIBA.</p>
+        <p class="st-note">${modo === "medias" ? "Medias por partido jugado." : "Totales de la temporada."} TS%, eFG% y VAL solo usan partidos con intentos de campo conocidos. Toca una cabecera para ordenar y un nombre para ver su ficha. <strong>VAL</strong> = valoración estilo FIBA.</p>
         <div class="st-actions"><button type="button" class="st-btn st-btn-ghost" data-act="csv">⬇ Exportar tabla (.csv)</button></div>
       </div>
       <div class="st-panel">
@@ -692,7 +694,7 @@ export function initEquipo(host: HostJugador) {
       ctx.fillStyle = "#facc15"; ctx.font = `900 56px ${BC}`; ctx.fillText(String(i + 1), 104, ty + 80);
       ctx.fillStyle = "#fff"; ctx.font = `900 50px ${BC}`;
       ctx.fillText(ajustar(ctx, ((m.dorsal ? "#" + m.dorsal + " " : "") + m.nombre).toUpperCase(), 520), 168, ty + 58);
-      ctx.fillStyle = "#a1a1aa"; ctx.font = `700 24px ${IN}`; ctx.fillText(`${m.reb} REB · ${m.ast} AST · VAL ${m.val}`, 168, ty + 98);
+      ctx.fillStyle = "#a1a1aa"; ctx.font = `700 24px ${IN}`; ctx.fillText(`${m.reb} REB · ${m.ast} AST · VAL ${m.val ?? "sin dato"}`, 168, ty + 98);
       ctx.textAlign = "right"; ctx.fillStyle = "#fff"; ctx.font = `900 84px ${BC}`; ctx.fillText(String(m.pts), 940, ty + 88);
       ctx.fillStyle = "#a1a1aa"; ctx.font = `700 22px ${IN}`; ctx.fillText("PTS", 990, ty + 88); ctx.textAlign = "left";
     });
@@ -780,7 +782,7 @@ export function initEquipo(host: HostJugador) {
       const rows = p.partidos.map((g) => {
         const c = calcLinea(g);
         const dup = claves.has(g.fecha + "|" + g.rival.trim().toLowerCase());
-        return `<tr class="${dup ? "st-dim" : ""}"><td>${esc(fechaCorta(g.fecha))}</td><td class="st-sticky">${esc(g.rival || "—")}</td><td class="st-num">${tonoRes(g.res)}</td><td class="st-num">${g.min}</td><td class="st-num"><strong>${c.pts}</strong></td><td class="st-num">${c.reb}</td><td class="st-num">${g.ast}</td><td class="st-num">${c.val}</td><td>${dup ? "ya lo tienes" : ""}</td></tr>`;
+        return `<tr class="${dup ? "st-dim" : ""}"><td>${esc(fechaCorta(g.fecha))}</td><td class="st-sticky">${esc(g.rival || "—")}</td><td class="st-num">${tonoRes(g.res)}</td><td class="st-num">${g.min}</td><td class="st-num"><strong>${c.pts}</strong></td><td class="st-num">${c.reb}</td><td class="st-num">${g.ast}</td><td class="st-num">${c.val ?? "sin dato"}</td><td>${dup ? "ya lo tienes" : ""}</td></tr>`;
       }).join("");
       incoming.innerHTML = `
         <h2 class="st-h2">📥 Te han enviado ${p.partidos.length} partido${p.partidos.length === 1 ? "" : "s"}${p.nombre ? " de " + esc(p.nombre) : ""}</h2>
@@ -1000,7 +1002,7 @@ export function initEquipo(host: HostJugador) {
     if (!draft) return;
     if (t.dataset.r) {
       const r = draft.rows.find((x) => String(x.key) === t.dataset.r);
-      if (r) { r.l[t.dataset.k as keyof Linea] = Math.max(0, Math.min(t.dataset.k === "min" ? 99 : 999, parseInt(t.value, 10) || 0)); actualizarSuma(); }
+      if (r) { r.l[t.dataset.k as typeof LINEA_KEYS[number]] = Math.max(0, Math.min(t.dataset.k === "min" ? 99 : 999, parseInt(t.value, 10) || 0)); if (t.dataset.k === "t2i" || t.dataset.k === "t3i") r.l.tcConocidos = true; actualizarSuma(); }
     } else if (t.dataset.d) {
       (draft as any)[t.dataset.d] = t.value;
       if (t.dataset.d === "pf") actualizarSuma();

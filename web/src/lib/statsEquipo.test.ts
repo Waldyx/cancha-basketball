@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import {
   type Equipo, type PartidoEq, type Linea,
-  calcLinea, lineaVacia, tablaTemporada, ordenarTabla, lideres, balance, resultado, puntosPropios,
+  calcLinea, lineaVacia, tablaTemporada, ordenarTabla, lideres, balance, resultado, puntosPropios, resumenMetricas, valorColumna, lineasConContexto, aWire, deWire,
   emparejar, mismoNombre, normDorsal, parsePlantilla, fusionar, fusionarJugador, equipoSoloPartido, partidosDeJugador,
   codificarEnlace, decodificarEnlace, tokenDeHash, urlEnlace, normalizarEquipo, leerArchivoEquipo, archivoEquipo,
   csvTemporada, textoPartido, recordatorioCopia, mostrarAvisoCopia, textoUltimaCopia, diasDesde, archivoCopia, esArchivoCopia, restaurarCopia, DIAS_AVISO_COPIA, mejoresDelPartido, parsePaste, LIMITE_ENLACE,
@@ -37,6 +37,74 @@ function equipo(): Equipo {
 }
 
 describe("métricas", () => {
+  const sinIntentos = L({ min: 20, t2c: 3, t2i: 3, t3c: 2, t3i: 2, tlc: 1, tli: 2, fal: 3 });
+  const conIntentos = L({ min: 20, t2c: 2, t2i: 3, t3c: 1, t3i: 2 });
+  const eqCon = (ls: Linea[]): Equipo => ({ id: "ficticio", nombre: "Equipo inventado", categoria: "",
+    jugadores: [{ id: "j", nombre: "Jugador ficticio", dorsal: "4" }],
+    partidos: ls.map((l, i) => ({ id: `p${i}`, fecha: `2026-11-0${i + 1}`, rival: `Rival ficticio ${i}`, competicion: "", pf: null, pc: null, lineas: [{ jid: "j", ...l }] })) });
+  it("canastas sin fallos ni procedencia no fabrican TS%, eFG% o VAL", () => {
+    expect(calcLinea(sinIntentos)).toEqual({ pts: 13, reb: 0, ts: null, efg: null, val: null });
+    const f = tablaTemporada(normalizarEquipo(eqCon([sinIntentos])))[0];
+    expect(f).toMatchObject({ pts: 13, fal: 3, pj: 1, val: null, ts: null, efg: null, tsa: 0 });
+    expect(lideres([f], { minTsa: 0 }).ts).toEqual([]);
+    expect(lideres([f]).val).toEqual([]);
+    expect(csvTemporada([f], "medias").split("\r\n")[1].split(";").slice(-3)).toEqual(["sin dato", "sin dato", "sin dato"]);
+  });
+  it("la muestra mixta solo usa el partido con 2/3 y 1/2 para las metricas", () => {
+    const ls = [conIntentos, sinIntentos, sinIntentos];
+    const m = resumenMetricas(ls);
+    expect(m.ts).toBeCloseTo(70);
+    expect(m.efg).toBeCloseTo(70);
+    expect(m.valMedia).toBe(5);
+    expect(m.n).toBe(1);
+    const f = tablaTemporada(eqCon(ls))[0];
+    expect(f).toMatchObject({ pts: 33, pj: 3, fal: 6, ts: 70, efg: 70, val: 5, pjMetricas: 1 });
+    expect(valorColumna(f, "val", "medias")).toBe(5);
+    expect(valorColumna(f, "pts", "medias")).toBe(11);
+    expect(lideres([f]).val[0].valor).toBe(5);
+    expect(resumenMetricas(ls).t3Pct).toBe(50);
+  });
+  it("un fallo en el acta permite valorar tambien al compañero que hizo 3/3", () => {
+    const eq = eqCon([sinIntentos]);
+    eq.partidos[0].lineas.push({ jid: "otro", ...conIntentos });
+    expect(lineasConContexto(eq.partidos[0])[0].tcConocidos).toBe(true);
+    expect(tablaTemporada(eq)[0].val).not.toBeNull();
+    expect(partidosDeJugador(eq, "j")[0].tcConocidos).toBe(true);
+  });
+  it("el 3/3 manual explicito conserva sus porcentajes tras normalizar", () => {
+    const perfecto = L({ t2c: 3, t2i: 3, tcConocidos: true });
+    expect(tablaTemporada(normalizarEquipo(eqCon([perfecto])))[0]).toMatchObject({ ts: 100, efg: 100, val: 6 });
+  });
+  it("no limita porcentajes matematicamente validos de triples perfectos", () => {
+    expect(calcLinea(L({ t3c: 3, t3i: 3, tcConocidos: true }))).toMatchObject({ ts: 150, efg: 150, val: 9 });
+  });
+  it("no modifica puntos, faltas ni tiros libres de una linea desconocida", () => {
+    const eq = normalizarEquipo(eqCon([{ ...sinIntentos, t2i: 0, t3i: 0 }]));
+    expect(eq.partidos[0].lineas[0]).toMatchObject({ t2c: 3, t3c: 2, tlc: 1, tli: 2, fal: 3 });
+    expect(calcLinea(eq.partidos[0].lineas[0])).toMatchObject({ pts: 13, val: null });
+  });
+  it("el indicador explicito desconocido prevalece y se conserva en archivo", () => {
+    const eq = normalizarEquipo(eqCon([{ ...conIntentos, tcConocidos: false }]));
+    expect(leerArchivoEquipo(archivoEquipo(eq)).partidos[0].lineas[0].tcConocidos).toBe(false);
+    expect(tablaTemporada(eq)[0].ts).toBeNull();
+  });
+  it("enlaces antiguos y nuevos de equipo y jugador conservan la disponibilidad", async () => {
+    for (const flag of [undefined, false, true]) {
+      const l = { ...sinIntentos, ...(flag == null ? {} : { tcConocidos: flag }) };
+      for (const k of ["equipo", "partido"] as const) {
+        const payload = { k, equipo: eqCon([l]) };
+        const d = await decodificarEnlace(await codificarEnlace(payload, { comprimir: false }));
+        expect(d.k).toBe(k);
+        if (d.k !== "jugador") expect(tablaTemporada(d.equipo)[0].ts == null).toBe(flag !== true);
+      }
+      const p = { fecha: "2026-11-03", rival: "Rival inventado", res: "", ...l };
+      const payload = { k: "jugador" as const, nombre: "Ficticio", partidos: [p] };
+      const d = deWire(aWire(payload));
+      if (d.k !== "jugador") throw new Error("Tipo incorrecto");
+      expect(d.partidos[0].tcConocidos).toBe(flag);
+      expect(calcLinea(d.partidos[0]).ts == null).toBe(flag !== true);
+    }
+  });
   it("calcLinea: puntos, rebotes, TS%, eFG% y valoración", () => {
     const c = calcLinea(L({ t2c: 5, t2i: 8, t3c: 2, t3i: 5, tlc: 2, tli: 2, ro: 1, rd: 4, ast: 3, rob: 2, per: 2, fal: 2 }));
     expect(c.pts).toBe(18);

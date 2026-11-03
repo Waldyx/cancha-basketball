@@ -6,6 +6,8 @@
 
 /** Línea estadística de un jugador en un partido (mismos campos que el modo Jugador). */
 export interface Linea {
+  /** Ausente en registros antiguos; false cuando solo se conocen las canastas. */
+  tcConocidos?: boolean;
   min: number;
   t2c: number; t2i: number;
   t3c: number; t3i: number;
@@ -14,7 +16,7 @@ export interface Linea {
   ast: number; rob: number; tap: number;
   per: number; fal: number;
 }
-export const LINEA_KEYS: (keyof Linea)[] = [
+export const LINEA_KEYS: (Exclude<keyof Linea, "tcConocidos">)[] = [
   "min", "t2c", "t2i", "t3c", "t3i", "tlc", "tli", "ro", "rd", "ast", "rob", "tap", "per", "fal",
 ];
 
@@ -87,14 +89,24 @@ export const tsPct = (pts: number, fga: number, tli: number): number | null => {
   return tsa > 0 ? (pts / (2 * tsa)) * 100 : null;
 };
 
+/** Sin procedencia, solo los fallos registrados permiten confirmar los intentos. */
+export const intentosConocidos = (g: Linea): boolean => g.tcConocidos ?? (g.t2i > g.t2c || g.t3i > g.t3c);
+
+/** En actas antiguas, un fallo de cualquier jugador confirma que se registraban intentos. */
+export const lineasConContexto = (p: PartidoEq): LineaEq[] => {
+  const conocidos = p.lineas.some((l) => l.t2i > l.t2c || l.t3i > l.t3c);
+  return p.lineas.map((l) => ({ ...l, tcConocidos: l.tcConocidos ?? conocidos }));
+};
+
 /** Las mismas fórmulas que usa el modo Jugador (calcGame delega aquí). */
 export const calcLinea = (g: Linea) => {
   const pts = 2 * g.t2c + 3 * g.t3c + g.tlc;
   const fgm = g.t2c + g.t3c, fga = g.t2i + g.t3i;
-  const ts = tsPct(pts, fga, g.tli);
-  const efg = fga > 0 ? ((fgm + 0.5 * g.t3c) / fga) * 100 : null;
+  const conocidos = intentosConocidos(g);
+  const ts = conocidos ? tsPct(pts, fga, g.tli) : null;
+  const efg = conocidos && fga > 0 ? ((fgm + 0.5 * g.t3c) / fga) * 100 : null;
   const reb = g.ro + g.rd;
-  const val = pts + reb + g.ast + g.rob + g.tap - (fga - fgm) - (g.tli - g.tlc) - g.per - g.fal;
+  const val = conocidos ? pts + reb + g.ast + g.rob + g.tap - (fga - fgm) - (g.tli - g.tlc) - g.per - g.fal : null;
   return { pts, reb, ts, efg, val };
 };
 
@@ -107,6 +119,16 @@ export const sumaLineas = (ls: Linea[]): Linea => {
   for (const l of ls) for (const k of LINEA_KEYS) t[k] += l[k] || 0;
   return t;
 };
+
+/** Solo la muestra con intentos conocidos aporta a las metricas de tiro y valoracion. */
+export function resumenMetricas(ls: Linea[]) {
+  const conocidas = ls.filter(intentosConocidos);
+  const t = sumaLineas(conocidas);
+  const c = calcLinea({ ...t, tcConocidos: conocidas.length > 0 });
+  return { ...c, n: conocidas.length, tsa: t.t2i + t.t3i + .44 * t.tli,
+    valMedia: c.val == null ? null : c.val / conocidas.length,
+    t3Pct: t.t3i > 0 ? 100 * t.t3c / t.t3i : null, t3i: t.t3i };
+}
 
 // ───────────────────────── partidos y balance ─────────────────────────
 
@@ -149,7 +171,8 @@ export function serieMarcadores(eq: Equipo) {
 
 export interface FilaTemporada {
   jid: string; dorsal: string; nombre: string; pj: number;
-  min: number; pts: number; reb: number; ast: number; rob: number; tap: number; per: number; fal: number; val: number;
+  min: number; pts: number; reb: number; ast: number; rob: number; tap: number; per: number; fal: number; val: number | null;
+  pjMetricas: number;
   tsa: number; ts: number | null; efg: number | null;
 }
 export type Col = "dorsal" | "nombre" | "pj" | "min" | "pts" | "reb" | "ast" | "rob" | "tap" | "per" | "val" | "ts" | "efg";
@@ -162,17 +185,14 @@ export const COLUMNAS: { col: Col; label: string }[] = [
 
 export function tablaTemporada(eq: Equipo): FilaTemporada[] {
   return eq.jugadores.map((j) => {
-    const ls = eq.partidos.flatMap((p) => p.lineas.filter((l) => l.jid === j.id && jugo(l)));
+    const ls = eq.partidos.flatMap((p) => lineasConContexto(p).filter((l) => l.jid === j.id && jugo(l)));
     const t = sumaLineas(ls);
     const pts = 2 * t.t2c + 3 * t.t3c + t.tlc;
-    const fga = t.t2i + t.t3i, fgm = t.t2c + t.t3c;
+    const m = resumenMetricas(ls);
     return {
       jid: j.id, dorsal: j.dorsal, nombre: j.nombre, pj: ls.length,
       min: t.min, pts, reb: t.ro + t.rd, ast: t.ast, rob: t.rob, tap: t.tap, per: t.per, fal: t.fal,
-      val: ls.reduce((a, l) => a + calcLinea(l).val, 0),
-      tsa: fga + 0.44 * t.tli,
-      ts: tsPct(pts, fga, t.tli),
-      efg: fga > 0 ? ((fgm + 0.5 * t.t3c) / fga) * 100 : null,
+      val: m.val, pjMetricas: m.n, tsa: m.tsa, ts: m.ts, efg: m.efg,
     };
   });
 }
@@ -185,7 +205,10 @@ export function valorColumna(f: FilaTemporada, col: Col, modo: Modo): number | s
   if (col === "dorsal") return f.dorsal === "" ? null : (normDorsal(f.dorsal) === "" ? f.dorsal : Number(normDorsal(f.dorsal)));
   const v = f[col] as number | null;
   if (v == null) return null;
-  if (modo === "medias" && PROMEDIABLES.includes(col)) return f.pj > 0 ? v / f.pj : null;
+  if (modo === "medias" && PROMEDIABLES.includes(col)) {
+    const n = col === "val" ? f.pjMetricas : f.pj;
+    return n > 0 ? v / n : null;
+  }
   return v;
 }
 
@@ -215,7 +238,7 @@ export function lideres(filas: FilaTemporada[], opts: { minTsa?: number; top?: n
     pts: por((f) => f.pts / f.pj),
     reb: por((f) => f.reb / f.pj),
     ast: por((f) => f.ast / f.pj),
-    val: por((f) => f.val / f.pj),
+    val: por((f) => f.val == null ? null : f.val / f.pjMetricas),
     ts: por((f) => f.ts, (f) => f.tsa >= minTsa),
     minTsa,
   };
@@ -332,11 +355,12 @@ export function equipoSoloPartido(eq: Equipo, pid: string): Equipo {
 export function partidosDeJugador(eq: Equipo, jid: string): PartidoJugador[] {
   const out: PartidoJugador[] = [];
   for (const p of partidosOrdenados(eq)) {
-    const l = p.lineas.find((x) => x.jid === jid);
+    const l = lineasConContexto(p).find((x) => x.jid === jid);
     if (!l || !jugo(l)) continue;
     const r = resultado(p);
     const g: PartidoJugador = { fecha: p.fecha, rival: p.rival, res: r === "V" || r === "D" ? r : "", ...lineaVacia() };
     for (const k of LINEA_KEYS) g[k] = l[k];
+    g.tcConocidos = l.tcConocidos;
     out.push(g);
   }
   return out;
@@ -348,6 +372,7 @@ const sanLinea = (x: any): Linea => {
   const l = lineaVacia();
   for (const k of LINEA_KEYS) l[k] = entero(x?.[k], k === "min" ? 99 : 999);
   l.t2i = Math.max(l.t2i, l.t2c); l.t3i = Math.max(l.t3i, l.t3c); l.tli = Math.max(l.tli, l.tlc);
+  if (typeof x?.tcConocidos === "boolean") l.tcConocidos = x.tcConocidos;
   return l;
 };
 const sanFecha = (f: unknown) => (/^\d{4}-\d{2}-\d{2}$/.test(String(f)) ? String(f) : "");
@@ -452,8 +477,12 @@ export function restaurarCopia(actual: EquipoStore, copia: any) {
 // Formato "wire" compacto (filas como arrays) → JSON → (deflate-raw) → base64url.
 // El token lleva un prefijo: "z" = comprimido, "r" = sin comprimir.
 
-const aFila = (l: Linea) => [l.min, l.t2c, l.t2i, l.t3c, l.t3i, l.tlc, l.tli, l.ro, l.rd, l.ast, l.rob, l.tap, l.per, l.fal];
-const deFila = (a: any[]): Linea => sanLinea(Object.fromEntries(LINEA_KEYS.map((k, i) => [k, a?.[i]])));
+const aFila = (l: Linea) => {
+  const a: (number | boolean)[] = LINEA_KEYS.map((k) => l[k]);
+  if (typeof l.tcConocidos === "boolean") a.push(l.tcConocidos);
+  return a;
+};
+const deFila = (a: any[]): Linea => sanLinea({ ...Object.fromEntries(LINEA_KEYS.map((k, i) => [k, a?.[i]])), tcConocidos: a?.[LINEA_KEYS.length] });
 
 export function aWire(p: Payload): unknown {
   if (p.k === "jugador") {
@@ -562,7 +591,7 @@ export function csvTemporada(filas: FilaTemporada[], modo: Modo): string {
     const fila: string[] = [f.dorsal, f.nombre];
     for (const { col } of COLUMNAS.slice(2)) {
       const v = valorColumna(f, col, modo) as number | null;
-      fila.push(col === "pj" ? String(f.pj) : col === "ts" || col === "efg" ? num1(v) : modo === "medias" ? num1(v) : v == null ? "" : String(Math.round(v)));
+      fila.push(v == null && ["val", "ts", "efg"].includes(col) ? "sin dato" : col === "pj" ? String(f.pj) : col === "ts" || col === "efg" ? num1(v) : modo === "medias" ? num1(v) : v == null ? "" : String(Math.round(v)));
     }
     lineas.push(fila.map(celdaCsv).join(";"));
   }
@@ -575,28 +604,28 @@ export function textoPartido(eq: Equipo, p: PartidoEq): string {
   const marcador = p.pc == null ? `${pf} pts` : `${pf}–${p.pc}${r ? ` (${r === "E" ? "empate" : r === "V" ? "victoria" : "derrota"})` : ""}`;
   const cab = `🏀 ${eq.nombre}${eq.categoria ? ` (${eq.categoria})` : ""} vs ${p.rival || "rival"}: ${marcador}`;
   const sub = [fechaCorta(p.fecha), p.competicion].filter((s) => s && s !== "—").join(" · ");
-  const filas = p.lineas
+  const filas = lineasConContexto(p)
     .filter(jugo)
     .map((l) => ({ l, j: eq.jugadores.find((x) => x.id === l.jid), c: calcLinea(l) }))
     .filter((x) => x.j)
-    .sort((a, b) => b.c.pts - a.c.pts || b.c.val - a.c.val)
+    .sort((a, b) => b.c.pts - a.c.pts || (b.c.val ?? 0) - (a.c.val ?? 0))
     .map(({ l, j, c }) => {
       const partes = [`${c.pts} pts`];
       if (c.reb) partes.push(`${c.reb} reb`);
       if (l.ast) partes.push(`${l.ast} ast`);
       if (l.rob) partes.push(`${l.rob} rob`);
       if (l.tap) partes.push(`${l.tap} tap`);
-      return `${j!.dorsal ? j!.dorsal + " " : ""}${j!.nombre}: ${partes.join(", ")} (VAL ${c.val})`;
+      return `${j!.dorsal ? j!.dorsal + " " : ""}${j!.nombre}: ${partes.join(", ")} (VAL ${c.val ?? "sin dato"})`;
     });
   return [cab, sub, "", ...filas, "", "canchazapa.com/estadisticas"].filter((s, i, a) => !(s === "" && (i === 0 || a[i - 1] === ""))).join("\n");
 }
 
 /** Los 3 mejores de un partido por valoración (para la tarjeta). */
 export function mejoresDelPartido(eq: Equipo, p: PartidoEq, n = 3) {
-  return p.lineas.filter(jugo)
+  return lineasConContexto(p).filter(jugo)
     .map((l) => ({ l, j: eq.jugadores.find((x) => x.id === l.jid), c: calcLinea(l) }))
     .filter((x) => x.j)
-    .sort((a, b) => b.c.val - a.c.val || b.c.pts - a.c.pts)
+    .sort((a, b) => (b.c.val ?? -Infinity) - (a.c.val ?? -Infinity) || b.c.pts - a.c.pts)
     .slice(0, n)
     .map(({ l, j, c }) => ({ jid: j!.id, dorsal: j!.dorsal, nombre: j!.nombre, pts: c.pts, reb: c.reb, ast: l.ast, val: c.val }));
 }
