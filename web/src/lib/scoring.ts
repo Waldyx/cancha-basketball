@@ -733,7 +733,7 @@ export function recomendar(
   topN: number = 5
 ): Recomendacion[] {
   // Paso 1: filtros duros
-  const filtradas = aplicarFiltrosDuros(catalogo, respuestas);
+  const filtradas = aplicarFiltrosDuros(catalogo, respuestas).filter((z) => !z.proximamente);
 
   // Paso 2: calcular pesos según el quiz
   const pesos = calcularPesos(respuestas);

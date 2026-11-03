@@ -259,6 +259,13 @@ describe("esEnlaceDeBusqueda", () => {
 // ─────────────────────────────────────────────────────────
 
 describe("recomendar — perfiles realistas", () => {
+  it("no recomienda una zapa que aún no se vende", () => {
+    const ganadora = recomendar(perfil(), zapatillas, 1)[0].zapatilla;
+    const catalogo = zapatillas.map((z) => (z.id === ganadora.id ? { ...z, proximamente: true } : z));
+    const ids = recomendar(perfil(), catalogo, 5).map((r) => r.zapatilla.id);
+    expect(ids).not.toContain(ganadora.id);
+  });
+
   it("Pívot pesado con rodillas → cushion-focused gana (LeBron 22, Witness 9 o NB BB v3)", () => {
     const recs = recomendar(
       perfil({
