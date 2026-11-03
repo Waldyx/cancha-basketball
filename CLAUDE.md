@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **259 zapas (52 OCULTAS, 207 visibles) · 682 tests · `astro check` 0 errores · 381 páginas** |
+| Tamaño | **259 zapas (61 OCULTAS, 198 visibles) · 695 tests · 385 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -80,7 +80,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 - **Amazon Afiliados**: sin 3 ventas, puede cerrar la cuenta hacia **nov-2026** (política de 180 días). Mirar el panel. Si
   cierra, los enlaces siguen funcionando pero no pagan: Amazon pasaría a «Ver precio». Desde el 22-sep los clics suben por
   un cambio de medición, no por tráfico nuevo.
-- **Amazon activos, recontados el 3-nov** (83 filas por `/dp/`: 79 leídas sin CAPTCHA, de una en una con 3,5 s de pausa, y las otras 4 ya medidas). 32 fichas con 1-3 tallas, y 25 de ellas sin otra afiliada (9 retros). Sin decidir si se ocultan: la regla de 4 tallas solo se aplica a barridos. Sin compra afiliada alternativa: Ja 2, One Take 5, Spawn 7, Stewie 4, Zion 4, Team Hustle D 12, Kawhi 1, Hovr Havoc 5, Tatum 2, NXXT Gen, Curry 10 y 11, SKX Float, Dame Certified, Kyrie Low 5, Zoom Freak 4; retros Question Mid, Crazy 8, AJ 13, Zoom Generation, Forum 84, Pro Model, Flight Huarache, Grant Hill 2, Fila MB. Agotada en talla: la clase `a-button-unavailable` dentro del `li[data-asin]`, no en el `li`. Sin selector = anuncio de una talla. Sin precio ni carrito y sin `#outOfStock` = inconcluyente (Tatum 4). AJ 9 oculta porque su ASIN se titula «Nike Tanjun» (leído una vez): buscar compra real. El precio cambia por talla (Curry 12: 82-171 €), así que no corregir a mano lo que el scraper pisa.
+- **Amazon activos, recontados el 3-nov** (83 filas por `/dp/`: 79 leídas sin CAPTCHA, de una en una con 3,5 s de pausa, y las otras 4 ya medidas). 32 fichas con 1-3 tallas, y 25 de ellas sin otra afiliada (9 retros). El usuario decidió (3-nov) ocultar solo las actuales de 1 talla: One Take 5, Spawn 7, Zion 4, Hovr Havoc 5, Tatum 2, NXXT Gen, SKX Float, Kyrie Low 5 y Zoom Freak 4. `audit-enlaces` las listará como rescatables porque conservan el enlace: no rescatarlas sin volver a contar tallas. Siguen visibles las de 2-3 tallas (Ja 2, Stewie 4, Team Hustle D 12, Kawhi 1, Curry 10 y 11, Dame Certified) y los retros: Question Mid, Crazy 8, AJ 13, Zoom Generation, Forum 84, Pro Model, Flight Huarache, Grant Hill 2, Fila MB. Agotada en talla: la clase `a-button-unavailable` dentro del `li[data-asin]`, no en el `li`. Sin selector = anuncio de una talla. Sin precio ni carrito y sin `#outOfStock` = inconcluyente (Tatum 4). AJ 9 oculta porque su ASIN se titula «Nike Tanjun» (leído una vez): buscar compra real. El precio cambia por talla (Curry 12: 82-171 €), así que no corregir a mano lo que el scraper pisa.
 - **Tatum 5 y Witness X** (2-nov, nota editorial 7,5 sin reseñas, peso de la X ESTIMADO): revisar cuando las reseñen.
 - **Nike LeBron 24 sale el 17-nov** (`proximamente`, peso ESTIMADO, «KingKnit» es afirmación de Nike). Quitar la marca y
   buscar compra afiliada. **adidas Harden Vol 11**: dic-2026, entra entonces.
