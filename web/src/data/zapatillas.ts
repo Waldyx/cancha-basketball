@@ -4496,7 +4496,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "reebok_es", url: "https://www.reebok.eu/es-es/search?q=question+mid", precio_actual: 130, disponible: false, tiene_afiliado: false, ultima_verificacion: "2026-05-16" },
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Freebok-question-mid-gris-17566", precio_actual: 80, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/Reebok-Zapatillas-QUESTION-Cuero-Blanco-Amarillo/dp/B0DPG7Z966?tag=canchazapa-21", precio_actual: 119, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/Reebok-Zapatillas-QUESTION-Cuero-Blanco-Amarillo/dp/B0DPG8VPDY?tag=canchazapa-21", precio_actual: 119.25, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-03" },
     ],
   },
 
@@ -13856,7 +13856,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-d-o-n-issue-7-ice-spida-blanco%2F373782%2Fm9010565", precio_actual: 72.49, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-24" }, // Decathlon 17-sep: redirige a la categoria (ficha retirada)
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fd.o.n.-issue-7%2FJR9503.html", precio_actual: 69.60, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: agotada en adidas.es
-      { tienda: "amazon_es", url: "https://www.amazon.es/adidas-N-Issue-JR9503-Talla/dp/B0GKLT9SNP?tag=canchazapa-21", precio_actual: 89, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-11" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/adidas-N-Issue-JR9503-Talla/dp/B0GKLT9SNP?tag=canchazapa-21", precio_actual: 89, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-03" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-don-issue-7-blanco-gris-144153.html", precio_actual: 68, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-don-issue-7-all-star.html", precio_actual: 109.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-don-issue-7-veaz-jr9502-1001064477-p", precio_actual: 78.11, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: JR9502, 4 tallas
@@ -14694,7 +14694,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005010194753497.html", precio_actual: 97.89, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-18" },
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/361/joker-1-denver-blue-white", precio_actual: 89.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005012114784807.html", precio_actual: 146.69, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: item muerto («Esta página no existe»)
-      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DSJB58JQ?tag=canchazapa-21", precio_actual: 113, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DSJB58JQ?tag=canchazapa-21", precio_actual: 113, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-03" },
     ],
   },
 
