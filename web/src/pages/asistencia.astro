@@ -127,11 +127,11 @@ const jsonLd = {
   .as-tabla { width: 100%; border-collapse: collapse; font: 600 13px "Inter", sans-serif; }
   .as-tabla th, .as-tabla td { padding: 5px 8px; border-bottom: 1px solid var(--cz-border); text-align: right; }
   .as-tabla th { font: 800 10px "Inter", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--cz-text-2); }
-  .as-tabla th:first-child, .as-tabla td:first-child { text-align: left; }
+  .as-tabla th:first-child, .as-tabla td:first-child { text-align: left; overflow-wrap: anywhere; }
   .as-tabla td:last-child { white-space: nowrap; }
   .as-chips { display: flex; flex-wrap: wrap; gap: 5px; }
-  .as-chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border: 1px solid var(--cz-border); font-size: 13px; color: var(--cz-text); cursor: pointer; }
-  .as-chip input { width: 16px; height: 16px; }
+  .as-chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border: 1px solid var(--cz-border); font-size: 13px; color: var(--cz-text); cursor: pointer; min-width: 0; max-width: 100%; overflow-wrap: anywhere; }
+  .as-chip input { width: 16px; height: 16px; flex: none; }
 </style>
 
 <script>
