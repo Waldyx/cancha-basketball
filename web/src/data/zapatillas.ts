@@ -2962,7 +2962,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 100,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CDC91PKD?tag=canchazapa-21", precio_actual: 62.76, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: re-verificado (agotado: #outOfStock)
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=under+armour+flow+breakthru+4+baloncesto&tag=canchazapa-21", precio_actual: 70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0CDC7STJC?tag=canchazapa-21", precio_actual: 72, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-03" },
     ],
   },
 
@@ -6178,11 +6178,12 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/nike-gt-cut-academy/" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true,
 
     precio_msrp_eur: 100,
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56001016%2F", precio_actual: 69.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+gt+cut+academy+2&tag=canchazapa-21", precio_actual: 116.71, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=nike+gt+cut+academy+2&tag=canchazapa-21", precio_actual: 116.71, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-03" },
       { tienda: "amazon_es", url: "https://www.amazon.es/Phantom-Academy-Sneaker-Glacier-Black-Yellow/dp/B0B24ZMTX6/ref=sr_1_3?tag=canchazapa-21", precio_actual: 69, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es OTRO producto (la ficha enlazaba una busqueda)
     ],
   },
@@ -6736,7 +6737,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-05-18",
     precio_msrp_eur: 120,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+scoot+zeros&tag=canchazapa-21", precio_actual: 58.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0D7MD6CKV?tag=canchazapa-21", precio_actual: 58.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-03" },
       { tienda: "amazon_es", url: "https://www.amazon.es/PUMA-Scoot-Zeros-baloncesto-Aguamarina/dp/B0DLTHGWF1/ref=sr_1_1?tag=canchazapa-21", precio_actual: 82, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es OTRO producto (la ficha enlazaba una busqueda)
     ],
   },
@@ -9192,9 +9193,10 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/puma-clyde-all-pro-performance-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true,
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+clyde+all+pro+baloncesto&tag=canchazapa-21", precio_actual: 63.03, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=puma+clyde+all+pro+baloncesto&tag=canchazapa-21", precio_actual: 63.03, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-03" },
       { tienda: "amazon_es", url: "https://www.amazon.es/Puma-All-Pro-Nitro-Team-Zapatillas/dp/B0CV9L1VSY/ref=sr_1_7?tag=canchazapa-21", precio_actual: 70, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es OTRO producto (la ficha enlazaba una busqueda)
     ],
   },
@@ -10672,7 +10674,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B06XMRLL3F?tag=canchazapa-21", precio_actual: 298.05, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: es la AJ6 Retro PRM Heiress (colorway de mujer, talla 36)
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fjordan-air-jordan-6-retro-infrared-salesman-negro-94676", precio_actual: 150, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=air+jordan+6+retro&tag=canchazapa-21", precio_actual: 289, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/dp/B096RG6MQ4?tag=canchazapa-21", precio_actual: 234, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-03" },
     ],
   },
 
@@ -12095,9 +12097,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 200,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Air+Jordan+8+Retro&tag=canchazapa-21", precio_actual: 210, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Air+Jordan+8+Retro&tag=canchazapa-21", precio_actual: 210, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-03" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BKR56DGB?tag=canchazapa-21", precio_actual: 0, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: Departamento Mujer (lo habia resuelto el scraper)
     ],
   },
@@ -12340,10 +12343,11 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 110, // tarifa europea (sneakerjagers, 395374-01). Antes 80 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0C6D3Z2XH?tag=canchazapa-21", precio_actual: 78.43, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: es la Puma Rebound Layup Winter, otro producto
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Puma+Clyde+baloncesto&tag=canchazapa-21", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=Puma+Clyde+baloncesto&tag=canchazapa-21", precio_actual: 75, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-03" },
     ],
   },
 
@@ -13024,10 +13028,11 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 130,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0BGJPSMJY?tag=canchazapa-21", precio_actual: 139.95, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: es la Grant Hill 1 x Trailpacer de mujer, un híbrido distinto
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=fila+grant+hill+1+1995&tag=canchazapa-21", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=fila+grant+hill+1+1995&tag=canchazapa-21", precio_actual: 130, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-03" },
     ],
   },
 
@@ -13149,9 +13154,10 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-27",
+    oculto: true,
     precio_msrp_eur: 90,
     links_compra: [
-      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=converse+pro+leather+hi&tag=canchazapa-21", precio_actual: 85, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-27" },
+      { tienda: "amazon_es", url: "https://www.amazon.es/s?k=converse+pro+leather+hi&tag=canchazapa-21", precio_actual: 85, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-03" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DBRCL6HL?tag=canchazapa-21", precio_actual: 0, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-09-18" }, // w17 18-sep: es la Pro Blaze Strap, otro producto, y ademas sin stock
     ],
   },
