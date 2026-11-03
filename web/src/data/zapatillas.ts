@@ -2060,6 +2060,167 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 80,
     links_compra: [],
   },
+  // ADIDAS BREAKAWAY: sin reseñas y sin ficha oficial localizada; nota estimada
+  {
+    id: "adidas-breakaway",
+    slug: "adidas-breakaway",
+    marca: "adidas",
+    modelo: "Breakaway",
+    generacion: 1,
+    año_lanzamiento: 2026, // SIN CONFIRMAR: adidas.es no la devuelve en su buscador
+    genero: "unisex",
+    tecnologia_clave: ["Upper textil", "Suela de goma"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 350, // Dato de Atmósfera (350,4 g), sin confirmar en otra fuente
+    altura: "low", // Por la foto de la tienda
+    horma: "normal",
+    drop_mm: 10, // ESTIMADO: sin dato publicado
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+    puntuaciones: {
+      traccion: 7, amortiguacion: 6, respuesta: 6,
+      soporte_lateral: 6, estabilidad: 7, peso_score: 8,
+      durabilidad_outdoor: 5, ventilacion: 7,
+    },
+    categoria_principal: "balanced",
+    tags: ["low-top", "presupuesto", "iniciacion"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [55, 85],
+      estilos: ["equilibrado", "tirador"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen: "Zapatilla de baloncesto de gama de entrada de adidas, de caña baja, con upper textil y suela de goma. Todavía sin reseñas propias y sin datos de amortiguación publicados.",
+    pros: [
+      "Precio contenido para una adidas de baloncesto",
+      "Upper textil, pensado para ventilar",
+      "Atmósfera la vende con tallas de adulto repartidas",
+    ],
+    contras: [
+      "Todavía SIN review de rendimiento: la nota es una estimación",
+      "No hemos encontrado qué espuma lleva",
+      "Peso según la tienda, sin una segunda fuente",
+    ],
+    veredicto: "Una opción para empezar o para jugar de vez en cuando. Sabemos poco de ella: la nota es una estimación nuestra por su gama y sus materiales, y la revisaremos si alguien la analiza.",
+    imagen_principal: "/shoes/adidas-breakaway.webp",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-11-03",
+    precio_msrp_eur: 85, // Precio tachado de Atmósfera, sin tarifa oficial
+    links_compra: [
+      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-breakaway-negro-183432.html", precio_actual: 68, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-03" }, // 3-nov: 7 tallas (42 2/3 a 47 1/3)
+    ],
+  },
+
+  // UA CURRY SPLASH 25: sin reseñas; nota estimada
+  {
+    id: "ua-curry-splash-25",
+    slug: "ua-curry-splash-25",
+    marca: "Under Armour",
+    modelo: "Curry Splash 25",
+    generacion: 25,
+    año_lanzamiento: 2025, // Por el nombre, sin confirmar
+    genero: "unisex",
+    signature_player: "Stephen Curry",
+    tecnologia_clave: ["Micro G midsole", "Rubber outsole with circular traction pattern", "Half-bootie mesh upper"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 361, // 12,75 oz según Under Armour
+    altura: "low", // «Medio botín» es la construcción interior: por la foto es baja
+    horma: "normal",
+    drop_mm: 10, // ESTIMADO: sin dato publicado
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+    puntuaciones: {
+      traccion: 7, amortiguacion: 6, respuesta: 7,
+      soporte_lateral: 6, estabilidad: 6, peso_score: 8,
+      durabilidad_outdoor: 6, ventilacion: 8,
+    },
+    categoria_principal: "responsive",
+    tags: ["budget", "curry", "entrada-gama", "low-top"],
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [55, 85],
+      estilos: ["tirador", "equilibrado"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen: "La Curry más sencilla de Under Armour: mediasuela Micro G, upper de malla con construcción de medio botín y suela de goma con dibujo circular. Todavía sin reseñas propias.",
+    pros: [
+      "Micro G de longitud completa, pensada para notar la pista",
+      "Malla ligera que ventila bien sobre el papel",
+      "Atmósfera tiene el color marrón con tallas de adulto repartidas",
+    ],
+    contras: [
+      "Todavía SIN review de rendimiento: la nota es una estimación",
+      "Micro G es una espuma más básica que las de la línea principal de Curry",
+      "Muchas tallas agotadas en el otro color de la tienda",
+    ],
+    veredicto: "Para un base o escolta ligero que quiere una Curry barata y no busca mucha amortiguación. La nota es una estimación nuestra a partir de sus especificaciones; la revisaremos si alguien la analiza.",
+    imagen_principal: "/shoes/ua-curry-splash-25.webp",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-11-03",
+    precio_msrp_eur: 110, // Precio tachado de Atmósfera, sin tarifa oficial en España
+    links_compra: [
+      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Funder-armour%2Fzapatillas-de-baloncesto-under-armour-curry-splash-25-marron-152421.html", precio_actual: 49.5, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-03" }, // 3-nov: 9 tallas (41 a 46). La morada solo tiene la 42.5
+    ],
+  },
+
+  // PUMA MB WORLD.01: línea nueva de LaMelo Ball, sin reseñas; nota estimada
+  {
+    id: "puma-mb-world-01",
+    slug: "puma-mb-world-01",
+    marca: "Puma",
+    modelo: "MB World.01",
+    generacion: 1,
+    año_lanzamiento: 2026,
+    genero: "unisex",
+    signature_player: "LaMelo Ball",
+    tecnologia_clave: ["Nitro foam", "Multidirectional rubber outsole", "Lateral reinforcements"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 370, // ESTIMADO: cerca de la MB.06 (372 g); sin dato de esta
+    altura: "low", // Puma habla de «media caña», pero por la foto es baja: ante la duda, el corte más bajo
+    horma: "normal",
+    drop_mm: 10, // ESTIMADO: sin dato publicado
+    tipo_cierre: "cordones",
+    material_superior: "mesh+synthetic",
+    puntuaciones: {
+      traccion: 8, amortiguacion: 7, respuesta: 7,
+      soporte_lateral: 7, estabilidad: 7, peso_score: 7,
+      durabilidad_outdoor: 5, ventilacion: 7,
+    },
+    categoria_principal: "balanced",
+    tags: ["signature", "low-top", "guards", "lamelo", "nitro"],
+    ideal_para: {
+      posiciones: ["base", "escolta", "alero"],
+      peso_jugador_kg: [60, 90],
+      estilos: ["equilibrado", "explosivo"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen: "La primera zapatilla de MB World, otra línea de LaMelo Ball, más sencilla que las MB numeradas: espuma Nitro, upper de malla con refuerzos y suela de goma multidireccional. Todavía sin reseñas propias.",
+    pros: [
+      "Espuma Nitro por menos de lo que cuesta una MB numerada",
+      "Refuerzos laterales para sujetar el pie",
+      "FuikaOmar la vende por debajo de la tarifa de Puma",
+    ],
+    contras: [
+      "Todavía SIN review de rendimiento: la nota es una estimación",
+      "Peso sin confirmar",
+      "En FuikaOmar quedan tallas del 41 al 44,5, sin las grandes",
+    ],
+    veredicto: "Para quien quiere la estética de LaMelo y la espuma Nitro sin pagar una MB.06. La nota es una estimación nuestra a partir de sus especificaciones; la revisaremos cuando la reseñen.",
+    imagen_principal: "/shoes/puma-mb-world-01.webp",
+    imagenes: [],
+    fuentes: [{ tipo: "evaluacion-propia" }],
+    ultima_actualizacion: "2026-11-03",
+    precio_msrp_eur: 100, // Tarifa de Puma España, leída el 3-nov
+    links_compra: [
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-puma-mb-world-01.html", precio_actual: 89.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-03" }, // 3-nov: 5 tallas (41 a 44,5)
+    ],
+  },
+
   // NIKE PRECISION 8 LOW (IH1104): la review de HoopsGeek es de la Mid (IH1105), aqui no se ancla
   {
     id: "nike-precision-8-low",

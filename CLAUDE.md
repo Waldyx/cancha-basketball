@@ -22,7 +22,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 | Dev server | `localhost:4321` (⚠ ver aviso de verificación en *Diseño y front*) |
 | Producción | `https://canchazapa.com` ✅ LIVE (apex sin-www es el dominio PRIMARIO en Vercel) |
 | Deploy | auto en cada push a `master` (integración Git de Vercel) |
-| Tamaño | **259 zapas (72 OCULTAS, 187 visibles) · 705 tests · 385 páginas** |
+| Tamaño | **262 zapas (72 OCULTAS, 190 visibles) · 705 tests · 388 páginas** |
 
 **Nombre/logo**: `CANCHA<span class="text-orange-500">.</span>ZAPA` — blanco, punto naranja, blanco.
 
@@ -53,7 +53,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
   🔴 Solo lee ~45 de 60 y ~41 de 55 puntos: fallo de OCR, sobre todo en la tarjeta resaltada (turquesa con marcador
   amarillo) y con letra de 576 px. Ampliar el fotograma a 1000 px EMPEORA. Ideas: pedir el vídeo como «Documento» y
   avisar por cuarto con los parciales de la cabecera. Diagnóstico: `localStorage cz.debug.acta=1` → `window.__actaDebug`.
-- **Rediseño de la home**: propuesta de Codex (vídeo sin ampliar desde el 3-nov, `83e54bf`) en la rama local `codex/rediseno-home` (worktree `Proyectos/cancha-home-preview`), sin fusionar: la decide el usuario. Capturas en `web/_coach-audit-out/home-redesign/` de la carpeta principal.
+- **Rediseño completo de la home**: descartado por el usuario el 3-nov; se queda el hero actual con retoques. Rama local borrada, último commit `83e54bf` por si se quiere recuperar del reflog.
 - **Si Claude se queda sin tokens, Codex lo sustituye**: reglas en `AGENTS.md`. Empieza cuando el usuario le escriba «Claude sin tokens».
 - Detalle de todo lo cerrado: `docs/historial-sesiones.md` (buscar `S57`, `S54`, `s43`…).
 
@@ -110,7 +110,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 - **Sin afiliada que las venda, no se crean**: G.T. Future, ST Charge, Kobe 11 Protro, Heir
   Series 2, NXXT Gen by JuJu, P400 de NB, Ja Twelve Time, Jordan Triangle, Air Rev, Curry Series 7. NB Kawhi V: no se vende en España.
 - **Repuntar a afiliada** las de Nike ES / Puma ES cuando ECI, Atmósfera, Snipes o FuikaOmar las tengan. GT Cut Academy 2: ver si ECI repone.
-- **Modelos que faltan, cruzados el 3-nov** con FuikaOmar, Atmósfera y las reseñas (entra Hesi Low V2): con tallas en FuikaOmar y sin reseña, MB World 01 y SKX Full Court Press; Shock Wave 6 Pro sin reseña de esa versión. Con 1-2 tallas: Adizero Select 3.0, Rise Nitro, Shock Wave 7, Bounce Legends, Fusion Nitro Team. Atmósfera con 4+ tallas (3-nov, abriendo cada ficha) y sin reseña de la versión: Breakaway (10 a 75 €, 7 a 68 €), Curry Splash 25 (9 a 49,50 €), Court Rider 2.0 (5 a 75 €), Jump Hook Low (4 a 48 €). Entran solo si el usuario acepta nota estimada.
+- **Modelos que faltan, cruzados el 3-nov** con FuikaOmar, Atmósfera y las reseñas (entra Hesi Low V2): con tallas en FuikaOmar y sin reseña, SKX Full Court Press; Shock Wave 6 Pro sin reseña de esa versión. Con 1-2 tallas: Adizero Select 3.0, Rise Nitro, Shock Wave 7, Bounce Legends, Fusion Nitro Team. Atmósfera con 4+ tallas (3-nov, abriendo cada ficha) y sin reseña de la versión: Court Rider 2.0 (5 a 75 €), Jump Hook Low (4 a 48 €). Entran solo si el usuario acepta nota estimada. Aceptó el 3-nov Breakaway, Curry Splash 25 y MB World.01: revisar notas, peso y año cuando las reseñen.
 - **Barrido por tienda** (el que más rinde): Forum Sport el 21-oct; FuikaOmar, Atmósfera y ECI repetidos el 2-nov (entran AJ 5, AJ 1 High, Trae Unlimited 2, Freak 8, Tatum 5 y Witness X); Snipes y Decathlon no compensan.
 - `nike_es`, `ua_es`, `nb_es` y `reebok_es` no leen stock: revisar a mano los de Nike (último: 2-nov). Para programarlo
   hay que comparar con una ficha AGOTADA de Nike. Las filas de Amazon también van a mano (`AMAZON_MARCA_AGOTADO = false`).

@@ -880,7 +880,7 @@ export const SEO_PAGES: SeoPage[] = [
     faqs: [
       { q: "¿Cuáles son las mejores zapatillas retro de baloncesto para jugar?", a: "La Air Jordan 11 (Air de longitud completa) es de las clásicas más jugables, y para estilos menos explosivos la Reebok Question Mid de Iverson aguanta bien. Si quieres aspecto clásico con tecnología actual, mira las Kobe Protro: Nike las actualizó y por eso las contamos como modernas." },
       { q: "¿Son las Air Jordan retro buenas para jugar baloncesto?", a: "Depende de la generación. La Jordan 11 tiene un Air de longitud completa; es jugable aunque pesada. Las Jordan 1, 2, 3 y 4 son principalmente colección — cuero rígido, cushion básico y peso elevado. Si quieres aspecto clásico con amortiguación actual, las Kobe Protro de Nike la llevan." },
-      { q: "¿Cuánto cuestan las zapatillas retro de baloncesto en España?", a: "La retro más accesible es la Converse Chuck Taylor (~75€). Las Jordan retro tienen un precio oficial de unos 180€ (Jordan 1) a 220€ (Jordan 11). Busca en KicksCrew y Amazon ES para precios competitivos." },
+      { q: "¿Cuánto cuestan las zapatillas retro de baloncesto en España?", a: "La retro más accesible es la Converse Chuck Taylor. Las Jordan retro tienen un precio oficial de unos 180€ (Jordan 1) a 220€ (Jordan 11). Busca en KicksCrew y Amazon ES para precios competitivos." },
     ],
     related: [],
     catalogQuery: "?retro=true",
