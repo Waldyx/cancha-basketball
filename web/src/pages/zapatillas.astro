@@ -44,6 +44,7 @@ const oculta = (z: typeof zapatillas[0]) => esGS(z); // solo GS se oculta del ca
 const nonGSCount = zapatillas.filter(z => !oculta(z)).length;
 
 const marcas = [...new Set(zapatillas.map(z => z.marca))].sort();
+const tiendasEnlazadas = new Set(zapatillas.flatMap(z => z.links_compra.filter(l => l.disponible).map(l => l.tienda))).size;
 const marcaCounts: Record<string, number> = {};
 zapatillas.forEach(z => { if (!oculta(z)) marcaCounts[z.marca] = (marcaCounts[z.marca] || 0) + 1; });
 
@@ -78,7 +79,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
 
 <Base
   title={`Catálogo de zapatillas de baloncesto | ${zapatillas.length}+ modelos analizados | CANCHA`}
-  description={`Catálogo de ${zapatillas.length}+ zapatillas de baloncesto analizadas. Filtra por marca, precio y categoría. Comparativa honesta con precio verificado en tiendas españolas.`}
+  description={`Catálogo de ${zapatillas.length}+ zapatillas de baloncesto analizadas. Filtra por marca, precio y categoría. Comparativa con precio verificado en tiendas españolas.`}
 >
   <main class="app">
 
@@ -89,7 +90,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
         <div class="cz-hero-grid">
           <div class="hero-left">
             <p class="cz-eyebrow">★ Catálogo · {zapatillas.length} zapas analizadas</p>
-            <h1>Encuentra<br/>tu <span class="accent">zapa</span> <span class="italic">sin BS</span></h1>
+            <h1>Encuentra<br/>tu <span class="accent">zapa</span> <span class="italic">sin rodeos</span></h1>
             <p class="lede">
               Puntuaciones técnicas, precio verificado en tiendas españolas y veredicto honesto.
               Filtra a tu juego o <a href="/quiz" class="lede-link">haz el quiz →</a>
@@ -97,7 +98,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
             <div class="meta-row">
               <span><span class="pulse"></span>Precios re-verificados {today}</span>
               <span class="sep">·</span>
-              <span>Sin sesgo de afiliado</span>
+              <span>La nota no depende de la comisión</span>
             </div>
             <p style="margin:12px 0 0;font-size:12px;color:var(--cz-text-muted);line-height:1.5">
               ℹ️ Imágenes orientativas y precios que pueden variar: confirma color, talla y precio finales en la tienda al abrir el enlace.
@@ -106,16 +107,16 @@ const ordenadas = [...zapatillas].sort(compareByScore);
           <div class="hero-panel">
             <div class="panel-header">
               <span class="dot-pulse"></span>
-              <span>RADAR EN VIVO</span>
+              <span>EL RADAR</span>
             </div>
             <div class="panel-grid">
               <div class="stat"><div class="v">{zapatillas.length}</div><div class="k">zapas</div></div>
               <div class="stat"><div class="v">{marcas.length}</div><div class="k">marcas</div></div>
-              <div class="stat"><div class="v">15<small>+</small></div><div class="k">tiendas</div></div>
-              <div class="stat"><div class="v">100<small>%</small></div><div class="k">honesto</div></div>
+              <div class="stat"><div class="v">{tiendasEnlazadas}</div><div class="k">tiendas</div></div>
+              <div class="stat"><div class="v">{zapatillas.filter(esGS).length}</div><div class="k">junior</div></div>
             </div>
             <div class="panel-ticker">
-              <div class="ticker-label">★ Trending hoy</div>
+              <div class="ticker-label">★ Selección destacada</div>
               {trending.map(z => (
                 <div class="ticker-row">
                   <span class="t-rank">{scoreOf(z)}</span>

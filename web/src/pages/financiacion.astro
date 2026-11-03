@@ -3,45 +3,52 @@
 import "../styles/cancha-redesign.css";
 import Base from "../layouts/Base.astro";
 
+// Comisiones aproximadas de los programas activos. Si se da de alta o se pierde uno, se cambia aquí.
 const tiendasAfiliado = [
-  { tienda: "Nike EU",       comision: "~7%",    cookie: "7 días" },
-  { tienda: "Adidas ES",     comision: "~8%",    cookie: "30 días" },
-  { tienda: "Puma ES",       comision: "~7%",    cookie: "30 días" },
-  { tienda: "Decathlon",     comision: "3–9%",   cookie: "30 días" },
-  { tienda: "JD Sports",     comision: "~5%",    cookie: "30 días" },
-  { tienda: "Zalando ES",    comision: "~4–6%",  cookie: "30 días" },
-  { tienda: "Foot Locker",   comision: "~2–5%",  cookie: "30 días" },
-  { tienda: "Sprinter ES",   comision: "~3–6%",  cookie: "30 días" },
-  { tienda: "Reebok ES",     comision: "~7%",    cookie: "30 días" },
-  { tienda: "Amazon ES",     comision: "3–4%",   cookie: "24 h" },
+  { tienda: "AliExpress",        comision: "~7 %" },
+  { tienda: "Decathlon",         comision: "~6 %" },
+  { tienda: "El Corte Inglés",   comision: "~6 %" },
+  { tienda: "Atmósfera Sport",   comision: "~6 %" },
+  { tienda: "FuikaOmar",         comision: "~5 %" },
+  { tienda: "adidas",            comision: "~5 %" },
+  { tienda: "Snipes",            comision: "~5 %" },
+  { tienda: "Forum Sport",       comision: "~5 %" },
+  { tienda: "Amazon",            comision: "~3 %" },
 ];
 
 const tiendasSinAfiliado = [
-  { tienda: "Basket World" },
-  { tienda: "AliExpress" },
-  { tienda: "Nike SNKRS" },
-  { tienda: "Kickscrew" },
+  { tienda: "Basketball Emotion" },
+  { tienda: "Joom" },
+  { tienda: "Tiendas oficiales de Nike, Puma y Reebok" },
+  { tienda: "361° y Moolah Kicks" },
 ];
 
-const principios = [
-  { titulo: "Fidelidad al usuario, no al afiliado",
-    body: "El scoring NUNCA se ajusta por comisión. Si la zapa que mejor encaja contigo paga menos, sale arriba igual." },
-  { titulo: "Mejor precio > mejor comisión",
-    body: "En el comparador, el orden es por precio bajo. No por cuánto nos paga la tienda." },
-  { titulo: "Tiendas sin afiliado, también",
-    body: "Basket World y AliExpress no tienen programa. Si tienen la mejor oferta, salen arriba con link normal. Tú ganas, nosotros nada por esa venta." },
-  { titulo: "Si una zapa es mala, lo decimos",
-    body: "Sin eufemismos. \"Cushion 4/10, no recomendada >80kg\" — directo." },
-  { titulo: "Transparencia editorial",
-    body: "En cada ficha listamos las fuentes y enlazamos al review original. Verifica si quieres." },
-  { titulo: "Patrocinios, etiquetados sin sesgo",
-    body: "Si una marca patrocina una review, irá marcada como \"Patrocinado\" muy visible. El score sigue las mismas reglas." },
+const influye = [
+  { titulo: "Qué tiendas enlazamos",
+    body: "Si una zapatilla se vende en una tienda afiliada, normalmente enlazamos solo esas. Las excepciones son Basketball Emotion y Joom, que enlazamos sin cobrar. Si no hay ninguna afiliada, enlazamos la tienda oficial de la marca." },
+  { titulo: "Qué zapatillas aparecen en el catálogo",
+    body: "Una zapatilla sin compra afiliada normalmente no sale en el catálogo, aunque su ficha siga existiendo. Las excepciones son los modelos que vende la propia marca y los próximos lanzamientos. Por eso aquí no está todo lo que se vende en España." },
+  { titulo: "Qué precio enseñamos",
+    body: "El número solo aparece en tiendas afiliadas. En las demás verás «Ver precio». Por eso el «desde» de una ficha puede ser más alto que el de otra tienda enlazada: entra a mirar antes de comprar." },
+  { titulo: "Las promociones",
+    body: "Los avisos de ofertas de la parte superior son de tiendas con las que tenemos acuerdo." },
+];
+
+const noInfluye = [
+  { titulo: "La nota de cada zapatilla",
+    body: "La comisión no entra en la fórmula. Sale de las reseñas y de los datos técnicos, y en cada ficha indicamos de dónde." },
+  { titulo: "El orden del quiz",
+    body: "El quiz ordena las zapatillas del catálogo según tus respuestas, sin mirar cuánto paga cada tienda. Recuerda que solo elige entre las que están en el catálogo." },
+  { titulo: "Lo malo de cada zapatilla",
+    body: "Si una zapatilla tiene un punto débil, lo decimos, aunque se venda en una tienda afiliada." },
+  { titulo: "Patrocinios",
+    body: "Hoy no tenemos patrocinios de marcas. Si algún día hay uno, irá marcado como «Patrocinado»." },
 ];
 ---
 
 <Base
   title="Cómo nos financiamos · CANCHA.ZAPA"
-  description="Cómo se financia CANCHA: comisiones de afiliado sin que afecten nunca a las recomendaciones. Transparencia total con datos reales."
+  description="Cómo se financia CANCHA.ZAPA: comisiones de afiliado. Qué cambian (tiendas, catálogo y precios mostrados) y qué no cambian (la nota de cada zapatilla)."
 >
   <main class="app">
 
@@ -55,8 +62,8 @@ const principios = [
           dinero
         </h1>
         <p class="doc-lede">
-          Página corta porque no hay misterio. Aquí va todo: el modelo, los números,
-          lo que prometemos y lo que asumimos.
+          Página corta porque no hay misterio: de dónde sale el dinero, qué cambia por ello y
+          qué no.
         </p>
       </div>
     </section>
@@ -66,10 +73,11 @@ const principios = [
 
         {/* TL;DR */}
         <div class="doc-tldr">
-          <p class="cz-eyebrow">★ TL;DR</p>
+          <p class="cz-eyebrow">★ En resumen</p>
           <p class="doc-tldr-body">
-            Cobramos comisión cuando compras a través de nuestros links de afiliados.
-            <span class="muted">Nunca</span> influye en qué te recomendamos.
+            Cobramos comisión cuando compras a través de nuestros enlaces de afiliado.
+            Eso influye en qué tiendas y zapatillas ves aquí.
+            <span class="muted">No influye</span> en la nota de cada zapatilla.
           </p>
         </div>
 
@@ -77,77 +85,26 @@ const principios = [
         <section class="doc-section">
           <div class="doc-section-head">
             <span class="doc-num">01</span>
-            <h2 class="doc-h2">Afiliados, nada más</h2>
+            <h2 class="doc-h2">Vivimos de los afiliados</h2>
           </div>
           <p class="doc-body">
-            Trabajamos con programas de afiliados de las tiendas donde se venden las zapatillas.
-            Cuando haces click en un botón "Ver en X" y terminas comprando algo, la tienda nos paga
-            un pequeño porcentaje del precio.
+            Cuando haces clic en una tienda y terminas comprando, esa tienda nos paga un pequeño
+            porcentaje del precio. A ti no te cuesta más.
           </p>
           <p class="doc-body" style="margin-top:14px">
-            Las tiendas con afiliados aparecen marcadas en cada ficha. Las que NO tienen programa
-            también las mostramos: si tienen el mejor precio, las verás arriba igualmente.
-            El usuario gana siempre.
+            Las herramientas para entrenadores están en beta gratuita. Más adelante tendrán una parte
+            de pago; las zapatillas seguirán siendo gratis.
           </p>
         </section>
 
-        {/* 02 — Comisiones */}
+        {/* 02 — Qué influye */}
         <section class="doc-section">
           <div class="doc-section-head">
             <span class="doc-num">02</span>
-            <h2 class="doc-h2">Las comisiones reales</h2>
+            <h2 class="doc-h2">Lo que sí cambia la comisión</h2>
           </div>
-          <p class="doc-body">
-            Por curiosidad o por morbo, esto es lo que cobramos por venta en calzado de baloncesto:
-          </p>
-          <div class="doc-table-wrap">
-            <table class="doc-table">
-              <thead>
-                <tr>
-                  <th>Tienda</th>
-                  <th>Comisión</th>
-                  <th>Cookie</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tiendasAfiliado.map(t => (
-                  <tr>
-                    <td><strong>{t.tienda}</strong></td>
-                    <td class="acc">{t.comision}</td>
-                    <td class="muted">{t.cookie}</td>
-                  </tr>
-                ))}
-                <tr class="doc-table-divider">
-                  <td colspan="3">— Sin programa de afiliados, mostradas igualmente —</td>
-                </tr>
-                {tiendasSinAfiliado.map(t => (
-                  <tr class="doc-table-no-affil">
-                    <td><strong>{t.tienda}</strong></td>
-                    <td class="muted">Sin programa</td>
-                    <td class="muted">—</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p class="doc-body" style="font-size:13px;color:var(--cz-fg4);margin-top:14px">
-            Sobre una zapatilla de ~150€, una comisión típica del 5% son ~7,50€ para nosotros.
-            Las tiendas sin programa las mostramos igualmente si tienen el mejor precio.
-          </p>
-        </section>
-
-        {/* 03 — Principios */}
-        <section class="doc-section">
-          <div class="doc-section-head">
-            <span class="doc-num">03</span>
-            <h2 class="doc-h2">Principios inquebrantables</h2>
-          </div>
-          <p class="doc-body">
-            Estas 6 cosas no negociamos. Si en algún momento las rompemos,
-            tienes derecho a echárnoslo en cara públicamente.
-          </p>
           <ol class="doc-principles">
-            {principios.map((p, i) => (
+            {influye.map((p, i) => (
               <li>
                 <p class="doc-principle-num">{String(i + 1).padStart(2, "0")}</p>
                 <div>
@@ -159,22 +116,63 @@ const principios = [
           </ol>
         </section>
 
-        {/* 04 — Trade-off */}
+        {/* 03 — Qué no influye */}
+        <section class="doc-section">
+          <div class="doc-section-head">
+            <span class="doc-num">03</span>
+            <h2 class="doc-h2">Lo que no cambia</h2>
+          </div>
+          <ol class="doc-principles">
+            {noInfluye.map((p, i) => (
+              <li>
+                <p class="doc-principle-num">{String(i + 1).padStart(2, "0")}</p>
+                <div>
+                  <p class="doc-principle-title">{p.titulo}</p>
+                  <p class="doc-principle-body">{p.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        {/* 04 — Comisiones */}
         <section class="doc-section">
           <div class="doc-section-head">
             <span class="doc-num">04</span>
-            <h2 class="doc-h2">El trade-off honesto</h2>
+            <h2 class="doc-h2">Las comisiones</h2>
           </div>
           <p class="doc-body">
-            Sí, dejamos dinero corto plazo sobre la mesa. Ventas que podrían ir a Nike (11% comisión teórica)
-            se irán a Decathlon (3–9%) si Decathlon encaja mejor con tu perfil. Es lo correcto y lo asumimos.
+            Son aproximadas y las fija cada programa:
           </p>
-          <p class="doc-body" style="margin-top:14px">
-            A cambio ganamos algo más valioso: tu confianza. Modelo inspirado en
-            <a href="https://www.nytimes.com/wirecutter/" target="_blank" rel="noopener noreferrer" class="doc-link">Wirecutter</a>
-            y
-            <a href="https://www.rtings.com" target="_blank" rel="noopener noreferrer" class="doc-link">RTINGS</a>,
-            que han demostrado que la honestidad escala mejor que el clickbait.
+          <div class="doc-table-wrap">
+            <table class="doc-table">
+              <thead>
+                <tr>
+                  <th>Tienda</th>
+                  <th>Comisión</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tiendasAfiliado.map(t => (
+                  <tr>
+                    <td><strong>{t.tienda}</strong></td>
+                    <td class="acc">{t.comision}</td>
+                  </tr>
+                ))}
+                <tr class="doc-table-divider">
+                  <td colspan="2">— Enlazadas sin cobrar comisión —</td>
+                </tr>
+                {tiendasSinAfiliado.map(t => (
+                  <tr class="doc-table-no-affil">
+                    <td><strong>{t.tienda}</strong></td>
+                    <td class="muted">Sin comisión</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="doc-body" style="font-size:13px;color:var(--cz-fg4);margin-top:14px">
+            Sobre una zapatilla de ~150 €, una comisión del 5 % son ~7,50 € para nosotros.
           </p>
         </section>
 

@@ -3,6 +3,7 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { balones, scoreBalon } from "../data/balones";
+import { zapatillas } from "../data/zapatillas";
 
 const TERRENO_LABEL: Record<string, string> = {
   indoor: "Interior",
@@ -71,7 +72,7 @@ const jsonLd = {
       <div class="shell">
         <p class="cz-eyebrow">★ Equipamiento · CANCHA.ZAPA</p>
         <h1 class="rk-h1">Mejores balones<br/><span class="rk-h1-cat">de baloncesto</span></h1>
-        <p class="rk-blurb">{balones.length} balones analizados sin BS · Por terreno, material y precio · Con dónde comprarlos</p>
+        <p class="rk-blurb">{balones.length} balones analizados · Por terreno, material y precio · Con dónde comprarlos</p>
       </div>
     </section>
 
@@ -167,7 +168,7 @@ const jsonLd = {
     <aside class="shell bl-cta">
       <div>
         <p class="bl-cta-title">¿Y las zapatillas?</p>
-        <p class="bl-cta-sub">Tenemos {`182`} modelos analizados sin sesgo. Encuentra las tuyas en 60 segundos.</p>
+        <p class="bl-cta-sub">Tenemos {zapatillas.length} modelos analizados. Encuentra las tuyas en 60 segundos.</p>
       </div>
       <a href="/quiz" class="home-btn primary">Hacer el quiz →</a>
     </aside>

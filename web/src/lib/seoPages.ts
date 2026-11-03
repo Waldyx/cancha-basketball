@@ -83,7 +83,7 @@ const posicion = (
 ): SeoPage => ({
   slug: `mejor-zapatilla-${pos}`,
   title: `Mejor zapatilla de baloncesto para ${humanPlural} | CANCHA.ZAPA`,
-  description: `Las 5 mejores zapatillas de baloncesto para ${humanPlural}. Análisis técnico, precio verificado y veredicto honesto. Sin BS.`,
+  description: `Las 5 mejores zapatillas de baloncesto para ${humanPlural}. Análisis técnico, precio verificado y veredicto honesto.`,
   eyebrow: posMeta.eyebrow,
   h1Pre: "Mejor zapatilla",
   h1Accent: `para ${humanPlural}`,
@@ -452,7 +452,7 @@ export const SEO_PAGES: SeoPage[] = [
   // ── PRESUPUESTO (3) ─────────────────────────────────────────────────
   presupuesto("zapatillas-baloncesto-baratas", {
     title: "Zapatillas de baloncesto baratas (bajo 80€) | CANCHA.ZAPA",
-    description: "Las 5 mejores zapatillas de baloncesto por menos de 80€. Análisis técnico sin BS, precio verificado.",
+    description: "Las 5 mejores zapatillas de baloncesto por menos de 80€. Análisis técnico y precio verificado.",
     eyebrow: "★ Presupuesto · Bajo 80€",
     h1Pre: "Mejores zapatillas",
     h1Accent: "baratas",
@@ -954,20 +954,19 @@ export const SEO_PAGES: SeoPage[] = [
   // ── MARCA: New Balance ─────────────────────────────────────────────
   marca("New Balance", {
     title: "Mejores zapatillas de baloncesto New Balance 2026 | CANCHA.ZAPA",
-    description: "Las mejores New Balance de baloncesto que se compran en España: TWO WXY v4, Kawhi 4 y Kawhi 1. Espumas FuelCell y Fresh Foam en la cancha.",
+    description: "Las mejores New Balance de baloncesto que se compran en España: TWO WXY v4 y Kawhi 4. Espumas FuelCell y Fresh Foam en la cancha.",
     eyebrow: "★ Por marca · New Balance",
     lede: "New Balance volvió al baloncesto con Kawhi Leonard. Su TWO WXY v4 es de las más equilibradas del catálogo y, además, aguanta bien el exterior.",
     intro: "New Balance abandonó el baloncesto en los 90 y volvió con fuerza en 2018 firmando a Kawhi Leonard. Desde entonces, la marca ha lanzado la línea Two WXY (guards), la línea Kawhi (aleros/pívots) y la OMN1S (legacy de Kawhi). Tecnología FuelCell y Fresh Foam son sus propuestas de espuma.",
     points: [
       { lab: "Kawhi 4 = cushion", body: "La Kawhi 4 lleva FuelCell con una de las amortiguaciones más altas del catálogo: para aleros y jugadores grandes. Es de interior: su goma dura poco en la calle." },
       { lab: "TWO WXY = todoterreno", body: "La línea TWO WXY es la más completa de New Balance: FuelCell reactiva, buen agarre y una goma dura que aguanta el exterior. La v5 está entre las mejor valoradas del catálogo." },
-      { lab: "Kawhi 1 = mid y resistente", body: "La primera Kawhi es mid y con una goma dura que se defiende fuera, para aleros que quieren algo más de sujeción. Es más antigua y difícil de encontrar a buen precio." },
       { lab: "Hay versión ancha", body: "Las TWO WXY de nuestras fichas son de horma normal; si no te entra una Nike, prueba también las New Balance." },
     ],
     faqs: [
       { q: "¿New Balance es buena para baloncesto?", a: "Sí, aunque subestimada. La TWO WXY v4 es de las más equilibradas del catálogo y aguanta bien el exterior, y la Kawhi 4 es de las de más amortiguación." },
       { q: "¿Qué New Balance elegir si soy pívot o pesado?", a: "La Kawhi 4, por su FuelCell con mucha amortiguación. La Fresh Foam BB v3, que era la referencia de la marca para pívots, ya no la vende ninguna de nuestras tiendas en España." },
-      { q: "¿Dónde comprar New Balance de baloncesto en España?", a: "New Balance España apenas vende baloncesto. La TWO WXY v4 se encuentra en FuikaOmar, la Kawhi 4 en FuikaOmar y la Kawhi 1 en Amazon. El precio de hoy de cada una está en su ficha." },
+      { q: "¿Dónde comprar New Balance de baloncesto en España?", a: "New Balance España apenas vende baloncesto. La TWO WXY v4 y la Kawhi 4 se encuentran en FuikaOmar. El precio de hoy de cada una está en su ficha." },
     ],
   }),
 

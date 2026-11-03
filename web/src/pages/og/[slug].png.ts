@@ -128,7 +128,7 @@ export const GET = async ({ params }: { params: Record<string, string> }) => {
 
   <!-- Bottom tagline -->
   <text x="60" y="615" font-family="system-ui, sans-serif" font-size="16" font-weight="700"
-        fill="#52525b" letter-spacing="2">SIN SESGO · SIN BS · 100% HONESTO</text>
+        fill="#52525b" letter-spacing="2">CRITERIOS A LA VISTA</text>
   <text x="1140" y="615" font-family="system-ui, sans-serif" font-size="16" font-weight="700"
         fill="#52525b" letter-spacing="2" text-anchor="end">cancha.zapa</text>
 

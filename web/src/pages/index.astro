@@ -53,6 +53,7 @@ const trendingTagged = visibles
 const trendingHero = (trendingTagged.length >= 5 ? trendingTagged : [...conPrecio, ...sinPrecio]).slice(0, 5);
 
 const marcas = [...new Set(zapatillas.map(z => z.marca))];
+const tiendasEnlazadas = new Set(zapatillas.flatMap(z => z.links_compra.filter(l => l.disponible).map(l => l.tienda))).size;
 
 const CAT_LABELS: Record<string, string> = {
   "cushion-focused": "Cushion", "responsive": "Reactiva",
@@ -103,7 +104,7 @@ const homeJsonLd = {
 };
 ---
 
-<Base title="CANCHA.ZAPA — Tu zapatilla de baloncesto, sin BS"
+<Base title="Zapatillas de baloncesto: quiz y comparador · CANCHA.ZAPA"
       jsonLd={homeJsonLd}
       description="Quiz gratuito y comparador honesto de zapatillas de baloncesto. 5 recomendaciones a medida, precios verificados en tiendas españolas.">
   <main class="app">
@@ -159,7 +160,7 @@ const homeJsonLd = {
             <div class="panel-grid">
               <div class="stat"><div class="v">{zapatillas.length}</div><div class="k">zapas</div></div>
               <div class="stat"><div class="v">{marcas.length}</div><div class="k">marcas</div></div>
-              <div class="stat"><div class="v">15<small>+</small></div><div class="k">tiendas</div></div>
+              <div class="stat"><div class="v">{tiendasEnlazadas}</div><div class="k">tiendas</div></div>
               <div class="stat"><div class="v">{zapatillas.length - visibles.length}</div><div class="k">junior</div></div>
             </div>
             <div class="panel-ticker">

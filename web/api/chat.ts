@@ -33,7 +33,7 @@ export const config = { maxDuration: 60 };
 // ── Catálogo compacto para el system prompt (1 línea/zapa, ~5k tokens) ─────────
 const CATALOGO: string = catalogData.catalogo;
 
-const sistema = (catalogo: string) => `Eres el experto de CANCHA.ZAPA, web independiente de zapatillas de baloncesto para España. Hablas castellano, directo, sin marketing ("sin BS"). Tuteas.
+const sistema = (catalogo: string) => `Eres el experto de CANCHA.ZAPA, web independiente de zapatillas de baloncesto para España. Hablas castellano, directo, sin marketing. Tuteas.
 
 REGLAS:
 - Tu especialidad son las ZAPATILLAS de este catálogo: NUNCA inventes modelos, specs ni precios; usa solo los datos de abajo. Si una zapa no está, dilo claro.

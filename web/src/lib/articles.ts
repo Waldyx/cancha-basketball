@@ -91,14 +91,14 @@ export const ARTICLES: Article[] = [
     title: "Cómo elegir tus zapatillas de baloncesto: guía completa 2025-2026",
     metaTitle: "Cómo elegir zapatillas de baloncesto: guía completa 2025 | CANCHA.ZAPA",
     description:
-      "Guía completa para elegir zapatillas de baloncesto según tu posición, peso, cancha y presupuesto. Sin publicidad disfrazada.",
+      "Guía completa para elegir zapatillas de baloncesto según tu posición, peso, cancha y presupuesto.",
     fecha: "2026-05-20",
     fechaLabel: "20 mayo 2026",
     categoria: "Guías",
     readMinutes: 7,
     eyebrow: "★ Guía editorial · CANCHA.ZAPA",
     heroTitle: "Cómo elegir zapatillas de baloncesto",
-    heroSubtitle: "Guía completa 2025-2026 · Sin publicidad disfrazada",
+    heroSubtitle: "Guía completa 2025-2026",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["nike-gt-cut-4", "adidas-ae-2", "ua-curry-13", "nike-lebron-23", "jordan-tatum-4"],
     relatedSeoPages: ["mejor-zapatilla-base", "mejor-zapatilla-pivot", "zapatillas-baloncesto-baratas"],
@@ -1471,7 +1471,7 @@ export const ARTICLES: Article[] = [
     readMinutes: 6,
     eyebrow: "★ Guía · Pie plano y pronación",
     heroTitle: "Zapatillas de baloncesto para pie plano",
-    heroSubtitle: "Guía 2025-2026 — sin BS, sin ventas disfrazadas",
+    heroSubtitle: "Guía 2025-2026",
     author: "Editorial CANCHA.ZAPA",
     relatedShoes: ["ua-curry-13", "nike-lebron-22", "anta-kai-2", "adidas-ae-2", "nike-gt-cut-4"],
     relatedSeoPages: ["zapatillas-baloncesto-pie-plano", "zapatillas-cushion", "zapatillas-equilibradas"],
@@ -3236,7 +3236,7 @@ export const ARTICLES: Article[] = [
     <li><strong style="color:#e4e4e7">Tecnología:</strong> FILA foam · Cuero premium · Herringbone</li>
     <li><strong style="color:#e4e4e7">Altura:</strong> High-top</li>
     <li><strong style="color:#e4e4e7">Lanzamiento:</strong> 1995</li>
-    <li><strong style="color:#e4e4e7">Precio retro actual:</strong> desde {{precio:fila-grant-hill-1}}</li>
+    <li><strong style="color:#e4e4e7">Precio oficial del retro:</strong> {{precio:fila-grant-hill-1}}</li>
     <li><strong style="color:#e4e4e7">Score jugabilidad:</strong> {{score:fila-grant-hill-1}} (interior)</li>
   </ul>
 </div>
@@ -3735,7 +3735,7 @@ export const ARTICLES: Article[] = [
   <li><a href="/zapatilla/nike-giannis-immortality-5">Nike Giannis Immortality 5</a> el rey de las baratas (desde {{precio:nike-giannis-immortality-5}}) y durabilidad para exterior.</li>
 </ul>
 <h2>Como usar esta lista</h2>
-<p class="art-outro">El hype es un buen punto de partida, pero no compres solo por moda. Filtra el <a href="/zapatillas">catalogo</a> por tu posicion y presupuesto, contrasta la nota en <a href="/rankings">Rankings</a> y, si dudas, haz el <a href="/quiz">quiz</a>: te decimos cual encaja con tu juego. Sin sesgo de marca, sin BS.</p>
+<p class="art-outro">El hype es un buen punto de partida, pero no compres solo por moda. Filtra el <a href="/zapatillas">catalogo</a> por tu posicion y presupuesto, contrasta la nota en <a href="/rankings">Rankings</a> y, si dudas, haz el <a href="/quiz">quiz</a>: te decimos cual encaja con tu juego.</p>
 `,
   },
 
