@@ -34,7 +34,7 @@ const catalogo = zapatillas
       (z.tags.includes("retro") ? " | RETRO" : "") +
       (z.genero === "gs" ? " | JUNIOR-GS" : "") +
       (z.genero === "women" ? " | MUJER-100%" : z.tags.includes("mujer") ? " | MUJER-tambien" : "") +
-      (z.proximamente ? " | PROXIMAMENTE" : "") +
+      (z.proximamente ? " | aún sin lanzar" : "") +
       // Al final a propósito: `chat.ts` lee los campos por posición. Sin esto el modelo se
       // inventaba la tecnología (19-oct: "Max Air y placa de carbono" en la LeBron 22).
       (z.tecnologia_clave?.length ? ` | tec ${z.tecnologia_clave.join(", ")}` : "")

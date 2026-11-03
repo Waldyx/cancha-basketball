@@ -43,20 +43,20 @@ REGLAS:
 - Cuando recomiendes una zapa concreta, escribe su marcador EXACTO [[shoe:SLUG]] en su propia línea (el SLUG es el primer campo de cada línea del catálogo). El front lo convierte en tarjeta con foto, score y precio. Máximo 2-3 marcadores por respuesta.
 - En el texto nombra cada zapa por su nombre comercial (el segundo campo), NUNCA por el slug. No copies las líneas del catálogo: escribe frases.
 - Para zapas marcadas RETRO: avisa que son más de coleccionismo/uso casual que de cancha competitiva.
-- Las zapas marcadas PROXIMAMENTE aún no se venden y sus notas son provisionales: NUNCA las recomiendes para comprar ni escribas su marcador [[shoe:]] salvo que el usuario pregunte por ese modelo, y entonces dile que todavía no ha salido.
+- Las zapas marcadas «aún sin lanzar» no se venden todavía y sus notas son provisionales: NUNCA las recomiendes para comprar ni escribas su marcador [[shoe:]] salvo que el usuario pregunte por ese modelo, y entonces dile que todavía no ha salido.
 - GÉNERO/EDAD (marcadores al final de cada línea del catálogo):
   · "JUNIOR-GS" = versión júnior (Grade School, tallaje niño hasta ~EU40). Recomiéndalas SOLO si el usuario pide algo para un niño/junior; NUNCA a un adulto. Si te piden la adulta, usa la versión sin este marcador.
   · "MUJER-100%" = horma 100% femenina (Moolah Kicks, UA Flow Breakthru 4, Adidas Exhibit Select, etc.): diseñadas solo para pie de mujer (talón estrecho). Son LA recomendación para jugadoras que buscan ajuste femenino real.
   · "MUJER-tambien" = signature unisex con ADN femenino (Sabrina, A'One, Stewie, Jordan Heir Series): la usan hombres y mujeres; perfectas para recomendar a jugadoras sin dejar de ser unisex.
   · Si una jugadora pregunta "zapatillas para mujer", prioriza las MUJER-100% y las MUJER-tambien. Si no especifica género, trata todo como unisex normal.
-  · Estos marcadores (y RETRO y PROXIMAMENTE) son internos: nunca los escribas tal cual. Dilo con palabras («horma 100 % femenina», «signature de jugadora», «versión júnior»).
+  · Estos marcadores (y RETRO) son internos: nunca los escribas tal cual. Dilo con palabras («horma 100 % femenina», «signature de jugadora», «versión júnior»).
 - Respeta SIEMPRE el presupuesto que pida el usuario: no recomiendes una zapa cuyo precio supere su tope.
 - Respuestas breves (2-4 frases + marcadores). Cierra sugiriendo el quiz (/quiz) o una ficha concreta.
 
 - Tecnología (espumas, placas, cámaras de aire, upper): menciona SOLO la que aparece tras «tec» en la línea de esa zapa. Nada de memoria: si no está ahí, no la nombres.
 - Nada de superlativos sobre el catálogo entero («la más ligera del catálogo», «la mejor tracción de todas»): muchas zapas comparten la misma nota. Compara solo entre las que recomiendas.
 
-CATÁLOGO (slug | marca modelo | categoría | precio | scores | altura | horma | marcadores RETRO/JUNIOR-GS/MUJER/PROXIMAMENTE | tec tecnología):
+CATÁLOGO (slug | marca modelo | categoría | precio | scores | altura | horma | marcadores RETRO/JUNIOR-GS/MUJER/aún sin lanzar | tec tecnología):
 ${catalogo}`;
 
 // 🔴 19-oct-2026, medido en producción: nemotron ofrecía la Curry 12 GS (de niño) a un adulto
@@ -171,7 +171,7 @@ function respuestaLocal(pregunta: string): string {
   const mujer = /mujer|chica|jugadora|femenin/.test(q);
 
   // Los RETRO fuera siempre: son de coleccionismo, no de cancha (regla del prompt).
-  let cand = ZAPAS.filter((z) => !/RETRO|PROXIMAMENTE/.test(z.marcadores));
+  let cand = ZAPAS.filter((z) => !/RETRO|sin lanzar/.test(z.marcadores));
   // Las GS solo si piden algo júnior; y si piden júnior, solo GS.
   cand = junior
     ? cand.filter((z) => /JUNIOR-GS/.test(z.marcadores))
