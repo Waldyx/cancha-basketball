@@ -111,8 +111,6 @@ export const forumsport_es: StoreScraper = {
 
     try {
       await page.goto(url, { waitUntil: "domcontentloaded", timeout: 25000 });
-      // El selector de tallas se pinta en cliente; sin él seguimos (el precio sale del JSON-LD).
-      await page.waitForSelector(".size-item.js-select-size", { timeout: 6000 }).catch(() => {});
 
       const datos = (await page.evaluate(
         `(() => {
@@ -123,12 +121,9 @@ export const forumsport_es: StoreScraper = {
             lds: lds,
             h1: document.querySelector("h1") ? (document.querySelector("h1").textContent || "").trim() : "",
             titulo: document.title || "",
-            tallas: Array.prototype.slice
-              .call(document.querySelectorAll('.size-item.js-select-size[data-region="ES"]:not(.off)'))
-              .map(function (e) { return e.getAttribute("data-size") || (e.textContent || "").trim(); }),
           };
         })()`
-      )) as { lds: string[]; h1: string; titulo: string; tallas: string[] };
+      )) as { lds: string[]; h1: string; titulo: string };
 
       const oferta = ofertaDeJsonLd(datos.lds);
       // Sin ProductGroup no estamos en una ficha (enlace caducado que cae en
@@ -154,7 +149,16 @@ export const forumsport_es: StoreScraper = {
       if (oferta.disponible === false) return { ...base, disponible: false, agotado: true };
       if (oferta.precio === null) return { ...base, disponible: false };
 
-      const tallas = tallasEU(datos.tallas);
+      // El selector de tallas se pinta en cliente: se espera solo con la oferta ya validada
+      // y en stock, para no sumar 6 s a cada ficha caducada o agotada. Sin él seguimos
+      // (el precio sale del JSON-LD).
+      await page.waitForSelector(".size-item.js-select-size", { timeout: 6000 }).catch(() => {});
+      const textosTalla = (await page.evaluate(
+        `Array.prototype.slice
+          .call(document.querySelectorAll('.size-item.js-select-size[data-region="ES"]:not(.off)'))
+          .map(function (e) { return e.getAttribute("data-size") || (e.textContent || "").trim(); })`
+      )) as string[];
+      const tallas = tallasEU(textosTalla);
       return { ...base, precio_actual: oferta.precio, disponible: true, ...(tallas.length > 0 ? { tallas } : {}) };
     } catch {
       return base;
