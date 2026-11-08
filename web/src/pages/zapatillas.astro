@@ -6,6 +6,8 @@
 import Base from "../layouts/Base.astro";
 import "../styles/cancha-redesign.css";
 import { zapatillas } from "../data/zapatillas";
+import MiTalla from "../components/MiTalla.astro";
+import { construirDatosMiTalla } from "../lib/miTalla";
 import { findMejorPrecio, findMejorPrecioMostrado, scoreDisplay, scoreBadge, compareByScore, fechaVerificacionMasReciente, euros, msrpComparable } from "../lib/scoring";
 
 const LABELS_TIENDA: Record<string, string> = {
@@ -161,6 +163,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
       </div>
     </div>
 
+    <div class="shell"><MiTalla datos={construirDatosMiTalla(ordenadas)} /></div>
     {/* Active filters bar */}
     <div class="shell">
       <div class="cz-active" id="active-filters">
@@ -253,7 +256,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
               const precioVista = mejorVista?.precio_actual ?? z.precio_msrp_eur;
               const ahorro = msrpComparable(z) ? z.precio_msrp_eur - precioVista : 0;
               return (
-                <article class="cz-pick" data-pick="true" style={`--cat:${CAT_ACCENT[z.categoria_principal]}`}>
+                <article class="cz-pick" data-pick="true" data-mi-talla-id={z.id} style={`--cat:${CAT_ACCENT[z.categoria_principal]}`}>
                   <div class="pick-photo">
                     <span class="pick-watermark">★ PICK</span>
                     {z.imagen_principal && !z.imagen_principal.includes('placeholder') && (
@@ -272,6 +275,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
                       <span class="pick-modelo">{z.modelo}</span>
                     </h2>
                     <p class="pick-verdict">{z.veredicto}</p>
+                    <span data-mi-talla-chip hidden></span>
                     <div class="pick-stats">
                       <div class="ps"><div class="psv">{editorPick.score.toFixed(1)}<small>/10</small></div><div class="psk">Score global</div></div>
                       <div class="ps"><div class="psv">{z.peso_real_g}<small>g</small></div><div class="psk">Peso (US 9)</div></div>
@@ -316,6 +320,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
                   class="cz-card has-reveal"
                   style={`--cat:${cat}`}
                   data-marca={z.marca}
+                  data-mi-talla-id={z.id}
                   data-precio={precio}
                   data-score={score}
                   data-año={z.año_lanzamiento}
@@ -368,6 +373,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
                       <p class="marca">{z.marca}</p>
                       <h3 class="modelo">{z.modelo}</h3>
                     </div>
+                    <span data-mi-talla-chip hidden></span>
                     <div class="cz-specs">
                       <div class="spec"><span class="v">{z.peso_real_g}<small>g</small></span><span class="k">Peso</span></div>
                       <div class="spec"><span class="v">{z.altura}</span><span class="k">Altura</span></div>
@@ -406,6 +412,8 @@ const ordenadas = [...zapatillas].sort(compareByScore);
   </main>
 
   <script>
+    import { montarMiTalla } from "../scripts/miTallaUI";
+    const miTalla = montarMiTalla(() => { apply(); refreshUI(); });
     // ── Filter / sort / search state ─────────────────────────────
     type Filters = {
       q: string;
@@ -457,6 +465,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
       if (filters.soloTrending) out.push({ k: "trend", lab: "🔥 Trending", remove: () => { filters.soloTrending = false; document.getElementById("chip-trending")?.classList.remove("is-active"); apply(); refreshUI(); } });
       if (filters.soloGS) out.push({ k: "gs", lab: "👟 Junior (GS)", remove: () => { filters.soloGS = false; document.getElementById("chip-gs")?.classList.remove("is-active"); apply(); refreshUI(); } });
       if (filters.soloW) out.push({ k: "w", lab: "♀ Mujer", remove: () => { filters.soloW = false; document.getElementById("chip-w")?.classList.remove("is-active"); apply(); refreshUI(); } });
+      if (miTalla.solo) out.push({ k: "talla", lab: "Mi talla confirmada", remove: () => { miTalla.limpiarFiltro(); apply(); refreshUI(); } });
       if (filters.q) out.push({ k: "q", lab: `“${filters.q}”`, remove: () => { filters.q = ""; (document.getElementById("search") as HTMLInputElement).value = ""; apply(); refreshUI(); } });
       return out;
     }
@@ -503,6 +512,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
     }
 
     function apply() {
+      miTalla.pintar($grid);
       const url = new URL(location.href);
       ["q", "marca", "categoria", "altura", "posicion", "precio_max", "cancha", "trending", "coleccion", "junior", "gs", "mujer", "women", "nuevas", "verificado", "ligera", "retro", "orden"].forEach(k => url.searchParams.delete(k));
       for (const [key, values] of [["marca", filters.marcas], ["categoria", filters.categorias], ["altura", filters.alturas], ["posicion", filters.posiciones]] as const) {
@@ -552,6 +562,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
         if (filters.sinRetro && retro) ok = false;
         if (filters.soloTrending && !trending) ok = false;
         if (filters.q && !nombre.includes(filters.q.toLowerCase())) ok = false;
+        if (miTalla.solo && !miTalla.confirmada(c.dataset.miTallaId!)) ok = false;
 
         c.classList.toggle("hidden", !ok);
         if (ok) visible++;
@@ -560,7 +571,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
 
       // Hide pick when any filter is on (it's not filterable)
       const filtering = filters.marcas.size + filters.categorias.size + filters.alturas.size + filters.posiciones.size + (filters.precioMax < 250 ? 1 : 0) + (filters.soloNuevas?1:0) + (filters.soloVerificado?1:0) + (filters.soloOutdoor?1:0) + (filters.soloLigera?1:0) + (filters.soloRetro?1:0) + (filters.soloTrending?1:0) + (filters.soloGS?1:0) + (filters.soloW?1:0) + (filters.q?1:0);
-      if ($pick) $pick.classList.toggle("hidden", filtering > 0 || filters.sinRetro);
+      if ($pick) $pick.classList.toggle("hidden", filtering > 0 || filters.sinRetro || miTalla.solo);
 
       // Sort — usa CSS order en lugar de appendChild para no resetear lazy loading
       const arr = [...$cards];
@@ -654,6 +665,7 @@ const ordenadas = [...zapatillas].sort(compareByScore);
       filters.precioMax = 250; filters.soloNuevas = false; filters.soloVerificado = false; filters.soloOutdoor = false; filters.soloLigera = false; filters.soloRetro = false; filters.soloTrending = false; filters.soloGS = false; filters.soloW = false;
       filters.q = "";
       filters.sinRetro = false;
+      miTalla.limpiarFiltro();
       document.querySelectorAll<HTMLInputElement>("input[type=checkbox]").forEach(cb => cb.checked = false);
       ["chip-outdoor","chip-ligera","chip-retro","chip-trending","chip-gs","chip-w"].forEach(id => document.getElementById(id)?.classList.remove("is-active"));
       $range.value = "250"; $rangeLabel.textContent = "sin tope";

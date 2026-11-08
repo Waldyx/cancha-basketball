@@ -1,0 +1,28 @@
+---
+import { TALLAS_EU, type DatosMiTalla } from "../lib/miTalla";
+interface Props { datos: DatosMiTalla; }
+const { datos } = Astro.props;
+---
+<div class="mi-talla-controls">
+  <label class="mi-talla-select" for="mi-talla">Mi talla (EU)
+    <select id="mi-talla" aria-describedby="mi-talla-cobertura"><option value="">Sin elegir</option>{TALLAS_EU.map(t => <option value={t}>{t}</option>)}</select>
+  </label>
+  <div>
+    <label class="mi-talla-toggle"><input type="checkbox" id="mi-talla-solo" disabled /><span>Solo con mi talla confirmada</span></label>
+    <p id="mi-talla-cobertura">Solo cubre las tiendas con tallas medidas. Confirma la talla y el stock final en la tienda.</p>
+  </div>
+</div>
+<script is:inline id="mi-talla-datos" type="application/json" set:html={JSON.stringify(datos).replace(/</g, "\\u003c")} />
+<style is:global>
+  .mi-talla-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; padding: 18px 0; border-block: 1px solid var(--cz-border); color: var(--cz-text); }
+  .mi-talla-select { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; white-space: nowrap; }
+  .mi-talla-controls .mi-talla-select select { min-height: 42px; width: 116px; border: 1px solid var(--cz-border); border-radius: 4px; padding: 8px; background: var(--cz-bg); color: var(--cz-text); font: inherit; }
+  .mi-talla-controls > div { flex: 1 1 220px; min-width: 0; }
+  .mi-talla-toggle { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; }
+  .mi-talla-controls .mi-talla-toggle input { flex: 0 0 16px; width: 16px; height: 16px; min-height: 16px; padding: 0; margin: 0; accent-color: #f97316; }
+  #mi-talla-cobertura { font-size: 12px; line-height: 1.5; color: var(--cz-text-2); margin: 6px 0 0; }
+  [data-mi-talla-chip] { display: block; font-size: 12px; font-weight: 600; line-height: 1.5; padding: 5px 8px; margin: 8px 0; border: 1px solid var(--cz-border); border-radius: 4px; color: var(--cz-text-2); overflow-wrap: anywhere; }
+  [data-mi-talla-chip][data-confirmada="true"] { color: var(--cz-green); }
+  [data-mi-talla-chip][hidden] { display: none; }
+  @media print { .mi-talla-controls { display: none; } [data-mi-talla-chip] { color: #111 !important; } }
+</style>

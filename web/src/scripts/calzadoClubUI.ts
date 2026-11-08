@@ -1,6 +1,7 @@
 import { enlaceCalzadoClub, FRANJAS_CLUB, leerOpcionesCalzadoClub, seleccionCalzadoClub, type DatosCalzadoClub } from "../lib/calzadoClub";
 import { euros } from "../lib/scoring";
 import { svgQR } from "../lib/pizarraQR";
+import { montarMiTalla } from "./miTallaUI";
 
 export function montarCalzadoClub() {
   const form = document.getElementById("clz-form") as HTMLFormElement | null;
@@ -12,6 +13,7 @@ export function montarCalzadoClub() {
   const link = input("clz-link");
   const status = document.getElementById("clz-status")!;
   let opciones = leerOpcionesCalzadoClub(new URLSearchParams(location.search));
+  const miTalla = montarMiTalla(() => render());
 
   const render = () => {
     input("clz-name").value = opciones.club;
@@ -22,13 +24,18 @@ export function montarCalzadoClub() {
     document.getElementById("clz-budget")!.textContent = `Hasta ${euros(opciones.max)} € por par`;
     for (const { id } of FRANJAS_CLUB) {
       const section = document.querySelector<HTMLElement>(`[data-franja="${id}"]`)!;
-      const ids = seleccionCalzadoClub(datos, id, opciones);
+      const seleccion = seleccionCalzadoClub(datos, id, opciones);
+      const ids = miTalla.solo ? seleccion.filter((shoeId) => miTalla.confirmada(shoeId)) : seleccion;
       section.querySelector("[data-list]")!.replaceChildren(...ids.flatMap((shoeId) => {
         const t = templates.get(shoeId);
         return t ? [t.content.cloneNode(true)] : [];
       }));
       (section.querySelector("[data-empty]") as HTMLElement).hidden = ids.length > 0;
+      section.querySelector("[data-empty]")!.textContent = miTalla.solo && seleccion.length > 0
+        ? "No hay modelos de esta selección con tu talla confirmada en las tiendas medidas."
+        : "No hay opciones del catálogo con compra afiliada disponible para este tallaje y presupuesto.";
     }
+    miTalla.pintar(document.getElementById("clz-results")!);
     link.value = enlaceCalzadoClub(opciones);
     document.getElementById("clz-print-link")!.textContent = link.value;
     const qr = document.getElementById("clz-qr")!;

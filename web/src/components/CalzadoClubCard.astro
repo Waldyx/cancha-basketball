@@ -4,7 +4,7 @@ import type { FichaCalzadoClub } from "../lib/calzadoClub";
 interface Props { ficha: FichaCalzadoClub; }
 const { ficha: f } = Astro.props;
 ---
-<article class="clz-shoe" data-shoe-id={f.id}>
+<article class="clz-shoe" data-shoe-id={f.id} data-mi-talla-id={f.id}>
   <a class="clz-photo" href={`/zapatilla/${f.slug}/`} tabindex="-1" aria-hidden="true">
     <img src={f.imagen} alt="" width="280" height="190" loading="lazy" decoding="async" />
   </a>
@@ -12,6 +12,7 @@ const { ficha: f } = Astro.props;
     <p class="clz-brand">{f.marca}</p>
     <h3><a href={`/zapatilla/${f.slug}/`}>{f.modelo}</a></h3>
     <p class="clz-fit">{f.tallaje} · Horma {f.horma}</p>
+    <span data-mi-talla-chip hidden></span>
     <p class="clz-price">{f.precio === null ? "Ver precio" : `Desde ${euros(f.precio)} €`}</p>
     <a class="clz-review" href={`/zapatilla/${f.slug}/`}>Ver ficha y tiendas <span aria-hidden="true">→</span></a>
   </div>
