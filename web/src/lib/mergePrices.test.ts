@@ -187,6 +187,10 @@ const FICHAS_TIENDA = [
   { tienda: "atmosfera_sport", a: "https://www.atmosferasport.es/adidas/zapatillas-adidas-harden-negro-152421.html", b: "https://www.atmosferasport.es/adidas/zapatillas-adidas-harden-blanco-152422.html", listado: "https://www.atmosferasport.es/adidas/baloncesto" },
   { tienda: "elcorteingles_es", a: "https://www.elcorteingles.es/deportes/A56001758/", b: "https://www.elcorteingles.es/deportes/A56001759-negro/", listado: "https://www.elcorteingles.es/deportes/zapatillas/" },
   { tienda: "forumsport_es", a: "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-harden-1001051705-p", b: "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-harden-1001051706-p", listado: "https://www.forumsport.com/es-es/baloncesto/" },
+  // Formas reales del catálogo que la primera versión no reconocía (8-nov).
+  { tienda: "fuikaomar_es", a: "https://www.fuikaomar.es/nike-air-jordan-1-retro-high-og-reverse-panda.html", b: "https://www.fuikaomar.es/nike-air-jordan-1-retro-high-og-chicago.html", listado: "https://www.fuikaomar.es/zapatillas-baloncesto/" },
+  { tienda: "atmosfera_sport", a: "https://www.atmosferasport.es/zapatillas-de-baloncesto-under-armour-gs-jet-25-infantil-gris-171643.html", b: "https://www.atmosferasport.es/zapatillas-de-baloncesto-under-armour-gs-jet-25-infantil-negro-171644.html", listado: "https://www.atmosferasport.es/baloncesto-zapatillas-hombre-242" },
+  { tienda: "elcorteingles_es", a: "https://www.elcorteingles.es/deportes/MP_0071639_SHAIPABOX-zapatillas-shai-001-converse/", b: "https://www.elcorteingles.es/deportes/MP_0071639_SHAIBLACK-zapatillas-shai-001-converse/", listado: "https://www.elcorteingles.es/deportes/baloncesto/zapatillas/" },
   { tienda: "adidas_es", a: "https://www.adidas.es/zapatilla-harden-volume-9/JS1304.html", b: "https://www.adidas.es/zapatilla-harden-volume-9/JS1305.html", listado: "https://www.adidas.es/search?q=harden" },
 ] as const;
 

@@ -168,9 +168,9 @@ function esFichaReconocible(url: string): boolean {
     const host = u.hostname.replace(/^www\./i, "").toLowerCase();
     if (/amazon\./i.test(host)) return /\/(?:dp|gp\/product)\/[a-z0-9]{10}/i.test(u.pathname);
     if (/aliexpress\./i.test(host)) return /\/item\/\d+/i.test(u.pathname);
-    if (host === "fuikaomar.es") return /^\/zapatillas-[^/]+\.html$/i.test(u.pathname);
-    if (host === "atmosferasport.es") return /^\/[^/]+\/[^/]+-\d+\.html$/i.test(u.pathname);
-    if (host === "elcorteingles.es") return /^\/deportes\/A\d+(?:[/-]|$)/i.test(u.pathname);
+    if (host === "fuikaomar.es") return /^\/[^/]+\.html$/i.test(u.pathname);
+    if (host === "atmosferasport.es") return /^\/(?:[^/]+\/)?[^/]+-\d+\.html$/i.test(u.pathname);
+    if (host === "elcorteingles.es") return /^\/deportes\/(?:A\d+(?:[/-]|$)|MP_\d+_)/i.test(u.pathname);
     if (host === "forumsport.com") return /\/[^/]+-p\/?$/i.test(u.pathname);
     if (host === "adidas.es") return /^\/[^/]+\/[a-z0-9]+\.html$/i.test(u.pathname);
     return false;
