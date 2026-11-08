@@ -115,15 +115,15 @@ describe("formatoVisible", () => {
 // Candado del 19-oct-2026: nemotron ofrecía GS a adultos y zapas por encima del tope.
 describe("sistemaPara", () => {
   it("sin petición júnior, las GS no están en el catálogo que ve el modelo", () => {
-    const lineaGS = "ua-curry-12-gs |";
+    const lineaGS = "adidas-ae-2-gs |";
     expect(sistemaPara("busco zapas para alero de 80 kg")).not.toContain(lineaGS);
-    expect(sistemaPara("busco zapas para alero de 80 kg")).toContain("ua-curry-12 |");
+    expect(sistemaPara("busco zapas para alero de 80 kg")).toContain("adidas-ae-2 |");
     expect(sistemaPara("algo para mi hijo de 12 años")).toContain(lineaGS);
-    expect(sistemaPara("¿la Curry 12 GS merece la pena?")).toContain(lineaGS);
+    expect(sistemaPara("¿la AE 2 GS merece la pena?")).toContain(lineaGS);
   });
   it("si piden júnior, solo ve GS", () => {
     const s = sistemaPara("que zapatillas para mi hijo de 12 años que juega de pivot");
-    expect(s).toContain("ua-curry-12-gs |");
+    expect(s).toContain("adidas-ae-2-gs |");
     expect(s).not.toContain("nike-lebron-witness-8 |");
   });
   it("con tobillos débiles, fuera las low (y solo si queda algo)", () => {
