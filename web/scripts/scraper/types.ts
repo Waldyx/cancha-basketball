@@ -17,6 +17,11 @@ export interface ScrapeResult {
    * de scraping: este sí se guarda en precios.json y apaga el enlace en el merge.
    */
   agotado?: boolean;
+  /**
+   * Tallas europeas que la tienda da como comprables («44,5», «42 2/3»). Solo la
+   * rellenan las tiendas que lo enseñan en la ficha; ausente = no se pudo leer.
+   */
+  tallas?: string[];
 }
 
 export interface StoreScraper {

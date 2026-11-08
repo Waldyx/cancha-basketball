@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { hayTallaDisponible } from "./atmosfera_sport";
+import { hayTallaDisponible, tallasComprables } from "./atmosfera_sport";
 
 // Clases REALES capturadas de atmosferasport.es el 2026-08-06 (Harden Vol 9):
 // las tallas agotadas llevan "attribute-not-in-stock out_of_stock", las que
@@ -38,5 +38,18 @@ describe("hayTallaDisponible — stock de Atmósfera por tallas", () => {
 
   it("reconoce también la clase attribute-not-in-stock por separado", () => {
     expect(hayTallaDisponible([{ texto: "44", clases: "attribute-not-in-stock 44" }])).toBe(false);
+  });
+});
+
+describe("tallasComprables", () => {
+  it("devuelve las tallas EU con stock, sin el placeholder", () => {
+    expect(
+      tallasComprables([
+        { texto: "Selecciona una talla", clases: "" },
+        { texto: "42 2/3", clases: "attribute-yes" },
+        { texto: "43 1/3", clases: "attribute-not-in-stock out_of_stock" },
+        { texto: "44", clases: "" },
+      ])
+    ).toEqual(["42 2/3", "44"]);
   });
 });

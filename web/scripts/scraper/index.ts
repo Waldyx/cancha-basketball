@@ -322,7 +322,7 @@ async function main() {
           const changeStr = changed
             ? ` (era ${link.precio_actual}€)`
             : " (sin cambio)";
-          console.log(`→ ${result.precio_actual}€${changeStr}`);
+          console.log(`→ ${result.precio_actual}€${changeStr}${result.tallas ? ` · ${result.tallas.length} tallas` : ""}`);
         } else if (result.disponible && result.precio_actual > 0) {
           // Encontrado pero fuera de rango plausible → descartar (revendedor)
           failCount++;

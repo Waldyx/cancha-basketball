@@ -13,6 +13,7 @@
 import type { Page } from "playwright";
 import type { StoreScraper, ShoeRef, ScrapeResult } from "../types.js";
 import { matchesShoe, parsePrice, today } from "../matcher.js";
+import { tallasEU } from "../tallas.js";
 
 export interface TallaAtmosfera {
   texto: string;
@@ -30,6 +31,16 @@ export function hayTallaDisponible(tallas: TallaAtmosfera[]): boolean {
   return tallas.some(
     (t) =>
       /\d/.test(t.texto) && !/attribute-not-in-stock|out_of_stock/i.test(t.clases)
+  );
+}
+
+/**
+ * Tallas europeas comprables. Solo el PRIMER selector: es el de talla EU; los siguientes
+ * repiten las mismas tallas en US, UK y centímetros (y un «31» en cm parecería europeo).
+ */
+export function tallasComprables(tallas: TallaAtmosfera[]): string[] {
+  return tallasEU(
+    tallas.filter((t) => !/attribute-not-in-stock|out_of_stock/i.test(t.clases)).map((t) => t.texto)
   );
 }
 
@@ -64,9 +75,17 @@ export const atmosfera_sport: StoreScraper = {
             h1: document.querySelector("h1") ? (document.querySelector("h1").textContent || "").trim() : "",
             titulo: document.title || "",
             tallas: tallas,
+            tallasEU: (function () {
+              var sel = document.querySelector(".product-actions select");
+              return sel
+                ? Array.prototype.slice.call(sel.options).map(function (e) { return { texto: (e.textContent || "").trim(), clases: e.className || "" }; })
+                : [];
+            })(),
           };
         })()`
-      ) as { precio: string | null; h1: string; titulo: string; tallas: TallaAtmosfera[] };
+      ) as { precio: string | null; h1: string; titulo: string; tallas: TallaAtmosfera[]; tallasEU: TallaAtmosfera[] };
+      const comprables = tallasComprables(datos.tallasEU);
+      const conTallasEU = comprables.length > 0 ? { tallas: comprables } : {};
 
       // Identidad. El <title> lleva " | Atmósfera Sport" pegado, pero matchesShoe
       // ya limpia ruido y le basta con encontrar marca + modelo.
@@ -88,7 +107,7 @@ export const atmosfera_sport: StoreScraper = {
 
       const precio = datos.precio ? parseFloat(datos.precio) : null;
       if (precio && Number.isFinite(precio) && precio > 0) {
-        return { ...base, precio_actual: precio, disponible: true };
+        return { ...base, precio_actual: precio, disponible: true, ...conTallasEU };
       }
 
       // Plan B: precio visible. OJO, el bloque de precio de Atmósfera lista
@@ -101,7 +120,7 @@ export const atmosfera_sport: StoreScraper = {
         .map((t) => parsePrice(t))
         .filter((p): p is number => p !== null && p > 0);
       if (precios.length > 0) {
-        return { ...base, precio_actual: Math.min(...precios), disponible: true };
+        return { ...base, precio_actual: Math.min(...precios), disponible: true, ...conTallasEU };
       }
 
       return { ...base, disponible: false };

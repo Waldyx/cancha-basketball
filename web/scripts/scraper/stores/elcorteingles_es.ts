@@ -15,6 +15,7 @@
 import type { Page } from "playwright";
 import type { StoreScraper, ShoeRef, ScrapeResult } from "../types.js";
 import { matchesShoe, parsePrice, today } from "../matcher.js";
+import { tallasEU } from "../tallas.js";
 
 /** El "calentamiento" de cookies vale para todo el contexto del navegador. */
 let warmedUp = false;
@@ -86,12 +87,21 @@ export const elcorteingles_es: StoreScraper = {
       const hayDisponibilidad = /"availability"/i.test(ldTexto);
       if (hayDisponibilidad && !hayStock) return { ...base, disponible: false, agotado: true };
 
+      // Tallas: botones `size-element`; las agotadas llevan `veiled` («talla 41, AGOTADO»).
+      // El selector se pinta después del JSON-LD; si no aparece, no se afirma nada.
+      await page.waitForSelector("button.size-element", { timeout: 6000 }).catch(() => {});
+      const textosTalla = await page
+        .$$eval("button.size-element:not(.veiled)", (els) => els.map((el) => el.textContent?.trim() || ""))
+        .catch(() => [] as string[]);
+      const tallas = tallasEU(textosTalla);
+      const conTallas = tallas.length > 0 ? { tallas } : {};
+
       // Precio de venta = el menor de los del JSON-LD (el otro es el PVP tachado).
       const precios = [...ldTexto.matchAll(/"price"\s*:\s*"?([\d.]+)/g)]
         .map((m) => parseFloat(m[1]))
         .filter((p) => Number.isFinite(p) && p > 0);
       if (precios.length > 0) {
-        return { ...base, precio_actual: Math.min(...precios), disponible: true };
+        return { ...base, precio_actual: Math.min(...precios), disponible: true, ...conTallas };
       }
 
       // Plan B: precio visible en el DOM.
@@ -101,7 +111,7 @@ export const elcorteingles_es: StoreScraper = {
         )
         .catch(() => [] as string[]);
       const precio = textos.map((t) => parsePrice(t)).find((p): p is number => p !== null);
-      if (precio) return { ...base, precio_actual: precio, disponible: true };
+      if (precio) return { ...base, precio_actual: precio, disponible: true, ...conTallas };
 
       return { ...base, disponible: false };
     } catch {

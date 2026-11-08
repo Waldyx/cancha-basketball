@@ -16,6 +16,7 @@
 import type { Page } from "playwright";
 import type { StoreScraper, ShoeRef, ScrapeResult } from "../types.js";
 import { matchesShoe, parsePrice, today } from "../matcher.js";
+import { tallasEU } from "../tallas.js";
 
 /**
  * Lee la disponibilidad del JSON-LD.
@@ -58,9 +59,15 @@ export const fuikaomar_es: StoreScraper = {
             h1: document.querySelector("h1") ? (document.querySelector("h1").textContent || "").trim() : "",
             titulo: document.title || "",
             ld: lds.join(" "),
+            // PrestaShop solo pinta las combinaciones con stock («8´5 US - 41 EUR»).
+            tallas: Array.prototype.slice
+              .call(document.querySelectorAll(".product-variants .radio-label, .product-variants option"))
+              .map(function (e) { return (e.textContent || "").trim(); }),
           };
         })()`
-      ) as { precio: string | null; ogTitulo: string | null; h1: string; titulo: string; ld: string };
+      ) as { precio: string | null; ogTitulo: string | null; h1: string; titulo: string; ld: string; tallas: string[] };
+      const tallas = tallasEU(datos.tallas);
+      const conTallas = tallas.length > 0 ? { tallas } : {};
 
       // Identidad: la ficha pudo cambiar de producto o el enlace caducar.
       // Vale con que case cualquiera de los títulos disponibles.
@@ -83,7 +90,7 @@ export const fuikaomar_es: StoreScraper = {
 
       const precio = datos.precio ? parseFloat(datos.precio) : null;
       if (precio && Number.isFinite(precio) && precio > 0) {
-        return { ...base, precio_actual: precio, disponible: true };
+        return { ...base, precio_actual: precio, disponible: true, ...conTallas };
       }
 
       // Plan B: el precio visible de la ficha (el primero es el de venta).
@@ -93,7 +100,7 @@ export const fuikaomar_es: StoreScraper = {
         )
         .catch(() => [] as string[]);
       const visible = textos.map((t) => parsePrice(t)).find((p): p is number => p !== null);
-      if (visible) return { ...base, precio_actual: visible, disponible: true };
+      if (visible) return { ...base, precio_actual: visible, disponible: true, ...conTallas };
 
       return { ...base, disponible: false };
     } catch {

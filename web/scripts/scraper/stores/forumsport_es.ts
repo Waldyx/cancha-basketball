@@ -13,6 +13,8 @@
  *     los productos recomendados del carrusel.
  *  2. Los `span.size-item` NO son stock: son la tabla de equivalencias de
  *     tallas y salen TODOS con clase "off" aunque el producto esté a la venta.
+ *     Las comprables son las que además llevan `js-select-size` (8-nov-2026);
+ *     se leen solo las de `data-region="ES"`, que la tabla repite en US y UK.
  *
  * Ojo con los redirects: una ficha descatalogada redirige a otra colorway del
  * mismo modelo (la Luka 77 `…-1001053712-p` acaba en `…-1001068846-p`). El
@@ -22,6 +24,7 @@
 import type { Page } from "playwright";
 import type { StoreScraper, ShoeRef, ScrapeResult } from "../types.js";
 import { matchesShoe, today } from "../matcher.js";
+import { tallasEU } from "../tallas.js";
 
 /**
  * Convierte el slug de una ficha en texto comparable.
@@ -108,6 +111,8 @@ export const forumsport_es: StoreScraper = {
 
     try {
       await page.goto(url, { waitUntil: "domcontentloaded", timeout: 25000 });
+      // El selector de tallas se pinta en cliente; sin él seguimos (el precio sale del JSON-LD).
+      await page.waitForSelector(".size-item.js-select-size", { timeout: 6000 }).catch(() => {});
 
       const datos = (await page.evaluate(
         `(() => {
@@ -118,9 +123,12 @@ export const forumsport_es: StoreScraper = {
             lds: lds,
             h1: document.querySelector("h1") ? (document.querySelector("h1").textContent || "").trim() : "",
             titulo: document.title || "",
+            tallas: Array.prototype.slice
+              .call(document.querySelectorAll('.size-item.js-select-size[data-region="ES"]:not(.off)'))
+              .map(function (e) { return e.getAttribute("data-size") || (e.textContent || "").trim(); }),
           };
         })()`
-      )) as { lds: string[]; h1: string; titulo: string };
+      )) as { lds: string[]; h1: string; titulo: string; tallas: string[] };
 
       const oferta = ofertaDeJsonLd(datos.lds);
       // Sin ProductGroup no estamos en una ficha (enlace caducado que cae en
@@ -146,7 +154,8 @@ export const forumsport_es: StoreScraper = {
       if (oferta.disponible === false) return { ...base, disponible: false, agotado: true };
       if (oferta.precio === null) return { ...base, disponible: false };
 
-      return { ...base, precio_actual: oferta.precio, disponible: true };
+      const tallas = tallasEU(datos.tallas);
+      return { ...base, precio_actual: oferta.precio, disponible: true, ...(tallas.length > 0 ? { tallas } : {}) };
     } catch {
       return base;
     }
