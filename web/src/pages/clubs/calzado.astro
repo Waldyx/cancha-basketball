@@ -1,0 +1,129 @@
+---
+import "../../styles/cancha-redesign.css";
+import Base from "../../layouts/Base.astro";
+import CalzadoClubCard from "../../components/CalzadoClubCard.astro";
+import { zapatillas } from "../../data/zapatillas";
+import { construirCalzadoClub, FRANJAS_CLUB, leerOpcionesCalzadoClub, seleccionCalzadoClub } from "../../lib/calzadoClub";
+const datos = construirCalzadoClub(zapatillas);
+const opciones = leerOpcionesCalzadoClub(new URLSearchParams());
+const fichas = new Map(datos.fichas.map((f) => [f.id, f]));
+---
+<Base title="Calzado de baloncesto para clubs y familias · CANCHA.ZAPA"
+  description="Una selección de zapatillas por edad, tallaje escolar o adulto y presupuesto, con el nombre de tu club. Comparte la guía por enlace o QR e imprímela para las familias.">
+  <main class="app clz-main" id="clz-main">
+    <div class="shell">
+      <nav class="clz-breadcrumb" aria-label="Ruta de navegación"><a href="/clubs/">Clubs</a><span aria-hidden="true">/</span><span>Calzado</span></nav>
+      <header class="clz-heading">
+        <div><p class="cz-eyebrow">Clubs · Familias</p><h1>Calzado de baloncesto</h1><p id="clz-club">Guía para las familias del club</p></div>
+        <div class="clz-actions clz-controls">
+          <button type="button" id="clz-copy" title="Copiar el enlace de esta guía"><span aria-hidden="true">⧉</span> Copiar enlace</button>
+          <button type="button" id="clz-share" title="Compartir esta guía"><span aria-hidden="true">↗</span> Compartir</button>
+          <button type="button" id="clz-print" title="Imprimir o guardar como PDF"><span aria-hidden="true">⎙</span> Imprimir</button>
+        </div>
+      </header>
+      <form id="clz-form" class="clz-form clz-controls">
+        <label>Club<input name="club" id="clz-name" type="text" maxlength="80" placeholder="Nombre del club" autocomplete="organization" /></label>
+        <label>Presupuesto máximo (€)<input name="max" id="clz-max" type="number" min="1" max="1000" step="0.01" value={opciones.max} required inputmode="decimal" /></label>
+        <label>Minibasket: tallaje<select name="mini" id="clz-mini"><option value="gs">Escolar (GS)</option><option value="adulto">Adulto</option></select></label>
+        <label>Infantil/cadete: tallaje<select name="infantil" id="clz-infantil"><option value="adulto">Adulto</option><option value="gs">Escolar (GS)</option></select></label>
+        <button type="submit" class="clz-apply">Actualizar selección <span aria-hidden="true">→</span></button>
+      </form>
+      <div class="clz-summary"><p id="clz-budget">Hasta {opciones.max} € por par</p><a href="/guia-tallas/">Consultar guía de tallas →</a></div>
+      <p class="clz-note">La edad es una orientación, no una talla. Las equivalencias GS y adulto dependen de la marca. Confirma número, color, disponibilidad y precio final en la tienda.</p>
+      <div id="clz-results">
+        {FRANJAS_CLUB.map((franja) => {
+          const ids = seleccionCalzadoClub(datos, franja.id, opciones);
+          return <section class="clz-age" data-franja={franja.id} aria-labelledby={`clz-title-${franja.id}`}>
+            <div class="clz-age-heading"><h2 id={`clz-title-${franja.id}`}>{franja.nombre}</h2><span>{franja.edad}</span></div>
+            <p class="clz-age-note">{franja.texto}</p>
+            <div class="clz-shoes" data-list>{ids.map((id) => <CalzadoClubCard ficha={fichas.get(id)!} />)}</div>
+            <p class="clz-empty" data-empty hidden={ids.length > 0}>No hay opciones del catálogo con compra afiliada disponible para este tallaje y presupuesto.</p>
+          </section>;
+        })}
+      </div>
+      <section class="clz-sharing" aria-labelledby="clz-sharing-title">
+        <div><h2 id="clz-sharing-title">La guía del club</h2><p class="clz-note">Solo se comparte el nombre del club y estas opciones. No incluyas nombres de jugadores.</p><label class="clz-link-label" for="clz-link">Enlace de la guía</label><input id="clz-link" readonly type="url" /><p id="clz-print-link"></p><p id="clz-status" role="status" aria-live="polite"></p></div>
+        <div id="clz-qr" class="clz-qr"></div>
+      </section>
+      <footer class="clz-method"><p>La nota no depende de la comisión. Esta selección usa un perfil general por franja; no sustituye una elección según el juego de cada persona.</p><p><a href="/quiz/">Hacer el quiz personal</a> · <a href="/metodologia/">Ver criterios</a> · <a href="/financiacion/">Cómo nos financiamos</a></p></footer>
+    </div>
+    <div hidden>{datos.fichas.map((ficha) => <template data-template-shoe={ficha.id}><CalzadoClubCard ficha={ficha} /></template>)}</div>
+    <script is:inline id="clz-data" type="application/json" set:html={JSON.stringify(datos).replace(/</g, "\u003c")} />
+  </main>
+</Base>
+<script>
+  import { montarCalzadoClub } from "../../scripts/calzadoClubUI";
+  montarCalzadoClub();
+</script>
+<style is:global>
+  .clz-main { padding: 24px 0 56px; color: var(--cz-text); }
+  .clz-main .shell { max-width: 1180px; }
+  .clz-breadcrumb { display: flex; gap: 10px; font-size: 12px; margin-bottom: 24px; color: var(--cz-text-2); }
+  .clz-main a { color: var(--cz-accent-text); }
+  .clz-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: 20px; }
+  .clz-heading h1 { font: 900 40px/1.05 "Barlow Condensed", sans-serif; margin: 6px 0 8px; text-transform: uppercase; letter-spacing: 0; }
+  #clz-club { margin: 0; font-size: 16px; overflow-wrap: anywhere; }
+  .clz-heading > div { min-width: 0; }
+  .clz-main button, .clz-main input, .clz-main select { font: 600 13px "Inter", sans-serif; border: 1px solid var(--cz-border); border-radius: 4px; color: var(--cz-text); background: var(--cz-bg); min-height: 42px; }
+  .clz-main input, .clz-main select { padding: 9px 10px; width: 100%; min-width: 0; }
+  .clz-main button { padding: 9px 12px; cursor: pointer; }
+  .clz-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+  .clz-form { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 14px; padding: 20px 0; border-block: 1px solid var(--cz-border); }
+  .clz-form label { display: flex; flex-direction: column; justify-content: space-between; gap: 7px; min-width: 0; font-size: 12px; font-weight: 700; }
+  .clz-form .clz-apply { grid-column: 1/-1; justify-self: start; background: #f97316; color: #0c0c0c; border-color: #f97316; }
+  .clz-summary { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-top: 18px; font-size: 13px; }
+  #clz-budget { font-weight: 800; margin: 0; }
+  .clz-note, .clz-age-note, .clz-method { color: var(--cz-text-2); font-size: 13px; line-height: 1.55; }
+  .clz-age { padding: 26px 0; border-bottom: 1px solid var(--cz-border); }
+  .clz-age-heading { display: flex; align-items: baseline; flex-wrap: wrap; gap: 12px; }
+  .clz-age h2, .clz-sharing h2 { font: 900 27px/1.15 "Barlow Condensed", sans-serif; text-transform: uppercase; margin: 0; letter-spacing: 0; }
+  .clz-age-heading > span { font-size: 12px; color: var(--cz-text-2); }
+  .clz-age-note { margin: 8px 0 16px; max-width: 740px; }
+  .clz-shoes { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; }
+  .clz-shoe { border: 1px solid var(--cz-border); border-radius: 4px; overflow: hidden; background: var(--cz-card); min-width: 0; }
+  .clz-photo { display: flex; align-items: center; justify-content: center; aspect-ratio: 28/19; background: var(--cz-card2); }
+  .clz-photo img { width: 90%; height: 90%; object-fit: contain; }
+  .clz-shoe-body { padding: 16px; }
+  .clz-brand { text-transform: uppercase; color: var(--cz-text-2); font-size: 11px; font-weight: 800; margin: 0 0 5px; }
+  .clz-shoe h3 { font: 800 24px/1.1 "Barlow Condensed", sans-serif; margin: 0; letter-spacing: 0; overflow-wrap: anywhere; }
+  .clz-shoe h3 a { color: var(--cz-text); text-decoration: none; }
+  .clz-fit { font-size: 12px; line-height: 1.5; margin: 8px 0; color: var(--cz-text-2); }
+  .clz-price { font-size: 18px; font-weight: 800; margin: 8px 0 12px; }
+  .clz-review { display: inline-flex; align-items: center; gap: 8px; min-height: 32px; font-size: 12px; font-weight: 700; }
+  .clz-empty { padding: 16px 0; color: var(--cz-text-2); font-size: 14px; line-height: 1.5; }
+  .clz-empty[hidden] { display: none; }
+  .clz-sharing { display: grid; grid-template-columns: minmax(0,1fr) 152px; gap: 28px; align-items: center; padding: 28px 0 12px; }
+  .clz-link-label { display: block; font-size: 12px; margin: 12px 0 7px; }
+  .clz-qr { width: 152px; height: 152px; background: #fff; }
+  .clz-qr svg { display: block; width: 100%; height: 100%; }
+  #clz-status { min-height: 20px; font-size: 12px; }
+  #clz-print-link { display: none; }
+  .clz-method { padding-top: 16px; border-top: 1px solid var(--cz-border); }
+  .clz-main :is(a,button,input,select):focus-visible { outline: 2px solid var(--cz-accent-text); outline-offset: 3px; }
+  @media (max-width: 800px) { .clz-heading { flex-direction: column; align-items: stretch; gap: 18px; } .clz-form { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+  @media (max-width: 560px) { .clz-heading h1 { font-size: 32px; } .clz-shoes { grid-template-columns: minmax(0,1fr); } .clz-shoe { display: grid; grid-template-columns: minmax(0,112px) minmax(0,1fr); } .clz-photo { aspect-ratio: auto; min-height: 174px; } .clz-shoe-body { padding: 12px; } .clz-shoe h3 { font-size: 22px; } .clz-sharing { grid-template-columns: minmax(0,1fr); gap: 8px; } }
+  @media print {
+    @page { size: A4; margin: 12mm; }
+    html, body { color-scheme: light !important; background: #fff !important; color: #111 !important; }
+    body > *:not(#main-content), #main-content > *:not(.clz-main) { display: none !important; }
+    #main-content, .clz-main { display: block !important; background: #fff !important; padding: 0 !important; color: #111 !important; }
+    .clz-main { --cz-text: #111; --cz-text-2: #444; --cz-accent-text: #111; --cz-border: #ccc; --cz-card: #fff; --cz-card2: #fff; --cz-bg: #fff; }
+    .clz-main .shell { padding: 0; max-width: none; }
+    .clz-controls, .clz-breadcrumb, .clz-sharing .clz-note, #clz-status { display: none !important; }
+    .clz-note, .clz-age-note { font-size: 10px; line-height: 1.4; margin-block: 6px; }
+    .clz-heading { padding-bottom: 12px; } .clz-heading h1 { font-size: 28px; }
+    .clz-summary { margin-top: 0; } .clz-summary a { display: none; }
+    .clz-age { padding: 14px 0; break-inside: avoid; }
+    .clz-age h2 { font-size: 22px; }
+    .clz-shoes { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; margin-top: 10px; }
+    .clz-shoe { display: block; break-inside: avoid; }
+    .clz-photo { height: 95px; min-height: 0; aspect-ratio: auto; }
+    .clz-photo img { height: 90px; }
+    .clz-shoe-body { padding: 8px; } .clz-shoe h3 { font-size: 19px; }
+    .clz-brand, .clz-fit, .clz-review { font-size: 10px; } .clz-price { font-size: 14px; margin: 6px 0; }
+    .clz-review { min-height: 0; } .clz-sharing { grid-template-columns: minmax(0,1fr) 112px; break-inside: avoid; padding: 16px 0 8px; }
+    .clz-qr { width: 112px; height: 112px; } #clz-link { display: none; }
+    #clz-print-link { display: block !important; font-size: 9px; overflow-wrap: anywhere; }
+    .clz-method { font-size: 10px; }
+  }
+</style>
