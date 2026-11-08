@@ -187,7 +187,7 @@ const _rawZapatillas: Zapatilla[] = [
 
     precio_msrp_eur: 160,
     links_compra: [
-      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-under-armour-curry-12-extraterrestial.html", precio_actual: 99.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-under-armour-curry-12-what-the-bay.html", precio_actual: 159.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-08" }, // 8-nov: What the Bay, 8 tallas; la Extraterrestial solo tenía 1
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fmp%2Fchaussure-de-basketball-under-armour-curry-12-gravity%2F16852cc3-72c5-4e36-9add-066ea3edb3b1%2Fc255", precio_actual: 139, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-24" }, // Decathlon 16-sep: redirige a la categoria de mujer (ficha retirada)
       { tienda: "joom", url: "https://www.joom.com/es/products/695257de300a5d0109e14f4f?variant_id=695257de300a5d8609e14f59", precio_actual: 98, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-24" },
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0DMN4R55B/?tag=canchazapa-21", precio_actual: 138.19, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
@@ -722,7 +722,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 135,
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56001758%2F", precio_actual: 90.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
-      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-air-jordan-luka-5-viper-edge.html", precio_actual: 149.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-air-jordan-luka-5-lifestyle.html", precio_actual: 139.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-08" }, // 8-nov: 6 tallas (42 a 45); la Viper Edge solo tenía 2
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/jordan/luka-5-viper-edge-electric-green-infrared-23-black-teal-tint-be", precio_actual: 109.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" },
     ],
   },
@@ -1219,7 +1219,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "aliexpress", url: "https://www.awin1.com/cread.php?awinmid=11640&awinaffid=2908587&ued=https%3A%2F%2Fes.aliexpress.com%2Fitem%2F1005011570638695.html", precio_actual: 63.69, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-02" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=anta+kai+2&tag=canchazapa-21", precio_actual: 149, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
-      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-anta-kai-2-moon.html", precio_actual: 109.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-anta-kai-2-king-of-the-court.html", precio_actual: 114.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-08" }, // 8-nov: King of the Court, 9 tallas; la Moon solo tenía 1
     ],
   },
 
@@ -1880,6 +1880,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/adidas-dame-certified-3/" },
     ],
     ultima_actualizacion: "2026-06-12",
+    oculto: true, // 8-nov: menos de 4 tallas en su única afiliada
     precio_msrp_eur: 80,
     links_compra: [
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-dame-certified-3-negro-129257.html", precio_actual: 47.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
@@ -3247,6 +3248,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/adidas-ae-1-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true, // 8-nov: menos de 4 tallas en su única afiliada
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-anthony-edwards-1-low-blanco-y-negro%2F373647%2Fm9007177", precio_actual: 89.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
@@ -3313,6 +3315,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
+    oculto: true, // 8-nov: menos de 4 tallas en su única afiliada
     precio_msrp_eur: 65,
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA52455477%2F", precio_actual: 89.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-29" }, // ECI 16-sep: 404
@@ -3380,7 +3383,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 130, // tarifa europea (sneakerjagers, BB2WYGS4). Antes 95 sin fuente
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=new+balance+two+wxy+v4+baloncesto&tag=canchazapa-21", precio_actual: 72, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
-      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-new-balance-two-wxy-v4-acero.html", precio_actual: 79.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-new-balance-two-wxy-v4-lemon-zest.html", precio_actual: 84.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-08" }, // 8-nov: Lemon Zest, 3 tallas; la Acero solo tenía 1 y ningún color llega a 4
     ],
   },
   // NEW BALANCE HESI LOW V2 (BBHSLAT2): nota de HoopsGeek, peso y drop de laboratorio de RunRepeat
@@ -5015,6 +5018,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
+    oculto: true, // 8-nov: menos de 4 tallas en su única afiliada
     precio_msrp_eur: 50,
     links_compra: [
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fzapatillas-de-baloncesto-under-armour-gs-lockdown-7-infantil-negro-99482.html", precio_actual: 44, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
@@ -6658,6 +6662,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     ultima_actualizacion: "2026-05-29",
 
+    oculto: true, // 8-nov: menos de 4 tallas en su única afiliada
     precio_msrp_eur: 150, // tarifa europea (sneakerjagers, IM7615-001 y 10 colorways más). Antes 110 sin fuente
     links_compra: [
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-book-1-valley.html", precio_actual: 129.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-05-31" },
@@ -6792,6 +6797,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-kd-17-review/" }],
     ultima_actualizacion: "2026-05-18",
+    oculto: true, // 8-nov: menos de 4 tallas en su única afiliada
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-kd-17-all-star.html", precio_actual: 149.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
@@ -7006,6 +7012,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/nike-zoom-freak-5-review/" }],
     ultima_actualizacion: "2026-05-18",
+    oculto: true, // 8-nov: menos de 4 tallas en su única afiliada
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-zoom-freak-5-antetokounmpo-oreo.html", precio_actual: 84.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
@@ -7795,6 +7802,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-05-18",
+    oculto: true, // 8-nov: menos de 4 tallas en su única afiliada
     precio_msrp_eur: 150,
     links_compra: [
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-zoom-freak-6-bold-berry.html", precio_actual: 119.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
@@ -8225,6 +8233,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "weartesters", url: "https://weartesters.com/jordan-luka-1-review/" }],
     ultima_actualizacion: "2026-05-18",
+    oculto: true, // 8-nov: menos de 4 tallas en su única afiliada
     precio_msrp_eur: 110, // tarifa europea (sneakerjagers, DN1772-305). Antes 140 sin fuente
     links_compra: [
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-air-jordan-luka-1-safari.html", precio_actual: 54.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
@@ -8668,6 +8677,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/nike-kd-16-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
+    oculto: true, // 8-nov: menos de 4 tallas en su única afiliada
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-nike-kd-16-ready-play.html", precio_actual: 129.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-23" },
@@ -9658,6 +9668,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     ultima_actualizacion: "2026-05-29",
 
+    oculto: true, // 8-nov: menos de 4 tallas en su única afiliada
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+harden+vol+8+baloncesto&tag=canchazapa-21", precio_actual: 80, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-28" },
