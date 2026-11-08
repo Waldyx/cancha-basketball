@@ -154,8 +154,8 @@ export function identidadProducto(url: string): string | null {
 
 /**
  * ¿La URL identifica un producto CONCRETO (no una búsqueda, categoría, o URL
- * opaca)? Amazon (ASIN de /dp/ o /gp/product/) y AliExpress (/item/<id>) son
- * los dos casos reconocibles hoy. Sirve para decidir si `elegirScrape` puede
+ * opaca)? Reconoce las rutas de ficha de las tiendas verificadas. Sirve para
+ * decidir si `elegirScrape` puede
  * caer al candidato "más barato" cuando no hay match exacto: si el editorial
  * YA es una ficha concreta, el más barato de un scrape de búsqueda es casi
  * seguro OTRO producto — mejor conservar el dato editorial que mezclar precios
@@ -168,6 +168,11 @@ function esFichaReconocible(url: string): boolean {
     const host = u.hostname.replace(/^www\./i, "").toLowerCase();
     if (/amazon\./i.test(host)) return /\/(?:dp|gp\/product)\/[a-z0-9]{10}/i.test(u.pathname);
     if (/aliexpress\./i.test(host)) return /\/item\/\d+/i.test(u.pathname);
+    if (host === "fuikaomar.es") return /^\/zapatillas-[^/]+\.html$/i.test(u.pathname);
+    if (host === "atmosferasport.es") return /^\/[^/]+\/[^/]+-\d+\.html$/i.test(u.pathname);
+    if (host === "elcorteingles.es") return /^\/deportes\/A\d+(?:[/-]|$)/i.test(u.pathname);
+    if (host === "forumsport.com") return /\/[^/]+-p\/?$/i.test(u.pathname);
+    if (host === "adidas.es") return /^\/[^/]+\/[a-z0-9]+\.html$/i.test(u.pathname);
     return false;
   } catch {
     return false;
@@ -214,9 +219,9 @@ export function elegirScrape<
   // Mejor conservar el dato editorial que inventar una correspondencia.
   if (variosEditoriales) return undefined;
 
-  // Si el editorial YA identifica un producto concreto (ASIN de Amazon, /item/
-  // de AliExpress) y ninguno de los candidatos coincidió arriba, no hay "más
-  // barato" razonable que ofrecer: son fichas de OTROS productos (una búsqueda
+  // Si el editorial YA identifica un producto concreto y ninguno de los
+  // candidatos coincidió arriba, no hay "más barato" razonable que ofrecer:
+  // son fichas de OTROS productos (una búsqueda
   // resuelta a otro ASIN, por ejemplo). Conservamos el dato editorial en vez
   // de mezclar el precio de un producto ajeno.
   if (esFichaReconocible(orig.url)) return undefined;
@@ -313,6 +318,11 @@ export function mergePricesIntoShoes(
   shoes: Zapatilla[],
   overrides: PreciosJson
 ): Zapatilla[] {
+  // Las tallas solo proceden del scrape elegido, nunca de una copia editorial.
+  shoes = shoes.map((shoe) => ({
+    ...shoe,
+    links_compra: shoe.links_compra.map(({ tallas: _tallas, ...link }) => link),
+  }));
   if (!overrides?.shoes || Object.keys(overrides.shoes).length === 0) {
     return shoes;
   }
@@ -432,6 +442,7 @@ export function mergePricesIntoShoes(
         url: upgradeUrl,
         ultima_verificacion:
           fresh.ultima_verificacion ?? orig.ultima_verificacion,
+        tallas: fresh.tallas?.slice(),
       };
     });
 
@@ -462,6 +473,7 @@ export function mergePricesIntoShoes(
         tiene_afiliado: esAmazon,
         ultima_verificacion:
           fresh.ultima_verificacion ?? new Date().toISOString().slice(0, 10),
+        tallas: fresh.tallas?.slice(),
       });
     }
 

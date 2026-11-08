@@ -182,6 +182,89 @@ describe("elegirScrape", () => {
   });
 });
 
+const FICHAS_TIENDA = [
+  { tienda: "fuikaomar_es", a: "https://fuikaomar.es/zapatillas-air-jordan-luka-5-lifestyle.html", b: "https://fuikaomar.es/zapatillas-air-jordan-luka-5-viper-edge.html", listado: "https://fuikaomar.es/baloncesto" },
+  { tienda: "atmosfera_sport", a: "https://www.atmosferasport.es/adidas/zapatillas-adidas-harden-negro-152421.html", b: "https://www.atmosferasport.es/adidas/zapatillas-adidas-harden-blanco-152422.html", listado: "https://www.atmosferasport.es/adidas/baloncesto" },
+  { tienda: "elcorteingles_es", a: "https://www.elcorteingles.es/deportes/A56001758/", b: "https://www.elcorteingles.es/deportes/A56001759-negro/", listado: "https://www.elcorteingles.es/deportes/zapatillas/" },
+  { tienda: "forumsport_es", a: "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-harden-1001051705-p", b: "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-harden-1001051706-p", listado: "https://www.forumsport.com/es-es/baloncesto/" },
+  { tienda: "adidas_es", a: "https://www.adidas.es/zapatilla-harden-volume-9/JS1304.html", b: "https://www.adidas.es/zapatilla-harden-volume-9/JS1305.html", listado: "https://www.adidas.es/search?q=harden" },
+] as const;
+
+describe.each(FICHAS_TIENDA)("ficha concreta de $tienda", ({ tienda, a, b, listado }) => {
+  it.each([false, true])("no pisa el color editorial con otro producto (wrapper=%s)", (wrapper) => {
+    const orig = link({ tienda, url: wrapper ? awin(a) : a });
+    const candidatos = [{ url: b, precio_actual: 60 }];
+    expect(elegirScrape(orig, candidatos)).toBeUndefined();
+    expect(elegirScrape(orig, [...candidatos, { url: b + "?ref=x", precio_actual: 50 }])).toBeUndefined();
+    const [out] = mergePricesIntoShoes([zapa([orig])], { generated_at: "", shoes: { z1: { links_compra: [{ ...candidatos[0], tienda, disponible: true }] } } });
+    expect(out.links_compra[0]).toEqual(orig);
+  });
+
+  it("el match exacto sigue ganando, incluso con varios editoriales y wrappers", () => {
+    const viejo = { url: a, precio_actual: 85, ultima_verificacion: "2026-11-01" };
+    const reciente = { url: awin(a + "?ref=nuevo"), precio_actual: 90, ultima_verificacion: "2026-11-08" };
+    expect(elegirScrape(link({ tienda, url: a }), [{ url: b, precio_actual: 40 }, viejo, reciente], true)).toBe(reciente);
+  });
+
+  it("una categoria o busqueda conserva el fallback anterior", () => {
+    const candidato = { url: a, precio_actual: 80 };
+    expect(elegirScrape(link({ tienda, url: listado }), [candidato])).toBe(candidato);
+    expect(elegirScrape(link({ tienda, url: listado }), [candidato], true)).toBeUndefined();
+  });
+});
+
+describe("mergePricesIntoShoes — tallas solo del candidato aceptado", () => {
+  const orig = (over: Partial<LinkCompra> = {}) => link({ tienda: "fuikaomar_es", url: FICHAS_TIENDA[0].a, ...over });
+  const fresh = (over: Partial<LinkCompra> & { agotado?: boolean } = {}) => ({ ...orig(), ultima_verificacion: "2026-11-08", precio_actual: 90, tallas: ["42", "43", "44,5"], ...over });
+  const merge = (editoriales: LinkCompra[], candidatos: (Partial<LinkCompra> & { agotado?: boolean })[]) =>
+    mergePricesIntoShoes([zapa(editoriales)], { generated_at: "2026-11-08", shoes: { z1: { links_compra: candidatos } } })[0].links_compra;
+
+  it("copia tallas y fecha del match elegido, no del mas barato ni del editorial", () => {
+    const elegido = fresh();
+    const [out] = merge([orig({ tallas: ["50"] })], [fresh({ url: FICHAS_TIENDA[0].b, precio_actual: 60, tallas: ["40"] }), elegido]);
+    expect(out.tallas).toEqual(["42", "43", "44,5"]);
+    expect(out.tallas).not.toBe(elegido.tallas);
+    expect(out.precio_actual).toBe(90);
+    expect(out.ultima_verificacion).toBe("2026-11-08");
+    expect(identidadProducto(out.url)).toBe(identidadProducto(elegido.url));
+  });
+
+  it("un scrape posterior sin tallas no hereda las del candidato antiguo", () => {
+    const [out] = merge([orig({ tallas: ["50"] })], [fresh(), fresh({ ultima_verificacion: "2026-11-09", tallas: undefined })]);
+    expect(out.tallas).toBeUndefined();
+    expect(out.ultima_verificacion).toBe("2026-11-09");
+  });
+
+  it.each([
+    { nombre: "otro producto", candidato: fresh({ url: FICHAS_TIENDA[0].b }) },
+    { nombre: "verificacion editorial mas reciente", candidato: fresh({ ultima_verificacion: "2025-12-31" }) },
+    { nombre: "precio implausible", candidato: fresh({ precio_actual: 900 }) },
+    { nombre: "fallo de scraping", candidato: fresh({ disponible: false }) },
+    { nombre: "agotado confirmado", candidato: fresh({ disponible: false, agotado: true }) },
+  ])("no copia tallas si rechaza $nombre", ({ candidato }) => {
+    expect(merge([orig({ tallas: ["50"] })], [candidato])[0].tallas).toBeUndefined();
+  });
+
+  it("ni un editorial desactivado ni uno sin scrape anuncia tallas", () => {
+    expect(merge([orig({ disponible: false, tallas: ["50"] })], [fresh()])[0].tallas).toBeUndefined();
+    expect(merge([orig({ tallas: ["50"] })], [])[0].tallas).toBeUndefined();
+    const [out] = mergePricesIntoShoes([zapa([orig({ tallas: ["50"] })])], { generated_at: "", shoes: {} });
+    expect(out.links_compra[0].tallas).toBeUndefined();
+  });
+
+  it("cada enlace de la misma tienda conserva sus propias tallas", () => {
+    const out = merge([orig(), orig({ url: FICHAS_TIENDA[0].b })], [fresh(), fresh({ url: FICHAS_TIENDA[0].b, tallas: ["45"] })]);
+    expect(out.map((l) => l.tallas)).toEqual([["42", "43", "44,5"], ["45"]]);
+  });
+
+  it("una tienda nueva copia solo sus tallas y no cambia el enlace existente", () => {
+    const out = merge([link()], [fresh()]);
+    expect(out[0]).toEqual(link());
+    expect(out[1].tallas).toEqual(["42", "43", "44,5"]);
+    expect(out[1].precio_actual).toBe(90);
+  });
+});
+
 describe("mergePricesIntoShoes — varios productos de la MISMA tienda", () => {
   it("cada enlace se queda con el precio de SU producto", () => {
     const shoes = [zapa([link({ url: awin(FICHA_A) }), link({ url: awin(FICHA_B) })])];

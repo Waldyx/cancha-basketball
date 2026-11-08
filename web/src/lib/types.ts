@@ -151,6 +151,8 @@ export interface LinkCompra {
   tiene_afiliado: boolean;
   /** Fecha ISO (YYYY-MM-DD) de la última verificación manual del precio. */
   ultima_verificacion: string;
+  /** Tallas EU comprables leidas por el scraper para esta ficha concreta. */
+  tallas?: string[];
   /**
    * Aviso corto que se pinta bajo el nombre de la tienda en el bloque de compra.
    * Para lo que el precio NO dice: costes que el comprador paga aparte (IVA de

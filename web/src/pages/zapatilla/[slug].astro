@@ -7,6 +7,7 @@ import "../../styles/cancha-redesign.css";
 import { zapatillas, zapatillasTodas } from "../../data/zapatillas";
 import { findMejorPrecio, findMejorPrecioMostrado, mostramosPrecio, esEnlaceDeBusqueda, COMISIONES_TIENDA, scoreMeta, unaFilaPorTienda, euros, msrpComparable } from "../../lib/scoring";
 import PriceAlert from "../../components/PriceAlert.astro";
+import TallasCompra from "../../components/TallasCompra.astro";
 import CosteBlock from "../../components/CosteBlock.astro";
 import { ARTICLES } from "../../lib/articles";
 import { mejorCodigo, promosNoCaducadas } from "../../data/promos";
@@ -755,6 +756,7 @@ const productJsonLd = {
                         <span style="color:var(--cz-fg5)">{link.tiene_afiliado ? "★ Afiliado" : "Sin afiliación"} · </span>
                         <span style={`color:${verif.color}`}>{verif.fresh && "●"} {verif.label}</span>
                       </p>
+                      <TallasCompra link={link} />
                       {/* Lo que el precio NO dice. Hoy solo 361sport (envía desde fuera de la UE
                           sin IOSS), y a propósito: si cada fila lleva aviso, dejan de leerse. */}
                       {link.nota && (

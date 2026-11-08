@@ -1,0 +1,18 @@
+---
+import type { LinkCompra } from "../lib/types";
+interface Props { link: Pick<LinkCompra, "tallas" | "ultima_verificacion" | "disponible">; }
+const { link } = Astro.props;
+const tallas = link.disponible ? link.tallas ?? [] : [];
+---
+{tallas.length > 0 && (
+  <div class="compra-tallas">
+    <p>Tallas: {tallas.join(" · ")}</p>
+    <p>Verificadas: <time datetime={link.ultima_verificacion}>{link.ultima_verificacion}</time></p>
+    {tallas.length < 4 && <p class="compra-tallas-aviso">Quedan pocas tallas</p>}
+  </div>
+)}
+<style>
+  .compra-tallas { font-size: 12px; line-height: 1.5; color: var(--cz-fg3); margin-top: 8px; max-width: 44ch; overflow-wrap: anywhere; }
+  .compra-tallas p { margin: 0; }
+  .compra-tallas-aviso { font-weight: 700; color: var(--cz-accent-text); }
+</style>
