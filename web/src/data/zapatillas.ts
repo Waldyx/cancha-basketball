@@ -248,6 +248,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
+    oculto: true, // 8-nov: 1 talla en su única afiliada (FuikaOmar)
     precio_msrp_eur: 130,
     links_compra: [
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-under-armour-curry-12-dub-nation.html", precio_actual: 99.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: solo queda la talla 38; el scraper no la lee (el título no dice «GS»)
@@ -1773,7 +1774,6 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-harden-volume-9-jr2506-1001051705-p", precio_actual: 103.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-harden-volume-9%2FJS1304.html", precio_actual: 112, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: agotada en adidas.es (JS1304 y JS1305)
       { tienda: "amazon_es", url: "https://www.amazon.es/adidas-Harden-JR2506-Zapatillas-baloncesto/dp/B0DTTMXG36?tag=canchazapa-21", precio_actual: 285.72, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: sin buybox: solo un vendedor externo (reventa)
-      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-harden-volume-9-rojo-144156.html", precio_actual: 88, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
 
@@ -8401,7 +8401,6 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0F1XG42NZ?tag=canchazapa-21", precio_actual: 35.75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: re-verificado
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-own-the-game-3%2FIF4566.html", precio_actual: 34.45, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" },
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ownthegame+2+baloncesto&tag=canchazapa-21", precio_actual: 39.00, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: buscaba la OwnTheGame 2; la ficha ya tiene su /dp/
-      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-ownthegame-30-hombre-negro-141378.html", precio_actual: 45.50, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
   },
 
@@ -14048,7 +14047,6 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-d-o-n-issue-7-ice-spida-blanco%2F373782%2Fm9010565", precio_actual: 72.49, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-24" }, // Decathlon 17-sep: redirige a la categoria (ficha retirada)
       { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fd.o.n.-issue-7%2FJR9503.html", precio_actual: 69.60, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: agotada en adidas.es
       { tienda: "amazon_es", url: "https://www.amazon.es/adidas-N-Issue-JR9503-Talla/dp/B0GKLT9SNP?tag=canchazapa-21", precio_actual: 89, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-03" },
-      { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-don-issue-7-blanco-gris-144153.html", precio_actual: 68, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-24" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-don-issue-7-all-star.html", precio_actual: 109.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-don-issue-7-veaz-jr9502-1001064477-p", precio_actual: 78.11, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: JR9502, 4 tallas
     ],

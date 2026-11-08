@@ -262,6 +262,9 @@ describe("matchesShoe — segmento GS/junior", () => {
     ["adidas Dame X rojo zapatilla baloncesto niño", "Adidas", "Dame X GS"],
     ["adidas Ownthegame 3.0 azul zapatilla baloncesto niño", "Adidas", "OwnTheGame 3 GS"],
     ["adidas D.o.n Issue 7 azul zapatilla baloncesto niño", "Adidas", "D.O.N. Issue 7 GS"],
+    // Atmósfera los titula «Infantil» (títulos reales del 8-nov-2026).
+    ["Zapatillas de Baloncesto adidas Anthony Edwards 2 Infantil Negro/Negro/Tios", "Adidas", "AE 2 GS"],
+    ["Zapatillas de Baloncesto adidas Ownthegame 3.0 Infantil Negro / Hiemet / Rossho", "Adidas", "OwnTheGame 3 GS"],
     // Variante sin tilde y en plural, tal y como viene en los slugs de URL.
     ["nike zapatilla baloncesto ninos jordan luka 77 gs", "Jordan", "Luka 77 GS"],
   ];

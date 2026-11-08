@@ -101,6 +101,9 @@ const PHRASE_SYNONYMS: [RegExp, string][] = [
   // tilde porque así vienen en los slugs de URL ("…-ninos-ownthegame-30-j-…").
   [/\bni[ñn][oa]s?\b/g, "gs"],
   [/\bkids\b/g, "gs"],
+  // Atmósfera Sport las titula «Infantil» («adidas Anthony Edwards 2 Infantil»): el
+  // 8-nov-2026 la AE 2 GS y la Ownthegame 3 GS tenían stock y salían «no encontrado».
+  [/\binfantil(es)?\b/g, "gs"],
 ];
 
 /**
