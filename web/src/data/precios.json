@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T13:00:05.092Z",
+  "generated_at": "2026-11-11T12:35:33.655Z",
   "shoes": {
     "puma-mb-04": {
       "links_compra": [
@@ -8,7 +8,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-puma-mb04-love.html",
           "precio_actual": 74.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "44"
           ]
@@ -18,7 +18,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-puma-mb04-gem.html",
           "precio_actual": 84.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42",
             "43",
@@ -61,10 +61,12 @@
           "url": "https://www.elcorteingles.es/deportes/A56001758/",
           "precio_actual": 77.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "40",
-            "40,5"
+            "40,5",
+            "42,5",
+            "44,5"
           ]
         },
         {
@@ -86,7 +88,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-air-jordan-luka-5-lifestyle.html",
           "precio_actual": 139.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42",
             "42,5",
@@ -105,7 +107,7 @@
           "url": "https://www.elcorteingles.es/deportes/A56003207/",
           "precio_actual": 76.99,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -113,7 +115,7 @@
           "url": "https://www.forumsport.com/es-es/nike-zapatilla-baloncesto-lebron-witness-ix-hq8034-1001101205-p",
           "precio_actual": 74.79,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "47"
           ]
@@ -123,7 +125,7 @@
           "url": "https://www.atmosferasport.es/nike/botas-de-baloncesto-nike-lebron-witness-ix-hombre-negro-176479.html",
           "precio_actual": 78.31,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42"
           ]
@@ -133,7 +135,7 @@
           "url": "https://www.atmosferasport.es/nike/botas-de-baloncesto-nike-lebron-witness-9-hombre-voltio-negro-gris-multicolor-176481.html",
           "precio_actual": 71.49,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "38,5",
             "39",
@@ -163,7 +165,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-puma-mb05-metallic.html",
           "precio_actual": 79.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42",
             "42,5",
@@ -192,7 +194,7 @@
           "url": "https://www.elcorteingles.es/deportes/A57853037/",
           "precio_actual": 139.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "44,5",
             "45,5"
@@ -201,9 +203,9 @@
         {
           "tienda": "decathlon",
           "url": "https://www.decathlon.es/es/p/mp/zapatillas-de-baloncesto-under-armour-curry-13/55a21e76-05fa-4f51-b976-0530c98a637c/c1c14",
-          "precio_actual": 159.1,
+          "precio_actual": 156.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -214,7 +216,7 @@
           "url": "https://www.atmosferasport.es/under-armour/zapatillas-de-baloncesto-under-armour-lockdown-7-negro-162295.html",
           "precio_actual": 52.5,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -222,7 +224,7 @@
           "url": "https://www.elcorteingles.es/deportes/A57852230/",
           "precio_actual": 74.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "40,5",
             "42,5",
@@ -249,7 +251,7 @@
           "url": "https://www.atmosferasport.es/under-armour/zapatillas-de-baloncesto-under-armour-flow-futr-x-4-sos-negro-101205.html",
           "precio_actual": 60,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "41",
             "42",
@@ -273,9 +275,9 @@
         {
           "tienda": "atmosfera_sport",
           "url": "https://www.atmosferasport.es/under-armour/zapatillas-de-baloncesto-under-armour-curry-3z-25-sde-rojo-144680.html",
-          "precio_actual": 49.34,
+          "precio_actual": 51.93,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "43",
             "44",
@@ -285,9 +287,9 @@
         {
           "tienda": "atmosfera_sport",
           "url": "https://www.atmosferasport.es/under-armour/zapatillas-de-baloncesto-under-armour-curry-3z-25-sde-negro-144766.html",
-          "precio_actual": 46.99,
+          "precio_actual": 49.34,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42",
             "42,5",
@@ -321,7 +323,7 @@
           "url": "https://www.elcorteingles.es/deportes/A53978261-negro-pr-zapatillas-de-baloncesto-de-hombre-kd18-nike/",
           "precio_actual": 95.99,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -336,7 +338,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-nike-kd-18-liquid-lime.html",
           "precio_actual": 139.9,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -355,8 +357,9 @@
           "url": "https://www.elcorteingles.es/deportes/A56002143/",
           "precio_actual": 59.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
+            "44",
             "44,5",
             "45,5"
           ]
@@ -366,7 +369,7 @@
           "url": "https://www.forumsport.com/es-es/nike-zapatilla-baloncesto-jordan-luka-77-neant-hf0806-1001053712-p",
           "precio_actual": 59.99,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -374,22 +377,17 @@
           "url": "https://www.nike.com/es/t/luka-77-zapatillas-de-baloncesto-BERU1e7j/IF1610-500",
           "precio_actual": 99.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "elcorteingles_es",
           "url": "https://www.elcorteingles.es/deportes/A56814491-blanco-pr-zapatillas-de-baloncesto-de-hombre-jordan-luka-77-jordan/",
           "precio_actual": 59.99,
-          "disponible": false,
-          "ultima_verificacion": "2026-11-10",
-          "agotado": true
-        },
-        {
-          "tienda": "nike_es",
-          "url": "https://www.nike.com/es/t/luka-77-zapatillas-de-baloncesto-nino-a-oYEv7m3u/IH0573-003",
-          "precio_actual": 79.99,
           "disponible": true,
-          "ultima_verificacion": "2026-10-12"
+          "ultima_verificacion": "2026-11-11",
+          "tallas": [
+            "42"
+          ]
         },
         {
           "tienda": "nike_es",
@@ -421,7 +419,7 @@
           "url": "https://www.elcorteingles.es/deportes/A56001212-amarillo-pr-zapatillas-de-baloncesto-de-hombre-book-2-se-nike/",
           "precio_actual": 89.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "38,5",
             "40,5"
@@ -432,7 +430,7 @@
           "url": "https://www.decathlon.es/es/p/mp/nike-book-2-spiridon-sport-red/0016d89e-d6c5-4f8e-afc7-eb477540d685/c14",
           "precio_actual": 161.09,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "basketballemotion_es",
@@ -450,14 +448,14 @@
           "url": "https://www.decathlon.es/es/p/mp/nike-sabrina-3-oregon-ducks-women-s/c5d2d9c5-28e0-4ec1-89ad-5cd52f5d8aac/c4",
           "precio_actual": 144.29,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "fuikaomar_es",
           "url": "https://www.fuikaomar.es/zapatillas-nike-sabrina-3-clay-green.html",
           "precio_actual": 149.9,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -465,7 +463,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-nike-sabrina-3-big-ellie.html",
           "precio_actual": 139.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "38",
             "39",
@@ -483,7 +481,7 @@
           "url": "https://www.elcorteingles.es/deportes/A56002580/",
           "precio_actual": 77.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "46"
           ]
@@ -504,7 +502,7 @@
           "url": "https://www.elcorteingles.es/deportes/A56814362/",
           "precio_actual": 89.99,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -512,7 +510,7 @@
           "url": "https://www.atmosferasport.es/nike/zapatillas-de-baloncesto-nike-giannis-immortality-5-hombre-amarillo-177952.html",
           "precio_actual": 89.99,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         }
       ]
@@ -554,7 +552,7 @@
           "url": "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-harden-volume-9-jr2506-1001051705-p",
           "precio_actual": 95.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42",
             "46"
@@ -569,7 +567,7 @@
           "url": "https://www.elcorteingles.es/deportes/A56824564/",
           "precio_actual": 77.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42",
             "42,5",
@@ -585,7 +583,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-air-jordan-luka-4-gone-fishing.html",
           "precio_actual": 99.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "44"
           ]
@@ -617,7 +615,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-adidas-harden-vol-10-aquamarine.html",
           "precio_actual": 129.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42 2/3",
             "43 1/3",
@@ -630,7 +628,7 @@
           "url": "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-harden-volume-10-jq9422-1001111481-p",
           "precio_actual": 94.99,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -638,7 +636,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-adidas-harden-vol-10-joker.html",
           "precio_actual": 109.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42 2/3",
             "43 1/3",
@@ -651,7 +649,7 @@
           "url": "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-harden-volume-10-ki1605-1001135121-p",
           "precio_actual": 107.19,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "40",
             "41 1/3",
@@ -679,16 +677,16 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005011570638695.html",
-          "precio_actual": 61.99,
+          "precio_actual": 61.69,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "fuikaomar_es",
           "url": "https://www.fuikaomar.es/zapatillas-anta-kai-2-king-of-the-court.html",
           "precio_actual": 114.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "41",
             "42",
@@ -733,9 +731,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005013094137186.html",
-          "precio_actual": 98.39,
+          "precio_actual": 98.69,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -746,7 +744,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-nike-ja-2-coconut.html",
           "precio_actual": 109.9,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -765,7 +763,7 @@
           "url": "https://www.decathlon.es/es/p/zapatillas-de-baloncesto-adulto-adidas-dame-9-blanco-violeta-y-verde/372397/m8968186",
           "precio_actual": 71.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "amazon_es",
@@ -779,7 +777,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-adidas-dame-9-purple-bust.html",
           "precio_actual": 59.9,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         }
       ]
@@ -798,7 +796,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-new-balance-two-wxy-v4-lemon-zest.html",
           "precio_actual": 84.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42",
             "44,5"
@@ -813,7 +811,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-anta-kt10-low-graffiti.html",
           "precio_actual": 139.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "44"
           ]
@@ -862,18 +860,11 @@
           "ultima_verificacion": "2026-06-24"
         },
         {
-          "tienda": "amazon_es",
-          "url": "https://www.amazon.es/dp/B0DMN4R55B/?tag=canchazapa-21",
-          "precio_actual": 210.13,
-          "disponible": true,
-          "ultima_verificacion": "2026-10-12"
-        },
-        {
           "tienda": "fuikaomar_es",
           "url": "https://www.fuikaomar.es/zapatillas-under-armour-curry-12-what-the-bay.html",
           "precio_actual": 159.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "40",
             "42",
@@ -977,13 +968,6 @@
         },
         {
           "tienda": "amazon_es",
-          "url": "https://www.amazon.es/adidas-Zapatillas-Lillard-Certified-Screaming/dp/B0CYN8DZKK/ref=sr_1_1",
-          "precio_actual": 36.51,
-          "disponible": true,
-          "ultima_verificacion": "2026-10-12"
-        },
-        {
-          "tienda": "amazon_es",
           "url": "https://www.amazon.es/adidas-Zapatillas-Lillard-Certified-Screaming/dp/B0CYMWQDZP/ref=sr_1_1",
           "precio_actual": 51.87,
           "disponible": true,
@@ -1005,7 +989,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-adidas-don-issue-7-all-star.html",
           "precio_actual": 99.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42",
             "42 2/3",
@@ -1019,7 +1003,7 @@
           "url": "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-don-issue-7-veaz-jr9502-1001064477-p",
           "precio_actual": 78.11,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42 2/3",
             "46 2/3",
@@ -1143,7 +1127,7 @@
           "url": "https://www.elcorteingles.es/deportes/A56028109/",
           "precio_actual": 77.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42,5"
           ]
@@ -1153,7 +1137,7 @@
           "url": "https://www.forumsport.com/es-es/puma-zapatilla-baloncesto-all-pro-nitro-2-312307-1001080242-p",
           "precio_actual": 82.8,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "45"
           ]
@@ -1163,7 +1147,7 @@
           "url": "https://www.decathlon.es/es/p/zapatillas-de-baloncesto-adulto-puma-all-pro-nitro-2-blanco-brillo-solar/362929/m8998760",
           "precio_actual": 51.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "atmosfera_sport",
@@ -1177,7 +1161,7 @@
           "url": "https://www.atmosferasport.es/puma/zapatillas-de-baloncesto-puma-all-pro-nitro-2for-all-time-red-ne-unisex-151574.html",
           "precio_actual": 71.49,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "41",
             "42,5",
@@ -1200,7 +1184,7 @@
           "url": "https://www.elcorteingles.es/deportes/A54981652/",
           "precio_actual": 53.99,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -1208,15 +1192,18 @@
           "url": "https://www.elcorteingles.es/deportes/A56001339-gris-negro-pr-zapatillas-de-baloncesto-de-hombre-giannis-immortality-4-nike/",
           "precio_actual": 53.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "38,5",
             "39",
             "40",
             "40,5",
+            "41",
+            "42,5",
             "44",
             "44,5",
-            "45"
+            "45",
+            "45,5"
           ]
         }
       ]
@@ -1228,10 +1215,9 @@
           "url": "https://www.elcorteingles.es/deportes/A56003799/",
           "precio_actual": 44.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "40,5",
-            "41",
             "44",
             "44,5",
             "45",
@@ -1250,7 +1236,7 @@
           "url": "https://www.atmosferasport.es/nike/zapatillas-de-baloncesto-nike-precision-7-basketball-shoes-hombre-blanco-162781.html",
           "precio_actual": 48.74,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42",
             "42,5",
@@ -1270,7 +1256,7 @@
           "url": "https://www.forumsport.com/es-es/nike-zapatilla-baloncesto-ninos-nike-air-zoom-crossover-2-gs-fb2689-1000967527-p",
           "precio_actual": 59.15,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "37,5",
             "38",
@@ -1287,7 +1273,7 @@
           "url": "https://www.decathlon.es/es/p/mp/zapatillas-de-baloncesto-jordan-modelo-air-jordan-xxxix-noir-para-hombre/6f326410-da78-4abe-b31a-c87ad64c460b/c1",
           "precio_actual": 158.73,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -1305,14 +1291,14 @@
           "url": "https://www.decathlon.es/es/p/mp/zapatillas-3-retro-og-rare-air/9427ddab-16c5-46e9-a38b-b63c97f90ec4/c1",
           "precio_actual": 216.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "snipes_eu",
           "url": "https://www.snipes.com/es-es/p/jordan-air-jordan-3-retro-og-worlds-best-dad-beige-98222",
           "precio_actual": 110,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "amazon_es",
@@ -1330,7 +1316,7 @@
           "url": "https://www.snipes.com/es-es/p/jordan-air-jordan-6-retro-infrared-salesman-negro-94676",
           "precio_actual": 150,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -1349,14 +1335,14 @@
           "url": "https://www.snipes.com/es-es/p/jordan-air-jordan-11-retro-low-university-blue-blanco-98223",
           "precio_actual": 160,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "decathlon",
           "url": "https://www.decathlon.es/es/p/mp/zapatillas-11-retro-rare-air/96423715-aec3-4328-bc0b-c9b5aa3153a0/c5",
           "precio_actual": 294.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "amazon_es",
@@ -1370,7 +1356,7 @@
           "url": "https://www.snipes.com/es-es/p/jordan-air-jordan-11-grand-finale-blanco-91854",
           "precio_actual": 100,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -1448,15 +1434,15 @@
           "url": "https://www.snipes.com/es-es/p/jordan-air-jordan-4-retro-toro-bravo-rojo-98232",
           "precio_actual": 170,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
           "tienda": "amazon_es",
-          "url": "https://www.amazon.es/NIKE-Trainers-Sneakers-Zapatos-Kumquat/dp/B09Q91SLWV/ref=sr_1_7",
+          "url": "https://www.amazon.es/NIKE-Trainers-Sneakers-Zapatos-Kumquat/dp/B09Q91SLWV/ref=sr_1_3",
           "precio_actual": 140.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "amazon_es",
@@ -1489,10 +1475,10 @@
         },
         {
           "tienda": "amazon_es",
-          "url": "https://www.amazon.es/adidas-Hombre-OWNTHEGAME-Shoes-Silver/dp/B0F1XG64YW/ref=sr_1_3",
-          "precio_actual": 37.3,
+          "url": "https://www.amazon.es/adidas-Hombre-OWNTHEGAME-Shoes-Silver/dp/B0F1XG64YW/ref=sr_1_6",
+          "precio_actual": 41.27,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -1517,7 +1503,7 @@
           "url": "https://www.atmosferasport.es/adidas/zapatillas-de-baloncesto-adidas-dame-x-rosa-144325.html",
           "precio_actual": 50.99,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         }
       ]
@@ -1527,9 +1513,9 @@
         {
           "tienda": "decathlon",
           "url": "https://www.decathlon.es/es/p/mp/zapatilla-cross-em-up-select/a55546c0-eb8c-41d3-aa53-37e1ad5a7dfa/c1c4c251",
-          "precio_actual": 63.5,
+          "precio_actual": 63.3,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "amazon_es",
@@ -1550,7 +1536,7 @@
           "url": "https://www.atmosferasport.es/adidas/zapatillas-de-baloncesto-adidas-cross-em-up-select-infantil-67302.html",
           "precio_actual": 38.5,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "36 2/3",
             "39 1/3"
@@ -1572,7 +1558,7 @@
           "url": "https://www.reebok.eu/es-es/products/engine-a-shoes-100245968-4243",
           "precio_actual": 70,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -1623,7 +1609,7 @@
           "url": "https://www.snipes.com/es-es/p/jordan-air-jordan-1-low-se-blanco-97780",
           "precio_actual": 70,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "amazon_es",
@@ -1644,14 +1630,14 @@
           "url": "https://www.snipes.com/es-es/p/jordan-air-jordan-1-mid-blanco-94681",
           "precio_actual": 72,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "elcorteingles_es",
           "url": "https://www.elcorteingles.es/deportes/A52028803-zapatillas-de-baloncesto-de-hombre-air-jordan-1-mid-jordan/",
           "precio_actual": 70,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -1680,7 +1666,7 @@
           "url": "https://www.fuikaomar.es/nike-air-jordan-1-retro-high-og-reverse-panda.html",
           "precio_actual": 169.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42",
             "44",
@@ -1715,7 +1701,7 @@
           "url": "https://www.atmosferasport.es/converse/chuck-taylor-all-star-9755.html",
           "precio_actual": 52.5,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "35",
             "36",
@@ -1726,9 +1712,9 @@
         {
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/Converse-Taylor-Zapatillas-Unisex-adulto/dp/B002W7NP8S?tag=canchazapa-21",
-          "precio_actual": 41.24,
+          "precio_actual": 43.08,
           "disponible": true,
-          "ultima_verificacion": "2026-11-06"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -1739,7 +1725,7 @@
           "url": "https://www.decathlon.es/es/p/mp/air-jordan-5-retro-se-craft-light-orewood-brown-taille-eu/7b7897ea-561b-4730-9477-e6f5e7d85b97/c27c20",
           "precio_actual": 238.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "amazon_es",
@@ -1760,7 +1746,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-air-jordan-5-retro-og-fire-red.html",
           "precio_actual": 229.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42",
             "42,5",
@@ -1820,7 +1806,7 @@
           "url": "https://www.amazon.es/dp/B0C3MVN4V2?tag=canchazapa-21",
           "precio_actual": 84.87,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -1860,15 +1846,15 @@
           "url": "https://www.fuikaomar.es/zapatillas-nike-sabrina-2-retroed.html",
           "precio_actual": 119.9,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
           "tienda": "decathlon",
           "url": "https://www.decathlon.es/es/p/mp/zapatillas-sabrina-2-activate/cc25881e-89b2-4512-a16d-b4c16ce26791/c20",
-          "precio_actual": 129.75,
+          "precio_actual": 129.95,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -1879,7 +1865,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-jordan-tatum-3-zen.html",
           "precio_actual": 109.9,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -1943,9 +1929,9 @@
         {
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/adidas-Model-Calzado-black-white/dp/B01ITDE3F2/ref=sr_1_8?tag=canchazapa-21",
-          "precio_actual": 77,
+          "precio_actual": 73.15,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -1961,9 +1947,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005012795601046.html",
-          "precio_actual": 60.69,
+          "precio_actual": 60.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -1974,7 +1960,7 @@
           "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-hali-1-unisex/313450?swatch=01",
           "precio_actual": 104,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -2028,7 +2014,7 @@
           "url": "https://www.elcorteingles.es/deportes/A53977147/",
           "precio_actual": 68.99,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         }
       ]
@@ -2045,9 +2031,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005010685068543.html",
-          "precio_actual": 227.69,
+          "precio_actual": 228.69,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -2063,9 +2049,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005012511374212.html",
-          "precio_actual": 474.99,
+          "precio_actual": 472.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -2083,7 +2069,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-nike-kobe-9-elite-low-em-proto-university-red.html",
           "precio_actual": 179.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "39",
             "40",
@@ -2114,7 +2100,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-new-balance-kawhi-4-third-eye.html",
           "precio_actual": 129.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42",
             "42,5",
@@ -2140,7 +2126,7 @@
           "url": "https://www.elcorteingles.es/deportes/A53976764-zapatillas-de-baloncesto-hombre-lbj-nxxt-genisus-nike/",
           "precio_actual": 89.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "38,5",
             "39"
@@ -2201,7 +2187,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-anta-shock-wave-5-pro-moon.html",
           "precio_actual": 129.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42,5",
             "43",
@@ -2211,9 +2197,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005012884085615.html",
-          "precio_actual": 68.99,
+          "precio_actual": 69.39,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -2233,16 +2219,16 @@
         {
           "tienda": "decathlon",
           "url": "https://www.decathlon.es/es/p/mp/zapatillas-converse-weapon-blanco-hombre/26e292fc-d118-4769-b9a3-4f6c1a3eb2a6/c4",
-          "precio_actual": 134.99,
+          "precio_actual": 133.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "fuikaomar_es",
           "url": "https://www.fuikaomar.es/zapatillas-converse-weapon-og-mid-black-ivory.html",
           "precio_actual": 130,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         }
       ]
@@ -2265,7 +2251,7 @@
           "url": "https://www.decathlon.es/es/p/mp/zapatillas-de-baloncesto-nike-kyrie-infinity-hombre/60c01261-32b4-4f18-a661-3eb55686beb4/c1",
           "precio_actual": 106.75,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "joom",
@@ -2301,14 +2287,14 @@
           "url": "https://www.decathlon.es/es/p/mp/nike-a-ja-wilson-a-one-all-star-women-s/2a0a5073-24e6-461d-9b70-5379fb3e323c/c4",
           "precio_actual": 116.29,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "fuikaomar_es",
           "url": "https://www.fuikaomar.es/zapatillas-nike-aone-mvps.html",
           "precio_actual": 99.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "40,5"
           ]
@@ -2393,9 +2379,9 @@
         {
           "tienda": "atmosfera_sport",
           "url": "https://www.atmosferasport.es/skechers/zapatillas-skechers-skx-je-1-hombre-blanco-negro-160188.html",
-          "precio_actual": 112.46,
+          "precio_actual": 106.21,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -2421,7 +2407,7 @@
           "url": "https://www.atmosferasport.es/moda-deportiva-para-hombre/zapatillas-de-baloncesto-skechers-skx-resagrip-hombre-negro-rojo-160197.html",
           "precio_actual": 144.95,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "41",
             "42",
@@ -2468,7 +2454,7 @@
           "url": "https://www.atmosferasport.es/skechers/zapatillas-skechers-skx-league-hombre-negro-knit-156825.html",
           "precio_actual": 71.96,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42",
             "43",
@@ -2496,7 +2482,7 @@
           "url": "https://www.elcorteingles.es/deportes/A55591075/",
           "precio_actual": 59.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42",
             "44",
@@ -2508,7 +2494,7 @@
           "url": "https://www.atmosferasport.es/adidas/zapatillas-de-baloncesto-adidas-believe-that-1-negro-naraci-supcol-176218.html",
           "precio_actual": 70,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "40 2/3",
             "41 1/3",
@@ -2523,16 +2509,16 @@
         {
           "tienda": "amazon_es",
           "url": "https://www.amazon.es/adidas-Unisex-ni%C3%B1os-Believe-Shoes/dp/B0FHJ82GVC/ref=sr_1_1?tag=canchazapa-21",
-          "precio_actual": 43.07,
+          "precio_actual": 39.19,
           "disponible": true,
-          "ultima_verificacion": "2026-11-09"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "forumsport_es",
           "url": "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-believe-that-1-jq9475-1001111484-p",
           "precio_actual": 68.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "40 2/3",
             "41 1/3",
@@ -2553,7 +2539,7 @@
           "url": "https://www.amazon.es/adidas-Unisex-Adulto-Believe-Supplier/dp/B0FVX9RQM7/ref=sr_1_1",
           "precio_actual": 49.58,
           "disponible": true,
-          "ultima_verificacion": "2026-11-09"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "amazon_es",
@@ -2571,7 +2557,7 @@
           "url": "https://www.atmosferasport.es/zapatillas-de-baloncesto-adidas-believe-that-1-j-azul-infantil-178002.html",
           "precio_actual": 60,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "35,5",
             "37 1/3",
@@ -2585,7 +2571,7 @@
           "url": "https://www.elcorteingles.es/deportes/A55591032-naranja-pr-zapatillas-de-baloncesto-de-ninos-believe-that-1-j-adidas/",
           "precio_actual": 44.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "38"
           ]
@@ -2599,7 +2585,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-puma-mb05-low-fluorish-junior.html",
           "precio_actual": 99.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "35,5",
             "36",
@@ -2622,7 +2608,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-puma-mb-05-mist-junior.html",
           "precio_actual": 89.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "35,5",
             "36",
@@ -2658,7 +2644,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-nike-sabrina-3-gs-wnba.html",
           "precio_actual": 109.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "36,5",
             "37,5",
@@ -2675,7 +2661,7 @@
           "url": "https://www.atmosferasport.es/under-armour/zapatillas-de-baloncesto-under-armour-jet-25-blanco-154243.html",
           "precio_actual": 54,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "41",
             "42",
@@ -2698,7 +2684,7 @@
           "url": "https://www.elcorteingles.es/deportes/A57852354-verde-pr-zapatillas-de-baloncesto-de-adulto-ua-jet-25-under-armour/",
           "precio_actual": 89.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "40,5",
             "43",
@@ -2710,7 +2696,7 @@
           "url": "https://www.atmosferasport.es/under-armour/zapatillas-de-baloncesto-under-armour-jet-25-negro-149810.html",
           "precio_actual": 64.49,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42",
             "42,5",
@@ -2728,7 +2714,7 @@
           "url": "https://www.atmosferasport.es/zapatillas-de-baloncesto-under-armour-gs-jet-25-infantil-gris-171643.html",
           "precio_actual": 36,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "35,5",
             "36",
@@ -2749,7 +2735,7 @@
           "url": "https://www.elcorteingles.es/deportes/A56000750/",
           "precio_actual": 44.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "35,5",
             "36",
@@ -2770,7 +2756,7 @@
           "url": "https://www.elcorteingles.es/deportes/A56003244-negro-pr-zapatillas-baloncesto-de-ninos-giannis-immortality-4-gs-nike/",
           "precio_actual": 56.99,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         }
       ]
@@ -2782,7 +2768,7 @@
           "url": "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-ninos-ownthegame-30-j-azve-js2177-1001075273-p",
           "precio_actual": 41.27,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -2790,7 +2776,7 @@
           "url": "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-ninos-ownthegame-30-jq7939-1001087254-p",
           "precio_actual": 40.28,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "28,5",
             "30,5",
@@ -2813,7 +2799,7 @@
           "url": "https://www.atmosferasport.es/adidas/zapatillas-de-baloncesto-adidas-ownthegame-30-infantil-negro-hiemet-rossho-176940.html",
           "precio_actual": 44,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "28",
             "29",
@@ -2851,7 +2837,7 @@
           "url": "https://www.atmosferasport.es/adidas/zapatillas-de-baloncesto-adidas-trae-unlimited-2-negro-88899.html",
           "precio_actual": 75,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "41 1/3",
             "42",
@@ -2863,9 +2849,9 @@
         {
           "tienda": "atmosfera_sport",
           "url": "https://www.atmosferasport.es/adidas/zapatillas-de-baloncesto-adidas-trae-unlimited-2-rojo-84984.html",
-          "precio_actual": 59,
+          "precio_actual": 60,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "40 2/3",
             "41 1/3",
@@ -2883,7 +2869,7 @@
           "url": "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-ninos-dame-x-j-rone-jp8639-1001075060-p",
           "precio_actual": 48.37,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "36",
             "36 2/3",
@@ -2902,7 +2888,7 @@
           "url": "https://www.amazon.es/NIKE-Foamposite-Sneaker-Hombre-Psychic/dp/B0DP2TDDNL/ref=sr_1_1?tag=canchazapa-21",
           "precio_actual": 160.84,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -2913,7 +2899,7 @@
           "url": "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-ninos-don-issue-7-azne-jq6836-1001075090-p",
           "precio_actual": 53.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "36",
             "36 2/3",
@@ -2963,7 +2949,7 @@
           "url": "https://www.elcorteingles.es/deportes/A54982068/",
           "precio_actual": 65.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "45"
           ]
@@ -2973,7 +2959,7 @@
           "url": "https://www.forumsport.com/es-es/nike-zapatilla-baloncesto-jordan-heir-series-nero-fq3858-1001068836-p",
           "precio_actual": 76.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "40,5",
             "47,5"
@@ -2988,7 +2974,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-adidas-trae-young-3-cloud-white.html",
           "precio_actual": 74.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42",
             "42 2/3",
@@ -3027,15 +3013,15 @@
           "url": "https://www.fuikaomar.es/zapatillas-nike-lebron-21-akoya.html",
           "precio_actual": 159.9,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005010673040763.html",
-          "precio_actual": 94.39,
+          "precio_actual": 94.69,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "aliexpress",
@@ -3047,9 +3033,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005010673521913.html",
-          "precio_actual": 94.39,
+          "precio_actual": 94.69,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "aliexpress",
@@ -3065,9 +3051,9 @@
         {
           "tienda": "elcorteingles_es",
           "url": "https://www.elcorteingles.es/deportes/A56003509/",
-          "precio_actual": 119.99,
+          "precio_actual": 139.99,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -3082,14 +3068,14 @@
           "url": "https://www.decathlon.es/es/p/mp/nike-lebron-xxiii-shut-up-and-dribble/6c6d08b5-4aff-4800-9127-4913c3006964/c4",
           "precio_actual": 166.69,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005012098378688.html",
-          "precio_actual": 129.69,
+          "precio_actual": 129.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3100,7 +3086,7 @@
           "url": "https://www.elcorteingles.es/deportes/A55591290/",
           "precio_actual": 90.99,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -3108,15 +3094,15 @@
           "url": "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-anthony-edwards-2-kj4228-1001075419-p",
           "precio_actual": 83.84,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
           "tienda": "atmosfera_sport",
           "url": "https://www.atmosferasport.es/adidas/zapatillas-de-baloncesto-adidas-anthony-edwards-2-rosa-negro-rojo-162864.html",
-          "precio_actual": 65,
+          "precio_actual": 91,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         }
       ]
@@ -3126,9 +3112,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005013093597583.html",
-          "precio_actual": 89.99,
+          "precio_actual": 90.39,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3137,9 +3123,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005010194753497.html",
-          "precio_actual": 93.59,
+          "precio_actual": 93.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "basketballemotion_es",
@@ -3157,7 +3143,7 @@
           "url": "https://www.decathlon.es/es/p/mp/zapatillas-de-baloncesto-rigorer-ar3-hitman/5a220446-8725-471a-8f6d-010c644fff75/c4",
           "precio_actual": 97.5,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3207,7 +3193,7 @@
           "url": "https://www.nike.com/es/t/caitlin-1-cave-stone-zapatillas-de-baloncesto-VUSxa3ht/IH7423-101",
           "precio_actual": 139.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3225,7 +3211,7 @@
           "url": "https://www.nike.com/es/t/atwo-wheels-on-zapatillas-de-baloncesto-de-aja-wilson-Z6xWZ9zw/IH1135-603",
           "precio_actual": 139.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3236,7 +3222,7 @@
           "url": "https://www.elcorteingles.es/deportes/A55064666/",
           "precio_actual": 38.99,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -3251,7 +3237,7 @@
           "url": "https://www.atmosferasport.es/nike/zapatillas-de-baloncesto-nike-team-hustle-d-12-basketball-infantil-blanco-182584.html",
           "precio_actual": 51.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "36",
             "36,5",
@@ -3271,7 +3257,7 @@
           "url": "https://www.elcorteingles.es/deportes/A53976408/",
           "precio_actual": 50.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "44,5"
           ]
@@ -3292,7 +3278,7 @@
           "url": "https://www.elcorteingles.es/deportes/A57852858/",
           "precio_actual": 129.99,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         }
       ]
@@ -3304,7 +3290,7 @@
           "url": "https://www.decathlon.es/es/p/zapatillas-de-baloncesto-de-media-cana-edicion-sarr-hombre-mujer-canaveral-900-rosa/348025/c24m8826694",
           "precio_actual": 46.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3315,7 +3301,7 @@
           "url": "https://www.decathlon.es/es/p/zapatillas-de-baloncesto-adulto-adidas-d-o-n-issue-6-verde-blanco/372429/m8968268",
           "precio_actual": 71.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3326,7 +3312,7 @@
           "url": "https://www.decathlon.es/es/p/mp/zapatilla-cross-em-up-5-k-wide/846c989a-4d66-4e02-b858-ec0f24864fcb/c1c249c24",
           "precio_actual": 52.65,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3359,7 +3345,7 @@
           "url": "https://www.decathlon.es/es/p/zapatillas-de-baloncesto-nba-lakers-nino-fast-900-low-1-negro/348019/c1m8852347",
           "precio_actual": 54.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3428,7 +3414,7 @@
           "url": "https://www.snipes.com/es-es/p/reebok-question-mid-gris-17566",
           "precio_actual": 80,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         }
       ]
@@ -3456,9 +3442,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005012089978306.html",
-          "precio_actual": 49.69,
+          "precio_actual": 49.39,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3478,9 +3464,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005012954994168.html",
-          "precio_actual": 69.69,
+          "precio_actual": 69.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3489,9 +3475,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005012802290233.html",
-          "precio_actual": 62.39,
+          "precio_actual": 65.39,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3500,9 +3486,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005012814416107.html",
-          "precio_actual": 76.99,
+          "precio_actual": 77.39,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3542,7 +3528,7 @@
           "url": "https://www.nike.com/es/t/ja-4-dark-mode-zapatillas-de-baloncesto-O1MlsSTs/IM4135-001",
           "precio_actual": 129.99,
           "disponible": true,
-          "ultima_verificacion": "2026-10-15"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3560,7 +3546,7 @@
           "url": "https://www.elcorteingles.es/deportes/A200906839-negro-pr-zapatillas-de-baloncesto-de-hombre-giannis-freak-8-nike/",
           "precio_actual": 114.99,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         },
         {
@@ -3568,7 +3554,7 @@
           "url": "https://www.elcorteingles.es/deportes/A58884313-azul-pr-zapatillas-de-baloncesto-de-adulto-giannis-freak-8-nike/",
           "precio_actual": 114.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "38,5",
             "39",
@@ -3587,7 +3573,7 @@
           "url": "https://www.nike.com/es/t/giannis-freak-8-trick-question-zapatillas-de-baloncesto-UnMjh9X7/IO7945-300",
           "precio_actual": 119.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3607,9 +3593,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005012413955051.html",
-          "precio_actual": 196.39,
+          "precio_actual": 197.39,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3620,7 +3606,7 @@
           "url": "https://www.decathlon.es/es/p/mp/zapatillas-kobe-9-elite-protro-halo/7e1cd57a-44ea-4efc-b0e3-a9f70c30f270/c4",
           "precio_actual": 270.35,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3675,14 +3661,14 @@
           "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-scoot-zeros-iii-unisex/312818",
           "precio_actual": 64,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "forumsport_es",
           "url": "https://www.forumsport.com/es-es/puma-zapatilla-baloncesto-scoot-zeros-iii-312818-1001108534-p",
           "precio_actual": 58.99,
           "disponible": false,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "agotado": true
         }
       ]
@@ -3694,7 +3680,7 @@
           "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-stewie-5-turbo-para-mujer/312745",
           "precio_actual": 83,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3712,7 +3698,7 @@
           "url": "https://www.nike.com/es/t/sabrina-4-count-ionescu-zapatillas-de-baloncesto-iicvCrwF/IX7058-001",
           "precio_actual": 139.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3732,9 +3718,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005013092357004.html",
-          "precio_actual": 53.69,
+          "precio_actual": 53.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3745,7 +3731,7 @@
           "url": "https://www.nike.com/es/t/air-jordan-41-ruby-zapatillas-de-baloncesto-7tNpGhRr/HV6474-601",
           "precio_actual": 199.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "nike_es",
@@ -3783,9 +3769,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005012795507567.html",
-          "precio_actual": 58.99,
+          "precio_actual": 59.39,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3796,7 +3782,7 @@
           "url": "https://www.nike.com/es/t/air-jordan-40-zapatillas-de-baloncesto-CNT7P4t3/IM8206-800",
           "precio_actual": 139.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3807,7 +3793,7 @@
           "url": "https://www.reebok.eu/es-es/products/angel-reese-1-100272893-272893",
           "precio_actual": 70,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "amazon_es",
@@ -3830,9 +3816,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005012876628910.html",
-          "precio_actual": 130.69,
+          "precio_actual": 130.39,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3841,9 +3827,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005013155833508.html",
-          "precio_actual": 102.69,
+          "precio_actual": 103.39,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3870,9 +3856,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005012802154831.html",
-          "precio_actual": 65.39,
+          "precio_actual": 65.69,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3888,9 +3874,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005012834584397.html",
-          "precio_actual": 56.99,
+          "precio_actual": 59.39,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3908,7 +3894,7 @@
           "url": "https://www.elcorteingles.es/deportes/MP_0071639_SHAIPABOX-zapatillas-de-baloncesto-unisex-shai-001-peek-a-boo-converse/",
           "precio_actual": 129.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "41",
             "42",
@@ -3962,7 +3948,7 @@
           "url": "https://www.decathlon.es/es/p/zapatillas-de-baloncesto-nba-lakers-hombre-mujer-fast-900-low-1-negro/343952/c1c213m8933362",
           "precio_actual": 49.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -3973,7 +3959,7 @@
           "url": "https://eu.puma.com/es/es/pd/zapatillas-de-baloncesto-mb06-shooting-star-unisex/313624",
           "precio_actual": 125,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         },
         {
           "tienda": "basketballemotion_es",
@@ -3994,7 +3980,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-puma-mb06-shooting-stars.html",
           "precio_actual": 119.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "41",
             "42",
@@ -4015,7 +4001,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-adidas-anthony-edwards-3-snow-camo.html",
           "precio_actual": 129.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "41 1/3",
             "42 2/3",
@@ -4035,13 +4021,14 @@
         {
           "tienda": "atmosfera_sport",
           "url": "https://www.atmosferasport.es/adidas/zapatillas-de-baloncesto-adidas-anthony-edwards-3-rojo-hombre-184985.html",
-          "precio_actual": 130,
+          "precio_actual": 97.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "41 1/3",
             "42",
             "42 2/3",
+            "43 1/3",
             "44",
             "44 2/3",
             "45 1/3",
@@ -4070,7 +4057,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-adidas-anthony-edwards-2-vday-junior.html",
           "precio_actual": 99.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "35,5",
             "36",
@@ -4082,7 +4069,7 @@
           "url": "https://www.elcorteingles.es/deportes/A55590837-blanco-pr-zapatillas-de-baloncesto-de-ninos-anthony-edwards-2-j-adidas/",
           "precio_actual": 59.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "35,5",
             "36",
@@ -4094,12 +4081,9 @@
           "url": "https://www.atmosferasport.es/adidas/zapatillas-de-baloncesto-adidas-anthony-edwards-2-infantil-negro-negro-tios-160539.html",
           "precio_actual": 65,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
-            "36 2/3",
-            "37 1/3",
-            "38",
-            "40"
+            "38"
           ]
         }
       ]
@@ -4109,9 +4093,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005013149187366.html",
-          "precio_actual": 74.69,
+          "precio_actual": 74.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -4122,7 +4106,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-puma-mb-04-low-alien-skin.html",
           "precio_actual": 79.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "44",
             "44,5",
@@ -4138,9 +4122,9 @@
         {
           "tienda": "forumsport_es",
           "url": "https://www.forumsport.com/es-es/adidas-zapatilla-baloncesto-don-issue-8-nars-ki9287-1001102096-p",
-          "precio_actual": 77.99,
+          "precio_actual": 74.39,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "39 1/3",
             "40",
@@ -4159,7 +4143,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-adidas-don-issue-8-panama.html",
           "precio_actual": 119.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42",
             "42 2/3",
@@ -4175,9 +4159,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005013159306235.html",
-          "precio_actual": 59.39,
+          "precio_actual": 62.39,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -4186,9 +4170,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005012511194515.html",
-          "precio_actual": 86.39,
+          "precio_actual": 86.69,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -4199,7 +4183,7 @@
           "url": "https://es.aliexpress.com/item/1005012810981397.html",
           "precio_actual": 49.39,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -4219,9 +4203,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005013095155140.html",
-          "precio_actual": 120.39,
+          "precio_actual": 120.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -4230,9 +4214,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005012818174010.html",
-          "precio_actual": 72.69,
+          "precio_actual": 72.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -4241,9 +4225,9 @@
         {
           "tienda": "aliexpress",
           "url": "https://es.aliexpress.com/item/1005013332503336.html",
-          "precio_actual": 69.39,
+          "precio_actual": 69.69,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10"
+          "ultima_verificacion": "2026-11-11"
         }
       ]
     },
@@ -4254,7 +4238,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-new-balance-hesi-low-v2-blue-oasis.html",
           "precio_actual": 99.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "41,5",
             "42,5",
@@ -4273,7 +4257,7 @@
           "url": "https://www.elcorteingles.es/deportes/A58882916-negro-pr-zapatillas-de-baloncesto-de-adulto-jordan-tatum-5-jordan/",
           "precio_actual": 129.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "38,5",
             "39",
@@ -4299,7 +4283,7 @@
           "url": "https://www.elcorteingles.es/deportes/A58884383-negro-pr-zapatillas-de-baloncesto-de-adulto-lebron-witness-10-nike/",
           "precio_actual": 99.99,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "38,5",
             "39",
@@ -4324,7 +4308,7 @@
           "url": "https://www.atmosferasport.es/adidas/zapatillas-de-baloncesto-adidas-breakaway-negro-183432.html",
           "precio_actual": 68,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "42 2/3",
             "43 1/3",
@@ -4344,7 +4328,7 @@
           "url": "https://www.atmosferasport.es/under-armour/zapatillas-de-baloncesto-under-armour-curry-splash-25-marron-152421.html",
           "precio_actual": 60.5,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "41",
             "42",
@@ -4366,7 +4350,7 @@
           "url": "https://www.fuikaomar.es/zapatillas-puma-mb-world-01.html",
           "precio_actual": 89.9,
           "disponible": true,
-          "ultima_verificacion": "2026-11-10",
+          "ultima_verificacion": "2026-11-11",
           "tallas": [
             "41",
             "42,5",
