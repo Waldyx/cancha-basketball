@@ -626,6 +626,46 @@ export const PROMOS: Promo[] = [
     nota: "Solo el 30 de noviembre · condiciones en la web de Forum Sport",
     color: "#facc15",
   },
+  {
+    id: "snipes-black-week-2026-11",
+    tienda: "snipes_eu",
+    tiendaLabel: "Snipes",
+    titulo: "Black Week",
+    // Correo de Awin del 18-nov: del 18-11 a las 20:00 al 1-12 a las 10:00.
+    desde: "2026-11-18T20:00:00+01:00",
+    hasta: "2026-12-01T10:00:00+01:00",
+    url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es",
+    descuentoTexto: "hasta 50% · 5% extra para miembros del club",
+    nota: "Descuento aplicado directamente en la web · artículos seleccionados excluidos",
+    color: "#ff8a3d",
+  },
+  {
+    id: "adidas-black-friday-week-2026-11",
+    tienda: "adidas_es",
+    tiendaLabel: "adidas",
+    titulo: "Black Friday Week",
+    // Correo de Awin del 20-nov: del 20 al 26 de noviembre.
+    desde: "2026-11-20T00:00:00+01:00",
+    hasta: "2026-11-26T23:59:59+01:00",
+    url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fblack_Friday",
+    descuentoTexto: "hasta 50% en selección",
+    nota: "Solo para miembros registrados en el club de adidas · descuento aplicado directamente en la web · selección de productos",
+    color: "#9fd0ff",
+  },
+  {
+    id: "decathlon-black26-2026-11",
+    tienda: "decathlon",
+    tiendaLabel: "Decathlon",
+    titulo: "Black Friday",
+    // Correo de Awin del 20-nov: código BLACK26, hasta un 20 % en la app, del 20 al 30 de noviembre.
+    desde: "2026-11-20T00:00:00+01:00",
+    hasta: "2026-11-30T23:59:59+01:00",
+    url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2F",
+    codigo: "BLACK26",
+    descuentoTexto: "hasta 20% con código en la app",
+    nota: "Solo en la app de Decathlon · del 20 al 30 de noviembre · condiciones en la app",
+    color: "#0082c3",
+  },
 ];
 
 /** Promos activas a una fecha dada (por defecto, ahora). */
