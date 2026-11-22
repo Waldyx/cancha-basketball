@@ -6269,6 +6269,7 @@ const _rawZapatillas: Zapatilla[] = [
     ],
     ultima_actualizacion: "2026-05-29",
 
+    oculto: true, // 22-nov: 1 talla en su única afiliada (ECI), 3 o menos desde el 10-nov
     precio_msrp_eur: 90,
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56814362%2F", precio_actual: 89.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
@@ -7681,6 +7682,7 @@ const _rawZapatillas: Zapatilla[] = [
     imagenes: [],
     fuentes: [{ tipo: "evaluacion-propia" }],
     ultima_actualizacion: "2026-06-12",
+    oculto: true, // 22-nov: 1 talla en su única afiliada (ECI), 3 o menos desde el 10-nov
     precio_msrp_eur: 65,
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA56000750%2F", precio_actual: 52.49, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
@@ -14223,6 +14225,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/nike-lebron-nxxt-genisus/" },
     ],
     ultima_actualizacion: "2026-06-02",
+    oculto: true, // 22-nov: 1 talla en su única afiliada (ECI), 3 o menos desde el 10-nov
     precio_msrp_eur: 125,
     links_compra: [
       { tienda: "joom", url: "https://www.joom.com/es/products/68c9ed62e0ccc2018213d7db?variant_id=68c9ed62e0ccc2358213d7de", precio_actual: 79, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-06-02" },
