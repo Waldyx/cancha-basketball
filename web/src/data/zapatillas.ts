@@ -2168,6 +2168,64 @@ const _rawZapatillas: Zapatilla[] = [
     ],
   },
 
+  // UA CURRY FOX 1: primera de De'Aaron Fox en Curry Brand; WearTesters 8/10 y HoopsGeek 8,2
+  {
+    id: "ua-curry-fox-1",
+    slug: "ua-curry-fox-1",
+    marca: "Under Armour",
+    modelo: "Curry Fox 1",
+    generacion: 1,
+    año_lanzamiento: 2024, // HoopsGeek: 12/2024
+    genero: "unisex",
+    signature_player: "De'Aaron Fox",
+    tecnologia_clave: ["Flow foam midsole", "Flow rubber outsole", "Midsole shank", "Soft textile mesh upper"],
+    predecesor_id: null,
+    sucesor_id: null,
+    peso_real_g: 360, // ESTIMADO: ni Under Armour ni HoopsGeek publican su peso; cerca de la Curry Splash 25 (361 g)
+    altura: "low",
+    horma: "estrecha", // WearTesters la ve muy justa, 1 a 1; HoopsGeek, con la puntera algo apretada
+    drop_mm: 10, // ESTIMADO: sin dato publicado
+    tipo_cierre: "cordones",
+    material_superior: "mesh",
+    puntuaciones: {
+      traccion: 8, amortiguacion: 6, respuesta: 8,
+      soporte_lateral: 6, estabilidad: 6, peso_score: 8,
+      durabilidad_outdoor: 2, ventilacion: 8,
+    },
+    categoria_principal: "responsive",
+    tags: ["signature", "low-top", "guard", "value"],
+    ideal_para: {
+      posiciones: ["base", "escolta"],
+      peso_jugador_kg: [55, 85],
+      estilos: ["explosivo", "equilibrado"],
+    },
+    no_recomendada_para: { posiciones: ["pivot"], estilos: ["potente"] },
+    resumen: "La primera zapatilla de De'Aaron Fox con Curry Brand: baja, de malla textil y con mediasuela Flow con lámina. Agarra muy bien en pista limpia y se siente cerca del suelo; a cambio, protege poco del impacto y se desgasta rápido en exterior.",
+    pros: [
+      "Agarre excelente en pista limpia",
+      "Malla transpirable y respuesta cercana al suelo",
+      "Dos reseñas expertas (WearTesters 8/10 y HoopsGeek 8,2) y a un precio contenido",
+    ],
+    contras: [
+      "Pierde agarre cuando la pista tiene polvo o está sucia",
+      "La amortiguación no es explosiva y protege poco del impacto",
+      "Se desgasta deprisa en exterior",
+      "Horma ajustada: con el pie ancho conviene probar media talla más",
+    ],
+    veredicto: "Para bases y escoltas ágiles que juegan en pabellón y quieren una zapatilla baja, ligera y barata. No es la elegida para exterior ni para quien busca amortiguación.",
+    imagen_principal: "/shoes/ua-curry-fox-1.webp",
+    imagenes: [],
+    fuentes: [
+      { tipo: "weartesters", url: "https://weartesters.com/curry-fox-1-review" },
+      { tipo: "hoops-geek", url: "https://www.thehoopsgeek.com/shoe-reviews/under-armour-curry-fox-1/" },
+    ],
+    ultima_actualizacion: "2026-11-22",
+    precio_msrp_eur: 120, // 119,99 $ en EE. UU. según HoopsGeek; sin tarifa en euros comprobada
+    links_compra: [
+      { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-under-armour-curry-fox-1-gmr.html", precio_actual: 84.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-22" }, // 22-nov: GMR con 7 tallas (41 a 45); Royal, Reign Rose y Banzitos tienen 5
+    ],
+  },
+
   // PUMA MB WORLD.01: línea nueva de LaMelo Ball, sin reseñas; nota estimada
   {
     id: "puma-mb-world-01",

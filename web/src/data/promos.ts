@@ -666,6 +666,53 @@ export const PROMOS: Promo[] = [
     nota: "Solo en la app de Decathlon · del 20 al 30 de noviembre · condiciones en la app",
     color: "#0082c3",
   },
+  {
+    id: "atmosfera-black-friday-2026-11",
+    tienda: "atmosfera_sport",
+    tiendaLabel: "Atmósfera Sport",
+    titulo: "Black Friday",
+    // Correo de Awin del 20-nov: empieza el domingo 22-nov. No dice cuándo acaba: se corta el 30-nov (Cyber Monday)
+    // y la nota no promete fecha de fin.
+    desde: "2026-11-22T00:00:00+01:00",
+    hasta: "2026-11-30T23:59:59+01:00",
+    url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fblack-friday-atmosfera-sport-1246",
+    descuentoTexto: "hasta 60% en calzado, ropa y equipamiento",
+    nota: "Desde el 22 de noviembre · selección de productos · condiciones en la web de Atmósfera Sport",
+    color: "#12a5e5",
+  },
+  {
+    id: "aliexpress-black-friday-cyber-monday-2026-11",
+    tienda: "aliexpress",
+    tiendaLabel: "AliExpress",
+    titulo: "Black Friday y Cyber Monday",
+    // Correo de Awin del 20-nov: válidos del 19-nov a las 00:00 al 3-dic a las 23:59:59, pedidos enviados a España.
+    desde: "2026-11-19T00:00:00+01:00",
+    hasta: "2026-12-03T23:59:59+01:00",
+    codigos: [
+      { code: "ESBF02", descuento: 2, minCompra: 13 },
+      { code: "ESBF10", descuento: 10, minCompra: 65 },
+      { code: "ESBF20", descuento: 20, minCompra: 119 },
+      { code: "ESBF35", descuento: 35, minCompra: 209 },
+      { code: "ESBF50", descuento: 50, minCompra: 309 },
+      { code: "ESBF68", descuento: 68, minCompra: 419 },
+    ],
+    // Cupones de PayPal del mismo correo: el correo dice que sí se suman a los códigos.
+    nota: "Pedidos enviados a España · no válidos en productos virtuales · no acumulable con otras promociones · pagando con PayPal se suman 9 € desde 99 €, 20 € desde 199 € o 40 € desde 299 €",
+    color: "#ff4747",
+  },
+  {
+    id: "elcorteingles-black-friday-deportes-2026-11",
+    tienda: "elcorteingles_es",
+    tiendaLabel: "El Corte Inglés",
+    titulo: "Black Friday en Deportes",
+    // Correo de Awin del 20-nov: del 22-nov a las 22:00 al 29-nov a las 23:59.
+    desde: "2026-11-22T22:00:00+01:00",
+    hasta: "2026-11-29T23:59:59+01:00",
+    url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fblack-friday%2Fdeportes%2F",
+    descuentoTexto: "ofertas de Black Friday en deportes",
+    nota: "Del 22 al 29 de noviembre · condiciones en la web de El Corte Inglés",
+    color: "#7cb342",
+  },
 ];
 
 /** Promos activas a una fecha dada (por defecto, ahora). */
