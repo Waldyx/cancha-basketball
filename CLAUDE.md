@@ -71,7 +71,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 4. **Afiliado de 361sport**: GoAffPro, self-service, hasta 5 %. Crear la cuenta es cosa del usuario.
 5. **7 programas rechazados de Awin** con «+ Unirse» activo: Sprinter, Foot-Store, Basket-Center, size?, Foot Locker,
    JD Sports, Privé by Zalando.
-6. **Joom**: Impact volvió a rechazar el Marketplace el 21-oct por falta de tráfico. Borrador a hello@joom.com SIN enviar.
+6. **Joom**: Impact volvió a rechazar el Marketplace el 21-oct por falta de tráfico, y ese día Viviana Viale contestó que no ve la cuenta en Impact y que abra un ticket con su soporte (ya abierto, nº 903210). **Correo enviado el 26-nov a hello@joom.com** (cc Viviana) pidiendo una invitación directa a la cuenta 7791022; sin respuesta aún. Queda un borrador viejo a Viviana, obsoleto, sin enviar.
    FlexOffers y Admitad piden cuenta nueva, y el usuario no quiere cuentas nuevas.
 7. **Sin fuente**: MSRP 80 € de `decathlon-tarmak-se500-mid` (descatalogada) · `FICHA_DUDA` de tecnología en KT 11, Trae
    Young 3 y Kobe 9 High Protro.
@@ -88,6 +88,7 @@ Stack: **Astro + TypeScript + Tailwind CSS**, desplegado en **Vercel**.
 - **Tatum 5 y Witness X** (2-nov, nota editorial 7,5 sin reseñas, peso de la X ESTIMADO): revisar cuando las reseñen.
 - **Nike LeBron 24 sale el 17-nov** (`proximamente`, peso ESTIMADO, «KingKnit» es afirmación de Nike). Quitar la marca y
   buscar compra afiliada. **adidas Harden Vol 11**: dic-2026, entra entonces.
+- **Search Console, medido el 26-nov**: sigue **1 indexada y 771 sin indexar** (433 rastreadas sin indexar, 279 descubiertas, 12 con 404, 8 con `noindex`, 7 bloqueadas por robots), 3 clics y 12 impresiones en 28 días (el 2-nov eran 7 y 20: baja). Sin avisos de Search Console en el correo. Las filas del informe de indexación no se abren con `read_page`; el 404 se vería con captura (la captura se colgó). Las de `noindex` y robots son las fichas ocultas y `/api/`: esperado.
 - **Search Console, medido el 2-nov** (propiedad `sc-domain:canchazapa.com`, se lee desde el Chrome del usuario sin contraseña):
   **1 indexada, 789 sin indexar** (431 rastreadas sin indexar, 295 descubiertas sin indexar), 7 clics y 20 impresiones en 28 días,
   sitemap leído el 25-oct (328 páginas, correcto). Robots y canonical bien en producción. **Amazon, medido el 2-nov**: 14 clics
