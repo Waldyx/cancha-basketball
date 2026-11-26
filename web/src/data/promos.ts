@@ -653,6 +653,19 @@ export const PROMOS: Promo[] = [
     color: "#9fd0ff",
   },
   {
+    id: "adidas-black-friday-weekend-2026-11",
+    tienda: "adidas_es",
+    tiendaLabel: "adidas",
+    titulo: "Black Friday Weekend",
+    // Correo de Awin del 25-nov: del 27 al 29 de noviembre.
+    desde: "2026-11-27T00:00:00+01:00",
+    hasta: "2026-11-29T23:59:59+01:00",
+    url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fblack_Friday",
+    descuentoTexto: "hasta 50% en selección",
+    nota: "Del 27 al 29 de noviembre · descuento aplicado directamente en la web · selección de productos",
+    color: "#9fd0ff",
+  },
+  {
     id: "decathlon-black26-2026-11",
     tienda: "decathlon",
     tiendaLabel: "Decathlon",
@@ -685,15 +698,16 @@ export const PROMOS: Promo[] = [
     tienda: "aliexpress",
     tiendaLabel: "AliExpress",
     titulo: "Black Friday y Cyber Monday",
-    // Correo de Awin del 20-nov: válidos del 19-nov a las 00:00 al 3-dic a las 23:59:59, pedidos enviados a España.
+    // Correos de Awin del 20 y 25-nov (el segundo cambia ESBF10/20/50 por AEES10/20/50 y añade ESBF06): válidos del 19-nov a las 00:00 al 3-dic a las 23:59:59, pedidos enviados a España.
     desde: "2026-11-19T00:00:00+01:00",
     hasta: "2026-12-03T23:59:59+01:00",
     codigos: [
       { code: "ESBF02", descuento: 2, minCompra: 13 },
-      { code: "ESBF10", descuento: 10, minCompra: 65 },
-      { code: "ESBF20", descuento: 20, minCompra: 119 },
+      { code: "ESBF06", descuento: 6, minCompra: 39 },
+      { code: "AEES10", descuento: 10, minCompra: 65 },
+      { code: "AEES20", descuento: 20, minCompra: 119 },
       { code: "ESBF35", descuento: 35, minCompra: 209 },
-      { code: "ESBF50", descuento: 50, minCompra: 309 },
+      { code: "AEES50", descuento: 50, minCompra: 309 },
       { code: "ESBF68", descuento: 68, minCompra: 419 },
     ],
     // Cupones de PayPal del mismo correo: el correo dice que sí se suman a los códigos.

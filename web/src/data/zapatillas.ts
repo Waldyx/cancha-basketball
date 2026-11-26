@@ -1772,7 +1772,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 160,
     links_compra: [
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-harden-volume-9-jr2506-1001051705-p", precio_actual: 103.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
-      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-harden-volume-9%2FJS1304.html", precio_actual: 112, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: agotada en adidas.es (JS1304 y JS1305)
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-harden-volume-9%2FJS1304.html", precio_actual: 88, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-26" }, // 26-nov: 28 tallas en este color en adidas.es
       { tienda: "amazon_es", url: "https://www.amazon.es/adidas-Harden-JR2506-Zapatillas-baloncesto/dp/B0DTTMXG36?tag=canchazapa-21", precio_actual: 285.72, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: sin buybox: solo un vendedor externo (reventa)
     ],
   },
@@ -3306,12 +3306,11 @@ const _rawZapatillas: Zapatilla[] = [
       { tipo: "weartesters", url: "https://weartesters.com/adidas-ae-1-review/" },
     ],
     ultima_actualizacion: "2026-05-29",
-    oculto: true, // 8-nov: menos de 4 tallas en su única afiliada
     precio_msrp_eur: 140,
     links_compra: [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-anthony-edwards-1-low-blanco-y-negro%2F373647%2Fm9007177", precio_actual: 89.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "snipes_eu", url: "https://www.awin1.com/cread.php?awinmid=122628&awinaffid=2908587&ued=https%3A%2F%2Fwww.snipes.com%2Fes-es%2Fp%2Fadidas-originals-zapatilla-de-baloncesto-anthony-edwards-1-plata-41674", precio_actual: 70, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-05-31" }, // w17 18-sep: es otra variante (corte o segmento)
-      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-anthony-edwards-1-low%2FJQ6133.html", precio_actual: 71.50, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-anthony-edwards-1-low%2FJQ6133.html", precio_actual: 71.5, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-26" }, // 26-nov: 18 tallas en este color en adidas.es; vuelve a ser visible
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FJ4WKCND?tag=canchazapa-21", precio_actual: 58.99, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-ae-1-low-trainers-amarillo-143701.html", precio_actual: 60.50, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-anthony-edwards-1-mid-preloved-purple.html", precio_actual: 84.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-09-21" }, // w24 21-sep: MID confirmado por titulo (SKU JI0424, MSRP 139,99 de la Mid; la Low es JQ6140/109,99)
@@ -3926,7 +3925,7 @@ const _rawZapatillas: Zapatilla[] = [
     links_compra: [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA55591290%2F", precio_actual: 90.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-anthony-edwards-2-kj4228-1001075419-p", precio_actual: 83.84, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-08" },
-      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-anthony-edwards-2%2FJS3508.html", precio_actual: 89.70, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: agotada en adidas.es
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-anthony-edwards-2%2FJS3508.html", precio_actual: 65, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-26" }, // 26-nov: 27 tallas en este color en adidas.es
       { tienda: "amazon_es", url: "https://www.amazon.es/adidas-Anthony-EDWARDS-OOT82-Zapatillas/dp/B0FRMZ5MMH?tag=canchazapa-21", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-anthony-edwards-2-rosa-negro-rojo-162864.html", precio_actual: 91, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
@@ -3986,7 +3985,7 @@ const _rawZapatillas: Zapatilla[] = [
       { tienda: "elcorteingles_es", url: "https://www.awin1.com/cread.php?awinmid=13075&awinaffid=2908587&ued=https%3A%2F%2Fwww.elcorteingles.es%2Fdeportes%2FA55591075%2F", precio_actual: 69.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-29" },
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-believe-that-1-jq9475-1001111484-p", precio_actual: 69.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-believe-that-1-negro-naraci-supcol-176218.html", precio_actual: 75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
-      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-believe-that-1%2FJQ9475.html", precio_actual: 100, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-believe-that-1%2FJQ9475.html", precio_actual: 100, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-26" }, // 26-nov: 25 tallas en este color en adidas.es
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+believe+that+1+baloncesto&tag=canchazapa-21", precio_actual: 100, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-02" },
     ],
   },
@@ -6801,7 +6800,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 159.99,
     links_compra: [
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-harden-volume-10-jq9422-1001111481-p", precio_actual: 94.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
-      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-harden-volume-10%2FKH9153.html", precio_actual: 160, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-harden-volume-10%2FKH9153.html", precio_actual: 88, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-26" }, // 26-nov: precio de adidas.es; tallas sin contar (una sola referencia)
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-harden-vol-10-aquamarine.html", precio_actual: 149.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-harden-vol-10-joker.html", precio_actual: 119.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: Joker, 4 tallas
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-harden-volume-10-ki1605-1001135121-p", precio_actual: 107.19, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: KI1605, 10 tallas
@@ -8459,7 +8458,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 65, // 21-oct: «Precio original» en adidas.es
     links_compra: [
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0F1XG42NZ?tag=canchazapa-21", precio_actual: 35.75, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-20" }, // 20-oct: re-verificado
-      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-own-the-game-3%2FIF4566.html", precio_actual: 34.45, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-own-the-game-3%2FIF4566.html", precio_actual: 42.25, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-26" }, // 26-nov: precio de adidas.es; tallas sin contar (una sola referencia)
       { tienda: "amazon_es", url: "https://www.amazon.es/s?k=adidas+ownthegame+2+baloncesto&tag=canchazapa-21", precio_actual: 39.00, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-22" }, // 22-oct: buscaba la OwnTheGame 2; la ficha ya tiene su /dp/
     ],
   },
@@ -10123,7 +10122,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 90, // 21-oct: «Precio original» en adidas.es
     links_compra: [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-adidas-dame-x-gris-plateado%2F373766%2Fm8998618", precio_actual: 33.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21", nota: "Solo queda la talla 47 1/3" },
-      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-dame-x%2FKI5949.html", precio_actual: 56.70, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" },
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-dame-x%2FKI5949.html", precio_actual: 58.5, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-26" }, // 26-nov: 19 tallas en este color en adidas.es
       { tienda: "amazon_es", url: "https://www.amazon.es/dp/B0FCD64VTF?tag=canchazapa-21", precio_actual: 90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-08-06" },
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-dame-x-rosa-144325.html", precio_actual: 50.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-12" },
     ],
@@ -14105,7 +14104,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 120, // 21-oct: «Precio original» en adidas.es
     links_compra: [
       { tienda: "decathlon", url: "https://www.awin1.com/cread.php?awinmid=105405&awinaffid=2908587&ued=https%3A%2F%2Fwww.decathlon.es%2Fes%2Fp%2Fzapatillas-de-baloncesto-adulto-d-o-n-issue-7-ice-spida-blanco%2F373782%2Fm9010565", precio_actual: 72.49, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-06-24" }, // Decathlon 17-sep: redirige a la categoria (ficha retirada)
-      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fd.o.n.-issue-7%2FJR9503.html", precio_actual: 69.60, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: agotada en adidas.es
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fd.o.n.-issue-7%2FJR9503.html", precio_actual: 74.4, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-26" }, // 26-nov: 22 tallas en este color en adidas.es
       { tienda: "amazon_es", url: "https://www.amazon.es/adidas-N-Issue-JR9503-Talla/dp/B0GKLT9SNP?tag=canchazapa-21", precio_actual: 89, disponible: false, tiene_afiliado: true, ultima_verificacion: "2026-11-03" },
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-don-issue-7-all-star.html", precio_actual: 109.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-06-18" },
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-don-issue-7-veaz-jr9502-1001064477-p", precio_actual: 78.11, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: JR9502, 4 tallas
@@ -14224,7 +14223,7 @@ const _rawZapatillas: Zapatilla[] = [
     precio_msrp_eur: 120, // precio en adidas.es
     links_compra: [
       { tienda: "forumsport_es", url: "https://www.awin1.com/cread.php?awinmid=23805&awinaffid=2908587&ued=https%3A%2F%2Fwww.forumsport.com%2Fes-es%2Fadidas-zapatilla-baloncesto-don-issue-8-nars-ki9287-1001102096-p", precio_actual: 77.99, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // KI9287, 11 tallas
-      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-don-issue-8%2FKI9287.html", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 20 tallas
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-don-issue-8%2FKI9287.html", precio_actual: 120, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-26" }, // 26-nov: 23 tallas en este color en adidas.es
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-don-issue-8-panama.html", precio_actual: 119.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // Panama, 5 tallas
     ],
   },
@@ -16394,7 +16393,7 @@ const _rawZapatillas: Zapatilla[] = [
     ultima_actualizacion: "2026-08-24",
     precio_msrp_eur: 130,
     links_compra: [
-      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-anthony-edwards-3%2FKH8537.html", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 2026-10-04: ya a la venta en adidas ES, KH8537 hombre caña baja, 9 de 25 tallas
+      { tienda: "adidas_es", url: "https://www.awin1.com/cread.php?awinmid=77008&awinaffid=2908587&ued=https%3A%2F%2Fwww.adidas.es%2Fzapatilla-anthony-edwards-3%2FKH8537.html", precio_actual: 130, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-11-26" }, // 26-nov: precio de adidas.es; tallas sin contar (una sola referencia)
       { tienda: "fuikaomar_es", url: "https://deals.fuikaomar.es/c?c=37834&m=12&a=511170&r=&u=https%3A%2F%2Fwww.fuikaomar.es%2Fzapatillas-adidas-anthony-edwards-3-snow-camo.html", precio_actual: 129.9, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-04" }, // 2026-10-04: colorway Snow Camo, caña baja, 6 tallas (41 1/3-46 2/3)
       { tienda: "basketballemotion_es", url: "https://www.basketballemotion.com/es/comprar/zapatillas/adidas/anthony-edwards-3-cold-blooded-sky-tint-bliss-blue-tech-grey-met.", precio_actual: 129.99, disponible: true, tiene_afiliado: false, ultima_verificacion: "2026-10-22" }, // 2026-10-04: JSON-LD InStock, SKU KH8537
       { tienda: "atmosfera_sport", url: "https://www.awin1.com/cread.php?awinmid=26255&awinaffid=2908587&ued=https%3A%2F%2Fwww.atmosferasport.es%2Fadidas%2Fzapatillas-de-baloncesto-adidas-anthony-edwards-3-rojo-hombre-184985.html", precio_actual: 109.90, disponible: true, tiene_afiliado: true, ultima_verificacion: "2026-10-21" }, // 21-oct: 10 tallas (41 1/3 a 47 1/3)
